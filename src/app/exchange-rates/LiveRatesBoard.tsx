@@ -73,12 +73,13 @@ export default function LiveRatesBoard() {
   const [loading, setLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [now, setNow] = useState(new Date());
+  const [now, setNow] = useState<Date | null>(null);
   const [showSourceDetail, setShowSourceDetail] = useState<string | null>(null);
   const flashTimers = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map());
 
-  // Clock
+  // Clock — only start after mount to avoid hydration mismatch
   useEffect(() => {
+    setNow(new Date());
     const t = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(t);
   }, []);
@@ -246,7 +247,7 @@ export default function LiveRatesBoard() {
             </div>
             <div className="led-font text-[#e84020] text-sm sm:text-lg tracking-wider"
                  style={{ textShadow: "0 0 8px rgba(232,64,32,0.5)" }}>
-              {now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+              {now ? now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "--:--:--"}
             </div>
           </div>
 
