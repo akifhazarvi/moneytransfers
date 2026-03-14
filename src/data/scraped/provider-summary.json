@@ -14,7 +14,7 @@
     "type": "moneyTransferProvider",
     "corridors": 254,
     "avgFee": 1.51,
-    "avgMarkup": 1.1389,
+    "avgMarkup": 1.1388,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/remitly.svg"
   },
   {
@@ -41,7 +41,7 @@
     "type": "moneyTransferProvider",
     "corridors": 171,
     "avgFee": 1.63,
-    "avgMarkup": 2.5088,
+    "avgMarkup": 2.4968,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/xoom.svg"
   },
   {
@@ -207,15 +207,6 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/royal-bank-of-canada.svg"
   },
   {
-    "name": "RBS",
-    "slug": "rbs",
-    "type": "bank",
-    "corridors": 20,
-    "avgFee": 0,
-    "avgMarkup": 2.2986,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/rbs.svg"
-  },
-  {
     "name": "NatWest",
     "slug": "natwest",
     "type": "bank",
@@ -223,6 +214,15 @@
     "avgFee": 0,
     "avgMarkup": 2.2986,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/natwest.svg"
+  },
+  {
+    "name": "RBS",
+    "slug": "rbs",
+    "type": "bank",
+    "corridors": 20,
+    "avgFee": 0,
+    "avgMarkup": 2.2986,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/rbs.svg"
   },
   {
     "name": "Commerzbank",
@@ -252,6 +252,15 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc.svg"
   },
   {
+    "name": "BNZ",
+    "slug": "bank-of-new-zealand-nz",
+    "type": "bank",
+    "corridors": 20,
+    "avgFee": 0,
+    "avgMarkup": 2.9762,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/bnz.svg"
+  },
+  {
     "name": "ASB NZ",
     "slug": "auckland-savings-bank-nz",
     "type": "bank",
@@ -270,15 +279,6 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/westpac.svg"
   },
   {
-    "name": "BNZ",
-    "slug": "bank-of-new-zealand-nz",
-    "type": "bank",
-    "corridors": 20,
-    "avgFee": 0,
-    "avgMarkup": 2.9762,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/bnz.svg"
-  },
-  {
     "name": "BMO",
     "slug": "bmo",
     "type": "bank",
@@ -286,15 +286,6 @@
     "avgFee": 0,
     "avgMarkup": 4.2538,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-of-montreal.svg"
-  },
-  {
-    "name": "Scotiabank",
-    "slug": "scotiabank",
-    "type": "bank",
-    "corridors": 16,
-    "avgFee": 1.99,
-    "avgMarkup": 4.0353,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/scotiabank.svg"
   },
   {
     "name": "TD Bank",
@@ -306,13 +297,13 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/td-bank.svg"
   },
   {
-    "name": "Lloyds",
-    "slug": "lloyds",
+    "name": "Scotiabank",
+    "slug": "scotiabank",
     "type": "bank",
-    "corridors": 15,
-    "avgFee": 6.33,
-    "avgMarkup": 3.5795,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/lloyds.svg"
+    "corridors": 16,
+    "avgFee": 1.99,
+    "avgMarkup": 4.0353,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/scotiabank.svg"
   },
   {
     "name": "Halifax",
@@ -331,6 +322,15 @@
     "avgFee": 18.78,
     "avgMarkup": 0.654,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/starling-bank.svg"
+  },
+  {
+    "name": "Lloyds",
+    "slug": "lloyds",
+    "type": "bank",
+    "corridors": 15,
+    "avgFee": 6.33,
+    "avgMarkup": 3.5795,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/lloyds.svg"
   },
   {
     "name": "BNC",
