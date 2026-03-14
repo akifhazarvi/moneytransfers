@@ -97,6 +97,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/scraped/
           git diff --staged --quiet || git commit -m "chore: update scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
+          git pull --rebase
           git push
 
   scrape-reviews:
@@ -123,4 +124,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/scraped/trustpilot-ratings.json
           git diff --staged --quiet || git commit -m "chore: update Trustpilot ratings [$(date -u +%Y-%m-%d)]"
+          git pull --rebase
           git push
