@@ -45,116 +45,190 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         onClick={() => setExpanded(!expanded)}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setExpanded(!expanded); } }}
         aria-expanded={expanded}
-        className={`group/row w-full text-left px-5 sm:px-6 flex items-center gap-4 sm:gap-5 cursor-pointer ${isBest ? "py-5 pt-8" : "py-4"}`}
+        className={`group/row w-full text-left px-3 sm:px-6 cursor-pointer ${isBest ? "py-4 sm:py-5 pt-7 sm:pt-8" : "py-3 sm:py-4"}`}
       >
-        {/* Rank + compare checkbox */}
-        <div className="flex items-center gap-2 shrink-0">
-          <span className={`text-[13px] font-semibold tabular-nums w-5 text-center ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+        {/* Mobile layout: 2-row stacked */}
+        <div className="flex sm:hidden items-start gap-3">
+          {/* Rank */}
+          <span className={`text-[12px] font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
             {rank}
           </span>
-          {onCompareToggle && (
-            <button
-              type="button"
-              onClick={(e) => { e.stopPropagation(); onCompareToggle(quote.providerSlug); }}
-              disabled={compareDisabled && !compareSelected}
-              className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-all ${
-                compareSelected
-                  ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
-                  : compareDisabled
-                    ? "border-[var(--color-outline)] opacity-30 cursor-not-allowed"
-                    : "border-[var(--color-outline)] hover:border-[var(--color-primary)]"
-              }`}
-              aria-label={`Compare ${providerName}`}
-            >
-              {compareSelected && (
-                <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                </svg>
-              )}
-            </button>
-          )}
-        </div>
 
-        {/* Provider logo */}
-        <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[14px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
-          <img
-            src={providerLogo}
-            alt={`${providerName} logo`}
-            width={44}
-            height={44}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              const target = e.currentTarget;
-              target.style.display = "none";
-              if (target.parentElement) {
-                target.parentElement.setAttribute("aria-label", providerName);
-                target.parentElement.textContent = providerName.charAt(0).toUpperCase();
-              }
-            }}
-          />
-        </div>
-
-        {/* Provider info */}
-        <div className="min-w-[120px] sm:min-w-[140px] shrink-0">
-          <div className="flex items-center gap-2">
-            <p className={`text-[14px] font-medium text-[var(--color-on-surface)] ${isBest ? "text-[15px]" : ""}`}>{providerName}</p>
+          {/* Logo */}
+          <div className={`${isBest ? "w-10 h-10" : "w-9 h-9"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[13px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
+            <img
+              src={providerLogo}
+              alt={`${providerName} logo`}
+              width={40}
+              height={40}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = "none";
+                if (target.parentElement) {
+                  target.parentElement.setAttribute("aria-label", providerName);
+                  target.parentElement.textContent = providerName.charAt(0).toUpperCase();
+                }
+              }}
+            />
           </div>
-          <div className="flex items-center gap-2 mt-0.5">
-            <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
-            {isFast && (
-              <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
-                Fast
-              </span>
+
+          {/* Provider info + amount */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <p className={`text-[14px] font-medium text-[var(--color-on-surface)] truncate ${isBest ? "text-[15px]" : ""}`}>{providerName}</p>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
+                  {isFast && (
+                    <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
+                      Fast
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="text-right shrink-0">
+                <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-[18px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
+                  {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                </p>
+              </div>
+            </div>
+            {/* Mobile detail row */}
+            <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[var(--color-on-surface-variant)]">
+              <span>{quote.transferSpeed}</span>
+              <span className="w-px h-3 bg-[var(--color-outline)]" />
+              <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel} fee</span>
+              <span className="w-px h-3 bg-[var(--color-outline)]" />
+              <span className="tabular-nums">{quote.exchangeRate.toFixed(4)}</span>
+            </div>
+          </div>
+
+          {/* Expand chevron */}
+          <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+            <svg
+              className={`w-4 h-4 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Desktop layout: single row */}
+        <div className="hidden sm:flex items-center gap-5">
+          {/* Rank + compare checkbox */}
+          <div className="flex items-center gap-2 shrink-0">
+            <span className={`text-[13px] font-semibold tabular-nums w-5 text-center ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+              {rank}
+            </span>
+            {onCompareToggle && (
+              <button
+                type="button"
+                onClick={(e) => { e.stopPropagation(); onCompareToggle(quote.providerSlug); }}
+                disabled={compareDisabled && !compareSelected}
+                className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-all ${
+                  compareSelected
+                    ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
+                    : compareDisabled
+                      ? "border-[var(--color-outline)] opacity-30 cursor-not-allowed"
+                      : "border-[var(--color-outline)] hover:border-[var(--color-primary)]"
+                }`}
+                aria-label={`Compare ${providerName}`}
+              >
+                {compareSelected && (
+                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
             )}
           </div>
-        </div>
 
-        {/* Transfer details — desktop */}
-        <div className="hidden md:flex items-center gap-6 flex-1 min-w-0">
-          {/* Speed */}
-          <div className="w-[110px] shrink-0">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Speed</p>
-            <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5">{quote.transferSpeed}</p>
+          {/* Provider logo */}
+          <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[14px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
+            <img
+              src={providerLogo}
+              alt={`${providerName} logo`}
+              width={44}
+              height={44}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = "none";
+                if (target.parentElement) {
+                  target.parentElement.setAttribute("aria-label", providerName);
+                  target.parentElement.textContent = providerName.charAt(0).toUpperCase();
+                }
+              }}
+            />
           </div>
 
-          {/* Fee */}
-          <div className="w-[80px] shrink-0">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Fee</p>
-            <p className={`text-[13px] mt-0.5 ${quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
-              {feeLabel}
+          {/* Provider info */}
+          <div className="min-w-[140px] shrink-0">
+            <div className="flex items-center gap-2">
+              <p className={`text-[14px] font-medium text-[var(--color-on-surface)] ${isBest ? "text-[15px]" : ""}`}>{providerName}</p>
+            </div>
+            <div className="flex items-center gap-2 mt-0.5">
+              <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
+              {isFast && (
+                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
+                  Fast
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Transfer details — desktop */}
+          <div className="hidden md:flex items-center gap-6 flex-1 min-w-0">
+            {/* Speed */}
+            <div className="w-[110px] shrink-0">
+              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Speed</p>
+              <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5">{quote.transferSpeed}</p>
+            </div>
+
+            {/* Fee */}
+            <div className="w-[80px] shrink-0">
+              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Fee</p>
+              <p className={`text-[13px] mt-0.5 ${quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
+                {feeLabel}
+              </p>
+            </div>
+
+            {/* Rate */}
+            <div className="w-[90px] shrink-0">
+              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Rate</p>
+              <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+            </div>
+          </div>
+
+          {/* Spacer */}
+          <div className="flex-1 min-w-0" />
+
+          {/* Hero receive amount */}
+          <div className="text-right shrink-0 mr-1">
+            <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-[22px] sm:text-[24px] text-[var(--color-success-dark)]" : "text-[18px] sm:text-[20px] text-[var(--color-on-surface)]"}`}>
+              {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
+            <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">Recipient gets</p>
           </div>
 
-          {/* Rate */}
-          <div className="w-[90px] shrink-0">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Rate</p>
-            <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+          {/* Expand chevron */}
+          <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover/row:bg-[var(--color-surface-container)] transition-colors">
+            <svg
+              className={`w-5 h-5 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
-        </div>
-
-        {/* Spacer */}
-        <div className="flex-1 min-w-0" />
-
-        {/* Hero receive amount */}
-        <div className="text-right shrink-0 mr-1">
-          <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-[22px] sm:text-[24px] text-[var(--color-success-dark)]" : "text-[18px] sm:text-[20px] text-[var(--color-on-surface)]"}`}>
-            {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-          </p>
-          <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">Recipient gets</p>
-        </div>
-
-        {/* Expand chevron */}
-        <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover/row:bg-[var(--color-surface-container)] transition-colors">
-          <svg
-            className={`w-5 h-5 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-          </svg>
         </div>
       </div>
 

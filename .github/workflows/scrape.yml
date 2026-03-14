@@ -12,9 +12,9 @@ permissions:
   contents: write
 
 jobs:
-  scrape-providers:
+  scrape-api:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v4
@@ -26,11 +26,9 @@ jobs:
 
       - run: npm ci
 
-      # Install Playwright browsers for browser automation scrapers
+      # Install Playwright for Monito scraper
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
-
-      # === API-based scrapers (fast, no browser needed) ===
 
       - name: Scrape provider quotes (Wise Comparison API)
         run: npx tsx scripts/scrape-providers.ts
@@ -53,7 +51,29 @@ jobs:
         timeout-minutes: 20
         continue-on-error: true
 
-      # === Browser automation scrapers (Playwright) ===
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-api
+          path: src/data/scraped/
+          retention-days: 1
+
+  scrape-browsers-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
 
       - name: Scrape WorldRemit (browser)
         run: npx tsx scripts/scrape-worldremit.ts
@@ -80,6 +100,30 @@ jobs:
         timeout-minutes: 15
         continue-on-error: true
 
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-browsers-1
+          path: src/data/scraped/
+          retention-days: 1
+
+  scrape-browsers-2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
       - name: Scrape MoneyTransfers.com (browser)
         run: npx tsx scripts/scrape-moneytransfers.ts
         timeout-minutes: 20
@@ -90,7 +134,68 @@ jobs:
         timeout-minutes: 20
         continue-on-error: true
 
-      # Commit updated data
+      - name: Scrape Ria Money Transfer (browser)
+        run: npx tsx scripts/scrape-ria.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape XE Money Transfer (browser)
+        run: npx tsx scripts/scrape-xe-transfer.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape TapTap Send (browser)
+        run: npx tsx scripts/scrape-taptapsend.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape MoneyGram (browser)
+        run: npx tsx scripts/scrape-moneygram.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape Wise Direct (browser)
+        run: npx tsx scripts/scrape-wise-direct.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-browsers-2
+          path: src/data/scraped/
+          retention-days: 1
+
+  commit-data:
+    runs-on: ubuntu-latest
+    needs: [scrape-api, scrape-browsers-1, scrape-browsers-2]
+    if: always()
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download API scraper results
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-api
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download browser scraper results (batch 1)
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-browsers-1
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download browser scraper results (batch 2)
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-browsers-2
+          path: src/data/scraped/
+        continue-on-error: true
+
       - name: Commit scraped data
         run: |
           git config user.name "github-actions[bot]"

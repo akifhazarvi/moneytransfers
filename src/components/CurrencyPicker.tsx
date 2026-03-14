@@ -127,7 +127,7 @@ export default function CurrencyPicker({
           <>
             {info && <CircleFlag code={info.code} size={32} />}
             <span className="text-[22px] font-medium text-[var(--color-on-surface)] whitespace-nowrap">{info?.code}</span>
-            <span className="text-[14px] text-[var(--color-on-surface-variant)] whitespace-nowrap">{info?.name}</span>
+            <span className="text-[14px] text-[var(--color-on-surface-variant)] whitespace-nowrap hidden sm:inline">{info?.name}</span>
             <svg className="w-4 h-4 text-[var(--color-on-surface-variant)] shrink-0 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>

@@ -19,9 +19,14 @@
     "scrape:monito": "npx tsx scripts/scrape-monito.ts",
     "scrape:moneytransfers": "npx tsx scripts/scrape-moneytransfers.ts",
     "scrape:remitfinder": "npx tsx scripts/scrape-remitfinder.ts",
+    "scrape:ria": "npx tsx scripts/scrape-ria.ts",
+    "scrape:xe-transfer": "npx tsx scripts/scrape-xe-transfer.ts",
+    "scrape:taptapsend": "npx tsx scripts/scrape-taptapsend.ts",
+    "scrape:moneygram": "npx tsx scripts/scrape-moneygram.ts",
+    "scrape:wise-direct": "npx tsx scripts/scrape-wise-direct.ts",
     "scrape:reviews": "npx tsx scripts/scrape-reviews.ts",
     "scrape:all-api": "npx tsx scripts/scrape-providers.ts && npx tsx scripts/scrape-ofx.ts && npx tsx scripts/scrape-instarem.ts && npx tsx scripts/scrape-xe.ts && npx tsx scripts/scrape-monito.ts",
-    "scrape:all-browser": "npx tsx scripts/scrape-worldremit.ts && npx tsx scripts/scrape-remitly.ts && npx tsx scripts/scrape-western-union.ts && npx tsx scripts/scrape-revolut.ts && npx tsx scripts/scrape-xoom.ts && npx tsx scripts/scrape-moneytransfers.ts && npx tsx scripts/scrape-remitfinder.ts",
+    "scrape:all-browser": "npx tsx scripts/scrape-worldremit.ts && npx tsx scripts/scrape-remitly.ts && npx tsx scripts/scrape-western-union.ts && npx tsx scripts/scrape-revolut.ts && npx tsx scripts/scrape-xoom.ts && npx tsx scripts/scrape-moneytransfers.ts && npx tsx scripts/scrape-remitfinder.ts && npx tsx scripts/scrape-ria.ts && npx tsx scripts/scrape-xe-transfer.ts && npx tsx scripts/scrape-taptapsend.ts && npx tsx scripts/scrape-moneygram.ts && npx tsx scripts/scrape-wise-direct.ts",
     "scrape:all": "npm run scrape:all-api && npm run scrape:all-browser && npx tsx scripts/scrape-reviews.ts"
   },
   "dependencies": {

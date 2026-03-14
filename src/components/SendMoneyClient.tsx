@@ -44,12 +44,12 @@ function FilterDropdown({
   const { open, setOpen, ref } = useDropdown();
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative shrink-0">
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="listbox"
-        className={`flex items-center gap-1 h-8 px-3 rounded-full text-[13px] font-medium transition-colors ${
+        className={`flex items-center gap-1 h-8 px-3 rounded-full text-[13px] font-medium transition-colors whitespace-nowrap ${
           active
             ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)] border border-[var(--color-primary)]"
             : "border border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container)]"
@@ -246,7 +246,7 @@ function SendMoneyContent() {
       <div className="rounded-2xl border border-[var(--color-outline)] bg-white shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-3">
         <div className="flex flex-col lg:flex-row">
           {/* You send — amount + currency */}
-          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-5 lg:pr-8 py-4 min-w-0">
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-4 sm:px-5 lg:pr-8 py-3 sm:py-4 min-w-0">
             <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">You send</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="large" />
@@ -297,7 +297,7 @@ function SendMoneyContent() {
           </div>
 
           {/* They receive — currency picker as primary element */}
-          <div className="flex-1 px-5 lg:pl-8 py-4 min-w-0">
+          <div className="flex-1 px-4 sm:px-5 lg:pl-8 py-3 sm:py-4 min-w-0">
             <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">They receive in</label>
             <div className="mt-1.5">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
@@ -312,11 +312,11 @@ function SendMoneyContent() {
       </div>
 
       {/* Filter pills — functional dropdowns */}
-      <div className="flex flex-wrap items-center gap-2 mb-5">
+      <div className="flex items-center gap-2 mb-5 overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 scrollbar-hide" style={{ WebkitOverflowScrolling: "touch" }}>
         {/* All filters / clear */}
         <button
           onClick={clearFilters}
-          className={`flex items-center gap-1.5 h-8 px-3 text-[13px] font-medium rounded-full transition-colors ${
+          className={`flex items-center gap-1.5 h-8 px-3 text-[13px] font-medium rounded-full transition-colors shrink-0 ${
             activeFilterCount > 0
               ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)]"
               : "text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)]"
@@ -443,7 +443,7 @@ function SendMoneyContent() {
           role="tab"
           aria-selected={sortBy === "receiveAmount"}
           onClick={() => setSortBy("receiveAmount")}
-          className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-[14px] font-medium transition-colors rounded-l-xl ${
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] font-medium transition-colors rounded-l-xl ${
             sortBy === "receiveAmount"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-[inset_0_-3px_0_var(--color-primary)]"
               : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -455,7 +455,7 @@ function SendMoneyContent() {
           role="tab"
           aria-selected={sortBy === "fee"}
           onClick={() => setSortBy("fee")}
-          className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-[14px] transition-colors border-l border-[var(--color-outline)] ${
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] ${
             sortBy === "fee"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
               : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -463,7 +463,7 @@ function SendMoneyContent() {
         >
           Lowest fees
           {cheapestQuote && (
-            <span className={`text-[12px] ${sortBy === "fee" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
+            <span className={`text-[12px] hidden sm:inline ${sortBy === "fee" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
               from {sendCurrency?.symbol || "$"}{cheapestQuote.fee === 0 ? "0" : cheapestQuote.fee.toFixed(0)}
             </span>
           )}
@@ -472,7 +472,7 @@ function SendMoneyContent() {
           role="tab"
           aria-selected={sortBy === "rating"}
           onClick={() => setSortBy("rating")}
-          className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-[14px] transition-colors border-l border-[var(--color-outline)] rounded-r-xl ${
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] rounded-r-xl ${
             sortBy === "rating"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
               : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -506,7 +506,7 @@ function SendMoneyContent() {
 
       {/* Savings callout */}
       {savings > 100 && bestQuote && worstQuote && (
-        <div className="mt-3 bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/15 rounded-xl px-5 py-3.5 flex items-center gap-3">
+        <div className="mt-3 bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/15 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 flex items-center gap-3">
           <svg className="w-5 h-5 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>

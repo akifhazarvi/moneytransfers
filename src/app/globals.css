@@ -83,6 +83,15 @@ body {
   background: #bdc1c6;
 }
 
+/* Hide scrollbar for horizontal scroll areas */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Blog prose styles */
 .prose-custom p {
   margin-bottom: 1em;

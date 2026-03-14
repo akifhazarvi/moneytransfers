@@ -22,6 +22,11 @@ import worldremitQuotes from "@/data/scraped/worldremit-quotes.json";
 import remitlyQuotes from "@/data/scraped/remitly-quotes.json";
 import moneytransfersQuotes from "@/data/scraped/moneytransfers-quotes.json";
 import remitfinderQuotes from "@/data/scraped/remitfinder-quotes.json";
+import riaQuotes from "@/data/scraped/ria-quotes.json";
+import xeTransferQuotes from "@/data/scraped/xe-transfer-quotes.json";
+import taptapsendQuotes from "@/data/scraped/taptapsend-quotes.json";
+import moneygramQuotes from "@/data/scraped/moneygram-quotes.json";
+import wiseDirectQuotes from "@/data/scraped/wise-direct-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -86,6 +91,11 @@ const SLUG_ALIASES: Record<string, string> = {
   "xe-money-transfer-fx": "xe",
   "revolut-money-transfer": "revolut",
   taptapsend: "taptap-send",
+  "tap-tap-send": "taptap-send",
+  "ria-money-transfer": "ria",
+  "ria-financial": "ria",
+  money_gram: "moneygram",
+  "money-gram": "moneygram",
   "chase-bank": "chase",
   "state-bank-of-india": "sbi",
   "the-royal-bank-of-scotland": "rbs",
@@ -180,6 +190,11 @@ addQuotes(revolutQuotes as unknown[], 1, "revolut-browser");
 addQuotes(xoomQuotes as unknown[], 1, "xoom-browser");
 addQuotes(worldremitQuotes as unknown[], 1, "worldremit-browser");
 addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
+addQuotes(riaQuotes as unknown[], 1, "ria-browser");
+addQuotes(xeTransferQuotes as unknown[], 1, "xe-transfer-browser");
+addQuotes(taptapsendQuotes as unknown[], 1, "taptapsend-browser");
+addQuotes(moneygramQuotes as unknown[], 1, "moneygram-browser");
+addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-browser");
 
 // Priority 2: Comparison aggregators
 addQuotes(monitoQuotes as unknown[], 2, "monito-comparison");
