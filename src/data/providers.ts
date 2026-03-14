@@ -636,6 +636,14 @@ export const currencies = [
   { code: "AED", name: "UAE Dirham", flag: "🇦🇪", symbol: "د.إ" },
   { code: "SGD", name: "Singapore Dollar", flag: "🇸🇬", symbol: "S$" },
   { code: "NZD", name: "New Zealand Dollar", flag: "🇳🇿", symbol: "NZ$" },
+  { code: "COP", name: "Colombian Peso", flag: "🇨🇴", symbol: "COL$" },
+  { code: "VND", name: "Vietnamese Dong", flag: "🇻🇳", symbol: "₫" },
+  { code: "TRY", name: "Turkish Lira", flag: "🇹🇷", symbol: "₺" },
+  { code: "IDR", name: "Indonesian Rupiah", flag: "🇮🇩", symbol: "Rp" },
+  { code: "MAD", name: "Moroccan Dirham", flag: "🇲🇦", symbol: "MAD" },
+  { code: "MYR", name: "Malaysian Ringgit", flag: "🇲🇾", symbol: "RM" },
+  { code: "FJD", name: "Fijian Dollar", flag: "🇫🇯", symbol: "FJ$" },
+  { code: "GTQ", name: "Guatemalan Quetzal", flag: "🇬🇹", symbol: "Q" },
 ];
 
 // --- Exchange rates from XE mid-market (authoritative) with static fallback ---

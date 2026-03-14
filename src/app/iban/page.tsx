@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import Card from "@/components/Card";
 import SectionHeader from "@/components/SectionHeader";
 import PrimaryButton from "@/components/PrimaryButton";
+import CircleFlag from "@/components/CircleFlag";
 import { wiseCountries, getSepaCountries } from "@/data/wise-iban";
 import { getCountryByAlpha2 } from "@/data/countries";
 import type { Metadata } from "next";
@@ -13,6 +14,13 @@ export const metadata: Metadata = {
     "Find IBAN formats, structures, and bank lists for 69+ countries. Understand IBAN length, BBAN fields, SEPA membership, and example IBANs for each country.",
   keywords:
     "IBAN, international bank account number, IBAN format, IBAN structure, SEPA, BBAN, bank codes, IBAN by country",
+  alternates: { canonical: "https://moneytransfers.com/iban" },
+  openGraph: {
+    title: "IBAN by Country — Codes, Formats & Bank Lists",
+    description:
+      "Find IBAN formats, structures, and bank lists for 69+ countries. SEPA membership status and example IBANs included.",
+    url: "https://moneytransfers.com/iban",
+  },
 };
 
 const regionMap: Record<string, string[]> = {
@@ -105,7 +113,7 @@ export default function IbanPage() {
                   href={`/iban/${country.slug}`}
                   className="!p-3 flex items-center gap-3"
                 >
-                  <span className="text-[20px] leading-none">{getFlag(country.countryCode)}</span>
+                  <CircleFlag code={country.countryCode} size={20} />
                   <div className="min-w-0">
                     <p className="text-[14px] font-medium text-[var(--color-on-surface)] truncate">{name}</p>
                     <div className="flex items-center gap-2 text-[12px] text-[var(--color-on-surface-variant)]">
@@ -150,7 +158,7 @@ export default function IbanPage() {
                           href={`/iban/${country.slug}`}
                           className="!p-3 flex items-center gap-3"
                         >
-                          <span className="text-[20px] leading-none">{getFlag(country.countryCode)}</span>
+                          <CircleFlag code={country.countryCode} size={20} />
                           <div className="min-w-0">
                             <p className="text-[14px] font-medium text-[var(--color-on-surface)] truncate">{name}</p>
                             <p className="text-[12px] text-[var(--color-on-surface-variant)]">
@@ -187,7 +195,7 @@ export default function IbanPage() {
                     href={`/iban/${country.slug}`}
                     className="flex items-center gap-2 p-2.5 rounded-lg border border-[var(--color-outline)] bg-white hover:shadow-[0_1px_6px_rgba(32,33,36,0.18)] transition-shadow text-[13px]"
                   >
-                    <span>{getFlag(country.countryCode)}</span>
+                    <CircleFlag code={country.countryCode} size={16} />
                     <span className="text-[var(--color-on-surface)] font-medium truncate">{name}</span>
                   </Link>
                 );

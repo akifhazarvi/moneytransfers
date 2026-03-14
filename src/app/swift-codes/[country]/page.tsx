@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import StatBox from "@/components/StatBox";
+import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
@@ -33,6 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${country.name} SWIFT/BIC Codes | ${country.bankCount} Banks | MoneyTransfers`,
     description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified SWIFT codes with branch details, city, and address for international wire transfers to ${country.name}.`,
     keywords: `${country.name} SWIFT code, ${country.name} BIC code, ${country.countryCode} SWIFT, banks in ${country.name}, wire transfer ${country.name}`,
+    alternates: { canonical: `https://moneytransfers.com/swift-codes/${slug}` },
+    openGraph: {
+      title: `${country.name} SWIFT/BIC Codes — ${country.bankCount} Banks`,
+      description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified codes for international wire transfers.`,
+      url: `https://moneytransfers.com/swift-codes/${slug}`,
+    },
   };
 }
 
@@ -76,7 +83,7 @@ export default async function SwiftCountryPage({ params }: Props) {
           {/* Header */}
           <Card>
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-[40px] leading-none">{getFlag(country.countryCode)}</span>
+              <CircleFlag code={country.countryCode} size={40} />
               <div>
                 <h1 className="text-[24px] md:text-[30px] font-normal text-[var(--color-on-surface)]">
                   SWIFT codes in {country.name}
@@ -238,7 +245,7 @@ export default async function SwiftCountryPage({ params }: Props) {
                   className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-lg hover:bg-[var(--color-primary-surface)] transition-colors"
                 >
                   <span className="flex items-center gap-2 text-[13px] font-medium text-[var(--color-on-surface)]">
-                    <span>{getFlag(c.countryCode)}</span>
+                    <CircleFlag code={c.countryCode} size={16} />
                     {c.name}
                   </span>
                   <span className="text-[12px] text-[var(--color-on-surface-variant)]">

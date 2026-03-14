@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useId } from "react";
 import { useRouter } from "next/navigation";
-import { currencies } from "@/data/providers";
+import CurrencyPicker from "@/components/CurrencyPicker";
 
 interface Props {
   defaultFrom?: string;
@@ -21,6 +21,7 @@ export default function ComparisonWidget({
   const [fromCurrency, setFromCurrency] = useState(defaultFrom);
   const [toCurrency, setToCurrency] = useState(defaultTo);
   const [amount, setAmount] = useState(defaultAmount);
+  const id = useId();
 
   function handleCompare(e: React.FormEvent) {
     e.preventDefault();
@@ -39,20 +40,20 @@ export default function ComparisonWidget({
       <form onSubmit={handleCompare}>
         <div className="grid grid-cols-1 gap-3">
           <div>
-            <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">You send</label>
-            <input type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} min={1} className={inputClass} placeholder="1,000" />
+            <label htmlFor={`${id}-amount`} className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">You send</label>
+            <input id={`${id}-amount`} type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} min={1} className={inputClass} placeholder="1,000" />
           </div>
           <div>
             <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">From</label>
-            <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)} className={inputClass}>
-              {currencies.map((c) => <option key={c.code} value={c.code}>{c.flag} {c.code} - {c.name}</option>)}
-            </select>
+            <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-white">
+              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="compact" />
+            </div>
           </div>
           <div>
             <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">To</label>
-            <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)} className={inputClass}>
-              {currencies.map((c) => <option key={c.code} value={c.code}>{c.flag} {c.code} - {c.name}</option>)}
-            </select>
+            <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-white">
+              <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
+            </div>
           </div>
           <button type="submit" className="w-full h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-[14px] hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] active:shadow-none transition-all">
             Compare
@@ -65,12 +66,13 @@ export default function ComparisonWidget({
   return (
     <form onSubmit={handleCompare}>
       {/* Google Flights-style connected search bar */}
-      <div className="rounded-2xl border border-[var(--color-outline)] bg-white shadow-[0_1px_6px_rgba(32,33,36,0.1)]">
+      <div className="rounded-2xl border border-[var(--color-outline)] bg-white shadow-[var(--shadow-md)]">
         <div className="flex flex-col md:flex-row items-stretch">
           {/* Amount */}
           <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">You send</p>
+            <label htmlFor={`${id}-send`} className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">You send</label>
             <input
+              id={`${id}-send`}
               type="number"
               value={amount}
               onChange={(e) => setAmount(Number(e.target.value))}
@@ -83,13 +85,7 @@ export default function ComparisonWidget({
           {/* From */}
           <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
             <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">From</p>
-            <select
-              value={fromCurrency}
-              onChange={(e) => setFromCurrency(e.target.value)}
-              className="w-full bg-transparent text-[16px] text-[var(--color-on-surface)] focus:outline-none cursor-pointer appearance-none mt-0.5"
-            >
-              {currencies.map((c) => <option key={c.code} value={c.code}>{c.flag} {c.code} – {c.name}</option>)}
-            </select>
+            <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="inline" />
           </div>
 
           {/* Swap button */}
@@ -97,7 +93,7 @@ export default function ComparisonWidget({
             <button
               type="button"
               onClick={swap}
-              className="w-10 h-10 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] hover:border-[var(--color-on-surface-variant)] transition-all"
+              className="w-10 h-10 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] hover:border-[var(--color-on-surface-variant)] active:scale-95 transition-all"
               aria-label="Swap currencies"
             >
               <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,13 +105,7 @@ export default function ComparisonWidget({
           {/* To */}
           <div className="flex-1 border-b md:border-b-0 md:border-l border-[var(--color-outline)] px-4 py-2.5">
             <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">To</p>
-            <select
-              value={toCurrency}
-              onChange={(e) => setToCurrency(e.target.value)}
-              className="w-full bg-transparent text-[16px] text-[var(--color-on-surface)] focus:outline-none cursor-pointer appearance-none mt-0.5"
-            >
-              {currencies.map((c) => <option key={c.code} value={c.code}>{c.flag} {c.code} – {c.name}</option>)}
-            </select>
+            <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="inline" />
           </div>
         </div>
       </div>

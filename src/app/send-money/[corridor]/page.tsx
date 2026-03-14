@@ -8,6 +8,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import CrossLinks from "@/components/CrossLinks";
+import CircleFlag from "@/components/CircleFlag";
 import {
   providers,
   generateQuotes,
@@ -158,15 +159,15 @@ export default async function CorridorPage({ params }: Props) {
           </div>
 
           <div className="flex items-center gap-6 mt-4 text-[13px] text-[var(--color-on-surface-variant)]">
-            <span>
-              <span className="text-[20px] mr-1.5">{corridor.fromFlag}</span>
+            <span className="flex items-center gap-1.5">
+              <CircleFlag code={corridor.fromCurrency} size={20} />
               {fromCurrency}
             </span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-            <span>
-              <span className="text-[20px] mr-1.5">{corridor.toFlag}</span>
+            <span className="flex items-center gap-1.5">
+              <CircleFlag code={corridor.toCurrency} size={20} />
               {toCurrency}
             </span>
             <span className="hidden sm:inline text-[var(--color-outline)]">|</span>

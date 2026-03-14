@@ -6,7 +6,13 @@ export const metadata: Metadata = {
   title: "Contact Us — Get in Touch with MoneyTransfers",
   description:
     "Have a question, correction, or partnership inquiry? Contact the MoneyTransfers team. We typically respond within 1–2 business days.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "https://moneytransfers.com/contact" },
+  openGraph: {
+    title: "Contact MoneyTransfers",
+    description:
+      "Get in touch with the MoneyTransfers team for questions, data corrections, or partnership inquiries.",
+    url: "https://moneytransfers.com/contact",
+  },
 };
 
 export default function ContactPage() {

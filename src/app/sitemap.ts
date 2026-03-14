@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { allCorridors } from "@/data/corridors";
 import { providers } from "@/data/providers";
 import { blogPosts } from "@/data/blog-posts";
+import { wiseCountries } from "@/data/wise-iban";
+import { getSwiftCountries } from "@/data/swift-codes";
 
 const SITE_URL = "https://moneytransfers.com";
 
@@ -17,6 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/iban`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${SITE_URL}/swift-codes`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${SITE_URL}/editorial-policy`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${SITE_URL}/how-we-review`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${SITE_URL}/methodology`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
   ];
 
   const corridorPages: MetadataRoute.Sitemap = allCorridors.map((c) => ({
@@ -52,11 +59,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const ibanPages: MetadataRoute.Sitemap = wiseCountries
+    .filter((c) => c.slug)
+    .map((c) => ({
+      url: `${SITE_URL}/iban/${c.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
+    }));
+
+  const swiftPages: MetadataRoute.Sitemap = getSwiftCountries().map((c) => ({
+    url: `${SITE_URL}/swift-codes/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.4,
+  }));
+
   return [
     ...staticPages,
     ...corridorPages,
     ...providerPages,
     ...comparisonPages,
     ...guidePages,
+    ...ibanPages,
+    ...swiftPages,
   ];
 }

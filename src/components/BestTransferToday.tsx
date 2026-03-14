@@ -29,7 +29,7 @@ export default function BestTransferToday({
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[0_1px_3px_rgba(32,33,36,0.08)]">
+      <div className="bg-white border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[var(--shadow-sm)]">
         {/* Table header */}
         <div className="grid grid-cols-[1fr_90px_80px_110px] sm:grid-cols-[1fr_110px_100px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] sm:text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
           <span>Provider</span>
@@ -48,7 +48,7 @@ export default function BestTransferToday({
           return (
             <div
               key={q.providerSlug}
-              className={`grid grid-cols-[1fr_90px_80px_110px] sm:grid-cols-[1fr_110px_100px_130px] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[#e6f4ea]/40" : ""}`}
+              className={`grid grid-cols-[1fr_90px_80px_110px] sm:grid-cols-[1fr_110px_100px_130px] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface)]/40" : ""}`}
             >
               {/* Provider */}
               <div className="flex items-center gap-2.5 min-w-0">
@@ -65,7 +65,7 @@ export default function BestTransferToday({
                   <p className="text-[13px] sm:text-[14px] font-medium text-[var(--color-on-surface)] truncate">
                     {name}
                     {isBest && (
-                      <span className="ml-1.5 text-[10px] sm:text-[11px] text-white bg-[#137333] px-1.5 py-0.5 rounded font-semibold align-middle tracking-wide uppercase">
+                      <span className="ml-1.5 text-[10px] sm:text-[11px] text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded font-semibold align-middle tracking-wide uppercase">
                         Best
                       </span>
                     )}
@@ -80,12 +80,12 @@ export default function BestTransferToday({
               </p>
 
               {/* Fee */}
-              <p className={`text-[13px] sm:text-[14px] text-right tabular-nums ${q.fee === 0 ? "text-[#137333] font-medium" : "text-[var(--color-on-surface)]"}`}>
+              <p className={`text-[13px] sm:text-[14px] text-right tabular-nums ${q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
                 {q.fee === 0 ? "Free" : `$${q.fee.toFixed(2)}`}
               </p>
 
               {/* Recipient gets */}
-              <p className={`text-[13px] sm:text-[14px] font-semibold text-right tabular-nums ${isBest ? "text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+              <p className={`text-[13px] sm:text-[14px] font-semibold text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                 {symbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
             </div>
@@ -95,11 +95,11 @@ export default function BestTransferToday({
 
       {/* Savings callout */}
       {quotes.length >= 2 && (
-        <div className="mt-4 bg-[#e6f4ea] border border-[#137333]/15 rounded-xl px-4 py-3 flex items-center gap-3">
-          <svg className="w-4 h-4 text-[#137333] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="mt-4 bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/15 rounded-xl px-4 py-3 flex items-center gap-3">
+          <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>
-          <p className="text-[13px] text-[#137333]">
+          <p className="text-[13px] text-[var(--color-success-dark)]">
             <strong>{getProviderName(best.providerSlug)}</strong> saves you{" "}
             <strong>
               {symbol}{(best.receiveAmount - worst.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}

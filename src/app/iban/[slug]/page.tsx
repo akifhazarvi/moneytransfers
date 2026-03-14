@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import StatBox from "@/components/StatBox";
+import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import {
@@ -54,6 +55,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${name} IBAN Format | IBAN Code, Structure & Banks | MoneyTransfers`,
     description: `Learn the IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}. See the IBAN structure, BBAN breakdown, example IBAN, and list of ${country.banks.length > 0 ? country.banks.length + " " : ""}major banks.`,
     keywords: `${name} IBAN, ${country.countryCode} IBAN format, ${name} bank code, IBAN ${country.countryCode}, ${name} BBAN, ${country.currency}`,
+    alternates: { canonical: `https://moneytransfers.com/iban/${slug}` },
+    openGraph: {
+      title: `${name} IBAN Format — Code, Structure & Banks`,
+      description: `IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}.`,
+      url: `https://moneytransfers.com/iban/${slug}`,
+    },
   };
 }
 
@@ -76,7 +83,7 @@ export default async function IbanCountryPage({ params }: Props) {
   if (!country) notFound();
 
   const name = getCountryName(country.countryCode, slug);
-  const flag = getFlag(country.countryCode);
+  const countryCode = country.countryCode;
   const page = getWiseCountryPage(slug);
 
   // Get related countries (same region / sepa status)
@@ -131,7 +138,7 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* Header */}
           <Card>
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-[40px] leading-none">{flag}</span>
+              <CircleFlag code={countryCode} size={40} />
               <div>
                 <h1 className="text-[24px] md:text-[30px] font-normal text-[var(--color-on-surface)]">
                   {name} IBAN
@@ -381,7 +388,7 @@ export default async function IbanCountryPage({ params }: Props) {
                       className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-lg hover:bg-[var(--color-primary-surface)] transition-colors"
                     >
                       <span className="flex items-center gap-2 text-[13px] font-medium text-[var(--color-on-surface)]">
-                        <span>{getFlag(c.countryCode)}</span>
+                        <CircleFlag code={c.countryCode} size={16} />
                         {cName}
                       </span>
                       <span className="text-[12px] text-[var(--color-on-surface-variant)]">

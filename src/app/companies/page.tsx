@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://moneytransfers.com/companies",
   },
+  openGraph: {
+    title: "Money Transfer Company Reviews — Expert Analysis",
+    description:
+      "In-depth reviews of Wise, Remitly, Western Union, OFX, and 60+ more providers. Compare fees, rates, speed, and features.",
+    url: "https://moneytransfers.com/companies",
+  },
 };
 
 export default function CompaniesPage() {

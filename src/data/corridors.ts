@@ -680,6 +680,14 @@ const currencyLabels: Record<string, string> = {
   AED: "the UAE",
   SGD: "Singapore",
   NZD: "New Zealand",
+  COP: "Colombia",
+  VND: "Vietnam",
+  TRY: "Turkey",
+  IDR: "Indonesia",
+  MAD: "Morocco",
+  MYR: "Malaysia",
+  FJD: "Fiji",
+  GTQ: "Guatemala",
 };
 
 function generateCurrencyCorridors(): Corridor[] {

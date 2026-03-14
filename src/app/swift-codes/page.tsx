@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import Card from "@/components/Card";
 import SectionHeader from "@/components/SectionHeader";
 import PrimaryButton from "@/components/PrimaryButton";
+import CircleFlag from "@/components/CircleFlag";
 import { getSwiftCountries } from "@/data/swift-codes";
 import type { Metadata } from "next";
 
@@ -12,6 +13,13 @@ export const metadata: Metadata = {
     "Find SWIFT/BIC codes for banks in 100+ countries. Search by country or bank to get the right code for your international wire transfer.",
   keywords:
     "SWIFT code, BIC code, SWIFT finder, bank identifier code, international wire transfer, SWIFT/BIC lookup",
+  alternates: { canonical: "https://moneytransfers.com/swift-codes" },
+  openGraph: {
+    title: "SWIFT/BIC Codes by Country — Find Bank SWIFT Codes",
+    description:
+      "Find SWIFT/BIC codes for banks in 100+ countries. Search by country or bank for your international wire transfer.",
+    url: "https://moneytransfers.com/swift-codes",
+  },
 };
 
 function getFlag(code: string): string {
@@ -119,9 +127,7 @@ export default function SwiftCodesPage() {
                 href={`/swift-codes/${country.slug}`}
                 className="!p-3 flex items-center gap-3"
               >
-                <span className="text-[20px] leading-none">
-                  {getFlag(country.countryCode)}
-                </span>
+                <CircleFlag code={country.countryCode} size={20} />
                 <div className="min-w-0">
                   <p className="text-[14px] font-medium text-[var(--color-on-surface)] truncate">
                     {country.name}

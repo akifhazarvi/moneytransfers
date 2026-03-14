@@ -6,7 +6,13 @@ export const metadata: Metadata = {
   title: "About Us — Who We Are & Why We Built MoneyTransfers",
   description:
     "MoneyTransfers is an independent comparison platform that helps people find the cheapest way to send money internationally. Learn about our mission, team, and values.",
-  alternates: { canonical: "/about" },
+  alternates: { canonical: "https://moneytransfers.com/about" },
+  openGraph: {
+    title: "About MoneyTransfers — Independent Money Transfer Comparison",
+    description:
+      "We compare 60+ money transfer services so you can find the cheapest way to send money internationally.",
+    url: "https://moneytransfers.com/about",
+  },
 };
 
 export default function AboutPage() {

@@ -6,7 +6,13 @@ export const metadata: Metadata = {
   title: "Editorial Policy — How We Stay Independent & Unbiased",
   description:
     "Our editorial policy explains how MoneyTransfers maintains independence, how affiliate partnerships work, and why our rankings are never influenced by commercial relationships.",
-  alternates: { canonical: "/editorial-policy" },
+  alternates: { canonical: "https://moneytransfers.com/editorial-policy" },
+  openGraph: {
+    title: "Editorial Policy — MoneyTransfers Independence & Transparency",
+    description:
+      "How MoneyTransfers maintains editorial independence. Rankings are never influenced by affiliate partnerships.",
+    url: "https://moneytransfers.com/editorial-policy",
+  },
 };
 
 export default function EditorialPolicyPage() {

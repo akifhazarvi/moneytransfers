@@ -6,7 +6,13 @@ export const metadata: Metadata = {
   title: "How We Review Providers — Our Review Process Explained",
   description:
     "Learn how MoneyTransfers evaluates and reviews money transfer providers. We analyze exchange rates, fees, speed, coverage, regulation, and user experience across 60+ services.",
-  alternates: { canonical: "/how-we-review" },
+  alternates: { canonical: "https://moneytransfers.com/how-we-review" },
+  openGraph: {
+    title: "How We Review Money Transfer Providers",
+    description:
+      "Our structured review process analyzes exchange rates, fees, speed, coverage, regulation, and UX across 60+ services.",
+    url: "https://moneytransfers.com/how-we-review",
+  },
 };
 
 const reviewCriteria = [

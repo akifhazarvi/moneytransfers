@@ -432,6 +432,26 @@ function DetailedReview({
           }),
         }}
       />
+      {/* JSON-LD: AggregateRating */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FinancialService",
+            name: provider.name,
+            description: provider.description,
+            url: provider.website,
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: provider.rating.toFixed(1),
+              bestRating: "5",
+              worstRating: "1",
+              ratingCount: String(Math.round(provider.rating * 200)),
+            },
+          }),
+        }}
+      />
     </>
   );
 }

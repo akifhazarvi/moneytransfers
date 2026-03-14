@@ -5,10 +5,10 @@ interface Props {
 }
 
 const colorMap = {
-  Excellent: { bg: "bg-[#e6f4ea]", text: "text-[#137333]" },
-  Good: { bg: "bg-[#e8f0fe]", text: "text-[#1a73e8]" },
-  Fair: { bg: "bg-[#fef7e0]", text: "text-[#b06000]" },
-  Poor: { bg: "bg-[#fce8e6]", text: "text-[#c5221f]" },
+  Excellent: { bg: "bg-[var(--color-success-surface)]", text: "text-[var(--color-success-dark)]" },
+  Good: { bg: "bg-[var(--color-primary-surface)]", text: "text-[var(--color-primary)]" },
+  Fair: { bg: "bg-[var(--color-warning-surface)]", text: "text-[var(--color-warning-dark)]" },
+  Poor: { bg: "bg-[var(--color-danger-surface)]", text: "text-[var(--color-danger)]" },
 };
 
 export default function RatingBadge({ rating, label, size = "sm" }: Props) {

@@ -20,6 +20,8 @@ import revolutQuotes from "@/data/scraped/revolut-quotes.json";
 import xoomQuotes from "@/data/scraped/xoom-quotes.json";
 import worldremitQuotes from "@/data/scraped/worldremit-quotes.json";
 import remitlyQuotes from "@/data/scraped/remitly-quotes.json";
+import moneytransfersQuotes from "@/data/scraped/moneytransfers-quotes.json";
+import remitfinderQuotes from "@/data/scraped/remitfinder-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -179,8 +181,10 @@ addQuotes(xoomQuotes as unknown[], 1, "xoom-browser");
 addQuotes(worldremitQuotes as unknown[], 1, "worldremit-browser");
 addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
 
-// Priority 2: Monito comparison aggregator
+// Priority 2: Comparison aggregators
 addQuotes(monitoQuotes as unknown[], 2, "monito-comparison");
+addQuotes(moneytransfersQuotes as unknown[], 2, "moneytransfers-comparison");
+addQuotes(remitfinderQuotes as unknown[], 2, "remitfinder-comparison");
 
 // Priority 3: Wise comparison API
 addQuotes(wiseQuotes as unknown[], 3, "wise-comparison");

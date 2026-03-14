@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <>
       {/* ─── 1. HERO ─── */}
-      <section className="bg-white pt-14 pb-10">
+      <section className="bg-white pt-14 pb-12">
         <Container>
           <div className="text-center mb-10">
             <h1 className="text-[28px] sm:text-[36px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px] max-w-3xl mx-auto">
@@ -131,7 +131,7 @@ export default function Home() {
                 desc: "Click through to the provider that gives your recipient the most money. It takes minutes to set up your first transfer.",
               },
             ].map((item) => (
-              <div key={item.step} className="bg-white rounded-2xl border border-[var(--color-outline)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+              <div key={item.step} className="bg-white rounded-2xl border border-[var(--color-outline)] p-6 shadow-[var(--shadow-sm)]">
                 <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-[14px] font-semibold flex items-center justify-center mb-4">
                   {item.step}
                 </div>

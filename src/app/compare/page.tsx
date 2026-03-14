@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://moneytransfers.com/compare",
   },
+  openGraph: {
+    title: "Compare Money Transfer Providers — Head-to-Head",
+    description:
+      "Side-by-side comparisons of Wise, Remitly, Western Union, OFX, and more. Compare fees, exchange rates, speed, and features.",
+    url: "https://moneytransfers.com/compare",
+  },
 };
 
 function generateComparisons() {

@@ -6,12 +6,67 @@ export const metadata: Metadata = {
   title: "Methodology — How We Collect Data & Rank Providers",
   description:
     "A detailed explanation of how MoneyTransfers collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
-  alternates: { canonical: "/methodology" },
+  alternates: { canonical: "https://moneytransfers.com/methodology" },
+  openGraph: {
+    title: "Methodology — How MoneyTransfers Collects Data & Ranks Providers",
+    description:
+      "How we collect exchange rate data, calculate total transfer costs, and rank providers in our comparison tables.",
+    url: "https://moneytransfers.com/methodology",
+  },
 };
 
+const trackedProviders = [
+  "Wise",
+  "Remitly",
+  "Western Union",
+  "MoneyGram",
+  "OFX",
+  "XE",
+  "TapTap Send",
+  "ACE Money Transfer",
+  "WorldRemit",
+  "Revolut",
+  "PayPal",
+  "Xoom (PayPal)",
+  "TorFX",
+  "InstaReM",
+];
+
 export default function MethodologyPage() {
+  const lastUpdated = "March 2026";
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline:
+              "Methodology — How We Collect Data & Rank Providers",
+            description:
+              "A detailed explanation of how MoneyTransfers collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
+            author: {
+              "@type": "Person",
+              name: "Akif Hazarvi",
+              jobTitle:
+                "Product Manager – Fintech & International Payments",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "MoneyTransfers",
+              url: "https://moneytransfers.com",
+            },
+            dateModified: "2026-03-14",
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": "https://moneytransfers.com/methodology",
+            },
+          }),
+        }}
+      />
+
       <section className="bg-white pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -22,6 +77,52 @@ export default function MethodologyPage() {
               How we collect data, calculate costs, and rank providers — in full
               detail.
             </p>
+            <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-2">
+              Last updated: {lastUpdated} · Data refresh frequency: every 6
+              hours
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* Data Transparency Widget */}
+      <section className="bg-[var(--color-surface-dim)] py-6 border-b border-[var(--color-outline)]">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="text-center">
+                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                  60+
+                </p>
+                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                  Providers tracked
+                </p>
+              </div>
+              <div className="text-center">
+                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                  64+
+                </p>
+                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                  Currency corridors
+                </p>
+              </div>
+              <div className="text-center">
+                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                  6 hrs
+                </p>
+                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                  Data refresh cycle
+                </p>
+              </div>
+              <div className="text-center">
+                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                  20+
+                </p>
+                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                  Currencies supported
+                </p>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -29,6 +130,26 @@ export default function MethodologyPage() {
       <section className="py-12">
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
+            {/* Introduction */}
+            <div>
+              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+                Our mission
+              </h2>
+              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  Our mission is to provide transparent, data-driven comparisons
+                  of international money transfer services. We believe people
+                  sending money abroad deserve to see the true cost of every
+                  transfer — including hidden exchange rate markups — so they can
+                  make informed choices.
+                </p>
+                <p>
+                  This page explains exactly how we collect data, calculate
+                  costs, rank providers, and maintain editorial independence.
+                </p>
+              </div>
+            </div>
+
             {/* Data Collection */}
             <div>
               <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
@@ -43,8 +164,8 @@ export default function MethodologyPage() {
                   <li>
                     <strong>Provider APIs:</strong> Where available, we use
                     official APIs to pull live exchange rates and fee schedules
-                    programmatically. This is the most reliable and
-                    up-to-date source.
+                    programmatically. This is the most reliable and up-to-date
+                    source.
                   </li>
                   <li>
                     <strong>Website scraping:</strong> For providers without
@@ -54,18 +175,112 @@ export default function MethodologyPage() {
                     customer would actually see.
                   </li>
                   <li>
-                    <strong>Mid-market rate baseline:</strong> We source the
-                    mid-market exchange rate (the midpoint between buy and sell
-                    rates on global currency markets) from established financial
-                    data feeds. This serves as our benchmark for calculating
-                    each provider&apos;s markup.
+                    <strong>Comparison aggregation:</strong> We cross-reference
+                    data from established comparison platforms to fill coverage
+                    gaps and validate our own findings.
                   </li>
                 </ul>
+
+                {/* Data Pipeline Detail */}
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mt-4">
+                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                    Data pipeline
+                  </h3>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                    Our automated pipeline runs via GitHub Actions on a 6-hour
+                    schedule. Each cycle executes API integrations and automated
+                    quote simulations across all tracked providers and corridors.
+                    Data is validated, deduplicated, and merged with source
+                    priority weighting before being served to users.
+                  </p>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <strong>Source priority:</strong> Direct provider API &gt;
+                    Comparison aggregator &gt; Third-party API &gt; Fallback
+                    estimates
+                  </p>
+                </div>
+
                 <p>
                   Every data point includes a timestamp so you can see exactly
-                  when it was last updated. If a provider&apos;s data is stale
-                  or unavailable, we flag it clearly rather than showing
-                  potentially outdated figures.
+                  when it was last updated. If a provider&apos;s data is stale or
+                  unavailable, we flag it clearly rather than showing potentially
+                  outdated figures.
+                </p>
+              </div>
+            </div>
+
+            {/* Providers Tracked */}
+            <div>
+              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+                Providers we track
+              </h2>
+              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  We currently track quotes and fees from the following
+                  providers, among others:
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 my-4">
+                  {trackedProviders.map((provider) => (
+                    <div
+                      key={provider}
+                      className="bg-[var(--color-surface-dim)] rounded-lg px-3 py-2 text-[13px] text-[var(--color-on-surface)]"
+                    >
+                      {provider}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[13px]">
+                  This list represents our core tracked providers. In total, we
+                  aggregate data from 60+ providers across 64+ currency
+                  corridors including many regional and corridor-specific
+                  services. See our full{" "}
+                  <Link
+                    href="/companies"
+                    className="text-[var(--color-primary)] hover:underline"
+                  >
+                    provider directory
+                  </Link>{" "}
+                  for the complete list.
+                </p>
+              </div>
+            </div>
+
+            {/* Exchange Rate Benchmark */}
+            <div>
+              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+                Exchange rate benchmark
+              </h2>
+              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  To calculate a provider&apos;s exchange rate markup, we compare
+                  their offered rate against the <strong>mid-market rate</strong>{" "}
+                  — the midpoint between buy and sell rates on global currency
+                  markets. This is widely considered the &quot;real&quot;
+                  exchange rate.
+                </p>
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                    Mid-market rate sources
+                  </h3>
+                  <ul className="list-disc pl-5 space-y-2 text-[13px] text-[var(--color-on-surface-variant)]">
+                    <li>
+                      <strong>European Central Bank (ECB)</strong> — official
+                      reference rates published daily
+                    </li>
+                    <li>
+                      <strong>ExchangeRate.host</strong> — aggregated
+                      mid-market rate API
+                    </li>
+                    <li>
+                      <strong>Open Exchange Rates</strong> — widely used FX
+                      data provider
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  By cross-referencing multiple sources, we ensure our benchmark
+                  rate is accurate and resilient to any single data feed
+                  experiencing outages or delays.
                 </p>
               </div>
             </div>
@@ -106,11 +321,43 @@ export default function MethodologyPage() {
               <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>Our formula for ranking is straightforward:</p>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 font-mono text-[13px] text-[var(--color-on-surface)]">
-                  <p>Receive amount = (Send amount − Transfer fee) × Provider exchange rate</p>
+                  <p>
+                    Receive amount = (Send amount − Transfer fee) × Provider
+                    exchange rate
+                  </p>
                   <p className="mt-2 text-[var(--color-on-surface-variant)]">
-                    The provider that produces the highest receive amount ranks #1.
+                    The provider that produces the highest receive amount ranks
+                    #1.
                   </p>
                 </div>
+
+                {/* Example Transfer */}
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                    Example: Sending $1,000 USD to India (INR)
+                  </h3>
+                  <div className="space-y-2 text-[13px] text-[var(--color-on-surface-variant)]">
+                    <p>
+                      <strong>Provider A:</strong> $4.99 fee, rate of 83.20
+                      INR/USD → Recipient gets ($1,000 − $4.99) × 83.20 ={" "}
+                      <strong className="text-[var(--color-success)]">
+                        ₹82,784.97
+                      </strong>
+                    </p>
+                    <p>
+                      <strong>Provider B:</strong> $0 fee, rate of 82.50
+                      INR/USD → Recipient gets ($1,000 − $0) × 82.50 ={" "}
+                      <strong>₹82,500.00</strong>
+                    </p>
+                    <p className="mt-2">
+                      Despite charging a fee, Provider A delivers more money
+                      because their exchange rate is closer to the mid-market
+                      rate. This is why we rank by receive amount, not fees
+                      alone.
+                    </p>
+                  </div>
+                </div>
+
                 <p>
                   This approach captures the full cost of the transfer in a
                   single, comparable number. A provider with &quot;zero fees&quot;
@@ -140,21 +387,74 @@ export default function MethodologyPage() {
                     Rankings change based on the currencies involved.
                   </li>
                   <li>
-                    <strong>Amount-specific:</strong> Some providers offer
-                    better rates for larger transfers. Rankings can shift based
-                    on the send amount.
+                    <strong>Amount-specific:</strong> Some providers offer better
+                    rates for larger transfers. Rankings can shift based on the
+                    send amount.
                   </li>
                   <li>
                     <strong>Time-specific:</strong> Exchange rates fluctuate
-                    throughout the day. Our data refreshes every 6 hours to
-                    keep rankings current.
+                    throughout the day. Our data refreshes every 6 hours to keep
+                    rankings current.
                   </li>
                   <li>
-                    <strong>Not influenced by affiliate status:</strong>{" "}
-                    Whether or not a provider has a commercial relationship
-                    with us has zero effect on its ranking position.
+                    <strong>Not influenced by affiliate status:</strong> Whether
+                    or not a provider has a commercial relationship with us has
+                    zero effect on its ranking position.
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            {/* Provider Evaluation */}
+            <div>
+              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+                Provider evaluation criteria
+              </h2>
+              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  Beyond cost rankings, we evaluate providers across additional
+                  criteria to give users a complete picture:
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4 my-4">
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                      Regulation
+                    </h3>
+                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                      We verify each provider&apos;s regulatory status with
+                      bodies such as the FCA (UK), FinCEN (US), ASIC
+                      (Australia), and others.
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                      Transfer speed
+                    </h3>
+                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                      We track estimated delivery times for each corridor and
+                      payment method, sourced directly from providers.
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                      Coverage
+                    </h3>
+                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                      We record the number of supported countries, currencies,
+                      and delivery methods (bank transfer, mobile wallet, cash
+                      pickup).
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                      Customer reviews
+                    </h3>
+                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                      We scrape Trustpilot ratings daily and display them
+                      alongside our data to reflect real customer experiences.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -177,8 +477,8 @@ export default function MethodologyPage() {
                   </li>
                   <li>
                     <strong>Feature comparison:</strong> We compare supported
-                    countries, delivery methods, transfer speed, payment
-                    options, and app experience.
+                    countries, delivery methods, transfer speed, payment options,
+                    and app experience.
                   </li>
                   <li>
                     <strong>Regulation:</strong> We verify and compare the
@@ -187,9 +487,9 @@ export default function MethodologyPage() {
                   <li>
                     <strong>Best-for verdict:</strong> Rather than declaring a
                     single winner, we identify which provider is better for
-                    specific use cases (e.g., &quot;better for small transfers,&quot;
-                    &quot;better for cash pickup,&quot; &quot;better for business
-                    payments&quot;).
+                    specific use cases (e.g., &quot;better for small
+                    transfers,&quot; &quot;better for cash pickup,&quot;
+                    &quot;better for business payments&quot;).
                   </li>
                 </ul>
               </div>
@@ -223,8 +523,8 @@ export default function MethodologyPage() {
                   </li>
                   <li>
                     We cannot cover every provider in every country. If a
-                    provider is missing from our comparison, it may be because
-                    we have not yet added it to our data pipeline.
+                    provider is missing from our comparison, it may be because we
+                    have not yet added it to our data pipeline.
                   </li>
                 </ul>
                 <p>
@@ -241,6 +541,64 @@ export default function MethodologyPage() {
               </div>
             </div>
 
+            {/* Editorial Independence */}
+            <div>
+              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+                Editorial independence
+              </h2>
+              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  We may earn a referral fee if you open an account with a
+                  provider through our links. This does not influence our
+                  rankings or comparisons. Providers cannot pay for higher
+                  placement, and affiliate relationships are never a factor in
+                  our data-driven rankings.
+                </p>
+                <p>
+                  Our comparison tables are generated algorithmically based on
+                  the receive amount calculation described above. Editorial
+                  content such as reviews and guides is researched independently
+                  and reflects our honest assessment.
+                </p>
+                <p>
+                  For full details, see our{" "}
+                  <Link
+                    href="/editorial-policy"
+                    className="text-[var(--color-primary)] hover:underline"
+                  >
+                    Editorial Policy
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+
+            {/* Author / Reviewer */}
+            <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
+              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                Methodology reviewed by
+              </h3>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-[18px] font-medium text-[var(--color-primary)] shrink-0">
+                  AH
+                </div>
+                <div>
+                  <p className="text-[14px] font-medium text-[var(--color-on-surface)]">
+                    Akif Hazarvi
+                  </p>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)]">
+                    Product Manager — Fintech &amp; International Payments
+                  </p>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-1">
+                    Experience in FX transfers and remittance platforms. Oversees
+                    data collection methodology, provider evaluation criteria,
+                    and editorial standards.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Related Links */}
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
               <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                 <strong className="text-[var(--color-on-surface)]">
@@ -259,7 +617,21 @@ export default function MethodologyPage() {
                 >
                   Editorial Policy
                 </Link>{" "}
-                — how we maintain independence.
+                — how we maintain independence.{" "}
+                <Link
+                  href="/companies"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  Provider Directory
+                </Link>{" "}
+                — all tracked providers.{" "}
+                <Link
+                  href="/send-money"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  Compare Rates
+                </Link>{" "}
+                — see live comparisons.
               </p>
             </div>
           </div>

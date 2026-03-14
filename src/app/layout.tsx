@@ -61,7 +61,15 @@ const organizationSchema = {
   logo: `${SITE_URL}/logos/moneytransfers-logo.png`,
   description:
     "Independent comparison platform for international money transfer services.",
-  sameAs: [],
+  foundingDate: "2024",
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "hello@moneytransfers.com",
+    contactType: "customer service",
+  },
+  sameAs: [
+    "https://twitter.com/maboroshi",
+  ],
 };
 
 const websiteSchema = {

@@ -1,175 +1,116 @@
-"use client";
-
-import { useState, useMemo } from "react";
+import type { Metadata } from "next";
 import Container from "@/components/Container";
-import Card from "@/components/Card";
-import ComparisonTable from "@/components/ComparisonTable";
-import SectionHeader from "@/components/SectionHeader";
-import { currencies } from "@/data/providers";
-import { useExchangeRates } from "@/lib/useExchangeRates";
+import CurrencyConverterClient from "@/components/CurrencyConverterClient";
+import { currencies, exchangeRates } from "@/data/providers";
 import { getRate } from "@/lib/rates-util";
 
+export const metadata: Metadata = {
+  title: "Currency Converter — Live Exchange Rates for 150+ Currencies | MoneyTransfers",
+  description:
+    "Convert between 150+ currencies with live mid-market exchange rates updated every 60 seconds. Compare USD, EUR, GBP, INR, and more with our free currency converter.",
+  alternates: { canonical: "https://moneytransfers.com/currency-converter" },
+  openGraph: {
+    title: "Currency Converter — Live Exchange Rates for 150+ Currencies",
+    description:
+      "Convert between 150+ currencies with live mid-market exchange rates. Free, fast, and accurate currency converter.",
+    url: "https://moneytransfers.com/currency-converter",
+  },
+};
+
+const popularPairs = [
+  { from: "USD", to: "EUR" },
+  { from: "USD", to: "GBP" },
+  { from: "USD", to: "INR" },
+  { from: "GBP", to: "EUR" },
+  { from: "EUR", to: "GBP" },
+  { from: "USD", to: "JPY" },
+  { from: "USD", to: "CAD" },
+  { from: "USD", to: "AUD" },
+];
+
 export default function CurrencyConverterPage() {
-  const [amount, setAmount] = useState(1000);
-  const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("EUR");
-  const { rates, isLive, lastUpdated } = useExchangeRates();
-
-  const rate = useMemo(() => getRate(rates, fromCurrency, toCurrency), [rates, fromCurrency, toCurrency]);
-  const converted = useMemo(() => amount * rate, [amount, rate]);
-
-  function swap() {
-    setFromCurrency(toCurrency);
-    setToCurrency(fromCurrency);
-  }
-
-  const fromInfo = currencies.find((c) => c.code === fromCurrency);
-  const toInfo = currencies.find((c) => c.code === toCurrency);
-
-  const popularPairs = [
-    { from: "USD", to: "EUR" },
-    { from: "USD", to: "GBP" },
-    { from: "USD", to: "INR" },
-    { from: "GBP", to: "EUR" },
-    { from: "EUR", to: "GBP" },
-    { from: "USD", to: "JPY" },
-    { from: "USD", to: "CAD" },
-    { from: "USD", to: "AUD" },
-  ];
-
-  const inputClass =
-    "border border-[var(--color-outline)] rounded-lg px-3 py-3 text-[14px] bg-white text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors";
+  // Pre-compute static rates for SEO
+  const defaultRate = getRate(exchangeRates, "USD", "EUR");
 
   return (
-    <Container className="py-8">
-      <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">Currency Converter</h1>
-      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
-        Convert between 150+ currencies with live exchange rates, updated every 60 seconds.
-      </p>
+    <>
+      {/* Server-rendered SEO heading */}
+      <Container className="py-8">
+        <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">Currency Converter</h1>
+        <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
+          Convert between 150+ currencies with live exchange rates, updated every 60 seconds.
+        </p>
+      </Container>
 
-      {/* Converter */}
-      <Card className="!p-6 md:!p-8 mb-8">
-        <div className="grid md:grid-cols-[1fr,auto,1fr] gap-4 items-end">
-          <div>
-            <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1">Amount</label>
-            <div className="flex gap-2">
-              <input
-                type="number"
-                value={amount}
-                onChange={(e) => setAmount(Number(e.target.value))}
-                min={0}
-                className={`${inputClass} flex-1`}
-              />
-              <select
-                value={fromCurrency}
-                onChange={(e) => setFromCurrency(e.target.value)}
-                className={inputClass}
-              >
-                {currencies.map((c) => (
-                  <option key={c.code} value={c.code}>{c.flag} {c.code}</option>
-                ))}
-              </select>
-            </div>
-          </div>
+      {/* Interactive client widget */}
+      <CurrencyConverterClient />
 
-          <button
-            onClick={swap}
-            className="w-10 h-10 mx-auto bg-[var(--color-surface-container)] rounded-full flex items-center justify-center hover:bg-[var(--color-primary-surface)] transition-colors self-end mb-1"
-            aria-label="Swap currencies"
-          >
-            <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
-          </button>
+      {/* Server-rendered SEO content — visible to crawlers */}
+      <Container>
+        <div className="sr-only">
+          <h2>Live exchange rates</h2>
+          <p>1 USD = {defaultRate.toFixed(4)} EUR (mid-market rate)</p>
 
-          <div>
-            <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1">Converted To</label>
-            <div className="flex gap-2">
-              <div className="flex-1 border border-[var(--color-outline)] bg-[var(--color-surface-dim)] rounded-lg px-3 py-3 text-[14px] font-medium text-[var(--color-on-surface)]">
-                {converted.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-              </div>
-              <select
-                value={toCurrency}
-                onChange={(e) => setToCurrency(e.target.value)}
-                className={inputClass}
-              >
-                {currencies.map((c) => (
-                  <option key={c.code} value={c.code}>{c.flag} {c.code}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
+          <h2>Popular currency pairs</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Exchange Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              {popularPairs.map((pair) => {
+                const pairRate = getRate(exchangeRates, pair.from, pair.to);
+                return (
+                  <tr key={`${pair.from}-${pair.to}`}>
+                    <td>{pair.from}</td>
+                    <td>{pair.to}</td>
+                    <td>1 {pair.from} = {pairRate.toFixed(4)} {pair.to}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
 
-        <div className="mt-6 pt-4 border-t border-[var(--color-outline)] text-center">
-          <p className="text-[14px] text-[var(--color-on-surface-variant)]">
-            <span className="font-medium">{fromInfo?.flag} 1 {fromCurrency}</span>
-            {" = "}
-            <span className="font-medium text-[var(--color-primary)]">
-              {toInfo?.flag} {rate.toFixed(4)} {toCurrency}
-            </span>
+          <h2>All exchange rates vs USD</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Currency</th>
+                <th>Code</th>
+                <th>Rate (1 USD =)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currencies.filter((c) => c.code !== "USD").map((c) => (
+                <tr key={c.code}>
+                  <td>{c.name}</td>
+                  <td>{c.code}</td>
+                  <td>{c.symbol}{(exchangeRates[c.code] ?? 0).toFixed(4)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <h2>How currency conversion works</h2>
+          <p>
+            Our currency converter uses the mid-market exchange rate — the midpoint between buy and sell rates
+            on the global currency markets. This is the fairest rate available and is the rate banks use when
+            trading between themselves. When you send money internationally, providers typically add a markup
+            to this rate, which is how they make money on currency conversion.
           </p>
-          <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
-            {isLive ? (
-              <>
-                <span className="inline-flex items-center gap-1 text-[var(--color-success)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
-                  Live rate
-                </span>
-                {lastUpdated && <> · Updated {lastUpdated.toLocaleTimeString()}</>}
-              </>
-            ) : (
-              "Mid-market rate · Connecting..."
-            )}
+
+          <h2>About our exchange rates</h2>
+          <p>
+            Exchange rates are sourced from leading financial data providers and updated every 60 seconds during
+            market hours. Rates shown are mid-market rates and may differ from the rates offered by individual
+            money transfer providers. Always check the exact rate and total cost with your chosen provider before
+            making a transfer.
           </p>
         </div>
-      </Card>
-
-      {/* Popular Pairs */}
-      <SectionHeader title="Popular Currency Pairs" />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
-        {popularPairs.map((pair) => {
-          const pairRate = getRate(rates, pair.from, pair.to);
-          const fromFlag = currencies.find((c) => c.code === pair.from)?.flag;
-          const toFlag = currencies.find((c) => c.code === pair.to)?.flag;
-          return (
-            <button
-              key={`${pair.from}-${pair.to}`}
-              onClick={() => {
-                setFromCurrency(pair.from);
-                setToCurrency(pair.to);
-              }}
-              className="bg-white rounded-xl border border-[var(--color-outline)] p-4 hover:shadow-[0_1px_6px_rgba(32,33,36,0.18)] transition-shadow text-left"
-            >
-              <p className="text-[14px] font-medium text-[var(--color-on-surface)]">
-                {fromFlag} {pair.from} → {toFlag} {pair.to}
-              </p>
-              <p className="text-[18px] font-medium text-[var(--color-primary)] mt-1">
-                {pairRate.toFixed(4)}
-              </p>
-              <p className="text-[12px] text-[var(--color-on-surface-variant)]">Mid-market rate</p>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Rate Table */}
-      <SectionHeader title="Exchange Rates Table" />
-      <ComparisonTable headers={["Currency", "Rate (vs USD)", "1 USD ="]}>
-        {currencies.filter((c) => c.code !== "USD").map((c) => (
-          <tr key={c.code} className="hover:bg-[var(--color-surface-dim)]">
-            <td className="px-4 py-3 text-[14px]">
-              <span className="mr-2">{c.flag}</span>
-              <span className="font-medium text-[var(--color-on-surface)]">{c.code}</span>
-              <span className="text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
-            </td>
-            <td className="px-4 py-3 text-[14px] text-right font-mono text-[var(--color-on-surface)]">{(rates[c.code] ?? 0).toFixed(4)}</td>
-            <td className="px-4 py-3 text-[14px] text-right font-mono font-medium text-[var(--color-on-surface)]">
-              {c.symbol}{(rates[c.code] ?? 0).toFixed(2)}
-            </td>
-          </tr>
-        ))}
-      </ComparisonTable>
-    </Container>
+      </Container>
+    </>
   );
 }

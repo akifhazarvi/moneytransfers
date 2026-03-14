@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://moneytransfers.com/guides",
   },
+  openGraph: {
+    title: "Money Transfer Guides — Expert Resources for Sending Money Abroad",
+    description:
+      "Expert guides on international money transfers, exchange rates, fees, and how to save money sending money abroad.",
+    url: "https://moneytransfers.com/guides",
+  },
 };
 
 export default function GuidesPage() {

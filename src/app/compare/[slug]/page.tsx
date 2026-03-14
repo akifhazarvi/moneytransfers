@@ -63,6 +63,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://moneytransfers.com/compare/${slug}`,
     },
+    openGraph: {
+      title: `${pair.a.name} vs ${pair.b.name} — Fees, Rates & Features Compared`,
+      description: `Compare ${pair.a.name} and ${pair.b.name} side by side. See which offers better exchange rates, lower fees, and faster transfers.`,
+      url: `https://moneytransfers.com/compare/${slug}`,
+    },
   };
 }
 
@@ -124,6 +129,21 @@ function ArticleComparison({
               name: faq.q,
               acceptedAnswer: { "@type": "Answer", text: faq.a },
             })),
+          }),
+        }}
+      />
+      {/* JSON-LD: BreadcrumbList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://moneytransfers.com" },
+              { "@type": "ListItem", position: 2, name: "Compare", item: "https://moneytransfers.com/compare" },
+              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://moneytransfers.com/compare/${slug}` },
+            ],
           }),
         }}
       />
@@ -493,6 +513,22 @@ function DefaultComparison({
   ];
 
   return (
+    <>
+      {/* JSON-LD: BreadcrumbList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://moneytransfers.com" },
+              { "@type": "ListItem", position: 2, name: "Compare", item: "https://moneytransfers.com/compare" },
+              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://moneytransfers.com/compare/${a.slug}-vs-${b.slug}` },
+            ],
+          }),
+        }}
+      />
     <Container className="py-8">
       <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
@@ -609,6 +645,7 @@ function DefaultComparison({
         </div>
       </div>
     </Container>
+    </>
   );
 }
 

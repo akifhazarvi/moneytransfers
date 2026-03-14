@@ -57,7 +57,7 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
       <Container className="py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-12">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
