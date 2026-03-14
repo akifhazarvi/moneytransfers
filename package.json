@@ -7,8 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "scrape": "npx tsx scripts/scrape-iban.ts",
-    "scrape:wise": "npx tsx scripts/scrape-wise.ts",
     "scrape:providers": "npx tsx scripts/scrape-providers.ts",
     "scrape:worldremit": "npx tsx scripts/scrape-worldremit.ts",
     "scrape:remitly": "npx tsx scripts/scrape-remitly.ts",
@@ -20,7 +18,6 @@
     "scrape:xoom": "npx tsx scripts/scrape-xoom.ts",
     "scrape:monito": "npx tsx scripts/scrape-monito.ts",
     "scrape:reviews": "npx tsx scripts/scrape-reviews.ts",
-    "scrape:swift": "npx tsx scripts/scrape-swift.ts",
     "scrape:all-api": "npx tsx scripts/scrape-providers.ts && npx tsx scripts/scrape-ofx.ts && npx tsx scripts/scrape-instarem.ts && npx tsx scripts/scrape-xe.ts && npx tsx scripts/scrape-monito.ts",
     "scrape:all-browser": "npx tsx scripts/scrape-worldremit.ts && npx tsx scripts/scrape-remitly.ts && npx tsx scripts/scrape-western-union.ts && npx tsx scripts/scrape-revolut.ts && npx tsx scripts/scrape-xoom.ts",
     "scrape:all": "npm run scrape:all-api && npm run scrape:all-browser && npx tsx scripts/scrape-reviews.ts"
