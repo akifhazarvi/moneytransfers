@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function EditorialPolicyPage() {
   return (
     <>
-      <section className="bg-white pt-10 pb-8 border-b border-[var(--color-outline)]">
+      <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">

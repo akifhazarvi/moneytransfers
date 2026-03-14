@@ -41,7 +41,7 @@ export default function SwiftCodesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white pt-12 pb-8 border-b border-[var(--color-outline)]">
+      <section className="bg-[var(--color-surface)] pt-12 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="text-center mb-6">
             <h1 className="text-[36px] md:text-[46px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
@@ -185,7 +185,7 @@ export default function SwiftCodesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-[var(--color-surface)]">
         <div className="max-w-lg mx-auto px-6 text-center">
           <h2 className="text-[24px] font-normal text-[var(--color-on-surface)] mb-3">
             Sending an international transfer?

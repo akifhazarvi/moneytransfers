@@ -28,7 +28,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   const isBest = rank === 1;
 
   return (
-    <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-white border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
+    <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
       {/* Best Deal Badge */}
       {isBest && (
         <div className="absolute -top-px left-6 z-10">
@@ -261,7 +261,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             </div>
 
             {/* Transfer flow + CTA */}
-            <div className="px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white">
+            <div className="px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[var(--color-surface)]">
               {/* Transfer summary */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[13px] text-[var(--color-on-surface-variant)]">
                 <div className="flex items-center gap-2">
@@ -313,7 +313,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 <span className="font-medium">Pays with:</span>
                 <div className="flex flex-wrap gap-2">
                   {provider.paymentMethods.slice(0, 4).map((method) => (
-                    <span key={method} className="bg-white border border-[var(--color-outline)] rounded-full px-2.5 py-0.5">
+                    <span key={method} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-2.5 py-0.5">
                       {method}
                     </span>
                   ))}

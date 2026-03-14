@@ -7,7 +7,7 @@ interface Props {
 
 export default function ComparisonTable({ headers, children }: Props) {
   return (
-    <div className="bg-white rounded-xl border border-[var(--color-outline)] overflow-hidden">
+    <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] overflow-hidden">
       <table className="w-full text-[14px]">
         <thead className="bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
           <tr>

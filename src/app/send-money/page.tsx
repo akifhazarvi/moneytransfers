@@ -49,7 +49,7 @@ export default function SendMoneyPage() {
             <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-4">
               Showing rates for a $1,000 USD transfer to Indian Rupees. Enable JavaScript for live rates and interactive comparison.
             </p>
-            <table className="w-full bg-white rounded-xl border border-[var(--color-outline)] overflow-hidden text-[14px]">
+            <table className="w-full bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] overflow-hidden text-[14px]">
               <thead>
                 <tr className="bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
                   <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)]">Provider</th>

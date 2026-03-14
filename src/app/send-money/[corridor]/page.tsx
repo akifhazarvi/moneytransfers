@@ -132,7 +132,7 @@ export default async function CorridorPage({ params }: Props) {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="bg-white pt-8 pb-6">
+      <section className="bg-[var(--color-surface)] pt-8 pb-6">
         <Container>
           <div className="flex items-center gap-2 text-[13px] text-[var(--color-on-surface-variant)] mb-4">
             <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
@@ -179,7 +179,7 @@ export default async function CorridorPage({ params }: Props) {
       </section>
 
       {/* ─── Introduction ─── */}
-      <section className="bg-white pb-8">
+      <section className="bg-[var(--color-surface)] pb-8">
         <Container>
           <div className="max-w-3xl text-[14px] md:text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
             <p>{corridor.intro}</p>
@@ -212,7 +212,7 @@ export default async function CorridorPage({ params }: Props) {
           </p>
 
           {quotes.length > 0 ? (
-            <div className="bg-white border border-[var(--color-outline)] rounded-xl overflow-hidden">
+            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
               {/* Header */}
               <div className="grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] sm:text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 <span>#</span>
@@ -322,7 +322,7 @@ export default async function CorridorPage({ params }: Props) {
             <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6">
               Best provider for {fromCurrency} to {toCurrency} right now
             </h2>
-            <div className="bg-white border border-[var(--color-outline)] rounded-xl p-6 max-w-2xl">
+            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-6 max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0">
                   <Image
@@ -413,7 +413,7 @@ export default async function CorridorPage({ params }: Props) {
         ].filter((c) => c.provider);
 
         return (
-          <section className="py-10 bg-white border-t border-[var(--color-outline)]">
+          <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
             <Container>
               <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
                 Best provider for each transfer type
@@ -431,7 +431,7 @@ export default async function CorridorPage({ params }: Props) {
                       <div className="text-[24px] mb-2">{cat.icon}</div>
                       <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{cat.label}</p>
                       <div className="flex items-center gap-2.5 mb-2">
-                        <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center relative">
+                        <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface)] flex items-center justify-center relative">
                           <Image src={logo} alt={name} width={32} height={32} className="object-cover" />
                         </div>
                         <p className="text-[14px] font-medium text-[var(--color-on-surface)]">{name}</p>
@@ -470,7 +470,7 @@ export default async function CorridorPage({ params }: Props) {
                       Send {sendSymbol}{amount.toLocaleString()}
                     </h3>
                     {exQuotes.length > 0 ? (
-                      <div className="bg-white border border-[var(--color-outline)] rounded-xl overflow-hidden">
+                      <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
                         <div className="grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 px-4 sm:px-5 py-2.5 bg-[var(--color-surface-container)] text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                           <span>Provider</span>
                           <span className="text-right">Fee</span>
@@ -574,7 +574,7 @@ export default async function CorridorPage({ params }: Props) {
             {(fastProviders.length > 0 || standardProviders.length > 0) && (
               <div className="grid sm:grid-cols-2 gap-4">
                 {fastProviders.length > 0 && (
-                  <div className="bg-white border border-[var(--color-outline)] rounded-xl p-5">
+                  <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-5">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-[11px] text-[var(--color-success)] border border-[var(--color-success)] rounded px-1.5 py-0 leading-[18px] font-medium">Fast</span>
                       <span className="text-[13px] font-medium text-[var(--color-on-surface)]">Express delivery</span>
@@ -590,7 +590,7 @@ export default async function CorridorPage({ params }: Props) {
                   </div>
                 )}
                 {standardProviders.length > 0 && (
-                  <div className="bg-white border border-[var(--color-outline)] rounded-xl p-5">
+                  <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-5">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-[13px] font-medium text-[var(--color-on-surface)]">Standard delivery</span>
                     </div>
@@ -611,7 +611,7 @@ export default async function CorridorPage({ params }: Props) {
       </section>
 
       {/* ─── FAQ ─── */}
-      <section className="py-10 bg-white border-t border-[var(--color-outline)]">
+      <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6">

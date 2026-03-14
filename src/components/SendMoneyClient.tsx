@@ -61,7 +61,7 @@ function FilterDropdown({
         </svg>
       </button>
       {open && (
-        <div role="listbox" className="absolute top-full left-0 mt-1 bg-white border border-[var(--color-outline)] rounded-xl shadow-lg z-40 min-w-[200px] py-1">
+        <div role="listbox" className="absolute top-full left-0 mt-1 bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl shadow-lg z-40 min-w-[200px] py-1">
           {children(() => setOpen(false))}
         </div>
       )}
@@ -243,7 +243,7 @@ function SendMoneyContent() {
   return (
     <Container>
       {/* Search bar — clean, minimal, Google Flights-inspired */}
-      <div className="rounded-2xl border border-[var(--color-outline)] bg-white shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-3">
+      <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-3">
         <div className="flex flex-col lg:flex-row">
           {/* You send — amount + currency */}
           <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-4 sm:px-5 lg:pr-8 py-3 sm:py-4 min-w-0">
@@ -274,7 +274,7 @@ function SendMoneyContent() {
           <div className="hidden lg:flex items-center -mx-5 z-10">
             <button
               onClick={swap}
-              className="w-10 h-10 rounded-full bg-white border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
+              className="w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
               aria-label="Swap currencies"
             >
               <svg className="w-[18px] h-[18px] text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -287,7 +287,7 @@ function SendMoneyContent() {
           <div className="flex lg:hidden items-center justify-center -my-3 z-10">
             <button
               onClick={swap}
-              className="w-9 h-9 rounded-full bg-white border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
+              className="w-9 h-9 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
               aria-label="Swap currencies"
             >
               <svg className="w-4 h-4 text-[var(--color-on-surface-variant)] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -446,7 +446,7 @@ function SendMoneyContent() {
           className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] font-medium transition-colors rounded-l-xl ${
             sortBy === "receiveAmount"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-[inset_0_-3px_0_var(--color-primary)]"
-              : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
+              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
           Best value
@@ -458,7 +458,7 @@ function SendMoneyContent() {
           className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] ${
             sortBy === "fee"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
-              : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
+              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
           Lowest fees
@@ -475,7 +475,7 @@ function SendMoneyContent() {
           className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] rounded-r-xl ${
             sortBy === "rating"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
-              : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
+              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
           Top rated
@@ -519,7 +519,7 @@ function SendMoneyContent() {
       {/* Results list */}
       <div className="mt-4 mb-12">
         {filteredQuotes.length > 0 ? (
-          <div className="rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] bg-white">
+          <div className="rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
             {filteredQuotes.map((quote, index) => (
               <ProviderCard
                 key={quote.providerSlug}
@@ -534,7 +534,7 @@ function SendMoneyContent() {
             ))}
           </div>
         ) : (
-          <div className="py-16 text-center bg-white rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)]">
+          <div className="py-16 text-center bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)]">
             <svg className="w-12 h-12 text-[var(--color-outline)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -618,7 +618,7 @@ function SendMoneyContent() {
               </button>
             </div>
 
-            <div className="border border-[var(--color-outline)] rounded-2xl overflow-hidden bg-white shadow-[var(--shadow-sm)]">
+            <div className="border border-[var(--color-outline)] rounded-2xl overflow-hidden bg-[var(--color-surface)] shadow-[var(--shadow-sm)]">
               {/* Provider headers */}
               <div className="grid grid-cols-[1fr_1fr] border-b border-[var(--color-outline)]">
                 {[{ quote: quoteA, name: nameA, logo: logoA, prov: provA }, { quote: quoteB, name: nameB, logo: logoB, prov: provB }].map(({ quote: q, name, logo, prov }, i) => (
@@ -693,7 +693,7 @@ function SendMoneyContent() {
 
       {/* Sticky compare bar */}
       {compareList.length > 0 && compareList.length < 2 && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-[var(--color-outline)] shadow-[0_-4px_16px_rgba(32,33,36,0.12)]">
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] border-t border-[var(--color-outline)] shadow-[0_-4px_16px_rgba(32,33,36,0.12)]">
           <div className="max-w-[1120px] mx-auto px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/50">

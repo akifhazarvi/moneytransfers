@@ -125,7 +125,7 @@ export default function CurrencyConverterClient() {
   return (
     <Container className="py-8">
       {/* Converter Card — custom wrapper for resting shadow */}
-      <div className="bg-white border border-[var(--color-outline)] rounded-2xl shadow-[0_1px_4px_rgba(32,33,36,0.1)] mb-8">
+      <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl shadow-[0_1px_4px_rgba(32,33,36,0.1)] mb-8">
         {/* Base Currency Row */}
         <div className="px-5 md:px-6 pt-4 pb-3">
           <div className="flex items-center justify-between mb-2">
@@ -192,7 +192,7 @@ export default function CurrencyConverterClient() {
               <div className={`mx-5 md:mx-6 transition-all ${isDragOver ? "h-[3px] bg-[var(--color-primary)] rounded-full shadow-[0_0_8px_rgba(26,115,232,0.4)]" : `h-[2px] rounded-full ${isFirst ? "bg-[var(--color-primary)]" : "bg-[var(--color-primary)]/40"}`}`} />
 
               <div
-                className={`px-5 md:px-6 py-3.5 cursor-pointer transition-all ${isExpanded ? "bg-[var(--color-primary-surface)]" : "bg-[#f7f9ff] hover:bg-[var(--color-primary-surface)]/50"}`}
+                className={`px-5 md:px-6 py-3.5 cursor-pointer transition-all ${isExpanded ? "bg-[var(--color-primary-surface)]" : "bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)]/50"}`}
                 onClick={(e) => {
                   const tag = (e.target as HTMLElement).closest("button, a, select, input, [role='listbox']");
                   if (tag) return;
@@ -205,7 +205,7 @@ export default function CurrencyConverterClient() {
                     className="cursor-grab active:cursor-grabbing shrink-0 touch-none"
                     title="Drag to reorder"
                   >
-                    <svg className="w-4 h-4 text-[#9aa0a6]" fill="currentColor" viewBox="0 0 16 16">
+                    <svg className="w-4 h-4 text-[var(--color-on-surface-variant)]" fill="currentColor" viewBox="0 0 16 16">
                       <circle cx="5" cy="3" r="1.2" />
                       <circle cx="11" cy="3" r="1.2" />
                       <circle cx="5" cy="8" r="1.2" />
@@ -230,7 +230,7 @@ export default function CurrencyConverterClient() {
                   {/* Swap to top — swaps with base currency */}
                   <button
                     onClick={() => pinToTop(target.id)}
-                    className="w-8 h-8 flex items-center justify-center rounded-full text-[#9aa0a6] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors shrink-0"
+                    className="w-8 h-8 flex items-center justify-center rounded-full text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors shrink-0"
                     aria-label="Make this the base currency"
                     title="Swap to top"
                   >
@@ -243,7 +243,7 @@ export default function CurrencyConverterClient() {
                   {/* Remove button */}
                   <button
                     onClick={() => removeTarget(target.id)}
-                    className="w-8 h-8 flex items-center justify-center rounded-full text-[#9aa0a6] hover:text-[var(--color-danger)] hover:bg-red-50 transition-colors shrink-0"
+                    className="w-8 h-8 flex items-center justify-center rounded-full text-[var(--color-on-surface-variant)] hover:text-[var(--color-danger)] hover:bg-[var(--color-danger-surface)] transition-colors shrink-0"
                     aria-label={`Remove ${target.code}`}
                     title="Remove"
                   >
@@ -315,7 +315,7 @@ export default function CurrencyConverterClient() {
                 setFromCurrency(pair.from);
                 setTargets([{ id: genId(), code: pair.to }]);
               }}
-              className="bg-white rounded-xl border border-[var(--color-outline)] p-4 hover:shadow-[0_1px_6px_rgba(32,33,36,0.18)] transition-shadow text-left"
+              className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] p-4 hover:shadow-[0_1px_6px_rgba(32,33,36,0.18)] transition-shadow text-left"
             >
               <p className="text-[14px] font-medium text-[var(--color-on-surface)] flex items-center gap-1">
                 <CircleFlag code={pair.from} size={16} /> {pair.from} → <CircleFlag code={pair.to} size={16} /> {pair.to}

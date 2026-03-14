@@ -10,7 +10,7 @@ interface Props {
 }
 
 const base =
-  "bg-white border rounded-2xl transition-all hover:shadow-[0_2px_12px_rgba(32,33,36,0.12)]";
+  "bg-[var(--color-surface)] border rounded-2xl transition-all hover:shadow-[0_2px_12px_rgba(32,33,36,0.12)]";
 
 export default function Card({ children, href, className = "", highlight = false, id }: Props) {
   const border = highlight

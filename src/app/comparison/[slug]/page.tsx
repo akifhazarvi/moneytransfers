@@ -206,7 +206,7 @@ function ArticleComparison({
               <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
                 Live comparison: {a.name} vs {b.name} across popular corridors
               </h3>
-              <div className="bg-white rounded-lg overflow-hidden border border-[var(--color-outline)]">
+              <div className="bg-[var(--color-surface)] rounded-lg overflow-hidden border border-[var(--color-outline)]">
                 <table className="w-full text-[13px]">
                   <thead className="bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
                     <tr>
@@ -431,7 +431,7 @@ function ArticleComparison({
                 </p>
                 <Link
                   href="/send-money"
-                  className="block text-center bg-white text-[var(--color-primary)] px-4 py-2.5 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
+                  className="block text-center bg-[var(--color-surface)] text-[var(--color-primary)] px-4 py-2.5 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
                 >
                   Compare Rates
                 </Link>
@@ -517,7 +517,7 @@ function DefaultComparison({
               { provider: a, quote: quotesA },
               { provider: b, quote: quotesB },
             ].map(({ provider, quote }) => (
-              <div key={provider.slug} className="bg-white rounded-lg p-4">
+              <div key={provider.slug} className="bg-[var(--color-surface)] rounded-lg p-4">
                 <p className="text-[13px] text-[var(--color-on-surface-variant)]">{provider.name}</p>
                 <p className="text-[18px] font-medium text-[var(--color-success)]">₹{quote.receiveAmount.toLocaleString()}</p>
                 <p className="text-[12px] text-[var(--color-on-surface-variant)]">Fee: ${quote.fee.toFixed(2)} | Rate: {quote.exchangeRate}</p>

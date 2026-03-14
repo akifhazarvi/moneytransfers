@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <>
       {/* ─── 1. HERO ─── */}
-      <section className="bg-white pt-14 pb-12">
+      <section className="bg-[var(--color-surface)] pt-14 pb-12">
         <Container>
           <div className="text-center mb-10">
             <h1 className="text-[28px] sm:text-[36px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px] max-w-3xl mx-auto">
@@ -131,7 +131,7 @@ export default function Home() {
                 desc: "Click through to the provider that gives your recipient the most money. It takes minutes to set up your first transfer.",
               },
             ].map((item) => (
-              <div key={item.step} className="bg-white rounded-2xl border border-[var(--color-outline)] p-6 shadow-[var(--shadow-sm)]">
+              <div key={item.step} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 shadow-[var(--shadow-sm)]">
                 <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-[14px] font-semibold flex items-center justify-center mb-4">
                   {item.step}
                 </div>
@@ -277,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* ─── 7. FAQ ─── */}
-      <section className="py-12 bg-white border-t border-[var(--color-outline)]">
+      <section className="py-12 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] text-center mb-8">

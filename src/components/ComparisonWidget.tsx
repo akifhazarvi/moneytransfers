@@ -35,7 +35,7 @@ export default function ComparisonWidget({
 
   if (compact) {
     const inputClass =
-      "w-full h-12 border border-[var(--color-outline)] rounded-lg px-4 text-[14px] bg-white text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors";
+      "w-full h-12 border border-[var(--color-outline)] rounded-lg px-4 text-[14px] bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors";
     return (
       <form onSubmit={handleCompare}>
         <div className="grid grid-cols-1 gap-3">
@@ -45,13 +45,13 @@ export default function ComparisonWidget({
           </div>
           <div>
             <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">From</label>
-            <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-white">
+            <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-[var(--color-surface)]">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="compact" />
             </div>
           </div>
           <div>
             <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">To</label>
-            <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-white">
+            <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-[var(--color-surface)]">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function ComparisonWidget({
   return (
     <form onSubmit={handleCompare}>
       {/* Google Flights-style connected search bar */}
-      <div className="rounded-2xl border border-[var(--color-outline)] bg-white shadow-[var(--shadow-md)]">
+      <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)]">
         <div className="flex flex-col md:flex-row items-stretch">
           {/* Amount */}
           <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">

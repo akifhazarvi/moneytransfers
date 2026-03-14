@@ -29,7 +29,7 @@ export default function BestTransferToday({
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[var(--shadow-sm)]">
+      <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[var(--shadow-sm)]">
         {/* Table header */}
         <div className="grid grid-cols-[1fr_90px_80px_110px] sm:grid-cols-[1fr_110px_100px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] sm:text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
           <span>Provider</span>

@@ -60,7 +60,7 @@ export default function GuidesPage() {
         href={`/guides/${featured.slug}`}
         className="block bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-2xl p-8 md:p-12 mb-8 text-white hover:shadow-lg transition-shadow"
       >
-        <span className="text-[12px] font-medium bg-white/20 px-3 py-1 rounded-full">
+        <span className="text-[12px] font-medium bg-[var(--color-surface)]/20 px-3 py-1 rounded-full">
           Featured Guide
         </span>
         <h2 className="text-[24px] md:text-[30px] font-normal mt-4 mb-3">
@@ -73,7 +73,7 @@ export default function GuidesPage() {
           <span className="text-[13px] text-white/60">
             {featured.readTime}
           </span>
-          <span className="bg-white text-[var(--color-primary)] px-6 py-2 rounded-full text-[13px] font-medium">
+          <span className="bg-[var(--color-surface)] text-[var(--color-primary)] px-6 py-2 rounded-full text-[13px] font-medium">
             Read Guide
           </span>
         </div>
@@ -149,7 +149,7 @@ export default function GuidesPage() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="flex-1 border border-[var(--color-outline)] rounded-full px-4 py-3 text-[14px] bg-white focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+            className="flex-1 border border-[var(--color-outline)] rounded-full px-4 py-3 text-[14px] bg-[var(--color-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
           />
           <button className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-all whitespace-nowrap">
             Subscribe

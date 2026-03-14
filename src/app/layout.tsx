@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ForexTicker from "@/components/ForexTicker";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -96,6 +97,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
@@ -111,10 +117,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <Header />
-        <main className="min-h-screen pb-10">{children}</main>
-        <Footer />
-        <ForexTicker />
+        <ThemeProvider>
+          <Header />
+          <main className="min-h-screen pb-10">{children}</main>
+          <Footer />
+          <ForexTicker />
+        </ThemeProvider>
       </body>
     </html>
   );

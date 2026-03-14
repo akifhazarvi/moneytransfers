@@ -83,7 +83,7 @@ export default function ExchangeRatesPage() {
       <LiveRatesBoard />
 
       {/* SEO Content Sections */}
-      <div className="bg-white py-12 sm:py-16">
+      <div className="bg-[var(--color-surface)] py-12 sm:py-16">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
 
           {/* Popular Corridors */}

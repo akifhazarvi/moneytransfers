@@ -6,11 +6,11 @@ interface Props {
 export default function ProsConsList({ type, items }: Props) {
   const isPros = type === "pros";
   const title = isPros ? "Pros" : "Cons";
-  const iconBg = isPros ? "bg-[#e6f4ea]" : "bg-[#fce8e6]";
+  const iconBg = isPros ? "bg-[var(--color-success-surface)]" : "bg-[var(--color-danger-surface)]";
   const iconColor = isPros ? "text-[var(--color-success)]" : "text-[var(--color-danger)]";
 
   return (
-    <div className="bg-white rounded-xl border border-[var(--color-outline)] p-6">
+    <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] p-6">
       <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4 flex items-center gap-2">
         <span className={`w-6 h-6 ${iconBg} ${iconColor} rounded-full flex items-center justify-center text-[12px]`}>
           {isPros ? "✓" : "✕"}

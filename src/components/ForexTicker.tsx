@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import ratesData from "@/data/scraped/xe-midmarket-rates.json";
 
@@ -24,8 +25,7 @@ function formatRate(rate: number): string {
   return rate.toFixed(4);
 }
 
-function getRate(from: string, to: string): string {
-  const rates = ratesData.rates as Record<string, number>;
+function calcRate(from: string, to: string, rates: Record<string, number>): string {
   if (from === "USD") {
     const r = rates[to];
     if (!r) return "\u2014";
@@ -36,10 +36,32 @@ function getRate(from: string, to: string): string {
   return formatRate(1 / fromRate);
 }
 
+// Static rates as initial/fallback (from scraped data)
+const staticRates = ratesData.rates as Record<string, number>;
+
 export default function ForexTicker() {
+  const [liveRates, setLiveRates] = useState<Record<string, number>>(staticRates);
+
+  const fetchLiveRates = useCallback(async () => {
+    try {
+      const res = await fetch("https://open.er-api.com/v6/latest/USD");
+      if (!res.ok) return;
+      const data = await res.json();
+      if (data.rates) setLiveRates(data.rates as Record<string, number>);
+    } catch {
+      // Keep current rates on failure
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchLiveRates();
+    const interval = setInterval(fetchLiveRates, 60_000);
+    return () => clearInterval(interval);
+  }, [fetchLiveRates]);
+
   const items = forexPairs.map((pair) => ({
     ...pair,
-    rate: getRate(pair.from, pair.to),
+    rate: calcRate(pair.from, pair.to, liveRates),
   }));
 
   // Duplicate for seamless loop

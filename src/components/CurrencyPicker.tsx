@@ -175,7 +175,7 @@ export default function CurrencyPicker({
       <FloatingDropdown anchorRef={btnRef} open={open} position={position}>
         <div
           id={portalId}
-          className="bg-white rounded-xl border border-[var(--color-outline)] shadow-[0_4px_16px_rgba(32,33,36,0.18)] w-[280px] max-h-[320px] flex flex-col overflow-hidden"
+          className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[0_4px_16px_rgba(32,33,36,0.18)] w-[280px] max-h-[320px] flex flex-col overflow-hidden"
         >
           <div className="p-2 border-b border-[var(--color-outline)]">
             <input
@@ -273,7 +273,7 @@ export function AddCurrencyPicker({
       <FloatingDropdown anchorRef={btnRef} open={open} position="above">
         <div
           id="add-currency-portal"
-          className="bg-white rounded-xl border border-[var(--color-outline)] shadow-[0_4px_16px_rgba(32,33,36,0.18)] w-[280px] max-h-[320px] flex flex-col overflow-hidden"
+          className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[0_4px_16px_rgba(32,33,36,0.18)] w-[280px] max-h-[320px] flex flex-col overflow-hidden"
         >
           <div className="p-2 border-b border-[var(--color-outline)]">
             <input

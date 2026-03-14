@@ -21,7 +21,7 @@ export default function CrossLinks({ sections, background = "dim" }: CrossLinksP
 
   const bg =
     background === "white"
-      ? "bg-white border-t border-[var(--color-outline)]"
+      ? "bg-[var(--color-surface)] border-t border-[var(--color-outline)]"
       : "bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]";
 
   return (

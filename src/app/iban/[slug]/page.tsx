@@ -249,7 +249,7 @@ export default async function IbanCountryPage({ params }: Props) {
                       </span>
                     </div>
                     {field.regex && (
-                      <code className="text-[12px] text-[var(--color-on-surface-variant)] font-mono bg-white px-2 py-1 rounded border border-[var(--color-outline)]">
+                      <code className="text-[12px] text-[var(--color-on-surface-variant)] font-mono bg-[var(--color-surface)] px-2 py-1 rounded border border-[var(--color-outline)]">
                         {field.regex}
                       </code>
                     )}
@@ -274,7 +274,7 @@ export default async function IbanCountryPage({ params }: Props) {
                     key={bank.slug}
                     className="flex items-center gap-3 p-3 bg-[var(--color-surface-dim)] rounded-lg"
                   >
-                    <div className="w-8 h-8 bg-white rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-[12px] font-medium text-[var(--color-primary)] shrink-0">
+                    <div className="w-8 h-8 bg-[var(--color-surface)] rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-[12px] font-medium text-[var(--color-primary)] shrink-0">
                       {bank.name.charAt(0)}
                     </div>
                     <span className="text-[14px] text-[var(--color-on-surface)] truncate">{bank.name}</span>

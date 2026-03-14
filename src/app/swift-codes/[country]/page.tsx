@@ -171,7 +171,7 @@ export default async function SwiftCountryPage({ params }: Props) {
                     key={bank.slug}
                     className="flex items-center gap-3 p-3 bg-[var(--color-surface-dim)] rounded-lg"
                   >
-                    <div className="w-8 h-8 bg-white rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-[12px] font-medium text-[var(--color-primary)] shrink-0">
+                    <div className="w-8 h-8 bg-[var(--color-surface)] rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-[12px] font-medium text-[var(--color-primary)] shrink-0">
                       {bank.name.charAt(0)}
                     </div>
                     <span className="text-[14px] text-[var(--color-on-surface)] truncate">
