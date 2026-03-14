@@ -114,17 +114,23 @@ async function scrapeDom(
     const bodyText = await page.locator("body").textContent({ timeout: 3000 });
     if (!bodyText) return null;
 
-    const rateMatch =
-      bodyText.match(/1\s*[A-Z]{3}\s*=\s*([\d,.]+)\s*[A-Z]{3}/) ||
-      bodyText.match(/(?:Exchange\s*Rate|Rate)[:\s]*([\d,.]+)/i);
     const feeMatch = bodyText.match(/(?:Fee|Transfer fee|No fee)[:\s$]*([\d,.]+)/i);
 
-    const receivePattern = new RegExp(`([\\d,]+(?:\\.\\d{2})?)\\s*${receiveCurrency}`, "g");
+    // Match rate for the specific corridor: "1 USD = XX.XX INR"
+    const corridorRateRegex = new RegExp(
+      `1\\s*${sendCurrency}\\s*=\\s*([\\d,.]+)\\s*${receiveCurrency}`
+    );
+    const rateMatch = bodyText.match(corridorRateRegex) ||
+      bodyText.match(new RegExp(`(?:Exchange\\s*Rate|Rate)[:\\s]*(\\d[\\d,.]+)\\s*${receiveCurrency}`, "i"));
+
+    // Find receive amount with the target currency
+    const receivePattern = new RegExp(`([\\d,]+(?:\\.\\d{1,4})?)\\s*${receiveCurrency}`, "g");
     let receiveAmount = 0;
     let match;
     while ((match = receivePattern.exec(bodyText)) !== null) {
       const num = parseNumber(match[1]);
-      if (num > receiveAmount) receiveAmount = num;
+      // Filter out tiny values (like "1 INR") — receive should be proportional to send
+      if (num > amount * 0.01 && num > receiveAmount) receiveAmount = num;
     }
 
     const rate = rateMatch ? parseNumber(rateMatch[1]) : 0;
@@ -132,8 +138,8 @@ async function scrapeDom(
 
     if (!rate && !receiveAmount) return null;
 
-    const effectiveRate = rate || receiveAmount / amount;
-    const effectiveReceive = receiveAmount || amount * rate;
+    const effectiveRate = rate || (receiveAmount > 0 ? receiveAmount / amount : 0);
+    const effectiveReceive = receiveAmount || (rate > 0 ? amount * rate : 0);
 
     return {
       provider: "XE",

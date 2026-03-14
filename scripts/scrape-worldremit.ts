@@ -290,13 +290,16 @@ async function scrapeDom(
       .textContent({ timeout: 3000 });
     if (!bodyText) return null;
 
-    // Look for "They get" followed by a number, or "1 USD = XX.XX INR"
+    // Look for "They get" followed by a number with the target currency
     const receiveMatch = bodyText.match(
-      /They\s+get\s*[\s\S]*?([\d,]+(?:\.\d+)?)\s*[A-Z]{3}/i
+      new RegExp(`They\\s+get[\\s\\S]*?([\\d,]+(?:\\.\\d+)?)\\s*${receiveCurrency}`, "i")
     );
-    const rateMatch = bodyText.match(/1\s*[A-Z]{3}\s*=\s*([\d,.]+)/);
+    // Match rate for the specific corridor: "1 USD = XX.XX INR"
+    const rateMatch = bodyText.match(
+      new RegExp(`1\\s*${sendCurrency}\\s*=\\s*([\\d,.]+)\\s*${receiveCurrency}`)
+    );
     const feeMatch = bodyText.match(
-      /(?:fee|Fee)[^0-9]*([\d,.]+)\s*[A-Z]{3}/
+      new RegExp(`(?:fee|Fee)[^0-9]*([\\d,.]+)\\s*${sendCurrency}`)
     );
 
     const receiveAmount = receiveMatch
@@ -307,8 +310,8 @@ async function scrapeDom(
 
     if (!receiveAmount && !rate) return null;
 
-    const effectiveRate = rate || receiveAmount / amount;
-    const effectiveReceive = receiveAmount || amount * rate;
+    const effectiveRate = rate || (receiveAmount > 0 ? receiveAmount / amount : 0);
+    const effectiveReceive = receiveAmount || (rate > 0 ? amount * rate : 0);
 
     return {
       provider: "WorldRemit",

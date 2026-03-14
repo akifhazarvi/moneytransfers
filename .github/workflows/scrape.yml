@@ -90,16 +90,6 @@ jobs:
         timeout-minutes: 15
         continue-on-error: true
 
-      - name: Scrape Revolut (browser)
-        run: npx tsx scripts/scrape-revolut.ts
-        timeout-minutes: 15
-        continue-on-error: true
-
-      - name: Scrape Xoom/PayPal (browser)
-        run: npx tsx scripts/scrape-xoom.ts
-        timeout-minutes: 15
-        continue-on-error: true
-
       - name: Upload scraped data
         uses: actions/upload-artifact@v4
         with:
@@ -124,20 +114,44 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
-      - name: Scrape MoneyTransfers.com (browser)
-        run: npx tsx scripts/scrape-moneytransfers.ts
-        timeout-minutes: 20
+      - name: Scrape Revolut (browser)
+        run: npx tsx scripts/scrape-revolut.ts
+        timeout-minutes: 15
         continue-on-error: true
 
-      - name: Scrape RemitFinder (browser)
-        run: npx tsx scripts/scrape-remitfinder.ts
-        timeout-minutes: 20
+      - name: Scrape Xoom/PayPal (browser)
+        run: npx tsx scripts/scrape-xoom.ts
+        timeout-minutes: 15
         continue-on-error: true
 
       - name: Scrape Ria Money Transfer (browser)
         run: npx tsx scripts/scrape-ria.ts
         timeout-minutes: 15
         continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-browsers-2
+          path: src/data/scraped/
+          retention-days: 1
+
+  scrape-browsers-3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
 
       - name: Scrape XE Money Transfer (browser)
         run: npx tsx scripts/scrape-xe-transfer.ts
@@ -162,13 +176,13 @@ jobs:
       - name: Upload scraped data
         uses: actions/upload-artifact@v4
         with:
-          name: scraped-browsers-2
+          name: scraped-browsers-3
           path: src/data/scraped/
           retention-days: 1
 
   commit-data:
     runs-on: ubuntu-latest
-    needs: [scrape-api, scrape-browsers-1, scrape-browsers-2]
+    needs: [scrape-api, scrape-browsers-1, scrape-browsers-2, scrape-browsers-3]
     if: always()
     timeout-minutes: 5
 
@@ -193,6 +207,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: scraped-browsers-2
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download browser scraper results (batch 3)
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-browsers-3
           path: src/data/scraped/
         continue-on-error: true
 

@@ -169,12 +169,32 @@ async function scrapeCorridorAmount(
       }
     }
 
-    // Fill amount
-    await fillAmountInput(page, amount, [
+    // Fill amount — clear the field fully first to avoid concatenation
+    const amountSelectors = [
       'input[inputmode="numeric"]',
       'input[type="number"]',
       'input[type="tel"]',
-    ]);
+    ];
+    for (const sel of amountSelectors) {
+      try {
+        const input = page.locator(sel).first();
+        if (await input.isVisible({ timeout: 2000 })) {
+          await input.click({ clickCount: 3 });
+          await delay(100);
+          await input.press("Control+a");
+          await delay(100);
+          await input.press("Backspace");
+          await delay(200);
+          for (const char of String(amount)) {
+            await input.press(char);
+            await delay(60);
+          }
+          break;
+        }
+      } catch {
+        continue;
+      }
+    }
 
     // Wait for quote API response
     await delay(4000);

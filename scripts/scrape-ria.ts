@@ -1,12 +1,11 @@
 /**
  * Ria Money Transfer Browser Automation Scraper
  *
- * Ria has a calculator at https://www.riamoneytransfer.com/en/us/
- * When you change the amount/corridor, it calls their pricing API.
+ * Ria has a rates-conversion page at:
+ * https://www.riamoneytransfer.com/en-us/rates-conversion/?From=USD&To=INR&Amount=1000
  *
- * Strategy: Navigate to calculator → intercept API calls for pricing/quotes →
- * fill amount → capture response with rate, fee, receive amount.
- * Fallback: DOM scraping for displayed values.
+ * Strategy: Navigate directly to the rates page with query params →
+ * intercept API responses with pricing data → fallback to DOM scraping.
  */
 import {
   OUTPUT_DIR,
@@ -17,7 +16,6 @@ import {
   jitteredDelay,
   dismissOverlays,
   setupBrowserContext,
-  fillAmountInput,
   withRetry,
   writeOutput,
   parseNumber,
@@ -25,34 +23,32 @@ import {
 } from "./lib/browser";
 import type { BrowserContext, Page } from "playwright";
 
-// Ria URL pattern: /en/{sendCountryCode}/ then select destination
-// Or direct: /en/us/online/transfer/{from}/{to}
 const CORRIDORS = [
-  { from: "USD", to: "INR", sendCountry: "us", recvCountry: "india", recvCode: "IN" },
-  { from: "USD", to: "PHP", sendCountry: "us", recvCountry: "philippines", recvCode: "PH" },
-  { from: "USD", to: "MXN", sendCountry: "us", recvCountry: "mexico", recvCode: "MX" },
-  { from: "USD", to: "NGN", sendCountry: "us", recvCountry: "nigeria", recvCode: "NG" },
-  { from: "USD", to: "PKR", sendCountry: "us", recvCountry: "pakistan", recvCode: "PK" },
-  { from: "USD", to: "BDT", sendCountry: "us", recvCountry: "bangladesh", recvCode: "BD" },
-  { from: "USD", to: "GHS", sendCountry: "us", recvCountry: "ghana", recvCode: "GH" },
-  { from: "USD", to: "KES", sendCountry: "us", recvCountry: "kenya", recvCode: "KE" },
-  { from: "USD", to: "BRL", sendCountry: "us", recvCountry: "brazil", recvCode: "BR" },
-  { from: "USD", to: "COP", sendCountry: "us", recvCountry: "colombia", recvCode: "CO" },
-  { from: "USD", to: "GTQ", sendCountry: "us", recvCountry: "guatemala", recvCode: "GT" },
-  { from: "GBP", to: "INR", sendCountry: "gb", recvCountry: "india", recvCode: "IN" },
-  { from: "GBP", to: "NGN", sendCountry: "gb", recvCountry: "nigeria", recvCode: "NG" },
-  { from: "GBP", to: "PKR", sendCountry: "gb", recvCountry: "pakistan", recvCode: "PK" },
-  { from: "GBP", to: "PHP", sendCountry: "gb", recvCountry: "philippines", recvCode: "PH" },
-  { from: "EUR", to: "INR", sendCountry: "de", recvCountry: "india", recvCode: "IN" },
-  { from: "EUR", to: "NGN", sendCountry: "de", recvCountry: "nigeria", recvCode: "NG" },
-  { from: "EUR", to: "PHP", sendCountry: "de", recvCountry: "philippines", recvCode: "PH" },
-  { from: "CAD", to: "INR", sendCountry: "ca", recvCountry: "india", recvCode: "IN" },
-  { from: "CAD", to: "PHP", sendCountry: "ca", recvCountry: "philippines", recvCode: "PH" },
-  { from: "AUD", to: "INR", sendCountry: "au", recvCountry: "india", recvCode: "IN" },
-  { from: "AUD", to: "PHP", sendCountry: "au", recvCountry: "philippines", recvCode: "PH" },
+  { from: "USD", to: "INR", locale: "en-us" },
+  { from: "USD", to: "PHP", locale: "en-us" },
+  { from: "USD", to: "MXN", locale: "en-us" },
+  { from: "USD", to: "NGN", locale: "en-us" },
+  { from: "USD", to: "PKR", locale: "en-us" },
+  { from: "USD", to: "BDT", locale: "en-us" },
+  { from: "USD", to: "GHS", locale: "en-us" },
+  { from: "USD", to: "KES", locale: "en-us" },
+  { from: "USD", to: "BRL", locale: "en-us" },
+  { from: "USD", to: "COP", locale: "en-us" },
+  { from: "USD", to: "GTQ", locale: "en-us" },
+  { from: "GBP", to: "INR", locale: "en-gb" },
+  { from: "GBP", to: "NGN", locale: "en-gb" },
+  { from: "GBP", to: "PKR", locale: "en-gb" },
+  { from: "GBP", to: "PHP", locale: "en-gb" },
+  { from: "EUR", to: "INR", locale: "en-de" },
+  { from: "EUR", to: "NGN", locale: "en-de" },
+  { from: "EUR", to: "PHP", locale: "en-de" },
+  { from: "CAD", to: "INR", locale: "en-ca" },
+  { from: "CAD", to: "PHP", locale: "en-ca" },
+  { from: "AUD", to: "INR", locale: "en-au" },
+  { from: "AUD", to: "PHP", locale: "en-au" },
 ];
 
-function parseRiaApiResponse(
+function parseApiResponse(
   body: string,
   sendCurrency: string,
   receiveCurrency: string,
@@ -60,17 +56,9 @@ function parseRiaApiResponse(
 ): ProviderQuote | null {
   try {
     const data = JSON.parse(body);
-
-    // Ria API can return different shapes. Common patterns:
-    // 1. { exchangeRate, fee, sendAmount, receiveAmount }
-    // 2. { rate, transferFee, amountToSend, amountToReceive }
-    // 3. { quotes: [{ ... }] } or { results: [{ ... }] }
-    // 4. Nested: { data: { exchangeRate, ... } }
-
     const root = data?.data || data?.quote || data?.result || data;
     const quotes = root?.quotes || root?.results || (Array.isArray(root) ? root : null);
 
-    // If array of quotes, pick the bank deposit option
     if (quotes && Array.isArray(quotes)) {
       const bankQuote = quotes.find(
         (q: Record<string, unknown>) =>
@@ -84,7 +72,6 @@ function parseRiaApiResponse(
       }
     }
 
-    // Single quote object
     return extractQuote(root, sendCurrency, receiveCurrency, expectedAmount);
   } catch {
     return null;
@@ -105,8 +92,6 @@ function extractQuote(
     parseFloat(String(obj.sendAmount || obj.amountToSend || obj.send_amount || "0")) || expectedAmount;
   const receiveAmount =
     parseFloat(String(obj.receiveAmount || obj.amountToReceive || obj.receive_amount || obj.recipientAmount || "0"));
-  const deliveryEstimate =
-    (obj.deliveryEstimate as string) || (obj.deliveryTime as string) || (obj.eta as string) || null;
 
   if (!receiveAmount && !rate) return null;
 
@@ -125,7 +110,7 @@ function extractQuote(
     fee: Math.round(fee * 100) / 100,
     exchangeRate: Math.round(effectiveRate * 10000) / 10000,
     receiveAmount: Math.round(effectiveReceive * 100) / 100,
-    deliveryEstimate,
+    deliveryEstimate: null,
     deliveryMethod: null,
     dateCollected: new Date().toISOString(),
     source: "ria-browser",
@@ -139,25 +124,30 @@ async function scrapeDom(
   amount: number
 ): Promise<ProviderQuote | null> {
   try {
-    const bodyText = await page.locator("body").textContent({ timeout: 3000 });
+    // Wait for the page to render rate data
+    await delay(2000);
+
+    const bodyText = await page.locator("body").textContent({ timeout: 5000 });
     if (!bodyText) return null;
 
     // Look for rate pattern: "1 USD = XX.XX INR" or "Exchange Rate: XX.XX"
     const rateMatch =
       bodyText.match(/1\s*[A-Z]{3}\s*=\s*([\d,.]+)\s*[A-Z]{3}/) ||
       bodyText.match(/(?:Exchange\s*Rate|Rate)[:\s]*([\d,.]+)/i);
+
     const feeMatch = bodyText.match(/(?:Fee|Transfer fee|Service fee)[:\s$]*([\d,.]+)/i);
 
-    // Find receive amount
+    // Find receive amount - look for the converted amount
     const receivePattern = new RegExp(
-      `([\\d,]+(?:\\.\\d{2})?)\\s*${receiveCurrency}`,
+      `([\\d,]+(?:\\.\\d{1,4})?)\\s*${receiveCurrency}`,
       "g"
     );
     let receiveAmount = 0;
     let match;
     while ((match = receivePattern.exec(bodyText)) !== null) {
       const num = parseNumber(match[1]);
-      if (num > receiveAmount) receiveAmount = num;
+      // Filter out tiny numbers (like "1 INR") and unreasonably large ones
+      if (num > amount * 0.5 && num > receiveAmount) receiveAmount = num;
     }
 
     const rate = rateMatch ? parseNumber(rateMatch[1]) : 0;
@@ -203,18 +193,19 @@ async function scrapeCorridorAmount(
       if (
         (url.includes("riamoneytransfer.com") || url.includes("riafinancial.com")) &&
         (url.includes("price") || url.includes("quote") || url.includes("calculator") ||
-         url.includes("rate") || url.includes("estimate") || url.includes("transfer"))
+         url.includes("rate") || url.includes("estimate") || url.includes("transfer") ||
+         url.includes("convert") || url.includes("compute"))
       ) {
         try {
           const ct = response.headers()["content-type"] || "";
           if (!ct.includes("json")) return;
           const body = await response.text();
-          // Only parse if body looks like it contains pricing data
           if (
             body.includes("exchangeRate") || body.includes("rate") ||
-            body.includes("receiveAmount") || body.includes("fee")
+            body.includes("receiveAmount") || body.includes("fee") ||
+            body.includes("receive_amount") || body.includes("exchange_rate")
           ) {
-            const parsed = parseRiaApiResponse(body, corridor.from, corridor.to, amount);
+            const parsed = parseApiResponse(body, corridor.from, corridor.to, amount);
             if (parsed && parsed.receiveAmount > 0) {
               capturedQuote = parsed;
             }
@@ -225,79 +216,14 @@ async function scrapeCorridorAmount(
       }
     });
 
-    // Navigate to Ria's calculator page
-    const url = `https://www.riamoneytransfer.com/en/${corridor.sendCountry}/`;
+    // Navigate directly to the rates conversion page with query params
+    const url = `https://www.riamoneytransfer.com/${corridor.locale}/rates-conversion/?From=${corridor.from}&To=${corridor.to}&Amount=${amount}`;
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
     await delay(3000);
     await dismissOverlays(page);
 
-    // Try to select destination country if there's a dropdown
-    const countrySelectors = [
-      `button:has-text("${corridor.recvCountry}")`,
-      `[data-country="${corridor.recvCode}"]`,
-      `select option[value="${corridor.recvCode}"]`,
-    ];
-    for (const sel of countrySelectors) {
-      try {
-        const el = page.locator(sel).first();
-        if (await el.isVisible({ timeout: 1500 })) {
-          await el.click();
-          await delay(1500);
-          break;
-        }
-      } catch {
-        continue;
-      }
-    }
-
-    // Try to find and click destination country in a search/dropdown
-    const searchInputs = [
-      'input[placeholder*="country"]',
-      'input[placeholder*="Country"]',
-      'input[placeholder*="destination"]',
-      'input[placeholder*="Where"]',
-      'input[aria-label*="country"]',
-    ];
-    for (const sel of searchInputs) {
-      try {
-        const input = page.locator(sel).first();
-        if (await input.isVisible({ timeout: 1500 })) {
-          await input.fill(corridor.recvCountry);
-          await delay(1000);
-          // Click matching option
-          await page
-            .locator(`li:has-text("${corridor.recvCountry}"), [role="option"]:has-text("${corridor.recvCountry}")`)
-            .first()
-            .click({ timeout: 2000 });
-          await delay(1500);
-          break;
-        }
-      } catch {
-        continue;
-      }
-    }
-
-    // Fill the send amount
-    const filled = await fillAmountInput(page, amount, [
-      'input[data-testid*="send"]',
-      'input[name*="send"]',
-      'input[id*="send"]',
-      'input[aria-label*="send"]',
-      'input[aria-label*="Send"]',
-      'input[aria-label*="You send"]',
-      'input[placeholder*="send"]',
-      'input[inputmode="decimal"]',
-      'input[inputmode="numeric"]',
-      'input[type="tel"]',
-      'input[type="number"]',
-    ]);
-
-    if (filled) {
-      await page.keyboard.press("Tab");
-    }
-
-    // Wait for API response
-    await delay(5000);
+    // Wait for dynamic content to load
+    await delay(4000);
 
     if (capturedQuote) return capturedQuote;
 
@@ -324,7 +250,7 @@ async function main() {
 
   try {
     for (const corridor of CORRIDORS) {
-      console.log(`\n📍 ${corridor.from} → ${corridor.to} (${corridor.recvCountry})`);
+      console.log(`\n📍 ${corridor.from} → ${corridor.to}`);
 
       for (const amount of SEND_AMOUNTS) {
         console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
@@ -345,7 +271,7 @@ async function main() {
           console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
         }
 
-        await jitteredDelay(3000);
+        await jitteredDelay(2000);
       }
     }
   } finally {
