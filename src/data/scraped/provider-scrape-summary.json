@@ -1,7 +1,7 @@
 {
-  "scrapedAt": "2026-03-13T22:56:33.965Z",
+  "scrapedAt": "2026-03-14T21:47:45.390Z",
   "source": "Wise Comparison API v4 (wise.com/gateway/v4/comparisons)",
-  "totalQuotes": 2215,
+  "totalQuotes": 2225,
   "totalProviders": 42,
   "totalCorridors": 67,
   "sendAmounts": [
@@ -414,7 +414,15 @@
     },
     {
       "corridor": "GBP→INR",
-      "providers": 16
+      "providers": 17
+    },
+    {
+      "corridor": "GBP→INR",
+      "providers": 18
+    },
+    {
+      "corridor": "GBP→INR",
+      "providers": 18
     },
     {
       "corridor": "GBP→INR",
@@ -422,15 +430,7 @@
     },
     {
       "corridor": "GBP→INR",
-      "providers": 17
-    },
-    {
-      "corridor": "GBP→INR",
       "providers": 16
-    },
-    {
-      "corridor": "GBP→INR",
-      "providers": 15
     },
     {
       "corridor": "GBP→PKR",
@@ -554,7 +554,15 @@
     },
     {
       "corridor": "GBP→PHP",
-      "providers": 12
+      "providers": 13
+    },
+    {
+      "corridor": "GBP→PHP",
+      "providers": 14
+    },
+    {
+      "corridor": "GBP→PHP",
+      "providers": 14
     },
     {
       "corridor": "GBP→PHP",
@@ -562,15 +570,7 @@
     },
     {
       "corridor": "GBP→PHP",
-      "providers": 13
-    },
-    {
-      "corridor": "GBP→PHP",
       "providers": 12
-    },
-    {
-      "corridor": "GBP→PHP",
-      "providers": 11
     },
     {
       "corridor": "EUR→GBP",
