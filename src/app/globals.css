@@ -145,3 +145,15 @@ body {
   font-weight: 500;
   color: var(--color-on-surface);
 }
+
+/* Forex ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 35s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
