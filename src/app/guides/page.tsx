@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Money Transfer Guides & Resources | MoneyTransfers",
   description:
     "Expert guides on international money transfers, exchange rates, fees, and how to save money sending money abroad.",
+  alternates: {
+    canonical: "https://moneytransfers.com/guides",
+  },
 };
 
 export default function GuidesPage() {
@@ -16,6 +19,12 @@ export default function GuidesPage() {
 
   return (
     <Container className="py-8">
+      <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+        <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
+        {" / "}
+        <span className="text-[var(--color-on-surface)]">Guides</span>
+      </nav>
+
       <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">
         Guides & Resources
       </h1>
@@ -89,6 +98,36 @@ export default function GuidesPage() {
             </div>
           </Card>
         ))}
+      </div>
+
+      {/* Cross-links */}
+      <div className="mt-12 pt-8 border-t border-[var(--color-outline)]">
+        <div className="grid sm:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Tools</h3>
+            <ul className="space-y-2">
+              <li><Link href="/send-money" className="text-[14px] text-[var(--color-primary)] hover:underline">Compare rates calculator</Link></li>
+              <li><Link href="/compare" className="text-[14px] text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
+              <li><Link href="/currency-converter" className="text-[14px] text-[var(--color-primary)] hover:underline">Currency converter</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Top providers</h3>
+            <ul className="space-y-2">
+              <li><Link href="/companies/wise" className="text-[14px] text-[var(--color-primary)] hover:underline">Wise review</Link></li>
+              <li><Link href="/companies/remitly" className="text-[14px] text-[var(--color-primary)] hover:underline">Remitly review</Link></li>
+              <li><Link href="/companies" className="text-[14px] text-[var(--color-primary)] hover:underline">All provider reviews</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Popular corridors</h3>
+            <ul className="space-y-2">
+              <li><Link href="/send-money/usa-to-india" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to India</Link></li>
+              <li><Link href="/send-money/usa-to-pakistan" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to Pakistan</Link></li>
+              <li><Link href="/send-money/usa-to-philippines" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to Philippines</Link></li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       {/* Newsletter CTA */}

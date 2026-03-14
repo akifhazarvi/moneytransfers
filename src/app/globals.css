@@ -23,10 +23,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Tabular numbers for financial data */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
 body {
   background: var(--color-surface);
   color: var(--color-on-surface);
-  font-family: "Google Sans", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), "Google Sans", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
   line-height: 1.6;
 }
 

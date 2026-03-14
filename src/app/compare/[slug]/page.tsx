@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { providers, generateQuotes } from "@/data/providers";
+import { getGoUrl } from "@/lib/affiliate";
 import { getComparisonArticle } from "@/data/comparison-articles";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
@@ -47,6 +49,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         type: "article",
         modifiedTime: article.updatedAt,
       },
+      alternates: {
+        canonical: `https://moneytransfers.com/compare/${slug}`,
+      },
     };
   }
 
@@ -55,6 +60,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${pair.a.name} vs ${pair.b.name}: Fees, Rates & Features Compared | MoneyTransfers`,
     description: `Compare ${pair.a.name} and ${pair.b.name} side by side. See which offers better exchange rates, lower fees, and faster transfers.`,
+    alternates: {
+      canonical: `https://moneytransfers.com/compare/${slug}`,
+    },
   };
 }
 
@@ -125,7 +133,7 @@ function ArticleComparison({
         <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
           <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
           {" / "}
-          <Link href="/comparison" className="hover:text-[var(--color-primary)]">Compare</Link>
+          <Link href="/compare" className="hover:text-[var(--color-primary)]">Compare</Link>
           {" / "}
           <span className="text-[var(--color-on-surface)]">{a.name} vs {b.name}</span>
         </nav>
@@ -163,7 +171,7 @@ function ArticleComparison({
                 <Card key={provider.slug}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
-                      <img src={provider.logo} alt={provider.name} className="w-full h-full object-cover" />
+                      <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
                     </div>
                     <div>
                       <h2 className="text-[15px] font-medium text-[var(--color-on-surface)]">{provider.name}</h2>
@@ -319,10 +327,12 @@ function ArticleComparison({
                 <div className="bg-[#e6f4ea] border border-[#137333]/20 rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                      <img
-                        src={providers.find((p) => p.slug === article.verdict.largeTransfers.winner)?.logo || ""}
+                      <Image
+                        src={providers.find((p) => p.slug === article.verdict.largeTransfers.winner)?.logo || "/logos/placeholder.png"}
                         alt=""
-                        className="w-full h-full object-cover"
+                        width={32}
+                        height={32}
+                        className="object-cover"
                       />
                     </div>
                     <h3 className="text-[15px] font-medium text-[#137333]">
@@ -336,10 +346,12 @@ function ArticleComparison({
                 <div className="bg-[#e8f0fe] border border-[#1a73e8]/20 rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                      <img
-                        src={providers.find((p) => p.slug === article.verdict.smallTransfers.winner)?.logo || ""}
+                      <Image
+                        src={providers.find((p) => p.slug === article.verdict.smallTransfers.winner)?.logo || "/logos/placeholder.png"}
                         alt=""
-                        className="w-full h-full object-cover"
+                        width={32}
+                        height={32}
+                        className="object-cover"
                       />
                     </div>
                     <h3 className="text-[15px] font-medium text-[#1a73e8]">
@@ -396,7 +408,7 @@ function ArticleComparison({
                 <Card key={provider.slug} className="!p-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
-                      <img src={provider.logo} alt={provider.name} className="w-full h-full object-cover" />
+                      <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
                     </div>
                     <div>
                       <p className="text-[14px] font-medium text-[var(--color-on-surface)]">{provider.name}</p>
@@ -436,6 +448,17 @@ function ArticleComparison({
                   Compare Rates
                 </Link>
               </div>
+
+              {/* Explore more */}
+              <Card className="!p-4">
+                <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-3">Explore</h3>
+                <ul className="space-y-2">
+                  <li><Link href="/send-money/usa-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
+                  <li><Link href="/send-money/usa-to-pakistan" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to Pakistan transfers</Link></li>
+                  <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-[13px] text-[var(--color-primary)] hover:underline">Cheapest way to send money</Link></li>
+                  <li><Link href="/guides" className="text-[13px] text-[var(--color-primary)] hover:underline">All guides</Link></li>
+                </ul>
+              </Card>
             </div>
           </aside>
         </div>
@@ -474,7 +497,7 @@ function DefaultComparison({
       <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
         {" / "}
-        <Link href="/comparison" className="hover:text-[var(--color-primary)]">Compare</Link>
+        <Link href="/compare" className="hover:text-[var(--color-primary)]">Compare</Link>
         {" / "}
         <span className="text-[var(--color-on-surface)]">{a.name} vs {b.name}</span>
       </nav>
@@ -491,7 +514,7 @@ function DefaultComparison({
           <Card key={provider.slug}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
-                <img src={provider.logo} alt={provider.name} className="w-full h-full object-cover" />
+                <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
               </div>
               <div>
                 <h2 className="text-[16px] font-medium text-[var(--color-on-surface)]">{provider.name}</h2>
@@ -553,9 +576,37 @@ function DefaultComparison({
         ))}
       </div>
 
-      <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
+      <div className="bg-[var(--color-surface-dim)] rounded-xl p-6 mb-8">
         <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">Compare rates for your transfer</h3>
         <ComparisonWidget compact />
+      </div>
+
+      {/* Cross-links */}
+      <div className="pt-8 border-t border-[var(--color-outline)]">
+        <div className="grid sm:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Popular corridors</h3>
+            <ul className="space-y-2">
+              <li><Link href="/send-money/usa-to-india" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to India</Link></li>
+              <li><Link href="/send-money/usa-to-pakistan" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to Pakistan</Link></li>
+              <li><Link href="/send-money/uk-to-europe" className="text-[14px] text-[var(--color-primary)] hover:underline">UK to Europe</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">More comparisons</h3>
+            <ul className="space-y-2">
+              <li><Link href="/compare" className="text-[14px] text-[var(--color-primary)] hover:underline">All comparisons</Link></li>
+              <li><Link href="/companies" className="text-[14px] text-[var(--color-primary)] hover:underline">Provider reviews</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Guides</h3>
+            <ul className="space-y-2">
+              <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-[14px] text-[var(--color-primary)] hover:underline">Cheapest way to send money</Link></li>
+              <li><Link href="/guides/exchange-rate-markup-explained" className="text-[14px] text-[var(--color-primary)] hover:underline">Exchange rates explained</Link></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </Container>
   );

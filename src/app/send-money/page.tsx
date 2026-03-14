@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
+import TrustBadges from "@/components/TrustBadges";
 import { generateQuotes, currencies, providers, getProviderName } from "@/data/providers";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 
@@ -193,6 +194,9 @@ function SendMoneyContent() {
   const sendCurrency = currencies.find((c) => c.code === fromCurrency);
   const receiveCurrency = currencies.find((c) => c.code === toCurrency);
   const cheapestQuote = [...quotes].sort((a, b) => a.fee - b.fee)[0];
+  const bestQuote = filteredQuotes[0];
+  const worstQuote = filteredQuotes[filteredQuotes.length - 1];
+  const savings = bestQuote && worstQuote ? bestQuote.receiveAmount - worstQuote.receiveAmount : 0;
 
   const activeFilterCount = [speedFilter, feeFilter, ratingFilter, paymentMethod].filter(Boolean).length + (selectedProviders.length > 0 ? 1 : 0);
 
@@ -255,8 +259,8 @@ function SendMoneyContent() {
         </div>
       </div>
 
-      {/* Search bar — Google Flights connected inputs with border */}
-      <div className="rounded-lg border border-[var(--color-outline)] bg-white mb-4">
+      {/* Search bar — Google Flights connected inputs */}
+      <div className="rounded-2xl border border-[var(--color-outline)] bg-white shadow-[0_1px_6px_rgba(32,33,36,0.1)] mb-4">
         <div className="flex flex-col lg:flex-row">
           {/* From / Swap / To — grouped with relative for swap positioning */}
           <div className="relative flex flex-col lg:flex-row flex-1 min-w-0">
@@ -281,7 +285,7 @@ function SendMoneyContent() {
             {/* Swap button — centered between from and to */}
             <button
               onClick={swap}
-              className="absolute left-1/2 top-[48px] lg:top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] transition-colors"
+              className="absolute left-1/2 top-[48px] lg:top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] transition-colors shadow-sm"
               aria-label="Swap currencies"
             >
               <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,6 +335,11 @@ function SendMoneyContent() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Trust indicators — below search bar */}
+      <div className="mb-6">
+        <TrustBadges />
       </div>
 
       {/* Filter pills — functional dropdowns */}
@@ -415,7 +424,6 @@ function SendMoneyContent() {
               >
                 All providers
               </button>
-              {/* Show all providers from current quotes */}
               {[...new Set(quotes.map((q) => q.providerSlug))].sort().map((slug) => {
                 const p = providers.find((pr) => pr.slug === slug);
                 const name = p?.name || getProviderName(slug);
@@ -466,7 +474,7 @@ function SendMoneyContent() {
               : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
-          Best
+          Best value
         </button>
         <button
           onClick={() => setSortBy("fee")}
@@ -476,7 +484,7 @@ function SendMoneyContent() {
               : "bg-white text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
-          Cheapest
+          Lowest fees
           {cheapestQuote && (
             <span className={`text-[12px] ${sortBy === "fee" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
               from {sendCurrency?.symbol || "$"}{cheapestQuote.fee === 0 ? "0" : cheapestQuote.fee.toFixed(0)}
@@ -497,18 +505,19 @@ function SendMoneyContent() {
 
       {/* Results header */}
       <div className="mb-1">
-        <h2 className="text-[22px] font-normal text-[var(--color-on-surface)]">Top providers</h2>
+        <div className="flex items-center gap-3">
+          <h2 className="text-[22px] font-normal text-[var(--color-on-surface)]">Top providers</h2>
+          {isLive && (
+            <span className="inline-flex items-center gap-1.5 text-[12px] text-[var(--color-success)] font-medium bg-[#e6f4ea] px-2.5 py-1 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
+              Live rates
+            </span>
+          )}
+        </div>
         <div className="flex items-start justify-between mt-1">
           <p className="text-[12px] text-[var(--color-on-surface-variant)] max-w-xl">
-            Ranked based on value and convenience.{" "}
-            Fees and rates for sending {sendCurrency?.symbol}{amount.toLocaleString()} {fromCurrency}. Provider{" "}
-            <span className="text-[var(--color-primary)] underline cursor-pointer">fees</span> may apply.
-            {isLive && (
-              <span className="inline-flex items-center gap-1 ml-2 text-[var(--color-success)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
-                Live rates
-              </span>
-            )}
+            Ranked by total value — fees and exchange rate markup included.{" "}
+            Showing results for {sendCurrency?.symbol}{amount.toLocaleString()} {fromCurrency} to {toCurrency}.
           </p>
           <span className="text-[13px] text-[var(--color-on-surface-variant)] shrink-0 ml-4">
             {filteredQuotes.length} of {quotes.length} providers
@@ -516,20 +525,35 @@ function SendMoneyContent() {
         </div>
       </div>
 
+      {/* Savings callout */}
+      {savings > 100 && bestQuote && worstQuote && (
+        <div className="mt-3 bg-[#e6f4ea] border border-[#137333]/15 rounded-xl px-5 py-3.5 flex items-center gap-3">
+          <svg className="w-5 h-5 text-[#137333] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          <p className="text-[13px] text-[#137333]">
+            <strong>Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} {toCurrency}</strong> by choosing {getProviderName(bestQuote.providerSlug)} over {getProviderName(worstQuote.providerSlug)} on this transfer.
+          </p>
+        </div>
+      )}
+
       {/* Results list */}
-      <div className="border border-[var(--color-outline)] rounded-xl overflow-hidden mt-4 mb-12">
+      <div className="border border-[var(--color-outline)] rounded-xl overflow-hidden mt-4 mb-12 shadow-[0_1px_3px_rgba(32,33,36,0.08)]">
         {filteredQuotes.length > 0 ? (
-          filteredQuotes.map((quote) => (
+          filteredQuotes.map((quote, index) => (
             <ProviderCard
               key={quote.providerSlug}
               quote={quote}
               sendCurrencySymbol={sendCurrency?.symbol || "$"}
               receiveCurrencySymbol={receiveCurrency?.symbol || ""}
-              rank={0}
+              rank={index + 1}
             />
           ))
         ) : (
-          <div className="py-16 text-center">
+          <div className="py-16 text-center bg-white">
+            <svg className="w-12 h-12 text-[var(--color-outline)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
             <p className="text-[16px] text-[var(--color-on-surface)] mb-2">No providers match your filters</p>
             <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-4">Try adjusting your filters to see more results.</p>
             <button

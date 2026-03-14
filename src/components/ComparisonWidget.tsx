@@ -65,11 +65,11 @@ export default function ComparisonWidget({
   return (
     <form onSubmit={handleCompare}>
       {/* Google Flights-style connected search bar */}
-      <div className="rounded-lg border border-[var(--color-outline)] bg-white">
+      <div className="rounded-2xl border border-[var(--color-outline)] bg-white shadow-[0_1px_6px_rgba(32,33,36,0.1)]">
         <div className="flex flex-col md:flex-row items-stretch">
           {/* Amount */}
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)]">You send</p>
+          <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
+            <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">You send</p>
             <input
               type="number"
               value={amount}
@@ -81,8 +81,8 @@ export default function ComparisonWidget({
           </div>
 
           {/* From */}
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)]">From</p>
+          <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
+            <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">From</p>
             <select
               value={fromCurrency}
               onChange={(e) => setFromCurrency(e.target.value)}
@@ -92,12 +92,12 @@ export default function ComparisonWidget({
             </select>
           </div>
 
-          {/* Swap button — sits as its own column, no overlap */}
-          <div className="hidden md:flex items-center justify-center px-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)]">
+          {/* Swap button */}
+          <div className="hidden md:flex items-center justify-center px-3">
             <button
               type="button"
               onClick={swap}
-              className="w-10 h-10 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] transition-colors"
+              className="w-10 h-10 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] hover:border-[var(--color-on-surface-variant)] transition-all"
               aria-label="Swap currencies"
             >
               <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,8 +107,8 @@ export default function ComparisonWidget({
           </div>
 
           {/* To */}
-          <div className="flex-1 px-4 py-2">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)]">To</p>
+          <div className="flex-1 border-b md:border-b-0 md:border-l border-[var(--color-outline)] px-4 py-2.5">
+            <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">To</p>
             <select
               value={toCurrency}
               onChange={(e) => setToCurrency(e.target.value)}
@@ -121,10 +121,10 @@ export default function ComparisonWidget({
       </div>
 
       {/* Search button below */}
-      <div className="flex justify-center mt-5">
+      <div className="flex justify-center mt-6">
         <button
           type="submit"
-          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-[16px] px-8 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] active:shadow-none transition-all flex items-center gap-2"
+          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-[15px] px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all flex items-center gap-2.5"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

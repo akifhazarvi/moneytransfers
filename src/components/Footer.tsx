@@ -6,7 +6,7 @@ const footerSections = [
     title: "Products",
     links: [
       { href: "/send-money", label: "Send Money" },
-      { href: "/comparison", label: "Compare Providers" },
+      { href: "/compare", label: "Compare Providers" },
       { href: "/currency-converter", label: "Currency Converter" },
       { href: "/companies", label: "All Reviews" },
     ],
@@ -14,10 +14,12 @@ const footerSections = [
   {
     title: "Popular Routes",
     links: [
-      { href: "/send-money?from=USD&to=INR", label: "USA to India" },
-      { href: "/send-money?from=GBP&to=EUR", label: "UK to Europe" },
-      { href: "/send-money?from=USD&to=PHP", label: "USA to Philippines" },
-      { href: "/send-money?from=USD&to=MXN", label: "USA to Mexico" },
+      { href: "/send-money/usa-to-india", label: "USA to India" },
+      { href: "/send-money/uk-to-europe", label: "UK to Europe" },
+      { href: "/send-money/usa-to-philippines", label: "USA to Philippines" },
+      { href: "/send-money/usa-to-mexico", label: "USA to Mexico" },
+      { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan" },
+      { href: "/send-money/usa-to-nigeria", label: "USA to Nigeria" },
     ],
   },
   {
@@ -42,9 +44,11 @@ const footerSections = [
     title: "Resources",
     links: [
       { href: "/guides", label: "Guides" },
-      { href: "/guides", label: "How We Review" },
-      { href: "/guides", label: "About" },
-      { href: "/guides", label: "Contact" },
+      { href: "/how-we-review", label: "How We Review" },
+      { href: "/methodology", label: "Methodology" },
+      { href: "/about", label: "About" },
+      { href: "/editorial-policy", label: "Editorial Policy" },
+      { href: "/contact", label: "Contact" },
     ],
   },
 ];

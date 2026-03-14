@@ -30,6 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       authors: [post.author],
       tags: post.tags,
     },
+    alternates: {
+      canonical: `https://moneytransfers.com/guides/${slug}`,
+    },
   };
 }
 
@@ -254,11 +257,25 @@ export default async function BlogPostPage({ params }: Props) {
                   comparison tool.
                 </p>
                 <Link
-                  href="/comparison"
+                  href="/send-money"
                   className="block text-center bg-white text-[var(--color-primary)] px-4 py-2.5 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
                 >
                   Compare Rates
                 </Link>
+              </div>
+
+              {/* Explore more */}
+              <div>
+                <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-4">
+                  Explore
+                </h3>
+                <ul className="space-y-2">
+                  <li><Link href="/companies" className="text-[13px] text-[var(--color-primary)] hover:underline">Provider reviews</Link></li>
+                  <li><Link href="/compare" className="text-[13px] text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
+                  <li><Link href="/send-money/usa-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
+                  <li><Link href="/send-money/usa-to-pakistan" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to Pakistan transfers</Link></li>
+                  <li><Link href="/send-money/uk-to-europe" className="text-[13px] text-[var(--color-primary)] hover:underline">UK to Europe transfers</Link></li>
+                </ul>
               </div>
             </div>
           </aside>

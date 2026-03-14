@@ -24,7 +24,7 @@ const navLinks = [
     ),
   },
   {
-    href: "/comparison",
+    href: "/compare",
     label: "Compare",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
