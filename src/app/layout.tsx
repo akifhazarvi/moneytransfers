@@ -15,8 +15,8 @@ const SITE_URL = "https://moneytransfers.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MoneyTransfers — Compare International Money Transfers & Best Exchange Rates",
-    template: "%s | MoneyTransfers",
+    default: "Moneyremitter — Compare International Money Transfers & Best Exchange Rates",
+    template: "%s | Moneyremitter",
   },
   description:
     "Compare 60+ money transfer services to find the best exchange rates and lowest fees. Expert reviews, real-time quotes updated every 6 hours.",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "MoneyTransfers",
-    title: "MoneyTransfers — Compare International Money Transfers & Best Exchange Rates",
+    siteName: "Moneyremitter",
+    title: "Moneyremitter — Compare International Money Transfers & Best Exchange Rates",
     description:
       "Compare 60+ providers side by side. Real exchange rates and fees, updated every 6 hours.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MoneyTransfers — Compare International Money Transfers",
+    title: "Moneyremitter — Compare International Money Transfers",
     description:
       "Compare 60+ providers. Real exchange rates and fees, updated every 6 hours.",
   },
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "MoneyTransfers",
+  name: "Moneyremitter",
   url: SITE_URL,
   logo: `${SITE_URL}/logos/moneytransfers-logo.png`,
   description:
@@ -75,7 +75,7 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "MoneyTransfers",
+  name: "Moneyremitter",
   url: SITE_URL,
   potentialAction: {
     "@type": "SearchAction",

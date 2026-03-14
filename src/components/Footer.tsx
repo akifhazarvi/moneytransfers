@@ -81,17 +81,23 @@ export default function Footer() {
 
         <div className="border-t border-[var(--color-outline)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
-              <circle cx="14" cy="14" r="14" fill="#1a73e8" />
-              <path d="M8 14l4 4 8-8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="16" fill="#1a73e8" />
+              <text x="16" y="21" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif">$</text>
+              <path d="M6 12h5" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M8 12l2-2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M8 12l2 2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M26 20h-5" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M24 20l-2-2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M24 20l-2 2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
-            <span className="text-[14px] text-[var(--color-on-surface-variant)]">MoneyTransfers</span>
+            <span className="text-[14px] text-[var(--color-on-surface-variant)]">Moneyremitter</span>
           </div>
           <p className="text-[12px] text-[var(--color-on-surface-variant)] text-center max-w-xl">
-            MoneyTransfers is a comparison site. We may receive compensation when you click links to providers. This does not affect our editorial independence.
+            Moneyremitter is a comparison site. We may receive compensation when you click links to providers. This does not affect our editorial independence.
           </p>
           <p className="text-[12px] text-[var(--color-on-surface-variant)]">
-            &copy; {new Date().getFullYear()} MoneyTransfers
+            &copy; {new Date().getFullYear()} Moneyremitter
           </p>
         </div>
       </Container>

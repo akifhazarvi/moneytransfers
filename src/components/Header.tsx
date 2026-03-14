@@ -70,14 +70,21 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-1.5 shrink-0">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <circle cx="14" cy="14" r="14" fill="#1a73e8" />
-              <path d="M8 14l4 4 8-8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="16" fill="#1a73e8" />
+              <circle cx="16" cy="16" r="10" fill="none" stroke="white" strokeWidth="1.5" opacity="0.3" />
+              <text x="16" y="21" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif">$</text>
+              <path d="M6 12h5" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M8 12l2-2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M8 12l2 2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M26 20h-5" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M24 20l-2-2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M24 20l-2 2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
             <span className="text-[22px] tracking-[-0.2px]">
               <span className="text-[var(--color-on-surface)]">Money</span>
-              <span className="text-[var(--color-primary)]">Transfers</span>
+              <span className="text-[var(--color-primary)]">remitter</span>
             </span>
           </Link>
 
