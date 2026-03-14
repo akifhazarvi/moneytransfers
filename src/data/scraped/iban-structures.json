@@ -1,0 +1,803 @@
+[
+  {
+    "country": "Albania",
+    "code": "AL",
+    "sepa": true,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "AL35202111090000000001234567"
+  },
+  {
+    "country": "Andorra",
+    "code": "AD",
+    "sepa": true,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "AD1400080001001234567890"
+  },
+  {
+    "country": "Austria",
+    "code": "AT",
+    "sepa": true,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "AT483200000012345864"
+  },
+  {
+    "country": "Azerbaijan",
+    "code": "AZ",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "AZ77VTBA00000000001234567890"
+  },
+  {
+    "country": "Bahrain",
+    "code": "BH",
+    "sepa": false,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "BH02CITI00001077181611"
+  },
+  {
+    "country": "Belgium",
+    "code": "BE",
+    "sepa": true,
+    "length": 16,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "BE71096123456769"
+  },
+  {
+    "country": "Bosnia and Herzegovina",
+    "code": "BA",
+    "sepa": false,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "BA393385804800211234"
+  },
+  {
+    "country": "Brazil",
+    "code": "BR",
+    "sepa": false,
+    "length": 29,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "BR1500000000000010932840814P2"
+  },
+  {
+    "country": "Bulgaria",
+    "code": "BG",
+    "sepa": true,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "BG19STSA93000123456789"
+  },
+  {
+    "country": "Costa Rica",
+    "code": "CR",
+    "sepa": false,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "CR23015108410026012345"
+  },
+  {
+    "country": "Croatia",
+    "code": "HR",
+    "sepa": true,
+    "length": 21,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "HR1723600001101234565"
+  },
+  {
+    "country": "Cyprus",
+    "code": "CY",
+    "sepa": true,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "CY21002001950000357001234567"
+  },
+  {
+    "country": "Czech Republic",
+    "code": "CZ",
+    "sepa": true,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "CZ5508000000001234567899"
+  },
+  {
+    "country": "Faroe Islands",
+    "code": "FO",
+    "sepa": false,
+    "length": 18,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "FO9264600123456789"
+  },
+  {
+    "country": "Greenland",
+    "code": "GL",
+    "sepa": false,
+    "length": 18,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "GL8964710123456789"
+  },
+  {
+    "country": "Denmark",
+    "code": "DK",
+    "sepa": true,
+    "length": 18,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "DK9520000123456789"
+  },
+  {
+    "country": "Dominican Republic",
+    "code": "DO",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "DO22ACAU00000000000123456789"
+  },
+  {
+    "country": "Estonia",
+    "code": "EE",
+    "sepa": true,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "EE471000001020145685"
+  },
+  {
+    "country": "Egypt",
+    "code": "EG",
+    "sepa": false,
+    "length": 29,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "EG800002000156789012345180002"
+  },
+  {
+    "country": "Finland",
+    "code": "FI",
+    "sepa": true,
+    "length": 18,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "FI1410093000123458"
+  },
+  {
+    "country": "France",
+    "code": "FR",
+    "sepa": true,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "FR7630006000011234567890189"
+  },
+  {
+    "country": "Georgia",
+    "code": "GE",
+    "sepa": false,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "GE60NB0000000123456789"
+  },
+  {
+    "country": "Germany",
+    "code": "DE",
+    "sepa": true,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "DE75512108001245126199"
+  },
+  {
+    "country": "Gibraltar",
+    "code": "GI",
+    "sepa": true,
+    "length": 23,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "GI56XAPO000001234567890"
+  },
+  {
+    "country": "Greece",
+    "code": "GR",
+    "sepa": true,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "GR9608100010000001234567890"
+  },
+  {
+    "country": "Guatemala",
+    "code": "GT",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "GT20AGRO00000000001234567890"
+  },
+  {
+    "country": "Hungary",
+    "code": "HU",
+    "sepa": true,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "HU93116000060000000012345676"
+  },
+  {
+    "country": "Iceland",
+    "code": "IS",
+    "sepa": true,
+    "length": 26,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "IS750001121234563108962099"
+  },
+  {
+    "country": "Ireland",
+    "code": "IE",
+    "sepa": true,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "IE64IRCE92050112345678"
+  },
+  {
+    "country": "Israel",
+    "code": "IL",
+    "sepa": false,
+    "length": 23,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "IL170108000000012612345"
+  },
+  {
+    "country": "Italy",
+    "code": "IT",
+    "sepa": true,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "IT60X0542811101000000123456"
+  },
+  {
+    "country": "Jordan",
+    "code": "JO",
+    "sepa": false,
+    "length": 30,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "JO71CBJO0000000000001234567890"
+  },
+  {
+    "country": "Kazakhstan",
+    "code": "KZ",
+    "sepa": false,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "KZ244350000012344567"
+  },
+  {
+    "country": "Kosovo",
+    "code": "XK",
+    "sepa": false,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "XK051212012345678906"
+  },
+  {
+    "country": "Kuwait",
+    "code": "KW",
+    "sepa": false,
+    "length": 30,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "KW81CBKU0000000000001234560101"
+  },
+  {
+    "country": "Latvia",
+    "code": "LV",
+    "sepa": true,
+    "length": 21,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "LV97HABA0012345678910"
+  },
+  {
+    "country": "Lebanon",
+    "code": "LB",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "LB92000700000000123123456123"
+  },
+  {
+    "country": "Liechtenstein",
+    "code": "LI",
+    "sepa": true,
+    "length": 21,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "LI7408806123456789012"
+  },
+  {
+    "country": "Lithuania",
+    "code": "LT",
+    "sepa": true,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "LT601010012345678901"
+  },
+  {
+    "country": "Luxembourg",
+    "code": "LU",
+    "sepa": true,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "LU120010001234567891"
+  },
+  {
+    "country": "North Macedonia",
+    "code": "MK",
+    "sepa": true,
+    "length": 19,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "MK07200002785123453"
+  },
+  {
+    "country": "Malta",
+    "code": "MT",
+    "sepa": true,
+    "length": 31,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "MT31MALT01100000000000000000123"
+  },
+  {
+    "country": "Mauritania",
+    "code": "MR",
+    "sepa": false,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "MR1300020001010000123456753"
+  },
+  {
+    "country": "Mauritius",
+    "code": "MU",
+    "sepa": false,
+    "length": 30,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "MU43BOMM0101123456789101000MUR"
+  },
+  {
+    "country": "Moldova",
+    "code": "MD",
+    "sepa": true,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "MD21EX000000000001234567"
+  },
+  {
+    "country": "Monaco",
+    "code": "MC",
+    "sepa": true,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "MC5810096180790123456789085"
+  },
+  {
+    "country": "Montenegro",
+    "code": "ME",
+    "sepa": true,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "ME25505000012345678951"
+  },
+  {
+    "country": "Netherlands",
+    "code": "NL",
+    "sepa": true,
+    "length": 18,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "NL02ABNA0123456789"
+  },
+  {
+    "country": "Norway",
+    "code": "NO",
+    "sepa": true,
+    "length": 15,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "NO8330001234567"
+  },
+  {
+    "country": "Pakistan",
+    "code": "PK",
+    "sepa": false,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "PK36SCBL0000001123456702"
+  },
+  {
+    "country": "Palestine",
+    "code": "PS",
+    "sepa": false,
+    "length": 29,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "PS92PALS000000000400123456702"
+  },
+  {
+    "country": "Poland",
+    "code": "PL",
+    "sepa": true,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "PL10105000997603123456789123"
+  },
+  {
+    "country": "Portugal",
+    "code": "PT",
+    "sepa": true,
+    "length": 25,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "PT50002700000001234567833"
+  },
+  {
+    "country": "Qatar",
+    "code": "QA",
+    "sepa": false,
+    "length": 29,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "QA54QNBA000000000000693123456"
+  },
+  {
+    "country": "Romania",
+    "code": "RO",
+    "sepa": true,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "RO66BACX0000001234567890"
+  },
+  {
+    "country": "San Marino",
+    "code": "SM",
+    "sepa": true,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SM76P0854009812123456789123"
+  },
+  {
+    "country": "Saint Lucia",
+    "code": "LC",
+    "sepa": false,
+    "length": 32,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "LC14BOSL123456789012345678901234"
+  },
+  {
+    "country": "Sao Tome and Principe",
+    "code": "ST",
+    "sepa": false,
+    "length": 25,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "ST23000200000289355710148"
+  },
+  {
+    "country": "Saudi Arabia",
+    "code": "SA",
+    "sepa": false,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SA4420000001234567891234"
+  },
+  {
+    "country": "Serbia",
+    "code": "RS",
+    "sepa": true,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "RS35105008123123123173"
+  },
+  {
+    "country": "Slovakia",
+    "code": "SK",
+    "sepa": true,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SK8975000000000012345671"
+  },
+  {
+    "country": "Slovenia",
+    "code": "SI",
+    "sepa": true,
+    "length": 19,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SI56192001234567892"
+  },
+  {
+    "country": "Spain",
+    "code": "ES",
+    "sepa": true,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "ES7921000813610123456789"
+  },
+  {
+    "country": "Sweden",
+    "code": "SE",
+    "sepa": true,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SE7280000810340009783242"
+  },
+  {
+    "country": "Switzerland",
+    "code": "CH",
+    "sepa": true,
+    "length": 21,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "CH5604835012345678009"
+  },
+  {
+    "country": "Timor-Leste",
+    "code": "TL",
+    "sepa": false,
+    "length": 23,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "TL380010012345678910106"
+  },
+  {
+    "country": "Tunisia",
+    "code": "TN",
+    "sepa": false,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "TN5904018104004942712345"
+  },
+  {
+    "country": "Turkey",
+    "code": "TR",
+    "sepa": false,
+    "length": 26,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "TR320010009999901234567890"
+  },
+  {
+    "country": "United Arab Emirates",
+    "code": "AE",
+    "sepa": false,
+    "length": 23,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "AE460090000000123456789"
+  },
+  {
+    "country": "United Kingdom",
+    "code": "GB",
+    "sepa": true,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "GB33BUKB20201555555555"
+  },
+  {
+    "country": "State of Vatican City / Holy See (the)",
+    "code": "VA",
+    "sepa": true,
+    "length": 22,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "VA59001123000012345678"
+  },
+  {
+    "country": "Virgin Islands, British",
+    "code": "VG",
+    "sepa": false,
+    "length": 24,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "VG07ABVI0000000123456789"
+  },
+  {
+    "country": "Ukraine",
+    "code": "UA",
+    "sepa": false,
+    "length": 29,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "UA903052992990004149123456789"
+  },
+  {
+    "country": "Seychelles",
+    "code": "SC",
+    "sepa": false,
+    "length": 31,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SC74MCBL01031234567890123456USD"
+  },
+  {
+    "country": "Iraq",
+    "code": "IQ",
+    "sepa": false,
+    "length": 23,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "IQ20CBIQ861800101010500"
+  },
+  {
+    "country": "Belarus",
+    "code": "BY",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "BY86AKBB10100000002966000000"
+  },
+  {
+    "country": "El Salvador",
+    "code": "SV",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SV43ACAT00000000000000123123"
+  },
+  {
+    "country": "Libya",
+    "code": "LY",
+    "sepa": false,
+    "length": 25,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "LY38021001000000123456789"
+  },
+  {
+    "country": "Sudan",
+    "code": "SD",
+    "sepa": false,
+    "length": 18,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SD8811123456789012"
+  },
+  {
+    "country": "Burundi",
+    "code": "BI",
+    "sepa": false,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "BI1320001100010000123456789"
+  },
+  {
+    "country": "Djibouti",
+    "code": "DJ",
+    "sepa": false,
+    "length": 27,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "DJ2110002010010409943020008"
+  },
+  {
+    "country": "Russia",
+    "code": "RU",
+    "sepa": false,
+    "length": 33,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "RU0204452560040702810412345678901"
+  },
+  {
+    "country": "Somalia",
+    "code": "SO",
+    "sepa": false,
+    "length": 23,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "SO061000001123123456789"
+  },
+  {
+    "country": "Nicaragua",
+    "code": "NI",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "NI79BAMC00000000000003123123"
+  },
+  {
+    "country": "Mongolia",
+    "code": "MN",
+    "sepa": false,
+    "length": 20,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "MN580050099123456789"
+  },
+  {
+    "country": "Falkland Islands",
+    "code": "FK",
+    "sepa": false,
+    "length": 18,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "FK12SC987654321098"
+  },
+  {
+    "country": "Sultanate of Oman",
+    "code": "OM",
+    "sepa": false,
+    "length": 23,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "OM040280000012345678901"
+  },
+  {
+    "country": "Yemen",
+    "code": "Ye",
+    "sepa": false,
+    "length": 30,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "YE20ALMF0000000000001234560101"
+  },
+  {
+    "country": "Honduras",
+    "code": "HN",
+    "sepa": false,
+    "length": 28,
+    "accountCheck": false,
+    "branchCode": false,
+    "ibanExample": "HN54PISA00000000000000123124"
+  }
+]

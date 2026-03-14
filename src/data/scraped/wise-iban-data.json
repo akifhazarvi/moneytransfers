@@ -1,0 +1,3956 @@
+[
+  {
+    "slug": "pakistan",
+    "countryCode": "PK",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 24,
+    "currency": "PKR",
+    "exampleIban": "PK36SCBL0000001123456702",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[a-zA-Z0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Bank Al Habib Limited",
+        "slug": "bank-al-habib",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-alhabib"
+      },
+      {
+        "name": "Summit Bank Ltd",
+        "slug": "summit-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Silkbank Limited",
+        "slug": "silkbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bankislami Pakistan Limited",
+        "slug": "bankislami-pakistan",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "United Bank Limited",
+        "slug": "united-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/ubl"
+      },
+      {
+        "name": "JS Bank Limited",
+        "slug": "js-bank-limited",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Dubai Islamic Bank Pakistan Limited",
+        "slug": "dubai-islamic-bank-pakistan",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Faysal Bank Limited",
+        "slug": "faysal-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Allied Bank Limited",
+        "slug": "allied-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Mcb Bank Limited",
+        "slug": "mcb-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/mcb"
+      },
+      {
+        "name": "Albaraka Bank (pakistan)limited",
+        "slug": "albaraka-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Meezan Bank Limited",
+        "slug": "meezan-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Standard Chartered Bank (pakistan) Limited",
+        "slug": "standard-chartered-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Habib Metropolitan Bank Limited",
+        "slug": "habib-metropolitan-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "bulgaria",
+    "countryCode": "BG",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 22,
+    "currency": "EUR",
+    "exampleIban": "BG80BNBG96611020345678",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_type",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "account_type"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{8}",
+        "length": 8,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Unicredit Bulbank Ad",
+        "slug": "unicredit-bulbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "First Investment Bank Ad",
+        "slug": "first-investment-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Societe Generale Expressbank",
+        "slug": "societe-generale-expressbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/societe-generale"
+      },
+      {
+        "name": "Dsk Bank (Formerly State Savings Bank)",
+        "slug": "dsk-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Raiffeisenbank (Bulgaria) Ead",
+        "slug": "raiffeisenbank-bulgaria",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      }
+    ]
+  },
+  {
+    "slug": "jordan",
+    "countryCode": "JO",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 30,
+    "currency": "JOD",
+    "exampleIban": "JO94CBJO0010000000000131000302",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{18}",
+        "length": 18,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Jordan Kuwait Bank",
+        "slug": "jordan-kuwait-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Islamic International Arab Bank",
+        "slug": "islamic-international-arab-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Cairo Amman Bank",
+        "slug": "cairo-amman-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Housing Bank For Trade And Finance, The",
+        "slug": "housing-bank-for-trade-and-finance",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bank Aletihad",
+        "slug": "bank-aletihad",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "bahrain",
+    "countryCode": "BH",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 22,
+    "currency": "BHD",
+    "exampleIban": "BH67BMAG00001299123456",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{14}",
+        "length": 14,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "National Bank Of Bahrain",
+        "slug": "national-bank-of-bahrain",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "HSBC Bank Middle East",
+        "slug": "hsbc-bank-middle-east",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc"
+      },
+      {
+        "name": "Kuwait Turkish Participation Bank Inc. Bahrain Branch",
+        "slug": "kuwait-turkish-participation-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Gulf International Bank, B.S.C.",
+        "slug": "gulf-international-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Standard Chartered",
+        "slug": "standard-chartered",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "State Bank of India",
+        "slug": "state-bank-of-india",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/sbi"
+      },
+      {
+        "name": "Bahrain Islamic Bank",
+        "slug": "bahrain-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bank of Bahrain and Kuwait",
+        "slug": "bank-of-bahrain-and-kuwait",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Al Salam Bank",
+        "slug": "al-salam-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "faroe-islands",
+    "countryCode": "FO",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 18,
+    "currency": "DKK",
+    "exampleIban": "FO6264600001631634",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{9}",
+        "length": 9,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "france",
+    "countryCode": "FR",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 27,
+    "currency": "EUR",
+    "exampleIban": "FR1420041010050500013M02606",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{11}",
+        "length": 11,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "BNP Paribas",
+        "slug": "bnp-paribas",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bnp-paribas"
+      },
+      {
+        "name": "Caisse d'Epargne",
+        "slug": "caisse-epargne",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Crédit Agricole",
+        "slug": "credit-agricole",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/credit-agricole"
+      },
+      {
+        "name": "Credit Lyonnais S.A.",
+        "slug": "credit-lyonnais-lcl",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Crédit Mutuel",
+        "slug": "credit-mutuel",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/credit-mutuel"
+      },
+      {
+        "name": "HSBC",
+        "slug": "hsbc",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc"
+      },
+      {
+        "name": "Société Générale",
+        "slug": "societe-generale",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/societe-generale"
+      },
+      {
+        "name": "CM - Cic Banques",
+        "slug": "cm-cic-banques",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Unibanque",
+        "slug": "unibanque",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banque De France",
+        "slug": "banque-de-france",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bred Banque Populaire",
+        "slug": "bred-banque-populaire",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "LCL Banque Privee",
+        "slug": "lcl-banque-privee",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Financiere Des Paiements Electroniques",
+        "slug": "financiere-des-paiements-electroniques",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "La Banque Postale",
+        "slug": "banque-postale",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Société Générale",
+        "slug": "societe-generale",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/societe-generale"
+      }
+    ]
+  },
+  {
+    "slug": "saudi-arabia",
+    "countryCode": "SA",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 24,
+    "currency": "SAR",
+    "exampleIban": "SA0380000000608010167519",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{18}",
+        "length": 18,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "brazil",
+    "countryCode": "BR",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 29,
+    "currency": "BRL",
+    "exampleIban": "BR1800360305000010009795493C1",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{8}",
+        "length": 8,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      },
+      {
+        "label": "account_type",
+        "regex": "^[A-Z]{1}",
+        "length": 1,
+        "type": "account_type"
+      },
+      {
+        "label": "owner_account_number",
+        "regex": "^[a-zA-Z0-9]{1}",
+        "length": 1,
+        "type": "owner_account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Caixa Economica Federal",
+        "slug": "caixa-economica-federal",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Itau Unibanco S/A",
+        "slug": "itau-unibanco",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/itau"
+      },
+      {
+        "name": "Banco Do Brasil S.A",
+        "slug": "banco-do-brasil",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/banco-do-brasil"
+      },
+      {
+        "name": "Banco Bradesco S.A.",
+        "slug": "banco-bradesco",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Santander",
+        "slug": "santander",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/santander"
+      },
+      {
+        "name": "Banco Inter",
+        "slug": "banco-inter",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Nubank",
+        "slug": "nubank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banco Rendimento",
+        "slug": "banco-rendimento",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "sweden",
+    "countryCode": "SE",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 24,
+    "currency": "SEK",
+    "exampleIban": "SE4550000000058398257466",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{17}",
+        "length": 17,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Skandinaviska Enskilda Banken",
+        "slug": "skandinaviska-enskilda-banken",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Nordea Bank Ab (Publ)",
+        "slug": "nordea-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/nordea"
+      },
+      {
+        "name": "Danske Bank As, Sverige Filial",
+        "slug": "danske-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/danske-bank"
+      },
+      {
+        "name": "Swedbank Ab",
+        "slug": "swedbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/swedbank"
+      },
+      {
+        "name": "Svenska Handelsbanken",
+        "slug": "svenska-handelsbanken",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "slovenia",
+    "countryCode": "SI",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 19,
+    "currency": "EUR",
+    "exampleIban": "SI56263300012039086",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{8}",
+        "length": 8,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "SKB Banka D.D.",
+        "slug": "skb-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sberbank Banka D.d.",
+        "slug": "sberbank-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Abanka Vipa D.D.",
+        "slug": "abanka-vipa",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "slovakia",
+    "countryCode": "SK",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 24,
+    "currency": "EUR",
+    "exampleIban": "SK3112000000198742637541",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Tatra Banka A.S.",
+        "slug": "tatra-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Slovenska Sporitelna, A.S.",
+        "slug": "slovenska-sporitelna",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/slovenskasporitelna"
+      },
+      {
+        "name": "Unicredit Bank Slovakia A.S.",
+        "slug": "unicredit-bank-slovakia",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "VÚB Banka",
+        "slug": "vub-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Poštová Banka",
+        "slug": "postova-banka",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "san-marino",
+    "countryCode": "SM",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 27,
+    "currency": "EUR",
+    "exampleIban": "SM86U0322509800000000270100",
+    "bbanFields": [
+      {
+        "label": "national_check_digit",
+        "regex": "^[A-Z]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      },
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{12}",
+        "length": 12,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "uk",
+    "countryCode": "GB",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 22,
+    "currency": "GBP",
+    "exampleIban": "GB29NWBK60161331926819",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "sort_code",
+        "regex": "^[0-9]{6}",
+        "length": 6,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{8}",
+        "length": 8,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Santander",
+        "slug": "santander",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/santander"
+      },
+      {
+        "name": "HSBC",
+        "slug": "hsbc",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc"
+      },
+      {
+        "name": "Lloyds",
+        "slug": "lloyds",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/lloyds"
+      },
+      {
+        "name": "Monzo",
+        "slug": "monzo-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/monzo"
+      },
+      {
+        "name": "Nationwide Building Society",
+        "slug": "nationwide-building-society",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/nationwide"
+      },
+      {
+        "name": "NatWest",
+        "slug": "natwest",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/natwest"
+      },
+      {
+        "name": "RBS",
+        "slug": "rbs",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bank of Ireland",
+        "slug": "bank-of-ireland",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-of-ireland"
+      },
+      {
+        "name": "Barclays",
+        "slug": "barclays",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/barclays"
+      },
+      {
+        "name": "Citibank",
+        "slug": "citibank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/citibank"
+      },
+      {
+        "name": "Halifax",
+        "slug": "halifax",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/halifax"
+      },
+      {
+        "name": "TSB Bank",
+        "slug": "tsb-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/tsb"
+      },
+      {
+        "name": "Bank Of America, N.A. London",
+        "slug": "bank-of-america",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-of-america"
+      },
+      {
+        "name": "Neteller",
+        "slug": "neteller",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Metro Bank Plc",
+        "slug": "metro-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/metro-bank"
+      },
+      {
+        "name": "Jp Morgan Chase Bank, N.A",
+        "slug": "jp-morgan-chase-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Crown Agents Bank Limited",
+        "slug": "crown-agents-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Deutsche Bank Ag",
+        "slug": "deutsche-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/deutsche-bank"
+      },
+      {
+        "name": "Revolut",
+        "slug": "revolut",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/revolut"
+      },
+      {
+        "name": "Starling Bank",
+        "slug": "starling-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "First Direct",
+        "slug": "first-direct",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/firstdirect"
+      }
+    ]
+  },
+  {
+    "slug": "georgia",
+    "countryCode": "GE",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 22,
+    "currency": "GEL",
+    "exampleIban": "GE29NB0000000101904917",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{2}",
+        "length": 2,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Progressbank",
+        "slug": "progressbank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "gibraltar",
+    "countryCode": "GI",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 23,
+    "currency": "GIP",
+    "exampleIban": "GI75NWBK000000007099453",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{15}",
+        "length": 15,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "el-salvador",
+    "countryCode": "SV",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 28,
+    "currency": "SVC",
+    "exampleIban": "SV62CENR00000000000000700025",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{20}",
+        "length": 20,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Scotiabank El Salvador, S.a.",
+        "slug": "scotiabank-el-salvador",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banco Agricola, S.a.",
+        "slug": "banco-agricola",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "switzerland",
+    "countryCode": "CH",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 21,
+    "currency": "CHF",
+    "exampleIban": "CH9300762011623852957",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{12}",
+        "length": 12,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Credit Suisse Ag",
+        "slug": "credit-suisse",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Swiss Post - Postfinance",
+        "slug": "swiss-post-postfinance",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Migros Bank",
+        "slug": "migros-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Swissquote Bank",
+        "slug": "swissquote-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banque Cantonale Vaudoise",
+        "slug": "banque-cantonale-vaudoise",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Zürcher Kantonalbank",
+        "slug": "zuercher-kantonalbank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "greenland",
+    "countryCode": "GL",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 18,
+    "currency": "DKK",
+    "exampleIban": "GL8964710001000206",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "greece",
+    "countryCode": "GR",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 27,
+    "currency": "EUR",
+    "exampleIban": "GR1601101250000000012300695",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "National Bank Of Greece S.A.",
+        "slug": "national-bank-of-greece",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/national-bank-of-greece"
+      },
+      {
+        "name": "Piraeus Bank Sa",
+        "slug": "piraeus-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Alpha Bank Ae",
+        "slug": "alpha-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/alpha-bank"
+      },
+      {
+        "name": "Eurobank Ergasias S.a.",
+        "slug": "eurobank-ergasias",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "kuwait",
+    "countryCode": "KW",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 30,
+    "currency": "KWD",
+    "exampleIban": "KW81CBKU0000000000001234560101",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{22}",
+        "length": 22,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "National Bank Of Kuwait",
+        "slug": "national-bank-of-kuwait",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Commercial Bank Of Kuwait Sak,the",
+        "slug": "commercial-bank-of-kuwait",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Gulf Bank, K.s.c.",
+        "slug": "gulf-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Boubyan Bank (k.s.c",
+        "slug": "boubyan-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Burgan Bank",
+        "slug": "burgan-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Kuwait Finance House (k.s.c.",
+        "slug": "kuwait-finance-house",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "guatemala",
+    "countryCode": "GT",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 28,
+    "currency": "GTQ",
+    "exampleIban": "GT82TRAJ01020000001210029690",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[a-zA-Z0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{20}",
+        "length": 20,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Banco G And T Continental, S.a.",
+        "slug": "banco-g-and-t-continental",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banrural S.a.",
+        "slug": "banrural",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banco Industrial, S.a.",
+        "slug": "banco-industrial",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "costa-rica",
+    "countryCode": "CR",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 22,
+    "currency": "CRC",
+    "exampleIban": "CR05015202001026284066",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{14}",
+        "length": 14,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Banco Bac San Jose",
+        "slug": "banco-bac-san-jose",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "kazakhstan",
+    "countryCode": "KZ",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 20,
+    "currency": "KZT",
+    "exampleIban": "KZ86125KZT5004100100",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{13}",
+        "length": 13,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Kaspi Bank Jsc",
+        "slug": "kaspi-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Halyk Bank",
+        "slug": "halyk-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "kosovo",
+    "countryCode": "XK",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 20,
+    "currency": "EUR",
+    "exampleIban": "XK051212012345678906",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Raiffeisen Bank Kosovo",
+        "slug": "raiffeisen-bank-kosovo",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Banka Kombetare Tregtare Sh.a",
+        "slug": "banka-kombetare-tregtare",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Procredit Bank Kosovo (formerly Micro Enterprise Bank, Pristina, Kosovo",
+        "slug": "procredit-bank-kosovo",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Nlb Prishtina Sh.a.",
+        "slug": "nlb-prishtina",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Teb Sha",
+        "slug": "teb-sha",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "cyprus",
+    "countryCode": "CY",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 28,
+    "currency": "EUR",
+    "exampleIban": "CY17002001280000001200527600",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Alpha Bank Cyprus Limited",
+        "slug": "alpha-bank-cyprus",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/alpha-bank"
+      },
+      {
+        "name": "Bank Of Cyprus Public Company Limited",
+        "slug": "bank-of-cyprus",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-of-cyprus"
+      },
+      {
+        "name": "Eurobank Cyprus Ltd",
+        "slug": "eurobank-cyprus",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Hellenic Bank",
+        "slug": "hellenic-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "lebanon",
+    "countryCode": "LB",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 28,
+    "currency": "LBP",
+    "exampleIban": "LB62099900000001001901229114",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{20}",
+        "length": 20,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Bank Audi Sal-audi Saradar Group",
+        "slug": "bank-audi-sal-audi-saradar-group",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Byblos Bank S.a.l.",
+        "slug": "byblos-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Fransabank Sal",
+        "slug": "fransabank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Blom Bank S.A.L.",
+        "slug": "blom-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "czechia",
+    "countryCode": "CZ",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 24,
+    "currency": "CZK",
+    "exampleIban": "CZ6508000000192000145399",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Komercni Banka A.S.",
+        "slug": "komercni-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Ceskoslovenska Obchodni Banka, A.S.",
+        "slug": "ceskoslovenska-obchodni-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Raiffeisenbank A.S.",
+        "slug": "raiffeisenbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Unicredit Bank Czech Republic,A.S.",
+        "slug": "unicredit-bank-czech-republic",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "Ceska Sporitelna A.S.",
+        "slug": "ceska-sporitelna",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Fio Banka, A.S.",
+        "slug": "fio-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Equa Bank A.S.",
+        "slug": "equa-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "timor-leste",
+    "countryCode": "TL",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 23,
+    "currency": "USD",
+    "exampleIban": "TL380080012345678910157",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{14}",
+        "length": 14,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "poland",
+    "countryCode": "PL",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 28,
+    "currency": "PLN",
+    "exampleIban": "PL61109010140000071219812874",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "PKO BP (Powszechna Kasa Oszczędności Bank Polski)",
+        "slug": "pko-bank-polski",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Alior Bank Spolka Akcyjna",
+        "slug": "alior-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/alior-bank"
+      },
+      {
+        "name": "Bank Pekao (Bank Polska Kasa Opieki) SA",
+        "slug": "bank-polska-kasa-opieki",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "mBank",
+        "slug": "mbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/mbank"
+      },
+      {
+        "name": "Credit Agricole Bank Polska S.a.",
+        "slug": "credit-agricole-bank-polska",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/credit-agricole"
+      },
+      {
+        "name": "Raiffeisen Bank Polska S.a.",
+        "slug": "raiffeisen-bank-polska",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Santander (Bank Zachodni BZ WBK)",
+        "slug": "santander-consumer-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/santander"
+      },
+      {
+        "name": "Bank Millennium S.A.",
+        "slug": "bank-millennium",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "BNP Parbias (BGŻ)",
+        "slug": "bnp-paribas-bank-polska",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "NEST BANK S.A.",
+        "slug": "nest-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "GETIN NOBLE BANK SA",
+        "slug": "getin-noble-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "IDEA BANK SPOLKA AKCYJNA",
+        "slug": "idea-bank-spolka-akcyjna",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bank spółdzielczy",
+        "slug": "bank-spoldzielczy",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "POCZTOWY BANK SA",
+        "slug": "pocztowy-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Inteligo",
+        "slug": "inteligo",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Citi Handlowy (Bank Handlowy)",
+        "slug": "citi-handlowy",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "ING Bank Śląski SA",
+        "slug": "ing-bank-slaski",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "BNP Paribas SA ",
+        "slug": "bnp-paribas",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bnp-paribas"
+      }
+    ]
+  },
+  {
+    "slug": "liechtenstein",
+    "countryCode": "LI",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 21,
+    "currency": "CHF",
+    "exampleIban": "LI21088100002324013AA",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{12}",
+        "length": 12,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "turkey",
+    "countryCode": "TR",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 26,
+    "currency": "TRY",
+    "exampleIban": "TR330006100519786457841326",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "germany",
+    "countryCode": "DE",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 22,
+    "currency": "EUR",
+    "exampleIban": "DE89370400440532013000",
+    "bbanFields": [
+      {
+        "label": "blz_code",
+        "regex": "^[0-9]{8}",
+        "length": 8,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Postbank",
+        "slug": "postbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/postbank"
+      },
+      {
+        "name": "N26",
+        "slug": "n26-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/N26"
+      },
+      {
+        "name": "Commerzbank",
+        "slug": "commerzbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/commerzbank"
+      },
+      {
+        "name": "Deutsche Bank",
+        "slug": "deutsche-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/deutsche-bank"
+      },
+      {
+        "name": "Deutsche Postbank",
+        "slug": "deutsche-postbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Hamburger Sparkasse",
+        "slug": "hamburger-sparkasse",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Berliner Volksbank",
+        "slug": "berliner-volksbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Berliner Sparkasse",
+        "slug": "berliner-sparkasse",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sparkasse Anbach",
+        "slug": "sparkasse-anbach-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sparkasse Kolnbonn",
+        "slug": "sparkasse-kolnbonn",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Hypovereinsbank",
+        "slug": "unicredit-hypovereinsbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Ing-Diba Ag",
+        "slug": "ing-diba",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Landesbank Berlin Ag",
+        "slug": "landesbank-berlin",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Ostsächsische Sparkasse Dresden",
+        "slug": "ostsachsische-sparkasse-dresden",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sparkasse Bielefeld",
+        "slug": "sparkasse-bielefeld",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "KSK - Kreissparkasse Koeln",
+        "slug": "kreissparkasse-koeln",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sofort Bank Eine Marke Der Deutsche Kontor Privatbank Ag",
+        "slug": "sofort-bank-eine-marke-der-deutsche-kontor-privatbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Fidor Bank",
+        "slug": "fidor-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "VTB Bank (Deutschland) Ag",
+        "slug": "vtb-bank-deutschland",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Wirecard Bank Ag",
+        "slug": "wirecard-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sparkasse Koelnbonn (Former Stadtsparkasse Koeln)",
+        "slug": "sparkasse-koelnbonn",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sparkasse Aachen",
+        "slug": "sparkasse-aachen",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Standard Chartered Bank Germany Branch",
+        "slug": "standard-chartered-bank-germany",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Barclays Bank Plc",
+        "slug": "barclays-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/barclays"
+      },
+      {
+        "name": "Targobank Ag Co Kgaa",
+        "slug": "targobank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bayerische Landesbank, Muenchen",
+        "slug": "bayerische-landesbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sutor Bank",
+        "slug": "sutor-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "HSBC Trinkaus Und Burkhardt Ag",
+        "slug": "hsbc-trinkaus-und-burkhardt",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc"
+      },
+      {
+        "name": "Kreissparkasse Boeblingen",
+        "slug": "kreissparkasse-boeblingen",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Stadtsparkasse Duesseldorf",
+        "slug": "stadtsparkasse-duesseldorf",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Stadtsparkasse Muenchen",
+        "slug": "stadtsparkasse-muenchen",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "DKB AG",
+        "slug": "dkb",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Klarna",
+        "slug": "klarna",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Santander Bank",
+        "slug": "santander",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/santander"
+      },
+      {
+        "name": "Comdirect Bank",
+        "slug": "comdirect",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Barclays Bank",
+        "slug": "barclays",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/barclays"
+      },
+      {
+        "name": "Consorsbank",
+        "slug": "consorsbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Raiffeisen Bank International AG",
+        "slug": "raiffeisen-bank-international",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Bunq B.V.",
+        "slug": "bunq",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bunq"
+      }
+    ]
+  },
+  {
+    "slug": "portugal",
+    "countryCode": "PT",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 25,
+    "currency": "EUR",
+    "exampleIban": "PT50000201231234567890154",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{11}",
+        "length": 11,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "ActivoBank",
+        "slug": "activobank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/activo"
+      },
+      {
+        "name": "Banco Comercial Portugues",
+        "slug": "banco-comercial-portugues",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/banco-comercial-portugues"
+      },
+      {
+        "name": "Santander",
+        "slug": "banco-santander-totta",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/santander"
+      },
+      {
+        "name": "Caixa Geral de Depositos",
+        "slug": "caixa-geral-de-depositos",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banco Bpi Sa",
+        "slug": "banco-bpi",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Millenium Bcp",
+        "slug": "millenium-bcp",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Montepio Geral-caixa Economica",
+        "slug": "montepio-geral-caixa-economica",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Caixa Central De Credito Agricola Mutuo",
+        "slug": "caixa-central-de-credito-agricola-mutuo",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Multibanco",
+        "slug": "multibanco",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bankinter, S.A.",
+        "slug": "bankinter",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "denmark",
+    "countryCode": "DK",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 18,
+    "currency": "DKK",
+    "exampleIban": "DK5000400440116243",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Nykredit Bank A/S",
+        "slug": "nykredit-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Spar Nord Bank",
+        "slug": "spar-nord-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Saxo Payments A/s",
+        "slug": "saxo-payments",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Nordea Bank Danmark A/S",
+        "slug": "nordea-bank-danmark",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/nordea"
+      },
+      {
+        "name": "Jyske Bank A/S",
+        "slug": "jyske-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Danske Bank A/S",
+        "slug": "danske-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/danske-bank"
+      },
+      {
+        "name": "Arbejdernes Landsbank",
+        "slug": "arbejdernes-landsbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Sparekassen Kronjylland",
+        "slug": "sparekassen-kronjylland",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "lithuania",
+    "countryCode": "LT",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 20,
+    "currency": "EUR",
+    "exampleIban": "LT121000011101001000",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{11}",
+        "length": 11,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Swedbank Ab",
+        "slug": "swedbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/swedbank"
+      },
+      {
+        "name": "Ab Dnb Bankas",
+        "slug": "ab-dnb-bankas",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Seb Bank",
+        "slug": "seb-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/seb"
+      },
+      {
+        "name": "Siauliu Bankas Ab",
+        "slug": "siauliu-bankas",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "luxembourg",
+    "countryCode": "LU",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 20,
+    "currency": "EUR",
+    "exampleIban": "LU280019400644750000",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{13}",
+        "length": 13,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "BGL BNP Paribas",
+        "slug": "bgl-bnp-paribas",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "croatia",
+    "countryCode": "HR",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 21,
+    "currency": "EUR",
+    "exampleIban": "HR1210010051863000160",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{7}",
+        "length": 7,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Erste And Steiermaerkische Bank D.D.",
+        "slug": "erste-and-steiermaerkische-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Zagrebacka Banka Dd",
+        "slug": "zagrebacka-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Privredna Banka Zagreb D.D.",
+        "slug": "privredna-banka-zagreb",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "latvia",
+    "countryCode": "LV",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 21,
+    "currency": "EUR",
+    "exampleIban": "LV80BANK0000435195001",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{13}",
+        "length": 13,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "JSC Citadele Banka",
+        "slug": "jsc-citadele-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Swedbank As",
+        "slug": "swedbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/swedbank"
+      },
+      {
+        "name": "Seb Banka",
+        "slug": "seb-banka",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/seb"
+      }
+    ]
+  },
+  {
+    "slug": "dominican-republic",
+    "countryCode": "DO",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 28,
+    "currency": "DOP",
+    "exampleIban": "DO28BAGR00000001212453611324",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[a-zA-Z0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{20}",
+        "length": 20,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Banco Popular Dominicano, C. Por A.",
+        "slug": "banco-popular-dominicano",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banco De Reservas De La Republica Dominicana",
+        "slug": "banco-de-reservas-de-la-republica-dominicana",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banco Bhd S.a.",
+        "slug": "banco-bhd",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "ukraine",
+    "countryCode": "UA",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 29,
+    "currency": "UAH",
+    "exampleIban": "UA213223130000026007233566001",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{6}",
+        "length": 6,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{19}",
+        "length": 19,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Universal Bank Ojsc",
+        "slug": "universal-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Raiffeisen Bank Aval' Public Joint Stock Company",
+        "slug": "raiffeisen-bank-aval",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Ukrsibbank",
+        "slug": "ukrsibbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Privatbank",
+        "slug": "privatbank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "hungary",
+    "countryCode": "HU",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 28,
+    "currency": "HUF",
+    "exampleIban": "HU42117730161111101800000000",
+    "bbanFields": [
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{26}",
+        "length": 26,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "OTP Bank Plc.",
+        "slug": "otp-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/otp-bank"
+      },
+      {
+        "name": "CIB Bank Ltd. (Formerly Central-European Int.Bank Ltd.)",
+        "slug": "cib-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "MKB Bank Zrt (Formerly Magyar Kulkereskedelmi Bank Rt.)",
+        "slug": "mkb-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Budapest Bank Rt.",
+        "slug": "budapest-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Magnet Bank Zrt.",
+        "slug": "magnet-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Unicredit Bank Hungary Zrt.",
+        "slug": "unicredit-bank-hungary",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "Granit Bank Zrt.",
+        "slug": "granit-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Raiffeisen Bank Zrt.",
+        "slug": "raiffeisen-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Erste Bank Hungary Nyrt",
+        "slug": "erste-bank-hungary",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Takarékbank",
+        "slug": "takarekbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "K&H Bank",
+        "slug": "k&h-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "qatar",
+    "countryCode": "QA",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 29,
+    "currency": "QAR",
+    "exampleIban": "QA58DOHB00001234567890ABCDEFG",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{21}",
+        "length": 21,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "International Bank Of Qatar (q.s.c.",
+        "slug": "international-bank-of-qatar",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Qatar Islamic Bank",
+        "slug": "qatar-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Qatar International Islamic Bank",
+        "slug": "qatar-international-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Qatar National Bank",
+        "slug": "qatar-national-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/qnb"
+      },
+      {
+        "name": "Masraf Al Rayan",
+        "slug": "masraf-al-rayan",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Commercial Bank Of Qatar, Ltd.",
+        "slug": "commercial-bank-of-qatar",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "monaco",
+    "countryCode": "MC",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 27,
+    "currency": "EUR",
+    "exampleIban": "MC5811222000010123456789030",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{11}",
+        "length": 11,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "moldova",
+    "countryCode": "MD",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 24,
+    "currency": "MDL",
+    "exampleIban": "MD24AG000225100013104168",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[a-zA-Z0-9]{2}",
+        "length": 2,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{18}",
+        "length": 18,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "montenegro",
+    "countryCode": "ME",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 22,
+    "currency": "EUR",
+    "exampleIban": "ME25505000012345678951",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{13}",
+        "length": 13,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Crnogorska Komercijalna Banka Ad Podgorica",
+        "slug": "crnogorska-komercijalna-banka",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "ireland",
+    "countryCode": "IE",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 22,
+    "currency": "EUR",
+    "exampleIban": "IE29AIBK93115212345678",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{6}",
+        "length": 6,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{8}",
+        "length": 8,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Allied Irish Banks",
+        "slug": "aib-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/aib"
+      },
+      {
+        "name": "Bank of Ireland",
+        "slug": "bank-of-ireland",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-of-ireland"
+      },
+      {
+        "name": "Barclays Bank Ireland Plc",
+        "slug": "barclays-bank-ireland",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/barclays"
+      },
+      {
+        "name": "Citibank Europe Plc",
+        "slug": "citibank-europe",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/citibank"
+      },
+      {
+        "name": "KBC Bank Ireland Plc",
+        "slug": "kbc-bank-ireland",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/kbc"
+      },
+      {
+        "name": "Ulster Bank Ireland DAC",
+        "slug": "ulster-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/ulster-bank"
+      },
+      {
+        "name": "Permanent TSB",
+        "slug": "permanent-tsb",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "north-macedonia",
+    "countryCode": "MK",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 19,
+    "currency": "MKD",
+    "exampleIban": "MK07250120000058984",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "estonia",
+    "countryCode": "EE",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 20,
+    "currency": "EUR",
+    "exampleIban": "EE382200221020145685",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{11}",
+        "length": 11,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "LHV Pank",
+        "slug": "lhv-pank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Swedbank As",
+        "slug": "swedbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/swedbank"
+      }
+    ]
+  },
+  {
+    "slug": "egypt",
+    "countryCode": "EG",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 29,
+    "currency": "EGP",
+    "exampleIban": "EG380019000500000000263180002",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{17}",
+        "length": 17,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Crédit Agricole Egypt",
+        "slug": "credit-agricole-egypt",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/credit-agricole"
+      },
+      {
+        "name": "HSBC Bank Egypt",
+        "slug": "hsbc-egypt",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc"
+      },
+      {
+        "name": "Bank of Alexandria (Alexbank)",
+        "slug": "bank-of-alexandria-alexbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Qatar National Bank (QNB)",
+        "slug": "qatar-national-bank-qnb",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/qnb"
+      },
+      {
+        "name": "Commercial International Bank",
+        "slug": "comercial-international-bank-cib",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "National Bank of Egypt",
+        "slug": "national-bank-of-egypt",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banque du Caire",
+        "slug": "banque-du-caire",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banque Misr",
+        "slug": "banque-misr",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "andorra",
+    "countryCode": "AD",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 24,
+    "currency": "EUR",
+    "exampleIban": "AD1200012030200359100100",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{12}",
+        "length": 12,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "israel",
+    "countryCode": "IL",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 23,
+    "currency": "ILS",
+    "exampleIban": "IL620108000000099999999",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{13}",
+        "length": 13,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Bank Leumi Le Israel B.M.",
+        "slug": "bank-leumi-le-israel",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bank Otsar Ha-Hayal Ltd.",
+        "slug": "bank-otsar-ha-hayal",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Mizrahi Tefahot Bank Ltd",
+        "slug": "mizrahi-tefahot-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Israel Postal Bank",
+        "slug": "israel-postal-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Israel Discount Bank Ltd",
+        "slug": "israel-discount-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "First International Bank Of Israel Ltd.,The",
+        "slug": "first-international-bank-of-israel",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bank Hapoalim B.M.",
+        "slug": "bank-hapoalim",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "united-arab-emirates",
+    "countryCode": "AE",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 23,
+    "currency": "AED",
+    "exampleIban": "AE070331234567890123456",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Habib Bank Ag Zurich",
+        "slug": "habib-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Investbank",
+        "slug": "investbank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Citibank N.A.",
+        "slug": "citibank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/citibank"
+      },
+      {
+        "name": "National Bank Of Abu Dhabi",
+        "slug": "national-bank-of-abu-dhabi",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/nbad"
+      },
+      {
+        "name": "Noor Islamic Bank",
+        "slug": "noor-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "National Bank Of Ras Al-khaimah, The",
+        "slug": "national-bank-of-ras-al-khaimah",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Abu Dhabi Islamic Bank",
+        "slug": "abu-dhabi-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Union National Bank",
+        "slug": "union-national-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "National Bank Of Umm Al Qaiwain Psc.",
+        "slug": "national-bank-of-umm-al-qaiwain",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Emirates Islamic Bank",
+        "slug": "emirates-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Al Hilal Bank",
+        "slug": "al-hilal-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Abu Dhabi Commercial Bank",
+        "slug": "abu-dhabi-commercial-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Commercial Bank International",
+        "slug": "commercial-bank-international",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "United Arab Bank",
+        "slug": "united-arab-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Standard Chartered Bank",
+        "slug": "standard-chartered-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "First Gulf Bank",
+        "slug": "first-gulf-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Ajman Bank Pjsc",
+        "slug": "ajman-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Dubai Islamic Bank",
+        "slug": "dubai-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Central Bank Of The U.A.E.",
+        "slug": "central-bank-of-the-uae",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "HSBC Bank Middle East Limited",
+        "slug": "hsbc-bank-middle-east",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc"
+      },
+      {
+        "name": "Emirates Nbd Bank Pjsc",
+        "slug": "emirates-nbd-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/emiratesnbd"
+      },
+      {
+        "name": "Sharjah Islamic Bank",
+        "slug": "sharjah-islamic-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Mashreqbank Psc.",
+        "slug": "mashreqbank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/mashreq"
+      },
+      {
+        "name": "Bank of Baroda",
+        "slug": "bank-of-baroda",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-of-baroda"
+      },
+      {
+        "name": "Standard Chartered",
+        "slug": "standard-chartered",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "mauritania",
+    "countryCode": "MR",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 27,
+    "currency": "MRU",
+    "exampleIban": "MR1300020001010000123456753",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{11}",
+        "length": 11,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "State Bank Of Mauritius Ltd.",
+        "slug": "state-bank-of-mauritius",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Mauritius Commercial Bank Ltd., The",
+        "slug": "mauritius-commercial-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Afrasia Bank Limited",
+        "slug": "afrasia-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "malta",
+    "countryCode": "MT",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 31,
+    "currency": "EUR",
+    "exampleIban": "MT84MALT011000012345MTLCAST001S",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{18}",
+        "length": 18,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Aps Bank Ltd.",
+        "slug": "aps-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "HSBC Bank Malta P.L.C.",
+        "slug": "hsbc-bank-malta",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc"
+      },
+      {
+        "name": "Bank Of Valletta P.L.C.",
+        "slug": "bank-of-valletta",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "iceland",
+    "countryCode": "IS",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 26,
+    "currency": "ISK",
+    "exampleIban": "IS140159260076545510730339",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{6}",
+        "length": 6,
+        "type": "account_number"
+      },
+      {
+        "label": "identification_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "identification_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "albania",
+    "countryCode": "AL",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 28,
+    "currency": "ALL",
+    "exampleIban": "AL47212110090000000235698741",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Raiffeisen Bank Sh.a.",
+        "slug": "raiffeisen-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Intesa Sanpaolo Bank Albania Sh.a.",
+        "slug": "intesa-sanpaolo-bank-albania",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "italy",
+    "countryCode": "IT",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 27,
+    "currency": "EUR",
+    "exampleIban": "IT60X0542811101000000123456",
+    "bbanFields": [
+      {
+        "label": "national_check_digit",
+        "regex": "^[A-Z]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      },
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{12}",
+        "length": 12,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Banca Mediolanum",
+        "slug": "banca-mediolanum",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Monte Dei Paschi Di Siena S.P.A.",
+        "slug": "banca-monte-dei-paschi-di-siena",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Deutsche Bank S.P.A.",
+        "slug": "deutsche-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/deutsche-bank"
+      },
+      {
+        "name": "Poste Italiane S.P.A.",
+        "slug": "poste-italiane",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Popolare Di Sondrio",
+        "slug": "banca-popolare-di-sondrio",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Sella S.P.A",
+        "slug": "banca-sella",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Nazionale Del Lavoro S.p.a.",
+        "slug": "banca-nazionale-del-lavoro",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Unicredit S.p.a.",
+        "slug": "unicredit",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "Intesa Sanpaolo Spa",
+        "slug": "intesa-sanpaolo",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Fideuram S.P.A.",
+        "slug": "banca-fideuram",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Ubi Banca (Unione Di Banche Italiane) S.C.P.A.",
+        "slug": "ubi-banca-unione-di-banche-italiane",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Popolare Dellemilia Romagna",
+        "slug": "banca-popolare-dellemilia-romagna",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Credito Valtellinese",
+        "slug": "credito-valtellinese",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Chebanca Spa",
+        "slug": "chebanca",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Cassa Di Risparmio Di Asti Spa",
+        "slug": "cassa-di-risparmio-di-asti",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "PostePay S.p.A.",
+        "slug": "postepay",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "BPER Banca S.p.A.",
+        "slug": "bper-banca",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "BancoPosta",
+        "slug": "bancoposta",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "vatican-city",
+    "countryCode": "VA",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 22,
+    "currency": "EUR",
+    "exampleIban": "VA59001123000012345678",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{15}",
+        "length": 15,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "spain",
+    "countryCode": "ES",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 24,
+    "currency": "EUR",
+    "exampleIban": "ES9121000418450200051332",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "branch_code"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Banco Sabadell",
+        "slug": "banco-sabadell",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/sabadell"
+      },
+      {
+        "name": "Santander",
+        "slug": "banco-santander",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/santander"
+      },
+      {
+        "name": "BBVA",
+        "slug": "bbva",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bbva"
+      },
+      {
+        "name": "La Caixa",
+        "slug": "caixabank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/caixa-bank"
+      },
+      {
+        "name": "Banca March, S.A",
+        "slug": "banca-march",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bankinter, S.A.",
+        "slug": "bankinter",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Ing Direct Nv, Sucursal En Espana",
+        "slug": "ing-direct",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Triodos Bank Nv, Se",
+        "slug": "triodos-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banco Popular Espanol, S.A.",
+        "slug": "banco-popular-espanol",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Evo Banco S.A.",
+        "slug": "evo-banco",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Open Bank Santander Consumer S.A.",
+        "slug": "open-bank-santander-consumer",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Cajamar Caja Rural, Sociedad Cooperativa De Credito",
+        "slug": "cajamar-caja-rural-sociedad-cooperativa-de-credito",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Caixa De Credit Dels. Enginyers-Caja De Credito De Los Ingenieros Soc. Coop. De Credito",
+        "slug": "caixa-de-credit-dels-enginyers-caja-de-credito-de-los-ingenieros",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bankia S.A.",
+        "slug": "bankia",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bankia"
+      },
+      {
+        "name": "Ibercaja",
+        "slug": "ibercaja",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Unicaja",
+        "slug": "unicaja",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Kutxabank",
+        "slug": "kutxabank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Abanca",
+        "slug": "abanca",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Liberbank",
+        "slug": "liberbank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "british-virgin-islands",
+    "countryCode": "VG",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 24,
+    "currency": "USD",
+    "exampleIban": "VG96VPVG0000012345678901",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "austria",
+    "countryCode": "AT",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 20,
+    "currency": "EUR",
+    "exampleIban": "AT611904300234573201",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{5}",
+        "length": 5,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{11}",
+        "length": 11,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Unicredit",
+        "slug": "unicredit-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "Sparkasse Muehlviertel-west Bank Ag",
+        "slug": "sparkasse-muehlviertel-west-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Erste Bank Der Oesterreichischen Sparkassen Ag",
+        "slug": "erste-bank-der-oesterreichischen-sparkassen",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Steiermaerkische Bank Und Sparkassen Ag",
+        "slug": "steiermaerkische-bank-und-sparkassen",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Raiffeisen Bank International Ag",
+        "slug": "raiffeisen-bank-international",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Klarna",
+        "slug": "klarna",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "azerbaijan",
+    "countryCode": "AZ",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 28,
+    "currency": "AZN",
+    "exampleIban": "AZ21NABZ00000000137010001944",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{20}",
+        "length": 20,
+        "type": "account_number"
+      }
+    ],
+    "banks": []
+  },
+  {
+    "slug": "romania",
+    "countryCode": "RO",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 24,
+    "currency": "RON",
+    "exampleIban": "RO49AAAA1B31007593840000",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[a-zA-Z0-9]{16}",
+        "length": 16,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Ing Bank N.v., Bucharest Branch",
+        "slug": "ing-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Transilvania S.A.",
+        "slug": "banca-transilvania",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Brd-groupe Societe Generale Sa",
+        "slug": "brd-groupe-societe-generale",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Libra Bank S.a.",
+        "slug": "libra-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Alpha Bank Romania Sa",
+        "slug": "alpha-bank-romania",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/alpha-bank"
+      },
+      {
+        "name": "Raiffeisen Bank S.a.",
+        "slug": "raiffeisen-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Garanti Bank S.a.",
+        "slug": "garanti-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Comerciala Romana S.A",
+        "slug": "banca-comerciala-romana",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Credit Europe Bank (romania) S.a.",
+        "slug": "credit-europe-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Unicredit Tiriac Bank Sa",
+        "slug": "unicredit-tiriac-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "Cec Bank-s.a.",
+        "slug": "cec-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "OTP Bank Romania S.a.",
+        "slug": "otp-bank-romania",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/otp-bank"
+      },
+      {
+        "name": "Banca Romaneasca S.A.",
+        "slug": "banca-romaneasca",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "netherlands",
+    "countryCode": "NL",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 18,
+    "currency": "EUR",
+    "exampleIban": "NL91ABNA0417164300",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[A-Z]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{10}",
+        "length": 10,
+        "type": "account_number"
+      }
+    ],
+    "banks": [
+      {
+        "name": "ABN AMRO",
+        "slug": "abn-amro",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/abn-amro-bank"
+      },
+      {
+        "name": "ING Group",
+        "slug": "ing-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bunq B.V.",
+        "slug": "bunq",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bunq"
+      },
+      {
+        "name": "ASN Bank",
+        "slug": "asn-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "SNS Bank N.V.",
+        "slug": "sns-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Rabobank Nederland",
+        "slug": "rabobank-nederland",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/rabobank"
+      }
+    ]
+  },
+  {
+    "slug": "bosnia-and-herzegovina",
+    "countryCode": "BA",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 20,
+    "currency": "BAM",
+    "exampleIban": "BA391290079401028494",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "branch_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "branch_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{8}",
+        "length": 8,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Unicredit Bank",
+        "slug": "unicredit-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      }
+    ]
+  },
+  {
+    "slug": "norway",
+    "countryCode": "NO",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 15,
+    "currency": "NOK",
+    "exampleIban": "NO9386011117947",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{4}",
+        "length": 4,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{6}",
+        "length": 6,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Danske Bank A/S",
+        "slug": "danske-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/danske-bank"
+      },
+      {
+        "name": "Nordea Bank Norge Asa",
+        "slug": "nordea-bank-norge",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/nordea"
+      },
+      {
+        "name": "Bank Norwegian",
+        "slug": "bank-norwegian",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "DNB Bank Asa",
+        "slug": "dnb-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/dnb"
+      },
+      {
+        "name": "Sparebank 1 Smn",
+        "slug": "sparebank-1",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "serbia",
+    "countryCode": "RS",
+    "countryName": "",
+    "sepa": false,
+    "ibanLength": 22,
+    "currency": "RSD",
+    "exampleIban": "RS35260005601001611379",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{13}",
+        "length": 13,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Raiffeisen Banka A.d.",
+        "slug": "raiffeisen-banka",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen-bank"
+      },
+      {
+        "name": "Komercijalna Banka A.d. Beograd",
+        "slug": "komercijalna-banka",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Unicredit Bank Srbija A.d.",
+        "slug": "unicredit-bank-srbija",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/unicredit-bank"
+      },
+      {
+        "name": "Postal Savings Bank Jsc",
+        "slug": "postal-savings-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Banca Intesa Ad, Beograd",
+        "slug": "banca-intesa",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "belgium",
+    "countryCode": "BE",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 16,
+    "currency": "EUR",
+    "exampleIban": "BE68539007547034",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{3}",
+        "length": 3,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{7}",
+        "length": 7,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{2}",
+        "length": 2,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Argenta",
+        "slug": "argenta",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Ing Belgium Nv/Sa, Brussels",
+        "slug": "ing-belgium",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Bpost Banque Bpost Bank Bpost Bank",
+        "slug": "bpost-banque",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Deutsche Bank Ag",
+        "slug": "deutsche-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/deutsche-bank"
+      },
+      {
+        "name": "Keytrade Bank Sa/Nv",
+        "slug": "keytrade-bank",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Kbc Bank N.V",
+        "slug": "kbc-bank-ireland",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/kbc"
+      },
+      {
+        "name": "BNP Paribas Fortis",
+        "slug": "bnp-paribas-fortis",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bnp-paribas"
+      },
+      {
+        "name": "Belfius Bank SA",
+        "slug": "belfius",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Crelan",
+        "slug": "rrelan",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Hello bank!",
+        "slug": "hello-bank",
+        "logo": "/iban-resources/img/default"
+      }
+    ]
+  },
+  {
+    "slug": "finland",
+    "countryCode": "FI",
+    "countryName": "",
+    "sepa": true,
+    "ibanLength": 18,
+    "currency": "EUR",
+    "exampleIban": "FI2112345600000785",
+    "bbanFields": [
+      {
+        "label": "bank_code",
+        "regex": "^[0-9]{6}",
+        "length": 6,
+        "type": "bank_code"
+      },
+      {
+        "label": "account_number",
+        "regex": "^[0-9]{7}",
+        "length": 7,
+        "type": "account_number"
+      },
+      {
+        "label": "national_check_digit",
+        "regex": "^[0-9]{1}",
+        "length": 1,
+        "type": "national_check_digit"
+      }
+    ],
+    "banks": [
+      {
+        "name": "Danske Bank",
+        "slug": "danske-bank",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/danske-bank"
+      },
+      {
+        "name": "Pohjola Pankki Oyj (Pohjola Bank Plc)",
+        "slug": "pohjola-pankki-oyj",
+        "logo": "/iban-resources/img/default"
+      },
+      {
+        "name": "Nordea Bank Finland Plc",
+        "slug": "nordea-bank-finland",
+        "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/nordea"
+      }
+    ]
+  }
+]

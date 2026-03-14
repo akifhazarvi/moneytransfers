@@ -1,0 +1,113 @@
+name: Scrape Provider Data
+
+on:
+  schedule:
+    # Provider quotes: every 6 hours
+    - cron: '0 */6 * * *'
+    # Trustpilot reviews: once daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # allow manual trigger
+
+jobs:
+  scrape-providers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      # Install Playwright browsers for browser automation scrapers
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      # === API-based scrapers (fast, no browser needed) ===
+
+      - name: Scrape provider quotes (Wise Comparison API)
+        run: npx tsx scripts/scrape-providers.ts
+        continue-on-error: true
+
+      - name: Scrape OFX (direct API)
+        run: npx tsx scripts/scrape-ofx.ts
+        continue-on-error: true
+
+      - name: Scrape Instarem (direct API)
+        run: npx tsx scripts/scrape-instarem.ts
+        continue-on-error: true
+
+      - name: Scrape XE mid-market rates
+        run: npx tsx scripts/scrape-xe.ts
+        continue-on-error: true
+
+      - name: Scrape Monito comparison (Playwright)
+        run: npx tsx scripts/scrape-monito.ts
+        timeout-minutes: 20
+        continue-on-error: true
+
+      # === Browser automation scrapers (Playwright) ===
+
+      - name: Scrape WorldRemit (browser)
+        run: npx tsx scripts/scrape-worldremit.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape Remitly (browser)
+        run: npx tsx scripts/scrape-remitly.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape Western Union (browser)
+        run: npx tsx scripts/scrape-western-union.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape Revolut (browser)
+        run: npx tsx scripts/scrape-revolut.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape Xoom/PayPal (browser)
+        run: npx tsx scripts/scrape-xoom.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      # Commit updated data
+      - name: Commit scraped data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/scraped/
+          git diff --staged --quiet || git commit -m "chore: update scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
+          git push
+
+  scrape-reviews:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Scrape Trustpilot reviews
+        run: npx tsx scripts/scrape-reviews.ts
+        continue-on-error: true
+
+      - name: Commit review data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/scraped/trustpilot-ratings.json
+          git diff --staged --quiet || git commit -m "chore: update Trustpilot ratings [$(date -u +%Y-%m-%d)]"
+          git push

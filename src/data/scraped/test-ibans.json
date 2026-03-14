@@ -1,0 +1,67 @@
+[
+  {
+    "iban": "GB33BUKB20201555555555",
+    "valid": false,
+    "reason": "Valid IBAN, length, checksum, bank code, account and structure"
+  },
+  {
+    "iban": "GB94BARC10201530093459",
+    "valid": false,
+    "reason": "Valid IBAN,  bank code not found (bank cannot be identified): Valid length, checksum, bank code, account and structure"
+  },
+  {
+    "iban": "GB94BARC20201530093459",
+    "valid": false,
+    "reason": "Invalid IBAN check digits MOD-97-10 as per ISO/IEC 7064:2003"
+  },
+  {
+    "iban": "GB96BARC202015300934591",
+    "valid": false,
+    "reason": "Invalid IBAN length must be \"X\" characters long!"
+  },
+  {
+    "iban": "GB02BARC20201530093451",
+    "valid": false,
+    "reason": "Invalid account number"
+  },
+  {
+    "iban": "GB68CITI18500483515538",
+    "valid": false,
+    "reason": "Invalid account number"
+  },
+  {
+    "iban": "GB24BARC20201630093459",
+    "valid": false,
+    "reason": "Bank code not found and invalid account"
+  },
+  {
+    "iban": "GB12BARC20201530093A59",
+    "valid": false,
+    "reason": "Invalid account structure"
+  },
+  {
+    "iban": "GB78BARCO0201530093459",
+    "valid": false,
+    "reason": "Bank code not found and invalid bank code structure"
+  },
+  {
+    "iban": "GB2LABBY09012857201707",
+    "valid": false,
+    "reason": "Invalid IBAN checksum and IBAN structure"
+  },
+  {
+    "iban": "GB01BARC20714583608387",
+    "valid": false,
+    "reason": "Invalid IBAN checksum"
+  },
+  {
+    "iban": "GB00HLFX11016111455365",
+    "valid": false,
+    "reason": "Invalid IBAN checksum"
+  },
+  {
+    "iban": "US64SVBKUS6S3300958879",
+    "valid": false,
+    "reason": "Country does not seem to support IBAN!"
+  }
+]
