@@ -31,14 +31,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const country = getSwiftCountryBySlug(slug);
   if (!country) return {};
   return {
-    title: `${country.name} SWIFT/BIC Codes | ${country.bankCount} Banks | MoneyTransfers`,
+    title: `${country.name} SWIFT/BIC Codes | ${country.bankCount} Banks | SendMoneyCompare`,
     description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified SWIFT codes with branch details, city, and address for international wire transfers to ${country.name}.`,
     keywords: `${country.name} SWIFT code, ${country.name} BIC code, ${country.countryCode} SWIFT, banks in ${country.name}, wire transfer ${country.name}`,
-    alternates: { canonical: `https://moneytransfers.com/swift-codes/${slug}` },
+    alternates: { canonical: `https://sendmoneycompare.com/swift-codes/${slug}` },
     openGraph: {
       title: `${country.name} SWIFT/BIC Codes — ${country.bankCount} Banks`,
       description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified codes for international wire transfers.`,
-      url: `https://moneytransfers.com/swift-codes/${slug}`,
+      url: `https://sendmoneycompare.com/swift-codes/${slug}`,
     },
   };
 }

@@ -7,16 +7,16 @@ import RatingBadge from "@/components/RatingBadge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Money Transfer Company Reviews | MoneyTransfers",
+  title: "Money Transfer Company Reviews | SendMoneyCompare",
   description: "Expert reviews of 100+ money transfer companies. Compare fees, exchange rates, speed, and features.",
   alternates: {
-    canonical: "https://moneytransfers.com/companies",
+    canonical: "https://sendmoneycompare.com/companies",
   },
   openGraph: {
     title: "Money Transfer Company Reviews — Expert Analysis",
     description:
       "In-depth reviews of Wise, Remitly, Western Union, OFX, and 60+ more providers. Compare fees, rates, speed, and features.",
-    url: "https://moneytransfers.com/companies",
+    url: "https://sendmoneycompare.com/companies",
   },
 };
 

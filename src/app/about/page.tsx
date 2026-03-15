@@ -3,15 +3,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us — Who We Are & Why We Built MoneyTransfers",
+  title: "About Us — Who We Are & Why We Built SendMoneyCompare",
   description:
-    "MoneyTransfers is an independent comparison platform that helps people find the cheapest way to send money internationally. Learn about our mission, team, and values.",
-  alternates: { canonical: "https://moneytransfers.com/about" },
+    "SendMoneyCompare is an independent comparison platform that helps people find the cheapest way to send money internationally. Learn about our mission, team, and values.",
+  alternates: { canonical: "https://sendmoneycompare.com/about" },
   openGraph: {
-    title: "About MoneyTransfers — Independent Money Transfer Comparison",
+    title: "About SendMoneyCompare — Independent Money Transfer Comparison",
     description:
       "We compare 60+ money transfer services so you can find the cheapest way to send money internationally.",
-    url: "https://moneytransfers.com/about",
+    url: "https://sendmoneycompare.com/about",
   },
 };
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-3xl mx-auto">
             <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
-              About MoneyTransfers
+              About SendMoneyCompare
             </h1>
             <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               We&apos;re an independent comparison platform on a simple mission: help
@@ -43,7 +43,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  MoneyTransfers was born out of a personal frustration. Sending money to
+                  SendMoneyCompare was born out of a personal frustration. Sending money to
                   family overseas, we discovered that banks were quietly adding 3–5% markups
                   on exchange rates — on top of flat wire fees. A $1,000 transfer could cost
                   $50+ in hidden charges, and there was no easy way to compare alternatives
@@ -56,7 +56,7 @@ export default function AboutPage() {
                   money. No sponsored placements, no hidden agendas — just transparent data.
                 </p>
                 <p>
-                  Today, MoneyTransfers covers 64 currency corridors, publishes in-depth
+                  Today, SendMoneyCompare covers 64 currency corridors, publishes in-depth
                   provider reviews, and updates quote data every 6 hours. Millions of
                   people use comparison sites like ours to make smarter decisions about
                   international transfers every year.
@@ -108,7 +108,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  MoneyTransfers is free for consumers. We earn revenue when you click
+                  SendMoneyCompare is free for consumers. We earn revenue when you click
                   through to a provider and complete a transfer — this is called an
                   affiliate commission. Some providers pay us a referral fee; others
                   don&apos;t.

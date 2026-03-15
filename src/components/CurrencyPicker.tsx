@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 import { currencies } from "@/data/providers";
 import CircleFlag from "@/components/CircleFlag";
@@ -9,17 +9,21 @@ import CircleFlag from "@/components/CircleFlag";
 function FloatingDropdown({
   anchorRef,
   open,
+  onClose,
   children,
   position = "below",
 }: {
   anchorRef: React.RefObject<HTMLElement | null>;
   open: boolean;
+  onClose: () => void;
   children: React.ReactNode;
   position?: "below" | "above";
 }) {
   const [coords, setCoords] = useState({ top: 0, left: 0 });
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  // Use useLayoutEffect to position before paint (prevents flash)
+  useLayoutEffect(() => {
     if (!open || !anchorRef.current) return;
     const rect = anchorRef.current.getBoundingClientRect();
     if (position === "above") {
@@ -29,10 +33,50 @@ function FloatingDropdown({
     }
   }, [open, anchorRef, position]);
 
+  // Escape key handler
+  useEffect(() => {
+    if (!open) return;
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        onClose();
+        anchorRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open, onClose, anchorRef]);
+
+  // Focus trap: keep Tab within dropdown
+  useEffect(() => {
+    if (!open || !dropdownRef.current) return;
+    function handleTab(e: KeyboardEvent) {
+      if (e.key !== "Tab" || !dropdownRef.current) return;
+      const focusable = dropdownRef.current.querySelectorAll<HTMLElement>(
+        'button, input, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    document.addEventListener("keydown", handleTab);
+    return () => document.removeEventListener("keydown", handleTab);
+  }, [open]);
+
   if (!open) return null;
 
   return createPortal(
     <div
+      ref={dropdownRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Select currency"
       style={{
         position: "absolute",
         top: coords.top,
@@ -172,7 +216,7 @@ export default function CurrencyPicker({
         {buttonContent}
       </button>
 
-      <FloatingDropdown anchorRef={btnRef} open={open} position={position}>
+      <FloatingDropdown anchorRef={btnRef} open={open} onClose={() => setOpen(false)} position={position}>
         <div
           id={portalId}
           className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[0_4px_16px_rgba(32,33,36,0.18)] w-[280px] max-h-[320px] flex flex-col overflow-hidden"
@@ -184,6 +228,7 @@ export default function CurrencyPicker({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search currencies..."
+              aria-label="Search currencies"
               className="w-full text-[14px] px-3 py-2 rounded-lg border border-[var(--color-outline)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
             />
           </div>
@@ -270,7 +315,7 @@ export function AddCurrencyPicker({
         Add currency
       </button>
 
-      <FloatingDropdown anchorRef={btnRef} open={open} position="above">
+      <FloatingDropdown anchorRef={btnRef} open={open} onClose={() => setOpen(false)} position="above">
         <div
           id="add-currency-portal"
           className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[0_4px_16px_rgba(32,33,36,0.18)] w-[280px] max-h-[320px] flex flex-col overflow-hidden"
@@ -282,6 +327,7 @@ export function AddCurrencyPicker({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search currencies to add..."
+              aria-label="Search currencies to add"
               className="w-full text-[14px] px-3 py-2 rounded-lg border border-[var(--color-outline)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
             />
           </div>

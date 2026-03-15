@@ -11,6 +11,16 @@ const CURRENCY_TO_COUNTRY: Record<string, string> = {
   MAD: "ma", MYR: "my", FJD: "fj", GTQ: "gt",
 };
 
+const CURRENCY_NAMES: Record<string, string> = {
+  USD: "United States", GBP: "United Kingdom", EUR: "European Union", CAD: "Canada",
+  AUD: "Australia", INR: "India", PHP: "Philippines", MXN: "Mexico",
+  NGN: "Nigeria", PKR: "Pakistan", BDT: "Bangladesh", JPY: "Japan",
+  CNY: "China", BRL: "Brazil", KES: "Kenya", GHS: "Ghana",
+  ZAR: "South Africa", AED: "UAE", SGD: "Singapore", NZD: "New Zealand",
+  COP: "Colombia", VND: "Vietnam", TRY: "Turkey", IDR: "Indonesia",
+  MAD: "Morocco", MYR: "Malaysia", FJD: "Fiji", GTQ: "Guatemala",
+};
+
 export function getFlagUrl(code: string): string {
   // If it's a 3-letter currency code, map it; otherwise treat as 2-letter country code
   const country = code.length === 3
@@ -30,11 +40,12 @@ export default function CircleFlag({
   size?: number;
   className?: string;
 }) {
+  const countryName = CURRENCY_NAMES[code.toUpperCase()] || code;
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={getFlagUrl(code)}
-      alt={`${code} flag`}
+      alt={`Flag of ${countryName}`}
       width={size}
       height={size}
       className={`inline-block rounded-full shrink-0 ${className}`}

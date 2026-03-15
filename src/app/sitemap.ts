@@ -2,10 +2,11 @@ import type { MetadataRoute } from "next";
 import { allCorridors } from "@/data/corridors";
 import { providers } from "@/data/providers";
 import { blogPosts } from "@/data/blog-posts";
+import { newsItems } from "@/data/news";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 
-const SITE_URL = "https://moneytransfers.com";
+const SITE_URL = "https://sendmoneycompare.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
@@ -59,6 +60,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const newsPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/news`, lastModified: now, changeFrequency: "daily" as const, priority: 0.7 },
+    ...newsItems.map((item) => ({
+      url: `${SITE_URL}/news/${item.slug}`,
+      lastModified: item.publishedAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
+  ];
+
+  const exchangeRatesPage: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/exchange-rates`, lastModified: now, changeFrequency: "hourly" as const, priority: 0.8 },
+  ];
+
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
     .filter((c) => c.slug)
     .map((c) => ({
@@ -81,6 +96,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...providerPages,
     ...comparisonPages,
     ...guidePages,
+    ...newsPages,
+    ...exchangeRatesPage,
     ...ibanPages,
     ...swiftPages,
   ];

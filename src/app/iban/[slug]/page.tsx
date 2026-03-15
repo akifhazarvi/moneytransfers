@@ -52,14 +52,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!country) return {};
   const name = getCountryName(country.countryCode, slug);
   return {
-    title: `${name} IBAN Format | IBAN Code, Structure & Banks | MoneyTransfers`,
+    title: `${name} IBAN Format | IBAN Code, Structure & Banks | SendMoneyCompare`,
     description: `Learn the IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}. See the IBAN structure, BBAN breakdown, example IBAN, and list of ${country.banks.length > 0 ? country.banks.length + " " : ""}major banks.`,
     keywords: `${name} IBAN, ${country.countryCode} IBAN format, ${name} bank code, IBAN ${country.countryCode}, ${name} BBAN, ${country.currency}`,
-    alternates: { canonical: `https://moneytransfers.com/iban/${slug}` },
+    alternates: { canonical: `https://sendmoneycompare.com/iban/${slug}` },
     openGraph: {
       title: `${name} IBAN Format — Code, Structure & Banks`,
       description: `IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}.`,
-      url: `https://moneytransfers.com/iban/${slug}`,
+      url: `https://sendmoneycompare.com/iban/${slug}`,
     },
   };
 }

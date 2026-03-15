@@ -25,6 +25,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://moneytransfers.com/sitemap.xml",
+    sitemap: "https://sendmoneycompare.com/sitemap.xml",
   };
 }

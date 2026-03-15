@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) return {};
   const review = getProviderReview(slug);
-  const title = review?.title ?? `${provider.name} Review | Exchange Rates, Fees & Features | MoneyTransfers`;
+  const title = review?.title ?? `${provider.name} Review | Exchange Rates, Fees & Features | SendMoneyCompare`;
   const description = review?.metaDescription ?? provider.description;
   return {
     title,
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
     },
     alternates: {
-      canonical: `https://moneytransfers.com/companies/${slug}`,
+      canonical: `https://sendmoneycompare.com/companies/${slug}`,
     },
   };
 }
@@ -396,7 +396,7 @@ function DetailedReview({
               bestRating: 10,
               worstRating: 1,
             },
-            author: { "@type": "Organization", name: "MoneyTransfers" },
+            author: { "@type": "Organization", name: "SendMoneyCompare" },
             datePublished: review.updatedAt,
             reviewBody: review.editorVerdict,
           }),
@@ -425,9 +425,9 @@ function DetailedReview({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://moneytransfers.com" },
-              { "@type": "ListItem", position: 2, name: "Companies", item: "https://moneytransfers.com/companies" },
-              { "@type": "ListItem", position: 3, name: provider.name, item: `https://moneytransfers.com/companies/${slug}` },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+              { "@type": "ListItem", position: 2, name: "Companies", item: "https://sendmoneycompare.com/companies" },
+              { "@type": "ListItem", position: 3, name: provider.name, item: `https://sendmoneycompare.com/companies/${slug}` },
             ],
           }),
         }}
@@ -627,9 +627,9 @@ function DefaultReview({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://moneytransfers.com" },
-              { "@type": "ListItem", position: 2, name: "Companies", item: "https://moneytransfers.com/companies" },
-              { "@type": "ListItem", position: 3, name: provider.name, item: `https://moneytransfers.com/companies/${slug}` },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+              { "@type": "ListItem", position: 2, name: "Companies", item: "https://sendmoneycompare.com/companies" },
+              { "@type": "ListItem", position: 3, name: provider.name, item: `https://sendmoneycompare.com/companies/${slug}` },
             ],
           }),
         }}

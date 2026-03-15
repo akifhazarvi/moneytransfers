@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ForexTicker from "@/components/ForexTicker";
 import ThemeProvider from "@/components/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,32 +13,32 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const SITE_URL = "https://moneytransfers.com";
+const SITE_URL = "https://sendmoneycompare.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Moneyremitter — Compare International Money Transfers & Best Exchange Rates",
-    template: "%s | Moneyremitter",
+    default: "Compare International Money Transfers | SendMoneyCompare",
+    template: "%s | SendMoneyCompare",
   },
   description:
-    "Compare 60+ money transfer services to find the best exchange rates and lowest fees. Expert reviews, real-time quotes updated every 6 hours.",
+    "Compare fees, exchange rates and delivery times from providers like Wise, Remitly, Western Union and more to find the cheapest way to send money internationally.",
   keywords:
-    "money transfer, international transfer, exchange rates, compare, send money abroad, remittance comparison",
+    "money transfer comparison, international money transfer, compare exchange rates, send money abroad, cheapest way to send money, remittance comparison, transfer fees",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "Moneyremitter",
-    title: "Moneyremitter — Compare International Money Transfers & Best Exchange Rates",
+    siteName: "SendMoneyCompare",
+    title: "Compare International Money Transfers | SendMoneyCompare",
     description:
-      "Compare 60+ providers side by side. Real exchange rates and fees, updated every 6 hours.",
+      "Compare fees, exchange rates and delivery times from providers like Wise, Remitly, Western Union and more to find the cheapest way to send money internationally.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Moneyremitter — Compare International Money Transfers",
+    title: "Compare International Money Transfers | SendMoneyCompare",
     description:
-      "Compare 60+ providers. Real exchange rates and fees, updated every 6 hours.",
+      "Compare fees, exchange rates and delivery times from leading providers to find the cheapest way to send money internationally.",
   },
   alternates: {
     canonical: SITE_URL,
@@ -58,26 +59,26 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Moneyremitter",
+  name: "SendMoneyCompare",
   url: SITE_URL,
-  logo: `${SITE_URL}/logos/moneytransfers-logo.png`,
+  logo: `${SITE_URL}/logos/sendmoneycompare-logo.png`,
   description:
-    "Independent comparison platform for international money transfer services.",
+    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from leading providers.",
   foundingDate: "2024",
   contactPoint: {
     "@type": "ContactPoint",
-    email: "hello@moneytransfers.com",
+    email: "hello@sendmoneycompare.com",
     contactType: "customer service",
   },
   sameAs: [
-    "https://twitter.com/maboroshi",
+    "https://twitter.com/sendmoneycompare",
   ],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Moneyremitter",
+  name: "SendMoneyCompare",
   url: SITE_URL,
   potentialAction: {
     "@type": "SearchAction",
@@ -89,13 +90,26 @@ const websiteSchema = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -103,6 +117,8 @@ export default function RootLayout({
           }}
         />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-icon" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -115,13 +131,23 @@ export default function RootLayout({
             __html: JSON.stringify(websiteSchema),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
+          }}
+        />
       </head>
       <body className="antialiased">
         <ThemeProvider>
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-[14px] focus:font-medium focus:shadow-lg">
+            Skip to main content
+          </a>
           <Header />
-          <main className="min-h-screen pb-10">{children}</main>
+          <main id="main-content" className="min-h-screen pb-10">{children}</main>
           <Footer />
           <ForexTicker />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

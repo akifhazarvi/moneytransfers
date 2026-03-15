@@ -5,15 +5,15 @@ import CircleFlag from "@/components/CircleFlag";
 import { generateQuotes, providers, currencies, getProviderName } from "@/data/providers";
 
 export const metadata: Metadata = {
-  title: "Compare Money Transfer Services — Best Rates & Lowest Fees | MoneyTransfers",
+  title: "Compare Money Transfer Services — Best Rates & Lowest Fees | SendMoneyCompare",
   description:
     "Compare 14+ money transfer providers side by side. Find the best exchange rates, lowest fees, and fastest delivery for sending money abroad. Updated daily with live rates from Wise, Remitly, OFX, Western Union, and more.",
-  alternates: { canonical: "https://moneytransfers.com/send-money" },
+  alternates: { canonical: "https://sendmoneycompare.com/send-money" },
   openGraph: {
     title: "Compare Money Transfer Services — Best Rates & Lowest Fees",
     description:
       "Compare 14+ money transfer providers side by side. Find the best exchange rates, lowest fees, and fastest delivery for sending money abroad.",
-    url: "https://moneytransfers.com/send-money",
+    url: "https://sendmoneycompare.com/send-money",
   },
 };
 

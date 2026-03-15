@@ -886,4 +886,11 @@ export const guides = [
     category: "Research",
     readTime: "12 min read",
   },
+  {
+    slug: "money-transfer-promo-codes-referral-programs",
+    title: "Money Transfer Promo Codes & Refer-a-Friend Deals (2026)",
+    excerpt: "Every active promo code, sign-up bonus, and referral program from 14 top providers — save on fees and earn rewards.",
+    category: "Guides",
+    readTime: "14 min read",
+  },
 ];

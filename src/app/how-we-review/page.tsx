@@ -5,13 +5,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How We Review Providers — Our Review Process Explained",
   description:
-    "Learn how MoneyTransfers evaluates and reviews money transfer providers. We analyze exchange rates, fees, speed, coverage, regulation, and user experience across 60+ services.",
-  alternates: { canonical: "https://moneytransfers.com/how-we-review" },
+    "Learn how SendMoneyCompare evaluates and reviews money transfer providers. We analyze exchange rates, fees, speed, coverage, regulation, and user experience across 60+ services.",
+  alternates: { canonical: "https://sendmoneycompare.com/how-we-review" },
   openGraph: {
     title: "How We Review Money Transfer Providers",
     description:
       "Our structured review process analyzes exchange rates, fees, speed, coverage, regulation, and UX across 60+ services.",
-    url: "https://moneytransfers.com/how-we-review",
+    url: "https://sendmoneycompare.com/how-we-review",
   },
 };
 
@@ -58,7 +58,7 @@ export default function HowWeReviewPage() {
               How We Review Providers
             </h1>
             <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
-              Every provider on MoneyTransfers goes through the same structured
+              Every provider on SendMoneyCompare goes through the same structured
               review process. Here&apos;s exactly what we look at and how we
               score it.
             </p>

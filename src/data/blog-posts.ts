@@ -33,8 +33,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-01-15",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["cheap transfers", "fees", "comparison", "best rates", "international transfers"],
+    featuredImage: "/images/blog/cheapest-way-to-send-money.jpg",
     sections: [
       {
         heading: "Why the 'Cheapest' Option Depends on Your Transfer",
@@ -130,8 +131,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-01-10",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["how to", "international transfer", "guide", "beginners", "send money"],
+    featuredImage: "/images/blog/how-to-send-money-abroad.jpg",
     sections: [
       {
         heading: "Methods for Sending Money Internationally",
@@ -231,8 +233,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-01-20",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["exchange rates", "markup", "mid-market rate", "hidden fees", "education"],
+    featuredImage: "/images/blog/exchange-rate-markup.jpg",
     sections: [
       {
         heading: "What Is the Mid-Market Exchange Rate?",
@@ -311,8 +314,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-02-01",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["security", "safety", "scams", "regulation", "fraud protection"],
+    featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
       {
         heading: "How Online Money Transfers Are Protected",
@@ -389,8 +393,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-10",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["SWIFT code", "BIC code", "bank transfer", "international transfer", "how to"],
+    featuredImage: "/images/blog/swift-codes-explained.jpg",
     sections: [
       {
         heading: "What Is a SWIFT Code?",
@@ -470,8 +475,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["IBAN", "bank account", "international transfer", "Europe", "validation"],
+    featuredImage: "/images/blog/iban-numbers-explained.jpg",
     sections: [
       {
         heading: "What Is an IBAN?",
@@ -571,8 +577,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-02-20",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
+    featuredImage: "/images/blog/best-money-transfer-apps.jpg",
     sections: [
       {
         heading: "How We Ranked These Apps",
@@ -663,8 +670,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-02-25",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["Wise", "Remitly", "comparison", "vs", "fees", "exchange rates"],
+    featuredImage: "/images/blog/wise-vs-remitly.jpg",
     sections: [
       {
         heading: "The Key Difference: Fee vs Markup",
@@ -755,8 +763,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-01",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["India", "INR", "remittance", "USD to INR", "GBP to INR", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       {
         heading: "India: The World's Largest Remittance Market",
@@ -857,8 +866,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-05",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["business", "B2B payments", "invoicing", "FX management", "batch payments"],
+    featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
       {
         heading: "Why Business Transfers Are Different",
@@ -947,8 +957,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-10",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["remittance", "statistics", "trends", "2026", "global", "research"],
+    featuredImage: "/images/blog/global-remittance-trends.jpg",
     sections: [
       {
         heading: "Global Remittance Flows in 2025–2026",
@@ -1032,8 +1043,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-03-08",
     updatedAt: "2026-03-13",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: ["wire transfer", "SWIFT", "bank transfer", "fees", "alternatives"],
+    featuredImage: "/images/blog/wire-transfer-guide.jpg",
     sections: [
       {
         heading: "What Is a Wire Transfer?",
@@ -1124,7 +1136,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "MoneyTransfers Team",
+    author: "SendMoneyCompare Team",
     tags: [
       "best transfer services",
       "provider rankings",
@@ -1132,6 +1144,7 @@ export const blogPosts: BlogPost[] = [
       "international transfers",
       "comparison",
     ],
+    featuredImage: "/images/blog/best-money-transfer-services.jpg",
     sections: [
       {
         heading: "How We Ranked These Providers",
@@ -1299,6 +1312,291 @@ export const blogPosts: BlogPost[] = [
       "cheapest-way-to-send-money-internationally",
       "how-to-send-money-abroad",
       "exchange-rate-markup-explained",
+    ],
+  },
+
+  // ============================
+  // Money Transfer Promo Codes & Referral Programs (2026)
+  // ============================
+  {
+    slug: "money-transfer-promo-codes-referral-programs",
+    title: "Money Transfer Promo Codes & Refer-a-Friend Deals (2026)",
+    metaDescription:
+      "Every active promo code, sign-up bonus, and refer-a-friend program from 14 top money transfer providers. Save on fees and earn rewards in 2026.",
+    excerpt:
+      "We researched all 14 major money transfer providers to compile every active promo code, sign-up offer, and referral bonus — so you can save the most on your next transfer.",
+    category: "Guides",
+    readTime: "14 min read",
+    publishedAt: "2026-03-14",
+    updatedAt: "2026-03-14",
+    author: "SendMoneyCompare Team",
+    tags: [
+      "promo codes",
+      "referral programs",
+      "sign-up bonus",
+      "discounts",
+      "free transfers",
+      "refer a friend",
+      "loyalty rewards",
+    ],
+    featuredImage: "/images/blog/money-transfer-promo-codes.jpg",
+    sections: [
+      {
+        heading: "How to Save on International Money Transfers",
+        content: `<p>Beyond comparing exchange rates and fees, you can save even more on international transfers by taking advantage of <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend programs</strong>. Most major providers offer at least one of these — and some offer all three.</p>
+<p>We researched all 14 providers on our platform to bring you every active deal in one place. Here's how each type of offer works:</p>
+<ul>
+<li><strong>Sign-up offers</strong> — One-time bonuses for new customers, like fee-free first transfers or cash bonuses.</li>
+<li><strong>Promo codes</strong> — Codes you enter at checkout for discounts. These change frequently.</li>
+<li><strong>Referral programs</strong> — Share your link with friends. You both earn rewards when they sign up and send money.</li>
+<li><strong>Loyalty programs</strong> — Ongoing rewards for repeat customers, like points, tier upgrades, or fee discounts.</li>
+</ul>
+<p><em>Last verified: March 14, 2026. Offers change frequently — always confirm on the provider's website before transferring.</em></p>`,
+      },
+      {
+        heading: "Best Sign-Up Offers (New Customers)",
+        content: `<p>These are the best deals for first-time users of each provider:</p>
+
+<h3>Remitly — $25 Off First Transfer</h3>
+<p>New Remitly customers get <strong>$25 off</strong> their first transfer of $100 or more, plus zero fees and a special promotional exchange rate. This is one of the most generous sign-up offers in the industry. No promo code needed — applied automatically.</p>
+
+<h3>WorldRemit — 3 Free Transfers (Code: 3FREE)</h3>
+<p>Use promo code <strong>3FREE</strong> to get your first three transfers completely fee-free. WorldRemit is one of the few providers that lets you stack a promo code with their standard rates.</p>
+
+<h3>TapTap Send — $20 Bonus on First Transfer</h3>
+<p>New TapTap Send users can enter a promo code before confirming their first transfer to receive a <strong>$20 / GBP 20 / EUR 20 bonus</strong>. Only one code per transfer. Check the TapTap Send app for current active codes.</p>
+
+<h3>Wise — Fee-Free First Transfer</h3>
+<p>New Wise customers get their <strong>first transfer fee-free</strong> on amounts up to approximately $800 (GBP 500 equivalent). The discount is automatically applied when signing up via a referral link.</p>
+
+<h3>Western Union — Fee-Free First Transfer</h3>
+<p>First-time online customers get <strong>zero transfer fees</strong> on their first international transfer. One-time use.</p>
+
+<h3>Xoom — No Fees on First Transfer</h3>
+<p>New Xoom customers pay <strong>no transfer fees</strong> on their first remittance. Note that exchange rate markup still applies.</p>
+
+<h3>ACE Money Transfer — First Transfer Fee-Free</h3>
+<p>ACE waives the transfer fee on your <strong>first transaction</strong>. Particularly good value on the Pakistan, India, and Bangladesh corridors where ACE already offers competitive rates.</p>
+
+<h3>OFX — Better Introductory Exchange Rate</h3>
+<p>While OFX always charges $0 in transfer fees, new customers get an <strong>improved exchange rate</strong> on their first transfer across 7 major currencies (USD, CAD, AUD, NZD, GBP, EUR, SGD).</p>
+
+<h3>InstaReM — 125 InstaPoints on Sign-Up</h3>
+<p>New InstaReM users receive <strong>125 InstaPoints</strong> (worth approximately $1.25) instantly upon registration. Points are redeemable at checkout on future transfers.</p>`,
+      },
+      {
+        heading: "Best Refer-a-Friend Programs",
+        content: `<p>Referral programs reward you for inviting friends to use the service. Here's how the top programs compare:</p>
+
+<h3>Remitly — Best Overall ($25 Each)</h3>
+<p>Both you and your friend get <strong>$25</strong> when they complete a first transfer of $100+. No limit on referrals, making this the most lucrative ongoing referral program. If you send money regularly, this is essentially unlimited $25 bonuses.</p>
+
+<h3>TorFX — Best for Large Transfers (GBP 50 Each)</h3>
+<p>You and your friend each receive <strong>GBP 50</strong> (~$63) when they make a first transfer of GBP 2,000+. No cap on referrals. If you know people making property purchases or large transfers abroad, this adds up quickly.</p>
+
+<h3>WorldRemit — $20 Each</h3>
+<p>Share your link and both you and your friend get a <strong>$20 electronic voucher</strong> when they send their minimum first transfer (~$130). Straightforward and easy to redeem.</p>
+
+<h3>Western Union — $15/$10 Amazon Cards</h3>
+<p>You get a <strong>$15 Amazon e-gift code</strong> for each friend who signs up, and they get a <strong>$10 Amazon card</strong>. You can refer up to 20 friends, making the maximum earning potential $300 in Amazon credit.</p>
+
+<h3>Xoom — $20 Gift Card per Referral</h3>
+<p>Earn a <strong>$20 e-gift card</strong> for each friend who completes their first international transfer. Your friend also gets their first transfer fee-free.</p>
+
+<h3>Wise — Up to $115 per 3 Referrals</h3>
+<p>Wise's program pays up to <strong>$115 for every 3 friends</strong> who sign up and transfer $300+. Each referred friend gets a fee-free first transfer. Referral links expire after 6 months if unused.</p>
+
+<h3>XE — $25–$50 Gift Cards</h3>
+<p>Both parties receive gift cards: <strong>$25 each</strong> if the friend transfers $1,000+, or <strong>$50 each</strong> if the friend transfers $5,000+. Gift cards are emailed within 14 working days.</p>
+
+<h3>Revolut — Up to GBP 60 per Referral</h3>
+<p>Earn up to <strong>GBP 60</strong> per referral. Your friend receives GBP 10–200 depending on the current campaign. They need to order a physical card and make 3 purchases of GBP 5+.</p>
+
+<h3>ACE Money Transfer — EUR 15 + Monthly Prizes</h3>
+<p>Both parties get <strong>EUR 15 wallet credit</strong> per referral. Top 3 referrers each month (min 12 referrals) win prizes: <strong>1st: iPhone, 2nd: Apple Watch, 3rd: AirPods Pro</strong>.</p>
+
+<h3>PayPal — $10 Each (Up to 5 Friends)</h3>
+<p>You and your friend each get <strong>$10</strong>. Capped at 5 referrals ($50 max). Friend must spend or send $5+.</p>
+
+<h3>MoneyGram — Zero-Fee Transfer Each</h3>
+<p>Both you and your friend get a <strong>fee-free transfer</strong> when they complete their first transaction within 30 days.</p>
+
+<h3>TapTap Send — $5 Each (No Limit)</h3>
+<p>Simple program: you and your friend each get <strong>$5</strong> per referral. No limit on the number of referrals, so it adds up if you have a large network.</p>
+
+<h3>InstaReM — 200 InstaPoints Each</h3>
+<p>Both parties earn <strong>200 InstaPoints</strong> (~$2.50). Points are redeemable at checkout (400 points = $10 discount).</p>`,
+      },
+      {
+        heading: "Loyalty & Rewards Programs",
+        content: `<p>Only a few providers offer ongoing rewards beyond sign-up and referrals. Here are the active programs:</p>
+
+<h3>MoneyGram Plus Rewards</h3>
+<p>The most comprehensive loyalty program in the industry. It's <strong>free to join</strong> and offers:</p>
+<ul>
+<li><strong>Welcome gift:</strong> 20% off fee on your second transfer</li>
+<li><strong>Points:</strong> Earn points on every eligible transaction</li>
+<li><strong>Premier status:</strong> After 5 transfers in 12 months, get 40% off every 5th transfer plus personalized offers</li>
+</ul>
+
+<h3>InstaReM InstaPoints</h3>
+<p>Earn points on every transfer over $500. Redeem at checkout — <strong>400 points = $10 discount</strong>. Points accumulate over time and don't expire while your account is active.</p>
+
+<h3>Revolut Subscription Tiers</h3>
+<p>While not a traditional points program, Revolut's <strong>paid plans</strong> (Plus, Premium, Metal, Ultra) offer progressively better FX rates, higher free transfer limits, and additional perks like travel insurance and airport lounges.</p>
+
+<h3>Western Union My WU Rewards</h3>
+<p>Previously offered points and fee discounts. As of early 2026, <strong>earning points is currently paused</strong> while Western Union redesigns the program. Existing members will be notified when the new program launches.</p>`,
+      },
+      {
+        heading: "Complete Promo & Referral Comparison Table",
+        content: `<p>Here's a side-by-side comparison of every provider's offers:</p>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+<thead>
+<tr style="border-bottom:2px solid var(--color-outline)">
+<th style="text-align:left;padding:10px 8px">Provider</th>
+<th style="text-align:left;padding:10px 8px">Sign-Up Offer</th>
+<th style="text-align:left;padding:10px 8px">Referral (You / Friend)</th>
+<th style="text-align:left;padding:10px 8px">Loyalty Program</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--color-outline)">
+<td style="padding:10px 8px;font-weight:500">Wise</td>
+<td style="padding:10px 8px">Fee-free first transfer (~$800)</td>
+<td style="padding:10px 8px">~$38 per 3 refs / Fee-free transfer</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline);background:var(--color-surface-dim)">
+<td style="padding:10px 8px;font-weight:500">Remitly</td>
+<td style="padding:10px 8px">$25 off (min $100)</td>
+<td style="padding:10px 8px">$25 / $25</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline)">
+<td style="padding:10px 8px;font-weight:500">OFX</td>
+<td style="padding:10px 8px">Better intro exchange rate</td>
+<td style="padding:10px 8px">Business only</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline);background:var(--color-surface-dim)">
+<td style="padding:10px 8px;font-weight:500">XE</td>
+<td style="padding:10px 8px">Periodic email promos</td>
+<td style="padding:10px 8px">$25–$50 gift card / $25–$50</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline)">
+<td style="padding:10px 8px;font-weight:500">Western Union</td>
+<td style="padding:10px 8px">Fee-free first transfer</td>
+<td style="padding:10px 8px">$15 Amazon / $10 Amazon</td>
+<td style="padding:10px 8px">My WU (paused)</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline);background:var(--color-surface-dim)">
+<td style="padding:10px 8px;font-weight:500">WorldRemit</td>
+<td style="padding:10px 8px">3 fee-free transfers (3FREE)</td>
+<td style="padding:10px 8px">$20 / $20</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline)">
+<td style="padding:10px 8px;font-weight:500">Revolut</td>
+<td style="padding:10px 8px">Variable (up to GBP 100)</td>
+<td style="padding:10px 8px">Up to GBP 60 / GBP 10–200</td>
+<td style="padding:10px 8px">Tiered plans</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline);background:var(--color-surface-dim)">
+<td style="padding:10px 8px;font-weight:500">PayPal</td>
+<td style="padding:10px 8px">$10 via referral</td>
+<td style="padding:10px 8px">$10 / $10 (max 5)</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline)">
+<td style="padding:10px 8px;font-weight:500">MoneyGram</td>
+<td style="padding:10px 8px">20% off 2nd transfer fee</td>
+<td style="padding:10px 8px">Zero-fee / Zero-fee</td>
+<td style="padding:10px 8px">Plus Rewards</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline);background:var(--color-surface-dim)">
+<td style="padding:10px 8px;font-weight:500">Xoom</td>
+<td style="padding:10px 8px">Fee-free first transfer</td>
+<td style="padding:10px 8px">$20 gift card / Fee-free first</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline)">
+<td style="padding:10px 8px;font-weight:500">TorFX</td>
+<td style="padding:10px 8px">—</td>
+<td style="padding:10px 8px">GBP 50 / GBP 50 (min GBP 2k)</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline);background:var(--color-surface-dim)">
+<td style="padding:10px 8px;font-weight:500">InstaReM</td>
+<td style="padding:10px 8px">125 InstaPoints (~$1.25)</td>
+<td style="padding:10px 8px">200 pts / 200 pts (~$2.50)</td>
+<td style="padding:10px 8px">InstaPoints</td>
+</tr>
+<tr style="border-bottom:1px solid var(--color-outline)">
+<td style="padding:10px 8px;font-weight:500">TapTap Send</td>
+<td style="padding:10px 8px">$20 with promo code</td>
+<td style="padding:10px 8px">$5 / $5 (no limit)</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+<tr>
+<td style="padding:10px 8px;font-weight:500">ACE Money Transfer</td>
+<td style="padding:10px 8px">Fee-free first transfer</td>
+<td style="padding:10px 8px">EUR 15 + prizes / EUR 15</td>
+<td style="padding:10px 8px">—</td>
+</tr>
+</tbody>
+</table>
+</div>`,
+      },
+      {
+        heading: "Tips for Maximizing Your Savings",
+        content: `<ol>
+<li><strong>Stack offers wisely</strong> — Use a sign-up bonus on your first transfer, then switch to referral bonuses for ongoing savings. Some providers (like WorldRemit) let you apply a promo code on top of the standard rate.</li>
+<li><strong>Compare total cost, not just the promo</strong> — A $25 bonus from Remitly is worthless if a different provider saves you $40 on the exchange rate. Always use our <a href="/send-money">comparison tool</a> to check the total received amount.</li>
+<li><strong>Set up referral links early</strong> — Create your referral links before you need them. Share them with friends and family who also send money abroad. Remitly's unlimited $25 referrals can add up to hundreds of dollars per year.</li>
+<li><strong>Join loyalty programs immediately</strong> — MoneyGram Plus Rewards and InstaReM InstaPoints are free to join. Even if the per-transfer savings seem small, they compound over time, especially with MoneyGram's Premier tier (40% off every 5th transfer).</li>
+<li><strong>Check for seasonal promotions</strong> — Providers often run special deals around holidays, festivals, and cultural events (Diwali, Eid, Chinese New Year, Christmas). These can include boosted exchange rates, fee-free transfers, or double referral rewards.</li>
+<li><strong>Use the right provider for the right transfer</strong> — Don't stick with one provider. Use Remitly for small remittances (great sign-up bonus), TorFX for large transfers (GBP 50 referral), and Wise for everyday transfers (best exchange rate).</li>
+</ol>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "Which money transfer service has the best sign-up bonus?",
+        answer:
+          "Remitly offers the most generous sign-up bonus at $25 off your first transfer of $100+. WorldRemit's 3FREE promo code is also excellent as it covers three transfers. For large amounts, OFX's improved introductory exchange rate can save you even more.",
+      },
+      {
+        question: "Which referral program pays the most?",
+        answer:
+          "TorFX pays GBP 50 (~$63) to both the referrer and friend on transfers of GBP 2,000+. For smaller transfers, Remitly's $25 per referral with no limit is the best ongoing program. Western Union offers $15 Amazon cards per referral (up to 20 friends).",
+      },
+      {
+        question: "Are money transfer promo codes legitimate?",
+        answer:
+          "Yes, when sourced from the provider's official website or verified partners. Be cautious of third-party sites advertising codes — some may be expired or fake. We recommend always verifying offers directly on the provider's website or app before transferring.",
+      },
+      {
+        question: "Can I use multiple promo codes on one transfer?",
+        answer:
+          "Generally no — most providers only allow one promo code per transaction. However, you can combine a promo code with a referral bonus in some cases (e.g., getting the referral credit and using a promo code on a subsequent transfer).",
+      },
+      {
+        question: "Do referral bonuses expire?",
+        answer:
+          "It depends on the provider. Wise referral links expire after 6 months if unused. Most other programs don't have a specific expiry on the referral itself, but may have time limits on when the friend must complete their first transfer (e.g., MoneyGram requires 30 days).",
+      },
+      {
+        question: "Which providers have loyalty programs?",
+        answer:
+          "MoneyGram Plus Rewards is the most comprehensive loyalty program with points, tier upgrades, and fee discounts. InstaReM offers InstaPoints redeemable on transfers. Revolut has tiered subscription plans. Western Union's My WU Rewards is currently paused.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "how-to-send-money-abroad",
     ],
   },
 ];

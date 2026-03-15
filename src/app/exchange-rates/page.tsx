@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   keywords:
     "live exchange rates, exchange rates today, currency rates, forex rates, USD to INR, GBP to USD, mid-market rate",
   alternates: {
-    canonical: "https://moneytransfers.com/exchange-rates",
+    canonical: "https://sendmoneycompare.com/exchange-rates",
   },
   openGraph: {
-    title: "Live Exchange Rates Today | Moneyremitter",
+    title: "Live Exchange Rates Today | SendMoneyCompare",
     description:
       "Real-time exchange rates for 20+ currencies. Mid-market rates aggregated from 4 independent sources, updated every 60 seconds.",
-    url: "https://moneytransfers.com/exchange-rates",
+    url: "https://sendmoneycompare.com/exchange-rates",
   },
 };
 

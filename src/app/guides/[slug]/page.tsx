@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Not Found" };
 
   return {
-    title: `${post.title} | MoneyTransfers`,
+    title: `${post.title} | SendMoneyCompare`,
     description: post.metaDescription,
     openGraph: {
       title: post.title,
@@ -29,9 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.updatedAt,
       authors: [post.author],
       tags: post.tags,
+      ...(post.featuredImage && { images: [{ url: post.featuredImage }] }),
     },
     alternates: {
-      canonical: `https://moneytransfers.com/guides/${slug}`,
+      canonical: `https://sendmoneycompare.com/guides/${slug}`,
     },
   };
 }
@@ -67,10 +69,11 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.metaDescription,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
+    ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
     author: { "@type": "Organization", name: post.author },
     publisher: {
       "@type": "Organization",
-      name: "MoneyTransfers",
+      name: "SendMoneyCompare",
     },
   };
 
@@ -107,6 +110,19 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Main Content */}
           <article className="flex-1 min-w-0">
+            {/* Featured Image */}
+            {post.featuredImage && (
+              <div className="relative w-full h-[240px] md:h-[340px] rounded-2xl overflow-hidden mb-8">
+                <Image
+                  src={post.featuredImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
+
             {/* Header */}
             <div className="mb-8">
               <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2.5 py-1 rounded-full">

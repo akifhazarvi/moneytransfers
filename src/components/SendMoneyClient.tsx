@@ -2,20 +2,23 @@
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
+import { track } from "@vercel/analytics";
 import { Suspense } from "react";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import TrustBadges from "@/components/TrustBadges";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import { generateQuotes, currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
+import { promos } from "@/data/promos";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
 
-type SortBy = "receiveAmount" | "fee" | "rating";
+type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
 type FeeFilter = "" | "free" | "under-5" | "under-10";
 type RatingFilter = "" | "excellent" | "good" | "any";
+type ReferralFilter = "" | "has-referral" | "has-signup" | "has-promo";
 
 function useDropdown() {
   const [open, setOpen] = useState(false);
@@ -142,12 +145,23 @@ function SendMoneyContent() {
   const [feeFilter, setFeeFilter] = useState<FeeFilter>("");
   const [ratingFilter, setRatingFilter] = useState<RatingFilter>("");
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [referralFilter, setReferralFilter] = useState<ReferralFilter>("");
   const [selectedProviders, setSelectedProviders] = useState<string[]>([]);
 
   const quotes = useMemo(
     () => generateQuotes(amount, fromCurrency, toCurrency, rates),
     [amount, fromCurrency, toCurrency, rates]
   );
+
+  // Track corridor selection & quotes viewed
+  const prevCorridor = useRef("");
+  useEffect(() => {
+    const corridor = `${fromCurrency}-${toCurrency}`;
+    if (corridor === prevCorridor.current || !quotes.length) return;
+    prevCorridor.current = corridor;
+    track("corridor_selected", { from: fromCurrency, to: toCurrency, amount });
+    track("quotes_viewed", { from: fromCurrency, to: toCurrency, providers: quotes.length });
+  }, [fromCurrency, toCurrency, amount, quotes]);
 
   const filteredQuotes = useMemo(() => {
     let result = [...quotes];
@@ -198,6 +212,20 @@ function SendMoneyContent() {
       });
     }
 
+    // Referral / promo filter
+    if (referralFilter) {
+      result = result.filter((q) => {
+        const promo = promos.find((p) => p.providerSlug === q.providerSlug);
+        if (!promo) return false;
+        switch (referralFilter) {
+          case "has-referral": return !!promo.referralProgram;
+          case "has-signup": return !!promo.signUpOffer;
+          case "has-promo": return !!promo.referralProgram || !!promo.signUpOffer || !!promo.promoCode;
+          default: return true;
+        }
+      });
+    }
+
     // Provider filter
     if (selectedProviders.length > 0) {
       result = result.filter((q) => selectedProviders.includes(q.providerSlug));
@@ -207,10 +235,19 @@ function SendMoneyContent() {
     const sorted = [...result];
     if (sortBy === "fee") sorted.sort((a, b) => a.fee - b.fee);
     else if (sortBy === "rating") sorted.sort((a, b) => b.rating - a.rating);
+    else if (sortBy === "deals") {
+      sorted.sort((a, b) => {
+        const pa = promos.find((p) => p.providerSlug === a.providerSlug);
+        const pb = promos.find((p) => p.providerSlug === b.providerSlug);
+        const scoreA = (pa?.referralProgram ? 2 : 0) + (pa?.signUpOffer ? 2 : 0) + (pa?.promoCode ? 1 : 0) + (pa?.loyaltyProgram ? 1 : 0);
+        const scoreB = (pb?.referralProgram ? 2 : 0) + (pb?.signUpOffer ? 2 : 0) + (pb?.promoCode ? 1 : 0) + (pb?.loyaltyProgram ? 1 : 0);
+        return scoreB - scoreA || b.receiveAmount - a.receiveAmount;
+      });
+    }
     else sorted.sort((a, b) => b.receiveAmount - a.receiveAmount);
 
     return sorted;
-  }, [quotes, speedFilter, feeFilter, ratingFilter, paymentMethod, selectedProviders, sortBy]);
+  }, [quotes, speedFilter, feeFilter, ratingFilter, paymentMethod, referralFilter, selectedProviders, sortBy]);
 
   const sendCurrency = currencies.find((c) => c.code === fromCurrency);
   const receiveCurrency = currencies.find((c) => c.code === toCurrency);
@@ -219,13 +256,14 @@ function SendMoneyContent() {
   const worstQuote = filteredQuotes[filteredQuotes.length - 1];
   const savings = bestQuote && worstQuote ? bestQuote.receiveAmount - worstQuote.receiveAmount : 0;
 
-  const activeFilterCount = [speedFilter, feeFilter, ratingFilter, paymentMethod].filter(Boolean).length + (selectedProviders.length > 0 ? 1 : 0);
+  const activeFilterCount = [speedFilter, feeFilter, ratingFilter, paymentMethod, referralFilter].filter(Boolean).length + (selectedProviders.length > 0 ? 1 : 0);
 
   const clearFilters = useCallback(() => {
     setSpeedFilter("");
     setFeeFilter("");
     setRatingFilter("");
     setPaymentMethod("");
+    setReferralFilter("");
     setSelectedProviders([]);
   }, []);
 
@@ -234,11 +272,11 @@ function SendMoneyContent() {
     setToCurrency(fromCurrency);
   }
 
-  function toggleProvider(slug: string) {
+  const toggleProvider = useCallback((slug: string) => {
     setSelectedProviders((prev) =>
       prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]
     );
-  }
+  }, []);
 
   return (
     <Container>
@@ -379,6 +417,21 @@ function SendMoneyContent() {
           )}
         </FilterDropdown>
 
+        {/* Referral / Promo */}
+        <FilterDropdown
+          label={referralFilter ? `Deals: ${referralFilter === "has-referral" ? "Refer a friend" : referralFilter === "has-signup" ? "Sign-up bonus" : "Any deal"}` : "Deals"}
+          active={!!referralFilter}
+        >
+          {(close) => (
+            <>
+              <DropdownOption label="Any" selected={referralFilter === ""} onClick={() => { setReferralFilter(""); close(); }} />
+              <DropdownOption label="Refer-a-friend bonus" selected={referralFilter === "has-referral"} onClick={() => { setReferralFilter("has-referral"); close(); }} />
+              <DropdownOption label="Sign-up bonus" selected={referralFilter === "has-signup"} onClick={() => { setReferralFilter("has-signup"); close(); }} />
+              <DropdownOption label="Any deal or promo" selected={referralFilter === "has-promo"} onClick={() => { setReferralFilter("has-promo"); close(); }} />
+            </>
+          )}
+        </FilterDropdown>
+
         {/* Provider */}
         <FilterDropdown label={selectedProviders.length > 0 ? `Provider (${selectedProviders.length})` : "Provider"} active={selectedProviders.length > 0}>
           {() => (
@@ -467,6 +520,18 @@ function SendMoneyContent() {
               from {sendCurrency?.symbol || "$"}{cheapestQuote.fee === 0 ? "0" : cheapestQuote.fee.toFixed(0)}
             </span>
           )}
+        </button>
+        <button
+          role="tab"
+          aria-selected={sortBy === "deals"}
+          onClick={() => setSortBy("deals")}
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] ${
+            sortBy === "deals"
+              ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
+              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
+          }`}
+        >
+          Best deals
         </button>
         <button
           role="tab"
@@ -676,6 +741,7 @@ function SendMoneyContent() {
                       href={getGoUrl(q.providerSlug)}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
+                      onClick={() => track("provider_clicked", { provider: q.providerSlug, corridor: `${fromCurrency}-${toCurrency}`, source: "comparison" })}
                       className="inline-flex items-center gap-2 h-10 px-6 text-[13px] font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow transition-all"
                     >
                       Visit {name}

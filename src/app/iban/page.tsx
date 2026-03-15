@@ -9,17 +9,17 @@ import { getCountryByAlpha2 } from "@/data/countries";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "IBAN by Country | IBAN Codes, Formats & Bank Lists | MoneyTransfers",
+  title: "IBAN by Country | IBAN Codes, Formats & Bank Lists | SendMoneyCompare",
   description:
     "Find IBAN formats, structures, and bank lists for 69+ countries. Understand IBAN length, BBAN fields, SEPA membership, and example IBANs for each country.",
   keywords:
     "IBAN, international bank account number, IBAN format, IBAN structure, SEPA, BBAN, bank codes, IBAN by country",
-  alternates: { canonical: "https://moneytransfers.com/iban" },
+  alternates: { canonical: "https://sendmoneycompare.com/iban" },
   openGraph: {
     title: "IBAN by Country — Codes, Formats & Bank Lists",
     description:
       "Find IBAN formats, structures, and bank lists for 69+ countries. SEPA membership status and example IBANs included.",
-    url: "https://moneytransfers.com/iban",
+    url: "https://sendmoneycompare.com/iban",
   },
 };
 

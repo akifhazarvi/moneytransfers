@@ -8,17 +8,17 @@ import { getSwiftCountries } from "@/data/swift-codes";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SWIFT/BIC Codes by Country | Find Bank SWIFT Codes | MoneyTransfers",
+  title: "SWIFT/BIC Codes by Country | Find Bank SWIFT Codes | SendMoneyCompare",
   description:
     "Find SWIFT/BIC codes for banks in 100+ countries. Search by country or bank to get the right code for your international wire transfer.",
   keywords:
     "SWIFT code, BIC code, SWIFT finder, bank identifier code, international wire transfer, SWIFT/BIC lookup",
-  alternates: { canonical: "https://moneytransfers.com/swift-codes" },
+  alternates: { canonical: "https://sendmoneycompare.com/swift-codes" },
   openGraph: {
     title: "SWIFT/BIC Codes by Country — Find Bank SWIFT Codes",
     description:
       "Find SWIFT/BIC codes for banks in 100+ countries. Search by country or bank for your international wire transfer.",
-    url: "https://moneytransfers.com/swift-codes",
+    url: "https://sendmoneycompare.com/swift-codes",
   },
 };
 

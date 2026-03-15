@@ -30,6 +30,10 @@
   --color-warning-dark: #b06000;
   --color-warning-surface: #fef7e0;
 
+  /* Ticker */
+  --color-ticker-bg: #1a1a2e;
+  --color-ticker-border: #2a2a4a;
+
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(32, 33, 36, 0.08);
   --shadow-md: 0 1px 6px rgba(32, 33, 36, 0.1);
@@ -62,6 +66,9 @@
 
   --color-warning-dark: #fdd663;
   --color-warning-surface: #332b00;
+
+  --color-ticker-bg: #0d0d1a;
+  --color-ticker-border: #1a1a2e;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 1px 6px rgba(0, 0, 0, 0.4);

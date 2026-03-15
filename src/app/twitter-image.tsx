@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Moneyremitter — Compare International Money Transfers";
+export const alt = "SendMoneyCompare — Compare International Money Transfers";
 export const size = {
   width: 1200,
   height: 630,
@@ -122,7 +122,7 @@ export default async function Image() {
             marginBottom: "12px",
           }}
         >
-          Moneyremitter
+          SendMoneyCompare
         </div>
 
         <div
@@ -134,7 +134,7 @@ export default async function Image() {
             marginBottom: "32px",
           }}
         >
-          Compare 60+ providers · Best exchange rates · Updated every 6 hours
+          Find the cheapest way to send money internationally
         </div>
 
         <div

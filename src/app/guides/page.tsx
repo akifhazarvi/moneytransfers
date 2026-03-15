@@ -1,21 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Money Transfer Guides & Resources | MoneyTransfers",
+  title: "Money Transfer Guides & Resources | SendMoneyCompare",
   description:
     "Expert guides on international money transfers, exchange rates, fees, and how to save money sending money abroad.",
   alternates: {
-    canonical: "https://moneytransfers.com/guides",
+    canonical: "https://sendmoneycompare.com/guides",
   },
   openGraph: {
     title: "Money Transfer Guides — Expert Resources for Sending Money Abroad",
     description:
       "Expert guides on international money transfers, exchange rates, fees, and how to save money sending money abroad.",
-    url: "https://moneytransfers.com/guides",
+    url: "https://sendmoneycompare.com/guides",
   },
 };
 
@@ -82,25 +83,37 @@ export default function GuidesPage() {
       {/* Guide Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {rest.map((post) => (
-          <Card key={post.slug} href={`/guides/${post.slug}`} className="group">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
-                {post.category}
-              </span>
-              <span className="text-[12px] text-[var(--color-on-surface-variant)]">
-                {post.readTime}
-              </span>
-            </div>
-            <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2 leading-snug">
-              {post.title}
-            </h3>
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] line-clamp-3">
-              {post.excerpt}
-            </p>
-            <div className="mt-4">
-              <span className="text-[13px] text-[var(--color-primary)] font-medium group-hover:underline">
-                Read more &rarr;
-              </span>
+          <Card key={post.slug} href={`/guides/${post.slug}`} className="group !p-0 overflow-hidden">
+            {post.featuredImage && (
+              <div className="relative w-full h-[160px]">
+                <Image
+                  src={post.featuredImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <div className="p-5">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
+                  {post.category}
+                </span>
+                <span className="text-[12px] text-[var(--color-on-surface-variant)]">
+                  {post.readTime}
+                </span>
+              </div>
+              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2 leading-snug">
+                {post.title}
+              </h3>
+              <p className="text-[13px] text-[var(--color-on-surface-variant)] line-clamp-3">
+                {post.excerpt}
+              </p>
+              <div className="mt-4">
+                <span className="text-[13px] text-[var(--color-primary)] font-medium group-hover:underline">
+                  Read more &rarr;
+                </span>
+              </div>
             </div>
           </Card>
         ))}

@@ -1,6 +1,6 @@
-# MoneyTransfers
+# SendMoneyCompare
 
-International money transfer comparison platform. Helps users find the cheapest way to send money abroad by comparing 60+ providers across 64+ currency corridors.
+International money transfer comparison platform at **sendmoneycompare.com**. Helps users find the cheapest way to send money abroad by comparing 60+ providers across 64+ currency corridors.
 
 ## Tech Stack
 
@@ -58,6 +58,7 @@ Use design tokens via `var(--color-*)` in Tailwind arbitrary values, e.g. `text-
 | `/send-money/[corridor]` | `/send-money/usa-to-india` | Corridor landing page |
 | `/guides/[slug]` | `/guides/how-to-send-money-abroad` | Guide article |
 | `/go/[provider]` | `/go/wise` | Affiliate redirect |
+| `/out/[provider]` | `/out/wise` | Affiliate redirect (alt) |
 
 ## Component Patterns
 

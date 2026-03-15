@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import ComparisonTable from "@/components/ComparisonTable";
@@ -15,11 +15,6 @@ import { getRate } from "@/lib/rates-util";
 interface TargetCurrency {
   id: string;
   code: string;
-}
-
-let nextId = 1;
-function genId() {
-  return `tc-${nextId++}`;
 }
 
 const MAX_TARGETS = 6;
@@ -37,10 +32,15 @@ const popularPairs = [
 
 /* ─── Main Component ─── */
 export default function CurrencyConverterClient() {
+  const idCounter = useRef(1);
+  function genId() {
+    return `tc-${idCounter.current++}`;
+  }
+
   const [amount, setAmount] = useState(1000);
   const [fromCurrency, setFromCurrency] = useState("USD");
-  const [targets, setTargets] = useState<TargetCurrency[]>([
-    { id: genId(), code: "EUR" },
+  const [targets, setTargets] = useState<TargetCurrency[]>(() => [
+    { id: `tc-0`, code: "EUR" },
   ]);
   const { rates, isLive, lastUpdated, secondsUntilRefresh } = useExchangeRates();
 
@@ -147,7 +147,9 @@ export default function CurrencyConverterClient() {
           <div className="flex items-end justify-between gap-4">
             <div className="flex-1" />
             <div className="text-right">
+              <label htmlFor="converter-amount" className="sr-only">Amount to convert</label>
               <input
+                id="converter-amount"
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(Number(e.target.value))}

@@ -5,13 +5,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Methodology — How We Collect Data & Rank Providers",
   description:
-    "A detailed explanation of how MoneyTransfers collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
-  alternates: { canonical: "https://moneytransfers.com/methodology" },
+    "A detailed explanation of how SendMoneyCompare collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
+  alternates: { canonical: "https://sendmoneycompare.com/methodology" },
   openGraph: {
-    title: "Methodology — How MoneyTransfers Collects Data & Ranks Providers",
+    title: "Methodology — How SendMoneyCompare Collects Data & Ranks Providers",
     description:
       "How we collect exchange rate data, calculate total transfer costs, and rank providers in our comparison tables.",
-    url: "https://moneytransfers.com/methodology",
+    url: "https://sendmoneycompare.com/methodology",
   },
 };
 
@@ -46,7 +46,7 @@ export default function MethodologyPage() {
             headline:
               "Methodology — How We Collect Data & Rank Providers",
             description:
-              "A detailed explanation of how MoneyTransfers collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
+              "A detailed explanation of how SendMoneyCompare collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
             author: {
               "@type": "Person",
               name: "Akif Hazarvi",
@@ -55,13 +55,13 @@ export default function MethodologyPage() {
             },
             publisher: {
               "@type": "Organization",
-              name: "MoneyTransfers",
-              url: "https://moneytransfers.com",
+              name: "SendMoneyCompare",
+              url: "https://sendmoneycompare.com",
             },
             dateModified: "2026-03-14",
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": "https://moneytransfers.com/methodology",
+              "@id": "https://sendmoneycompare.com/methodology",
             },
           }),
         }}

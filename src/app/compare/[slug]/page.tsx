@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getComparisonArticle(slug);
   if (article) {
     return {
-      title: `${article.title} | MoneyTransfers`,
+      title: `${article.title} | SendMoneyCompare`,
       description: article.metaDescription,
       openGraph: {
         title: article.title,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         modifiedTime: article.updatedAt,
       },
       alternates: {
-        canonical: `https://moneytransfers.com/compare/${slug}`,
+        canonical: `https://sendmoneycompare.com/compare/${slug}`,
       },
     };
   }
@@ -58,15 +58,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pair = parseSlug(slug);
   if (!pair) return {};
   return {
-    title: `${pair.a.name} vs ${pair.b.name}: Fees, Rates & Features Compared | MoneyTransfers`,
+    title: `${pair.a.name} vs ${pair.b.name}: Fees, Rates & Features Compared | SendMoneyCompare`,
     description: `Compare ${pair.a.name} and ${pair.b.name} side by side. See which offers better exchange rates, lower fees, and faster transfers.`,
     alternates: {
-      canonical: `https://moneytransfers.com/compare/${slug}`,
+      canonical: `https://sendmoneycompare.com/compare/${slug}`,
     },
     openGraph: {
       title: `${pair.a.name} vs ${pair.b.name} — Fees, Rates & Features Compared`,
       description: `Compare ${pair.a.name} and ${pair.b.name} side by side. See which offers better exchange rates, lower fees, and faster transfers.`,
-      url: `https://moneytransfers.com/compare/${slug}`,
+      url: `https://sendmoneycompare.com/compare/${slug}`,
     },
   };
 }
@@ -113,8 +113,8 @@ function ArticleComparison({
             headline: article.title,
             description: article.metaDescription,
             dateModified: article.updatedAt,
-            author: { "@type": "Organization", name: "MoneyTransfers" },
-            publisher: { "@type": "Organization", name: "MoneyTransfers" },
+            author: { "@type": "Organization", name: "SendMoneyCompare" },
+            publisher: { "@type": "Organization", name: "SendMoneyCompare" },
           }),
         }}
       />
@@ -140,9 +140,9 @@ function ArticleComparison({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://moneytransfers.com" },
-              { "@type": "ListItem", position: 2, name: "Compare", item: "https://moneytransfers.com/compare" },
-              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://moneytransfers.com/compare/${slug}` },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+              { "@type": "ListItem", position: 2, name: "Compare", item: "https://sendmoneycompare.com/compare" },
+              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://sendmoneycompare.com/compare/${slug}` },
             ],
           }),
         }}
@@ -170,7 +170,7 @@ function ArticleComparison({
                 {article.title}
               </h1>
               <div className="flex flex-wrap items-center gap-4 text-[13px] text-[var(--color-on-surface-variant)]">
-                <span>MoneyTransfers Editorial</span>
+                <span>SendMoneyCompare Editorial</span>
                 <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
                 <time dateTime={article.updatedAt}>
                   Updated{" "}
@@ -522,9 +522,9 @@ function DefaultComparison({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://moneytransfers.com" },
-              { "@type": "ListItem", position: 2, name: "Compare", item: "https://moneytransfers.com/compare" },
-              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://moneytransfers.com/compare/${a.slug}-vs-${b.slug}` },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+              { "@type": "ListItem", position: 2, name: "Compare", item: "https://sendmoneycompare.com/compare" },
+              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://sendmoneycompare.com/compare/${a.slug}-vs-${b.slug}` },
             ],
           }),
         }}

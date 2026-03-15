@@ -5,15 +5,15 @@ import { currencies, exchangeRates } from "@/data/providers";
 import { getRate } from "@/lib/rates-util";
 
 export const metadata: Metadata = {
-  title: "Currency Converter — Live Exchange Rates for 150+ Currencies | MoneyTransfers",
+  title: "Currency Converter — Live Exchange Rates for 150+ Currencies | SendMoneyCompare",
   description:
     "Convert between 150+ currencies with live mid-market exchange rates updated every 60 seconds. Compare USD, EUR, GBP, INR, and more with our free currency converter.",
-  alternates: { canonical: "https://moneytransfers.com/currency-converter" },
+  alternates: { canonical: "https://sendmoneycompare.com/currency-converter" },
   openGraph: {
     title: "Currency Converter — Live Exchange Rates for 150+ Currencies",
     description:
       "Convert between 150+ currencies with live mid-market exchange rates. Free, fast, and accurate currency converter.",
-    url: "https://moneytransfers.com/currency-converter",
+    url: "https://sendmoneycompare.com/currency-converter",
   },
 };
 

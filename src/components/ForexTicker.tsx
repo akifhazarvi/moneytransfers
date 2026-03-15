@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ratesData from "@/data/scraped/xe-midmarket-rates.json";
 
@@ -42,22 +42,27 @@ const staticRates = ratesData.rates as Record<string, number>;
 export default function ForexTicker() {
   const [liveRates, setLiveRates] = useState<Record<string, number>>(staticRates);
 
-  const fetchLiveRates = useCallback(async () => {
-    try {
-      const res = await fetch("https://open.er-api.com/v6/latest/USD");
-      if (!res.ok) return;
-      const data = await res.json();
-      if (data.rates) setLiveRates(data.rates as Record<string, number>);
-    } catch {
-      // Keep current rates on failure
-    }
-  }, []);
-
   useEffect(() => {
+    const controller = new AbortController();
+
+    async function fetchLiveRates() {
+      try {
+        const res = await fetch("https://open.er-api.com/v6/latest/USD", { signal: controller.signal });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.rates) setLiveRates(data.rates as Record<string, number>);
+      } catch {
+        // Keep current rates on failure or abort
+      }
+    }
+
     fetchLiveRates();
     const interval = setInterval(fetchLiveRates, 60_000);
-    return () => clearInterval(interval);
-  }, [fetchLiveRates]);
+    return () => {
+      controller.abort();
+      clearInterval(interval);
+    };
+  }, []);
 
   const items = forexPairs.map((pair) => ({
     ...pair,
@@ -68,7 +73,7 @@ export default function ForexTicker() {
   const doubled = [...items, ...items];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#1a1a2e] border-t border-[#2a2a4a] overflow-hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-ticker-bg)] border-t border-[var(--color-ticker-border)] overflow-hidden">
       <div className="flex animate-ticker whitespace-nowrap py-2 gap-8 w-max">
         {doubled.map((pair, i) => (
           <Link

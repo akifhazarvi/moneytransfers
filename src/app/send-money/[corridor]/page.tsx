@@ -32,7 +32,7 @@ export function generateStaticParams() {
 
 const corridorSeoOverrides: Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; keywords: string }> = {
   "usa-to-pakistan": {
-    title: "Send Money from USA to Pakistan — Compare Rates for USD to PKR | MoneyTransfers",
+    title: "Send Money from USA to Pakistan — Compare Rates for USD to PKR | SendMoneyCompare",
     description:
       "Compare the cheapest ways to send money from USA to Pakistan in 2026. See real-time USD to PKR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
     ogTitle: "Send Money USA to Pakistan — Best USD to PKR Rates",
@@ -42,7 +42,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money USA to Pakistan, USD to PKR, cheapest way to send money to Pakistan, money transfer Pakistan, remittance to Pakistan, USD PKR exchange rate",
   },
   "usa-to-india": {
-    title: "Send Money from USA to India — Compare Rates for USD to INR | MoneyTransfers",
+    title: "Send Money from USA to India — Compare Rates for USD to INR | SendMoneyCompare",
     description:
       "Compare the cheapest ways to send money from USA to India in 2026. See real-time USD to INR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
     ogTitle: "Send Money USA to India — Best USD to INR Rates",
@@ -62,8 +62,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isCurr = corridor.isCurrencyCorridor;
 
   const title = override?.title ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates & Low Fees | MoneyTransfers`
-    : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates & Lowest Fees | MoneyTransfers`);
+    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates & Low Fees | SendMoneyCompare`
+    : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates & Lowest Fees | SendMoneyCompare`);
   const description = override?.description ?? (isCurr
     ? `Compare real-time ${corridor.fromCurrency} to ${corridor.toCurrency} exchange rates from 15+ providers. Find the cheapest way to convert ${corridor.fromCurrency} to ${corridor.toCurrency} with the lowest fees.`
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${corridor.fromCurrency} to ${corridor.toCurrency}). ${corridor.intro.slice(0, 120)}`);
@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     alternates: {
-      canonical: `https://moneytransfers.com/send-money/${slug}`,
+      canonical: `https://sendmoneycompare.com/send-money/${slug}`,
     },
   };
 }
@@ -698,9 +698,9 @@ export default async function CorridorPage({ params }: Props) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://moneytransfers.com" },
-              { "@type": "ListItem", position: 2, name: "Send Money", item: "https://moneytransfers.com/send-money" },
-              { "@type": "ListItem", position: 3, name: `${headingFrom} to ${headingTo}`, item: `https://moneytransfers.com/send-money/${slug}` },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+              { "@type": "ListItem", position: 2, name: "Send Money", item: "https://sendmoneycompare.com/send-money" },
+              { "@type": "ListItem", position: 3, name: `${headingFrom} to ${headingTo}`, item: `https://sendmoneycompare.com/send-money/${slug}` },
             ],
           }),
         }}

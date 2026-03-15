@@ -5,13 +5,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Editorial Policy — How We Stay Independent & Unbiased",
   description:
-    "Our editorial policy explains how MoneyTransfers maintains independence, how affiliate partnerships work, and why our rankings are never influenced by commercial relationships.",
-  alternates: { canonical: "https://moneytransfers.com/editorial-policy" },
+    "Our editorial policy explains how SendMoneyCompare maintains independence, how affiliate partnerships work, and why our rankings are never influenced by commercial relationships.",
+  alternates: { canonical: "https://sendmoneycompare.com/editorial-policy" },
   openGraph: {
-    title: "Editorial Policy — MoneyTransfers Independence & Transparency",
+    title: "Editorial Policy — SendMoneyCompare Independence & Transparency",
     description:
-      "How MoneyTransfers maintains editorial independence. Rankings are never influenced by affiliate partnerships.",
-    url: "https://moneytransfers.com/editorial-policy",
+      "How SendMoneyCompare maintains editorial independence. Rankings are never influenced by affiliate partnerships.",
+    url: "https://sendmoneycompare.com/editorial-policy",
   },
 };
 
@@ -48,7 +48,7 @@ export default function EditorialPolicyPage() {
                   publish.
                 </p>
                 <p>
-                  Rankings on MoneyTransfers are determined by a single metric:
+                  Rankings on SendMoneyCompare are determined by a single metric:
                   which provider delivers the most money to your recipient for a
                   given corridor and amount. This calculation accounts for both
                   the exchange rate markup and the transfer fee — the two
@@ -63,7 +63,7 @@ export default function EditorialPolicyPage() {
               </h2>
               <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  MoneyTransfers is free for consumers. We earn revenue through
+                  SendMoneyCompare is free for consumers. We earn revenue through
                   affiliate partnerships with some of the providers we list.
                   When you click a link to a provider on our site and complete a
                   transfer, we may receive a referral commission from that
@@ -120,7 +120,7 @@ export default function EditorialPolicyPage() {
               </h2>
               <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  All content published on MoneyTransfers follows these
+                  All content published on SendMoneyCompare follows these
                   principles:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">

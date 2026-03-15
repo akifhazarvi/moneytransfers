@@ -1,4 +1,4 @@
-const SITE_URL = "https://moneytransfers.com";
+const SITE_URL = "https://sendmoneycompare.com";
 
 export interface BreadcrumbItem {
   name: string;

@@ -3,15 +3,15 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Get in Touch with MoneyTransfers",
+  title: "Contact Us — Get in Touch with SendMoneyCompare",
   description:
-    "Have a question, correction, or partnership inquiry? Contact the MoneyTransfers team. We typically respond within 1–2 business days.",
-  alternates: { canonical: "https://moneytransfers.com/contact" },
+    "Have a question, correction, or partnership inquiry? Contact the SendMoneyCompare team. We typically respond within 1–2 business days.",
+  alternates: { canonical: "https://sendmoneycompare.com/contact" },
   openGraph: {
-    title: "Contact MoneyTransfers",
+    title: "Contact SendMoneyCompare",
     description:
-      "Get in touch with the MoneyTransfers team for questions, data corrections, or partnership inquiries.",
-    url: "https://moneytransfers.com/contact",
+      "Get in touch with the SendMoneyCompare team for questions, data corrections, or partnership inquiries.",
+    url: "https://sendmoneycompare.com/contact",
   },
 };
 
@@ -49,10 +49,10 @@ export default function ContactPage() {
                   Questions about our comparison tools, data, or content.
                 </p>
                 <a
-                  href="mailto:hello@moneytransfers.com"
+                  href="mailto:hello@sendmoneycompare.com"
                   className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  hello@moneytransfers.com
+                  hello@sendmoneycompare.com
                 </a>
               </div>
 
@@ -69,10 +69,10 @@ export default function ContactPage() {
                   Found an inaccuracy in our rates, fees, or provider details?
                 </p>
                 <a
-                  href="mailto:corrections@moneytransfers.com"
+                  href="mailto:corrections@sendmoneycompare.com"
                   className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  corrections@moneytransfers.com
+                  corrections@sendmoneycompare.com
                 </a>
               </div>
 
@@ -90,10 +90,10 @@ export default function ContactPage() {
                   update your information?
                 </p>
                 <a
-                  href="mailto:partners@moneytransfers.com"
+                  href="mailto:partners@sendmoneycompare.com"
                   className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  partners@moneytransfers.com
+                  partners@sendmoneycompare.com
                 </a>
               </div>
 
@@ -110,10 +110,10 @@ export default function ContactPage() {
                   Journalist or researcher looking for data or expert comment?
                 </p>
                 <a
-                  href="mailto:press@moneytransfers.com"
+                  href="mailto:press@sendmoneycompare.com"
                   className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  press@moneytransfers.com
+                  press@sendmoneycompare.com
                 </a>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function ContactPage() {
               <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
                 <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                   <strong className="text-[var(--color-on-surface)]">
-                    MoneyTransfers is a comparison platform, not a money
+                    SendMoneyCompare is a comparison platform, not a money
                     transfer provider.
                   </strong>{" "}
                   We do not process transfers, hold funds, or have access to
