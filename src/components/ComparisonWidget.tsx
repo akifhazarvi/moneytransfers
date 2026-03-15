@@ -3,6 +3,7 @@
 import { useState, useId } from "react";
 import { useRouter } from "next/navigation";
 import CurrencyPicker from "@/components/CurrencyPicker";
+import { trackCompareSearch } from "@/lib/analytics";
 
 interface Props {
   defaultFrom?: string;
@@ -25,6 +26,7 @@ export default function ComparisonWidget({
 
   function handleCompare(e: React.FormEvent) {
     e.preventDefault();
+    trackCompareSearch(fromCurrency, toCurrency, amount);
     router.push(`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
   }
 

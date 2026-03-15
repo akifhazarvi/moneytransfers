@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { providers, getProviderName, type TransferQuote } from "@/data/providers";
+import { trackProviderExpanded, trackProviderClicked, trackReviewClicked } from "@/lib/analytics";
 import { getGoUrl } from "@/lib/affiliate";
 import { promos, type PromoInfo } from "@/data/promos";
 import RatingBadge from "./RatingBadge";
@@ -45,8 +46,12 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
       <div
         role="button"
         tabIndex={0}
-        onClick={() => setExpanded(!expanded)}
-        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setExpanded(!expanded); } }}
+        onClick={() => {
+          const next = !expanded;
+          setExpanded(next);
+          if (next) trackProviderExpanded(quote.providerSlug, rank, `${quote.sendCurrency}-${quote.receiveCurrency}`);
+        }}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); const next = !expanded; setExpanded(next); if (next) trackProviderExpanded(quote.providerSlug, rank, `${quote.sendCurrency}-${quote.receiveCurrency}`); } }}
         aria-expanded={expanded}
         className={`group/row w-full text-left px-3 sm:px-6 cursor-pointer ${isBest ? "py-4 sm:py-5 pt-7 sm:pt-8" : "py-3 sm:py-4"}`}
       >
@@ -307,6 +312,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 {provider && (
                   <Link
                     href={`/companies/${provider.slug}`}
+                    onClick={() => trackReviewClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`)}
                     className="text-[13px] font-medium text-[var(--color-primary)] hover:underline"
                   >
                     Full review
@@ -316,7 +322,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   href={providerWebsite}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  onClick={() => track("provider_clicked", { provider: quote.providerSlug, corridor: `${quote.sendCurrency}-${quote.receiveCurrency}`, rank })}
+                  onClick={() => { track("provider_clicked", { provider: quote.providerSlug, corridor: `${quote.sendCurrency}-${quote.receiveCurrency}`, rank }); trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank); }}
                   className={`inline-flex items-center gap-2 h-10 px-6 text-[13px] font-semibold rounded-full transition-all duration-150 ${
                     isBest
                       ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-sm hover:shadow"

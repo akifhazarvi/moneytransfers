@@ -4,6 +4,7 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { track } from "@vercel/analytics";
 import { Suspense } from "react";
+import { trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import TrustBadges from "@/components/TrustBadges";
@@ -134,11 +135,12 @@ function SendMoneyContent() {
 
   useEffect(() => {
     if (compareList.length === 2) {
+      trackCompareSelected(compareList[0], compareList[1], `${fromCurrency}-${toCurrency}`);
       setTimeout(() => {
         document.getElementById("compare-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
     }
-  }, [compareList]);
+  }, [compareList, fromCurrency, toCurrency]);
 
   // Filters
   const [speedFilter, setSpeedFilter] = useState<SpeedFilter>("");
@@ -161,6 +163,7 @@ function SendMoneyContent() {
     prevCorridor.current = corridor;
     track("corridor_selected", { from: fromCurrency, to: toCurrency, amount });
     track("quotes_viewed", { from: fromCurrency, to: toCurrency, providers: quotes.length });
+    trackQuotesViewed(fromCurrency, toCurrency, quotes.length);
   }, [fromCurrency, toCurrency, amount, quotes]);
 
   const filteredQuotes = useMemo(() => {
@@ -268,6 +271,7 @@ function SendMoneyContent() {
   }, []);
 
   function swap() {
+    trackCurrencySwapped(toCurrency, fromCurrency);
     setFromCurrency(toCurrency);
     setToCurrency(fromCurrency);
   }
@@ -369,10 +373,10 @@ function SendMoneyContent() {
           {(close) => (
             <>
               <DropdownOption label="Any speed" selected={speedFilter === ""} onClick={() => { setSpeedFilter(""); close(); }} />
-              <DropdownOption label="Instant / Minutes" selected={speedFilter === "instant"} onClick={() => { setSpeedFilter("instant"); close(); }} />
-              <DropdownOption label="Same day" selected={speedFilter === "same-day"} onClick={() => { setSpeedFilter("same-day"); close(); }} />
-              <DropdownOption label="1-2 business days" selected={speedFilter === "1-2-days"} onClick={() => { setSpeedFilter("1-2-days"); close(); }} />
-              <DropdownOption label="3+ days" selected={speedFilter === "3-plus-days"} onClick={() => { setSpeedFilter("3-plus-days"); close(); }} />
+              <DropdownOption label="Instant / Minutes" selected={speedFilter === "instant"} onClick={() => { setSpeedFilter("instant"); trackFilterApplied("speed", "instant"); close(); }} />
+              <DropdownOption label="Same day" selected={speedFilter === "same-day"} onClick={() => { setSpeedFilter("same-day"); trackFilterApplied("speed", "same-day"); close(); }} />
+              <DropdownOption label="1-2 business days" selected={speedFilter === "1-2-days"} onClick={() => { setSpeedFilter("1-2-days"); trackFilterApplied("speed", "1-2-days"); close(); }} />
+              <DropdownOption label="3+ days" selected={speedFilter === "3-plus-days"} onClick={() => { setSpeedFilter("3-plus-days"); trackFilterApplied("speed", "3-plus-days"); close(); }} />
             </>
           )}
         </FilterDropdown>
@@ -382,9 +386,9 @@ function SendMoneyContent() {
           {(close) => (
             <>
               <DropdownOption label="Any fee" selected={feeFilter === ""} onClick={() => { setFeeFilter(""); close(); }} />
-              <DropdownOption label="Free (no fee)" selected={feeFilter === "free"} onClick={() => { setFeeFilter("free"); close(); }} />
-              <DropdownOption label="Under $5" selected={feeFilter === "under-5"} onClick={() => { setFeeFilter("under-5"); close(); }} />
-              <DropdownOption label="Under $10" selected={feeFilter === "under-10"} onClick={() => { setFeeFilter("under-10"); close(); }} />
+              <DropdownOption label="Free (no fee)" selected={feeFilter === "free"} onClick={() => { setFeeFilter("free"); trackFilterApplied("fee", "free"); close(); }} />
+              <DropdownOption label="Under $5" selected={feeFilter === "under-5"} onClick={() => { setFeeFilter("under-5"); trackFilterApplied("fee", "under-5"); close(); }} />
+              <DropdownOption label="Under $10" selected={feeFilter === "under-10"} onClick={() => { setFeeFilter("under-10"); trackFilterApplied("fee", "under-10"); close(); }} />
             </>
           )}
         </FilterDropdown>
@@ -394,8 +398,8 @@ function SendMoneyContent() {
           {(close) => (
             <>
               <DropdownOption label="Any rating" selected={ratingFilter === ""} onClick={() => { setRatingFilter(""); close(); }} />
-              <DropdownOption label="Excellent (4.5+)" selected={ratingFilter === "excellent"} onClick={() => { setRatingFilter("excellent"); close(); }} />
-              <DropdownOption label="Good (4.0+)" selected={ratingFilter === "good"} onClick={() => { setRatingFilter("good"); close(); }} />
+              <DropdownOption label="Excellent (4.5+)" selected={ratingFilter === "excellent"} onClick={() => { setRatingFilter("excellent"); trackFilterApplied("rating", "excellent"); close(); }} />
+              <DropdownOption label="Good (4.0+)" selected={ratingFilter === "good"} onClick={() => { setRatingFilter("good"); trackFilterApplied("rating", "good"); close(); }} />
             </>
           )}
         </FilterDropdown>
@@ -425,9 +429,9 @@ function SendMoneyContent() {
           {(close) => (
             <>
               <DropdownOption label="Any" selected={referralFilter === ""} onClick={() => { setReferralFilter(""); close(); }} />
-              <DropdownOption label="Refer-a-friend bonus" selected={referralFilter === "has-referral"} onClick={() => { setReferralFilter("has-referral"); close(); }} />
-              <DropdownOption label="Sign-up bonus" selected={referralFilter === "has-signup"} onClick={() => { setReferralFilter("has-signup"); close(); }} />
-              <DropdownOption label="Any deal or promo" selected={referralFilter === "has-promo"} onClick={() => { setReferralFilter("has-promo"); close(); }} />
+              <DropdownOption label="Refer-a-friend bonus" selected={referralFilter === "has-referral"} onClick={() => { setReferralFilter("has-referral"); trackFilterApplied("deals", "has-referral"); close(); }} />
+              <DropdownOption label="Sign-up bonus" selected={referralFilter === "has-signup"} onClick={() => { setReferralFilter("has-signup"); trackFilterApplied("deals", "has-signup"); close(); }} />
+              <DropdownOption label="Any deal or promo" selected={referralFilter === "has-promo"} onClick={() => { setReferralFilter("has-promo"); trackFilterApplied("deals", "has-promo"); close(); }} />
             </>
           )}
         </FilterDropdown>
@@ -495,7 +499,7 @@ function SendMoneyContent() {
         <button
           role="tab"
           aria-selected={sortBy === "receiveAmount"}
-          onClick={() => setSortBy("receiveAmount")}
+          onClick={() => { setSortBy("receiveAmount"); trackSortChanged("receiveAmount"); }}
           className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] font-medium transition-colors rounded-l-xl ${
             sortBy === "receiveAmount"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-[inset_0_-3px_0_var(--color-primary)]"
@@ -507,7 +511,7 @@ function SendMoneyContent() {
         <button
           role="tab"
           aria-selected={sortBy === "fee"}
-          onClick={() => setSortBy("fee")}
+          onClick={() => { setSortBy("fee"); trackSortChanged("fee"); }}
           className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] ${
             sortBy === "fee"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
@@ -524,7 +528,7 @@ function SendMoneyContent() {
         <button
           role="tab"
           aria-selected={sortBy === "deals"}
-          onClick={() => setSortBy("deals")}
+          onClick={() => { setSortBy("deals"); trackSortChanged("deals"); }}
           className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] ${
             sortBy === "deals"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
@@ -536,7 +540,7 @@ function SendMoneyContent() {
         <button
           role="tab"
           aria-selected={sortBy === "rating"}
-          onClick={() => setSortBy("rating")}
+          onClick={() => { setSortBy("rating"); trackSortChanged("rating"); }}
           className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] rounded-r-xl ${
             sortBy === "rating"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
@@ -741,7 +745,7 @@ function SendMoneyContent() {
                       href={getGoUrl(q.providerSlug)}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      onClick={() => track("provider_clicked", { provider: q.providerSlug, corridor: `${fromCurrency}-${toCurrency}`, source: "comparison" })}
+                      onClick={() => { track("provider_clicked", { provider: q.providerSlug, corridor: `${fromCurrency}-${toCurrency}`, source: "comparison" }); trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison"); }}
                       className="inline-flex items-center gap-2 h-10 px-6 text-[13px] font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow transition-all"
                     >
                       Visit {name}

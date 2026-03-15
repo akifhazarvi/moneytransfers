@@ -3,10 +3,10 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
-import ComparisonWidget from "@/components/ComparisonWidget";
 import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
 import NewsTicker from "@/components/NewsTicker";
+import HeroTabs from "@/components/HeroTabs";
 import { providers } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
@@ -88,7 +88,7 @@ export default async function Home() {
             </p>
           </div>
           <div className="max-w-[860px] mx-auto">
-            <ComparisonWidget />
+            <HeroTabs />
           </div>
           <p className="text-center text-[11px] text-[var(--color-on-surface-variant)] mt-5 max-w-md mx-auto opacity-70">
             We may earn a referral fee when you visit a provider through our links. This never affects our rankings.
@@ -131,16 +131,6 @@ export default async function Home() {
           </Container>
         </section>
       )}
-
-      {/* ─── NEWS TICKER ─── */}
-      <NewsTicker
-        items={getLatestNews(6).map((n) => ({
-          slug: n.slug,
-          title: n.title,
-          category: n.category,
-          publishedAt: n.publishedAt,
-        }))}
-      />
 
       {/* ─── 2. TRUST SECTION ─── */}
       <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-10">
@@ -280,7 +270,49 @@ export default async function Home() {
         </Container>
       </section>
 
-      {/* ─── 6. WHY TRUST US ─── */}
+      {/* ─── 6. FAQ ─── */}
+      <section className="py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] text-center mb-10">
+              Frequently asked questions
+            </h2>
+            <div className="divide-y divide-[var(--color-outline)]">
+              {faqs.map((faq) => (
+                <details key={faq.q} className="group py-5">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                    {faq.q}
+                    <svg
+                      className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="mt-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                    {faq.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─── 7. NEWS ─── */}
+      <NewsTicker
+        items={getLatestNews(6).map((n) => ({
+          slug: n.slug,
+          title: n.title,
+          excerpt: n.excerpt,
+          category: n.category,
+          publishedAt: n.publishedAt,
+        }))}
+      />
+
+      {/* ─── 8. WHY TRUST US ─── */}
       <section className="py-14">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -337,37 +369,6 @@ export default async function Home() {
                   We factor in both the exchange rate markup and the transfer fee to calculate the total cost. The provider that puts the most money in your recipient&apos;s pocket wins.
                 </p>
               </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── 7. FAQ ─── */}
-      <section className="py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
-        <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] text-center mb-10">
-              Frequently asked questions
-            </h2>
-            <div className="divide-y divide-[var(--color-outline)]">
-              {faqs.map((faq) => (
-                <details key={faq.q} className="group py-5">
-                  <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
-                    {faq.q}
-                    <svg
-                      className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <p className="mt-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
-                    {faq.a}
-                  </p>
-                </details>
-              ))}
             </div>
           </div>
         </Container>
