@@ -21,5 +21,8 @@ export async function GET(
     })
   );
 
-  return NextResponse.redirect(url, { status: 302 });
+  return NextResponse.redirect(url, {
+    status: 302,
+    headers: { "X-Robots-Tag": "noindex, nofollow" },
+  });
 }
