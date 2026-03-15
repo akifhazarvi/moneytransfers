@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ForexTicker from "@/components/ForexTicker";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -117,7 +118,7 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HJH07QEJ30');`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied'});gtag('js',new Date());gtag('config','G-HJH07QEJ30');`,
           }}
         />
         <script
@@ -158,6 +159,7 @@ export default function RootLayout({
           <Footer />
           <ForexTicker />
           <Analytics />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

@@ -580,19 +580,16 @@ export default function MethodologyPage() {
               </h3>
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-[18px] font-medium text-[var(--color-primary)] shrink-0">
-                  AH
+                  SMC
                 </div>
                 <div>
                   <p className="text-[14px] font-medium text-[var(--color-on-surface)]">
-                    Akif Hazarvi
-                  </p>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)]">
-                    Product Manager — Fintech &amp; International Payments
+                    SendMoneyCompare Editorial Team
                   </p>
                   <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-1">
-                    Experience in FX transfers and remittance platforms. Oversees
-                    data collection methodology, provider evaluation criteria,
-                    and editorial standards.
+                    Our team oversees data collection methodology, provider
+                    evaluation criteria, and editorial standards to ensure
+                    accurate and unbiased comparisons.
                   </p>
                 </div>
               </div>

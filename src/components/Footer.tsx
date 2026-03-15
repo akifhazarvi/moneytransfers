@@ -40,6 +40,8 @@ const footerSections = [
       { href: "/methodology", label: "Methodology" },
       { href: "/privacy-policy", label: "Privacy Policy" },
       { href: "/terms", label: "Terms" },
+      { href: "/cookies", label: "Cookie Policy" },
+      { href: "/disclaimer", label: "Disclaimer" },
     ],
   },
   {
