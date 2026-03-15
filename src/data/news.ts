@@ -14,6 +14,44 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    slug: "central-bank-super-week-march-2026",
+    title:
+      "Central Bank Super-Week: Fed, BoE, and BoJ Rate Decisions Could Swing Your Transfer Rates",
+    excerpt:
+      "Three of the world's most powerful central banks announce interest rate decisions within 48 hours this week. Here's what it means for exchange rates and the cost of sending money abroad.",
+    image: "/images/news/central-bank-super-week.jpg",
+    imageAlt:
+      "The Federal Reserve building in Washington D.C., one of three central banks announcing rate decisions this week",
+    content: `<p>This week is one of the most consequential in the 2026 currency calendar. Between March 18 and 19, the <strong>US Federal Reserve</strong>, <strong>Bank of England</strong>, and <strong>Bank of Japan</strong> all announce interest rate decisions — a convergence that forex markets call a "super-week." For anyone planning an international money transfer, the timing matters.</p>
+
+<h2>What's expected — and what could surprise</h2>
+<p>The <strong>Federal Reserve</strong> (March 18) is widely expected to hold rates steady. The real focus is the updated "dot plot" — the Fed's projection of future rate cuts. A shift from one projected cut in 2026 to zero would strengthen the dollar, meaning your recipient gets fewer euros, pounds, or rupees per dollar sent. A shift to two projected cuts would weaken the dollar and improve rates for US senders.</p>
+
+<p>The <strong>Bank of England</strong> (March 19) is also expected to hold. UK inflation has proven sticky, and higher energy prices have complicated the case for easing. Sterling has been relatively strong in 2026, with GBP/USD trading around 1.32 — good news for British senders, but a hold decision that signals delayed cuts could push the pound even higher.</p>
+
+<p>The <strong>Bank of Japan</strong> (March 19) is the wildcard. The BoJ has been gradually normalising policy after decades of ultra-loose monetary settings. Any hint of further rate hikes could strengthen the yen sharply, affecting corridors like USD/JPY and GBP/JPY. Japan-bound transfers could suddenly become more expensive if the yen rallies.</p>
+
+<h2>How rate decisions move your transfer costs</h2>
+<p>Interest rate changes affect exchange rates because money flows toward higher-yielding currencies. When the Fed cuts rates, the dollar typically weakens — great if you're sending dollars abroad (your recipient gets more), but bad if you're sending money <em>to</em> the US.</p>
+
+<p>The effect isn't always immediate, either. Markets price in expectations ahead of time, so a "surprise hold" or an unexpected change in guidance can move currencies more than the actual rate decision. On past super-weeks, major pairs have moved 1–2% within hours of announcements — that's a £100–£200 difference on a £10,000 transfer.</p>
+
+<h2>What to do this week</h2>
+<p>If you have a transfer planned for this week, you have three options:</p>
+<ul>
+<li><strong>Send before Tuesday</strong> — Lock in today's rates and avoid the uncertainty entirely. Current rates are relatively favourable for GBP and EUR senders.</li>
+<li><strong>Wait until Thursday</strong> — By then, all three decisions will be public and the initial volatility will have settled. You'll know whether rates have moved in your favour.</li>
+<li><strong>Set a rate alert</strong> — Use a multi-currency account with <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> to set an alert at your target rate. If the post-announcement volatility pushes rates in your direction, you'll be notified instantly and can convert on the spot.</li>
+</ul>
+
+<p>Whichever approach you choose, compare rates from multiple providers before committing. Our <a href="/send-money">comparison tool</a> shows live rates and fees, so you can see exactly how much your recipient will receive — before and after the central banks have their say.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-03-15",
+    source: "Reuters / Bank of England / Federal Reserve",
+    sourceUrl: "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes",
+    providerSlugs: ["wise", "xe", "revolut"],
+  },
+  {
     slug: "us-remittance-excise-tax-takes-effect-2026",
     title: "New 1% US Remittance Tax Shakes Up the Money Transfer Industry",
     excerpt:
@@ -39,6 +77,7 @@ export const newsItems: NewsItem[] = [
     category: "Regulatory",
     publishedAt: "2026-03-14",
     source: "IRS / RSM US",
+    sourceUrl: "https://www.irs.gov/newsroom",
     providerSlugs: ["western-union", "moneygram", "remitly", "wise"],
   },
   {
@@ -65,6 +104,7 @@ export const newsItems: NewsItem[] = [
     category: "Regulatory",
     publishedAt: "2026-03-13",
     source: "American Banker",
+    sourceUrl: "https://www.americanbanker.com/",
     providerSlugs: ["revolut"],
   },
   {
@@ -91,6 +131,7 @@ export const newsItems: NewsItem[] = [
     category: "Industry News",
     publishedAt: "2026-03-14",
     source: "Payments Dive",
+    sourceUrl: "https://www.paymentsdive.com/",
     providerSlugs: ["western-union", "wise", "remitly"],
   },
   {
@@ -110,10 +151,11 @@ export const newsItems: NewsItem[] = [
 <h2>What it could mean for money transfers</h2>
 <p>Xoom, which PayPal acquired in 2015 for $890 million, handles cross-border remittances to over 130 countries. Under PayPal's ownership, the service has operated somewhat independently. A Stripe acquisition could bring Xoom's remittance capabilities into Stripe's infrastructure, potentially creating a vertically integrated cross-border payments stack that serves both merchants and consumers.</p>
 
-<p>Whether any deal materialises remains unclear. Regulatory hurdles would be significant — antitrust authorities in the US, EU, and UK would all need to approve a combination of this scale. But the conversation itself signals how rapidly the payments industry is consolidating.</p>`,
+<p>Whether any deal materialises remains unclear. Regulatory hurdles would be significant — antitrust authorities in the US, EU, and UK would all need to approve a combination of this scale. But the conversation itself signals how rapidly the payments industry is consolidating. In the meantime, use <a href="/send-money">our comparison tool</a> to find the best rates across all active providers.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-12",
     source: "CoinDesk",
+    sourceUrl: "https://www.coindesk.com/",
     providerSlugs: ["paypal", "xoom"],
   },
   {
@@ -136,10 +178,11 @@ export const newsItems: NewsItem[] = [
 <h2>Impact on international remittances</h2>
 <p>While the regulation directly covers euro-to-euro transfers within the EU, the ripple effects extend to international remittances. Providers like Wise, Revolut, and WorldRemit that hold European licences will benefit from faster settlement on the euro leg of cross-border corridors. A transfer from Germany to India, for example, could see faster processing on the European side even if the Indian payout timing remains unchanged.</p>
 
-<p>The regulation also sets a precedent. The UK, Australia, and several Asian regulators are studying similar mandates for their domestic payment systems.</p>`,
+<p>The regulation also sets a precedent. The UK, Australia, and several Asian regulators are studying similar mandates for their domestic payment systems. Compare providers for <a href="/send-money/uk-to-europe">UK to Europe transfers</a> to see how these changes affect real costs.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-11",
     source: "Sidley Austin / The Paypers",
+    sourceUrl: "https://www.sidley.com/en/insights",
     providerSlugs: ["wise", "revolut", "worldremit"],
   },
   {
@@ -163,6 +206,7 @@ export const newsItems: NewsItem[] = [
     category: "Industry News",
     publishedAt: "2026-03-10",
     source: "BeInCrypto",
+    sourceUrl: "https://beincrypto.com/",
   },
   {
     slug: "absa-thunes-global-pay-africa-remittances",
@@ -186,6 +230,7 @@ export const newsItems: NewsItem[] = [
     category: "Announcement",
     publishedAt: "2026-03-09",
     source: "Fintech Global",
+    sourceUrl: "https://www.fintechglobal.com/",
   },
   {
     slug: "stablecoins-cross-border-payments-2026",
@@ -202,13 +247,14 @@ export const newsItems: NewsItem[] = [
 <p>The appeal for businesses is practical: a B2B payment from the US to Southeast Asia using traditional correspondent banking can take 3–5 days, involve 2–4 intermediary banks, and carry fees of 2–5%. A stablecoin-settled transaction can clear in minutes at a fraction of the cost.</p>
 
 <h2>What about consumer remittances?</h2>
-<p>The technology hasn't meaningfully reached everyday senders yet, but the building blocks are falling into place. MoneyGram's existing crypto-to-cash service via the Stellar network (see our <a href="/news/moneygram-stellar-crypto-integration-expands">coverage</a>) demonstrates one bridge between stablecoin rails and cash economies. As regulatory frameworks mature — particularly around stablecoin issuance and reserve requirements — expect more providers to offer stablecoin-powered corridors, especially to markets where traditional banking infrastructure is sparse.</p>
+<p>The technology hasn't meaningfully reached everyday senders yet, but the building blocks are falling into place. MoneyGram's existing crypto-to-cash service via the Stellar network (see our <a href="/companies/moneygram">MoneyGram</a>) demonstrates one bridge between stablecoin rails and cash economies. As regulatory frameworks mature — particularly around stablecoin issuance and reserve requirements — expect more providers to offer stablecoin-powered corridors, especially to markets where traditional banking infrastructure is sparse.</p>
 
 <h2>Regulatory tailwinds</h2>
 <p>The US, EU, and UK are all advancing stablecoin-specific legislation in 2026. Clear rules around reserve backing, redemption rights, and operational resilience could transform stablecoins from a niche fintech tool into mainstream financial infrastructure. For cross-border payments, that transformation can't come soon enough.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-08",
     source: "American Banker / DL News",
+    sourceUrl: "https://www.americanbanker.com/payments",
     providerSlugs: ["paypal", "moneygram"],
   },
   {
@@ -231,6 +277,7 @@ export const newsItems: NewsItem[] = [
     category: "Regulatory",
     publishedAt: "2026-03-07",
     source: "PYMNTS",
+    sourceUrl: "https://www.pymnts.com/",
     providerSlugs: ["wise", "paypal"],
   },
   {
@@ -250,10 +297,11 @@ export const newsItems: NewsItem[] = [
 <h2>Implications for remittances</h2>
 <p>Inbound remittances are a lifeline for Rwanda's economy, accounting for roughly 3% of GDP. The country has been a pioneer in mobile money-based remittance delivery — services like TapTap Send and WorldRemit already support mobile wallet payouts to Rwanda's major networks. A thriving local fintech ecosystem could produce homegrown competitors that further drive down costs on corridors like UK-to-Rwanda and US-to-Rwanda, which currently average 6–8% in total transfer costs.</p>
 
-<p>More broadly, Rwanda's initiative reflects a continent-wide trend. Nigeria, Kenya, and South Africa have all launched or expanded fintech regulatory sandboxes in the past two years, creating a competitive landscape for African fintech talent and investment.</p>`,
+<p>More broadly, Rwanda's initiative reflects a continent-wide trend. Nigeria, Kenya, and South Africa have all launched or expanded fintech regulatory sandboxes in the past two years, creating a competitive landscape for African fintech talent and investment. See our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> for tips on finding the cheapest options.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-14",
     source: "The New Times (Rwanda)",
+    sourceUrl: "https://www.newtimes.co.rw/",
     providerSlugs: ["worldremit", "taptap-send"],
   },
   {
@@ -283,6 +331,9 @@ export const newsItems: NewsItem[] = [
 <p>Promo details are verified monthly and shown with a "last verified" date. For the full breakdown of every provider's current offers, check out our comprehensive guide: <a href="/guides/money-transfer-promo-codes-referral-programs">Money Transfer Promo Codes & Referral Programs (2026)</a>.</p>`,
     category: "Announcement",
     publishedAt: "2026-03-14",
+    source: "SendMoneyCompare",
+    sourceUrl: "https://sendmoneycompare.com/guides/money-transfer-promo-codes-referral-programs",
+    providerSlugs: ["remitly", "worldremit", "wise", "western-union", "torfx"],
   },
 ];
 
