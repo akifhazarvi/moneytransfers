@@ -6,7 +6,10 @@ import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
+import NewsTicker from "@/components/NewsTicker";
 import { providers } from "@/data/providers";
+import { getLatestNews } from "@/data/news";
+import { fetchExchangeRates } from "@/lib/exchange-rates";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -54,7 +57,22 @@ const faqs = [
   },
 ];
 
-export default function Home() {
+const POPULAR_RATES = [
+  { code: "INR", label: "USD → INR", corridor: "usa-to-india" },
+  { code: "PKR", label: "USD → PKR", corridor: "usa-to-pakistan" },
+  { code: "EUR", label: "USD → EUR", corridor: "usd-to-eur" },
+  { code: "GBP", label: "USD → GBP", corridor: "usd-to-gbp" },
+  { code: "PHP", label: "USD → PHP", corridor: "usa-to-philippines" },
+  { code: "MXN", label: "USD → MXN", corridor: "usa-to-mexico" },
+];
+
+export default async function Home() {
+  const rates = await fetchExchangeRates();
+
+  const liveRates = POPULAR_RATES
+    .map((r) => ({ ...r, rate: rates[r.code] }))
+    .filter((r) => r.rate && r.rate > 0);
+
   return (
     <>
       {/* ─── 1. HERO ─── */}
@@ -77,6 +95,52 @@ export default function Home() {
           </p>
         </Container>
       </section>
+
+      {/* ─── LIVE RATES BAR ─── */}
+      {liveRates.length > 0 && (
+        <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-4">
+          <Container>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+              </span>
+              <h2 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                Today&apos;s mid-market rates
+              </h2>
+              <Link href="/exchange-rates" className="text-[11px] text-[var(--color-primary)] hover:underline ml-auto">
+                See all rates &rarr;
+              </Link>
+            </div>
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+              {liveRates.map((r) => (
+                <Link
+                  key={r.code}
+                  href={`/send-money/${r.corridor}`}
+                  className="flex flex-col items-center px-3 py-2.5 rounded-xl bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] transition-colors group"
+                >
+                  <span className="text-[11px] text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
+                    {r.label}
+                  </span>
+                  <span className="text-[15px] font-semibold text-[var(--color-on-surface)] tabular-nums mt-0.5">
+                    {r.rate >= 1000 ? r.rate.toFixed(2) : r.rate >= 100 ? r.rate.toFixed(3) : r.rate.toFixed(4)}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ─── NEWS TICKER ─── */}
+      <NewsTicker
+        items={getLatestNews(6).map((n) => ({
+          slug: n.slug,
+          title: n.title,
+          category: n.category,
+          publishedAt: n.publishedAt,
+        }))}
+      />
 
       {/* ─── 2. TRUST SECTION ─── */}
       <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-10">

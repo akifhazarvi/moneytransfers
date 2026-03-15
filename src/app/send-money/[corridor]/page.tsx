@@ -723,6 +723,52 @@ export default async function CorridorPage({ params }: Props) {
           }),
         }}
       />
+      {/* ExchangeRateSpecification structured data for Google rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ExchangeRateSpecification",
+            currency: fromCurrency,
+            currentExchangeRate: {
+              "@type": "UnitPriceSpecification",
+              price: midRate,
+              priceCurrency: toCurrency,
+              unitText: `1 ${fromCurrency}`,
+            },
+            ...(best && {
+              exchangeRateSpread: ((midRate - best.exchangeRate) / midRate * 100).toFixed(2) + "%",
+            }),
+          }),
+        }}
+      />
+      {/* Provider offers structured data */}
+      {quotes.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FinancialProduct",
+              name: `${fromCurrency} to ${toCurrency} Money Transfer`,
+              description: `Compare ${fromCurrency} to ${toCurrency} exchange rates from ${quotes.length} providers. Best rate: ${best?.exchangeRate.toFixed(4)} from ${best ? getProviderName(best.providerSlug) : ""}`,
+              url: `https://sendmoneycompare.com/send-money/${slug}`,
+              offers: quotes.slice(0, 5).map((q) => ({
+                "@type": "Offer",
+                name: `${getProviderName(q.providerSlug)} — ${fromCurrency} to ${toCurrency}`,
+                offeredBy: {
+                  "@type": "Organization",
+                  name: getProviderName(q.providerSlug),
+                },
+                price: q.fee,
+                priceCurrency: fromCurrency,
+                description: `Exchange rate: ${q.exchangeRate.toFixed(4)}, Recipient gets: ${receiveSymbol}${q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, Speed: ${q.transferSpeed}`,
+              })),
+            }),
+          }}
+        />
+      )}
     </>
   );
 }

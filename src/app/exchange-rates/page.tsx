@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
+import { fetchExchangeRates } from "@/lib/exchange-rates";
 
 export const metadata: Metadata = {
   title: "Live Exchange Rates Today — Real-Time Currency Rates",
@@ -71,16 +72,97 @@ const faqSchema = {
   })),
 };
 
-export default function ExchangeRatesPage() {
+const SSR_CURRENCIES = [
+  { code: "EUR", name: "Euro" },
+  { code: "GBP", name: "Pound Sterling" },
+  { code: "JPY", name: "Japanese Yen" },
+  { code: "AUD", name: "Australian Dollar" },
+  { code: "CAD", name: "Canadian Dollar" },
+  { code: "CHF", name: "Swiss Franc" },
+  { code: "INR", name: "Indian Rupee" },
+  { code: "CNY", name: "Chinese Yuan" },
+  { code: "MXN", name: "Mexican Peso" },
+  { code: "SGD", name: "Singapore Dollar" },
+  { code: "HKD", name: "Hong Kong Dollar" },
+  { code: "KRW", name: "Korean Won" },
+  { code: "ZAR", name: "South African Rand" },
+  { code: "TRY", name: "Turkish Lira" },
+  { code: "AED", name: "UAE Dirham" },
+  { code: "PKR", name: "Pakistani Rupee" },
+  { code: "PHP", name: "Philippine Peso" },
+  { code: "NGN", name: "Nigerian Naira" },
+  { code: "BRL", name: "Brazilian Real" },
+  { code: "THB", name: "Thai Baht" },
+];
+
+export default async function ExchangeRatesPage() {
+  const rates = await fetchExchangeRates();
+
+  // Build server-rendered rate rows for crawlers
+  const ssrRates = SSR_CURRENCIES
+    .map((c) => ({ ...c, rate: rates[c.code] }))
+    .filter((c) => c.rate && c.rate > 0);
+
+  // ExchangeRateSpecification JSON-LD for each major currency
+  const rateSchemas = ssrRates.slice(0, 10).map((c) => ({
+    "@context": "https://schema.org",
+    "@type": "ExchangeRateSpecification",
+    currency: "USD",
+    currentExchangeRate: {
+      "@type": "UnitPriceSpecification",
+      price: c.rate,
+      priceCurrency: c.code,
+      unitText: `1 USD = ${c.rate} ${c.code}`,
+    },
+  }));
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(rateSchemas) }}
+      />
 
       {/* Live Rates Board */}
       <LiveRatesBoard />
+
+      {/* Server-rendered rate table — visible to crawlers even without JS */}
+      <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)]">
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 py-10 sm:py-14">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
+            Today&apos;s Exchange Rates — USD Base
+          </h2>
+          <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
+            Mid-market exchange rates for 1 USD. Updated at build time from multiple independent sources.
+          </p>
+          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
+            <div className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] sm:text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+              <span>Currency</span>
+              <span className="text-right">Code</span>
+              <span className="text-right">1 USD =</span>
+            </div>
+            {ssrRates.map((c) => (
+              <div
+                key={c.code}
+                className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 items-center px-4 sm:px-6 py-2.5 border-t border-[var(--color-outline)]"
+              >
+                <span className="text-[14px] text-[var(--color-on-surface)]">{c.name}</span>
+                <span className="text-[14px] font-medium text-[var(--color-on-surface)] text-right">{c.code}</span>
+                <span className="text-[14px] font-medium text-[var(--color-on-surface)] text-right tabular-nums">
+                  {c.rate >= 1000 ? c.rate.toFixed(2) : c.rate >= 100 ? c.rate.toFixed(3) : c.rate.toFixed(4)}
+                </span>
+              </div>
+            ))}
+          </div>
+          <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-3">
+            The live board above updates every 60 seconds with real-time data from 4 independent feeds. This table shows the latest server-side snapshot.
+          </p>
+        </div>
+      </section>
 
       {/* SEO Content Sections */}
       <div className="bg-[var(--color-surface)] py-12 sm:py-16">
