@@ -51,6 +51,14 @@ jobs:
         timeout-minutes: 20
         continue-on-error: true
 
+      - name: Scrape TapTap Send (API)
+        run: npx tsx scripts/scrape-taptapsend.ts
+        continue-on-error: true
+
+      - name: Scrape Wise Direct (API)
+        run: npx tsx scripts/scrape-wise-direct.ts
+        continue-on-error: true
+
       - name: Upload scraped data
         uses: actions/upload-artifact@v4
         with:
@@ -155,21 +163,6 @@ jobs:
 
       - name: Scrape XE Money Transfer (browser)
         run: npx tsx scripts/scrape-xe-transfer.ts
-        timeout-minutes: 15
-        continue-on-error: true
-
-      - name: Scrape TapTap Send (browser)
-        run: npx tsx scripts/scrape-taptapsend.ts
-        timeout-minutes: 15
-        continue-on-error: true
-
-      - name: Scrape MoneyGram (browser)
-        run: npx tsx scripts/scrape-moneygram.ts
-        timeout-minutes: 15
-        continue-on-error: true
-
-      - name: Scrape Wise Direct (browser)
-        run: npx tsx scripts/scrape-wise-direct.ts
         timeout-minutes: 15
         continue-on-error: true
 

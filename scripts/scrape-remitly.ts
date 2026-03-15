@@ -112,11 +112,17 @@ async function scrapeDom(
     const bodyText = await page.locator("body").textContent({ timeout: 3000 });
     if (!bodyText) return null;
 
-    // Look for exchange rate pattern: "1 USD = XX.XX INR"
-    const rateMatch = bodyText.match(/1\s*[A-Z]{3}\s*=\s*([\d,.]+)\s*[A-Z]{3}/);
-    const feeMatch = bodyText.match(/(?:Fee|fee|Transfer fee)[^\d]*([\d,.]+)/);
+    // Look for corridor-specific exchange rate: "1 USD = XX.XX INR"
+    const rateRegex = new RegExp(
+      `1\\s*${sendCurrency}\\s*=\\s*([\\d,.]+)\\s*${receiveCurrency}`
+    );
+    const rateMatch = bodyText.match(rateRegex);
+    const feeMatch = bodyText.match(
+      new RegExp(`(?:Fee|fee|Transfer fee)[^\\d]*([\\d,.]+)\\s*${sendCurrency}`, "i")
+    );
 
     // Find receive amount — large number near currency code
+    // Filter: must be proportional to send amount (> 50% of expected)
     const receivePattern = new RegExp(
       `([\\d,]+(?:\\.\\d{2})?)\\s*${receiveCurrency}`,
       "g"
@@ -125,7 +131,7 @@ async function scrapeDom(
     let match;
     while ((match = receivePattern.exec(bodyText)) !== null) {
       const num = parseNumber(match[1]);
-      if (num > receiveAmount) receiveAmount = num;
+      if (num > amount * 0.5 && num > receiveAmount) receiveAmount = num;
     }
 
     const rate = rateMatch ? parseNumber(rateMatch[1]) : 0;
