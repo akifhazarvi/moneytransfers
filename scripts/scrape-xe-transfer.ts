@@ -307,35 +307,38 @@ async function main() {
       console.log(`\n📍 ${corridor.from} → ${corridor.to} (${corridor.destCountry})`);
 
       for (const amount of SEND_AMOUNTS) {
-        console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
+        try {
+          console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
 
-        const quote = await withRetry(
-          () => scrapeCorridorAmount(context, corridor, amount),
-          MAX_RETRIES
-        );
-
-        if (quote) {
-          allQuotes.push(quote);
-          successCount++;
-          console.log(
-            `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
+          const quote = await withRetry(
+            () => scrapeCorridorAmount(context, corridor, amount),
+            MAX_RETRIES
           );
-        } else {
-          failCount++;
-          console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
-        }
 
-        await jitteredDelay(3000);
+          if (quote) {
+            allQuotes.push(quote);
+            successCount++;
+            console.log(
+              `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
+            );
+          } else {
+            failCount++;
+            console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
+          }
+
+          await jitteredDelay(3000);
+        } catch (err) {
+          failCount++;
+          console.error(`    ✗ Error scraping ${corridor.from} → ${corridor.to} ($${amount}):`, (err as Error).message);
+        }
       }
     }
   } finally {
     await context.browser()?.close();
+    writeOutput("XE Money Transfer", "xe-transfer", allQuotes, startTime, successCount, failCount);
   }
-
-  writeOutput("XE Money Transfer", "xe-transfer", allQuotes, startTime, successCount, failCount);
 }
 
 main().catch((err) => {
   console.error("XE Transfer scraper failed:", err);
-  process.exit(1);
 });

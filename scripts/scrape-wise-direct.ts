@@ -18,7 +18,7 @@ import {
   type ProviderQuote,
 } from "./lib/browser";
 
-const DELAY_MS = 1200;
+const DELAY_MS = 800;
 
 const CORRIDORS = [
   { from: "USD", to: "INR" }, { from: "USD", to: "PHP" },
@@ -166,7 +166,10 @@ async function fetchV4(from: string, to: string, amount: number): Promise<Provid
       includeWise: "true",
       payInMethod: "DIRECT_DEBIT",
     });
-    const res = await fetch(`https://wise.com/gateway/v4/comparisons?${params}`, { headers: HEADERS });
+    const res = await fetch(`https://wise.com/gateway/v4/comparisons?${params}`, {
+      headers: HEADERS,
+      signal: AbortSignal.timeout(15000),
+    });
     if (!res.ok) return null;
     return extractWiseQuote(await res.json(), from, to, amount, "api-v4");
   } catch {
@@ -184,7 +187,10 @@ async function fetchV3(from: string, to: string, amount: number): Promise<Provid
       targetCurrency: to,
       sendAmount: String(amount),
     });
-    const res = await fetch(`https://wise.com/gateway/v3/comparisons?${params}`, { headers: HEADERS });
+    const res = await fetch(`https://wise.com/gateway/v3/comparisons?${params}`, {
+      headers: HEADERS,
+      signal: AbortSignal.timeout(15000),
+    });
     if (!res.ok) return null;
     return extractWiseQuote(await res.json(), from, to, amount, "api-v3");
   } catch {
@@ -197,7 +203,10 @@ async function fetchV3(from: string, to: string, amount: number): Promise<Provid
  */
 async function fetchLiveRate(from: string, to: string, amount: number): Promise<ProviderQuote | null> {
   try {
-    const res = await fetch(`https://wise.com/rates/live?source=${from}&target=${to}`, { headers: HEADERS });
+    const res = await fetch(`https://wise.com/rates/live?source=${from}&target=${to}`, {
+      headers: HEADERS,
+      signal: AbortSignal.timeout(15000),
+    });
     if (!res.ok) return null;
     const data = await res.json();
     const rate = parseFloat(String(data.value || "0"));
@@ -222,32 +231,37 @@ async function main() {
     console.log(`\n📍 ${corridor.from} → ${corridor.to}`);
 
     for (const amount of SEND_AMOUNTS) {
-      console.log(`  Fetching: ${corridor.from} → ${corridor.to} ($${amount})...`);
+      try {
+        console.log(`  Fetching: ${corridor.from} → ${corridor.to} ($${amount})...`);
 
-      // Try v4 first (most complete data)
-      let quote = await fetchV4(corridor.from, corridor.to, amount);
+        // Try v4 first (most complete data)
+        let quote = await fetchV4(corridor.from, corridor.to, amount);
 
-      // Fallback to v3
-      if (!quote) {
-        console.log(`    → Trying v3 API fallback...`);
-        quote = await fetchV3(corridor.from, corridor.to, amount);
-      }
+        // Fallback to v3
+        if (!quote) {
+          console.log(`    → Trying v3 API fallback...`);
+          quote = await fetchV3(corridor.from, corridor.to, amount);
+        }
 
-      // Last resort: live rate (no fee info)
-      if (!quote) {
-        console.log(`    → Trying live rates fallback...`);
-        quote = await fetchLiveRate(corridor.from, corridor.to, amount);
-      }
+        // Last resort: live rate (no fee info)
+        if (!quote) {
+          console.log(`    → Trying live rates fallback...`);
+          quote = await fetchLiveRate(corridor.from, corridor.to, amount);
+        }
 
-      if (quote) {
-        allQuotes.push(quote);
-        successCount++;
-        console.log(
-          `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
-        );
-      } else {
+        if (quote) {
+          allQuotes.push(quote);
+          successCount++;
+          console.log(
+            `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
+          );
+        } else {
+          failCount++;
+          console.log(`    ✗ No data`);
+        }
+      } catch (err) {
         failCount++;
-        console.log(`    ✗ No data`);
+        console.log(`    ✗ Error: ${err instanceof Error ? err.message : String(err)}`);
       }
 
       await delay(DELAY_MS);
@@ -259,5 +273,5 @@ async function main() {
 
 main().catch((err) => {
   console.error("Wise direct scraper failed:", err);
-  process.exit(1);
+  // Don't exit(1) — partial data is still written by writeOutput
 });

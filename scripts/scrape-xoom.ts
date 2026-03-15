@@ -211,44 +211,48 @@ async function main() {
       console.log(`\n📍 ${corridor.from} → ${corridor.to} (${corridor.country})`);
 
       for (const amount of SEND_AMOUNTS) {
-        console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
+        try {
+          console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
 
-        const quote = await withRetry(
-          () => scrapeCorridorAmount(context, corridor, amount),
-          MAX_RETRIES
-        );
-
-        if (quote) {
-          allQuotes.push(quote);
-          successCount++;
-          console.log(
-            `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
+          const quote = await withRetry(
+            () => scrapeCorridorAmount(context, corridor, amount),
+            MAX_RETRIES
           );
-        } else {
-          failCount++;
-          console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
-        }
 
-        await jitteredDelay(3000);
+          if (quote) {
+            allQuotes.push(quote);
+            successCount++;
+            console.log(
+              `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
+            );
+          } else {
+            failCount++;
+            console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
+          }
+
+          await jitteredDelay(3000);
+        } catch (err) {
+          failCount++;
+          console.error(`    ✗ Error scraping ${corridor.from} → ${corridor.to} ($${amount}):`, (err as Error).message);
+        }
       }
     }
   } finally {
     await context.browser()?.close();
+
+    const outputPath = path.join(OUTPUT_DIR, "xoom-quotes.json");
+    fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
+
+    const elapsed = Math.round((Date.now() - startTime) / 1000);
+    const total = successCount + failCount;
+    console.log(`\n=== Xoom Scraping Complete ===`);
+    console.log(`Wrote ${outputPath} (${allQuotes.length} quotes)`);
+    console.log(`Success: ${successCount}, Failed: ${failCount}`);
+    console.log(`Success rate: ${total > 0 ? ((successCount / total) * 100).toFixed(1) : 0}%`);
+    console.log(`Duration: ${Math.floor(elapsed / 60)}m ${elapsed % 60}s`);
   }
-
-  const outputPath = path.join(OUTPUT_DIR, "xoom-quotes.json");
-  fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
-
-  const elapsed = Math.round((Date.now() - startTime) / 1000);
-  const total = successCount + failCount;
-  console.log(`\n=== Xoom Scraping Complete ===`);
-  console.log(`Wrote ${outputPath} (${allQuotes.length} quotes)`);
-  console.log(`Success: ${successCount}, Failed: ${failCount}`);
-  console.log(`Success rate: ${total > 0 ? ((successCount / total) * 100).toFixed(1) : 0}%`);
-  console.log(`Duration: ${Math.floor(elapsed / 60)}m ${elapsed % 60}s`);
 }
 
 main().catch((err) => {
   console.error("Xoom scraper failed:", err);
-  process.exit(1);
 });

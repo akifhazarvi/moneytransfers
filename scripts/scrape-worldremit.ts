@@ -374,55 +374,61 @@ async function main() {
       );
 
       for (const amount of SEND_AMOUNTS) {
-        console.log(
-          `  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`
-        );
-
-        const quote = await scrapeWithRetry(context, corridor, amount);
-
-        if (quote) {
-          allQuotes.push(quote);
-          successCount++;
+        try {
           console.log(
-            `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate.toFixed(4)}, Receive: ${quote.receiveAmount} [${quote.source}]`
+            `  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`
           );
-        } else {
-          failCount++;
-          console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
-        }
 
-        await jitteredDelay(DELAY_MS);
+          const quote = await scrapeWithRetry(context, corridor, amount);
+
+          if (quote) {
+            allQuotes.push(quote);
+            successCount++;
+            console.log(
+              `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate.toFixed(4)}, Receive: ${quote.receiveAmount} [${quote.source}]`
+            );
+          } else {
+            failCount++;
+            console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
+          }
+
+          await jitteredDelay(DELAY_MS);
+        } catch (err) {
+          failCount++;
+          console.error(
+            `    ✗ Error scraping ${corridor.from} → ${corridor.to} ($${amount}): ${(err as Error).message}`
+          );
+        }
       }
     }
   } finally {
     await context.browser()?.close();
-  }
 
-  // Write output
-  const outputPath = path.join(OUTPUT_DIR, "worldremit-quotes.json");
-  fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
+    // Write output — always save partial data even if the loop threw
+    const outputPath = path.join(OUTPUT_DIR, "worldremit-quotes.json");
+    fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
 
-  const elapsed = Math.round((Date.now() - startTime) / 1000);
-  console.log(`\n=== WorldRemit Scraping Complete ===`);
-  console.log(`Wrote ${outputPath} (${allQuotes.length} quotes)`);
-  console.log(`Success: ${successCount}, Failed: ${failCount}`);
-  console.log(
-    `Success rate: ${((successCount / (successCount + failCount)) * 100).toFixed(1)}%`
-  );
-  console.log(`Duration: ${Math.floor(elapsed / 60)}m ${elapsed % 60}s`);
-
-  if (
-    successCount + failCount > 0 &&
-    successCount / (successCount + failCount) < 0.2
-  ) {
-    console.error(
-      "\n⚠ Success rate below 20% — WorldRemit may have changed their site structure"
+    const elapsed = Math.round((Date.now() - startTime) / 1000);
+    console.log(`\n=== WorldRemit Scraping Complete ===`);
+    console.log(`Wrote ${outputPath} (${allQuotes.length} quotes)`);
+    console.log(`Success: ${successCount}, Failed: ${failCount}`);
+    console.log(
+      `Success rate: ${((successCount / (successCount + failCount)) * 100).toFixed(1)}%`
     );
-    process.exit(1);
+    console.log(`Duration: ${Math.floor(elapsed / 60)}m ${elapsed % 60}s`);
+
+    if (
+      successCount + failCount > 0 &&
+      successCount / (successCount + failCount) < 0.2
+    ) {
+      console.error(
+        "\n⚠ Success rate below 20% — WorldRemit may have changed their site structure"
+      );
+      process.exit(1);
+    }
   }
 }
 
 main().catch((err) => {
   console.error("WorldRemit scraper failed:", err);
-  process.exit(1);
 });

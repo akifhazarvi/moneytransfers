@@ -255,35 +255,41 @@ async function main() {
       console.log(`\n📍 ${corridor.from} → ${corridor.to} (${corridor.urlPath})`);
 
       for (const amount of SEND_AMOUNTS) {
-        console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
+        try {
+          console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
 
-        const quote = await withRetry(
-          () => scrapeCorridorAmount(context, corridor, amount),
-          MAX_RETRIES
-        );
-
-        if (quote) {
-          allQuotes.push(quote);
-          successCount++;
-          console.log(
-            `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
+          const quote = await withRetry(
+            () => scrapeCorridorAmount(context, corridor, amount),
+            MAX_RETRIES
           );
-        } else {
-          failCount++;
-          console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
-        }
 
-        await jitteredDelay(3000);
+          if (quote) {
+            allQuotes.push(quote);
+            successCount++;
+            console.log(
+              `    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount} [${quote.source}]`
+            );
+          } else {
+            failCount++;
+            console.log(`    ✗ No data after ${MAX_RETRIES} attempts`);
+          }
+
+          await jitteredDelay(3000);
+        } catch (err) {
+          failCount++;
+          console.error(
+            `    ✗ Error scraping ${corridor.from} → ${corridor.to} ($${amount}):`,
+            (err as Error).message || err
+          );
+        }
       }
     }
   } finally {
     await context.browser()?.close();
+    writeOutput("Remitly", "remitly", allQuotes, startTime, successCount, failCount);
   }
-
-  writeOutput("Remitly", "remitly", allQuotes, startTime, successCount, failCount);
 }
 
 main().catch((err) => {
   console.error("Remitly scraper failed:", err);
-  process.exit(1);
 });
