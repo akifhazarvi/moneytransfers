@@ -53,7 +53,7 @@ export default function CookieConsent() {
                 href="/cookies"
                 className="text-[var(--color-primary)] hover:underline"
               >
-                Learn more
+                Learn more about our cookie policy
               </Link>
             </p>
           </div>
