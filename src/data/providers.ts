@@ -82,7 +82,7 @@ export const providers: Provider[] = [
   {
     slug: "remitly",
     name: "Remitly",
-    logo: "/logos/remitly.svg",
+    logo: "/logos/remitly.png",
     rating: 4.5,
     ratingLabel: "Excellent",
     description: "Remitly specializes in personal international money transfers with a focus on remittances to developing countries, offering competitive rates and fast delivery.",
@@ -164,7 +164,7 @@ export const providers: Provider[] = [
   {
     slug: "xe",
     name: "XE",
-    logo: "/logos/xe.svg",
+    logo: "/logos/xe.jpg",
     rating: 4.3,
     ratingLabel: "Excellent",
     description: "XE is a trusted name in currency exchange, offering international money transfers with competitive rates and no transfer fees for most corridors.",
