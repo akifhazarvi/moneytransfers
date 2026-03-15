@@ -882,6 +882,8 @@ export const blogPosts: BlogPost[] = [
     relatedSlugs: [
       "cheapest-way-to-send-money-internationally",
       "best-money-transfer-apps",
+      "send-money-uk-to-india-guide",
+      "send-money-to-pakistan-guide",
     ],
   },
 
@@ -2119,6 +2121,7 @@ export const blogPosts: BlogPost[] = [
       "cheapest-way-to-send-money-internationally",
       "best-money-transfer-apps",
       "send-money-to-india-guide",
+      "send-money-to-bangladesh-guide",
     ],
   },
   // ============================
@@ -2137,7 +2140,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-15",
     author: "SendMoneyCompare Team",
     tags: ["multi-currency account", "exchange rates", "Wise", "Revolut", "Xe", "forex"],
-    featuredImage: "/images/blog/multi-currency-accounts-v2.jpg",
+    featuredImage: "/images/blog/multi-currency-accounts-v3.jpg",
     sections: [
       {
         heading: "Why a Multi-Currency Account Beats a One-Off Transfer",
@@ -2288,6 +2291,740 @@ export const blogPosts: BlogPost[] = [
       "exchange-rate-markup-explained",
       "cheapest-way-to-send-money-internationally",
       "best-money-transfer-apps",
+    ],
+  },
+  // ============================
+  // Send Money to Philippines Guide
+  // ============================
+  {
+    slug: "send-money-to-philippines-guide",
+    title: "Send Money to Philippines: Cheapest Ways in 2026",
+    metaDescription:
+      "Compare the cheapest ways to send money to the Philippines from the US. Real rates from 10+ providers for USD to PHP — bank, GCash, cash pickup options.",
+    excerpt:
+      "Over 4 million Filipino-Americans send money home regularly. We compared 10+ providers to find the cheapest USD to PHP transfer options including GCash and cash pickup.",
+    category: "Corridors",
+    readTime: "10 min read",
+    publishedAt: "2026-03-15",
+    updatedAt: "2026-03-15",
+    author: "SendMoneyCompare Team",
+    tags: ["Philippines", "PHP", "remittance", "USD to PHP", "GCash", "corridor guide", "send money to Philippines"],
+    featuredImage: "/images/blog/send-money-to-philippines.jpg",
+    sections: [
+      {
+        heading: "Philippines: A Major Remittance Destination",
+        content: `<p>The Philippines received over <strong>$38 billion in remittances</strong> in 2025, making it one of the top five remittance-receiving countries globally according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>. The United States is the single largest source, with over 4 million Filipino-Americans sending money home to support families.</p>
+<p>The good news: this corridor is fiercely competitive. Providers fight for market share on the USD to PHP route, which means lower fees and tighter exchange rate spreads for you. The difference between the best and worst provider on a $1,000 transfer can be <strong>₱1,500–₱2,500</strong> — money your family actually receives.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to the Philippines",
+        content: `<h3>From the US (USD → PHP)</h3>
+<p>For a $1,000 transfer:</p>
+<ul>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, competitive rate — popular for GCash delivery and Express speed</li>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup on mid-market rate — best for large amounts</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Low fees, strong coverage for cash pickup and mobile wallets</li>
+<li><strong><a href="/companies/xoom">Xoom</a> (PayPal)</strong>: $0 fee promotions, good bank deposit and cash pickup options</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but unmatched cash pickup network across the Philippines</li>
+</ul>
+<p><strong>Tip:</strong> Provider rankings shift daily on this corridor. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates</a> before every transfer.</p>`,
+      },
+      {
+        heading: "What You Need for a Philippines Transfer",
+        content: `<p>The recipient details you need depend on the delivery method:</p>
+<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with their bank)</li>
+<li><strong>Bank name</strong> — BDO Unibank, BPI (Bank of the Philippine Islands), Metrobank, Landbank, PNB, or UnionBank</li>
+<li><strong>Account number</strong> — typically 10–12 digits</li>
+<li><strong>Bank branch</strong> (sometimes required)</li>
+</ul>
+<p>The Philippines does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For international wire transfers, you may need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a> — for example, BDO's SWIFT code is BNORPHMM and BPI's is BABOROMM.</p>
+
+<h3>GCash (Mobile Wallet)</h3>
+<ul>
+<li><strong>Recipient's full name</strong></li>
+<li><strong>GCash-registered mobile number</strong> (11 digits, starting with 09)</li>
+</ul>
+<p>GCash is the Philippines' leading mobile wallet with over 90 million registered users. Transfers are typically instant.</p>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (must match a valid government ID)</li>
+<li><strong>City</strong> where they'll collect</li>
+</ul>
+<p>Pickup locations include Cebuana Lhuillier (3,000+ branches), M Lhuillier (2,500+ branches), and bank branches nationwide.</p>`,
+      },
+      {
+        heading: "Top Banks in the Philippines for Receiving Transfers",
+        content: `<p>The largest banks in the Philippines handle the bulk of inbound remittances. Transfers to these banks are typically processed faster:</p>
+<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>BDO Unibank</strong></td><td>BNORPHMM</td><td>Largest bank by assets. Widest ATM network.</td></tr>
+<tr><td><strong>BPI (Bank of the Philippine Islands)</strong></td><td>BABOROMM</td><td>Strong digital banking. Fast processing.</td></tr>
+<tr><td><strong>Metrobank</strong></td><td>MABOROMM</td><td>Large branch network. Accepts international wires.</td></tr>
+<tr><td><strong>Landbank</strong></td><td>TLBPPHMM</td><td>Government-owned. Popular in rural areas.</td></tr>
+<tr><td><strong>PNB (Philippine National Bank)</strong></td><td>PNBMPHMM</td><td>Extensive overseas branches for OFWs.</td></tr>
+<tr><td><strong>UnionBank</strong></td><td>UBPHPHMM</td><td>Digital-first. Fastest online processing.</td></tr>
+</tbody>
+</table>
+<p>For a complete list of SWIFT codes, see our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>.</p>`,
+      },
+      {
+        heading: "Delivery Methods and Speed",
+        content: `<ul>
+<li><strong>GCash</strong>: Instant. Supported by Remitly, WorldRemit, and others. Recipient gets a notification and can spend or withdraw immediately. Maximum per transaction varies by provider.</li>
+<li><strong>Bank deposit</strong>: Minutes to 1 business day for major banks (BDO, BPI, Metrobank). Smaller rural banks may take 2–3 days.</li>
+<li><strong>Cash pickup</strong>: Available within minutes at Cebuana Lhuillier, M Lhuillier, Palawan Pawnshop, and Western Union agent locations. Over 30,000 pickup points nationwide.</li>
+<li><strong>Maya (formerly PayMaya)</strong>: Instant delivery to Maya mobile wallet. Supported by select providers.</li>
+<li><strong>Door-to-door delivery</strong>: Available through some providers in Metro Manila and major cities.</li>
+</ul>
+<p><strong>Fastest option:</strong> GCash is the quickest way to get money to someone in the Philippines. <strong>Widest reach:</strong> Cash pickup has the best coverage, especially in rural areas.</p>`,
+      },
+      {
+        heading: "Fees and Exchange Rate Tips",
+        content: `<p>The USD to PHP corridor is one of the cheapest to send money on. Here's how to minimise costs:</p>
+<ol>
+<li><strong>Compare the total PHP received, not just the fee.</strong> A $0 fee means nothing if the exchange rate markup eats ₱800. Use our <a href="/send-money/usa-to-philippines">USD to PHP comparison tool</a> to see the actual amount your recipient gets.</li>
+<li><strong>Fund with bank transfer or debit card.</strong> Credit card funding adds 1.5%–3% in surcharges — on $1,000, that's $15–$30 wasted.</li>
+<li><strong>Send larger amounts less often.</strong> Some providers charge minimum fees, so one $2,000 transfer costs less than four $500 transfers.</li>
+<li><strong>Check for first-time promotions.</strong> Remitly, Wise, and WorldRemit regularly offer enhanced rates or zero fees for new users.</li>
+<li><strong>Avoid banks.</strong> US banks charge $25–$50 wire fees plus 3–5% exchange rate markup. On $1,000, you could lose $55–$100 compared to a specialist provider.</li>
+</ol>
+<p>For a deeper explanation of how exchange rate markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
+      },
+      {
+        heading: "Regulations and Tax Considerations",
+        content: `<p>Key rules for sending money to the Philippines:</p>
+<ul>
+<li><strong>No inbound remittance limits:</strong> The <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer nofollow">Bangko Sentral ng Pilipinas (BSP)</a> does not restrict inbound remittance amounts. However, amounts over ₱500,000 may require additional documentation from the receiving bank.</li>
+<li><strong>Tax-free for recipients:</strong> Remittances from OFWs (Overseas Filipino Workers) and their families are exempt from Philippine income tax.</li>
+<li><strong>US sender reporting:</strong> Transfers over $10,000 must be reported by US financial institutions under the Bank Secrecy Act. Sending as a gift is not taxable for the sender.</li>
+<li><strong>Anti-money laundering:</strong> Philippine banks comply with AMLA (Anti-Money Laundering Act). Recipients may need to show valid ID for large cash pickups.</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to the Philippines from the US?",
+        answer:
+          "Remitly and Wise consistently offer the best value for USD to PHP transfers. Remitly often has $0 fee promotions with competitive rates. Wise charges a small fee but uses the mid-market exchange rate with 0% markup. For amounts over $2,000, Wise is typically cheapest.",
+      },
+      {
+        question: "Can I send money directly to GCash from the US?",
+        answer:
+          "Yes. Remitly, WorldRemit, and several other providers support instant transfers to GCash wallets. You just need the recipient's GCash-registered mobile number. Delivery is typically within seconds.",
+      },
+      {
+        question: "How long does it take to send money to the Philippines?",
+        answer:
+          "GCash and Maya transfers arrive instantly. Bank deposits to major banks (BDO, BPI, Metrobank) take minutes to 1 business day. Cash pickup at Cebuana Lhuillier or M Lhuillier is usually available within minutes.",
+      },
+      {
+        question: "Do I need an IBAN to send money to the Philippines?",
+        answer:
+          "No, the Philippines does not use the IBAN system. For bank deposits, you need the recipient's bank account number and the bank's SWIFT/BIC code. For GCash, you just need their mobile number.",
+      },
+      {
+        question: "What are the top banks in the Philippines for receiving money?",
+        answer:
+          "BDO Unibank, BPI, Metrobank, Landbank, PNB, and UnionBank are the largest banks. BDO and BPI process incoming transfers fastest. All major banks accept international remittances via SWIFT transfers and partnered services.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+      "swift-codes-explained",
+      "send-money-to-india-guide",
+    ],
+  },
+  // ============================
+  // Send Money to Mexico Guide
+  // ============================
+  {
+    slug: "send-money-to-mexico-guide",
+    title: "Send Money to Mexico: 7 Cheapest Options in 2026",
+    metaDescription:
+      "Find the cheapest way to send money to Mexico from the US. We compared 10+ providers for USD to MXN — bank deposit, OXXO cash pickup, and SPEI options.",
+    excerpt:
+      "Mexico receives over $63 billion in remittances annually, mostly from the US. We compared providers to find the cheapest USD to MXN transfers with SPEI, OXXO, and bank options.",
+    category: "Corridors",
+    readTime: "10 min read",
+    publishedAt: "2026-03-15",
+    updatedAt: "2026-03-15",
+    author: "SendMoneyCompare Team",
+    tags: ["Mexico", "MXN", "remittance", "USD to MXN", "SPEI", "OXXO", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-mexico.jpg",
+    sections: [
+      {
+        heading: "Mexico: The World's Second-Largest Remittance Market",
+        content: `<p>Mexico received a record <strong>$63 billion in remittances</strong> in 2025, almost entirely from the United States, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México (Banxico)</a>. That makes the US-Mexico corridor the single largest bilateral remittance route on the planet.</p>
+<p>The sheer volume means intense competition between providers. Fees are among the lowest of any corridor, and exchange rate spreads are tight. But even small differences matter at scale — a 0.5% rate markup on $1,000 costs roughly MXN 85. If you send monthly, that's MXN 1,000+ per year your family doesn't receive.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Mexico",
+        content: `<p>For a $1,000 USD to MXN transfer:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup (mid-market rate) — best total value for medium to large amounts</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, competitive rate — Express delivery in minutes via SPEI</li>
+<li><strong><a href="/companies/xoom">Xoom</a> (PayPal)</strong>: $0 fee promotions, strong OXXO cash pickup network</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Low fees, bank deposit and mobile wallet options</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher fees but 50,000+ cash pickup locations across Mexico</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide OXXO and Elektra pickup network</li>
+</ul>
+<p><a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> — rankings shift throughout the day as the peso moves.</p>`,
+      },
+      {
+        heading: "What You Need for a Mexico Transfer",
+        content: `<p>The details you need depend on the delivery method:</p>
+<h3>Bank Deposit (SPEI Transfer)</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with the bank)</li>
+<li><strong>CLABE number</strong> — An 18-digit standardised bank account number used across all Mexican banks. It stands for <em>Clave Bancaria Estandarizada</em>. Every Mexican bank account has a CLABE. Your recipient can find it in their online banking or on their bank statement.</li>
+<li><strong>Bank name</strong> (optional if CLABE is provided — the first 3 digits identify the bank)</li>
+</ul>
+<p>Mexico does not use <a href="/guides/iban-numbers-explained">IBANs</a>. The CLABE is the Mexican equivalent. For international wire transfers, you may also need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (must match valid ID — INE/IFE credential or passport)</li>
+<li><strong>City/state</strong> for collection</li>
+</ul>
+<p>Cash pickup locations include OXXO (20,000+ stores), Elektra, Banco Azteca, Soriana, and bank branches.</p>
+
+<h3>Debit Card Deposit</h3>
+<ul>
+<li><strong>Recipient's 16-digit debit card number</strong></li>
+<li><strong>Recipient's full name</strong></li>
+</ul>
+<p>Some providers can deposit directly to a Mexican debit card — fast and convenient if your recipient doesn't know their CLABE.</p>`,
+      },
+      {
+        heading: "Top Banks in Mexico for Receiving Transfers",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>BBVA México</strong></td><td>BCMRMXMM</td><td>Largest bank in Mexico. Fast SPEI processing.</td></tr>
+<tr><td><strong>Banorte</strong></td><td>MENOMXMT</td><td>Mexico's largest domestically-owned bank.</td></tr>
+<tr><td><strong>Santander México</strong></td><td>BMSXMXMM</td><td>Good international wire support.</td></tr>
+<tr><td><strong>Citibanamex</strong></td><td>BNMXMXMM</td><td>Strong US-Mexico corridor coverage.</td></tr>
+<tr><td><strong>HSBC México</strong></td><td>BABOROMM</td><td>Global bank with cross-border expertise.</td></tr>
+<tr><td><strong>Banco Azteca</strong></td><td>AZTEMXMM</td><td>Accessible in Elektra stores. Popular for cash pickup.</td></tr>
+</tbody>
+</table>
+<p>Learn more about SWIFT codes in our <a href="/guides/swift-codes-explained">complete SWIFT code guide</a>.</p>`,
+      },
+      {
+        heading: "Delivery Methods and Speed",
+        content: `<ul>
+<li><strong>SPEI (bank transfer)</strong>: Mexico's interbank transfer system processes payments in real time, 24/7. Most transfers via SPEI arrive <strong>within minutes</strong> — even on weekends. This is the fastest and cheapest delivery method.</li>
+<li><strong>Cash pickup at OXXO</strong>: Available within minutes. OXXO is Mexico's largest convenience chain with 20,000+ stores open late. MoneyGram and Xoom both offer OXXO pickup.</li>
+<li><strong>Cash pickup at bank/agent</strong>: Western Union, MoneyGram, and Elektra/Banco Azteca locations. Usually available within minutes. Over 50,000 total locations.</li>
+<li><strong>Debit card deposit</strong>: Near-instant delivery to a Mexican Visa/Mastercard debit card. Offered by select providers.</li>
+<li><strong>Home delivery</strong>: Available in some areas through Remitly and Western Union.</li>
+</ul>
+<p><strong>Best for speed:</strong> SPEI bank transfer — real-time, even on weekends. <strong>Best for access:</strong> OXXO cash pickup — 20,000+ locations, open late.</p>`,
+      },
+      {
+        heading: "Fees and Exchange Rate Tips",
+        content: `<p>The USD to MXN corridor is one of the cheapest in the world, but costs add up over time. Here's how to save:</p>
+<ol>
+<li><strong>Always compare total MXN received.</strong> A provider advertising "$0 fee" may hide 1–2% in the exchange rate. Use our <a href="/send-money/usa-to-mexico">comparison tool</a> to see the actual pesos your recipient gets.</li>
+<li><strong>Use SPEI instead of cash pickup.</strong> Cash pickup often carries higher exchange rate markups than direct bank transfers.</li>
+<li><strong>Fund via bank transfer or debit.</strong> Credit card funding adds 1.5%–3% in surcharges.</li>
+<li><strong>Time your transfers.</strong> USD/MXN fluctuates throughout the day. Midweek tends to have tighter spreads. Set rate alerts with Wise or Remitly.</li>
+<li><strong>Skip the banks.</strong> US banks charge $25–$50 wire fees plus 3–5% markup. On $1,000, a specialist provider saves you $55–$100+.</li>
+</ol>
+<p>Read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> to understand how hidden costs work.</p>`,
+      },
+      {
+        heading: "Regulations and Tax Considerations",
+        content: `<p>Important rules for the US to Mexico corridor:</p>
+<ul>
+<li><strong>Mexican ID requirement:</strong> For cash pickups over $300 USD equivalent, the recipient must present valid Mexican ID (INE/IFE credential). Amounts over $4,000 USD per month may trigger additional reporting.</li>
+<li><strong>No inbound remittance tax:</strong> Mexico does not tax incoming remittances for personal use. Recipients do not owe income tax on family support payments.</li>
+<li><strong>US reporting:</strong> Transfers over $10,000 are reported by US financial institutions under the Bank Secrecy Act. Structuring multiple smaller transfers to avoid this threshold is illegal.</li>
+<li><strong>Banxico oversight:</strong> The <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Bank of Mexico</a> tracks all inbound remittance flows and publishes monthly statistics. Licensed providers comply with Mexican AML regulations.</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money from the US to Mexico?",
+        answer:
+          "Wise, Remitly, and Xoom consistently offer the best total value for USD to MXN transfers. Wise uses the mid-market rate with a small fee. Remitly frequently runs $0-fee promotions. Always compare the total pesos received — not just the fee.",
+      },
+      {
+        question: "How long does it take to send money to Mexico?",
+        answer:
+          "SPEI bank transfers arrive within minutes, even on weekends. Cash pickup at OXXO is usually available within minutes. Debit card deposits are near-instant. Standard bank wires take 1–3 business days.",
+      },
+      {
+        question: "Can I pick up cash at OXXO in Mexico?",
+        answer:
+          "Yes. MoneyGram, Xoom, and other providers offer cash pickup at 20,000+ OXXO convenience stores across Mexico. The recipient needs valid ID and the transfer reference number. Most pickups are available within minutes.",
+      },
+      {
+        question: "What is a CLABE number and how do I find it?",
+        answer:
+          "A CLABE (Clave Bancaria Estandarizada) is Mexico's 18-digit standardised bank account number. Every Mexican bank account has one. Your recipient can find it in their online banking, on their bank statement, or by asking their bank. The first 3 digits identify the bank.",
+      },
+      {
+        question: "Do I need an IBAN to send money to Mexico?",
+        answer:
+          "No, Mexico does not use IBANs. Instead, you need the recipient's 18-digit CLABE number for bank deposits, or their name and location for cash pickup. For international wires, you may also need the bank's SWIFT code.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+      "swift-codes-explained",
+      "iban-numbers-explained",
+    ],
+  },
+  // ============================
+  // Send Money to Nigeria Guide
+  // ============================
+  {
+    slug: "send-money-to-nigeria-guide",
+    title: "Send Money to Nigeria: Cheapest Ways in 2026",
+    metaDescription:
+      "Compare the cheapest ways to send money to Nigeria from the US. Real USD to NGN rates from 10+ providers — bank deposit, cash pickup, and mobile options.",
+    excerpt:
+      "Nigeria is Africa's largest remittance market. We compared 10+ providers to find the cheapest USD to NGN options, with tips on navigating naira exchange rate differences.",
+    category: "Corridors",
+    readTime: "10 min read",
+    publishedAt: "2026-03-15",
+    updatedAt: "2026-03-15",
+    author: "SendMoneyCompare Team",
+    tags: ["Nigeria", "NGN", "remittance", "USD to NGN", "naira", "corridor guide", "send money to Nigeria"],
+    featuredImage: "/images/blog/send-money-to-nigeria.jpg",
+    sections: [
+      {
+        heading: "Nigeria: Africa's Largest Remittance Market",
+        content: `<p>Nigeria received over <strong>$20 billion in remittances</strong> in 2025, according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, making it Africa's top remittance destination. The United States is the largest source, followed by the UK and Canada.</p>
+<p>The USD to NGN corridor is unlike any other. Nigeria's exchange rate history — with periods of multiple official and parallel rates — means the naira amount your recipient gets can vary <strong>dramatically</strong> between providers. We've seen differences of ₦50,000+ on a $1,000 transfer on the same day. Comparing is not optional here — it's critical.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Nigeria",
+        content: `<p>For a $1,000 USD to NGN transfer:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, mid-market rate — transparent pricing, consistent value</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, competitive NGN rate — Express delivery to bank accounts</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good rates, supports bank deposit and mobile money</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but massive agent network across Nigeria</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide cash pickup coverage, competitive for small amounts</li>
+</ul>
+<p><strong>Critical:</strong> On this corridor more than any other, the exchange rate IS the cost. A provider with "$0 fee" but a 5% rate markup costs far more than one charging $7 at the mid-market rate. Always <a href="/send-money/usa-to-nigeria">compare the total NGN your recipient receives</a>.</p>`,
+      },
+      {
+        heading: "What You Need for a Nigeria Transfer",
+        content: `<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with the bank)</li>
+<li><strong>Bank name</strong> — Access Bank, GTBank (Guaranty Trust), First Bank, Zenith Bank, UBA, or Fidelity Bank</li>
+<li><strong>Account number</strong> — Nigerian bank accounts use a 10-digit NUBAN (Nigeria Uniform Bank Account Number) format</li>
+</ul>
+<p>Nigeria does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For international SWIFT wires, you need the 10-digit NUBAN plus the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong></li>
+<li><strong>Valid government ID</strong> — National ID (NIN), international passport, or driver's licence</li>
+<li><strong>BVN (Bank Verification Number)</strong> — may be required for large pickups</li>
+</ul>
+
+<h3>Mobile Money</h3>
+<ul>
+<li><strong>Recipient's mobile number</strong></li>
+<li><strong>Recipient's name</strong></li>
+</ul>
+<p>Mobile money adoption in Nigeria is growing through platforms like OPay, PalmPay, and MTN MoMo.</p>`,
+      },
+      {
+        heading: "Top Banks in Nigeria for Receiving Transfers",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Access Bank</strong></td><td>ABOROMM</td><td>Largest bank by customer base after merger with Diamond Bank.</td></tr>
+<tr><td><strong>GTBank (Guaranty Trust)</strong></td><td>GTBIOMOM</td><td>Best digital banking experience. Fast transfer processing.</td></tr>
+<tr><td><strong>First Bank of Nigeria</strong></td><td>FBNIOMOM</td><td>Oldest bank. Widest branch network in the country.</td></tr>
+<tr><td><strong>Zenith Bank</strong></td><td>ZEBIOMOM</td><td>One of the largest by assets. Strong corporate banking.</td></tr>
+<tr><td><strong>UBA (United Bank for Africa)</strong></td><td>UNAFOMOM</td><td>Pan-African presence. Good for cross-border within Africa.</td></tr>
+<tr><td><strong>Fidelity Bank</strong></td><td>FIDTOMOM</td><td>Growing digital services. Competitive for SME banking.</td></tr>
+</tbody>
+</table>
+<p>See our <a href="/guides/swift-codes-explained">SWIFT codes guide</a> for the complete reference.</p>`,
+      },
+      {
+        heading: "Delivery Methods and Speed",
+        content: `<ul>
+<li><strong>Bank deposit</strong>: 1–3 business days for most providers. Remitly Express and WorldRemit sometimes deliver same-day to major banks (Access, GTBank, Zenith). Processing times can be slower during periods of naira volatility.</li>
+<li><strong>Cash pickup</strong>: Available within hours through Western Union and MoneyGram at bank branches and agent locations across Nigeria. Thousands of pickup points in Lagos, Abuja, Port Harcourt, and other cities.</li>
+<li><strong>Mobile money</strong>: Growing but not as established as in East Africa. OPay and PalmPay transfers are supported by select providers.</li>
+</ul>
+<p><strong>Note:</strong> Nigerian banks occasionally delay international transfer processing due to CBN compliance checks. Transfers to Tier 1 banks (Access, GTBank, Zenith, First Bank, UBA) are generally processed faster.</p>`,
+      },
+      {
+        heading: "Understanding the Naira Exchange Rate",
+        content: `<p>The Nigerian naira (NGN) has a complex exchange rate history. Here's what you need to know:</p>
+<ul>
+<li><strong>Exchange rate unification:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria (CBN)</a> moved toward a unified exchange rate in 2023, but differences between providers remain larger than on most corridors.</li>
+<li><strong>Provider rate differences:</strong> Different providers source naira at different rates depending on their banking partners and CBN allocation. Always compare multiple providers on the same day.</li>
+<li><strong>Volatility:</strong> The naira can move 2–5% in a single week. If you have flexibility, set up rate alerts and transfer when the rate is favourable.</li>
+<li><strong>Dollar accounts vs naira:</strong> Some Nigerian banks offer domiciliary (dollar) accounts. If your recipient has one, they can receive USD directly — useful when the naira rate is unfavourable.</li>
+</ul>
+<p>For more on how exchange rates affect your transfer cost, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
+      },
+      {
+        heading: "Regulations and Tax Considerations",
+        content: `<p>Key rules for sending money to Nigeria:</p>
+<ul>
+<li><strong>CBN regulations:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria</a> requires that inbound remittances be processed through authorised dealer banks. All providers on our comparison are fully licensed.</li>
+<li><strong>Tax-free for recipients:</strong> Diaspora remittances are not subject to income tax in Nigeria. The government actively encourages formal remittance channels to boost foreign exchange reserves.</li>
+<li><strong>BVN requirement:</strong> Recipients may need a Bank Verification Number (BVN) for large bank deposits. BVN is an 11-digit biometric identifier linked to all Nigerian bank accounts.</li>
+<li><strong>US sender reporting:</strong> Transfers over $10,000 are reported under the Bank Secrecy Act. Personal gifts to family are not taxable for the sender.</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money from the US to Nigeria?",
+        answer:
+          "The cheapest provider changes frequently due to naira volatility. Wise, Remitly, and WorldRemit are consistently competitive. Always compare the total NGN amount received — exchange rate differences on this corridor can be worth ₦50,000+ on a $1,000 transfer.",
+      },
+      {
+        question: "Why do NGN exchange rates vary so much between providers?",
+        answer:
+          "Nigeria's exchange rate market has undergone significant reform. Different providers source naira through different banking channels, resulting in larger rate spreads than most corridors. This makes comparing providers on the same day essential.",
+      },
+      {
+        question: "How long does a money transfer to Nigeria take?",
+        answer:
+          "Bank deposits take 1–3 business days depending on the provider and receiving bank. Cash pickup through Western Union or MoneyGram is usually available within hours. Express options from Remitly can deliver same-day to major banks.",
+      },
+      {
+        question: "Do I need an IBAN to send money to Nigeria?",
+        answer:
+          "No, Nigeria does not use IBANs. You need the recipient's 10-digit NUBAN (bank account number) and the bank's SWIFT code for wire transfers. For cash pickup, you just need the recipient's name and a valid ID.",
+      },
+      {
+        question: "Is it safe to send money to Nigeria online?",
+        answer:
+          "Yes, when using regulated providers. All major services (Wise, Remitly, WorldRemit, Western Union) are licensed by FinCEN in the US and use bank-grade encryption. Verify recipient details carefully before sending.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "exchange-rate-markup-explained",
+      "swift-codes-explained",
+      "best-money-transfer-apps",
+    ],
+  },
+  // ============================
+  // Send Money to Bangladesh Guide
+  // ============================
+  {
+    slug: "send-money-to-bangladesh-guide",
+    title: "Send Money to Bangladesh: Cheapest Ways in 2026",
+    metaDescription:
+      "Compare the cheapest ways to send money to Bangladesh from the US. Real USD to BDT rates from 8+ providers — bank deposit, bKash, Nagad, and cash pickup.",
+    excerpt:
+      "Bangladesh is a top-10 remittance destination. We compared 8+ providers to find the cheapest USD to BDT transfers including bKash, Nagad, and bank deposit options.",
+    category: "Corridors",
+    readTime: "9 min read",
+    publishedAt: "2026-03-15",
+    updatedAt: "2026-03-15",
+    author: "SendMoneyCompare Team",
+    tags: ["Bangladesh", "BDT", "remittance", "USD to BDT", "bKash", "Nagad", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-bangladesh.jpg",
+    sections: [
+      {
+        heading: "Bangladesh: A Top-10 Remittance Destination",
+        content: `<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025, according to the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a>, making it one of the top remittance-receiving countries globally. The US, Saudi Arabia, UAE, and Malaysia are the largest source countries.</p>
+<p>The USD to BDT corridor has a growing number of providers competing for market share. Mobile financial services — particularly <strong>bKash</strong> and <strong>Nagad</strong> — have transformed how Bangladeshis receive money from abroad, making transfers faster and more accessible than ever, especially in rural areas.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Bangladesh",
+        content: `<p>For a $1,000 USD to BDT transfer:</p>
+<ul>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–$3.99 fee, good BDT rate — supports bKash delivery and Express speed</li>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup — transparent pricing, best for larger amounts</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Competitive rates with bKash, Nagad, and bank deposit options</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but extensive cash pickup network across Bangladesh</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide agent network, popular for cash pickup</li>
+</ul>
+<p><a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> to find the best deal on the day you send.</p>`,
+      },
+      {
+        heading: "What You Need for a Bangladesh Transfer",
+        content: `<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with the bank)</li>
+<li><strong>Bank name</strong> — Sonali Bank, Islami Bank Bangladesh, Dutch-Bangla Bank (DBBL), BRAC Bank, Eastern Bank (EBL), or Agrani Bank</li>
+<li><strong>Account number</strong> — typically 13–16 digits depending on the bank</li>
+<li><strong>Branch name and routing number</strong> — Bangladesh uses a 9-digit routing number format</li>
+</ul>
+<p>Bangladesh does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For international wire transfers, you need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a> and the branch routing number.</p>
+
+<h3>bKash (Mobile Financial Service)</h3>
+<ul>
+<li><strong>Recipient's bKash-registered mobile number</strong> (11 digits, starting with 01)</li>
+<li><strong>Recipient's full name</strong></li>
+</ul>
+<p>bKash has over 70 million registered accounts, making it the dominant mobile money platform in Bangladesh.</p>
+
+<h3>Nagad</h3>
+<ul>
+<li><strong>Recipient's Nagad-registered mobile number</strong></li>
+<li><strong>Recipient's full name</strong></li>
+</ul>
+<p>Nagad is Bangladesh's second-largest mobile financial service with rapid growth.</p>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (must match NID — National Identity Card)</li>
+<li><strong>NID number</strong></li>
+</ul>`,
+      },
+      {
+        heading: "Top Banks in Bangladesh for Receiving Transfers",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Sonali Bank</strong></td><td>BABOROMM</td><td>Largest state-owned bank. Widest branch network in rural areas.</td></tr>
+<tr><td><strong>Islami Bank Bangladesh</strong></td><td>IBBLBDDH</td><td>Largest private bank by deposits. Sharia-compliant banking.</td></tr>
+<tr><td><strong>Dutch-Bangla Bank (DBBL)</strong></td><td>DBBLBDDH</td><td>Pioneer in mobile banking. Strong digital infrastructure.</td></tr>
+<tr><td><strong>BRAC Bank</strong></td><td>BABOROMM</td><td>SME-focused. Operates bKash as a subsidiary.</td></tr>
+<tr><td><strong>Eastern Bank (EBL)</strong></td><td>EABOROMM</td><td>Strong corporate and retail banking.</td></tr>
+<tr><td><strong>Agrani Bank</strong></td><td>AGBKBDDH</td><td>State-owned. Good coverage in smaller cities.</td></tr>
+</tbody>
+</table>
+<p>Find the SWIFT code for any bank in our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>.</p>`,
+      },
+      {
+        heading: "Delivery Methods and Speed",
+        content: `<ul>
+<li><strong>bKash</strong>: Near-instant delivery. The recipient gets an SMS notification and can withdraw cash from any of 350,000+ bKash agents or spend directly using the app. This is the fastest and most accessible method, especially for rural recipients.</li>
+<li><strong>Nagad</strong>: Similar to bKash — instant or near-instant delivery to the Nagad wallet. Growing agent network.</li>
+<li><strong>Bank deposit</strong>: 1–3 business days. Faster for major banks (DBBL, Islami Bank, BRAC Bank). State-owned banks may take longer.</li>
+<li><strong>Cash pickup</strong>: Available within hours through Western Union and MoneyGram at bank branches and agent locations. Concentrated in Dhaka, Chittagong, Sylhet, and divisional capitals.</li>
+</ul>
+<p><strong>Best for speed and reach:</strong> bKash. With 70+ million accounts and 350,000+ agents, it reaches parts of Bangladesh that bank branches cannot.</p>`,
+      },
+      {
+        heading: "Fees and Exchange Rate Tips",
+        content: `<ol>
+<li><strong>Compare the total BDT received.</strong> Use our <a href="/send-money/usa-to-bangladesh">comparison tool</a> to see the actual taka amount after all fees and rate markups.</li>
+<li><strong>Consider bKash for small regular amounts.</strong> Lower minimum transfers and instant delivery make bKash ideal for weekly or biweekly remittances.</li>
+<li><strong>Fund with bank transfer.</strong> Credit card surcharges of 1.5%–3% add unnecessary cost.</li>
+<li><strong>Bangladesh Bank incentives:</strong> The <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> offers a 2.5% cash incentive on inbound remittances through formal channels — an additional reason to use licensed providers rather than informal channels.</li>
+<li><strong>Avoid US banks for remittances.</strong> Wire fees of $25–$50 plus 3%+ exchange rate markup make banks the most expensive option by far.</li>
+</ol>
+<p>Learn how exchange rate markups affect your total cost in our <a href="/guides/exchange-rate-markup-explained">markup guide</a>.</p>`,
+      },
+      {
+        heading: "Regulations and Tax Considerations",
+        content: `<p>Key rules for sending money to Bangladesh:</p>
+<ul>
+<li><strong>2.5% government incentive:</strong> Bangladesh Bank provides a 2.5% cash incentive on inbound remittances received through authorised banking channels. This incentive goes directly to the recipient.</li>
+<li><strong>Tax-free for recipients:</strong> Remittances from abroad are not subject to income tax in Bangladesh.</li>
+<li><strong>NID requirement:</strong> Recipients may need to provide their National Identity Card (NID) number for bank deposits and cash pickups above certain thresholds.</li>
+<li><strong>US sender reporting:</strong> Transfers over $10,000 are reported under the Bank Secrecy Act. Personal gifts are not taxable for the sender.</li>
+<li><strong>Formal channels encouraged:</strong> The Bangladeshi government actively promotes formal remittance channels over informal hawala/hundi networks.</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Bangladesh from the US?",
+        answer:
+          "Remitly and WorldRemit typically offer the best total value for USD to BDT transfers, especially with bKash delivery. Wise is best for larger amounts due to its 0% markup. Always compare the total taka received rather than just the advertised fee.",
+      },
+      {
+        question: "Can I send money directly to bKash from the US?",
+        answer:
+          "Yes. Remitly, WorldRemit, and several other providers support direct bKash transfers. The recipient gets the money instantly on their bKash account and can withdraw from any of 350,000+ agent points across Bangladesh.",
+      },
+      {
+        question: "How long does it take to send money to Bangladesh?",
+        answer:
+          "bKash and Nagad transfers are near-instant. Bank deposits take 1–3 business days depending on the bank. Cash pickup through Western Union or MoneyGram is usually available within hours.",
+      },
+      {
+        question: "Do I need an IBAN to send money to Bangladesh?",
+        answer:
+          "No, Bangladesh does not use IBANs. For bank deposits, you need the account number, routing number, and the bank's SWIFT code. For bKash, you just need the recipient's mobile number.",
+      },
+      {
+        question: "Does the Bangladesh government incentivise remittances?",
+        answer:
+          "Yes. Bangladesh Bank provides a 2.5% cash incentive on all inbound remittances received through formal banking channels. This goes directly to the recipient, effectively giving them a bonus on top of the transferred amount.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+      "swift-codes-explained",
+      "send-money-to-india-guide",
+    ],
+  },
+  // ============================
+  // Send Money UK to India Guide
+  // ============================
+  {
+    slug: "send-money-uk-to-india-guide",
+    title: "Send Money from UK to India: Best Ways in 2026",
+    metaDescription:
+      "Compare the cheapest ways to send money from the UK to India. Real GBP to INR rates from 10+ providers — bank, UPI, and cash pickup options compared.",
+    excerpt:
+      "The UK has one of the largest Indian diasporas. We compared 10+ providers to find the cheapest GBP to INR transfers, including UPI instant delivery and high-street bank alternatives.",
+    category: "Corridors",
+    readTime: "10 min read",
+    publishedAt: "2026-03-15",
+    updatedAt: "2026-03-15",
+    author: "SendMoneyCompare Team",
+    tags: ["India", "INR", "GBP to INR", "UK", "remittance", "UPI", "corridor guide", "send money to India"],
+    featuredImage: "/images/blog/send-money-uk-to-india.jpg",
+    sections: [
+      {
+        heading: "UK to India: A High-Volume Remittance Corridor",
+        content: `<p>India received over <strong>$125 billion in total remittances</strong> in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, and the UK is one of the top source countries. Over 1.5 million people of Indian origin live in the UK, many sending money home regularly to support families, pay for property, or fund education.</p>
+<p>The GBP to INR corridor is well-served by specialist providers who undercut high-street banks by a wide margin. On a £1,000 transfer, the difference between the best specialist provider and a typical UK bank can be <strong>₹2,000–₹5,000</strong>. That adds up to tens of thousands of rupees over a year of regular transfers.</p>`,
+      },
+      {
+        heading: "Best Providers for GBP to INR Transfers",
+        content: `<p>For a £1,000 transfer to India:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~£5 fee, 0% markup (mid-market rate) — consistently best value for medium to large amounts</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Low fee, competitive rate — Express delivery in minutes via IMPS/UPI</li>
+<li><strong><a href="/companies/instarem">InstaReM</a></strong>: Strong on the GBP-INR corridor with competitive rates and low fees</li>
+<li><strong><a href="/companies/xe">XE</a></strong>: No transfer fees, good rates — suited for larger transfers</li>
+<li><strong><a href="/companies/ofx">OFX</a></strong>: No fees on transfers over £1,000. Forward contracts to lock rates. Best for very large amounts (£5,000+)</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but cash pickup available across India</li>
+</ul>
+<p>Check our <a href="/send-money/uk-to-india">GBP to INR comparison</a> for today's live rates. <a href="/compare/wise-vs-remitly">See how Wise compares to Remitly</a> side by side.</p>`,
+      },
+      {
+        heading: "What You Need for an India Transfer from the UK",
+        content: `<h3>Bank Deposit (NEFT/IMPS/RTGS)</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as per bank records)</li>
+<li><strong>Bank name</strong> — SBI, HDFC Bank, ICICI Bank, Punjab National Bank, Bank of Baroda, Axis Bank, Kotak Mahindra Bank</li>
+<li><strong>Account number</strong> — typically 9–18 digits</li>
+<li><strong>IFSC code</strong> — An 11-character code (e.g., SBIN0001234) identifying the exact branch. The recipient can find it on their cheque book, passbook, or online banking.</li>
+</ul>
+<p>India does not use <a href="/guides/iban-numbers-explained">IBANs</a>. The IFSC code serves the same purpose — routing the transfer to the right branch. For SWIFT wires from UK banks, you also need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>
+
+<h3>UPI (Unified Payments Interface)</h3>
+<ul>
+<li><strong>Recipient's UPI ID</strong> (e.g., name@upi or number@paytm)</li>
+<li><strong>Recipient's name</strong></li>
+</ul>
+<p>UPI enables instant transfers 24/7. Some providers like Remitly now support direct UPI delivery from the UK.</p>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (must match Aadhaar card, PAN card, or passport)</li>
+<li><strong>City</strong> for collection</li>
+</ul>
+<p>Western Union and MoneyGram have agent locations across India, including in smaller towns.</p>`,
+      },
+      {
+        heading: "Top Banks in India for Receiving Transfers",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>State Bank of India (SBI)</strong></td><td>SBININBB</td><td>Largest bank. Widest branch network (22,000+ branches).</td></tr>
+<tr><td><strong>HDFC Bank</strong></td><td>HDFCINBB</td><td>Largest private bank. Excellent digital banking.</td></tr>
+<tr><td><strong>ICICI Bank</strong></td><td>ABOROMOM</td><td>Strong NRI (Non-Resident Indian) services.</td></tr>
+<tr><td><strong>Punjab National Bank</strong></td><td>PUNBINBB</td><td>Second-largest state bank. Good rural coverage.</td></tr>
+<tr><td><strong>Bank of Baroda</strong></td><td>BARBINBB</td><td>Large branch network. Active in UK-India corridor.</td></tr>
+<tr><td><strong>Axis Bank</strong></td><td>AXISINBB</td><td>Fast digital processing. Popular with NRIs.</td></tr>
+<tr><td><strong>Kotak Mahindra Bank</strong></td><td>ABOROMOM</td><td>Growing NRI banking services.</td></tr>
+</tbody>
+</table>
+<p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to SBI, HDFC, and ICICI typically process faster than smaller banks.</p>`,
+      },
+      {
+        heading: "Delivery Methods and Speed",
+        content: `<ul>
+<li><strong>IMPS (Immediate Payment Service)</strong>: Near-instant delivery to any Indian bank account, 24/7 including holidays. Supported by Remitly and several other providers. This is the fastest bank deposit method.</li>
+<li><strong>UPI</strong>: Instant delivery to a UPI ID. Growing in popularity for international remittances. Currently supported by select providers.</li>
+<li><strong>NEFT (National Electronic Funds Transfer)</strong>: Settled in hourly batches during banking hours. Typically same-day or next-day.</li>
+<li><strong>RTGS (Real Time Gross Settlement)</strong>: For transfers over ₹2 lakh (~£1,800). Real-time settlement during banking hours.</li>
+<li><strong>Cash pickup</strong>: Available within minutes through Western Union and MoneyGram agents across India.</li>
+<li><strong>Mobile wallets</strong>: Paytm, PhonePe, and Google Pay — supported by some providers for instant delivery.</li>
+</ul>
+<p><strong>Fastest option:</strong> IMPS or UPI — both deliver in seconds/minutes, 24/7.</p>`,
+      },
+      {
+        heading: "UK High-Street Banks vs Specialist Providers",
+        content: `<p>If you're still using your UK bank for India transfers, you're almost certainly overpaying. Here's a typical comparison on a £1,000 transfer:</p>
+<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ₹ Received</th></tr></thead>
+<tbody>
+<tr style="background: #e8f5e9;"><td><strong>Wise</strong></td><td>~£5</td><td>0%</td><td>₹109,500 (example)</td></tr>
+<tr><td><strong>Remitly</strong></td><td>~£2</td><td>0.3–0.5%</td><td>₹109,100 (example)</td></tr>
+<tr><td><strong>HSBC UK</strong></td><td>£15–£30</td><td>2.5–4%</td><td>₹105,000 (example)</td></tr>
+<tr><td><strong>Barclays</strong></td><td>£25</td><td>3–4%</td><td>₹104,500 (example)</td></tr>
+</tbody>
+</table>
+<p><em>Rates are illustrative — <a href="/send-money/uk-to-india">check live rates here</a>.</em></p>
+<p>High-street banks typically charge £15–£30 in fees PLUS a 2.5–4% exchange rate markup. On £1,000, that means your family receives ₹4,000–₹5,000 less. Over 12 monthly transfers, that's <strong>₹48,000–₹60,000 lost</strong> to bank charges.</p>
+<p>For a detailed breakdown, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
+      },
+      {
+        heading: "Tax and Regulatory Considerations",
+        content: `<p>Important rules for UK to India transfers:</p>
+<ul>
+<li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments. Transfers are not reportable unless you're claiming tax relief.</li>
+<li><strong>For recipients in India:</strong> Money received from relatives abroad is <strong>tax-free</strong> under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
+<li><strong>Non-relative gifts:</strong> If the recipient is NOT a relative (as defined by the Income Tax Act), gifts over ₹50,000 in a financial year may be taxable as "income from other sources."</li>
+<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS of 5%–20% may apply under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">RBI's</a> Liberalised Remittance Scheme for amounts over ₹7 lakh per financial year.</li>
+<li><strong>FCA regulation:</strong> All UK-based transfer providers must be authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">Financial Conduct Authority (FCA)</a>. Check the FCA register if you're unsure about a provider.</li>
+</ul>
+<p>This is general information — consult a tax professional for your specific situation.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money from UK to India?",
+        answer:
+          "Wise and Remitly consistently offer the best value for GBP to INR transfers. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with faster delivery. For amounts over £5,000, OFX offers no-fee transfers with negotiated rates.",
+      },
+      {
+        question: "How long does it take to send money from the UK to India?",
+        answer:
+          "IMPS and UPI transfers arrive in minutes, even on weekends. Standard bank deposits via NEFT take same-day to 1 business day. High-street bank SWIFT wires take 3–5 business days. Cash pickup is available within minutes.",
+      },
+      {
+        question: "Do I need an IFSC code to send money to India?",
+        answer:
+          "Yes, for bank deposits. The IFSC code is an 11-character code (like SBIN0001234) that identifies the specific branch. Your recipient can find it on their cheque book, passbook, bank statement, or through their online banking.",
+      },
+      {
+        question: "Can I send money to India via UPI from the UK?",
+        answer:
+          "Some providers now support UPI delivery, enabling instant transfers to a UPI ID (e.g., name@upi). Remitly is among the providers offering this. The recipient gets the money instantly on their UPI-linked bank account.",
+      },
+      {
+        question: "Are UK banks expensive for India transfers?",
+        answer:
+          "Yes. High-street banks (HSBC, Barclays, Lloyds, NatWest) typically charge £15–£30 in fees plus 2.5–4% exchange rate markup. On a £1,000 transfer, you could lose ₹4,000–₹5,000 compared to using a specialist provider like Wise or Remitly.",
+      },
+      {
+        question: "Is money received in India from the UK taxable?",
+        answer:
+          "Money received from relatives abroad is tax-free in India under Section 56(2) of the Income Tax Act. Non-relative gifts over ₹50,000 per year may be taxable. This applies to gifts and family support — not to salary or business payments, which have different rules.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-india-guide",
+      "cheapest-way-to-send-money-internationally",
+      "exchange-rate-markup-explained",
+      "swift-codes-explained",
     ],
   },
 ];
