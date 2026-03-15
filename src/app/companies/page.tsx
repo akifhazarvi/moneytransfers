@@ -7,8 +7,8 @@ import RatingBadge from "@/components/RatingBadge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Money Transfer Company Reviews | SendMoneyCompare",
-  description: "Expert reviews of 100+ money transfer companies. Compare fees, exchange rates, speed, and features.",
+  title: "Money Transfer Company Reviews 2026 | Ratings, Fees & Features",
+  description: "Read expert reviews of 60+ money transfer companies including Wise, Remitly and Western Union. Compare fees, exchange rates, speed and Trustpilot ratings.",
   alternates: {
     canonical: "https://sendmoneycompare.com/companies",
   },

@@ -655,7 +655,7 @@ export const corridors: Corridor[] = [
 
 import { currencies } from "@/data/providers";
 
-/** Currencies that serve as "send from" origins */
+/** Currencies that serve as "send from" origins for currency-pair pages */
 const SEND_CURRENCIES = ["USD", "GBP", "EUR", "CAD", "AUD"] as const;
 
 /** Map currency codes to friendly country/region labels for headings */
@@ -688,11 +688,34 @@ const currencyLabels: Record<string, string> = {
   MYR: "Malaysia",
   FJD: "Fiji",
   GTQ: "Guatemala",
+  CHF: "Switzerland",
+  NOK: "Norway",
+  SEK: "Sweden",
+  DKK: "Denmark",
+  SAR: "Saudi Arabia",
+  KWD: "Kuwait",
+  QAR: "Qatar",
+  BHD: "Bahrain",
+  OMR: "Oman",
+  KRW: "South Korea",
+  HKD: "Hong Kong",
+  NPR: "Nepal",
+  LKR: "Sri Lanka",
+  EGP: "Egypt",
+  ETB: "Ethiopia",
+  THB: "Thailand",
+  PEN: "Peru",
+  UGX: "Uganda",
+  TZS: "Tanzania",
+  JMD: "Jamaica",
+  DOP: "the Dominican Republic",
+  XOF: "West Africa",
+  PLN: "Poland",
+  RON: "Romania",
 };
 
 function generateCurrencyCorridors(): Corridor[] {
   const existingSlugs = new Set(corridors.map((c) => c.slug));
-  // Also track existing currency pairs so we don't duplicate editorial pages
   const existingPairs = new Set(
     corridors.map((c) => `${c.fromCurrency}-${c.toCurrency}`)
   );
@@ -706,7 +729,6 @@ function generateCurrencyCorridors(): Corridor[] {
       if (fromCode === toCurr.code) continue;
 
       const slug = `${fromCode.toLowerCase()}-to-${toCurr.code.toLowerCase()}`;
-      // Skip if slug already taken or editorial page covers this pair
       if (existingSlugs.has(slug)) continue;
       if (existingPairs.has(`${fromCode}-${toCurr.code}`)) continue;
 
@@ -753,10 +775,203 @@ function generateCurrencyCorridors(): Corridor[] {
   return result;
 }
 
-const currencyCorridors = generateCurrencyCorridors();
+// ── Auto-generated country-to-country corridors (programmatic SEO) ──
 
-/** All corridors — editorial (country-based) + auto-generated (currency-pair) */
-export const allCorridors: Corridor[] = [...corridors, ...currencyCorridors];
+interface CountryDef {
+  slug: string;
+  name: string;
+  flag: string;
+  currency: string;
+  demonym: string;
+  sampleAmount: number;
+}
+
+/** Major remittance-sending countries */
+const SEND_COUNTRIES: CountryDef[] = [
+  // North America
+  { slug: "usa", name: "United States", flag: "🇺🇸", currency: "USD", demonym: "American", sampleAmount: 1000 },
+  { slug: "canada", name: "Canada", flag: "🇨🇦", currency: "CAD", demonym: "Canadian", sampleAmount: 1000 },
+  // UK
+  { slug: "uk", name: "United Kingdom", flag: "🇬🇧", currency: "GBP", demonym: "British", sampleAmount: 500 },
+  // Eurozone
+  { slug: "germany", name: "Germany", flag: "🇩🇪", currency: "EUR", demonym: "German", sampleAmount: 1000 },
+  { slug: "france", name: "France", flag: "🇫🇷", currency: "EUR", demonym: "French", sampleAmount: 1000 },
+  { slug: "italy", name: "Italy", flag: "🇮🇹", currency: "EUR", demonym: "Italian", sampleAmount: 1000 },
+  { slug: "spain", name: "Spain", flag: "🇪🇸", currency: "EUR", demonym: "Spanish", sampleAmount: 1000 },
+  { slug: "netherlands", name: "Netherlands", flag: "🇳🇱", currency: "EUR", demonym: "Dutch", sampleAmount: 1000 },
+  { slug: "belgium", name: "Belgium", flag: "🇧🇪", currency: "EUR", demonym: "Belgian", sampleAmount: 1000 },
+  { slug: "ireland", name: "Ireland", flag: "🇮🇪", currency: "EUR", demonym: "Irish", sampleAmount: 1000 },
+  { slug: "austria", name: "Austria", flag: "🇦🇹", currency: "EUR", demonym: "Austrian", sampleAmount: 1000 },
+  { slug: "portugal", name: "Portugal", flag: "🇵🇹", currency: "EUR", demonym: "Portuguese", sampleAmount: 1000 },
+  { slug: "finland", name: "Finland", flag: "🇫🇮", currency: "EUR", demonym: "Finnish", sampleAmount: 1000 },
+  { slug: "greece", name: "Greece", flag: "🇬🇷", currency: "EUR", demonym: "Greek", sampleAmount: 1000 },
+  // Nordics (non-EUR)
+  { slug: "norway", name: "Norway", flag: "🇳🇴", currency: "NOK", demonym: "Norwegian", sampleAmount: 10000 },
+  { slug: "sweden", name: "Sweden", flag: "🇸🇪", currency: "SEK", demonym: "Swedish", sampleAmount: 10000 },
+  { slug: "denmark", name: "Denmark", flag: "🇩🇰", currency: "DKK", demonym: "Danish", sampleAmount: 5000 },
+  // Other Europe
+  { slug: "switzerland", name: "Switzerland", flag: "🇨🇭", currency: "CHF", demonym: "Swiss", sampleAmount: 1000 },
+  // Oceania
+  { slug: "australia", name: "Australia", flag: "🇦🇺", currency: "AUD", demonym: "Australian", sampleAmount: 1000 },
+  { slug: "new-zealand", name: "New Zealand", flag: "🇳🇿", currency: "NZD", demonym: "New Zealand", sampleAmount: 1000 },
+  // GCC
+  { slug: "uae", name: "UAE", flag: "🇦🇪", currency: "AED", demonym: "UAE-based", sampleAmount: 3000 },
+  { slug: "saudi-arabia", name: "Saudi Arabia", flag: "🇸🇦", currency: "SAR", demonym: "Saudi", sampleAmount: 3000 },
+  { slug: "kuwait", name: "Kuwait", flag: "🇰🇼", currency: "KWD", demonym: "Kuwait-based", sampleAmount: 250 },
+  { slug: "qatar", name: "Qatar", flag: "🇶🇦", currency: "QAR", demonym: "Qatar-based", sampleAmount: 3000 },
+  { slug: "bahrain", name: "Bahrain", flag: "🇧🇭", currency: "BHD", demonym: "Bahrain-based", sampleAmount: 300 },
+  { slug: "oman", name: "Oman", flag: "🇴🇲", currency: "OMR", demonym: "Oman-based", sampleAmount: 300 },
+  // East Asia
+  { slug: "japan", name: "Japan", flag: "🇯🇵", currency: "JPY", demonym: "Japan-based", sampleAmount: 100000 },
+  { slug: "south-korea", name: "South Korea", flag: "🇰🇷", currency: "KRW", demonym: "South Korea-based", sampleAmount: 1000000 },
+  { slug: "hong-kong", name: "Hong Kong", flag: "🇭🇰", currency: "HKD", demonym: "Hong Kong-based", sampleAmount: 5000 },
+  // Southeast Asia
+  { slug: "singapore", name: "Singapore", flag: "🇸🇬", currency: "SGD", demonym: "Singapore-based", sampleAmount: 1000 },
+  { slug: "malaysia", name: "Malaysia", flag: "🇲🇾", currency: "MYR", demonym: "Malaysia-based", sampleAmount: 3000 },
+];
+
+/** Major remittance-receiving countries */
+const RECEIVE_COUNTRIES: CountryDef[] = [
+  // South Asia
+  { slug: "india", name: "India", flag: "🇮🇳", currency: "INR", demonym: "Indian", sampleAmount: 1000 },
+  { slug: "pakistan", name: "Pakistan", flag: "🇵🇰", currency: "PKR", demonym: "Pakistani", sampleAmount: 1000 },
+  { slug: "bangladesh", name: "Bangladesh", flag: "🇧🇩", currency: "BDT", demonym: "Bangladeshi", sampleAmount: 1000 },
+  { slug: "nepal", name: "Nepal", flag: "🇳🇵", currency: "NPR", demonym: "Nepalese", sampleAmount: 1000 },
+  { slug: "sri-lanka", name: "Sri Lanka", flag: "🇱🇰", currency: "LKR", demonym: "Sri Lankan", sampleAmount: 1000 },
+  // Southeast Asia
+  { slug: "philippines", name: "Philippines", flag: "🇵🇭", currency: "PHP", demonym: "Filipino", sampleAmount: 1000 },
+  { slug: "vietnam", name: "Vietnam", flag: "🇻🇳", currency: "VND", demonym: "Vietnamese", sampleAmount: 1000 },
+  { slug: "indonesia", name: "Indonesia", flag: "🇮🇩", currency: "IDR", demonym: "Indonesian", sampleAmount: 1000 },
+  { slug: "thailand", name: "Thailand", flag: "🇹🇭", currency: "THB", demonym: "Thai", sampleAmount: 1000 },
+  // East Asia
+  { slug: "china", name: "China", flag: "🇨🇳", currency: "CNY", demonym: "Chinese", sampleAmount: 1000 },
+  { slug: "japan", name: "Japan", flag: "🇯🇵", currency: "JPY", demonym: "Japanese", sampleAmount: 1000 },
+  // Latin America
+  { slug: "mexico", name: "Mexico", flag: "🇲🇽", currency: "MXN", demonym: "Mexican", sampleAmount: 1000 },
+  { slug: "brazil", name: "Brazil", flag: "🇧🇷", currency: "BRL", demonym: "Brazilian", sampleAmount: 1000 },
+  { slug: "colombia", name: "Colombia", flag: "🇨🇴", currency: "COP", demonym: "Colombian", sampleAmount: 1000 },
+  { slug: "peru", name: "Peru", flag: "🇵🇪", currency: "PEN", demonym: "Peruvian", sampleAmount: 1000 },
+  { slug: "guatemala", name: "Guatemala", flag: "🇬🇹", currency: "GTQ", demonym: "Guatemalan", sampleAmount: 1000 },
+  { slug: "dominican-republic", name: "Dominican Republic", flag: "🇩🇴", currency: "DOP", demonym: "Dominican", sampleAmount: 1000 },
+  { slug: "jamaica", name: "Jamaica", flag: "🇯🇲", currency: "JMD", demonym: "Jamaican", sampleAmount: 1000 },
+  // Africa
+  { slug: "nigeria", name: "Nigeria", flag: "🇳🇬", currency: "NGN", demonym: "Nigerian", sampleAmount: 1000 },
+  { slug: "kenya", name: "Kenya", flag: "🇰🇪", currency: "KES", demonym: "Kenyan", sampleAmount: 1000 },
+  { slug: "ghana", name: "Ghana", flag: "🇬🇭", currency: "GHS", demonym: "Ghanaian", sampleAmount: 1000 },
+  { slug: "south-africa", name: "South Africa", flag: "🇿🇦", currency: "ZAR", demonym: "South African", sampleAmount: 1000 },
+  { slug: "ethiopia", name: "Ethiopia", flag: "🇪🇹", currency: "ETB", demonym: "Ethiopian", sampleAmount: 1000 },
+  { slug: "uganda", name: "Uganda", flag: "🇺🇬", currency: "UGX", demonym: "Ugandan", sampleAmount: 1000 },
+  { slug: "tanzania", name: "Tanzania", flag: "🇹🇿", currency: "TZS", demonym: "Tanzanian", sampleAmount: 1000 },
+  { slug: "senegal", name: "Senegal", flag: "🇸🇳", currency: "XOF", demonym: "Senegalese", sampleAmount: 1000 },
+  { slug: "egypt", name: "Egypt", flag: "🇪🇬", currency: "EGP", demonym: "Egyptian", sampleAmount: 1000 },
+  { slug: "morocco", name: "Morocco", flag: "🇲🇦", currency: "MAD", demonym: "Moroccan", sampleAmount: 1000 },
+  // Europe (receive)
+  { slug: "turkey", name: "Turkey", flag: "🇹🇷", currency: "TRY", demonym: "Turkish", sampleAmount: 1000 },
+  { slug: "poland", name: "Poland", flag: "🇵🇱", currency: "PLN", demonym: "Polish", sampleAmount: 1000 },
+  { slug: "romania", name: "Romania", flag: "🇷🇴", currency: "RON", demonym: "Romanian", sampleAmount: 1000 },
+  // Other
+  { slug: "fiji", name: "Fiji", flag: "🇫🇯", currency: "FJD", demonym: "Fijian", sampleAmount: 1000 },
+  { slug: "malaysia", name: "Malaysia", flag: "🇲🇾", currency: "MYR", demonym: "Malaysian", sampleAmount: 1000 },
+];
+
+/** Content intro templates — pick based on (index % count) for variety */
+const introTemplates = [
+  (from: CountryDef, to: CountryDef, fromSym: string) =>
+    `Compare the cheapest ways to send money from ${from.name} to ${to.name}. We compare fees, exchange rates, and transfer speeds from 15+ providers so you get the most ${to.currency} for your ${fromSym}.`,
+  (from: CountryDef, to: CountryDef) =>
+    `Sending money from ${from.name} to ${to.name}? Compare real-time exchange rates and fees across leading money transfer services. Find the provider that gives you the best ${to.currency} amount today.`,
+  (from: CountryDef, to: CountryDef) =>
+    `Find the best way to send money from ${from.name} to ${to.name}. Our comparison tool shows live rates from 15+ providers — see exactly how much ${to.currency} your recipient will receive after all fees.`,
+  (from: CountryDef, to: CountryDef) =>
+    `Looking for cheap money transfers from ${from.name} to ${to.name}? We compare exchange rates, fees, and delivery times from every major provider to help you save on every transfer.`,
+];
+
+const contextTemplates = [
+  (from: CountryDef, to: CountryDef) =>
+    `${from.demonym} expats and immigrants regularly send money to ${to.name}. The cost difference between providers can be significant — banks typically charge 3–5% in hidden exchange rate markups, while specialist services like Wise, Remitly, and WorldRemit offer rates much closer to the mid-market rate. Our comparison shows the total ${to.currency} received from each provider after all fees and markups.`,
+  (from: CountryDef, to: CountryDef) =>
+    `Money transfers from ${from.name} to ${to.name} are a vital lifeline for families and businesses. With dozens of providers competing for this corridor, rates and fees vary widely. Specialist money transfer companies often beat bank rates by 2–4%, potentially saving you hundreds of ${from.currency} per year. Use our comparison to find today's best deal.`,
+  (from: CountryDef, to: CountryDef) =>
+    `Whether you're supporting family in ${to.name} or paying for business services, finding the cheapest way to send money from ${from.name} matters. Exchange rate markups and transfer fees add up — especially on regular transfers. Our real-time comparison helps you cut costs by showing the exact amount your recipient gets from each provider.`,
+];
+
+function generateCountryCorridors(): Corridor[] {
+  const existingSlugs = new Set(corridors.map((c) => c.slug));
+  const result: Corridor[] = [];
+  let idx = 0;
+
+  for (const from of SEND_COUNTRIES) {
+    for (const to of RECEIVE_COUNTRIES) {
+      // Skip same country
+      if (from.slug === to.slug) continue;
+      // Skip same currency (e.g., Malaysia→Malaysia)
+      if (from.currency === to.currency) continue;
+
+      const slug = `${from.slug}-to-${to.slug}`;
+      // Skip if editorial page already exists
+      if (existingSlugs.has(slug)) continue;
+
+      const fromCurr = currencies.find((c) => c.code === from.currency);
+      const toCurr = currencies.find((c) => c.code === to.currency);
+      if (!fromCurr || !toCurr) continue;
+
+      const fromSym = fromCurr.symbol;
+      const intro = introTemplates[idx % introTemplates.length](from, to, fromSym);
+      const context = contextTemplates[idx % contextTemplates.length](from, to);
+      idx++;
+
+      result.push({
+        slug,
+        fromCountry: from.name,
+        toCountry: to.name,
+        fromCurrency: from.currency,
+        toCurrency: to.currency,
+        fromFlag: from.flag,
+        toFlag: to.flag,
+        sampleAmount: from.sampleAmount,
+        isCurrencyCorridor: false,
+        intro,
+        context,
+        feesNote: `Transfer fees from ${from.name} to ${to.name} vary by provider. Specialist services charge ${fromSym}0–10 per transfer, while banks charge ${fromSym}25–50 plus a 2–5% exchange rate markup. The exchange rate markup is usually the bigger cost — always compare the total ${to.currency} your recipient receives, not just the advertised fee.`,
+        deliveryNote: `Most transfers from ${from.name} to ${to.name} arrive within 1–2 business days with specialist providers. Bank wires take 3–5 business days. Some providers offer instant or same-day delivery to ${to.name} for a small premium.`,
+        faqs: [
+          {
+            q: `What is the cheapest way to send money from ${from.name} to ${to.name}?`,
+            a: `The cheapest option changes daily based on exchange rates. Use our comparison table above to see today's rates from every provider. Specialist services like Wise, Remitly, and OFX consistently offer better value than banks.`,
+          },
+          {
+            q: `How long does it take to send money from ${from.name} to ${to.name}?`,
+            a: `Most specialist providers deliver to ${to.name} within 1–2 business days. Some offer instant delivery for certain payment methods. Bank wires typically take 3–5 business days.`,
+          },
+          {
+            q: `How much does it cost to send ${fromSym}${from.sampleAmount.toLocaleString()} from ${from.name} to ${to.name}?`,
+            a: `Costs depend on the provider's fee and exchange rate markup. Compare all providers in our table above to see exactly how much ${to.currency} your recipient would receive from a ${fromSym}${from.sampleAmount.toLocaleString()} transfer today.`,
+          },
+          {
+            q: `Can I send money from ${from.name} to ${to.name} online?`,
+            a: `Yes, all the providers we compare support online transfers from ${from.name} to ${to.name}. Most also offer mobile apps. You can typically pay by bank transfer, debit card, or credit card.`,
+          },
+          {
+            q: `Is it better to use a bank or a money transfer service to send money to ${to.name}?`,
+            a: `Money transfer services are almost always cheaper. Banks typically charge ${fromSym}25–50 per wire plus a 2–5% exchange rate markup. Specialist providers charge ${fromSym}0–10 with markups under 1%, saving you significantly on every transfer to ${to.name}.`,
+          },
+        ],
+      });
+    }
+  }
+
+  return result;
+}
+
+const currencyCorridors = generateCurrencyCorridors();
+const countryCorridors = generateCountryCorridors();
+
+/** All corridors — editorial + country (programmatic) + currency-pair */
+export const allCorridors: Corridor[] = [
+  ...corridors,
+  ...countryCorridors,
+  ...currencyCorridors,
+];
 
 /** Lookup corridor by URL slug */
 export function getCorridor(slug: string): Corridor | undefined {
@@ -769,10 +984,20 @@ export function getAllCorridorSlugs(): string[] {
 }
 
 /** Find corridor slug by currency pair, returns undefined if no SEO page exists */
-export function getCorridorSlug(fromCurrency: string, toCurrency: string): string | undefined {
-  // Prefer editorial pages over auto-generated ones
+export function getCorridorSlug(
+  fromCurrency: string,
+  toCurrency: string
+): string | undefined {
+  // Prefer editorial pages, then country pages, then currency pages
   return (
-    corridors.find((c) => c.fromCurrency === fromCurrency && c.toCurrency === toCurrency)?.slug ??
-    currencyCorridors.find((c) => c.fromCurrency === fromCurrency && c.toCurrency === toCurrency)?.slug
+    corridors.find(
+      (c) => c.fromCurrency === fromCurrency && c.toCurrency === toCurrency
+    )?.slug ??
+    countryCorridors.find(
+      (c) => c.fromCurrency === fromCurrency && c.toCurrency === toCurrency
+    )?.slug ??
+    currencyCorridors.find(
+      (c) => c.fromCurrency === fromCurrency && c.toCurrency === toCurrency
+    )?.slug
   );
 }

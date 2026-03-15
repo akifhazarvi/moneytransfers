@@ -76,6 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const exchangeRatesPage: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/exchange-rates`, lastModified: now, changeFrequency: "hourly" as const, priority: 0.8 },
+    { url: `${SITE_URL}/remittance-cost-index`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries

@@ -13,15 +13,15 @@ import { fetchExchangeRates } from "@/lib/exchange-rates";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Compare International Money Transfers | SendMoneyCompare",
+  title: "Compare Money Transfer Services | Best Rates & Lowest Fees 2026",
   description:
-    "Compare fees, exchange rates and delivery times from providers like Wise, Remitly, Western Union and more to find the cheapest way to send money internationally.",
+    "Compare Wise, Remitly, XE, Western Union and 60+ providers side by side. Find the best exchange rates, lowest fees and fastest delivery to send money internationally.",
   keywords:
     "money transfer comparison, best exchange rates, international money transfer, send money abroad, cheapest way to send money, remittance comparison",
   openGraph: {
-    title: "Compare International Money Transfers | SendMoneyCompare",
+    title: "Compare Money Transfer Services | Best Rates & Lowest Fees 2026",
     description:
-      "Compare fees, exchange rates and delivery times from providers like Wise, Remitly, Western Union and more to find the cheapest way to send money internationally.",
+      "Compare Wise, Remitly, XE, Western Union and 60+ providers. Find the cheapest way to send money internationally in seconds.",
     type: "website",
   },
   alternates: {
@@ -407,10 +407,12 @@ export default async function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Tools</h3>
+              <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Tools & Research</h3>
               <ul className="space-y-2">
                 <li><Link href="/send-money" className="text-[14px] text-[var(--color-primary)] hover:underline">Rate calculator</Link></li>
                 <li><Link href="/currency-converter" className="text-[14px] text-[var(--color-primary)] hover:underline">Currency converter</Link></li>
+                <li><Link href="/exchange-rates" className="text-[14px] text-[var(--color-primary)] hover:underline">Live exchange rates</Link></li>
+                <li><Link href="/remittance-cost-index" className="text-[14px] text-[var(--color-primary)] hover:underline">Remittance Cost Index</Link></li>
                 <li><Link href="/iban" className="text-[14px] text-[var(--color-primary)] hover:underline">IBAN lookup</Link></li>
                 <li><Link href="/swift-codes" className="text-[14px] text-[var(--color-primary)] hover:underline">SWIFT/BIC codes</Link></li>
               </ul>

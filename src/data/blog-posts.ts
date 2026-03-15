@@ -15,6 +15,7 @@ export interface BlogPost {
     content: string; // HTML content
   }[];
   faqs?: { question: string; answer: string }[];
+  howToSteps?: { name: string; text: string }[];
   relatedSlugs?: string[];
 }
 
@@ -210,6 +211,36 @@ export const blogPosts: BlogPost[] = [
         question: "Do I need ID to send money abroad?",
         answer:
           "Yes. All legitimate money transfer services are required by law to verify your identity (KYC — Know Your Customer). You'll need a government-issued photo ID and proof of address. This is a one-time process.",
+      },
+    ],
+    howToSteps: [
+      {
+        name: "Compare providers",
+        text: "Enter your amount, sending currency, and receiving currency in a comparison tool. Look at the total received amount, not just the fee.",
+      },
+      {
+        name: "Create an account",
+        text: "Sign up with your chosen provider. You'll need your name, email, address, and ID for verification (required by law for anti-money laundering).",
+      },
+      {
+        name: "Verify your identity",
+        text: "Upload a photo ID (passport, driver's license) and proof of address. Most providers verify within minutes to 24 hours.",
+      },
+      {
+        name: "Enter recipient details",
+        text: "Provide the recipient's name (as it appears on their bank account), bank account number, SWIFT/BIC code, and sometimes their address.",
+      },
+      {
+        name: "Choose payment method",
+        text: "Bank transfer is usually cheapest. Card payments are faster but may incur a higher fee. Some services support Apple Pay or Google Pay.",
+      },
+      {
+        name: "Review and send",
+        text: "Check the exchange rate, fee, and estimated delivery time. Confirm the transfer.",
+      },
+      {
+        name: "Track your transfer",
+        text: "Most services provide real-time tracking. You'll receive email or SMS updates at each stage.",
       },
     ],
     relatedSlugs: [
@@ -1918,6 +1949,165 @@ export const blogPosts: BlogPost[] = [
     relatedSlugs: [
       "cheapest-way-to-send-money-internationally",
       "how-to-send-money-abroad",
+    ],
+  },
+
+  // ============================
+  // 17. Best Ways to Send Money to Pakistan
+  // ============================
+  {
+    slug: "send-money-to-pakistan-guide",
+    title: "Best Ways to Send Money to Pakistan in 2026",
+    metaDescription:
+      "Compare the cheapest and fastest ways to send money to Pakistan. We analyzed 10+ providers for USD, GBP, EUR, and CAD to PKR transfers with real data.",
+    excerpt:
+      "Pakistan is one of the world's top remittance destinations. We compared 10+ providers across multiple source currencies to find the best way to send money to Pakistan.",
+    category: "Corridors",
+    readTime: "10 min read",
+    publishedAt: "2026-03-14",
+    updatedAt: "2026-03-14",
+    author: "SendMoneyCompare Team",
+    tags: ["Pakistan", "PKR", "remittance", "USD to PKR", "GBP to PKR", "corridor guide", "send money to Pakistan"],
+    featuredImage: "/images/blog/send-money-to-pakistan.jpg",
+    sections: [
+      {
+        heading: "Pakistan: A Top Remittance Destination",
+        content: `<p>Pakistan received over <strong>$30 billion in remittances</strong> in 2025, making it one of the top five remittance-receiving countries globally. Millions of Pakistani expatriates in the US, UK, UAE, Saudi Arabia, Canada, and Europe send money home regularly to support families.</p>
+<p>The Pakistan corridor is highly competitive, with multiple providers vying for market share. This competition benefits senders — but it also means you need to compare carefully, because the difference between the cheapest and most expensive option can be <strong>PKR 5,000–15,000 on a $1,000 transfer</strong>.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Pakistan",
+        content: `<h3>From the US (USD → PKR)</h3>
+<p>For a $1,000 transfer:</p>
+<ul>
+<li><strong>Wise</strong>: Transparent fee (~$6–$8), 0% markup — consistently good value on larger amounts</li>
+<li><strong>Remitly</strong>: $0–$3.99 fee, 0.5%–1% markup — competitive with Express delivery in minutes</li>
+<li><strong>ACE Money Transfer</strong>: Low fees, competitive rates on the Pakistan corridor specifically</li>
+<li><strong>WorldRemit</strong>: Good rates with cash pickup and mobile wallet options</li>
+<li><strong>Western Union</strong>: Higher cost (1%–3% markup) but unmatched cash pickup network across Pakistan</li>
+</ul>
+
+<h3>From the UK (GBP → PKR)</h3>
+<p>For a £500 transfer:</p>
+<ul>
+<li><strong>Wise</strong> and <strong>Remitly</strong> compete closely — Wise wins on transparency, Remitly on speed</li>
+<li><strong>ACE Money Transfer</strong>: Particularly strong on the UK to Pakistan corridor</li>
+<li><strong>TapTap Send</strong>: Competitive rates with a simple mobile-first experience</li>
+<li>UK banks (HSBC, Barclays, Lloyds) charge 2%–4% markup — avoid for regular remittances</li>
+</ul>
+
+<h3>From Canada (CAD → PKR)</h3>
+<p>Wise, Remitly, and WorldRemit are the leading options. Compare at your exact amount as rankings shift by transfer size.</p>
+
+<h3>From the UAE and Saudi Arabia</h3>
+<p>The Gulf corridor is one of the largest for Pakistan remittances. Providers like <strong>ACE Money Transfer</strong>, <strong>Western Union</strong>, and <strong>MoneyGram</strong> have strong presence. Exchange houses also compete aggressively on this route.</p>`,
+      },
+      {
+        heading: "What You Need for a Pakistan Transfer",
+        content: `<p>To send money to a bank account in Pakistan, you need:</p>
+<ul>
+<li><strong>Recipient's full name</strong> (as per their bank account or CNIC)</li>
+<li><strong>Bank name</strong> (e.g., HBL, UBL, MCB, Meezan Bank, Bank Alfalah)</li>
+<li><strong>Account number or IBAN</strong> — Pakistan uses IBANs with the format <code>PK00XXXX0000000000000000</code> (24 characters). The IBAN includes the bank code, branch code, and account number.</li>
+<li><strong>Branch name/code</strong> (sometimes required)</li>
+</ul>
+
+<p>For <strong>cash pickup</strong>, you typically need:</p>
+<ul>
+<li>Recipient's full name (as per CNIC)</li>
+<li>Recipient's CNIC (Computerized National Identity Card) number</li>
+<li>City where they'll collect</li>
+</ul>
+
+<p>For <strong>mobile wallet</strong> (JazzCash, Easypaisa):</p>
+<ul>
+<li>Recipient's mobile number</li>
+<li>Recipient's name</li>
+</ul>`,
+      },
+      {
+        heading: "Delivery Options and Speed",
+        content: `<ul>
+<li><strong>Bank deposit</strong>: 1–2 business days (Wise, Remitly Economy), same-day possible with Remitly Express. Major banks like HBL, UBL, MCB, and Meezan Bank process deposits faster than smaller banks.</li>
+<li><strong>Cash pickup</strong>: Available within minutes through Western Union, MoneyGram, Remitly, and WorldRemit. Collection points include bank branches and exchange company offices across Pakistan.</li>
+<li><strong>Mobile wallet (JazzCash/Easypaisa)</strong>: Instant or near-instant delivery. Supported by Remitly, WorldRemit, and ACE Money Transfer. Increasingly popular — over 50 million mobile wallet accounts in Pakistan.</li>
+<li><strong>Home delivery</strong>: Available through select providers in major cities. Remitly offers this in some areas of Pakistan.</li>
+</ul>
+
+<p><strong>Tip:</strong> Mobile wallets (JazzCash and Easypaisa) are the fastest growing delivery method in Pakistan and often the cheapest. If your recipient has a mobile wallet, it's worth considering.</p>`,
+      },
+      {
+        heading: "PKR Exchange Rate: What to Know",
+        content: `<p>The Pakistani Rupee (PKR) has experienced significant volatility in recent years. A few things to keep in mind:</p>
+
+<ul>
+<li><strong>The open market rate vs. interbank rate:</strong> Pakistan has historically had a gap between official and open market rates. Recent reforms have narrowed this gap, but always check the rate your provider offers against the interbank rate.</li>
+<li><strong>Rate fluctuations:</strong> PKR can move 1%–3% in a week. If you're sending a large amount, consider setting up rate alerts to transfer when the rate is favorable.</li>
+<li><strong>Provider comparison is critical:</strong> Because of PKR volatility and the different markups providers charge, the difference between the best and worst rate on any given day can be substantial.</li>
+</ul>
+
+<p><strong>Use our comparison tool</strong> to check live rates from all providers for your exact amount before sending.</p>`,
+      },
+      {
+        heading: "Tax and Regulatory Considerations",
+        content: `<p>Important rules for Pakistan remittances:</p>
+<ul>
+<li><strong>For the recipient:</strong> Remittances from abroad are tax-exempt in Pakistan. Under Section 111(4) of the Income Tax Ordinance, money received from abroad through normal banking channels is not subject to income tax.</li>
+<li><strong>Pakistan Remittance Initiative (PRI):</strong> The State Bank of Pakistan actively encourages formal remittance channels with incentives for banks and recipients.</li>
+<li><strong>CNIC requirement:</strong> The State Bank requires CNIC information for remittances over certain thresholds. Ensure your recipient has their CNIC details ready.</li>
+<li><strong>For US senders:</strong> Sending money as a gift to family is not taxable for the sender. Gifts over $18,000 per recipient per year may require filing Form 709 (but no tax is typically owed).</li>
+<li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts.</li>
+</ul>
+<p>This is general information — consult a tax advisor for your specific situation.</p>`,
+      },
+      {
+        heading: "Tips for Regular Pakistan Remittances",
+        content: `<ol>
+<li><strong>Compare every time:</strong> Provider rankings shift frequently on the PKR corridor. The cheapest option last month may not be cheapest today.</li>
+<li><strong>Use bank debit, not credit cards:</strong> Credit card surcharges add 1%–2% to your cost. Bank transfers or debit cards are almost always cheaper.</li>
+<li><strong>Consider mobile wallets:</strong> JazzCash and Easypaisa are fast, free for the recipient, and increasingly widely accepted in Pakistan.</li>
+<li><strong>Avoid banks for remittances:</strong> Traditional banks (Chase, HSBC, etc.) charge 2%–4% in hidden exchange rate markups. Specialist providers save you significant money.</li>
+<li><strong>Set rate alerts:</strong> If you have flexibility on timing, set alerts for your target rate and transfer when PKR is favorable.</li>
+<li><strong>Send larger amounts less often:</strong> Some providers charge minimum fees, so one $2,000 transfer is cheaper than four $500 transfers.</li>
+</ol>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Pakistan?",
+        answer:
+          "Based on our data, Wise, Remitly, and ACE Money Transfer consistently offer the best value for USD and GBP to PKR transfers. Wise uses the mid-market rate with a small fee, making it cheapest for amounts over $500. Remitly and ACE compete closely for smaller amounts with low or zero fees.",
+      },
+      {
+        question: "How long does it take to send money to Pakistan?",
+        answer:
+          "It depends on the provider and delivery method. Remitly Express and cash pickup (Western Union, MoneyGram) deliver in minutes. Mobile wallets (JazzCash, Easypaisa) are near-instant. Bank deposits typically take 1–2 business days. Economy transfers take 3–5 days.",
+      },
+      {
+        question: "Can I send money to a JazzCash or Easypaisa account?",
+        answer:
+          "Yes. Providers including Remitly, WorldRemit, and ACE Money Transfer support delivery to JazzCash and Easypaisa mobile wallets. This is one of the fastest delivery methods — often instant — and is growing rapidly in Pakistan.",
+      },
+      {
+        question: "Do I need the recipient's IBAN to send money to Pakistan?",
+        answer:
+          "For bank deposits, yes. Pakistan uses IBANs in the format PK00XXXX0000000000000000 (24 characters). Your recipient can find their IBAN on their bank statement, online banking, or by asking their bank branch. For cash pickup and mobile wallets, you don't need an IBAN.",
+      },
+      {
+        question: "Is money sent to Pakistan taxable?",
+        answer:
+          "Remittances received from abroad through banking channels are tax-exempt in Pakistan under Section 111(4) of the Income Tax Ordinance. For US senders, personal gifts to family are generally not taxable. Always consult a tax professional for your specific situation.",
+      },
+      {
+        question: "What is the best app to send money to Pakistan?",
+        answer:
+          "Remitly, Wise, and ACE Money Transfer all have well-rated mobile apps for sending money to Pakistan. Remitly is best for speed (Express delivery in minutes). Wise is best for transparency and large amounts. ACE Money Transfer specializes in the Pakistan corridor with competitive rates.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+      "send-money-to-india-guide",
     ],
   },
 ];

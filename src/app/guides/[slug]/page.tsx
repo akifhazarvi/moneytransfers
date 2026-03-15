@@ -61,6 +61,24 @@ export default async function BlogPostPage({ params }: Props) {
       }
     : null;
 
+  // HowTo JSON-LD for step-by-step guides
+  const howToSchema = post.howToSteps?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: post.title,
+        description: post.metaDescription,
+        datePublished: post.publishedAt,
+        dateModified: post.updatedAt,
+        step: post.howToSteps.map((step, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          name: step.name,
+          text: step.text,
+        })),
+      }
+    : null;
+
   // Article JSON-LD
   const articleSchema = {
     "@context": "https://schema.org",
@@ -88,6 +106,12 @@ export default async function BlogPostPage({ params }: Props) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {howToSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
         />
       )}
 

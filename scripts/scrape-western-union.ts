@@ -165,13 +165,13 @@ async function scrapeCorridorAmount(
       }
     });
 
-    // Navigate to the send money page
+    // Navigate to the send money page (WU is slow, use longer timeout)
     const url = `https://www.westernunion.com/us/en/web/send-money/start`;
     await page.goto(url, {
       waitUntil: "domcontentloaded",
-      timeout: NAV_TIMEOUT,
+      timeout: 60000,
     });
-    await delay(3000);
+    await delay(4000);
     await dismissOverlays(page);
 
     // Select destination country
@@ -252,16 +252,18 @@ async function main() {
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  const context = await setupBrowserContext();
   const allQuotes: ProviderQuote[] = [];
   let successCount = 0;
   let failCount = 0;
   const startTime = Date.now();
 
-  try {
-    for (const corridor of CORRIDORS) {
-      console.log(`\n📍 ${corridor.from} → ${corridor.to} (${corridor.destCountry})`);
+  for (const corridor of CORRIDORS) {
+    console.log(`\n📍 ${corridor.from} → ${corridor.to} (${corridor.destCountry})`);
 
+    // Fresh browser context per corridor to avoid WU bot detection
+    const context = await setupBrowserContext();
+
+    try {
       for (const amount of SEND_AMOUNTS) {
         try {
           console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
@@ -286,23 +288,27 @@ async function main() {
           console.log(`    ✗ Error: ${err instanceof Error ? err.message : String(err)}`);
         }
 
-        await jitteredDelay(3000);
+        await jitteredDelay(5000);
       }
+    } finally {
+      await context.browser()?.close();
     }
-  } finally {
-    await context.browser()?.close();
 
+    // Save partial results after each corridor
     const outputPath = path.join(OUTPUT_DIR, "western-union-quotes.json");
     fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
-
-    const elapsed = Math.round((Date.now() - startTime) / 1000);
-    const total = successCount + failCount;
-    console.log(`\n=== Western Union Scraping Complete ===`);
-    console.log(`Wrote ${outputPath} (${allQuotes.length} quotes)`);
-    console.log(`Success: ${successCount}, Failed: ${failCount}`);
-    console.log(`Success rate: ${total > 0 ? ((successCount / total) * 100).toFixed(1) : 0}%`);
-    console.log(`Duration: ${Math.floor(elapsed / 60)}m ${elapsed % 60}s`);
   }
+
+  const outputPath = path.join(OUTPUT_DIR, "western-union-quotes.json");
+  fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
+
+  const elapsed = Math.round((Date.now() - startTime) / 1000);
+  const total = successCount + failCount;
+  console.log(`\n=== Western Union Scraping Complete ===`);
+  console.log(`Wrote ${outputPath} (${allQuotes.length} quotes)`);
+  console.log(`Success: ${successCount}, Failed: ${failCount}`);
+  console.log(`Success rate: ${total > 0 ? ((successCount / total) * 100).toFixed(1) : 0}%`);
+  console.log(`Duration: ${Math.floor(elapsed / 60)}m ${elapsed % 60}s`);
 }
 
 main().catch((err) => {

@@ -19,11 +19,12 @@ const SITE_URL = "https://sendmoneycompare.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Compare International Money Transfers | SendMoneyCompare",
+    default:
+      "Compare Money Transfer Services | Best Rates & Lowest Fees 2026",
     template: "%s | SendMoneyCompare",
   },
   description:
-    "Compare fees, exchange rates and delivery times from providers like Wise, Remitly, Western Union and more to find the cheapest way to send money internationally.",
+    "Compare Wise, Remitly, XE, Western Union and 60+ providers side by side. Find the best exchange rates, lowest fees and fastest delivery to send money internationally.",
   keywords:
     "money transfer comparison, international money transfer, compare exchange rates, send money abroad, cheapest way to send money, remittance comparison, transfer fees",
   openGraph: {
@@ -31,15 +32,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "SendMoneyCompare",
-    title: "Compare International Money Transfers | SendMoneyCompare",
+    title: "Compare Money Transfer Services | Best Rates & Lowest Fees 2026",
     description:
-      "Compare fees, exchange rates and delivery times from providers like Wise, Remitly, Western Union and more to find the cheapest way to send money internationally.",
+      "Compare Wise, Remitly, XE, Western Union and 60+ providers side by side. Find the best exchange rates, lowest fees and fastest delivery to send money internationally.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Compare International Money Transfers | SendMoneyCompare",
+    title: "Compare Money Transfer Services | Best Rates & Lowest Fees 2026",
     description:
-      "Compare fees, exchange rates and delivery times from leading providers to find the cheapest way to send money internationally.",
+      "Compare Wise, Remitly, XE, Western Union and 60+ providers. Find the cheapest way to send money internationally in seconds.",
   },
   alternates: {
     canonical: SITE_URL,

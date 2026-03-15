@@ -8,8 +8,8 @@ import RatingBadge from "@/components/RatingBadge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Compare Money Transfer Providers | SendMoneyCompare",
-  description: "Head-to-head comparisons of the top money transfer services. Compare fees, rates, features and more.",
+  title: "Compare Money Transfer Providers Side by Side | Fees, Rates & Speed",
+  description: "Head-to-head comparisons of Wise, Remitly, Western Union, OFX and more. See which provider offers better exchange rates, lower fees and faster transfers.",
   alternates: {
     canonical: "https://sendmoneycompare.com/compare",
   },
