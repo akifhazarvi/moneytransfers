@@ -44,7 +44,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>Set a rate alert</strong> — Use a multi-currency account with <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> to set an alert at your target rate. If the post-announcement volatility pushes rates in your direction, you'll be notified instantly and can convert on the spot.</li>
 </ul>
 
-<p>Whichever approach you choose, compare rates from multiple providers before committing. Our <a href="/send-money">comparison tool</a> shows live rates and fees, so you can see exactly how much your recipient will receive — before and after the central banks have their say.</p>`,
+<p>Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> is especially important during volatile weeks like this — providers absorb or pass on currency swings very differently. If you hold multiple currencies, our guide on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates</a> explains which products give you the most flexibility. Whichever approach you choose, compare rates from multiple providers before committing — our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> explains exactly what to look for. Our <a href="/send-money">comparison tool</a> shows live rates and fees, so you can see exactly how much your recipient will receive — before and after the central banks have their say.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-15",
     source: "Reuters / Bank of England / Federal Reserve",
@@ -61,19 +61,19 @@ export const newsItems: NewsItem[] = [
     content: `<p>The money transfer landscape in the United States shifted on January 1, 2026, when a 1% federal excise tax on certain international remittances took effect. Bundled into the broader "One Big Beautiful Bill Act" passed by Congress, the levy applies specifically to cash-funded outbound transfers — a move that caught parts of the industry off guard.</p>
 
 <h2>Who pays, and who doesn't?</h2>
-<p>The tax targets transfers funded with physical cash at agent locations and retail counters. If you walk into a Western Union or MoneyGram branch and pay with banknotes, the provider is required to collect the 1% levy on top of existing fees. Transfers funded digitally — through a linked bank account, debit card, or credit card — remain exempt.</p>
+<p>The tax targets transfers funded with physical cash at agent locations and retail counters. If you walk into a <a href="/companies/western-union">Western Union</a> or <a href="/companies/moneygram">MoneyGram</a> branch and pay with banknotes, the provider is required to collect the 1% levy on top of existing fees. Transfers funded digitally — through a linked bank account, debit card, or credit card — remain exempt.</p>
 
 <p>That distinction matters. According to World Bank data, roughly 38% of US outbound remittances still originate as cash transactions, particularly in corridors to Latin America, Sub-Saharan Africa, and parts of South Asia. For a $500 cash transfer to Mexico, the additional cost is $5 — not enormous on its own, but enough to erode thin margins for frequent senders.</p>
 
 <h2>Industry pushback and IRS relief</h2>
 <p>Trade groups representing remittance providers lobbied hard against the provision, arguing it disproportionately affects low-income immigrant communities who rely on cash. In response, the IRS issued penalty relief for providers during the first three quarters of 2026, giving the industry time to update point-of-sale systems and customer-facing disclosures.</p>
 
-<p>Remitly published a detailed breakdown for customers on its blog, walking through which transaction types are affected and how to avoid the tax by switching to digital funding methods. Wise noted that its entirely digital model means none of its customers are impacted.</p>
+<p><a href="/companies/remitly">Remitly</a> published a detailed breakdown for customers on its blog, walking through which transaction types are affected and how to avoid the tax by switching to digital funding methods. <a href="/companies/wise">Wise</a> noted that its entirely digital model means none of its customers are impacted.</p>
 
 <h2>The bigger picture</h2>
-<p>Industry analysts see this as an accelerant for an already-underway shift from cash to digital remittances. "The tax essentially puts a price on staying analogue," said one payments consultant. "Providers that haven't invested in digital onboarding will feel the squeeze."</p>
+<p>Industry analysts see this as an accelerant for an already-underway shift from cash to digital remittances. "The tax essentially puts a price on staying analogue," said one payments consultant. "Providers that haven't invested in digital onboarding will feel the squeeze." For a broader view of where global remittances are heading, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>
 
-<p>For consumers, the takeaway is straightforward: funding transfers digitally avoids the tax entirely. Our <a href="/send-money">comparison tool</a> shows real-time costs across providers, making it easy to find the cheapest option regardless of how you fund the transfer.</p>`,
+<p>For consumers, the takeaway is straightforward: funding transfers digitally avoids the tax entirely. Our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> covers how to reduce costs further, and our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> roundup highlights the digital-first providers that are entirely unaffected by the tax. Our <a href="/send-money">comparison tool</a> shows real-time costs across providers, making it easy to find the cheapest option regardless of how you fund the transfer.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-14",
     source: "IRS / RSM US",
@@ -95,12 +95,12 @@ export const newsItems: NewsItem[] = [
 <p>For international money transfers specifically, cutting out intermediary banks should reduce both costs and settlement times on US-originated corridors. That's good news for anyone sending dollars abroad.</p>
 
 <h2>The $500 million commitment</h2>
-<p>Alongside the charter filing, Revolut appointed fintech veteran Cetin Duransoy as US CEO and pledged half a billion dollars in US investment. The funds will go toward hiring, infrastructure build-out, and customer acquisition — areas where Revolut has lagged behind US-native competitors like Cash App and Venmo.</p>
+<p>Alongside the charter filing, <a href="/companies/revolut">Revolut</a> appointed fintech veteran Cetin Duransoy as US CEO and pledged half a billion dollars in US investment. The funds will go toward hiring, infrastructure build-out, and customer acquisition — areas where Revolut has lagged behind US-native competitors like Cash App and Venmo.</p>
 
 <h2>A long road ahead</h2>
 <p>Securing a de novo bank charter is notoriously slow. The OCC approval process alone typically takes 12–18 months, and Revolut's application will face scrutiny given the size and complexity of its global operations. The company's UK banking licence, finally granted in mid-2024 after a three-year wait, offers both precedent and a cautionary tale about regulatory timelines.</p>
 
-<p>Still, if approved, a chartered Revolut would become one of the largest digital-only banks in the US — and a formidable competitor in cross-border payments. We'll be tracking the application's progress and updating our <a href="/companies/revolut">Revolut review</a> as details emerge.</p>`,
+<p>Still, if approved, a chartered Revolut would become one of the largest digital-only banks in the US — and a formidable competitor in cross-border payments. Our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide already covers Revolut's current offering, and our explainer on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates</a> is worth reading if you're considering switching. We'll be tracking the application's progress and updating our <a href="/companies/revolut">Revolut review</a> as details emerge.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-13",
     source: "American Banker",
@@ -114,10 +114,10 @@ export const newsItems: NewsItem[] = [
       "At an investor conference this week, Devin McGranahan acknowledged that Wise and Remitly are winning on customer growth, while defending Western Union's profitability and agent network.",
     image: "/images/news/western-union-competition.jpg",
     imageAlt: "Business professionals shaking hands over a contract, representing competitive dynamics in the money transfer industry",
-    content: `<p>It's rare for the CEO of a 170-year-old financial institution to publicly concede competitive ground. But that's exactly what Western Union's Devin McGranahan did at the Wolfe Research investor conference on March 14, offering a candid assessment of where the money transfer giant stands against a new generation of digital-first rivals.</p>
+    content: `<p>It's rare for the CEO of a 170-year-old financial institution to publicly concede competitive ground. But that's exactly what <a href="/companies/western-union">Western Union</a>'s Devin McGranahan did at the Wolfe Research investor conference on March 14, offering a candid assessment of where the money transfer giant stands against a new generation of digital-first rivals.</p>
 
 <h2>The candid admission</h2>
-<p>"Are they growing customer counts faster than us in certain digital corridors? Yes," McGranahan told analysts, referencing Wise and Remitly by name. "But customer count growth and sustainable, profitable growth are different conversations."</p>
+<p>"Are they growing customer counts faster than us in certain digital corridors? Yes," McGranahan told analysts, referencing <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> by name. "But customer count growth and sustainable, profitable growth are different conversations." If you're weighing the two, our <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a> breaks down the real differences.</p>
 
 <p>His argument centres on unit economics. Western Union, despite losing digital market share, remains enormously profitable: the company generated over $4 billion in revenue in 2025 with operating margins above 20%. Digital-first competitors, by contrast, have been spending heavily on customer acquisition — Remitly's sales and marketing costs topped $350 million last year — and several are still working toward consistent profitability.</p>
 
@@ -127,7 +127,7 @@ export const newsItems: NewsItem[] = [
 <h2>What this means for consumers</h2>
 <p>The competitive tension between legacy operators and digital challengers is driving better outcomes for customers across the board. Western Union has been steadily lowering digital fees, Wise continues to compress margins, and Remitly's promotional offers (currently <a href="/companies/remitly">$25 off your first transfer</a>) reflect the intensity of the battle for market share.</p>
 
-<p>Our advice? Let the providers compete for your business. Use our <a href="/send-money">comparison tool</a> to check real-time rates and fees before every transfer — the cheapest option varies by corridor, amount, and delivery method.</p>`,
+<p>Our advice? Let the providers compete for your business. Our guide to the <a href="/guides/best-money-transfer-services">best money transfer services</a> ranks the top options side by side, and the <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report shows where the industry is heading. Use our <a href="/send-money">comparison tool</a> to check real-time rates and fees before every transfer — the cheapest option varies by corridor, amount, and delivery method.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-14",
     source: "Payments Dive",
@@ -146,12 +146,12 @@ export const newsItems: NewsItem[] = [
 <h2>The numbers behind the rumour</h2>
 <p>Stripe, last valued at $159 billion in its most recent private funding round, dwarfs PayPal's current public market capitalisation of roughly $43 billion. That valuation gap — PayPal traded above $300 billion as recently as 2021 — reflects a dramatic reversal of fortunes. PayPal has struggled with slowing growth, increased competition from Apple Pay and Google Pay, and an identity crisis about whether it's a consumer app or a merchant platform.</p>
 
-<p>For Stripe, which has built its empire on developer tools and merchant-side payments infrastructure, acquiring PayPal would add a massive consumer-facing brand, the Venmo peer-to-peer network, and Xoom — PayPal's international money transfer service that competes directly with Wise and Remitly.</p>
+<p>For Stripe, which has built its empire on developer tools and merchant-side payments infrastructure, acquiring <a href="/companies/paypal">PayPal</a> would add a massive consumer-facing brand, the Venmo peer-to-peer network, and <a href="/companies/xoom">Xoom</a> — PayPal's international money transfer service that competes directly with <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a>.</p>
 
 <h2>What it could mean for money transfers</h2>
 <p>Xoom, which PayPal acquired in 2015 for $890 million, handles cross-border remittances to over 130 countries. Under PayPal's ownership, the service has operated somewhat independently. A Stripe acquisition could bring Xoom's remittance capabilities into Stripe's infrastructure, potentially creating a vertically integrated cross-border payments stack that serves both merchants and consumers.</p>
 
-<p>Whether any deal materialises remains unclear. Regulatory hurdles would be significant — antitrust authorities in the US, EU, and UK would all need to approve a combination of this scale. But the conversation itself signals how rapidly the payments industry is consolidating. In the meantime, use <a href="/send-money">our comparison tool</a> to find the best rates across all active providers.</p>`,
+<p>Whether any deal materialises remains unclear. Regulatory hurdles would be significant — antitrust authorities in the US, EU, and UK would all need to approve a combination of this scale. But the conversation itself signals how rapidly the payments industry is consolidating — a trend well documented in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. For a consumer-level breakdown of which services deliver the best value today, see our <a href="/guides/best-money-transfer-services">best money transfer services</a> guide. In the meantime, use <a href="/send-money">our comparison tool</a> to find the best rates across all active providers.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-12",
     source: "CoinDesk",
@@ -170,13 +170,13 @@ export const newsItems: NewsItem[] = [
 <h2>The end of "business hours" banking</h2>
 <p>Until now, instant payments in the euro area were optional. Many banks offered the service for a premium or limited it to certain hours. The new mandate eliminates those restrictions. Whether you're sending money at 3 PM on a Tuesday or 2 AM on Christmas Day, the transfer must process immediately and at no additional charge compared to a standard credit transfer.</p>
 
-<p>For cross-border transfers within the eurozone — say, Germany to Spain or France to Italy — this removes one of the last friction points. Previously, even SEPA transfers could take up to one business day. Now they'll be effectively instantaneous.</p>
+<p>For cross-border transfers within the eurozone — say, Germany to Spain or France to Italy — this removes one of the last friction points. Previously, even SEPA transfers could take up to one business day. Now they'll be effectively instantaneous. If you're unfamiliar with the codes and account numbers involved, our guide to <a href="/guides/iban-numbers-explained">IBAN numbers explained</a> covers everything you need.</p>
 
 <h2>Verification of Payee: a fraud safeguard</h2>
 <p>Alongside the speed mandate, providers must implement "Verification of Payee" (VoP) checks. Before processing a transfer, the sending bank will verify that the recipient's name matches the account details provided. If there's a mismatch, the sender receives a warning — a measure designed to combat authorised push payment fraud, which has surged across Europe in recent years.</p>
 
 <h2>Impact on international remittances</h2>
-<p>While the regulation directly covers euro-to-euro transfers within the EU, the ripple effects extend to international remittances. Providers like Wise, Revolut, and WorldRemit that hold European licences will benefit from faster settlement on the euro leg of cross-border corridors. A transfer from Germany to India, for example, could see faster processing on the European side even if the Indian payout timing remains unchanged.</p>
+<p>While the regulation directly covers euro-to-euro transfers within the EU, the ripple effects extend to international remittances. Providers like <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, and <a href="/companies/worldremit">WorldRemit</a> that hold European licences will benefit from faster settlement on the euro leg of cross-border corridors. A transfer from Germany to India, for example, could see faster processing on the European side even if the Indian payout timing remains unchanged. For a full breakdown of how international bank payments work end-to-end, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a> and our explainer on <a href="/guides/swift-codes-explained">SWIFT codes</a>.</p>
 
 <p>The regulation also sets a precedent. The UK, Australia, and several Asian regulators are studying similar mandates for their domestic payment systems. Compare providers for <a href="/send-money/uk-to-europe">UK to Europe transfers</a> to see how these changes affect real costs.</p>`,
     category: "Regulatory",
@@ -202,7 +202,7 @@ export const newsItems: NewsItem[] = [
 <h2>What it could mean for cross-border payments</h2>
 <p>China has been piloting cross-border e-CNY transactions through the mBridge project, a collaboration with central banks in Hong Kong, Thailand, the UAE, and Saudi Arabia. An interest-bearing digital yuan could accelerate adoption in these corridors, particularly for trade settlement and potentially for person-to-person remittances.</p>
 
-<p>For now, the direct impact on Western consumers sending money to China is minimal — inbound remittances to China still flow through traditional channels. But the digital yuan's evolution is worth watching as a bellwether for how CBDCs might reshape international payments in the coming decade.</p>`,
+<p>For now, the direct impact on Western consumers sending money to China is minimal — inbound remittances to China still flow through traditional channels. Our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> covers the best approaches for reaching Asian corridors today. The digital yuan's evolution is worth watching as a bellwether for how CBDCs might reshape the landscape described in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report — where digital payment infrastructure in emerging markets is among the biggest stories.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-10",
     source: "BeInCrypto",
@@ -226,7 +226,7 @@ export const newsItems: NewsItem[] = [
 <p>Thunes, a Singapore-based payments network, connects over 130 countries through direct integrations with mobile wallets, banks, and cash-out networks. The company has quietly become a key infrastructure player in emerging-market payments, powering the backend for several well-known remittance brands. Its partnership with Absa gives the bank instant access to payout infrastructure that would have taken years to build independently.</p>
 
 <h2>Competitive implications</h2>
-<p>Sub-Saharan Africa remains the most expensive region to send money to, with average costs of 7.4% for a $200 transfer according to the World Bank. New entrants like Absa Global Pay inject competition into corridors that have traditionally been dominated by Western Union, MoneyGram, and a handful of regional operators. More competition typically means lower prices — a pattern we've seen play out in mature digital corridors like US-to-India and UK-to-Philippines.</p>`,
+<p>Sub-Saharan Africa remains the most expensive region to send money to, with average costs of 7.4% for a $200 transfer according to the World Bank. New entrants like Absa Global Pay inject competition into corridors that have traditionally been dominated by <a href="/companies/western-union">Western Union</a>, <a href="/companies/moneygram">MoneyGram</a>, and a handful of regional operators. More competition typically means lower prices — a pattern we've seen play out in mature digital corridors like <a href="/send-money/usa-to-nigeria">USA to Nigeria</a> and UK-to-Philippines. For a deeper look at these trends, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report, or compare costs right now using our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
     category: "Announcement",
     publishedAt: "2026-03-09",
     source: "Fintech Global",
@@ -242,15 +242,15 @@ export const newsItems: NewsItem[] = [
     content: `<p>While retail crypto adoption has been a rollercoaster, a quieter revolution is unfolding in cross-border business payments. Stablecoins — digital currencies pegged to traditional assets like the US dollar — are gaining serious traction as settlement rails for international B2B transactions, and some of the biggest names in payments are driving the push.</p>
 
 <h2>The corporate heavyweights moving in</h2>
-<p>PayPal has been expanding the reach of PYUSD, its dollar-pegged stablecoin, beyond consumer wallets into merchant settlement. Stripe's Bridge subsidiary, acquired in late 2024, recently received conditional OCC approval to operate a federally chartered trust bank focused on stablecoin products. And traditional banks like Santander and Societe Generale are exploring their own institutional stablecoins for trade finance.</p>
+<p><a href="/companies/paypal">PayPal</a> has been expanding the reach of PYUSD, its dollar-pegged stablecoin, beyond consumer wallets into merchant settlement. Stripe's Bridge subsidiary, acquired in late 2024, recently received conditional OCC approval to operate a federally chartered trust bank focused on stablecoin products. And traditional banks like Santander and Societe Generale are exploring their own institutional stablecoins for trade finance.</p>
 
 <p>The appeal for businesses is practical: a B2B payment from the US to Southeast Asia using traditional correspondent banking can take 3–5 days, involve 2–4 intermediary banks, and carry fees of 2–5%. A stablecoin-settled transaction can clear in minutes at a fraction of the cost.</p>
 
 <h2>What about consumer remittances?</h2>
-<p>The technology hasn't meaningfully reached everyday senders yet, but the building blocks are falling into place. MoneyGram's existing crypto-to-cash service via the Stellar network (see our <a href="/companies/moneygram">MoneyGram</a>) demonstrates one bridge between stablecoin rails and cash economies. As regulatory frameworks mature — particularly around stablecoin issuance and reserve requirements — expect more providers to offer stablecoin-powered corridors, especially to markets where traditional banking infrastructure is sparse.</p>
+<p>The technology hasn't meaningfully reached everyday senders yet, but the building blocks are falling into place. <a href="/companies/moneygram">MoneyGram</a>'s existing crypto-to-cash service via the Stellar network demonstrates one bridge between stablecoin rails and cash economies. As regulatory frameworks mature — particularly around stablecoin issuance and reserve requirements — expect more providers to offer stablecoin-powered corridors, especially to markets where traditional banking infrastructure is sparse.</p>
 
 <h2>Regulatory tailwinds</h2>
-<p>The US, EU, and UK are all advancing stablecoin-specific legislation in 2026. Clear rules around reserve backing, redemption rights, and operational resilience could transform stablecoins from a niche fintech tool into mainstream financial infrastructure. For cross-border payments, that transformation can't come soon enough.</p>`,
+<p>The US, EU, and UK are all advancing stablecoin-specific legislation in 2026. Clear rules around reserve backing, redemption rights, and operational resilience could transform stablecoins from a niche fintech tool into mainstream financial infrastructure. Businesses handling cross-border payments should read our <a href="/guides/business-international-payments-guide">guide to international business payments</a> to understand how emerging rails compare to traditional options today. For the macro view of where these changes fit, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. For cross-border payments, that transformation can't come soon enough.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-08",
     source: "American Banker / DL News",
@@ -273,7 +273,7 @@ export const newsItems: NewsItem[] = [
 <p>A survey of embedded finance firms published by PYMNTS found that a majority view additional regulation positively. The reasoning is pragmatic: clearer rules reduce uncertainty, make it easier to form partnerships with banks, and create barriers to entry that benefit established players. "We'd rather have rules we can plan around than ambiguity that makes banks nervous about working with us," one fintech executive noted.</p>
 
 <h2>Connections to cross-border payments</h2>
-<p>Embedded finance intersects directly with international money transfers. Services like Wise Platform and PayPal's Braintree allow non-financial companies to embed cross-border payment capabilities into their own products — think freelance marketplaces paying contractors abroad, or e-commerce platforms handling cross-border seller payouts. Regulatory clarity in this space could accelerate adoption of embedded remittance solutions, bringing competition and lower costs to corridors that traditional providers have long dominated.</p>`,
+<p>Embedded finance intersects directly with international money transfers. Services like <a href="/companies/wise">Wise</a> Platform and <a href="/companies/paypal">PayPal</a>'s Braintree allow non-financial companies to embed cross-border payment capabilities into their own products — think freelance marketplaces paying contractors abroad, or e-commerce platforms handling cross-border seller payouts. Regulatory clarity in this space could accelerate adoption of embedded remittance solutions, bringing competition and lower costs to corridors that traditional providers have long dominated. Our <a href="/guides/business-international-payments-guide">guide to international business payments</a> explains the practical options available to companies today, while our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> covers what regulatory protections to look for when choosing a provider.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-07",
     source: "PYMNTS",
@@ -295,9 +295,9 @@ export const newsItems: NewsItem[] = [
 <p>The new FinTech Centre will serve as a physical and institutional hub, offering co-working space, regulatory guidance, and connections to regional and international investors. I&M Bank, one of East Africa's largest banking groups, was a headline sponsor and has committed to partnering with Centre graduates on product launches.</p>
 
 <h2>Implications for remittances</h2>
-<p>Inbound remittances are a lifeline for Rwanda's economy, accounting for roughly 3% of GDP. The country has been a pioneer in mobile money-based remittance delivery — services like TapTap Send and WorldRemit already support mobile wallet payouts to Rwanda's major networks. A thriving local fintech ecosystem could produce homegrown competitors that further drive down costs on corridors like UK-to-Rwanda and US-to-Rwanda, which currently average 6–8% in total transfer costs.</p>
+<p>Inbound remittances are a lifeline for Rwanda's economy, accounting for roughly 3% of GDP. The country has been a pioneer in mobile money-based remittance delivery — services like <a href="/companies/taptap-send">TapTap Send</a> and <a href="/companies/worldremit">WorldRemit</a> already support mobile wallet payouts to Rwanda's major networks. A thriving local fintech ecosystem could produce homegrown competitors that further drive down costs on corridors like UK-to-Rwanda and US-to-Rwanda, which currently average 6–8% in total transfer costs.</p>
 
-<p>More broadly, Rwanda's initiative reflects a continent-wide trend. Nigeria, Kenya, and South Africa have all launched or expanded fintech regulatory sandboxes in the past two years, creating a competitive landscape for African fintech talent and investment. See our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> for tips on finding the cheapest options.</p>`,
+<p>More broadly, Rwanda's initiative reflects a continent-wide trend documented in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. Nigeria, Kenya, and South Africa have all launched or expanded fintech regulatory sandboxes in the past two years, creating a competitive landscape for African fintech talent and investment. If you're already sending to Africa, our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide highlights which providers offer the widest mobile wallet coverage across the continent. See our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> for tips on finding the cheapest options.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-14",
     source: "The New Times (Rwanda)",
@@ -314,7 +314,7 @@ export const newsItems: NewsItem[] = [
     content: `<p>We've shipped a feature that our users have been asking about for months: you can now see <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend rewards</strong> directly on the MoneyRemitter comparison page, right alongside the exchange rates and fees you already rely on.</p>
 
 <h2>What's new</h2>
-<p>Every provider card on the <a href="/send-money">Send Money</a> page now shows deal badges where applicable. You'll see badges like "Earn $25" for Remitly's referral programme, "3 free transfers" for WorldRemit's promo code, and "Earn £50" for TorFX's generous refer-a-friend scheme. Expanding any provider card reveals the full details — what you earn, what your friend gets, and any conditions attached.</p>
+<p>Every provider card on the <a href="/send-money">Send Money</a> page now shows deal badges where applicable. You'll see badges like "Earn $25" for <a href="/companies/remitly">Remitly</a>'s referral programme, "3 free transfers" for <a href="/companies/worldremit">WorldRemit</a>'s promo code, and "Earn £50" for <a href="/companies/torfx">TorFX</a>'s generous refer-a-friend scheme. Expanding any provider card reveals the full details — what you earn, what your friend gets, and any conditions attached.</p>
 
 <h2>New sorting and filtering</h2>
 <p>We've added a <strong>"Best deals"</strong> sort option that ranks providers by the overall value of their promotions and loyalty programmes. There's also a new <strong>"Deals" filter</strong> that lets you narrow results to only providers offering referral bonuses, sign-up incentives, or active promo codes.</p>
@@ -324,11 +324,11 @@ export const newsItems: NewsItem[] = [
 <li><strong>Remitly:</strong> $25 per referral with no cap on the number of friends you can invite</li>
 <li><strong>TorFX:</strong> £50 for both you and your friend on transfers over £2,000</li>
 <li><strong>WorldRemit:</strong> Use code <strong>3FREE</strong> to get three fee-free transfers</li>
-<li><strong>Wise:</strong> Earn up to $115 for every three friends who transfer $300 or more</li>
-<li><strong>Western Union:</strong> $15 Amazon gift card per referral (up to 20 friends)</li>
+<li><strong><a href="/companies/wise">Wise</a>:</strong> Earn up to $115 for every three friends who transfer $300 or more</li>
+<li><strong><a href="/companies/western-union">Western Union</a>:</strong> $15 Amazon gift card per referral (up to 20 friends)</li>
 </ul>
 
-<p>Promo details are verified monthly and shown with a "last verified" date. For the full breakdown of every provider's current offers, check out our comprehensive guide: <a href="/guides/money-transfer-promo-codes-referral-programs">Money Transfer Promo Codes & Referral Programs (2026)</a>.</p>`,
+<p>Promo details are verified monthly and shown with a "last verified" date. When bonuses aren't the deciding factor, our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> and our <a href="/guides/best-money-transfer-services">best money transfer services</a> roundup help you pick the right provider on fundamentals alone. For the full breakdown of every provider's current offers, check out our comprehensive guide: <a href="/guides/money-transfer-promo-codes-referral-programs">Money Transfer Promo Codes & Referral Programs (2026)</a>.</p>`,
     category: "Announcement",
     publishedAt: "2026-03-14",
     source: "SendMoneyCompare",
