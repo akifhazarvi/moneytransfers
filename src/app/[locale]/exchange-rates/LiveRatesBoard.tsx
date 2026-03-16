@@ -66,11 +66,43 @@ function flagUrl(iso2: string): string {
 }
 
 /* ── component ────────────────────────────────────────────── */
-export default function LiveRatesBoard() {
+interface LiveRatesBoardProps {
+  /** Server-fetched rates keyed by currency code (base USD) — used to pre-render the board for SEO */
+  initialRates?: Record<string, number>;
+}
+
+function buildInitialRows(ssrRates: Record<string, number>): RateRow[] {
+  return CURRENCIES
+    .filter((c) => c.code !== "USD" && ssrRates[c.code] && ssrRates[c.code] > 0)
+    .map((c) => {
+      const mid = ssrRates[c.code];
+      const sp = SPREADS[c.code] ?? 0.015;
+      return {
+        code: c.code,
+        name: c.name,
+        iso2: c.iso2,
+        midRate: mid,
+        buyRate: mid * (1 - sp / 2),
+        sellRate: mid * (1 + sp / 2),
+        chqBuy: mid * (1 - sp * 0.8),
+        noteBuy: mid * (1 - sp * 1.1),
+        sourceCount: 1,
+        crossSourceSpread: 0,
+        perSource: [{ name: "Server", rate: mid }],
+        prevMidRate: null,
+        direction: "flat" as const,
+        flash: false,
+      };
+    });
+}
+
+export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {}) {
   const [base, setBase] = useState("USD");
-  const [rates, setRates] = useState<RateRow[]>([]);
+  const [rates, setRates] = useState<RateRow[]>(
+    initialRates ? buildInitialRows(initialRates) : []
+  );
   const [sources, setSources] = useState<SourceResult[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!initialRates);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [now, setNow] = useState<Date | null>(null);

@@ -118,9 +118,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   ];
 
+  const EXCHANGE_RATE_PAIRS = [
+    "usd-to-inr", "usd-to-pkr", "usd-to-php", "usd-to-mxn", "usd-to-ngn",
+    "gbp-to-eur", "gbp-to-inr", "gbp-to-usd", "gbp-to-pkr",
+    "eur-to-usd", "eur-to-gbp",
+    "cad-to-inr", "aud-to-inr",
+    "usd-to-gbp", "usd-to-eur", "usd-to-cad", "usd-to-aud", "usd-to-jpy",
+    "usd-to-brl", "usd-to-cny",
+  ];
+
   const exchangeRatesPage: MetadataRoute.Sitemap = [
     withAlternates("exchange-rates", { lastModified: now, changeFrequency: "hourly", priority: 0.8 }),
     withAlternates("remittance-cost-index", { lastModified: now, changeFrequency: "weekly", priority: 0.9 }),
+    ...EXCHANGE_RATE_PAIRS.map((pair) =>
+      withAlternates(`exchange-rates/${pair}`, {
+        lastModified: now,
+        changeFrequency: "daily",
+        priority: 0.7,
+      })
+    ),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries

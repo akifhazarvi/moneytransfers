@@ -28,8 +28,11 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("guides");
-  const featured = blogPosts[0];
-  const rest = blogPosts.slice(1);
+  const sorted = [...blogPosts].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+  const featured = sorted[0];
+  const rest = sorted.slice(1);
 
   return (
     <Container className="py-8">

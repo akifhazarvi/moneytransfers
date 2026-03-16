@@ -24,14 +24,29 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const popularCorridors = [
-  { slug: "usa-to-india", from: "USD", to: "INR", label: "USA to India", flag: "\u{1F1EE}\u{1F1F3}" },
-  { slug: "usa-to-pakistan", from: "USD", to: "PKR", label: "USA to Pakistan", flag: "\u{1F1F5}\u{1F1F0}" },
-  { slug: "usa-to-philippines", from: "USD", to: "PHP", label: "USA to Philippines", flag: "\u{1F1F5}\u{1F1ED}" },
-  { slug: "usa-to-mexico", from: "USD", to: "MXN", label: "USA to Mexico", flag: "\u{1F1F2}\u{1F1FD}" },
-  { slug: "usa-to-nigeria", from: "USD", to: "NGN", label: "USA to Nigeria", flag: "\u{1F1F3}\u{1F1EC}" },
-  { slug: "uk-to-india", from: "GBP", to: "INR", label: "UK to India", flag: "\u{1F1EE}\u{1F1F3}" },
-  { slug: "uk-to-europe", from: "GBP", to: "EUR", label: "UK to Europe", flag: "\u{1F1EA}\u{1F1FA}" },
-  { slug: "canada-to-india", from: "CAD", to: "INR", label: "Canada to India", flag: "\u{1F1EE}\u{1F1F3}" },
+  { slug: "usa-to-india", from: "USD", to: "INR", label: "USA to India", flag: "\u{1F1EE}\u{1F1F3}", ratePair: "usd-to-inr" },
+  { slug: "usa-to-pakistan", from: "USD", to: "PKR", label: "USA to Pakistan", flag: "\u{1F1F5}\u{1F1F0}", ratePair: "usd-to-pkr" },
+  { slug: "usa-to-philippines", from: "USD", to: "PHP", label: "USA to Philippines", flag: "\u{1F1F5}\u{1F1ED}", ratePair: "usd-to-php" },
+  { slug: "usa-to-mexico", from: "USD", to: "MXN", label: "USA to Mexico", flag: "\u{1F1F2}\u{1F1FD}", ratePair: "usd-to-mxn" },
+  { slug: "usa-to-nigeria", from: "USD", to: "NGN", label: "USA to Nigeria", flag: "\u{1F1F3}\u{1F1EC}", ratePair: "usd-to-ngn" },
+  { slug: "uk-to-india", from: "GBP", to: "INR", label: "UK to India", flag: "\u{1F1EE}\u{1F1F3}", ratePair: "gbp-to-inr" },
+  { slug: "uk-to-europe", from: "GBP", to: "EUR", label: "UK to Europe", flag: "\u{1F1EA}\u{1F1FA}", ratePair: "gbp-to-eur" },
+  { slug: "canada-to-india", from: "CAD", to: "INR", label: "Canada to India", flag: "\u{1F1EE}\u{1F1F3}", ratePair: "cad-to-inr" },
+];
+
+const topRatePairs = [
+  { slug: "usd-to-inr", from: "USD", to: "INR", label: "USD to INR" },
+  { slug: "usd-to-eur", from: "USD", to: "EUR", label: "USD to EUR" },
+  { slug: "gbp-to-eur", from: "GBP", to: "EUR", label: "GBP to EUR" },
+  { slug: "gbp-to-usd", from: "GBP", to: "USD", label: "GBP to USD" },
+  { slug: "usd-to-gbp", from: "USD", to: "GBP", label: "USD to GBP" },
+  { slug: "eur-to-usd", from: "EUR", to: "USD", label: "EUR to USD" },
+  { slug: "usd-to-jpy", from: "USD", to: "JPY", label: "USD to JPY" },
+  { slug: "usd-to-cad", from: "USD", to: "CAD", label: "USD to CAD" },
+  { slug: "usd-to-mxn", from: "USD", to: "MXN", label: "USD to MXN" },
+  { slug: "usd-to-pkr", from: "USD", to: "PKR", label: "USD to PKR" },
+  { slug: "gbp-to-inr", from: "GBP", to: "INR", label: "GBP to INR" },
+  { slug: "cad-to-inr", from: "CAD", to: "INR", label: "CAD to INR" },
 ];
 
 const faqs = [
@@ -134,8 +149,8 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(rateSchemas) }}
       />
 
-      {/* Live Rates Board */}
-      <LiveRatesBoard />
+      {/* Live Rates Board — pre-rendered with server-fetched rates for SEO */}
+      <LiveRatesBoard initialRates={rates} />
 
       {/* Server-rendered rate table — visible to crawlers even without JS */}
       <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)]">
@@ -229,6 +244,39 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                   We aggregate exchange rate data from 4 independent sources in real-time and take the median value. This approach eliminates outliers and provides a more reliable rate than relying on any single source. Rates refresh every 60 seconds while you&apos;re on this page. The buy/sell spreads shown are simulated based on typical banking margins for each currency.
                 </p>
               </div>
+            </div>
+          </section>
+
+          {/* Popular Exchange Rate Pairs */}
+          <section className="mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
+              Popular Exchange Rates
+            </h2>
+            <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
+              Detailed rate pages with conversion tables, provider comparisons, and expert analysis for the most popular currency pairs.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {topRatePairs.map((pair) => {
+                const pairRate = rates[pair.to] && rates[pair.from]
+                  ? (pair.from === "USD" ? rates[pair.to] : rates[pair.to] / rates[pair.from])
+                  : rates[pair.to]; // fallback for USD base
+                return (
+                  <Link
+                    key={pair.slug}
+                    href={`/exchange-rates/${pair.slug}`}
+                    className="flex flex-col gap-1 px-4 py-3.5 rounded-xl border border-[var(--color-outline)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all group"
+                  >
+                    <span className="text-[14px] font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
+                      {pair.label}
+                    </span>
+                    {pairRate && pairRate > 0 && (
+                      <span className="text-[13px] text-[var(--color-on-surface-variant)] tabular-nums">
+                        1 {pair.from} = {pairRate >= 1000 ? pairRate.toFixed(2) : pairRate >= 100 ? pairRate.toFixed(3) : pairRate.toFixed(4)} {pair.to}
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
             </div>
           </section>
 

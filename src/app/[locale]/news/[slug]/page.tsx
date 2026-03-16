@@ -16,6 +16,24 @@ export async function generateStaticParams() {
   return newsItems.map((item) => ({ slug: item.slug }));
 }
 
+// Generate relevant keywords from article metadata
+function articleKeywords(item: { title: string; category: string; providerSlugs?: string[] }): string {
+  const base = ["money transfer news", "international payments", "cross-border payments"];
+  const categoryKw: Record<string, string[]> = {
+    "Industry News": ["fintech news", "remittance industry"],
+    "Provider Update": ["money transfer provider", "provider update"],
+    Announcement: ["money transfer update", "remittance news"],
+    Regulatory: ["payments regulation", "financial regulation", "compliance"],
+  };
+  const kws = [...base, ...(categoryKw[item.category] || [])];
+  if (item.providerSlugs) {
+    for (const slug of item.providerSlugs.slice(0, 3)) {
+      kws.push(slug.replace(/-/g, " "));
+    }
+  }
+  return kws.join(", ");
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "newsSlug" });
@@ -25,6 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: item.title,
     description: item.excerpt,
+    keywords: articleKeywords(item),
     openGraph: {
       title: item.title,
       description: item.excerpt,

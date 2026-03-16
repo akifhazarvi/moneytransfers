@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    keywords: "money transfer companies, remittance providers, international transfer services, Wise review, Remitly review, Western Union review, money transfer reviews, best remittance company",
     alternates: {
       canonical: "https://sendmoneycompare.com/companies",
     },
@@ -39,9 +40,33 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
       </nav>
 
       <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
-      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
+      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
         {t("subheading")}
       </p>
+
+      {/* Editorial intro for SEO */}
+      <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
+        <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
+          How we review money transfer companies
+        </h2>
+        <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+          <p>
+            We independently review every money transfer provider listed on this page. Each review covers exchange rate transparency, fee structures, transfer speed, supported corridors, regulatory status, and real customer ratings from Trustpilot. Our goal is to help you find the right provider for your specific needs — whether you send money regularly or just once.
+          </p>
+          <p>
+            Providers are ranked by their overall Trustpilot rating, which reflects real customer experiences. We also compare their live exchange rates against the mid-market rate to show the true cost of each service. Some providers offer the best rates on specific corridors, while others excel at speed, cash pickup availability, or coverage in emerging markets.
+          </p>
+          <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] !mt-4">What we evaluate</h3>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Exchange rate markup vs. the mid-market rate</li>
+            <li>Fee transparency — flat fees, percentage-based, or hidden in the rate</li>
+            <li>Transfer speed — from instant to 3–5 business days</li>
+            <li>Coverage — number of countries and delivery methods supported</li>
+            <li>Regulation — FCA, FinCEN, ASIC, or equivalent licensing</li>
+            <li>Customer satisfaction — verified Trustpilot reviews and ratings</li>
+          </ul>
+        </div>
+      </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sorted.map((provider) => (
