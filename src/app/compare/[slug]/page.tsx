@@ -251,7 +251,7 @@ function ArticleComparison({
                       const winner =
                         amtA && amtB ? (amtA > amtB ? a.name : amtB > amtA ? b.name : "Tie") : "N/A";
                       const winnerColor =
-                        winner === a.name ? "text-[#137333]" : winner === b.name ? "text-[#137333]" : "text-[var(--color-on-surface-variant)]";
+                        winner === a.name ? "text-[var(--color-success-dark)]" : winner === b.name ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]";
 
                       return (
                         <tr key={c.label}>
@@ -261,10 +261,10 @@ function ArticleComparison({
                               ({c.from === "GBP" ? "£" : "$"}{c.amount.toLocaleString()})
                             </span>
                           </td>
-                          <td className={`px-4 py-2.5 text-right tabular-nums ${amtA && amtB && amtA >= amtB ? "font-medium text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+                          <td className={`px-4 py-2.5 text-right tabular-nums ${amtA && amtB && amtA >= amtB ? "font-medium text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                             {amtA ? `${c.symbol}${amtA.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "—"}
                           </td>
-                          <td className={`px-4 py-2.5 text-right tabular-nums ${amtA && amtB && amtB > amtA ? "font-medium text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+                          <td className={`px-4 py-2.5 text-right tabular-nums ${amtA && amtB && amtB > amtA ? "font-medium text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                             {amtB ? `${c.symbol}${amtB.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "—"}
                           </td>
                           <td className={`px-4 py-2.5 text-right font-medium ${winnerColor}`}>
@@ -316,10 +316,10 @@ function ArticleComparison({
                 ].map((row) => (
                   <tr key={row.label}>
                     <td className="px-4 py-3 text-[14px] text-[var(--color-on-surface-variant)] font-medium">{row.label}</td>
-                    <td className={`px-4 py-3 text-[14px] ${row.w === "a" ? "font-medium text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+                    <td className={`px-4 py-3 text-[14px] ${row.w === "a" ? "font-medium text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                       {row.va}
                     </td>
-                    <td className={`px-4 py-3 text-[14px] ${row.w === "b" ? "font-medium text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+                    <td className={`px-4 py-3 text-[14px] ${row.w === "b" ? "font-medium text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                       {row.vb}
                     </td>
                   </tr>
@@ -344,7 +344,7 @@ function ArticleComparison({
                 Verdict: {a.name} or {b.name}?
               </h2>
               <div className="space-y-4 mb-6">
-                <div className="bg-[#e6f4ea] border border-[#137333]/20 rounded-xl p-5">
+                <div className="bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/20 rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
                       <Image
@@ -355,7 +355,7 @@ function ArticleComparison({
                         className="object-cover"
                       />
                     </div>
-                    <h3 className="text-[15px] font-medium text-[#137333]">
+                    <h3 className="text-[15px] font-medium text-[var(--color-success-dark)]">
                       Best for large transfers: {providers.find((p) => p.slug === article.verdict.largeTransfers.winner)?.name}
                     </h3>
                   </div>

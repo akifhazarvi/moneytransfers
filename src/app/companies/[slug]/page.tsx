@@ -246,7 +246,7 @@ function DetailedReview({
                     <ul className="space-y-2">
                       {group.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-[14px] text-[var(--color-on-surface-variant)]">
-                          <span className={`mt-0.5 shrink-0 ${group.heading.toLowerCase().includes("ideal") ? "text-[#137333]" : "text-[#c5221f]"}`}>
+                          <span className={`mt-0.5 shrink-0 ${group.heading.toLowerCase().includes("ideal") ? "text-[var(--color-success-dark)]" : "text-[#c5221f]"}`}>
                             {group.heading.toLowerCase().includes("ideal") ? "✓" : "✗"}
                           </span>
                           {item}

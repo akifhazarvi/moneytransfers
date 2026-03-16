@@ -235,10 +235,10 @@ export default async function CorridorPage({ params }: Props) {
                 return (
                   <div
                     key={q.providerSlug}
-                    className={`grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[#e6f4ea]/30" : ""}`}
+                    className={`grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface-dim)]" : ""}`}
                   >
                     {/* Rank */}
-                    <span className={`text-[13px] font-medium ${isBest ? "text-[#137333]" : "text-[var(--color-on-surface-variant)]"}`}>
+                    <span className={`text-[13px] font-medium ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                       {i + 1}
                     </span>
 
@@ -251,7 +251,7 @@ export default async function CorridorPage({ params }: Props) {
                         <p className="text-[13px] sm:text-[14px] font-medium text-[var(--color-on-surface)] truncate">
                           {name}
                           {isBest && (
-                            <span className="ml-1.5 text-[10px] text-[#137333] bg-[#e6f4ea] px-1.5 py-0.5 rounded font-medium">
+                            <span className="ml-1.5 text-[10px] text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
                               Best value
                             </span>
                           )}
@@ -278,7 +278,7 @@ export default async function CorridorPage({ params }: Props) {
                     </p>
 
                     {/* Amount received */}
-                    <p className={`text-[13px] sm:text-[14px] font-medium text-right tabular-nums ${isBest ? "text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+                    <p className={`text-[13px] sm:text-[14px] font-medium text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                       {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </p>
                   </div>
@@ -299,11 +299,11 @@ export default async function CorridorPage({ params }: Props) {
 
           {/* Savings callout */}
           {savings > 0 && (
-            <div className="mt-4 bg-[#e6f4ea] border border-[#137333]/20 rounded-lg px-5 py-4 flex items-start gap-3">
-              <svg className="w-5 h-5 text-[#137333] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="mt-4 bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/20 rounded-lg px-5 py-4 flex items-start gap-3">
+              <svg className="w-5 h-5 text-[var(--color-success-dark)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
-              <p className="text-[14px] text-[#137333]">
+              <p className="text-[14px] text-[var(--color-success-dark)]">
                 <strong>Potential savings:</strong> Choosing the best provider over the most expensive saves your recipient{" "}
                 <strong>
                   {receiveSymbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -354,7 +354,7 @@ export default async function CorridorPage({ params }: Props) {
                 </div>
                 <div className="bg-[var(--color-surface-dim)] rounded-lg p-3">
                   <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide">Recipient gets</p>
-                  <p className="text-[16px] font-medium text-[#137333] mt-1">
+                  <p className="text-[16px] font-medium text-[var(--color-success-dark)] mt-1">
                     {receiveSymbol}{best.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
                 </div>
@@ -481,9 +481,9 @@ export default async function CorridorPage({ params }: Props) {
                         {exQuotes.map((q, i) => (
                           <div
                             key={q.providerSlug}
-                            className={`grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 items-center px-4 sm:px-5 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[#e6f4ea]/30" : ""}`}
+                            className={`grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 items-center px-4 sm:px-5 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
                           >
-                            <span className={`text-[13px] font-medium truncate ${i === 0 ? "text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+                            <span className={`text-[13px] font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                               {getProviderName(q.providerSlug)}
                             </span>
                             <span className="text-[13px] text-[var(--color-on-surface)] text-right tabular-nums">
@@ -492,7 +492,7 @@ export default async function CorridorPage({ params }: Props) {
                             <span className="text-[13px] text-[var(--color-on-surface)] text-right tabular-nums">
                               {q.exchangeRate.toFixed(2)}
                             </span>
-                            <span className={`text-[13px] font-medium text-right tabular-nums ${i === 0 ? "text-[#137333]" : "text-[var(--color-on-surface)]"}`}>
+                            <span className={`text-[13px] font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                               {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                             </span>
                             <span className="text-[11px] text-[var(--color-on-surface-variant)] text-right">
