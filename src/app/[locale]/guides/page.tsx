@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/guides",
     },
+    keywords: "money transfer guides, how to send money abroad, international money transfer tips, cheapest way to send money internationally, exchange rate guide",
   };
 }
 
@@ -59,6 +60,16 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
             {cat}
           </span>
         ))}
+      </div>
+
+      {/* Editorial Introduction */}
+      <div className="mb-8 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">
+        <p>
+          Sending money internationally can be confusing — exchange rates fluctuate, fee structures vary between providers, and regulations differ by country. Our guides are written by researchers who track the money transfer industry daily, comparing real quotes from 16+ providers across 64+ currency corridors.
+        </p>
+        <p>
+          Whether you are sending a one-time payment or making regular transfers to family abroad, these guides cover everything from finding the cheapest provider for your specific route, to understanding hidden costs like exchange rate markups, to navigating compliance requirements for large transfers. Each guide includes up-to-date pricing data from our comparison engine.
+        </p>
       </div>
 
       {/* Featured Guide */}

@@ -83,58 +83,29 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
           </div>
         </noscript>
 
-        {/* Hidden SSR content for crawlers — rendered server-side, hidden visually once JS activates */}
-        <div className="sr-only">
-          <h2>Best money transfer providers for USD to INR — $1,000 comparison</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Provider</th>
-                <th>You Receive (INR)</th>
-                <th>Transfer Fee</th>
-                <th>Exchange Rate</th>
-                <th>Transfer Speed</th>
-                <th>Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              {defaultQuotes.map((q) => (
-                <tr key={q.providerSlug}>
-                  <td>{getProviderName(q.providerSlug)}</td>
-                  <td>{inrInfo.symbol}{q.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
-                  <td>{q.fee === 0 ? "Free" : `$${q.fee.toFixed(2)}`}</td>
-                  <td>1 USD = {q.exchangeRate.toFixed(4)} INR</td>
-                  <td>{q.transferSpeed}</td>
-                  <td>{q.rating}/5 — {q.ratingLabel}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <h2>How to compare money transfer services</h2>
-          <p>
-            When comparing international money transfer services, consider the total cost of your transfer — not just the fee.
-            Exchange rate markups can cost more than the advertised fee. The best provider depends on your corridor (the countries
-            you are sending between), transfer amount, speed requirements, and preferred payment method.
-          </p>
-          <h3>What we compare</h3>
-          <ul>
-            <li>Exchange rates — how close each provider is to the mid-market rate</li>
-            <li>Transfer fees — fixed fees and percentage-based charges</li>
-            <li>Transfer speed — from instant to 3-5 business days</li>
-            <li>Payment methods — bank transfer, debit card, credit card, Apple Pay</li>
-            <li>Delivery methods — bank deposit, cash pickup, mobile money</li>
-            <li>Trustpilot ratings and regulatory status</li>
-          </ul>
-
-          <h2>Providers we compare</h2>
-          <ul>
-            {providers.map((p) => (
-              <li key={p.slug}>
-                {p.name} — {p.description} Rating: {p.rating}/5 ({p.ratingLabel}). Founded {p.founded}, headquartered in {p.headquarters}.
-              </li>
-            ))}
-          </ul>
+        {/* Visible SEO content — methodology and provider overview */}
+        <div className="mt-8 mb-12 space-y-8">
+          <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
+            <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
+              How we compare money transfer services
+            </h2>
+            <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+              <p>
+                When comparing international money transfer services, consider the total cost of your transfer — not just the fee.
+                Exchange rate markups can cost more than the advertised fee. The best provider depends on your corridor (the countries
+                you are sending between), transfer amount, speed requirements, and preferred payment method.
+              </p>
+              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] !mt-4">What we compare</h3>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Exchange rates — how close each provider is to the mid-market rate</li>
+                <li>Transfer fees — fixed fees and percentage-based charges</li>
+                <li>Transfer speed — from instant to 3-5 business days</li>
+                <li>Payment methods — bank transfer, debit card, credit card, Apple Pay</li>
+                <li>Delivery methods — bank deposit, cash pickup, mobile money</li>
+                <li>Trustpilot ratings and regulatory status</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </Container>
     </div>

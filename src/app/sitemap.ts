@@ -9,8 +9,18 @@ import { getSwiftCountries } from "@/data/swift-codes";
 const SITE_URL = "https://sendmoneycompare.com";
 const LOCALES = ["en", "es", "fr"] as const;
 const EXCLUDED_CORRIDOR_SLUGS = new Set(["gbp-to-fjd"]);
-const EXCLUDED_IBAN_SLUGS = new Set(["andorra", "monaco"]);
-const EXCLUDED_SWIFT_SLUGS = new Set(["holy-see"]);
+
+const INDEXED_IBAN_SLUGS = new Set([
+  "united-kingdom", "germany", "france", "netherlands", "spain",
+  "italy", "denmark", "belgium", "austria", "ireland",
+  "portugal", "sweden", "switzerland", "poland", "norway",
+]);
+
+const INDEXED_SWIFT_SLUGS = new Set([
+  "united-kingdom", "united-states", "india", "pakistan", "germany",
+  "france", "netherlands", "united-arab-emirates", "canada", "australia",
+  "hong-kong", "singapore", "south-africa", "ireland", "new-zealand",
+]);
 
 function withAlternates(
   path: string,
@@ -114,7 +124,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
-    .filter((c) => c.slug && !EXCLUDED_IBAN_SLUGS.has(c.slug))
+    .filter((c) => c.slug && INDEXED_IBAN_SLUGS.has(c.slug))
     .map((c) =>
       withAlternates(`iban/${c.slug}`, {
         lastModified: now,
@@ -124,7 +134,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
 
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
-    .filter((c) => !EXCLUDED_SWIFT_SLUGS.has(c.slug))
+    .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
     .map((c) =>
     withAlternates(`swift-codes/${c.slug}`, {
       lastModified: now,

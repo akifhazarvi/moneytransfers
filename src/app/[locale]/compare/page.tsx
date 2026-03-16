@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/compare",
     },
+    keywords: "compare money transfer providers, money transfer comparison, cheapest way to send money abroad, international money transfer fees, exchange rate comparison",
   };
 }
 
@@ -61,6 +62,24 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
       <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
         {t("subheading")}
       </p>
+
+      {/* Editorial Introduction */}
+      <Card className="mb-8">
+        <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-3">
+          Why compare money transfer providers?
+        </h2>
+        <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+          <p>
+            International money transfers can vary dramatically in cost depending on which provider you choose. The difference between the cheapest and most expensive option on the same corridor can be 5-8% of the transfer amount — on a $1,000 transfer, that means $50-$80 more or less reaching your recipient.
+          </p>
+          <p>
+            The two main cost components are the <strong>transfer fee</strong> (a flat or percentage charge) and the <strong>exchange rate markup</strong> (the difference between what the provider charges and the real mid-market rate). Many providers advertise &quot;zero fees&quot; but compensate with a wider exchange rate markup. Our head-to-head comparisons break down both components so you can see the true total cost.
+          </p>
+          <p>
+            Speed and delivery options also matter. Some providers deliver to bank accounts in minutes via local payment rails (like UPI in India or SPEI in Mexico), while others take 2-3 business days through SWIFT. Cash pickup, mobile wallets, and airtime top-up are available on select corridors. Use our provider comparisons below to find the best match for your specific needs — whether that is the lowest cost, fastest delivery, or widest country coverage.
+          </p>
+        </div>
+      </Card>
 
       {/* Featured Comparison Table */}
       <div className="mb-12">

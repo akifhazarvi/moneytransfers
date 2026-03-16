@@ -13,6 +13,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: { canonical: "https://sendmoneycompare.com/news" },
+    keywords: "money transfer news, international payments news, remittance industry updates, exchange rate news, cross-border payments",
+    openGraph: {
+      title: t("heading"),
+      description: t("subheading"),
+      url: "https://sendmoneycompare.com/news",
+    },
   };
 }
 
@@ -48,6 +54,15 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           </h1>
           <p className="text-[14px] text-[var(--color-on-surface-variant)] max-w-2xl">
             {t("subheading")}
+          </p>
+        </div>
+
+        <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl mb-8">
+          <p>
+            The international money transfer industry is evolving rapidly — new regulations, provider launches, and technology shifts can directly affect how much you pay to send money abroad. We track the developments that matter most to consumers and businesses making cross-border payments.
+          </p>
+          <p>
+            From central bank policy changes that move exchange rates, to new instant payment mandates that speed up delivery times, to provider-specific updates on fees and coverage — our news coverage focuses on the practical impact for people who send money internationally.
           </p>
         </div>
 

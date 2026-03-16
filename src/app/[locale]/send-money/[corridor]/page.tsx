@@ -50,6 +50,132 @@ const corridorEditorialNotes: Record<
     warningBody:
       "Comparing only the upfront fee misses the real cost. On UK to India transfers, the provider with the lowest fee is often not the provider that delivers the most INR once FX markup is included.",
   },
+  "usa-to-india": {
+    title: "What matters on the USA to India corridor",
+    summary:
+      "USD to INR is the most competitive remittance corridor from the United States, with over a dozen providers fighting for market share. The sheer competition means savings vary significantly depending on transfer size, funding method, and how your recipient receives the money in India.",
+    bullets: [
+      "Providers using IMPS or UPI-linked rails can deliver INR to Indian bank accounts within minutes. If your recipient banks with HDFC, SBI, or ICICI, most major providers support instant credit — always confirm the delivery method before sending.",
+      "Exchange rate markup is where providers make their real margin. A provider advertising zero fees but marking up the mid-market rate by 1.5% costs more on a $1,000 transfer than one charging a $5 fee with a 0.3% markup. Always compare the total INR received, not just the fee.",
+      "Regular senders supporting family or paying tuition should compare subscription or loyalty pricing. Some providers like Remitly offer better rates for repeat transfers, which adds up over 12+ transfers per year.",
+      "ACH bank funding is almost always the cheapest option from the US. Debit and credit card funding adds $3–$10 in card processing fees that rarely justify the marginal speed improvement on this corridor.",
+    ],
+    warningTitle: "Watch out for first-transfer promotions",
+    warningBody:
+      "Many providers offer an inflated exchange rate or zero fees on your first transfer to win your business. Always check what the second transfer costs — the ongoing rate is what matters for regular senders.",
+  },
+  "usa-to-pakistan": {
+    title: "What matters on the USA to Pakistan corridor",
+    summary:
+      "Sending USD to Pakistan involves navigating State Bank of Pakistan (SBP) regulations and a currency that can move sharply. Cash pickup remains important here because a significant portion of recipients prefer collecting money in person rather than through bank transfers.",
+    bullets: [
+      "JazzCash and Easypaisa mobile wallets have become major payout options in Pakistan. If your recipient uses either service, you can often get same-day delivery at lower cost than traditional bank deposit or cash pickup.",
+      "PKR has experienced significant volatility in recent years. If you are sending a large amount, consider locking in the rate at the time of transfer rather than using providers that quote indicative rates and settle later.",
+      "Cash pickup through Western Union, MoneyGram, or Ria remains critical for recipients in smaller cities and rural areas where bank access is limited. Compare cash pickup fees separately — they are often higher than bank deposit fees.",
+      "SBP requires all inbound remittances to be converted at the official interbank rate. However, providers still differ in the margin they add on top, so the amount your recipient gets in PKR can vary by 2–3% across providers.",
+    ],
+    warningTitle: "Understand PKR conversion rules",
+    warningBody:
+      "Pakistan requires remittances to be paid out in PKR at the official rate. Some providers advertise attractive USD/PKR rates that include hidden margins. Always compare the final PKR amount your recipient will receive, not just the quoted exchange rate.",
+  },
+  "usa-to-mexico": {
+    title: "What matters on the USA to Mexico corridor",
+    summary:
+      "The USA to Mexico corridor is the largest remittance route in the world by volume, which means fierce competition and generally low fees. The key differentiator is delivery method — Mexico's SPEI instant payment network has transformed how quickly recipients can access funds.",
+    bullets: [
+      "SPEI (Mexico's real-time payment system) enables instant bank deposits to any Mexican bank account. Providers connected to SPEI can deliver pesos within minutes, making it the fastest and usually cheapest delivery option available.",
+      "Oxxo cash pickup is uniquely important on this corridor. With over 20,000 Oxxo convenience stores across Mexico, this option serves recipients who prefer cash or lack a bank account. Not all providers offer Oxxo — check availability if your recipient needs it.",
+      "The MXN/USD rate can swing 5–10% over a few months. If you send regularly, consider setting rate alerts and transferring when the peso weakens, as timing can save more than switching providers on this high-volume corridor.",
+      "ACH funding from a US bank account keeps costs lowest. Some providers charge $0 fees on this corridor when funded by ACH, making the exchange rate markup the only real cost to compare.",
+    ],
+    warningTitle: "Don't overlook SPEI delivery speed",
+    warningBody:
+      "Some providers still route Mexican bank deposits through slower SWIFT networks, taking 1–3 days. Always confirm your provider uses SPEI for bank deposits — the speed difference is dramatic and SPEI transfers are usually cheaper too.",
+  },
+  "usa-to-philippines": {
+    title: "What matters on the USA to Philippines corridor",
+    summary:
+      "The Philippines is one of the top remittance destinations globally, and Filipino recipients have more payout options than almost any other corridor. Mobile wallets, bank deposits, and an extensive cash pickup network mean you should choose your provider based on how your recipient prefers to collect money.",
+    bullets: [
+      "GCash and Maya (formerly PayMaya) mobile wallets are widely used in the Philippines and many providers now support direct wallet top-up. This is often the fastest delivery method — funds can arrive in minutes at lower fees than bank deposit.",
+      "For bank deposits, BPI and BDO are the most commonly supported banks. Some providers also support UnionBank, Metrobank, and Landbank. Confirm your recipient's bank is supported before initiating the transfer.",
+      "Cash pickup remains essential in the Philippines. Cebuana Lhuillier and M Lhuillier have thousands of branches nationwide, including in provincial areas. Western Union and MoneyGram also have extensive networks through partner locations.",
+      "Competition on this corridor is strong — Remitly, Wise, WorldRemit, and Xoom all compete aggressively. Rates can differ by 2–4% on a $500 transfer, so comparing before every send is worthwhile.",
+    ],
+    warningTitle: "Check payout network before choosing a provider",
+    warningBody:
+      "The cheapest provider is only useful if your recipient can actually collect the money. Verify that the provider supports your recipient's preferred bank, mobile wallet, or cash pickup location — especially outside Metro Manila.",
+  },
+  "uk-to-europe": {
+    title: "What matters on the UK to Europe corridor",
+    summary:
+      "Sending GBP to EUR is one of the most straightforward cross-border transfers thanks to the SEPA payment network, but post-Brexit changes mean costs vary more than you might expect. Digital-first providers like Wise and Revolut dominate this corridor on price.",
+    bullets: [
+      "SEPA (Single Euro Payments Area) transfers within Europe settle in hours and cost a fraction of SWIFT wires. Any provider routing your transfer via SEPA rather than SWIFT will be significantly cheaper and faster for EUR deliveries.",
+      "Post-Brexit, UK banks are no longer part of SEPA directly, but most specialist providers maintain SEPA access through European banking partners. This means you can still get SEPA-speed delivery without paying traditional international wire fees.",
+      "Wise and Revolut consistently offer the tightest GBP/EUR spreads on this corridor, often within 0.3–0.5% of the mid-market rate. Traditional banks typically charge 2–4% in hidden FX markup on top of their wire fees.",
+      "For regular payments like rent, mortgage, or salary splitting across the UK and Europe, consider providers offering recurring transfers or multi-currency accounts. The convenience savings on monthly payments add up quickly.",
+    ],
+    warningTitle: "Your UK bank is probably the most expensive option",
+    warningBody:
+      "UK high-street banks charge an average of 3–4% in combined fees and FX markup for GBP to EUR transfers. On a £1,000 transfer, that could mean £30–£40 in unnecessary costs compared to specialist providers.",
+  },
+  "canada-to-india": {
+    title: "What matters on the Canada to India corridor",
+    summary:
+      "CAD to INR is a growing corridor with increasing competition, though it has fewer provider options than the equivalent USA to India route. The good news is that Canadian-specific funding methods like Interac e-Transfer can reduce costs and speed up the process.",
+    bullets: [
+      "Interac e-Transfer funding is available with several providers and is usually faster than traditional bank wire from Canada. It also avoids the $15–$30 outgoing wire fee that Canadian banks typically charge for international transfers.",
+      "IMPS delivery to Indian bank accounts works the same regardless of sending country — your recipient at HDFC, SBI, ICICI, or any major Indian bank should receive funds within minutes once the provider processes your transfer.",
+      "The CAD to INR corridor has fewer providers than USD to INR, which means slightly less competition. However, Wise, Remitly, and WorldRemit all serve this route with competitive rates — comparing all three before each transfer is worth the extra minute.",
+      "If you previously sent via the USA corridor (perhaps through a USD account), compare directly. Some providers offer better CAD/INR rates than converting CAD to USD first and then sending USD to INR.",
+    ],
+    warningTitle: "Avoid the double-conversion trap",
+    warningBody:
+      "Some providers convert CAD to USD first, then USD to INR, taking a margin on each conversion. Look for providers that offer a direct CAD/INR rate — you will almost always receive more rupees with a single conversion.",
+  },
+  "australia-to-india": {
+    title: "What matters on the Australia to India corridor",
+    summary:
+      "AUD to INR is well-served by both global and Asia-Pacific specialist providers. Australian payment methods like POLi and PayID can make funding faster and cheaper, and the corridor benefits from strong competition between Instarem, Remitly, and Wise.",
+    bullets: [
+      "POLi and PayID funding options are available with several providers and offer near-instant bank transfers without the fees associated with credit or debit card payments. PayID in particular is fast and free at most Australian banks.",
+      "Instarem has a strong presence on this corridor as an Asia-Pacific specialist, often matching or beating Wise on the AUD/INR rate. Always include Instarem in your comparison — it is sometimes overlooked by senders who only check global brands.",
+      "Delivery to Indian banks via IMPS is standard on this corridor. Whether your recipient banks with SBI, HDFC, ICICI, Axis, or a smaller bank, most providers can credit their account within minutes of processing.",
+      "Transfer times from Australia can be affected by AEST/IST timezone differences. Transfers initiated during Australian business hours may process faster, as provider operations and banking cut-off times align better.",
+    ],
+    warningTitle: "Don't ignore Asia-Pacific specialists",
+    warningBody:
+      "Global providers are not always the cheapest on AUD corridors. Asia-Pacific specialists like Instarem and InstaReM often negotiate better AUD/INR rates due to regional banking relationships. Comparing at least one regional provider alongside global names can save 1–2%.",
+  },
+  "usa-to-nigeria": {
+    title: "What matters on the USA to Nigeria corridor",
+    summary:
+      "Sending USD to Nigeria requires understanding the NGN exchange rate landscape, which has undergone significant changes as the Central Bank of Nigeria (CBN) has reformed currency policies. The gap between official and parallel rates has narrowed, but provider rates can still vary significantly.",
+    bullets: [
+      "The CBN's currency reforms mean the official NGN rate is now closer to market rates than in previous years. However, providers still differ in the rate they offer — comparing the actual NGN your recipient receives is more important than ever on this corridor.",
+      "Bank deposit to Nigerian banks like GTBank, Access Bank, Zenith, and First Bank is the most common delivery method. Ensure your recipient's account number and bank are correct, as corrections after sending can be slow and costly.",
+      "Mobile money options are growing in Nigeria but are less established than in East Africa. Some providers support transfers to Paga or Opay wallets, which can be useful for recipients without traditional bank accounts.",
+      "This corridor has seen rapid growth and new providers entering the market. Smaller fintech providers sometimes offer significantly better rates than established names — but verify they are licensed and regulated before sending large amounts.",
+    ],
+    warningTitle: "Verify the NGN rate carefully",
+    warningBody:
+      "Nigeria's currency market has been volatile, and some providers update their NGN rates less frequently than others. Always check the rate at the moment of transfer, not the rate quoted hours earlier. A stale rate quote can mean your recipient receives significantly less than expected.",
+  },
+  "uk-to-pakistan": {
+    title: "What matters on the UK to Pakistan corridor",
+    summary:
+      "GBP to PKR is a major remittance corridor driven by one of the largest Pakistani diaspora communities in the world. The corridor shares many characteristics with USA to Pakistan, but UK-specific funding methods and regulatory considerations create important differences.",
+    bullets: [
+      "UK bank transfer (Faster Payments) funding is the cheapest way to initiate a transfer. Most providers accept Faster Payments, which settles within hours and avoids the card processing fees that add £2–£5 to each transfer.",
+      "JazzCash and Easypaisa mobile wallet delivery is available from UK providers and is growing rapidly. For recipients in urban Pakistan, mobile wallet top-up is often faster than bank deposit and avoids the need for a traditional bank account.",
+      "Cash pickup remains vital for recipients outside major cities. Western Union and MoneyGram have the widest agent networks in Pakistan, but Ria and smaller providers sometimes offer better GBP/PKR rates for cash collection.",
+      "The UK's FCA regulation means all providers on this corridor must be registered and meet strict compliance standards. This provides an extra layer of consumer protection compared to some other sending countries — always verify FCA registration before using a new provider.",
+    ],
+    warningTitle: "Factor in PKR volatility when timing transfers",
+    warningBody:
+      "The Pakistani rupee has been subject to significant swings. If you send regularly, tracking the GBP/PKR rate over a few days before transferring can help you catch better rates. Some providers offer rate alerts that notify you when GBP/PKR reaches a target level.",
+  },
 };
 
 const noindexCorridors = new Set(["gbp-to-fjd"]);
@@ -80,6 +206,76 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "Compare real-time USD to INR rates from 15+ providers. Find the cheapest and fastest way to send money from USA to India.",
     keywords:
       "send money USA to India, USD to INR, cheapest way to send money to India, money transfer India, remittance to India, USD INR exchange rate",
+  },
+  "usa-to-mexico": {
+    title: "Send Money from USA to Mexico — Compare USD to MXN Rates & Fees | SendMoneyCompare",
+    description:
+      "Find the cheapest way to send money from USA to Mexico in 2026. Compare real-time USD to MXN exchange rates, fees, and delivery speeds from Wise, Remitly, Xoom, Western Union, and more. SPEI instant deposits available.",
+    ogTitle: "Send Money USA to Mexico — Best USD to MXN Rates",
+    ogDescription:
+      "Compare USD to MXN rates from 15+ providers. Find the cheapest way to send money from USA to Mexico with SPEI instant delivery.",
+    keywords:
+      "send money USA to Mexico, USD to MXN, cheapest way to send money to Mexico, money transfer Mexico, remittance to Mexico, USD MXN exchange rate, SPEI transfer, Oxxo cash pickup",
+  },
+  "usa-to-philippines": {
+    title: "Send Money from USA to Philippines — Compare USD to PHP Rates | SendMoneyCompare",
+    description:
+      "Compare the cheapest ways to send money from USA to Philippines in 2026. Real-time USD to PHP rates, fees, and delivery options including GCash, bank deposit, and cash pickup from 15+ providers.",
+    ogTitle: "Send Money USA to Philippines — Best USD to PHP Rates",
+    ogDescription:
+      "Compare real-time USD to PHP rates from 15+ providers. Find the cheapest way to send money from USA to Philippines via GCash, bank, or cash pickup.",
+    keywords:
+      "send money USA to Philippines, USD to PHP, cheapest way to send money to Philippines, money transfer Philippines, remittance to Philippines, GCash transfer, USD PHP exchange rate",
+  },
+  "uk-to-europe": {
+    title: "Send Money from UK to Europe — Compare GBP to EUR Rates & Fees | SendMoneyCompare",
+    description:
+      "Compare the cheapest ways to send money from UK to Europe in 2026. Real-time GBP to EUR exchange rates, SEPA transfer fees, and delivery times from Wise, Revolut, and 10+ more providers.",
+    ogTitle: "Send Money UK to Europe — Best GBP to EUR Rates",
+    ogDescription:
+      "Compare GBP to EUR rates from 15+ providers. Find the cheapest SEPA transfer from UK to Europe with the lowest fees.",
+    keywords:
+      "send money UK to Europe, GBP to EUR, cheapest way to send money to Europe, SEPA transfer from UK, money transfer Europe, GBP EUR exchange rate, post-Brexit transfers",
+  },
+  "uk-to-india": {
+    title: "Send Money from UK to India — Compare GBP to INR Rates & Fees | SendMoneyCompare",
+    description:
+      "Compare the cheapest ways to send money from UK to India in 2026. Real-time GBP to INR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers. IMPS instant delivery available.",
+    ogTitle: "Send Money UK to India — Best GBP to INR Rates",
+    ogDescription:
+      "Compare real-time GBP to INR rates from 15+ providers. Find the cheapest and fastest way to send money from UK to India.",
+    keywords:
+      "send money UK to India, GBP to INR, cheapest way to send money to India from UK, money transfer India, remittance to India, GBP INR exchange rate, IMPS transfer",
+  },
+  "canada-to-india": {
+    title: "Send Money from Canada to India — Compare CAD to INR Rates | SendMoneyCompare",
+    description:
+      "Compare the cheapest ways to send money from Canada to India in 2026. Real-time CAD to INR exchange rates, fees, and delivery times from Wise, Remitly, WorldRemit, and more. Fund via Interac e-Transfer.",
+    ogTitle: "Send Money Canada to India — Best CAD to INR Rates",
+    ogDescription:
+      "Compare CAD to INR rates from 10+ providers. Find the cheapest way to send money from Canada to India with Interac funding.",
+    keywords:
+      "send money Canada to India, CAD to INR, cheapest way to send money to India from Canada, money transfer India, remittance to India, CAD INR exchange rate, Interac e-Transfer",
+  },
+  "australia-to-india": {
+    title: "Send Money from Australia to India — Compare AUD to INR Rates | SendMoneyCompare",
+    description:
+      "Compare the cheapest ways to send money from Australia to India in 2026. Real-time AUD to INR exchange rates, fees, and delivery times from Wise, Instarem, Remitly, and 10+ more providers.",
+    ogTitle: "Send Money Australia to India — Best AUD to INR Rates",
+    ogDescription:
+      "Compare AUD to INR rates from 10+ providers. Find the cheapest way to send money from Australia to India with PayID funding.",
+    keywords:
+      "send money Australia to India, AUD to INR, cheapest way to send money to India from Australia, money transfer India, remittance to India, AUD INR exchange rate, POLi transfer, PayID",
+  },
+  "usa-to-nigeria": {
+    title: "Send Money from USA to Nigeria — Compare USD to NGN Rates | SendMoneyCompare",
+    description:
+      "Compare the cheapest ways to send money from USA to Nigeria in 2026. Real-time USD to NGN exchange rates, fees, and delivery options from Wise, Remitly, WorldRemit, Western Union, and more.",
+    ogTitle: "Send Money USA to Nigeria — Best USD to NGN Rates",
+    ogDescription:
+      "Compare real-time USD to NGN rates from 10+ providers. Find the cheapest and fastest way to send money from USA to Nigeria.",
+    keywords:
+      "send money USA to Nigeria, USD to NGN, cheapest way to send money to Nigeria, money transfer Nigeria, remittance to Nigeria, USD NGN exchange rate, naira transfer",
   },
 };
 
