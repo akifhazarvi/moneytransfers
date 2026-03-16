@@ -13,6 +13,7 @@ const INDEXED_IBAN_SLUGS = new Set([
   "united-kingdom", "germany", "france", "netherlands", "spain",
   "italy", "denmark", "belgium", "austria", "ireland",
   "portugal", "sweden", "switzerland", "poland", "norway",
+  "pakistan",
 ]);
 
 const INDEXED_SWIFT_SLUGS = new Set([
@@ -63,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     withAlternates(`send-money/${c.slug}`, {
       lastModified: now,
       changeFrequency: "daily",
-      priority: c.isCurrencyCorridor ? 0.7 : 0.9,
+      priority: c.isCurrencyCorridor ? 0.7 : c.isCountryPage ? 0.85 : 0.9,
     })
   );
 

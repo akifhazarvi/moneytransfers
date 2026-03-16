@@ -5,6 +5,9 @@
  * plus country-specific copy used by the [corridor] page template.
  */
 
+import { countryPageContents } from "./country-page-content";
+import { countryPageContents2 } from "./country-page-content-2";
+
 export interface Corridor {
   slug: string;
   fromCountry: string;
@@ -27,6 +30,10 @@ export interface Corridor {
   faqs: { q: string; a: string }[];
   /** True for auto-generated currency-pair pages (usd-to-inr) vs editorial country pages (usa-to-india) */
   isCurrencyCorridor?: boolean;
+  /** True for country-focused pages (send-money-to-pakistan) — no specific "from" country */
+  isCountryPage?: boolean;
+  /** Key facts/highlights for country pages — rendered as a bullet list */
+  highlights?: string[];
 }
 
 export const corridors: Corridor[] = [
@@ -1273,7 +1280,7 @@ function generateCurrencyCorridors(): Corridor[] {
 
 // ── Auto-generated country-to-country corridors (programmatic SEO) ──
 
-interface CountryDef {
+export interface CountryDef {
   slug: string;
   name: string;
   flag: string;
@@ -1327,7 +1334,7 @@ const SEND_COUNTRIES: CountryDef[] = [
 ];
 
 /** Major remittance-receiving countries */
-const RECEIVE_COUNTRIES: CountryDef[] = [
+export const RECEIVE_COUNTRIES: CountryDef[] = [
   // South Asia
   { slug: "india", name: "India", flag: "🇮🇳", currency: "INR", demonym: "Indian", sampleAmount: 1000 },
   { slug: "pakistan", name: "Pakistan", flag: "🇵🇰", currency: "PKR", demonym: "Pakistani", sampleAmount: 1000 },
@@ -1473,11 +1480,77 @@ function generateCountryCorridors(): Corridor[] {
 const currencyCorridors = generateCurrencyCorridors();
 const countryCorridors = generateCountryCorridors();
 
-/** All corridors — editorial + country (programmatic) + currency-pair */
+/** All curated country page content (both halves merged) */
+const allCountryContent = { ...countryPageContents, ...countryPageContents2 };
+
+/** Generate /send-money/send-money-to-[country] pages — country-focused, no specific "from" */
+function generateCountryPages(): Corridor[] {
+  return RECEIVE_COUNTRIES.map((to) => {
+    const toCurr = currencies.find((c) => c.code === to.currency);
+    const curated = allCountryContent[to.slug];
+
+    // Use curated intro/FAQs when available, fall back to generic template
+    const intro = curated
+      ? curated.intro
+      : `Everything you need to know about sending money to ${to.name}. Compare top providers, see ${to.currency} exchange rates, understand recipient requirements, delivery methods, regulations, and find the cheapest way to transfer money to ${to.name}.`;
+
+    const context = curated
+      ? `${to.name} is a major remittance destination. Use our comparison to find the best ${to.currency} rate today.`
+      : `${to.name} is a major remittance destination. Whether you're supporting family, paying for services, or sending a gift, choosing the right provider can save you significantly. Banks typically charge 3–5% in hidden exchange rate markups, while specialist services offer rates much closer to the mid-market rate. Use our comparison to find the best deal today.`;
+
+    const faqs = curated
+      ? curated.faqs.map((f) => ({ q: f.question, a: f.answer }))
+      : [
+          {
+            q: `What is the cheapest way to send money to ${to.name}?`,
+            a: `The cheapest option depends on how much you're sending and where from. Specialist services like Wise, Remitly, and WorldRemit consistently offer rates 2–5% better than banks. Use our comparison tool to see today's best rates from all providers.`,
+          },
+          {
+            q: `How long does it take to send money to ${to.name}?`,
+            a: `Delivery times depend on the provider and method. Mobile wallets and cash pickup are often available within minutes. Bank deposits typically take 1–2 business days. Express options are available from most providers for a small premium.`,
+          },
+          {
+            q: `Is it safe to send money to ${to.name} online?`,
+            a: `Yes, all providers we compare are regulated by financial authorities (FCA, FinCEN, ASIC, etc.). Always use licensed providers and verify your recipient's details before sending.`,
+          },
+          {
+            q: `Can I send money to ${to.name} from my bank?`,
+            a: `Yes, but banks typically charge 3–5% in hidden exchange rate markups plus $25–50 wire fees. Specialist money transfer services almost always deliver more ${to.currency} for the same amount sent.`,
+          },
+          {
+            q: `What are the cheapest providers for sending money to ${to.name}?`,
+            a: `The best provider changes based on transfer amount and exchange rate fluctuations. Wise, Remitly, and WorldRemit are consistently competitive. Compare all providers above for today's best rate.`,
+          },
+        ];
+
+    return {
+      slug: `send-money-to-${to.slug}`,
+      fromCountry: "",
+      toCountry: to.name,
+      fromCurrency: "USD",
+      toCurrency: to.currency,
+      fromFlag: "",
+      toFlag: to.flag,
+      sampleAmount: 1000,
+      isCountryPage: true,
+      intro,
+      context,
+      highlights: curated?.highlights,
+      feesNote: `Transfer fees to ${to.name} vary by provider and how you pay. Specialist services charge ${toCurr?.symbol || "$"}0–10 per transfer, while banks charge $25–50 plus a 2–5% exchange rate markup. The exchange rate markup is usually the bigger cost — always compare the total ${to.currency} your recipient receives.`,
+      deliveryNote: `Most transfers to ${to.name} arrive within 1–2 business days with specialist providers. Mobile wallet and cash pickup options are often available within minutes. Bank deposits typically take 1–3 business days.`,
+      faqs,
+    };
+  });
+}
+
+const countryPages = generateCountryPages();
+
+/** All corridors — editorial + country (programmatic) + currency-pair + country pages */
 export const allCorridors: Corridor[] = [
   ...corridors,
   ...countryCorridors,
   ...currencyCorridors,
+  ...countryPages,
 ];
 
 /** Lookup corridor by URL slug */

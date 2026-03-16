@@ -19,6 +19,7 @@ import {
 } from "@/data/providers";
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
+import { getCountryDetails } from "@/data/corridor-details";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -288,19 +289,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const override = corridorSeoOverrides[slug];
   const isCurr = corridor.isCurrencyCorridor;
 
+  const isCountryPg = corridor.isCountryPage;
   const title = override?.title ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates & Low Fees | SendMoneyCompare`
-    : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates & Lowest Fees | SendMoneyCompare`);
+    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates & Low Fees`
+    : isCountryPg
+    ? `Send Money to ${corridor.toCountry} — Best ${corridor.toCurrency} Rates & Cheapest Providers`
+    : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates & Lowest Fees`);
   const description = override?.description ?? (isCurr
     ? `Compare real-time ${corridor.fromCurrency} to ${corridor.toCurrency} exchange rates from 15+ providers. Find the cheapest way to convert ${corridor.fromCurrency} to ${corridor.toCurrency} with the lowest fees.`
+    : isCountryPg
+    ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${corridor.toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${corridor.fromCurrency} to ${corridor.toCurrency}). ${corridor.intro.slice(0, 120)}`);
   const ogTitle = override?.ogTitle ?? (isCurr
     ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates`
+    : isCountryPg
+    ? `Send Money to ${corridor.toCountry} — Best ${corridor.toCurrency} Rates`
     : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates`);
   const ogDescription = override?.ogDescription ?? description;
   const keywords = override?.keywords ?? (isCurr
     ? `${corridor.fromCurrency} to ${corridor.toCurrency}, ${corridor.fromCurrency} ${corridor.toCurrency} exchange rate, convert ${corridor.fromCurrency} to ${corridor.toCurrency}, best ${corridor.fromCurrency} to ${corridor.toCurrency} rate`
-    : `send money ${corridor.fromCountry} to ${corridor.toCountry}, ${corridor.fromCurrency} to ${corridor.toCurrency}, cheapest way to send money to ${corridor.toCountry}, money transfer ${corridor.toCountry}`);
+    : isCountryPg
+    ? `send money to ${corridor.toCountry}, cheapest way to send money to ${corridor.toCountry}, how to send money to ${corridor.toCountry}, ${corridor.toCurrency} exchange rate, best remittance to ${corridor.toCountry}, international money transfer ${corridor.toCountry}, ${corridor.toCountry} bank transfer, ${corridor.toCurrency} rate today, money transfer to ${corridor.toCountry} online`
+    : `send money ${corridor.fromCountry} to ${corridor.toCountry}, ${corridor.fromCurrency} to ${corridor.toCurrency}, cheapest way to send money to ${corridor.toCountry}, money transfer ${corridor.toCountry}, how to send money to ${corridor.toCountry}, ${corridor.toCountry} bank transfer, ${corridor.toCurrency} exchange rate, remittance to ${corridor.toCountry}`);
 
   return {
     title,
@@ -334,7 +344,7 @@ export default async function CorridorPage({ params }: Props) {
   const corridor = getCorridor(slug);
   if (!corridor) notFound();
 
-  const { fromCurrency, toCurrency, sampleAmount, isCurrencyCorridor } = corridor;
+  const { fromCurrency, toCurrency, sampleAmount, isCurrencyCorridor, isCountryPage } = corridor;
   const quotes = generateQuotes(sampleAmount, fromCurrency, toCurrency);
   const midRate = getExchangeRate(fromCurrency, toCurrency);
   const sendSymbol = getCurrencySymbol(fromCurrency);
@@ -343,8 +353,10 @@ export default async function CorridorPage({ params }: Props) {
   // Display labels: currency corridors use "USD to INR" style, country corridors use "United States to India"
   const headingFrom = isCurrencyCorridor ? fromCurrency : corridor.fromCountry;
   const headingTo = isCurrencyCorridor ? toCurrency : corridor.toCountry;
-  const headingPrefix = isCurrencyCorridor ? "Convert" : "Send money from";
-  const headingSuffix = isCurrencyCorridor
+  const headingPrefix = isCountryPage ? "Send money to" : isCurrencyCorridor ? "Convert" : "Send money from";
+  const headingSuffix = isCountryPage
+    ? null
+    : isCurrencyCorridor
     ? null
     : `(${fromCurrency} → ${toCurrency})`;
 
@@ -352,6 +364,7 @@ export default async function CorridorPage({ params }: Props) {
   const worst = quotes[quotes.length - 1];
   const savings = best && worst ? best.receiveAmount - worst.receiveAmount : 0;
   const editorialNote = corridorEditorialNotes[slug];
+  const countryDetails = !isCurrencyCorridor ? getCountryDetails(corridor.toCountry, toCurrency) : null;
 
   // Group by speed for the delivery section
   const fastProviders = quotes.filter(
@@ -372,13 +385,13 @@ export default async function CorridorPage({ params }: Props) {
             <Link href="/send-money" className="hover:text-[var(--color-primary)]">Send Money</Link>
             <span>/</span>
             <span className="text-[var(--color-on-surface)]">
-              {headingFrom} to {headingTo}
+              {isCountryPage ? `Send Money to ${headingTo}` : `${headingFrom} to ${headingTo}`}
             </span>
           </div>
 
           <div className="max-w-3xl">
             <h1 className="text-[28px] md:text-[40px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
-              {headingPrefix} {headingFrom} to {headingTo}
+              {isCountryPage ? `${headingPrefix} ${headingTo}` : `${headingPrefix} ${headingFrom} to ${headingTo}`}
               {headingSuffix && (
                 <>
                   {" "}
@@ -415,7 +428,18 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl text-[14px] md:text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
             <p>{corridor.intro}</p>
-            <p>{corridor.context}</p>
+            {corridor.highlights && corridor.highlights.length > 0 ? (
+              <ul className="space-y-2 mt-3">
+                {corridor.highlights.map((h, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="mt-[3px] shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-[10px] font-bold flex items-center justify-center">✓</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>{corridor.context}</p>
+            )}
           </div>
         </Container>
       </section>
@@ -717,6 +741,82 @@ export default async function CorridorPage({ params }: Props) {
         );
       })()}
 
+      {/* ─── How to Send Money ─── */}
+      {countryDetails && (
+        <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+          <Container>
+            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              How to send money to {corridor.toCountry}
+            </h2>
+            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              Sending money to {corridor.toCountry} is straightforward with the right provider. Here&apos;s how it works in 3 simple steps.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[
+                { step: 1, title: "Enter your transfer details", description: `Choose how much ${fromCurrency} you want to send, compare providers above, and pick the one offering the best ${toCurrency} amount for your transfer to ${corridor.toCountry}.`, icon: "📝" },
+                { step: 2, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Most providers verify details instantly.`, icon: "👤" },
+                { step: 3, title: "Send & track your transfer", description: `Pay using bank transfer, debit card, or credit card. Track your money in real-time until it arrives${countryDetails.deliveryMethods[0] ? ` — ${countryDetails.deliveryMethods[0].method.toLowerCase()} typically takes ${countryDetails.deliveryMethods[0].speed.toLowerCase()}` : ""}.`, icon: "🚀" },
+              ].map((s) => (
+                <div key={s.step} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-[24px]">{s.icon}</span>
+                    <span className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-[13px] font-medium flex items-center justify-center">{s.step}</span>
+                  </div>
+                  <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-2">{s.title}</h3>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{s.description}</p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ─── What You Need (Recipient Requirements) ─── */}
+      {countryDetails && (
+        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+                What you need to send money to {corridor.toCountry}
+              </h2>
+              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+                Make sure you have these details from your recipient before starting your transfer.
+              </p>
+              <div className="space-y-3">
+                {countryDetails.recipientRequirements.map((req) => (
+                  <div key={req.label} className="flex items-start gap-3 bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-4">
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${req.required ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-outline)] text-[var(--color-on-surface-variant)]"}`}>
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2">
+                        <p className="text-[14px] font-medium text-[var(--color-on-surface)]">{req.label}</p>
+                        {!req.required && (
+                          <span className="text-[10px] font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)] px-1.5 py-0.5 rounded">Optional</span>
+                        )}
+                      </div>
+                      <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{req.description}</p>
+                      {req.example && (
+                        <p className="text-[12px] text-[var(--color-primary)] mt-1 font-mono">Example: {req.example}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {countryDetails.requirementsNote && (
+                <div className="mt-4 bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-lg px-5 py-4">
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <strong className="text-[var(--color-on-surface)]">Note:</strong> {countryDetails.requirementsNote}
+                  </p>
+                </div>
+              )}
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* ─── Transfer Examples ─── */}
       {(() => {
         const exampleAmounts = [500, 1000, 5000];
@@ -830,6 +930,115 @@ export default async function CorridorPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* ─── Ways to Send Money ─── */}
+      {countryDetails && (() => {
+        // Aggregate payment methods from providers serving this corridor
+        const paymentMethodMap = new Map<string, { speed: string; costLevel: "low" | "medium" | "high"; note: string }>();
+        const methodDefaults: Record<string, { speed: string; costLevel: "low" | "medium" | "high"; note: string }> = {
+          "Bank Transfer": { speed: "1–3 business days", costLevel: "low", note: "Usually the cheapest option — lowest fees and no card processing charges" },
+          "Debit Card": { speed: "Minutes to hours", costLevel: "medium", note: "Fast and convenient — small card processing fee applies" },
+          "Credit Card": { speed: "Minutes to hours", costLevel: "high", note: "Fastest option but highest fees — card issuer may charge cash advance fee" },
+          "Apple Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Convenient mobile payment — linked card fees apply" },
+          "Google Pay": { speed: "Minutes to hours", costLevel: "medium", note: "Convenient mobile payment — linked card fees apply" },
+          "Cash": { speed: "Varies", costLevel: "medium", note: "Pay cash at an agent location — available at select providers" },
+        };
+        quotes.forEach((q) => {
+          const p = providers.find((pr) => pr.slug === q.providerSlug);
+          p?.paymentMethods.forEach((m) => {
+            if (!paymentMethodMap.has(m) && methodDefaults[m]) {
+              paymentMethodMap.set(m, methodDefaults[m]);
+            }
+          });
+        });
+        const paymentMethods = Array.from(paymentMethodMap.entries());
+        if (paymentMethods.length === 0) return null;
+
+        const costColors = { low: "text-[var(--color-success-dark)] bg-[var(--color-success-surface)]", medium: "text-[#b45309] bg-[#fef3c7]", high: "text-[#dc2626] bg-[#fef2f2]" };
+        const costLabels = { low: "Low cost", medium: "Medium cost", high: "Higher cost" };
+
+        return (
+          <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+            <Container>
+              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+                Ways to send money to {corridor.toCountry}
+              </h2>
+              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+                Choose how you want to pay for your transfer. Each payment method has different costs and speeds.
+              </p>
+              {countryDetails.receivingNote && (
+                <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">{countryDetails.receivingNote}</p>
+              )}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {paymentMethods.map(([method, info]) => (
+                  <div key={method} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-[15px] font-medium text-[var(--color-on-surface)]">{method}</h3>
+                      <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${costColors[info.costLevel]}`}>
+                        {costLabels[info.costLevel]}
+                      </span>
+                    </div>
+                    <p className="text-[12px] text-[var(--color-on-surface-variant)] mb-2">
+                      <span className="font-medium text-[var(--color-on-surface)]">Speed:</span> {info.speed}
+                    </p>
+                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{info.note}</p>
+                  </div>
+                ))}
+              </div>
+            </Container>
+          </section>
+        );
+      })()}
+
+      {/* ─── How to Receive Money ─── */}
+      {countryDetails && countryDetails.deliveryMethods.length > 0 && (
+        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              How to receive money in {corridor.toCountry}
+            </h2>
+            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              Your recipient in {corridor.toCountry} can receive money through these delivery methods. The best option depends on their location and preferences.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {countryDetails.deliveryMethods.map((dm) => (
+                <div key={dm.method} className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[18px]">
+                      {dm.method.toLowerCase().includes("bank") ? "🏦" :
+                       dm.method.toLowerCase().includes("cash") ? "💵" :
+                       dm.method.toLowerCase().includes("wallet") || dm.method.toLowerCase().includes("pesa") || dm.method.toLowerCase().includes("jazz") || dm.method.toLowerCase().includes("gcash") || dm.method.toLowerCase().includes("easy") || dm.method.toLowerCase().includes("dana") || dm.method.toLowerCase().includes("ovo") || dm.method.toLowerCase().includes("pix") || dm.method.toLowerCase().includes("nequi") || dm.method.toLowerCase().includes("alipay") || dm.method.toLowerCase().includes("wechat") ? "📱" :
+                       dm.method.toLowerCase().includes("home") || dm.method.toLowerCase().includes("door") ? "🏠" :
+                       dm.method.toLowerCase().includes("sepa") ? "🇪🇺" :
+                       dm.method.toLowerCase().includes("airtime") ? "📶" :
+                       dm.method.toLowerCase().includes("faster") ? "⚡" : "💸"}
+                    </span>
+                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)]">{dm.method}</h3>
+                  </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
+                      {dm.speed}
+                    </span>
+                  </div>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">{dm.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {dm.providers.slice(0, 4).map((pSlug) => (
+                      <span key={pSlug} className="text-[11px] text-[var(--color-on-surface-variant)] bg-[var(--color-surface)] border border-[var(--color-outline)] px-2 py-0.5 rounded">
+                        {getProviderName(pSlug)}
+                      </span>
+                    ))}
+                    {dm.providers.length > 4 && (
+                      <span className="text-[11px] text-[var(--color-on-surface-variant)] px-1">
+                        +{dm.providers.length - 4} more
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ─── Bank & Broker Rates ─── */}
       {hasBankRates(fromCurrency, toCurrency) && (() => {
@@ -982,6 +1191,77 @@ export default async function CorridorPage({ params }: Props) {
         );
       })()}
 
+      {/* ─── Transfer Limits & Regulations ─── */}
+      {countryDetails && (
+        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+                Transfer limits &amp; regulations for {corridor.toCountry}
+              </h2>
+              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+                Important rules and requirements to know before sending money to {corridor.toCountry}.
+              </p>
+
+              <div className="space-y-5">
+                {countryDetails.regulations.regulatoryBody && (
+                  <div className="flex items-start gap-3">
+                    <span className="text-[18px] mt-0.5">🏛️</span>
+                    <div>
+                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Regulatory body</p>
+                      <p className="text-[13px] text-[var(--color-on-surface-variant)]">{countryDetails.regulations.regulatoryBody}</p>
+                    </div>
+                  </div>
+                )}
+
+                {countryDetails.regulations.inboundLimit && (
+                  <div className="flex items-start gap-3">
+                    <span className="text-[18px] mt-0.5">📊</span>
+                    <div>
+                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Inbound transfer limits</p>
+                      <p className="text-[13px] text-[var(--color-on-surface-variant)]">{countryDetails.regulations.inboundLimit}</p>
+                    </div>
+                  </div>
+                )}
+
+                {countryDetails.regulations.documentationNeeded.length > 0 && (
+                  <div>
+                    <div className="flex items-start gap-3 mb-3">
+                      <span className="text-[18px] mt-0.5">📋</span>
+                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Documentation you may need</p>
+                    </div>
+                    <ul className="space-y-2 pl-9">
+                      {countryDetails.regulations.documentationNeeded.map((doc) => (
+                        <li key={doc} className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-[var(--color-primary)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{doc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {countryDetails.regulations.importantNotes.length > 0 && (
+                  <div className="bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-xl p-5 mt-4">
+                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-3">Important things to know</h3>
+                    <ul className="space-y-2">
+                      {countryDetails.regulations.importantNotes.map((note) => (
+                        <li key={note} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-1.5" />
+                          <span className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{note}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* ─── Delivery Times ─── */}
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
@@ -1032,6 +1312,37 @@ export default async function CorridorPage({ params }: Props) {
         </Container>
       </section>
 
+      {/* ─── Popular Banks ─── */}
+      {countryDetails && countryDetails.popularBanks.length > 0 && (
+        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+                Popular banks in {corridor.toCountry}
+              </h2>
+              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+                These are the most commonly used banks for receiving international transfers in {corridor.toCountry}.
+              </p>
+              <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
+                {/* Table header */}
+                <div className="grid grid-cols-[1fr_140px_1fr] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                  <span>Bank</span>
+                  <span>SWIFT/BIC</span>
+                  <span className="hidden sm:block">Notes</span>
+                </div>
+                {countryDetails.popularBanks.map((bank) => (
+                  <div key={bank.name} className="grid grid-cols-[1fr_140px_1fr] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)]">
+                    <p className="text-[13px] font-medium text-[var(--color-on-surface)]">{bank.name}</p>
+                    <p className="text-[12px] font-mono text-[var(--color-on-surface-variant)]">{bank.swiftCode || "—"}</p>
+                    <p className="text-[12px] text-[var(--color-on-surface-variant)] hidden sm:block">{bank.notes || "—"}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* ─── FAQ ─── */}
       <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
@@ -1060,6 +1371,41 @@ export default async function CorridorPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* ─── Send from Specific Countries (country pages only) ─── */}
+      {isCountryPage && (() => {
+        const relatedCorridors = allCorridors
+          .filter((c) => !c.isCurrencyCorridor && !c.isCountryPage && c.toCountry === corridor.toCountry)
+          .slice(0, 8);
+        if (relatedCorridors.length === 0) return null;
+        return (
+          <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+            <Container>
+              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+                Send money to {corridor.toCountry} from these countries
+              </h2>
+              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+                Compare providers for your specific sending country to get the most accurate rates and fees.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                {relatedCorridors.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/send-money/${c.slug}`}
+                    className="flex items-center gap-3 bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-4 hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors"
+                  >
+                    <CircleFlag code={c.fromCurrency} size={24} />
+                    <div>
+                      <p className="text-[13px] font-medium text-[var(--color-on-surface)]">{c.fromCountry}</p>
+                      <p className="text-[11px] text-[var(--color-on-surface-variant)]">{c.fromCurrency} → {toCurrency}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </Container>
+          </section>
+        );
+      })()}
 
       {/* ─── Cross-links ─── */}
       <CrossLinks
@@ -1186,6 +1532,45 @@ export default async function CorridorPage({ params }: Props) {
                 price: q.fee,
                 priceCurrency: fromCurrency,
                 description: `Exchange rate: ${q.exchangeRate.toFixed(4)}, Recipient gets: ${receiveSymbol}${q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, Speed: ${q.transferSpeed}`,
+              })),
+            }),
+          }}
+        />
+      )}
+      {/* HowTo structured data for country corridors */}
+      {countryDetails && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              name: `How to Send Money to ${corridor.toCountry}`,
+              description: `Step-by-step guide to sending money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency})`,
+              totalTime: "PT10M",
+              step: [
+                {
+                  "@type": "HowToStep",
+                  position: 1,
+                  name: "Compare providers and enter transfer details",
+                  text: `Choose how much ${fromCurrency} you want to send to ${corridor.toCountry}. Compare exchange rates and fees from multiple providers to find the best deal for ${fromCurrency} to ${toCurrency}.`,
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 2,
+                  name: "Add your recipient's details",
+                  text: `Enter your recipient's information in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` including their ${countryDetails.recipientRequirements[1].label}` : ""}. Choose your preferred delivery method.`,
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 3,
+                  name: "Send and track your transfer",
+                  text: `Pay using bank transfer, debit card, or credit card. Track your transfer in real-time until your recipient receives the ${toCurrency} in ${corridor.toCountry}.`,
+                },
+              ],
+              tool: countryDetails.regulations.documentationNeeded.map((doc) => ({
+                "@type": "HowToTool",
+                name: doc,
               })),
             }),
           }}
