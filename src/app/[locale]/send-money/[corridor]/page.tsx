@@ -1407,6 +1407,39 @@ export default async function CorridorPage({ params }: Props) {
         );
       })()}
 
+      {/* ─── Country guide banner (shown on corridor pages, links to country hub) ─── */}
+      {!isCountryPage && !isCurrencyCorridor && (() => {
+        const countrySlug = corridor.toCountry
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/[^a-z0-9-]/g, "");
+        const countryPageSlug = `send-money-to-${countrySlug}`;
+        const countryPageExists = allCorridors.some((c) => c.slug === countryPageSlug);
+        if (!countryPageExists) return null;
+        return (
+          <section className="py-6 bg-[var(--color-primary-surface)] border-t border-[var(--color-outline)]">
+            <Container>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 max-w-3xl">
+                <div>
+                  <p className="text-[14px] font-medium text-[var(--color-on-surface)]">
+                    Everything about sending money to {corridor.toCountry}
+                  </p>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
+                    Recipient requirements, delivery methods, regulations, popular banks, and more.
+                  </p>
+                </div>
+                <Link
+                  href={`/send-money/${countryPageSlug}`}
+                  className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--color-primary)] text-white text-[13px] font-medium hover:opacity-90 transition-opacity"
+                >
+                  {corridor.toFlag} {corridor.toCountry} guide →
+                </Link>
+              </div>
+            </Container>
+          </section>
+        );
+      })()}
+
       {/* ─── Cross-links ─── */}
       <CrossLinks
         background="white"

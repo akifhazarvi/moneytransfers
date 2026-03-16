@@ -1,9 +1,88 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/Container";
 import SendMoneyClient from "@/components/SendMoneyClient";
 import CircleFlag from "@/components/CircleFlag";
 import { generateQuotes, providers, currencies, getProviderName } from "@/data/providers";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+
+const DESTINATION_REGIONS = [
+  {
+    region: "South Asia",
+    destinations: [
+      { name: "India", slug: "india", flag: "🇮🇳", currency: "INR" },
+      { name: "Pakistan", slug: "pakistan", flag: "🇵🇰", currency: "PKR" },
+      { name: "Bangladesh", slug: "bangladesh", flag: "🇧🇩", currency: "BDT" },
+      { name: "Nepal", slug: "nepal", flag: "🇳🇵", currency: "NPR" },
+      { name: "Sri Lanka", slug: "sri-lanka", flag: "🇱🇰", currency: "LKR" },
+    ],
+  },
+  {
+    region: "Southeast Asia",
+    destinations: [
+      { name: "Philippines", slug: "philippines", flag: "🇵🇭", currency: "PHP" },
+      { name: "Vietnam", slug: "vietnam", flag: "🇻🇳", currency: "VND" },
+      { name: "Indonesia", slug: "indonesia", flag: "🇮🇩", currency: "IDR" },
+      { name: "Thailand", slug: "thailand", flag: "🇹🇭", currency: "THB" },
+      { name: "Malaysia", slug: "malaysia", flag: "🇲🇾", currency: "MYR" },
+    ],
+  },
+  {
+    region: "East Asia",
+    destinations: [
+      { name: "China", slug: "china", flag: "🇨🇳", currency: "CNY" },
+      { name: "Japan", slug: "japan", flag: "🇯🇵", currency: "JPY" },
+      { name: "Taiwan", slug: "taiwan", flag: "🇹🇼", currency: "TWD" },
+    ],
+  },
+  {
+    region: "Latin America",
+    destinations: [
+      { name: "Mexico", slug: "mexico", flag: "🇲🇽", currency: "MXN" },
+      { name: "Brazil", slug: "brazil", flag: "🇧🇷", currency: "BRL" },
+      { name: "Colombia", slug: "colombia", flag: "🇨🇴", currency: "COP" },
+      { name: "Peru", slug: "peru", flag: "🇵🇪", currency: "PEN" },
+      { name: "Guatemala", slug: "guatemala", flag: "🇬🇹", currency: "GTQ" },
+      { name: "Dominican Republic", slug: "dominican-republic", flag: "🇩🇴", currency: "DOP" },
+      { name: "Jamaica", slug: "jamaica", flag: "🇯🇲", currency: "JMD" },
+    ],
+  },
+  {
+    region: "Africa",
+    destinations: [
+      { name: "Nigeria", slug: "nigeria", flag: "🇳🇬", currency: "NGN" },
+      { name: "Kenya", slug: "kenya", flag: "🇰🇪", currency: "KES" },
+      { name: "Ghana", slug: "ghana", flag: "🇬🇭", currency: "GHS" },
+      { name: "South Africa", slug: "south-africa", flag: "🇿🇦", currency: "ZAR" },
+      { name: "Egypt", slug: "egypt", flag: "🇪🇬", currency: "EGP" },
+      { name: "Morocco", slug: "morocco", flag: "🇲🇦", currency: "MAD" },
+      { name: "Ethiopia", slug: "ethiopia", flag: "🇪🇹", currency: "ETB" },
+      { name: "Uganda", slug: "uganda", flag: "🇺🇬", currency: "UGX" },
+      { name: "Tanzania", slug: "tanzania", flag: "🇹🇿", currency: "TZS" },
+      { name: "Senegal", slug: "senegal", flag: "🇸🇳", currency: "XOF" },
+      { name: "Rwanda", slug: "rwanda", flag: "🇷🇼", currency: "RWF" },
+      { name: "Zambia", slug: "zambia", flag: "🇿🇲", currency: "ZMW" },
+      { name: "Cameroon", slug: "cameroon", flag: "🇨🇲", currency: "XAF" },
+    ],
+  },
+  {
+    region: "Europe & Middle East",
+    destinations: [
+      { name: "Turkey", slug: "turkey", flag: "🇹🇷", currency: "TRY" },
+      { name: "Poland", slug: "poland", flag: "🇵🇱", currency: "PLN" },
+      { name: "Romania", slug: "romania", flag: "🇷🇴", currency: "RON" },
+      { name: "Czech Republic", slug: "czech-republic", flag: "🇨🇿", currency: "CZK" },
+      { name: "Hungary", slug: "hungary", flag: "🇭🇺", currency: "HUF" },
+      { name: "Israel", slug: "israel", flag: "🇮🇱", currency: "ILS" },
+    ],
+  },
+  {
+    region: "Pacific",
+    destinations: [
+      { name: "Fiji", slug: "fiji", flag: "🇫🇯", currency: "FJD" },
+    ],
+  },
+];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -85,6 +164,38 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
 
         {/* Visible SEO content — methodology and provider overview */}
         <div className="mt-8 mb-12 space-y-8">
+          {/* Popular Destinations grid */}
+          <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
+            <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-1">
+              Send money to popular destinations
+            </h2>
+            <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+              Compare rates, fees, delivery times, recipient requirements, and local payment methods for every country.
+            </p>
+            <div className="space-y-6">
+              {DESTINATION_REGIONS.map((region) => (
+                <div key={region.region}>
+                  <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-3">
+                    {region.region}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {region.destinations.map((dest) => (
+                      <Link
+                        key={dest.slug}
+                        href={`/send-money/send-money-to-${dest.slug}`}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface-dim)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-[13px] text-[var(--color-on-surface-variant)] transition-colors"
+                      >
+                        <span>{dest.flag}</span>
+                        <span>{dest.name}</span>
+                        <span className="text-[11px] opacity-70">{dest.currency}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
             <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
               How we compare money transfer services

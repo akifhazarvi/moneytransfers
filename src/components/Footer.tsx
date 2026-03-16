@@ -2,70 +2,96 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 
+type TranslatedLink = { href: string; labelKey: string };
+type StaticLink = { href: string; label: string };
+type FooterLink = TranslatedLink | StaticLink;
+
+function isStatic(l: FooterLink): l is StaticLink {
+  return "label" in l;
+}
+
 export default function Footer() {
   const t = useTranslations("footer");
 
-  const footerSections = [
+  const translatedSections: { titleKey: string; links: TranslatedLink[] }[] = [
     {
-      titleKey: "products" as const,
+      titleKey: "products",
       links: [
-        { href: "/send-money", labelKey: "sendMoney" as const },
-        { href: "/compare", labelKey: "compareProviders" as const },
-        { href: "/currency-converter", labelKey: "currencyConverter" as const },
-        { href: "/companies", labelKey: "allReviews" as const },
+        { href: "/send-money", labelKey: "sendMoney" },
+        { href: "/compare", labelKey: "compareProviders" },
+        { href: "/currency-converter", labelKey: "currencyConverter" },
+        { href: "/companies", labelKey: "allReviews" },
       ],
     },
     {
-      titleKey: "popularRoutes" as const,
+      titleKey: "popularRoutes",
       links: [
-        { href: "/send-money/usa-to-india", labelKey: "usaToIndia" as const },
-        { href: "/send-money/uk-to-europe", labelKey: "ukToEurope" as const },
-        { href: "/send-money/usa-to-philippines", labelKey: "usaToPhilippines" as const },
-        { href: "/send-money/usa-to-mexico", labelKey: "usaToMexico" as const },
-        { href: "/send-money/usa-to-pakistan", labelKey: "usaToPakistan" as const },
-        { href: "/send-money/usa-to-nigeria", labelKey: "usaToNigeria" as const },
+        { href: "/send-money/usa-to-india", labelKey: "usaToIndia" },
+        { href: "/send-money/uk-to-europe", labelKey: "ukToEurope" },
+        { href: "/send-money/usa-to-philippines", labelKey: "usaToPhilippines" },
+        { href: "/send-money/usa-to-mexico", labelKey: "usaToMexico" },
+        { href: "/send-money/usa-to-pakistan", labelKey: "usaToPakistan" },
+        { href: "/send-money/usa-to-nigeria", labelKey: "usaToNigeria" },
       ],
     },
     {
-      titleKey: "topProviders" as const,
+      titleKey: "topProviders",
       links: [
-        { href: "/companies/wise", labelKey: "wiseReview" as const },
-        { href: "/companies/remitly", labelKey: "remitlyReview" as const },
-        { href: "/companies/ofx", labelKey: "ofxReview" as const },
-        { href: "/companies/xe", labelKey: "xeReview" as const },
+        { href: "/companies/wise", labelKey: "wiseReview" },
+        { href: "/companies/remitly", labelKey: "remitlyReview" },
+        { href: "/companies/ofx", labelKey: "ofxReview" },
+        { href: "/companies/xe", labelKey: "xeReview" },
       ],
     },
     {
-      titleKey: "company" as const,
+      titleKey: "company",
       links: [
-        { href: "/about", labelKey: "aboutLink" as const },
-        { href: "/contact", labelKey: "contactLink" as const },
-        { href: "/editorial-policy", labelKey: "editorialLink" as const },
-        { href: "/methodology", labelKey: "methodologyLink" as const },
-        { href: "/privacy-policy", labelKey: "privacyLink" as const },
-        { href: "/terms", labelKey: "termsLink" as const },
-        { href: "/cookies", labelKey: "cookiesLink" as const },
-        { href: "/disclaimer", labelKey: "disclaimerLink" as const },
+        { href: "/about", labelKey: "aboutLink" },
+        { href: "/contact", labelKey: "contactLink" },
+        { href: "/editorial-policy", labelKey: "editorialLink" },
+        { href: "/methodology", labelKey: "methodologyLink" },
+        { href: "/privacy-policy", labelKey: "privacyLink" },
+        { href: "/terms", labelKey: "termsLink" },
+        { href: "/cookies", labelKey: "cookiesLink" },
+        { href: "/disclaimer", labelKey: "disclaimerLink" },
       ],
     },
     {
-      titleKey: "resources" as const,
+      titleKey: "resources",
       links: [
-        { href: "/guides", labelKey: "guidesLink" as const },
-        { href: "/news", labelKey: "newsLink" as const },
-        { href: "/iban", labelKey: "ibanLink" as const },
-        { href: "/swift-codes", labelKey: "swiftLink" as const },
-        { href: "/exchange-rates", labelKey: "exchangeRatesLink" as const },
-        { href: "/guides/how-euribor-affects-euro-transfers", labelKey: "euriborGuideLink" as const },
+        { href: "/guides", labelKey: "guidesLink" },
+        { href: "/news", labelKey: "newsLink" },
+        { href: "/iban", labelKey: "ibanLink" },
+        { href: "/swift-codes", labelKey: "swiftLink" },
+        { href: "/exchange-rates", labelKey: "exchangeRatesLink" },
+        { href: "/guides/how-euribor-affects-euro-transfers", labelKey: "euriborGuideLink" },
       ],
     },
   ];
 
+  // Static "Send Money To" section — no translation keys needed
+  const sendMoneyToSection: { title: string; links: StaticLink[] } = {
+    title: "Send Money To",
+    links: [
+      { href: "/send-money/send-money-to-india", label: "Send Money to India" },
+      { href: "/send-money/send-money-to-pakistan", label: "Send Money to Pakistan" },
+      { href: "/send-money/send-money-to-philippines", label: "Send Money to Philippines" },
+      { href: "/send-money/send-money-to-mexico", label: "Send Money to Mexico" },
+      { href: "/send-money/send-money-to-nigeria", label: "Send Money to Nigeria" },
+      { href: "/send-money/send-money-to-bangladesh", label: "Send Money to Bangladesh" },
+      { href: "/send-money/send-money-to-kenya", label: "Send Money to Kenya" },
+      { href: "/send-money/send-money-to-brazil", label: "Send Money to Brazil" },
+      { href: "/send-money/send-money-to-ghana", label: "Send Money to Ghana" },
+      { href: "/send-money/send-money-to-nepal", label: "Send Money to Nepal" },
+    ],
+  };
+
   return (
     <footer className="bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
       <Container className="py-12">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-12">
-          {footerSections.map((section) => (
+        {/* Main link grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-8">
+          {translatedSections.map((section) => (
             <div key={section.titleKey}>
               <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
                 {t(section.titleKey)}
@@ -84,6 +110,25 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Send Money To destinations row */}
+        <div className="border-t border-[var(--color-outline)] pt-8 mb-8">
+          <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
+            {sendMoneyToSection.title}
+          </h3>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {sendMoneyToSection.links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[14px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="border-t border-[var(--color-outline)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
