@@ -134,6 +134,8 @@ async function scrapeCorridorAmount(
   amount: number
 ): Promise<ProviderQuote | null> {
   const page = await context.newPage();
+  // Set a hard per-page timeout to prevent indefinite hangs
+  page.setDefaultTimeout(45000);
   let capturedQuote: ProviderQuote | null = null;
 
   try {
@@ -142,7 +144,7 @@ async function scrapeCorridorAmount(
       const url = response.url();
       if (
         url.includes("/prices/catalog") ||
-        url.includes("/wuconnect/") && (url.includes("price") || url.includes("rate"))
+        (url.includes("/wuconnect/") && (url.includes("price") || url.includes("rate")))
       ) {
         try {
           const ct = response.headers()["content-type"] || "";
@@ -165,7 +167,8 @@ async function scrapeCorridorAmount(
       }
     });
 
-    // Navigate to the send money page (WU is slow, use longer timeout)
+    // Always use the US site — it supports all send currencies via the
+    // currency selector on the page, and we know its selectors work reliably.
     const url = `https://www.westernunion.com/us/en/web/send-money/start`;
     await page.goto(url, {
       waitUntil: "domcontentloaded",
@@ -241,8 +244,25 @@ async function scrapeCorridorAmount(
     console.log(`    ⚠ Browser error: ${(err as Error).message?.slice(0, 80)}`);
     return null;
   } finally {
-    await page.close();
+    await page.close().catch(() => {});
   }
+}
+
+/** Wrap a scrape attempt with an overall timeout to prevent indefinite hangs */
+function withTimeout<T>(
+  fn: () => Promise<T | null>,
+  ms: number
+): Promise<T | null> {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      console.log(`    ⚠ Timed out after ${ms / 1000}s`);
+      resolve(null);
+    }, ms);
+    fn().then(
+      (result) => { clearTimeout(timer); resolve(result); },
+      () => { clearTimeout(timer); resolve(null); }
+    );
+  });
 }
 
 async function main() {
@@ -269,7 +289,10 @@ async function main() {
           console.log(`  Scraping: ${corridor.from} → ${corridor.to} ($${amount})...`);
 
           const quote = await withRetry(
-            () => scrapeCorridorAmount(context, corridor, amount),
+            () => withTimeout(
+              () => scrapeCorridorAmount(context, corridor, amount),
+              90000 // 90s hard timeout per attempt
+            ),
             MAX_RETRIES
           );
 
@@ -291,7 +314,7 @@ async function main() {
         await jitteredDelay(5000);
       }
     } finally {
-      await context.browser()?.close();
+      await context.browser()?.close().catch(() => {});
     }
 
     // Save partial results after each corridor
