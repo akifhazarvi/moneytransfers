@@ -102,6 +102,8 @@ const SLUG_ALIASES: Record<string, string> = {
   "the-royal-bank-of-scotland": "rbs",
   "bank-of-america": "bank-of-america",
   "commonwealth-bank": "commonwealth-bank",
+  "lloyds-bank": "lloyds",
+  "bank-of-scotland": "lloyds",
 };
 
 function normalizeSlug(slug: string): string {
