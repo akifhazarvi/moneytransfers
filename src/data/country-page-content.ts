@@ -947,4 +947,419 @@ export const countryPageContents: Record<string, CountryPageContent> = {
       },
     ],
   },
+
+  uk: {
+    slug: "uk",
+    countryName: "United Kingdom",
+    currency: "GBP",
+    intro:
+      "The United Kingdom has one of the world's most advanced payment systems — Faster Payments delivers GBP transfers between banks in seconds, around the clock. Whether you're sending money to family, paying rent, or covering university fees, the UK's open banking infrastructure means you have more delivery options than almost anywhere else in the world.",
+    highlights: [
+      "Faster Payments Service (FPS) settles transfers between UK banks in under 10 seconds, 24/7/365. Most specialist providers use FPS for GBP delivery, meaning your recipient can access funds almost immediately.",
+      "UK bank accounts are identified by Sort Code (6 digits) + Account Number (8 digits). No IBAN is required for domestic transfers, though UK IBANs (GB format, 22 characters) are used for international SWIFT wires.",
+      "Major receiving banks: Barclays, Lloyds, HSBC UK, NatWest, Santander UK, and Monzo/Starling for digital-first recipients. All use FPS for instant credit.",
+      "The FCA (Financial Conduct Authority) regulates all UK money transfer services. Only use FCA-authorised providers — you can verify any firm on the FCA register at register.fca.org.uk.",
+      "The UK GBP is a major global reserve currency. Exchange rates are competitive, and most specialist providers offer within 0.3–0.8% of the mid-market rate on major corridors.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to the UK?",
+        answer:
+          "Wise consistently offers the best GBP exchange rate for international transfers, typically within 0.4% of the mid-market rate. For USD-to-GBP, OFX and CurrencyFair are also competitive for larger amounts. Remitly covers the UK for everyday transfers. GBP is a highly liquid currency, so rate spreads tend to be lower than for emerging market currencies.",
+      },
+      {
+        question: "How long does a transfer to the UK take?",
+        answer:
+          "Wise and Remitly typically deliver to UK bank accounts within a few hours. Once the SWIFT or local payment leg completes, Faster Payments credits the recipient's account within seconds. Transfers sent during business hours often arrive the same day. Traditional SWIFT wires from non-specialist banks take 1–3 business days.",
+      },
+      {
+        question: "What bank details do I need to send money to the UK?",
+        answer:
+          "For transfers via specialist providers, you need the recipient's Sort Code (6-digit, format: 00-00-00) and Account Number (8 digits). For international SWIFT wires, you need the UK IBAN (e.g. GB29NWBK60161331926819 — 22 characters starting with GB) and the bank's BIC/SWIFT code. Most UK banks show the IBAN in their mobile app under 'account details'.",
+      },
+      {
+        question: "Can I send money to a Monzo, Starling, or Revolut account in the UK?",
+        answer:
+          "Yes. Monzo, Starling, and Revolut UK accounts have standard Sort Codes and Account Numbers and receive Faster Payments like any traditional bank. Wise transfers work seamlessly to these accounts. Revolut UK has Sort Code 04-00-75, Monzo uses 04-00-04, and Starling uses 60-83-71.",
+      },
+      {
+        question: "Is there a limit on how much I can send to the UK?",
+        answer:
+          "The UK has no cap on inbound personal remittances. Faster Payments has a per-transaction limit of £1,000,000 for bank-to-bank transfers. Specialist providers have their own limits — Wise allows up to £1M per transaction with full KYC. Transfers above £10,000 equivalent may trigger AML reporting at the sender's end. UK banks do not tax inbound transfers.",
+      },
+      {
+        question: "Do I pay tax on money sent to me in the UK?",
+        answer:
+          "Gifts received from abroad are generally not taxable in the UK — there is no gift tax. However, if you are a UK tax resident and receive income from abroad (e.g. salary, business income, rental income), it may be subject to UK income tax depending on your domicile status and the remittance basis. Family support payments and gifts are exempt. Consult HMRC guidance or a UK tax advisor for your specific situation.",
+      },
+    ],
+  },
+
+  australia: {
+    slug: "australia",
+    countryName: "Australia",
+    currency: "AUD",
+    intro:
+      "Australia has one of the highest costs of living in the world, making it a significant destination for family support transfers and expat financial flows. With PayID (instant payments linked to a mobile number or email) and the NPP (New Payments Platform) enabling 24/7 real-time transfers, receiving money in Australia has never been more seamless. The AUD is a major traded currency with competitive rates across providers.",
+    highlights: [
+      "PayID is Australia's instant payment alias system — any Australian bank account can be linked to a mobile number, email, or ABN. Many providers now deliver directly to a PayID, eliminating the need to share BSB and account numbers.",
+      "The NPP (New Payments Platform) processes Osko payments between Australian banks in under a minute, 24/7. Once international funds reach any Australian bank, Osko moves them to the final account near-instantly.",
+      "Australian bank accounts use BSB (Bank-State-Branch, 6 digits) + Account Number (6–10 digits). No IBAN is used domestically. For international SWIFT wires, a SWIFT code is required.",
+      "Major receiving banks: Commonwealth Bank (CBA), Westpac, ANZ, NAB, and Macquarie Bank all have competitive international wire processing and full PayID integration.",
+      "APRA (Australian Prudential Regulation Authority) and ASIC regulate financial services. Specialist providers authorised by AUSTRAC are compliant and safe for international transfers.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Australia?",
+        answer:
+          "Wise offers the best AUD exchange rates for most corridors, typically within 0.5% of the mid-market rate. For USD-to-AUD, OFX is also competitive — particularly for amounts above $5,000. Remitly covers Australia for everyday amounts. AUD is a liquid major currency, so the rate difference between providers (typically 0.5–2%) is narrower than for emerging market currencies.",
+      },
+      {
+        question: "How long does a transfer to Australia take?",
+        answer:
+          "Wise typically delivers to Australian bank accounts within a few hours. Once cleared via SWIFT, Osko/NPP credits the recipient in under a minute. Standard SWIFT wires from traditional banks take 1–3 business days. PayID-enabled transfers arrive in near real time once the international leg is complete.",
+      },
+      {
+        question: "What bank details do I need to send money to Australia?",
+        answer:
+          "You need the recipient's BSB (6-digit Bank-State-Branch code) and Account Number. For PayID delivery, just the registered mobile number, email, or ABN. For SWIFT wires, the bank's SWIFT code is also needed: CBA (CTBAAU2S), Westpac (WPACAU2S), ANZ (ANZBAU3M), NAB (NATAAU3303). Australia does not use IBAN.",
+      },
+      {
+        question: "What is PayID and how does it help receiving transfers in Australia?",
+        answer:
+          "PayID is a payment alias introduced by the Australian Banking Association. You register your mobile number, email, or ABN with your bank and link it to your account. When someone sends money to your PayID, it routes to your linked account within seconds via Osko. Several international providers now deliver to a PayID directly, making it the fastest and simplest receiving method.",
+      },
+      {
+        question: "Are there taxes on money sent to Australia from abroad?",
+        answer:
+          "Australia has no gift tax. Personal remittances and gifts received from overseas are generally not taxable income in Australia. However, if you are an Australian tax resident receiving income from foreign employment, business, or investments, it may be assessable. The ATO (Australian Taxation Office) requires residents to declare worldwide income. Family support transfers are typically not assessable.",
+      },
+    ],
+  },
+
+  canada: {
+    slug: "canada",
+    countryName: "Canada",
+    currency: "CAD",
+    intro:
+      "Canada is a major destination for money transfers, particularly from Indian, Filipino, Chinese, and Lebanese diaspora communities who send funds to family members who have recently immigrated. Interac e-Transfer — Canada's peer-to-peer payment network — is accepted by all major Canadian banks and credit unions, enabling instant transfers directly to a recipient's email or phone number.",
+    highlights: [
+      "Interac e-Transfer allows instant transfers to any Canadian bank account using just an email or phone number. Several international providers now deliver directly via Interac e-Transfer, eliminating wait times.",
+      "Major Canadian banks: RBC, TD Canada Trust, Scotiabank, BMO, and CIBC all have branch networks across Canada. Credit unions like Desjardins are also popular, especially in Quebec.",
+      "Canadian bank accounts use a Transit Number (5 digits) + Institution Number (3 digits) + Account Number (7–12 digits). No IBAN is used. SWIFT codes are required for international wires.",
+      "FINTRAC (Financial Transactions and Reports Analysis Centre of Canada) regulates all financial transfers. Transfers above CAD 10,000 in cash are reportable. Electronic transfers have no reporting threshold but are monitored.",
+      "The CAD (Canadian dollar) is closely correlated with oil prices and USD. It is a major traded currency — rate differences between providers are smaller than for emerging market currencies.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Canada?",
+        answer:
+          "Wise offers the best CAD exchange rates for most corridors. For USD-to-CAD, OFX and Wise are both very competitive. Remitly covers Canada for everyday transfers. Given CAD's high liquidity, the rate spread between providers is typically only 0.3–1.5% — compare fees as these become proportionally more important.",
+      },
+      {
+        question: "How long does a transfer to Canada take?",
+        answer:
+          "Interac e-Transfer deliveries arrive within minutes. SWIFT bank wires from specialist providers take 1–2 business days. Traditional bank SWIFT wires take 2–4 business days. Wise is usually the fastest option for bank deposit delivery, often settling same-day for transfers sent in the morning.",
+      },
+      {
+        question: "What bank details do I need to send money to a Canadian bank?",
+        answer:
+          "For Interac e-Transfer delivery, just the recipient's email or phone number. For bank-to-bank SWIFT transfers, you need the Institution Number (3 digits), Transit/Branch Number (5 digits), and Account Number (7–12 digits). SWIFT codes: RBC (ROYCCAT2), TD (TDOMCATTTOR), Scotiabank (NOSCCATT), BMO (BOFMCAM2), CIBC (CIBCCATT). Canada does not use IBAN.",
+      },
+      {
+        question: "Can I send money directly via Interac e-Transfer to Canada?",
+        answer:
+          "Yes. Wise and some other providers support Interac e-Transfer delivery for CAD transfers. The recipient receives an email or text notification and automatically deposits the funds into their linked bank account — or manually accepts through their bank's online banking if auto-deposit is not enabled. This is the fastest and most convenient delivery method in Canada.",
+      },
+      {
+        question: "Are there taxes on money received from abroad in Canada?",
+        answer:
+          "Canada has no gift tax on money received from abroad. Personal remittances and family gifts are generally not taxable income for the recipient. However, Canada Revenue Agency (CRA) may ask for documentation of large transfers. Income earned abroad by Canadian tax residents (e.g. foreign salary, rental income) must be declared on a Canadian tax return even if never remitted to Canada.",
+      },
+    ],
+  },
+
+  "new-zealand": {
+    slug: "new-zealand",
+    countryName: "New Zealand",
+    currency: "NZD",
+    intro:
+      "New Zealand is a major destination for remittances from Pacifica communities, Filipino workers, and Indian immigrants. NZD is a freely floating currency and one of the most traded globally. Payments NZ's FastPay initiative and Paymark networks enable real-time interbank transfers, and most specialist providers deliver to New Zealand bank accounts within 1 business day.",
+    highlights: [
+      "New Zealand bank accounts use a 16-digit number (Bank + Branch + Account + Suffix). No BSB or IBAN — the full 16-digit number identifies the account uniquely for both domestic and some international transfers.",
+      "ANZ NZ, BNZ (Bank of New Zealand), Westpac NZ, ASB Bank, and Kiwibank are the five major banks. All support inbound SWIFT transfers and have modern mobile banking apps.",
+      "The Reserve Bank of New Zealand (RBNZ) regulates financial services. All regulated providers are listed on the RBNZ register.",
+      "NZD is closely correlated with AUD and commodity prices. The rate difference between providers is typically 0.5–2% — compare total NZD received rather than fees alone.",
+      "Kiwibank is a government-owned bank popular with residents who prefer a local alternative to Australian-owned banks. It has competitive international wire processing.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to New Zealand?",
+        answer:
+          "Wise offers the best NZD exchange rates for most corridors, followed by OFX for larger amounts. Remitly covers New Zealand for everyday transfers. For transfers from Australia, Wise and OFX offer very competitive AUD-to-NZD rates given the closely linked currencies.",
+      },
+      {
+        question: "How long does a transfer to New Zealand take?",
+        answer:
+          "Wise typically delivers within 1–2 business days. OFX and TorFX deliver within 1 business day for transfers above NZD 1,000. Same-day delivery is possible for transfers received before cut-off times. Traditional SWIFT bank wires take 2–4 business days.",
+      },
+      {
+        question: "What bank details do I need to send money to New Zealand?",
+        answer:
+          "You need the recipient's full 16-digit account number (format: 00-0000-0000000-00, e.g. ANZ starts with 01, BNZ with 02, Westpac with 03, ASB with 12, Kiwibank with 38). For SWIFT wires, you also need the bank's SWIFT code: ANZ NZ (ANZBNZ22), BNZ (BKNZNZ22), Westpac NZ (WPACNZ2W), ASB (ASBBNZ2A), Kiwibank (KIWINZ22).",
+      },
+      {
+        question: "Are there taxes on money sent to New Zealand?",
+        answer:
+          "New Zealand has no gift tax. Personal remittances and gifts from overseas are not taxable for the recipient. New Zealand tax residents must declare worldwide income, but family support payments and genuine gifts are excluded. Inland Revenue (IRD) focuses on income, not personal transfers.",
+      },
+    ],
+  },
+
+  uae: {
+    slug: "uae",
+    countryName: "UAE",
+    currency: "AED",
+    intro:
+      "The UAE — home to Dubai and Abu Dhabi — is one of the world's largest remittance hubs, with a population that is over 88% expatriate. While the UAE is better known as a sending country (particularly to South Asia and Southeast Asia), significant flows also go into the UAE: from overseas Emiratis, international investors, and cross-border business payments. The AED is pegged to the USD at a fixed rate of 3.6725, eliminating exchange rate risk.",
+    highlights: [
+      "The AED is pegged to the USD at exactly 3.6725, guaranteed by the UAE Central Bank (CBUAE). This means zero currency volatility — the only cost variable is the provider's transfer fee and any spread above the pegged rate.",
+      "UAE IBAN format: AE + 2 check digits + 3-digit bank code + 16-digit account number = 23 characters total. Always use the IBAN for transfers to UAE accounts — SWIFT alone is insufficient for many UAE banks.",
+      "Major receiving banks: Emirates NBD, Abu Dhabi Commercial Bank (ADCB), First Abu Dhabi Bank (FAB), Mashreq Bank, RAKBank, and Dubai Islamic Bank (DIB). All accept inbound SWIFT transfers.",
+      "The CBUAE (Central Bank of the UAE) regulates all financial transfers. The UAE has strict AML requirements — transfers above AED 55,000 (~$15,000) may require additional documentation.",
+      "Western Union, Ria, and Al Ansari Exchange have extensive cash pickup networks across the UAE with agents in all major malls and commercial areas.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to the UAE?",
+        answer:
+          "Because the AED is pegged to USD at 3.6725, there is no exchange rate risk or rate shopping needed for USD senders. The main cost difference is provider fees. For GBP/EUR senders, the GBP-to-AED or EUR-to-AED rate is where providers differ — Wise and Remitly are typically cheapest. For USD-to-AED, Western Union and Remitly are competitive due to the fixed peg.",
+      },
+      {
+        question: "What IBAN do I need to transfer money to the UAE?",
+        answer:
+          "UAE IBANs are 23 characters: 'AE' + 2 check digits + 3-digit bank code + 16-digit account number. Example: AE070331234567890123456. Your recipient can find their IBAN in their bank's mobile app or on a bank statement. Emirates NBD bank code is 033, ADCB is 030, FAB is 035, Mashreq is 033, RAKBank is 021.",
+      },
+      {
+        question: "How long does a transfer to the UAE take?",
+        answer:
+          "Specialist providers like Wise and Remitly typically deliver to UAE bank accounts within 1–2 business days via SWIFT. For USD transfers, same-day processing is often possible given the USD-AED peg simplifies conversion. Cash pickup at Al Ansari Exchange or Western Union agents is available within minutes.",
+      },
+      {
+        question: "Is the AED a fixed currency?",
+        answer:
+          "Yes. The UAE dirham (AED) has been pegged to the US dollar at exactly 3.6725 AED = 1 USD since 1997, guaranteed by the Central Bank of the UAE. This means USD-to-AED transfers have no currency risk — the rate is always 3.6725. For GBP, EUR, or other currencies, the exchange rate to AED varies with GBP/USD and EUR/USD movements.",
+      },
+      {
+        question: "Can I send money to Dubai specifically?",
+        answer:
+          "Dubai is part of the UAE, so any AED bank account transfer goes through the UAE banking system regardless of whether the bank is in Dubai, Abu Dhabi, Sharjah, or another emirate. Emirates NBD and Mashreq are headquartered in Dubai. All UAE transfers use AED and follow CBUAE regulations regardless of the emirate.",
+      },
+    ],
+  },
+
+  "south-korea": {
+    slug: "south-korea",
+    countryName: "South Korea",
+    currency: "KRW",
+    intro:
+      "South Korea is a high-income developed economy with a sophisticated banking system. KRW transfers are common among Korean diaspora in the US, Canada, Australia, and Japan, as well as for international business payments and education fees. Korea's real-time payment network handles interbank transfers in seconds, and most specialist providers deliver within 1 business day.",
+    highlights: [
+      "Korea's domestic payment system processes interbank transfers near-instantly during banking hours. Major banks have developed mobile apps (Toss, KakaoBank) that simplify receiving and managing international transfers.",
+      "Major banks: KB Kookmin, Shinhan Bank, Hana Bank, Woori Bank, IBK (Industrial Bank of Korea), and NH Nonghyup. All accept inbound SWIFT transfers.",
+      "Korean bank accounts consist of a bank code and account number (10–14 digits depending on the bank). No IBAN is used. A SWIFT code is required for international wires.",
+      "KRW is a freely floating currency managed by the Bank of Korea. It has shown 5–15% annual fluctuation against USD, making rate comparison important.",
+      "The Financial Supervisory Service (FSS) and Financial Services Commission (FSC) regulate all financial transfers in South Korea.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to South Korea?",
+        answer:
+          "Wise and Remitly offer the best KRW rates for USD-to-KRW transfers. For transfers from Japan, Wise Japan is highly competitive for JPY-to-KRW. Given KRW volatility, compare the total KRW received at the time of transfer — not historical averages. Rate differences between providers can be 1–3%.",
+      },
+      {
+        question: "What bank details do I need to send money to South Korea?",
+        answer:
+          "You need the recipient's account number and the bank's SWIFT code. Key SWIFT codes: KB Kookmin (CZNBKRSE), Shinhan (SHBKKRSE), Hana (HNBNKRSE), Woori (HVBKKRSE), IBK (IBKOKRSE). South Korea does not use IBAN. Account numbers are typically 11–14 digits depending on the bank.",
+      },
+      {
+        question: "How long does a transfer to South Korea take?",
+        answer:
+          "Wise typically delivers to Korean bank accounts within 1–2 business days. Same-day delivery is possible for transfers sent early in the day. Korean domestic payment systems process incoming SWIFT credits quickly — most major banks credit within a few hours of SWIFT receipt during business hours.",
+      },
+      {
+        question: "Is money received from abroad taxed in South Korea?",
+        answer:
+          "Personal remittances and gifts from family abroad are generally not taxed in South Korea. Gift tax applies to gifts above KRW 50 million (~$38,000) from immediate family, and KRW 10 million from others — but this is a recipient-side Korean gift tax, not a transfer tax. Regular family support transfers well below these thresholds are not subject to tax.",
+      },
+    ],
+  },
+
+  europe: {
+    slug: "europe",
+    countryName: "Europe",
+    currency: "EUR",
+    intro:
+      "Sending money to Europe (the Eurozone) benefits from the SEPA payment network — the most advanced regional payment system in the world. SEPA covers 36 countries and enables EUR transfers to arrive within 10 seconds via SEPA Instant Credit Transfer (SCT Inst), at near-zero cost between participating banks. EUR is the world's second most traded currency, meaning exchange rates are highly competitive.",
+    highlights: [
+      "SEPA Instant Credit Transfer (SCT Inst) settles EUR transfers between participating banks in under 10 seconds, 24/7/365. Over 60% of European banks now support SEPA Instant.",
+      "All Eurozone bank accounts use IBAN (International Bank Account Number). IBANs are country-specific: DE for Germany, FR for France, ES for Spain, IT for Italy, NL for Netherlands, etc. The format and length vary by country.",
+      "SEPA Credit Transfer (SCT) — the standard non-instant version — settles on the next business day. Both are free or near-free between banks; the costs come from FX conversion (for non-EUR senders).",
+      "EUR is the world's second reserve currency and one of the most traded. Rate spreads for EUR are among the lowest globally — typically 0.2–1% above mid-market with specialist providers.",
+      "The European Central Bank (ECB) and national central banks regulate financial transfers across the EU. SEPA transfers require only IBAN + BIC (SWIFT code) — no full bank address needed.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Europe?",
+        answer:
+          "Wise offers the best EUR exchange rate for most corridors, typically within 0.3–0.5% of the mid-market rate. For USD-to-EUR, OFX and Wise are extremely competitive. For GBP-to-EUR, Wise and Revolut both offer near mid-market rates. The EUR's high liquidity keeps rate spreads very tight across providers.",
+      },
+      {
+        question: "How do I send money via SEPA to Europe?",
+        answer:
+          "All EUR bank accounts in the Eurozone (and several non-Euro EU countries) use IBAN. To send a SEPA transfer, you need the recipient's IBAN and BIC (SWIFT code). Specialist providers like Wise, Remitly, and OFX route through SEPA automatically. SEPA Instant arrives in seconds; standard SEPA arrives next business day. Banks charge EUR 0–5 for SEPA; providers often deliver for less.",
+      },
+      {
+        question: "What is an IBAN and how do I find it?",
+        answer:
+          "IBAN (International Bank Account Number) is the standard European bank account identifier. It starts with a 2-letter country code (DE, FR, ES, IT, NL, etc.), followed by 2 check digits, then the domestic bank account details encoded in a standardised format. Length varies: DE has 22 characters, FR has 27, ES has 24, IT has 27, NL has 18. Recipients find their IBAN in their bank's mobile app or on a bank statement.",
+      },
+      {
+        question: "How long does a SEPA transfer take?",
+        answer:
+          "SEPA Instant Credit Transfer: under 10 seconds, 24/7. Standard SEPA Credit Transfer: next business day. Wise uses SEPA Instant for eligible transfers, making EUR delivery one of the fastest in the world. Banks participating in SEPA Instant include most major European banks — check with the recipient's bank if unsure.",
+      },
+      {
+        question: "Which countries accept SEPA transfers?",
+        answer:
+          "SEPA covers all 27 EU member states plus Iceland, Liechtenstein, Norway, Switzerland, Monaco, San Marino, Andorra, and Vatican City — 36 countries total. Post-Brexit, the UK is no longer in SEPA but many UK banks still process SEPA-compatible transfers. SEPA covers EUR accounts; non-EUR countries (e.g. Sweden using SEK, Denmark using DKK, Poland using PLN) participate in SEPA but still require FX conversion.",
+      },
+    ],
+  },
+
+  germany: {
+    slug: "germany",
+    countryName: "Germany",
+    currency: "EUR",
+    intro:
+      "Germany is Europe's largest economy and one of the top destinations for money transfers from Turkish, Polish, Russian, and broader global diaspora communities. German IBAN (DE format, 22 characters) is one of the most commonly used in the world. SEPA Instant Credit Transfer enables EUR transfers to German bank accounts in under 10 seconds — faster than most countries globally.",
+    highlights: [
+      "German IBANs are 22 characters: DE + 2 check digits + 8-digit BLZ (bank sort code) + 10-digit account number. Sparkasse, Deutsche Bank, Commerzbank, and DZ Bank use the standard DE IBAN format.",
+      "SEPA Instant is widely supported by German banks — Deutsche Bank, Commerzbank, all Sparkasse branches, and most Volksbanken/Raiffeisenbanken offer instant EUR credit within seconds.",
+      "N26, a German digital bank, is popular among younger residents and expats. It has IBAN, supports SEPA Instant, and is widely used by those who receive international transfers regularly.",
+      "The Bundesbank (Deutsche Bundesbank) and BaFin (Federal Financial Supervisory Authority) regulate all financial services in Germany.",
+      "Germany has a large Turkish diaspora — approximately 3 million people — making it one of the largest source countries for Turkish remittances, and significant for inbound transfers from Turkish family members too.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Germany?",
+        answer:
+          "Wise and Revolut offer the best EUR rates for most currencies. For USD-to-EUR, OFX is also competitive for amounts above $3,000. Given Germany's EUR use and SEPA connectivity, the fee structure matters more than the exchange rate spread — both are generally very low for major currency pairs.",
+      },
+      {
+        question: "What IBAN format do German banks use?",
+        answer:
+          "German IBANs are exactly 22 characters: DE + 2 check digits + 8-digit BLZ (Bankleitzahl — bank sort code) + 10-digit account number. Example: DE89370400440532013000. The BLZ identifies the specific bank and branch. Recipients can find their IBAN in their bank's online banking portal or on a bank statement.",
+      },
+      {
+        question: "How long does a transfer to a German bank take?",
+        answer:
+          "SEPA Instant transfers to German banks arrive in under 10 seconds. Standard SEPA Credit Transfer arrives next business day. Wise uses SEPA Instant where available, making transfers to Deutsche Bank, Commerzbank, Sparkasse, and N26 near-instant. International SWIFT wires take 1–3 business days before the SEPA leg.",
+      },
+      {
+        question: "Which SWIFT code does Deutsche Bank use?",
+        answer:
+          "Deutsche Bank's SWIFT/BIC code is DEUTDEDB (Frankfurt) or DEUTDEFF. Commerzbank: COBADEFFXXX. Sparkasse (varies by region): check with the specific Sparkasse. N26: NTSBDEB1. For SEPA transfers, the IBAN alone is sufficient — the BIC is optional under SEPA rules for EUR transfers within SEPA.",
+      },
+      {
+        question: "Are remittances taxed in Germany?",
+        answer:
+          "Germany has a gift tax (Schenkungsteuer) with generous exemptions. Gifts from parents or grandparents are exempt up to €400,000 per recipient per 10 years; from siblings or other relatives up to €20,000. Personal support payments between family members are generally not taxable. Germany's tax authority (Finanzamt) requires declaration of gifts above exemption thresholds, but routine family remittances are exempt.",
+      },
+    ],
+  },
+
+  france: {
+    slug: "france",
+    countryName: "France",
+    currency: "EUR",
+    intro:
+      "France receives significant remittances from North African (Moroccan, Algerian, Tunisian) and Sub-Saharan African diaspora communities, as well as from French nationals living abroad. French IBANs (FR format, 27 characters) are used for all EUR transfers via SEPA. La Banque Postale — operated by France's postal service — has the widest branch network in France with over 17,000 locations, making it accessible even in rural areas.",
+    highlights: [
+      "French IBANs are 27 characters: FR + 2 check digits + 5-digit bank code + 5-digit branch code + 11-digit account number + 2-digit check key. BNP Paribas, Crédit Agricole, Société Générale, and La Banque Postale are the four largest banks.",
+      "SEPA Instant is supported by major French banks including BNP Paribas, LCL, and La Banque Postale — transfers arrive in under 10 seconds. Standard SEPA Credit Transfer arrives next business day.",
+      "Lyf Pay and Lydia are popular French mobile payment apps for peer-to-peer transfers, though they don't directly accept international inbound transfers — recipients typically use their linked bank account.",
+      "The Banque de France and ACPR (Autorité de Contrôle Prudentiel et de Résolution) regulate all financial services in France.",
+      "France has the largest North African diaspora in Europe — over 3 million people of Moroccan, Algerian, and Tunisian origin — making France a major receive country for family transfers from the Maghreb.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to France?",
+        answer:
+          "Wise is typically the cheapest for most currency pairs to EUR. For Moroccan or Algerian senders in France receiving from family, providers like Remitly, WorldRemit, and Western Union also offer competitive rates. For USD-to-EUR transfers, OFX and Wise are both very competitive.",
+      },
+      {
+        question: "What IBAN format do French banks use?",
+        answer:
+          "French IBANs are exactly 27 characters: FR + 2 check digits + 5-digit code banque + 5-digit code guichet + 11-digit account number + 2-digit clé RIB. Example: FR7630006000011234567890189. BNP Paribas bank code is 30004, Crédit Agricole varies by region, Société Générale is 30003, La Banque Postale is 20041.",
+      },
+      {
+        question: "How long does a transfer to a French bank take?",
+        answer:
+          "SEPA Instant transfers to French banks arrive in seconds. Standard SEPA Credit Transfer arrives next business day. Wise delivers to BNP Paribas, Société Générale, and most French banks using SEPA Instant where supported. International SWIFT wires take 1–3 business days before the SEPA leg inside France.",
+      },
+      {
+        question: "Can I send money to La Banque Postale in France?",
+        answer:
+          "Yes. La Banque Postale accepts all standard SEPA transfers and SWIFT wires. Its IBAN starts with FR + bank code 20041. With over 17,000 post office locations, it is especially useful for recipients in smaller towns and rural areas who don't have easy access to traditional bank branches.",
+      },
+      {
+        question: "Are there taxes on money received in France?",
+        answer:
+          "France has gift tax (droits de donation) with exemptions of €100,000 per parent per child every 15 years. Regular family support transfers are not generally subject to tax. French tax residents must declare foreign assets above €10,000 and foreign accounts — but routine family remittances under exemption thresholds are not taxable. Consult a French notaire or tax advisor for large transfers.",
+      },
+    ],
+  },
+
+  spain: {
+    slug: "spain",
+    countryName: "Spain",
+    currency: "EUR",
+    intro:
+      "Spain receives significant remittances from Latin American diaspora communities (Colombia, Ecuador, Bolivia, Morocco) and from Spanish nationals living abroad. Spanish IBANs (ES format, 24 characters) follow the standard SEPA format. Bizum — Spain's mobile payment system — has over 25 million users and allows instant transfers using just a phone number, though international inbound delivery is limited and mostly goes via bank accounts.",
+    highlights: [
+      "Spanish IBANs are 24 characters: ES + 2 check digits + 4-digit bank code + 4-digit branch code + 2-digit control digit + 10-digit account number. Santander, BBVA, CaixaBank, and Banco Sabadell are the four largest banks.",
+      "Bizum is Spain's interbank instant payment system linked to mobile numbers. Over 25 million Spaniards use Bizum — once funds reach a Spanish bank account, recipients can move money to Bizum instantly.",
+      "SEPA Instant is supported by all major Spanish banks including Santander, BBVA, CaixaBank, and Bankinter — transfers arrive in under 10 seconds.",
+      "The Banco de España and CNMV regulate financial services in Spain.",
+      "Spain has the largest Latin American diaspora in Europe — over 2.5 million Latin Americans live in Spain, and inbound remittances from Colombia, Ecuador, and Bolivia are significant.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Spain?",
+        answer:
+          "Wise is consistently cheapest for most currencies to EUR. For Latin American senders (Colombian, Ecuadorian, Bolivian), Remitly, WorldRemit, and Ria offer competitive rates. For USD-to-EUR, OFX and Wise are very competitive. EUR is a liquid currency — focus on fees as well as rate when comparing.",
+      },
+      {
+        question: "What IBAN format do Spanish banks use?",
+        answer:
+          "Spanish IBANs are 24 characters: ES + 2 check digits + 4-digit entidad (bank code) + 4-digit oficina (branch) + 2-digit DC (control) + 10-digit account number. Example: ES9121000418450200051332. Santander code: 0049, BBVA: 0182, CaixaBank: 2100, Sabadell: 0081.",
+      },
+      {
+        question: "How long does a transfer to a Spanish bank take?",
+        answer:
+          "SEPA Instant transfers to Spanish banks arrive in seconds. Standard SEPA Credit Transfer arrives next business day. Wise delivers to Santander, BBVA, CaixaBank using SEPA Instant where supported. International wires take 1–3 business days for the SWIFT leg before SEPA settlement.",
+      },
+      {
+        question: "What is Bizum and can I receive international transfers via Bizum?",
+        answer:
+          "Bizum is Spain's bank-backed instant payment system, allowing transfers via mobile number between linked accounts. It is widely used for domestic P2P payments but does not support direct international inbound transfers. To receive money from abroad, use a standard Spanish bank account (IBAN). The recipient can then move funds to their Bizum balance instantly via their banking app.",
+      },
+      {
+        question: "Are remittances taxed in Spain?",
+        answer:
+          "Spain has Impuesto sobre Sucesiones y Donaciones (inheritance and gift tax), which varies significantly by region (Comunidad Autónoma). Madrid and Catalonia have very low effective gift tax rates. Family support transfers between immediate relatives are generally exempt. Spanish tax residents must declare assets abroad above €50,000 via the Modelo 720 form. Routine family remittances are not considered taxable income.",
+      },
+    ],
+  },
 };

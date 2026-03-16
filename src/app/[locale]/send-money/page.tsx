@@ -66,14 +66,33 @@ const DESTINATION_REGIONS = [
     ],
   },
   {
-    region: "Europe & Middle East",
+    region: "Europe",
     destinations: [
+      { name: "Europe (EUR)", slug: "europe", flag: "🇪🇺", currency: "EUR" },
+      { name: "Germany", slug: "germany", flag: "🇩🇪", currency: "EUR" },
+      { name: "France", slug: "france", flag: "🇫🇷", currency: "EUR" },
+      { name: "Spain", slug: "spain", flag: "🇪🇸", currency: "EUR" },
       { name: "Turkey", slug: "turkey", flag: "🇹🇷", currency: "TRY" },
       { name: "Poland", slug: "poland", flag: "🇵🇱", currency: "PLN" },
       { name: "Romania", slug: "romania", flag: "🇷🇴", currency: "RON" },
       { name: "Czech Republic", slug: "czech-republic", flag: "🇨🇿", currency: "CZK" },
       { name: "Hungary", slug: "hungary", flag: "🇭🇺", currency: "HUF" },
       { name: "Israel", slug: "israel", flag: "🇮🇱", currency: "ILS" },
+    ],
+  },
+  {
+    region: "Middle East & Gulf",
+    destinations: [
+      { name: "UAE", slug: "uae", flag: "🇦🇪", currency: "AED" },
+    ],
+  },
+  {
+    region: "English-Speaking Countries",
+    destinations: [
+      { name: "United Kingdom", slug: "uk", flag: "🇬🇧", currency: "GBP" },
+      { name: "Australia", slug: "australia", flag: "🇦🇺", currency: "AUD" },
+      { name: "Canada", slug: "canada", flag: "🇨🇦", currency: "CAD" },
+      { name: "New Zealand", slug: "new-zealand", flag: "🇳🇿", currency: "NZD" },
     ],
   },
   {

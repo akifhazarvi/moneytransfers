@@ -83,6 +83,12 @@ export default function Footer() {
       { href: "/send-money/send-money-to-brazil", label: "Send Money to Brazil" },
       { href: "/send-money/send-money-to-ghana", label: "Send Money to Ghana" },
       { href: "/send-money/send-money-to-nepal", label: "Send Money to Nepal" },
+      { href: "/send-money/send-money-to-uk", label: "Send Money to UK" },
+      { href: "/send-money/send-money-to-australia", label: "Send Money to Australia" },
+      { href: "/send-money/send-money-to-canada", label: "Send Money to Canada" },
+      { href: "/send-money/send-money-to-uae", label: "Send Money to UAE" },
+      { href: "/send-money/send-money-to-germany", label: "Send Money to Germany" },
+      { href: "/send-money/send-money-to-france", label: "Send Money to France" },
     ],
   };
 

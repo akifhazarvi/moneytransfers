@@ -1386,6 +1386,18 @@ export const RECEIVE_COUNTRIES: CountryDef[] = [
   { slug: "rwanda", name: "Rwanda", flag: "🇷🇼", currency: "RWF", demonym: "Rwandan", sampleAmount: 1000 },
   { slug: "zambia", name: "Zambia", flag: "🇿🇲", currency: "ZMW", demonym: "Zambian", sampleAmount: 1000 },
   { slug: "cameroon", name: "Cameroon", flag: "🇨🇲", currency: "XAF", demonym: "Cameroonian", sampleAmount: 1000 },
+  // Developed world (popular receive destinations)
+  { slug: "uk", name: "United Kingdom", flag: "🇬🇧", currency: "GBP", demonym: "UK-based", sampleAmount: 1000 },
+  { slug: "australia", name: "Australia", flag: "🇦🇺", currency: "AUD", demonym: "Australia-based", sampleAmount: 1000 },
+  { slug: "canada", name: "Canada", flag: "🇨🇦", currency: "CAD", demonym: "Canada-based", sampleAmount: 1000 },
+  { slug: "new-zealand", name: "New Zealand", flag: "🇳🇿", currency: "NZD", demonym: "New Zealand-based", sampleAmount: 1000 },
+  { slug: "uae", name: "UAE", flag: "🇦🇪", currency: "AED", demonym: "UAE-based", sampleAmount: 1000 },
+  { slug: "south-korea", name: "South Korea", flag: "🇰🇷", currency: "KRW", demonym: "South Korean", sampleAmount: 1000 },
+  // Eurozone countries
+  { slug: "europe", name: "Europe", flag: "🇪🇺", currency: "EUR", demonym: "Europe-based", sampleAmount: 1000 },
+  { slug: "germany", name: "Germany", flag: "🇩🇪", currency: "EUR", demonym: "Germany-based", sampleAmount: 1000 },
+  { slug: "france", name: "France", flag: "🇫🇷", currency: "EUR", demonym: "France-based", sampleAmount: 1000 },
+  { slug: "spain", name: "Spain", flag: "🇪🇸", currency: "EUR", demonym: "Spain-based", sampleAmount: 1000 },
 ];
 
 /** Content intro templates — pick based on (index % count) for variety */
