@@ -20,7 +20,7 @@ export interface ProviderReview {
 export const providerReviews: ProviderReview[] = [
   {
     slug: "wise",
-    title: "Wise Review 2026: Fees, Exchange Rates, Speed & Is It Worth It?",
+    title: "Wise Review 2026 — Fees, Exchange Rates & Speed",
     metaDescription:
       "In-depth Wise review covering fees, exchange rates, transfer speed, supported countries, payment methods, pros and cons. Based on real transfer data and 280,000+ Trustpilot reviews.",
     updatedAt: "2026-03-14",

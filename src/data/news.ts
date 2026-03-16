@@ -16,7 +16,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "central-bank-super-week-march-2026",
     title:
-      "Central Bank Super-Week: Fed, BoE, and BoJ Rate Decisions Could Swing Your Transfer Rates",
+      "Central Bank Rate Week — Impact on Your Transfer Rates",
     excerpt:
       "Three of the world's most powerful central banks announce interest rate decisions within 48 hours this week. Here's what it means for exchange rates and the cost of sending money abroad.",
     image: "/images/news/central-bank-super-week.jpg",
@@ -53,7 +53,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "us-remittance-excise-tax-takes-effect-2026",
-    title: "New 1% US Remittance Tax Shakes Up the Money Transfer Industry",
+    title: "New 1% US Remittance Tax — What It Means for You",
     excerpt:
       "A federal excise tax on cash-funded international transfers went live in January 2026. Here's what it means for senders, providers, and the broader remittance market.",
     image: "/images/news/us-remittance-tax.jpg",
@@ -114,7 +114,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "western-union-ceo-digital-competition-2026",
-    title: "Western Union's CEO Concedes Ground to Digital Rivals — But Questions Their Staying Power",
+    title: "Western Union CEO Concedes Ground to Digital Rivals",
     excerpt:
       "At an investor conference this week, Devin McGranahan acknowledged that Wise and Remitly are winning on customer growth, while defending Western Union's profitability and agent network.",
     image: "/images/news/western-union-competition.jpg",

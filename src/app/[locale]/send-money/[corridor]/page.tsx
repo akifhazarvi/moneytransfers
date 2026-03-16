@@ -189,7 +189,7 @@ export function generateStaticParams() {
 
 const corridorSeoOverrides: Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; keywords: string }> = {
   "usa-to-pakistan": {
-    title: "Send Money from USA to Pakistan — Compare Rates for USD to PKR | SendMoneyCompare",
+    title: "Send Money USA to Pakistan — USD to PKR Rates",
     description:
       "Compare the cheapest ways to send money from USA to Pakistan in 2026. See real-time USD to PKR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
     ogTitle: "Send Money USA to Pakistan — Best USD to PKR Rates",
@@ -199,7 +199,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money USA to Pakistan, USD to PKR, cheapest way to send money to Pakistan, money transfer Pakistan, remittance to Pakistan, USD PKR exchange rate",
   },
   "usa-to-india": {
-    title: "Send Money from USA to India — Compare Rates for USD to INR | SendMoneyCompare",
+    title: "Send Money USA to India — USD to INR Rates",
     description:
       "Compare the cheapest ways to send money from USA to India in 2026. See real-time USD to INR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
     ogTitle: "Send Money USA to India — Best USD to INR Rates",
@@ -209,7 +209,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money USA to India, USD to INR, cheapest way to send money to India, money transfer India, remittance to India, USD INR exchange rate",
   },
   "usa-to-mexico": {
-    title: "Send Money from USA to Mexico — Compare USD to MXN Rates & Fees | SendMoneyCompare",
+    title: "Send Money USA to Mexico — USD to MXN Rates",
     description:
       "Find the cheapest way to send money from USA to Mexico in 2026. Compare real-time USD to MXN exchange rates, fees, and delivery speeds from Wise, Remitly, Xoom, Western Union, and more. SPEI instant deposits available.",
     ogTitle: "Send Money USA to Mexico — Best USD to MXN Rates",
@@ -219,7 +219,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money USA to Mexico, USD to MXN, cheapest way to send money to Mexico, money transfer Mexico, remittance to Mexico, USD MXN exchange rate, SPEI transfer, Oxxo cash pickup",
   },
   "usa-to-philippines": {
-    title: "Send Money from USA to Philippines — Compare USD to PHP Rates | SendMoneyCompare",
+    title: "Send Money USA to Philippines — USD to PHP Rates",
     description:
       "Compare the cheapest ways to send money from USA to Philippines in 2026. Real-time USD to PHP rates, fees, and delivery options including GCash, bank deposit, and cash pickup from 15+ providers.",
     ogTitle: "Send Money USA to Philippines — Best USD to PHP Rates",
@@ -229,7 +229,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money USA to Philippines, USD to PHP, cheapest way to send money to Philippines, money transfer Philippines, remittance to Philippines, GCash transfer, USD PHP exchange rate",
   },
   "uk-to-europe": {
-    title: "Send Money from UK to Europe — Compare GBP to EUR Rates & Fees | SendMoneyCompare",
+    title: "Send Money UK to Europe — GBP to EUR Rates",
     description:
       "Compare the cheapest ways to send money from UK to Europe in 2026. Real-time GBP to EUR exchange rates, SEPA transfer fees, and delivery times from Wise, Revolut, and 10+ more providers.",
     ogTitle: "Send Money UK to Europe — Best GBP to EUR Rates",
@@ -239,7 +239,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money UK to Europe, GBP to EUR, cheapest way to send money to Europe, SEPA transfer from UK, money transfer Europe, GBP EUR exchange rate, post-Brexit transfers",
   },
   "uk-to-india": {
-    title: "Send Money from UK to India — Compare GBP to INR Rates & Fees | SendMoneyCompare",
+    title: "Send Money UK to India — GBP to INR Rates",
     description:
       "Compare the cheapest ways to send money from UK to India in 2026. Real-time GBP to INR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers. IMPS instant delivery available.",
     ogTitle: "Send Money UK to India — Best GBP to INR Rates",
@@ -249,7 +249,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money UK to India, GBP to INR, cheapest way to send money to India from UK, money transfer India, remittance to India, GBP INR exchange rate, IMPS transfer",
   },
   "canada-to-india": {
-    title: "Send Money from Canada to India — Compare CAD to INR Rates | SendMoneyCompare",
+    title: "Send Money Canada to India — CAD to INR Rates",
     description:
       "Compare the cheapest ways to send money from Canada to India in 2026. Real-time CAD to INR exchange rates, fees, and delivery times from Wise, Remitly, WorldRemit, and more. Fund via Interac e-Transfer.",
     ogTitle: "Send Money Canada to India — Best CAD to INR Rates",
@@ -259,7 +259,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money Canada to India, CAD to INR, cheapest way to send money to India from Canada, money transfer India, remittance to India, CAD INR exchange rate, Interac e-Transfer",
   },
   "australia-to-india": {
-    title: "Send Money from Australia to India — Compare AUD to INR Rates | SendMoneyCompare",
+    title: "Send Money Australia to India — AUD to INR Rates",
     description:
       "Compare the cheapest ways to send money from Australia to India in 2026. Real-time AUD to INR exchange rates, fees, and delivery times from Wise, Instarem, Remitly, and 10+ more providers.",
     ogTitle: "Send Money Australia to India — Best AUD to INR Rates",
@@ -269,7 +269,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money Australia to India, AUD to INR, cheapest way to send money to India from Australia, money transfer India, remittance to India, AUD INR exchange rate, POLi transfer, PayID",
   },
   "usa-to-nigeria": {
-    title: "Send Money from USA to Nigeria — Compare USD to NGN Rates | SendMoneyCompare",
+    title: "Send Money USA to Nigeria — USD to NGN Rates",
     description:
       "Compare the cheapest ways to send money from USA to Nigeria in 2026. Real-time USD to NGN exchange rates, fees, and delivery options from Wise, Remitly, WorldRemit, Western Union, and more.",
     ogTitle: "Send Money USA to Nigeria — Best USD to NGN Rates",

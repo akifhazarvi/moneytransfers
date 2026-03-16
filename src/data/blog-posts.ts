@@ -7014,7 +7014,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-euribor-affects-euro-transfers",
-    title: "How Euribor Affects Euro Transfers: What Senders Need to Know in 2026",
+    title: "How Euribor Affects Euro Transfers — 2026 Guide",
     metaDescription:
       "Learn how Euribor rates impact the cost of sending euros abroad. Understand the link between ECB interest rates, EUR exchange rates, and international money transfer pricing in 2026.",
     excerpt:

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) return {};
   const review = getProviderReview(slug);
-  const title = review?.title ?? `${provider.name} Review | Exchange Rates, Fees & Features | SendMoneyCompare`;
+  const title = review?.title ?? `${provider.name} Review — Fees, Rates & Features`;
   const description = review?.metaDescription ?? provider.description;
   return {
     title,

@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getComparisonArticle(slug);
   if (article) {
     return {
-      title: `${article.title} | SendMoneyCompare`,
+      title: article.title,
       description: article.metaDescription,
       openGraph: {
         title: article.title,
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pair = parseSlug(slug);
   if (!pair) return {};
   return {
-    title: `${pair.a.name} vs ${pair.b.name}: Fees, Rates & Features Compared | SendMoneyCompare`,
+    title: `${pair.a.name} vs ${pair.b.name} — Fees, Rates & Features`,
     description: `Compare ${pair.a.name} and ${pair.b.name} side by side. See which offers better exchange rates, lower fees, and faster transfers.`,
     robots: { index: false, follow: true },
     alternates: {
