@@ -2,9 +2,7 @@ name: Scrape Provider Data
 
 on:
   schedule:
-    # Provider quotes: every 6 hours
-    - cron: '0 */6 * * *'
-    # Trustpilot reviews: once daily at midnight UTC
+    # All scrapers: once daily at midnight UTC
     - cron: '0 0 * * *'
   workflow_dispatch: # allow manual trigger
 
