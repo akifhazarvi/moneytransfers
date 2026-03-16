@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    keywords: "money transfer companies, remittance providers, international transfer services, Wise review, Remitly review, Western Union review, money transfer reviews, best remittance company",
+    keywords: t("metaKeywords"),
     alternates: {
       canonical: "https://sendmoneycompare.com/companies",
     },

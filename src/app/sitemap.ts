@@ -7,7 +7,6 @@ import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 
 const SITE_URL = "https://sendmoneycompare.com";
-const LOCALES = ["en", "es", "fr"] as const;
 const EXCLUDED_CORRIDOR_SLUGS = new Set(["gbp-to-fjd"]);
 
 const INDEXED_IBAN_SLUGS = new Set([
@@ -32,16 +31,6 @@ function withAlternates(
     lastModified: options.lastModified,
     changeFrequency: options.changeFrequency,
     priority: options.priority,
-    alternates: {
-      languages: Object.fromEntries(
-        LOCALES.map((locale) => [
-          locale,
-          locale === "en"
-            ? (path ? `${SITE_URL}/${path}` : SITE_URL)
-            : (path ? `${SITE_URL}/${locale}/${path}` : `${SITE_URL}/${locale}`),
-        ])
-      ),
-    },
   };
 }
 

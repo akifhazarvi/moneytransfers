@@ -62,6 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${pair.a.name} vs ${pair.b.name}: Fees, Rates & Features Compared | SendMoneyCompare`,
     description: `Compare ${pair.a.name} and ${pair.b.name} side by side. See which offers better exchange rates, lower fees, and faster transfers.`,
+    robots: { index: false, follow: true },
     alternates: {
       canonical: `https://sendmoneycompare.com/compare/${slug}`,
     },

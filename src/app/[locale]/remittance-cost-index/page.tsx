@@ -14,8 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    keywords:
-      "remittance cost index, money transfer fees, exchange rate markup, cheapest money transfer, international transfer costs 2026, remittance fees comparison",
+    keywords: t("metaKeywords"),
     alternates: {
       canonical: "https://sendmoneycompare.com/remittance-cost-index",
     },

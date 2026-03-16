@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import CircleFlag from "@/components/CircleFlag";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 /* ── Corridor pair config ─────────────────────────────────── */
 interface CurrencyPair {
@@ -214,7 +214,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { pair, locale } = await params;
+  const { pair } = await params;
   const p = PAIR_MAP.get(pair);
   if (!p) return { title: "Not Found" };
 
@@ -381,7 +381,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 Compare {p.from} to {p.to} Transfer Rates
               </h2>
               <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-4">
-                What you'd actually receive sending 1,000 {p.from} via each provider today.
+                What you&apos;d actually receive sending 1,000 {p.from} via each provider today.
               </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-[14px]">
@@ -455,10 +455,10 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             </h2>
             <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
               <p>
-                The mid-market rate is the midpoint between the buy and sell prices on global currency markets — it's the fairest exchange rate available. We aggregate data from 4 independent sources and take the median value, which eliminates outliers and provides a more reliable rate than any single source.
+                The mid-market rate is the midpoint between the buy and sell prices on global currency markets — it&apos;s the fairest exchange rate available. We aggregate data from 4 independent sources and take the median value, which eliminates outliers and provides a more reliable rate than any single source.
               </p>
               <p>
-                When a money transfer provider quotes you a rate, compare it against the mid-market rate shown on this page. The difference is the provider's markup — their profit on the currency conversion. On the {p.from}/{p.to} pair, the best providers typically mark up by {midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"}, while banks can mark up by 2–5%.
+                When a money transfer provider quotes you a rate, compare it against the mid-market rate shown on this page. The difference is the provider&apos;s markup — their profit on the currency conversion. On the {p.from}/{p.to} pair, the best providers typically mark up by {midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"}, while banks can mark up by 2–5%.
               </p>
             </div>
           </div>

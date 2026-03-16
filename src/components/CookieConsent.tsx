@@ -8,6 +8,14 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const t = useTranslations("cookieConsent");
 
+  function enableAnalytics() {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        analytics_storage: "granted",
+      });
+    }
+  }
+
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
     if (!consent) {
@@ -16,14 +24,6 @@ export default function CookieConsent() {
       enableAnalytics();
     }
   }, []);
-
-  function enableAnalytics() {
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("consent", "update", {
-        analytics_storage: "granted",
-      });
-    }
-  }
 
   function handleAccept() {
     localStorage.setItem("cookie_consent", "accepted");

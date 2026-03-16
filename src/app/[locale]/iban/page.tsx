@@ -15,8 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    keywords:
-      "IBAN, international bank account number, IBAN format, IBAN structure, SEPA, BBAN, bank codes, IBAN by country",
+    keywords: t("metaKeywords"),
     alternates: { canonical: "https://sendmoneycompare.com/iban" },
     openGraph: {
       title: t("metaTitle"),

@@ -10,8 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    keywords:
-      "live exchange rates, exchange rates today, currency rates, forex rates, USD to INR, GBP to USD, mid-market rate",
+    keywords: t("metaKeywords"),
     alternates: {
       canonical: "https://sendmoneycompare.com/exchange-rates",
     },

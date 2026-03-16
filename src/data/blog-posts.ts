@@ -1225,7 +1225,7 @@ export const blogPosts: BlogPost[] = [
 <h3>Mobile-First Transfers</h3>
 <p>Over 65% of remittance transactions now originate from a mobile app, up from 40% in 2020. Mobile wallets (M-Pesa, GCash, bKash) are increasingly popular as delivery methods in developing countries.</p>
 <h3>Real-Time Payments</h3>
-<p>Countries launching real-time payment systems (UPI in India, Pix in Brazil, FPS in UK) enable instant international transfers. Wise and Remitly already leverage these for same-day delivery. In 2026, <a href="/blog/eu-instant-payments-2026">the EU's Instant Payments Regulation is making 10-second euro transfers mandatory</a> — a game-changer for cross-border costs across the eurozone. Meanwhile, falling <a href="/guides/how-euribor-affects-euro-transfers">Euribor rates</a> are reshaping euro transfer pricing as the ECB's easing cycle continues.</p>
+<p>Countries launching real-time payment systems (UPI in India, Pix in Brazil, FPS in UK) enable instant international transfers. Wise and Remitly already leverage these for same-day delivery. In 2026, <a href="/guides/eu-instant-payments-2026">the EU's Instant Payments Regulation is making 10-second euro transfers mandatory</a> — a game-changer for cross-border costs across the eurozone. Meanwhile, falling <a href="/guides/how-euribor-affects-euro-transfers">Euribor rates</a> are reshaping euro transfer pricing as the ECB's easing cycle continues.</p>
 <h3>Cryptocurrency and Stablecoins</h3>
 <p>Stablecoin-based remittance services are growing in corridors with limited banking infrastructure (Nigeria, Philippines). However, they still represent less than 2% of total remittance volume.</p>
 <h3>Open Banking and APIs</h3>
@@ -2541,9 +2541,9 @@ export const blogPosts: BlogPost[] = [
 <h3>Revolut: Best for Frequent Conversions and Auto-Exchange</h3>
 <p>Revolut's free tier lets you convert up to $1,000 per month at the interbank rate with no fee — hard to beat for regular, smaller conversions. The standout feature is <strong>auto-exchange</strong>: set a target rate for any currency pair, and Revolut converts automatically when the market hits it. The catch: <strong>weekend conversions carry a 1% surcharge</strong> on the free plan (eliminated on Premium and Metal plans). If you can time conversions to weekdays, Revolut's free tier is the cheapest option for amounts under $1,000/month.</p>
 
-<p style="background: #e8f0fe; padding: 12px 16px; border-radius: 8px; margin: 16px 0;"><strong>🏦 Revolut in the US:</strong> Revolut is actively pursuing a US banking license — if approved, it could offer FDIC-insured multi-currency accounts to American customers. <a href="/blog/revolut-us-banking-license-2026">Read our analysis of what this means for US consumers →</a></p>
+<p style="background: #e8f0fe; padding: 12px 16px; border-radius: 8px; margin: 16px 0;"><strong>🏦 Revolut in the US:</strong> Revolut is actively pursuing a US banking license — if approved, it could offer FDIC-insured multi-currency accounts to American customers. <a href="/guides/revolut-us-banking-license-2026">Read our analysis of what this means for US consumers →</a></p>
 
-<p style="background: #e8f5e9; padding: 12px 16px; border-radius: 8px; margin: 16px 0;"><strong>📊 2026 Update:</strong> FinecoBank, Wise, and Revolut are in an arms race for multi-currency dominance. See how the latest features compare in our <a href="/blog/multi-currency-account-wars-2026">Multi-Currency Account Wars 2026</a> breakdown.</p>`,
+<p style="background: #e8f5e9; padding: 12px 16px; border-radius: 8px; margin: 16px 0;"><strong>📊 2026 Update:</strong> FinecoBank, Wise, and Revolut are in an arms race for multi-currency dominance. See how the latest features compare in our <a href="/guides/multi-currency-account-wars-2026">Multi-Currency Account Wars 2026</a> breakdown.</p>`,
       },
       {
         heading:
@@ -7131,9 +7131,9 @@ export const blogPosts: BlogPost[] = [
 </div>
 <p>For the latest rates on specific EUR corridors, check our dedicated pages:</p>
 <ul>
-<li><a href="/send-money/europe-to-usa">Europe to USA (EUR → USD)</a></li>
+<li><a href="/send-money/usa-to-europe">USA to Europe (USD → EUR)</a></li>
 <li><a href="/send-money/uk-to-europe">UK to Europe (GBP → EUR)</a></li>
-<li><a href="/send-money/europe-to-india">Europe to India (EUR → INR)</a></li>
+<li><a href="/send-money/usa-to-india">USA to India (USD → INR)</a></li>
 </ul>`,
       },
       {

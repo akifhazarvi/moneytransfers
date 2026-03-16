@@ -14,8 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    keywords:
-      "SWIFT code, BIC code, SWIFT finder, bank identifier code, international wire transfer, SWIFT/BIC lookup",
+    keywords: t("metaKeywords"),
     alternates: { canonical: "https://sendmoneycompare.com/swift-codes" },
     openGraph: {
       title: t("metaTitle"),

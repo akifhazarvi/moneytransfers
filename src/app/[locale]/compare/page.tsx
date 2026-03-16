@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/compare",
     },
-    keywords: "compare money transfer providers, money transfer comparison, cheapest way to send money abroad, international money transfer fees, exchange rate comparison",
+    keywords: t("metaKeywords"),
   };
 }
 

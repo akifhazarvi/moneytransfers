@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: { canonical: "https://sendmoneycompare.com/news" },
-    keywords: "money transfer news, international payments news, remittance industry updates, exchange rate news, cross-border payments",
+    keywords: t("metaKeywords"),
     openGraph: {
       title: t("heading"),
       description: t("subheading"),

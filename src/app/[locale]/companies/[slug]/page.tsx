@@ -13,6 +13,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import CrossLinks from "@/components/CrossLinks";
 import BestTransferToday from "@/components/BestTransferToday";
 import { getGoUrl } from "@/lib/affiliate";
+import { trustpilotIndex } from "@/lib/unified-quotes";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    ...(!review && { robots: { index: false, follow: true } }),
     openGraph: {
       title: review?.title ?? `${provider.name} Review — Fees, Rates & Features`,
       description,
@@ -446,13 +448,15 @@ function DetailedReview({
             name: provider.name,
             description: provider.description,
             url: provider.website,
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: provider.rating.toFixed(1),
-              bestRating: "5",
-              worstRating: "1",
-              ratingCount: String(Math.round(provider.rating * 200)),
-            },
+            ...(trustpilotIndex[slug]?.totalReviews && {
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: trustpilotIndex[slug].score.toFixed(1),
+                bestRating: "5",
+                worstRating: "1",
+                ratingCount: String(trustpilotIndex[slug].totalReviews),
+              },
+            }),
           }),
         }}
       />
@@ -610,13 +614,15 @@ function DefaultReview({
             name: provider.name,
             description: provider.description,
             url: provider.website,
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: provider.rating,
-              bestRating: 5,
-              worstRating: 1,
-              ratingCount: 1,
-            },
+            ...(trustpilotIndex[slug]?.totalReviews && {
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: trustpilotIndex[slug].score.toFixed(1),
+                bestRating: "5",
+                worstRating: "1",
+                ratingCount: String(trustpilotIndex[slug].totalReviews),
+              },
+            }),
             address: {
               "@type": "PostalAddress",
               addressLocality: provider.headquarters,
