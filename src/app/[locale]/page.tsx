@@ -240,6 +240,92 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
+      {/* ─── 4b. SEND MONEY TO DESTINATIONS ─── */}
+      <section className="py-14 bg-[var(--color-surface-dim)]">
+        <Container>
+          <div className="text-center mb-8">
+            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+              Send money to popular destinations
+            </h2>
+            <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+              Compare providers, rates, delivery methods, and recipient requirements for every country — all in one place.
+            </p>
+          </div>
+          <div className="space-y-5 max-w-5xl mx-auto">
+            {[
+              { region: "South Asia", destinations: [
+                { name: "India", slug: "india", flag: "🇮🇳", currency: "INR" },
+                { name: "Pakistan", slug: "pakistan", flag: "🇵🇰", currency: "PKR" },
+                { name: "Bangladesh", slug: "bangladesh", flag: "🇧🇩", currency: "BDT" },
+                { name: "Nepal", slug: "nepal", flag: "🇳🇵", currency: "NPR" },
+                { name: "Sri Lanka", slug: "sri-lanka", flag: "🇱🇰", currency: "LKR" },
+              ]},
+              { region: "Southeast Asia", destinations: [
+                { name: "Philippines", slug: "philippines", flag: "🇵🇭", currency: "PHP" },
+                { name: "Vietnam", slug: "vietnam", flag: "🇻🇳", currency: "VND" },
+                { name: "Indonesia", slug: "indonesia", flag: "🇮🇩", currency: "IDR" },
+                { name: "Thailand", slug: "thailand", flag: "🇹🇭", currency: "THB" },
+                { name: "Malaysia", slug: "malaysia", flag: "🇲🇾", currency: "MYR" },
+              ]},
+              { region: "Latin America", destinations: [
+                { name: "Mexico", slug: "mexico", flag: "🇲🇽", currency: "MXN" },
+                { name: "Brazil", slug: "brazil", flag: "🇧🇷", currency: "BRL" },
+                { name: "Colombia", slug: "colombia", flag: "🇨🇴", currency: "COP" },
+                { name: "Guatemala", slug: "guatemala", flag: "🇬🇹", currency: "GTQ" },
+                { name: "Dominican Republic", slug: "dominican-republic", flag: "🇩🇴", currency: "DOP" },
+              ]},
+              { region: "Africa", destinations: [
+                { name: "Nigeria", slug: "nigeria", flag: "🇳🇬", currency: "NGN" },
+                { name: "Kenya", slug: "kenya", flag: "🇰🇪", currency: "KES" },
+                { name: "Ghana", slug: "ghana", flag: "🇬🇭", currency: "GHS" },
+                { name: "South Africa", slug: "south-africa", flag: "🇿🇦", currency: "ZAR" },
+                { name: "Egypt", slug: "egypt", flag: "🇪🇬", currency: "EGP" },
+                { name: "Morocco", slug: "morocco", flag: "🇲🇦", currency: "MAD" },
+              ]},
+              { region: "Europe & Middle East", destinations: [
+                { name: "Europe", slug: "europe", flag: "🇪🇺", currency: "EUR" },
+                { name: "Germany", slug: "germany", flag: "🇩🇪", currency: "EUR" },
+                { name: "France", slug: "france", flag: "🇫🇷", currency: "EUR" },
+                { name: "Spain", slug: "spain", flag: "🇪🇸", currency: "EUR" },
+                { name: "UAE", slug: "uae", flag: "🇦🇪", currency: "AED" },
+                { name: "Turkey", slug: "turkey", flag: "🇹🇷", currency: "TRY" },
+              ]},
+              { region: "English-Speaking & Pacific", destinations: [
+                { name: "United Kingdom", slug: "uk", flag: "🇬🇧", currency: "GBP" },
+                { name: "Australia", slug: "australia", flag: "🇦🇺", currency: "AUD" },
+                { name: "Canada", slug: "canada", flag: "🇨🇦", currency: "CAD" },
+                { name: "New Zealand", slug: "new-zealand", flag: "🇳🇿", currency: "NZD" },
+                { name: "South Korea", slug: "south-korea", flag: "🇰🇷", currency: "KRW" },
+                { name: "China", slug: "china", flag: "🇨🇳", currency: "CNY" },
+              ]},
+            ].map((group) => (
+              <div key={group.region}>
+                <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
+                  {group.region}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.destinations.map((dest) => (
+                    <Link
+                      key={dest.slug}
+                      href={`/send-money/send-money-to-${dest.slug}`}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-[13px] text-[var(--color-on-surface-variant)] transition-colors"
+                    >
+                      <span>{dest.flag}</span>
+                      <span>{dest.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/send-money" className="text-[14px] font-medium text-[var(--color-primary)] hover:underline">
+              See all destinations &rarr;
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       {/* ─── 5. LIVE EXAMPLE: $1,000 USD → PKR ─── */}
       <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
