@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { generateQuotes, getProviderName, providers } from "@/data/providers";
+import { getTranslations } from "next-intl/server";
 
 interface BestTransferTodayProps {
   amount?: number;
@@ -8,18 +9,19 @@ interface BestTransferTodayProps {
   symbol?: string;
 }
 
-export default function BestTransferToday({
+export default async function BestTransferToday({
   amount = 1000,
   from = "USD",
   to = "PKR",
   symbol = "Rs",
 }: BestTransferTodayProps) {
+  const t = await getTranslations("bestTransferToday");
   const quotes = generateQuotes(amount, from, to).slice(0, 5);
 
   if (quotes.length === 0) {
     return (
       <p className="text-center text-[14px] text-[var(--color-on-surface-variant)]">
-        No quotes available for this corridor right now.
+        {t("noQuotesAvailable")}
       </p>
     );
   }
@@ -32,10 +34,10 @@ export default function BestTransferToday({
       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[var(--shadow-sm)]">
         {/* Table header */}
         <div className="grid grid-cols-[1fr_90px_80px_110px] sm:grid-cols-[1fr_110px_100px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] sm:text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-          <span>Provider</span>
-          <span className="text-right">Rate</span>
-          <span className="text-right">Fee</span>
-          <span className="text-right">You get</span>
+          <span>{t("provider")}</span>
+          <span className="text-right">{t("rate")}</span>
+          <span className="text-right">{t("fee")}</span>
+          <span className="text-right">{t("youGet")}</span>
         </div>
 
         {/* Rows */}
@@ -66,7 +68,7 @@ export default function BestTransferToday({
                     {name}
                     {isBest && (
                       <span className="ml-1.5 text-[10px] sm:text-[11px] text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded font-semibold align-middle tracking-wide uppercase">
-                        Best
+                        {t("best")}
                       </span>
                     )}
                   </p>
@@ -81,7 +83,7 @@ export default function BestTransferToday({
 
               {/* Fee */}
               <p className={`text-[13px] sm:text-[14px] text-right tabular-nums ${q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
-                {q.fee === 0 ? "Free" : `$${q.fee.toFixed(2)}`}
+                {q.fee === 0 ? t("free") : `$${q.fee.toFixed(2)}`}
               </p>
 
               {/* Recipient gets */}

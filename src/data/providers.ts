@@ -669,6 +669,13 @@ export const currencies = [
   { code: "XOF", name: "West African CFA Franc", flag: "🇸🇳", symbol: "CFA" },
   { code: "PLN", name: "Polish Zloty", flag: "🇵🇱", symbol: "zł" },
   { code: "RON", name: "Romanian Leu", flag: "🇷🇴", symbol: "lei" },
+  { code: "TWD", name: "New Taiwan Dollar", flag: "🇹🇼", symbol: "NT$" },
+  { code: "CZK", name: "Czech Koruna", flag: "🇨🇿", symbol: "Kč" },
+  { code: "HUF", name: "Hungarian Forint", flag: "🇭🇺", symbol: "Ft" },
+  { code: "ILS", name: "Israeli Shekel", flag: "🇮🇱", symbol: "₪" },
+  { code: "RWF", name: "Rwandan Franc", flag: "🇷🇼", symbol: "FRw" },
+  { code: "ZMW", name: "Zambian Kwacha", flag: "🇿🇲", symbol: "ZK" },
+  { code: "XAF", name: "Central African CFA Franc", flag: "🇨🇲", symbol: "FCFA" },
 ];
 
 // --- Exchange rates from XE mid-market (authoritative) with static fallback ---

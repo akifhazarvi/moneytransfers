@@ -30,6 +30,8 @@ const CURRENCY_TO_ORIGIN_ISO: Record<string, string> = {
   CAD: "CA",
   AUD: "AU",
   AED: "AE",
+  SAR: "SA",
+  SGD: "SG",
 };
 
 // Corridors we care about — must match currencies our platform tracks
@@ -72,6 +74,15 @@ const CORRIDORS = [
   // From AED
   { from: "AED", to: "INR" },
   { from: "AED", to: "PKR" },
+  // From SAR
+  { from: "SAR", to: "INR" },
+  { from: "SAR", to: "PKR" },
+  { from: "SAR", to: "BDT" },
+  { from: "SAR", to: "PHP" },
+  // From SGD
+  { from: "SGD", to: "INR" },
+  { from: "SGD", to: "PHP" },
+  { from: "SGD", to: "BDT" },
 ];
 
 interface FxCorridor {

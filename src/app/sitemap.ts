@@ -7,93 +7,131 @@ import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 
 const SITE_URL = "https://sendmoneycompare.com";
+const LOCALES = ["en", "es", "fr"] as const;
+const EXCLUDED_CORRIDOR_SLUGS = new Set(["gbp-to-fjd"]);
+const EXCLUDED_IBAN_SLUGS = new Set(["andorra", "monaco"]);
+const EXCLUDED_SWIFT_SLUGS = new Set(["holy-see"]);
+
+function withAlternates(
+  path: string,
+  options: { lastModified: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }
+): MetadataRoute.Sitemap[number] {
+  const url = path ? `${SITE_URL}/${path}` : SITE_URL;
+  return {
+    url,
+    lastModified: options.lastModified,
+    changeFrequency: options.changeFrequency,
+    priority: options.priority,
+    alternates: {
+      languages: Object.fromEntries(
+        LOCALES.map((locale) => [
+          locale,
+          locale === "en"
+            ? (path ? `${SITE_URL}/${path}` : SITE_URL)
+            : (path ? `${SITE_URL}/${locale}/${path}` : `${SITE_URL}/${locale}`),
+        ])
+      ),
+    },
+  };
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE_URL, lastModified: now, changeFrequency: "daily", priority: 1.0 },
-    { url: `${SITE_URL}/send-money`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${SITE_URL}/companies`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE_URL}/compare`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE_URL}/currency-converter`, lastModified: now, changeFrequency: "daily", priority: 0.7 },
-    { url: `${SITE_URL}/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${SITE_URL}/iban`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${SITE_URL}/swift-codes`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/editorial-policy`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/how-we-review`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/methodology`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/privacy-policy`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/cookies`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/disclaimer`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    withAlternates("", { lastModified: now, changeFrequency: "daily", priority: 1.0 }),
+    withAlternates("send-money", { lastModified: now, changeFrequency: "daily", priority: 0.9 }),
+    withAlternates("companies", { lastModified: now, changeFrequency: "weekly", priority: 0.8 }),
+    withAlternates("compare", { lastModified: now, changeFrequency: "weekly", priority: 0.8 }),
+    withAlternates("currency-converter", { lastModified: now, changeFrequency: "daily", priority: 0.7 }),
+    withAlternates("guides", { lastModified: now, changeFrequency: "weekly", priority: 0.7 }),
+    withAlternates("iban", { lastModified: now, changeFrequency: "monthly", priority: 0.5 }),
+    withAlternates("swift-codes", { lastModified: now, changeFrequency: "monthly", priority: 0.5 }),
+    withAlternates("about", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("contact", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("editorial-policy", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("how-we-review", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("methodology", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("privacy-policy", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("terms", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("cookies", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    withAlternates("disclaimer", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
   ];
 
-  const corridorPages: MetadataRoute.Sitemap = allCorridors.map((c) => ({
-    url: `${SITE_URL}/send-money/${c.slug}`,
-    lastModified: now,
-    changeFrequency: "daily" as const,
-    priority: c.isCurrencyCorridor ? 0.7 : 0.9,
-  }));
+  const corridorPages: MetadataRoute.Sitemap = allCorridors
+    .filter((c) => !EXCLUDED_CORRIDOR_SLUGS.has(c.slug))
+    .map((c) =>
+    withAlternates(`send-money/${c.slug}`, {
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: c.isCurrencyCorridor ? 0.7 : 0.9,
+    })
+  );
 
-  const providerPages: MetadataRoute.Sitemap = providers.map((p) => ({
-    url: `${SITE_URL}/companies/${p.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
+  const providerPages: MetadataRoute.Sitemap = providers.map((p) =>
+    withAlternates(`companies/${p.slug}`, {
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    })
+  );
 
   const comparisonPages: MetadataRoute.Sitemap = [];
   for (let i = 0; i < providers.length; i++) {
     for (let j = i + 1; j < providers.length; j++) {
-      comparisonPages.push({
-        url: `${SITE_URL}/compare/${providers[i].slug}-vs-${providers[j].slug}`,
-        lastModified: now,
-        changeFrequency: "weekly" as const,
-        priority: 0.6,
-      });
+      comparisonPages.push(
+        withAlternates(`compare/${providers[i].slug}-vs-${providers[j].slug}`, {
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.6,
+        })
+      );
     }
   }
 
-  const guidePages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${SITE_URL}/guides/${post.slug}`,
-    lastModified: post.updatedAt,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const guidePages: MetadataRoute.Sitemap = blogPosts.map((post) =>
+    withAlternates(`guides/${post.slug}`, {
+      lastModified: post.updatedAt,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    })
+  );
 
   const newsPages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/news`, lastModified: now, changeFrequency: "daily" as const, priority: 0.7 },
-    ...newsItems.map((item) => ({
-      url: `${SITE_URL}/news/${item.slug}`,
-      lastModified: item.publishedAt,
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    })),
+    withAlternates("news", { lastModified: now, changeFrequency: "daily", priority: 0.7 }),
+    ...newsItems.map((item) =>
+      withAlternates(`news/${item.slug}`, {
+        lastModified: item.publishedAt,
+        changeFrequency: "monthly",
+        priority: 0.5,
+      })
+    ),
   ];
 
   const exchangeRatesPage: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/exchange-rates`, lastModified: now, changeFrequency: "hourly" as const, priority: 0.8 },
-    { url: `${SITE_URL}/remittance-cost-index`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
+    withAlternates("exchange-rates", { lastModified: now, changeFrequency: "hourly", priority: 0.8 }),
+    withAlternates("remittance-cost-index", { lastModified: now, changeFrequency: "weekly", priority: 0.9 }),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
-    .filter((c) => c.slug)
-    .map((c) => ({
-      url: `${SITE_URL}/iban/${c.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.4,
-    }));
+    .filter((c) => c.slug && !EXCLUDED_IBAN_SLUGS.has(c.slug))
+    .map((c) =>
+      withAlternates(`iban/${c.slug}`, {
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.4,
+      })
+    );
 
-  const swiftPages: MetadataRoute.Sitemap = getSwiftCountries().map((c) => ({
-    url: `${SITE_URL}/swift-codes/${c.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.4,
-  }));
+  const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
+    .filter((c) => !EXCLUDED_SWIFT_SLUGS.has(c.slug))
+    .map((c) =>
+    withAlternates(`swift-codes/${c.slug}`, {
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.4,
+    })
+  );
 
   return [
     ...staticPages,

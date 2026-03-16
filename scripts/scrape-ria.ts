@@ -46,6 +46,15 @@ const CORRIDORS = [
   { from: "CAD", to: "PHP", locale: "en-ca" },
   { from: "AUD", to: "INR", locale: "en-au" },
   { from: "AUD", to: "PHP", locale: "en-au" },
+  { from: "AED", to: "INR", locale: "en-ae" },
+  { from: "AED", to: "PKR", locale: "en-ae" },
+  { from: "AED", to: "PHP", locale: "en-ae" },
+  { from: "SGD", to: "INR", locale: "en-sg" },
+  { from: "SGD", to: "PHP", locale: "en-sg" },
+  { from: "SAR", to: "INR", locale: "en-sa" },
+  { from: "SAR", to: "PKR", locale: "en-sa" },
+  { from: "NZD", to: "INR", locale: "en-nz" },
+  { from: "NZD", to: "PHP", locale: "en-nz" },
 ];
 
 function parseApiResponse(

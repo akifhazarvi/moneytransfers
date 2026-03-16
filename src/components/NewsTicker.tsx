@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface NewsTickerItem {
   slug: string;
@@ -30,6 +31,7 @@ function formatDate(dateStr: string) {
 const PAGE_SIZE = 3;
 
 export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
+  const t = useTranslations("newsTicker");
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(items.length / PAGE_SIZE);
 
@@ -51,7 +53,7 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
             </span>
             <span className="text-[13px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">
-              Latest News
+              {t("latestNews")}
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -59,13 +61,13 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
               href="/news"
               className="text-[13px] font-medium text-[var(--color-primary)] hover:underline"
             >
-              All news &rarr;
+              {t("allNews")} &rarr;
             </Link>
             {totalPages > 1 && (
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={prev}
-                  aria-label="Previous news"
+                  aria-label={t("previousNews")}
                   className="w-8 h-8 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] transition-colors"
                 >
                   <svg className="w-4 h-4 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +76,7 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
                 </button>
                 <button
                   onClick={next}
-                  aria-label="Next news"
+                  aria-label={t("nextNews")}
                   className="w-8 h-8 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] transition-colors"
                 >
                   <svg className="w-4 h-4 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,7 +113,7 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
                 {item.excerpt}
               </p>
               <span className="inline-block mt-3 text-[13px] font-medium text-[var(--color-primary)]">
-                Read more &rarr;
+                {t("readMore")} &rarr;
               </span>
             </Link>
           ))}

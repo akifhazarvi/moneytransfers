@@ -34,3 +34,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Search Console MCP
+
+This repo includes a local Google Search Console MCP server. Setup details are in [`docs/search-console-mcp.md`](docs/search-console-mcp.md).
+
+Run it with:
+
+```bash
+npm run mcp:search-console
+```
+
+If you want to use your own Google account instead of a service account:
+
+```bash
+npm run mcp:search-console:login
+```
+
+Or run the HTTP transport:
+
+```bash
+npm run mcp:search-console:http
+```

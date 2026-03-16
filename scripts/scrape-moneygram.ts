@@ -57,6 +57,14 @@ const CORRIDORS = [
   { from: "CAD", to: "INR", destCountry: "India", sendPath: "ca/en", countrySlug: "india" },
   { from: "CAD", to: "PHP", destCountry: "Philippines", sendPath: "ca/en", countrySlug: "philippines" },
   { from: "AUD", to: "INR", destCountry: "India", sendPath: "au/en", countrySlug: "india" },
+  { from: "AED", to: "INR", destCountry: "India", sendPath: "ae/en", countrySlug: "india" },
+  { from: "AED", to: "PKR", destCountry: "Pakistan", sendPath: "ae/en", countrySlug: "pakistan" },
+  { from: "AED", to: "PHP", destCountry: "Philippines", sendPath: "ae/en", countrySlug: "philippines" },
+  { from: "SGD", to: "INR", destCountry: "India", sendPath: "sg/en", countrySlug: "india" },
+  { from: "SGD", to: "PHP", destCountry: "Philippines", sendPath: "sg/en", countrySlug: "philippines" },
+  { from: "SAR", to: "INR", destCountry: "India", sendPath: "sa/en", countrySlug: "india" },
+  { from: "SAR", to: "PKR", destCountry: "Pakistan", sendPath: "sa/en", countrySlug: "pakistan" },
+  { from: "NZD", to: "INR", destCountry: "India", sendPath: "nz/en", countrySlug: "india" },
 ];
 
 /* ------------------------------------------------------------------ */

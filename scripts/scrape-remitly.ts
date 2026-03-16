@@ -46,6 +46,13 @@ const CORRIDORS = [
   { from: "CAD", to: "PHP", urlPath: "ca/en/philippines" },
   { from: "AUD", to: "INR", urlPath: "au/en/india" },
   { from: "AUD", to: "PHP", urlPath: "au/en/philippines" },
+  { from: "AED", to: "INR", urlPath: "ae/en/india" },
+  { from: "AED", to: "PKR", urlPath: "ae/en/pakistan" },
+  { from: "AED", to: "PHP", urlPath: "ae/en/philippines" },
+  { from: "SGD", to: "INR", urlPath: "sg/en/india" },
+  { from: "SGD", to: "PHP", urlPath: "sg/en/philippines" },
+  { from: "NZD", to: "INR", urlPath: "nz/en/india" },
+  { from: "NZD", to: "PHP", urlPath: "nz/en/philippines" },
 ];
 
 function parseApiResponse(

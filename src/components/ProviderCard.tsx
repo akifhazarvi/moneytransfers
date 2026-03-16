@@ -8,6 +8,7 @@ import { trackProviderExpanded, trackProviderClicked, trackReviewClicked } from 
 import { getGoUrl } from "@/lib/affiliate";
 import { promos, type PromoInfo } from "@/data/promos";
 import RatingBadge from "./RatingBadge";
+import { useTranslations } from "next-intl";
 
 interface Props {
   quote: TransferQuote;
@@ -21,28 +22,27 @@ interface Props {
 
 export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled }: Props) {
   const [expanded, setExpanded] = useState(false);
+  const t = useTranslations("providerCard");
   const provider = providers.find((p) => p.slug === quote.providerSlug);
   const providerName = provider?.name || getProviderName(quote.providerSlug);
   const providerLogo = provider?.logo || `/logos/${quote.providerSlug}.png`;
   const providerWebsite = getGoUrl(quote.providerSlug);
 
-  const feeLabel = quote.fee === 0 ? "Free" : `${sendCurrencySymbol}${quote.fee.toFixed(2)}`;
+  const feeLabel = quote.fee === 0 ? t("free") : `${sendCurrencySymbol}${quote.fee.toFixed(2)}`;
   const isFast = quote.transferSpeed.toLowerCase().includes("minute") || quote.transferSpeed.toLowerCase().includes("instant");
   const isBest = rank === 1;
   const promo = promos.find((p) => p.providerSlug === quote.providerSlug);
 
   return (
     <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
-      {/* Best Deal Badge */}
       {isBest && (
         <div className="absolute -top-px left-6 z-10">
           <div className="bg-[var(--color-success-dark)] text-white text-[11px] font-semibold tracking-wide uppercase px-3 py-1 rounded-b-lg shadow-sm">
-            Best deal
+            {t("bestDeal")}
           </div>
         </div>
       )}
 
-      {/* Main clickable row */}
       <div
         role="button"
         tabIndex={0}
@@ -55,35 +55,14 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         aria-expanded={expanded}
         className={`group/row w-full text-left px-3 sm:px-6 cursor-pointer ${isBest ? "py-4 sm:py-5 pt-7 sm:pt-8" : "py-3 sm:py-4"}`}
       >
-        {/* Mobile layout: 2-row stacked */}
+        {/* Mobile layout */}
         <div className="flex sm:hidden items-start gap-3">
-          {/* Rank */}
           <span className={`text-[12px] font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
             {rank}
           </span>
-
-          {/* Logo */}
           <div className={`${isBest ? "w-10 h-10" : "w-9 h-9"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[13px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
-            <img
-              src={providerLogo}
-              alt={`${providerName} logo`}
-              width={40}
-              height={40}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                const target = e.currentTarget;
-                target.style.display = "none";
-                if (target.parentElement) {
-                  target.parentElement.setAttribute("aria-label", providerName);
-                  target.parentElement.textContent = providerName.charAt(0).toUpperCase();
-                }
-              }}
-            />
+            <img src={providerLogo} alt={`${providerName} logo`} width={40} height={40} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e) => { const target = e.currentTarget; target.style.display = "none"; if (target.parentElement) { target.parentElement.setAttribute("aria-label", providerName); target.parentElement.textContent = providerName.charAt(0).toUpperCase(); } }} />
           </div>
-
-          {/* Provider info + amount */}
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
@@ -92,7 +71,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
                   {isFast && (
                     <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
-                      Fast
+                      {t("fast")}
                     </span>
                   )}
                   {promo?.referralBadge && (
@@ -113,32 +92,23 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 </p>
               </div>
             </div>
-            {/* Mobile detail row */}
             <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[var(--color-on-surface-variant)]">
               <span>{quote.transferSpeed}</span>
               <span className="w-px h-3 bg-[var(--color-outline)]" />
-              <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel} fee</span>
+              <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel} {t("fee")}</span>
               <span className="w-px h-3 bg-[var(--color-outline)]" />
               <span className="tabular-nums">{quote.exchangeRate.toFixed(4)}</span>
             </div>
           </div>
-
-          {/* Expand chevron */}
           <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-            <svg
-              className={`w-4 h-4 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className={`w-4 h-4 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </div>
 
-        {/* Desktop layout: single row */}
+        {/* Desktop layout */}
         <div className="hidden sm:flex items-center gap-5">
-          {/* Rank + compare checkbox */}
           <div className="flex items-center gap-2 shrink-0">
             <span className={`text-[13px] font-semibold tabular-nums w-5 text-center ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
               {rank}
@@ -155,7 +125,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                       ? "border-[var(--color-outline)] opacity-30 cursor-not-allowed"
                       : "border-[var(--color-outline)] hover:border-[var(--color-primary)]"
                 }`}
-                aria-label={`Compare ${providerName}`}
+                aria-label={t("compare", { provider: providerName })}
               >
                 {compareSelected && (
                   <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,135 +136,98 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             )}
           </div>
 
-          {/* Provider logo */}
           <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[14px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
-            <img
-              src={providerLogo}
-              alt={`${providerName} logo`}
-              width={44}
-              height={44}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                const target = e.currentTarget;
-                target.style.display = "none";
-                if (target.parentElement) {
-                  target.parentElement.setAttribute("aria-label", providerName);
-                  target.parentElement.textContent = providerName.charAt(0).toUpperCase();
-                }
-              }}
-            />
+            <img src={providerLogo} alt={`${providerName} logo`} width={44} height={44} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e) => { const target = e.currentTarget; target.style.display = "none"; if (target.parentElement) { target.parentElement.setAttribute("aria-label", providerName); target.parentElement.textContent = providerName.charAt(0).toUpperCase(); } }} />
           </div>
 
-          {/* Provider info */}
-          <div className="min-w-[140px] shrink-0">
+          <div className="w-[200px] lg:w-[240px] shrink-0">
             <div className="flex items-center gap-2">
-              <p className={`text-[14px] font-medium text-[var(--color-on-surface)] ${isBest ? "text-[15px]" : ""}`}>{providerName}</p>
+              <p className={`text-[14px] font-medium text-[var(--color-on-surface)] truncate ${isBest ? "text-[15px]" : ""}`}>{providerName}</p>
             </div>
-            <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+            <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
               <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
               {isFast && (
                 <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
-                  Fast
+                  {t("fast")}
                 </span>
               )}
               {promo?.referralBadge && (
-                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded">
+                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded whitespace-nowrap">
                   {promo.referralBadge}
                 </span>
               )}
               {promo?.signUpBadge && (
-                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-px rounded">
+                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-px rounded whitespace-nowrap">
                   {promo.signUpBadge}
                 </span>
               )}
             </div>
           </div>
 
-          {/* Transfer details — desktop */}
           <div className="hidden md:flex items-center gap-6 flex-1 min-w-0">
-            {/* Speed */}
             <div className="w-[110px] shrink-0">
-              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Speed</p>
+              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("speed")}</p>
               <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5">{quote.transferSpeed}</p>
             </div>
-
-            {/* Fee */}
             <div className="w-[80px] shrink-0">
-              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Fee</p>
+              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("fee")}</p>
               <p className={`text-[13px] mt-0.5 ${quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
                 {feeLabel}
               </p>
             </div>
-
-            {/* Rate */}
             <div className="w-[90px] shrink-0">
-              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Rate</p>
+              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("rate")}</p>
               <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
             </div>
           </div>
 
-          {/* Spacer */}
           <div className="flex-1 min-w-0" />
 
-          {/* Hero receive amount */}
           <div className="text-right shrink-0 mr-1">
             <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-[22px] sm:text-[24px] text-[var(--color-success-dark)]" : "text-[18px] sm:text-[20px] text-[var(--color-on-surface)]"}`}>
               {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">Recipient gets</p>
+            <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">{t("recipientGets")}</p>
           </div>
 
-          {/* Expand chevron */}
           <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover/row:bg-[var(--color-surface-container)] transition-colors">
-            <svg
-              className={`w-5 h-5 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className={`w-5 h-5 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </div>
       </div>
 
-      {/* Expanded details panel — with smooth animation */}
-      <div
-        className={`grid transition-all duration-200 ease-in-out ${expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
-      >
+      {/* Expanded details panel */}
+      <div className={`grid transition-all duration-200 ease-in-out ${expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
         <div className="overflow-hidden">
           <div className={`mx-5 sm:mx-6 mb-5 border border-[var(--color-outline)] rounded-2xl overflow-hidden ${isBest ? "border-[var(--color-success-dark)]/20" : ""}`}>
-            {/* Detail grid — border-r + border-b per cell for correct 2-col and 4-col rendering */}
             <div className="grid grid-cols-2 sm:grid-cols-4 bg-[var(--color-surface-dim)]">
               <div className="px-4 py-3 border-r border-b sm:border-b-0 border-[var(--color-outline)]">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Exchange rate</p>
+                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("exchangeRate")}</p>
                 <p className="text-[15px] font-medium text-[var(--color-on-surface)] mt-1 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
               </div>
               <div className="px-4 py-3 sm:border-r border-b sm:border-b-0 border-[var(--color-outline)]">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Transfer fee</p>
+                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("transferFee")}</p>
                 <p className={`text-[15px] font-medium mt-1 ${quote.fee === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>{feeLabel}</p>
               </div>
               <div className="px-4 py-3 border-r border-[var(--color-outline)]">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Delivery</p>
+                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("delivery")}</p>
                 <p className="text-[15px] font-medium text-[var(--color-on-surface)] mt-1">{quote.transferSpeed}</p>
               </div>
               <div className="px-4 py-3">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Recipient gets</p>
+                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("recipientGets")}</p>
                 <p className={`text-[15px] font-semibold mt-1 tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                   {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
               </div>
             </div>
 
-            {/* Transfer flow + CTA */}
             <div className="px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[var(--color-surface)]">
-              {/* Transfer summary */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[13px] text-[var(--color-on-surface-variant)]">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                  <span>Send {sendCurrencySymbol}{quote.sendAmount.toLocaleString()} {quote.sendCurrency}</span>
+                  <span>{t("send")} {sendCurrencySymbol}{quote.sendAmount.toLocaleString()} {quote.sendCurrency}</span>
                 </div>
                 <svg className="w-4 h-4 text-[var(--color-outline)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -302,12 +235,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 <div className="flex items-center gap-2">
                   <div className={`w-2 h-2 rounded-full shrink-0 ${isBest ? "bg-[var(--color-success-dark)]" : "bg-[var(--color-on-surface-variant)]"}`} />
                   <span className={isBest ? "text-[var(--color-success-dark)] font-medium" : ""}>
-                    Receive {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {quote.receiveCurrency}
+                    {t("receive")} {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {quote.receiveCurrency}
                   </span>
                 </div>
               </div>
 
-              {/* Action buttons */}
               <div className="flex items-center gap-3 shrink-0">
                 {provider && (
                   <Link
@@ -315,7 +247,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                     onClick={() => trackReviewClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`)}
                     className="text-[13px] font-medium text-[var(--color-primary)] hover:underline"
                   >
-                    Full review
+                    {t("fullReview")}
                   </Link>
                 )}
                 <a
@@ -329,7 +261,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                       : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow"
                   }`}
                 >
-                  Send with {providerName}
+                  {t("sendWith", { provider: providerName })}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -337,10 +269,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               </div>
             </div>
 
-            {/* Payment methods */}
             {provider && provider.paymentMethods.length > 0 && (
               <div className="px-5 py-3 border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]/50 flex items-center gap-4 text-[12px] text-[var(--color-on-surface-variant)]">
-                <span className="font-medium">Pays with:</span>
+                <span className="font-medium">{t("paysWith")}</span>
                 <div className="flex flex-wrap gap-2">
                   {provider.paymentMethods.slice(0, 4).map((method) => (
                     <span key={method} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-full px-2.5 py-0.5">
@@ -351,10 +282,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               </div>
             )}
 
-            {/* Promo & Referral deals */}
             {promo && (promo.signUpOffer || promo.referralProgram || promo.promoCode) && (
               <div className="px-5 py-4 border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]">
-                <p className="text-[12px] font-semibold text-[var(--color-on-surface)] uppercase tracking-wide mb-3">Deals &amp; promotions</p>
+                <p className="text-[12px] font-semibold text-[var(--color-on-surface)] uppercase tracking-wide mb-3">{t("dealsPromotions")}</p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {promo.signUpOffer && (
                     <div className="flex gap-2.5">
@@ -364,11 +294,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                         </svg>
                       </div>
                       <div>
-                        <p className="text-[12px] font-semibold text-[var(--color-on-surface)]">Sign-up offer</p>
+                        <p className="text-[12px] font-semibold text-[var(--color-on-surface)]">{t("signUpOffer")}</p>
                         <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{promo.signUpOffer}</p>
                         {promo.promoCode && (
                           <p className="text-[12px] mt-1">
-                            Code: <span className="font-mono font-semibold text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-0.5 rounded">{promo.promoCode}</span>
+                            {t("code")} <span className="font-mono font-semibold text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-0.5 rounded">{promo.promoCode}</span>
                           </p>
                         )}
                       </div>
@@ -382,12 +312,12 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                         </svg>
                       </div>
                       <div>
-                        <p className="text-[12px] font-semibold text-[var(--color-primary)]">Refer a friend</p>
+                        <p className="text-[12px] font-semibold text-[var(--color-primary)]">{t("referFriend")}</p>
                         <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">
-                          You get: {promo.referralProgram.referrerReward}
+                          {t("youGet")} {promo.referralProgram.referrerReward}
                         </p>
                         <p className="text-[12px] text-[var(--color-on-surface-variant)] leading-relaxed">
-                          Friend gets: {promo.referralProgram.refereeReward}
+                          {t("friendGets")} {promo.referralProgram.refereeReward}
                         </p>
                       </div>
                     </div>
@@ -401,7 +331,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[12px] font-semibold text-[var(--color-primary)]">Loyalty program</p>
+                      <p className="text-[12px] font-semibold text-[var(--color-primary)]">{t("loyaltyProgram")}</p>
                       <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{promo.loyaltyProgram}</p>
                     </div>
                   </div>

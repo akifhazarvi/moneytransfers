@@ -28,6 +28,7 @@ import {
 const COUNTRY_MAP: Record<string, string> = {
   USD: "US", GBP: "GB", EUR: "DE", CAD: "CA", AUD: "AU",
   AED: "AE", SGD: "SG", NZD: "NZ",
+  SAR: "SA", CHF: "CH", HKD: "HK",
 };
 
 const CORRIDORS = [
@@ -41,6 +42,11 @@ const CORRIDORS = [
   { from: "EUR", to: "USD" },
   { from: "CAD", to: "INR" }, { from: "AUD", to: "INR" },
   { from: "AED", to: "INR" }, { from: "AED", to: "PKR" },
+  { from: "SAR", to: "INR" }, { from: "SAR", to: "PKR" },
+  { from: "SGD", to: "INR" }, { from: "SGD", to: "PHP" },
+  { from: "CHF", to: "INR" }, { from: "CHF", to: "EUR" },
+  { from: "NZD", to: "INR" }, { from: "NZD", to: "PHP" },
+  { from: "HKD", to: "INR" }, { from: "HKD", to: "PHP" },
 ];
 
 const SEND_AMOUNTS = [500, 1000, 5000];

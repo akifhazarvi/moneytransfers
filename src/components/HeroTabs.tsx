@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import HomepageConverter from "@/components/HomepageConverter";
 
-const TABS = [
-  { id: "compare", label: "Compare Transfers" },
-  { id: "convert", label: "Convert" },
-] as const;
-
-type TabId = (typeof TABS)[number]["id"];
+type TabId = "compare" | "convert";
 
 export default function HeroTabs() {
+  const t = useTranslations("heroTabs");
   const [active, setActive] = useState<TabId>("compare");
+  const TABS = [
+    { id: "compare" as const, label: t("compareTransfers") },
+    { id: "convert" as const, label: t("convert") },
+  ];
 
   return (
     <div>

@@ -51,6 +51,16 @@ const CORRIDORS = [
   { fromCountry: "au", toCountry: "ph", from: "AUD", to: "PHP" },
   { fromCountry: "ae", toCountry: "in", from: "AED", to: "INR" },
   { fromCountry: "ae", toCountry: "pk", from: "AED", to: "PKR" },
+  { fromCountry: "ae", toCountry: "ph", from: "AED", to: "PHP" },
+  { fromCountry: "ae", toCountry: "bd", from: "AED", to: "BDT" },
+  { fromCountry: "sg", toCountry: "in", from: "SGD", to: "INR" },
+  { fromCountry: "sg", toCountry: "ph", from: "SGD", to: "PHP" },
+  { fromCountry: "sa", toCountry: "in", from: "SAR", to: "INR" },
+  { fromCountry: "sa", toCountry: "pk", from: "SAR", to: "PKR" },
+  { fromCountry: "sa", toCountry: "ph", from: "SAR", to: "PHP" },
+  { fromCountry: "sa", toCountry: "bd", from: "SAR", to: "BDT" },
+  { fromCountry: "nz", toCountry: "in", from: "NZD", to: "INR" },
+  { fromCountry: "nz", toCountry: "ph", from: "NZD", to: "PHP" },
 ];
 
 const SEND_AMOUNTS = [500, 1000, 5000];

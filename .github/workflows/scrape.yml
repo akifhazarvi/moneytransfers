@@ -56,6 +56,11 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
+      - name: Scrape ExchangeRates.org.uk (fetch + Cheerio)
+        run: npx tsx scripts/scrape-exchangerates.ts
+        timeout-minutes: 5
+        continue-on-error: true
+
       - name: Upload scraped data
         uses: actions/upload-artifact@v4
         with:

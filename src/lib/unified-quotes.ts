@@ -27,6 +27,7 @@ import xeTransferQuotes from "@/data/scraped/xe-transfer-quotes.json";
 import taptapsendQuotes from "@/data/scraped/taptapsend-quotes.json";
 import moneygramQuotes from "@/data/scraped/moneygram-quotes.json";
 import wiseDirectQuotes from "@/data/scraped/wise-direct-quotes.json";
+import exchangeratesUkQuotes from "@/data/scraped/exchangerates-uk-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -200,6 +201,7 @@ addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-browser");
 addQuotes(monitoQuotes as unknown[], 2, "monito-comparison");
 addQuotes(moneytransfersQuotes as unknown[], 2, "moneytransfers-comparison");
 addQuotes(remitfinderQuotes as unknown[], 2, "remitfinder-comparison");
+addQuotes(exchangeratesUkQuotes as unknown[], 2, "exchangerates-uk");
 
 // Priority 3: Wise comparison API
 addQuotes(wiseQuotes as unknown[], 3, "wise-comparison");

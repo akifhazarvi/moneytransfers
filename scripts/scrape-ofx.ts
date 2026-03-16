@@ -26,6 +26,10 @@ const CORRIDORS = [
   { from: "CAD", to: "INR" }, { from: "CAD", to: "USD" },
   { from: "AUD", to: "INR" }, { from: "AUD", to: "USD" },
   { from: "AED", to: "INR" },
+  { from: "SGD", to: "INR" }, { from: "SGD", to: "PHP" },
+  { from: "NZD", to: "INR" }, { from: "NZD", to: "AUD" },
+  { from: "CHF", to: "INR" }, { from: "CHF", to: "EUR" },
+  { from: "SAR", to: "INR" }, { from: "SAR", to: "PKR" },
 ];
 
 // OFX has a minimum of ~150 USD equivalent

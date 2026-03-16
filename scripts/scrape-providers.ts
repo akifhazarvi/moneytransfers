@@ -81,6 +81,47 @@ const CORRIDORS = [
   { from: "NZD", to: "GBP" },
   { from: "NZD", to: "INR" },
   { from: "NZD", to: "FJD" },
+  // From SAR (Saudi Arabia — massive remittance origin)
+  { from: "SAR", to: "INR" },
+  { from: "SAR", to: "PKR" },
+  { from: "SAR", to: "BDT" },
+  { from: "SAR", to: "PHP" },
+  { from: "SAR", to: "EGP" },
+  // From KWD (Kuwait)
+  { from: "KWD", to: "INR" },
+  { from: "KWD", to: "PKR" },
+  { from: "KWD", to: "PHP" },
+  // From QAR (Qatar)
+  { from: "QAR", to: "INR" },
+  { from: "QAR", to: "PKR" },
+  { from: "QAR", to: "PHP" },
+  // From CHF (Switzerland)
+  { from: "CHF", to: "INR" },
+  { from: "CHF", to: "EUR" },
+  { from: "CHF", to: "PKR" },
+  // From HKD (Hong Kong)
+  { from: "HKD", to: "INR" },
+  { from: "HKD", to: "PHP" },
+  { from: "HKD", to: "CNY" },
+  // From JPY (Japan)
+  { from: "JPY", to: "INR" },
+  { from: "JPY", to: "PHP" },
+  // From KRW (South Korea)
+  { from: "KRW", to: "INR" },
+  { from: "KRW", to: "PHP" },
+  { from: "KRW", to: "VND" },
+  // From NOK (Norway)
+  { from: "NOK", to: "INR" },
+  { from: "NOK", to: "PKR" },
+  { from: "NOK", to: "PLN" },
+  // From SEK (Sweden)
+  { from: "SEK", to: "INR" },
+  { from: "SEK", to: "PKR" },
+  { from: "SEK", to: "PLN" },
+  // From DKK (Denmark)
+  { from: "DKK", to: "INR" },
+  { from: "DKK", to: "PKR" },
+  { from: "DKK", to: "PLN" },
 ];
 
 const SEND_AMOUNTS = [100, 500, 1000, 5000, 10000];
@@ -196,6 +237,8 @@ const CURRENCY_TO_COUNTRY: Record<string, string> = {
   GHS: "GH", ZAR: "ZA", AED: "AE", SGD: "SG", NZD: "NZ",
   COP: "CO", GTQ: "GT", VND: "VN", TRY: "TR", MAD: "MA",
   MYR: "MY", IDR: "ID", EGP: "EG", FJD: "FJ",
+  SAR: "SA", KWD: "KW", QAR: "QA", CHF: "CH", HKD: "HK",
+  KRW: "KR", NOK: "NO", SEK: "SE", DKK: "DK", PLN: "PL",
 };
 
 async function fetchComparison(

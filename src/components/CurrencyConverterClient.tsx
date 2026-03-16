@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
+import { useTranslations } from "next-intl";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import ComparisonTable from "@/components/ComparisonTable";
@@ -32,6 +33,7 @@ const popularPairs = [
 
 /* ─── Main Component ─── */
 export default function CurrencyConverterClient() {
+  const t = useTranslations("currencyConverterClient");
   const idCounter = useRef(1);
   function genId() {
     return `tc-${idCounter.current++}`;
@@ -132,7 +134,7 @@ export default function CurrencyConverterClient() {
             <CurrencyPicker
               value={fromCurrency}
               onChange={setFromCurrency}
-              label="Base currency"
+              label={t("baseCurrency")}
             />
             {/* Timer — right aligned, next to amount area */}
             {isLive && secondsUntilRefresh !== null && (
@@ -147,7 +149,7 @@ export default function CurrencyConverterClient() {
           <div className="flex items-end justify-between gap-4">
             <div className="flex-1" />
             <div className="text-right">
-              <label htmlFor="converter-amount" className="sr-only">Amount to convert</label>
+              <label htmlFor="converter-amount" className="sr-only">{t("amountToConvert")}</label>
               <input
                 id="converter-amount"
                 type="number"
@@ -205,7 +207,7 @@ export default function CurrencyConverterClient() {
                   {/* Drag handle — visible dots */}
                   <div
                     className="cursor-grab active:cursor-grabbing shrink-0 touch-none"
-                    title="Drag to reorder"
+                    title={t("dragToReorder")}
                   >
                     <svg className="w-4 h-4 text-[var(--color-on-surface-variant)]" fill="currentColor" viewBox="0 0 16 16">
                       <circle cx="5" cy="3" r="1.2" />
@@ -233,7 +235,7 @@ export default function CurrencyConverterClient() {
                   <button
                     onClick={() => pinToTop(target.id)}
                     className="w-8 h-8 flex items-center justify-center rounded-full text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors shrink-0"
-                    aria-label="Make this the base currency"
+                    aria-label={t("makeBaseCurrency")}
                     title="Swap to top"
                   >
                     <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -246,8 +248,8 @@ export default function CurrencyConverterClient() {
                   <button
                     onClick={() => removeTarget(target.id)}
                     className="w-8 h-8 flex items-center justify-center rounded-full text-[var(--color-on-surface-variant)] hover:text-[var(--color-danger)] hover:bg-[var(--color-danger-surface)] transition-colors shrink-0"
-                    aria-label={`Remove ${target.code}`}
-                    title="Remove"
+                    aria-label={`${t("remove")} ${target.code}`}
+                    title={t("remove")}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -266,7 +268,7 @@ export default function CurrencyConverterClient() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
                       <span className="text-[13px] font-medium">
-                        Send {fromCurrency} to {target.code}
+                        {t("sendFromTo", { from: fromCurrency, to: target.code })}
                       </span>
                     </div>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -291,10 +293,10 @@ export default function CurrencyConverterClient() {
             {isLive ? (
               <span className="inline-flex items-center gap-1.5 text-[var(--color-success)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
-                Live mid-market rates
+                {t("liveMidMarketRates")}
               </span>
             ) : (
-              <span>Mid-market rates · Connecting...</span>
+              <span>{t("midMarketRate")} · {t("connecting")}</span>
             )}
             {lastUpdated && (
               <span className="text-[var(--color-on-surface-variant)]">
@@ -306,7 +308,7 @@ export default function CurrencyConverterClient() {
       </div>
 
       {/* Popular Pairs */}
-      <SectionHeader title="Popular Currency Pairs" />
+      <SectionHeader title={t("popularCurrencyPairs")} />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
         {popularPairs.map((pair) => {
           const pairRate = getRate(rates, pair.from, pair.to);
@@ -325,14 +327,14 @@ export default function CurrencyConverterClient() {
               <p className="text-[18px] font-medium text-[var(--color-primary)] mt-1">
                 {pairRate.toFixed(4)}
               </p>
-              <p className="text-[12px] text-[var(--color-on-surface-variant)]">Mid-market rate</p>
+              <p className="text-[12px] text-[var(--color-on-surface-variant)]">{t("midMarketRate")}</p>
             </button>
           );
         })}
       </div>
 
       {/* Rate Table */}
-      <SectionHeader title="Exchange Rates Table" />
+      <SectionHeader title={t("exchangeRatesTable")} />
       <ComparisonTable headers={["Currency", "Rate (vs USD)", "1 USD ="]}>
         {currencies.filter((c) => c.code !== "USD").map((c) => (
           <tr key={c.code} className="hover:bg-[var(--color-surface-dim)]">

@@ -35,11 +35,20 @@ const CORRIDORS = [
   { from: "CAD", to: "INR" }, { from: "CAD", to: "PHP" },
   { from: "AUD", to: "INR" }, { from: "AUD", to: "PHP" },
   { from: "AED", to: "INR" }, { from: "AED", to: "PKR" },
+  { from: "SAR", to: "INR" }, { from: "SAR", to: "PKR" },
+  { from: "SAR", to: "PHP" }, { from: "SAR", to: "BDT" },
+  { from: "SGD", to: "INR" }, { from: "SGD", to: "PHP" },
+  { from: "NZD", to: "INR" }, { from: "NZD", to: "PHP" },
+  { from: "CHF", to: "INR" }, { from: "CHF", to: "EUR" },
+  { from: "HKD", to: "INR" }, { from: "HKD", to: "PHP" },
+  { from: "JPY", to: "INR" }, { from: "JPY", to: "PHP" },
+  { from: "KRW", to: "INR" }, { from: "KRW", to: "PHP" },
 ];
 
 const CURRENCY_TO_COUNTRY: Record<string, string> = {
   USD: "US", GBP: "GB", EUR: "DE", CAD: "CA", AUD: "AU",
   AED: "AE", SGD: "SG", NZD: "NZ",
+  SAR: "SA", CHF: "CH", HKD: "HK", JPY: "JP", KRW: "KR",
 };
 
 const HEADERS = {

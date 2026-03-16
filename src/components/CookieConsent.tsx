@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
+  const t = useTranslations("cookieConsent");
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
@@ -16,7 +18,6 @@ export default function CookieConsent() {
   }, []);
 
   function enableAnalytics() {
-    // Enable Google Analytics by updating consent
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("consent", "update", {
         analytics_storage: "granted",
@@ -43,17 +44,15 @@ export default function CookieConsent() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="flex-1">
             <p className="text-[14px] font-medium text-[var(--color-on-surface)] mb-1">
-              We use cookies
+              {t("title")}
             </p>
             <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
-              We use essential cookies to make our site work and analytics cookies to
-              understand how you use it. You can accept or decline non-essential
-              cookies.{" "}
+              {t("description")}{" "}
               <Link
                 href="/cookies"
                 className="text-[var(--color-primary)] hover:underline"
               >
-                Learn more about our cookie policy
+                {t("learnMore")}
               </Link>
             </p>
           </div>
@@ -62,13 +61,13 @@ export default function CookieConsent() {
               onClick={handleDecline}
               className="px-4 py-2 text-[13px] font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] border border-[var(--color-outline)] rounded-full transition-colors cursor-pointer"
             >
-              Decline
+              {t("decline")}
             </button>
             <button
               onClick={handleAccept}
               className="px-4 py-2 text-[13px] font-medium text-white bg-[var(--color-primary)] hover:bg-[#1557b0] rounded-full transition-colors cursor-pointer"
             >
-              Accept
+              {t("accept")}
             </button>
           </div>
         </div>

@@ -48,6 +48,16 @@ const CORRIDORS = [
   { from: "CAD", to: "PHP", destCountry: "Philippines" },
   { from: "AUD", to: "INR", destCountry: "India" },
   { from: "AUD", to: "PHP", destCountry: "Philippines" },
+  { from: "AED", to: "INR", destCountry: "India" },
+  { from: "AED", to: "PKR", destCountry: "Pakistan" },
+  { from: "SGD", to: "INR", destCountry: "India" },
+  { from: "SGD", to: "PHP", destCountry: "Philippines" },
+  { from: "SAR", to: "INR", destCountry: "India" },
+  { from: "SAR", to: "PKR", destCountry: "Pakistan" },
+  { from: "NZD", to: "INR", destCountry: "India" },
+  { from: "NZD", to: "PHP", destCountry: "Philippines" },
+  { from: "CHF", to: "INR", destCountry: "India" },
+  { from: "CHF", to: "EUR", destCountry: "Germany" },
 ];
 
 function parseXeApiResponse(

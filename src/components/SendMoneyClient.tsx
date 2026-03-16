@@ -4,6 +4,7 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { track } from "@vercel/analytics";
 import { Suspense } from "react";
+import { useTranslations } from "next-intl";
 import { trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
 import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
@@ -126,6 +127,8 @@ function SendMoneyContent() {
   const { rates, isLive } = useExchangeRates();
 
   // Compare
+  const t = useTranslations("sendMoneyClient");
+
   const [compareList, setCompareList] = useState<string[]>([]);
   const toggleCompare = useCallback((slug: string) => {
     setCompareList((prev) =>
@@ -289,7 +292,7 @@ function SendMoneyContent() {
         <div className="flex flex-col lg:flex-row">
           {/* You send — amount + currency */}
           <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-4 sm:px-5 lg:pr-8 py-3 sm:py-4 min-w-0">
-            <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">You send</label>
+            <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="large" />
               <div className="flex items-baseline gap-1 shrink-0 ml-auto border-l border-[var(--color-outline)] pl-4">
@@ -340,7 +343,7 @@ function SendMoneyContent() {
 
           {/* They receive — currency picker as primary element */}
           <div className="flex-1 px-4 sm:px-5 lg:pl-8 py-3 sm:py-4 min-w-0">
-            <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">They receive in</label>
+            <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("theyReceiveIn")}</label>
             <div className="mt-1.5">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
             </div>
@@ -365,11 +368,11 @@ function SendMoneyContent() {
           }`}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg>
-          {activeFilterCount > 0 ? `Clear filters (${activeFilterCount})` : "All filters"}
+          {activeFilterCount > 0 ? `${t("clearFilters")} (${activeFilterCount})` : t("allFilters")}
         </button>
 
         {/* Speed */}
-        <FilterDropdown label={speedFilter ? `Speed: ${speedFilter.replace(/-/g, " ")}` : "Speed"} active={!!speedFilter}>
+        <FilterDropdown label={speedFilter ? `${t("speed")}: ${speedFilter.replace(/-/g, " ")}` : t("speed")} active={!!speedFilter}>
           {(close) => (
             <>
               <DropdownOption label="Any speed" selected={speedFilter === ""} onClick={() => { setSpeedFilter(""); close(); }} />
@@ -382,7 +385,7 @@ function SendMoneyContent() {
         </FilterDropdown>
 
         {/* Fee */}
-        <FilterDropdown label={feeFilter ? `Fee: ${feeFilter === "free" ? "Free" : feeFilter === "under-5" ? "Under $5" : "Under $10"}` : "Fee"} active={!!feeFilter}>
+        <FilterDropdown label={feeFilter ? `${t("fee")}: ${feeFilter === "free" ? "Free" : feeFilter === "under-5" ? "Under $5" : "Under $10"}` : t("fee")} active={!!feeFilter}>
           {(close) => (
             <>
               <DropdownOption label="Any fee" selected={feeFilter === ""} onClick={() => { setFeeFilter(""); close(); }} />
@@ -394,7 +397,7 @@ function SendMoneyContent() {
         </FilterDropdown>
 
         {/* Rating */}
-        <FilterDropdown label={ratingFilter ? `Rating: ${ratingFilter.charAt(0).toUpperCase() + ratingFilter.slice(1)}` : "Rating"} active={!!ratingFilter}>
+        <FilterDropdown label={ratingFilter ? `${t("rating")}: ${ratingFilter.charAt(0).toUpperCase() + ratingFilter.slice(1)}` : t("rating")} active={!!ratingFilter}>
           {(close) => (
             <>
               <DropdownOption label="Any rating" selected={ratingFilter === ""} onClick={() => { setRatingFilter(""); close(); }} />
@@ -405,7 +408,7 @@ function SendMoneyContent() {
         </FilterDropdown>
 
         {/* Payment */}
-        <FilterDropdown label={paymentMethod || "Payment"} active={!!paymentMethod}>
+        <FilterDropdown label={paymentMethod || t("payment")} active={!!paymentMethod}>
           {(close) => (
             <>
               <DropdownOption label="Any method" selected={paymentMethod === ""} onClick={() => { setPaymentMethod(""); close(); }} />
@@ -423,7 +426,7 @@ function SendMoneyContent() {
 
         {/* Referral / Promo */}
         <FilterDropdown
-          label={referralFilter ? `Deals: ${referralFilter === "has-referral" ? "Refer a friend" : referralFilter === "has-signup" ? "Sign-up bonus" : "Any deal"}` : "Deals"}
+          label={referralFilter ? `${t("deals")}: ${referralFilter === "has-referral" ? "Refer a friend" : referralFilter === "has-signup" ? "Sign-up bonus" : "Any deal"}` : t("deals")}
           active={!!referralFilter}
         >
           {(close) => (
@@ -437,7 +440,7 @@ function SendMoneyContent() {
         </FilterDropdown>
 
         {/* Provider */}
-        <FilterDropdown label={selectedProviders.length > 0 ? `Provider (${selectedProviders.length})` : "Provider"} active={selectedProviders.length > 0}>
+        <FilterDropdown label={selectedProviders.length > 0 ? `${t("provider")} (${selectedProviders.length})` : t("provider")} active={selectedProviders.length > 0}>
           {() => (
             <>
               <button
@@ -506,7 +509,7 @@ function SendMoneyContent() {
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
-          Best value
+          {t("bestValue")}
         </button>
         <button
           role="tab"
@@ -518,7 +521,7 @@ function SendMoneyContent() {
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
-          Lowest fees
+          {t("lowestFees")}
           {cheapestQuote && (
             <span className={`text-[12px] hidden sm:inline ${sortBy === "fee" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
               from {sendCurrency?.symbol || "$"}{cheapestQuote.fee === 0 ? "0" : cheapestQuote.fee.toFixed(0)}
@@ -535,7 +538,7 @@ function SendMoneyContent() {
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
-          Best deals
+          {t("bestDeals")}
         </button>
         <button
           role="tab"
@@ -547,18 +550,18 @@ function SendMoneyContent() {
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
           }`}
         >
-          Top rated
+          {t("topRated")}
         </button>
       </div>
 
       {/* Results header */}
       <div className="mb-1">
         <div className="flex items-center gap-3">
-          <h2 className="text-[22px] font-normal text-[var(--color-on-surface)]">Top providers</h2>
+          <h2 className="text-[22px] font-normal text-[var(--color-on-surface)]">{t("topProviders")}</h2>
           {isLive && (
             <span className="inline-flex items-center gap-1.5 text-[12px] text-[var(--color-success)] font-medium bg-[var(--color-success-surface)] px-2.5 py-1 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
-              Live rates
+              {t("liveRates")}
             </span>
           )}
         </div>
@@ -607,13 +610,13 @@ function SendMoneyContent() {
             <svg className="w-12 h-12 text-[var(--color-outline)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <p className="text-[16px] text-[var(--color-on-surface)] mb-2">No providers match your filters</p>
+            <p className="text-[16px] text-[var(--color-on-surface)] mb-2">{t("noProvidersMatch")}</p>
             <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-4">Try adjusting your filters to see more results.</p>
             <button
               onClick={clearFilters}
               className="text-[13px] text-[var(--color-primary)] font-medium hover:underline"
             >
-              Clear all filters
+              {t("clearAllFilters")}
             </button>
           </div>
         )}
@@ -779,14 +782,14 @@ function SendMoneyContent() {
                 {getProviderName(compareList[0])}
               </span>
               <span className="text-[13px] text-[var(--color-on-surface-variant)]">
-                — select one more to compare
+                — {t("selectProviders")}
               </span>
             </div>
             <button
               onClick={() => setCompareList([])}
               className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
             >
-              Cancel
+              {t("cancel")}
             </button>
           </div>
         </div>

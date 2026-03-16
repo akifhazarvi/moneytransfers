@@ -40,6 +40,10 @@ const CORRIDORS = [
   { from: "USD", to: "COP", country: "colombia" },
   { from: "USD", to: "GTQ", country: "guatemala" },
   { from: "USD", to: "EUR", country: "germany" },
+  { from: "USD", to: "VND", country: "vietnam" },
+  { from: "USD", to: "ZAR", country: "south-africa" },
+  { from: "USD", to: "IDR", country: "indonesia" },
+  { from: "USD", to: "THB", country: "thailand" },
 ];
 
 const SEND_AMOUNTS = [100, 500, 1000, 5000];

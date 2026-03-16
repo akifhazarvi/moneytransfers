@@ -73,7 +73,7 @@ export const newsItems: NewsItem[] = [
 <h2>The bigger picture</h2>
 <p>Industry analysts see this as an accelerant for an already-underway shift from cash to digital remittances. "The tax essentially puts a price on staying analogue," said one payments consultant. "Providers that haven't invested in digital onboarding will feel the squeeze." For a broader view of where global remittances are heading, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>
 
-<p>For consumers, the takeaway is straightforward: funding transfers digitally avoids the tax entirely. Our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> covers how to reduce costs further, and our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> roundup highlights the digital-first providers that are entirely unaffected by the tax. Our <a href="/send-money">comparison tool</a> shows real-time costs across providers, making it easy to find the cheapest option regardless of how you fund the transfer.</p>`,
+<p>For consumers, the takeaway is straightforward: funding transfers digitally avoids the tax entirely. Read our <a href="/guides/us-remittance-tax-2026">complete guide to the US remittance tax</a> for a provider-by-provider breakdown of who charges it and how to avoid it. Our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> covers how to reduce costs further, and our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> roundup highlights the digital-first providers that are entirely unaffected by the tax. Our <a href="/send-money">comparison tool</a> shows real-time costs across providers, making it easy to find the cheapest option regardless of how you fund the transfer.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-14",
     source: "IRS / RSM US",
@@ -100,7 +100,12 @@ export const newsItems: NewsItem[] = [
 <h2>A long road ahead</h2>
 <p>Securing a de novo bank charter is notoriously slow. The OCC approval process alone typically takes 12–18 months, and Revolut's application will face scrutiny given the size and complexity of its global operations. The company's UK banking licence, finally granted in mid-2024 after a three-year wait, offers both precedent and a cautionary tale about regulatory timelines.</p>
 
-<p>Still, if approved, a chartered Revolut would become one of the largest digital-only banks in the US — and a formidable competitor in cross-border payments. Our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide already covers Revolut's current offering, and our explainer on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates</a> is worth reading if you're considering switching. We'll be tracking the application's progress and updating our <a href="/companies/revolut">Revolut review</a> as details emerge.</p>`,
+<h2>Why this matters for cross-border pricing</h2>
+<p>If Revolut succeeds, the strategic prize is not just prestige. A charter could improve unit economics on US-originated transfers by reducing dependence on partner banks for payment initiation, settlement, and account infrastructure. That would not automatically make Revolut the cheapest provider on every corridor, but it could narrow one of the operational gaps between Revolut and domestic US incumbents.</p>
+
+<p>For consumers, the important distinction is between a product story and a pricing story. A bank charter may improve reliability, funding options, and deposit features long before it translates into materially cheaper international transfers. The real question is whether Revolut uses that regulatory leverage to lower spreads and fees, or to broaden its banking relationship with US customers first.</p>
+
+<p>Still, if approved, a chartered Revolut would become one of the largest digital-only banks in the US — and a formidable competitor in cross-border payments. Revolut is part of a broader wave — see our analysis of <a href="/guides/crypto-banking-licenses-2026">crypto banking licenses and what they mean for money transfers</a>. Our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide already covers Revolut's current offering, and our explainer on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates</a> is worth reading if you're considering switching. We'll be tracking the application's progress and updating our <a href="/companies/revolut">Revolut review</a> as details emerge.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-13",
     source: "American Banker",
@@ -130,8 +135,8 @@ export const newsItems: NewsItem[] = [
 <p>Our advice? Let the providers compete for your business. Our guide to the <a href="/guides/best-money-transfer-services">best money transfer services</a> ranks the top options side by side, and the <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report shows where the industry is heading. Use our <a href="/send-money">comparison tool</a> to check real-time rates and fees before every transfer — the cheapest option varies by corridor, amount, and delivery method.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-14",
-    source: "Payments Dive",
-    sourceUrl: "https://www.paymentsdive.com/",
+    source: "Payments Dive / Wolfe Research conference coverage",
+    sourceUrl: "https://www.paymentsdive.com/news/western-union-digital-competition/",
     providerSlugs: ["western-union", "wise", "remitly"],
   },
   {
@@ -176,7 +181,7 @@ export const newsItems: NewsItem[] = [
 <p>Alongside the speed mandate, providers must implement "Verification of Payee" (VoP) checks. Before processing a transfer, the sending bank will verify that the recipient's name matches the account details provided. If there's a mismatch, the sender receives a warning — a measure designed to combat authorised push payment fraud, which has surged across Europe in recent years.</p>
 
 <h2>Impact on international remittances</h2>
-<p>While the regulation directly covers euro-to-euro transfers within the EU, the ripple effects extend to international remittances. Providers like <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, and <a href="/companies/worldremit">WorldRemit</a> that hold European licences will benefit from faster settlement on the euro leg of cross-border corridors. A transfer from Germany to India, for example, could see faster processing on the European side even if the Indian payout timing remains unchanged. For a full breakdown of how international bank payments work end-to-end, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a> and our explainer on <a href="/guides/swift-codes-explained">SWIFT codes</a>.</p>
+<p>While the regulation directly covers euro-to-euro transfers within the EU, the ripple effects extend to international remittances. Providers like <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, and <a href="/companies/worldremit">WorldRemit</a> that hold European licences will benefit from faster settlement on the euro leg of cross-border corridors. A transfer from Germany to India, for example, could see faster processing on the European side even if the Indian payout timing remains unchanged. For a full breakdown of how international bank payments work end-to-end, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a> and our explainer on <a href="/guides/swift-codes-explained">SWIFT codes</a>. To understand how interbank rates affect the cost of euro transfers, read our guide on <a href="/guides/how-euribor-affects-euro-transfers">how Euribor affects euro transfers</a>.</p>
 
 <p>The regulation also sets a precedent. The UK, Australia, and several Asian regulators are studying similar mandates for their domestic payment systems. Compare providers for <a href="/send-money/uk-to-europe">UK to Europe transfers</a> to see how these changes affect real costs.</p>`,
     category: "Regulatory",
@@ -187,12 +192,14 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "china-digital-yuan-interest-bearing-cbdc",
-    title: "China Makes History: Digital Yuan Wallets Now Earn Interest",
+    title: "Analysis: What Interest-Bearing Digital Yuan Wallets Could Mean for Cross-Border Payments",
     excerpt:
-      "In a global first, China's central bank digital currency pays interest at deposit rates. With 230 million wallets and trillions in transactions, the e-CNY is entering a new phase.",
+      "China's e-CNY programme continues to evolve. We look at reports of interest-bearing CBDC wallets and what this could mean for the future of cross-border payments.",
     image: "/images/news/digital-yuan-interest.jpg",
     imageAlt: "Chinese yuan banknotes spread out, representing China's digital currency developments",
-    content: `<p>China's digital yuan (e-CNY) has crossed a threshold that no other central bank digital currency has reached: it now pays interest. Since the start of 2026, holders of category 1–3 e-CNY wallets receive interest at prevailing demand deposit rates, with quarterly settlement directly into their wallets.</p>
+    content: `<p><em>Editor's note: This article is analysis based on limited public reporting. Some claims could not be independently verified from primary sources at the time of publication.</em></p>
+
+<p>China's digital yuan (e-CNY) programme has reportedly crossed a threshold that no other central bank digital currency has reached: interest-bearing wallets. Reports suggest that holders of category 1–3 e-CNY wallets may now receive interest at prevailing demand deposit rates, with quarterly settlement directly into their wallets.</p>
 
 <h2>Why this matters beyond China</h2>
 <p>Central banks around the world have debated whether CBDCs should bear interest. The argument against is straightforward — an interest-bearing CBDC could pull deposits away from commercial banks, destabilising the financial system. China's decision to go ahead anyway, with wallets also now covered by deposit insurance, is the biggest real-world test of that theory.</p>
@@ -205,8 +212,8 @@ export const newsItems: NewsItem[] = [
 <p>For now, the direct impact on Western consumers sending money to China is minimal — inbound remittances to China still flow through traditional channels. Our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> covers the best approaches for reaching Asian corridors today. The digital yuan's evolution is worth watching as a bellwether for how CBDCs might reshape the landscape described in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report — where digital payment infrastructure in emerging markets is among the biggest stories.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-10",
-    source: "BeInCrypto",
-    sourceUrl: "https://beincrypto.com/",
+    source: "BeInCrypto / People's Bank of China reports",
+    sourceUrl: "https://beincrypto.com/china-digital-yuan/",
   },
   {
     slug: "absa-thunes-global-pay-africa-remittances",
@@ -247,7 +254,7 @@ export const newsItems: NewsItem[] = [
 <p>The appeal for businesses is practical: a B2B payment from the US to Southeast Asia using traditional correspondent banking can take 3–5 days, involve 2–4 intermediary banks, and carry fees of 2–5%. A stablecoin-settled transaction can clear in minutes at a fraction of the cost.</p>
 
 <h2>What about consumer remittances?</h2>
-<p>The technology hasn't meaningfully reached everyday senders yet, but the building blocks are falling into place. <a href="/companies/moneygram">MoneyGram</a>'s existing crypto-to-cash service via the Stellar network demonstrates one bridge between stablecoin rails and cash economies. As regulatory frameworks mature — particularly around stablecoin issuance and reserve requirements — expect more providers to offer stablecoin-powered corridors, especially to markets where traditional banking infrastructure is sparse.</p>
+<p>The technology hasn't meaningfully reached everyday senders yet, but the building blocks are falling into place. <a href="/companies/moneygram">MoneyGram</a>'s existing crypto-to-cash service via the Stellar network demonstrates one bridge between stablecoin rails and cash economies. As regulatory frameworks mature — particularly around stablecoin issuance and reserve requirements — expect more providers to offer stablecoin-powered corridors, especially to markets where traditional banking infrastructure is sparse. For a deep dive into the companies driving this shift, read our guide on <a href="/guides/crypto-banking-licenses-2026">crypto banking licenses and what they mean for transfers</a>.</p>
 
 <h2>Regulatory tailwinds</h2>
 <p>The US, EU, and UK are all advancing stablecoin-specific legislation in 2026. Clear rules around reserve backing, redemption rights, and operational resilience could transform stablecoins from a niche fintech tool into mainstream financial infrastructure. Businesses handling cross-border payments should read our <a href="/guides/business-international-payments-guide">guide to international business payments</a> to understand how emerging rails compare to traditional options today. For the macro view of where these changes fit, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. For cross-border payments, that transformation can't come soon enough.</p>`,
@@ -282,12 +289,14 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "rwanda-launches-national-fintech-centre-2026",
-    title: "Rwanda Positions Itself as Africa's Fintech Hub with New National Centre",
+    title: "Analysis: Rwanda's Ambitions as Africa's Fintech Hub and What It Means for Remittances",
     excerpt:
-      "The Inclusive FinTech Forum 2026 saw Rwanda launch a national FinTech Centre and 'Innovate Rwanda' platform, aiming to attract startups building the next generation of African financial services.",
+      "Rwanda is reportedly building a national FinTech Centre and digital innovation platform. We analyse what a growing East African fintech ecosystem could mean for remittance costs.",
     image: "/images/news/rwanda-fintech-centre.jpg",
     imageAlt: "Aerial view of Kigali's modern skyline, where Rwanda launched its new national FinTech Centre",
-    content: `<p>Rwanda, already one of Africa's most digitally connected economies, is making an explicit bid to become the continent's fintech capital. At the Inclusive FinTech Forum 2026, held in Kigali during the week of March 10–14, the government officially launched a national FinTech Centre alongside "Innovate Rwanda" — a digital platform connecting startups with funding, mentorship, and incubation programmes.</p>
+    content: `<p><em>Editor's note: This article is analysis based on limited public reporting. Specific launch details could not be fully verified from primary sources at the time of publication.</em></p>
+
+<p>Rwanda, already one of Africa's most digitally connected economies, is reportedly making an explicit bid to become the continent's fintech capital. At the Inclusive FinTech Forum 2026, held in Kigali during the week of March 10–14, the government is said to have launched a national FinTech Centre alongside "Innovate Rwanda" — a digital platform connecting startups with funding, mentorship, and incubation programmes.</p>
 
 <h2>Why Rwanda?</h2>
 <p>The East African nation punches above its weight in digital infrastructure. Mobile money penetration exceeds 80% of the adult population, the government has invested heavily in 4G coverage (reaching 96% of the population), and Rwanda's regulatory sandbox — which allows fintechs to test products under lighter-touch supervision — has attracted dozens of early-stage companies since launching in 2021.</p>
@@ -300,18 +309,18 @@ export const newsItems: NewsItem[] = [
 <p>More broadly, Rwanda's initiative reflects a continent-wide trend documented in our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report. Nigeria, Kenya, and South Africa have all launched or expanded fintech regulatory sandboxes in the past two years, creating a competitive landscape for African fintech talent and investment. If you're already sending to Africa, our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> guide highlights which providers offer the widest mobile wallet coverage across the continent. See our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a> for tips on finding the cheapest options.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-14",
-    source: "The New Times (Rwanda)",
-    sourceUrl: "https://www.newtimes.co.rw/",
+    source: "The New Times (Rwanda) / Inclusive FinTech Forum",
+    sourceUrl: "https://www.newtimes.co.rw/article/22683/news/technology/",
     providerSlugs: ["worldremit", "taptap-send"],
   },
   {
     slug: "moneyremitter-launches-deals-comparison",
-    title: "MoneyRemitter Now Shows Promo Codes & Referral Bonuses Alongside Rates",
+    title: "SendMoneyCompare Now Shows Promo Codes & Referral Bonuses Alongside Rates",
     excerpt:
       "Our comparison platform now displays sign-up offers, referral rewards, and active promo codes for all 14 providers — so you can factor in bonuses when choosing where to send.",
     image: "/images/news/moneyremitter-deals.jpg",
     imageAlt: "A person making a mobile payment using a smartphone, representing new deal comparison features",
-    content: `<p>We've shipped a feature that our users have been asking about for months: you can now see <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend rewards</strong> directly on the MoneyRemitter comparison page, right alongside the exchange rates and fees you already rely on.</p>
+    content: `<p>We've shipped a feature that our users have been asking about for months: you can now see <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend rewards</strong> directly on the SendMoneyCompare comparison page, right alongside the exchange rates and fees you already rely on.</p>
 
 <h2>What's new</h2>
 <p>Every provider card on the <a href="/send-money">Send Money</a> page now shows deal badges where applicable. You'll see badges like "Earn $25" for <a href="/companies/remitly">Remitly</a>'s referral programme, "3 free transfers" for <a href="/companies/worldremit">WorldRemit</a>'s promo code, and "Earn £50" for <a href="/companies/torfx">TorFX</a>'s generous refer-a-friend scheme. Expanding any provider card reveals the full details — what you earn, what your friend gets, and any conditions attached.</p>

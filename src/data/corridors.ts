@@ -649,6 +649,502 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+  // ── UAE corridors ──
+  {
+    slug: "uae-to-india",
+    fromCountry: "UAE",
+    toCountry: "India",
+    fromCurrency: "AED",
+    toCurrency: "INR",
+    fromFlag: "🇦🇪",
+    toFlag: "🇮🇳",
+    sampleAmount: 3000,
+    intro:
+      "The UAE is home to over 3.5 million Indian expats, making it the largest source of India-bound remittances from the Middle East. The AED to INR corridor is one of the most competitive globally, with dozens of providers vying for market share.",
+    context:
+      "Thanks to intense competition, the AED to INR corridor offers some of the tightest exchange rate spreads in the world. Many providers offer rates within 0.2–0.5% of the mid-market rate — significantly better than the 2–4% markups charged by traditional banks. For a AED 3,000 transfer, this difference can mean ₹1,500–₹3,000 more reaching your recipient. Providers like Wise, Remitly, and Al Ansari Exchange are well-established on this route, alongside regional players like UAE Exchange and Al Rostamani Exchange.",
+    feesNote:
+      "Transfer fees on the AED to INR corridor are among the lowest globally, ranging from AED 0 (Wise, Remitly) to AED 10–15 for exchange house transfers. Most specialist providers charge under AED 10. Traditional exchange houses may offer zero fees but compensate with slightly wider exchange rate spreads. Always compare the total INR received, not just the fee.",
+    deliveryNote:
+      "Bank deposits to India via NEFT/IMPS typically arrive within hours to 1 business day. Several providers offer instant delivery to major Indian banks through UPI or IMPS. Cash pickup is widely available through Western Union and MoneyGram agent networks in India.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from UAE to India?",
+        a: "Wise and Remitly consistently offer the best total value for AED to INR transfers. Wise uses the mid-market rate with a small transparent fee, while Remitly frequently offers promotional rates for new users. Al Ansari Exchange and UAE Exchange are also competitive and convenient with branches across the UAE.",
+      },
+      {
+        q: "How long does it take to send money from UAE to India?",
+        a: "Most transfers arrive within hours to 1 business day. IMPS and UPI-enabled transfers can arrive in minutes. Cash pickup through Western Union or MoneyGram is often available within minutes at agent locations across India.",
+      },
+      {
+        q: "Can I send money to India using UPI from the UAE?",
+        a: "Some providers now support UPI as a delivery method in India, enabling near-instant transfers. Remitly and select providers offer UPI-linked delivery. Check each provider's delivery options when comparing.",
+      },
+      {
+        q: "Is it better to use an exchange house or an online provider?",
+        a: "Online providers like Wise and Remitly typically offer better exchange rates than physical exchange houses due to lower overhead costs. However, exchange houses like Al Ansari and UAE Exchange offer convenience with walk-in branches. Compare the total INR received to find the best deal.",
+      },
+      {
+        q: "Are there any limits on sending money from UAE to India?",
+        a: "Most providers allow transfers up to AED 35,000–50,000 per transaction. The Central Bank of UAE requires identity verification for transfers above AED 3,500. India does not restrict inbound remittances, but amounts equivalent to over ₹50 lakh may require disclosure under FEMA regulations.",
+      },
+    ],
+  },
+  {
+    slug: "uae-to-pakistan",
+    fromCountry: "UAE",
+    toCountry: "Pakistan",
+    fromCurrency: "AED",
+    toCurrency: "PKR",
+    fromFlag: "🇦🇪",
+    toFlag: "🇵🇰",
+    sampleAmount: 3000,
+    intro:
+      "Over 1.5 million Pakistani workers live and work in the UAE, making it one of the most important remittance corridors for Pakistan. The AED to PKR route is well-served by both global providers and regional exchange houses.",
+    context:
+      "The Pakistani rupee has experienced significant volatility in recent years, making it especially important to compare providers at the time of sending. Exchange rate spreads can vary dramatically between providers — even a 1% difference on AED 3,000 translates to PKR 5,000–7,000 less for your recipient. Providers like Wise, ACE Money Transfer, TapTap Send, and Al Ansari Exchange compete aggressively on this corridor, and many offer JazzCash and Easypaisa wallet delivery for near-instant transfers.",
+    feesNote:
+      "Fees range from AED 0 (TapTap Send, Wise for bank transfers) to AED 10–15 for exchange houses. ACE Money Transfer often runs zero-fee promotions. The exchange rate markup is the primary cost driver — always compare the total PKR your recipient receives after all costs.",
+    deliveryNote:
+      "Mobile wallet transfers via JazzCash and Easypaisa arrive within minutes. Bank deposits take 1–2 business days. Cash pickup through Western Union, MoneyGram, and local bank partners is typically available same-day.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from UAE to Pakistan?",
+        a: "TapTap Send, Wise, and ACE Money Transfer consistently offer the best total value. TapTap Send charges zero fees with competitive rates. Wise uses the mid-market rate with a transparent fee. Always compare on the day you send — rates change frequently due to PKR volatility.",
+      },
+      {
+        q: "How long does it take to send money from UAE to Pakistan?",
+        a: "JazzCash and Easypaisa transfers arrive in minutes. Bank deposits take 1–2 business days. Cash pickup through Western Union and MoneyGram is available within minutes at thousands of agent locations across Pakistan.",
+      },
+      {
+        q: "Can I send money to JazzCash or Easypaisa from the UAE?",
+        a: "Yes, Remitly, ACE Money Transfer, and Western Union all support JazzCash and Easypaisa mobile wallet delivery from the UAE. This is the fastest way to get money to Pakistan.",
+      },
+      {
+        q: "Why does the AED to PKR rate change so much?",
+        a: "The Pakistani rupee has been volatile due to macroeconomic factors including inflation, central bank policy changes, and IMF programme conditions. This makes it critical to compare rates at the time of transfer rather than relying on advertised rates.",
+      },
+      {
+        q: "Are there limits on sending money from UAE to Pakistan?",
+        a: "Most providers allow up to AED 35,000–50,000 per transaction. UAE Central Bank requires identity verification for transfers over AED 3,500. Pakistan encourages formal remittance channels through its Pakistan Remittance Initiative (PRI).",
+      },
+    ],
+  },
+  {
+    slug: "uae-to-philippines",
+    fromCountry: "UAE",
+    toCountry: "Philippines",
+    fromCurrency: "AED",
+    toCurrency: "PHP",
+    fromFlag: "🇦🇪",
+    toFlag: "🇵🇭",
+    sampleAmount: 3000,
+    intro:
+      "The UAE hosts over 700,000 Overseas Filipino Workers (OFWs), making it one of the most important remittance corridors for the Philippines. Filipino workers in the UAE send billions of dirhams home each year to support their families.",
+    context:
+      "The AED to PHP corridor is well-served by both global transfer providers and regional exchange houses. GCash delivery has become increasingly popular, allowing recipients to receive funds instantly on their mobile wallets. On a AED 3,000 transfer, choosing the right provider can mean PHP 2,000–4,000 more reaching your family. Providers like Remitly, WorldRemit, and Wise compete alongside regional players like Al Ansari Exchange and Emirates NBD.",
+    feesNote:
+      "Transfer fees range from AED 0 (Remitly, Wise for bank-funded transfers) to AED 10–15 for exchange house sends. Many providers offer fee-free transfers for first-time users. The exchange rate markup is typically the larger cost component — compare the total PHP received.",
+    deliveryNote:
+      "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier, M Lhuillier, and other partners is available same-day in the Philippines.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from UAE to the Philippines?",
+        a: "Remitly, Wise, and WorldRemit offer the best total value for AED to PHP transfers. Remitly often has promotional rates for new users and supports GCash delivery. Compare all providers to find today's best rate.",
+      },
+      {
+        q: "Can I send money to GCash from the UAE?",
+        a: "Yes, Remitly and WorldRemit support GCash transfers from the UAE, with funds arriving in minutes. This is the most popular delivery method for Filipino recipients.",
+      },
+      {
+        q: "How long does it take to send money from UAE to the Philippines?",
+        a: "GCash and mobile wallet transfers arrive in minutes. Bank deposits to major Philippine banks take 1–2 business days. Cash pickup is typically available same-day through partner locations across the Philippines.",
+      },
+      {
+        q: "Is it cheaper to send money through an exchange house or online?",
+        a: "Online providers like Wise and Remitly generally offer better exchange rates than physical exchange houses, saving you AED 50–100 on a AED 3,000 transfer. Exchange houses offer convenience for cash-funded transfers.",
+      },
+      {
+        q: "Do I need to pay tax on remittances to the Philippines?",
+        a: "The UAE does not impose tax on outbound remittances. In the Philippines, inbound remittances from OFWs are generally tax-exempt. However, large regular transfers may be subject to anti-money laundering reporting requirements.",
+      },
+    ],
+  },
+  // ── Saudi Arabia corridors ──
+  {
+    slug: "saudi-arabia-to-india",
+    fromCountry: "Saudi Arabia",
+    toCountry: "India",
+    fromCurrency: "SAR",
+    toCurrency: "INR",
+    fromFlag: "🇸🇦",
+    toFlag: "🇮🇳",
+    sampleAmount: 3000,
+    intro:
+      "Saudi Arabia is home to over 2.5 million Indian workers, making it the second-largest source of Gulf remittances to India. The SAR to INR corridor processes billions of riyals annually and is served by a wide range of global and regional providers.",
+    context:
+      "The SAR to INR corridor benefits from strong competition among providers. The Saudi riyal is pegged to the US dollar, which keeps exchange rate fluctuations with the Indian rupee relatively predictable. On a SAR 3,000 transfer, the difference between the best and worst providers can mean ₹2,000–₹4,000 less reaching your recipient. Providers like Wise, Remitly, TapTap Send, and STCPay compete alongside traditional exchange houses such as Al Rajhi Bank and Western Union.",
+    feesNote:
+      "Fees range from SAR 0 (Wise, TapTap Send) to SAR 15–25 for bank wire transfers. Exchange houses like Al Rajhi may charge SAR 10–15 per transfer. The real cost difference between providers lies in the exchange rate — a 1% difference on SAR 3,000 translates to roughly ₹2,200 less for your recipient.",
+    deliveryNote:
+      "IMPS and UPI-enabled transfers to India arrive within minutes. Standard bank deposits take 1–2 business days. Cash pickup through Western Union and MoneyGram is available same-day at partner locations across India.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Saudi Arabia to India?",
+        a: "Wise, TapTap Send, and Remitly consistently offer the best value for SAR to INR transfers. Wise provides the mid-market rate with transparent fees. TapTap Send charges zero fees. Compare all providers on the day you send for the best rate.",
+      },
+      {
+        q: "How long does it take to transfer money from Saudi Arabia to India?",
+        a: "IMPS and UPI transfers arrive within minutes. Bank deposits typically take 1–2 business days. Cash pickup is available within minutes through Western Union and MoneyGram locations across India.",
+      },
+      {
+        q: "Is Al Rajhi Bank good for sending money to India?",
+        a: "Al Rajhi Bank is convenient with widespread branches in Saudi Arabia, but their exchange rate markup is typically higher than specialist online providers. Compare Al Rajhi's total INR delivered against Wise and Remitly before sending.",
+      },
+      {
+        q: "Can I send money to India using STCPay?",
+        a: "STCPay, the mobile wallet linked to STC, supports international transfers to India. Rates are competitive for smaller amounts. Compare STCPay against other providers to find the best deal for your transfer size.",
+      },
+      {
+        q: "Are there limits on remittances from Saudi Arabia?",
+        a: "Saudi Arabia requires Iqama (residence permit) holders to verify their identity for transfers. Most providers allow up to SAR 20,000–50,000 per transaction. Annual limits may apply based on your employment contract and salary certificate.",
+      },
+    ],
+  },
+  {
+    slug: "saudi-arabia-to-pakistan",
+    fromCountry: "Saudi Arabia",
+    toCountry: "Pakistan",
+    fromCurrency: "SAR",
+    toCurrency: "PKR",
+    fromFlag: "🇸🇦",
+    toFlag: "🇵🇰",
+    sampleAmount: 3000,
+    intro:
+      "With over 2 million Pakistani workers in Saudi Arabia, the SAR to PKR corridor is one of the most vital remittance routes in the world. These transfers are a critical economic lifeline, supporting millions of families across Pakistan.",
+    context:
+      "Pakistan receives over $8 billion annually from Saudi Arabia alone, making this the largest single bilateral remittance corridor for Pakistan. The Pakistani rupee's volatility means rates can change significantly day to day, making real-time comparison essential. Providers like ACE Money Transfer, TapTap Send, Wise, and Al Rajhi Bank all compete for this high-volume corridor. JazzCash and Easypaisa mobile wallets have revolutionised delivery, making it possible to receive money instantly without a bank account.",
+    feesNote:
+      "Fees range from SAR 0 (TapTap Send, ACE Money Transfer promotions) to SAR 15–25 for exchange house and bank transfers. The exchange rate markup is the main cost — even a 0.5% difference on SAR 3,000 means PKR 3,500+ less for your recipient.",
+    deliveryNote:
+      "JazzCash and Easypaisa transfers arrive within minutes. Bank deposits take 1–2 business days. Cash pickup through Western Union, MoneyGram, and local bank branches is available same-day across Pakistan.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Saudi Arabia to Pakistan?",
+        a: "TapTap Send and ACE Money Transfer frequently offer the best value. TapTap Send charges zero fees. ACE Money Transfer runs regular promotions for this corridor. Always compare the total PKR received after all fees and exchange rate markups.",
+      },
+      {
+        q: "How long does it take to send money from KSA to Pakistan?",
+        a: "JazzCash and Easypaisa transfers arrive in minutes. Bank deposits take 1–2 business days. Cash pickup is available same-day through thousands of agent locations across Pakistan.",
+      },
+      {
+        q: "Can I send money to JazzCash from Saudi Arabia?",
+        a: "Yes, ACE Money Transfer, Remitly, and Western Union support JazzCash delivery from Saudi Arabia. This is the fastest and most convenient option for recipients without a bank account.",
+      },
+      {
+        q: "Is it cheaper to use Al Rajhi Bank or an online provider?",
+        a: "Online providers like Wise and TapTap Send typically offer better exchange rates than Al Rajhi Bank, saving you SAR 30–60 on a SAR 3,000 transfer. Al Rajhi is convenient for in-branch sends but costs more overall.",
+      },
+      {
+        q: "Do I need an Iqama to send money from Saudi Arabia?",
+        a: "Yes, most providers require a valid Iqama (residence permit) to send money from Saudi Arabia. Some providers also require a salary certificate. Digital providers may accept passport verification for smaller amounts.",
+      },
+    ],
+  },
+  {
+    slug: "saudi-arabia-to-bangladesh",
+    fromCountry: "Saudi Arabia",
+    toCountry: "Bangladesh",
+    fromCurrency: "SAR",
+    toCurrency: "BDT",
+    fromFlag: "🇸🇦",
+    toFlag: "🇧🇩",
+    sampleAmount: 3000,
+    intro:
+      "Saudi Arabia is home to a growing Bangladeshi workforce, with hundreds of thousands of workers sending remittances back to support their families. The SAR to BDT corridor has become increasingly competitive as more providers enter the market.",
+    context:
+      "Bangladesh is one of the top remittance-receiving countries globally, with Saudi Arabia being a major source. The corridor is well-served by providers including Wise, TapTap Send, ACE Money Transfer, and Western Union. bKash mobile wallet delivery has transformed this corridor, allowing recipients to receive money instantly on their phones. On a SAR 3,000 transfer, switching from a bank to a specialist provider can save BDT 2,000–4,000.",
+    feesNote:
+      "Transfer fees range from SAR 0 (TapTap Send) to SAR 15–20 for exchange houses. Many providers offer zero-fee promotions for first-time users. The exchange rate markup is where most of the cost lies — compare the total BDT received rather than just the fee.",
+    deliveryNote:
+      "bKash and Nagad transfers arrive within minutes. Bank deposits to Bangladeshi banks take 1–3 business days. Cash pickup is available through partner networks in major cities across Bangladesh.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Saudi Arabia to Bangladesh?",
+        a: "TapTap Send and Wise typically offer the best value. TapTap Send charges zero fees with competitive rates. Wise uses the mid-market rate. ACE Money Transfer also offers strong rates with bKash delivery.",
+      },
+      {
+        q: "Can I send money to bKash from Saudi Arabia?",
+        a: "Yes, multiple providers including ACE Money Transfer, WorldRemit, and Remitly support bKash delivery from Saudi Arabia. Transfers arrive within minutes.",
+      },
+      {
+        q: "How long does a transfer from Saudi Arabia to Bangladesh take?",
+        a: "bKash and Nagad transfers are near-instant. Bank deposits typically take 1–3 business days. Cash pickup is usually available same-day.",
+      },
+      {
+        q: "Are there any special requirements for sending money from KSA?",
+        a: "You need a valid Iqama (residence permit) and may need a salary certificate. Most providers require identity verification. Transfer limits vary by provider, typically SAR 20,000–50,000 per transaction.",
+      },
+    ],
+  },
+  {
+    slug: "saudi-arabia-to-egypt",
+    fromCountry: "Saudi Arabia",
+    toCountry: "Egypt",
+    fromCurrency: "SAR",
+    toCurrency: "EGP",
+    fromFlag: "🇸🇦",
+    toFlag: "🇪🇬",
+    sampleAmount: 3000,
+    intro:
+      "Saudi Arabia hosts a large Egyptian diaspora, with millions of Egyptians working across the Kingdom. The SAR to EGP corridor is one of the most important remittance routes in the Middle East, with billions of riyals sent to Egypt annually.",
+    context:
+      "Egypt has experienced significant currency devaluation in recent years, with the Egyptian pound losing substantial value against major currencies. This makes real-time rate comparison even more critical — the spread between the best and worst provider rates can translate to thousands of extra pounds for your recipient. Providers like Wise, Western Union, MoneyGram, and Instapay-enabled services compete on this corridor. Egypt's Instapay system allows instant domestic transfers, and some international providers now leverage this for faster delivery.",
+    feesNote:
+      "Fees range from SAR 0 (Wise for bank transfers) to SAR 15–25 for exchange house and bank sends. The exchange rate is the dominant cost factor on this corridor due to the wide spread between official and market rates. Always compare the total EGP your recipient will receive.",
+    deliveryNote:
+      "Bank deposits to Egyptian banks typically arrive within 1–2 business days. Instapay-linked transfers can be faster. Cash pickup through Western Union and MoneyGram is available same-day at thousands of locations across Egypt.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Saudi Arabia to Egypt?",
+        a: "Wise and Western Union typically offer competitive rates for SAR to EGP. Wise provides the mid-market rate with transparent fees. Western Union offers convenient cash pickup across Egypt. Compare all providers on the day you send due to EGP volatility.",
+      },
+      {
+        q: "How long does a transfer from Saudi Arabia to Egypt take?",
+        a: "Cash pickup is available within minutes through Western Union and MoneyGram. Bank deposits take 1–2 business days. Some providers offer same-day delivery to major Egyptian banks.",
+      },
+      {
+        q: "Why does the SAR to EGP rate vary so much between providers?",
+        a: "Egypt's currency has been volatile, and providers set their own exchange rate markups. The difference between the best and worst provider can be 2–5%, translating to thousands of EGP on larger transfers. Always compare at the time of sending.",
+      },
+      {
+        q: "Can I send money to an Egyptian bank account from KSA?",
+        a: "Yes, most providers including Wise, Western Union, and MoneyGram support bank deposit delivery to Egyptian banks such as CIB, NBE, and Banque Misr. Some providers also support mobile wallet delivery.",
+      },
+    ],
+  },
+  // ── Singapore corridors ──
+  {
+    slug: "singapore-to-india",
+    fromCountry: "Singapore",
+    toCountry: "India",
+    fromCurrency: "SGD",
+    toCurrency: "INR",
+    fromFlag: "🇸🇬",
+    toFlag: "🇮🇳",
+    sampleAmount: 1000,
+    intro:
+      "Singapore is home to a large and growing Indian expat community, including tech professionals, finance workers, and students. The SGD to INR corridor is one of the most active remittance routes in Southeast Asia.",
+    context:
+      "Indians are the largest expat group in Singapore, with over 650,000 residents. The SGD to INR corridor is well-served by global providers like Wise, Remitly, and InstaReM (Nium), alongside local players like DBS Remit and SingX. On a SGD 1,000 transfer, the difference between the best and worst providers can mean ₹2,000–₹4,000 less reaching your recipient. DBS Remit is popular for its integration with DBS/POSB accounts, but specialist providers typically offer better rates.",
+    feesNote:
+      "Fees range from SGD 0 (Wise, InstaReM for bank-funded transfers) to SGD 10–25 for bank wire services. DBS Remit offers fee-free transfers but may have slightly wider exchange rate spreads. The exchange rate markup is typically the bigger cost — compare total INR received.",
+    deliveryNote:
+      "IMPS and UPI transfers to India arrive within minutes from most providers. Standard bank deposits take 1–2 business days. DBS Remit and InstaReM offer same-day delivery in many cases.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Singapore to India?",
+        a: "Wise and InstaReM consistently offer the best total value for SGD to INR transfers. Wise provides the mid-market rate with a small fee. InstaReM (now Nium) offers competitive rates with Singapore-based support. DBS Remit is convenient for DBS/POSB account holders.",
+      },
+      {
+        q: "How long does a transfer from Singapore to India take?",
+        a: "IMPS and UPI-enabled transfers arrive within minutes. Standard bank deposits take 1–2 business days. DBS Remit and InstaReM often deliver same-day for early submissions.",
+      },
+      {
+        q: "Is DBS Remit a good option for sending money to India?",
+        a: "DBS Remit is convenient if you have a DBS or POSB account, with fee-free transfers and easy setup. However, their exchange rate markup is typically higher than Wise or InstaReM. Compare the total INR received before choosing.",
+      },
+      {
+        q: "Can I send money to India using PayNow from Singapore?",
+        a: "PayNow is a domestic payment system and cannot directly send money internationally. However, some providers accept PayNow as a funding method, allowing you to transfer funds easily from your Singapore bank account to initiate an international transfer.",
+      },
+      {
+        q: "Are there limits on sending money from Singapore to India?",
+        a: "Most providers allow transfers up to SGD 30,000–50,000 per transaction. Singapore does not impose capital controls on outbound remittances. India's Liberalised Remittance Scheme does not restrict inbound transfers. Large transactions may require additional identity verification.",
+      },
+    ],
+  },
+  {
+    slug: "singapore-to-philippines",
+    fromCountry: "Singapore",
+    toCountry: "Philippines",
+    fromCurrency: "SGD",
+    toCurrency: "PHP",
+    fromFlag: "🇸🇬",
+    toFlag: "🇵🇭",
+    sampleAmount: 1000,
+    intro:
+      "Singapore is home to a large Filipino community, including domestic workers, healthcare professionals, and skilled workers. The SGD to PHP corridor is one of the key OFW (Overseas Filipino Worker) remittance routes in Southeast Asia.",
+    context:
+      "Filipino workers in Singapore send millions of dollars to the Philippines every month. GCash delivery has transformed this corridor, allowing recipients to receive money instantly. On a SGD 1,000 transfer, the spread between the best and worst providers can mean PHP 1,500–3,000 less reaching your family. Remitly, WorldRemit, Wise, and InstaReM are popular choices, alongside local options like DBS Remit and Lucky Plaza exchange shops.",
+    feesNote:
+      "Fees range from SGD 0 (Remitly, Wise for bank transfers) to SGD 5–10 for most specialist providers. Physical exchange shops in Lucky Plaza may charge SGD 2–5 but exchange rates vary widely. Always compare the total PHP your recipient receives.",
+    deliveryNote:
+      "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier and M Lhuillier is available same-day across the Philippines.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Singapore to the Philippines?",
+        a: "Remitly, Wise, and InstaReM offer the best total value for SGD to PHP transfers. Remitly often has zero-fee promotions and supports GCash delivery. Wise provides the mid-market rate. Compare on the day you send for the best deal.",
+      },
+      {
+        q: "Can I send money to GCash from Singapore?",
+        a: "Yes, Remitly and WorldRemit support GCash transfers from Singapore with near-instant delivery. This is the preferred method for most Filipino recipients.",
+      },
+      {
+        q: "Is it cheaper to use Lucky Plaza exchanges or online providers?",
+        a: "Online providers like Wise and Remitly typically offer better rates than Lucky Plaza exchange shops, saving you SGD 10–30 on a SGD 1,000 transfer. However, Lucky Plaza remains popular for cash-funded sends.",
+      },
+      {
+        q: "How long does a transfer from Singapore to the Philippines take?",
+        a: "GCash transfers arrive in minutes. Bank deposits take 1–2 business days. Cash pickup is available same-day through partner locations across the Philippines.",
+      },
+    ],
+  },
+  {
+    slug: "singapore-to-indonesia",
+    fromCountry: "Singapore",
+    toCountry: "Indonesia",
+    fromCurrency: "SGD",
+    toCurrency: "IDR",
+    fromFlag: "🇸🇬",
+    toFlag: "🇮🇩",
+    sampleAmount: 1000,
+    intro:
+      "Singapore and Indonesia share deep economic and cultural ties, with a large Indonesian worker population in Singapore. The SGD to IDR corridor benefits from geographic proximity and growing digital payment infrastructure in Indonesia.",
+    context:
+      "Indonesian domestic workers, construction workers, and professionals in Singapore regularly send money home. The corridor is well-served by providers including Wise, InstaReM, Remitly, and DBS Remit. Indonesia's rapidly growing digital wallet ecosystem — including GoPay, OVO, and Dana — is expanding delivery options. On a SGD 1,000 transfer, switching from a bank to a specialist provider can save IDR 200,000–500,000.",
+    feesNote:
+      "Transfer fees range from SGD 0 (Wise, InstaReM for bank-funded transfers) to SGD 10–15 for bank services. Physical exchange houses charge SGD 2–5 but rates vary significantly. The exchange rate markup is the main cost factor — compare total IDR received.",
+    deliveryNote:
+      "Bank transfers to Indonesian banks like BCA, Mandiri, and BNI typically arrive within 1–2 business days. Some providers offer same-day delivery. Cash pickup is available through partner locations in Indonesia.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Singapore to Indonesia?",
+        a: "Wise and InstaReM offer the best total value for SGD to IDR transfers. Wise provides the mid-market rate with a transparent fee. InstaReM offers competitive rates with local support. Compare all providers for today's best rate.",
+      },
+      {
+        q: "How long does a transfer from Singapore to Indonesia take?",
+        a: "Most bank transfers arrive within 1–2 business days. Some providers offer same-day delivery to major Indonesian banks. Cash pickup is typically available same-day.",
+      },
+      {
+        q: "Can I send money to a GoPay or OVO wallet in Indonesia?",
+        a: "Digital wallet delivery options are expanding. Some providers now support delivery to Indonesian e-wallets. Check each provider's delivery options, as this is a rapidly evolving space.",
+      },
+      {
+        q: "Is DBS Remit good for sending money to Indonesia?",
+        a: "DBS Remit is convenient for DBS/POSB account holders with fee-free transfers. However, their exchange rate markup may be higher than Wise or InstaReM. Compare the total IDR received before choosing.",
+      },
+    ],
+  },
+  // ── New Zealand corridors ──
+  {
+    slug: "new-zealand-to-india",
+    fromCountry: "New Zealand",
+    toCountry: "India",
+    fromCurrency: "NZD",
+    toCurrency: "INR",
+    fromFlag: "🇳🇿",
+    toFlag: "🇮🇳",
+    sampleAmount: 1000,
+    intro:
+      "New Zealand's Indian community has grown significantly in recent years, with over 250,000 Indian-origin residents. The NZD to INR corridor is increasingly competitive as more global providers expand their New Zealand operations.",
+    context:
+      "Indian immigrants in New Zealand include skilled workers, students, and business owners who regularly send money back home. Traditional banks like ANZ, ASB, and Westpac charge NZD 20–30 per international transfer plus 2–4% exchange rate markups. Specialist providers like Wise, Remitly, and OFX offer dramatically better value, often saving NZD 30–60 on a NZD 1,000 transfer. POLi Payments integration makes funding transfers convenient for New Zealand residents.",
+    feesNote:
+      "Specialist provider fees range from NZD 0 (Wise for bank-funded transfers) to NZD 5–15. New Zealand banks charge NZD 20–30 per wire plus exchange rate markups of 2–4%. The exchange rate is the biggest cost factor — always compare the total INR received.",
+    deliveryNote:
+      "IMPS and UPI transfers to India arrive within minutes. Standard bank deposits take 1–2 business days. Some providers offer same-day delivery for early submissions from New Zealand.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from New Zealand to India?",
+        a: "Wise and Remitly consistently offer the best value for NZD to INR transfers. Wise provides the mid-market rate with a transparent fee. OFX is strong for larger transfers over NZD 2,000. Compare all providers on the day you send.",
+      },
+      {
+        q: "How long does a transfer from New Zealand to India take?",
+        a: "IMPS-enabled transfers arrive within minutes. Standard bank deposits take 1–2 business days. New Zealand bank wire transfers take 3–5 business days due to time zone differences.",
+      },
+      {
+        q: "Can I fund a transfer with POLi from New Zealand?",
+        a: "Yes, several providers including Wise and OFX accept POLi Payments, allowing you to fund transfers directly from your New Zealand bank account without waiting for a manual bank transfer to clear.",
+      },
+      {
+        q: "Is it cheaper to use a New Zealand bank or a money transfer service?",
+        a: "Money transfer services are almost always cheaper. NZ banks charge NZD 20–30 per wire plus 2–4% markup. Specialist providers charge NZD 0–10 with markups under 1%, saving you NZD 30–60 on a NZD 1,000 transfer.",
+      },
+    ],
+  },
+  {
+    slug: "new-zealand-to-philippines",
+    fromCountry: "New Zealand",
+    toCountry: "Philippines",
+    fromCurrency: "NZD",
+    toCurrency: "PHP",
+    fromFlag: "🇳🇿",
+    toFlag: "🇵🇭",
+    sampleAmount: 1000,
+    intro:
+      "New Zealand has a vibrant Filipino community of over 70,000 residents, making the NZD to PHP corridor an important remittance route. Filipino-Kiwis regularly send money home to support families in the Philippines.",
+    context:
+      "The Filipino community in New Zealand has grown steadily, driven by skilled migration and family reunification. GCash delivery has become the preferred method for sending money to the Philippines, offering instant transfers. On a NZD 1,000 transfer, the difference between providers can mean PHP 1,000–2,500 more reaching your family. Remitly, WorldRemit, and Wise are popular choices, alongside Orbit Remit which has a strong New Zealand presence.",
+    feesNote:
+      "Fees range from NZD 0 (Remitly promotions, Wise for bank transfers) to NZD 5–10 for most specialist providers. New Zealand banks charge NZD 20–30 per wire plus significant exchange rate markups. Compare the total PHP received after all costs.",
+    deliveryNote:
+      "GCash transfers arrive within minutes. Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier and M Lhuillier is available same-day.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from New Zealand to the Philippines?",
+        a: "Remitly, Wise, and Orbit Remit offer the best value for NZD to PHP transfers. Remitly often has zero-fee promotions and supports GCash. Orbit Remit has strong NZ-based support. Compare all providers today.",
+      },
+      {
+        q: "Can I send money to GCash from New Zealand?",
+        a: "Yes, Remitly and WorldRemit support GCash delivery from New Zealand, with transfers arriving in minutes. This is the fastest and most popular delivery method.",
+      },
+      {
+        q: "How long does a transfer from New Zealand to the Philippines take?",
+        a: "GCash transfers arrive in minutes. Bank deposits take 1–2 business days. Cash pickup is available same-day across the Philippines. NZ bank wires take 3–5 business days.",
+      },
+      {
+        q: "What is Orbit Remit and is it good for Philippines transfers?",
+        a: "Orbit Remit is a New Zealand-based money transfer provider offering competitive rates for NZD to PHP transfers. They offer bank deposit and cash pickup delivery. Compare their rates against Wise and Remitly to find the best deal.",
+      },
+    ],
+  },
+  {
+    slug: "new-zealand-to-fiji",
+    fromCountry: "New Zealand",
+    toCountry: "Fiji",
+    fromCurrency: "NZD",
+    toCurrency: "FJD",
+    fromFlag: "🇳🇿",
+    toFlag: "🇫🇯",
+    sampleAmount: 1000,
+    intro:
+      "New Zealand and Fiji share deep cultural and geographic ties, with over 60,000 Fijian-born residents living in New Zealand. The NZD to FJD corridor is one of the most important Pacific remittance routes.",
+    context:
+      "Remittances from New Zealand are a vital source of income for many Fijian families. Despite the corridor's importance, transfer costs have historically been high — the World Bank has identified Pacific Island corridors as some of the most expensive globally. However, digital providers are bringing costs down. Wise, Orbit Remit, and Western Union serve this route, though options remain more limited than larger corridors. On a NZD 1,000 transfer, choosing the right provider can save FJD 30–70 compared to using a New Zealand bank.",
+    feesNote:
+      "Fees range from NZD 0–5 (Wise, Orbit Remit) to NZD 20–30 for bank wires. Western Union charges vary by send method. Pacific corridor costs are higher than average globally — compare total FJD received carefully, as exchange rate markups are often the bigger hidden cost.",
+    deliveryNote:
+      "Bank deposits to Fiji typically take 2–3 business days. Cash pickup through Western Union is available same-day at locations across Fiji. Some providers offer faster delivery to major Fijian banks like ANZ Fiji and BSP.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from New Zealand to Fiji?",
+        a: "Wise and Orbit Remit typically offer the best value for NZD to FJD transfers. Pacific corridor costs are higher than average, so comparing providers is especially important. Wise provides the mid-market rate with a transparent fee.",
+      },
+      {
+        q: "How long does a transfer from New Zealand to Fiji take?",
+        a: "Bank deposits to Fiji take 2–3 business days. Cash pickup through Western Union is available same-day. Some providers offer next-day delivery to major Fijian banks.",
+      },
+      {
+        q: "Can I send money to Fiji for cash pickup?",
+        a: "Yes, Western Union and MoneyGram offer cash pickup at locations across Fiji, including in Suva, Nadi, and Lautoka. Cash pickup is typically available within minutes of sending.",
+      },
+      {
+        q: "Why are transfer costs to Fiji higher than other corridors?",
+        a: "Pacific Island corridors have historically had higher remittance costs due to smaller transaction volumes, limited competition, and higher operational costs for providers. Digital providers like Wise are helping bring costs down, but the corridor remains more expensive than high-volume routes like USD to INR.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──
@@ -872,6 +1368,17 @@ const RECEIVE_COUNTRIES: CountryDef[] = [
   // Other
   { slug: "fiji", name: "Fiji", flag: "🇫🇯", currency: "FJD", demonym: "Fijian", sampleAmount: 1000 },
   { slug: "malaysia", name: "Malaysia", flag: "🇲🇾", currency: "MYR", demonym: "Malaysian", sampleAmount: 1000 },
+  // Central/Eastern Europe
+  { slug: "czech-republic", name: "Czech Republic", flag: "🇨🇿", currency: "CZK", demonym: "Czech", sampleAmount: 1000 },
+  { slug: "hungary", name: "Hungary", flag: "🇭🇺", currency: "HUF", demonym: "Hungarian", sampleAmount: 1000 },
+  // Middle East
+  { slug: "israel", name: "Israel", flag: "🇮🇱", currency: "ILS", demonym: "Israeli", sampleAmount: 1000 },
+  // East Asia
+  { slug: "taiwan", name: "Taiwan", flag: "🇹🇼", currency: "TWD", demonym: "Taiwanese", sampleAmount: 1000 },
+  // Africa (additional)
+  { slug: "rwanda", name: "Rwanda", flag: "🇷🇼", currency: "RWF", demonym: "Rwandan", sampleAmount: 1000 },
+  { slug: "zambia", name: "Zambia", flag: "🇿🇲", currency: "ZMW", demonym: "Zambian", sampleAmount: 1000 },
+  { slug: "cameroon", name: "Cameroon", flag: "🇨🇲", currency: "XAF", demonym: "Cameroonian", sampleAmount: 1000 },
 ];
 
 /** Content intro templates — pick based on (index % count) for variety */

@@ -48,6 +48,13 @@ const CORRIDORS = [
   { country: "india", from: "CAD", to: "INR" },
   { country: "india", from: "AUD", to: "INR" },
   { country: "india", from: "AED", to: "INR" },
+  { country: "pakistan", from: "AED", to: "PKR" },
+  { country: "philippines", from: "AED", to: "PHP" },
+  { country: "india", from: "SGD", to: "INR" },
+  { country: "philippines", from: "SGD", to: "PHP" },
+  { country: "india", from: "SAR", to: "INR" },
+  { country: "pakistan", from: "SAR", to: "PKR" },
+  { country: "india", from: "NZD", to: "INR" },
 ];
 
 const SEND_AMOUNTS = [500, 1000, 5000];

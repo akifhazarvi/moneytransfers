@@ -23,6 +23,8 @@ const COUNTRY_CONFIG: Record<string, { code: string; bankAccountId: number }> = 
   AUD: { code: "AU", bankAccountId: 1 },  // PayID
   AED: { code: "AE", bankAccountId: 68 }, // Bank transfer
   SGD: { code: "SG", bankAccountId: 5 },  // PayNow
+  HKD: { code: "HK", bankAccountId: 72 }, // Bank transfer
+  NZD: { code: "NZ", bankAccountId: 73 }, // Bank transfer
 };
 
 const CORRIDORS = [
@@ -38,6 +40,10 @@ const CORRIDORS = [
   { from: "CAD", to: "INR" }, { from: "CAD", to: "PHP" },
   { from: "AUD", to: "INR" }, { from: "AUD", to: "PHP" },
   { from: "AED", to: "INR" }, { from: "AED", to: "PKR" },
+  { from: "SGD", to: "INR" }, { from: "SGD", to: "PHP" },
+  { from: "SGD", to: "IDR" }, { from: "SGD", to: "MYR" },
+  { from: "HKD", to: "INR" }, { from: "HKD", to: "PHP" },
+  { from: "NZD", to: "INR" }, { from: "NZD", to: "PHP" },
 ];
 
 const SEND_AMOUNTS = [500, 1000, 5000];

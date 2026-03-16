@@ -31,6 +31,13 @@ const CORRIDORS = [
   { from: "AUD", to: "PHP", sendCountry: "au", receiveCountry: "philippines" },
   { from: "AED", to: "INR", sendCountry: "ae", receiveCountry: "india" },
   { from: "AED", to: "PKR", sendCountry: "ae", receiveCountry: "pakistan" },
+  { from: "SGD", to: "INR", sendCountry: "sg", receiveCountry: "india" },
+  { from: "SGD", to: "PHP", sendCountry: "sg", receiveCountry: "philippines" },
+  { from: "SAR", to: "INR", sendCountry: "sa", receiveCountry: "india" },
+  { from: "SAR", to: "PKR", sendCountry: "sa", receiveCountry: "pakistan" },
+  { from: "SAR", to: "BDT", sendCountry: "sa", receiveCountry: "bangladesh" },
+  { from: "NZD", to: "INR", sendCountry: "nz", receiveCountry: "india" },
+  { from: "NZD", to: "PHP", sendCountry: "nz", receiveCountry: "philippines" },
 ];
 
 const SEND_AMOUNTS = [100, 500, 1000, 5000];

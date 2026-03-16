@@ -42,6 +42,17 @@ const CORRIDORS = [
   { from: "GBP", to: "INR", destCountry: "India", destCode: "IN" },
   { from: "GBP", to: "NGN", destCountry: "Nigeria", destCode: "NG" },
   { from: "GBP", to: "PKR", destCountry: "Pakistan", destCode: "PK" },
+  { from: "EUR", to: "INR", destCountry: "India", destCode: "IN" },
+  { from: "EUR", to: "PKR", destCountry: "Pakistan", destCode: "PK" },
+  { from: "CAD", to: "INR", destCountry: "India", destCode: "IN" },
+  { from: "CAD", to: "PHP", destCountry: "Philippines", destCode: "PH" },
+  { from: "AUD", to: "INR", destCountry: "India", destCode: "IN" },
+  { from: "AUD", to: "PHP", destCountry: "Philippines", destCode: "PH" },
+  { from: "AED", to: "INR", destCountry: "India", destCode: "IN" },
+  { from: "AED", to: "PKR", destCountry: "Pakistan", destCode: "PK" },
+  { from: "SAR", to: "INR", destCountry: "India", destCode: "IN" },
+  { from: "SAR", to: "PKR", destCountry: "Pakistan", destCode: "PK" },
+  { from: "SAR", to: "PHP", destCountry: "Philippines", destCode: "PH" },
 ];
 
 const SEND_AMOUNTS = [100, 500, 1000, 5000];

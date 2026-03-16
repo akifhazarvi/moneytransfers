@@ -1,13 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useTheme } from "@/components/ThemeProvider";
+import { routing } from "@/i18n/routing";
+
 const navLinks = [
   {
-    href: "/",
-    label: "Home",
+    href: "/" as const,
+    labelKey: "home" as const,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -15,8 +17,8 @@ const navLinks = [
     ),
   },
   {
-    href: "/send-money",
-    label: "Send Money",
+    href: "/send-money" as const,
+    labelKey: "sendMoney" as const,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -24,8 +26,8 @@ const navLinks = [
     ),
   },
   {
-    href: "/compare",
-    label: "Compare Providers",
+    href: "/compare" as const,
+    labelKey: "compareProviders" as const,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -33,8 +35,8 @@ const navLinks = [
     ),
   },
   {
-    href: "/companies",
-    label: "Companies",
+    href: "/companies" as const,
+    labelKey: "companies" as const,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -42,8 +44,8 @@ const navLinks = [
     ),
   },
   {
-    href: "/guides",
-    label: "Guides",
+    href: "/guides" as const,
+    labelKey: "guides" as const,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -51,8 +53,8 @@ const navLinks = [
     ),
   },
   {
-    href: "/methodology",
-    label: "Methodology",
+    href: "/methodology" as const,
+    labelKey: "methodology" as const,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -61,10 +63,25 @@ const navLinks = [
   },
 ];
 
+const localeLabels: Record<string, string> = {
+  en: "EN",
+  es: "ES",
+  fr: "FR",
+};
+
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("nav");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  function switchLocale(newLocale: string) {
+    router.replace(pathname, { locale: newLocale });
+    setLangOpen(false);
+  }
 
   return (
     <header className="bg-[var(--color-surface)] sticky top-0 z-50 border-b border-[var(--color-outline)]">
@@ -103,13 +120,47 @@ export default function Header() {
                       : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
                   }`}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               );
             })}
           </nav>
 
           <div className="flex items-center gap-1">
+            {/* Language switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1 h-10 px-2.5 rounded-full hover:bg-[var(--color-surface-container)] transition-colors text-[13px] font-medium text-[var(--color-on-surface-variant)]"
+                aria-label="Switch language"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                {localeLabels[locale]}
+              </button>
+              {langOpen && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
+                  <div className="absolute right-0 top-full mt-1 z-50 bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl shadow-lg py-1 min-w-[120px]">
+                    {routing.locales.map((loc) => (
+                      <button
+                        key={loc}
+                        onClick={() => switchLocale(loc)}
+                        className={`w-full text-left px-4 py-2 text-[13px] transition-colors ${
+                          loc === locale
+                            ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)] font-medium"
+                            : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
+                        }`}
+                      >
+                        {loc === "en" ? "English" : loc === "es" ? "Español" : "Français"}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
@@ -161,7 +212,7 @@ export default function Header() {
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.icon}
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               );
             })}

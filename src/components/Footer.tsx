@@ -1,79 +1,83 @@
 import Link from "next/link";
 import Container from "@/components/Container";
-
-const footerSections = [
-  {
-    title: "Products",
-    links: [
-      { href: "/send-money", label: "Send Money" },
-      { href: "/compare", label: "Compare Providers" },
-      { href: "/currency-converter", label: "Currency Converter" },
-      { href: "/companies", label: "All Reviews" },
-    ],
-  },
-  {
-    title: "Popular Routes",
-    links: [
-      { href: "/send-money/usa-to-india", label: "USA to India" },
-      { href: "/send-money/uk-to-europe", label: "UK to Europe" },
-      { href: "/send-money/usa-to-philippines", label: "USA to Philippines" },
-      { href: "/send-money/usa-to-mexico", label: "USA to Mexico" },
-      { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan" },
-      { href: "/send-money/usa-to-nigeria", label: "USA to Nigeria" },
-    ],
-  },
-  {
-    title: "Top Providers",
-    links: [
-      { href: "/companies/wise", label: "Wise Review" },
-      { href: "/companies/remitly", label: "Remitly Review" },
-      { href: "/companies/ofx", label: "OFX Review" },
-      { href: "/companies/xe", label: "XE Review" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { href: "/about", label: "About" },
-      { href: "/contact", label: "Contact" },
-      { href: "/editorial-policy", label: "Editorial Policy" },
-      { href: "/methodology", label: "Methodology" },
-      { href: "/privacy-policy", label: "Privacy Policy" },
-      { href: "/terms", label: "Terms" },
-      { href: "/cookies", label: "Cookie Policy" },
-      { href: "/disclaimer", label: "Disclaimer" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { href: "/guides", label: "Guides" },
-      { href: "/news", label: "News" },
-      { href: "/iban", label: "IBAN by Country" },
-      { href: "/swift-codes", label: "SWIFT/BIC Codes" },
-      { href: "/exchange-rates", label: "Live Exchange Rates" },
-    ],
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
+  const footerSections = [
+    {
+      titleKey: "products" as const,
+      links: [
+        { href: "/send-money", labelKey: "sendMoney" as const },
+        { href: "/compare", labelKey: "compareProviders" as const },
+        { href: "/currency-converter", labelKey: "currencyConverter" as const },
+        { href: "/companies", labelKey: "allReviews" as const },
+      ],
+    },
+    {
+      titleKey: "popularRoutes" as const,
+      links: [
+        { href: "/send-money/usa-to-india", labelKey: "usaToIndia" as const },
+        { href: "/send-money/uk-to-europe", labelKey: "ukToEurope" as const },
+        { href: "/send-money/usa-to-philippines", labelKey: "usaToPhilippines" as const },
+        { href: "/send-money/usa-to-mexico", labelKey: "usaToMexico" as const },
+        { href: "/send-money/usa-to-pakistan", labelKey: "usaToPakistan" as const },
+        { href: "/send-money/usa-to-nigeria", labelKey: "usaToNigeria" as const },
+      ],
+    },
+    {
+      titleKey: "topProviders" as const,
+      links: [
+        { href: "/companies/wise", labelKey: "wiseReview" as const },
+        { href: "/companies/remitly", labelKey: "remitlyReview" as const },
+        { href: "/companies/ofx", labelKey: "ofxReview" as const },
+        { href: "/companies/xe", labelKey: "xeReview" as const },
+      ],
+    },
+    {
+      titleKey: "company" as const,
+      links: [
+        { href: "/about", labelKey: "aboutLink" as const },
+        { href: "/contact", labelKey: "contactLink" as const },
+        { href: "/editorial-policy", labelKey: "editorialLink" as const },
+        { href: "/methodology", labelKey: "methodologyLink" as const },
+        { href: "/privacy-policy", labelKey: "privacyLink" as const },
+        { href: "/terms", labelKey: "termsLink" as const },
+        { href: "/cookies", labelKey: "cookiesLink" as const },
+        { href: "/disclaimer", labelKey: "disclaimerLink" as const },
+      ],
+    },
+    {
+      titleKey: "resources" as const,
+      links: [
+        { href: "/guides", labelKey: "guidesLink" as const },
+        { href: "/news", labelKey: "newsLink" as const },
+        { href: "/iban", labelKey: "ibanLink" as const },
+        { href: "/swift-codes", labelKey: "swiftLink" as const },
+        { href: "/exchange-rates", labelKey: "exchangeRatesLink" as const },
+        { href: "/guides/how-euribor-affects-euro-transfers", labelKey: "euriborGuideLink" as const },
+      ],
+    },
+  ];
+
   return (
     <footer className="bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
       <Container className="py-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-12">
           {footerSections.map((section) => (
-            <div key={section.title}>
+            <div key={section.titleKey}>
               <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
-                {section.title}
+                {t(section.titleKey)}
               </h3>
               <ul className="space-y-3">
                 {section.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.labelKey}>
                     <Link
                       href={link.href}
                       className="text-[14px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </Link>
                   </li>
                 ))}
@@ -97,10 +101,10 @@ export default function Footer() {
             <span className="text-[14px] font-medium text-[var(--color-on-surface-variant)]">SendMoneyCompare</span>
           </div>
           <p className="text-[12px] text-[var(--color-on-surface-variant)] text-center max-w-xl">
-            SendMoneyCompare is a comparison site. We may receive compensation when you click links to providers. This does not affect our editorial independence.
+            {t("footerDisclaimer")}
           </p>
           <p className="text-[12px] text-[var(--color-on-surface-variant)]">
-            &copy; {new Date().getFullYear()} SendMoneyCompare
+            {t("copyright", { year: new Date().getFullYear() })}
           </p>
         </div>
       </Container>
