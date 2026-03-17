@@ -12,51 +12,51 @@ permissions:
 jobs:
   scrape-api:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 40
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci
 
       - name: Scrape provider quotes (Wise Comparison API)
         run: npx tsx scripts/scrape-providers.ts
-        timeout-minutes: 5
+        timeout-minutes: 10
         continue-on-error: true
 
       - name: Scrape OFX (direct API)
         run: npx tsx scripts/scrape-ofx.ts
-        timeout-minutes: 3
+        timeout-minutes: 8
         continue-on-error: true
 
       - name: Scrape Instarem (direct API)
         run: npx tsx scripts/scrape-instarem.ts
-        timeout-minutes: 3
+        timeout-minutes: 5
         continue-on-error: true
 
       - name: Scrape XE mid-market rates
         run: npx tsx scripts/scrape-xe.ts
-        timeout-minutes: 3
+        timeout-minutes: 5
         continue-on-error: true
 
       - name: Scrape TapTap Send (API)
         run: npx tsx scripts/scrape-taptapsend.ts
-        timeout-minutes: 3
+        timeout-minutes: 5
         continue-on-error: true
 
       - name: Scrape Wise Direct (API)
         run: npx tsx scripts/scrape-wise-direct.ts
-        timeout-minutes: 5
+        timeout-minutes: 8
         continue-on-error: true
 
       - name: Scrape ExchangeRates.org.uk (fetch + Cheerio)
         run: npx tsx scripts/scrape-exchangerates.ts
-        timeout-minutes: 5
+        timeout-minutes: 8
         continue-on-error: true
 
       - name: Upload scraped data
@@ -68,14 +68,14 @@ jobs:
 
   scrape-monito:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci
@@ -85,7 +85,7 @@ jobs:
 
       - name: Scrape Monito comparison (Playwright)
         run: npx tsx scripts/scrape-monito.ts
-        timeout-minutes: 20
+        timeout-minutes: 28
         continue-on-error: true
 
       - name: Upload scraped data
@@ -97,14 +97,14 @@ jobs:
 
   scrape-browsers-1:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 70
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci
@@ -114,17 +114,17 @@ jobs:
 
       - name: Scrape WorldRemit (browser)
         run: npx tsx scripts/scrape-worldremit.ts
-        timeout-minutes: 15
+        timeout-minutes: 20
         continue-on-error: true
 
       - name: Scrape Remitly (browser)
         run: npx tsx scripts/scrape-remitly.ts
-        timeout-minutes: 15
+        timeout-minutes: 20
         continue-on-error: true
 
       - name: Scrape Western Union (browser)
         run: npx tsx scripts/scrape-western-union.ts
-        timeout-minutes: 15
+        timeout-minutes: 20
         continue-on-error: true
 
       - name: Upload scraped data
@@ -136,14 +136,14 @@ jobs:
 
   scrape-browsers-2:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 70
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci
@@ -153,17 +153,17 @@ jobs:
 
       - name: Scrape Revolut (browser)
         run: npx tsx scripts/scrape-revolut.ts
-        timeout-minutes: 15
+        timeout-minutes: 20
         continue-on-error: true
 
       - name: Scrape Xoom/PayPal (browser)
         run: npx tsx scripts/scrape-xoom.ts
-        timeout-minutes: 15
+        timeout-minutes: 20
         continue-on-error: true
 
       - name: Scrape Ria Money Transfer (browser)
         run: npx tsx scripts/scrape-ria.ts
-        timeout-minutes: 15
+        timeout-minutes: 20
         continue-on-error: true
 
       - name: Upload scraped data
@@ -175,14 +175,14 @@ jobs:
 
   scrape-browsers-3:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 70
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci
@@ -192,7 +192,7 @@ jobs:
 
       - name: Scrape XE Money Transfer (browser)
         run: npx tsx scripts/scrape-xe-transfer.ts
-        timeout-minutes: 15
+        timeout-minutes: 20
         continue-on-error: true
 
       - name: Upload scraped data
@@ -248,7 +248,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci
@@ -274,7 +274,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - run: npm ci
