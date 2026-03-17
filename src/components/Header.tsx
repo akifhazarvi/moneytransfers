@@ -97,8 +97,8 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <Link href="/" aria-label="Send Money — Home" className="flex items-center gap-2 shrink-0">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
               <circle cx="16" cy="16" r="16" fill="#2D3A8C" />
               <circle cx="16" cy="16" r="10" fill="none" stroke="white" strokeWidth="1.5" opacity="0.3" />
               <text x="16" y="21" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif">$</text>
@@ -115,13 +115,14 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
               const active = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(link.href + "/");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={active ? "page" : undefined}
                   className={`px-3 py-2 text-[13px] font-medium rounded-lg transition-colors ${
                     active
                       ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"
@@ -155,6 +156,8 @@ export default function Header() {
                       <button
                         key={loc}
                         onClick={() => switchLocale(loc)}
+                        lang={loc}
+                        aria-label={`Switch to ${loc === "en" ? "English" : loc === "es" ? "Español" : "Français"}`}
                         className={`w-full text-left px-4 py-2 text-[13px] transition-colors ${
                           loc === locale
                             ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)] font-medium"
@@ -205,13 +208,14 @@ export default function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden py-3 border-t border-[var(--color-outline)]">
+          <nav aria-label="Mobile navigation" className="lg:hidden py-3 border-t border-[var(--color-outline)]">
             {navLinks.map((link) => {
               const active = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(link.href + "/");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={active ? "page" : undefined}
                   className={`flex items-center gap-2 py-3 px-3 text-[14px] rounded-lg transition-colors ${
                     active
                       ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"
@@ -224,7 +228,7 @@ export default function Header() {
                 </Link>
               );
             })}
-          </div>
+          </nav>
         )}
       </div>
     </header>
