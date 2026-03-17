@@ -34,10 +34,9 @@ export default async function BusinessHubPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
+  // FAQPage rich results restricted to government/healthcare since Aug 2023.
+  // FAQ content rendered on page for users and AI crawlers.
+  const faqs = [
       {
         "@type": "Question",
         name: "What is the cheapest way to make international business payments?",
@@ -78,8 +77,7 @@ export default async function BusinessHubPage({
           text: "The most cost-effective approach is specialist business transfer providers. Wise Business and OFX offer multi-currency accounts, batch processing, and forward contracts to lock in exchange rates. Set up vendor bank details once, use CSV upload or API for recurring payments, and maintain invoice documentation for compliance.",
         },
       },
-    ],
-  };
+  ];
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -102,12 +100,6 @@ export default async function BusinessHubPage({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -319,7 +311,7 @@ export default async function BusinessHubPage({
               Frequently asked questions
             </h2>
             <div className="space-y-6">
-              {faqSchema.mainEntity.map((faq, i) => (
+              {faqs.map((faq, i) => (
                 <div key={i}>
                   <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-2">
                     {faq.name}

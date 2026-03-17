@@ -375,8 +375,23 @@ export default async function CorridorPage({ params }: Props) {
     (q) => !q.transferSpeed.toLowerCase().includes("minute") && !q.transferSpeed.toLowerCase().includes("instant")
   );
 
+  const breadcrumbName = isCountryPage ? `Send Money to ${corridor.toCountry}` : `${corridor.fromCountry} to ${corridor.toCountry}`;
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+      { "@type": "ListItem", position: 2, name: "Send Money", item: "https://sendmoneycompare.com/send-money" },
+      { "@type": "ListItem", position: 3, name: breadcrumbName, item: `https://sendmoneycompare.com/send-money/${slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* ─── Hero ─── */}
       <section className="bg-[var(--color-surface)] pt-8 pb-6">
         <Container>

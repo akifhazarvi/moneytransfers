@@ -58,6 +58,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
             author: {
               "@type": "Person",
               name: "Akif Hazarvi",
+              url: "https://sendmoneycompare.com/about/akif-hazarvi",
               jobTitle:
                 "Product Manager – Fintech & International Payments",
             },

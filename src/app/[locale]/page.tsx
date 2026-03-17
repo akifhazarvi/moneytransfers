@@ -10,6 +10,7 @@ import HeroTabs from "@/components/HeroTabs";
 import { providers } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
+import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
@@ -39,9 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t("description"),
       type: "website",
     },
-    alternates: {
-      canonical: locale === "en" ? "https://sendmoneycompare.com" : `https://sendmoneycompare.com/${locale}`,
-    },
+    alternates: getAlternates("", locale),
   };
 }
 
@@ -492,28 +491,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
-      {/* JSON-LD structured data for FAQ (SEO) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.a,
-              },
-            })),
-            speakable: {
-              "@type": "SpeakableSpecification",
-              cssSelector: ["details summary", "details p"],
-            },
-          }),
-        }}
-      />
+      {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
     </>
   );
 }

@@ -56,25 +56,9 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedPosts = getRelatedPosts(slug);
 
-  // FAQ JSON-LD for SEO
-  const faqSchema = post.faqs?.length
-    ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: post.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      }
-    : null;
-
-  // HowTo rich results were deprecated by Google in September 2023.
-  // Keeping step data in the article content for readability, but not emitting HowTo schema.
-  const howToSchema = null;
+  // FAQPage rich results restricted to government/healthcare sites since Aug 2023.
+  // FAQ content is still rendered on page for users and AI crawlers.
+  // HowTo rich results deprecated September 2023 — not emitting schema.
 
   // Article JSON-LD
   const articleSchema = {
@@ -85,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
-    author: { "@type": "Person", name: post.author, url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+    author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}` },
     publisher: {
       "@type": "Organization",
       name: "SendMoneyCompare",
@@ -111,12 +95,6 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

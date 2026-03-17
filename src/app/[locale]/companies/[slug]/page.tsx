@@ -426,27 +426,13 @@ function DetailedReview({
               bestRating: 10,
               worstRating: 1,
             },
-            author: { "@type": "Person", name: review.reviewer, url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+            author: { "@type": "Person", name: review.reviewer, url: `https://sendmoneycompare.com/about/${review.reviewer.toLowerCase().replace(/\s+/g, "-")}` },
             datePublished: review.updatedAt,
             reviewBody: review.editorVerdict,
           }),
         }}
       />
-      {/* JSON-LD: FAQPage */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: review.faqs.map((f) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-          }),
-        }}
-      />
+      {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
       {/* JSON-LD: BreadcrumbList */}
       <script
         type="application/ld+json"

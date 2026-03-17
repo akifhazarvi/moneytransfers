@@ -44,20 +44,8 @@ export default async function BusinessSubPage({ params }: Props) {
   const page = getBusinessPage(slug);
   if (!page) notFound();
 
-  const faqSchema = page.faqs.length
-    ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: page.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      }
-    : null;
+  // FAQPage rich results restricted to government/healthcare since Aug 2023.
+  // FAQ content rendered on page for users and AI crawlers.
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -106,12 +94,6 @@ export default async function BusinessSubPage({ params }: Props) {
 
   return (
     <>
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

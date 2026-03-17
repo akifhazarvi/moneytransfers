@@ -598,24 +598,8 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
         </Container>
       </section>
 
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.a,
-              },
-            })),
-          }),
-        }}
-      />
+      {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
+      {/* Dataset JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -630,7 +614,9 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               name: "SendMoneyCompare",
               url: "https://sendmoneycompare.com",
             },
-            temporalCoverage: "2026",
+            datePublished: "2026-01-01",
+            dateModified: "2026-03-17",
+            temporalCoverage: "2025/2026",
             distribution: {
               "@type": "DataDownload",
               encodingFormat: "text/html",

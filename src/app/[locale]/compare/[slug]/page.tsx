@@ -118,7 +118,7 @@ function ArticleComparison({
             description: article.metaDescription,
             datePublished: article.updatedAt,
             dateModified: article.updatedAt,
-            author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about" },
+            author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
             publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
           }),
         }}
@@ -138,30 +138,17 @@ function ArticleComparison({
               ...(provider.rating > 0 && trustpilotIndex[provider.slug]?.totalReviews && {
                 aggregateRating: {
                   "@type": "AggregateRating",
-                  ratingValue: provider.rating.toFixed(1),
-                  bestRating: "5",
-                  worstRating: "1",
-                  ratingCount: String(trustpilotIndex[provider.slug].totalReviews),
+                  ratingValue: Number(provider.rating.toFixed(1)),
+                  bestRating: 5,
+                  worstRating: 1,
+                  ratingCount: trustpilotIndex[provider.slug].totalReviews,
                 },
               }),
             }),
           }}
         />
       ))}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: article.faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.q,
-              acceptedAnswer: { "@type": "Answer", text: faq.a },
-            })),
-          }),
-        }}
-      />
+      {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
       {/* JSON-LD: BreadcrumbList */}
       <script
         type="application/ld+json"
@@ -598,10 +585,10 @@ function DefaultComparison({
               ...(provider.rating > 0 && trustpilotIndex[provider.slug]?.totalReviews && {
                 aggregateRating: {
                   "@type": "AggregateRating",
-                  ratingValue: provider.rating.toFixed(1),
-                  bestRating: "5",
-                  worstRating: "1",
-                  ratingCount: String(trustpilotIndex[provider.slug].totalReviews),
+                  ratingValue: Number(provider.rating.toFixed(1)),
+                  bestRating: 5,
+                  worstRating: 1,
+                  ratingCount: trustpilotIndex[provider.slug].totalReviews,
                 },
               }),
             }),
