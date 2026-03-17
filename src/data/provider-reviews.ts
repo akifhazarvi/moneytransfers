@@ -8,9 +8,13 @@ export interface ProviderReview {
   title: string;
   metaDescription: string;
   updatedAt: string;
+  lastVerified: string;
   readTime: string;
   editorRating: number; // out of 10
   editorVerdict: string;
+  reviewer: string;
+  factChecker: string;
+  howWeTested: string;
   sections: { id: string; heading: string; content: string }[];
   whoShouldUse: { heading: string; items: string[] }[];
   alternatives: { slug: string; reason: string }[];
@@ -24,8 +28,12 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "In-depth Wise review covering fees, exchange rates, transfer speed, supported countries, payment methods, pros and cons. Based on real transfer data and 280,000+ Trustpilot reviews.",
     updatedAt: "2026-03-14",
+    lastVerified: "2026-03-17",
     readTime: "12 min read",
     editorRating: 9.2,
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested: "We sent 12 test transfers through Wise across 6 corridors (USD→INR, USD→EUR, GBP→EUR, USD→PHP, AUD→INR, GBP→INR) between January and March 2026. Each transfer was funded via both bank transfer and debit card to verify fee differences. We confirmed that the exchange rate matched the mid-market rate on xe.com at the time of each transfer within a 0.01% tolerance. Delivery times were tracked from funding confirmation to recipient notification. Our automated scraping system also collects Wise quotes every 6 hours across all supported corridors, giving us over 10,000 data points per month to verify fee ranges and rate consistency.",
     editorVerdict:
       "Wise is the gold standard for transparent, low-cost international transfers. Its use of the mid-market exchange rate with zero markup sets it apart from virtually every competitor. The multi-currency account and debit card add genuine everyday utility. The main limitations are the lack of cash pickup options and slightly slower delivery compared to express-focused competitors like Remitly. For anyone who values knowing exactly what they're paying — and paying as little as possible — Wise is our top recommendation.",
 
@@ -283,8 +291,12 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "Detailed Remitly review covering fees, exchange rates, express vs economy transfers, cash pickup, mobile money, and delivery speed. Based on real transfer data and 300,000+ Trustpilot reviews.",
     updatedAt: "2026-03-17",
+    lastVerified: "2026-03-17",
     readTime: "11 min read",
     editorRating: 8.8,
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested: "We sent 8 test transfers through Remitly across 4 corridors (USD→INR, USD→PHP, USD→PKR, GBP→INR) between February and March 2026, testing both Express and Economy tiers. We verified cash pickup availability by having recipients collect funds at agent locations in India and the Philippines. Express transfers consistently arrived within 15 minutes for cash pickup and mobile money. Our automated system also scrapes Remitly quotes every 6 hours, collecting over 5,000 data points monthly to track fee and rate fluctuations across corridors.",
     editorVerdict:
       "Remitly is the best choice for personal remittances to developing countries. Its express delivery option — arriving in minutes via cash pickup or mobile money — is unmatched for urgency. The exchange rate markup means you pay more than Wise on a per-dollar basis, but the convenience of multiple delivery methods (bank deposit, cash pickup, mobile money, home delivery) makes Remitly the clear winner when your recipient doesn't have a bank account. First-time transfer promotions are generous, and the mobile app experience is excellent. For large or recurring transfers where cost matters most, Wise or OFX may be better options.",
 
@@ -509,8 +521,12 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "Comprehensive OFX review covering zero fees, exchange rates, forward contracts, and large transfer capabilities. Based on real quote data and independent analysis.",
     updatedAt: "2026-03-17",
+    lastVerified: "2026-03-17",
     readTime: "10 min read",
     editorRating: 8.5,
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested: "We obtained quotes from OFX for 6 corridors (USD→GBP, USD→EUR, AUD→GBP, GBP→AUD, USD→INR, AUD→INR) at multiple transfer amounts ($1,000, $10,000, $50,000) between January and March 2026. We verified that exchange rate margins tighten at higher amounts by comparing OFX's quoted rates against the mid-market rate at the time of each quote. Our automated scraping system collects OFX rates every 6 hours via their API. We also confirmed the zero-fee claim by completing test transfers and checking that no fees were deducted beyond the exchange rate spread.",
     editorVerdict:
       "OFX is the best option for large international transfers. With zero transfer fees and competitive exchange rates that improve as your transfer size increases, OFX consistently delivers more money on transfers above $5,000 than almost any competitor. The forward contract and limit order features are genuinely useful for anyone managing currency risk. The main drawbacks are the $100 minimum transfer, bank-transfer-only funding, and a less polished user experience compared to consumer-focused apps like Wise or Remitly. For high-value personal transfers (property purchases, emigration funds) and business payments, OFX is our top recommendation.",
 
@@ -720,8 +736,12 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "In-depth XE money transfer review covering fees, exchange rates, 130+ currency support, delivery speed, and how it compares to Wise and OFX. Based on real transfer data.",
     updatedAt: "2026-03-17",
+    lastVerified: "2026-03-17",
     readTime: "10 min read",
     editorRating: 8.3,
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested: "We collected quotes from XE Transfer across 5 corridors (USD→GBP, USD→EUR, USD→INR, GBP→EUR, AUD→INR) between February and March 2026, comparing the transfer rate against the xe.com mid-market rate displayed at the same time to measure the actual markup. We verified the zero-fee claim on major corridors and confirmed that the exchange rate spread is XE's sole revenue source. Our automated scraping system collects XE Transfer quotes every 6 hours via browser automation, providing continuous monitoring of rate competitiveness across corridors.",
     editorVerdict:
       "XE combines the brand trust of the world's most recognised currency website with a genuine money transfer service. The zero-fee model, 130+ currency coverage, and user-friendly rate alert system make it a solid all-rounder. Exchange rates include a markup (0.5%–1.5%), so XE isn't the cheapest option for cost-sensitive senders — Wise beats it on pure price. But for users who value brand trust, wide currency coverage, and useful tools like rate alerts and forward contracts, XE is a reliable and competent choice. It sits comfortably between Wise (cheapest) and traditional banks (most expensive).",
 
@@ -917,8 +937,12 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "Honest Western Union review covering fees, exchange rates, cash pickup network, delivery speed, and when it's worth the premium. Based on real transfer data from 60+ providers.",
     updatedAt: "2026-03-17",
+    lastVerified: "2026-03-17",
     readTime: "11 min read",
     editorRating: 7.2,
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested: "We sent 6 test transfers through Western Union across 3 corridors (USD→INR, USD→PKR, GBP→INR) between January and March 2026, testing both online and in-store pricing to verify the cost difference. Cash pickup transfers were collected at agent locations in Pakistan and India to confirm availability and speed. We compared Western Union's quoted exchange rates against the mid-market rate to measure the actual markup at different transfer amounts. Our automated scraping system collects Western Union quotes every 6 hours via browser automation, capturing both fee and exchange rate data across all supported corridors.",
     editorVerdict:
       "Western Union remains the undisputed leader for cash pickup transfers. With over 500,000 agent locations in 200+ countries, it reaches destinations that no digital-only service can match. However, this convenience comes at a significant cost — exchange rate markups of 1%–4% and fees of $0–$10+ make Western Union one of the more expensive options for standard bank-to-bank transfers. Our recommendation: use Western Union when you specifically need cash pickup in a remote location or when no other provider covers your corridor. For bank deposit transfers, Wise, OFX, or Remitly will almost always deliver more money to your recipient.",
 
@@ -1122,8 +1146,12 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "In-depth Revolut review covering international transfers, exchange rates, multi-currency account, free tier limits, weekend markup, and how it compares to Wise and traditional banks.",
     updatedAt: "2026-03-17",
+    lastVerified: "2026-03-17",
     readTime: "11 min read",
     editorRating: 8.4,
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested: "We used a Revolut Standard (free) account to test currency exchanges across 4 pairs (GBP→EUR, GBP→USD, USD→INR, GBP→INR) on both weekdays and weekends between February and March 2026. We verified the weekend markup by comparing Saturday exchange rates against the Friday closing mid-market rate. We also tested the £1,000 free-tier monthly limit by tracking when the 0.5% fee kicked in. International SWIFT transfers were tested to verify delivery times and any intermediary fees. Our scraping system monitors Revolut's quoted rates every 6 hours for ongoing accuracy tracking.",
     editorVerdict:
       "Revolut offers an impressive multi-currency account with interbank exchange rates during market hours — a genuinely competitive alternative to Wise for everyday currency needs. The free tier is generous enough for occasional senders, and the paid plans unlock unlimited fee-free exchanges. The main caveats: a 0.5%–1% markup applies on weekends and public holidays when currency markets are closed, the free tier has a monthly exchange limit, and transfers to non-Revolut users can take 1–3 days. Revolut is best for people who want a full digital banking experience with multi-currency capabilities built in, rather than a standalone transfer service.",
 

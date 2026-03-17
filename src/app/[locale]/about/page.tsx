@@ -200,6 +200,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                       <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">2024</dd>
                     </div>
                     <div>
+                      <dt className="text-[var(--color-on-surface-variant)]">Type</dt>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">Independent comparison platform</dd>
+                    </div>
+                    <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Contact</dt>
                       <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">hello@sendmoneycompare.com</dd>
                     </div>
@@ -209,6 +213,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     </div>
                   </dl>
                 </div>
+                <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-3">
+                  SendMoneyCompare is not a money transfer service and does not hold, transmit, or process funds.
+                  We are an information service that compares publicly available data from regulated financial providers.
+                  All providers listed on our platform are licensed by at least one major financial authority (FCA, FinCEN, ASIC, or equivalent).
+                </p>
               </div>
             </div>
 

@@ -142,6 +142,11 @@ function DetailedReview({
                     <span className="text-[13px] text-[var(--color-on-surface-variant)]">Updated {review.updatedAt}</span>
                     <span className="text-[13px] text-[var(--color-on-surface-variant)]">{review.readTime}</span>
                   </div>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-[12px] text-[var(--color-on-surface-variant)]">
+                    <span>Reviewed by <Link href={`/about/akif-hazarvi`} className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link></span>
+                    <span>Fact-checked by <Link href={`/about/awais-imran`} className="text-[var(--color-primary)] hover:underline">{review.factChecker}</Link></span>
+                    <span>Data verified {review.lastVerified}</span>
+                  </div>
                 </div>
               </div>
 
@@ -207,6 +212,9 @@ function DetailedReview({
                 </a>
                 <a href="#alternatives" className="text-[14px] text-[var(--color-primary)] hover:underline py-1">
                   Alternatives
+                </a>
+                <a href="#how-we-tested" className="text-[14px] text-[var(--color-primary)] hover:underline py-1">
+                  How We Tested
                 </a>
                 <a href="#faq" className="text-[14px] text-[var(--color-primary)] hover:underline py-1">
                   FAQ
@@ -308,6 +316,22 @@ function DetailedReview({
               </div>
             </Card>
 
+            {/* How we tested */}
+            <Card id="how-we-tested">
+              <h2 className="text-[18px] md:text-[20px] font-medium text-[var(--color-on-surface)] mb-4">
+                How we tested {provider.name}
+              </h2>
+              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                {review.howWeTested}
+              </p>
+              <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-4 pt-3 border-t border-[var(--color-outline)]">
+                Last verified: {review.lastVerified} &middot; Reviewed by{" "}
+                <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link>
+                {" "}&middot; Fact-checked by{" "}
+                <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">{review.factChecker}</Link>
+              </p>
+            </Card>
+
             {/* FAQ */}
             <Card id="faq">
               <h2 className="text-[18px] md:text-[20px] font-medium text-[var(--color-on-surface)] mb-5">
@@ -403,7 +427,7 @@ function DetailedReview({
               bestRating: 10,
               worstRating: 1,
             },
-            author: { "@type": "Organization", name: "SendMoneyCompare" },
+            author: { "@type": "Person", name: review.reviewer, url: "https://sendmoneycompare.com/about/akif-hazarvi" },
             datePublished: review.updatedAt,
             reviewBody: review.editorVerdict,
           }),

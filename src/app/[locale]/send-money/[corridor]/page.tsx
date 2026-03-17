@@ -463,8 +463,15 @@ export default async function CorridorPage({ params }: Props) {
           <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
             Compare providers: {fromCurrency} to {toCurrency}
           </h2>
-          <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+          <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-2">
             Sending {sendSymbol}{sampleAmount.toLocaleString()} from {headingFrom} to {headingTo}. Sorted by best value — most money received.
+          </p>
+          <p className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-variant)] mb-6">
+            <span className="relative flex h-1.5 w-1.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+            </span>
+            Data updated every 6 hours from live provider quotes
           </p>
 
           {quotes.length > 0 ? (
@@ -505,7 +512,7 @@ export default async function CorridorPage({ params }: Props) {
                       </div>
                       <div className="min-w-0">
                         <p className="text-[13px] sm:text-[14px] font-medium text-[var(--color-on-surface)] truncate">
-                          {name}
+                          <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)] hover:underline">{name}</Link>
                           {isBest && (
                             <span className="ml-1.5 text-[10px] text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
                               Best value

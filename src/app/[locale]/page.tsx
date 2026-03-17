@@ -104,7 +104,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="max-w-[860px] mx-auto">
             <HeroTabs />
           </div>
-          <p className="text-center text-[11px] text-[var(--color-on-surface-variant)] mt-5 max-w-md mx-auto opacity-70">
+          <p className="text-center text-[12px] text-[var(--color-on-surface-variant)] mt-5 max-w-md mx-auto">
             {tHero("disclaimer")}
           </p>
         </Container>
@@ -119,10 +119,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
-              <h2 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+              <h2 className="text-[12px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 {tLive("title")}
               </h2>
-              <Link href="/exchange-rates" className="text-[11px] text-[var(--color-primary)] hover:underline ml-auto">
+              <Link href="/exchange-rates" className="text-[12px] text-[var(--color-primary)] hover:underline ml-auto">
                 {tLive("seeAll")} &rarr;
               </Link>
             </div>
@@ -131,9 +131,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <Link
                   key={r.code}
                   href={`/send-money/${r.corridor}`}
-                  className="flex flex-col items-center px-3 py-2.5 rounded-xl bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] transition-colors group"
+                  className="flex flex-col items-center px-3 py-3 min-h-[48px] rounded-xl bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] transition-colors group"
                 >
-                  <span className="text-[11px] text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
+                  <span className="text-[12px] text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
                     {r.label}
                   </span>
                   <span className="text-[15px] font-semibold text-[var(--color-on-surface)] tabular-nums mt-0.5">
@@ -245,10 +245,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Container>
           <div className="text-center mb-8">
             <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
-              Send money to popular destinations
+              {tExplore("destinationsTitle")}
             </h2>
             <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
-              Compare providers, rates, delivery methods, and recipient requirements for every country — all in one place.
+              {tExplore("destinationsSubtitle")}
             </p>
           </div>
           <div className="space-y-5 max-w-5xl mx-auto">
@@ -300,7 +300,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               ]},
             ].map((group) => (
               <div key={group.region}>
-                <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
+                <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
                   {group.region}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -308,7 +308,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <Link
                       key={dest.slug}
                       href={`/send-money/send-money-to-${dest.slug}`}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-[13px] text-[var(--color-on-surface-variant)] transition-colors"
+                      className="flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-[13px] text-[var(--color-on-surface-variant)] transition-colors"
                     >
                       <span>{dest.flag}</span>
                       <span>{dest.name}</span>
@@ -320,7 +320,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <div className="text-center mt-8">
             <Link href="/send-money" className="text-[14px] font-medium text-[var(--color-primary)] hover:underline">
-              See all destinations &rarr;
+              {tExplore("seeAllDestinations")} &rarr;
             </Link>
           </div>
         </Container>
@@ -359,7 +359,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div className="divide-y divide-[var(--color-outline)]">
               {faqs.map((faq) => (
                 <details key={faq.q} className="group py-5">
-                  <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[48px]">
                     {faq.q}
                     <svg
                       className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
@@ -507,6 +507,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 text: faq.a,
               },
             })),
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["details summary", "details p"],
+            },
           }),
         }}
       />

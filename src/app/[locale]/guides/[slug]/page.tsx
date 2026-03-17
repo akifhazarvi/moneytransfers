@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
-    author: { "@type": "Person", name: post.author, url: "https://sendmoneycompare.com/about" },
+    author: { "@type": "Person", name: post.author, url: "https://sendmoneycompare.com/about/akif-hazarvi" },
     publisher: {
       "@type": "Organization",
       name: "SendMoneyCompare",
@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {post.excerpt}
               </p>
               <div className="flex flex-wrap items-center gap-4 text-[13px] text-[var(--color-on-surface-variant)]">
-                <span>{post.author}</span>
+                <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">{post.author}</Link>
                 <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
                 <time dateTime={post.updatedAt}>
                   Updated{" "}
@@ -177,6 +177,14 @@ export default async function BlogPostPage({ params }: Props) {
                 <span>{post.readTime}</span>
               </div>
             </div>
+
+            {/* Key Takeaway */}
+            {post.excerpt && (
+              <div className="bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-xl p-5 mb-8">
+                <p className="text-[12px] font-semibold text-[var(--color-primary)] uppercase tracking-wide mb-2">Key takeaway</p>
+                <p className="text-[14px] text-[var(--color-on-surface)] leading-relaxed font-medium">{post.excerpt}</p>
+              </div>
+            )}
 
             {/* Table of Contents */}
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mb-8">
