@@ -406,15 +406,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to Bangladesh?",
-        a: "Remitly and WorldRemit typically offer the best total value. bKash direct transfers are often the fastest delivery method. Compare providers on the day you send, as BDT rates can vary significantly.",
+        a: "Remitly and WorldRemit consistently deliver the most taka per dollar on the USD to BDT corridor. Remitly offers express bKash delivery in minutes and frequently runs zero-fee promotions for new customers. Wise charges the real mid-market exchange rate with a transparent fee of around 0.6–0.8%, making it the most cost-transparent option. ACE Money Transfer is another strong performer specifically on this corridor, often beating global brands on rate. Avoid US bank wire transfers — they charge $25–$50 per transaction plus a 3–5% exchange rate markup, typically costing $50–$80 more than specialist providers on a $1,000 transfer. Always compare the total BDT your recipient will receive rather than the advertised fee alone, as exchange rate differences between providers can exceed 2–3%.",
       },
       {
-        q: "Can I send money directly to bKash?",
-        a: "Yes, several providers including Remitly and WorldRemit support direct bKash transfers, which are typically processed within minutes.",
+        q: "Can I send money directly to bKash from the US?",
+        a: "Yes — bKash is one of the most widely supported delivery methods for US-to-Bangladesh transfers. Remitly, WorldRemit, ACE Money Transfer, and Xoom all support direct bKash wallet top-up. Funds typically arrive within minutes of the transfer being processed, making it the fastest delivery option available. Your recipient needs only their bKash-registered mobile number to receive the transfer — no bank account required. bKash is Bangladesh's dominant mobile financial service with over 65 million registered accounts, so the vast majority of recipients in Bangladesh can receive money this way. Nagad and Rocket mobile wallets are also supported by select providers as alternatives.",
       },
       {
-        q: "How long does a transfer from the US to Bangladesh take?",
-        a: "bKash and mobile wallet transfers: minutes. Bank deposits: 1–3 business days. Cash pickup: same day in most cases.",
+        q: "How long does a money transfer from the US to Bangladesh take?",
+        a: "Delivery speed depends on your chosen method. bKash and Nagad mobile wallet transfers typically arrive within 1–10 minutes once your provider has processed the transaction. Bank deposits to Dutch-Bangla Bank, Islami Bank, BRAC Bank, or other major Bangladeshi banks take 1–3 business days. Cash pickup through Western Union and MoneyGram partner locations is usually available within 10–30 minutes of sending. The slowest option is a US bank SWIFT wire, which takes 3–5 business days due to correspondent banking intermediaries. If speed matters, fund your transfer with a debit card rather than ACH bank transfer — ACH can add 1–3 days of clearing time before your provider dispatches the funds.",
+      },
+      {
+        q: "Is there a limit on how much money I can send from the US to Bangladesh?",
+        a: "Transfer limits vary by provider. Most allow $10,000–$50,000 per transaction for verified accounts. Wise allows up to $1,000,000 per transfer for fully verified business accounts. Bangladesh Bank does not restrict incoming personal remittances — there is no cap on how much money can be received. However, US regulations require Currency Transaction Reports (CTRs) for transfers over $10,000. This is a compliance reporting requirement, not a barrier. For large transfers, providers like Wise and OFX offer dedicated support and competitive rates. Recipients in Bangladesh may need to provide their national ID (NID) for larger transfers, as per Bangladesh Bank's Know Your Customer requirements.",
+      },
+      {
+        q: "Do I need to pay tax on money sent to Bangladesh?",
+        a: "In the United States, sending money to family in Bangladesh is not a taxable event. The IRS does not tax outbound personal remittances. However, if you send more than $17,000 to a single person in a calendar year, you may need to file IRS Form 709 (Gift Tax Return) — though actual tax is rarely owed, as it counts against your lifetime exemption. On the Bangladesh side, remittances received from abroad are not subject to income tax. Bangladesh Bank offers a 2.5% government cash incentive on formal inward remittances — meaning your recipient may receive a bonus on top of the transferred amount when funds arrive through official banking channels, making formal transfer services doubly advantageous over informal ones.",
       },
     ],
   },
@@ -473,12 +481,24 @@ export const corridors: Corridor[] = [
       "EUR transfers via specialist providers typically arrive within 1 business day via SEPA. Traditional US bank SWIFT wires take 2–4 business days and may incur correspondent bank fees.",
     faqs: [
       {
-        q: "What is the cheapest way to send USD to EUR?",
-        a: "Wise, OFX, and CurrencyFair offer the best rates for USD to EUR. Wise charges the mid-market rate with a small fee. OFX has no fees for transfers over $1,000. Compare on the day you send.",
+        q: "What is the cheapest way to send money from the US to Europe?",
+        a: "Wise and OFX consistently offer the best total cost for USD to EUR transfers. Wise charges the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of approximately 0.5–0.7%, costing around $5–$7 on a $1,000 transfer. OFX charges zero fees with a small exchange rate spread of around 0.4–0.8%, making it particularly competitive for transfers over $5,000. CurrencyFair and XE are also strong options. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, totaling $45–$80 on the same $1,000 transfer — 7–10 times more expensive. For the absolute lowest total cost, fund your transfer via ACH bank debit rather than debit or credit card.",
       },
       {
-        q: "Do European banks charge to receive USD?",
-        a: "Some European banks charge incoming wire fees of €5–€20, and may apply their own exchange rate if the transfer arrives in USD rather than EUR. Using a provider that sends EUR directly avoids these charges.",
+        q: "How long does a US to Europe bank transfer take?",
+        a: "Specialist providers using SEPA (Single Euro Payments Area) can deliver EUR to most European bank accounts within 1 business day. SEPA transfers are the fastest and cheapest routing option for EUR deliveries in the Eurozone. Wise and Revolut typically complete USD to EUR transfers within 1–2 business days. Traditional US bank SWIFT wires to Europe take 2–4 business days and may route through correspondent banks that deduct intermediary fees of $10–$25 even after the transfer has been sent. For urgent transfers, debit card funding with Wise or Revolut can accelerate delivery to the same day in some cases.",
+      },
+      {
+        q: "Do European banks charge to receive international transfers?",
+        a: "Some European banks charge incoming international wire fees of €5–€20 per transaction, and may apply their own exchange rate if the transfer arrives in USD rather than EUR. Sending EUR directly from your US transfer provider avoids the receiving bank's currency conversion markup. Specialist providers like Wise and OFX route your transfer through the SEPA network, sending EUR directly so your recipient's European bank receives the money in its home currency without additional conversion fees. Always confirm with your recipient which account they want to receive funds in — a EUR account receives SEPA transfers without conversion charges.",
+      },
+      {
+        q: "What is the best way to send a large amount from the US to Europe?",
+        a: "For transfers above $5,000, OFX and XE offer zero transfer fees with competitive exchange rate spreads, making them the most cost-effective options. OFX provides a dedicated dealer service and can often negotiate better rates for transfers over $10,000. Currencies Direct and moneycorp are also strong choices for large EUR transfers. For very large amounts ($50,000+), using a forward contract to lock in today's exchange rate for a future payment can protect against adverse USD/EUR movements. Wise also handles large transfers well — their fee structure caps the percentage-based component, so the total cost as a percentage of the transfer amount decreases as the amount increases.",
+      },
+      {
+        q: "Which European countries can I send money to from the US?",
+        a: "You can send money to all 27 EU member states plus Norway, Switzerland, Iceland, and Liechtenstein through the SEPA network using specialist transfer services. This covers all major European destinations including Germany, France, Spain, Italy, Netherlands, Portugal, Poland, Austria, Belgium, and more. For non-SEPA European countries such as the UK, Serbia, or Turkey, transfers still go through but may route via SWIFT rather than SEPA. Most specialist providers support bank-to-bank transfers across the entire continent. Always verify that your provider supports the specific country and currency pair before initiating a large transfer.",
       },
     ],
   },
@@ -503,11 +523,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to Pakistan?",
-        a: "WorldRemit, Wise, and Remitly consistently offer the best value. Compare the total PKR amount received — rate differences are significant on this corridor.",
+        a: "ACE Money Transfer, Wise, WorldRemit, and Remitly consistently deliver the most rupees per pound on the GBP to PKR corridor. ACE Money Transfer has particularly strong relationships with Pakistani banks and often offers competitive PKR rates. Wise uses the real mid-market rate with a transparent fee, typically costing 0.5–0.8% of the transfer amount. The PKR rate varies significantly between providers — a 2% difference on £1,000 means £20 less reaching your recipient before fees are even considered. UK high-street banks charge £15–£30 per transfer plus 3–5% exchange rate markups, costing £50–£80 more than specialists on the same transfer. Always compare the total PKR amount received, not just the advertised transfer fee.",
       },
       {
         q: "Can I send money from the UK to JazzCash or Easypaisa?",
-        a: "Yes, WorldRemit and other providers offer direct transfers to JazzCash and Easypaisa mobile wallets from the UK, with delivery in minutes.",
+        a: "Yes — JazzCash and Easypaisa mobile wallet transfers are widely supported from the UK. WorldRemit, Remitly, ACE Money Transfer, and Ria all offer direct wallet top-ups to both services, with delivery typically within minutes. JazzCash and Easypaisa together cover over 100 million registered accounts in Pakistan, making them the most accessible delivery method for recipients across the country, including those without traditional bank accounts. Your recipient needs only their mobile number to receive a JazzCash or Easypaisa transfer. Mobile wallet transfers are typically free of recipient charges and can be accessed immediately through the app or at any of the thousands of franchise agent locations nationwide.",
+      },
+      {
+        q: "How long does a GBP to PKR transfer take?",
+        a: "Mobile wallet transfers (JazzCash, Easypaisa) and cash pickup arrive within minutes in most cases. Bank deposits to HBL, MCB, UBL, Allied Bank, and other major Pakistani banks typically take 1–3 business days depending on the provider. UK Faster Payments funding is the fastest way to fund your transfer — it settles within seconds from most UK banks and lets your provider dispatch funds immediately. Funding by debit card is slightly slower but still typically same-day. SWIFT bank transfers from the UK take longer and add correspondent bank fees. For urgent transfers, JazzCash or Easypaisa delivery funded via Faster Payments is the fastest end-to-end option.",
+      },
+      {
+        q: "Why does the GBP to PKR rate vary so much between providers?",
+        a: "The Pakistani rupee has experienced significant volatility following the State Bank of Pakistan's exchange rate reforms. Providers source PKR liquidity through different channels — some use direct banking partners in Pakistan, others use intermediaries — resulting in rate differences of 2–5% between the best and worst options. Additionally, some providers quote promotional rates to attract new customers but revert to standard rates after the first transfer. This makes it particularly important to compare rates on every transfer rather than sticking with the same provider. Our comparison tool shows you the live total PKR amount for each provider so you can see exactly how much your recipient will get.",
+      },
+      {
+        q: "Are transfers from the UK to Pakistan regulated and safe?",
+        a: "Yes — all legitimate money transfer providers operating in the UK must be authorised by the Financial Conduct Authority (FCA) as payment institutions or electronic money institutions. FCA authorisation requires providers to segregate customer funds from their own operating funds, meaning your money is protected even if the provider encounters financial difficulties. You can verify any UK provider's FCA registration at the FCA Register. Regulated providers must also comply with anti-money laundering (AML) rules and conduct identity verification. Always check FCA registration before using a provider you haven't used before, particularly smaller or newer services offering unusually attractive rates.",
       },
     ],
   },
@@ -531,11 +563,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to Nigeria?",
-        a: "The best provider changes frequently due to NGN rate volatility. Wise, WorldRemit, and Remitly are consistently competitive. Always compare the total NGN received — differences of ₦50,000+ on £1,000 are common between providers.",
+        a: "Lemfi (formerly LemFi), Wise, WorldRemit, and Remitly are consistently among the best performers on the GBP to NGN corridor. Lemfi is specifically popular in the Nigerian diaspora community for its competitive naira rates and fast delivery. Wise offers full mid-market rate transparency. Due to NGN exchange rate volatility, the cheapest provider changes regularly — differences of ₦50,000 to ₦150,000 per £1,000 are common between the best and worst providers on any given day. This makes comparing before every single transfer essential. UK high-street banks charge £15–£30 per wire plus a 4–6% markup on NGN, meaning they routinely deliver ₦100,000–₦200,000 less per £1,000 than the best specialist providers.",
       },
       {
-        q: "Why do NGN rates differ so much between providers?",
-        a: "Nigeria has undergone exchange rate reforms, and providers source naira at different rates. Some providers offer rates closer to the parallel market while others use the official CBN rate. This creates larger-than-usual differences.",
+        q: "Why do GBP to NGN rates differ so much between providers?",
+        a: "Nigeria's exchange rate market has undergone significant liberalisation since the Central Bank of Nigeria (CBN) moved to a unified, market-determined exchange rate in 2023. However, different providers still source naira at different rates depending on their Nigerian banking relationships and liquidity sources. Some providers source NGN through the official I&E window, others through alternative channels. This structural difference can create rate gaps of 3–8% between providers on the same day. Additionally, the naira's volatility means rates can move significantly within a single day. Rate alerts and same-day comparison are essential tools for anyone sending money to Nigeria regularly.",
+      },
+      {
+        q: "How long does a UK to Nigeria transfer take?",
+        a: "Most specialist providers deliver to Nigerian bank accounts within 1–3 business days. Some providers — including Lemfi and Remitly — offer same-day delivery to GTBank, Access Bank, Zenith Bank, and First Bank for transfers initiated during business hours. Cash pickup through Western Union and MoneyGram partner locations is available within minutes. Mobile money delivery is less developed in Nigeria than in East Africa, but providers like WorldRemit support transfers to OPay and Paga wallets in select cases. Funding your transfer via UK Faster Payments gives your provider same-day receipt of funds, which speeds up the overall process compared to standard bank transfer funding.",
+      },
+      {
+        q: "Which Nigerian banks are supported for GBP to NGN transfers?",
+        a: "Most major Nigerian commercial banks are supported by specialist transfer providers. These include GTBank (Guaranty Trust Bank), Access Bank, Zenith Bank, First Bank of Nigeria, UBA (United Bank for Africa), Sterling Bank, Stanbic IBTC, and FCMB. Your recipient's account should be in their legal name and fully verified to avoid delays — Nigerian banks have strict AML requirements for inward remittances. Transfers must be received in NGN at the official rate; dollar-denominated accounts (domiciliary accounts) cannot receive naira remittances. Your recipient will typically need to provide their Bank Verification Number (BVN) to the receiving bank if they haven't already completed full KYC.",
+      },
+      {
+        q: "Is it safe to send money from the UK to Nigeria online?",
+        a: "Yes, using an FCA-authorised provider is safe and legally protected in the UK. All regulated providers must segregate customer funds, comply with anti-money laundering rules, and meet strict capital requirements. The transfer recipient in Nigeria is protected by CBN regulations governing incoming remittances. Avoid using unofficial channels or individuals promising better rates — unregulated transfers have no legal protection and are a common vehicle for fraud. Legitimate providers charge slightly more than black-market alternatives but guarantee your recipient receives the funds and offer recourse if anything goes wrong. Always verify FCA authorisation at the FCA Register before using an unfamiliar provider.",
       },
     ],
   },
@@ -560,11 +604,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Australia to the Philippines?",
-        a: "Instarem, Wise, and Remitly offer the best value. Instarem has particularly competitive rates for AUD to PHP. Compare on the day you send.",
+        a: "Instarem, Wise, Remitly, and WorldRemit consistently offer the best total cost for AUD to PHP transfers. Instarem is a Singapore-based Asia-Pacific specialist with particularly strong AUD to PHP rates due to regional banking partnerships — it is often overlooked by Australians who only compare global brands. Wise charges the real mid-market rate with a transparent fee of around 0.5–0.8%. Remitly offers competitive rates and express delivery. Australian banks are among the most expensive in the world for international transfers, charging A$20–$30 per wire plus 3–5% FX markups. On a A$1,000 transfer, switching from your bank to a specialist provider typically saves A$45–$75. Always compare the total PHP your recipient will receive.",
       },
       {
         q: "Can I send to GCash from Australia?",
-        a: "Yes, several providers including Remitly and WorldRemit support direct GCash transfers from Australia.",
+        a: "Yes — GCash is one of the most widely supported delivery methods for transfers from Australia to the Philippines. Remitly, WorldRemit, and XE all support direct GCash wallet top-ups from Australian accounts. Funds typically arrive within minutes of the provider processing the transfer. GCash has over 94 million registered users in the Philippines and is accepted for payments across millions of merchants, online stores, and bill payment services, making it the most useful and convenient way for most recipients to receive remittances. Maya (formerly PayMaya) is also supported by select providers as an alternative mobile wallet. Your recipient needs only their GCash-registered mobile number.",
+      },
+      {
+        q: "How long does a transfer from Australia to the Philippines take?",
+        a: "Mobile wallet transfers to GCash or Maya typically arrive within 1–15 minutes. Bank deposits to BDO, BPI, Metrobank, Security Bank, PNB, or UnionBank generally take 1–2 business days. Cash pickup through Cebuana Lhuillier, M Lhuillier, and Western Union partner locations is usually available within 30 minutes of sending. Australian PayID funding is the fastest way to initiate a transfer — it settles in seconds and lets your provider dispatch funds immediately. POLi and BPAY funding options are also available with some providers but may take 1 business day to clear. Debit card funding is fast but typically adds a card processing fee of A$2–$5.",
+      },
+      {
+        q: "What Australian payment methods can I use to fund a transfer to the Philippines?",
+        a: "PayID (real-time bank payment) is the fastest and cheapest funding option — it settles in seconds and is supported by most Australian banks. POLi (online banking redirect) is another direct bank payment option, though it is being phased out by some banks. BPAY is available with select providers but clears the following business day. Debit card funding (Visa or Mastercard) is convenient and fast but typically adds a card processing fee of A$2–$5. Credit card funding is the most expensive option due to cash advance fees from your card issuer in addition to the provider's card surcharge. For regular senders, setting up a PayID funding relationship with your preferred provider minimises friction and cost on every transfer.",
+      },
+      {
+        q: "Do Filipino recipients pay tax on money received from Australia?",
+        a: "No — remittances received in the Philippines from overseas Filipino workers (OFWs) and their families are exempt from Philippine income tax. The Philippines Bureau of Internal Revenue (BIR) does not tax inbound personal remittances. Recipients can receive funds directly into their bank accounts or GCash wallets without any tax deduction. Australia similarly does not tax outbound personal remittances sent to family abroad. If you send more than A$10,000 in a single transaction, your Australian provider is required to report the transaction to AUSTRAC (Australian Transaction Reports and Analysis Centre) as part of standard AML compliance — this is a reporting obligation, not a tax, and does not affect the amount your recipient receives.",
       },
     ],
   },
@@ -588,11 +644,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to Brazil?",
-        a: "Wise and Remitly typically offer the best total value. Wise supports PIX for near-instant delivery in Brazil. Compare providers on the day you send due to BRL volatility.",
+        a: "Wise and Remitly consistently deliver the most reais per dollar on the USD to BRL corridor. Wise charges the real mid-market exchange rate with a transparent fee of approximately 0.6–0.9%, making it the most cost-transparent option. Remitly offers competitive rates with fast delivery and frequent promotional offers for first-time senders. Western Union is a solid option for those who need cash pickup. One important Brazilian-specific cost to factor in: Brazil charges a 0.38% IOF (Imposto sobre Operações Financeiras) tax on incoming international transfers at the point of conversion to BRL. This is levied by the Brazilian government and applies regardless of which provider you use. US banks charge $25–$50 per wire plus 3–4% FX markups, making them dramatically more expensive than specialist providers.",
       },
       {
-        q: "Can I send money to Brazil via PIX?",
-        a: "Yes, some providers including Wise support PIX transfers to Brazil, which arrive within seconds. This is the fastest and most convenient delivery method.",
+        q: "Can I send money to Brazil via PIX from the US?",
+        a: "Yes — PIX is supported by Wise and a growing number of international transfer services for USD to BRL transfers. PIX is Brazil's central bank instant payment system, processing transfers within seconds at any hour of the day, including weekends and holidays. It has become the dominant payment method in Brazil with over 140 million registered users. When your provider supports PIX delivery, your recipient's Brazilian bank account is credited within seconds of the provider dispatching the funds. To receive a PIX transfer, your recipient needs a PIX key registered to their CPF (Brazilian tax ID), phone number, or email. PIX is generally cheaper for the recipient than TED (traditional electronic transfer), which takes business hours to process.",
+      },
+      {
+        q: "How long does a US to Brazil money transfer take?",
+        a: "Delivery speed depends on the payment method. PIX transfers from providers that support it arrive in seconds once dispatched. TED (Transferência Eletrônica Disponível) bank transfers are processed during Brazilian business hours and typically arrive the same day or next business day. Traditional SWIFT wires from US banks take 2–4 business days and pass through correspondent banks that may deduct intermediary fees. Cash pickup through Western Union and MoneyGram is typically available within 30–60 minutes. For the fastest end-to-end transfer, fund via debit card with a provider offering PIX delivery — your recipient can have funds in their Brazilian account the same day, even on weekends.",
+      },
+      {
+        q: "What is the BRL exchange rate and how much does it fluctuate?",
+        a: "The Brazilian real (BRL) is a moderately volatile currency that can swing 5–15% against the dollar over a few months. BRL is sensitive to Brazilian political developments, commodity prices (Brazil is a major commodity exporter), and US Federal Reserve interest rate decisions. This volatility makes real-time comparison essential — the best provider today may not be the best provider next week. Our comparison tool shows live rates from all providers so you can compare the actual BRL your recipient will receive at the moment you decide to send. For regular senders, setting a rate alert to monitor when BRL weakens against USD can help you time transfers favorably, as a weaker BRL means you get more reais per dollar.",
+      },
+      {
+        q: "Do I need a CPF to send money to Brazil?",
+        a: "You do not need a Brazilian CPF (Cadastro de Pessoas Físicas) as the sender in the US. However, your recipient in Brazil will need a CPF to receive funds into a Brazilian bank account or PIX wallet, as Brazilian banks require CPF verification for all account holders and PIX key registration. The CPF is Brazil's individual taxpayer identification number — similar to the US Social Security Number. Most adult Brazilian residents have a CPF. If your recipient does not have a bank account or CPF, cash pickup through Western Union or MoneyGram agent locations is available without requiring CPF for most transfer amounts, though larger cash pickups may require identification.",
       },
     ],
   },
@@ -616,11 +684,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "Can I send money directly to M-Pesa from the US?",
-        a: "Yes, WorldRemit, Remitly, and other providers support direct M-Pesa transfers from the US. Delivery is typically within minutes.",
+        a: "Yes — M-Pesa is one of the most widely supported delivery methods for US-to-Kenya transfers. WorldRemit, Remitly, Sendwave, and several other providers support direct M-Pesa wallet top-up from US accounts. Delivery is typically within 1–10 minutes of the provider processing your transfer. M-Pesa has over 30 million registered users in Kenya and is accepted at over 500,000 agent locations and hundreds of thousands of merchants. It is the most convenient way for recipients to receive and use remittances. Your recipient needs only their M-Pesa registered mobile number. Sendwave is particularly popular among African diaspora senders for its zero-fee model on M-Pesa transfers to Kenya.",
       },
       {
-        q: "What is the cheapest way to send money to Kenya?",
-        a: "WorldRemit and Remitly offer competitive rates with M-Pesa delivery. Wise offers the mid-market rate with a transparent fee for bank deposits.",
+        q: "What is the cheapest way to send money from the US to Kenya?",
+        a: "Sendwave (zero fees, M-Pesa delivery), Remitly, and WorldRemit are the most cost-effective options for USD to KES transfers. Sendwave charges no transfer fee and offers competitive KES rates, making it particularly attractive for smaller, frequent transfers. Wise charges the mid-market exchange rate with a transparent fee of 0.5–1%, which is most competitive for larger transfers. The exchange rate markup is the primary cost factor on this corridor — a 1% difference in rate on a $500 transfer means approximately KES 700 more or less for your recipient. US banks charge $25–$50 per wire plus 3–5% markups, costing $40–$75 more than specialist providers on a $500 transfer.",
+      },
+      {
+        q: "How long does a money transfer from the US to Kenya take?",
+        a: "M-Pesa transfers typically arrive within 1–10 minutes once your provider has processed the transaction. Bank deposits to Equity Bank, KCB, Co-operative Bank, Absa Kenya, or NCBA typically take 1–2 business days. Cash pickup through MoneyGram and Western Union partner locations is generally available within 30–60 minutes. Funding via ACH bank debit from a US account adds 1–3 days of clearing time before your provider can send the money — use debit card funding for faster transfers. The ACH clearing delay is entirely on the US side; once your provider receives your funds, Kenyan delivery is fast. For urgent M-Pesa transfers, debit card funding is the recommended option.",
+      },
+      {
+        q: "What is the USD to KES exchange rate today?",
+        a: "The USD to KES (US Dollar to Kenyan Shilling) exchange rate fluctuates daily based on global currency markets, Kenya's foreign exchange reserves, and the Central Bank of Kenya's monetary policy. The mid-market rate is the real interbank rate used by banks and providers as a baseline. Specialist providers like Wise and Sendwave offer rates within 0.5–1.5% of the mid-market rate. Traditional US banks markup the rate by 3–5%, delivering significantly fewer shillings per dollar. Use our live comparison tool to see today's exact rate from every provider — displayed as the actual KES amount your recipient receives, not just a quoted rate figure.",
+      },
+      {
+        q: "Is it safe to send money to M-Pesa internationally?",
+        a: "Yes — international M-Pesa transfers are safe and fully regulated on both ends. In the US, providers like WorldRemit and Remitly are registered with FinCEN (Financial Crimes Enforcement Network) and licensed as money services businesses in each state they operate. In Kenya, M-Pesa is regulated by the Central Bank of Kenya and Safaricom. International M-Pesa transfers are processed through official banking channels — there is no unofficial or grey-market element to using M-Pesa for remittances. Transfers are insured up to the provider's licensing limits, and all reputable providers use 256-bit SSL encryption. The biggest risk to avoid is using unlicensed informal money transfer operators (hawalas), which offer no legal protection.",
       },
     ],
   },
@@ -644,11 +724,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Canada to the Philippines?",
-        a: "Remitly, Wise, and Instarem consistently offer the best value. Remitly often has zero-fee promotions for first-time users. All accept Interac e-Transfer for easy funding.",
+        a: "Remitly, Wise, Instarem, and WorldRemit consistently deliver the most pesos per Canadian dollar on the CAD to PHP corridor. Remitly offers competitive rates with express delivery options and zero-fee promotions for new customers. Instarem, as an Asia-Pacific specialist, often has particularly strong CAD to PHP rates due to regional liquidity relationships. Wise charges the real mid-market rate with a transparent 0.5–0.9% fee. Canadian banks charge C$30–$80 per international wire plus 3–5% exchange rate markups, costing C$60–$130 more than specialist providers on a C$1,000 transfer. Compare the total PHP your recipient receives — rate differences of ₱500–₱1,500 per C$1,000 are common between providers.",
       },
       {
         q: "Can I send to GCash from Canada?",
-        a: "Yes, Remitly and WorldRemit support GCash transfers from Canada with near-instant delivery.",
+        a: "Yes — GCash is widely supported for Canadian-to-Philippines transfers. Remitly, WorldRemit, and XE all offer direct GCash wallet top-ups from Canadian accounts. Transfers typically arrive within minutes. GCash has over 94 million registered accounts in the Philippines and is the dominant mobile payments platform, accepted across millions of merchants and billers. For Canadian Filipino families sending remittances, GCash is usually the most convenient option as recipients can use funds immediately without visiting a bank or cash pickup location. Your recipient needs only their GCash-registered mobile number to receive funds. Maya (formerly PayMaya) is available as an alternative wallet with select providers.",
+      },
+      {
+        q: "How can I fund a transfer from Canada to the Philippines?",
+        a: "Interac e-Transfer is the preferred funding method for most Canadian senders — it is fast (settles within minutes at most banks), free from most Canadian bank accounts, and widely supported by transfer providers. Providers that accept Interac include Remitly, WorldRemit, and others. Debit card funding (Visa or Mastercard) is also fast but typically adds a C$2–$8 card processing fee. Bill payment (through online banking) is available with some providers and may be free but takes 1–2 business days to process. Credit card funding is the most expensive option due to the card issuer's cash advance fees (2–3%) on top of the provider's surcharge — avoid using credit cards for international transfers unless absolutely necessary.",
+      },
+      {
+        q: "How long does a Canada to Philippines transfer take?",
+        a: "GCash and mobile wallet transfers typically arrive within 1–15 minutes of your provider processing the transaction. Bank deposits to BDO Unibank, BPI (Bank of the Philippine Islands), Metrobank, PNB, or Security Bank generally take 1–2 business days. Cash pickup through Cebuana Lhuillier, M Lhuillier, Western Union, and MoneyGram is usually available within 30 minutes. Interac e-Transfer funding gives your provider same-day receipt, enabling faster overall delivery. ACH or standard bank transfer funding can add 1–2 business days of processing time before the provider dispatches your funds to the Philippines.",
+      },
+      {
+        q: "Are there any restrictions on sending money from Canada to the Philippines?",
+        a: "Canada does not restrict outbound remittances to the Philippines. FINTRAC (Financial Transactions and Reports Analysis Centre of Canada) requires all money services businesses to report transactions over C$10,000 as part of standard anti-money laundering compliance — this is a reporting requirement, not a barrier to sending. Providers may ask for identity verification and source of funds documentation for larger transfers. On the Philippine side, Bangko Sentral ng Pilipinas (BSP) does not restrict incoming personal remittances. Recipients receiving funds through formal banking channels may need to present valid ID at cash pickup, and larger bank deposits may trigger the receiving bank's own KYC procedures.",
       },
     ],
   },
@@ -672,11 +764,23 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to Bangladesh?",
-        a: "WorldRemit and Remitly offer competitive rates with bKash delivery. Wise provides the mid-market rate with a transparent fee.",
+        a: "ACE Money Transfer, WorldRemit, Remitly, and Wise are the strongest performers for GBP to BDT transfers. ACE Money Transfer specialises in South Asian corridors and often has particularly competitive BDT rates from the UK. Wise charges the real mid-market exchange rate with a transparent fee of around 0.6–0.9%. UK high-street banks charge £15–£30 per transfer plus 3–5% exchange rate markups — on a £500 transfer, that's £25–£50 more than specialist providers. The exchange rate is the main cost variable: a 2% rate difference on £500 means £10 less reaching your recipient before any fees. Always compare the total BDT your recipient will receive across multiple providers before sending.",
       },
       {
         q: "Can I send to bKash from the UK?",
-        a: "Yes, multiple providers including WorldRemit and Remitly support direct bKash transfers from the UK.",
+        a: "Yes — bKash is the most widely supported delivery method for UK-to-Bangladesh transfers. ACE Money Transfer, WorldRemit, Remitly, and several other providers offer direct bKash wallet top-up. Transfers arrive within minutes. bKash is Bangladesh's leading mobile financial service with over 65 million registered accounts, covering virtually all of urban Bangladesh and a large portion of rural areas. Recipients can cash out at any of over 300,000 bKash agent points nationwide. Your recipient needs only their bKash-registered mobile number to receive funds. Nagad (Bangladesh Post Office's mobile service with 75 million+ users) and Rocket (Dutch-Bangla Bank) are also supported by some providers as bKash alternatives.",
+      },
+      {
+        q: "How long does a UK to Bangladesh transfer take?",
+        a: "bKash, Nagad, and Rocket mobile wallet transfers arrive within 1–15 minutes of the provider processing your transaction. Bank deposits to Dutch-Bangla Bank, Islami Bank, BRAC Bank, Bank Asia, or other major Bangladeshi banks take 1–3 business days. Cash pickup through Western Union and MoneyGram partner networks is typically available within 30–60 minutes. Fund your transfer via UK Faster Payments for the fastest processing — it settles within seconds from most UK bank accounts. Debit card funding is also fast. Avoid SWIFT bank transfers as they can add 2–4 days of processing time and incur correspondent bank fees of £10–£20 even after you've already paid the provider's fee.",
+      },
+      {
+        q: "What UK regulations apply to money transfers to Bangladesh?",
+        a: "All money transfer providers operating in the UK must be authorised by the Financial Conduct Authority (FCA) as payment institutions. FCA authorisation requires client money protection (your funds must be held separately from the provider's own money), compliance with anti-money laundering rules, and meeting ongoing capital requirements. You can verify any provider's FCA status at the FCA Register. UK providers sending to Bangladesh must also comply with Bangladesh Bank's inward remittance guidelines, which require all transfers to be received in BDT at the official exchange rate. Bangladesh does not restrict the amount of remittance that can be received. As an incentive, Bangladesh government provides a 2.5% cash incentive on inward remittances received through official banking channels.",
+      },
+      {
+        q: "Does Bangladesh charge tax on received remittances?",
+        a: "No — remittances received in Bangladesh from abroad are not subject to Bangladeshi income tax. The National Board of Revenue (NBR) exempts inward remittances from taxation to encourage formal transfer channels and diaspora investment. Additionally, the Bangladesh government provides a 2.5% cash incentive on all inward remittances received through official banking channels — meaning your recipient gets a bonus on top of the transferred amount. This incentive is paid by the receiving bank upon disbursement. This makes formal transfer services doubly advantageous over informal channels (hundi), which are illegal and offer no such incentive or legal protection. In the UK, you do not pay tax on money you send abroad as a personal remittance.",
       },
     ],
   },

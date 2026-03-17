@@ -178,6 +178,174 @@ const corridorEditorialNotes: Record<
     warningBody:
       "The Pakistani rupee has been subject to significant swings. If you send regularly, tracking the GBP/PKR rate over a few days before transferring can help you catch better rates. Some providers offer rate alerts that notify you when GBP/PKR reaches a target level.",
   },
+  "usa-to-bangladesh": {
+    title: "What matters on the USA to Bangladesh corridor",
+    summary:
+      "Bangladesh receives over $21 billion in remittances annually, with the US one of the top five source countries. The USD to BDT corridor is competitive, but the right provider choice can deliver thousands of extra taka per transfer — especially as BDT has seen volatility against the dollar.",
+    bullets: [
+      "bKash is the dominant delivery method and supports over 65 million users. Choose a provider that sends directly to bKash wallets — transfers arrive in minutes and recipients can cash out at 300,000+ agent points nationwide.",
+      "The exchange rate markup is the biggest variable between providers, not the advertised fee. A 2% rate difference on $1,000 means over BDT 2,400 less reaching your recipient — more than the fee difference between any two providers.",
+      "ACE Money Transfer specialises in South Asian corridors and frequently outperforms global brands on BDT rates. Include them alongside Remitly and Wise in every comparison.",
+      "Bangladesh government pays a 2.5% cash incentive on inward remittances received through official banking channels. Using licensed providers maximises the BDT your recipient receives — informal channels forfeit this bonus entirely.",
+    ],
+    warningTitle: "Don't compare fees in isolation on this corridor",
+    warningBody:
+      "A provider advertising '$0 fees' to Bangladesh can still deliver thousands of taka less than a provider charging $5, if their exchange rate markup is 2–3% higher. Always use a comparison tool that shows the total BDT received — that single number tells you everything.",
+  },
+  "usa-to-europe": {
+    title: "What matters on the USA to Europe corridor",
+    summary:
+      "USD to EUR is the world's most traded currency pair, meaning fierce competition and generally excellent rates from specialist providers. The biggest savings come from avoiding bank wire fees ($25–$50) and the 2–3% exchange rate markup banks add on every transaction.",
+    bullets: [
+      "SEPA transfers are the gold standard for EUR delivery — they settle within hours, cost a fraction of SWIFT wires, and are used by all major specialist providers. Always confirm your provider uses SEPA for EUR delivery, not legacy SWIFT routing.",
+      "US banks charge $25–$50 per wire plus 2–3% FX markup. On a $1,000 transfer to Europe, that's $45–$80 in total costs versus $5–$10 with Wise or OFX. Switching to a specialist provider saves 80–90% immediately.",
+      "For transfers above $5,000, OFX charges zero fees with a competitive spread. For smaller amounts, Wise offers the most transparent pricing with no hidden markup.",
+      "Some European banks charge a receiving fee of €5–€20 on incoming international wires. Providers that route via SEPA (sending EUR directly) eliminate this receiving bank charge entirely.",
+    ],
+    warningTitle: "Confirm SEPA delivery before sending",
+    warningBody:
+      "Some providers still route EUR transfers through SWIFT, not SEPA — adding 2–4 extra days and potential correspondent bank fees. Always ask your provider which network they use for EUR delivery to Europe before initiating a transfer.",
+  },
+  "uk-to-nigeria": {
+    title: "What matters on the UK to Nigeria corridor",
+    summary:
+      "GBP to NGN is one of the most volatile exchange rate corridors in the world due to Nigeria's ongoing currency reforms. The difference between the best and worst provider can exceed 10% on any given day — making comparison more critical here than on almost any other route.",
+    bullets: [
+      "The Central Bank of Nigeria's exchange rate reforms mean the official NGN rate is closer to market rates than before, but providers still source naira through different channels. This creates rate differences of 5–10% between the best and worst provider.",
+      "Lemfi is hugely popular in the Nigerian diaspora community in the UK and often has competitive NGN rates. Include them alongside Wise and WorldRemit in every comparison.",
+      "Bank transfers to GTBank, Access Bank, Zenith Bank, and First Bank are the most reliable delivery methods. Transfers arrive within 1–3 business days. Some providers offer same-day delivery.",
+      "Nigeria's NGN rate can move significantly within a single day. If you're sending a large amount, compare rates in the morning and again in the afternoon — and send when rates favour you.",
+    ],
+    warningTitle: "Never use yesterday's rate on this corridor",
+    warningBody:
+      "NGN is one of the most volatile currencies in Africa. Rates can swing by ₦50,000+ per £1,000 between the morning and afternoon of the same day. Always check live rates at the moment you send — historical comparisons are meaningless on this corridor.",
+  },
+  "australia-to-philippines": {
+    title: "What matters on the Australia to Philippines corridor",
+    summary:
+      "Australia has one of the largest Filipino diaspora communities in the world. AUD to PHP is well-served by global providers, but Asia-Pacific specialists like Instarem often outperform them. Australian banks are among the most expensive in the world for international transfers.",
+    bullets: [
+      "Instarem frequently offers better AUD to PHP rates than global providers like Wise and Remitly due to its regional banking relationships in Southeast Asia. Always include Instarem in your comparison.",
+      "GCash is the preferred delivery method for most Filipino recipients — it's available from multiple Australian providers, arrives in minutes, and is accepted at millions of merchants and billers across the Philippines.",
+      "PayID is the fastest way to fund a transfer from Australia — it settles in seconds, is free from most Australian banks, and lets your provider dispatch funds immediately rather than waiting for BPAY or POLi to clear.",
+      "Australian banks charge A$20–$30 per transfer plus 3–5% FX markups. On a A$1,000 transfer, that's A$50–$80 in total costs versus A$5–$15 with a specialist. One switch saves more than a year of banking fees.",
+    ],
+    warningTitle: "Don't overlook Asia-Pacific specialists on this corridor",
+    warningBody:
+      "Global brands are not always cheapest on AUD corridors. Instarem, OFX, and TorFX all have regional banking relationships that give them better AUD/PHP rates than providers who rely on US or European intermediaries. A 60-second comparison can reveal A$20–$40 in savings per transfer.",
+  },
+  "usa-to-brazil": {
+    title: "What matters on the USA to Brazil corridor",
+    summary:
+      "USD to BRL is a high-volatility corridor — the Brazilian real can swing 10–15% against the dollar over weeks. This makes real-time comparison essential before every transfer. PIX has transformed delivery speed, but the exchange rate is still the biggest variable between providers.",
+    bullets: [
+      "PIX is Brazil's instant payment system — transfers arrive within seconds, 24/7 including weekends and holidays. Wise supports PIX delivery, making it the fastest end-to-end option from the US.",
+      "Brazil charges a 0.38% IOF tax on all incoming international transfers at conversion. This applies regardless of provider — factor it into your cost comparison, though it's a small fixed cost.",
+      "The BRL is sensitive to Brazilian political developments and commodity prices. For large or regular transfers, monitoring the rate over a few days and sending when BRL is weaker (more reais per dollar) can save more than switching providers.",
+      "Avoid US bank wire transfers — $25–$50 wire fees plus 3–4% FX markups cost $55–$90 more than Wise or Remitly on a $1,000 transfer. PIX-enabled specialists are dramatically cheaper and faster.",
+    ],
+    warningTitle: "PIX requires your recipient's CPF-registered phone number",
+    warningBody:
+      "PIX delivery requires your recipient to have a PIX key registered to their CPF (Brazilian tax ID), phone number, or email. Confirm your recipient has a PIX key set up before choosing this delivery method — otherwise opt for TED bank transfer.",
+  },
+  "usa-to-kenya": {
+    title: "What matters on the USA to Kenya corridor",
+    summary:
+      "Kenya has the most advanced mobile money infrastructure in Africa — M-Pesa processes over 10 billion transactions per year. The USD to KES corridor benefits enormously from this, with near-instant delivery available from multiple providers. The exchange rate, not fees, is the main cost variable.",
+    bullets: [
+      "M-Pesa direct transfer is the best delivery option for most recipients — funds arrive in minutes, recipients can spend or withdraw immediately, and Sendwave charges zero fees for M-Pesa delivery to Kenya.",
+      "Sendwave is specifically built for African diaspora remittances and offers zero-fee M-Pesa transfers with competitive KES rates. For small, frequent transfers to family, it is often the lowest-cost option.",
+      "The exchange rate markup matters more than the fee on this corridor. A 1.5% rate difference on $500 means approximately KES 1,000 less for your recipient — compare the total KES received, not just the advertised fee.",
+      "ACH bank funding adds 1–3 days of US clearing time before your provider can send. For urgent M-Pesa transfers, fund via debit card — your recipient can have funds in minutes from end to end.",
+    ],
+    warningTitle: "Use a licensed provider — not informal channels",
+    warningBody:
+      "Informal money transfer operators (hawalas) to Kenya operate outside regulation and offer no legal protection. All licensed providers like WorldRemit, Remitly, and Sendwave are registered with FinCEN and provide receipts, tracking, and recourse if a transfer is delayed.",
+  },
+  "canada-to-philippines": {
+    title: "What matters on the Canada to Philippines corridor",
+    summary:
+      "Canada has one of the largest Filipino diaspora communities globally, with over 900,000 Filipino-Canadians sending billions home annually. CAD to PHP is well-served by specialists, but Canadian banks charge some of the highest international transfer fees in the developed world.",
+    bullets: [
+      "Interac e-Transfer is the easiest funding method — it's fast, free from most Canadian banks, and widely accepted by transfer providers. It eliminates the C$30–$80 outgoing wire fee that Canadian banks charge.",
+      "GCash delivery arrives in minutes and is supported by Remitly, WorldRemit, and others. With 94 million+ GCash users in the Philippines, it's the most convenient option for virtually all recipients.",
+      "Instarem has particularly competitive CAD to PHP rates as an Asia-Pacific specialist. Include them alongside Remitly and Wise — they're often overlooked by Canadians who default to better-known global brands.",
+      "Canadian banks charge C$30–$80 per wire plus 3–5% FX markups. On a C$1,000 transfer, that's C$60–$130 in total costs versus C$5–$15 with a specialist provider. The savings are substantial and immediate.",
+    ],
+    warningTitle: "Avoid using your Canadian bank for this transfer",
+    warningBody:
+      "Canadian banks charge some of the highest international wire fees globally — C$30–$80 per transfer — on top of 3–5% FX markups. On annual remittances of C$12,000, a bank costs C$720–$1,560 more than a specialist provider. Switching once saves that entire amount.",
+  },
+  "uk-to-bangladesh": {
+    title: "What matters on the UK to Bangladesh corridor",
+    summary:
+      "The UK has a large Bangladeshi community, and GBP to BDT is a well-competed corridor. bKash is the dominant delivery method and available from multiple UK providers. The exchange rate markup — not the advertised fee — is the main cost differentiator between providers on this route.",
+    bullets: [
+      "ACE Money Transfer specialises in South Asian corridors and often has the best BDT rates from the UK. Include them alongside WorldRemit and Wise in every comparison — they're frequently overlooked.",
+      "bKash delivery arrives in minutes and is supported by multiple UK providers. With 65 million+ registered users and 300,000+ agent points, bKash is the most accessible way for recipients across Bangladesh to receive and use funds.",
+      "UK Faster Payments is the fastest funding method — it settles within seconds from most UK banks and enables your provider to dispatch funds immediately. It avoids card processing fees that add £2–£5 per transfer.",
+      "Bangladesh government pays a 2.5% cash incentive on remittances received through official banking channels. Licensed providers pass this benefit to recipients — informal channels do not.",
+    ],
+    warningTitle: "Compare BDT received, not fees paid",
+    warningBody:
+      "A provider offering £0 fees to Bangladesh can still deliver fewer taka than a provider charging £5, if their exchange rate markup is 1–2% higher. On a £500 transfer, a 2% rate difference is worth £10 — more than any fee saving. Always compare total BDT received.",
+  },
+  "uae-to-pakistan": {
+    title: "What matters on the UAE to Pakistan corridor",
+    summary:
+      "The UAE hosts over 1.6 million Pakistani expats, making AED to PKR one of the busiest remittance corridors from the Middle East. Exchange houses (hawalas) remain popular but regulated digital providers now match or beat their rates while offering full legal protection and better delivery options.",
+    bullets: [
+      "JazzCash and Easypaisa mobile wallet delivery is available from multiple UAE providers and arrives within minutes. These wallets are used by over 100 million Pakistanis combined and offer nationwide cash-out points.",
+      "ACE Money Transfer and Al Ansari Exchange both specialise in UAE-Pakistan remittances and often offer the best AED to PKR rates. Combine them with Wise and Remitly in your comparison.",
+      "PKR has been volatile — tracking the rate over 2–3 days before a large transfer can capture better exchange rates. Some providers offer rate lock features on this corridor.",
+      "Exchange houses like Al Rostamani and UAE Exchange are widely used in the UAE and have competitive PKR rates, but digital providers now often match or beat them while also offering faster delivery and better tracking.",
+    ],
+    warningTitle: "Compare digital providers against exchange houses",
+    warningBody:
+      "UAE exchange houses are convenient but not always the cheapest option anymore. Digital providers have become very competitive on AED to PKR. Always compare at least one exchange house rate alongside digital specialists before deciding — the 5-minute comparison often reveals AED 20–50 in savings per transfer.",
+  },
+  "uae-to-philippines": {
+    title: "What matters on the UAE to Philippines corridor",
+    summary:
+      "The UAE has over 700,000 Filipino workers, making AED to PHP one of the most important remittance corridors in Asia. GCash delivery is near-universal in the Philippines, and multiple UAE providers support it. Competition is strong and rates are generally tight.",
+    bullets: [
+      "GCash and Maya wallet delivery is available from Remitly, WorldRemit, and others from the UAE. Transfers arrive in minutes and recipients can spend or withdraw at millions of locations across the Philippines.",
+      "LuLu Exchange and Al Ansari Exchange are UAE-based exchange houses with competitive AUD/PHP rates and physical branches throughout the UAE. Strong options for senders who prefer in-person service.",
+      "Bank deposits to BDO, BPI, and Metrobank take 1–2 business days. Cash pickup through Cebuana Lhuillier and M Lhuillier is available within 30 minutes across thousands of Philippine locations.",
+      "UAE providers are regulated by the Central Bank of the UAE (CBUAE). Only use CBUAE-licensed providers — unlicensed operators offer no legal protection and are subject to enforcement action.",
+    ],
+    warningTitle: "Check CBUAE licensing before using any UAE provider",
+    warningBody:
+      "Only Central Bank of the UAE (CBUAE)-licensed exchange houses and payment institutions are legally authorised to conduct money transfers. Unlicensed operators offer no legal protection and may fail to deliver funds. Verify licensing at the CBUAE register before using any unfamiliar service.",
+  },
+  "saudi-arabia-to-india": {
+    title: "What matters on the Saudi Arabia to India corridor",
+    summary:
+      "Saudi Arabia is one of the top two sources of India's $125 billion annual remittance inflow. The SAR to INR corridor is intensely competitive, with exchange houses, banks, and digital providers all vying for the 2.5 million Indian expats sending money home.",
+    bullets: [
+      "Al Rajhi Bank, Saudi National Bank (SNB), and Arab National Bank (ANB) all offer remittance services with India delivery. However, digital providers and exchange houses like Lulu Exchange typically offer better SAR/INR rates.",
+      "IMPS delivery to Indian bank accounts (HDFC, SBI, ICICI, Axis, Kotak) arrives within minutes and is available from multiple Saudi providers. This is the fastest and most convenient delivery method.",
+      "Saudi Aramco workers and other high-income expats sending large amounts (SAR 10,000+) should compare OFX and Wise, which offer better rates on larger transfers than retail exchange services.",
+      "The SAR is pegged to the USD at 3.75, meaning SAR/INR rates track USD/INR closely. Rate differences between providers are mainly a function of their exchange rate markup, not currency market movements.",
+    ],
+    warningTitle: "Watch for rate differences between exchange houses and digital providers",
+    warningBody:
+      "Saudi exchange houses are convenient and widely trusted, but digital providers now match their rates while delivering faster to Indian bank accounts. A quick comparison between Al Rajhi rates and Wise or Remitly rates often reveals SAR 10–30 in savings per SAR 1,000 transfer.",
+  },
+  "saudi-arabia-to-pakistan": {
+    title: "What matters on the Saudi Arabia to Pakistan corridor",
+    summary:
+      "Pakistan is one of the top recipients of Saudi remittances, with over 2.7 million Pakistani workers in the Kingdom. SAR to PKR is a high-volume corridor served by exchange houses, banks, and digital providers. PKR volatility makes real-time comparison especially important.",
+    bullets: [
+      "Al Rajhi Bank and Lulu Exchange are widely used in Saudi Arabia for Pakistan remittances and offer competitive PKR rates. Digital providers like Wise and Remitly are increasingly competitive on this corridor.",
+      "JazzCash and Easypaisa mobile wallet delivery is available from select Saudi providers and arrives within minutes. This is the preferred option for recipients without traditional bank accounts.",
+      "PKR volatility means the best provider today may not be the best next week. Compare on the specific day you send and track rates if you plan regular transfers.",
+      "SAMA (Saudi Central Bank) licenses and regulates all money transfer operators in Saudi Arabia. Only use SAMA-licensed providers — the Saudi Central Bank maintains a public register of licensed firms.",
+    ],
+    warningTitle: "PKR rates change daily — never rely on yesterday's comparison",
+    warningBody:
+      "The Pakistani rupee has experienced significant volatility. On this corridor, the rate difference between providers can be 3–6% on any given day. Always compare live rates immediately before sending — a comparison done this morning may already be stale by the afternoon.",
+  },
 };
 
 const noindexCorridors = new Set(["gbp-to-fjd"]);
@@ -272,14 +440,154 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money Australia to India, AUD to INR, cheapest way to send money to India from Australia, money transfer India, remittance to India, AUD INR exchange rate, POLi transfer, PayID",
   },
   "usa-to-nigeria": {
-    title: "Send Money USA to Nigeria — USD to NGN Rates",
+    title: "Send Money USA to Nigeria — USD to NGN Rates 2026",
     description:
-      "Compare the cheapest ways to send money from USA to Nigeria in 2026. Real-time USD to NGN exchange rates, fees, and delivery options from Wise, Remitly, WorldRemit, Western Union, and more.",
+      "Compare the cheapest ways to send money from USA to Nigeria in 2026. Real-time USD to NGN exchange rates from Wise, Remitly, Lemfi, WorldRemit, and more. NGN rates vary by 10%+ between providers — compare before you send.",
     ogTitle: "Send Money USA to Nigeria — Best USD to NGN Rates",
     ogDescription:
-      "Compare real-time USD to NGN rates from 10+ providers. Find the cheapest and fastest way to send money from USA to Nigeria.",
+      "Compare real-time USD to NGN rates from 10+ providers. NGN rates vary by 10%+ — find the most naira for your dollar today.",
     keywords:
-      "send money USA to Nigeria, USD to NGN, cheapest way to send money to Nigeria, money transfer Nigeria, remittance to Nigeria, USD NGN exchange rate, naira transfer",
+      "send money USA to Nigeria, USD to NGN, cheapest way to send money to Nigeria, money transfer Nigeria, remittance to Nigeria, USD NGN exchange rate, naira transfer, Lemfi Nigeria",
+  },
+  "usa-to-bangladesh": {
+    title: "Send Money USA to Bangladesh — USD to BDT Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from USA to Bangladesh in 2026. Real-time USD to BDT rates from Remitly, Wise, ACE Money Transfer, and 10+ providers. Direct bKash transfers available — funds arrive in minutes.",
+    ogTitle: "Send Money USA to Bangladesh — Best USD to BDT Rates",
+    ogDescription:
+      "Compare USD to BDT rates from 10+ providers. Send directly to bKash in minutes. Find the most taka for your dollar today.",
+    keywords:
+      "send money USA to Bangladesh, USD to BDT, cheapest way to send money to Bangladesh, money transfer Bangladesh, remittance Bangladesh, bKash transfer from USA, USD BDT exchange rate, ACE Money Transfer Bangladesh",
+  },
+  "usa-to-europe": {
+    title: "Send Money USA to Europe — USD to EUR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from the USA to Europe in 2026. Real-time USD to EUR exchange rates, SEPA delivery, and fees from Wise, OFX, XE, and 10+ providers. Save $40–$70 per transfer versus US bank wires.",
+    ogTitle: "Send Money USA to Europe — Best USD to EUR Rates",
+    ogDescription:
+      "Compare USD to EUR rates from 10+ providers. SEPA delivery in 1 business day. Save 80% versus bank wire transfers.",
+    keywords:
+      "send money USA to Europe, USD to EUR, cheapest way to send money to Europe, SEPA transfer from USA, money transfer Europe, USD EUR exchange rate, wire money to Europe, best way to send money to Europe from USA",
+  },
+  "uk-to-pakistan": {
+    title: "Send Money UK to Pakistan — GBP to PKR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from UK to Pakistan in 2026. Real-time GBP to PKR rates from ACE Money Transfer, Wise, WorldRemit, Remitly, and more. Direct JazzCash and Easypaisa transfers available.",
+    ogTitle: "Send Money UK to Pakistan — Best GBP to PKR Rates",
+    ogDescription:
+      "Compare GBP to PKR rates from 10+ providers. Send to JazzCash or Easypaisa in minutes. Find the most rupees per pound today.",
+    keywords:
+      "send money UK to Pakistan, GBP to PKR, cheapest way to send money to Pakistan from UK, money transfer Pakistan, JazzCash from UK, Easypaisa from UK, GBP PKR exchange rate, ACE Money Transfer Pakistan",
+  },
+  "uk-to-nigeria": {
+    title: "Send Money UK to Nigeria — GBP to NGN Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from UK to Nigeria in 2026. GBP to NGN rates from Lemfi, Wise, WorldRemit, Remitly, and more. NGN rates vary by 10%+ between providers — always compare before you send.",
+    ogTitle: "Send Money UK to Nigeria — Best GBP to NGN Rates",
+    ogDescription:
+      "Compare GBP to NGN rates from 10+ providers. Up to 10% difference between best and worst. Find the most naira per pound today.",
+    keywords:
+      "send money UK to Nigeria, GBP to NGN, cheapest way to send money to Nigeria from UK, Lemfi UK Nigeria, money transfer Nigeria, GBP NGN exchange rate, naira exchange rate UK, remittance to Nigeria from UK",
+  },
+  "australia-to-philippines": {
+    title: "Send Money Australia to Philippines — AUD to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Australia to the Philippines in 2026. AUD to PHP rates from Instarem, Wise, Remitly, WorldRemit, and more. Direct GCash transfers available. Save A$50–$80 per A$1,000 vs banks.",
+    ogTitle: "Send Money Australia to Philippines — Best AUD to PHP Rates",
+    ogDescription:
+      "Compare AUD to PHP rates from 10+ providers. Send to GCash in minutes. Instarem often beats global brands on this corridor.",
+    keywords:
+      "send money Australia to Philippines, AUD to PHP, cheapest way to send money to Philippines from Australia, GCash from Australia, Instarem AUD PHP, money transfer Philippines, AUD PHP exchange rate",
+  },
+  "usa-to-brazil": {
+    title: "Send Money USA to Brazil — USD to BRL Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from the USA to Brazil in 2026. USD to BRL rates from Wise, Remitly, Western Union, and 10+ providers. PIX instant delivery available. BRL volatile — compare before every send.",
+    ogTitle: "Send Money USA to Brazil — Best USD to BRL Rates",
+    ogDescription:
+      "Compare USD to BRL rates from 10+ providers. PIX delivery in seconds. Find the most reais per dollar today.",
+    keywords:
+      "send money USA to Brazil, USD to BRL, cheapest way to send money to Brazil, PIX transfer from USA, money transfer Brazil, USD BRL exchange rate, remittance to Brazil, reais transfer",
+  },
+  "usa-to-kenya": {
+    title: "Send Money USA to Kenya — USD to KES Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from the USA to Kenya in 2026. USD to KES rates from Sendwave, WorldRemit, Remitly, and Wise. Direct M-Pesa transfers in minutes. Sendwave charges zero fees for M-Pesa delivery.",
+    ogTitle: "Send Money USA to Kenya — Best USD to KES Rates",
+    ogDescription:
+      "Compare USD to KES rates from 10+ providers. Send to M-Pesa in minutes. Sendwave offers zero-fee M-Pesa transfers to Kenya.",
+    keywords:
+      "send money USA to Kenya, USD to KES, cheapest way to send money to Kenya, M-Pesa transfer from USA, Sendwave Kenya, WorldRemit Kenya, money transfer Kenya, USD KES exchange rate",
+  },
+  "canada-to-philippines": {
+    title: "Send Money Canada to Philippines — CAD to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Canada to the Philippines in 2026. CAD to PHP rates from Remitly, Wise, Instarem, WorldRemit, and more. Direct GCash transfers via Interac e-Transfer. Save C$60–$100 vs Canadian banks.",
+    ogTitle: "Send Money Canada to Philippines — Best CAD to PHP Rates",
+    ogDescription:
+      "Compare CAD to PHP rates from 10+ providers. Fund via Interac e-Transfer, send to GCash in minutes. Find the best rate today.",
+    keywords:
+      "send money Canada to Philippines, CAD to PHP, cheapest way to send money to Philippines from Canada, GCash from Canada, Interac transfer Philippines, Instarem CAD PHP, money transfer Philippines, CAD PHP exchange rate",
+  },
+  "uk-to-bangladesh": {
+    title: "Send Money UK to Bangladesh — GBP to BDT Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from the UK to Bangladesh in 2026. GBP to BDT rates from ACE Money Transfer, WorldRemit, Wise, and Remitly. Direct bKash transfers in minutes. Bangladesh 2.5% remittance incentive applies.",
+    ogTitle: "Send Money UK to Bangladesh — Best GBP to BDT Rates",
+    ogDescription:
+      "Compare GBP to BDT rates from 10+ providers. Send directly to bKash in minutes. Get Bangladesh's 2.5% remittance cash incentive.",
+    keywords:
+      "send money UK to Bangladesh, GBP to BDT, cheapest way to send money to Bangladesh from UK, bKash from UK, ACE Money Transfer Bangladesh, money transfer Bangladesh, GBP BDT exchange rate",
+  },
+  "uae-to-india": {
+    title: "Send Money UAE to India — AED to INR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from UAE to India in 2026. AED to INR rates from Wise, Remitly, Al Ansari Exchange, and 10+ providers. IMPS instant delivery to all major Indian banks. Competition is intense — compare before every send.",
+    ogTitle: "Send Money UAE to India — Best AED to INR Rates",
+    ogDescription:
+      "Compare AED to INR rates from 10+ providers. IMPS instant delivery to Indian banks. Find the most rupees per dirham today.",
+    keywords:
+      "send money UAE to India, AED to INR, cheapest way to send money from UAE to India, Al Ansari Exchange, money transfer India from UAE, AED INR exchange rate, IMPS transfer, remittance India UAE",
+  },
+  "uae-to-pakistan": {
+    title: "Send Money UAE to Pakistan — AED to PKR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from UAE to Pakistan in 2026. AED to PKR rates from ACE Money Transfer, Wise, Remitly, Al Ansari, and more. Direct JazzCash and Easypaisa transfers available. PKR volatile — compare every time.",
+    ogTitle: "Send Money UAE to Pakistan — Best AED to PKR Rates",
+    ogDescription:
+      "Compare AED to PKR rates from 10+ providers. Send to JazzCash and Easypaisa. Find the most rupees per dirham today.",
+    keywords:
+      "send money UAE to Pakistan, AED to PKR, cheapest way to send money from UAE to Pakistan, ACE Money Transfer UAE Pakistan, JazzCash from UAE, Easypaisa from UAE, AED PKR exchange rate",
+  },
+  "uae-to-philippines": {
+    title: "Send Money UAE to Philippines — AED to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from UAE to the Philippines in 2026. AED to PHP rates from Remitly, LuLu Exchange, Al Ansari, and more. Direct GCash and Maya transfers available. Fast delivery to all Philippine banks.",
+    ogTitle: "Send Money UAE to Philippines — Best AED to PHP Rates",
+    ogDescription:
+      "Compare AED to PHP rates from 10+ providers. Send to GCash in minutes from the UAE. Find the most pesos per dirham today.",
+    keywords:
+      "send money UAE to Philippines, AED to PHP, cheapest way to send money from UAE to Philippines, GCash from UAE, LuLu Exchange Philippines, money transfer Philippines UAE, AED PHP exchange rate",
+  },
+  "saudi-arabia-to-india": {
+    title: "Send Money Saudi Arabia to India — SAR to INR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Saudi Arabia to India in 2026. SAR to INR rates from Lulu Exchange, Al Rajhi, Wise, Remitly, and more. IMPS instant delivery. SAR pegged to USD — compare provider margins carefully.",
+    ogTitle: "Send Money Saudi Arabia to India — Best SAR to INR Rates",
+    ogDescription:
+      "Compare SAR to INR rates from 10+ providers. IMPS delivery to all Indian banks. Find the most rupees per riyal today.",
+    keywords:
+      "send money Saudi Arabia to India, SAR to INR, cheapest way to send money from Saudi Arabia to India, Lulu Exchange Saudi India, Al Rajhi remittance India, money transfer India Saudi, SAR INR exchange rate",
+  },
+  "saudi-arabia-to-pakistan": {
+    title: "Send Money Saudi Arabia to Pakistan — SAR to PKR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Saudi Arabia to Pakistan in 2026. SAR to PKR rates from Al Rajhi, ACE Money Transfer, Wise, and more. Direct JazzCash and Easypaisa transfers. PKR volatile — compare at time of sending.",
+    ogTitle: "Send Money Saudi Arabia to Pakistan — Best SAR to PKR Rates",
+    ogDescription:
+      "Compare SAR to PKR rates from 10+ providers. Send to JazzCash and Easypaisa. Find the most rupees per riyal today.",
+    keywords:
+      "send money Saudi Arabia to Pakistan, SAR to PKR, cheapest way to send money from Saudi Arabia to Pakistan, Al Rajhi Pakistan, ACE Money Transfer Saudi Pakistan, JazzCash from Saudi, SAR PKR exchange rate",
   },
 };
 
