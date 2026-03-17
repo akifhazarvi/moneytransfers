@@ -184,13 +184,20 @@ async function scrapeCorridorAmount(
 ): Promise<WorldRemitQuote | null> {
   const page = await context.newPage();
   let capturedQuote: WorldRemitQuote | null = null;
+  let pageClosing = false;
 
   try {
-    // Intercept GraphQL responses from api.worldremit.com
+    // Intercept GraphQL responses — worldremit.com or api.worldremit.com
     page.on("response", async (response) => {
+      if (pageClosing) return;
       const url = response.url();
-      if (url.includes("api.worldremit.com/graphql")) {
+      if (
+        url.includes("worldremit.com") &&
+        (url.includes("graphql") || url.includes("/api/") || url.includes("calculat") || url.includes("quote") || url.includes("price"))
+      ) {
         try {
+          const ct = response.headers()["content-type"] || "";
+          if (!ct.includes("json")) return;
           const body = await response.text();
           // Only parse responses containing createCalculation
           if (body.includes("createCalculation")) {
@@ -210,17 +217,17 @@ async function scrapeCorridorAmount(
       }
     });
 
-    // Navigate to the corridor page
-    const url = `https://www.worldremit.com/en/${corridor.receiveCountry}`;
+    // Navigate to the corridor page — use direct send-money URL with currency params
+    const url = `https://www.worldremit.com/en/${corridor.receiveCountry}?sendingFrom=${corridor.sendCountry}&amount=${amount}`;
     await page.goto(url, {
       waitUntil: "domcontentloaded",
       timeout: NAV_TIMEOUT,
     });
-    await delay(2000);
+    await delay(3000);
     await dismissOverlays(page);
 
     // Wait for initial calculator load (it auto-triggers a calculation)
-    await delay(2000);
+    await delay(3000);
 
     // Find the send amount input — WorldRemit uses aria-label="pricing-calculator-input-label"
     // The first matching input is the send amount
@@ -280,7 +287,8 @@ async function scrapeCorridorAmount(
     );
     return null;
   } finally {
-    await page.close();
+    pageClosing = true;
+    await page.close().catch(() => {});
   }
 }
 

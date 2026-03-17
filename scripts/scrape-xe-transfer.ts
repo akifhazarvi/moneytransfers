@@ -239,22 +239,23 @@ async function scrapeCorridorAmount(
     });
 
     // Navigate directly to XE's results page with pre-filled corridor and amount
+    // Use "commit" to fire as soon as headers are received — avoids long JS load timeout
     const directUrl = `https://www.xe.com/send-money/results/?amount=${amount}&fromCurrency=${corridor.from}&toCurrency=${corridor.to}`;
-    await page.goto(directUrl, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-    await delay(4000);
+    await page.goto(directUrl, { waitUntil: "commit", timeout: 60000 });
+    // Wait for SPA to boot and fire API calls
+    await delay(6000);
     await dismissOverlays(page);
-    // Wait a bit more for SPA to load
-    await delay(3000);
+    await delay(2000);
 
     if (capturedQuote) return capturedQuote;
 
-    // Fallback: navigate to base send-money page and interact with selectors
+    // Fallback: navigate to base send-money page
     if (!capturedQuote) {
       await page.goto("https://www.xe.com/send-money/", {
-        waitUntil: "domcontentloaded",
-        timeout: NAV_TIMEOUT,
+        waitUntil: "commit",
+        timeout: 60000,
       });
-      await delay(3000);
+      await delay(4000);
       await dismissOverlays(page);
     }
 
