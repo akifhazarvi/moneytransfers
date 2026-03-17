@@ -50,6 +50,7 @@ export default function CircleFlag({
       height={size}
       className={`inline-block rounded-full shrink-0 ${className}`}
       loading="lazy"
+      decoding="async"
     />
   );
 }

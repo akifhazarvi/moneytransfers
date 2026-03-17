@@ -164,7 +164,7 @@ export const providers: Provider[] = [
   {
     slug: "xe",
     name: "XE",
-    logo: "/logos/xe.jpg",
+    logo: "/logos/xe.svg",
     rating: 4.3,
     ratingLabel: "Excellent",
     description: "XE is a trusted name in currency exchange, offering international money transfers with competitive rates and no transfer fees for most corridors.",

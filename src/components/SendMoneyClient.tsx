@@ -795,7 +795,7 @@ function SendMoneyContent() {
               <div className="w-8 h-8 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/50">
                 <img
                   src={providers.find((p) => p.slug === compareList[0])?.logo || `/logos/${compareList[0]}.png`}
-                  alt=""
+                  alt={`${getProviderName(compareList[0])} logo`}
                   width={32}
                   height={32}
                   className="w-full h-full object-cover"
