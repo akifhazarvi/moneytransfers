@@ -475,10 +475,10 @@ function DetailedReview({
             ...(trustpilotIndex[slug]?.totalReviews && {
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: trustpilotIndex[slug].score.toFixed(1),
-                bestRating: "5",
-                worstRating: "1",
-                ratingCount: String(trustpilotIndex[slug].totalReviews),
+                ratingValue: Number(trustpilotIndex[slug].score.toFixed(1)),
+                bestRating: 5,
+                worstRating: 1,
+                ratingCount: trustpilotIndex[slug].totalReviews,
               },
             }),
           }),
@@ -641,10 +641,10 @@ function DefaultReview({
             ...(trustpilotIndex[slug]?.totalReviews && {
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: trustpilotIndex[slug].score.toFixed(1),
-                bestRating: "5",
-                worstRating: "1",
-                ratingCount: String(trustpilotIndex[slug].totalReviews),
+                ratingValue: Number(trustpilotIndex[slug].score.toFixed(1)),
+                bestRating: 5,
+                worstRating: 1,
+                ratingCount: trustpilotIndex[slug].totalReviews,
               },
             }),
             address: {

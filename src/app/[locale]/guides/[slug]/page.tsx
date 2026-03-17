@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
       { "@type": "ListItem", position: 2, name: "Guides", item: "https://sendmoneycompare.com/guides" },
-      { "@type": "ListItem", position: 3, name: post.title },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://sendmoneycompare.com/guides/${slug}` },
     ],
   };
 

@@ -114,7 +114,7 @@ export default async function NewsArticlePage({ params }: Props) {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
               { "@type": "ListItem", position: 2, name: "News", item: "https://sendmoneycompare.com/news" },
-              { "@type": "ListItem", position: 3, name: item.title },
+              { "@type": "ListItem", position: 3, name: item.title, item: `https://sendmoneycompare.com/news/${slug}` },
             ],
           }),
         }}
