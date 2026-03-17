@@ -14,12 +14,20 @@ const INDEXED_IBAN_SLUGS = new Set([
   "italy", "denmark", "belgium", "austria", "ireland",
   "portugal", "sweden", "switzerland", "poland", "norway",
   "pakistan",
+  "turkey", "romania", "czechia", "hungary", "croatia",
+  "finland", "greece", "cyprus", "luxembourg",
+  "united-arab-emirates", "saudi-arabia", "qatar", "kuwait", "bahrain",
+  "jordan", "egypt", "israel", "brazil", "ukraine", "georgia",
 ]);
 
 const INDEXED_SWIFT_SLUGS = new Set([
   "united-kingdom", "united-states", "india", "pakistan", "germany",
   "france", "netherlands", "united-arab-emirates", "canada", "australia",
   "hong-kong", "singapore", "south-africa", "ireland", "new-zealand",
+  "bangladesh", "philippines", "nigeria", "mexico", "china",
+  "japan", "south-korea", "thailand", "indonesia", "malaysia",
+  "brazil", "kenya", "ghana", "sri-lanka", "nepal",
+  "turkiye", "egypt", "morocco", "colombia", "peru",
 ]);
 
 function withAlternates(
