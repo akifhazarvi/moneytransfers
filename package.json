@@ -38,6 +38,7 @@
   "dependencies": {
     "@google-cloud/local-auth": "^3.0.1",
     "@modelcontextprotocol/sdk": "^1.27.1",
+    "@swc/helpers": "0.5.19",
     "@vercel/analytics": "^2.0.1",
     "cheerio": "^1.2.0",
     "googleapis": "^171.4.0",
