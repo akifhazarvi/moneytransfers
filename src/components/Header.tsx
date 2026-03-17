@@ -132,13 +132,6 @@ export default function Header() {
                 </Link>
               );
             })}
-            {/* Primary CTA */}
-            <Link
-              href="/send-money"
-              className="ml-2 h-9 px-4 bg-[var(--color-accent)] text-white text-[13px] font-semibold rounded-full hover:bg-[var(--color-accent-dark)] transition-colors shadow-sm"
-            >
-              Get Best Rate
-            </Link>
           </nav>
 
           <div className="flex items-center gap-1">
