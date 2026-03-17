@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { track } from "@vercel/analytics";
 import { Suspense } from "react";
@@ -22,21 +23,6 @@ type FeeFilter = "" | "free" | "under-5" | "under-10";
 type RatingFilter = "" | "excellent" | "good" | "any";
 type ReferralFilter = "" | "has-referral" | "has-signup" | "has-promo";
 
-function useDropdown() {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
-    if (open) document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [open]);
-
-  return { open, setOpen, ref };
-}
-
 function FilterDropdown({
   label,
   active,
@@ -46,11 +32,35 @@ function FilterDropdown({
   active: boolean;
   children: (close: () => void) => React.ReactNode;
 }) {
-  const { open, setOpen, ref } = useDropdown();
+  const [open, setOpen] = useState(false);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [coords, setCoords] = useState({ top: 0, left: 0 });
+
+  // Position dropdown below button using fixed positioning (avoids overflow clipping)
+  useLayoutEffect(() => {
+    if (!open || !btnRef.current) return;
+    const rect = btnRef.current.getBoundingClientRect();
+    setCoords({ top: rect.bottom + 4, left: rect.left });
+  }, [open]);
+
+  // Close on outside click
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      const target = e.target as Node;
+      if (btnRef.current?.contains(target)) return;
+      if (dropdownRef.current?.contains(target)) return;
+      setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
 
   return (
-    <div ref={ref} className="relative shrink-0">
+    <div className="shrink-0">
       <button
+        ref={btnRef}
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="listbox"
@@ -65,10 +75,16 @@ function FilterDropdown({
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      {open && (
-        <div role="listbox" className="absolute top-full left-0 mt-1 bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl shadow-lg z-40 min-w-[200px] py-1">
+      {open && createPortal(
+        <div
+          ref={dropdownRef}
+          role="listbox"
+          style={{ position: "fixed", top: coords.top, left: coords.left }}
+          className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl shadow-lg z-[9999] min-w-[200px] py-1"
+        >
           {children(() => setOpen(false))}
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

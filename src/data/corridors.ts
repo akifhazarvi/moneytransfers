@@ -269,6 +269,22 @@ export const corridors: Corridor[] = [
         q: "Can I send money to India from the UK using a debit card?",
         a: "Yes, most specialist money transfer providers accept UK debit cards as a funding method with little or no additional surcharge. Wise charges approximately 0.2%–0.3% extra for debit card funding compared to bank transfer, while Remitly and WorldRemit often include debit card funding at no extra cost. The key advantage of debit card funding is speed: your payment is processed instantly via the UK Faster Payments network, meaning the transfer begins immediately rather than waiting 1–2 hours for a manual bank transfer to clear. Credit card funding is also available from most providers but typically incurs a significantly higher surcharge of 1.5%–3%, as card networks charge merchants more for credit transactions. For the best balance of speed and cost, UK debit card funding is the recommended choice for most transfers to India.",
       },
+      {
+        q: "How can I transfer money from UK to India online?",
+        a: "To send money from the UK to India online: (1) Choose a specialist provider — Wise, Remitly, or OFX typically offer the best GBP to INR rates. (2) Create an account and verify your identity (passport or driving licence). (3) Enter the amount, your recipient's Indian bank account details (account number and IFSC code), and choose delivery method. (4) Fund via UK bank transfer (Faster Payments) or debit card. (5) Your recipient receives INR in their Indian bank account within minutes (express/IMPS) or 1–2 business days (standard). Online transfers through specialist providers are 80–95% cheaper than visiting a high-street bank branch.",
+      },
+      {
+        q: "What is the best money transfer service from UK to India?",
+        a: "Based on our latest comparison data, the best services from UK to India are: Wise — uses the real mid-market GBP/INR rate with 0% markup, making it the cheapest for most transfer sizes. Remitly — excellent for express delivery (minutes via IMPS) with competitive rates and $25 off first transfer. OFX — best for large transfers (£5,000+) with zero fees and dedicated dealers. For regular family support transfers, Wise delivers the most INR per pound consistently. For urgent transfers where speed matters most, Remitly's express option is the fastest. We recommend comparing all three on the day you send, as rates fluctuate throughout the day.",
+      },
+      {
+        q: "What is the maximum limit for money transfer from UK to India?",
+        a: "Transfer limits from UK to India vary by provider: Wise allows up to £1,000,000 per transfer for fully verified accounts. OFX has no upper limit for business or personal transfers (dedicated dealer support for large amounts). Remitly limits are typically £25,000 per transfer for personal accounts. XE allows up to £500,000 per transfer. On the receiving side, India's Reserve Bank of India does not cap incoming remittances — there is no limit on how much money can be received from abroad. UK regulations require identity verification for larger transfers, but there is no legal maximum on personal remittances. For very large transfers (£50,000+), OFX and TorFX offer better rates and dedicated support.",
+      },
+      {
+        q: "Is wire transfer from UK to India the cheapest option?",
+        a: "No — wire transfers through UK banks are among the most expensive ways to send money to India. High-street banks charge £15–£30 per SWIFT wire plus a 3–5% exchange rate markup. On a £1,000 transfer, that's £45–£80 in total costs. Specialist online providers like Wise charge £4–£7 total for the same transfer with 0% exchange rate markup. That's a saving of £40–£70 per transfer. For someone sending £500 monthly to family in India, switching from bank wires to Wise saves £360–£840 per year. The only scenario where a bank wire might be necessary is if your recipient requires a specific SWIFT reference for a property purchase or institutional payment.",
+      },
     ],
   },
   {
@@ -422,11 +438,19 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to the UK?",
-        a: "Wise and OFX consistently offer the best value for USD to GBP transfers. Wise uses the mid-market rate, while OFX offers competitive rates with no fees for transfers over $1,000.",
+        a: "Wise and OFX consistently offer the best value for USD to GBP transfers. Wise uses the real mid-market exchange rate with 0% markup and a transparent fee of approximately 0.5–0.7% — on a $1,000 transfer, that's about $5–$7 total cost. OFX charges $0 in fees with a small exchange rate spread, making it particularly competitive for transfers over $5,000. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, costing $45–$80 total on the same $1,000 transfer. We recommend comparing Wise, OFX, and XE on the day you send.",
       },
       {
         q: "How long does a US to UK transfer take?",
-        a: "Most specialist providers deliver to UK bank accounts within 1 business day via Faster Payments. Traditional bank wires take 2–4 business days.",
+        a: "Most specialist providers deliver to UK bank accounts within 1 business day via the UK Faster Payments network. Wise and Remitly can deliver within hours if you fund by debit card. Traditional US bank SWIFT wires take 2–4 business days and may pass through correspondent banks that deduct intermediary fees. For urgent transfers, debit card funding with Wise or Revolut is the fastest option — your recipient can receive GBP the same day.",
+      },
+      {
+        q: "How much does it cost to wire money from the US to the UK?",
+        a: "Through a US bank, wiring money to the UK costs $25–$50 in wire fees plus a 2–3% exchange rate markup — totaling $45–$80 on a $1,000 transfer. Specialist providers are dramatically cheaper: Wise charges ~$5–$7 (0% markup + small fee), OFX charges $0 in fees with a small spread, and XE charges $0 in fees with a 0.5–1.5% spread. Switching from bank wires to a specialist provider saves 80–95% on transfer costs.",
+      },
+      {
+        q: "What is the best way to send money to the UK from the USA?",
+        a: "For most people, Wise offers the best combination of low cost, speed, and transparency for USD to GBP transfers. For large transfers ($5,000+), OFX may offer better rates through their zero-fee model. For speed, Revolut and Wise both support same-day delivery to UK bank accounts. For cash pickup in the UK, Western Union has the widest network. We recommend using our comparison tool to check live rates on the day you send, as USD/GBP rates fluctuate throughout the day.",
       },
     ],
   },

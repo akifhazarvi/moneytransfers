@@ -1044,11 +1044,12 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-international-payments-guide",
-    title: "International Payments for Business: Complete Guide 2026",
+    title:
+      "International Business Payments: Compare Providers, Fees & FX (2026)",
     metaDescription:
-      "How to make international business payments efficiently. Compare providers, understand FX management, batch payments, invoicing, and compliance.",
+      "Compare the cheapest ways to make international business payments in 2026. Wise Business vs OFX vs Revolut — batch payments, FX management, vendor payouts, and SME solutions.",
     excerpt:
-      "Business international payments are more complex than personal transfers. Here's how to manage FX, reduce costs, and streamline your payment operations.",
+      "International business payments cost 2–5% through banks. Specialist providers cut that to under 1%. Compare Wise Business, OFX, and Revolut for FX, batch payments, and compliance.",
     category: "Business",
     readTime: "11 min read",
     publishedAt: "2026-03-05",
@@ -1141,6 +1142,30 @@ export const blogPosts: BlogPost[] = [
         answer:
           "Yes, using a forward contract. Providers like OFX, TorFX, and XE allow you to lock today's rate for a payment you'll make up to 12 months in the future. There may be a small premium or deposit required.",
       },
+      {
+        question:
+          "How do small businesses make international payments?",
+        answer:
+          "Small businesses have several options for international payments: Wise Business offers 0% markup with batch payments via CSV upload, API access, and Xero/QuickBooks integration — best for SMBs sending regular payments. Revolut Business provides multi-currency accounts and real-time FX with a free plan. OFX specializes in larger transfers ($10,000+) with dedicated FX dealers and zero fees. For payroll, Wise Business and Revolut Business both support batch processing of multiple payments in different currencies. All three are significantly cheaper than traditional bank wire transfers, which typically charge $25–$50 per transaction plus a 2–5% exchange rate markup.",
+      },
+      {
+        question:
+          "How do you make bulk international payments?",
+        answer:
+          "Bulk international payments are best handled through providers with batch payment features. Wise Business lets you upload a CSV file with multiple recipients and process all payments at once — up to 1,000 payments per batch. OFX supports batch processing for businesses with a dealing desk for large volumes. Revolut Business allows mass payouts to multiple currencies from a single account. For API-driven automation, Wise's API is well-documented and free, allowing programmatic batch payments integrated with your ERP or accounting system.",
+      },
+      {
+        question:
+          "What are the cheapest business FX payment options in 2026?",
+        answer:
+          "For business FX payments in 2026, Wise Business offers the lowest all-in cost for most SMBs: 0% exchange rate markup (mid-market rate) plus a small transparent fee of 0.41–0.71%. For transfers over $50,000, OFX's dealing desk may negotiate better rates. Revolut Business offers interbank rates during market hours with monthly free allowances. Traditional banks charge 2–5% FX markup plus $25–$50 per wire — making specialist providers 80–95% cheaper for cross-border business payments.",
+      },
+      {
+        question:
+          "How do businesses pay international vendors and suppliers?",
+        answer:
+          "The most cost-effective way to pay international vendors is through specialist business transfer providers. Wise Business and OFX both offer vendor payment features with transparent pricing, multi-currency accounts to hold foreign currencies, and forward contracts to lock in exchange rates for future invoices. For regular vendor payments, set up batch processing via CSV upload or API integration. Ensure you maintain proper invoice documentation and transfer records for tax and compliance purposes — most business providers generate reports that integrate with accounting software like Xero and QuickBooks.",
+      },
     ],
     relatedSlugs: [
       "exchange-rate-markup-explained",
@@ -1155,11 +1180,12 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "global-remittance-trends-2026",
-    title: "Global Remittance Trends & Statistics 2026",
+    title:
+      "Money Transfer & Remittance Statistics 2026 — India, Global Trends & Costs",
     metaDescription:
-      "The latest data on global remittance flows, top corridors, average costs, and digital transformation trends in international money transfers.",
+      "2026 remittance statistics: India received $125B, global flows hit $860B. Full breakdown by country, corridor costs, digital trends, and average transfer fees worldwide.",
     excerpt:
-      "Global remittances reached $860 billion in 2025. Here are the trends, statistics, and shifts shaping the international money transfer industry.",
+      "Global remittances reached $860 billion in 2025, with India receiving $125 billion. Here are the trends, statistics, and shifts shaping the international money transfer industry.",
     category: "Research",
     readTime: "10 min read",
     publishedAt: "2026-03-10",
@@ -1277,6 +1303,28 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Are remittance costs going down?",
         answer: "Yes, gradually. The global average has declined from 7.4% in 2015 to approximately 5.8% in 2025. Digital-first providers like Wise and Remitly have driven costs down significantly below the average in most corridors.",
+      },
+      {
+        question:
+          "What are the latest money transfer statistics for India in 2026?",
+        answer:
+          "India remains the world's largest remittance recipient, receiving over $125 billion in 2025 with projections to surpass $140 billion by end of 2026. The USA, UAE, and UK are the top three sending countries. The USD to INR corridor is the most competitive in the world, with specialist providers delivering rates within 0.5% of the mid-market rate. India's UPI payment infrastructure now processes over 10 billion domestic transactions monthly and is increasingly integrated with international transfer services.",
+      },
+      {
+        question:
+          "What are the international remittance trends for 2025 and 2026?",
+        answer:
+          "Key trends include: global remittance flows reaching $860 billion in 2025 with 3.8% year-over-year growth; digital-first transfers surpassing 65% of all transactions; real-time payment systems (UPI, Pix, SEPA Instant) enabling same-day cross-border delivery; stablecoin-based remittance corridors emerging for underserved markets; and the global average cost of sending $200 falling to 5.8%, driven by competition from providers like Wise, Remitly, and Revolut.",
+      },
+      {
+        question: "What is the global remittance market size in 2026?",
+        answer:
+          "Global remittances are projected to exceed $900 billion by end of 2026, up from $860 billion in 2025. Remittances to low- and middle-income countries totaled $685 billion in 2025 — larger than foreign direct investment (FDI) for these countries. The top 5 receiving countries are India ($125B), Mexico ($68B), China ($50B), Philippines ($40B), and Pakistan ($33B).",
+      },
+      {
+        question: "What are the average remittance fees in 2025 and 2026?",
+        answer:
+          "The global average cost of sending $200 internationally was approximately 5.8% in 2025, according to World Bank data. This remains above the UN's Sustainable Development Goal target of 3% by 2030. However, costs vary dramatically by corridor: Sub-Saharan Africa averages 7.9%, while South Asia averages 4.3%. Digital-first providers like Wise average just 0.7% total cost, dramatically cheaper than the global average.",
       },
     ],
     relatedSlugs: [
@@ -1618,11 +1666,12 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "money-transfer-promo-codes-referral-programs",
-    title: "Money Transfer Promo Codes & Refer-a-Friend Deals (2026)",
+    title:
+      "Money Transfer Promo Codes & First-Time User Deals (March 2026)",
     metaDescription:
-      "Every active promo code, sign-up bonus, and referral program from 14 top money transfer providers in 2026. Save on fees and earn rewards on transfers.",
+      "Every active promo code, sign-up bonus, and special rate for first-time money transfer users from 14 providers. Updated March 2026 — save on your next transfer.",
     excerpt:
-      "We researched all 14 major money transfer providers to compile every active promo code, sign-up offer, and referral bonus — so you can save the most on your next transfer.",
+      "Special rates for first-time users, promo codes, and referral bonuses from 14 money transfer providers — compiled and verified so you can save the most on your next transfer.",
     category: "Guides",
     readTime: "14 min read",
     publishedAt: "2026-03-14",
@@ -1928,6 +1977,24 @@ export const blogPosts: BlogPost[] = [
         question: "Which providers have loyalty programs?",
         answer:
           "MoneyGram Plus Rewards is the most comprehensive loyalty program with points, tier upgrades, and fee discounts. InstaReM offers InstaPoints redeemable on transfers. Revolut has tiered subscription plans. Western Union's My WU Rewards is currently paused.",
+      },
+      {
+        question:
+          "What special rates are available for first-time money transfer users?",
+        answer:
+          "Most major providers offer special rates for first-time users: Remitly gives $25 off your first transfer (no code needed), Wise waives fees on transfers up to ~$800, WorldRemit offers 3 fee-free transfers with code 3FREE, Western Union and Xoom waive fees on first online transfers, TapTap Send offers a $20 bonus with a promo code, and OFX provides an improved introductory exchange rate across 7 currencies. ACE Money Transfer also waives the fee on your first transaction.",
+      },
+      {
+        question:
+          "Can I combine offers or discounts for money transfers?",
+        answer:
+          "Generally, you cannot stack multiple promo codes on one transfer — most providers allow only one code per transaction. However, you can combine strategies: use a sign-up bonus on your first transfer with Provider A, then use a different provider's sign-up bonus on your next transfer. You can also earn referral bonuses separately from promo codes. The best approach is to use sign-up offers for first transfers and referral programs for ongoing savings.",
+      },
+      {
+        question:
+          "Where can I find promotions for new money transfer customers?",
+        answer:
+          "The best promotions for new customers are: Remitly ($25 off first transfer, applied automatically), WorldRemit (code 3FREE for 3 fee-free transfers), TapTap Send ($20 bonus via promo code in-app), Wise (fee-free first transfer via referral link), and OFX (improved introductory exchange rate). We verify all offers monthly — check each provider's official website for the latest terms, as promotions change frequently.",
       },
     ],
     relatedSlugs: [

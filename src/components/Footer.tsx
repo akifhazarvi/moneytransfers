@@ -60,6 +60,7 @@ export default function Footer() {
       titleKey: "resources",
       links: [
         { href: "/guides", labelKey: "guidesLink" },
+        { href: "/business", labelKey: "businessLink" },
         { href: "/news", labelKey: "newsLink" },
         { href: "/iban", labelKey: "ibanLink" },
         { href: "/swift-codes", labelKey: "swiftLink" },

@@ -239,14 +239,16 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "send money UK to Europe, GBP to EUR, cheapest way to send money to Europe, SEPA transfer from UK, money transfer Europe, GBP EUR exchange rate, post-Brexit transfers",
   },
   "uk-to-india": {
-    title: "Send Money UK to India — GBP to INR Rates",
+    title:
+      "Send Money UK to India — Best GBP to INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UK to India in 2026. Real-time GBP to INR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers. IMPS instant delivery available.",
-    ogTitle: "Send Money UK to India — Best GBP to INR Rates",
+      "Compare the cheapest ways to send money from UK to India. Real-time GBP to INR rates from Wise, Remitly, OFX & 10+ providers. IMPS instant delivery. Save £40–£70 per transfer vs banks.",
+    ogTitle:
+      "Send Money from UK to India — Cheapest GBP to INR Rates 2026",
     ogDescription:
-      "Compare real-time GBP to INR rates from 15+ providers. Find the cheapest and fastest way to send money from UK to India.",
+      "Compare real-time GBP to INR rates from 15+ providers. Find the cheapest, fastest way to transfer money from UK to India.",
     keywords:
-      "send money UK to India, GBP to INR, cheapest way to send money to India from UK, money transfer India, remittance to India, GBP INR exchange rate, IMPS transfer",
+      "send money UK to India, send money from UK to India, money transfer UK to India, money to India from UK, best money transfer to India from UK, cheapest way to send money to India from UK, transfer money from UK to India, wire transfer from UK to India, GBP to INR, sending money from UK to India, how to send money from UK to India, best way to transfer money from UK to India, online money transfer from UK to India",
   },
   "canada-to-india": {
     title: "Send Money Canada to India — CAD to INR Rates",

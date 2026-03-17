@@ -3,6 +3,7 @@ import { allCorridors } from "@/data/corridors";
 import { providers } from "@/data/providers";
 import { blogPosts } from "@/data/blog-posts";
 import { newsItems } from "@/data/news";
+import { businessPages } from "@/data/business-pages";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 
@@ -132,6 +133,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
     .map((c) => entry(`swift-codes/${c.slug}`, LAST_DEPLOY));
 
+  const businessHubPages: MetadataRoute.Sitemap = [
+    entry("business", LAST_DEPLOY),
+    ...businessPages.map((p) => entry(`business/${p.slug}`, LAST_DEPLOY)),
+  ];
+
   return [
     ...staticPages,
     ...staticLocalePages,
@@ -141,6 +147,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guidePages,
     ...newsPages,
     ...exchangeRatesPage,
+    ...businessHubPages,
     ...ibanPages,
     ...swiftPages,
   ];

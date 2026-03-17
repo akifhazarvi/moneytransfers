@@ -16,7 +16,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "central-bank-super-week-march-2026",
     title:
-      "Central Bank Rate Week — Impact on Your Transfer Rates",
+      "Central Bank Rate Decisions This Week (March 2026) — Fed, ECB, BOJ Impact on Transfer Rates",
     excerpt:
       "Three of the world's most powerful central banks announce interest rate decisions within 48 hours this week. Here's what it means for exchange rates and the cost of sending money abroad.",
     image: "/images/news/central-bank-super-week.jpg",

@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import ComparisonWidget from "@/components/ComparisonWidget";
-import HomepageConverter from "@/components/HomepageConverter";
+
+const HomepageConverter = dynamic(() => import("@/components/HomepageConverter"), {
+  loading: () => <div className="h-[320px] animate-pulse bg-[var(--color-surface-dim)] rounded-2xl" />,
+});
 
 type TabId = "compare" | "convert";
 

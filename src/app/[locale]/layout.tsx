@@ -4,11 +4,11 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ForexTicker from "@/components/ForexTicker";
+import LazyForexTicker from "@/components/LazyForexTicker";
 import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
-import CookieConsent from "@/components/CookieConsent";
+import LazyCookieConsent from "@/components/LazyCookieConsent";
 import Script from "next/script";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -118,11 +118,11 @@ export default async function LocaleLayout({ children, params }: Props) {
     <>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <Script
         id="gtag-init"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied'});gtag('js',new Date());gtag('config','G-HJH07QEJ30');`,
         }}
@@ -152,9 +152,9 @@ export default async function LocaleLayout({ children, params }: Props) {
             <ErrorBoundary>{children}</ErrorBoundary>
           </main>
           <Footer />
-          <ForexTicker />
+          <LazyForexTicker />
           <Analytics />
-          <CookieConsent />
+          <LazyCookieConsent />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>
