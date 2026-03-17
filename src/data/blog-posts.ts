@@ -6286,7 +6286,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Since January 1, 2026, a <strong>1% federal excise tax</strong> applies to certain international money transfers sent from the United States. The tax was signed into law as part of the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer nofollow">One Big Beautiful Bill Act</a> on July 4, 2025, and is codified under IRC Section 4475.</p>
 <p>Here's the part most people miss: the tax <strong>only applies to cash-funded transfers</strong> — cash, money orders, and cashier's checks. If you send money through a bank account, debit card, or credit card, you pay nothing extra.</p>
 <p>The <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer nofollow">IRS requires remittance providers</a> to collect and remit the tax. Senders don't need to file anything separately — the provider handles it at checkout.</p>
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-blue-sm">
 <strong>Bottom line:</strong> If you walk into a Western Union location and pay with cash to send $1,000 to Mexico, you'll owe an extra $10 in remittance tax. If you use the Western Union app and pay from your bank account, you owe $0 in tax.
 </blockquote>
 <p>The <a href="https://www.taxnotes.com/featured-analysis/remittance-tax-arrival-raises-questions-and-action-plans/2026/01/15/7tw2k" target="_blank" rel="noopener noreferrer nofollow">Joint Committee on Taxation</a> estimates the tax will raise roughly $10 billion in federal revenue over 10 years. The rate was debated heavily — an early proposal set it at 5%, which was cut to 3.5% during negotiations, before landing at 1% in the final bill.</p>`,
@@ -6299,9 +6299,9 @@ export const blogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Payment Method</th><th>Taxed?</th><th>Why</th></tr></thead>
 <tbody>
-<tr style="background: #fce8e6;"><td><strong>Cash (in person)</strong></td><td>Yes — 1%</td><td>Physical instrument under IRC 4475</td></tr>
-<tr style="background: #fce8e6;"><td><strong>Money order</strong></td><td>Yes — 1%</td><td>Physical instrument</td></tr>
-<tr style="background: #fce8e6;"><td><strong>Cashier's check</strong></td><td>Yes — 1%</td><td>Physical instrument</td></tr>
+<tr class="blog-row-danger"><td><strong>Cash (in person)</strong></td><td>Yes — 1%</td><td>Physical instrument under IRC 4475</td></tr>
+<tr class="blog-row-danger"><td><strong>Money order</strong></td><td>Yes — 1%</td><td>Physical instrument</td></tr>
+<tr class="blog-row-danger"><td><strong>Cashier's check</strong></td><td>Yes — 1%</td><td>Physical instrument</td></tr>
 <tr class="blog-row-highlight"><td><strong>Bank account (ACH)</strong></td><td>No</td><td>Exempt under IRC 4475(d)(1)</td></tr>
 <tr class="blog-row-highlight"><td><strong>US debit card</strong></td><td>No</td><td>Exempt — electronic payment</td></tr>
 <tr class="blog-row-highlight"><td><strong>US credit card</strong></td><td>No</td><td>Exempt — electronic payment</td></tr>
@@ -6353,14 +6353,14 @@ export const blogPosts: BlogPost[] = [
 <tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Bank</td><td>$0</td><td>~0.45%</td><td>$0</td><td><strong>~$4.50 (0.45%)</strong></td></tr>
 <tr class="blog-row-highlight"><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>Bank</td><td>$0</td><td>~0.42%</td><td>$0</td><td><strong>~$4.20 (0.42%)</strong></td></tr>
 <tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>App (bank)</td><td>$0</td><td>~1.5%</td><td>$0</td><td><strong>~$15.00 (1.50%)</strong></td></tr>
-<tr style="background: #fce8e6;"><td><strong>Western Union</strong></td><td>Cash (store)</td><td>$5.00</td><td>~1.5%</td><td><strong>$10.00</strong></td><td><strong>~$30.00 (3.00%)</strong></td></tr>
-<tr style="background: #fce8e6;"><td><strong>MoneyGram</strong></td><td>Cash (store)</td><td>$5.00</td><td>~2.0%</td><td><strong>$10.00</strong></td><td><strong>~$35.00 (3.50%)</strong></td></tr>
-<tr style="background: #fce8e6;"><td><strong>Bank wire</strong></td><td>Cash/check</td><td>$25–$50</td><td>~3.0%</td><td><strong>$10.00</strong></td><td><strong>~$65–$90 (6.5–9%)</strong></td></tr>
+<tr class="blog-row-danger"><td><strong>Western Union</strong></td><td>Cash (store)</td><td>$5.00</td><td>~1.5%</td><td><strong>$10.00</strong></td><td><strong>~$30.00 (3.00%)</strong></td></tr>
+<tr class="blog-row-danger"><td><strong>MoneyGram</strong></td><td>Cash (store)</td><td>$5.00</td><td>~2.0%</td><td><strong>$10.00</strong></td><td><strong>~$35.00 (3.50%)</strong></td></tr>
+<tr class="blog-row-danger"><td><strong>Bank wire</strong></td><td>Cash/check</td><td>$25–$50</td><td>~3.0%</td><td><strong>$10.00</strong></td><td><strong>~$65–$90 (6.5–9%)</strong></td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Estimates based on typical quotes for $1,000 USD → INR, March 2026. Actual costs vary by amount and corridor. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
 </div>
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-blue-sm">
 <strong>Quick comparison:</strong> Sending $1,000 to India through Wise costs $7.33 total. The same transfer via cash at MoneyGram costs roughly $35 — nearly <strong>5x more</strong> — including the new remittance tax. <a href="/compare/wise-vs-remitly">See our full Wise vs Remitly comparison →</a>
 </blockquote>
 <p>For a deeper look at how these costs add up across corridors, read our analysis of the <a href="/guides/cost-of-sending-1000-abroad">real cost of sending $1,000 abroad</a>.</p>`,
@@ -6515,7 +6515,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Lending products</strong> — Credit cards, personal loans, and overdrafts could follow</li>
 <li><strong>No partner bank dependency</strong> — Currently Revolut partners with Lead Bank in the US; a charter removes that middleman</li>
 </ul>
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-blue-sm">
 <strong>What this means in practice:</strong> Revolut with a banking license could offer multi-currency accounts with FDIC insurance, cheaper FX rates (no partner bank markup), and potentially the lowest-cost transfers from the US. It would compete directly with <a href="/companies/wise">Wise</a> on transfers and with Chase and Bank of America on everyday banking.
 </blockquote>
 <p>Revolut also <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer nofollow">secured a full UK banking license in March 2026</a>, after a years-long wait. If the US license follows, Revolut would be a fully licensed bank in two of the world's largest financial markets.</p>
@@ -6529,7 +6529,7 @@ export const blogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Method</th><th>Typical Fee</th><th>Speed</th><th>FX Markup</th><th>Total Cost</th></tr></thead>
 <tbody>
-<tr style="background: #fce8e6;"><td><strong>Bank wire (SWIFT)</strong></td><td>$25–$50</td><td>1–5 days</td><td>2–4%</td><td><strong>$45–$90 (4.5–9%)</strong></td></tr>
+<tr class="blog-row-danger"><td><strong>Bank wire (SWIFT)</strong></td><td>$25–$50</td><td>1–5 days</td><td>2–4%</td><td><strong>$45–$90 (4.5–9%)</strong></td></tr>
 <tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>$0–$10</td><td>Minutes–2 days</td><td>1–2%</td><td><strong>$10–$30 (1–3%)</strong></td></tr>
 <tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>$7.33</td><td>1–2 days</td><td>0%</td><td><strong>$7.33 (0.73%)</strong></td></tr>
 <tr class="blog-row-highlight"><td><strong>Stablecoin (USDC/USDT)</strong></td><td>$0.01–$2</td><td>Seconds–minutes</td><td>0–0.5%</td><td><strong>$0.01–$7 (0.001–0.7%)</strong></td></tr>
@@ -6666,7 +6666,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>In early March 2026, <a href="/companies/revolut">Revolut</a> filed applications with the <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer nofollow">Office of the Comptroller of the Currency (OCC)</a> and the FDIC to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
 <p>This isn't Revolut's first attempt. The company previously pursued a US banking license through a bank acquisition, but <a href="https://www.pymnts.com/news/digital-banking/2026/revolut-drops-us-bank-buyout-plan-eyes-standalone-occ-charter/" target="_blank" rel="noopener noreferrer nofollow">dropped that plan in January 2026</a> in favour of a standalone charter. The timing isn't coincidental — the OCC has been granting crypto and fintech charters at record speed, approving 11 applications in just 83 days.</p>
 <p>Right now, Revolut operates in the US through a partnership with Lead Bank. That means it can't hold your deposits directly, can't access Federal Reserve payment systems, and can't offer lending products. A banking license changes all of that.</p>
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-blue-sm">
 <strong>The big picture:</strong> Revolut already has 45+ million customers globally. A US banking license would make it one of the largest digital-only banks in America — and a serious competitor to both traditional banks and transfer services like <a href="/companies/wise">Wise</a>.
 </blockquote>`,
       },
@@ -6699,7 +6699,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>FDIC-insured multi-currency accounts</strong> — Your USD balance would be federally insured. Combined with Revolut's existing multi-currency capabilities (30+ currencies), this creates a unique product: a <strong>fully insured, multi-currency bank account</strong> — something no US bank currently offers at consumer scale.</li>
 <li><strong>Lower corridor costs</strong> — For popular corridors like <a href="/send-money/usa-to-india">USA to India</a> and <a href="/send-money/usa-to-mexico">USA to Mexico</a>, reduced infrastructure costs should flow through to customers.</li>
 </ul>
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-blue-sm">
 <strong>Quick comparison:</strong> Today, sending $1,000 from the US to Europe costs about $7.33 with Wise (0% markup) versus $5–$15 with Revolut (depending on plan and timing). With a banking license, Revolut could close that gap significantly. <a href="/compare/wise-vs-revolut">Full Wise vs Revolut breakdown →</a>
 </blockquote>`,
       },
@@ -7309,7 +7309,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Transfer fee</strong> — A flat per-payment charge (e.g., £4 for a SWIFT payment with WorldFirst). Relevant on small transfers, negligible on large ones.</li>
 <li><strong>Correspondent bank charges</strong> — When payments route through the SWIFT network, intermediary banks can deduct fees (typically $10–$30) before the money arrives. <a href="https://www.swift.com/our-solutions/swift-gpi" target="_blank" rel="noopener noreferrer nofollow">SWIFT gpi</a> has improved transparency here — nearly 100% of gpi payments now settle within 24 hours.</li>
 </ol>
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-blue-sm">
 <strong>Real example:</strong> A £50,000 GBP → EUR payment. Bank charges 2.5% markup = £1,250 cost. Wise Business charges 0.42% = £210 cost. Difference: <strong>£1,040 per payment</strong>. On 24 payments per year, that's £24,960 — enough to hire a part-time finance assistant.
 <a href="/send-money/uk-to-europe">Compare GBP to EUR rates live →</a>
 </blockquote>
@@ -7338,7 +7338,7 @@ export const blogPosts: BlogPost[] = [
 <p>Negotiable above £100,000 per transfer. Contact the WorldFirst dealing desk directly — for high-volume clients, account managers have authority to tighten the spread below the published 0.5%.</p>
 <h3>Who It Serves</h3>
 <p>Built for <strong>e-commerce sellers</strong> on global marketplaces, <strong>importers and exporters</strong> paying Asian suppliers, and <strong>businesses receiving revenue from Shopee, Lazada, Taobao, or 1688.com</strong>. One major limitation: WorldFirst is not available to US residents.</p>
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-blue-sm">
 <strong>Promo context:</strong> At 0.3%, WorldFirst costs $300 on a $100,000 payment vs ~$3,000 at a typical bank. The promo lasts 180 days — businesses converting to the 0.5% standard rate still save 83% vs bank pricing.
 </blockquote>`,
       },
@@ -7405,7 +7405,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Scale (~£90/month):</strong> Interbank FX up to £60,000/month; 25 free international transfers</li>
 <li><strong>Weekend surcharge:</strong> Additional markup applies Saturday/Sunday when forex markets are closed</li>
 </ul>
-<blockquote style="border-left: 4px solid #fbbc04; padding: 12px 16px; background: #fffde7; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<blockquote class="blog-callout-warning-sm">
 <strong>Watch out:</strong> Businesses regularly exceeding their plan's FX allowance should model the true monthly cost. At 0.6% overage + a £10–£90 subscription, Revolut can end up costing more than Wise on high-volume months. Run the numbers before committing to a plan tier.
 </blockquote>
 <h3>Key Business Features</h3>
@@ -7499,7 +7499,7 @@ export const blogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Provider</th><th>FX markup</th><th>Transfer fee</th><th>Total cost</th><th>Recipient gets (approx)</th></tr></thead>
 <tbody>
-<tr style="background: #fce8e8;"><td><strong>Traditional Bank</strong></td><td>3.0%</td><td>$30</td><td>~$330</td><td>~$9,670</td></tr>
+<tr class="blog-row-danger"><td><strong>Traditional Bank</strong></td><td>3.0%</td><td>$30</td><td>~$330</td><td>~$9,670</td></tr>
 <tr class="blog-row-highlight"><td><strong>WorldFirst (promo)</strong></td><td>0.3%</td><td>£0–£4</td><td>~$30</td><td>~$9,970</td></tr>
 <tr><td><strong>Wise Business</strong></td><td>0.5% avg</td><td>Variable</td><td>~$50</td><td>~$9,950</td></tr>
 <tr><td><strong>Airwallex</strong></td><td>0.5%</td><td>$0 (local)</td><td>~$50</td><td>~$9,950</td></tr>
@@ -7510,7 +7510,7 @@ export const blogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Provider</th><th>Cost per transfer</th><th>Annual cost (24×)</th><th>Annual saving vs bank</th></tr></thead>
 <tbody>
-<tr style="background: #fce8e8;"><td><strong>Traditional Bank</strong></td><td>~$3,000</td><td>~$72,000</td><td>—</td></tr>
+<tr class="blog-row-danger"><td><strong>Traditional Bank</strong></td><td>~$3,000</td><td>~$72,000</td><td>—</td></tr>
 <tr class="blog-row-highlight"><td><strong>WorldFirst (promo 2026)</strong></td><td>~$300</td><td>~$7,200</td><td><strong>$64,800</strong></td></tr>
 <tr><td><strong>Wise Business</strong></td><td>~$500</td><td>~$12,000</td><td><strong>$60,000</strong></td></tr>
 <tr><td><strong>Airwallex</strong></td><td>~$500</td><td>~$12,000</td><td><strong>$60,000</strong></td></tr>
