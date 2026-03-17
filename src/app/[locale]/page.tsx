@@ -31,14 +31,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
+  const SITE_URL = "https://sendmoneycompare.com";
+  const ogUrl = locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`;
+
   return {
-    title: t("title"),
+    title: { absolute: t("title") },
     description: t("description"),
     keywords: t("keywords"),
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
+      url: ogUrl,
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "SendMoneyCompare — Compare International Money Transfers" }],
     },
     alternates: getAlternates("", locale),
   };
