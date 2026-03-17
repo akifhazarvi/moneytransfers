@@ -65,6 +65,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               name: "SendMoneyCompare",
               url: "https://sendmoneycompare.com",
             },
+            datePublished: "2024-06-01",
             dateModified: "2026-03-14",
             mainEntityOfPage: {
               "@type": "WebPage",

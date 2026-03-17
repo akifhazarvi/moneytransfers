@@ -99,9 +99,10 @@ export default async function NewsArticlePage({ params }: Props) {
             headline: item.title,
             description: item.excerpt,
             datePublished: item.publishedAt,
+            dateModified: item.publishedAt,
             ...(item.image && { image: `https://sendmoneycompare.com${item.image}` }),
-            author: { "@type": "Organization", name: "SendMoneyCompare" },
-            publisher: { "@type": "Organization", name: "SendMoneyCompare" },
+            author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about" },
+            publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
           }),
         }}
       />

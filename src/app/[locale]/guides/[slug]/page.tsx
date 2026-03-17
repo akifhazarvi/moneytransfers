@@ -86,11 +86,23 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
-    author: { "@type": "Organization", name: post.author },
+    author: { "@type": "Person", name: post.author, url: "https://sendmoneycompare.com/about" },
     publisher: {
       "@type": "Organization",
       name: "SendMoneyCompare",
+      "@id": "https://sendmoneycompare.com/#organization",
+      logo: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png",
     },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+      { "@type": "ListItem", position: 2, name: "Guides", item: "https://sendmoneycompare.com/guides" },
+      { "@type": "ListItem", position: 3, name: post.title },
+    ],
   };
 
   return (
@@ -106,12 +118,10 @@ export default async function BlogPostPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      {howToSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       <Container className="py-8">
         {/* Breadcrumbs */}

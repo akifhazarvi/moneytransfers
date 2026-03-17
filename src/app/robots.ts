@@ -38,6 +38,18 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Google-Extended",
         disallow: "/",
       },
+      {
+        userAgent: "anthropic-ai",
+        disallow: "/",
+      },
+      {
+        userAgent: "cohere-ai",
+        disallow: "/",
+      },
+      {
+        userAgent: "Bytespider",
+        disallow: "/",
+      },
       // General crawlers
       {
         userAgent: "*",

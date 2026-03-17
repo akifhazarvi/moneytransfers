@@ -9,6 +9,12 @@ import { getSwiftCountries } from "@/data/swift-codes";
 const SITE_URL = "https://sendmoneycompare.com";
 const EXCLUDED_CORRIDOR_SLUGS = new Set(["gbp-to-fjd"]);
 
+// Fixed dates — update LAST_DEPLOY when content changes, DATA_UPDATED when scrapers run
+const LAST_DEPLOY = "2026-03-17";
+const DATA_UPDATED = "2026-03-17";
+
+const LOCALES = ["es", "fr"] as const;
+
 const INDEXED_IBAN_SLUGS = new Set([
   "united-kingdom", "germany", "france", "netherlands", "spain",
   "italy", "denmark", "belgium", "austria", "ireland",
@@ -37,42 +43,59 @@ function entry(path: string, lastModified: string): MetadataRoute.Sitemap[number
   return { url, lastModified };
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+/** Generate locale variant entries for a given path */
+function withLocales(path: string, lastModified: string): MetadataRoute.Sitemap {
+  return LOCALES.map((locale) =>
+    entry(path ? `${locale}/${path}` : locale, lastModified)
+  );
+}
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
-    entry("", now),
-    entry("send-money", now),
-    entry("companies", now),
-    entry("compare", now),
-    entry("currency-converter", now),
-    entry("guides", now),
-    entry("iban", now),
-    entry("swift-codes", now),
-    entry("about", now),
-    entry("contact", now),
-    entry("editorial-policy", now),
-    entry("how-we-review", now),
-    entry("methodology", now),
-    entry("privacy-policy", now),
-    entry("terms", now),
-    entry("cookies", now),
-    entry("disclaimer", now),
+    entry("", LAST_DEPLOY),
+    entry("send-money", DATA_UPDATED),
+    entry("companies", DATA_UPDATED),
+    entry("compare", DATA_UPDATED),
+    entry("currency-converter", DATA_UPDATED),
+    entry("guides", LAST_DEPLOY),
+    entry("iban", LAST_DEPLOY),
+    entry("swift-codes", LAST_DEPLOY),
+    entry("about", LAST_DEPLOY),
+    entry("contact", LAST_DEPLOY),
+    entry("editorial-policy", LAST_DEPLOY),
+    entry("how-we-review", LAST_DEPLOY),
+    entry("methodology", LAST_DEPLOY),
+    entry("privacy-policy", LAST_DEPLOY),
+    entry("terms", LAST_DEPLOY),
+    entry("cookies", LAST_DEPLOY),
+    entry("disclaimer", LAST_DEPLOY),
+  ];
+
+  // Locale variants for key static pages
+  const staticLocalePages: MetadataRoute.Sitemap = [
+    ...withLocales("", LAST_DEPLOY),
+    ...withLocales("send-money", DATA_UPDATED),
+    ...withLocales("companies", DATA_UPDATED),
+    ...withLocales("compare", DATA_UPDATED),
+    ...withLocales("currency-converter", DATA_UPDATED),
+    ...withLocales("guides", LAST_DEPLOY),
+    ...withLocales("about", LAST_DEPLOY),
+    ...withLocales("contact", LAST_DEPLOY),
   ];
 
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => !EXCLUDED_CORRIDOR_SLUGS.has(c.slug))
-    .map((c) => entry(`send-money/${c.slug}`, now));
+    .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
 
   const providerPages: MetadataRoute.Sitemap = providers.map((p) =>
-    entry(`companies/${p.slug}`, now)
+    entry(`companies/${p.slug}`, DATA_UPDATED)
   );
 
   const comparisonPages: MetadataRoute.Sitemap = [];
   for (let i = 0; i < providers.length; i++) {
     for (let j = i + 1; j < providers.length; j++) {
       comparisonPages.push(
-        entry(`compare/${providers[i].slug}-vs-${providers[j].slug}`, now)
+        entry(`compare/${providers[i].slug}-vs-${providers[j].slug}`, DATA_UPDATED)
       );
     }
   }
@@ -82,7 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const newsPages: MetadataRoute.Sitemap = [
-    entry("news", now),
+    entry("news", LAST_DEPLOY),
     ...newsItems.map((item) => entry(`news/${item.slug}`, item.publishedAt)),
   ];
 
@@ -96,21 +119,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const exchangeRatesPage: MetadataRoute.Sitemap = [
-    entry("exchange-rates", now),
-    entry("remittance-cost-index", now),
-    ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, now)),
+    entry("exchange-rates", DATA_UPDATED),
+    entry("remittance-cost-index", DATA_UPDATED),
+    ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, DATA_UPDATED)),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
     .filter((c) => c.slug && INDEXED_IBAN_SLUGS.has(c.slug))
-    .map((c) => entry(`iban/${c.slug}`, now));
+    .map((c) => entry(`iban/${c.slug}`, LAST_DEPLOY));
 
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
     .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
-    .map((c) => entry(`swift-codes/${c.slug}`, now));
+    .map((c) => entry(`swift-codes/${c.slug}`, LAST_DEPLOY));
 
   return [
     ...staticPages,
+    ...staticLocalePages,
     ...corridorPages,
     ...providerPages,
     ...comparisonPages,

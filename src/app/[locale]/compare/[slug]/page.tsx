@@ -117,9 +117,10 @@ function ArticleComparison({
             "@type": "Article",
             headline: article.title,
             description: article.metaDescription,
+            datePublished: article.updatedAt,
             dateModified: article.updatedAt,
-            author: { "@type": "Organization", name: "SendMoneyCompare" },
-            publisher: { "@type": "Organization", name: "SendMoneyCompare" },
+            author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about" },
+            publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
           }),
         }}
       />
@@ -131,19 +132,17 @@ function ArticleComparison({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Product",
+              "@type": "FinancialService",
+              "@id": `https://sendmoneycompare.com/companies/${provider.slug}#financialservice`,
               name: provider.name,
               description: provider.description,
-              brand: { "@type": "Brand", name: provider.name },
-              ...(provider.rating > 0 && {
+              ...(provider.rating > 0 && trustpilotIndex[provider.slug]?.totalReviews && {
                 aggregateRating: {
                   "@type": "AggregateRating",
                   ratingValue: provider.rating.toFixed(1),
                   bestRating: "5",
                   worstRating: "1",
-                  ...(trustpilotIndex[provider.slug]?.totalReviews
-                    ? { ratingCount: String(trustpilotIndex[provider.slug].totalReviews) }
-                    : {}),
+                  ratingCount: String(trustpilotIndex[provider.slug].totalReviews),
                 },
               }),
             }),
@@ -569,19 +568,17 @@ function DefaultComparison({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Product",
+              "@type": "FinancialService",
+              "@id": `https://sendmoneycompare.com/companies/${provider.slug}#financialservice`,
               name: provider.name,
               description: provider.description,
-              brand: { "@type": "Brand", name: provider.name },
-              ...(provider.rating > 0 && {
+              ...(provider.rating > 0 && trustpilotIndex[provider.slug]?.totalReviews && {
                 aggregateRating: {
                   "@type": "AggregateRating",
                   ratingValue: provider.rating.toFixed(1),
                   bestRating: "5",
                   worstRating: "1",
-                  ...(trustpilotIndex[provider.slug]?.totalReviews
-                    ? { ratingCount: String(trustpilotIndex[provider.slug].totalReviews) }
-                    : {}),
+                  ratingCount: String(trustpilotIndex[provider.slug].totalReviews),
                 },
               }),
             }),

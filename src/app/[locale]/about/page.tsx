@@ -136,6 +136,84 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
             <div>
               <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+                Our team
+              </h2>
+              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  SendMoneyCompare is built and maintained by a small team with backgrounds
+                  in fintech, product management, and data engineering. Our editorial content
+                  is written by people who have personally used the providers we review.
+                </p>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4 mt-4">
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-[16px] font-medium text-[var(--color-primary)]">AH</div>
+                    <div>
+                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Akif Hazarvi</p>
+                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">Founder &amp; Editor</p>
+                    </div>
+                  </div>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    Product manager with 8+ years in fintech and international payments.
+                    Previously worked on cross-border payment products handling millions in
+                    monthly volume. Oversees data methodology, provider reviews, and
+                    editorial standards.
+                  </p>
+                </div>
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-[16px] font-medium text-[var(--color-primary)]">AI</div>
+                    <div>
+                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Awais Imran</p>
+                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">Co-founder &amp; Technical Lead</p>
+                    </div>
+                  </div>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    Software engineer specialising in data pipelines and automation.
+                    Designed and maintains the scraping infrastructure that collects live
+                    quotes from 60+ providers every 6 hours. Ensures data accuracy and
+                    system reliability.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+                Company details
+              </h2>
+              <div className="space-y-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  SendMoneyCompare is operated from London, United Kingdom. We are an
+                  independent comparison platform — we are not a money transfer service
+                  and do not hold or transmit funds.
+                </p>
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mt-3">
+                  <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-[13px]">
+                    <div>
+                      <dt className="text-[var(--color-on-surface-variant)]">Location</dt>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">London, United Kingdom</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--color-on-surface-variant)]">Founded</dt>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">2024</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--color-on-surface-variant)]">Contact</dt>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">hello@sendmoneycompare.com</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--color-on-surface-variant)]">Corrections</dt>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">corrections@sendmoneycompare.com</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
                 {t("getInTouchHeading")}
               </h2>
               <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">

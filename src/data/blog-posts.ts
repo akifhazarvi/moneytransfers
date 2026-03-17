@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-01-15",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["cheap transfers", "fees", "comparison", "best rates", "international transfers"],
     featuredImage: "/images/blog/cheapest-way-to-send-money.jpg",
     sections: [
@@ -153,7 +153,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-01-10",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["how to", "international transfer", "guide", "beginners", "send money"],
     featuredImage: "/images/blog/how-to-send-money-abroad.jpg",
     sections: [
@@ -299,7 +299,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-01-20",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["exchange rates", "markup", "mid-market rate", "hidden fees", "education"],
     featuredImage: "/images/blog/exchange-rate-markup.jpg",
     sections: [
@@ -399,7 +399,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-02-01",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["security", "safety", "scams", "regulation", "fraud protection"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
@@ -492,7 +492,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-10",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["SWIFT code", "BIC code", "bank transfer", "international transfer", "how to"],
     featuredImage: "/images/blog/swift-codes-explained.jpg",
     sections: [
@@ -587,7 +587,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["IBAN", "bank account", "international transfer", "Europe", "validation"],
     featuredImage: "/images/blog/iban-numbers-explained.jpg",
     sections: [
@@ -703,7 +703,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-02-20",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
     featuredImage: "/images/blog/best-money-transfer-apps.jpg",
     sections: [
@@ -814,7 +814,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-02-25",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Wise", "Remitly", "comparison", "vs", "fees", "exchange rates"],
     featuredImage: "/images/blog/wise-vs-remitly.jpg",
     sections: [
@@ -928,7 +928,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-01",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["India", "INR", "remittance", "USD to INR", "GBP to INR", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -1053,7 +1053,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-05",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "B2B payments", "invoicing", "FX management", "batch payments"],
     featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
@@ -1164,7 +1164,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-10",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["remittance", "statistics", "trends", "2026", "global", "research"],
     featuredImage: "/images/blog/global-remittance-trends.jpg",
     sections: [
@@ -1301,7 +1301,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-03-08",
     updatedAt: "2026-03-13",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["wire transfer", "SWIFT", "bank transfer", "fees", "alternatives"],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
     sections: [
@@ -1415,7 +1415,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "best transfer services",
       "provider rankings",
@@ -1627,7 +1627,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "promo codes",
       "referral programs",
@@ -1950,7 +1950,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Ramadan", "Eid", "remittances", "send money home", "cheap transfers"],
     featuredImage: "/images/blog/ramadan-eid-send-money.jpg",
     sections: [
@@ -2112,7 +2112,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "data",
       "comparison",
@@ -2296,7 +2296,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Pakistan", "PKR", "remittance", "USD to PKR", "GBP to PKR", "corridor guide", "send money to Pakistan"],
     featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
@@ -2477,7 +2477,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["multi-currency account", "exchange rates", "Wise", "Revolut", "Xe", "forex"],
     featuredImage: "/images/blog/multi-currency-accounts-v3.jpg",
     sections: [
@@ -2673,7 +2673,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Philippines", "PHP", "remittance", "USD to PHP", "GCash", "corridor guide", "send money to Philippines"],
     featuredImage: "/images/blog/send-money-to-philippines.jpg",
     sections: [
@@ -2839,7 +2839,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Mexico", "MXN", "remittance", "USD to MXN", "SPEI", "OXXO", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-mexico.jpg",
     sections: [
@@ -3004,7 +3004,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Nigeria", "NGN", "remittance", "USD to NGN", "naira", "corridor guide", "send money to Nigeria"],
     featuredImage: "/images/blog/send-money-to-nigeria.jpg",
     sections: [
@@ -3163,7 +3163,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Bangladesh", "BDT", "remittance", "USD to BDT", "bKash", "Nagad", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-bangladesh.jpg",
     sections: [
@@ -3331,7 +3331,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["India", "INR", "GBP to INR", "UK", "remittance", "UPI", "corridor guide", "send money to India"],
     featuredImage: "/images/blog/send-money-uk-to-india.jpg",
     sections: [
@@ -3505,7 +3505,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["India", "INR", "CAD to INR", "Canada", "remittance", "Interac", "corridor guide", "send money to India"],
     sections: [
       {
@@ -3688,7 +3688,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "B2B payments", "Wise Business", "OFX", "Revolut Business", "provider review", "batch payments", "FX management"],
     sections: [
       {
@@ -3998,7 +3998,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["Ria", "cash pickup", "India", "INR", "remittance", "expat", "money transfer", "USD to INR"],
     sections: [
       {
@@ -4216,7 +4216,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "B2B payments",
@@ -4343,7 +4343,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "international payroll",
@@ -4476,7 +4476,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "FX hedging",
@@ -4605,7 +4605,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "invoicing",
@@ -4738,7 +4738,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "USA to Canada",
@@ -4873,7 +4873,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to UK", "USD to GBP", "B2B payments", "cross-border payments"],
     sections: [
       {
@@ -4992,7 +4992,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to India", "USD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
@@ -5118,7 +5118,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Mexico", "USD to MXN", "B2B payments", "nearshoring", "CUSMA"],
     sections: [
       {
@@ -5239,7 +5239,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Europe", "USD to EUR", "B2B payments", "SEPA", "cross-border payments"],
     sections: [
       {
@@ -5359,7 +5359,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "UK to Europe", "GBP to EUR", "B2B payments", "SEPA", "post-Brexit"],
     sections: [
       {
@@ -5478,7 +5478,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "UK to India", "GBP to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
@@ -5598,7 +5598,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Philippines", "USD to PHP", "B2B payments", "BPO", "outsourcing"],
     sections: [
       {
@@ -5719,7 +5719,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Australia", "USD to AUD", "B2B payments", "cross-border payments"],
     sections: [
       {
@@ -5837,7 +5837,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to China", "USD to CNY", "B2B payments", "manufacturing", "supply chain"],
     sections: [
       {
@@ -5964,7 +5964,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "Canada to USA", "CAD to USD", "B2B payments", "cross-border payments", "CUSMA"],
     sections: [
       {
@@ -6083,7 +6083,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business", "Australia to India", "AUD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
@@ -6202,7 +6202,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "remittance tax",
       "US tax",
@@ -6395,7 +6395,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "crypto",
       "banking license",
@@ -6582,7 +6582,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "Revolut",
       "banking license",
@@ -6727,7 +6727,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "EU payments",
       "instant payments",
@@ -6872,7 +6872,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "multi-currency",
       "Wise",
@@ -7024,7 +7024,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: [
       "euribor",
       "euro transfers",
@@ -7201,7 +7201,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "SendMoneyCompare Team",
+    author: "Akif Hazarvi",
     tags: ["business payments", "FX fees", "international transfers", "B2B payments", "exchange rate markup"],
     featuredImage: "/images/blog/lowest-fx-fees-business-2026.jpg",
     sections: [

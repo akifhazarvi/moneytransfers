@@ -58,48 +58,54 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: "SendMoneyCompare",
   url: SITE_URL,
   logo: `${SITE_URL}/logos/sendmoneycompare-logo.png`,
   description:
     "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from leading providers.",
   foundingDate: "2024",
+  founder: {
+    "@type": "Person",
+    name: "Akif Hazarvi",
+    jobTitle: "Founder",
+  },
   contactPoint: {
     "@type": "ContactPoint",
     email: "hello@sendmoneycompare.com",
     contactType: "customer service",
   },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "London",
+    addressCountry: "GB",
+  },
+  areaServed: "Worldwide",
+  knowsAbout: [
+    "International money transfers",
+    "Remittances",
+    "Currency exchange rates",
+    "Foreign exchange",
+    "Cross-border payments",
+  ],
   sameAs: [
     "https://twitter.com/sendmoneycompare",
+    "https://www.linkedin.com/company/sendmoneycompare",
   ],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
   name: "SendMoneyCompare",
   url: SITE_URL,
+  publisher: { "@id": `${SITE_URL}/#organization` },
   potentialAction: {
     "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/send-money?from={from}&to={to}&amount={amount}`,
-    },
-    "query-input": "required name=from required name=to required name=amount",
+    target: `${SITE_URL}/send-money?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
   },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: SITE_URL,
-    },
-  ],
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -135,10 +141,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <NextIntlClientProvider locale={locale} messages={messages}>
         <ThemeProvider>
