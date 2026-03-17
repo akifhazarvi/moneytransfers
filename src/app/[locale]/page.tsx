@@ -76,6 +76,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { q: tFaq("q3"), a: tFaq("a3") },
     { q: tFaq("q4"), a: tFaq("a4") },
     { q: tFaq("q5"), a: tFaq("a5") },
+    { q: tFaq("q6"), a: tFaq("a6") },
+    { q: tFaq("q7"), a: tFaq("a7") },
+    { q: tFaq("q8"), a: tFaq("a8") },
   ];
 
   const trustItems = [
@@ -244,7 +247,50 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
-      {/* ─── 4b. SEND MONEY TO DESTINATIONS ─── */}
+      {/* ─── 4b. BEST FOR USE CASES ─── */}
+      <section className="py-14 bg-[var(--color-surface)]">
+        <Container>
+          <div className="text-center mb-10">
+            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+              Best Money Transfer Service by Need
+            </h2>
+            <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+              No single provider wins every category. Here&apos;s who leads for each use case.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {[
+              { badge: "Best Exchange Rate", provider: "Wise", reason: "Uses the real mid-market rate with fees from 0.41%. Consistently the lowest total cost for most corridors.", href: "/companies/wise", color: "var(--color-primary)" },
+              { badge: "Best for Speed", provider: "Remitly", reason: "Express transfers arrive in minutes to 170+ countries. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
+              { badge: "Best for Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
+              { badge: "Best for Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },
+              { badge: "Best for Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", href: "/companies/revolut", color: "var(--color-success)" },
+              { badge: "Best for Reliability", provider: "MoneyGram", reason: "Global presence in 200+ countries with cash, bank, and mobile wallet delivery. Trusted by millions since 1940.", href: "/companies/moneygram", color: "var(--color-warning)" },
+            ].map((item) => (
+              <Link
+                key={item.provider}
+                href={item.href}
+                className="group block p-5 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:shadow-[var(--shadow-md)] transition-all"
+              >
+                <span
+                  className="inline-block text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3"
+                  style={{ background: `color-mix(in srgb, ${item.color} 12%, transparent)`, color: item.color }}
+                >
+                  {item.badge}
+                </span>
+                <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-1.5 group-hover:text-[var(--color-primary)]">
+                  {item.provider}
+                </h3>
+                <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  {item.reason}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ─── 4c. SEND MONEY TO DESTINATIONS ─── */}
       <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="text-center mb-8">
