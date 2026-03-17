@@ -1181,15 +1181,15 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "global-remittance-trends-2026",
     title:
-      "Money Transfer & Remittance Statistics 2026 — India, Global Trends & Costs",
+      "India Remittance Statistics 2026: $125B Received — Global Trends & Transfer Costs",
     metaDescription:
-      "2026 remittance statistics: India received $125B, global flows hit $860B. Full breakdown by country, corridor costs, digital trends, and average transfer fees worldwide.",
+      "India received $125 billion in remittances in 2025 — the world's largest recipient. Full 2026 data: global flows, corridor costs, average fees, and top sending countries.",
     excerpt:
       "Global remittances reached $860 billion in 2025, with India receiving $125 billion. Here are the trends, statistics, and shifts shaping the international money transfer industry.",
     category: "Research",
     readTime: "10 min read",
     publishedAt: "2026-03-10",
-    updatedAt: "2026-03-13",
+    updatedAt: "2026-03-17",
     author: "Akif Hazarvi",
     tags: ["remittance", "statistics", "trends", "2026", "global", "research"],
     featuredImage: "/images/blog/global-remittance-trends.jpg",
@@ -1669,13 +1669,13 @@ export const blogPosts: BlogPost[] = [
     title:
       "Money Transfer Promo Codes & First-Time User Deals (March 2026)",
     metaDescription:
-      "Every active promo code, sign-up bonus, and special rate for first-time money transfer users from 14 providers. Updated March 2026 — save on your next transfer.",
+      "Active promo codes & first-time user deals from Wise, Remitly, WorldRemit + 11 more. Get up to $115 back on your first transfer — every offer verified March 17, 2026.",
     excerpt:
       "Special rates for first-time users, promo codes, and referral bonuses from 14 money transfer providers — compiled and verified so you can save the most on your next transfer.",
     category: "Guides",
     readTime: "14 min read",
     publishedAt: "2026-03-14",
-    updatedAt: "2026-03-14",
+    updatedAt: "2026-03-17",
     author: "Akif Hazarvi",
     tags: [
       "promo codes",

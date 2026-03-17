@@ -16,20 +16,22 @@ export const newsItems: NewsItem[] = [
   {
     slug: "central-bank-super-week-march-2026",
     title:
-      "Central Bank Rate Decisions This Week (March 2026) — Fed, ECB, BOJ Impact on Transfer Rates",
+      "Central Bank Rate Decisions This Week (March 17–19, 2026) — RBA Today, Fed, BoJ & BoE",
     excerpt:
-      "Three of the world's most powerful central banks announce interest rate decisions within 48 hours this week. Here's what it means for exchange rates and the cost of sending money abroad.",
+      "Four central banks announce interest rate decisions between March 17 and 19. The RBA statement is out today. Here's what each decision could mean for exchange rates and the cost of sending money abroad.",
     image: "/images/news/central-bank-super-week.jpg",
     imageAlt:
-      "The Federal Reserve building in Washington D.C., one of three central banks announcing rate decisions this week",
-    content: `<p>This week is one of the most consequential in the 2026 currency calendar. Between March 18 and 19, the <strong>US Federal Reserve</strong>, <strong>Bank of England</strong>, and <strong>Bank of Japan</strong> all announce interest rate decisions — a convergence that forex markets call a "super-week." For anyone planning an international money transfer, the timing matters.</p>
+      "The Federal Reserve building in Washington D.C., one of four central banks announcing rate decisions this week",
+    content: `<p>This week is one of the most consequential in the 2026 currency calendar. Between March 17 and 19, four major central banks — the <strong>Reserve Bank of Australia</strong>, <strong>US Federal Reserve</strong>, <strong>Bank of Japan</strong>, and <strong>Bank of England</strong> — all publish rate decisions or monetary policy statements. For anyone planning an international money transfer, the timing matters.</p>
 
 <h2>What's expected — and what could surprise</h2>
-<p>The <strong>Federal Reserve</strong> (March 18) is widely expected to hold rates steady. The real focus is the updated "dot plot" — the Fed's projection of future rate cuts. A shift from one projected cut in 2026 to zero would strengthen the dollar, meaning your recipient gets fewer euros, pounds, or rupees per dollar sent. A shift to two projected cuts would weaken the dollar and improve rates for US senders.</p>
+<p>The <strong>Reserve Bank of Australia</strong> (March 17 — today) publishes its monetary policy statement following its board meeting. The RBA cut rates in February 2026 for the first time in years, and markets are watching whether the board signals another cut is on the table. An unexpectedly dovish tone could weaken the Australian dollar, affecting corridors like AUD/INR and AUD/PHP.</p>
+
+<p>The <strong>Federal Reserve</strong> (March 17–18) is widely expected to hold rates steady. The real focus is the updated "dot plot" — the Fed's projection of future rate cuts. A shift from one projected cut in 2026 to zero would strengthen the dollar, meaning your recipient gets fewer euros, pounds, or rupees per dollar sent. A shift to two projected cuts would weaken the dollar and improve rates for US senders.</p>
+
+<p>The <strong>Bank of Japan</strong> (March 18–19) is the wildcard. The BoJ has been gradually normalising policy after decades of ultra-loose monetary settings. Any hint of further rate hikes could strengthen the yen sharply, affecting corridors like USD/JPY and GBP/JPY. Japan-bound transfers could suddenly become more expensive if the yen rallies.</p>
 
 <p>The <strong>Bank of England</strong> (March 19) is also expected to hold. UK inflation has proven sticky, and higher energy prices have complicated the case for easing. Sterling has been relatively strong in 2026, with GBP/USD trading around 1.32 — good news for British senders, but a hold decision that signals delayed cuts could push the pound even higher.</p>
-
-<p>The <strong>Bank of Japan</strong> (March 19) is the wildcard. The BoJ has been gradually normalising policy after decades of ultra-loose monetary settings. Any hint of further rate hikes could strengthen the yen sharply, affecting corridors like USD/JPY and GBP/JPY. Japan-bound transfers could suddenly become more expensive if the yen rallies.</p>
 
 <h2>How rate decisions move your transfer costs</h2>
 <p>Interest rate changes affect exchange rates because money flows toward higher-yielding currencies. When the Fed cuts rates, the dollar typically weakens — great if you're sending dollars abroad (your recipient gets more), but bad if you're sending money <em>to</em> the US.</p>
@@ -39,14 +41,14 @@ export const newsItems: NewsItem[] = [
 <h2>What to do this week</h2>
 <p>If you have a transfer planned for this week, you have three options:</p>
 <ul>
-<li><strong>Send before Tuesday</strong> — Lock in today's rates and avoid the uncertainty entirely. Current rates are relatively favourable for GBP and EUR senders.</li>
-<li><strong>Wait until Thursday</strong> — By then, all three decisions will be public and the initial volatility will have settled. You'll know whether rates have moved in your favour.</li>
+<li><strong>Send today before the RBA statement lands</strong> — Lock in current rates and avoid early volatility. The RBA publishes at 14:30 AEDT.</li>
+<li><strong>Wait until Thursday or Friday</strong> — By then, all four decisions will be public and the initial volatility will have settled. You'll know whether rates moved in your favour.</li>
 <li><strong>Set a rate alert</strong> — Use a multi-currency account with <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> to set an alert at your target rate. If the post-announcement volatility pushes rates in your direction, you'll be notified instantly and can convert on the spot.</li>
 </ul>
 
 <p>Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> is especially important during volatile weeks like this — providers absorb or pass on currency swings very differently. If you hold multiple currencies, our guide on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates</a> explains which products give you the most flexibility. Whichever approach you choose, compare rates from multiple providers before committing — our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> explains exactly what to look for. Our <a href="/send-money">comparison tool</a> shows live rates and fees, so you can see exactly how much your recipient will receive — before and after the central banks have their say.</p>`,
     category: "Industry News",
-    publishedAt: "2026-03-15",
+    publishedAt: "2026-03-17",
     source: "Reuters / Bank of England / Federal Reserve",
     sourceUrl: "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes",
     providerSlugs: ["wise", "xe", "revolut"],
