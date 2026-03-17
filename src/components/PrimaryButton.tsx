@@ -36,7 +36,7 @@ export default function PrimaryButton(props: Props) {
   if ("href" in props && props.href) {
     if ((props as LinkProps).external) {
       return (
-        <a href={props.href} target="_blank" rel="noopener noreferrer nofollow" className={classes}>
+        <a href={props.href} target="_blank" rel="noopener noreferrer" className={classes}>
           {children}
         </a>
       );

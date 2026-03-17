@@ -253,7 +253,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 <a
                   href={providerWebsite}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                   onClick={() => { track("provider_clicked", { provider: quote.providerSlug, corridor: `${quote.sendCurrency}-${quote.receiveCurrency}`, rank }); trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank); }}
                   className={`inline-flex items-center gap-2 h-10 px-6 text-[13px] font-semibold rounded-full transition-all duration-150 ${
                     isBest

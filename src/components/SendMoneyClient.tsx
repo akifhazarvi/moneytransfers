@@ -747,7 +747,7 @@ function SendMoneyContent() {
                     <a
                       href={getGoUrl(q.providerSlug)}
                       target="_blank"
-                      rel="noopener noreferrer nofollow"
+                      rel="noopener noreferrer"
                       onClick={() => { track("provider_clicked", { provider: q.providerSlug, corridor: `${fromCurrency}-${toCurrency}`, source: "comparison" }); trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison"); }}
                       className="inline-flex items-center gap-2 h-10 px-6 text-[13px] font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow transition-all"
                     >
