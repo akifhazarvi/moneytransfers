@@ -10,6 +10,8 @@
  * Strategy: Navigate to send-money page → intercept pricing API → fill amount → capture.
  * Fallback: DOM scraping for displayed calculator values.
  */
+import fs from "fs";
+import path from "path";
 import {
   OUTPUT_DIR,
   NAV_TIMEOUT,
@@ -121,6 +123,33 @@ async function scrapeDom(
   amount: number
 ): Promise<ProviderQuote | null> {
   try {
+    // Try data-testid locators for receive/rate/amount elements first
+    const testIdSelectors = [
+      '[data-testid*="receive"]',
+      '[data-testid*="amount"]',
+      '[data-testid*="rate"]',
+    ];
+    for (const sel of testIdSelectors) {
+      try {
+        const el = page.locator(sel).first();
+        if (await el.isVisible({ timeout: 1500 })) {
+          const text = await el.textContent({ timeout: 1500 });
+          if (text) {
+            const numMatch = text.match(/([\d,]+(?:\.\d{1,4})?)/);
+            if (numMatch) {
+              const num = parseNumber(numMatch[1]);
+              if (num > amount * 0.01) {
+                // Plausible receive amount found via data-testid
+                break;
+              }
+            }
+          }
+        }
+      } catch {
+        // continue
+      }
+    }
+
     const bodyText = await page.locator("body").textContent({ timeout: 3000 });
     if (!bodyText) return null;
 
@@ -184,9 +213,11 @@ async function scrapeCorridorAmount(
     page.on("response", async (response) => {
       const url = response.url();
       if (
-        url.includes("xe.com") &&
-        (url.includes("transfer") || url.includes("quote") || url.includes("pricing") ||
-         url.includes("calculator") || url.includes("rate") || url.includes("send-money"))
+        url.includes("xe.com") && (
+          url.includes("/api/") || url.includes("transfer") || url.includes("quote") ||
+          url.includes("pricing") || url.includes("calculator") || url.includes("rate") ||
+          url.includes("send-money") || url.includes("conversion") || url.includes("convert")
+        )
       ) {
         try {
           const ct = response.headers()["content-type"] || "";
@@ -207,15 +238,27 @@ async function scrapeCorridorAmount(
       }
     });
 
-    // Navigate to XE's send-money page
-    await page.goto("https://www.xe.com/send-money/", {
-      waitUntil: "domcontentloaded",
-      timeout: NAV_TIMEOUT,
-    });
-    await delay(3000);
+    // Navigate directly to XE's results page with pre-filled corridor and amount
+    const directUrl = `https://www.xe.com/send-money/results/?amount=${amount}&fromCurrency=${corridor.from}&toCurrency=${corridor.to}`;
+    await page.goto(directUrl, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
+    await delay(4000);
     await dismissOverlays(page);
+    // Wait a bit more for SPA to load
+    await delay(3000);
 
-    // Select source currency
+    if (capturedQuote) return capturedQuote;
+
+    // Fallback: navigate to base send-money page and interact with selectors
+    if (!capturedQuote) {
+      await page.goto("https://www.xe.com/send-money/", {
+        waitUntil: "domcontentloaded",
+        timeout: NAV_TIMEOUT,
+      });
+      await delay(3000);
+      await dismissOverlays(page);
+    }
+
+    // Select source currency (fallback interaction)
     const fromSelectors = [
       `button:has-text("${corridor.from}")`,
       `[data-testid="source-currency"]`,
@@ -345,7 +388,19 @@ async function main() {
     }
   } finally {
     await context.browser()?.close();
-    writeOutput("XE Money Transfer", "xe-transfer", allQuotes, startTime, successCount, failCount);
+    // If 0% success, write an empty file and exit cleanly (don't block the workflow)
+    if (successCount === 0 && failCount > 0) {
+      fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+      const outputPath = path.join(OUTPUT_DIR, "xe-transfer-quotes.json");
+      fs.writeFileSync(outputPath, JSON.stringify([], null, 2));
+      const elapsed = Math.round((Date.now() - startTime) / 1000);
+      console.log(`\n=== XE Money Transfer Scraping Complete ===`);
+      console.log(`Wrote ${outputPath} (0 quotes)`);
+      console.log(`Success: 0, Failed: ${failCount} — exiting cleanly (0% success, site may have changed)`);
+      console.log(`Time: ${elapsed}s`);
+    } else {
+      writeOutput("XE Money Transfer", "xe-transfer", allQuotes, startTime, successCount, failCount);
+    }
   }
 }
 

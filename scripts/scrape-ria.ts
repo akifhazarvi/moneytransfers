@@ -231,6 +231,30 @@ async function scrapeCorridorAmount(
     await delay(3000);
     await dismissOverlays(page);
 
+    // Try to find and update the amount input to ensure it reflects our requested amount
+    // (Ria's server ignores the URL Amount param, so the DOM may show a default value)
+    const amountSelectors = [
+      'input[name*="amount" i]',
+      'input[id*="amount" i]',
+      'input[placeholder*="amount" i]',
+      'input[type="number"]',
+      'input[type="tel"]',
+      '#amount',
+      '[data-testid*="amount"]',
+    ];
+    for (const sel of amountSelectors) {
+      try {
+        const input = page.locator(sel).first();
+        if (await input.isVisible({ timeout: 2000 })) {
+          await input.click({ clickCount: 3 });
+          await input.fill(String(amount));
+          await page.keyboard.press("Tab");
+          await delay(3000); // Wait for recalculation
+          break;
+        }
+      } catch { continue; }
+    }
+
     // Wait for dynamic content to load
     await delay(4000);
 
