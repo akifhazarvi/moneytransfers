@@ -1,0 +1,166 @@
+[
+  {
+    "date": "2026-03-13",
+    "providers": {
+      "ocbc": {
+        "rate": 70.8392,
+        "fee": 30,
+        "markup": 1.7491,
+        "receiveAmount": 4958.74
+      },
+      "uob": {
+        "rate": 70.0505,
+        "fee": 40,
+        "markup": 2.843,
+        "receiveAmount": 4203.03
+      },
+      "hsbc-sg": {
+        "rate": 71.5118,
+        "fee": 0,
+        "markup": 0.8163,
+        "receiveAmount": 7151.18
+      },
+      "remitly": {
+        "rate": 71.17,
+        "fee": 3.99,
+        "markup": 1.2903,
+        "receiveAmount": 6833.03
+      },
+      "instarem": {
+        "rate": 72.037,
+        "fee": 0.55,
+        "markup": 0.0878,
+        "receiveAmount": 7164.08
+      },
+      "wise": {
+        "rate": 72.1003,
+        "fee": 1.52,
+        "markup": 0,
+        "receiveAmount": 7100.44
+      }
+    }
+  },
+  {
+    "date": "2026-03-14",
+    "providers": {
+      "uob": {
+        "rate": 70.0505,
+        "fee": 40,
+        "markup": 2.843,
+        "receiveAmount": 4203.03
+      },
+      "ocbc": {
+        "rate": 70.8392,
+        "fee": 30,
+        "markup": 1.7491,
+        "receiveAmount": 4958.74
+      },
+      "remitly": {
+        "rate": 71.17,
+        "fee": 3.99,
+        "markup": 1.2903,
+        "receiveAmount": 6833.03
+      },
+      "hsbc-sg": {
+        "rate": 71.5118,
+        "fee": 0,
+        "markup": 0.8163,
+        "receiveAmount": 7151.18
+      },
+      "wise": {
+        "rate": 72.1003,
+        "fee": 1.52,
+        "markup": 0,
+        "receiveAmount": 7100.44
+      },
+      "instarem": {
+        "rate": 72.001,
+        "fee": 0.55,
+        "markup": 0.1377,
+        "receiveAmount": 7160.5
+      }
+    }
+  },
+  {
+    "date": "2026-03-15",
+    "providers": {
+      "remitly": {
+        "rate": 71.21,
+        "fee": 3.99,
+        "markup": 1.2348,
+        "receiveAmount": 6836.87
+      },
+      "uob": {
+        "rate": 70.0505,
+        "fee": 40,
+        "markup": 2.843,
+        "receiveAmount": 4203.03
+      },
+      "ocbc": {
+        "rate": 70.8392,
+        "fee": 30,
+        "markup": 1.7491,
+        "receiveAmount": 4958.74
+      },
+      "instarem": {
+        "rate": 72.04,
+        "fee": 0.55,
+        "markup": 0.0836,
+        "receiveAmount": 7164.38
+      },
+      "hsbc-sg": {
+        "rate": 71.5118,
+        "fee": 0,
+        "markup": 0.8163,
+        "receiveAmount": 7151.18
+      },
+      "wise": {
+        "rate": 72.1003,
+        "fee": 1.52,
+        "markup": 0,
+        "receiveAmount": 7100.44
+      }
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "providers": {
+      "uob": {
+        "rate": 70.1621,
+        "fee": 40,
+        "markup": 2.8551,
+        "receiveAmount": 4209.73
+      },
+      "ocbc": {
+        "rate": 71.5259,
+        "fee": 30,
+        "markup": 0.9668,
+        "receiveAmount": 5006.82
+      },
+      "remitly": {
+        "rate": 71.3627,
+        "fee": 3.99,
+        "markup": 1.1928,
+        "receiveAmount": 6851.53
+      },
+      "hsbc-sg": {
+        "rate": 71.6346,
+        "fee": 0,
+        "markup": 0.8163,
+        "receiveAmount": 7163.46
+      },
+      "wise": {
+        "rate": 72.2445,
+        "fee": 1.52,
+        "markup": -0.0281,
+        "receiveAmount": 7114.64
+      },
+      "instarem": {
+        "rate": 72.2102,
+        "fee": 0.55,
+        "markup": 0.0194,
+        "receiveAmount": 7181.3
+      }
+    }
+  }
+]

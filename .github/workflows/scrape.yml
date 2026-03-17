@@ -246,6 +246,16 @@ jobs:
           path: src/data/scraped/
         continue-on-error: true
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Aggregate historical data
+        run: npx tsx scripts/aggregate-history.ts
+
       - name: Commit scraped data
         run: |
           git config user.name "github-actions[bot]"

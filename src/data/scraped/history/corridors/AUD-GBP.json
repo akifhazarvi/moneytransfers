@@ -1,0 +1,256 @@
+[
+  {
+    "date": "2026-03-13",
+    "providers": {
+      "western-union": {
+        "rate": 0.5279,
+        "fee": 2.99,
+        "markup": -0.0017,
+        "receiveAmount": 51.21
+      },
+      "westpac": {
+        "rate": 0.5079,
+        "fee": 0,
+        "markup": 3.788,
+        "receiveAmount": 50.79
+      },
+      "paypal": {
+        "rate": 0.5045,
+        "fee": 5,
+        "markup": 4.4302,
+        "receiveAmount": 47.93
+      },
+      "anz": {
+        "rate": 0.5105,
+        "fee": 9,
+        "markup": 3.297,
+        "receiveAmount": 46.45
+      },
+      "remitly": {
+        "rate": 0.521,
+        "fee": 0.89,
+        "markup": 1.3037,
+        "receiveAmount": 51.64
+      },
+      "instarem": {
+        "rate": 0.5276,
+        "fee": 0.5,
+        "markup": 0.0534,
+        "receiveAmount": 52.5
+      },
+      "wise": {
+        "rate": 0.5279,
+        "fee": 1.24,
+        "markup": 0,
+        "receiveAmount": 52.13
+      },
+      "worldremit": {
+        "rate": 0.5202,
+        "fee": 1.99,
+        "markup": 1.4488,
+        "receiveAmount": 50.99
+      },
+      "commonwealth-bank-of-australia": {
+        "rate": 0.508,
+        "fee": 0,
+        "markup": 3.7664,
+        "receiveAmount": 50.8
+      },
+      "national-australia-bank": {
+        "rate": 0.5109,
+        "fee": 0,
+        "markup": 3.2102,
+        "receiveAmount": 51.09
+      }
+    }
+  },
+  {
+    "date": "2026-03-14",
+    "providers": {
+      "westpac": {
+        "rate": 0.5079,
+        "fee": 0,
+        "markup": 3.788,
+        "receiveAmount": 50.79
+      },
+      "commonwealth-bank-of-australia": {
+        "rate": 0.508,
+        "fee": 0,
+        "markup": 3.7664,
+        "receiveAmount": 50.8
+      },
+      "wise": {
+        "rate": 0.5279,
+        "fee": 1.24,
+        "markup": 0,
+        "receiveAmount": 52.13
+      },
+      "anz": {
+        "rate": 0.5105,
+        "fee": 9,
+        "markup": 3.297,
+        "receiveAmount": 46.45
+      },
+      "western-union": {
+        "rate": 0.5275,
+        "fee": 2.99,
+        "markup": 0.0724,
+        "receiveAmount": 51.17
+      },
+      "paypal": {
+        "rate": 0.5045,
+        "fee": 5,
+        "markup": 4.4302,
+        "receiveAmount": 47.93
+      },
+      "national-australia-bank": {
+        "rate": 0.5116,
+        "fee": 0,
+        "markup": 3.0863,
+        "receiveAmount": 51.16
+      },
+      "worldremit": {
+        "rate": 0.5199,
+        "fee": 1.99,
+        "markup": 1.5121,
+        "receiveAmount": 50.96
+      },
+      "remitly": {
+        "rate": 0.521,
+        "fee": 0.89,
+        "markup": 1.3037,
+        "receiveAmount": 51.64
+      },
+      "instarem": {
+        "rate": 0.5271,
+        "fee": 0.5,
+        "markup": 0.1481,
+        "receiveAmount": 52.45
+      }
+    }
+  },
+  {
+    "date": "2026-03-15",
+    "providers": {
+      "worldremit": {
+        "rate": 0.5199,
+        "fee": 1.99,
+        "markup": 1.5121,
+        "receiveAmount": 50.96
+      },
+      "national-australia-bank": {
+        "rate": 0.5116,
+        "fee": 0,
+        "markup": 3.0863,
+        "receiveAmount": 51.16
+      },
+      "anz": {
+        "rate": 0.5105,
+        "fee": 9,
+        "markup": 3.297,
+        "receiveAmount": 46.45
+      },
+      "remitly": {
+        "rate": 0.5218,
+        "fee": 0.89,
+        "markup": 1.1522,
+        "receiveAmount": 51.72
+      },
+      "commonwealth-bank-of-australia": {
+        "rate": 0.508,
+        "fee": 0,
+        "markup": 3.7664,
+        "receiveAmount": 50.8
+      },
+      "westpac": {
+        "rate": 0.5079,
+        "fee": 0,
+        "markup": 3.788,
+        "receiveAmount": 50.79
+      },
+      "western-union": {
+        "rate": 0.5275,
+        "fee": 2.99,
+        "markup": 0.0724,
+        "receiveAmount": 51.17
+      },
+      "paypal": {
+        "rate": 0.5045,
+        "fee": 5,
+        "markup": 4.4302,
+        "receiveAmount": 47.93
+      },
+      "wise": {
+        "rate": 0.5279,
+        "fee": 1.24,
+        "markup": 0,
+        "receiveAmount": 52.13
+      },
+      "instarem": {
+        "rate": 0.5271,
+        "fee": 0.5,
+        "markup": 0.1481,
+        "receiveAmount": 52.45
+      }
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "providers": {
+      "worldremit": {
+        "rate": 0.5226,
+        "fee": 1.99,
+        "markup": 1.5121,
+        "receiveAmount": 51.22
+      },
+      "national-australia-bank": {
+        "rate": 0.5172,
+        "fee": 0,
+        "markup": 2.5332,
+        "receiveAmount": 51.72
+      },
+      "anz": {
+        "rate": 0.512,
+        "fee": 9,
+        "markup": 3.5089,
+        "receiveAmount": 46.59
+      },
+      "remitly": {
+        "rate": 0.524,
+        "fee": 0.89,
+        "markup": 1.2494,
+        "receiveAmount": 51.93
+      },
+      "commonwealth-bank-of-australia": {
+        "rate": 0.51,
+        "fee": 0,
+        "markup": 3.8888,
+        "receiveAmount": 51
+      },
+      "western-union": {
+        "rate": 0.5303,
+        "fee": 2.99,
+        "markup": 0.0724,
+        "receiveAmount": 51.44
+      },
+      "paypal": {
+        "rate": 0.5047,
+        "fee": 5,
+        "markup": 4.8887,
+        "receiveAmount": 47.95
+      },
+      "wise": {
+        "rate": 0.5306,
+        "fee": 1.24,
+        "markup": 0,
+        "receiveAmount": 52.41
+      },
+      "instarem": {
+        "rate": 0.5306,
+        "fee": 0.5,
+        "markup": 0.0051,
+        "receiveAmount": 52.8
+      }
+    }
+  }
+]

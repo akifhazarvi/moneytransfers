@@ -1,0 +1,70 @@
+[
+  {
+    "date": "2026-03-13",
+    "providers": {
+      "wise": {
+        "rate": 1829.15,
+        "fee": 1.23,
+        "markup": 0,
+        "receiveAmount": 180665.15
+      },
+      "western-union": {
+        "rate": 1820.535,
+        "fee": 2.99,
+        "markup": 0.471,
+        "receiveAmount": 176610.1
+      }
+    }
+  },
+  {
+    "date": "2026-03-14",
+    "providers": {
+      "wise": {
+        "rate": 1829.15,
+        "fee": 1.23,
+        "markup": 0,
+        "receiveAmount": 180665.15
+      },
+      "western-union": {
+        "rate": 1813.74,
+        "fee": 2.99,
+        "markup": 0.8425,
+        "receiveAmount": 175950.92
+      }
+    }
+  },
+  {
+    "date": "2026-03-15",
+    "providers": {
+      "western-union": {
+        "rate": 1813.74,
+        "fee": 2.99,
+        "markup": 0.8425,
+        "receiveAmount": 175950.92
+      },
+      "wise": {
+        "rate": 1829.15,
+        "fee": 1.23,
+        "markup": 0,
+        "receiveAmount": 180665.15
+      }
+    }
+  },
+  {
+    "date": "2026-03-16",
+    "providers": {
+      "western-union": {
+        "rate": 1828.4847,
+        "fee": 2.99,
+        "markup": 0.8425,
+        "receiveAmount": 177381.3
+      },
+      "wise": {
+        "rate": 1844.02,
+        "fee": 1.23,
+        "markup": 0,
+        "receiveAmount": 182133.86
+      }
+    }
+  }
+]
