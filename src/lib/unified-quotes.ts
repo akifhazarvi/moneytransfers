@@ -252,9 +252,3 @@ export function findNearestAmount(target: number): number {
   return closest;
 }
 
-// --- Stats ---
-const totalQuotes = Object.values(quotesByCorridor).reduce((sum, qs) => sum + qs.length, 0);
-const totalCorridors = Object.keys(quotesByCorridor).length;
-console.log(
-  `[unified-quotes] Loaded ${totalQuotes} quotes across ${totalCorridors} corridors from ${allProviderSlugs.size} providers`
-);

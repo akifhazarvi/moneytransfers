@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ForexTicker from "@/components/ForexTicker";
 import ThemeProvider from "@/components/ThemeProvider";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
 import CookieConsent from "@/components/CookieConsent";
 import Script from "next/script";
@@ -157,7 +158,9 @@ export default async function LocaleLayout({ children, params }: Props) {
             Skip to main content
           </a>
           <Header />
-          <main id="main-content" className="min-h-screen pb-10">{children}</main>
+          <main id="main-content" className="min-h-screen pb-10">
+            <ErrorBoundary>{children}</ErrorBoundary>
+          </main>
           <Footer />
           <ForexTicker />
           <Analytics />

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import Container from "@/components/Container";
-import Card from "@/components/Card";
+import GuidesClientPage from "@/components/GuidesClientPage";
+import NewsletterForm from "@/components/NewsletterForm";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -28,11 +28,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("guides");
-  const sorted = [...blogPosts].sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
-  const featured = sorted[0];
-  const rest = sorted.slice(1);
 
   return (
     <Container className="py-8">
@@ -49,22 +44,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         {t("subtitle")}
       </p>
 
-      {/* Category Tabs */}
-      <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
-        {blogCategories.map((cat) => (
-          <span
-            key={cat}
-            className={`px-4 py-2 rounded-full text-[13px] font-medium whitespace-nowrap cursor-pointer transition-colors ${
-              cat === "All"
-                ? "bg-[var(--color-primary)] text-white"
-                : "bg-[var(--color-surface-dim)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container)]"
-            }`}
-          >
-            {cat}
-          </span>
-        ))}
-      </div>
-
       {/* Editorial Introduction */}
       <div className="mb-8 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">
         <p>
@@ -75,68 +54,16 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         </p>
       </div>
 
-      {/* Featured Guide */}
-      <Link
-        href={`/guides/${featured.slug}`}
-        className="block bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-2xl p-8 md:p-12 mb-8 text-white hover:shadow-lg transition-shadow"
-      >
-        <span className="text-[12px] font-medium bg-[var(--color-surface)]/20 px-3 py-1 rounded-full">
-          {t("featuredGuide")}
-        </span>
-        <h2 className="text-[24px] md:text-[30px] font-normal mt-4 mb-3">
-          {featured.title}
-        </h2>
-        <p className="text-[14px] text-white/80 mb-6 max-w-2xl">
-          {featured.excerpt}
-        </p>
-        <div className="flex items-center gap-4">
-          <span className="text-[13px] text-white/60">
-            {featured.readTime}
-          </span>
-          <span className="bg-[var(--color-surface)] text-[var(--color-primary)] px-6 py-2 rounded-full text-[13px] font-medium">
-            {t("readGuide")}
-          </span>
-        </div>
-      </Link>
-
-      {/* Guide Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {rest.map((post) => (
-          <Card key={post.slug} href={`/guides/${post.slug}`} className="group !p-0 overflow-hidden">
-            {post.featuredImage && (
-              <div className="relative w-full h-[160px]">
-                <Image
-                  src={post.featuredImage}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
-            <div className="p-5">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
-                  {post.category}
-                </span>
-                <span className="text-[12px] text-[var(--color-on-surface-variant)]">
-                  {post.readTime}
-                </span>
-              </div>
-              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2 leading-snug">
-                {post.title}
-              </h3>
-              <p className="text-[13px] text-[var(--color-on-surface-variant)] line-clamp-3">
-                {post.excerpt}
-              </p>
-              <div className="mt-4">
-                <span className="text-[13px] text-[var(--color-primary)] font-medium group-hover:underline">
-                  {t("readMore")} &rarr;
-                </span>
-              </div>
-            </div>
-          </Card>
-        ))}
-      </div>
+      {/* Category tabs + featured post + grid — interactive, handled client-side */}
+      <GuidesClientPage
+        posts={blogPosts}
+        categories={blogCategories}
+        translations={{
+          featuredGuide: t("featuredGuide"),
+          readGuide: t("readGuide"),
+          readMore: t("readMore"),
+        }}
+      />
 
       {/* Cross-links */}
       <div className="mt-12 pt-8 border-t border-[var(--color-outline)]">
@@ -176,16 +103,10 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6 max-w-lg mx-auto">
           {t("stayUpdatedDesc")}
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder={t("enterEmail")}
-            className="flex-1 border border-[var(--color-outline)] rounded-full px-4 py-3 text-[14px] bg-[var(--color-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
-          />
-          <button className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-all whitespace-nowrap">
-            {t("subscribe")}
-          </button>
-        </div>
+        <NewsletterForm
+          placeholder={t("enterEmail")}
+          buttonLabel={t("subscribe")}
+        />
       </div>
     </Container>
   );

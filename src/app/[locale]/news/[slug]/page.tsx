@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import { newsItems, getNewsItem, getLatestNews } from "@/data/news";
 import { getProviderName } from "@/data/providers";
 import { formatLocalDate } from "@/lib/format-date";
+import { sanitizeHtml } from "@/lib/sanitize";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -179,7 +180,7 @@ export default async function NewsArticlePage({ params }: Props) {
             {/* Content */}
             <div
               className="prose-custom text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
-              dangerouslySetInnerHTML={{ __html: item.content }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.content) }}
             />
 
             {/* Source */}

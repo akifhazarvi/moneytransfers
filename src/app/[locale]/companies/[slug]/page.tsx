@@ -13,6 +13,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import CrossLinks from "@/components/CrossLinks";
 import BestTransferToday from "@/components/BestTransferToday";
 import { getGoUrl } from "@/lib/affiliate";
+import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -229,7 +230,7 @@ function DetailedReview({
                 </h2>
                 <div
                   className="prose prose-sm max-w-none text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed [&_table]:w-full [&_table]:text-[13px] [&_table]:border-collapse [&_th]:bg-[var(--color-surface-container)] [&_th]:text-left [&_th]:px-3 [&_th]:py-2 [&_th]:text-[var(--color-on-surface)] [&_th]:font-medium [&_td]:px-3 [&_td]:py-2 [&_td]:border-t [&_td]:border-[var(--color-outline)] [&_strong]:text-[var(--color-on-surface)] [&_ul]:space-y-1.5 [&_li]:text-[14px] [&_em]:text-[var(--color-on-surface)] [&_p]:mb-4"
-                  dangerouslySetInnerHTML={{ __html: section.content }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
               </Card>
             ))}

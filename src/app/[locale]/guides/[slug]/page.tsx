@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
 import { formatLocalDate } from "@/lib/format-date";
+import { sanitizeHtml } from "@/lib/sanitize";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -218,7 +219,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </h2>
                 <div
                   className="prose-custom text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: section.content }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
               </section>
             ))}

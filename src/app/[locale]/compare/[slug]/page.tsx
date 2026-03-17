@@ -11,6 +11,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonTable from "@/components/ComparisonTable";
 import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
+import { sanitizeHtml } from "@/lib/sanitize";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -292,7 +293,7 @@ function ArticleComparison({
                 </h2>
                 <div
                   className="prose-custom text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: section.content }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
               </section>
             ))}

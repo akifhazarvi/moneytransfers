@@ -6,6 +6,9 @@ import CurrencyPicker from "@/components/CurrencyPicker";
 import { trackCompareSearch } from "@/lib/analytics";
 import { useTranslations } from "next-intl";
 
+const MIN_AMOUNT = 1;
+const MAX_AMOUNT = 1_000_000;
+
 interface Props {
   defaultFrom?: string;
   defaultTo?: string;
@@ -23,11 +26,29 @@ export default function ComparisonWidget({
   const [fromCurrency, setFromCurrency] = useState(defaultFrom);
   const [toCurrency, setToCurrency] = useState(defaultTo);
   const [amount, setAmount] = useState(defaultAmount);
+  const [amountError, setAmountError] = useState("");
   const id = useId();
   const t = useTranslations("comparisonWidget");
 
+  function validateAmount(value: number): string {
+    if (!Number.isFinite(value) || value < MIN_AMOUNT) return `Minimum amount is ${MIN_AMOUNT}`;
+    if (value > MAX_AMOUNT) return `Maximum amount is ${MAX_AMOUNT.toLocaleString()}`;
+    return "";
+  }
+
+  function handleAmountChange(raw: string) {
+    const value = Number(raw);
+    setAmount(value);
+    setAmountError(validateAmount(value));
+  }
+
   function handleCompare(e: React.FormEvent) {
     e.preventDefault();
+    const err = validateAmount(amount);
+    if (err) {
+      setAmountError(err);
+      return;
+    }
     trackCompareSearch(fromCurrency, toCurrency, amount);
     router.push(`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
   }
@@ -45,7 +66,21 @@ export default function ComparisonWidget({
         <div className="grid grid-cols-1 gap-3">
           <div>
             <label htmlFor={`${id}-amount`} className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("youSend")}</label>
-            <input id={`${id}-amount`} type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} min={1} className={inputClass} placeholder="1,000" />
+            <input
+              id={`${id}-amount`}
+              type="number"
+              value={amount}
+              onChange={(e) => handleAmountChange(e.target.value)}
+              min={MIN_AMOUNT}
+              max={MAX_AMOUNT}
+              step="any"
+              className={`${inputClass} ${amountError ? "border-[var(--color-error)]" : ""}`}
+              placeholder="1,000"
+              aria-describedby={amountError ? `${id}-amount-error` : undefined}
+            />
+            {amountError && (
+              <p id={`${id}-amount-error`} className="text-[11px] text-[var(--color-error)] mt-1">{amountError}</p>
+            )}
           </div>
           <div>
             <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("from")}</label>
@@ -77,11 +112,17 @@ export default function ComparisonWidget({
               id={`${id}-send`}
               type="number"
               value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
-              min={1}
-              className="w-full bg-transparent text-[16px] text-[var(--color-on-surface)] focus:outline-none mt-0.5"
+              onChange={(e) => handleAmountChange(e.target.value)}
+              min={MIN_AMOUNT}
+              max={MAX_AMOUNT}
+              step="any"
+              className={`w-full bg-transparent text-[16px] text-[var(--color-on-surface)] focus:outline-none mt-0.5 ${amountError ? "text-[var(--color-error)]" : ""}`}
               placeholder="1,000"
+              aria-describedby={amountError ? `${id}-send-error` : undefined}
             />
+            {amountError && (
+              <p id={`${id}-send-error`} className="text-[11px] text-[var(--color-error)] mt-0.5">{amountError}</p>
+            )}
           </div>
 
           <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
@@ -89,14 +130,19 @@ export default function ComparisonWidget({
             <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="inline" />
           </div>
 
-          <div className="hidden md:flex items-center justify-center px-3">
+          {/* Swap button — visible on all screen sizes */}
+          <div className="flex items-center justify-center px-3 py-2 md:py-0 border-b md:border-b-0 border-[var(--color-outline)]">
             <button
               type="button"
               onClick={swap}
               className="w-10 h-10 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] hover:border-[var(--color-on-surface-variant)] active:scale-95 transition-all"
               aria-label={t("swapCurrencies")}
             >
-              <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* Vertical arrows on mobile, horizontal on desktop */}
+              <svg className="w-5 h-5 text-[var(--color-on-surface-variant)] md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+              </svg>
+              <svg className="w-5 h-5 text-[var(--color-on-surface-variant)] hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
               </svg>
             </button>

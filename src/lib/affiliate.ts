@@ -18,10 +18,17 @@ const affiliateLinks: Record<string, string> = {
   xoom: "https://xoom.com/?ref=moneytransfers",
   torfx: "https://torfx.com/?ref=moneytransfers",
   instarem: "https://instarem.com/?ref=moneytransfers",
+  "taptap-send": "https://taptapsend.com/?ref=moneytransfers",
+  "ace-money-transfer": "https://acemoneytransfer.com/?ref=moneytransfers",
 };
 
 export function getAffiliateUrl(providerSlug: string, fallbackUrl?: string): string {
-  return affiliateLinks[providerSlug] || fallbackUrl || `https://${providerSlug.replace(/-/g, "")}.com`;
+  const url = affiliateLinks[providerSlug] || fallbackUrl;
+  if (!url) {
+    // Do not generate unknown URLs — return a safe fallback to the homepage
+    return "https://sendmoneycompare.com/send-money";
+  }
+  return url;
 }
 
 export function getGoUrl(providerSlug: string): string {

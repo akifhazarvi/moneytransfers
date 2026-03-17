@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { track } from "@vercel/analytics";
 import { providers, getProviderName, type TransferQuote } from "@/data/providers";
 import { trackProviderExpanded, trackProviderClicked, trackReviewClicked } from "@/lib/analytics";
@@ -61,7 +62,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             {rank}
           </span>
           <div className={`${isBest ? "w-10 h-10" : "w-9 h-9"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[13px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
-            <img src={providerLogo} alt={`${providerName} logo`} width={40} height={40} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e) => { const target = e.currentTarget; target.style.display = "none"; if (target.parentElement) { target.parentElement.setAttribute("aria-label", providerName); target.parentElement.textContent = providerName.charAt(0).toUpperCase(); } }} />
+            <Image src={providerLogo} alt={`${providerName} logo`} width={40} height={40} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
@@ -114,30 +115,37 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               {rank}
             </span>
             {onCompareToggle && (
-              <button
-                type="button"
-                onClick={(e) => { e.stopPropagation(); onCompareToggle(quote.providerSlug); }}
-                disabled={compareDisabled && !compareSelected}
-                className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-all ${
-                  compareSelected
-                    ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
-                    : compareDisabled
-                      ? "border-[var(--color-outline)] opacity-30 cursor-not-allowed"
-                      : "border-[var(--color-outline)] hover:border-[var(--color-primary)]"
-                }`}
-                aria-label={t("compare", { provider: providerName })}
-              >
-                {compareSelected && (
-                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                  </svg>
+              <div className="relative group/compare">
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); onCompareToggle(quote.providerSlug); }}
+                  disabled={compareDisabled && !compareSelected}
+                  className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-all ${
+                    compareSelected
+                      ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
+                      : compareDisabled
+                        ? "border-[var(--color-outline)] opacity-30 cursor-not-allowed"
+                        : "border-[var(--color-outline)] hover:border-[var(--color-primary)]"
+                  }`}
+                  aria-label={t("compare", { provider: providerName })}
+                >
+                  {compareSelected && (
+                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </button>
+                {compareDisabled && !compareSelected && (
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1 bg-[var(--color-on-surface)] text-white text-[11px] rounded whitespace-nowrap pointer-events-none opacity-0 group-hover/compare:opacity-100 transition-opacity z-10">
+                    Max 2 providers selected
+                  </div>
                 )}
-              </button>
+              </div>
             )}
           </div>
 
           <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[14px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
-            <img src={providerLogo} alt={`${providerName} logo`} width={44} height={44} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e) => { const target = e.currentTarget; target.style.display = "none"; if (target.parentElement) { target.parentElement.setAttribute("aria-label", providerName); target.parentElement.textContent = providerName.charAt(0).toUpperCase(); } }} />
+            <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
 
           <div className="w-[200px] lg:w-[240px] shrink-0">
