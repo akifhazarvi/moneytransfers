@@ -1,991 +1,1066 @@
 ---
 name: seo-blog
 description: >
-  Generate maximum-SEO blog posts for SendMoneyCompare with real market research,
-  real images (Unsplash API), human-first writing, inline visuals, authoritative
-  references, and Google E-E-A-T compliance for YMYL finance content.
+  Create SEO-driven, Search Console-informed content for SendMoneyCompare that
+  supports organic growth, commercial rankings, and YMYL-safe publishing.
+  Use this for guides and supporting editorial content that strengthens
+  /send-money, /compare, and /companies pages.
 ---
 
-# SEO Blog Post Generator — Maximum Optimization
+# SEO Content System For SendMoneyCompare
 
-Create blog posts for sendmoneycompare.com that rank on page 1 of Google Search.
-This skill covers the full pipeline: market research, keyword strategy, competitive
-analysis, human-quality writing, real image sourcing, inline visuals, authoritative
-references, and structured data — producing a complete BlogPost entry for
-`src/data/blog-posts.ts`.
+This skill is for building organic growth content that helps SendMoneyCompare:
+- earn impressions and clicks from Google Search
+- expand topical authority in remittances, FX, and cross-border payments
+- push authority into commercial pages
+- publish YMYL-safe content with strong sourcing
 
-## Usage
+This is not a generic "write a blog post" prompt.
+This is a production workflow for SEO, growth, and content strategy.
 
-```
-/seo-blog <topic or keyword>
-```
+The system must stay dynamic.
+Do not assume a fixed keyword roadmap, fixed page priority, or fixed site bottleneck.
+Each run should infer priorities from:
+- current Search Console data
+- current site coverage
+- current rankings and impressions
+- current SERP behavior
+- current business goals stated by the user
+
+## Core Principle
+
+Every content decision must answer all 3 questions:
+1. Why will this rank?
+2. Why does this matter to the business?
+3. Which commercial pages will benefit from it?
+
+If a draft cannot answer those 3 questions, do not write it yet.
+
+Also apply this Google-aligned rule:
+- content must be created primarily to help people, not primarily to manipulate search rankings
+
+If the piece feels search-engine-first, rewrite the plan before drafting.
+
+---
+
+## Supported Use Cases
+
+Use this skill when the user wants to:
+- create a new guide
+- improve an existing guide
+- turn Search Console impressions into content actions
+- target a keyword cluster
+- build supporting content for a commercial page
+- create finance content that must be factually careful
+
+Do not use this skill by default for:
+- provider reviews
+- comparison pages
+- breaking news
+- corridor landing pages
+
+Those may require different templates or direct updates to existing page types.
+
+---
+
+## Output Types
+
+Before writing, decide what the page should be.
+
+### 1. Guide (`/guides/`)
+Use when intent is:
+- informational
+- commercial investigation with educational framing
+- evergreen explanation
+- data-backed research
 
 Examples:
-- `/seo-blog how to send money to Nigeria`
-- `/seo-blog best apps for recurring international transfers`
-- `/seo-blog digital wallets vs bank transfers`
+- cheapest way to send money internationally
+- exchange rate markup explained
+- best money transfer apps
+- international business payments guide
 
-If no topic is given, ask the user what topic they want to write about.
+### 2. News (`/news/`)
+Use only when:
+- the topic is genuinely new
+- there is a direct source URL
+- the value is freshness, not evergreen explanation
+
+If the topic will still matter in 3 months, prefer a guide instead.
+
+### 3. Compare (`/compare/[slug]`)
+Use when intent is explicitly:
+- `x vs y`
+- comparison/decision-stage
+
+If the user asks for a blog on `wise vs remitly`, challenge the page type and route it to compare.
+
+### 4. Provider Review (`/companies/[slug]`)
+Use when the intent is brand-review driven:
+- `wise review`
+- `is remitly safe`
+- `western union fees`
+
+### 5. Corridor Page (`/send-money/[corridor]`)
+Use when intent is directly transactional:
+- `send money from usa to india`
+- `cheapest way to send money to nigeria`
+
+If the topic belongs here, do not create a redundant guide unless there is a distinct informational angle.
 
 ---
 
-## Phase 1: Deep Market Research & Keyword Strategy
+## Phase 1: Decide If New Content Should Exist
 
-**Do NOT skip this phase.** Use web search extensively. Every blog post must be backed
-by real market data, not assumptions.
+Do not start drafting immediately.
+First decide whether the best move is:
+- create new content
+- update an existing page
+- merge content into another page
+- improve internal linking only
 
-### 1.1 Search Intent Classification
+Use a hard decision, not a vague recommendation.
+Every run must end Phase 1 with exactly one of:
+- `PUBLISH NEW`
+- `UPDATE EXISTING`
+- `MERGE INTO EXISTING`
+- `DO NOT WRITE`
 
-Search the primary topic on Google and classify the intent:
+### 1.1 Check Existing Site Coverage
 
-| Intent Type | Trigger Words | Content Strategy | SERP Target |
-|-------------|--------------|-----------------|-------------|
-| Informational | "how to", "what is", "guide", "explained" | Step-by-step guide, definitions, visuals | Featured snippets, PAA boxes |
-| Commercial Investigation | "best", "compare", "vs", "review", "cheapest" | Comparison tables, pros/cons, verdict | Rich results, comparison carousels |
-| Transactional | "send money to X", "transfer to", "buy" | CTA-heavy, corridor-specific, pricing | Local packs, product listings |
+Review existing:
+- `/guides/`
+- `/news/`
+- `/compare/`
+- `/companies/`
+- `/send-money/`
 
-### 1.2 Real Keyword Research (Use Web Search)
+If an existing page already targets the same intent, prefer improving that page.
 
-Search Google for the topic and mine these sources:
-1. **Google autocomplete** — Type the topic and note all suggestions
-2. **People Also Ask** — Expand every PAA box and record all questions (these become FAQs and H2s)
-3. **Related searches** — Scroll to bottom of SERP for long-tail variations
-4. **Competitor H2 headings** — Open top 5 results, note their section structure
-5. **Google Trends** — Check if the topic is trending up or down
+Rules:
+- One primary intent per page
+- Do not create near-duplicates
+- Do not create a guide if a corridor page should own the keyword
+- Do not create news if a guide will age better
 
-Produce a keyword map:
+### 1.2 Check Search Console Signal First
 
+If Search Console data is available, use it before planning new content.
+
+Interpretation rules:
+- Existing page has impressions but low rank: improve that page first
+- Existing page ranks positions 4-15: optimize title, intro, links, and depth
+- Existing page ranks positions 16-40: improve internal links and supporting content
+- No page has impressions for the cluster: new content may be justified
+
+Priority order:
+1. Improve an existing impression-earning page
+2. Build support content for a page already being tested
+3. Create net-new content only when the site lacks coverage
+
+Use Search Console and Insights-style logic:
+- top pages: protect and expand winners
+- trending-up pages: support them with links and adjacent content
+- trending-down pages: refresh or merge if needed
+- rising queries: decide whether to update an existing page or create support content
+
+### 1.3 Business Fit Test
+
+Do not create content unless it supports at least one of these:
+- `/send-money`
+- a high-value corridor page
+- `/compare`
+- a provider page
+- a strategic keyword cluster already showing in Search Console
+
+### 1.4 Decision Framework
+
+Use this decision logic:
+
+#### `PUBLISH NEW`
+Choose this only when:
+- no existing page owns the intent well
+- there is clear ranking opportunity
+- the topic supports a business goal
+- the page can offer distinct value
+
+#### `UPDATE EXISTING`
+Choose this when:
+- an existing page already has impressions
+- the page is the natural canonical owner of the topic
+- rank/CTR/depth can be improved without creating a new URL
+
+#### `MERGE INTO EXISTING`
+Choose this when:
+- the idea is too close to an existing page
+- a new page would split authority
+- the incremental value is better as a new section on an existing page
+
+#### `DO NOT WRITE`
+Choose this when:
+- the topic has weak business value
+- the site has no authority path to rank it
+- the content would be thin, repetitive, or speculative
+- the user would be better served by fixing existing pages first
+
+### 1.5 Required Decision Output
+
+Before any draft, state:
+
+```text
+DECISION
+========
+Outcome:
+Why:
+Owning page:
+Business impact:
+Risk if we create a new page:
 ```
-Primary keyword:     "cheapest way to send money to Nigeria" (use in title, H1, meta, first paragraph)
-Secondary keywords:  3-5 phrases for H2 headings
-Long-tail keywords:  5-8 conversational queries (PAA targets)
-LSI/semantic terms:  Related concepts to weave naturally into body text
-```
 
-### 1.3 Competitive Gap Analysis (Use Web Search)
+Do not hardcode strategic priorities.
+Instead, determine current priority clusters from:
+- Search Console impressions
+- ranking pages already being tested
+- commercial value
+- topical authority gaps
+- user-stated business goals
 
-For the primary keyword, analyze the top 5 ranking pages:
-- **What they cover well** — Topics we must also cover to be comprehensive
-- **What they miss** — Gaps we fill with our proprietary data (real-time quotes from 16+ providers across 48 currencies, aggregated from 13 scraper sources)
-- **Their content format** — Tables, lists, images, videos, calculators
-- **Their word count** — Aim for 20-30% more depth (not padding — substance)
-- **Their sources** — What do they cite? We need stronger references
-- **Their freshness** — Are they dated? We win with current 2026 data
+You may mention current candidate clusters, but label them as current opportunities, not permanent strategy.
 
-### 1.4 Topic Cluster Mapping
+---
 
-Identify where this post fits in our content ecosystem:
-- **Pillar page** — Does a pillar page exist that this post should support?
-- **Cluster siblings** — What related posts already exist in our blog?
-- **Bidirectional linking plan** — Which existing posts should link TO this one and vice versa?
+## Phase 2: Search Intent And Keyword Strategy
 
-Topic clusters drive ~30% more organic traffic and hold rankings 2.5x longer than standalone pieces.
+Use web search when needed for current SERP behavior and freshness.
+For YMYL topics, prioritize primary sources.
 
-### 1.5 Present Research Brief to User
+### 2.1 Classify Intent
 
-Before writing, present this brief and **wait for approval**:
+Classify the keyword as one of:
+- Informational
+- Commercial investigation
+- Transactional
+- News/freshness
+- Utility/reference
 
-```
+Then map it to the correct page type.
+
+### 2.2 Build A Keyword Map
+
+Produce:
+- Primary keyword
+- Secondary keywords
+- Long-tail questions
+- Semantic entities
+- Commercial support pages this content should strengthen
+
+Do not force a keyword if Google is clearly rewarding a different angle.
+Do not assume yesterday's winner is today's priority.
+
+### 2.3 SERP Reality Check
+
+Study the current SERP and answer:
+- Are the top results guides, tools, comparisons, or news?
+- Is Google rewarding freshness, depth, brand trust, or utility?
+- What subtopics appear repeatedly?
+- What angle is missing or weak?
+
+### 2.4 Competitor Gap Analysis
+
+For the top results, identify:
+- coverage they all include
+- missing sections
+- stale data
+- weak sourcing
+- weak examples
+- weak internal-commercial path
+
+Your content must not just be "more words."
+It must be more useful, more current, more specific, or more decision-helpful.
+
+### 2.5 Dynamic Opportunity Scoring
+
+For each content opportunity, score it qualitatively on:
+- ranking potential
+- commercial value
+- freshness dependence
+- support value for existing pages
+- effort required
+
+Then decide whether it is:
+- publish now
+- update an existing page
+- monitor only
+- deprioritize
+
+---
+
+## Phase 3: Topic Brief
+
+Before drafting, produce a brief and align on it.
+
+Use this structure:
+
+```text
 TOPIC BRIEF
 ===========
-Title:              [Proposed title, primary keyword front-loaded, under 60 chars]
-Primary keyword:    [Exact phrase]
-Secondary keywords: [3-5 phrases]
-Search intent:      [Informational / Commercial / Transactional]
-Category:           [Guides / Education / Business / Research / Corridors / Reviews]
-Estimated read:     [X min]
-Competitor gaps:    [2-3 opportunities we'll exploit]
-Unique angle:       [What makes our version 10x better — usually our data]
-Topic cluster:      [Pillar page it supports, if any]
-Outline:            [Proposed H2 headings]
-Image plan:         [Featured image + X inline images]
-Reference sources:  [Key authorities we'll cite]
+Page type:
+Primary keyword:
+Primary keyword intent modifier:
+Secondary keywords:
+Long-tail questions:
+Semantic entities:
+Search intent:
+Audience:
+Business goal:
+Primary conversion path:
+Existing page to support:
+Why this should exist:
+Why this can rank:
+Why this matters commercially:
+Competitor gaps:
+Unique angle:
+Outline:
+Internal links to include:
+Internal link context:
+Anchor text plan:
+Title candidates:
+Meta description candidates:
+External source plan:
+Freshness requirement:
+```
+
+If a new page is not justified, say so and recommend:
+- update existing page
+- merge into another page
+- improve internal links instead
+
+If the decision is not `PUBLISH NEW`, do not generate a full new article draft by default.
+Instead generate:
+- update plan
+- merge plan
+- link plan
+- title/meta refresh plan
+
+---
+
+## Phase 4: YMYL And Source Rules
+
+This site is in finance. Treat all money-transfer, banking, FX, regulation, and tax content as YMYL.
+
+### 4.1 Source Hierarchy
+
+Use sources in this order:
+1. Official institutions, regulators, central banks, provider documentation, filings
+2. Reputable trade publications or major newsrooms
+3. Secondary commentary, only if clearly labeled
+
+### 4.2 Never Publish These As Facts Without Verification
+
+- fees
+- exchange-rate claims
+- provider availability
+- regulation or tax details
+- launch dates
+- licensing status
+- product feature claims
+
+### 4.3 Source Requirements By Content Type
+
+For guides:
+- cite strong current sources where claims need support
+- use direct URLs where possible
+
+For news:
+- direct article, bulletin, filing, or press release URL is mandatory
+- no generic homepages as source URLs
+
+For analysis:
+- explicitly label analysis vs verified fact
+
+### 4.4 Claims And Data Rules
+
+Do not hardcode site-scale claims such as:
+- provider count
+- corridor count
+- quote count
+
+Those should come from current data or be omitted.
+
+If exact counts are not safely available, use durable phrasing:
+- "dozens of providers"
+- "multiple corridors"
+- "our comparison data"
+
+### 4.5 Human Review Threshold
+
+Treat the following as requiring especially careful review before publication:
+- taxes
+- regulation
+- licensing
+- provider feature availability
+- provider pricing claims
+- country-specific compliance advice
+- financial safety recommendations
+
+If a topic falls into one of these areas, prefer:
+- official sources
+- direct source URLs
+- conservative wording
+- explicit uncertainty where needed
+
+---
+
+## Phase 5: Writing Standards
+
+Write like a senior financial content editor, not an AI template.
+
+### 5.1 Voice
+
+Target voice:
+- direct
+- specific
+- informed
+- plain English
+- commercially aware
+
+Avoid:
+- fluff
+- hype
+- generic SEO intros
+- filler transitions
+- fake confidence
+
+### 5.2 Bad Openers
+
+Do not use:
+- "In today's fast-paced world"
+- "In this article, we will"
+- "When it comes to"
+- "Let's dive in"
+- "It is important to note"
+- "A comprehensive guide"
+
+### 5.3 Good Openers
+
+Open with one of:
+- a real money example
+- a surprising cost difference
+- a market shift
+- a user problem
+- a direct answer
+
+Example:
+- "A bank can turn a $1,000 transfer into a $40 mistake without ever showing you a fee. The culprit is usually exchange-rate markup."
+
+### 5.4 Human Quality Rules
+
+- Use exact numbers when they are verified
+- Acknowledge trade-offs
+- Show who the recommendation is for
+- Explain why one option wins
+- Keep paragraphs short
+- Use varied sentence length
+
+Google-aligned quality checks:
+- add original information, analysis, examples, or framing
+- do not just summarize what other sites already say
+- make sure the reader can achieve their goal after reading
+- make sure the page fits the site's real focus and audience
+
+---
+
+## Phase 6: SEO Rules
+
+### 6.1 Titles
+
+Use these principles:
+- primary keyword near the front
+- clear value proposition
+- avoid bloated titles
+- year only when freshness matters
+
+Operational rules:
+- target 45-60 characters when possible
+- avoid titles over 60 characters unless the tradeoff is clearly worth it
+- do not stuff multiple keyword variants into one title
+- title must match the actual SERP angle
+- title should read naturally to humans first, not like a keyword list
+- produce 3 title options before finalizing
+- choose one primary title and explain why it is best
+- keep the title text aligned with the main visible page title and H1
+- make the title distinctive from surrounding navigation or repeated template text
+- avoid misleading clickbait or withholding the answer
+
+Preferred title patterns by intent:
+- informational: `What Is X?`, `How X Works`, `X Explained`
+- commercial investigation: `Best X`, `Cheapest X`, `X vs Y`, `Top X in 2026`
+- research/data: `X Trends in 2026`, `X Statistics`, `X Report`
+
+Good:
+- `International Business Payments: Best Options for SMEs in 2026`
+- `Cheapest Way to Send Money Internationally in 2026`
+
+Avoid rigid formulas.
+Do not optimize titles mechanically at the expense of CTR.
+
+Google title-link alignment rules:
+- the page `<title>`, H1, and on-page framing should broadly agree
+- avoid boilerplate-heavy titles across many pages
+- avoid vague labels like "Guide" or "Home" without context
+- avoid overlong titles that are likely to be rewritten
+
+### 6.2 Meta Descriptions
+
+Target:
+- roughly 140-160 characters
+- clear reason to click
+- support the title
+- reflect the page honestly
+
+Operational rules:
+- keep primary keyword in the first half when natural
+- include a clear value promise or decision benefit
+- avoid vague filler like "learn everything you need to know"
+- produce 2-3 options before finalizing
+- do not repeat the title mechanically
+- if the page is commercial-investigation content, mention comparison/data/value explicitly
+
+Snippet rules:
+- write a strong opening paragraph because Google may generate snippets from page text, not just the meta description
+- make the first 1-2 paragraphs useful, specific, and query-relevant
+- avoid generic openings that waste snippet potential
+
+Do not chase exact character counts mechanically.
+
+### 6.3 Heading Structure
+
+The page should:
+- answer the main question quickly
+- cover the expected subtopics
+- include commercially useful sections when relevant
+
+Typical high-performing structure:
+1. Hook / direct answer
+2. Why this matters now
+3. Core explanation or comparison
+4. Real examples / data / table
+5. Who should use what
+6. Mistakes / risks / hidden costs
+7. What to do next
+
+Heading rules:
+- exactly one H1
+- use H2s for primary sections only
+- use H3s only when they improve scanability
+- each H2 should map to either a secondary keyword, a major user question, or a conversion-supporting topic
+- do not create decorative headings with no search or reader value
+
+### 6.4 Featured Snippet / AI Overview Formatting
+
+Use answer-first sections:
+- direct definition paragraph
+- concise process lists
+- comparison tables
+- bullet takeaways
+
+But do not over-template the entire article for snippets.
+Depth still matters.
+
+### 6.5 Image Rules
+
+Use images only when they genuinely improve comprehension or preview quality.
+
+Rules:
+- featured image should not be a logo
+- featured image should be large enough for strong previews
+- image alt text should describe the image plainly
+- do not add decorative images just to satisfy a template
+- if the article is a candidate for Discover-like visibility, prefer high-quality, large featured images
+
+### 6.6 Language And Consistency Rules
+
+If the page is written in English:
+- title
+- headings
+- metadata
+- image alt text
+
+should all be in English and aligned with the page language.
+
+Do not mix languages in titles or metadata unless the page itself is genuinely multilingual.
+
+---
+
+## Phase 7: Internal Linking Strategy
+
+This is mandatory.
+Every guide should strengthen the revenue architecture.
+
+### 7.1 Required Link Types
+
+Each guide should usually include:
+- 2-4 links to related guides
+- 1-3 links to corridor pages
+- 1-3 links to provider pages
+- 1-2 links to compare pages
+- 1 link to `/send-money`
+
+These are minimums, not blind quotas.
+Link only where context supports the destination.
+
+### 7.2 Anchor Text Rules
+
+Use descriptive anchors.
+Avoid:
+- click here
+- read more
+- this page
+- learn more
+
+Good anchors:
+- `compare money transfer providers`
+- `send money from the UK to India`
+- `our Wise review`
+- `Wise vs Remitly`
+- `exchange rate markup guide`
+
+Anchor text rules for this app:
+- use natural-language anchors that fit the sentence
+- keep anchors specific to the destination page's intent
+- vary anchors across the site
+- avoid linking multiple times in the same article with nearly identical anchors unless needed
+- prefer anchors that help the commercial page rank, but do not make them awkward
+
+Google-aligned link rules:
+- links must be standard crawlable `<a href="...">` links
+- do not rely on non-crawlable link patterns for important internal navigation
+- anchor text should help users and search engines understand the destination
+- links should connect genuinely relevant pages, not just pass equity mechanically
+
+### 7.3 Internal Link Context Mapping
+
+Before finalizing a blog, explicitly map where links should appear and why.
+
+For each internal link, define:
+- destination URL
+- anchor text
+- section where it appears
+- reason for inclusion
+- whether it supports discovery, trust, or conversion
+
+Use this structure:
+
+```text
+INTERNAL LINK PLAN
+==================
+1. URL:
+   Anchor:
+   Place in article:
+   Why here:
+   Supports:
+```
+
+Context rules:
+- early article links should usually support understanding or trust
+- mid-article links should usually support comparison or evaluation
+- late-article links should usually support action or conversion
+- do not dump all links in the final paragraph
+- every article should have at least one link path into:
+  - a commercial tool page
+  - a transactional or corridor page when relevant
+  - a provider or compare page when relevant
+
+### 7.4 Commercial Support Rule
+
+Before finalizing a guide, explicitly list:
+- which pages it should support
+- which anchors should point there
+
+If a guide does not help any commercial page, reconsider the topic.
+
+### 7.5 Link Relationship Rules By Page Type
+
+When writing a guide, decide which of these relationships apply:
+
+- Guide -> Corridor
+  Use when the guide explains a sending problem, destination, cost, or transfer method.
+
+- Guide -> Provider
+  Use when a provider is a meaningful example, recommendation, or trade-off.
+
+- Guide -> Compare
+  Use when the reader is in evaluation mode and choosing between brands.
+
+- Guide -> Tool
+  Use when the reader can act immediately using `/send-money` or a utility page.
+
+- Guide -> Guide
+  Use when the linked guide genuinely deepens understanding.
+
+The blog should not just "contain links."
+It should create a deliberate authority and conversion path.
+
+### 7.6 Mandatory Link Context Audit
+
+Before finalizing any blog, check:
+- does the article link to the best existing related guide?
+- does it link to the best matching corridor page?
+- does it link to the right provider or comparison page for evaluation intent?
+- does it give the reader a natural next action through `/send-money` or another tool?
+
+If not, the article is incomplete.
+
+---
+
+## Phase 8: Content Format For This Site
+
+Default output should fit the site's content data model and actual publishing flow.
+
+When writing a guide for `src/data/blog-posts.ts`, provide:
+- title
+- metaDescription
+- excerpt
+- category
+- readTime
+- tags
+- sections with headings and HTML content
+- FAQs when useful
+- internal link plan
+- source list
+
+Also provide:
+- primary keyword
+- secondary keywords
+- title length
+- meta description length
+- why this page should rank
+- which pages this blog is intended to strengthen
+- people-first value summary
+- why this is not search-engine-first content
+
+All body content should be HTML, not Markdown.
+
+Use only supported HTML elements already used in the codebase:
+- `<p>`
+- `<strong>`
+- `<em>`
+- `<ul>`, `<ol>`, `<li>`
+- `<h3>`
+- `<a>`
+- `<blockquote>`
+- `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`
+- `<figure>`, `<figcaption>` when needed
+
+Only include images if they materially improve the content.
+Do not add images just to satisfy a template.
+
+### 8.1 Page-Type Template Library
+
+Use the right structure for the right page type.
+
+#### Guide Template
+Use for evergreen informational/commercial-investigation content.
+
+Recommended structure:
+1. Direct answer / hook
+2. Why it matters now
+3. Core explanation
+4. Comparison or examples
+5. Best options / recommendations
+6. Mistakes / risks / hidden costs
+7. What to do next
+8. FAQs
+
+#### Research / Data Guide Template
+Use for trends, statistics, annual reports, regulatory landscape explainers.
+
+Recommended structure:
+1. Key finding
+2. What changed
+3. Data breakdown
+4. Why it matters commercially
+5. Implications for senders/businesses
+6. Supporting examples
+7. What to do next
+
+#### Support Guide Template
+Use for pages designed mainly to strengthen corridor, compare, or provider pages.
+
+Recommended structure:
+1. Short direct answer
+2. Key decision factors
+3. Comparison logic
+4. Examples / use cases
+5. Internal pathways to money pages
+
+#### News Analysis Template
+Use only when the content is genuinely freshness-driven but still needs interpretation.
+
+Recommended structure:
+1. What happened
+2. Why it matters
+3. Who is affected
+4. Impact on pricing/transfers/providers
+5. What readers should do next
+
+Do not use a guide template blindly for every topic.
+
+---
+
+## Phase 9: Search Console Feedback Loop
+
+This is what turns content writing into growth.
+
+After a page exists, use Search Console data to decide what happens next.
+
+### 9.1 If Impressions Exist But Clicks Are Low
+
+Check:
+- title quality
+- meta quality
+- search intent mismatch
+- whether the page is ranking too low for CTR to matter
+- whether the snippet-worthy opening is weak
+
+If average position is worse than 20, ranking is the problem, not CTR.
+
+### 9.2 If Position Is 4-15
+
+Prioritize:
+- stronger intro
+- better title
+- exact-match internal links
+- FAQ coverage
+- better alignment with SERP intent
+- stronger snippet text in the opening paragraphs
+- better support from adjacent pages
+
+### 9.3 If A Query Cluster Starts Appearing
+
+Do not immediately create many pages.
+First ask:
+- which existing page is Google already testing?
+- can that page be improved?
+- what support piece would help it most?
+
+Do not create a new page if an existing page is already the likely canonical fit for that query cluster.
+
+### 9.4 Content Expansion Logic
+
+Expand clusters only when:
+- a strategic query theme appears in Search Console
+- an existing page is already being tested
+- the new content clearly supports a commercial page
+
+### 9.5 Dynamic Priority Reset
+
+At the start of each run, reassess:
+- which queries are rising
+- which pages are newly getting impressions
+- which pages are near page 1
+- which content types are leading discovery
+- which commercial pages are under-supported
+
+Do not reuse old assumptions unless current data still supports them.
+
+### 9.6 Post-Publish Optimization Rules
+
+After content is published, define what to do based on Search Console behavior.
+
+#### After 3-7 days
+Check:
+- indexing
+- first impressions
+- which queries triggered impressions
+- whether the intended page is the one Google chose
+
+Actions:
+- if impressions are appearing on the wrong page, strengthen internal links and intent signals
+- if there are no impressions, reassess title, internal links, and crawl path
+
+#### After 7-21 days
+Check:
+- emerging queries
+- average position
+- CTR where position is <15
+- whether adjacent pages should link in
+
+Actions:
+- rewrite title/meta if rankings are near page 1 but CTR is weak
+- expand sections if queries suggest missing subtopics
+- add exact contextual internal links from pages already earning impressions
+
+#### After 21-45 days
+Check:
+- whether the page is consolidating into a stable keyword cluster
+- whether it is helping adjacent commercial pages
+- whether a support article or merge is needed
+
+Actions:
+- build supporting content only if the page shows real traction
+- merge or prune weak near-duplicate content if authority is fragmenting
+
+### 9.7 Search Console Action Output
+
+When reviewing existing content, output:
+
+```text
+SEARCH CONSOLE ACTION PLAN
+==========================
+Observed signal:
+Likely issue:
+Recommended action:
+Pages to update:
+Internal links to add:
+Whether to publish support content:
+Review window:
 ```
 
 ---
 
-## Phase 2: Human-First Content Creation
+## Phase 10: Quality Gate Before Publishing
 
-### 2.1 Writing Voice — Sound Like a Human, Not an AI
+Before considering a piece complete, verify:
 
-**This is critical.** Human-written content outperforms AI-sounding content by 47% in
-engagement. Follow these rules strictly:
+### Strategy
+- correct page type chosen
+- clear target keyword and intent
+- supports at least one commercial page
+- content fits the site's real focus and audience
 
-#### NEVER use these AI-tell phrases:
-- "In today's fast-paced world..."
-- "In this article, we will explore..."
-- "It's important to note that..."
-- "Let's dive in..."
-- "In conclusion..."
-- "When it comes to..."
-- "Navigate the complexities of..."
-- "In the realm of..."
-- "A comprehensive guide to..."
-- "Unlock the secrets of..."
+### SEO
+- title and meta are strong
+- title length is acceptable
+- title matches the right SERP angle
+- primary keyword usage is natural
+- secondary keywords are covered without stuffing
+- page is not duplicative
+- internal linking plan is explicit
+- headings match SERP intent
+- opening paragraphs are snippet-worthy
+- title, H1, and page framing are aligned
 
-#### DO write like this:
-- **Start with a real scenario:** "Last month, a reader asked us why her $500 transfer to Lagos cost $47 with her bank but only $4.50 with Wise. The short answer: exchange rate markup."
-- **Use first-person plural:** "We compared", "We analyzed", "Our data shows"
-- **Be conversational:** Write as if explaining to a smart friend over coffee
-- **Show personality:** "Spoiler alert: your bank is almost certainly ripping you off"
-- **Use specific numbers:** "$7.33 fee" not "a small fee"; "₹91,596" not "a competitive amount"
-- **Vary sentence length:** Mix short punchy sentences with longer explanatory ones. Like this. Then elaborate when the topic needs more breathing room and the reader benefits from a fuller explanation.
-- **Include real-world examples:** "If you send $1,000 USD to India through Wise, your recipient gets ₹91,596. Through Wells Fargo? Just ₹89,349 — that's ₹2,247 less."
-- **Acknowledge trade-offs:** "Wise has the best exchange rate, but Remitly is faster for small amounts to India."
+### Content
+- opening is strong
+- claims are specific
+- examples are concrete
+- trade-offs are acknowledged
+- no AI filler language
+- blog has useful internal links in the right context
+- the article supports the app's revenue pages, not just the blog
+- content offers original value, not just paraphrase
+- reader can complete their goal after reading
 
-### 2.2 Title Rules
+### YMYL
+- sensitive claims are sourced
+- direct source URLs where needed
+- no fabricated data
+- no stale numbers copied from old drafts
+- confidence level matches evidence
 
-- **60 characters max** — prevents SERP truncation
-- **Primary keyword first** — front-load for both SEO and scanability
-- **Include the year** — "2026" signals freshness (when relevant)
-- **Use power modifiers** — numbers, brackets, parentheses increase CTR
-  - Good: "Send Money to Nigeria: 7 Cheapest Ways in 2026"
-  - Good: "Wise vs Remitly [2026]: Which Saves You More?"
-  - Bad: "A Comprehensive Guide to Sending Money Internationally"
-  - Bad: "Everything You Need to Know About Money Transfers"
+### Google Alignment
+- content is people-first, not search-engine-first
+- title is descriptive and not clickbait
+- links are crawlable and use good anchor text
+- images are useful and not purely decorative
+- the article would still be worth publishing if search traffic did not exist
 
-### 2.3 Meta Description Rules
-
-- **150-160 characters exactly** — too short wastes SERP space, too long gets truncated
-- **Primary keyword within first 80 chars** — bolded in search results
-- **Include a compelling value prop** — why click THIS result over others?
-- **Use active voice with specific data** — "We compared 16+ providers to find the cheapest way to send money to Nigeria. See real rates, fees, and how much your recipient actually gets."
-- **Must be unique** — never duplicate another page's meta description
-
-### 2.4 Content Structure (HTML Sections)
-
-```
-Section 1: Hook — Open Strong
-  - Lead with a surprising stat, real scenario, or provocative question
-  - Include primary keyword naturally in first 100 words
-  - Tell the reader exactly what they'll learn and why it matters to their wallet
-  - Keep it 2-3 paragraphs max
-
-Section 2: Context / Background
-  - Establish why this topic matters NOW (freshness signal)
-  - Reference recent data, regulatory changes, or market shifts
-  - Include first inline image here (with descriptive alt text)
-  - Link to 1-2 authoritative external sources
-
-Section 3-N: Core Content (each H2 targets a secondary keyword)
-  - ANSWER FIRST FORMAT: Put the direct answer in the first sentence of each section
-    (this wins featured snippets — Google pulls 40-60 word answers from the first paragraph under an H2)
-  - Use H3 subheadings for scanability within sections
-  - Include comparison data from our providers (specific amounts, rates, fees)
-  - Add inline images to break up text and explain concepts visually
-  - Cross-link to relevant internal pages naturally
-  - Cite authoritative sources with external links
-
-Section N+1: Summary / What to Do Next
-  - Actionable 3-5 bullet takeaways (not a rehash of the article)
-  - Clear CTA to use the comparison tool
-  - Links to 2-3 related guides for continued reading
-```
-
-### 2.5 HTML Content Format
-
-All content is HTML (not Markdown). Allowed elements:
-
-```html
-<p>              — paragraphs (keep under 3-4 sentences each)
-<strong>         — emphasis (NOT <b>)
-<em>             — subtle emphasis
-<ul>/<ol>/<li>   — lists (Google loves lists for featured snippets)
-<h3>             — sub-sections within a section (H2 is the section heading)
-<a href="/path"> — internal links (no target="_blank")
-<a href="https://..." target="_blank" rel="noopener noreferrer nofollow"> — external links
-<img>            — inline images (see Phase 3)
-<figure>/<figcaption> — images with captions (preferred for inline images)
-<blockquote>     — for quoting sources or highlighting key stats
-<table>/<thead>/<tbody>/<tr>/<th>/<td> — comparison tables (great for SEO)
-```
-
-### 2.6 Answer-First Formatting (Win Featured Snippets)
-
-Structure answers to win Google's featured snippets and AI Overview citations:
-
-**For definitions (paragraph snippets):**
-```html
-<h2>What Is an Exchange Rate Markup?</h2>
-<p>An exchange rate markup is the difference between the mid-market rate (the real
-exchange rate you see on Google) and the rate a provider offers you. Most banks
-charge 2-4% markup, while services like Wise charge 0%. On a $1,000 transfer,
-this means your recipient could lose $20-$40.</p>
-```
-
-**For processes (list snippets):**
-```html
-<h2>How to Send Money to Nigeria</h2>
-<ol>
-<li><strong>Compare providers</strong> — Enter USD to NGN in our comparison tool</li>
-<li><strong>Create an account</strong> — Sign up and verify your identity (passport or ID)</li>
-<li><strong>Enter recipient details</strong> — Nigerian bank account number and bank name</li>
-<li><strong>Choose payment method</strong> — Bank debit is cheapest, card is fastest</li>
-<li><strong>Send and track</strong> — Most transfers arrive within 1-24 hours</li>
-</ol>
-```
-
-**For comparisons (table snippets):**
-```html
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Rate Markup</th><th>Recipient Gets</th></tr></thead>
-<tbody>
-<tr><td>Wise</td><td>$7.33</td><td>0%</td><td>₦1,534,200</td></tr>
-<tr><td>Remitly</td><td>$0</td><td>0.45%</td><td>₦1,527,800</td></tr>
-</tbody>
-</table>
-```
-
-### 2.7 Internal Linking Strategy
-
-Every blog post MUST include at minimum:
-
-| Link Type | Minimum Count | Anchor Text Rule |
-|-----------|--------------|-----------------|
-| Other `/guides/` posts | 3-4 | Descriptive: "our guide to exchange rate markups" |
-| `/send-money/` corridor pages | 2-3 | Natural: "compare USD to NGN providers" |
-| `/companies/` provider pages | 2-3 | Provider name: "Wise" or "read our Wise review" |
-| `/compare/` comparison pages | 1-2 | "see how Wise compares to Remitly" |
-| `/send-money` comparison tool | 1 | Clear CTA: "use our free comparison tool" |
-
-**Anchor text rules:**
-- NEVER use "click here", "read more", "this article", "learn more"
-- ALWAYS use descriptive text that tells Google what the linked page is about
-- Vary anchor text — don't use the exact same phrase for every link to the same page
-
-### 2.8 External References & Citations (E-E-A-T Signals)
-
-**Every blog post MUST cite 5-7 authoritative external sources.** This is non-negotiable
-for YMYL (Your Money Your Life) finance content.
-
-#### Preferred reference sources (search for real, current data):
-- **World Bank** — Global remittance data, migration reports
-- **Central banks** — Exchange rate data (Federal Reserve, Bank of England, RBI, CBN)
-- **IMF** — International financial stability reports
-- **KNOMAD** — Remittance pricing data
-- **FCA / FinCEN / CFPB** — Regulatory information
-- **Provider official blogs** — Wise blog, Remitly blog (for feature announcements)
-- **Reuters / Bloomberg** — Market data and financial news
-- **Statista** — Industry statistics
-- **G20 reports** — Remittance cost targets
-
-#### How to cite in content:
-```html
-<p>According to the <a href="https://remittanceprices.worldbank.org/"
-target="_blank" rel="noopener noreferrer nofollow">World Bank's Remittance
-Prices Worldwide database</a>, the global average cost of sending $200
-was 6.2% in Q4 2025 — still above the UN's 3% target.</p>
-```
-
-#### Citation rules:
-- **Inline citations** — Link to sources where you reference them, not in a footnote section
-- **Use real URLs** — Search for the actual source URL, don't guess or fabricate
-- **Descriptive anchor text** — "World Bank's remittance cost data" not "source"
-- **Fresh sources** — Prefer 2025-2026 data; never cite anything older than 2023
-- **Add a "Sources & Methodology" section** at the end of data-heavy posts:
-```html
-<h3>Sources & Methodology</h3>
-<p>Data in this article is based on real quotes collected from provider APIs
-and websites on [date]. Exchange rates and fees change frequently — use our
-<a href="/send-money">comparison tool</a> for the latest rates. External
-data sources include the World Bank Remittance Prices Worldwide database
-and provider-published fee schedules.</p>
-```
-
-### 2.9 E-E-A-T Signals for YMYL Content
-
-Since money transfer content is "Your Money Your Life" (YMYL), Google applies stricter
-quality standards. Every post must demonstrate:
-
-**Experience:**
-- Reference "our analysis of real-time quotes from 16+ providers across 48 currencies"
-- Use specific examples: "When we tested sending $500 to the Philippines..."
-- Show we've actually used and compared these services
-
-**Expertise:**
-- Include precise financial data (exact fees, exchange rates, received amounts)
-- Explain financial concepts clearly (markup, mid-market rate, SWIFT codes)
-- Use correct financial terminology
-
-**Authoritativeness:**
-- Cite authoritative sources (World Bank, central banks, regulators)
-- Cross-link to our other in-depth guides (building topical authority)
-- Reference our data methodology
-
-**Trustworthiness:**
-- Be balanced — mention limitations and trade-offs, not just positives
-- Disclose that we use affiliate links (already handled in site footer)
-- Use current, verifiable data
-- Include "Last updated" dates (handled by `updatedAt` field)
+If any of the above fails, revise before publishing.
 
 ---
 
-## Phase 3: Real Images & Visual Content
+## Required Final Deliverable Format
 
-**Every blog post needs real images that explain and enhance the content.**
-Do NOT just suggest placeholder descriptions. Actually source and download real images.
+Unless the user asks otherwise, final output from this skill should include:
 
-### 3.1 Featured Image (Required)
+```text
+SEO SUMMARY
+- Page type
+- Primary keyword
+- Secondary keywords
+- Long-tail questions
+- Semantic entities
+- Search intent
+- Commercial pages supported
+- People-first value summary
 
-Download a real image from Unsplash API for the featured/hero image:
+METADATA
+- Title option 1
+- Title option 2
+- Title option 3
+- Chosen title
+- Title length
+- Meta option 1
+- Meta option 2
+- Chosen meta
+- Meta length
 
-```bash
-# Search Unsplash for a relevant image
-curl -s "https://api.unsplash.com/search/photos?query=KEYWORD&orientation=landscape&per_page=3&client_id=${UNSPLASH_ACCESS_KEY}" | jq '.results[0].urls.regular'
+INTERNAL LINK PLAN
+- URL / anchor / section / reason / supports
+
+GOOGLE ALIGNMENT CHECK
+- Why this is people-first
+- Why this should not be considered search-engine-first
+- Snippet strategy
+- Title/H1 alignment note
+
+SOURCE PLAN
+- primary sources
+- secondary sources
+
+CONTENT DRAFT
+- structured for src/data/blog-posts.ts
 ```
 
-If the Unsplash API key is not available, use web search to find a high-quality,
-free-to-use image from unsplash.com, pexels.com, or pixabay.com. Download it to
-`public/images/blog/`.
-
-**Featured image specs:**
-- Dimensions: **1200 x 630px** (optimal for OG sharing + blog hero)
-- Format: JPEG (Next.js auto-converts to WebP/AVIF)
-- Max file size: 150-200KB
-- File name: descriptive, hyphenated: `send-money-to-nigeria-comparison.jpg`
-- Alt text: Post title (matches existing pattern)
-
-### 3.2 Inline Content Images (2-4 per post)
-
-Add inline images within the HTML content to break up text and visually explain concepts.
-These are critical for engagement and dwell time.
-
-**Types of inline images to include:**
-
-1. **Comparison screenshots** — Show actual provider interfaces or rate comparisons
-2. **Data visualizations** — Charts, graphs showing fee comparisons or trends
-3. **Process diagrams** — Step-by-step visual flows (SVG preferred)
-4. **Contextual photos** — Relevant photos that set the scene (city, culture, people)
-
-**How to add inline images in HTML content:**
-```html
-<figure style="margin: 24px 0;">
-  <img src="/images/blog/nigeria-transfer-comparison-chart.jpg"
-       alt="Bar chart comparing fees for sending $1,000 USD to Nigeria across 8 providers"
-       width="800" height="450" loading="lazy" />
-  <figcaption style="font-size: 14px; color: #5f6368; margin-top: 8px; text-align: center;">
-    Fee comparison for sending $1,000 USD to Nigeria — data collected March 2026
-  </figcaption>
-</figure>
-```
-
-**Inline image specs:**
-- Dimensions: **800 x 450px** for standard content width
-- Format: JPEG or SVG (for diagrams)
-- Max file size: 80-120KB
-- File name: descriptive, include topic keyword
-- Alt text: **Descriptive, under 125 characters** — describe WHAT the image shows, front-load the keyword
-  - Good: "Bar chart comparing fees for sending $1,000 USD to Nigeria across 8 providers"
-  - Bad: "chart" or "image1" or "comparison"
-
-### 3.3 Image SEO Rules
-
-- **Descriptive file names** — `exchange-rate-markup-comparison.jpg` NOT `IMG_4532.jpg`
-- **Alt text on every image** — under 125 characters, describes the image, includes keyword naturally
-- **Place images near relevant text** — Google uses surrounding text to understand image context
-- **Use `<figure>` + `<figcaption>`** — Provides semantic context and visual caption
-- **Lazy load below-fold images** — Add `loading="lazy"` to all inline images
-- **First image (featured) gets `priority`** — Already handled in the guides page template
-
-### 3.4 Creating Data Visualizations
-
-For data-driven posts, create simple comparison visuals:
-
-**Option A: HTML tables styled as visuals** (simplest, most SEO-friendly)
-```html
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Exchange Rate</th><th>Recipient Gets</th><th>Total Cost</th></tr></thead>
-<tbody>
-<tr style="background: #e8f5e9;"><td><strong>Wise</strong></td><td>$7.33</td><td>Mid-market</td><td>₦1,534,200</td><td>0.73%</td></tr>
-<tr><td>Remitly</td><td>$0</td><td>-0.45%</td><td>₦1,527,800</td><td>1.14%</td></tr>
-</tbody>
-</table>
-```
-
-**Option B: Download/create chart images** for complex visualizations and save to
-`public/images/blog/`.
+If the decision is not `PUBLISH NEW`, replace `CONTENT DRAFT` with one of:
+- `UPDATE PLAN`
+- `MERGE PLAN`
+- `NO-WRITE RECOMMENDATION`
 
 ---
 
-## Phase 4: FAQ Section (Rich Snippet Optimization)
+## No-Write Rules
 
-### 4.1 Research Real PAA Questions
+Do not draft a new blog when:
+- an existing page already owns the topic
+- the keyword belongs on a commercial page instead
+- there is no clear internal link path to business pages
+- the content would rely on weak or unverifiable claims
+- the topic is too broad for the site's current authority
+- Search Console suggests improving an existing page is the higher-leverage move
 
-Use web search to find actual "People Also Ask" questions for the primary keyword.
-Search the primary keyword on Google and expand every PAA box.
-
-Target 4-6 questions that:
-- **Actually appear in Google PAA** — verified through search, not guessed
-- **We can answer with authority** using our data
-- **Target long-tail keywords** that bring additional search traffic
-- **Haven't been fully answered** in the main content sections
-
-### 4.2 FAQ Writing Rules
-
-- **Question format**: Match EXACTLY how users phrase it in Google
-  - Good: "How much does it cost to send money to Nigeria?"
-  - Bad: "What are the costs associated with international remittances to Nigeria?"
-
-- **Answer format**: ANSWER FIRST in 1-2 sentences, then 1-2 sentences of supporting detail
-  - Good: "Sending $1,000 to Nigeria typically costs between $4.50 and $47 depending on the provider. Wise charges $7.33 with no markup, while banks like Chase charge $0 upfront but take 3%+ through hidden exchange rate markups."
-  - Bad: "There are many factors that determine the cost of sending money to Nigeria, including fees, exchange rates, and..."
-
-- **Include specific data** — exact fees, provider names, amounts
-- **Include keywords naturally** in both questions and answers
-
-FAQs auto-generate **FAQPage JSON-LD** structured data, making the post eligible for
-FAQ rich snippets in Google Search (accordion-style results that take up more SERP space).
+In these cases, be explicit and recommend the better action.
 
 ---
 
-## Phase 5: Technical SEO Checklist
+## Default Workflow
 
-Run through EVERY item before finalizing. A single missed item can cost rankings.
-
-### Metadata Validation
-- [ ] `slug`: URL-friendly, contains primary keyword, 3-5 words, no stop words (a, the, of, to)
-- [ ] `title`: Under 60 chars, primary keyword in first 30 chars, includes year if relevant
-- [ ] `metaDescription`: 150-160 chars exactly, primary keyword in first 80 chars, compelling value prop, active voice
-- [ ] `excerpt`: 1-2 sentences, compelling, different from metaDescription, used in listing cards
-- [ ] `category`: One of: Guides | Education | Business | Research | Corridors | Reviews
-- [ ] `readTime`: Word count / 200, rounded up, format "X min read"
-- [ ] `publishedAt`: Today's date (YYYY-MM-DD)
-- [ ] `updatedAt`: Same as publishedAt for new posts
-- [ ] `author`: "SendMoneyCompare Team"
-- [ ] `tags`: 5-7 relevant tags, check existing posts for tag consistency
-
-### Content Quality
-- [ ] Primary keyword in: title, meta description, first 100 words, at least one H2, URL slug
-- [ ] Secondary keywords in: H2 headings, body paragraphs (each used 2-3 times naturally)
-- [ ] LSI/semantic terms woven throughout body text
-- [ ] No keyword stuffing — every sentence reads naturally to a human
-- [ ] Every section adds unique value (delete any section that's filler)
-- [ ] Minimum 1,500 words of substantive content (aim 2,000-3,000 for pillar content)
-- [ ] Uses answer-first format under H2s (first paragraph directly answers the heading)
-- [ ] Varies sentence length (short + long, no uniform AI-style paragraphs)
-- [ ] Includes specific data points (exact fees, exchange rates, amounts)
-- [ ] Balanced perspective — mentions trade-offs and limitations
-
-### Images
-- [ ] Featured image downloaded to `public/images/blog/` (1200x630, under 200KB)
-- [ ] 2-4 inline images within content sections
-- [ ] All images have descriptive alt text (under 125 chars, includes keyword)
-- [ ] All images have descriptive file names (hyphenated, keyword-rich)
-- [ ] All inline images use `loading="lazy"`
-- [ ] Images placed near relevant text (not randomly)
-- [ ] `<figure>` + `<figcaption>` used for inline images with captions
-
-### Internal Links
-- [ ] 3-4 links to other `/guides/` posts (descriptive anchor text)
-- [ ] 2-3 links to `/send-money/` corridor pages
-- [ ] 2-3 links to `/companies/` provider pages
-- [ ] 1-2 links to `/compare/` comparison pages
-- [ ] 1 link to comparison tool (`/send-money` or specific corridor)
-- [ ] All anchor text is descriptive (NEVER "click here" or "read more")
-- [ ] Anchor text varies (not same phrase repeated)
-
-### External References (E-E-A-T)
-- [ ] 5-7 authoritative external citations with real, verified URLs
-- [ ] Citations are inline (at point of reference), not in a footnote section
-- [ ] All external links: `target="_blank" rel="noopener noreferrer nofollow"`
-- [ ] Anchor text describes the source: "World Bank remittance data" not "source"
-- [ ] Sources are fresh (2025-2026 preferred, nothing before 2023)
-- [ ] "Sources & Methodology" section included for data-heavy posts
-
-### Structured Data (Auto-generated by page template)
-- [ ] Article schema auto-generated (headline, datePublished, dateModified, author, image)
-- [ ] `faqs` array: 4-6 items with real PAA questions — triggers FAQPage schema
-- [ ] `howToSteps` array: present if the post is a how-to guide — triggers HowTo schema
-- [ ] `relatedSlugs`: 3-4 existing blog post slugs for sidebar cross-links
-
-### Comparison Blocks
-- [ ] Main comparison block present (Best Overall, Fastest, Cheapest — minimum 3 categories)
-- [ ] Comparison block uses real data from our providers (not guessed)
-- [ ] Every provider name in comparison block links to its `/companies/` page
-- [ ] CTA link to comparison tool at bottom of comparison block
-- [ ] 1-2 inline mini-comparisons sprinkled in body content where multiple providers are mentioned
-
-### Corridor Integration
-- [ ] All relevant corridors mentioned in article link to their `/send-money/` pages
-- [ ] Corridor-specific data used in examples (e.g., "USD to NGN" not just "to Nigeria")
-- [ ] Multi-corridor posts include a corridor comparison table with links
-
-### Data Report Elements (if applicable)
-- [ ] Executive summary with 3-5 key findings at top
-- [ ] Methodology section explaining data collection
-- [ ] Quotable stats formatted as blockquotes for journalist pickup
-- [ ] Category set to "Research" for data reports
-- [ ] Full data tables included for reference and citation
-
-### Duplicate Content Prevention
-- [ ] Title is unique (not used by any existing post)
-- [ ] Meta description is unique
-- [ ] Content doesn't substantially overlap existing guides (check existing slugs)
-- [ ] Slug is unique
-- [ ] No large blocks of text copied from other pages on the site
+When invoked, follow this order:
+1. Determine whether new content should exist
+2. Choose correct page type
+3. Review existing site coverage
+4. Review Search Console signals if available
+5. Research SERP and sources
+6. Produce topic brief
+7. Get approval if appropriate
+8. Draft content
+9. Add internal linking plan
+10. Run quality gate
 
 ---
 
-## Phase 6: Output & Implementation
-
-### 6.1 Generate the BlogPost Object
-
-Produce the complete TypeScript object matching the `BlogPost` interface in
-`src/data/blog-posts.ts`:
-
-```typescript
-{
-  slug: "keyword-rich-url-slug",
-  title: "Primary Keyword — Compelling Title (2026)",
-  metaDescription: "150-160 char description with primary keyword in first 80 chars and clear value prop.",
-  excerpt: "Compelling 1-2 sentence summary for listing cards — different from metaDescription.",
-  category: "Guides",
-  readTime: "X min read",
-  publishedAt: "YYYY-MM-DD",
-  updatedAt: "YYYY-MM-DD",
-  author: "SendMoneyCompare Team",
-  tags: ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6"],
-  featuredImage: "/images/blog/descriptive-file-name.jpg", // optional but strongly recommended
-  sections: [
-    {
-      heading: "H2 Heading Targeting Secondary Keyword",
-      content: `<p>Answer-first opening paragraph...</p>
-<figure style="margin: 24px 0;">
-  <img src="/images/blog/inline-image-name.jpg"
-       alt="Descriptive alt text under 125 chars with keyword"
-       width="800" height="450" loading="lazy" />
-  <figcaption style="font-size: 14px; color: #5f6368; margin-top: 8px; text-align: center;">
-    Caption describing the image with data source attribution
-  </figcaption>
-</figure>
-<p>More content with <a href="/guides/related-guide">descriptive internal link</a>
-and <a href="https://real-source.org/data" target="_blank"
-rel="noopener noreferrer nofollow">authoritative external reference</a>.</p>`,
-    },
-    // ... more sections with inline images and references
-  ],
-  faqs: [
-    {
-      question: "Exact PAA question from Google search?",
-      answer: "Direct answer first with specific data. Then 1-2 sentences of supporting detail with provider names and exact numbers.",
-    },
-    // ... 4-6 FAQs
-  ],
-  howToSteps: [ // Only if the post is a how-to guide
-    { name: "Step 1: Compare providers", text: "Enter your amount and corridor..." },
-  ],
-  relatedSlugs: ["existing-slug-1", "existing-slug-2", "existing-slug-3"],
-}
-```
-
-### 6.2 Implementation Steps
-
-After generating content, execute these steps:
-
-1. **Download featured image** from Unsplash/Pexels to `public/images/blog/[name].jpg`
-2. **Download/create inline images** (2-4) to `public/images/blog/`
-3. **Add the BlogPost object** to the `blogPosts` array in `src/data/blog-posts.ts`
-4. **Update related posts** — Add this post's slug to `relatedSlugs` of 2-3 related existing posts (bidirectional linking)
-5. **Verify build passes** — Run `npm run build` and fix any issues
-6. **Verify the page** — Run `npm run dev` and check the post renders correctly at `/guides/[slug]`
-
----
-
-## Phase 7: Post-Publish Optimization
-
-After the post is live, execute these SEO amplification steps:
-
-### 7.1 Internal Link Injection
-
-Search the ENTIRE codebase for opportunities to link TO this new post from existing pages.
-Target 3-5 places across these content files:
-
-- `src/data/blog-posts.ts` — Other blog post sections/content (18+ posts)
-- `src/data/news.ts` — News articles that mention related topics (6+ items)
-- `src/data/comparison-articles.ts` — Head-to-head provider comparisons
-- `src/data/corridors.ts` — Corridor page content
-- `src/data/provider-reviews.ts` — Provider review content
-
-Use the Grep tool (not bash grep) to find mentions of the topic keyword across
-these files. Add natural links from existing content to the new post. This is
-critical for passing link equity and helping Google discover the new page.
-
-### 7.2 Sitemap Verification
-
-The post auto-appears in sitemap via `src/app/sitemap.ts` (reads from blogPosts array).
-Verify by checking the sitemap output includes the new URL.
-
-### 7.3 Suggest Social & Promotion
-
-Provide the user with:
-- **Twitter/X post** — 280 chars max, hook + key insight + link
-- **LinkedIn post** — 3-5 sentences, professional tone, key data point
-- **Email snippet** — For newsletter, highlighting the main takeaway
-
-### 7.4 Content Refresh Schedule
-
-Remind the user: "Update this post every 3 months with fresh data from our scrapers.
-Pages updated quarterly gain an average 4.6 positions in Google rankings."
-
----
-
-## Phase 8: Comparison Blocks (Required in Every Article)
-
-**Every blog post MUST include at least one comparison block.** Google prioritizes
-comparison content in search results, and these blocks dramatically improve click-through
-rates and dwell time.
-
-### 8.1 Provider Comparison Block Format
-
-Include a structured "best provider" comparison block in every article. This should
-appear early in the content (within the first 2-3 sections) and highlight:
-
-```html
-<div style="background: #f8f9fa; border-radius: 16px; padding: 24px; margin: 24px 0;">
-  <h3 style="margin-top: 0;">Quick Comparison: Best Providers for [Corridor/Use Case]</h3>
-  <table>
-    <thead>
-      <tr><th>Category</th><th>Provider</th><th>Why</th></tr>
-    </thead>
-    <tbody>
-      <tr style="background: #e8f5e9;">
-        <td><strong>🏆 Best Overall</strong></td>
-        <td><a href="/companies/wise">Wise</a></td>
-        <td>Mid-market rate, $7.33 fee on $1,000</td>
-      </tr>
-      <tr>
-        <td><strong>⚡ Fastest Transfer</strong></td>
-        <td><a href="/companies/remitly">Remitly</a></td>
-        <td>Instant delivery to mobile wallets</td>
-      </tr>
-      <tr>
-        <td><strong>💰 Cheapest Option</strong></td>
-        <td><a href="/companies/wise">Wise</a></td>
-        <td>Lowest total cost (fee + rate combined)</td>
-      </tr>
-      <tr>
-        <td><strong>🏦 Best for Large Amounts</strong></td>
-        <td><a href="/companies/ofx">OFX</a></td>
-        <td>No fees on transfers over $1,000</td>
-      </tr>
-    </tbody>
-  </table>
-  <p style="font-size: 14px; color: #5f6368; margin-bottom: 0;">
-    Based on real quotes collected [date]. <a href="/send-money">Compare live rates →</a>
-  </p>
-</div>
-```
-
-### 8.2 Comparison Block Rules
-
-- **Use real data** — Pull actual fees and rates from our provider data, never guess
-- **Always include these three categories minimum:**
-  1. **Best Overall** — Highest recipient amount (best total value)
-  2. **Fastest Provider** — Quickest delivery time
-  3. **Cheapest Provider** — Lowest fee (may differ from "best overall" due to rate markup)
-- **Add context-specific categories** when relevant:
-  - "Best for First-Time Senders" (easiest signup)
-  - "Best for Large Amounts" (lower fees at scale)
-  - "Best for Recurring Transfers" (auto-send features)
-  - "Best for Cash Pickup" (widest agent network)
-- **Link every provider name** to its `/companies/` page
-- **Include a CTA link** to the comparison tool at the bottom
-- **Cite the data date** so readers know it's current
-
-### 8.3 Inline Mini-Comparisons
-
-In addition to the main comparison block, sprinkle **mini-comparisons** throughout
-the article wherever you mention multiple providers:
-
-```html
-<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
-  <strong>Quick comparison:</strong> For $1,000 USD → INR, Wise delivers ₹91,596
-  (fee: $7.33) while Remitly delivers ₹91,100 (fee: $0). Wise wins on total value,
-  but Remitly is faster for bank deposits.
-  <a href="/compare/wise-vs-remitly">See full comparison →</a>
-</blockquote>
-```
-
-These mini-comparisons:
-- Target featured snippet opportunities (Google loves concise comparisons)
-- Drive clicks to our `/compare/` pages
-- Demonstrate real expertise with specific numbers
-
----
-
-## Phase 9: Programmatic Corridor Page Integration
-
-### 9.1 Corridor Page Cross-Linking
-
-Our programmatic corridor pages at `/send-money/[country-to-country]` (e.g.,
-`/send-money/usa-to-india`) are high-traffic landing pages. Every blog post should
-strategically link to and from these pages.
-
-**When writing a blog post:**
-- Identify ALL relevant corridors mentioned in the article
-- Link to each corridor page using natural anchor text:
-  ```html
-  <p>If you're sending dollars to Nigeria, <a href="/send-money/usa-to-nigeria">compare
-  the latest USD to NGN rates</a> across all providers on our platform.</p>
-  ```
-- Use corridor-specific data in examples (e.g., "USD to NGN" not just "to Nigeria")
-
-**After publishing:**
-- Check if relevant corridor pages could benefit from linking TO the new blog post
-- Add contextual links from corridor page content or related guides sections
-
-### 9.2 Corridor-Specific Blog Posts
-
-When the blog topic is corridor-specific (e.g., "send money to India"), the post
-should serve as a comprehensive companion to the programmatic corridor page:
-
-| Corridor Page (`/send-money/`) | Blog Post (`/guides/`) |
-|-------------------------------|----------------------|
-| Live rates, fees, comparison table | In-depth guide: tips, regulations, best methods |
-| Transactional intent (ready to send) | Informational intent (researching options) |
-| Auto-updated by scrapers | Manually curated expertise + context |
-| Links TO the guide for more detail | Links TO corridor page for live rates |
-
-**This bidirectional linking between corridor pages and blog posts creates a powerful
-topic cluster that dominates search results for the entire corridor.**
-
-### 9.3 Multi-Corridor Blog Posts
-
-For posts that cover multiple corridors (e.g., "cheapest way to send money abroad"),
-include a **corridor comparison table**:
-
-```html
-<h3>Cost Comparison Across Popular Corridors</h3>
-<table>
-  <thead>
-    <tr><th>Corridor</th><th>Cheapest Provider</th><th>Fee</th><th>Recipient Gets</th><th>Compare</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>USD → INR</td><td>Wise</td><td>$7.33</td><td>₹91,596</td>
-      <td><a href="/send-money/usa-to-india">See all rates →</a></td>
-    </tr>
-    <tr>
-      <td>USD → NGN</td><td>Wise</td><td>$7.33</td><td>₦1,534,200</td>
-      <td><a href="/send-money/usa-to-nigeria">See all rates →</a></td>
-    </tr>
-    <tr>
-      <td>GBP → PKR</td><td>Wise</td><td>£5.21</td><td>PKR 356,800</td>
-      <td><a href="/send-money/uk-to-pakistan">See all rates →</a></td>
-    </tr>
-  </tbody>
-</table>
-```
-
-This table format:
-- Drives traffic to multiple corridor pages simultaneously
-- Wins table rich results in Google
-- Demonstrates data breadth (builds authority)
-
----
-
-## Phase 10: Original Data Reports (Link Magnet Strategy)
-
-### 10.1 When to Write a Data Report
-
-If the blog topic lends itself to original research or data analysis, frame the post
-as an **original data report**. These are our most powerful content type because they:
-- **Attract backlinks** — Journalists and bloggers cite original research
-- **Establish authority** — Positions SendMoneyCompare as an industry data source
-- **Generate social shares** — Data-driven insights are highly shareable
-- **Win featured snippets** — Google surfaces unique data in search results
-
-**Indicators that a post should be a data report:**
-- Topic involves trends, costs, or market analysis
-- We have proprietary data others don't (real-time quotes from 16+ providers across 48 currencies via 13 scraper sources)
-- The topic is newsworthy or tied to current events
-- Existing coverage relies on outdated or limited data
-
-### 10.2 Data Report Format
-
-Data reports follow a specific structure that maximizes link-worthiness:
-
-```
-Title format: "[Topic]: [Year] Data Report" or "[Year] [Topic] Report: [Key Finding]"
-Examples:
-  - "2026 Remittance Cost Report: Which Providers Are Actually Cheapest?"
-  - "International Transfer Fees: 2026 Data Report Across 48 Currencies"
-  - "The Real Cost of Sending Money Home: 2026 Analysis of 16+ Providers"
-```
-
-**Required sections for data reports:**
-
-1. **Executive Summary** — Key findings in 3-5 bullet points (journalists grab these)
-2. **Methodology** — How we collected data, sample size, date range
-   ```html
-   <h3>Methodology</h3>
-   <p>This report analyzes <strong>real transfer quotes</strong> collected from
-   <strong>16+ providers</strong> across <strong>48 supported currencies</strong> between
-   [start date] and [end date]. Quotes were collected via direct API integrations and
-   automated browser scraping of provider websites. All amounts are based on a
-   benchmark transfer of $1,000 USD unless otherwise noted.</p>
-   ```
-3. **Key Findings** — 4-6 data-backed insights, each with supporting evidence
-4. **Corridor-by-Corridor Breakdown** — Tables comparing costs across corridors
-5. **Provider Rankings** — Who's cheapest, fastest, most improved
-6. **Trend Analysis** — How costs compare to previous periods (cite World Bank data)
-7. **Recommendations** — Actionable advice based on the data
-8. **Full Data Tables** — Comprehensive reference tables (great for citations)
-
-### 10.3 Making Data Reports Link-Worthy
-
-To maximize backlink potential:
-
-- **Lead with a surprising finding** — "Banks charge 5x more than fintech providers for
-  the same transfer" gets cited more than "We compared transfer costs"
-- **Create quotable stats** — Write 2-3 stats as standalone sentences that journalists
-  can copy directly:
-  ```html
-  <blockquote>
-    <p>"The average cost of sending $1,000 from the US to Nigeria is $14.50 through
-    digital providers, compared to $47.00 through traditional banks — a <strong>224%
-    markup</strong> that costs immigrants an estimated $X billion annually."</p>
-  </blockquote>
-  ```
-- **Include embeddable visuals** — Charts and tables that other sites want to share
-- **Reference the report as a proper publication** — Use phrases like "according to
-  SendMoneyCompare's 2026 Remittance Cost Report" in other blog posts to build
-  internal citation credibility
-- **Tag it as "Research" category** — Helps Google classify it as original research
-
-### 10.4 Data Report Cross-Referencing
-
-After publishing a data report:
-- **Update ALL existing blog posts** that reference cost data to cite the new report
-- **Add links from corridor pages** where the report covers that corridor
-- **Create derivative content** — Turn individual findings into shorter blog posts
-  that link back to the full report (e.g., "Why Banks Charge 5x More for Transfers"
-  → links to the full 2026 Remittance Cost Report)
-
----
-
-## Reference: Existing Blog Posts
-
-Always read `src/data/blog-posts.ts` for the latest list before writing.
-Never duplicate an existing topic — instead, propose a complementary angle.
-
-**Always read `src/data/blog-posts.ts` at runtime for the latest list.** This snapshot
-may be outdated. Current slugs (23 posts as of March 2026):
-
-- cheapest-way-to-send-money-internationally
-- how-to-send-money-abroad
-- exchange-rate-markup-explained
-- money-transfer-safety-guide
-- swift-codes-explained
-- iban-numbers-explained
-- best-money-transfer-apps
-- wise-vs-remitly-comparison
-- send-money-to-india-guide
-- business-international-payments-guide
-- global-remittance-trends-2026
-- wire-transfer-guide
-- best-money-transfer-services
-- money-transfer-promo-codes-referral-programs
-- send-money-home-ramadan-eid-2026
-- cost-of-sending-1000-abroad
-- send-money-to-pakistan-guide
-- multi-currency-accounts-exchange-rates
-- send-money-to-philippines-guide
-- send-money-to-mexico-guide
-- send-money-to-nigeria-guide
-- send-money-to-bangladesh-guide
-- send-money-uk-to-india-guide
-
----
-
-## Reference: Available Providers (16 hardcoded + scraped)
-
-Always read `src/data/providers.ts` at runtime for the latest. These are the hardcoded
-providers with `/companies/` pages you can link to:
-
-| Slug | Name | Notes |
-|------|------|-------|
-| wise | Wise | Mid-market rate, transparent fees |
-| remitly | Remitly | Fast delivery, mobile-first |
-| ofx | OFX | No fees on large transfers |
-| xe | XE | Currency data authority |
-| western-union | Western Union | Largest cash pickup network |
-| worldremit | WorldRemit | Mobile wallet delivery |
-| revolut | Revolut | Multi-currency app |
-| paypal | PayPal | Ubiquitous, higher fees |
-| moneygram | MoneyGram | Cash pickup network |
-| xoom | Xoom (PayPal) | PayPal's remittance arm |
-| torfx | TorFX | UK-focused, large transfers |
-| instarem | InstaReM | Asia-Pacific specialist |
-| taptap-send | TapTap Send | Africa/Asia corridors |
-| ace-money-transfer | ACE Money Transfer | Pakistan/South Asia |
-
-**Additional providers in scraped data** (via Monito, MoneyTransfers, RemitFinder aggregators):
-RIA, XE Transfer, Paysend, Panda Remit, CurrencyFair, Moneycorp, SendWave, TransferGo,
-Skrill, Currencies Direct, and others. These appear in quotes but don't have dedicated
-`/companies/` pages.
-
-## Reference: Popular Corridors (8 defined)
-
-These are the primary corridors defined in `src/data/providers.ts`:
-
-| Corridor | Route Slug | Currencies |
-|----------|-----------|------------|
-| USA to India | `/send-money/usa-to-india` | USD → INR |
-| UK to Europe | `/send-money/uk-to-europe` | GBP → EUR |
-| USA to Philippines | `/send-money/usa-to-philippines` | USD → PHP |
-| USA to Mexico | `/send-money/usa-to-mexico` | USD → MXN |
-| UK to India | `/send-money/uk-to-india` | GBP → INR |
-| Canada to India | `/send-money/canada-to-india` | CAD → INR |
-| USA to Nigeria | `/send-money/usa-to-nigeria` | USD → NGN |
-| UK to Pakistan | `/send-money/uk-to-pakistan` | GBP → PKR |
-
-**48 currencies supported total** — see `currencies[]` array in `src/data/providers.ts`
-for the full list (includes USD, GBP, EUR, CAD, AUD, INR, PHP, MXN, NGN, PKR, BDT,
-JPY, CNY, BRL, KES, GHS, ZAR, AED, SGD, NZD, and 28 more).
-
-## Reference: Other Content Data Files
-
-When cross-linking, be aware of these additional data sources:
-
-| File | Content | Count |
-|------|---------|-------|
-| `src/data/news.ts` | News articles at `/news/[slug]` | 12+ items |
-| `src/data/comparison-articles.ts` | `/compare/` page content | Multiple |
-| `src/data/corridors.ts` | Corridor page content | Multiple |
-| `src/data/provider-reviews.ts` | Provider review content | Multiple |
-| `src/data/promos.ts` | Promo codes and referral data | Multiple |
-
----
-
-## Reference: SEO Do's and Don'ts (Google Official + Industry Research)
-
-### DO — High Impact
-- Write for humans first, optimize for search engines second
-- Use answer-first format under H2s (wins featured snippets)
-- Include 5-7 authoritative external citations (boosts E-E-A-T)
-- Add real images with descriptive alt text (image search traffic)
-- Build topic clusters with bidirectional internal links (+30% traffic)
-- Use comparison tables (triggers table rich results)
-- Include specific data: exact fees, rates, and amounts
-- Update content quarterly with fresh data (+4.6 avg position gain)
-- Use `<figure>` + `<figcaption>` for images (semantic context)
-- Vary sentence length and structure (human writing signal)
-- Include a "Sources & Methodology" section for data posts
-- **Include comparison blocks in EVERY article** — Best Overall, Fastest, Cheapest (Google loves these)
-- **Link to programmatic corridor pages** (`/send-money/`) from every relevant mention
-- **Create original data reports** using our proprietary quote data — these attract backlinks
-- **Add mini-comparisons** as inline callouts wherever multiple providers are discussed
-
-### DON'T — Common Mistakes
-- Don't use AI-tell phrases ("In today's world", "Let's dive in", "It's important to note")
-- Don't stuff keywords — Google understands synonyms and penalizes stuffing
-- Don't use the `<meta name="keywords">` tag (Google ignores it since 2009)
-- Don't use vague anchor text ("click here", "read more", "this article")
-- Don't fabricate reference URLs — search for the real source or don't cite it
-- Don't create thin content to target a keyword — substance over length
-- Don't duplicate content from other pages on the site
-- Don't just change the date without substantive content updates (Google detects this)
-- Don't obsess over keyword density — there is no magic number
-- Don't use uniform paragraph/sentence lengths (signals AI-generated content)
-- Don't skip images — text-only posts underperform by 30%+ in engagement
+## What Good Looks Like For SendMoneyCompare
+
+A strong piece of content for this site should do all of the following:
+- rank for a clear keyword cluster
+- answer a real user problem
+- show stronger judgment than generic AI content
+- cite good sources
+- link naturally into `/send-money`, `/compare`, and `/companies`
+- improve the site's authority in remittances, FX, or cross-border payments
+- create a path from informational traffic to commercial pages
+
+If it only "fills the blog," it is not good enough.
+
+If it follows a stale SEO plan that no longer matches live search behavior, it is not good enough.

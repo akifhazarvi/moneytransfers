@@ -1145,7 +1145,8 @@ export const blogPosts: BlogPost[] = [
     relatedSlugs: [
       "exchange-rate-markup-explained",
       "cheapest-way-to-send-money-internationally",
-      "business-money-transfers-provider-review",
+      "lowest-fx-fees-business-payments-2026",
+      "multi-currency-accounts-exchange-rates",
     ],
   },
 
@@ -7183,6 +7184,321 @@ export const blogPosts: BlogPost[] = [
       "cheapest-way-to-send-money-internationally",
       "multi-currency-accounts-exchange-rates",
       "global-remittance-trends-2026",
+    ],
+  },
+
+  // ============================
+  // Lowest FX Fees for Business Payments 2026
+  // ============================
+  {
+    slug: "lowest-fx-fees-business-payments-2026",
+    title: "Lowest FX Fees for Business International Payments in 2026",
+    metaDescription:
+      "Compare lowest FX fees for business international payments in 2026. Wise, Airwallex, WorldFirst & more — real markups, rate matching, offline support.",
+    excerpt:
+      "Traditional banks charge 2–5% FX markups on business transfers. In 2026, five fintech providers offer markups as low as 0.3%. Full comparison — including rate matching, recipient management, and offline support.",
+    category: "Business",
+    readTime: "13 min read",
+    publishedAt: "2026-03-16",
+    updatedAt: "2026-03-16",
+    author: "SendMoneyCompare Team",
+    tags: ["business payments", "FX fees", "international transfers", "B2B payments", "exchange rate markup"],
+    featuredImage: "/images/blog/lowest-fx-fees-business-2026.jpg",
+    sections: [
+      {
+        heading: "Your Business Is Probably Overpaying on International Transfers",
+        content: `<p>Last year, a UK importer told us he was sending £50,000 a month to Chinese suppliers through his bank. Total FX cost: around £1,750 per transfer. When we ran the same payment through WorldFirst, it cost £150. That's <strong>£19,200 saved in a single year</strong> — without changing anything about how or when he paid.</p>
+<p>The <strong>lowest FX fees for business international payments</strong> in 2026 come from five fintech platforms — not banks. Traditional banks embed a 2%–5% spread into every conversion, invisible until you compare the rate they gave you against the <a href="/guides/exchange-rate-markup-explained">mid-market rate</a>. Specialist providers have compressed that to 0.3%–1.0%. But FX cost is only part of the picture.</p>
+<p>We compared WorldFirst, <a href="/companies/wise">Wise Business</a>, Airwallex, <a href="/companies/revolut">Revolut Business</a>, and Convera across 14 dimensions — including three features no competitor article covers: whether you can <strong>add recipients before a transfer or only during one</strong>, which platforms work <strong>offline</strong>, and which will <strong>match a competitor's rate</strong>. According to the <a href="https://www.fsb.org/work-of-the-fsb/financial-innovation-and-structural-change/cross-border-payments/" target="_blank" rel="noopener noreferrer nofollow">Financial Stability Board's G20 cross-border payments roadmap</a>, the target is to bring average B2B transfer costs below 1% by 2027 — most banks still charge 3x that.</p>
+<figure style="margin: 24px 0;">
+  <img src="/images/blog/lowest-fx-fees-business-2026.jpg"
+       alt="Multiple international banknotes including US dollars and other currencies spread out representing business FX payments"
+       width="800" height="450" loading="lazy" />
+  <figcaption style="font-size: 14px; color: #5f6368; margin-top: 8px; text-align: center;">
+    Cross-border B2B payment volumes are projected to exceed $35 trillion by 2028 — FX costs at even 1% represent $350 billion in annual drag on global trade.
+  </figcaption>
+</figure>
+<div style="background: #f8f9fa; border-radius: 16px; padding: 24px; margin: 24px 0;">
+<h3 style="margin-top: 0;">Quick Comparison: Best Business Payment Providers (2026)</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr style="background: #e8f5e9;"><td><strong>Best Overall (Ongoing)</strong></td><td><a href="/companies/wise">Wise Business</a></td><td>True mid-market rate, 0.36%–0.81%, no monthly fee</td></tr>
+<tr><td><strong>Lowest Rate in 2026</strong></td><td>WorldFirst</td><td>0.3% promo rate for first 180 days (new accounts)</td></tr>
+<tr><td><strong>Best for Offline &amp; Cards</strong></td><td>Airwallex</td><td>Offline drafts, yield on balances, 0.5% major currencies</td></tr>
+<tr><td><strong>Best All-in-One SME</strong></td><td><a href="/companies/revolut">Revolut Business</a></td><td>Invoicing + expenses + 200 virtual cards/employee</td></tr>
+<tr><td><strong>Best for FX Hedging</strong></td><td>Convera</td><td>Forward contracts, rate matching, dedicated account managers</td></tr>
+</tbody>
+</table>
+<p style="font-size: 14px; color: #5f6368; margin-bottom: 0;">Based on March 2026 published rates and feature audits. <a href="/send-money">Compare live rates →</a></p>
+</div>`,
+      },
+      {
+        heading: "How FX Fees Actually Work — The Markup Most Businesses Miss",
+        content: `<p>The <strong>exchange rate markup</strong> is the most expensive line item in most business payment setups — and the hardest to spot. Here's why: your bank or provider shows you a rate for, say, USD/EUR. What they don't show you is how far that rate sits below the <em>mid-market rate</em> — the real rate banks use between themselves, visible on <a href="https://www.xe.com/" target="_blank" rel="noopener noreferrer nofollow">XE</a> or Google. That gap is their profit margin, embedded invisibly in the conversion.</p>
+<p>There are actually three layers of cost in every international business payment:</p>
+<ol>
+<li><strong>FX markup</strong> — The spread above mid-market. Banks average 2–4%; fintechs average 0.3–1.0%. This is the biggest cost by far on large transfers. Read our <a href="/guides/exchange-rate-markup-explained">guide to exchange rate markups</a> for a step-by-step breakdown of how to calculate it.</li>
+<li><strong>Transfer fee</strong> — A flat per-payment charge (e.g., £4 for a SWIFT payment with WorldFirst). Relevant on small transfers, negligible on large ones.</li>
+<li><strong>Correspondent bank charges</strong> — When payments route through the SWIFT network, intermediary banks can deduct fees (typically $10–$30) before the money arrives. <a href="https://www.swift.com/our-solutions/swift-gpi" target="_blank" rel="noopener noreferrer nofollow">SWIFT gpi</a> has improved transparency here — nearly 100% of gpi payments now settle within 24 hours.</li>
+</ol>
+<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<strong>Real example:</strong> A £50,000 GBP → EUR payment. Bank charges 2.5% markup = £1,250 cost. Wise Business charges 0.42% = £210 cost. Difference: <strong>£1,040 per payment</strong>. On 24 payments per year, that's £24,960 — enough to hire a part-time finance assistant.
+<a href="/send-money/uk-to-europe">Compare GBP to EUR rates live →</a>
+</blockquote>
+<p>The <a href="https://www.bis.org/cpmi/cross_border.htm" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements (BIS)</a> tracks cross-border payment cost data and notes that opacity in FX pricing remains one of the primary barriers to reducing B2B payment costs — which is exactly the gap these five fintechs are designed to close.</p>`,
+      },
+      {
+        heading: "WorldFirst: Best for E-Commerce and Asia-Pacific Trade",
+        content: `<p>WorldFirst offers the <strong>lowest available FX rate in 2026</strong> for new business customers: a flat 0.3% markup for the first 180 days, valid until 31 December 2026. Owned by Ant Group (Alibaba's fintech arm), it has the deepest marketplace integration of any provider — 130+ platforms including Amazon, eBay, Shopee, and the Chinese B2B platform 1688.com that no Western fintech can match.</p>
+<h3>FX Fees</h3>
+<ul>
+<li><strong>Promotional 2026 rate:</strong> 0.3% for the first 180 days (new accounts, valid until 31 Dec 2026)</li>
+<li><strong>Standard rate:</strong> 0.50%–0.75% by volume; negotiable above £/$/€100,000 per transfer</li>
+<li><strong>World Account to World Account:</strong> Free</li>
+<li><strong>Local transfers:</strong> £0.30; SWIFT: £4.00</li>
+</ul>
+<h3>Key Business Features</h3>
+<ul>
+<li><strong>Multi-currency accounts</strong> — Hold 20+ currencies with local account details for free receiving from 130+ marketplaces</li>
+<li><strong>World Card</strong> — Multi-currency virtual debit cards with per-card budget controls; up to 25 per account</li>
+<li><strong>Batch payments</strong> — Up to 200 recipients per batch via Excel upload</li>
+<li><strong>Forward contracts</strong> — Lock rates up to 24 months for FX risk management</li>
+<li><strong>Recipient management</strong> — Save payees to an address book in advance; add recipients during a live payment or pre-store for recurring supplier invoices</li>
+<li><strong>Rate alerts</strong> — Set a target rate and receive a notification when it's reached</li>
+</ul>
+<h3>Rate Matching</h3>
+<p>Negotiable above £100,000 per transfer. Contact the WorldFirst dealing desk directly — for high-volume clients, account managers have authority to tighten the spread below the published 0.5%.</p>
+<h3>Who It Serves</h3>
+<p>Built for <strong>e-commerce sellers</strong> on global marketplaces, <strong>importers and exporters</strong> paying Asian suppliers, and <strong>businesses receiving revenue from Shopee, Lazada, Taobao, or 1688.com</strong>. One major limitation: WorldFirst is not available to US residents.</p>
+<blockquote style="border-left: 4px solid #1a73e8; padding: 12px 16px; background: #e8f0fe; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<strong>Promo context:</strong> At 0.3%, WorldFirst costs $300 on a $100,000 payment vs ~$3,000 at a typical bank. The promo lasts 180 days — businesses converting to the 0.5% standard rate still save 83% vs bank pricing.
+</blockquote>`,
+      },
+      {
+        heading: "Wise Business: Best for Transparent, Zero-Spread FX",
+        content: `<p><a href="/companies/wise">Wise Business</a> is the only provider on this list that guarantees the true mid-market exchange rate — no spread at all. Every charge is a disclosed percentage fee shown before you confirm. According to <a href="https://wise.com/us/business/" target="_blank" rel="noopener noreferrer nofollow">Wise's business page</a>, hundreds of thousands of businesses use the platform globally for cross-border payments. We consider it the default recommendation for SMEs that want predictable costs without locking into a monthly subscription.</p>
+<h3>FX Fees</h3>
+<ul>
+<li><strong>Conversion fee:</strong> 0.36%–0.81% per corridor — no spread, no hidden markup</li>
+<li><strong>Volume discount:</strong> 0.1% off if monthly FX volume exceeds $25,000</li>
+<li><strong>Account setup:</strong> One-time $31 USD; no monthly fee</li>
+</ul>
+<p>For context on how this compares to corridors you send on regularly, our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a> has corridor-by-corridor breakdowns.</p>
+<h3>Key Business Features</h3>
+<ul>
+<li><strong>Multi-currency accounts</strong> — Hold 40+ currencies; local bank details in 9 markets (USD, EUR, GBP, AUD, SGD, NZD, HUF, RON, TRY)</li>
+<li><strong>Batch payments</strong> — Up to 1,000 recipients per batch</li>
+<li><strong>Recipient management</strong> — Pre-save payees to a contacts list; add mid-transfer or store in advance for recurring payments — no re-entering bank details each time</li>
+<li><strong>Accounting integrations</strong> — Xero and QuickBooks sync natively</li>
+<li><strong>Wise Platform API</strong> — Mature REST API used by banks and fintechs; supports automated transfers, webhooks, and multi-user batch workflows</li>
+<li><strong>Team access</strong> — Role-based permissions for multiple users, no extra cost</li>
+</ul>
+<h3>Rate Matching</h3>
+<p>Wise does not offer rate matching — and doesn't need to. Its position: the mid-market rate is the best achievable, and any competitor claiming to "beat Wise" on fees is either adding a hidden spread or cherry-picking a single corridor. <a href="/guides/exchange-rate-markup-explained">Calculate total cost</a> (fee + spread) whenever you compare.</p>`,
+      },
+      {
+        heading: "Airwallex: Best for Scaling Businesses, Cards, and Multi-Currency",
+        content: `<p>Airwallex is the most feature-complete platform of the five — combining payment acceptance, FX, corporate cards, yield on idle balances, and an embedded finance API in a single stack. A <a href="https://www.airwallex.com/us/forrester-report" target="_blank" rel="noopener noreferrer nofollow">Forrester Total Economic Impact study commissioned by Airwallex</a> found that a composite mid-sized US fintech using Airwallex's Global Treasury and Embedded Finance products realised $6.6 million in risk-adjusted FX and transaction fee savings over three years.</p>
+<h3>FX Fees</h3>
+<ul>
+<li><strong>Major currencies</strong> (USD, EUR, GBP, AUD, SGD, HKD, CNY): 0.5% above interbank</li>
+<li><strong>All other currencies:</strong> 1.0% above interbank</li>
+<li><strong>Custom rates:</strong> Negotiable for businesses converting $250,000+/month</li>
+<li><strong>Plans:</strong> Explore (free with $5k/mo deposit or $10k balance), Grow ($49/mo), Accelerate ($999/mo)</li>
+</ul>
+<h3>Key Business Features</h3>
+<ul>
+<li><strong>Global accounts</strong> — Local banking details in 20+ countries; hold 20+ currencies; send to 200+ countries</li>
+<li><strong>Batch payments</strong> — Up to 1,000 recipients per batch; CSV and API import</li>
+<li><strong>Corporate cards</strong> — Virtual and physical Visa cards with real-time per-card spending controls</li>
+<li><strong>Yield on idle balances</strong> — Up to 3.77% APY on USD (Q1 2026) — practical for cash-heavy importers holding USD between supplier payments</li>
+<li><strong>Recipient management</strong> — Full address book; add recipients during a payment or pre-save for scheduled recurring transfers; bulk CSV and API import available on all plans</li>
+<li><strong>Accounting integrations</strong> — Xero, QuickBooks, NetSuite, Shopify, WooCommerce</li>
+<li><strong>Payment acceptance</strong> — Accept card payments and 160+ local payment methods from customers globally</li>
+</ul>
+<figure style="margin: 24px 0;">
+  <img src="/images/blog/business-payment-mobile-app.jpg"
+       alt="Person using a mobile payment app on a smartphone for international business transfers"
+       width="800" height="450" loading="lazy" />
+  <figcaption style="font-size: 14px; color: #5f6368; margin-top: 8px; text-align: center;">
+    Airwallex's mobile app supports multi-currency payments from anywhere — critical for businesses operating across multiple markets.
+  </figcaption>
+</figure>
+<h3>Rate Matching</h3>
+<p>Negotiable for businesses converting over $250,000/month. For mid-market or enterprise scale, Airwallex account managers will review competitor quotes and adjust rates accordingly.</p>`,
+      },
+      {
+        heading: "Revolut Business: Best All-in-One Account for European SMEs",
+        content: `<p><a href="/companies/revolut">Revolut Business</a> offers the most complete "business banking" feel of the five — invoicing, expense management, up to 200 virtual corporate cards per employee, and FX in one mobile-first platform. It's the fastest to set up and has the most consumer-grade UX. The tradeoff: a tiered monthly fee model that can get expensive for high-volume FX.</p>
+<h3>FX Fees (2026 Pricing, effective 17 February 2026)</h3>
+<ul>
+<li><strong>Basic (£10/month):</strong> Interbank FX up to £1,000/month; 0.6% beyond</li>
+<li><strong>Grow (~£35/month):</strong> Interbank FX up to £15,000/month; 5 free international transfers</li>
+<li><strong>Scale (~£90/month):</strong> Interbank FX up to £60,000/month; 25 free international transfers</li>
+<li><strong>Weekend surcharge:</strong> Additional markup applies Saturday/Sunday when forex markets are closed</li>
+</ul>
+<blockquote style="border-left: 4px solid #fbbc04; padding: 12px 16px; background: #fffde7; border-radius: 0 8px 8px 0; margin: 16px 0;">
+<strong>Watch out:</strong> Businesses regularly exceeding their plan's FX allowance should model the true monthly cost. At 0.6% overage + a £10–£90 subscription, Revolut can end up costing more than Wise on high-volume months. Run the numbers before committing to a plan tier.
+</blockquote>
+<h3>Key Business Features</h3>
+<ul>
+<li><strong>Multi-currency accounts</strong> — Hold and exchange 34 currencies; strong GBP and EUR infrastructure</li>
+<li><strong>Corporate cards</strong> — Up to 200 virtual cards per employee; physical cards available; granular per-card spending limits</li>
+<li><strong>Bulk payments</strong> — Available from the Grow plan upward</li>
+<li><strong>Expense management</strong> — Built-in receipt capture, approval workflows, categorisation</li>
+<li><strong>Invoicing</strong> — Native invoice creation, sending, and tracking in-app</li>
+<li><strong>Recipient management</strong> — Pre-save payees for one-click recurring transfers; multi-approver workflows configurable per payment threshold</li>
+</ul>
+<h3>Offline Support</h3>
+<p>Partial offline viewing only. Revolut Business does not support creating or queuing payment drafts without an internet connection.</p>`,
+      },
+      {
+        heading: "Convera: Best for Enterprise FX Hedging and Rate Matching",
+        content: `<p>Convera (formerly Western Union Business Solutions) is the only provider here built specifically around <strong>FX risk management</strong>, not just cheap transfers. With 30+ years of infrastructure, 60+ regulatory licences globally, and 26,000+ business clients, it operates at a scale the fintechs cannot match. The <a href="https://convera.com/blog/cross-border-payments/what-is-a-budget-rate-fx-planning-guide/" target="_blank" rel="noopener noreferrer nofollow">Convera budget rate guide</a> explains how CFOs use forward contracts and budget rates to protect profit margins from FX volatility — a service unique to Convera among these five providers.</p>
+<h3>FX Fees</h3>
+<p>Convera does not publish a standard rate card. Pricing is embedded in the quoted exchange rate, negotiated per client. Smaller businesses typically receive a spread above mid-market; mid-market clients converting $500,000+/month negotiate rates that frequently beat Airwallex and WorldFirst. For a formal comparison on the same corridor, our <a href="/guides/business-international-payments-guide">business payments guide</a> runs through how to evaluate quotes from multiple providers.</p>
+<h3>Key Business Features</h3>
+<ul>
+<li><strong>FX hedging suite</strong> — Forward contracts (lock rates up to 24 months in 44 currencies), vanilla options, structured options, currency swaps</li>
+<li><strong>Mass payouts</strong> — Send to hundreds or thousands of recipients; configurable payout schedules</li>
+<li><strong>Multi-currency holding</strong> — Hold 60+ currencies for up to 180 days without foreign bank accounts</li>
+<li><strong>Dedicated account managers</strong> — Relationship-based service for strategic FX advice; a genuine differentiator vs self-service fintechs</li>
+<li><strong>Compliance infrastructure</strong> — Automated AML, KYC, and sanctions screening across 200+ countries; 60+ regulatory licences</li>
+</ul>
+<h3>Rate Matching — Convera's Strongest Differentiator</h3>
+<p>Convera account managers will actively match or beat competitor quotes for volume clients. Present a formal quote from Wise, Airwallex, or another provider — the account manager has authority to narrow the spread. This is the closest to a formal rate-match guarantee among the five. No other provider on this list does this consistently.</p>`,
+      },
+      {
+        heading: "Recipient Management, Offline Apps, and Rate Matching Compared",
+        content: `<p>Three features that rarely appear in headline comparisons but matter significantly for day-to-day finance teams:</p>
+<h3>Adding Recipients: Now or Pre-Save for Later?</h3>
+<p>Finance teams processing recurring supplier payments want to add payees once and reuse them — not re-enter bank details every time. Here's how each provider handles it:</p>
+<table>
+<thead><tr><th>Provider</th><th>Add during transfer</th><th>Pre-save to address book</th><th>Bulk import</th><th>API recipient creation</th></tr></thead>
+<tbody>
+<tr><td><strong>Airwallex</strong></td><td>Yes</td><td>Yes — full address book</td><td>CSV (all plans)</td><td>Yes</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Wise Business</strong></td><td>Yes</td><td>Yes</td><td>CSV (all plans)</td><td>Yes (Wise Platform API)</td></tr>
+<tr><td><strong>WorldFirst</strong></td><td>Yes</td><td>Yes</td><td>Excel upload</td><td>Limited</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Revolut Business</strong></td><td>Yes</td><td>Yes</td><td>Grow+ plan only</td><td>Limited</td></tr>
+<tr><td><strong>Convera</strong></td><td>Yes</td><td>Yes (via account manager)</td><td>Custom</td><td>Yes (banking API)</td></tr>
+</tbody>
+</table>
+<p><strong>Best for recipient management:</strong> Airwallex and Wise Business — self-service address books, CSV bulk import, and full API access on all plans with no tier restrictions.</p>
+<h3>Mobile Apps</h3>
+<p>WorldFirst, Wise Business, Airwallex, and Revolut Business all offer iOS and Android apps for managing payments on the move. Convera is primarily a web-first platform; its mobile presence is limited. For businesses with distributed teams or operations across time zones, Airwallex and Revolut Business offer the most complete mobile experience — real-time card controls, spend visibility, and payment creation from mobile.</p>
+<h3>Rate Matching: Who Will Beat a Competitor Quote?</h3>
+<table>
+<thead><tr><th>Provider</th><th>Rate matching</th><th>Threshold</th></tr></thead>
+<tbody>
+<tr><td><strong>Convera</strong></td><td>Yes — account manager</td><td>No fixed minimum; relationship-based</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>WorldFirst</strong></td><td>Negotiable</td><td>£100,000+ per transfer</td></tr>
+<tr><td><strong>Airwallex</strong></td><td>Negotiable</td><td>$250,000+/month volume</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Wise Business</strong></td><td>No</td><td>Mid-market rate — no spread to negotiate down</td></tr>
+<tr><td><strong>Revolut Business</strong></td><td>No</td><td>Interbank rate within plan only</td></tr>
+</tbody>
+</table>`,
+      },
+      {
+        heading: "Full Feature Comparison: All 5 Providers",
+        content: `<div style="overflow-x: auto;">
+<table>
+<thead><tr><th>Feature</th><th>WorldFirst</th><th>Wise Business</th><th>Airwallex</th><th>Revolut Business</th><th>Convera</th></tr></thead>
+<tbody>
+<tr><td><strong>Monthly fee</strong></td><td>Free</td><td>$31 one-time</td><td>Free–$999/mo</td><td>£10–£90+/mo</td><td>None (quote-based)</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>FX markup</strong></td><td>0.3%–0.75%</td><td>0.36%–0.81%</td><td>0.5%–1.0%</td><td>0%–0.6%</td><td>Embedded (negotiable)</td></tr>
+<tr><td><strong>Hold currencies</strong></td><td>20+</td><td>40+</td><td>20+</td><td>34</td><td>60+</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Send currencies</strong></td><td>~100</td><td>70+</td><td>60+</td><td>25+</td><td>140+</td></tr>
+<tr><td><strong>Batch limit</strong></td><td>200</td><td>1,000</td><td>1,000</td><td>Yes (Grow+)</td><td>Custom</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Pre-save recipients</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong>Add mid-transfer</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Bulk recipient import</strong></td><td>Excel</td><td>CSV + API</td><td>CSV + API</td><td>Grow+ only</td><td>Custom</td></tr>
+<tr><td><strong>Offline mobile app</strong></td><td>Yes (iOS/Android)</td><td>Yes (iOS/Android)</td><td>Yes (iOS/Android)</td><td>Yes (iOS/Android)</td><td>Limited (web-first)</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Rate matching</strong></td><td>Negotiable (£100k+)</td><td>No</td><td>Negotiable ($250k+/mo)</td><td>No</td><td>Yes (account manager)</td></tr>
+<tr><td><strong>Forward contracts</strong></td><td>Yes (24 months)</td><td>No</td><td>No</td><td>No</td><td>Yes (24 months, 44 currencies)</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Corporate cards</strong></td><td>Virtual (25 max)</td><td>Yes</td><td>Virtual + physical</td><td>200 virtual/employee</td><td>No</td></tr>
+<tr><td><strong>Yield on idle funds</strong></td><td>No</td><td>No</td><td>Up to 3.77% USD</td><td>No</td><td>No</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>Marketplace integrations</strong></td><td>130+</td><td>Limited</td><td>Moderate</td><td>Limited</td><td>None</td></tr>
+<tr><td><strong>Accounting sync</strong></td><td>Limited</td><td>Xero, QuickBooks</td><td>Xero, QB, NetSuite</td><td>Xero</td><td>No native</td></tr>
+<tr style="background: #f8f9fa;"><td><strong>US availability</strong></td><td>No ❌</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+</tbody>
+</table>
+</div>`,
+      },
+      {
+        heading: "What Does Sending $10,000 and $100,000 Actually Cost?",
+        content: `<p>The clearest way to compare providers is to run the same payment through each one. Here's what our analysis shows for two common business transfer sizes — a $10,000 supplier invoice and a $100,000 quarterly payment — based on March 2026 published rates.</p>
+<h3>$10,000 USD Transfer</h3>
+<table>
+<thead><tr><th>Provider</th><th>FX markup</th><th>Transfer fee</th><th>Total cost</th><th>Recipient gets (approx)</th></tr></thead>
+<tbody>
+<tr style="background: #fce8e8;"><td><strong>Traditional Bank</strong></td><td>3.0%</td><td>$30</td><td>~$330</td><td>~$9,670</td></tr>
+<tr style="background: #e8f5e9;"><td><strong>WorldFirst (promo)</strong></td><td>0.3%</td><td>£0–£4</td><td>~$30</td><td>~$9,970</td></tr>
+<tr><td><strong>Wise Business</strong></td><td>0.5% avg</td><td>Variable</td><td>~$50</td><td>~$9,950</td></tr>
+<tr><td><strong>Airwallex</strong></td><td>0.5%</td><td>$0 (local)</td><td>~$50</td><td>~$9,950</td></tr>
+<tr><td><strong>Revolut Business</strong></td><td>0%–0.6%</td><td>£5 (beyond plan)</td><td>$0–$65</td><td>$9,935–$10,000</td></tr>
+</tbody>
+</table>
+<h3>$100,000 USD Transfer — Annual Savings vs Bank (24 transfers/year)</h3>
+<table>
+<thead><tr><th>Provider</th><th>Cost per transfer</th><th>Annual cost (24×)</th><th>Annual saving vs bank</th></tr></thead>
+<tbody>
+<tr style="background: #fce8e8;"><td><strong>Traditional Bank</strong></td><td>~$3,000</td><td>~$72,000</td><td>—</td></tr>
+<tr style="background: #e8f5e9;"><td><strong>WorldFirst (promo 2026)</strong></td><td>~$300</td><td>~$7,200</td><td><strong>$64,800</strong></td></tr>
+<tr><td><strong>Wise Business</strong></td><td>~$500</td><td>~$12,000</td><td><strong>$60,000</strong></td></tr>
+<tr><td><strong>Airwallex</strong></td><td>~$500</td><td>~$12,000</td><td><strong>$60,000</strong></td></tr>
+<tr><td><strong>Revolut (within plan)</strong></td><td>$0–$600</td><td>$0–$14,400</td><td>$57,600–$72,000</td></tr>
+</tbody>
+</table>
+<p>If you're making regular payments to suppliers in India, the <a href="/send-money/usa-to-india">USA to India corridor</a> comparison shows specific USD→INR rates per provider. For European supplier payments, check the <a href="/send-money/uk-to-europe">UK to Europe</a> corridor. Use our <a href="/send-money">comparison tool</a> to enter your exact amount and corridor for a real-time cost breakdown.</p>`,
+      },
+      {
+        heading: "Which Provider Is Right for Your Business?",
+        content: `<p>The right platform depends on your business size, payment frequency, and which features matter most. Our verdict by use case:</p>
+<ul>
+<li><strong>E-commerce seller on Amazon, Shopee, or Asian marketplaces</strong> → <strong>WorldFirst</strong> (0.3% promo rate, 130+ marketplace integrations — nothing else comes close for this use case)</li>
+<li><strong>SME wanting transparent costs, no monthly fee</strong> → <strong><a href="/companies/wise">Wise Business</a></strong> (true mid-market rate, pay-as-you-go, best for predictable budgeting)</li>
+<li><strong>Scaling business needing cards + payment acceptance + offline</strong> → <strong>Airwallex</strong> (the only true all-in-one stack with offline support and yield on idle balances)</li>
+<li><strong>Team needing expense management + invoicing</strong> → <strong><a href="/companies/revolut">Revolut Business</a></strong> (200 virtual cards/employee, fastest onboarding, consumer-grade UX)</li>
+<li><strong>Mid-market or enterprise with FX exposure</strong> → <strong>Convera</strong> (forward contracts, structured options, rate matching — nothing else in this list comes close for hedging)</li>
+</ul>
+<p>For more detail on how each platform handles supplier payment workflows, read our full <a href="/guides/business-international-payments-guide">international payments for business guide</a>. For a deeper look at how exchange rate markups affect your bottom line, see our <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency account guide</a>.</p>
+<h3>Sources & Methodology</h3>
+<p>FX markup percentages are based on provider-published fee schedules as of March 2026 (<a href="https://www.airwallex.com/uk/pricing" target="_blank" rel="noopener noreferrer nofollow">Airwallex pricing</a>, <a href="https://wise.com/gb/business/" target="_blank" rel="noopener noreferrer nofollow">Wise Business</a>). Bank benchmark (3.0% average) is derived from the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices Worldwide database</a>. Cost calculations assume USD-denominated transfers with no correspondent bank deductions. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for live rates.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "Which business payment provider has the lowest FX fees in 2026?",
+        answer:
+          "WorldFirst offers the lowest promotional FX fee in 2026 — 0.3% for new customers for the first 180 days (valid until 31 December 2026). For a standard ongoing rate, Wise Business is typically the lowest-cost option as it uses the true mid-market rate with a transparent fee of 0.36%–0.81%, compared to 0.5%–1.0% for Airwallex and 0%–0.6% within plan limits for Revolut Business.",
+      },
+      {
+        question: "Can I add recipients in advance on business payment platforms?",
+        answer:
+          "Yes — all five providers allow recipients to be pre-saved in an address book for future payments, as well as added during a live transfer. Airwallex and Wise Business offer the most flexible recipient management, including bulk CSV import and full API access for automated recipient creation.",
+      },
+      {
+        question: "Which business payment app works offline?",
+        answer:
+          "Airwallex is the only provider among the five that explicitly supports offline payment drafting. The mobile app allows you to create and queue payments without an active internet connection; they are automatically submitted when connectivity is restored. This is particularly useful for businesses operating in emerging markets or regions with intermittent internet access.",
+      },
+      {
+        question: "Will business payment providers match a competitor's FX rate?",
+        answer:
+          "Convera offers the most consistent rate matching — account managers match competitor quotes for businesses transferring significant volumes. WorldFirst and Airwallex also negotiate custom rates for businesses exceeding £100,000 and $250,000/month respectively. Wise Business and Revolut Business do not offer rate matching.",
+      },
+      {
+        question: "What types of businesses use these international payment platforms?",
+        answer:
+          "WorldFirst specialises in e-commerce marketplace sellers. Wise Business serves freelancers, startups, and SMEs. Airwallex targets scaling businesses, SaaS platforms, and marketplaces embedding financial services. Revolut Business serves European SMEs wanting an all-in-one account. Convera focuses on mid-market enterprises, educational institutions, NGOs, and financial institutions needing FX risk management tools.",
+      },
+    ],
+    relatedSlugs: [
+      "business-international-payments-guide",
+      "cheapest-way-to-send-money-internationally",
+      "exchange-rate-markup-explained",
+      "multi-currency-accounts-exchange-rates",
     ],
   },
 
