@@ -78,6 +78,44 @@ function formatIban(iban: string): string {
   return iban.replace(/(.{4})/g, "$1 ").trim();
 }
 
+const ibanCorridors: Record<string, { label: string; href: string }[]> = {
+  "united-kingdom": [
+    { label: "UK to India transfers", href: "/send-money/uk-to-india" },
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
+  ],
+  "germany": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "france": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "netherlands": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "denmark": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "spain": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "italy": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "pakistan": [
+    { label: "USA to Pakistan transfers", href: "/send-money/usa-to-pakistan" },
+    { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
+  ],
+  "united-arab-emirates": [
+    { label: "UK to UAE transfers", href: "/send-money/uk-to-uae" },
+    { label: "USA to UAE transfers", href: "/send-money/usa-to-uae" },
+  ],
+  "georgia": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+};
+
 const bbanLabels: Record<string, string> = {
   bank_code: "Bank code",
   branch_code: "Branch code",
@@ -436,6 +474,32 @@ export default async function IbanCountryPage({ params }: Props) {
             </h3>
             <ComparisonWidget compact />
           </Card>
+
+          {/* Popular corridors for this country */}
+          {ibanCorridors[slug] && (
+            <Card>
+              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
+                Popular money transfers
+              </h3>
+              <ul className="space-y-2">
+                {ibanCorridors[slug].map((corridor) => (
+                  <li key={corridor.href}>
+                    <Link
+                      href={corridor.href}
+                      className="text-[13px] text-[var(--color-primary)] hover:underline"
+                    >
+                      {corridor.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/send-money" className="text-[13px] text-[var(--color-primary)] hover:underline">
+                    Compare all providers →
+                  </Link>
+                </li>
+              </ul>
+            </Card>
+          )}
 
           {/* Related countries */}
           {related.length > 0 && (

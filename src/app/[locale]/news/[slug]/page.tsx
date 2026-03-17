@@ -255,6 +255,9 @@ export default async function NewsArticlePage({ params }: Props) {
                   <li><Link href="/guides" className="text-[13px] text-[var(--color-primary)] hover:underline">Guides & tutorials</Link></li>
                   <li><Link href="/companies" className="text-[13px] text-[var(--color-primary)] hover:underline">Provider reviews</Link></li>
                   <li><Link href="/compare" className="text-[13px] text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
+                  <li><Link href="/send-money/uk-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">UK to India transfers</Link></li>
+                  <li><Link href="/send-money/usa-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
+                  <li><Link href="/send-money/usa-to-mexico" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to Mexico transfers</Link></li>
                 </ul>
               </div>
             </div>

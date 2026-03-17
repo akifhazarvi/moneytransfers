@@ -319,8 +319,10 @@ export default async function BlogPostPage({ params }: Props) {
                 <ul className="space-y-2">
                   <li><Link href="/companies" className="text-[13px] text-[var(--color-primary)] hover:underline">Provider reviews</Link></li>
                   <li><Link href="/compare" className="text-[13px] text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
+                  <li><Link href="/send-money/uk-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">UK to India transfers</Link></li>
                   <li><Link href="/send-money/usa-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
                   <li><Link href="/send-money/usa-to-pakistan" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to Pakistan transfers</Link></li>
+                  <li><Link href="/send-money/usa-to-mexico" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to Mexico transfers</Link></li>
                   <li><Link href="/send-money/uk-to-europe" className="text-[13px] text-[var(--color-primary)] hover:underline">UK to Europe transfers</Link></li>
                 </ul>
               </div>
