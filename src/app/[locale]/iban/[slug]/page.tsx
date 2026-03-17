@@ -36,6 +36,8 @@ function getCountryName(code: string, slug: string): string {
   const country = getCountryByAlpha2(code);
   if (country) {
     return country.country
+      .replace(/\s*\([^)]*\)/g, "")
+      .trim()
       .split(" ")
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
       .join(" ");
@@ -171,12 +173,21 @@ export default async function IbanCountryPage({ params }: Props) {
                 </div>
               </div>
             </div>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-3">
               The International Bank Account Number (IBAN) for {name} consists of {country.ibanLength} alphanumeric
               characters. It is used to identify individual bank accounts for international transactions
               {country.sepa
                 ? " and is part of the SEPA network, enabling fast and low-cost euro transfers."
                 : "."}
+            </p>
+            <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+              Every {name} IBAN starts with the two-letter country code <strong className="font-medium text-[var(--color-on-surface)]">{country.countryCode}</strong>,
+              followed by two check digits used to validate the number, then the domestic Basic Bank Account Number (BBAN)
+              which encodes the bank, branch, and account details specific to {name}.
+              {country.sepa
+                ? ` As a SEPA member, ${name} uses the ${country.currency} and participates in the Single Euro Payments Area, which enables low-cost, near-instant euro transfers across 36+ European countries.`
+                : ` ${name} uses the ${country.currency} currency for international transfers, which are typically processed via the SWIFT network.`}
+              {" "}When sending money internationally to or from {name}, you will need to provide the recipient's full IBAN along with the bank's BIC/SWIFT code.
             </p>
           </Card>
 

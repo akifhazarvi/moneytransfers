@@ -201,6 +201,56 @@ const editorialContent: Record<string, PairEditorial> = {
     ],
     tip: "USD/JPY is one of the most volatile major pairs right now. If you have flexibility on timing, waiting for a rate dip can save meaningful amounts on larger transfers.",
   },
+  "eur-to-gbp": {
+    intro: "EUR/GBP is one of Europe's most closely watched currency pairs, representing the economic relationship between the eurozone and the United Kingdom. Since Brexit, the pair has been driven by trade negotiations, BoE and ECB interest rate differentials, and economic divergence. For eurozone residents sending money to the UK, specialist providers consistently outperform banks on this corridor.",
+    bullets: [
+      "Post-Brexit trade frictions have kept EUR/GBP more volatile than it was pre-2016",
+      "ECB and Bank of England interest rate paths are the dominant near-term rate driver",
+      "SEPA transfers fund quickly from the eurozone; Faster Payments delivers instantly in the UK",
+      "Specialist providers like Wise and Revolut charge under 0.5% markup on this liquid pair",
+    ],
+    tip: "For regular transfers to the UK, open a GBP balance with Wise or Revolut and convert opportunistically — EUR/GBP can swing 1–2% in a week around central bank meetings.",
+  },
+  "usd-to-cad": {
+    intro: "USD/CAD (known as the 'Loonie pair' in forex markets) is the most important cross-border currency for North America, reflecting the deep trade ties between the US and Canada. The pair is heavily influenced by oil prices (Canada is a major oil exporter), Bank of Canada decisions, US tariff policy, and broader risk sentiment. For US residents sending money to Canada, competition among providers keeps costs low.",
+    bullets: [
+      "Oil price movements can shift USD/CAD by 0.5–1% on a single day — watch crude if timing matters",
+      "Interac e-Transfer makes receiving funds in Canada fast and convenient",
+      "ACH funding from the US is cheapest; same-day wire is available for urgent transfers",
+      "Bank of Canada and Fed rate decisions are the primary medium-term drivers",
+    ],
+    tip: "USD/CAD is very sensitive to oil prices and US trade policy announcements. If you have flexibility on timing, checking rates around major economic data releases can yield better rates.",
+  },
+  "usd-to-aud": {
+    intro: "USD/AUD reflects the relationship between the world's reserve currency and a major commodity currency. The Australian dollar is heavily influenced by iron ore and coal prices, the health of the Chinese economy (Australia's largest trading partner), and Reserve Bank of Australia rate decisions. This makes AUD more volatile than most developed-market currencies, which creates both risk and opportunity for US senders.",
+    bullets: [
+      "AUD is a 'risk-on' currency — it strengthens when global sentiment is positive and weakens in downturns",
+      "China's economic data releases regularly move AUD/USD by 0.5% or more",
+      "PayID enables near-instant bank deposits in Australia once funds are processed",
+      "Wise and OFX are strong competitors on this corridor; OFX waives fees on larger amounts",
+    ],
+    tip: "If AUD is near multi-year lows against USD, consider locking in a forward contract for future regular payments — OFX and TorFX offer these for up to 12 months ahead.",
+  },
+  "usd-to-brl": {
+    intro: "The USD/BRL rate is among the most volatile of any major emerging market currency pair. Brazil's real is sensitive to fiscal policy, commodity prices (especially iron ore and soybeans), political risk, and Banco Central do Brasil's Selic rate decisions. For US residents sending money to Brazil, the wide rate swings mean timing can make a significant difference — but Brazil's PIX instant payment system makes the receiving experience seamless once funds arrive.",
+    bullets: [
+      "BRL can move 3–5% in a single week during periods of political or fiscal uncertainty",
+      "PIX instant payments mean Brazilian bank deposits arrive in seconds, 24/7",
+      "Some providers charge higher fees on emerging market corridors — compare the total cost carefully",
+      "The Selic rate (Brazil's benchmark) and US Fed policy divergence are key medium-term drivers",
+    ],
+    tip: "On volatile corridors like USD to BRL, always compare the all-in cost — some providers offer a 'good' rate but add a hidden fee that makes them expensive overall. Check both the rate and the fee before sending.",
+  },
+  "usd-to-cny": {
+    intro: "USD/CNY (US Dollar to Chinese Yuan Renminbi) is one of the most politically sensitive currency pairs in the world. The People's Bank of China manages the yuan within a daily trading band around a centrally-set fixing rate, meaning the rate does not move freely like most major currencies. For US residents sending money to China, this managed float means less volatility than other corridors, but also fewer provider options due to China's strict capital controls.",
+    bullets: [
+      "The PBoC sets a daily fixing rate and allows CNY to trade within a ±2% band around it",
+      "Capital controls limit the routes available — not all providers support USD to CNY",
+      "WeChat Pay and Alipay are widely used for receiving funds, but require Chinese residency to use fully",
+      "Bank-to-bank SWIFT transfers are the most common delivery method for international CNY transfers",
+    ],
+    tip: "Check that your provider explicitly supports CNY delivery to mainland China (not just CNH — the offshore yuan). The two rates can differ, and not all providers offer onshore CNY transfers.",
+  },
 };
 
 /* ── Static params ────────────────────────────────────────── */
@@ -218,7 +268,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = PAIR_MAP.get(pair);
   if (!p) return { title: "Not Found" };
 
-  const title = `${p.from} to ${p.to} Exchange Rate Today — ${p.fromName} to ${p.toName} | SendMoneyCompare`;
+  const title = `${p.from} to ${p.to} Exchange Rate Today — ${p.fromName} to ${p.toName}`;
   const description = `Live ${p.from}/${p.to} exchange rate today. Compare what ${providers.length}+ money transfer providers actually offer vs. the mid-market rate. Find the cheapest way to convert ${p.fromName} to ${p.toName}.`;
 
   return {
@@ -494,6 +544,40 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             </div>
           )}
 
+          {/* FAQ */}
+          <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
+            <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
+              Frequently asked questions about {p.from} to {p.to}
+            </h2>
+            <div className="divide-y divide-[var(--color-outline)]">
+              {[
+                {
+                  q: `What is the mid-market rate for ${p.from} to ${p.to}?`,
+                  a: midRate
+                    ? `The current mid-market rate for ${p.from} to ${p.to} is ${fmtRate(midRate)} — meaning 1 ${p.from} equals ${fmtRate(midRate)} ${p.to}. This is the interbank rate before any provider markup or fees are applied. The actual rate you receive from a money transfer provider will be slightly lower, as providers add a margin to cover their costs and profit.`
+                    : `The mid-market rate is the midpoint between the global buy and sell prices for ${p.from}/${p.to}. It is the fairest reference rate, before any provider markup is applied.`,
+                },
+                {
+                  q: `How much does it cost to send ${p.from} to ${p.to}?`,
+                  a: `The total cost of a ${p.from} to ${p.to} transfer has two components: the exchange rate markup (the difference between the mid-market rate and what the provider charges) and any flat transfer fee. The best specialist providers typically charge a markup of 0.3–1% and a small flat fee, while banks can charge 2–5% in markup plus higher fees. Comparing providers using the table above shows you exactly how much ${p.to} your recipient would receive.`,
+                },
+                {
+                  q: `Which provider offers the best ${p.from} to ${p.to} exchange rate?`,
+                  a: `The best provider for ${p.from} to ${p.to} varies day to day depending on which provider has the tightest spread. Specialist remittance providers like Wise, Revolut, and OFX typically offer significantly better rates than banks. The comparison table above shows real-time quotes from multiple providers — always check before you send, as the rankings can change.`,
+                },
+                {
+                  q: `How often does the ${p.from}/${p.to} exchange rate change?`,
+                  a: `The ${p.from}/${p.to} exchange rate fluctuates continuously during forex market hours (Sunday 5pm ET through Friday 5pm ET). Rates can change multiple times per second during active trading sessions, though moves of more than 0.5% in a single day are notable for major pairs. The rate shown on this page is refreshed regularly from independent data sources.`,
+                },
+              ].map((faq, i) => (
+                <div key={i} className="py-4">
+                  <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">{faq.q}</h3>
+                  <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Back link */}
           <div className="pt-6 border-t border-[var(--color-outline)]">
             <Link href="/exchange-rates" className="text-[14px] font-medium text-[var(--color-primary)] hover:underline">
@@ -502,6 +586,45 @@ export default async function ExchangeRatePairPage({ params }: Props) {
           </div>
         </div>
       </div>
+
+      {/* FAQ JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: `What is the mid-market rate for ${p.from} to ${p.to}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: midRate
+                    ? `The current mid-market rate for ${p.from} to ${p.to} is ${fmtRate(midRate)} — meaning 1 ${p.from} equals ${fmtRate(midRate)} ${p.to}. This is the interbank rate before any provider markup or fees are applied.`
+                    : `The mid-market rate is the fairest reference rate for ${p.from}/${p.to}, before any provider markup is applied.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `How much does it cost to send ${p.from} to ${p.to}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `The total cost has two components: the exchange rate markup and any flat transfer fee. The best specialist providers charge a markup of 0.3–1% and a small flat fee, while banks can charge 2–5% in markup plus higher fees.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `Which provider offers the best ${p.from} to ${p.to} exchange rate?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `The best provider varies day to day. Specialist providers like Wise, Revolut, and OFX typically offer significantly better rates than banks. Always compare before you send.`,
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }
