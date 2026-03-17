@@ -43,17 +43,17 @@ export const businessPages: BusinessPage[] = [
       },
       {
         heading: "Best Providers for Small Business Payments",
-        content: `<div style="background: #f8f9fa; border-radius: 16px; padding: 24px; margin: 24px 0;">
+        content: `<div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best for SME International Payments</h3>
 <table>
 <thead><tr><th>Provider</th><th>Best For</th><th>FX Markup</th><th>Fees</th></tr></thead>
 <tbody>
-<tr style="background: #e8f5e9;"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>Most SMBs (1–50 employees)</td><td>0% (mid-market rate)</td><td>0.41–0.71%</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>Most SMBs (1–50 employees)</td><td>0% (mid-market rate)</td><td>0.41–0.71%</td></tr>
 <tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>Startups & tech companies</td><td>0% (market hours)</td><td>Free tier available</td></tr>
 <tr><td><strong><a href="/companies/ofx">OFX Business</a></strong></td><td>Larger transfers ($10K+)</td><td>0.3–1.5%</td><td>$0 fees</td></tr>
 </tbody>
 </table>
-<p style="font-size: 14px; color: #5f6368; margin-bottom: 0;">Rates verified March 2026. <a href="/send-money">Compare live rates →</a></p>
+<p class="blog-footnote">Rates verified March 2026. <a href="/send-money">Compare live rates →</a></p>
 </div>
 
 <h3>Wise Business — Best Overall for SMEs</h3>
@@ -132,17 +132,17 @@ export const businessPages: BusinessPage[] = [
       },
       {
         heading: "Best Providers for Bulk Payments",
-        content: `<div style="background: #f8f9fa; border-radius: 16px; padding: 24px; margin: 24px 0;">
+        content: `<div class="blog-table-box">
 <h3 style="margin-top: 0;">Batch Payment Provider Comparison</h3>
 <table>
 <thead><tr><th>Provider</th><th>Batch Method</th><th>Max per Batch</th><th>Currencies</th></tr></thead>
 <tbody>
-<tr style="background: #e8f5e9;"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>CSV upload + API</td><td>1,000 payments</td><td>50+</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>CSV upload + API</td><td>1,000 payments</td><td>50+</td></tr>
 <tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>CSV upload + API</td><td>1,000 payments</td><td>30+</td></tr>
 <tr><td><strong><a href="/companies/ofx">OFX Business</a></strong></td><td>Dealing desk + CSV</td><td>Unlimited</td><td>50+</td></tr>
 </tbody>
 </table>
-<p style="font-size: 14px; color: #5f6368; margin-bottom: 0;">Based on provider documentation. <a href="/send-money">Compare live rates →</a></p>
+<p class="blog-footnote">Based on provider documentation. <a href="/send-money">Compare live rates →</a></p>
 </div>
 
 <h3>Wise Business — Best Self-Service Batch Payments</h3>
@@ -295,17 +295,17 @@ export const businessPages: BusinessPage[] = [
       },
       {
         heading: "Best Providers for B2B International Transfers",
-        content: `<div style="background: #f8f9fa; border-radius: 16px; padding: 24px; margin: 24px 0;">
+        content: `<div class="blog-table-box">
 <h3 style="margin-top: 0;">B2B Provider Comparison</h3>
 <table>
 <thead><tr><th>Provider</th><th>Best For</th><th>Min Transfer</th><th>Key Feature</th></tr></thead>
 <tbody>
-<tr style="background: #e8f5e9;"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>SMBs, tech companies</td><td>No minimum</td><td>0% markup, API, batch payments</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>SMBs, tech companies</td><td>No minimum</td><td>0% markup, API, batch payments</td></tr>
 <tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>Mid-market companies</td><td>$1,000</td><td>$0 fees, dedicated FX dealer</td></tr>
 <tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>Startups, scale-ups</td><td>No minimum</td><td>Multi-currency accounts, team access</td></tr>
 </tbody>
 </table>
-<p style="font-size: 14px; color: #5f6368; margin-bottom: 0;">Based on business account pricing. <a href="/send-money">Compare live rates →</a></p>
+<p class="blog-footnote">Based on business account pricing. <a href="/send-money">Compare live rates →</a></p>
 </div>`,
       },
       {
