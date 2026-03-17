@@ -30,90 +30,60 @@ const INDEXED_SWIFT_SLUGS = new Set([
   "turkiye", "egypt", "morocco", "colombia", "peru",
 ]);
 
-function withAlternates(
-  path: string,
-  options: { lastModified: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }
-): MetadataRoute.Sitemap[number] {
+// Note: changeFrequency and priority are ignored by Google and have been removed.
+// See: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+function entry(path: string, lastModified: string): MetadataRoute.Sitemap[number] {
   const url = path ? `${SITE_URL}/${path}` : SITE_URL;
-  return {
-    url,
-    lastModified: options.lastModified,
-    changeFrequency: options.changeFrequency,
-    priority: options.priority,
-  };
+  return { url, lastModified };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
   const staticPages: MetadataRoute.Sitemap = [
-    withAlternates("", { lastModified: now, changeFrequency: "daily", priority: 1.0 }),
-    withAlternates("send-money", { lastModified: now, changeFrequency: "daily", priority: 0.9 }),
-    withAlternates("companies", { lastModified: now, changeFrequency: "weekly", priority: 0.8 }),
-    withAlternates("compare", { lastModified: now, changeFrequency: "weekly", priority: 0.8 }),
-    withAlternates("currency-converter", { lastModified: now, changeFrequency: "daily", priority: 0.7 }),
-    withAlternates("guides", { lastModified: now, changeFrequency: "weekly", priority: 0.7 }),
-    withAlternates("iban", { lastModified: now, changeFrequency: "monthly", priority: 0.5 }),
-    withAlternates("swift-codes", { lastModified: now, changeFrequency: "monthly", priority: 0.5 }),
-    withAlternates("about", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("contact", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("editorial-policy", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("how-we-review", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("methodology", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("privacy-policy", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("terms", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("cookies", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
-    withAlternates("disclaimer", { lastModified: now, changeFrequency: "monthly", priority: 0.3 }),
+    entry("", now),
+    entry("send-money", now),
+    entry("companies", now),
+    entry("compare", now),
+    entry("currency-converter", now),
+    entry("guides", now),
+    entry("iban", now),
+    entry("swift-codes", now),
+    entry("about", now),
+    entry("contact", now),
+    entry("editorial-policy", now),
+    entry("how-we-review", now),
+    entry("methodology", now),
+    entry("privacy-policy", now),
+    entry("terms", now),
+    entry("cookies", now),
+    entry("disclaimer", now),
   ];
 
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => !EXCLUDED_CORRIDOR_SLUGS.has(c.slug))
-    .map((c) =>
-    withAlternates(`send-money/${c.slug}`, {
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: c.isCurrencyCorridor ? 0.7 : c.isCountryPage ? 0.85 : 0.9,
-    })
-  );
+    .map((c) => entry(`send-money/${c.slug}`, now));
 
   const providerPages: MetadataRoute.Sitemap = providers.map((p) =>
-    withAlternates(`companies/${p.slug}`, {
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    })
+    entry(`companies/${p.slug}`, now)
   );
 
   const comparisonPages: MetadataRoute.Sitemap = [];
   for (let i = 0; i < providers.length; i++) {
     for (let j = i + 1; j < providers.length; j++) {
       comparisonPages.push(
-        withAlternates(`compare/${providers[i].slug}-vs-${providers[j].slug}`, {
-          lastModified: now,
-          changeFrequency: "weekly",
-          priority: 0.6,
-        })
+        entry(`compare/${providers[i].slug}-vs-${providers[j].slug}`, now)
       );
     }
   }
 
   const guidePages: MetadataRoute.Sitemap = blogPosts.map((post) =>
-    withAlternates(`guides/${post.slug}`, {
-      lastModified: post.updatedAt,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    })
+    entry(`guides/${post.slug}`, post.updatedAt)
   );
 
   const newsPages: MetadataRoute.Sitemap = [
-    withAlternates("news", { lastModified: now, changeFrequency: "daily", priority: 0.7 }),
-    ...newsItems.map((item) =>
-      withAlternates(`news/${item.slug}`, {
-        lastModified: item.publishedAt,
-        changeFrequency: "monthly",
-        priority: 0.5,
-      })
-    ),
+    entry("news", now),
+    ...newsItems.map((item) => entry(`news/${item.slug}`, item.publishedAt)),
   ];
 
   const EXCHANGE_RATE_PAIRS = [
@@ -126,36 +96,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const exchangeRatesPage: MetadataRoute.Sitemap = [
-    withAlternates("exchange-rates", { lastModified: now, changeFrequency: "hourly", priority: 0.8 }),
-    withAlternates("remittance-cost-index", { lastModified: now, changeFrequency: "weekly", priority: 0.9 }),
-    ...EXCHANGE_RATE_PAIRS.map((pair) =>
-      withAlternates(`exchange-rates/${pair}`, {
-        lastModified: now,
-        changeFrequency: "daily",
-        priority: 0.7,
-      })
-    ),
+    entry("exchange-rates", now),
+    entry("remittance-cost-index", now),
+    ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, now)),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
     .filter((c) => c.slug && INDEXED_IBAN_SLUGS.has(c.slug))
-    .map((c) =>
-      withAlternates(`iban/${c.slug}`, {
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.4,
-      })
-    );
+    .map((c) => entry(`iban/${c.slug}`, now));
 
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
     .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
-    .map((c) =>
-    withAlternates(`swift-codes/${c.slug}`, {
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    })
-  );
+    .map((c) => entry(`swift-codes/${c.slug}`, now));
 
   return [
     ...staticPages,

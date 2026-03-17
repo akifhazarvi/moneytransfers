@@ -1570,40 +1570,22 @@ export default async function CorridorPage({ params }: Props) {
           }}
         />
       )}
-      {/* HowTo structured data for country corridors */}
-      {countryDetails && (
+      {/* ItemList structured data — ranked provider list for this corridor */}
+      {quotes.length > 0 && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "HowTo",
-              name: `How to Send Money to ${corridor.toCountry}`,
-              description: `Step-by-step guide to sending money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency})`,
-              totalTime: "PT10M",
-              step: [
-                {
-                  "@type": "HowToStep",
-                  position: 1,
-                  name: "Compare providers and enter transfer details",
-                  text: `Choose how much ${fromCurrency} you want to send to ${corridor.toCountry}. Compare exchange rates and fees from multiple providers to find the best deal for ${fromCurrency} to ${toCurrency}.`,
-                },
-                {
-                  "@type": "HowToStep",
-                  position: 2,
-                  name: "Add your recipient's details",
-                  text: `Enter your recipient's information in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` including their ${countryDetails.recipientRequirements[1].label}` : ""}. Choose your preferred delivery method.`,
-                },
-                {
-                  "@type": "HowToStep",
-                  position: 3,
-                  name: "Send and track your transfer",
-                  text: `Pay using bank transfer, debit card, or credit card. Track your transfer in real-time until your recipient receives the ${toCurrency} in ${corridor.toCountry}.`,
-                },
-              ],
-              tool: countryDetails.regulations.documentationNeeded.map((doc) => ({
-                "@type": "HowToTool",
-                name: doc,
+              "@type": "ItemList",
+              name: `Best Ways to Send Money ${corridor.fromCountry ? `from ${corridor.fromCountry} ` : ""}to ${corridor.toCountry || toCurrency} ${new Date().getFullYear()}`,
+              itemListOrder: "https://schema.org/ItemListOrderDescending",
+              numberOfItems: Math.min(quotes.length, 10),
+              itemListElement: quotes.slice(0, 10).map((q, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: getProviderName(q.providerSlug),
+                url: `https://sendmoneycompare.com/companies/${q.providerSlug}`,
               })),
             }),
           }}

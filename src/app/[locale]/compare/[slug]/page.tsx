@@ -12,6 +12,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { sanitizeHtml } from "@/lib/sanitize";
+import { trustpilotIndex } from "@/lib/unified-quotes";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -122,6 +123,33 @@ function ArticleComparison({
           }),
         }}
       />
+      {/* Product schema with AggregateRating for each provider */}
+      {[a, b].map((provider) => (
+        <script
+          key={`product-${provider.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: provider.name,
+              description: provider.description,
+              brand: { "@type": "Brand", name: provider.name },
+              ...(provider.rating > 0 && {
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: provider.rating.toFixed(1),
+                  bestRating: "5",
+                  worstRating: "1",
+                  ...(trustpilotIndex[provider.slug]?.totalReviews
+                    ? { ratingCount: String(trustpilotIndex[provider.slug].totalReviews) }
+                    : {}),
+                },
+              }),
+            }),
+          }}
+        />
+      ))}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -533,6 +561,33 @@ function DefaultComparison({
           }),
         }}
       />
+      {/* Product schema with AggregateRating for each provider */}
+      {[a, b].map((provider) => (
+        <script
+          key={`product-${provider.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: provider.name,
+              description: provider.description,
+              brand: { "@type": "Brand", name: provider.name },
+              ...(provider.rating > 0 && {
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: provider.rating.toFixed(1),
+                  bestRating: "5",
+                  worstRating: "1",
+                  ...(trustpilotIndex[provider.slug]?.totalReviews
+                    ? { ratingCount: String(trustpilotIndex[provider.slug].totalReviews) }
+                    : {}),
+                },
+              }),
+            }),
+          }}
+        />
+      ))}
     <Container className="py-8">
       <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
@@ -545,9 +600,16 @@ function DefaultComparison({
       <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">
         {a.name} vs {b.name}
       </h1>
-      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
+      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-3">
         A detailed comparison of {a.name} and {b.name} — fees, exchange rates, speed, and features side by side.
       </p>
+      <div className="flex flex-wrap items-center gap-3 text-[12px] text-[var(--color-on-surface-variant)] mb-8">
+        <span>Last updated: {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
+        <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
+        <span>Data sourced from provider APIs and websites, updated every 6 hours. Ratings from Trustpilot.</span>
+        <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
+        <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">Our methodology</Link>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-4 mb-8">
         {[a, b].map((provider) => (

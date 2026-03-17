@@ -73,23 +73,9 @@ export default async function BlogPostPage({ params }: Props) {
       }
     : null;
 
-  // HowTo JSON-LD for step-by-step guides
-  const howToSchema = post.howToSteps?.length
-    ? {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        name: post.title,
-        description: post.metaDescription,
-        datePublished: post.publishedAt,
-        dateModified: post.updatedAt,
-        step: post.howToSteps.map((step, i) => ({
-          "@type": "HowToStep",
-          position: i + 1,
-          name: step.name,
-          text: step.text,
-        })),
-      }
-    : null;
+  // HowTo rich results were deprecated by Google in September 2023.
+  // Keeping step data in the article content for readability, but not emitting HowTo schema.
+  const howToSchema = null;
 
   // Article JSON-LD
   const articleSchema = {
