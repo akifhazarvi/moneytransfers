@@ -131,7 +131,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 h-10 px-2.5 rounded-full hover:bg-[var(--color-surface-container)] transition-colors text-[13px] font-medium text-[var(--color-on-surface-variant)]"
+                className="flex items-center gap-1 h-12 px-2.5 rounded-full hover:bg-[var(--color-surface-container)] transition-colors text-[13px] font-medium text-[var(--color-on-surface-variant)]"
                 aria-label="Switch language"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +164,7 @@ export default function Header() {
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
-              className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container)] transition-colors"
+              className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container)] transition-colors"
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
               {theme === "dark" ? (
@@ -180,7 +180,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container)] transition-colors"
+              className="lg:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container)] transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >

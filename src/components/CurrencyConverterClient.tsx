@@ -8,7 +8,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import SectionHeader from "@/components/SectionHeader";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import { AddCurrencyPicker } from "@/components/CurrencyPicker";
-import { currencies } from "@/data/providers";
+import { currencies } from "@/data/transfer-currencies";
 import CircleFlag from "@/components/CircleFlag";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getRate } from "@/lib/rates-util";

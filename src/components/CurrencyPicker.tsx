@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
-import { currencies } from "@/data/providers";
+import { currencies } from "@/data/transfer-currencies";
 import CircleFlag from "@/components/CircleFlag";
 
 /* ─── Floating Dropdown (Portal) ─── */

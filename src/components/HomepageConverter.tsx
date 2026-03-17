@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import CircleFlag from "@/components/CircleFlag";
-import { currencies } from "@/data/providers";
+import { currencies } from "@/data/transfer-currencies";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getRate } from "@/lib/rates-util";
 
