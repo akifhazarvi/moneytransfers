@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "western-union": {
+        "rate": 114.8187,
+        "fee": 0,
+        "markup": 1.9356,
+        "receiveAmount": 11481.87
+      },
+      "wise": {
+        "rate": 117.085,
+        "fee": 1.78,
+        "markup": 0,
+        "receiveAmount": 11500.09
+      },
+      "raiffeisen-ch": {
+        "rate": 115.1846,
+        "fee": 5,
+        "markup": 1.6231,
+        "receiveAmount": 10942.54
+      },
+      "postfinance": {
+        "rate": 112.3421,
+        "fee": 22,
+        "markup": 4.0508,
+        "receiveAmount": 8762.68
+      }
+    }
+  }
+]

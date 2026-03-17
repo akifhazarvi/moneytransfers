@@ -324,5 +324,88 @@
         "receiveAmount": 7927.66
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "barclays": {
+        "rate": 77.0961,
+        "fee": 0,
+        "markup": 2.9511,
+        "receiveAmount": 7709.61
+      },
+      "worldremit": {
+        "rate": 77.9315,
+        "fee": 1.99,
+        "markup": 1.8996,
+        "receiveAmount": 7638.06
+      },
+      "nationwide": {
+        "rate": 77.9772,
+        "fee": 15,
+        "markup": 1.842,
+        "receiveAmount": 6628.06
+      },
+      "hsbc": {
+        "rate": 77.1155,
+        "fee": 0,
+        "markup": 2.9267,
+        "receiveAmount": 7711.55
+      },
+      "remitly": {
+        "rate": 78.8186,
+        "fee": 0,
+        "markup": 0.7829,
+        "receiveAmount": 7881.86
+      },
+      "moneygram": {
+        "rate": 79.4259,
+        "fee": 0,
+        "markup": 0.0184,
+        "receiveAmount": 7942.59
+      },
+      "paypal": {
+        "rate": 75.4371,
+        "fee": 2.99,
+        "markup": 5.0395,
+        "receiveAmount": 7318.16
+      },
+      "xoom": {
+        "rate": 77.213,
+        "fee": 1.99,
+        "markup": 2.804,
+        "receiveAmount": 7567.64
+      },
+      "western-union": {
+        "rate": 78.7525,
+        "fee": 1.99,
+        "markup": 0.8661,
+        "receiveAmount": 7718.53
+      },
+      "wise": {
+        "rate": 79.4405,
+        "fee": 1.21,
+        "markup": 0,
+        "receiveAmount": 7847.93
+      },
+      "monese": {
+        "rate": 79.2467,
+        "fee": 3,
+        "markup": 0.2439,
+        "receiveAmount": 7686.93
+      },
+      "instarem": {
+        "rate": 79.1486,
+        "fee": 0,
+        "markup": 0.3675,
+        "receiveAmount": 7914.86
+      },
+      "skrill": {
+        "rate": 78.5124,
+        "fee": 0,
+        "markup": 1.1682,
+        "receiveAmount": 7851.24
+      }
+    }
   }
 ]

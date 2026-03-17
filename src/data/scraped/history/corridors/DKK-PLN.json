@@ -1,0 +1,25 @@
+[
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "wise": {
+        "rate": 0.572,
+        "fee": 7.54,
+        "markup": 0,
+        "receiveAmount": 52.89
+      },
+      "remitly": {
+        "rate": 0.5678,
+        "fee": 25,
+        "markup": 0.7263,
+        "receiveAmount": 42.59
+      },
+      "paypal": {
+        "rate": 0.5426,
+        "fee": 14.87,
+        "markup": 5.1384,
+        "receiveAmount": 46.19
+      }
+    }
+  }
+]

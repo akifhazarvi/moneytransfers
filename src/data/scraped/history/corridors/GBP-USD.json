@@ -474,5 +474,124 @@
         "receiveAmount": 97.39
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "natwest": {
+        "rate": 1.2994,
+        "fee": 0,
+        "markup": 2.3509,
+        "receiveAmount": 129.94
+      },
+      "western-union": {
+        "rate": 1.3144,
+        "fee": 1.99,
+        "markup": 1.2211,
+        "receiveAmount": 128.82
+      },
+      "wise": {
+        "rate": 1.3307,
+        "fee": 1.44,
+        "markup": 0,
+        "receiveAmount": 131.15
+      },
+      "rbs": {
+        "rate": 1.2994,
+        "fee": 0,
+        "markup": 2.3509,
+        "receiveAmount": 129.94
+      },
+      "hsbc": {
+        "rate": 1.32,
+        "fee": 0,
+        "markup": 0.7976,
+        "receiveAmount": 132
+      },
+      "halifax": {
+        "rate": 1.2825,
+        "fee": 9.5,
+        "markup": 3.6219,
+        "receiveAmount": 116.06
+      },
+      "nationwide": {
+        "rate": 1.3063,
+        "fee": 15,
+        "markup": 1.8307,
+        "receiveAmount": 111.03
+      },
+      "santander-uk": {
+        "rate": 1.2959,
+        "fee": 25,
+        "markup": 2.6084,
+        "receiveAmount": 97.2
+      },
+      "barclays": {
+        "rate": 1.2934,
+        "fee": 0,
+        "markup": 2.7972,
+        "receiveAmount": 129.34
+      },
+      "starling-bank": {
+        "rate": 1.3307,
+        "fee": 5.9,
+        "markup": 0,
+        "receiveAmount": 125.21
+      },
+      "lloyds": {
+        "rate": 1.2818,
+        "fee": 9.5,
+        "markup": 3.6738,
+        "receiveAmount": 116
+      },
+      "moneygram": {
+        "rate": 1.3145,
+        "fee": 0,
+        "markup": 1.2162,
+        "receiveAmount": 131.45
+      },
+      "worldremit": {
+        "rate": 1.3134,
+        "fee": 1.99,
+        "markup": 1.2951,
+        "receiveAmount": 128.73
+      },
+      "monese": {
+        "rate": 1.3303,
+        "fee": 3,
+        "markup": 0.0225,
+        "receiveAmount": 129.04
+      },
+      "xoom": {
+        "rate": 1.2754,
+        "fee": 2.99,
+        "markup": 4.153,
+        "receiveAmount": 123.73
+      },
+      "skrill": {
+        "rate": 1.2922,
+        "fee": 0,
+        "markup": 2.8859,
+        "receiveAmount": 129.22
+      },
+      "remitly": {
+        "rate": 1.3269,
+        "fee": 0.99,
+        "markup": 0.2781,
+        "receiveAmount": 131.38
+      },
+      "paypal": {
+        "rate": 1.2689,
+        "fee": 2.99,
+        "markup": 4.6408,
+        "receiveAmount": 123.1
+      },
+      "instarem": {
+        "rate": 1.3251,
+        "fee": 0,
+        "markup": 0.4133,
+        "receiveAmount": 132.51
+      }
+    }
   }
 ]

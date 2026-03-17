@@ -1,9 +1,9 @@
 {
-  "scrapedAt": "2026-03-14T23:15:54.419Z",
+  "scrapedAt": "2026-03-17T03:24:17.570Z",
   "source": "Wise Comparison API v4 (wise.com/gateway/v4/comparisons)",
-  "totalQuotes": 2225,
-  "totalProviders": 42,
-  "totalCorridors": 67,
+  "totalQuotes": 2419,
+  "totalProviders": 53,
+  "totalCorridors": 98,
   "sendAmounts": [
     100,
     500,
@@ -14,15 +14,11 @@
   "corridorStats": [
     {
       "corridor": "USD→INR",
+      "providers": 6
+    },
+    {
+      "corridor": "USD→INR",
       "providers": 7
-    },
-    {
-      "corridor": "USD→INR",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→INR",
-      "providers": 8
     },
     {
       "corridor": "USD→INR",
@@ -33,20 +29,24 @@
       "providers": 6
     },
     {
+      "corridor": "USD→INR",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→PHP",
+      "providers": 6
+    },
+    {
       "corridor": "USD→PHP",
       "providers": 7
     },
     {
       "corridor": "USD→PHP",
-      "providers": 8
+      "providers": 7
     },
     {
       "corridor": "USD→PHP",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→PHP",
-      "providers": 6
+      "providers": 5
     },
     {
       "corridor": "USD→PHP",
@@ -54,23 +54,23 @@
     },
     {
       "corridor": "USD→MXN",
-      "providers": 9
-    },
-    {
-      "corridor": "USD→MXN",
-      "providers": 10
-    },
-    {
-      "corridor": "USD→MXN",
-      "providers": 10
-    },
-    {
-      "corridor": "USD→MXN",
       "providers": 8
     },
     {
       "corridor": "USD→MXN",
-      "providers": 6
+      "providers": 9
+    },
+    {
+      "corridor": "USD→MXN",
+      "providers": 9
+    },
+    {
+      "corridor": "USD→MXN",
+      "providers": 7
+    },
+    {
+      "corridor": "USD→MXN",
+      "providers": 5
     },
     {
       "corridor": "USD→NGN",
@@ -91,18 +91,6 @@
     {
       "corridor": "USD→NGN",
       "providers": 1
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 9
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 9
     },
     {
       "corridor": "USD→PKR",
@@ -110,7 +98,19 @@
     },
     {
       "corridor": "USD→PKR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→PKR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→PKR",
       "providers": 6
+    },
+    {
+      "corridor": "USD→PKR",
+      "providers": 5
     },
     {
       "corridor": "USD→BDT",
@@ -134,63 +134,63 @@
     },
     {
       "corridor": "USD→GBP",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→GBP",
-      "providers": 9
-    },
-    {
-      "corridor": "USD→GBP",
-      "providers": 9
-    },
-    {
-      "corridor": "USD→GBP",
       "providers": 7
     },
     {
       "corridor": "USD→GBP",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→GBP",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→GBP",
+      "providers": 6
+    },
+    {
+      "corridor": "USD→GBP",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→EUR",
+      "providers": 7
+    },
+    {
+      "corridor": "USD→EUR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→EUR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→EUR",
+      "providers": 6
+    },
+    {
+      "corridor": "USD→EUR",
       "providers": 5
     },
     {
-      "corridor": "USD→EUR",
+      "corridor": "USD→CAD",
       "providers": 8
     },
     {
-      "corridor": "USD→EUR",
+      "corridor": "USD→CAD",
       "providers": 9
     },
     {
-      "corridor": "USD→EUR",
+      "corridor": "USD→CAD",
       "providers": 9
     },
     {
-      "corridor": "USD→EUR",
+      "corridor": "USD→CAD",
       "providers": 7
     },
     {
-      "corridor": "USD→EUR",
-      "providers": 6
-    },
-    {
       "corridor": "USD→CAD",
-      "providers": 9
-    },
-    {
-      "corridor": "USD→CAD",
-      "providers": 10
-    },
-    {
-      "corridor": "USD→CAD",
-      "providers": 10
-    },
-    {
-      "corridor": "USD→CAD",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→CAD",
-      "providers": 6
+      "providers": 5
     },
     {
       "corridor": "USD→BRL",
@@ -514,23 +514,23 @@
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 5
+      "providers": 4
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 5
+      "providers": 4
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 5
+      "providers": 4
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 5
+      "providers": 4
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 3
+      "providers": 2
     },
     {
       "corridor": "GBP→ZAR",
@@ -914,42 +914,46 @@
     },
     {
       "corridor": "AUD→INR",
-      "providers": 8
-    },
-    {
-      "corridor": "AUD→INR",
-      "providers": 9
-    },
-    {
-      "corridor": "AUD→INR",
-      "providers": 9
-    },
-    {
-      "corridor": "AUD→INR",
-      "providers": 9
+      "providers": 7
     },
     {
       "corridor": "AUD→INR",
       "providers": 8
     },
     {
+      "corridor": "AUD→INR",
+      "providers": 8
+    },
+    {
+      "corridor": "AUD→INR",
+      "providers": 8
+    },
+    {
+      "corridor": "AUD→INR",
+      "providers": 7
+    },
+    {
+      "corridor": "AUD→PHP",
+      "providers": 8
+    },
+    {
       "corridor": "AUD→PHP",
       "providers": 9
     },
     {
       "corridor": "AUD→PHP",
-      "providers": 10
+      "providers": 9
     },
     {
       "corridor": "AUD→PHP",
-      "providers": 10
+      "providers": 9
     },
     {
       "corridor": "AUD→PHP",
-      "providers": 10
+      "providers": 8
     },
     {
-      "corridor": "AUD→PHP",
+      "corridor": "AUD→GBP",
       "providers": 9
     },
     {
@@ -958,19 +962,15 @@
     },
     {
       "corridor": "AUD→GBP",
-      "providers": 11
+      "providers": 10
     },
     {
       "corridor": "AUD→GBP",
-      "providers": 11
+      "providers": 10
     },
     {
       "corridor": "AUD→GBP",
-      "providers": 11
-    },
-    {
-      "corridor": "AUD→GBP",
-      "providers": 9
+      "providers": 8
     },
     {
       "corridor": "AUD→EUR",
@@ -994,23 +994,27 @@
     },
     {
       "corridor": "AUD→USD",
+      "providers": 9
+    },
+    {
+      "corridor": "AUD→USD",
       "providers": 10
     },
     {
       "corridor": "AUD→USD",
-      "providers": 11
+      "providers": 10
     },
     {
       "corridor": "AUD→USD",
-      "providers": 11
+      "providers": 10
     },
     {
       "corridor": "AUD→USD",
-      "providers": 11
+      "providers": 8
     },
     {
-      "corridor": "AUD→USD",
-      "providers": 9
+      "corridor": "AUD→NZD",
+      "providers": 7
     },
     {
       "corridor": "AUD→NZD",
@@ -1018,19 +1022,15 @@
     },
     {
       "corridor": "AUD→NZD",
-      "providers": 9
-    },
-    {
-      "corridor": "AUD→NZD",
-      "providers": 9
-    },
-    {
-      "corridor": "AUD→NZD",
-      "providers": 9
+      "providers": 8
     },
     {
       "corridor": "AUD→NZD",
       "providers": 8
+    },
+    {
+      "corridor": "AUD→NZD",
+      "providers": 7
     },
     {
       "corridor": "AUD→CNY",
@@ -1351,6 +1351,626 @@
     {
       "corridor": "NZD→FJD",
       "providers": 6
+    },
+    {
+      "corridor": "SAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→BDT",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→BDT",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→BDT",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→BDT",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→BDT",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→EGP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→EGP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→EGP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→EGP",
+      "providers": 0
+    },
+    {
+      "corridor": "SAR→EGP",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KWD→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PKR",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "QAR→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "CHF→INR",
+      "providers": 4
+    },
+    {
+      "corridor": "CHF→INR",
+      "providers": 4
+    },
+    {
+      "corridor": "CHF→INR",
+      "providers": 4
+    },
+    {
+      "corridor": "CHF→INR",
+      "providers": 3
+    },
+    {
+      "corridor": "CHF→INR",
+      "providers": 3
+    },
+    {
+      "corridor": "CHF→EUR",
+      "providers": 6
+    },
+    {
+      "corridor": "CHF→EUR",
+      "providers": 6
+    },
+    {
+      "corridor": "CHF→EUR",
+      "providers": 6
+    },
+    {
+      "corridor": "CHF→EUR",
+      "providers": 5
+    },
+    {
+      "corridor": "CHF→EUR",
+      "providers": 5
+    },
+    {
+      "corridor": "CHF→PKR",
+      "providers": 1
+    },
+    {
+      "corridor": "CHF→PKR",
+      "providers": 1
+    },
+    {
+      "corridor": "CHF→PKR",
+      "providers": 1
+    },
+    {
+      "corridor": "CHF→PKR",
+      "providers": 1
+    },
+    {
+      "corridor": "CHF→PKR",
+      "providers": 1
+    },
+    {
+      "corridor": "HKD→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "HKD→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "HKD→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "HKD→INR",
+      "providers": 3
+    },
+    {
+      "corridor": "HKD→INR",
+      "providers": 3
+    },
+    {
+      "corridor": "HKD→PHP",
+      "providers": 4
+    },
+    {
+      "corridor": "HKD→PHP",
+      "providers": 4
+    },
+    {
+      "corridor": "HKD→PHP",
+      "providers": 4
+    },
+    {
+      "corridor": "HKD→PHP",
+      "providers": 5
+    },
+    {
+      "corridor": "HKD→PHP",
+      "providers": 5
+    },
+    {
+      "corridor": "HKD→CNY",
+      "providers": 4
+    },
+    {
+      "corridor": "HKD→CNY",
+      "providers": 7
+    },
+    {
+      "corridor": "HKD→CNY",
+      "providers": 7
+    },
+    {
+      "corridor": "HKD→CNY",
+      "providers": 8
+    },
+    {
+      "corridor": "HKD→CNY",
+      "providers": 8
+    },
+    {
+      "corridor": "JPY→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "JPY→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "JPY→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "JPY→INR",
+      "providers": 4
+    },
+    {
+      "corridor": "JPY→INR",
+      "providers": 4
+    },
+    {
+      "corridor": "JPY→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "JPY→PHP",
+      "providers": 3
+    },
+    {
+      "corridor": "JPY→PHP",
+      "providers": 3
+    },
+    {
+      "corridor": "JPY→PHP",
+      "providers": 6
+    },
+    {
+      "corridor": "JPY→PHP",
+      "providers": 6
+    },
+    {
+      "corridor": "KRW→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→INR",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→PHP",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→VND",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→VND",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→VND",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→VND",
+      "providers": 0
+    },
+    {
+      "corridor": "KRW→VND",
+      "providers": 0
+    },
+    {
+      "corridor": "NOK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "NOK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "NOK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "NOK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "NOK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "NOK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "SEK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "SEK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "SEK→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "SEK→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "SEK→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "SEK→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "DKK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→INR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→PKR",
+      "providers": 2
+    },
+    {
+      "corridor": "DKK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "DKK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "DKK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "DKK→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "DKK→PLN",
+      "providers": 3
     }
   ],
   "providers": [
@@ -1359,14 +1979,17 @@
     "bank-of-america",
     "bank-of-new-zealand-nz",
     "barclays",
+    "bea",
     "bmo",
     "bnc",
-    "chase",
+    "ccb-hk",
     "commerzbank",
     "commonwealth-bank-of-australia",
     "deutsche-bank",
     "halifax",
+    "hang-seng",
     "hsbc",
+    "hsbc-hk",
     "hsbc-sg",
     "icici-bank",
     "instarem",
@@ -1378,15 +2001,22 @@
     "nationwide",
     "natwest",
     "ocbc",
+    "ocbc-whb",
     "ofx",
     "paypal",
+    "postfinance",
+    "raiffeisen-ch",
+    "rakuten-jp",
     "rbc",
     "rbs",
     "remitly",
     "santander-uk",
+    "sbi-remit",
     "scotiabank",
     "skrill",
+    "smbc-jp",
     "starling-bank",
+    "swedbank-ab",
     "td-bank",
     "uob",
     "wells-fargo",
@@ -1395,6 +2025,7 @@
     "westpac-nz",
     "wise",
     "worldremit",
-    "xoom"
+    "xoom",
+    "zkb"
   ]
 }

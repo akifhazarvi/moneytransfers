@@ -420,5 +420,112 @@
         "receiveAmount": 12047.56
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "natwest": {
+        "rate": 119.9922,
+        "fee": 0,
+        "markup": 2.343,
+        "receiveAmount": 11999.22
+      },
+      "icici-bank": {
+        "rate": 122.1729,
+        "fee": 1,
+        "markup": 0.5682,
+        "receiveAmount": 12095.11
+      },
+      "western-union": {
+        "rate": 122.8068,
+        "fee": 1.99,
+        "markup": 0.0523,
+        "receiveAmount": 12036.29
+      },
+      "wise": {
+        "rate": 122.871,
+        "fee": 1.21,
+        "markup": 0,
+        "receiveAmount": 12138.43
+      },
+      "rbs": {
+        "rate": 119.9922,
+        "fee": 0,
+        "markup": 2.343,
+        "receiveAmount": 11999.22
+      },
+      "hsbc": {
+        "rate": 121.6557,
+        "fee": 0,
+        "markup": 0.9891,
+        "receiveAmount": 12165.57
+      },
+      "nationwide": {
+        "rate": 120.7129,
+        "fee": 15,
+        "markup": 1.7564,
+        "receiveAmount": 10260.6
+      },
+      "halifax": {
+        "rate": 117.8262,
+        "fee": 9.5,
+        "markup": 4.1058,
+        "receiveAmount": 10663.27
+      },
+      "santander-uk": {
+        "rate": 119.3862,
+        "fee": 25,
+        "markup": 2.8362,
+        "receiveAmount": 8953.96
+      },
+      "barclays": {
+        "rate": 119.4263,
+        "fee": 0,
+        "markup": 2.8035,
+        "receiveAmount": 11942.63
+      },
+      "lloyds": {
+        "rate": 117.6668,
+        "fee": 9.5,
+        "markup": 4.2355,
+        "receiveAmount": 10648.85
+      },
+      "worldremit": {
+        "rate": 121.5574,
+        "fee": 1.99,
+        "markup": 1.0691,
+        "receiveAmount": 11913.84
+      },
+      "monese": {
+        "rate": 122.3321,
+        "fee": 3,
+        "markup": 0.4386,
+        "receiveAmount": 11866.21
+      },
+      "xoom": {
+        "rate": 121.5361,
+        "fee": 1.99,
+        "markup": 1.0864,
+        "receiveAmount": 11911.76
+      },
+      "remitly": {
+        "rate": 122.6029,
+        "fee": 1.99,
+        "markup": 0.2182,
+        "receiveAmount": 12016.32
+      },
+      "skrill": {
+        "rate": 122.3538,
+        "fee": 0,
+        "markup": 0.4209,
+        "receiveAmount": 12235.38
+      },
+      "instarem": {
+        "rate": 122.3616,
+        "fee": 0,
+        "markup": 0.4146,
+        "receiveAmount": 12236.16
+      }
+    }
   }
 ]

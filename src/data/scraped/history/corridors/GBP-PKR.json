@@ -234,5 +234,64 @@
         "receiveAmount": 36804.85
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "worldremit": {
+        "rate": 372.6748,
+        "fee": 0,
+        "markup": -0.2709,
+        "receiveAmount": 37267.48
+      },
+      "nationwide": {
+        "rate": 364.5338,
+        "fee": 15,
+        "markup": 1.9195,
+        "receiveAmount": 30985.38
+      },
+      "moneygram": {
+        "rate": 372.7227,
+        "fee": 0.99,
+        "markup": -0.2838,
+        "receiveAmount": 36903.28
+      },
+      "remitly": {
+        "rate": 374.1241,
+        "fee": 0.99,
+        "markup": -0.6608,
+        "receiveAmount": 37042.03
+      },
+      "western-union": {
+        "rate": 372.6158,
+        "fee": 0,
+        "markup": -0.255,
+        "receiveAmount": 37261.58
+      },
+      "xoom": {
+        "rate": 363.5859,
+        "fee": 0,
+        "markup": 2.1746,
+        "receiveAmount": 36358.59
+      },
+      "wise": {
+        "rate": 371.668,
+        "fee": 1.6,
+        "markup": 0,
+        "receiveAmount": 36572.13
+      },
+      "instarem": {
+        "rate": 369.7664,
+        "fee": 0,
+        "markup": 0.5116,
+        "receiveAmount": 36976.64
+      },
+      "skrill": {
+        "rate": 366.585,
+        "fee": 0,
+        "markup": 1.3676,
+        "receiveAmount": 36658.5
+      }
+    }
   }
 ]

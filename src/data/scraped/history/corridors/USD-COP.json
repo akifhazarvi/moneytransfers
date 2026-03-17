@@ -90,5 +90,28 @@
         "receiveAmount": 352580.46
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "wise": {
+        "rate": 3698.79,
+        "fee": 4.65,
+        "markup": 0,
+        "receiveAmount": 352679.63
+      },
+      "instarem": {
+        "rate": 3677.2604,
+        "fee": 0,
+        "markup": 0.5821,
+        "receiveAmount": 367726.04
+      },
+      "xoom": {
+        "rate": 3386.0382,
+        "fee": 0,
+        "markup": 8.4555,
+        "receiveAmount": 338603.82
+      }
+    }
   }
 ]

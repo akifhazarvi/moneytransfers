@@ -162,5 +162,46 @@
         "receiveAmount": 16252.74
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "remitly": {
+        "rate": 162.826,
+        "fee": 0.99,
+        "markup": 0.2726,
+        "receiveAmount": 16121.4
+      },
+      "western-union": {
+        "rate": 164.1031,
+        "fee": 2.99,
+        "markup": -0.5096,
+        "receiveAmount": 15919.64
+      },
+      "xoom": {
+        "rate": 160.0436,
+        "fee": 2.99,
+        "markup": 1.9767,
+        "receiveAmount": 15525.83
+      },
+      "wise": {
+        "rate": 163.222,
+        "fee": 2.5,
+        "markup": 0.03,
+        "receiveAmount": 15914.14
+      },
+      "skrill": {
+        "rate": 161.7455,
+        "fee": 0,
+        "markup": 0.9343,
+        "receiveAmount": 16174.55
+      },
+      "instarem": {
+        "rate": 161.9546,
+        "fee": 0,
+        "markup": 0.8063,
+        "receiveAmount": 16195.46
+      }
+    }
   }
 ]

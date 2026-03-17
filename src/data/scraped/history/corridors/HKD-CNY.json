@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "instarem": {
+        "rate": 0.879,
+        "fee": 0.35,
+        "markup": 0.0089,
+        "receiveAmount": 87.59
+      },
+      "wise": {
+        "rate": 0.8791,
+        "fee": 27.57,
+        "markup": 0,
+        "receiveAmount": 63.67
+      },
+      "hang-seng": {
+        "rate": 0.874,
+        "fee": 0,
+        "markup": 0.5803,
+        "receiveAmount": 87.4
+      },
+      "hsbc-hk": {
+        "rate": 0.8739,
+        "fee": 70,
+        "markup": 0.5889,
+        "receiveAmount": 26.22
+      }
+    }
+  }
+]

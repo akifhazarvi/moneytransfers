@@ -204,5 +204,52 @@
         "receiveAmount": 119.74
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "national-australia-bank": {
+        "rate": 1.1803,
+        "fee": 0,
+        "markup": 2.5214,
+        "receiveAmount": 118.03
+      },
+      "western-union": {
+        "rate": 1.208,
+        "fee": 2.99,
+        "markup": 0.234,
+        "receiveAmount": 117.19
+      },
+      "wise": {
+        "rate": 1.2108,
+        "fee": 1.7,
+        "markup": 0,
+        "receiveAmount": 119.02
+      },
+      "anz": {
+        "rate": 1.1744,
+        "fee": 9,
+        "markup": 3.0065,
+        "receiveAmount": 106.87
+      },
+      "commonwealth-bank-of-australia": {
+        "rate": 1.1659,
+        "fee": 0,
+        "markup": 3.7131,
+        "receiveAmount": 116.59
+      },
+      "paypal": {
+        "rate": 1.1577,
+        "fee": 5,
+        "markup": 4.3824,
+        "receiveAmount": 109.99
+      },
+      "instarem": {
+        "rate": 1.2108,
+        "fee": 0.75,
+        "markup": 0.0025,
+        "receiveAmount": 120.17
+      }
+    }
   }
 ]

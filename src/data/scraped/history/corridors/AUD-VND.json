@@ -138,5 +138,40 @@
         "receiveAmount": 1851307
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "remitly": {
+        "rate": 18197.437,
+        "fee": 1.99,
+        "markup": 2.1896,
+        "receiveAmount": 1783531
+      },
+      "instarem": {
+        "rate": 18578.2883,
+        "fee": 0.5,
+        "markup": 0.1425,
+        "receiveAmount": 1848540
+      },
+      "commonwealth-bank-of-australia": {
+        "rate": 17511.1409,
+        "fee": 0,
+        "markup": 5.8784,
+        "receiveAmount": 1751114
+      },
+      "western-union": {
+        "rate": 18622.5413,
+        "fee": 2.99,
+        "markup": -0.0954,
+        "receiveAmount": 1806573
+      },
+      "wise": {
+        "rate": 18604.8,
+        "fee": 2.71,
+        "markup": 0,
+        "receiveAmount": 1810061
+      }
+    }
   }
 ]

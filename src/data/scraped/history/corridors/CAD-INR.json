@@ -210,5 +210,58 @@
         "receiveAmount": 6522.59
       }
     }
+  },
+  {
+    "date": "2026-03-17",
+    "providers": {
+      "td-bank": {
+        "rate": 65.1059,
+        "fee": 0,
+        "markup": 3.4998,
+        "receiveAmount": 6510.59
+      },
+      "bmo": {
+        "rate": 65.576,
+        "fee": 0,
+        "markup": 2.803,
+        "receiveAmount": 6557.6
+      },
+      "remitly": {
+        "rate": 67.0474,
+        "fee": 1.99,
+        "markup": 0.6221,
+        "receiveAmount": 6571.32
+      },
+      "instarem": {
+        "rate": 67.0167,
+        "fee": 0,
+        "markup": 0.6676,
+        "receiveAmount": 6701.67
+      },
+      "xoom": {
+        "rate": 66.2827,
+        "fee": 0,
+        "markup": 1.7556,
+        "receiveAmount": 6628.27
+      },
+      "wise": {
+        "rate": 67.4671,
+        "fee": 2.67,
+        "markup": 0,
+        "receiveAmount": 6566.57
+      },
+      "rbc": {
+        "rate": 65.2683,
+        "fee": 0,
+        "markup": 3.2591,
+        "receiveAmount": 6526.83
+      },
+      "scotiabank": {
+        "rate": 65.8588,
+        "fee": 1.99,
+        "markup": 2.3839,
+        "receiveAmount": 6454.82
+      }
+    }
   }
 ]
