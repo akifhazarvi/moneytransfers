@@ -58,48 +58,58 @@
 }
 
 /* ─── Dark Mode ─── */
+/* Neutral dark — inspired by GitHub, Linear, Vercel. No cold blue tints, no neon. */
 .dark {
-  --color-primary:         #818CF8;   /* Indigo-400 — bright on dark */
-  --color-primary-dark:    #A5B4FC;
-  --color-primary-light:   #1E2461;
-  --color-primary-surface: #1A2050;
+  /* Brand — softer indigo, readable but not glowing */
+  --color-primary:         #7C8FE8;
+  --color-primary-dark:    #9AAAF0;
+  --color-primary-light:   #252D5C;
+  --color-primary-surface: #1D2347;
 
-  --color-accent:          #FBbF24;
-  --color-accent-dark:     #FCD34D;
-  --color-accent-surface:  #292200;
+  /* Accent — warm amber, toned down */
+  --color-accent:          #F5A623;
+  --color-accent-dark:     #F7BC55;
+  --color-accent-surface:  #2A1F00;
 
-  --color-success:         #34D399;
-  --color-success-dark:    #6EE7B7;
-  --color-success-surface: #022C22;
-  --color-success-surface-dim: #064E3B;
-  --color-success-hover:   #A7F3D0;
+  /* Success — muted green, not neon */
+  --color-success:         #4CAF7D;
+  --color-success-dark:    #6DC898;
+  --color-success-surface: #0D2018;
+  --color-success-surface-dim: #122B20;
+  --color-success-hover:   #8DDBB0;
 
-  --color-danger:          #F87171;
-  --color-danger-surface:  #450A0A;
+  /* Danger — muted red */
+  --color-danger:          #E06C6C;
+  --color-danger-surface:  #280F0F;
 
-  --color-warning:         #FCD34D;
-  --color-warning-dark:    #FDE68A;
-  --color-warning-surface: #1C1600;
+  /* Warning */
+  --color-warning:         #E5A83A;
+  --color-warning-dark:    #F0C060;
+  --color-warning-surface: #201400;
 
-  --color-on-surface:         #F1F5F9;
-  --color-on-surface-variant: #94A3B8;
-  --color-on-surface-muted:   #475569;
-  --color-outline:            #1E293B;
+  /* Text — neutral, not blue-tinted */
+  --color-on-surface:         #E8E8E8;   /* off-white, not pure white */
+  --color-on-surface-variant: #A0A0A0;   /* mid gray */
+  --color-on-surface-muted:   #5A5A5A;   /* dark gray */
+  --color-outline:            #2A2A2A;   /* subtle border */
 
-  --color-surface:            #0F172A;
-  --color-surface-dim:        #0A0F1E;
-  --color-surface-container:  #1E293B;
-  --color-surface-warm:       #111827;
+  /* Surfaces — neutral near-black, no blue tint */
+  --color-surface:            #141414;   /* main background */
+  --color-surface-dim:        #0F0F0F;   /* slightly darker (sidebars, inputs) */
+  --color-surface-container:  #1E1E1E;   /* cards, containers */
+  --color-surface-warm:       #161616;   /* article reading bg */
 
-  --color-secondary:          #FCD34D;
+  --color-secondary:          #F5A623;
 
-  --color-ticker-bg:    #020617;
-  --color-ticker-border:#0F172A;
+  --color-ticker-bg:    #0A0A0A;
+  --color-ticker-border:#222222;
 
-  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.35);
-  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.6);
+  /* Shadows — visible in dark mode */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* ─── Base ─── */

@@ -5,21 +5,32 @@ interface Props {
 
 export default function ProsConsList({ type, items }: Props) {
   const isPros = type === "pros";
-  const title = isPros ? "Pros" : "Cons";
-  const iconBg = isPros ? "bg-[var(--color-success-surface)]" : "bg-[var(--color-danger-surface)]";
-  const iconColor = isPros ? "text-[var(--color-success)]" : "text-[var(--color-danger)]";
+
+  const wrapperCls = isPros
+    ? "bg-[var(--color-success-surface)] border border-[#BBF7D0]"
+    : "bg-[var(--color-danger-surface)] border border-[#FECACA]";
+
+  const iconBg = isPros
+    ? "bg-[var(--color-success)] text-white"
+    : "bg-[var(--color-danger)] text-white";
+
+  const titleColor = isPros
+    ? "text-[var(--color-success-dark)]"
+    : "text-[#B91C1C]";
+
+  const iconColor = isPros ? "text-[var(--color-success-dark)]" : "text-[var(--color-danger)]";
 
   return (
-    <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] p-6">
-      <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4 flex items-center gap-2">
-        <span className={`w-6 h-6 ${iconBg} ${iconColor} rounded-full flex items-center justify-center text-[12px]`}>
+    <div className={`rounded-2xl p-5 ${wrapperCls}`}>
+      <h3 className={`text-[15px] font-semibold ${titleColor} mb-4 flex items-center gap-2`}>
+        <span className={`w-6 h-6 ${iconBg} rounded-full flex items-center justify-center text-[11px] font-bold shrink-0`}>
           {isPros ? "✓" : "✕"}
         </span>
-        {title}
+        {isPros ? "Pros" : "Cons"}
       </h3>
-      <ul className="space-y-3">
+      <ul className="space-y-2.5">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-[14px] text-[var(--color-on-surface)]">
+          <li key={item} className="flex items-start gap-2.5 text-[14px] text-[var(--color-on-surface)]">
             <span className={`${iconColor} mt-0.5 shrink-0`}>
               {isPros ? (
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">

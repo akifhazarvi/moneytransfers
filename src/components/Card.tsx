@@ -9,24 +9,30 @@ interface Props {
   id?: string;
 }
 
-const base =
-  "bg-[var(--color-surface)] border rounded-2xl transition-all hover:shadow-[0_2px_12px_rgba(32,33,36,0.12)]";
-
 export default function Card({ children, href, className = "", highlight = false, id }: Props) {
+  const base =
+    "bg-[var(--color-surface)] rounded-2xl transition-all duration-200";
+
   const border = highlight
-    ? "border-[var(--color-primary)] shadow-[0_0_0_1px_var(--color-primary)]"
-    : "border-[var(--color-outline)]";
+    ? "border-2 border-[var(--color-primary)] shadow-[var(--shadow-md)]"
+    : "border border-[var(--color-outline)] shadow-[var(--shadow-xs)]";
+
+  const hover = highlight
+    ? "hover:shadow-[var(--shadow-lg)]"
+    : "hover:shadow-[var(--shadow-md)] hover:border-[var(--color-on-surface-muted)]";
+
+  const classes = `${base} ${border} ${hover} p-5 ${className}`.trim();
 
   if (href) {
     return (
-      <Link href={href} id={id} className={`${base} ${border} p-5 block ${className}`.trim()}>
+      <Link href={href} id={id} className={`block ${classes}`}>
         {children}
       </Link>
     );
   }
 
   return (
-    <div id={id} className={`${base} ${border} p-5 ${className}`.trim()}>
+    <div id={id} className={classes}>
       {children}
     </div>
   );

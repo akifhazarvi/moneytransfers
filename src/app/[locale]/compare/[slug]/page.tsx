@@ -167,12 +167,12 @@ function ArticleComparison({
 
       <Container className="py-8">
         {/* Breadcrumb */}
-        <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
-          <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
-          {" / "}
-          <Link href="/compare" className="hover:text-[var(--color-primary)]">Compare</Link>
-          {" / "}
-          <span className="text-[var(--color-on-surface)]">{a.name} vs {b.name}</span>
+        <nav className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-muted)] mb-6">
+          <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
+          <span>/</span>
+          <Link href="/compare" className="hover:text-[var(--color-primary)] transition-colors">Compare</Link>
+          <span>/</span>
+          <span className="text-[var(--color-on-surface-variant)] truncate">{a.name} vs {b.name}</span>
         </nav>
 
         <div className="flex flex-col lg:flex-row gap-10">
@@ -180,10 +180,10 @@ function ArticleComparison({
           <article className="flex-1 min-w-0">
             {/* Header */}
             <div className="mb-8">
-              <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2.5 py-1 rounded-full">
+              <div className="inline-flex items-center gap-1.5 text-overline text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-3 py-1.5 rounded-full mb-5">
                 Comparison
-              </span>
-              <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mt-4 mb-3 leading-tight">
+              </div>
+              <h1 className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-normal leading-[1.18] tracking-[-0.02em] text-[var(--color-on-surface)] mb-4">
                 {article.title}
               </h1>
               <div className="flex flex-wrap items-center gap-4 text-[13px] text-[var(--color-on-surface-variant)]">
@@ -300,12 +300,12 @@ function ArticleComparison({
 
             {/* Article sections */}
             {article.sections.map((section) => (
-              <section key={section.id} id={section.id} className="mb-10">
-                <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <section key={section.id} id={section.id} className="mb-12">
+                <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
                   {section.heading}
                 </h2>
                 <div
-                  className="prose-custom text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed"
+                  className="prose-content prose-custom"
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
               </section>
@@ -313,7 +313,7 @@ function ArticleComparison({
 
             {/* Summary Table */}
             <section id="summary-table" className="mb-10">
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
                 {a.name} vs {b.name}: Summary table
               </h2>
               <ComparisonTable headers={["Feature", a.name, b.name]}>
@@ -357,74 +357,53 @@ function ArticleComparison({
 
             {/* Verdict */}
             <section id="verdict" className="mb-10">
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
                 Verdict: {a.name} or {b.name}?
               </h2>
-              <div className="space-y-4 mb-6">
-                <div className="bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/20 rounded-xl p-5">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                      <Image
-                        src={providers.find((p) => p.slug === article.verdict.largeTransfers.winner)?.logo || "/logos/placeholder.png"}
-                        alt=""
-                        width={32}
-                        height={32}
-                        className="object-cover"
-                      />
-                    </div>
-                    <h3 className="text-[15px] font-medium text-[var(--color-success-dark)]">
-                      Best for large transfers: {providers.find((p) => p.slug === article.verdict.largeTransfers.winner)?.name}
-                    </h3>
-                  </div>
-                  <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
-                    {article.verdict.largeTransfers.explanation}
-                  </p>
+              {/* Verdict banner */}
+              <div className="verdict-banner mb-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-lg">🏆</span>
+                  <span className="text-overline text-white/60">Our Verdict</span>
                 </div>
-                <div className="bg-[#e8f0fe] border border-[#1a73e8]/20 rounded-xl p-5">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                      <Image
-                        src={providers.find((p) => p.slug === article.verdict.smallTransfers.winner)?.logo || "/logos/placeholder.png"}
-                        alt=""
-                        width={32}
-                        height={32}
-                        className="object-cover"
-                      />
-                    </div>
-                    <h3 className="text-[15px] font-medium text-[#1a73e8]">
-                      Best for small remittances: {providers.find((p) => p.slug === article.verdict.smallTransfers.winner)?.name}
-                    </h3>
+                <p className="text-[15px] font-semibold text-white mb-4">{article.verdict.overall}</p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[13px] font-semibold text-white/70 mb-1.5">
+                      Choose {providers.find((p) => p.slug === article.verdict.largeTransfers.winner)?.name} if:
+                    </p>
+                    <p className="text-[13px] text-white/60 leading-relaxed">{article.verdict.largeTransfers.explanation}</p>
                   </div>
-                  <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
-                    {article.verdict.smallTransfers.explanation}
-                  </p>
+                  <div>
+                    <p className="text-[13px] font-semibold text-white/70 mb-1.5">
+                      Choose {providers.find((p) => p.slug === article.verdict.smallTransfers.winner)?.name} if:
+                    </p>
+                    <p className="text-[13px] text-white/60 leading-relaxed">{article.verdict.smallTransfers.explanation}</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed">
-                {article.verdict.overall}
-              </p>
             </section>
 
             {/* FAQs */}
             <section id="faqs" className="mb-10">
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-6">
+              <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
                 Frequently asked questions
               </h2>
-              <div className="divide-y divide-[var(--color-outline)]">
+              <div className="space-y-3">
                 {article.faqs.map((faq) => (
-                  <details key={faq.q} className="group py-4">
-                    <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                  <details key={faq.q} className="group border border-[var(--color-outline)] rounded-xl overflow-hidden">
+                    <summary className="flex items-center justify-between cursor-pointer px-5 py-4 list-none text-[15px] font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors select-none">
                       {faq.q}
                       <svg
-                        className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
+                        className="w-4 h-4 shrink-0 ml-4 text-[var(--color-on-surface-muted)] group-open:rotate-180 transition-transform"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
-                    <p className="mt-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                    <div className="px-5 pb-5 pt-1 text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)]">
                       {faq.a}
-                    </p>
+                    </div>
                   </details>
                 ))}
               </div>
@@ -473,17 +452,21 @@ function ArticleComparison({
               ))}
 
               {/* CTA */}
-              <div className="bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-xl p-5 text-white">
-                <h3 className="text-[15px] font-medium mb-2">Compare All Providers</h3>
-                <p className="text-[13px] text-white/80 mb-4">
-                  See how {a.name} and {b.name} stack up against 60+ other providers.
-                </p>
-                <Link
-                  href="/send-money"
-                  className="block text-center bg-[var(--color-surface)] text-[var(--color-primary)] px-4 py-2.5 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
-                >
-                  Compare Rates
-                </Link>
+              <div className="overflow-hidden rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)]">
+                <div className="bg-[var(--color-primary)] px-5 py-4">
+                  <h3 className="text-[15px] font-semibold text-white mb-1">Compare All Providers</h3>
+                  <p className="text-[13px] text-white/70">
+                    See how {a.name} and {b.name} stack up against 60+ others.
+                  </p>
+                </div>
+                <div className="bg-[var(--color-surface)] p-4">
+                  <Link
+                    href="/send-money"
+                    className="flex items-center justify-center w-full h-10 bg-[var(--color-accent)] text-white text-[14px] font-semibold rounded-full hover:bg-[var(--color-accent-dark)] transition-colors"
+                  >
+                    Compare Rates →
+                  </Link>
+                </div>
               </div>
 
               {/* Explore more */}
@@ -613,12 +596,12 @@ function DefaultComparison({
 
     <Container className="py-8">
       {/* Breadcrumb */}
-      <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
-        <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
-        {" / "}
-        <Link href="/compare" className="hover:text-[var(--color-primary)]">Compare</Link>
-        {" / "}
-        <span className="text-[var(--color-on-surface)]">{a.name} vs {b.name}</span>
+      <nav className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-muted)] mb-6">
+        <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
+        <span>/</span>
+        <Link href="/compare" className="hover:text-[var(--color-primary)] transition-colors">Compare</Link>
+        <span>/</span>
+        <span className="text-[var(--color-on-surface-variant)] truncate">{a.name} vs {b.name}</span>
       </nav>
 
       <div className="flex flex-col lg:flex-row gap-10">
@@ -626,10 +609,10 @@ function DefaultComparison({
         <article className="flex-1 min-w-0">
           {/* Header */}
           <div className="mb-8">
-            <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2.5 py-1 rounded-full">
+            <div className="inline-flex items-center gap-1.5 text-overline text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-3 py-1.5 rounded-full mb-5">
               Comparison
-            </span>
-            <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mt-4 mb-3 leading-tight">
+            </div>
+            <h1 className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-normal leading-[1.18] tracking-[-0.02em] text-[var(--color-on-surface)] mb-4">
               {a.name} vs {b.name}: Fees, Rates &amp; Speed Compared
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-[13px] text-[var(--color-on-surface-variant)]">

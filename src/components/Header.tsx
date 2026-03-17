@@ -99,7 +99,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="16" fill="#1a73e8" />
+              <circle cx="16" cy="16" r="16" fill="#2D3A8C" />
               <circle cx="16" cy="16" r="10" fill="none" stroke="white" strokeWidth="1.5" opacity="0.3" />
               <text x="16" y="21" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif">$</text>
               <path d="M6 12h5" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
@@ -109,21 +109,20 @@ export default function Header() {
               <path d="M24 20l-2-2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
               <path d="M24 20l-2 2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
-            <span className="text-[20px] font-semibold tracking-[-0.3px]">
-              <span className="text-[var(--color-on-surface)]">SendMoney</span>
-              <span className="text-[var(--color-primary)]">Compare</span>
+            <span className="text-[20px] font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
+              Send Money
             </span>
           </Link>
 
-          {/* Desktop nav — Google product tabs style */}
-          <nav className="hidden lg:flex items-center gap-0.5">
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
               const active = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(link.href + "/");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-1.5 px-3 py-2 text-[13px] font-medium rounded-full transition-colors ${
+                  className={`px-3 py-2 text-[13px] font-medium rounded-lg transition-colors ${
                     active
                       ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"
                       : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
@@ -133,6 +132,13 @@ export default function Header() {
                 </Link>
               );
             })}
+            {/* Primary CTA */}
+            <Link
+              href="/send-money"
+              className="ml-2 h-9 px-4 bg-[var(--color-accent)] text-white text-[13px] font-semibold rounded-full hover:bg-[var(--color-accent-dark)] transition-colors shadow-sm"
+            >
+              Compare Rates
+            </Link>
           </nav>
 
           <div className="flex items-center gap-1">
