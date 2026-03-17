@@ -222,7 +222,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
         .led-font {
-          font-family: 'Share Tech Mono', 'Courier New', monospace;
+          font-family: var(--font-mono-display);
         }
         .scanlines { position: relative; }
         .scanlines::after {
@@ -285,7 +285,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
 
           {/* ── Source status panel ── */}
           <div className="flex flex-wrap items-center gap-2 mb-4 px-1">
-            <span className="led-font text-[#555] text-[10px] tracking-wider mr-1">FEEDS:</span>
+            <span className="led-font text-[#555] text-2xs tracking-wider mr-1">FEEDS:</span>
             {sources.map((s) => (
               <div key={s.name} className="flex items-center gap-1.5 bg-[#111] border border-[#222] rounded px-2 py-1">
                 <span
@@ -295,19 +295,19 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                     boxShadow: s.status === "ok" ? "0 0 4px #22ff77" : "0 0 4px #ff3333",
                   }}
                 />
-                <span className="led-font text-[10px] tracking-wider"
+                <span className="led-font text-2xs tracking-wider"
                       style={{ color: s.status === "ok" ? "#888" : "#ff3333" }}>
                   {s.shortName}
                 </span>
                 {s.status === "ok" && (
-                  <span className="led-font text-[9px] text-[#444]">
+                  <span className="led-font text-2xs text-[#444]">
                     {s.currencyCount} &middot; {s.latency}ms
                   </span>
                 )}
               </div>
             ))}
             {sources.length > 0 && (
-              <span className="led-font text-[10px] text-[#333] ml-auto">
+              <span className="led-font text-2xs text-[#333] ml-auto">
                 {sources.filter((s) => s.status === "ok").length}/{sources.length} ONLINE
               </span>
             )}
@@ -333,7 +333,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
               ))}
             </div>
             {lastUpdated && (
-              <span className="led-font text-[#333] text-[10px] ml-auto hidden sm:block">
+              <span className="led-font text-[#333] text-2xs ml-auto hidden sm:block">
                 UPD {lastUpdated.toLocaleTimeString("en-GB")}
               </span>
             )}
@@ -351,15 +351,15 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
             {/* Column headers */}
             <div className={`grid ${gridCols} ${gridColsSm} items-center px-3 sm:px-5 py-2.5 bg-[#0f0f0f] border-b-2 border-[#222]`}>
               <span />
-              <span className="led-font text-[#777] text-[9px] sm:text-[11px] tracking-widest uppercase">Code</span>
+              <span className="led-font text-[#777] text-2xs sm:text-2xs tracking-widest uppercase">Code</span>
               {["TT Buy", "TT Sell", "CHQ Buy", "Note Buy"].map((h) => (
-                <span key={h} className="led-font text-[9px] sm:text-[11px] tracking-widest uppercase text-right"
+                <span key={h} className="led-font text-2xs sm:text-2xs tracking-widest uppercase text-right"
                       style={{ color: "#c0935a", textShadow: "0 0 4px rgba(192,147,90,0.3)" }}>
                   {h}
                 </span>
               ))}
-              <span className="led-font text-[#555] text-[8px] sm:text-[9px] tracking-wider text-center">SRC</span>
-              <span className="led-font text-[#555] text-[8px] sm:text-[9px] tracking-wider text-center" />
+              <span className="led-font text-[#555] text-3xs sm:text-2xs tracking-wider text-center">SRC</span>
+              <span className="led-font text-[#555] text-3xs sm:text-2xs tracking-wider text-center" />
             </div>
 
             {loading ? (
@@ -461,7 +461,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                       {showSourceDetail === r.code && (
                         <div className="source-tooltip">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="led-font text-[10px] text-[#888] tracking-wider">
+                            <span className="led-font text-2xs text-[#888] tracking-wider">
                               {r.code} — SOURCE BREAKDOWN
                             </span>
                             <button onClick={() => setShowSourceDetail(null)} className="led-font text-[#555] text-xs hover:text-[#e84020]">
@@ -470,22 +470,22 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                           </div>
                           {r.perSource.map((ps) => (
                             <div key={ps.name} className="flex items-center justify-between py-0.5">
-                              <span className="led-font text-[10px] text-[#666]">{ps.name}</span>
-                              <span className="led-font text-[11px] text-[#e84020] tabular-nums" style={{ textShadow: "0 0 4px rgba(232,64,32,0.3)" }}>
+                              <span className="led-font text-2xs text-[#666]">{ps.name}</span>
+                              <span className="led-font text-2xs text-[#e84020] tabular-nums" style={{ textShadow: "0 0 4px rgba(232,64,32,0.3)" }}>
                                 {fmt(ps.rate)}
                               </span>
                             </div>
                           ))}
                           <div className="mt-1.5 pt-1.5 border-t border-[#222] flex items-center justify-between">
-                            <span className="led-font text-[9px] text-[#555]">MEDIAN</span>
-                            <span className="led-font text-[11px] text-[#22ff77] tabular-nums font-bold">
+                            <span className="led-font text-2xs text-[#555]">MEDIAN</span>
+                            <span className="led-font text-2xs text-[#22ff77] tabular-nums font-bold">
                               {fmt(r.midRate)}
                             </span>
                           </div>
                           {r.crossSourceSpread > 0 && (
                             <div className="flex items-center justify-between">
-                              <span className="led-font text-[9px] text-[#555]">SPREAD</span>
-                              <span className="led-font text-[10px] text-[#ccaa22] tabular-nums">
+                              <span className="led-font text-2xs text-[#555]">SPREAD</span>
+                              <span className="led-font text-2xs text-[#ccaa22] tabular-nums">
                                 {r.crossSourceSpread.toFixed(6)}
                               </span>
                             </div>
@@ -500,13 +500,13 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
 
             {/* Bottom bar */}
             <div className="flex items-center justify-between px-3 sm:px-5 py-2 bg-[#0a0a0a] border-t border-[#1a1a1a]">
-              <span className="led-font text-[#333] text-[9px] sm:text-[10px] tracking-wider">
+              <span className="led-font text-[#333] text-2xs sm:text-2xs tracking-wider">
                 BASE: 1.0000 {base}
               </span>
-              <span className="led-font text-[#333] text-[9px] sm:text-[10px] tracking-wider">
+              <span className="led-font text-[#333] text-2xs sm:text-2xs tracking-wider">
                 MEDIAN OF {sources.filter((s) => s.status === "ok").length} SOURCES
               </span>
-              <span className="led-font text-[#333] text-[9px] sm:text-[10px] tracking-wider hidden sm:block">
+              <span className="led-font text-[#333] text-2xs sm:text-2xs tracking-wider hidden sm:block">
                 NEXT UPDATE: 60s
               </span>
             </div>
@@ -516,15 +516,15 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
           <div className="flex flex-wrap items-center gap-4 mt-3 px-1">
             <div className="flex items-center gap-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-[#22ff77]" style={{ boxShadow: "0 0 4px #22ff77" }} />
-              <span className="led-font text-[#555] text-[10px] tracking-wider">RATE UP</span>
+              <span className="led-font text-[#555] text-2xs tracking-wider">RATE UP</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-[#ff3333]" style={{ boxShadow: "0 0 4px #ff3333" }} />
-              <span className="led-font text-[#555] text-[10px] tracking-wider">RATE DOWN</span>
+              <span className="led-font text-[#555] text-2xs tracking-wider">RATE DOWN</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-[#333]" />
-              <span className="led-font text-[#555] text-[10px] tracking-wider">NO CHANGE</span>
+              <span className="led-font text-[#555] text-2xs tracking-wider">NO CHANGE</span>
             </div>
             <div className="flex items-center gap-1 ml-2">
               {[1, 2, 3, 4].map((n) => (
@@ -535,14 +535,14 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                             style={{ backgroundColor: idx < n ? confidenceColor(n) : "#1a1a1a" }} />
                     ))}
                   </div>
-                  <span className="led-font text-[#444] text-[9px]">{n}src</span>
+                  <span className="led-font text-[#444] text-2xs">{n}src</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* ── Disclaimer ── */}
-          <p className="led-font text-[#282828] text-[9px] mt-4 leading-relaxed tracking-wider">
+          <p className="led-font text-[#282828] text-2xs mt-4 leading-relaxed tracking-wider">
             Mid rates aggregated (median) from 4 independent sources: ExchangeRate-API, Fawaz Ahmed CDN,
             FloatRates, Currency-API Pages. TT = Telegraphic Transfer. CHQ = Cheque. NOTE = Cash notes.
             Buy/Sell spreads are simulated. Click the source bars on any row to see per-source breakdown.

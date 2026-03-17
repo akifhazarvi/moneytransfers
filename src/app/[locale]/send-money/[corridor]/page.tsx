@@ -703,7 +703,7 @@ export default async function CorridorPage({ params }: Props) {
       {/* ─── Hero ─── */}
       <section className="bg-[var(--color-surface)] pt-8 pb-6">
         <Container>
-          <div className="flex items-center gap-2 text-[13px] text-[var(--color-on-surface-variant)] mb-4">
+          <div className="flex items-center gap-2 text-2sm text-[var(--color-on-surface-variant)] mb-4">
             <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
             <span>/</span>
             <Link href="/send-money" className="hover:text-[var(--color-primary)]">Send Money</Link>
@@ -714,12 +714,12 @@ export default async function CorridorPage({ params }: Props) {
           </div>
 
           <div className="max-w-3xl">
-            <h1 className="text-[28px] md:text-[40px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h3 md:text-h1-plus font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {isCountryPage ? `${headingPrefix} ${headingTo}` : `${headingPrefix} ${headingFrom} to ${headingTo}`}
               {headingSuffix && (
                 <>
                   {" "}
-                  <span className="text-[var(--color-on-surface-variant)] text-[20px] md:text-[28px]">
+                  <span className="text-[var(--color-on-surface-variant)] text-xl md:text-h3">
                     {headingSuffix}
                   </span>
                 </>
@@ -727,7 +727,7 @@ export default async function CorridorPage({ params }: Props) {
             </h1>
           </div>
 
-          <div className="flex items-center gap-6 mt-4 text-[13px] text-[var(--color-on-surface-variant)]">
+          <div className="flex items-center gap-6 mt-4 text-2sm text-[var(--color-on-surface-variant)]">
             <span className="flex items-center gap-1.5">
               <CircleFlag code={corridor.fromCurrency} size={20} />
               {fromCurrency}
@@ -750,13 +750,13 @@ export default async function CorridorPage({ params }: Props) {
       {/* ─── Introduction ─── */}
       <section className="bg-[var(--color-surface)] pb-8">
         <Container>
-          <div className="max-w-3xl text-[14px] md:text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+          <div className="max-w-3xl text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
             <p>{corridor.intro}</p>
             {corridor.highlights && corridor.highlights.length > 0 ? (
               <ul className="space-y-2 mt-3">
                 {corridor.highlights.map((h, i) => (
                   <li key={i} className="flex gap-2">
-                    <span className="mt-[3px] shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-[10px] font-bold flex items-center justify-center">✓</span>
+                    <span className="mt-[3px] shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-2xs font-bold flex items-center justify-center">✓</span>
                     <span>{h}</span>
                   </li>
                 ))}
@@ -784,13 +784,13 @@ export default async function CorridorPage({ params }: Props) {
       {/* ─── Comparison Table ─── */}
       <section className="py-10">
         <Container>
-          <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+          <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
             Compare providers: {fromCurrency} to {toCurrency}
           </h2>
-          <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-2">
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-2">
             Sending {sendSymbol}{sampleAmount.toLocaleString()} from {headingFrom} to {headingTo}. Sorted by best value — most money received.
           </p>
-          <p className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-variant)] mb-6">
+          <p className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-variant)] mb-6">
             <span className="relative flex h-1.5 w-1.5 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
@@ -801,7 +801,7 @@ export default async function CorridorPage({ params }: Props) {
           {quotes.length > 0 ? (
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
               {/* Header */}
-              <div className="grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] sm:text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+              <div className="grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 <span>#</span>
                 <span>Provider</span>
                 <span className="text-right">Rate</span>
@@ -825,28 +825,28 @@ export default async function CorridorPage({ params }: Props) {
                     className={`grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface-dim)]" : ""}`}
                   >
                     {/* Rank */}
-                    <span className={`text-[13px] font-medium ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                    <span className={`text-2sm font-medium ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                       {i + 1}
                     </span>
 
                     {/* Provider */}
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[11px] font-medium text-[var(--color-on-surface-variant)] relative">
+                      <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)] relative">
                         <Image src={logo} alt={`${name} logo`} width={32} height={32} className="object-cover" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-[13px] sm:text-[14px] font-medium text-[var(--color-on-surface)] truncate">
+                        <p className="text-2sm sm:text-sm font-medium text-[var(--color-on-surface)] truncate">
                           <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)] hover:underline">{name}</Link>
                           {isBest && (
-                            <span className="ml-1.5 text-[10px] text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
+                            <span className="ml-1.5 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
                               Best value
                             </span>
                           )}
                         </p>
                         <div className="flex items-center gap-2">
-                          <span className="text-[11px] text-[var(--color-on-surface-variant)]">{q.transferSpeed}</span>
+                          <span className="text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</span>
                           {markup > 0 && markup < 10 && (
-                            <span className="text-[10px] text-[var(--color-on-surface-variant)]">
+                            <span className="text-2xs text-[var(--color-on-surface-variant)]">
                               {markup.toFixed(2)}% markup
                             </span>
                           )}
@@ -855,17 +855,17 @@ export default async function CorridorPage({ params }: Props) {
                     </div>
 
                     {/* Rate */}
-                    <p className="text-[13px] sm:text-[14px] text-[var(--color-on-surface)] text-right tabular-nums">
+                    <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
                       {q.exchangeRate.toFixed(4)}
                     </p>
 
                     {/* Fee */}
-                    <p className="text-[13px] sm:text-[14px] text-[var(--color-on-surface)] text-right tabular-nums">
+                    <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
                       {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
                     </p>
 
                     {/* Amount received */}
-                    <p className={`text-[13px] sm:text-[14px] font-medium text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                    <p className={`text-2sm sm:text-sm font-medium text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                       {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </p>
                   </div>
@@ -874,7 +874,7 @@ export default async function CorridorPage({ params }: Props) {
             </div>
           ) : (
             <Card>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] text-center py-4">
+              <p className="text-sm text-[var(--color-on-surface-variant)] text-center py-4">
                 No provider quotes available for this corridor yet. Try the{" "}
                 <Link href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${sampleAmount}`} className="text-[var(--color-primary)] hover:underline">
                   comparison tool
@@ -890,7 +890,7 @@ export default async function CorridorPage({ params }: Props) {
               <svg className="w-5 h-5 text-[var(--color-success-dark)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
-              <p className="text-[14px] text-[var(--color-success-dark)]">
+              <p className="text-sm text-[var(--color-success-dark)]">
                 <strong>Potential savings:</strong> Choosing the best provider over the most expensive saves your recipient{" "}
                 <strong>
                   {receiveSymbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -906,7 +906,7 @@ export default async function CorridorPage({ params }: Props) {
       {best && (
         <section className="py-10 bg-[var(--color-surface-dim)]">
           <Container>
-            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
               Best provider for {fromCurrency} to {toCurrency} right now
             </h2>
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-6 max-w-2xl">
@@ -921,7 +921,7 @@ export default async function CorridorPage({ params }: Props) {
                   />
                 </div>
                 <div>
-                  <h3 className="text-[18px] font-medium text-[var(--color-on-surface)]">
+                  <h3 className="text-lg font-medium text-[var(--color-on-surface)]">
                     {getProviderName(best.providerSlug)}
                   </h3>
                   <RatingBadge rating={best.rating} label={best.ratingLabel} />
@@ -930,24 +930,24 @@ export default async function CorridorPage({ params }: Props) {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
                 <div className="bg-[var(--color-surface-dim)] rounded-lg p-3">
-                  <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide">Exchange rate</p>
-                  <p className="text-[16px] font-medium text-[var(--color-on-surface)] mt-1">{best.exchangeRate.toFixed(4)}</p>
+                  <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide">Exchange rate</p>
+                  <p className="text-base font-medium text-[var(--color-on-surface)] mt-1">{best.exchangeRate.toFixed(4)}</p>
                 </div>
                 <div className="bg-[var(--color-surface-dim)] rounded-lg p-3">
-                  <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide">Fee</p>
-                  <p className="text-[16px] font-medium text-[var(--color-on-surface)] mt-1">
+                  <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide">Fee</p>
+                  <p className="text-base font-medium text-[var(--color-on-surface)] mt-1">
                     {best.fee === 0 ? "Free" : `${sendSymbol}${best.fee.toFixed(2)}`}
                   </p>
                 </div>
                 <div className="bg-[var(--color-surface-dim)] rounded-lg p-3">
-                  <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide">Recipient gets</p>
-                  <p className="text-[16px] font-medium text-[var(--color-success-dark)] mt-1">
+                  <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide">Recipient gets</p>
+                  <p className="text-base font-medium text-[var(--color-success-dark)] mt-1">
                     {receiveSymbol}{best.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
                 </div>
                 <div className="bg-[var(--color-surface-dim)] rounded-lg p-3">
-                  <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide">Speed</p>
-                  <p className="text-[16px] font-medium text-[var(--color-on-surface)] mt-1">{best.transferSpeed}</p>
+                  <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide">Speed</p>
+                  <p className="text-base font-medium text-[var(--color-on-surface)] mt-1">{best.transferSpeed}</p>
                 </div>
               </div>
 
@@ -959,7 +959,7 @@ export default async function CorridorPage({ params }: Props) {
                   <a
                     href={getGoUrl(best.providerSlug)}
                     rel="noopener noreferrer nofollow"
-                    className="inline-flex items-center h-9 px-5 text-[13px] font-medium text-[var(--color-primary)] border border-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-surface)] transition-colors"
+                    className="inline-flex items-center h-9 px-5 text-2sm font-medium text-[var(--color-primary)] border border-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-surface)] transition-colors"
                   >
                     Visit {getProviderName(best.providerSlug)}
                   </a>
@@ -975,17 +975,17 @@ export default async function CorridorPage({ params }: Props) {
           <Container>
             <div className="grid lg:grid-cols-[1.6fr_1fr] gap-6 items-start">
               <Card>
-                <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-3">
+                <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-3">
                   {editorialNote.title}
                 </h2>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed mb-5">
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-5">
                   {editorialNote.summary}
                 </p>
                 <ul className="space-y-3">
                   {editorialNote.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-3">
                       <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                      <span className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                      <span className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                         {bullet}
                       </span>
                     </li>
@@ -994,13 +994,13 @@ export default async function CorridorPage({ params }: Props) {
               </Card>
 
               <Card className="bg-[var(--color-surface-dim)]">
-                <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-3">
+                <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-3">
                   {editorialNote.warningTitle}
                 </h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
                   {editorialNote.warningBody}
                 </p>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   For recurring transfers, it is worth checking live quotes each time rather than relying on one provider by habit. Competition on this corridor is strong enough that rankings can shift meaningfully with market moves.
                 </p>
               </Card>
@@ -1041,10 +1041,10 @@ export default async function CorridorPage({ params }: Props) {
         return (
           <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
             <Container>
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Best provider for each transfer type
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 Different providers excel at different things. Here&apos;s who&apos;s best for each use case on the {headingFrom} to {headingTo} route.
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1054,15 +1054,15 @@ export default async function CorridorPage({ params }: Props) {
                   const logo = provider?.logo || `/logos/${cat.provider!.providerSlug}.png`;
                   return (
                     <div key={cat.label} className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-5">
-                      <div className="text-[24px] mb-2">{cat.icon}</div>
-                      <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{cat.label}</p>
+                      <div className="text-2xl mb-2">{cat.icon}</div>
+                      <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{cat.label}</p>
                       <div className="flex items-center gap-2.5 mb-2">
                         <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface)] flex items-center justify-center relative">
                           <Image src={logo} alt={name} width={32} height={32} className="object-cover" />
                         </div>
-                        <p className="text-[14px] font-medium text-[var(--color-on-surface)]">{name}</p>
+                        <p className="text-sm font-medium text-[var(--color-on-surface)]">{name}</p>
                       </div>
-                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">{cat.reason}</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">{cat.reason}</p>
                     </div>
                   );
                 })}
@@ -1076,10 +1076,10 @@ export default async function CorridorPage({ params }: Props) {
       {countryDetails && (
         <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
           <Container>
-            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
               How to send money to {corridor.toCountry}
             </h2>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
               Sending money to {corridor.toCountry} is straightforward with the right provider. Here&apos;s how it works in 3 simple steps.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
@@ -1090,11 +1090,11 @@ export default async function CorridorPage({ params }: Props) {
               ].map((s) => (
                 <div key={s.step} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-[24px]">{s.icon}</span>
-                    <span className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-[13px] font-medium flex items-center justify-center">{s.step}</span>
+                    <span className="text-2xl">{s.icon}</span>
+                    <span className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-2sm font-medium flex items-center justify-center">{s.step}</span>
                   </div>
-                  <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-2">{s.title}</h3>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{s.description}</p>
+                  <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">{s.title}</h3>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{s.description}</p>
                 </div>
               ))}
             </div>
@@ -1107,10 +1107,10 @@ export default async function CorridorPage({ params }: Props) {
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 What you need to send money to {corridor.toCountry}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 Make sure you have these details from your recipient before starting your transfer.
               </p>
               <div className="space-y-3">
@@ -1123,14 +1123,14 @@ export default async function CorridorPage({ params }: Props) {
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <p className="text-[14px] font-medium text-[var(--color-on-surface)]">{req.label}</p>
+                        <p className="text-sm font-medium text-[var(--color-on-surface)]">{req.label}</p>
                         {!req.required && (
-                          <span className="text-[10px] font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)] px-1.5 py-0.5 rounded">Optional</span>
+                          <span className="text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)] px-1.5 py-0.5 rounded">Optional</span>
                         )}
                       </div>
-                      <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{req.description}</p>
+                      <p className="text-2sm text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{req.description}</p>
                       {req.example && (
-                        <p className="text-[12px] text-[var(--color-primary)] mt-1 font-mono">Example: {req.example}</p>
+                        <p className="text-xs text-[var(--color-primary)] mt-1 font-mono">Example: {req.example}</p>
                       )}
                     </div>
                   </div>
@@ -1138,7 +1138,7 @@ export default async function CorridorPage({ params }: Props) {
               </div>
               {countryDetails.requirementsNote && (
                 <div className="mt-4 bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-lg px-5 py-4">
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     <strong className="text-[var(--color-on-surface)]">Note:</strong> {countryDetails.requirementsNote}
                   </p>
                 </div>
@@ -1159,21 +1159,21 @@ export default async function CorridorPage({ params }: Props) {
         return (
           <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
             <Container>
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Transfer examples: {fromCurrency} to {toCurrency}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 See how much your recipient would get for common transfer amounts.
               </p>
               <div className="space-y-6">
                 {exampleData.map(({ amount, quotes: exQuotes }) => (
                   <div key={amount}>
-                    <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-3">
+                    <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-3">
                       Send {sendSymbol}{amount.toLocaleString()}
                     </h3>
                     {exQuotes.length > 0 ? (
                       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
-                        <div className="grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 px-4 sm:px-5 py-2.5 bg-[var(--color-surface-container)] text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                        <div className="grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 px-4 sm:px-5 py-2.5 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                           <span>Provider</span>
                           <span className="text-right">Fee</span>
                           <span className="text-right">Rate</span>
@@ -1185,26 +1185,26 @@ export default async function CorridorPage({ params }: Props) {
                             key={q.providerSlug}
                             className={`grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 items-center px-4 sm:px-5 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
                           >
-                            <span className={`text-[13px] font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                            <span className={`text-2sm font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                               {getProviderName(q.providerSlug)}
                             </span>
-                            <span className="text-[13px] text-[var(--color-on-surface)] text-right tabular-nums">
+                            <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
                               {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
                             </span>
-                            <span className="text-[13px] text-[var(--color-on-surface)] text-right tabular-nums">
+                            <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
                               {q.exchangeRate.toFixed(2)}
                             </span>
-                            <span className={`text-[13px] font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                            <span className={`text-2sm font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                               {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                             </span>
-                            <span className="text-[11px] text-[var(--color-on-surface-variant)] text-right">
+                            <span className="text-2xs text-[var(--color-on-surface-variant)] text-right">
                               {q.transferSpeed}
                             </span>
                           </div>
                         ))}
                       </div>
                     ) : (
-                      <p className="text-[13px] text-[var(--color-on-surface-variant)]">No quotes available.</p>
+                      <p className="text-2sm text-[var(--color-on-surface-variant)]">No quotes available.</p>
                     )}
                   </div>
                 ))}
@@ -1218,14 +1218,14 @@ export default async function CorridorPage({ params }: Props) {
       <section className="py-10">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
               {isCurrencyCorridor ? `Fees for ${fromCurrency} to ${toCurrency} transfers` : `Fees for sending money from ${corridor.fromCountry} to ${corridor.toCountry}`}
             </h2>
-            <div className="text-[14px] md:text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
+            <div className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
               <p>{corridor.feesNote}</p>
               <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-5">
-                <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-3">Understanding the total cost</h3>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-3">
+                <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Understanding the total cost</h3>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
                   The true cost of a money transfer has two components:
                 </p>
                 <div className="grid sm:grid-cols-2 gap-3">
@@ -1236,8 +1236,8 @@ export default async function CorridorPage({ params }: Props) {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[13px] font-medium text-[var(--color-on-surface)]">Transfer fee</p>
-                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">
+                      <p className="text-2sm font-medium text-[var(--color-on-surface)]">Transfer fee</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">
                         The upfront charge — typically {sendSymbol}0–{sendSymbol}10 with specialist providers.
                       </p>
                     </div>
@@ -1249,8 +1249,8 @@ export default async function CorridorPage({ params }: Props) {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[13px] font-medium text-[var(--color-on-surface)]">Exchange rate markup</p>
-                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">
+                      <p className="text-2sm font-medium text-[var(--color-on-surface)]">Exchange rate markup</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">
                         The hidden cost — the difference between the provider&apos;s rate and the mid-market rate ({midRate.toFixed(4)}).
                       </p>
                     </div>
@@ -1291,28 +1291,28 @@ export default async function CorridorPage({ params }: Props) {
         return (
           <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
             <Container>
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Ways to send money to {corridor.toCountry}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 Choose how you want to pay for your transfer. Each payment method has different costs and speeds.
               </p>
               {countryDetails.receivingNote && (
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">{countryDetails.receivingNote}</p>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">{countryDetails.receivingNote}</p>
               )}
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {paymentMethods.map(([method, info]) => (
                   <div key={method} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5">
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-[15px] font-medium text-[var(--color-on-surface)]">{method}</h3>
-                      <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${costColors[info.costLevel]}`}>
+                      <h3 className="text-md font-medium text-[var(--color-on-surface)]">{method}</h3>
+                      <span className={`text-2xs font-medium px-2 py-0.5 rounded-full ${costColors[info.costLevel]}`}>
                         {costLabels[info.costLevel]}
                       </span>
                     </div>
-                    <p className="text-[12px] text-[var(--color-on-surface-variant)] mb-2">
+                    <p className="text-xs text-[var(--color-on-surface-variant)] mb-2">
                       <span className="font-medium text-[var(--color-on-surface)]">Speed:</span> {info.speed}
                     </p>
-                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{info.note}</p>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{info.note}</p>
                   </div>
                 ))}
               </div>
@@ -1325,17 +1325,17 @@ export default async function CorridorPage({ params }: Props) {
       {countryDetails && countryDetails.deliveryMethods.length > 0 && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
-            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
               How to receive money in {corridor.toCountry}
             </h2>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
               Your recipient in {corridor.toCountry} can receive money through these delivery methods. The best option depends on their location and preferences.
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               {countryDetails.deliveryMethods.map((dm) => (
                 <div key={dm.method} className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[18px]">
+                    <span className="text-lg">
                       {dm.method.toLowerCase().includes("bank") ? "🏦" :
                        dm.method.toLowerCase().includes("cash") ? "💵" :
                        dm.method.toLowerCase().includes("wallet") || dm.method.toLowerCase().includes("pesa") || dm.method.toLowerCase().includes("jazz") || dm.method.toLowerCase().includes("gcash") || dm.method.toLowerCase().includes("easy") || dm.method.toLowerCase().includes("dana") || dm.method.toLowerCase().includes("ovo") || dm.method.toLowerCase().includes("pix") || dm.method.toLowerCase().includes("nequi") || dm.method.toLowerCase().includes("alipay") || dm.method.toLowerCase().includes("wechat") ? "📱" :
@@ -1344,22 +1344,22 @@ export default async function CorridorPage({ params }: Props) {
                        dm.method.toLowerCase().includes("airtime") ? "📶" :
                        dm.method.toLowerCase().includes("faster") ? "⚡" : "💸"}
                     </span>
-                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)]">{dm.method}</h3>
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)]">{dm.method}</h3>
                   </div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
+                    <span className="text-2xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
                       {dm.speed}
                     </span>
                   </div>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">{dm.description}</p>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">{dm.description}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {dm.providers.slice(0, 4).map((pSlug) => (
-                      <span key={pSlug} className="text-[11px] text-[var(--color-on-surface-variant)] bg-[var(--color-surface)] border border-[var(--color-outline)] px-2 py-0.5 rounded">
+                      <span key={pSlug} className="text-2xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface)] border border-[var(--color-outline)] px-2 py-0.5 rounded">
                         {getProviderName(pSlug)}
                       </span>
                     ))}
                     {dm.providers.length > 4 && (
-                      <span className="text-[11px] text-[var(--color-on-surface-variant)] px-1">
+                      <span className="text-2xs text-[var(--color-on-surface-variant)] px-1">
                         +{dm.providers.length - 4} more
                       </span>
                     )}
@@ -1384,10 +1384,10 @@ export default async function CorridorPage({ params }: Props) {
         return (
           <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
             <Container>
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Bank transfer rates: {fromCurrency} to {toCurrency}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 How do traditional banks and brokers compare for a {sendSymbol}{sampleAmount.toLocaleString()} {fromCurrency} to {toCurrency} transfer?
                 {best && bestBank && best.receiveAmount > bestBank.receiveAmount && (
                   <> The best specialist provider above delivers <strong className="text-[var(--color-on-surface)]">{receiveSymbol}{(best.receiveAmount - bestBank.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> more than the top bank rate.</>
@@ -1404,20 +1404,20 @@ export default async function CorridorPage({ params }: Props) {
                     >
                       {/* Desktop layout */}
                       <div className="hidden sm:flex items-center gap-5">
-                        <span className={`text-[13px] font-semibold tabular-nums w-5 text-center shrink-0 ${isBestBank ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                        <span className={`text-2sm font-semibold tabular-nums w-5 text-center shrink-0 ${isBestBank ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                           {i + 1}
                         </span>
 
-                        <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[14px] font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
+                        <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-sm font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
                           {br.provider.charAt(0)}
                         </div>
 
                         <div className="min-w-[140px] shrink-0">
-                          <p className={`text-[14px] font-medium text-[var(--color-on-surface)] ${isBestBank ? "text-[15px]" : ""}`}>
+                          <p className={`text-sm font-medium text-[var(--color-on-surface)] ${isBestBank ? "text-md" : ""}`}>
                             {br.provider}
                           </p>
                           <div className="flex items-center gap-2 mt-0.5">
-                            <span className={`text-[10px] font-semibold tracking-wide uppercase px-1.5 py-px rounded ${br.providerType === "BANK" ? "text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)]" : "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"}`}>
+                            <span className={`text-2xs font-semibold tracking-wide uppercase px-1.5 py-px rounded ${br.providerType === "BANK" ? "text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)]" : "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"}`}>
                               {br.providerType === "BANK" ? "Bank" : "Broker"}
                             </span>
                           </div>
@@ -1425,56 +1425,56 @@ export default async function CorridorPage({ params }: Props) {
 
                         <div className="hidden md:flex items-center gap-6 flex-1 min-w-0">
                           <div className="w-[110px] shrink-0">
-                            <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Speed</p>
-                            <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5">{br.deliveryEstimate || "1-3 days"}</p>
+                            <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Speed</p>
+                            <p className="text-2sm text-[var(--color-on-surface)] mt-0.5">{br.deliveryEstimate || "1-3 days"}</p>
                           </div>
                           <div className="w-[80px] shrink-0">
-                            <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Fee</p>
-                            <p className={`text-[13px] mt-0.5 ${br.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
+                            <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Fee</p>
+                            <p className={`text-2sm mt-0.5 ${br.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
                               {br.fee === 0 ? "Free" : `${sendSymbol}${br.fee.toFixed(2)}`}
                             </p>
                           </div>
                           <div className="w-[90px] shrink-0">
-                            <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Rate</p>
-                            <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5 tabular-nums">{br.exchangeRate.toFixed(4)}</p>
+                            <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">Rate</p>
+                            <p className="text-2sm text-[var(--color-on-surface)] mt-0.5 tabular-nums">{br.exchangeRate.toFixed(4)}</p>
                           </div>
                         </div>
 
                         <div className="flex-1 min-w-0" />
 
                         <div className="text-right shrink-0">
-                          <p className={`tabular-nums font-semibold tracking-tight ${isBestBank ? "text-[22px] sm:text-[24px] text-[var(--color-success-dark)]" : "text-[18px] sm:text-[20px] text-[var(--color-on-surface)]"}`}>
+                          <p className={`tabular-nums font-semibold tracking-tight ${isBestBank ? "text-h4 sm:text-2xl text-[var(--color-success-dark)]" : "text-lg sm:text-xl text-[var(--color-on-surface)]"}`}>
                             {receiveSymbol}{br.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                           </p>
-                          <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">Recipient gets</p>
+                          <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">Recipient gets</p>
                         </div>
                       </div>
 
                       {/* Mobile layout */}
                       <div className="flex sm:hidden items-start gap-3">
-                        <span className={`text-[12px] font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBestBank ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                        <span className={`text-xs font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBestBank ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                           {i + 1}
                         </span>
-                        <div className="w-9 h-9 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[13px] font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
+                        <div className="w-9 h-9 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2sm font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
                           {br.provider.charAt(0)}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between gap-2">
                             <div className="min-w-0">
-                              <p className="text-[14px] font-medium text-[var(--color-on-surface)] truncate">{br.provider}</p>
+                              <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">{br.provider}</p>
                               <div className="flex items-center gap-2 mt-0.5">
-                                <span className={`text-[10px] font-semibold tracking-wide uppercase px-1.5 py-px rounded ${br.providerType === "BANK" ? "text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)]" : "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"}`}>
+                                <span className={`text-2xs font-semibold tracking-wide uppercase px-1.5 py-px rounded ${br.providerType === "BANK" ? "text-[var(--color-on-surface-variant)] bg-[var(--color-surface-container)]" : "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"}`}>
                                   {br.providerType === "BANK" ? "Bank" : "Broker"}
                                 </span>
                               </div>
                             </div>
                             <div className="text-right shrink-0">
-                              <p className={`tabular-nums font-semibold tracking-tight ${isBestBank ? "text-[18px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
+                              <p className={`tabular-nums font-semibold tracking-tight ${isBestBank ? "text-lg text-[var(--color-success-dark)]" : "text-base text-[var(--color-on-surface)]"}`}>
                                 {receiveSymbol}{br.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                               </p>
                             </div>
                           </div>
-                          <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[var(--color-on-surface-variant)]">
+                          <div className="flex items-center gap-3 mt-1.5 text-2xs text-[var(--color-on-surface-variant)]">
                             <span>{br.deliveryEstimate || "1-3 days"}</span>
                             <span className="w-px h-3 bg-[var(--color-outline)]" />
                             <span className={br.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{br.fee === 0 ? "Free" : `${sendSymbol}${br.fee.toFixed(2)}`} fee</span>
@@ -1493,7 +1493,7 @@ export default async function CorridorPage({ params }: Props) {
                   <svg className="w-5 h-5 text-[var(--color-success-dark)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
-                  <p className="text-[14px] text-[var(--color-success-dark)]">
+                  <p className="text-sm text-[var(--color-success-dark)]">
                     Even among banks, the difference is significant — {bankRates[0].provider} delivers{" "}
                     <strong>
                       {receiveSymbol}{bankSpread.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -1504,7 +1504,7 @@ export default async function CorridorPage({ params }: Props) {
               )}
 
               {sourceUrl && (
-                <p className="mt-4 text-[12px] text-[var(--color-on-surface-variant)]">
+                <p className="mt-4 text-xs text-[var(--color-on-surface-variant)]">
                   Bank rates sourced from{" "}
                   <a
                     href={sourceUrl}
@@ -1527,30 +1527,30 @@ export default async function CorridorPage({ params }: Props) {
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Transfer limits &amp; regulations for {corridor.toCountry}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 Important rules and requirements to know before sending money to {corridor.toCountry}.
               </p>
 
               <div className="space-y-5">
                 {countryDetails.regulations.regulatoryBody && (
                   <div className="flex items-start gap-3">
-                    <span className="text-[18px] mt-0.5">🏛️</span>
+                    <span className="text-lg mt-0.5">🏛️</span>
                     <div>
-                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Regulatory body</p>
-                      <p className="text-[13px] text-[var(--color-on-surface-variant)]">{countryDetails.regulations.regulatoryBody}</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Regulatory body</p>
+                      <p className="text-2sm text-[var(--color-on-surface-variant)]">{countryDetails.regulations.regulatoryBody}</p>
                     </div>
                   </div>
                 )}
 
                 {countryDetails.regulations.inboundLimit && (
                   <div className="flex items-start gap-3">
-                    <span className="text-[18px] mt-0.5">📊</span>
+                    <span className="text-lg mt-0.5">📊</span>
                     <div>
-                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Inbound transfer limits</p>
-                      <p className="text-[13px] text-[var(--color-on-surface-variant)]">{countryDetails.regulations.inboundLimit}</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Inbound transfer limits</p>
+                      <p className="text-2sm text-[var(--color-on-surface-variant)]">{countryDetails.regulations.inboundLimit}</p>
                     </div>
                   </div>
                 )}
@@ -1558,8 +1558,8 @@ export default async function CorridorPage({ params }: Props) {
                 {countryDetails.regulations.documentationNeeded.length > 0 && (
                   <div>
                     <div className="flex items-start gap-3 mb-3">
-                      <span className="text-[18px] mt-0.5">📋</span>
-                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Documentation you may need</p>
+                      <span className="text-lg mt-0.5">📋</span>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Documentation you may need</p>
                     </div>
                     <ul className="space-y-2 pl-9">
                       {countryDetails.regulations.documentationNeeded.map((doc) => (
@@ -1567,7 +1567,7 @@ export default async function CorridorPage({ params }: Props) {
                           <svg className="w-4 h-4 text-[var(--color-primary)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          <span className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{doc}</span>
+                          <span className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{doc}</span>
                         </li>
                       ))}
                     </ul>
@@ -1576,12 +1576,12 @@ export default async function CorridorPage({ params }: Props) {
 
                 {countryDetails.regulations.importantNotes.length > 0 && (
                   <div className="bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-xl p-5 mt-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-3">Important things to know</h3>
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Important things to know</h3>
                     <ul className="space-y-2">
                       {countryDetails.regulations.importantNotes.map((note) => (
                         <li key={note} className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-1.5" />
-                          <span className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">{note}</span>
+                          <span className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{note}</span>
                         </li>
                       ))}
                     </ul>
@@ -1597,10 +1597,10 @@ export default async function CorridorPage({ params }: Props) {
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
               {isCurrencyCorridor ? `How long does a ${fromCurrency} to ${toCurrency} transfer take?` : `How long does it take to send money to ${corridor.toCountry}?`}
             </h2>
-            <p className="text-[14px] md:text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
+            <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
               {corridor.deliveryNote}
             </p>
 
@@ -1609,12 +1609,12 @@ export default async function CorridorPage({ params }: Props) {
                 {fastProviders.length > 0 && (
                   <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-5">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-[11px] text-[var(--color-success)] border border-[var(--color-success)] rounded px-1.5 py-0 leading-[18px] font-medium">Fast</span>
-                      <span className="text-[13px] font-medium text-[var(--color-on-surface)]">Express delivery</span>
+                      <span className="text-2xs text-[var(--color-success)] border border-[var(--color-success)] rounded px-1.5 py-0 leading-[18px] font-medium">Fast</span>
+                      <span className="text-2sm font-medium text-[var(--color-on-surface)]">Express delivery</span>
                     </div>
                     <ul className="space-y-2">
                       {fastProviders.slice(0, 5).map((q) => (
-                        <li key={q.providerSlug} className="flex justify-between text-[13px]">
+                        <li key={q.providerSlug} className="flex justify-between text-2sm">
                           <span className="text-[var(--color-on-surface)]">{getProviderName(q.providerSlug)}</span>
                           <span className="text-[var(--color-on-surface-variant)]">{q.transferSpeed}</span>
                         </li>
@@ -1625,11 +1625,11 @@ export default async function CorridorPage({ params }: Props) {
                 {standardProviders.length > 0 && (
                   <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-5">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-[13px] font-medium text-[var(--color-on-surface)]">Standard delivery</span>
+                      <span className="text-2sm font-medium text-[var(--color-on-surface)]">Standard delivery</span>
                     </div>
                     <ul className="space-y-2">
                       {standardProviders.slice(0, 5).map((q) => (
-                        <li key={q.providerSlug} className="flex justify-between text-[13px]">
+                        <li key={q.providerSlug} className="flex justify-between text-2sm">
                           <span className="text-[var(--color-on-surface)]">{getProviderName(q.providerSlug)}</span>
                           <span className="text-[var(--color-on-surface-variant)]">{q.transferSpeed}</span>
                         </li>
@@ -1648,24 +1648,24 @@ export default async function CorridorPage({ params }: Props) {
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="max-w-3xl">
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Popular banks in {corridor.toCountry}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 These are the most commonly used banks for receiving international transfers in {corridor.toCountry}.
               </p>
               <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
                 {/* Table header */}
-                <div className="grid grid-cols-[1fr_140px_1fr] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                <div className="grid grid-cols-[1fr_140px_1fr] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                   <span>Bank</span>
                   <span>SWIFT/BIC</span>
                   <span className="hidden sm:block">Notes</span>
                 </div>
                 {countryDetails.popularBanks.map((bank) => (
                   <div key={bank.name} className="grid grid-cols-[1fr_140px_1fr] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)]">
-                    <p className="text-[13px] font-medium text-[var(--color-on-surface)]">{bank.name}</p>
-                    <p className="text-[12px] font-mono text-[var(--color-on-surface-variant)]">{bank.swiftCode || "—"}</p>
-                    <p className="text-[12px] text-[var(--color-on-surface-variant)] hidden sm:block">{bank.notes || "—"}</p>
+                    <p className="text-2sm font-medium text-[var(--color-on-surface)]">{bank.name}</p>
+                    <p className="text-xs font-mono text-[var(--color-on-surface-variant)]">{bank.swiftCode || "—"}</p>
+                    <p className="text-xs text-[var(--color-on-surface-variant)] hidden sm:block">{bank.notes || "—"}</p>
                   </div>
                 ))}
               </div>
@@ -1678,13 +1678,13 @@ export default async function CorridorPage({ params }: Props) {
       <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6">
+            <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
               Frequently asked questions: {headingFrom} to {headingTo} transfers
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {corridor.faqs.map((faq) => (
                 <details key={faq.q} className="group py-4">
-                  <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                     {faq.q}
                     <svg
                       className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
@@ -1693,7 +1693,7 @@ export default async function CorridorPage({ params }: Props) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <p className="mt-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                  <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
                     {faq.a}
                   </p>
                 </details>
@@ -1712,10 +1712,10 @@ export default async function CorridorPage({ params }: Props) {
         return (
           <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
             <Container>
-              <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
                 Send money to {corridor.toCountry} from these countries
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 Compare providers for your specific sending country to get the most accurate rates and fees.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -1727,8 +1727,8 @@ export default async function CorridorPage({ params }: Props) {
                   >
                     <CircleFlag code={c.fromCurrency} size={24} />
                     <div>
-                      <p className="text-[13px] font-medium text-[var(--color-on-surface)]">{c.fromCountry}</p>
-                      <p className="text-[11px] text-[var(--color-on-surface-variant)]">{c.fromCurrency} → {toCurrency}</p>
+                      <p className="text-2sm font-medium text-[var(--color-on-surface)]">{c.fromCountry}</p>
+                      <p className="text-2xs text-[var(--color-on-surface-variant)]">{c.fromCurrency} → {toCurrency}</p>
                     </div>
                   </Link>
                 ))}
@@ -1752,16 +1752,16 @@ export default async function CorridorPage({ params }: Props) {
             <Container>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 max-w-3xl">
                 <div>
-                  <p className="text-[14px] font-medium text-[var(--color-on-surface)]">
+                  <p className="text-sm font-medium text-[var(--color-on-surface)]">
                     Everything about sending money to {corridor.toCountry}
                   </p>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] mt-0.5">
                     Recipient requirements, delivery methods, regulations, popular banks, and more.
                   </p>
                 </div>
                 <Link
                   href={`/send-money/${countryPageSlug}`}
-                  className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--color-primary)] text-white text-[13px] font-medium hover:opacity-90 transition-opacity"
+                  className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--color-primary)] text-white text-2sm font-medium hover:opacity-90 transition-opacity"
                 >
                   {corridor.toFlag} {corridor.toCountry} guide →
                 </Link>
@@ -1810,10 +1810,10 @@ export default async function CorridorPage({ params }: Props) {
       {/* ─── CTA ─── */}
       <section className="py-12 bg-[var(--color-surface-dim)]">
         <div className="max-w-lg mx-auto px-6 text-center">
-          <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-3">
+          <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
             Compare all providers for {headingFrom} to {headingTo}
           </h2>
-          <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
             Enter your exact amount to see personalised quotes from every provider on this route.
           </p>
           <PrimaryButton href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${sampleAmount}`} size="lg">

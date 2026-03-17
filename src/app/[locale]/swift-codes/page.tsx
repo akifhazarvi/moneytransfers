@@ -50,18 +50,18 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
       <section className="bg-[var(--color-surface)] pt-12 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="text-center mb-6">
-            <h1 className="text-[36px] md:text-[46px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-4xl md:text-h0 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t.rich("heading", {
                 highlight: (chunks) => <span className="text-[var(--color-primary)]">{chunks}</span>,
               })}
             </h1>
-            <p className="text-[16px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-base text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {t("subheading")}
             </p>
           </div>
 
           {/* Quick stats */}
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-[13px] text-[var(--color-on-surface-variant)]">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-2sm text-[var(--color-on-surface-variant)]">
             {[
               `${countries.length} countries`,
               `${totalBanks.toLocaleString()}+ banks`,
@@ -86,10 +86,10 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
           <div className="max-w-2xl mx-auto">
             <Card>
               <div className="text-center mb-6">
-                <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
+                <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
                   Example SWIFT code
                 </p>
-                <p className="text-[28px] font-mono text-[var(--color-on-surface)] tracking-widest">
+                <p className="text-h3 font-mono text-[var(--color-on-surface)] tracking-widest">
                   <span className="text-[var(--color-primary)]">AAAA</span>
                   <span className="text-[var(--color-success)]">BB</span>
                   <span className="text-[var(--color-warning)]">CC</span>
@@ -105,14 +105,14 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
                 ].map((part) => (
                   <div key={part.code} className="flex items-start gap-3 p-3 bg-[var(--color-surface-dim)] rounded-lg">
                     <span
-                      className="font-mono text-[16px] font-medium shrink-0"
+                      className="font-mono text-base font-medium shrink-0"
                       style={{ color: part.color }}
                     >
                       {part.code}
                     </span>
                     <div>
-                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">{part.label}</p>
-                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">{part.desc}</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">{part.label}</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">{part.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -135,10 +135,10 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
               >
                 <CircleFlag code={country.countryCode} size={20} />
                 <div className="min-w-0">
-                  <p className="text-[14px] font-medium text-[var(--color-on-surface)] truncate">
+                  <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">
                     {country.name}
                   </p>
-                  <p className="text-[12px] text-[var(--color-on-surface-variant)]">
+                  <p className="text-xs text-[var(--color-on-surface-variant)]">
                     {country.bankCount} banks · {country.branches.length} codes
                   </p>
                 </div>
@@ -152,10 +152,10 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
               What is a SWIFT/BIC code?
             </h2>
-            <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+            <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
               <p>
                 A <strong className="text-[var(--color-on-surface)]">SWIFT code</strong> (also called a BIC — Bank Identifier Code)
                 is an 8 to 11 character code that uniquely identifies a bank and its branch for international wire transfers.
@@ -167,7 +167,7 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
                 your bank uses the recipient&apos;s SWIFT code to route the payment to the correct bank and branch. Without
                 the correct code, your transfer may be delayed, sent to the wrong account, or returned.
               </p>
-              <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 SWIFT code vs IBAN
               </h3>
               <p>
@@ -177,7 +177,7 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
                 the SWIFT code routes payment to the right bank, and the IBAN ensures it reaches the right account.
                 Some countries (like the US) don&apos;t use IBANs and rely on routing numbers instead.
               </p>
-              <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 Where to find your SWIFT code
               </h3>
               <p>
@@ -193,10 +193,10 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
       {/* CTA */}
       <section className="py-14 bg-[var(--color-surface)]">
         <div className="max-w-lg mx-auto px-6 text-center">
-          <h2 className="text-[24px] font-normal text-[var(--color-on-surface)] mb-3">
+          <h2 className="text-2xl font-normal text-[var(--color-on-surface)] mb-3">
             {t("ctaHeading")}
           </h2>
-          <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
             {t("ctaDescription")}
           </p>
           <PrimaryButton href="/send-money" size="lg">

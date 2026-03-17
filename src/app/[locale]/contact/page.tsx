@@ -28,10 +28,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("heading")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("subheading")}
             </p>
           </div>
@@ -48,15 +48,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h2 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                <h2 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {t("generalInquiries")}
                 </h2>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
                   Questions about our comparison tools, data, or content.
                 </p>
                 <a
                   href="mailto:hello@sendmoneycompare.com"
-                  className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
+                  className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
                   hello@sendmoneycompare.com
                 </a>
@@ -68,15 +68,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
                   </svg>
                 </div>
-                <h2 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                <h2 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {t("dataCorrections")}
                 </h2>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
                   Found an inaccuracy in our rates, fees, or provider details?
                 </p>
                 <a
                   href="mailto:corrections@sendmoneycompare.com"
-                  className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
+                  className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
                   corrections@sendmoneycompare.com
                 </a>
@@ -88,16 +88,16 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h2 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                <h2 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {t("partnershipInquiries")}
                 </h2>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
                   Are you a money transfer provider looking to be listed or
                   update your information?
                 </p>
                 <a
                   href="mailto:partners@sendmoneycompare.com"
-                  className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
+                  className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
                   partners@sendmoneycompare.com
                 </a>
@@ -109,15 +109,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z" />
                   </svg>
                 </div>
-                <h2 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                <h2 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {t("pressMedia")}
                 </h2>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
                   Journalist or researcher looking for data or expert comment?
                 </p>
                 <a
                   href="mailto:press@sendmoneycompare.com"
-                  className="text-[14px] font-medium text-[var(--color-primary)] hover:underline"
+                  className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
                   press@sendmoneycompare.com
                 </a>
@@ -125,10 +125,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("responseTimesHeading")}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 We aim to respond to all inquiries within 1–2 business days.
                 Data correction reports are prioritised and typically addressed
                 within 24 hours.
@@ -136,11 +136,11 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("importantNoteHeading")}
               </h2>
               <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   <strong className="text-[var(--color-on-surface)]">
                     SendMoneyCompare is a comparison platform, not a money
                     transfer provider.

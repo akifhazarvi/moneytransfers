@@ -29,10 +29,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("lastUpdated")}
             </p>
           </div>
@@ -44,10 +44,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           <div className="max-w-3xl mx-auto space-y-10">
             {/* Agreement */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("agreementTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   By accessing or using{" "}
                   <Link href="/" className="text-[var(--color-primary)] hover:underline">
@@ -68,10 +68,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Description of Service */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("descriptionTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare is a free comparison platform that helps users compare
                   international money transfer services. We aggregate publicly available
@@ -79,10 +79,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
                   reviews — from third-party money transfer providers.
                 </p>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                  <p className="text-[13px] font-medium text-[var(--color-on-surface)] mb-2">
+                  <p className="text-2sm font-medium text-[var(--color-on-surface)] mb-2">
                     Important: We are not a money transfer provider
                   </p>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     SendMoneyCompare does not send, receive, hold, or transfer money. We
                     do not provide financial advice or recommendations. We are an
                     information service only. All money transfers are executed by the
@@ -95,10 +95,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Accuracy of Information */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("accuracyTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We make every effort to ensure that the data on our website is accurate
                   and up-to-date. Exchange rates, fees, and other information are
@@ -138,10 +138,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* No Financial Advice */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("noFinancialAdviceTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Nothing on this Website constitutes financial, investment, legal, or tax
                   advice. The information provided is for general informational purposes
@@ -157,10 +157,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Affiliate Relationships */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("affiliateTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare earns revenue through affiliate partnerships with some
                   of the providers listed on our site. When you click on a link to a
@@ -185,10 +185,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Outbound Links */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("thirdPartyLinksTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Our Website contains links to third-party websites, including money
                   transfer providers. These links are provided for your convenience. We
@@ -205,10 +205,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Intellectual Property */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("intellectualPropertyTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   All content on this Website — including text, graphics, logos, design,
                   and software — is the property of SendMoneyCompare or its content
@@ -226,10 +226,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Prohibited Uses */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("prohibitedUsesTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>You agree not to:</p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>
@@ -255,10 +255,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Limitation of Liability */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("limitationTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   To the fullest extent permitted by law, SendMoneyCompare and its
                   operators shall not be liable for any indirect, incidental, special,
@@ -288,10 +288,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Indemnification */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("indemnificationTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   You agree to indemnify and hold harmless SendMoneyCompare and its
                   operators from any claims, losses, damages, liabilities, and expenses
@@ -303,10 +303,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Governing Law */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("governingLawTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   These Terms shall be governed by and construed in accordance with the
                   laws of England and Wales. Any disputes arising from these Terms or your
@@ -318,10 +318,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Severability */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("severabilityTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   If any provision of these Terms is found to be unenforceable or invalid,
                   that provision shall be limited or eliminated to the minimum extent
@@ -333,10 +333,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
             {/* Contact */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("contactUsTitle")}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 If you have any questions about these Terms, please contact us at{" "}
                 <a
                   href="mailto:hello@sendmoneycompare.com"

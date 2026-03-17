@@ -138,7 +138,7 @@ export default function CurrencyConverterClient() {
             />
             {/* Timer — right aligned, next to amount area */}
             {isLive && secondsUntilRefresh !== null && (
-              <span className="text-[11px] text-[var(--color-on-surface-variant)] flex items-center gap-1">
+              <span className="text-2xs text-[var(--color-on-surface-variant)] flex items-center gap-1">
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -156,14 +156,14 @@ export default function CurrencyConverterClient() {
                 value={amount}
                 onChange={(e) => setAmount(Number(e.target.value))}
                 min={0}
-                className="text-[28px] md:text-[32px] font-medium text-[var(--color-on-surface)] text-right bg-transparent border-none focus:outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                className="text-h3 md:text-h2 font-medium text-[var(--color-on-surface)] text-right bg-transparent border-none focus:outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 placeholder="0"
               />
               {targets.length > 0 && (() => {
                 const first = targets[0];
                 const r = getRate(rates, fromCurrency, first.code);
                 return (
-                  <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">
+                  <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">
                     1 {first.code} = {(1 / r).toFixed(4)} {fromCurrency}
                   </p>
                 );
@@ -226,7 +226,7 @@ export default function CurrencyConverterClient() {
                   />
 
                   <div className="flex-1 text-right">
-                    <span className={`font-medium text-[var(--color-on-surface)] ${isFirst ? "text-[24px] md:text-[28px]" : "text-[22px] md:text-[26px]"}`}>
+                    <span className={`font-medium text-[var(--color-on-surface)] ${isFirst ? "text-2xl md:text-h3" : "text-h4 md:text-h4-plus"}`}>
                       {targetInfo?.symbol}{converted.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                   </div>
@@ -267,7 +267,7 @@ export default function CurrencyConverterClient() {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
-                      <span className="text-[13px] font-medium">
+                      <span className="text-2sm font-medium">
                         {t("sendFromTo", { from: fromCurrency, to: target.code })}
                       </span>
                     </div>
@@ -289,7 +289,7 @@ export default function CurrencyConverterClient() {
             disabled={targets.length >= MAX_TARGETS}
           />
 
-          <div className="flex items-center gap-2 text-[12px] text-[var(--color-on-surface-variant)]">
+          <div className="flex items-center gap-2 text-xs text-[var(--color-on-surface-variant)]">
             {isLive ? (
               <span className="inline-flex items-center gap-1.5 text-[var(--color-success)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
@@ -321,13 +321,13 @@ export default function CurrencyConverterClient() {
               }}
               className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] p-4 hover:shadow-[0_1px_6px_rgba(32,33,36,0.18)] transition-shadow text-left"
             >
-              <p className="text-[14px] font-medium text-[var(--color-on-surface)] flex items-center gap-1">
+              <p className="text-sm font-medium text-[var(--color-on-surface)] flex items-center gap-1">
                 <CircleFlag code={pair.from} size={16} /> {pair.from} → <CircleFlag code={pair.to} size={16} /> {pair.to}
               </p>
-              <p className="text-[18px] font-medium text-[var(--color-primary)] mt-1">
+              <p className="text-lg font-medium text-[var(--color-primary)] mt-1">
                 {pairRate.toFixed(4)}
               </p>
-              <p className="text-[12px] text-[var(--color-on-surface-variant)]">{t("midMarketRate")}</p>
+              <p className="text-xs text-[var(--color-on-surface-variant)]">{t("midMarketRate")}</p>
             </button>
           );
         })}
@@ -338,13 +338,13 @@ export default function CurrencyConverterClient() {
       <ComparisonTable headers={["Currency", "Rate (vs USD)", "1 USD ="]}>
         {currencies.filter((c) => c.code !== "USD").map((c) => (
           <tr key={c.code} className="hover:bg-[var(--color-surface-dim)]">
-            <td className="px-4 py-3 text-[14px]">
+            <td className="px-4 py-3 text-sm">
               <CircleFlag code={c.code} size={16} className="mr-1" />
               <span className="font-medium text-[var(--color-on-surface)]">{c.code}</span>
               <span className="text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
             </td>
-            <td className="px-4 py-3 text-[14px] text-right font-mono text-[var(--color-on-surface)]">{(rates[c.code] ?? 0).toFixed(4)}</td>
-            <td className="px-4 py-3 text-[14px] text-right font-mono font-medium text-[var(--color-on-surface)]">
+            <td className="px-4 py-3 text-sm text-right font-mono text-[var(--color-on-surface)]">{(rates[c.code] ?? 0).toFixed(4)}</td>
+            <td className="px-4 py-3 text-sm text-right font-mono font-medium text-[var(--color-on-surface)]">
               {c.symbol}{(rates[c.code] ?? 0).toFixed(2)}
             </td>
           </tr>

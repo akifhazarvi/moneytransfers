@@ -80,14 +80,14 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               How we collect data, calculate costs, and rank providers — in full
               detail.
             </p>
-            <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-2">
+            <p className="text-xs text-[var(--color-on-surface-variant)] mt-2">
               Last updated: {lastUpdated} · Data refresh frequency: every 6
               hours
             </p>
@@ -101,34 +101,34 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
           <div className="max-w-3xl mx-auto">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="text-center">
-                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                <p className="text-2xl font-medium text-[var(--color-primary)]">
                   60+
                 </p>
-                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
                   Providers tracked
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                <p className="text-2xl font-medium text-[var(--color-primary)]">
                   64+
                 </p>
-                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
                   Currency corridors
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                <p className="text-2xl font-medium text-[var(--color-primary)]">
                   6 hrs
                 </p>
-                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
                   Data refresh cycle
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-[24px] font-medium text-[var(--color-primary)]">
+                <p className="text-2xl font-medium text-[var(--color-primary)]">
                   20+
                 </p>
-                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
                   Currencies supported
                 </p>
               </div>
@@ -142,10 +142,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
           <div className="max-w-3xl mx-auto space-y-10">
             {/* Introduction */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("ourMission")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Our mission is to provide transparent, data-driven comparisons
                   of international money transfer services. We believe people
@@ -162,10 +162,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Data Collection */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("dataCollection")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We collect exchange rate and fee data from 60+ money transfer
                   providers every 6 hours using a combination of:
@@ -193,17 +193,17 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
                 {/* Data Pipeline Detail */}
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mt-4">
-                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     Data pipeline
                   </h3>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
                     Our automated pipeline runs via GitHub Actions on a 6-hour
                     schedule. Each cycle executes API integrations and automated
                     quote simulations across all tracked providers and corridors.
                     Data is validated, deduplicated, and merged with source
                     priority weighting before being served to users.
                   </p>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     <strong>Source priority:</strong> Direct provider API &gt;
                     Comparison aggregator &gt; Third-party API &gt; Fallback
                     estimates
@@ -221,10 +221,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Providers Tracked */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("providersWeTrack")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We currently track quotes and fees from the following
                   providers, among others:
@@ -233,13 +233,13 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   {trackedProviders.map((provider) => (
                     <div
                       key={provider}
-                      className="bg-[var(--color-surface-dim)] rounded-lg px-3 py-2 text-[13px] text-[var(--color-on-surface)]"
+                      className="bg-[var(--color-surface-dim)] rounded-lg px-3 py-2 text-2sm text-[var(--color-on-surface)]"
                     >
                       {provider}
                     </div>
                   ))}
                 </div>
-                <p className="text-[13px]">
+                <p className="text-2sm">
                   This list represents our core tracked providers. In total, we
                   aggregate data from 60+ providers across 64+ currency
                   corridors including many regional and corridor-specific
@@ -257,10 +257,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Exchange Rate Benchmark */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("exchangeRateBenchmark")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   To calculate a provider&apos;s exchange rate markup, we compare
                   their offered rate against the <strong>mid-market rate</strong>{" "}
@@ -269,10 +269,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   exchange rate.
                 </p>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     Mid-market rate sources
                   </h3>
-                  <ul className="list-disc pl-5 space-y-2 text-[13px] text-[var(--color-on-surface-variant)]">
+                  <ul className="list-disc pl-5 space-y-2 text-2sm text-[var(--color-on-surface-variant)]">
                     <li>
                       <strong>European Central Bank (ECB)</strong> — official
                       reference rates published daily
@@ -297,10 +297,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Cost Calculation */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("howWeCalculateTotalCost")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   The cost of an international transfer has two components, and
                   looking at either one in isolation is misleading:
@@ -308,29 +308,29 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               </div>
               <div className="grid sm:grid-cols-2 gap-4 my-4">
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                     1. Transfer fee
                   </h3>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     The flat or percentage-based fee a provider charges to
                     process your transfer. This is usually stated upfront —
                     e.g., &quot;$2.99 fee&quot; or &quot;1% of send amount.&quot;
                   </p>
                 </div>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                     2. Exchange rate markup
                   </h3>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     The difference between the provider&apos;s exchange rate and
                     the mid-market rate. This is often the larger cost, but many
                     providers don&apos;t disclose it explicitly.
                   </p>
                 </div>
               </div>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>Our formula for ranking is straightforward:</p>
-                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 font-mono text-[13px] text-[var(--color-on-surface)]">
+                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 font-mono text-2sm text-[var(--color-on-surface)]">
                   <p>
                     Receive amount = (Send amount − Transfer fee) × Provider
                     exchange rate
@@ -343,10 +343,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
                 {/* Example Transfer */}
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     Example: Sending $1,000 USD to India (INR)
                   </h3>
-                  <div className="space-y-2 text-[13px] text-[var(--color-on-surface-variant)]">
+                  <div className="space-y-2 text-2sm text-[var(--color-on-surface-variant)]">
                     <p>
                       <strong>Provider A:</strong> $4.99 fee, rate of 83.20
                       INR/USD → Recipient gets ($1,000 − $4.99) × 83.20 ={" "}
@@ -379,10 +379,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Ranking Logic */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("howProvidersAreRanked")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   In our comparison tables, providers are ranked by{" "}
                   <strong>receive amount</strong> — the total amount your
@@ -417,49 +417,49 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Provider Evaluation */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Provider evaluation criteria
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Beyond cost rankings, we evaluate providers across additional
                   criteria to give users a complete picture:
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4 my-4">
                   <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                       Regulation
                     </h3>
-                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       We verify each provider&apos;s regulatory status with
                       bodies such as the FCA (UK), FinCEN (US), ASIC
                       (Australia), and others.
                     </p>
                   </div>
                   <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                       Transfer speed
                     </h3>
-                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       We track estimated delivery times for each corridor and
                       payment method, sourced directly from providers.
                     </p>
                   </div>
                   <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                       Coverage
                     </h3>
-                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       We record the number of supported countries, currencies,
                       and delivery methods (bank transfer, mobile wallet, cash
                       pickup).
                     </p>
                   </div>
                   <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
-                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                       Customer reviews
                     </h3>
-                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       We scrape Trustpilot ratings daily and display them
                       alongside our data to reflect real customer experiences.
                     </p>
@@ -470,10 +470,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Comparison Articles */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 How comparisons are made
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Our side-by-side comparison articles (e.g., &quot;Wise vs
                   Remitly&quot;) evaluate two providers across multiple
@@ -507,10 +507,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Limitations */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Limitations
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We aim for accuracy, but we want to be transparent about the
                   inherent limitations of our data:
@@ -553,10 +553,10 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Editorial Independence */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Editorial independence
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We may earn a referral fee if you open an account with a
                   provider through our links. This does not influence our
@@ -585,18 +585,18 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Author / Reviewer */}
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+              <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                 Methodology reviewed by
               </h3>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-[18px] font-medium text-[var(--color-primary)] shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-lg font-medium text-[var(--color-primary)] shrink-0">
                   SMC
                 </div>
                 <div>
-                  <p className="text-[14px] font-medium text-[var(--color-on-surface)]">
+                  <p className="text-sm font-medium text-[var(--color-on-surface)]">
                     SendMoneyCompare Editorial Team
                   </p>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-1">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
                     Our team oversees data collection methodology, provider
                     evaluation criteria, and editorial standards to ensure
                     accurate and unbiased comparisons.
@@ -607,7 +607,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
 
             {/* Related Links */}
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <strong className="text-[var(--color-on-surface)]">
                   Related:
                 </strong>{" "}

@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 md:py-14">
 
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-muted)] mb-6">
+          <nav className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-muted)] mb-6">
             <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
             <span>/</span>
             <Link href="/guides" className="hover:text-[var(--color-primary)] transition-colors">Guides</Link>
@@ -116,26 +116,26 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
 
             {/* Excerpt */}
-            <p className="text-[17px] md:text-[18px] text-[var(--color-on-surface-variant)] leading-[1.7] mb-7 max-w-[620px]">
+            <p className="text-md md:text-lg text-[var(--color-on-surface-variant)] leading-[1.7] mb-7 max-w-[620px]">
               {post.excerpt}
             </p>
 
             {/* Author row */}
             <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-[var(--color-outline)]">
-              <Link href="/about/akif-hazarvi" className="flex items-center gap-2 text-[13px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
-                <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] border border-[var(--color-primary-light)] flex items-center justify-center text-[11px] font-bold text-[var(--color-primary)]">
+              <Link href="/about/akif-hazarvi" className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] border border-[var(--color-primary-light)] flex items-center justify-center text-2xs font-bold text-[var(--color-primary)]">
                   {post.author.split(" ").map(n => n[0]).join("").slice(0, 2)}
                 </div>
                 {post.author}
               </Link>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <time dateTime={post.updatedAt} className="text-[13px] text-[var(--color-on-surface-variant)]">
+              <time dateTime={post.updatedAt} className="text-2sm text-[var(--color-on-surface-variant)]">
                 Updated {formatLocalDate(post.updatedAt)}
               </time>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <span className="text-[13px] text-[var(--color-on-surface-variant)]">{post.readTime}</span>
+              <span className="text-2sm text-[var(--color-on-surface-variant)]">{post.readTime}</span>
               {/* Fact-checked badge */}
-              <div className="ml-auto flex items-center gap-1.5 text-[12px] font-medium text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-3 py-1 rounded-full">
+              <div className="ml-auto flex items-center gap-1.5 text-xs font-medium text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-3 py-1 rounded-full">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
@@ -173,7 +173,7 @@ export default async function BlogPostPage({ params }: Props) {
                   </div>
                   <div>
                     <p className="text-overline text-[var(--color-primary)] mb-1">Key Takeaway</p>
-                    <p className="text-[15px] text-[var(--color-on-surface)] leading-relaxed font-medium">{post.excerpt}</p>
+                    <p className="text-md text-[var(--color-on-surface)] leading-relaxed font-medium">{post.excerpt}</p>
                   </div>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Mobile TOC — collapsible */}
             {post.sections.length > 0 && (
               <details className="lg:hidden mb-8 border border-[var(--color-outline)] rounded-2xl overflow-hidden">
-                <summary className="flex items-center justify-between cursor-pointer px-5 py-4 bg-[var(--color-surface-dim)] text-[14px] font-semibold text-[var(--color-on-surface)] select-none">
+                <summary className="flex items-center justify-between cursor-pointer px-5 py-4 bg-[var(--color-surface-dim)] text-sm font-semibold text-[var(--color-on-surface)] select-none">
                   <span>In this guide ({post.sections.length + (post.faqs?.length ? 1 : 0)} sections)</span>
                   <svg className="w-4 h-4 text-[var(--color-on-surface-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -191,14 +191,14 @@ export default async function BlogPostPage({ params }: Props) {
                 <ol className="divide-y divide-[var(--color-outline)]">
                   {post.sections.map((section, i) => (
                     <li key={i}>
-                      <a href={`#section-${i}`} className="block px-5 py-3 text-[14px] text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
+                      <a href={`#section-${i}`} className="block px-5 py-3 text-sm text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
                         {section.heading}
                       </a>
                     </li>
                   ))}
                   {post.faqs?.length ? (
                     <li>
-                      <a href="#faqs" className="block px-5 py-3 text-[14px] text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
+                      <a href="#faqs" className="block px-5 py-3 text-sm text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
                         Frequently Asked Questions
                       </a>
                     </li>
@@ -214,14 +214,14 @@ export default async function BlogPostPage({ params }: Props) {
                 <ol className="space-y-1.5">
                   {post.sections.map((section, i) => (
                     <li key={i}>
-                      <a href={`#section-${i}`} className="text-[13px] text-[var(--color-primary)] hover:underline leading-snug block">
+                      <a href={`#section-${i}`} className="text-2sm text-[var(--color-primary)] hover:underline leading-snug block">
                         {section.heading}
                       </a>
                     </li>
                   ))}
                   {post.faqs?.length ? (
                     <li>
-                      <a href="#faqs" className="text-[13px] text-[var(--color-primary)] hover:underline">Frequently Asked Questions</a>
+                      <a href="#faqs" className="text-2sm text-[var(--color-primary)] hover:underline">Frequently Asked Questions</a>
                     </li>
                   ) : null}
                 </ol>
@@ -244,7 +244,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* FAQs */}
             {post.faqs?.length ? (
               <section id="faqs" className="mb-12">
-                <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-6">
+                <h2 className="text-h3 font-semibold text-[var(--color-on-surface)] mb-6">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-3">
@@ -253,7 +253,7 @@ export default async function BlogPostPage({ params }: Props) {
                       key={i}
                       className="group border border-[var(--color-outline)] rounded-xl overflow-hidden"
                     >
-                      <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-[15px] font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors select-none">
+                      <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-md font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors select-none">
                         {faq.question}
                         <svg
                           className="w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform group-open:rotate-180 shrink-0 ml-4"
@@ -262,7 +262,7 @@ export default async function BlogPostPage({ params }: Props) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </summary>
-                      <div className="px-5 pb-5 pt-1 text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)]">
+                      <div className="px-5 pb-5 pt-1 text-md text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)]">
                         {faq.answer}
                       </div>
                     </details>
@@ -276,7 +276,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[12px] font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] border border-[var(--color-outline)] px-3 py-1 rounded-full hover:border-[var(--color-primary-light)] transition-colors"
+                  className="text-xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] border border-[var(--color-outline)] px-3 py-1 rounded-full hover:border-[var(--color-primary-light)] transition-colors"
                 >
                   {tag}
                 </span>
@@ -297,7 +297,7 @@ export default async function BlogPostPage({ params }: Props) {
                       <li key={i}>
                         <a
                           href={`#section-${i}`}
-                          className="block text-[13px] text-[var(--color-on-surface-variant)] py-1.5 px-3 rounded-lg hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all leading-snug"
+                          className="block text-2sm text-[var(--color-on-surface-variant)] py-1.5 px-3 rounded-lg hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all leading-snug"
                         >
                           {section.heading}
                         </a>
@@ -305,7 +305,7 @@ export default async function BlogPostPage({ params }: Props) {
                     ))}
                     {post.faqs?.length ? (
                       <li>
-                        <a href="#faqs" className="block text-[13px] text-[var(--color-on-surface-variant)] py-1.5 px-3 rounded-lg hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all">
+                        <a href="#faqs" className="block text-2sm text-[var(--color-on-surface-variant)] py-1.5 px-3 rounded-lg hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all">
                           Frequently Asked Questions
                         </a>
                       </li>
@@ -317,22 +317,22 @@ export default async function BlogPostPage({ params }: Props) {
               {/* Comparison CTA */}
               <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-sm)] border border-[var(--color-outline)]">
                 <div className="bg-[var(--color-primary)] px-5 py-4">
-                  <p className="text-[15px] font-semibold text-white mb-1">Find the best rate today</p>
-                  <p className="text-[13px] text-white/70">Compare 60+ providers in seconds</p>
+                  <p className="text-md font-semibold text-white mb-1">Find the best rate today</p>
+                  <p className="text-2sm text-white/70">Compare 60+ providers in seconds</p>
                 </div>
                 <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
                   <Link
                     href="/send-money"
-                    className="flex items-center justify-center w-full h-10 bg-[var(--color-primary)] text-white text-[14px] font-semibold rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+                    className="flex items-center justify-center w-full h-10 bg-[var(--color-primary)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
                   >
                     Compare Rates →
                   </Link>
                   <div className="flex items-center justify-center gap-4">
-                    <span className="flex items-center gap-1 text-[11px] text-[var(--color-on-surface-muted)]">
+                    <span className="flex items-center gap-1 text-2xs text-[var(--color-on-surface-muted)]">
                       <svg className="w-3 h-3 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                       60+ providers
                     </span>
-                    <span className="flex items-center gap-1 text-[11px] text-[var(--color-on-surface-muted)]">
+                    <span className="flex items-center gap-1 text-2xs text-[var(--color-on-surface-muted)]">
                       <svg className="w-3 h-3 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                       Live rates
                     </span>
@@ -354,10 +354,10 @@ export default async function BlogPostPage({ params }: Props) {
                         <span className="text-overline text-[var(--color-primary)] mb-2 block">
                           {related.category}
                         </span>
-                        <h4 className="text-[13px] font-semibold text-[var(--color-on-surface)] leading-snug group-hover:text-[var(--color-primary)] transition-colors">
+                        <h4 className="text-2sm font-semibold text-[var(--color-on-surface)] leading-snug group-hover:text-[var(--color-primary)] transition-colors">
                           {related.title}
                         </h4>
-                        <span className="text-[11px] text-[var(--color-on-surface-muted)] mt-1.5 block">{related.readTime}</span>
+                        <span className="text-2xs text-[var(--color-on-surface-muted)] mt-1.5 block">{related.readTime}</span>
                       </Link>
                     ))}
                   </div>
@@ -380,7 +380,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="flex items-center gap-1.5 text-[13px] text-[var(--color-primary)] py-1 hover:underline"
+                        className="flex items-center gap-1.5 text-2sm text-[var(--color-primary)] py-1 hover:underline"
                       >
                         <span className="text-[var(--color-primary-light)]">›</span>
                         {link.label}

@@ -44,8 +44,8 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
     <>
       {/* Server-rendered SEO heading */}
       <Container className="py-8">
-        <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
-        <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
+        <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
+        <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
           {t("subheading")}
         </p>
       </Container>

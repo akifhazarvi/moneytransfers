@@ -100,7 +100,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-8">
           {translatedSections.map((section) => (
             <div key={section.titleKey}>
-              <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
+              <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
                 {t(section.titleKey)}
               </p>
               <ul className="space-y-3">
@@ -108,7 +108,7 @@ export default function Footer() {
                   <li key={link.labelKey}>
                     <Link
                       href={link.href}
-                      className="text-[14px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
+                      className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
                     >
                       {t(link.labelKey)}
                     </Link>
@@ -121,7 +121,7 @@ export default function Footer() {
 
         {/* Send Money To destinations row */}
         <div className="border-t border-[var(--color-outline)] pt-8 mb-8">
-          <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
+          <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
             {sendMoneyToSection.title}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
@@ -129,7 +129,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[14px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
+                  className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -150,12 +150,12 @@ export default function Footer() {
               <path d="M24 20l-2-2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
               <path d="M24 20l-2 2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
-            <span className="text-[14px] font-medium text-[var(--color-on-surface-variant)]">SendMoneyCompare</span>
+            <span className="text-sm font-medium text-[var(--color-on-surface-variant)]">SendMoneyCompare</span>
           </div>
-          <p className="text-[12px] text-[var(--color-on-surface-variant)] text-center max-w-xl">
+          <p className="text-xs text-[var(--color-on-surface-variant)] text-center max-w-xl">
             {t("footerDisclaimer")}
           </p>
-          <p className="text-[12px] text-[var(--color-on-surface-variant)]">
+          <p className="text-xs text-[var(--color-on-surface-variant)]">
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
         </div>

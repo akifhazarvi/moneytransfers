@@ -38,7 +38,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
     <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
       {isBest && (
         <div className="absolute -top-px left-6 z-10">
-          <div className="bg-[var(--color-success-dark)] text-white text-[11px] font-semibold tracking-wide uppercase px-3 py-1 rounded-b-lg shadow-sm">
+          <div className="bg-[var(--color-success-dark)] text-white text-2xs font-semibold tracking-wide uppercase px-3 py-1 rounded-b-lg shadow-sm">
             {t("bestDeal")}
           </div>
         </div>
@@ -58,42 +58,42 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
       >
         {/* Mobile layout */}
         <div className="flex sm:hidden items-start gap-3">
-          <span className={`text-[12px] font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+          <span className={`text-xs font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
             {rank}
           </span>
-          <div className={`${isBest ? "w-10 h-10" : "w-9 h-9"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[13px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
+          <div className={`${isBest ? "w-10 h-10" : "w-9 h-9"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
             <Image src={providerLogo} alt={`${providerName} logo`} width={40} height={40} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
-                <p className={`text-[14px] font-medium text-[var(--color-on-surface)] truncate ${isBest ? "text-[15px]" : ""}`}>{providerName}</p>
+                <p className={`text-sm font-medium text-[var(--color-on-surface)] truncate ${isBest ? "text-md" : ""}`}>{providerName}</p>
                 <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                   <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
                   {isFast && (
-                    <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
+                    <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
                       {t("fast")}
                     </span>
                   )}
                   {promo?.referralBadge && (
-                    <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded">
+                    <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded">
                       {promo.referralBadge}
                     </span>
                   )}
                   {promo?.signUpBadge && (
-                    <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-px rounded">
+                    <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-px rounded">
                       {promo.signUpBadge}
                     </span>
                   )}
                 </div>
               </div>
               <div className="text-right shrink-0">
-                <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-[18px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
+                <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-lg text-[var(--color-success-dark)]" : "text-base text-[var(--color-on-surface)]"}`}>
                   {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[var(--color-on-surface-variant)]">
+            <div className="flex items-center gap-3 mt-1.5 text-2xs text-[var(--color-on-surface-variant)]">
               <span>{quote.transferSpeed}</span>
               <span className="w-px h-3 bg-[var(--color-outline)]" />
               <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel} {t("fee")}</span>
@@ -111,7 +111,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         {/* Desktop layout */}
         <div className="hidden sm:flex items-center gap-5">
           <div className="flex items-center gap-2 shrink-0">
-            <span className={`text-[13px] font-semibold tabular-nums w-5 text-center ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+            <span className={`text-2sm font-semibold tabular-nums w-5 text-center ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
               {rank}
             </span>
             {onCompareToggle && (
@@ -136,7 +136,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   )}
                 </button>
                 {compareDisabled && !compareSelected && (
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1 bg-[var(--color-on-surface)] text-white text-[11px] rounded whitespace-nowrap pointer-events-none opacity-0 group-hover/compare:opacity-100 transition-opacity z-10">
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1 bg-[var(--color-on-surface)] text-white text-2xs rounded whitespace-nowrap pointer-events-none opacity-0 group-hover/compare:opacity-100 transition-opacity z-10">
                     Max 2 providers selected
                   </div>
                 )}
@@ -144,28 +144,28 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             )}
           </div>
 
-          <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[14px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
+          <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
             <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
 
           <div className="w-[200px] lg:w-[240px] shrink-0">
             <div className="flex items-center gap-2">
-              <p className={`text-[14px] font-medium text-[var(--color-on-surface)] truncate ${isBest ? "text-[15px]" : ""}`}>{providerName}</p>
+              <p className={`text-sm font-medium text-[var(--color-on-surface)] truncate ${isBest ? "text-md" : ""}`}>{providerName}</p>
             </div>
             <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
               <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
               {isFast && (
-                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
+                <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
                   {t("fast")}
                 </span>
               )}
               {promo?.referralBadge && (
-                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded whitespace-nowrap">
+                <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded whitespace-nowrap">
                   {promo.referralBadge}
                 </span>
               )}
               {promo?.signUpBadge && (
-                <span className="text-[10px] font-semibold tracking-wide uppercase text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-px rounded whitespace-nowrap">
+                <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-px rounded whitespace-nowrap">
                   {promo.signUpBadge}
                 </span>
               )}
@@ -174,28 +174,28 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
 
           <div className="hidden md:flex items-center gap-6 flex-1 min-w-0">
             <div className="w-[110px] shrink-0">
-              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("speed")}</p>
-              <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5">{quote.transferSpeed}</p>
+              <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("speed")}</p>
+              <p className="text-2sm text-[var(--color-on-surface)] mt-0.5">{quote.transferSpeed}</p>
             </div>
             <div className="w-[80px] shrink-0">
-              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("fee")}</p>
-              <p className={`text-[13px] mt-0.5 ${quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
+              <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("fee")}</p>
+              <p className={`text-2sm mt-0.5 ${quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
                 {feeLabel}
               </p>
             </div>
             <div className="w-[90px] shrink-0">
-              <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("rate")}</p>
-              <p className="text-[13px] text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+              <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("rate")}</p>
+              <p className="text-2sm text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
             </div>
           </div>
 
           <div className="flex-1 min-w-0" />
 
           <div className="text-right shrink-0 mr-1">
-            <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-[22px] sm:text-[24px] text-[var(--color-success-dark)]" : "text-[18px] sm:text-[20px] text-[var(--color-on-surface)]"}`}>
+            <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-h4 sm:text-2xl text-[var(--color-success-dark)]" : "text-lg sm:text-xl text-[var(--color-on-surface)]"}`}>
               {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">{t("recipientGets")}</p>
+            <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">{t("recipientGets")}</p>
           </div>
 
           <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover/row:bg-[var(--color-surface-container)] transition-colors">
@@ -212,27 +212,27 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
           <div className={`mx-5 sm:mx-6 mb-5 border border-[var(--color-outline)] rounded-2xl overflow-hidden ${isBest ? "border-[var(--color-success-dark)]/20" : ""}`}>
             <div className="grid grid-cols-2 sm:grid-cols-4 bg-[var(--color-surface-dim)]">
               <div className="px-4 py-3 border-r border-b sm:border-b-0 border-[var(--color-outline)]">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("exchangeRate")}</p>
-                <p className="text-[15px] font-medium text-[var(--color-on-surface)] mt-1 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("exchangeRate")}</p>
+                <p className="text-md font-medium text-[var(--color-on-surface)] mt-1 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
               </div>
               <div className="px-4 py-3 sm:border-r border-b sm:border-b-0 border-[var(--color-outline)]">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("transferFee")}</p>
-                <p className={`text-[15px] font-medium mt-1 ${quote.fee === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>{feeLabel}</p>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("transferFee")}</p>
+                <p className={`text-md font-medium mt-1 ${quote.fee === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>{feeLabel}</p>
               </div>
               <div className="px-4 py-3 border-r border-[var(--color-outline)]">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("delivery")}</p>
-                <p className="text-[15px] font-medium text-[var(--color-on-surface)] mt-1">{quote.transferSpeed}</p>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("delivery")}</p>
+                <p className="text-md font-medium text-[var(--color-on-surface)] mt-1">{quote.transferSpeed}</p>
               </div>
               <div className="px-4 py-3">
-                <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("recipientGets")}</p>
-                <p className={`text-[15px] font-semibold mt-1 tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("recipientGets")}</p>
+                <p className={`text-md font-semibold mt-1 tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                   {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
               </div>
             </div>
 
             <div className="px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[var(--color-surface)]">
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[13px] text-[var(--color-on-surface-variant)]">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-2sm text-[var(--color-on-surface-variant)]">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" />
                   <span>{t("send")} {sendCurrencySymbol}{quote.sendAmount.toLocaleString()} {quote.sendCurrency}</span>
@@ -253,7 +253,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   <Link
                     href={`/companies/${provider.slug}`}
                     onClick={() => trackReviewClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`)}
-                    className="text-[13px] font-medium text-[var(--color-primary)] hover:underline"
+                    className="text-2sm font-medium text-[var(--color-primary)] hover:underline"
                   >
                     {t("fullReview")}
                   </Link>
@@ -263,7 +263,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => { track("provider_clicked", { provider: quote.providerSlug, corridor: `${quote.sendCurrency}-${quote.receiveCurrency}`, rank }); trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank); }}
-                  className={`inline-flex items-center gap-2 h-10 px-6 text-[13px] font-semibold rounded-full transition-all duration-150 ${
+                  className={`inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full transition-all duration-150 ${
                     isBest
                       ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-sm hover:shadow"
                       : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow"
@@ -278,7 +278,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             </div>
 
             {provider && provider.paymentMethods.length > 0 && (
-              <div className="px-5 py-3 border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]/50 flex items-center gap-4 text-[12px] text-[var(--color-on-surface-variant)]">
+              <div className="px-5 py-3 border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]/50 flex items-center gap-4 text-xs text-[var(--color-on-surface-variant)]">
                 <span className="font-medium">{t("paysWith")}</span>
                 <div className="flex flex-wrap gap-2">
                   {provider.paymentMethods.slice(0, 4).map((method) => (
@@ -292,7 +292,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
 
             {promo && (promo.signUpOffer || promo.referralProgram || promo.promoCode) && (
               <div className="px-5 py-4 border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]">
-                <p className="text-[12px] font-semibold text-[var(--color-on-surface)] uppercase tracking-wide mb-3">{t("dealsPromotions")}</p>
+                <p className="text-xs font-semibold text-[var(--color-on-surface)] uppercase tracking-wide mb-3">{t("dealsPromotions")}</p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {promo.signUpOffer && (
                     <div className="flex gap-2.5">
@@ -302,10 +302,10 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                         </svg>
                       </div>
                       <div>
-                        <p className="text-[12px] font-semibold text-[var(--color-on-surface)]">{t("signUpOffer")}</p>
-                        <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{promo.signUpOffer}</p>
+                        <p className="text-xs font-semibold text-[var(--color-on-surface)]">{t("signUpOffer")}</p>
+                        <p className="text-xs text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{promo.signUpOffer}</p>
                         {promo.promoCode && (
-                          <p className="text-[12px] mt-1">
+                          <p className="text-xs mt-1">
                             {t("code")} <span className="font-mono font-semibold text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-0.5 rounded">{promo.promoCode}</span>
                           </p>
                         )}
@@ -320,11 +320,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                         </svg>
                       </div>
                       <div>
-                        <p className="text-[12px] font-semibold text-[var(--color-primary)]">{t("referFriend")}</p>
-                        <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">
+                        <p className="text-xs font-semibold text-[var(--color-primary)]">{t("referFriend")}</p>
+                        <p className="text-xs text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">
                           {t("youGet")} {promo.referralProgram.referrerReward}
                         </p>
-                        <p className="text-[12px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                        <p className="text-xs text-[var(--color-on-surface-variant)] leading-relaxed">
                           {t("friendGets")} {promo.referralProgram.refereeReward}
                         </p>
                       </div>
@@ -339,8 +339,8 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[12px] font-semibold text-[var(--color-primary)]">{t("loyaltyProgram")}</p>
-                      <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{promo.loyaltyProgram}</p>
+                      <p className="text-xs font-semibold text-[var(--color-primary)]">{t("loyaltyProgram")}</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)] mt-0.5 leading-relaxed">{promo.loyaltyProgram}</p>
                     </div>
                   </div>
                 )}

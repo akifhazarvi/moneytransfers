@@ -29,10 +29,10 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("subtitle")}
             </p>
           </div>
@@ -43,10 +43,10 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("editorialIndependenceTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Our editorial team operates independently from our commercial
                   partnerships. No provider can pay for a higher ranking, a more
@@ -65,10 +65,10 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("affiliatePartnershipsTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare is free for consumers. We earn revenue through
                   affiliate partnerships with some of the providers we list.
@@ -92,10 +92,10 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("disclosureStandardsTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We believe in full transparency about how we make money. You
                   will find affiliate disclosures:
@@ -122,10 +122,10 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("contentGuidelinesTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   All content published on SendMoneyCompare follows these
                   principles:
@@ -164,10 +164,10 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("whatWeDontDoTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
                     We never accept payment to rank a provider higher than the
@@ -190,7 +190,7 @@ export default async function EditorialPolicyPage({ params }: { params: Promise<
             </div>
 
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <strong className="text-[var(--color-on-surface)]">
                   {t("questionsTitle")}
                 </strong>{" "}

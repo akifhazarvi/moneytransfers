@@ -62,10 +62,10 @@ export default async function HowWeReviewPage({ params }: Props) {
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("subtitle")}
             </p>
           </div>
@@ -76,10 +76,10 @@ export default async function HowWeReviewPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Our review process
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We don&apos;t rely on provider marketing materials or
                   self-reported data. Our review process is hands-on and
@@ -119,10 +119,10 @@ export default async function HowWeReviewPage({ params }: Props) {
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Scoring criteria
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6 leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 leading-relaxed">
                 Each provider is scored across five weighted criteria to produce an overall rating.
               </p>
               <div className="space-y-4">
@@ -132,14 +132,14 @@ export default async function HowWeReviewPage({ params }: Props) {
                     className="bg-[var(--color-surface-dim)] rounded-xl p-5"
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-[15px] font-medium text-[var(--color-on-surface)]">
+                      <h3 className="text-md font-medium text-[var(--color-on-surface)]">
                         {criterion.title}
                       </h3>
-                      <span className="text-[13px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] rounded-full px-3 py-0.5">
+                      <span className="text-2sm font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] rounded-full px-3 py-0.5">
                         {criterion.weight}
                       </span>
                     </div>
-                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       {criterion.desc}
                     </p>
                   </div>
@@ -148,11 +148,11 @@ export default async function HowWeReviewPage({ params }: Props) {
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("ratingScale")}
               </h2>
               <div className="overflow-x-auto">
-                <table className="w-full text-[14px]">
+                <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-[var(--color-outline)]">
                       <th className="text-left py-3 pr-4 font-medium text-[var(--color-on-surface)]">
@@ -206,10 +206,10 @@ export default async function HowWeReviewPage({ params }: Props) {
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("keepingReviewsCurrent")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Financial services change frequently — providers adjust fees,
                   launch new corridors, update apps, and change regulatory
@@ -242,7 +242,7 @@ export default async function HowWeReviewPage({ params }: Props) {
             </div>
 
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-6">
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 For a deeper look at how we calculate the total cost of a
                 transfer and rank providers in our comparison tables, see our{" "}
                 <Link

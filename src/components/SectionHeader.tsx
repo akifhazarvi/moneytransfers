@@ -25,20 +25,20 @@ export default function SectionHeader({
         />
       )}
       <div className={`flex items-center ${centered ? "justify-center" : "justify-between"}`}>
-        <h2 className="text-[22px] font-semibold text-[var(--color-on-surface)] tracking-[-0.01em]">
+        <h2 className="text-h4 font-semibold text-[var(--color-on-surface)] tracking-[-0.01em]">
           {title}
         </h2>
         {viewAllHref && (
           <Link
             href={viewAllHref}
-            className="text-[13px] font-medium text-[var(--color-primary)] hover:underline shrink-0 ml-4"
+            className="text-2sm font-medium text-[var(--color-primary)] hover:underline shrink-0 ml-4"
           >
             {viewAllLabel} →
           </Link>
         )}
       </div>
       {subtitle && (
-        <p className="mt-1.5 text-[15px] text-[var(--color-on-surface-variant)] max-w-[600px]">
+        <p className="mt-1.5 text-md text-[var(--color-on-surface-variant)] max-w-[600px]">
           {subtitle}
         </p>
       )}

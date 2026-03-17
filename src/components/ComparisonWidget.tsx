@@ -60,12 +60,12 @@ export default function ComparisonWidget({
 
   if (compact) {
     const inputClass =
-      "w-full h-12 border border-[var(--color-outline)] rounded-lg px-4 text-[14px] bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors";
+      "w-full h-12 border border-[var(--color-outline)] rounded-lg px-4 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors";
     return (
       <form onSubmit={handleCompare}>
         <div className="grid grid-cols-1 gap-3">
           <div>
-            <label htmlFor={`${id}-amount`} className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("youSend")}</label>
+            <label htmlFor={`${id}-amount`} className="block text-xs font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("youSend")}</label>
             <input
               id={`${id}-amount`}
               type="number"
@@ -79,22 +79,22 @@ export default function ComparisonWidget({
               aria-describedby={amountError ? `${id}-amount-error` : undefined}
             />
             {amountError && (
-              <p id={`${id}-amount-error`} className="text-[11px] text-[var(--color-error)] mt-1">{amountError}</p>
+              <p id={`${id}-amount-error`} className="text-2xs text-[var(--color-error)] mt-1">{amountError}</p>
             )}
           </div>
           <div>
-            <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("from")}</label>
+            <label className="block text-xs font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("from")}</label>
             <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-[var(--color-surface)]">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="compact" />
             </div>
           </div>
           <div>
-            <label className="block text-[12px] font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("to")}</label>
+            <label className="block text-xs font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("to")}</label>
             <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-[var(--color-surface)]">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
             </div>
           </div>
-          <button type="submit" className="w-full h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-[14px] hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] active:shadow-none transition-all">
+          <button type="submit" className="w-full h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-sm hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] active:shadow-none transition-all">
             {t("compareTransfers")}
           </button>
         </div>
@@ -107,7 +107,7 @@ export default function ComparisonWidget({
       <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)]">
         <div className="flex flex-col md:flex-row items-stretch">
           <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
-            <label htmlFor={`${id}-send`} className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">{t("youSend")}</label>
+            <label htmlFor={`${id}-send`} className="text-2xs text-[var(--color-on-surface-variant)] font-medium">{t("youSend")}</label>
             <input
               id={`${id}-send`}
               type="number"
@@ -116,17 +116,17 @@ export default function ComparisonWidget({
               min={MIN_AMOUNT}
               max={MAX_AMOUNT}
               step="any"
-              className={`w-full bg-transparent text-[16px] text-[var(--color-on-surface)] focus:outline-none mt-0.5 ${amountError ? "text-[var(--color-error)]" : ""}`}
+              className={`w-full bg-transparent text-base text-[var(--color-on-surface)] focus:outline-none mt-0.5 ${amountError ? "text-[var(--color-error)]" : ""}`}
               placeholder="1,000"
               aria-describedby={amountError ? `${id}-send-error` : undefined}
             />
             {amountError && (
-              <p id={`${id}-send-error`} className="text-[11px] text-[var(--color-error)] mt-0.5">{amountError}</p>
+              <p id={`${id}-send-error`} className="text-2xs text-[var(--color-error)] mt-0.5">{amountError}</p>
             )}
           </div>
 
           <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">{t("from")}</p>
+            <p className="text-2xs text-[var(--color-on-surface-variant)] font-medium">{t("from")}</p>
             <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="inline" />
           </div>
 
@@ -149,7 +149,7 @@ export default function ComparisonWidget({
           </div>
 
           <div className="flex-1 border-b md:border-b-0 md:border-l border-[var(--color-outline)] px-4 py-2.5">
-            <p className="text-[11px] text-[var(--color-on-surface-variant)] font-medium">{t("to")}</p>
+            <p className="text-2xs text-[var(--color-on-surface-variant)] font-medium">{t("to")}</p>
             <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="inline" />
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function ComparisonWidget({
       <div className="flex justify-center mt-6">
         <button
           type="submit"
-          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-[15px] px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all"
+          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-md px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all"
         >
           {t("compareTransfers")}
         </button>

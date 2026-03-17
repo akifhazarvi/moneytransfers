@@ -51,23 +51,23 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
 
   return (
     <Container className="py-8">
-      <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+      <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
         {" / "}
         <span className="text-[var(--color-on-surface)]">Compare</span>
       </nav>
 
-      <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
-      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
+      <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
+      <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
         {t("subheading")}
       </p>
 
       {/* Editorial Introduction */}
       <Card className="mb-8">
-        <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-3">
+        <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-3">
           Why compare money transfer providers?
         </h2>
-        <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+        <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
           <p>
             International money transfers can vary dramatically in cost depending on which provider you choose. The difference between the cheapest and most expensive option on the same corridor can be 5-8% of the transfer amount — on a $1,000 transfer, that means $50-$80 more or less reaching your recipient.
           </p>
@@ -85,16 +85,16 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
         <ComparisonTable headers={["Provider", "Rating", "Fees", "Speed", "Countries", "Rate Markup", ""]}>
           {providers.slice(0, 8).map((p) => (
             <tr key={p.slug} className="hover:bg-[var(--color-surface-dim)]">
-              <td className="px-4 py-3 text-[14px] font-medium text-[var(--color-on-surface)]">{p.name}</td>
+              <td className="px-4 py-3 text-sm font-medium text-[var(--color-on-surface)]">{p.name}</td>
               <td className="px-4 py-3">
                 <RatingBadge rating={p.rating} label={p.ratingLabel} />
               </td>
-              <td className="px-4 py-3 text-[14px] text-[var(--color-on-surface-variant)]">{p.feeStructure}</td>
-              <td className="px-4 py-3 text-[14px] text-[var(--color-on-surface-variant)]">{p.transferSpeed}</td>
-              <td className="px-4 py-3 text-[14px] text-[var(--color-on-surface-variant)]">{p.supportedCountries}+</td>
-              <td className="px-4 py-3 text-[14px] text-[var(--color-on-surface-variant)]">{p.exchangeRateMarkup}</td>
+              <td className="px-4 py-3 text-sm text-[var(--color-on-surface-variant)]">{p.feeStructure}</td>
+              <td className="px-4 py-3 text-sm text-[var(--color-on-surface-variant)]">{p.transferSpeed}</td>
+              <td className="px-4 py-3 text-sm text-[var(--color-on-surface-variant)]">{p.supportedCountries}+</td>
+              <td className="px-4 py-3 text-sm text-[var(--color-on-surface-variant)]">{p.exchangeRateMarkup}</td>
               <td className="px-4 py-3">
-                <Link href={`/companies/${p.slug}`} className="text-[13px] text-[var(--color-primary)] font-medium hover:underline">
+                <Link href={`/companies/${p.slug}`} className="text-2sm text-[var(--color-primary)] font-medium hover:underline">
                   Review
                 </Link>
               </td>
@@ -104,7 +104,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
       </div>
 
       {/* Head-to-Head Links */}
-      <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-6">{t("headToHeadHeading")}</h2>
+      <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-6">{t("headToHeadHeading")}</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {comparisons.slice(0, 21).map((c) => (
           <Card
@@ -121,9 +121,9 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
                   <Image src={c.logoB} alt={c.nameB} width={40} height={40} className="object-cover" />
                 </div>
               </div>
-              <span className="text-[13px] font-medium text-[var(--color-on-surface)]">{c.nameA} vs {c.nameB}</span>
+              <span className="text-2sm font-medium text-[var(--color-on-surface)]">{c.nameA} vs {c.nameB}</span>
             </div>
-            <span className="text-[var(--color-primary)] text-[12px]">&rarr;</span>
+            <span className="text-[var(--color-primary)] text-xs">&rarr;</span>
           </Card>
         ))}
       </div>
@@ -132,27 +132,27 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
       <div className="mt-12 pt-8 border-t border-[var(--color-outline)]">
         <div className="grid sm:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Tools</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Tools</h3>
             <ul className="space-y-2">
-              <li><Link href="/send-money" className="text-[14px] text-[var(--color-primary)] hover:underline">Compare rates calculator</Link></li>
-              <li><Link href="/currency-converter" className="text-[14px] text-[var(--color-primary)] hover:underline">Currency converter</Link></li>
-              <li><Link href="/companies" className="text-[14px] text-[var(--color-primary)] hover:underline">All provider reviews</Link></li>
+              <li><Link href="/send-money" className="text-sm text-[var(--color-primary)] hover:underline">Compare rates calculator</Link></li>
+              <li><Link href="/currency-converter" className="text-sm text-[var(--color-primary)] hover:underline">Currency converter</Link></li>
+              <li><Link href="/companies" className="text-sm text-[var(--color-primary)] hover:underline">All provider reviews</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Popular corridors</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Popular corridors</h3>
             <ul className="space-y-2">
-              <li><Link href="/send-money/usa-to-india" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to India</Link></li>
-              <li><Link href="/send-money/usa-to-pakistan" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to Pakistan</Link></li>
-              <li><Link href="/send-money/usa-to-philippines" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to Philippines</Link></li>
+              <li><Link href="/send-money/usa-to-india" className="text-sm text-[var(--color-primary)] hover:underline">USA to India</Link></li>
+              <li><Link href="/send-money/usa-to-pakistan" className="text-sm text-[var(--color-primary)] hover:underline">USA to Pakistan</Link></li>
+              <li><Link href="/send-money/usa-to-philippines" className="text-sm text-[var(--color-primary)] hover:underline">USA to Philippines</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Guides</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Guides</h3>
             <ul className="space-y-2">
-              <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-[14px] text-[var(--color-primary)] hover:underline">Cheapest way to send money</Link></li>
-              <li><Link href="/guides/exchange-rate-markup-explained" className="text-[14px] text-[var(--color-primary)] hover:underline">Exchange rates explained</Link></li>
-              <li><Link href="/guides" className="text-[14px] text-[var(--color-primary)] hover:underline">All guides</Link></li>
+              <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-sm text-[var(--color-primary)] hover:underline">Cheapest way to send money</Link></li>
+              <li><Link href="/guides/exchange-rate-markup-explained" className="text-sm text-[var(--color-primary)] hover:underline">Exchange rates explained</Link></li>
+              <li><Link href="/guides" className="text-sm text-[var(--color-primary)] hover:underline">All guides</Link></li>
             </ul>
           </div>
         </div>

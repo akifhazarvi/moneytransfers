@@ -77,18 +77,18 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
       <section className="bg-[var(--color-surface)] pt-12 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="text-center mb-6">
-            <h1 className="text-[36px] md:text-[46px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-4xl md:text-h0 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t.rich("heading", {
                 highlight: (chunks) => <span className="text-[var(--color-primary)]">{chunks}</span>,
               })}
             </h1>
-            <p className="text-[16px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-base text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {t("subheading", { count: wiseCountries.length })}
             </p>
           </div>
 
           {/* Quick stats */}
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-[13px] text-[var(--color-on-surface-variant)]">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-2sm text-[var(--color-on-surface-variant)]">
             {[
               `${wiseCountries.length} countries`,
               `${sepaCountries.length} SEPA members`,
@@ -121,8 +121,8 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 >
                   <CircleFlag code={country.countryCode} size={20} />
                   <div className="min-w-0">
-                    <p className="text-[14px] font-medium text-[var(--color-on-surface)] truncate">{name}</p>
-                    <div className="flex items-center gap-2 text-[12px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">{name}</p>
+                    <div className="flex items-center gap-2 text-xs text-[var(--color-on-surface-variant)]">
                       <span>{country.countryCode}</span>
                       <span>·</span>
                       <span>{country.ibanLength} chars</span>
@@ -153,7 +153,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
               if (regionCountries.length === 0) return null;
               return (
                 <div key={region}>
-                  <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-3">{region}</h3>
+                  <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-3">{region}</h3>
                   <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                     {regionCountries.map((country) => {
                       if (!country) return null;
@@ -166,8 +166,8 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                         >
                           <CircleFlag code={country.countryCode} size={20} />
                           <div className="min-w-0">
-                            <p className="text-[14px] font-medium text-[var(--color-on-surface)] truncate">{name}</p>
-                            <p className="text-[12px] text-[var(--color-on-surface-variant)]">
+                            <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">{name}</p>
+                            <p className="text-xs text-[var(--color-on-surface-variant)]">
                               {country.currency} · {country.ibanLength} chars
                             </p>
                           </div>
@@ -186,7 +186,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
       <section className="py-10">
         <Container>
           <SectionHeader title="SEPA member countries" />
-          <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6 max-w-2xl">
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 max-w-2xl">
             The Single Euro Payments Area (SEPA) allows fast, low-cost euro transfers between member countries.
             These {sepaCountries.length} countries support SEPA credit transfers and direct debits.
           </p>
@@ -199,7 +199,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                   <Link
                     key={country.countryCode}
                     href={`/iban/${country.slug}`}
-                    className="flex items-center gap-2 p-2.5 rounded-lg border border-[var(--color-outline)] bg-[var(--color-surface)] hover:shadow-[0_1px_6px_rgba(32,33,36,0.18)] transition-shadow text-[13px]"
+                    className="flex items-center gap-2 p-2.5 rounded-lg border border-[var(--color-outline)] bg-[var(--color-surface)] hover:shadow-[0_1px_6px_rgba(32,33,36,0.18)] transition-shadow text-2sm"
                   >
                     <CircleFlag code={country.countryCode} size={16} />
                     <span className="text-[var(--color-on-surface)] font-medium truncate">{name}</span>
@@ -214,10 +214,10 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl">
-            <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
               {t("whatIsIban")}
             </h2>
-            <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+            <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
               <p>
                 An <strong className="text-[var(--color-on-surface)]">International Bank Account Number (IBAN)</strong> is
                 a standardised format for identifying bank accounts across national borders. It was originally developed to
@@ -234,7 +234,7 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
                 When sending money internationally, providing the correct IBAN ensures your transfer reaches the
                 right account quickly. Incorrect IBANs can result in delays, returned payments, and additional fees.
               </p>
-              <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mt-6 mb-2">
+              <h3 className="text-base font-medium text-[var(--color-on-surface)] mt-6 mb-2">
                 IBAN vs SWIFT/BIC code
               </h3>
               <p>
@@ -251,10 +251,10 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
       {/* CTA */}
       <section className="py-14 bg-[var(--color-surface)]">
         <div className="max-w-lg mx-auto px-6 text-center">
-          <h2 className="text-[24px] font-normal text-[var(--color-on-surface)] mb-3">
+          <h2 className="text-2xl font-normal text-[var(--color-on-surface)] mb-3">
             {t("ctaHeading")}
           </h2>
-          <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+          <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
             {t("ctaDescription")}
           </p>
           <PrimaryButton href="/send-money" size="lg">

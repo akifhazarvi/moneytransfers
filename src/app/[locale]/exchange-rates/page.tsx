@@ -156,11 +156,11 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
             {t("todaysRatesHeading")}
           </h2>
-          <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
+          <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
             Mid-market exchange rates for 1 USD. Updated at build time from multiple independent sources.
           </p>
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
-            <div className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-[11px] sm:text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+            <div className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
               <span>Currency</span>
               <span className="text-right">Code</span>
               <span className="text-right">1 USD =</span>
@@ -170,15 +170,15 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 key={c.code}
                 className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 items-center px-4 sm:px-6 py-2.5 border-t border-[var(--color-outline)]"
               >
-                <span className="text-[14px] text-[var(--color-on-surface)]">{c.name}</span>
-                <span className="text-[14px] font-medium text-[var(--color-on-surface)] text-right">{c.code}</span>
-                <span className="text-[14px] font-medium text-[var(--color-on-surface)] text-right tabular-nums">
+                <span className="text-sm text-[var(--color-on-surface)]">{c.name}</span>
+                <span className="text-sm font-medium text-[var(--color-on-surface)] text-right">{c.code}</span>
+                <span className="text-sm font-medium text-[var(--color-on-surface)] text-right tabular-nums">
                   {c.rate >= 1000 ? c.rate.toFixed(2) : c.rate >= 100 ? c.rate.toFixed(3) : c.rate.toFixed(4)}
                 </span>
               </div>
             ))}
           </div>
-          <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-3">
+          <p className="text-xs text-[var(--color-on-surface-variant)] mt-3">
             The live board above updates every 60 seconds with real-time data from 4 independent feeds. This table shows the latest server-side snapshot.
           </p>
         </div>
@@ -193,7 +193,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
               {t("compareTransferRates")}
             </h2>
-            <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
+            <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
               The mid-market rate above is the fairest rate — but providers add markups. Compare actual rates from 60+ services on these popular corridors.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -205,10 +205,10 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 >
                   <span className="text-xl">{c.flag}</span>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[14px] font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
+                    <div className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
                       {c.label}
                     </div>
-                    <div className="text-[12px] text-[var(--color-on-surface-variant)]">
+                    <div className="text-xs text-[var(--color-on-surface-variant)]">
                       {c.from} &rarr; {c.to}
                     </div>
                   </div>
@@ -230,7 +230,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
                   Mid-Market Rate vs. Transfer Rate
                 </h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   The mid-market rate you see on this page is the &ldquo;real&rdquo; exchange rate — the midpoint between buy and sell prices on global currency markets. When you send money internationally, providers add a markup to this rate. That markup is their profit margin, and it can vary widely between services. Always compare the rate a provider offers against the mid-market rate to see the true cost.
                 </p>
               </div>
@@ -238,7 +238,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
                   How We Calculate These Rates
                 </h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   We aggregate exchange rate data from 4 independent sources in real-time and take the median value. This approach eliminates outliers and provides a more reliable rate than relying on any single source. Rates refresh every 60 seconds while you&apos;re on this page. The buy/sell spreads shown are simulated based on typical banking margins for each currency.
                 </p>
               </div>
@@ -250,7 +250,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
               Popular Exchange Rates
             </h2>
-            <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
+            <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
               Detailed rate pages with conversion tables, provider comparisons, and expert analysis for the most popular currency pairs.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -264,11 +264,11 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                     href={`/exchange-rates/${pair.slug}`}
                     className="flex flex-col gap-1 px-4 py-3.5 rounded-xl border border-[var(--color-outline)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all group"
                   >
-                    <span className="text-[14px] font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
+                    <span className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
                       {pair.label}
                     </span>
                     {pairRate && pairRate > 0 && (
-                      <span className="text-[13px] text-[var(--color-on-surface-variant)] tabular-nums">
+                      <span className="text-2sm text-[var(--color-on-surface-variant)] tabular-nums">
                         1 {pair.from} = {pairRate >= 1000 ? pairRate.toFixed(2) : pairRate >= 100 ? pairRate.toFixed(3) : pairRate.toFixed(4)} {pair.to}
                       </span>
                     )}
@@ -289,7 +289,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                   key={faq.question}
                   className="group rounded-xl border border-[var(--color-outline)] overflow-hidden"
                 >
-                  <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-[15px] font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
+                  <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-md font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
                     {faq.question}
                     <svg
                       className="w-5 h-5 text-[var(--color-on-surface-variant)] shrink-0 ml-4 transition-transform group-open:rotate-180"
@@ -300,7 +300,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <div className="px-5 pb-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <div className="px-5 pb-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     {faq.answer}
                   </div>
                 </details>
@@ -309,7 +309,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           </section>
 
           {/* Disclaimer */}
-          <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-10 leading-relaxed">
+          <p className="text-xs text-[var(--color-on-surface-variant)] mt-10 leading-relaxed">
             Exchange rates shown are mid-market rates aggregated from multiple independent sources for informational purposes only.
             Actual rates offered by money transfer providers, banks, and currency exchange services will differ.
             These rates do not constitute financial advice and should not be relied upon for trading decisions.

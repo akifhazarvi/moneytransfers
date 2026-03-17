@@ -109,7 +109,7 @@ export default function Header() {
               <path d="M24 20l-2-2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
               <path d="M24 20l-2 2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
-            <span className="text-[20px] font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
+            <span className="text-xl font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
               Send Money
             </span>
           </Link>
@@ -123,7 +123,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`px-3 py-2 text-[13px] font-medium rounded-lg transition-colors ${
+                  className={`px-3 py-2 text-2sm font-medium rounded-lg transition-colors ${
                     active
                       ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"
                       : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
@@ -140,7 +140,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 h-12 px-2.5 rounded-full hover:bg-[var(--color-surface-container)] transition-colors text-[13px] font-medium text-[var(--color-on-surface-variant)]"
+                className="flex items-center gap-1 h-12 px-2.5 rounded-full hover:bg-[var(--color-surface-container)] transition-colors text-2sm font-medium text-[var(--color-on-surface-variant)]"
                 aria-label="Switch language"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,7 +158,7 @@ export default function Header() {
                         onClick={() => switchLocale(loc)}
                         lang={loc}
                         aria-label={`Switch to ${loc === "en" ? "English" : loc === "es" ? "Español" : "Français"}`}
-                        className={`w-full text-left px-4 py-2 text-[13px] transition-colors ${
+                        className={`w-full text-left px-4 py-2 text-2sm transition-colors ${
                           loc === locale
                             ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)] font-medium"
                             : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -216,7 +216,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-2 py-3 px-3 text-[14px] rounded-lg transition-colors ${
+                  className={`flex items-center gap-2 py-3 px-3 text-sm rounded-lg transition-colors ${
                     active
                       ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"
                       : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"

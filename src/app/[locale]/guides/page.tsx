@@ -30,21 +30,21 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
 
   return (
     <Container className="py-8">
-      <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+      <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">{t("home")}</Link>
         {" / "}
         <span className="text-[var(--color-on-surface)]">{t("title")}</span>
       </nav>
 
-      <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">
+      <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">
         {t("title")}
       </h1>
-      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-8">
+      <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
         {t("subtitle")}
       </p>
 
       {/* Editorial Introduction */}
-      <div className="mb-8 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">
+      <div className="mb-8 text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">
         <p>
           Sending money internationally can be confusing — exchange rates fluctuate, fee structures vary between providers, and regulations differ by country. Our guides are written by researchers who track the money transfer industry daily, comparing real quotes from 16+ providers across 64+ currency corridors.
         </p>
@@ -68,27 +68,27 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
       <div className="mt-12 pt-8 border-t border-[var(--color-outline)]">
         <div className="grid sm:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkTools")}</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkTools")}</h3>
             <ul className="space-y-2">
-              <li><Link href="/send-money" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("compareRatesCalculator")}</Link></li>
-              <li><Link href="/compare" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("headToHeadComparisons")}</Link></li>
-              <li><Link href="/currency-converter" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("currencyConverter")}</Link></li>
+              <li><Link href="/send-money" className="text-sm text-[var(--color-primary)] hover:underline">{t("compareRatesCalculator")}</Link></li>
+              <li><Link href="/compare" className="text-sm text-[var(--color-primary)] hover:underline">{t("headToHeadComparisons")}</Link></li>
+              <li><Link href="/currency-converter" className="text-sm text-[var(--color-primary)] hover:underline">{t("currencyConverter")}</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkTopProviders")}</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkTopProviders")}</h3>
             <ul className="space-y-2">
-              <li><Link href="/companies/wise" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("wiseReview")}</Link></li>
-              <li><Link href="/companies/remitly" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("remitlyReview")}</Link></li>
-              <li><Link href="/companies" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("allProviderReviews")}</Link></li>
+              <li><Link href="/companies/wise" className="text-sm text-[var(--color-primary)] hover:underline">{t("wiseReview")}</Link></li>
+              <li><Link href="/companies/remitly" className="text-sm text-[var(--color-primary)] hover:underline">{t("remitlyReview")}</Link></li>
+              <li><Link href="/companies" className="text-sm text-[var(--color-primary)] hover:underline">{t("allProviderReviews")}</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkPopularCorridors")}</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkPopularCorridors")}</h3>
             <ul className="space-y-2">
-              <li><Link href="/send-money/usa-to-india" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("usaToIndia")}</Link></li>
-              <li><Link href="/send-money/usa-to-pakistan" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("usaToPakistan")}</Link></li>
-              <li><Link href="/send-money/usa-to-philippines" className="text-[14px] text-[var(--color-primary)] hover:underline">{t("usaToPhilippines")}</Link></li>
+              <li><Link href="/send-money/usa-to-india" className="text-sm text-[var(--color-primary)] hover:underline">{t("usaToIndia")}</Link></li>
+              <li><Link href="/send-money/usa-to-pakistan" className="text-sm text-[var(--color-primary)] hover:underline">{t("usaToPakistan")}</Link></li>
+              <li><Link href="/send-money/usa-to-philippines" className="text-sm text-[var(--color-primary)] hover:underline">{t("usaToPhilippines")}</Link></li>
             </ul>
           </div>
         </div>
@@ -96,10 +96,10 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
 
       {/* Newsletter CTA */}
       <div className="bg-[var(--color-surface-dim)] rounded-2xl p-8 md:p-12 mt-12 text-center">
-        <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-3">
+        <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
           {t("stayUpdated")}
         </h2>
-        <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6 max-w-lg mx-auto">
+        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 max-w-lg mx-auto">
           {t("stayUpdatedDesc")}
         </p>
         <NewsletterForm

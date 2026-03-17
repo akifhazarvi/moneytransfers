@@ -13,7 +13,7 @@ const colorMap = {
 
 export default function RatingBadge({ rating, label, size = "sm" }: Props) {
   const colors = colorMap[label] || colorMap.Good;
-  const sizeClass = size === "lg" ? "text-[14px] px-3 py-1" : size === "md" ? "text-[12px] px-2.5 py-0.5" : "text-[11px] px-2 py-0.5";
+  const sizeClass = size === "lg" ? "text-sm px-3 py-1" : size === "md" ? "text-xs px-2.5 py-0.5" : "text-2xs px-2 py-0.5";
 
   return (
     <span className={`inline-flex items-center gap-1 ${colors.bg} ${colors.text} ${sizeClass} font-medium rounded-full`} role="img" aria-label={`${rating.toFixed(1)} out of 5 stars, rated ${label}`}>

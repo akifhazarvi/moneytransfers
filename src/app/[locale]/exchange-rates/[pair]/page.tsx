@@ -353,7 +353,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 py-8">
 
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+          <nav className="flex items-center gap-2 text-2sm text-[var(--color-on-surface-variant)] mb-6">
             <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
             <span>/</span>
             <Link href="/exchange-rates" className="hover:text-[var(--color-primary)]">Exchange Rates</Link>
@@ -371,30 +371,30 @@ export default async function ExchangeRatePairPage({ params }: Props) {
               <CircleFlag code={p.to} size={36} />
             </div>
 
-            <h1 className="text-[28px] md:text-[40px] font-normal text-[var(--color-on-surface)] mb-2 leading-tight">
+            <h1 className="text-h3 md:text-h1-plus font-normal text-[var(--color-on-surface)] mb-2 leading-tight">
               {p.fromName} to {p.toName} Exchange Rate
             </h1>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
               Mid-market {p.from}/{p.to} rate — the fairest rate, before provider markups.
             </p>
 
             {midRate ? (
               <div className="space-y-2">
                 <div className="flex items-baseline gap-3">
-                  <span className="text-[36px] md:text-[48px] font-light text-[var(--color-primary)] tabular-nums leading-none">
+                  <span className="text-4xl md:text-5xl font-light text-[var(--color-primary)] tabular-nums leading-none">
                     {fmtRate(midRate)}
                   </span>
-                  <span className="text-[18px] text-[var(--color-on-surface-variant)]">{p.to}</span>
+                  <span className="text-lg text-[var(--color-on-surface-variant)]">{p.to}</span>
                 </div>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                <p className="text-sm text-[var(--color-on-surface-variant)]">
                   1 {p.from} = {fmtRate(midRate)} {p.to}
                 </p>
                 {inverseRate && (
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)]">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)]">
                     1 {p.to} = {fmtRate(inverseRate)} {p.from}
                   </p>
                 )}
-                <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-2">
+                <p className="text-xs text-[var(--color-on-surface-variant)] mt-2">
                   Source: median of multiple independent feeds. For indicative purposes only.
                 </p>
               </div>
@@ -406,20 +406,20 @@ export default async function ExchangeRatePairPage({ params }: Props) {
           {/* Quick conversion table */}
           {midRate && (
             <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
-              <h2 className="text-[20px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-xl font-medium text-[var(--color-on-surface)] mb-4">
                 {p.from} to {p.to} Conversion Table
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {[100, 500, 1000, 5000, 10000, 25000, 50000, 100000].map((amount) => (
                   <div key={amount} className="bg-[var(--color-surface-dim)] rounded-xl p-3">
-                    <p className="text-[12px] text-[var(--color-on-surface-variant)]">{amount.toLocaleString()} {p.from}</p>
-                    <p className="text-[16px] font-medium text-[var(--color-on-surface)] tabular-nums">
+                    <p className="text-xs text-[var(--color-on-surface-variant)]">{amount.toLocaleString()} {p.from}</p>
+                    <p className="text-base font-medium text-[var(--color-on-surface)] tabular-nums">
                       {(amount * midRate).toLocaleString(undefined, { maximumFractionDigits: 2 })} {p.to}
                     </p>
                   </div>
                 ))}
               </div>
-              <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-3">
+              <p className="text-xs text-[var(--color-on-surface-variant)] mt-3">
                 Based on mid-market rate. Actual provider rates will differ — compare below.
               </p>
             </div>
@@ -428,14 +428,14 @@ export default async function ExchangeRatePairPage({ params }: Props) {
           {/* Provider comparison */}
           {quotes.length > 0 && (
             <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
-              <h2 className="text-[20px] font-medium text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-xl font-medium text-[var(--color-on-surface)] mb-2">
                 Compare {p.from} to {p.to} Transfer Rates
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-4">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
                 What you&apos;d actually receive sending 1,000 {p.from} via each provider today.
               </p>
               <div className="overflow-x-auto">
-                <table className="w-full text-[14px]">
+                <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-[var(--color-outline)]">
                       <th className="text-left py-3 pr-4 font-medium text-[var(--color-on-surface)]">Provider</th>
@@ -452,7 +452,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                           <Link href={`/companies/${q.providerSlug}`} className="font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">
                             {getProviderName(q.providerSlug)}
                           </Link>
-                          {i === 0 && <span className="ml-2 text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">Best rate</span>}
+                          {i === 0 && <span className="ml-2 text-2xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">Best rate</span>}
                         </td>
                         <td className="py-3 px-4 text-right font-mono text-[var(--color-on-surface)]">{q.exchangeRate.toFixed(4)}</td>
                         <td className="py-3 px-4 text-right text-[var(--color-on-surface-variant)]">{q.fee === 0 ? "Free" : `${q.fee.toFixed(2)} ${p.from}`}</td>
@@ -467,7 +467,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 <div className="mt-4 pt-4 border-t border-[var(--color-outline)]">
                   <Link
                     href={`/send-money/${p.corridor}`}
-                    className="inline-flex items-center gap-2 text-[14px] font-medium text-[var(--color-primary)] hover:underline"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:underline"
                   >
                     Compare all providers for {p.fromName} to {p.toName}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -482,18 +482,18 @@ export default async function ExchangeRatePairPage({ params }: Props) {
           {/* Editorial content */}
           {editorial && (
             <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
-              <h2 className="text-[20px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-xl font-medium text-[var(--color-on-surface)] mb-4">
                 Understanding the {p.from}/{p.to} Exchange Rate
               </h2>
-              <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
+              <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
                 <p>{editorial.intro}</p>
-                <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] !mt-5">Key things to know</h3>
+                <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-5">Key things to know</h3>
                 <ul className="list-disc pl-5 space-y-2">
                   {editorial.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
                 <div className="bg-[var(--color-primary-surface)] border border-[var(--color-primary)] border-opacity-20 rounded-xl p-4 !mt-5">
-                  <p className="text-[13px] font-medium text-[var(--color-primary)] mb-1">Tip</p>
-                  <p className="text-[14px] text-[var(--color-on-surface)]">{editorial.tip}</p>
+                  <p className="text-2sm font-medium text-[var(--color-primary)] mb-1">Tip</p>
+                  <p className="text-sm text-[var(--color-on-surface)]">{editorial.tip}</p>
                 </div>
               </div>
             </div>
@@ -501,10 +501,10 @@ export default async function ExchangeRatePairPage({ params }: Props) {
 
           {/* How the rate is calculated */}
           <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
-            <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-3">
+            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-3">
               How we calculate the {p.from}/{p.to} mid-market rate
             </h2>
-            <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+            <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
               <p>
                 The mid-market rate is the midpoint between the buy and sell prices on global currency markets — it&apos;s the fairest exchange rate available. We aggregate data from 4 independent sources and take the median value, which eliminates outliers and provides a more reliable rate than any single source.
               </p>
@@ -517,7 +517,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
           {/* Related pairs */}
           {relatedPairs.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">
                 Related Exchange Rates
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -531,12 +531,12 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                     >
                       <div className="flex items-center gap-1.5 mb-1">
                         <CircleFlag code={rp.from} size={16} />
-                        <span className="text-[12px] text-[var(--color-on-surface-variant)]">&rarr;</span>
+                        <span className="text-xs text-[var(--color-on-surface-variant)]">&rarr;</span>
                         <CircleFlag code={rp.to} size={16} />
                       </div>
-                      <p className="text-[13px] font-medium text-[var(--color-on-surface)]">{rp.from}/{rp.to}</p>
+                      <p className="text-2sm font-medium text-[var(--color-on-surface)]">{rp.from}/{rp.to}</p>
                       {rpRate && (
-                        <p className="text-[12px] text-[var(--color-primary)] tabular-nums">{fmtRate(rpRate)}</p>
+                        <p className="text-xs text-[var(--color-primary)] tabular-nums">{fmtRate(rpRate)}</p>
                       )}
                     </Link>
                   );
@@ -547,7 +547,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
 
           {/* FAQ */}
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
-            <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">
               Frequently asked questions about {p.from} to {p.to}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
@@ -576,8 +576,8 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 },
               ].map((faq, i) => (
                 <div key={i} className="py-4">
-                  <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">{faq.q}</h3>
-                  <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">{faq.a}</p>
+                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">{faq.q}</h3>
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{faq.a}</p>
                 </div>
               ))}
             </div>
@@ -585,7 +585,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
 
           {/* Back link */}
           <div className="pt-6 border-t border-[var(--color-outline)]">
-            <Link href="/exchange-rates" className="text-[14px] font-medium text-[var(--color-primary)] hover:underline">
+            <Link href="/exchange-rates" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
               &larr; View all exchange rates
             </Link>
           </div>

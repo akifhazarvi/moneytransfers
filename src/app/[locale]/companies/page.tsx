@@ -32,30 +32,30 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
 
   return (
     <Container className="py-8">
-      <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+      <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
         {" / "}
         <span className="text-[var(--color-on-surface)]">Companies</span>
       </nav>
 
-      <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
-      <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+      <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
+      <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
         {t("subheading")}
       </p>
 
       {/* Editorial intro for SEO */}
       <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
-        <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
+        <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">
           How we review money transfer companies
         </h2>
-        <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+        <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
           <p>
             We independently review every money transfer provider listed on this page. Each review covers exchange rate transparency, fee structures, transfer speed, supported corridors, regulatory status, and real customer ratings from Trustpilot. Our goal is to help you find the right provider for your specific needs — whether you send money regularly or just once.
           </p>
           <p>
             Providers are ranked by their overall Trustpilot rating, which reflects real customer experiences. We also compare their live exchange rates against the mid-market rate to show the true cost of each service. Some providers offer the best rates on specific corridors, while others excel at speed, cash pickup availability, or coverage in emerging markets.
           </p>
-          <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] !mt-4">What we evaluate</h3>
+          <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-4">What we evaluate</h3>
           <ul className="list-disc pl-5 space-y-1">
             <li>Exchange rate markup vs. the mid-market rate</li>
             <li>Fee transparency — flat fees, percentage-based, or hidden in the rate</li>
@@ -75,14 +75,14 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
                 <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
               </div>
               <div>
-                <h2 className="text-[16px] font-medium text-[var(--color-on-surface)]">{provider.name}</h2>
+                <h2 className="text-base font-medium text-[var(--color-on-surface)]">{provider.name}</h2>
                 <RatingBadge rating={provider.rating} label={provider.ratingLabel} />
               </div>
             </div>
 
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] line-clamp-2 mb-4">{provider.description}</p>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-2 mb-4">{provider.description}</p>
 
-            <div className="grid grid-cols-2 gap-3 text-[12px]">
+            <div className="grid grid-cols-2 gap-3 text-xs">
               {[
                 { label: "Countries", value: `${provider.supportedCountries}+` },
                 { label: "Speed", value: provider.transferSpeed },
@@ -96,7 +96,7 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
               ))}
             </div>
 
-            <div className="mt-4 text-[var(--color-primary)] text-[13px] font-medium group-hover:underline">
+            <div className="mt-4 text-[var(--color-primary)] text-2sm font-medium group-hover:underline">
               {t("readFullReview")} &rarr;
             </div>
           </Card>
@@ -107,25 +107,25 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
       <div className="mt-12 pt-8 border-t border-[var(--color-outline)]">
         <div className="grid sm:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Compare providers</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Compare providers</h3>
             <ul className="space-y-2">
-              <li><Link href="/compare" className="text-[14px] text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
-              <li><Link href="/send-money" className="text-[14px] text-[var(--color-primary)] hover:underline">Compare rates calculator</Link></li>
+              <li><Link href="/compare" className="text-sm text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
+              <li><Link href="/send-money" className="text-sm text-[var(--color-primary)] hover:underline">Compare rates calculator</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Popular corridors</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Popular corridors</h3>
             <ul className="space-y-2">
-              <li><Link href="/send-money/usa-to-india" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to India</Link></li>
-              <li><Link href="/send-money/usa-to-pakistan" className="text-[14px] text-[var(--color-primary)] hover:underline">USA to Pakistan</Link></li>
-              <li><Link href="/send-money/uk-to-europe" className="text-[14px] text-[var(--color-primary)] hover:underline">UK to Europe</Link></li>
+              <li><Link href="/send-money/usa-to-india" className="text-sm text-[var(--color-primary)] hover:underline">USA to India</Link></li>
+              <li><Link href="/send-money/usa-to-pakistan" className="text-sm text-[var(--color-primary)] hover:underline">USA to Pakistan</Link></li>
+              <li><Link href="/send-money/uk-to-europe" className="text-sm text-[var(--color-primary)] hover:underline">UK to Europe</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Learn more</h3>
+            <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">Learn more</h3>
             <ul className="space-y-2">
-              <li><Link href="/guides" className="text-[14px] text-[var(--color-primary)] hover:underline">Guides & resources</Link></li>
-              <li><Link href="/guides/how-to-send-money-abroad" className="text-[14px] text-[var(--color-primary)] hover:underline">How to send money abroad</Link></li>
+              <li><Link href="/guides" className="text-sm text-[var(--color-primary)] hover:underline">Guides & resources</Link></li>
+              <li><Link href="/guides/how-to-send-money-abroad" className="text-sm text-[var(--color-primary)] hover:underline">How to send money abroad</Link></li>
             </ul>
           </div>
         </div>

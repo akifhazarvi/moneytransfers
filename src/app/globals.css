@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+/* ─── Extended type scale — fills gaps in Tailwind's default ─── */
+@theme {
+  --text-2xs: 0.6875rem;   /* 11px — fine print, badges, micro labels */
+  --text-2sm: 0.8125rem;   /* 13px — secondary text, table labels */
+  --text-md:  0.9375rem;   /* 15px — slightly above body */
+  --text-h4:      1.375rem;  /* 22px — card/table headings */
+  --text-h3:      1.75rem;   /* 28px — section headings */
+  --text-h2:      2rem;      /* 32px — page section titles */
+  --text-h1:      2.75rem;   /* 44px — hero/page titles */
+  --text-h4-plus: 1.625rem;  /* 26px — responsive section heading */
+  --text-h2-plus: 2.375rem;  /* 38px — responsive page heading */
+  --text-h1-plus: 2.5rem;    /* 40px — responsive page heading */
+  --text-h0:      2.875rem;  /* 46px — large viewport hero */
+  --text-display: 4rem;      /* 64px — large display text */
+  --text-3xs:     0.5rem;    /* 8px  — LED micro labels */
+  --font-mono-display: 'Share Tech Mono', 'Courier New', monospace;
+}
+
 :root {
   /* ─── Brand Colors — Premium Indigo + Amber ─── */
   --color-primary:         #2D3A8C;   /* Deep indigo — authority, premium */
@@ -254,7 +272,7 @@ body {
 .prose-custom ol { list-style: decimal; }
 .prose-custom li { margin-bottom: 0.4em; }
 .prose-custom h3 {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--color-on-surface);
   margin: 1.5em 0 0.5em;
@@ -263,7 +281,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin: 1em 0;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .prose-custom th,
 .prose-custom td {
@@ -286,7 +304,7 @@ body {
   overflow-x: auto;
 }
 .blog-row-highlight  { background: var(--color-success-surface-dim); }
-.blog-footnote       { font-size: 14px; color: var(--color-on-surface-variant); margin-bottom: 0; }
+.blog-footnote       { font-size: 0.875rem; color: var(--color-on-surface-variant); margin-bottom: 0; }
 .blog-callout-blue   { background: var(--color-primary-surface); border-radius: 16px; padding: 24px; margin: 24px 0; }
 .blog-callout-blue-sm  { background: var(--color-primary-surface); border-left: 4px solid var(--color-primary); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; }
 .blog-callout-green-sm { background: var(--color-success-surface); border-radius: 8px; padding: 12px 16px; margin: 16px 0; }

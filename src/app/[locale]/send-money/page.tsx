@@ -136,10 +136,10 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
     <div className="bg-[var(--color-surface-dim)] min-h-screen pt-2">
       {/* Server-rendered SEO content — visible to crawlers */}
       <Container>
-        <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] pt-6 mb-2">
+        <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] pt-6 mb-2">
           {heading}
         </h1>
-        <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6 max-w-2xl">
+        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 max-w-2xl">
           {subheading}
         </p>
       </Container>
@@ -151,13 +151,13 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       <Container>
         <noscript>
           <div className="mb-12">
-            <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
               Top providers for <CircleFlag code="USD" size={20} className="mx-0.5" /> USD to <CircleFlag code="INR" size={20} className="mx-0.5" /> INR
             </h2>
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-4">
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4">
               Showing rates for a $1,000 USD transfer to Indian Rupees. Enable JavaScript for live rates and interactive comparison.
             </p>
-            <table className="w-full bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] overflow-hidden text-[14px]">
+            <table className="w-full bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] overflow-hidden text-sm">
               <thead>
                 <tr className="bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
                   <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)]">Provider</th>
@@ -186,16 +186,16 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
         <div className="mt-8 mb-12 space-y-8">
           {/* Popular Destinations grid */}
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
-            <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-1">
+            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
               Send money to popular destinations
             </h2>
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
               Compare rates, fees, delivery times, recipient requirements, and local payment methods for every country.
             </p>
             <div className="space-y-6">
               {DESTINATION_REGIONS.map((region) => (
                 <div key={region.region}>
-                  <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-3">
+                  <h3 className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-3">
                     {region.region}
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -203,11 +203,11 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
                       <Link
                         key={dest.slug}
                         href={`/send-money/send-money-to-${dest.slug}`}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface-dim)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-[13px] text-[var(--color-on-surface-variant)] transition-colors"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface-dim)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-2sm text-[var(--color-on-surface-variant)] transition-colors"
                       >
                         <span>{dest.flag}</span>
                         <span>{dest.name}</span>
-                        <span className="text-[11px] opacity-70">{dest.currency}</span>
+                        <span className="text-2xs opacity-70">{dest.currency}</span>
                       </Link>
                     ))}
                   </div>
@@ -217,16 +217,16 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
           </div>
 
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
-            <h2 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">
               How we compare money transfer services
             </h2>
-            <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+            <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
               <p>
                 When comparing international money transfer services, consider the total cost of your transfer — not just the fee.
                 Exchange rate markups can cost more than the advertised fee. The best provider depends on your corridor (the countries
                 you are sending between), transfer amount, speed requirements, and preferred payment method.
               </p>
-              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] !mt-4">What we compare</h3>
+              <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-4">What we compare</h3>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Exchange rates — how close each provider is to the mid-market rate</li>
                 <li>Transfer fees — fixed fees and percentage-based charges</li>

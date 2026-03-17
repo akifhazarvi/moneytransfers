@@ -49,6 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: {
       canonical: locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`,
       languages: {
+        "x-default": SITE_URL,
         en: SITE_URL,
         es: `${SITE_URL}/es`,
         fr: `${SITE_URL}/fr`,
@@ -106,7 +107,10 @@ const websiteSchema = {
   dateModified: new Date().toISOString().split("T")[0],
   potentialAction: {
     "@type": "SearchAction",
-    target: `${SITE_URL}/send-money?q={search_term_string}`,
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/send-money?q={search_term_string}`,
+    },
     "query-input": "required name=search_term_string",
   },
 };
@@ -163,7 +167,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       />
       <NextIntlClientProvider locale={locale} messages={messages}>
         <ThemeProvider>
-          <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-[14px] focus:font-medium focus:shadow-lg">
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium focus:shadow-lg">
             Skip to main content
           </a>
           <Header />

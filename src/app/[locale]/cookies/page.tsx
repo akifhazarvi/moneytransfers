@@ -34,10 +34,10 @@ export default async function CookiePolicyPage({ params }: Props) {
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("lastUpdated", { date: "March 15, 2026" })}
             </p>
           </div>
@@ -49,10 +49,10 @@ export default async function CookiePolicyPage({ params }: Props) {
           <div className="max-w-3xl mx-auto space-y-10">
             {/* What Are Cookies */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("whatAreCookies")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Cookies are small text files that are stored on your device when you
                   visit a website. They are widely used to make websites work more
@@ -65,13 +65,13 @@ export default async function CookiePolicyPage({ params }: Props) {
 
             {/* Cookies We Use */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("cookiesWeUse")}
               </h2>
-              <div className="space-y-6 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-6 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 {/* Essential Cookies */}
                 <div>
-                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("essentialCookies")}
                   </h3>
                   <p className="mb-3">
@@ -80,7 +80,7 @@ export default async function CookiePolicyPage({ params }: Props) {
                     such as setting your privacy preferences or choosing a theme.
                   </p>
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[13px] border border-[var(--color-outline)] rounded-lg overflow-hidden">
+                    <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
                       <thead>
                         <tr className="bg-[var(--color-surface-dim)]">
                           <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("cookieName")}</th>
@@ -90,12 +90,12 @@ export default async function CookiePolicyPage({ params }: Props) {
                       </thead>
                       <tbody>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-[12px]">theme</td>
+                          <td className="px-4 py-3 font-mono text-xs">theme</td>
                           <td className="px-4 py-3">Stores your light/dark mode preference</td>
                           <td className="px-4 py-3">Persistent (localStorage)</td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-3 font-mono text-[12px]">cookie_consent</td>
+                          <td className="px-4 py-3 font-mono text-xs">cookie_consent</td>
                           <td className="px-4 py-3">Records your cookie consent choice</td>
                           <td className="px-4 py-3">365 days</td>
                         </tr>
@@ -106,7 +106,7 @@ export default async function CookiePolicyPage({ params }: Props) {
 
                 {/* Analytics Cookies */}
                 <div>
-                  <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-3">
+                  <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("analyticsCookies")}
                   </h3>
                   <p className="mb-3">
@@ -115,7 +115,7 @@ export default async function CookiePolicyPage({ params }: Props) {
                     give your consent.
                   </p>
                   <div className="overflow-x-auto">
-                    <table className="w-full text-[13px] border border-[var(--color-outline)] rounded-lg overflow-hidden">
+                    <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
                       <thead>
                         <tr className="bg-[var(--color-surface-dim)]">
                           <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("cookieName")}</th>
@@ -126,19 +126,19 @@ export default async function CookiePolicyPage({ params }: Props) {
                       </thead>
                       <tbody>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-[12px]">_ga</td>
+                          <td className="px-4 py-3 font-mono text-xs">_ga</td>
                           <td className="px-4 py-3">Google Analytics</td>
                           <td className="px-4 py-3">Distinguishes unique visitors</td>
                           <td className="px-4 py-3">2 years</td>
                         </tr>
                         <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-[12px]">_ga_*</td>
+                          <td className="px-4 py-3 font-mono text-xs">_ga_*</td>
                           <td className="px-4 py-3">Google Analytics</td>
                           <td className="px-4 py-3">Maintains session state</td>
                           <td className="px-4 py-3">2 years</td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-3 font-mono text-[12px]">va</td>
+                          <td className="px-4 py-3 font-mono text-xs">va</td>
                           <td className="px-4 py-3">Vercel Analytics</td>
                           <td className="px-4 py-3">Privacy-friendly web analytics</td>
                           <td className="px-4 py-3">Session</td>
@@ -152,10 +152,10 @@ export default async function CookiePolicyPage({ params }: Props) {
 
             {/* Managing Cookies */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("managingPreferences")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   When you first visit our website, a cookie consent banner will ask for
                   your permission before we set any non-essential cookies. You can change
@@ -177,10 +177,10 @@ export default async function CookiePolicyPage({ params }: Props) {
 
             {/* Browser Settings */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("browserSettings")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Most browsers allow you to control cookies through their settings. Here
                   are links to cookie management instructions for popular browsers:
@@ -212,10 +212,10 @@ export default async function CookiePolicyPage({ params }: Props) {
 
             {/* Changes */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("changesToPolicy")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We may update this Cookie Policy from time to time. Any changes will be
                   posted on this page with an updated &quot;Last updated&quot; date.
@@ -225,10 +225,10 @@ export default async function CookiePolicyPage({ params }: Props) {
 
             {/* Contact */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("contactUs")}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 If you have any questions about our use of cookies, please contact us
                 at{" "}
                 <a

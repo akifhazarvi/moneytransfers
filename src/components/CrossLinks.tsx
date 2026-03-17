@@ -30,7 +30,7 @@ export default function CrossLinks({ sections, background = "dim" }: CrossLinksP
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
           {sections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">
+              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">
                 {section.title}
               </h3>
               <ul className="space-y-2">
@@ -38,7 +38,7 @@ export default function CrossLinks({ sections, background = "dim" }: CrossLinksP
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[14px] text-[var(--color-primary)] hover:underline"
+                      className="text-sm text-[var(--color-primary)] hover:underline"
                     >
                       {link.label}
                     </Link>

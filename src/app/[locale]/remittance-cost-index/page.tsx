@@ -188,14 +188,14 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-16 pb-14">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-[12px] font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
+            <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
               {t("updatedDate")}
             </div>
-            <h1 className="text-[30px] sm:text-[38px] md:text-[48px] font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px]">
+            <h1 className="text-3xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px]">
               The 2026 Global{" "}
               <span className="text-[var(--color-primary)]">Remittance Cost Index</span>
             </h1>
-            <p className="text-[16px] md:text-[18px] text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
               We analyzed {totalProviders} providers across {totalCorridors}+ corridors to rank the true cost of sending $1,000 abroad — including both fees and hidden exchange rate markups.
             </p>
           </div>
@@ -213,10 +213,10 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               { label: "Savings vs banks", value: `${savingsVsBanks}%` },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-[28px] md:text-[36px] font-bold text-[var(--color-primary)] tabular-nums">
+                <div className="text-h3 md:text-4xl font-bold text-[var(--color-primary)] tabular-nums">
                   {stat.value}
                 </div>
-                <div className="text-[13px] text-[var(--color-on-surface-variant)] mt-1">
+                <div className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
                   {stat.label}
                 </div>
               </div>
@@ -229,10 +229,10 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="py-10 bg-[var(--color-primary-surface)]">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-[20px] md:text-[24px] font-bold text-[var(--color-on-surface)] mb-3">
+            <h2 className="text-xl md:text-2xl font-bold text-[var(--color-on-surface)] mb-3">
               {t("keyFinding")}
             </h2>
-            <p className="text-[15px] md:text-[17px] text-[var(--color-on-surface-variant)] leading-relaxed">
+            <p className="text-md md:text-md text-[var(--color-on-surface-variant)] leading-relaxed">
               On a $1,000 transfer, specialist providers cost an average of{" "}
               <strong className="text-[var(--color-on-surface)]">${avgSpecialistCost.toFixed(2)}</strong> in total fees and markup, while banks charge{" "}
               <strong className="text-[var(--color-on-surface)]">${avgBankCost.toFixed(2)}</strong> — a difference of{" "}
@@ -247,16 +247,16 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="py-14">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] mb-2">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-2">
               {t("providerCostRankings")}
             </h2>
-            <p className="text-[15px] text-[var(--color-on-surface-variant)] mb-8">
+            <p className="text-md text-[var(--color-on-surface-variant)] mb-8">
               Ranked by total cost to send $1,000 (transfer fee + exchange rate markup). Lower is better.
             </p>
 
             {/* Desktop table */}
             <div className="hidden md:block bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl overflow-hidden shadow-[var(--shadow-sm)]">
-              <div className="grid grid-cols-[40px_1fr_80px_100px_100px_100px_80px] gap-2 px-6 py-3 bg-[var(--color-surface-dim)] text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+              <div className="grid grid-cols-[40px_1fr_80px_100px_100px_100px_80px] gap-2 px-6 py-3 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 <span>{t("rank")}</span>
                 <span>{t("provider")}</span>
                 <span className="text-right">Type</span>
@@ -272,7 +272,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     i < 3 ? "bg-[var(--color-primary-surface)]/30" : ""
                   }`}
                 >
-                  <span className={`text-[14px] font-bold ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                  <span className={`text-sm font-bold ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
                     {i + 1}
                   </span>
                   <div className="flex items-center gap-3 min-w-0">
@@ -280,33 +280,33 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                       <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-lg shrink-0" />
                     )}
                     <div className="min-w-0">
-                      <Link href={`/companies/${p.slug}`} className="text-[14px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                      <Link href={`/companies/${p.slug}`} className="text-sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                         {p.name}
                       </Link>
                       {p.rating && (
-                        <div className="text-[11px] text-[var(--color-on-surface-variant)]">
+                        <div className="text-2xs text-[var(--color-on-surface-variant)]">
                           {p.rating}/5 ({p.reviews?.toLocaleString()} reviews)
                         </div>
                       )}
                     </div>
                   </div>
-                  <span className={`text-[12px] text-right ${
+                  <span className={`text-xs text-right ${
                     p.type === "bank" ? "text-orange-600" : "text-green-600"
                   }`}>
                     {p.type === "bank" ? "Bank" : "Specialist"}
                   </span>
-                  <span className="text-[14px] text-[var(--color-on-surface)] text-right tabular-nums">
+                  <span className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">
                     ${p.avgFee.toFixed(2)}
                   </span>
-                  <span className="text-[14px] text-[var(--color-on-surface)] text-right tabular-nums">
+                  <span className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">
                     {p.avgMarkup.toFixed(2)}%
                   </span>
-                  <span className={`text-[14px] font-semibold text-right tabular-nums ${
+                  <span className={`text-sm font-semibold text-right tabular-nums ${
                     p.totalCost < 15 ? "text-green-600" : p.totalCost < 30 ? "text-[var(--color-on-surface)]" : "text-orange-600"
                   }`}>
                     ${p.totalCost.toFixed(2)}
                   </span>
-                  <span className="text-[13px] text-[var(--color-on-surface-variant)] text-right tabular-nums">
+                  <span className="text-2sm text-[var(--color-on-surface-variant)] text-right tabular-nums">
                     {p.corridors}
                   </span>
                 </div>
@@ -323,33 +323,33 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <span className={`text-[18px] font-bold w-7 ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                    <span className={`text-lg font-bold w-7 ${i < 3 ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
                       {i + 1}
                     </span>
                     {p.logo && (
                       <Image src={p.logo} alt={p.name} width={32} height={32} className="rounded-lg" />
                     )}
                     <div>
-                      <Link href={`/companies/${p.slug}`} className="text-[15px] font-semibold text-[var(--color-on-surface)]">
+                      <Link href={`/companies/${p.slug}`} className="text-md font-semibold text-[var(--color-on-surface)]">
                         {p.name}
                       </Link>
-                      <div className="text-[11px] text-[var(--color-on-surface-variant)]">
+                      <div className="text-2xs text-[var(--color-on-surface-variant)]">
                         {p.type === "bank" ? "Bank" : "Specialist"} &middot; {p.corridors} corridors
                       </div>
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-2 text-center">
                     <div className="bg-[var(--color-surface-dim)] rounded-lg px-2 py-2">
-                      <div className="text-[11px] text-[var(--color-on-surface-variant)]">Fee</div>
-                      <div className="text-[14px] font-semibold text-[var(--color-on-surface)]">${p.avgFee.toFixed(2)}</div>
+                      <div className="text-2xs text-[var(--color-on-surface-variant)]">Fee</div>
+                      <div className="text-sm font-semibold text-[var(--color-on-surface)]">${p.avgFee.toFixed(2)}</div>
                     </div>
                     <div className="bg-[var(--color-surface-dim)] rounded-lg px-2 py-2">
-                      <div className="text-[11px] text-[var(--color-on-surface-variant)]">Markup</div>
-                      <div className="text-[14px] font-semibold text-[var(--color-on-surface)]">{p.avgMarkup.toFixed(2)}%</div>
+                      <div className="text-2xs text-[var(--color-on-surface-variant)]">Markup</div>
+                      <div className="text-sm font-semibold text-[var(--color-on-surface)]">{p.avgMarkup.toFixed(2)}%</div>
                     </div>
                     <div className="bg-[var(--color-surface-dim)] rounded-lg px-2 py-2">
-                      <div className="text-[11px] text-[var(--color-on-surface-variant)]">Total</div>
-                      <div className={`text-[14px] font-bold ${
+                      <div className="text-2xs text-[var(--color-on-surface-variant)]">Total</div>
+                      <div className={`text-sm font-bold ${
                         p.totalCost < 15 ? "text-green-600" : p.totalCost < 30 ? "text-[var(--color-on-surface)]" : "text-orange-600"
                       }`}>
                         ${p.totalCost.toFixed(2)}
@@ -367,10 +367,10 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] mb-2">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-2">
               {t("specialistsVsBanks")}
             </h2>
-            <p className="text-[15px] text-[var(--color-on-surface-variant)] mb-8">
+            <p className="text-md text-[var(--color-on-surface-variant)] mb-8">
               Average cost comparison on a $1,000 transfer across all corridors.
             </p>
 
@@ -384,26 +384,26 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)]">Specialist Providers</h3>
-                    <p className="text-[12px] text-[var(--color-on-surface-variant)]">{specialists.length} providers analyzed</p>
+                    <h3 className="text-base font-semibold text-[var(--color-on-surface)]">Specialist Providers</h3>
+                    <p className="text-xs text-[var(--color-on-surface-variant)]">{specialists.length} providers analyzed</p>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-[13px] text-[var(--color-on-surface-variant)]">Average fee</span>
-                    <span className="text-[14px] font-semibold text-[var(--color-on-surface)] tabular-nums">
+                    <span className="text-2sm text-[var(--color-on-surface-variant)]">Average fee</span>
+                    <span className="text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">
                       ${specialists.length > 0 ? (specialists.reduce((s, p) => s + p.avgFee, 0) / specialists.length).toFixed(2) : "0"}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-[13px] text-[var(--color-on-surface-variant)]">Average markup</span>
-                    <span className="text-[14px] font-semibold text-[var(--color-on-surface)] tabular-nums">
+                    <span className="text-2sm text-[var(--color-on-surface-variant)]">Average markup</span>
+                    <span className="text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">
                       {specialists.length > 0 ? (specialists.reduce((s, p) => s + p.avgMarkup, 0) / specialists.length).toFixed(2) : "0"}%
                     </span>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-[var(--color-outline)]">
-                    <span className="text-[14px] font-semibold text-[var(--color-on-surface)]">Total cost per $1,000</span>
-                    <span className="text-[18px] font-bold text-green-600 tabular-nums">
+                    <span className="text-sm font-semibold text-[var(--color-on-surface)]">Total cost per $1,000</span>
+                    <span className="text-lg font-bold text-green-600 tabular-nums">
                       ${avgSpecialistCost.toFixed(2)}
                     </span>
                   </div>
@@ -419,26 +419,26 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)]">Traditional Banks</h3>
-                    <p className="text-[12px] text-[var(--color-on-surface-variant)]">{banks.length} banks analyzed</p>
+                    <h3 className="text-base font-semibold text-[var(--color-on-surface)]">Traditional Banks</h3>
+                    <p className="text-xs text-[var(--color-on-surface-variant)]">{banks.length} banks analyzed</p>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-[13px] text-[var(--color-on-surface-variant)]">Average fee</span>
-                    <span className="text-[14px] font-semibold text-[var(--color-on-surface)] tabular-nums">
+                    <span className="text-2sm text-[var(--color-on-surface-variant)]">Average fee</span>
+                    <span className="text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">
                       ${banks.length > 0 ? (banks.reduce((s, p) => s + p.avgFee, 0) / banks.length).toFixed(2) : "0"}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-[13px] text-[var(--color-on-surface-variant)]">Average markup</span>
-                    <span className="text-[14px] font-semibold text-[var(--color-on-surface)] tabular-nums">
+                    <span className="text-2sm text-[var(--color-on-surface-variant)]">Average markup</span>
+                    <span className="text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">
                       {banks.length > 0 ? (banks.reduce((s, p) => s + p.avgMarkup, 0) / banks.length).toFixed(2) : "0"}%
                     </span>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-[var(--color-outline)]">
-                    <span className="text-[14px] font-semibold text-[var(--color-on-surface)]">Total cost per $1,000</span>
-                    <span className="text-[18px] font-bold text-orange-600 tabular-nums">
+                    <span className="text-sm font-semibold text-[var(--color-on-surface)]">Total cost per $1,000</span>
+                    <span className="text-lg font-bold text-orange-600 tabular-nums">
                       ${avgBankCost.toFixed(2)}
                     </span>
                   </div>
@@ -454,15 +454,15 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
         <section className="py-14">
           <Container>
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] mb-2">
+              <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-2">
                 {t("costByCorridor")}
               </h2>
-              <p className="text-[15px] text-[var(--color-on-surface-variant)] mb-8">
+              <p className="text-md text-[var(--color-on-surface-variant)] mb-8">
                 The cheapest provider and number of options for the most popular transfer corridors.
               </p>
 
               <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl overflow-hidden shadow-[var(--shadow-sm)]">
-                <div className="hidden sm:grid grid-cols-[1fr_140px_100px_80px] gap-2 px-6 py-3 bg-[var(--color-surface-dim)] text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                <div className="hidden sm:grid grid-cols-[1fr_140px_100px_80px] gap-2 px-6 py-3 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                   <span>Corridor</span>
                   <span>Cheapest Provider</span>
                   <span className="text-right">Lowest Fee</span>
@@ -475,20 +475,20 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     className="grid sm:grid-cols-[1fr_140px_100px_80px] gap-1 sm:gap-2 items-center px-6 py-3 border-t border-[var(--color-outline)] hover:bg-[var(--color-surface-dim)] transition-colors"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-[16px]">{c.fromFlag}</span>
-                      <span className="text-[13px] text-[var(--color-on-surface-variant)]">&rarr;</span>
-                      <span className="text-[16px]">{c.toFlag}</span>
-                      <span className="text-[14px] font-medium text-[var(--color-on-surface)]">
+                      <span className="text-base">{c.fromFlag}</span>
+                      <span className="text-2sm text-[var(--color-on-surface-variant)]">&rarr;</span>
+                      <span className="text-base">{c.toFlag}</span>
+                      <span className="text-sm font-medium text-[var(--color-on-surface)]">
                         {c.fromCountry} to {c.toCountry}
                       </span>
                     </div>
-                    <span className="text-[13px] text-[var(--color-primary)] font-medium">
+                    <span className="text-2sm text-[var(--color-primary)] font-medium">
                       {c.cheapestProvider}
                     </span>
-                    <span className="text-[14px] font-semibold text-green-600 sm:text-right tabular-nums">
+                    <span className="text-sm font-semibold text-green-600 sm:text-right tabular-nums">
                       ${c.cheapestCost.toFixed(2)}
                     </span>
-                    <span className="text-[13px] text-[var(--color-on-surface-variant)] sm:text-right">
+                    <span className="text-2sm text-[var(--color-on-surface-variant)] sm:text-right">
                       {c.providerCount}
                     </span>
                   </Link>
@@ -496,7 +496,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               </div>
 
               <div className="text-center mt-6">
-                <Link href="/send-money" className="text-[14px] font-medium text-[var(--color-primary)] hover:underline">
+                <Link href="/send-money" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
                   Compare all corridors &rarr;
                 </Link>
               </div>
@@ -509,10 +509,10 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] mb-6">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-6">
               {t("methodology")}
             </h2>
-            <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+            <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
               <p>
                 The SendMoneyCompare Remittance Cost Index is calculated from live quotes collected directly from provider APIs and websites. Our automated scrapers run every 6 hours across {totalProviders}+ providers and {totalCorridors}+ currency corridors.
               </p>
@@ -534,15 +534,15 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="py-14 bg-[var(--color-primary)]">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-white mb-3">
+            <h2 className="text-2xl md:text-h2 font-bold text-white mb-3">
               Find the cheapest transfer for your corridor
             </h2>
-            <p className="text-[15px] text-white/80 mb-6">
+            <p className="text-md text-white/80 mb-6">
               The index shows averages — your specific corridor may be cheaper. Compare live quotes now.
             </p>
             <Link
               href="/send-money"
-              className="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-semibold text-[15px] px-8 py-3 rounded-full hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-semibold text-md px-8 py-3 rounded-full hover:bg-white/90 transition-colors"
             >
               Compare providers
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -557,13 +557,13 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] text-center mb-10">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] text-center mb-10">
               {t("faq")}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {faqs.map((faq) => (
                 <details key={faq.q} className="group py-5">
-                  <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                     {faq.q}
                     <svg
                       className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
@@ -574,7 +574,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <p className="mt-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                  <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
                     {faq.a}
                   </p>
                 </details>
@@ -588,9 +588,9 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
       <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h3 className="text-[14px] font-semibold text-[var(--color-on-surface)] mb-2">{t("citeThisIndex")}</h3>
+            <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-2">{t("citeThisIndex")}</h3>
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-5 py-4">
-              <p className="text-[13px] text-[var(--color-on-surface-variant)] font-mono leading-relaxed">
+              <p className="text-2sm text-[var(--color-on-surface-variant)] font-mono leading-relaxed">
                 SendMoneyCompare. &ldquo;The 2026 Global Remittance Cost Index.&rdquo; SendMoneyCompare.com, March 2026. https://sendmoneycompare.com/remittance-cost-index
               </p>
             </div>

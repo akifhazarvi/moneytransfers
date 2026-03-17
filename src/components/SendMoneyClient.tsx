@@ -64,7 +64,7 @@ function FilterDropdown({
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="listbox"
-        className={`flex items-center gap-1 h-8 px-3 rounded-full text-[13px] font-medium transition-colors whitespace-nowrap ${
+        className={`flex items-center gap-1 h-8 px-3 rounded-full text-2sm font-medium transition-colors whitespace-nowrap ${
           active
             ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)] border border-[var(--color-primary)]"
             : "border border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container)]"
@@ -104,7 +104,7 @@ function DropdownOption({
       role="option"
       aria-selected={selected}
       onClick={onClick}
-      className={`w-full text-left px-4 py-2.5 text-[13px] transition-colors flex items-center justify-between ${
+      className={`w-full text-left px-4 py-2.5 text-2sm transition-colors flex items-center justify-between ${
         selected
           ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)] font-medium"
           : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -308,11 +308,11 @@ function SendMoneyContent() {
         <div className="flex flex-col lg:flex-row">
           {/* You send — amount + currency */}
           <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-4 sm:px-5 lg:pr-8 py-3 sm:py-4 min-w-0">
-            <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
+            <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="large" />
               <div className="flex items-baseline gap-1 shrink-0 ml-auto border-l border-[var(--color-outline)] pl-4">
-                <span className="text-[22px] font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
+                <span className="text-h4 font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
                 <input
                   type="text"
                   inputMode="decimal"
@@ -324,7 +324,7 @@ function SendMoneyContent() {
                   onBlur={() => {
                     if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
                   }}
-                  className="bg-transparent text-[22px] font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[100px] tabular-nums"
+                  className="bg-transparent text-h4 font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[100px] tabular-nums"
                   placeholder="1,000"
                 />
               </div>
@@ -359,7 +359,7 @@ function SendMoneyContent() {
 
           {/* They receive — currency picker as primary element */}
           <div className="flex-1 px-4 sm:px-5 lg:pl-8 py-3 sm:py-4 min-w-0">
-            <label className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("theyReceiveIn")}</label>
+            <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("theyReceiveIn")}</label>
             <div className="mt-1.5">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
             </div>
@@ -377,7 +377,7 @@ function SendMoneyContent() {
         {/* All filters / clear */}
         <button
           onClick={clearFilters}
-          className={`flex items-center gap-1.5 h-8 px-3 text-[13px] font-medium rounded-full transition-colors shrink-0 ${
+          className={`flex items-center gap-1.5 h-8 px-3 text-2sm font-medium rounded-full transition-colors shrink-0 ${
             activeFilterCount > 0
               ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)]"
               : "text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)]"
@@ -461,7 +461,7 @@ function SendMoneyContent() {
             <>
               <button
                 onClick={() => setSelectedProviders([])}
-                className={`w-full text-left px-4 py-2.5 text-[13px] transition-colors ${
+                className={`w-full text-left px-4 py-2.5 text-2sm transition-colors ${
                   selectedProviders.length === 0
                     ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)] font-medium"
                     : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -477,13 +477,13 @@ function SendMoneyContent() {
                   <button
                     key={slug}
                     onClick={() => toggleProvider(slug)}
-                    className={`w-full text-left px-4 py-2.5 text-[13px] transition-colors flex items-center gap-2 ${
+                    className={`w-full text-left px-4 py-2.5 text-2sm transition-colors flex items-center gap-2 ${
                       selectedProviders.includes(slug)
                         ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)] font-medium"
                         : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
                     }`}
                   >
-                    <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-[10px] font-medium text-[var(--color-on-surface-variant)]">
+                    <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)]">
                       <img
                         src={logo}
                         alt={`${name} logo`}
@@ -519,7 +519,7 @@ function SendMoneyContent() {
           role="tab"
           aria-selected={sortBy === "receiveAmount"}
           onClick={() => { setSortBy("receiveAmount"); trackSortChanged("receiveAmount"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] font-medium transition-colors rounded-l-xl ${
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm font-medium transition-colors rounded-l-xl ${
             sortBy === "receiveAmount"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-[inset_0_-3px_0_var(--color-primary)]"
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -531,7 +531,7 @@ function SendMoneyContent() {
           role="tab"
           aria-selected={sortBy === "fee"}
           onClick={() => { setSortBy("fee"); trackSortChanged("fee"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] ${
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm transition-colors border-l border-[var(--color-outline)] ${
             sortBy === "fee"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -539,7 +539,7 @@ function SendMoneyContent() {
         >
           {t("lowestFees")}
           {cheapestQuote && (
-            <span className={`text-[12px] hidden sm:inline ${sortBy === "fee" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
+            <span className={`text-xs hidden sm:inline ${sortBy === "fee" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
               from {sendCurrency?.symbol || "$"}{cheapestQuote.fee === 0 ? "0" : cheapestQuote.fee.toFixed(0)}
             </span>
           )}
@@ -548,7 +548,7 @@ function SendMoneyContent() {
           role="tab"
           aria-selected={sortBy === "deals"}
           onClick={() => { setSortBy("deals"); trackSortChanged("deals"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] ${
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm transition-colors border-l border-[var(--color-outline)] ${
             sortBy === "deals"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -560,7 +560,7 @@ function SendMoneyContent() {
           role="tab"
           aria-selected={sortBy === "rating"}
           onClick={() => { setSortBy("rating"); trackSortChanged("rating"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-[13px] sm:text-[14px] transition-colors border-l border-[var(--color-outline)] rounded-r-xl ${
+          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm transition-colors border-l border-[var(--color-outline)] rounded-r-xl ${
             sortBy === "rating"
               ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
               : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
@@ -573,20 +573,20 @@ function SendMoneyContent() {
       {/* Results header */}
       <div className="mb-1">
         <div className="flex items-center gap-3">
-          <h2 className="text-[22px] font-normal text-[var(--color-on-surface)]">{t("topProviders")}</h2>
+          <h2 className="text-h4 font-normal text-[var(--color-on-surface)]">{t("topProviders")}</h2>
           {isLive && (
-            <span className="inline-flex items-center gap-1.5 text-[12px] text-[var(--color-success)] font-medium bg-[var(--color-success-surface)] px-2.5 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1.5 text-xs text-[var(--color-success)] font-medium bg-[var(--color-success-surface)] px-2.5 py-1 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
               {t("liveRates")}
             </span>
           )}
         </div>
         <div className="flex items-start justify-between mt-1">
-          <p className="text-[12px] text-[var(--color-on-surface-variant)] max-w-xl">
+          <p className="text-xs text-[var(--color-on-surface-variant)] max-w-xl">
             Ranked by total value — fees and exchange rate markup included.{" "}
             Showing results for {sendCurrency?.symbol}{amount.toLocaleString()} {fromCurrency} to {toCurrency}.
           </p>
-          <span className="text-[13px] text-[var(--color-on-surface-variant)] shrink-0 ml-4">
+          <span className="text-2sm text-[var(--color-on-surface-variant)] shrink-0 ml-4">
             {filteredQuotes.length} of {quotes.length} providers
           </span>
         </div>
@@ -598,7 +598,7 @@ function SendMoneyContent() {
           <svg className="w-5 h-5 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>
-          <p className="text-[13px] text-[var(--color-success-dark)]">
+          <p className="text-2sm text-[var(--color-success-dark)]">
             <strong>Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} {toCurrency}</strong> by choosing {getProviderName(bestQuote.providerSlug)} over {getProviderName(worstQuote.providerSlug)} on this transfer.
           </p>
         </div>
@@ -607,7 +607,7 @@ function SendMoneyContent() {
       {/* Results list */}
       <div className="mt-4 mb-12">
         {/* Rate disclaimer */}
-        <p className="text-[11px] text-[var(--color-on-surface-variant)] mb-3 flex items-center gap-1">
+        <p className="text-2xs text-[var(--color-on-surface-variant)] mb-3 flex items-center gap-1">
           <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -633,11 +633,11 @@ function SendMoneyContent() {
             <svg className="w-12 h-12 text-[var(--color-outline)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <p className="text-[16px] text-[var(--color-on-surface)] mb-2">{t("noProvidersMatch")}</p>
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-4">Try adjusting your filters to see more results.</p>
+            <p className="text-base text-[var(--color-on-surface)] mb-2">{t("noProvidersMatch")}</p>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4">Try adjusting your filters to see more results.</p>
             <button
               onClick={clearFilters}
-              className="text-[13px] text-[var(--color-primary)] font-medium hover:underline"
+              className="text-2sm text-[var(--color-primary)] font-medium hover:underline"
             >
               {t("clearAllFilters")}
             </button>
@@ -702,12 +702,12 @@ function SendMoneyContent() {
         return (
           <div id="compare-panel" className="mb-12 scroll-mt-4">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)]">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)]">
                 {nameA} vs {nameB}
               </h2>
               <button
                 onClick={() => setCompareList([])}
-                className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
+                className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
               >
                 Clear comparison
               </button>
@@ -718,7 +718,7 @@ function SendMoneyContent() {
               <div className="grid grid-cols-[1fr_1fr] border-b border-[var(--color-outline)]">
                 {[{ quote: quoteA, name: nameA, logo: logoA, prov: provA }, { quote: quoteB, name: nameB, logo: logoB, prov: provB }].map(({ quote: q, name, logo, prov }, i) => (
                   <div key={q.providerSlug} className={`px-5 py-5 flex flex-col items-center gap-3 ${i === 0 ? "border-r border-[var(--color-outline)]" : ""}`}>
-                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center text-[18px] font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center text-lg font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
                       <img
                         src={logo}
                         alt={`${name} logo`}
@@ -730,7 +730,7 @@ function SendMoneyContent() {
                       />
                     </div>
                     <div className="text-center">
-                      <p className="text-[16px] font-medium text-[var(--color-on-surface)]">{name}</p>
+                      <p className="text-base font-medium text-[var(--color-on-surface)]">{name}</p>
                       <div className="mt-1">
                         <RatingBadge rating={q.rating} label={q.ratingLabel} size="sm" />
                       </div>
@@ -745,12 +745,12 @@ function SendMoneyContent() {
                   {[{ val: row.a, isWinner: row.winner === "a" }, { val: row.b, isWinner: row.winner === "b" }].map(({ val, isWinner }, i) => (
                     <div key={i} className={`px-5 py-3.5 ${i === 0 ? "border-r border-[var(--color-outline)]" : ""}`}>
                       {i === 0 && (
-                        <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wider font-medium mb-1">{row.label}</p>
+                        <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wider font-medium mb-1">{row.label}</p>
                       )}
                       {i === 1 && (
-                        <p className="text-[11px] text-[var(--color-on-surface-variant)] uppercase tracking-wider font-medium mb-1 lg:hidden">{row.label}</p>
+                        <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wider font-medium mb-1 lg:hidden">{row.label}</p>
                       )}
-                      <p className={`text-[14px] tabular-nums ${isWinner ? "text-[var(--color-success-dark)] font-semibold" : "text-[var(--color-on-surface)]"}`}>
+                      <p className={`text-sm tabular-nums ${isWinner ? "text-[var(--color-success-dark)] font-semibold" : "text-[var(--color-on-surface)]"}`}>
                         {val}
                         {isWinner && row.winner !== "tie" && (
                           <svg className="w-4 h-4 inline ml-1.5 -mt-0.5 text-[var(--color-success-dark)]" fill="currentColor" viewBox="0 0 20 20">
@@ -772,7 +772,7 @@ function SendMoneyContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => { track("provider_clicked", { provider: q.providerSlug, corridor: `${fromCurrency}-${toCurrency}`, source: "comparison" }); trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison"); }}
-                      className="inline-flex items-center gap-2 h-10 px-6 text-[13px] font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow transition-all"
+                      className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow transition-all"
                     >
                       Visit {name}
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -801,16 +801,16 @@ function SendMoneyContent() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-[14px] font-medium text-[var(--color-on-surface)]">
+              <span className="text-sm font-medium text-[var(--color-on-surface)]">
                 {getProviderName(compareList[0])}
               </span>
-              <span className="text-[13px] text-[var(--color-on-surface-variant)]">
+              <span className="text-2sm text-[var(--color-on-surface-variant)]">
                 — {t("selectProviders")}
               </span>
             </div>
             <button
               onClick={() => setCompareList([])}
-              className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
+              className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
             >
               {t("cancel")}
             </button>
@@ -823,7 +823,7 @@ function SendMoneyContent() {
 
 export default function SendMoneyClient() {
   return (
-    <Suspense fallback={<Container className="py-8 text-[14px] text-[var(--color-on-surface-variant)]">Loading...</Container>}>
+    <Suspense fallback={<Container className="py-8 text-sm text-[var(--color-on-surface-variant)]">Loading...</Container>}>
       <SendMoneyContent />
     </Suspense>
   );

@@ -10,7 +10,7 @@ export default function FilterPill({ label, active = false, dropdown = false, on
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-1.5 h-8 px-3 rounded-full text-[13px] font-medium transition-colors ${
+      className={`flex items-center gap-1.5 h-8 px-3 rounded-full text-2sm font-medium transition-colors ${
         active
           ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)] border border-[var(--color-primary)]"
           : "border border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container)]"

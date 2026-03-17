@@ -29,10 +29,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("lastUpdated")}
             </p>
           </div>
@@ -44,10 +44,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
           <div className="max-w-3xl mx-auto space-y-10">
             {/* Introduction */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("introductionTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the website{" "}
                   <Link href="/" className="text-[var(--color-primary)] hover:underline">
@@ -67,10 +67,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Information We Collect */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("informationWeCollectTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   <strong className="text-[var(--color-on-surface)]">Information you provide:</strong>{" "}
                   If you contact us via email (e.g. corrections, partnership enquiries),
@@ -100,10 +100,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* How We Use Information */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("howWeUseTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>We use the information we collect to:</p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Operate, maintain, and improve our comparison platform</li>
@@ -122,10 +122,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Cookies */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("cookiesTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We use cookies and similar tracking technologies to collect and track
                   information about your activity on our website. For full details on the
@@ -155,10 +155,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Third-Party Services */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("thirdPartyServicesTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>We use the following third-party services:</p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>
@@ -201,10 +201,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Data Retention */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("dataRetentionTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We retain email correspondence for as long as reasonably necessary to
                   address the purpose for which it was collected, typically no longer than
@@ -217,10 +217,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Your Rights */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("yourRightsTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Depending on your location, you may have the following rights regarding
                   your personal data:
@@ -256,10 +256,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                       key={item.title}
                       className="bg-[var(--color-surface-dim)] rounded-xl p-5"
                     >
-                      <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                      <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                      <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -280,10 +280,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* GDPR */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("gdprTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   If you are located in the EEA, our legal basis for collecting and using
                   your personal data depends on the type of data and the context:
@@ -309,10 +309,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* CCPA */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("ccpaTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   If you are a California resident, you have additional rights under the
                   California Consumer Privacy Act (CCPA):
@@ -328,10 +328,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Children */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("childrensPrivacyTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Our website is not directed at children under the age of 16. We do not
                   knowingly collect personal data from children. If you believe we have
@@ -343,10 +343,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Security */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("dataSecurityTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We take reasonable technical and organisational measures to protect your
                   data, including HTTPS encryption, security headers (HSTS, X-Frame-Options,
@@ -359,10 +359,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* International Transfers */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("internationalTransfersTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Our website is hosted on Vercel, which may process data in the United
                   States and other countries. Google Analytics data may also be processed
@@ -375,10 +375,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Changes */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("changesToPolicyTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We may update this Privacy Policy from time to time. Any changes will be
                   posted on this page with an updated &quot;Last updated&quot; date. We encourage
@@ -389,10 +389,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             {/* Contact */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("contactUsTitle")}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 If you have any questions about this Privacy Policy, please contact us
                 at{" "}
                 <a

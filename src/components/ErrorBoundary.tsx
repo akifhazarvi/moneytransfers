@@ -30,15 +30,15 @@ export default class ErrorBoundary extends Component<Props, State> {
       return (
         this.props.fallback ?? (
           <div className="flex flex-col items-center justify-center py-16 text-center px-4">
-            <p className="text-[16px] font-medium text-[var(--color-on-surface)] mb-2">
+            <p className="text-base font-medium text-[var(--color-on-surface)] mb-2">
               Something went wrong
             </p>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6 max-w-sm">
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 max-w-sm">
               We encountered an unexpected error. Please refresh the page or try again later.
             </p>
             <button
               onClick={() => this.setState({ hasError: false })}
-              className="px-6 py-2.5 bg-[var(--color-primary)] text-white rounded-full text-[14px] font-medium hover:bg-[var(--color-primary-dark)] transition-colors"
+              className="px-6 py-2.5 bg-[var(--color-primary)] text-white rounded-full text-sm font-medium hover:bg-[var(--color-primary-dark)] transition-colors"
             >
               Try again
             </button>

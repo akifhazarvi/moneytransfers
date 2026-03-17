@@ -31,7 +31,7 @@ function CategoryBadge({ category }: { category: string }) {
     Regulatory: "text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)]",
   };
   return (
-    <span className={`text-[11px] font-medium px-2.5 py-1 rounded-full ${colorMap[category] || colorMap.Announcement}`}>
+    <span className={`text-2xs font-medium px-2.5 py-1 rounded-full ${colorMap[category] || colorMap.Announcement}`}>
       {category}
     </span>
   );
@@ -50,15 +50,15 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
       <Container className="py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] mb-2">
+          <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">
             {t("heading")}
           </h1>
-          <p className="text-[14px] text-[var(--color-on-surface-variant)] max-w-2xl">
+          <p className="text-sm text-[var(--color-on-surface-variant)] max-w-2xl">
             {t("subheading")}
           </p>
         </div>
 
-        <div className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl mb-8">
+        <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl mb-8">
           <p>
             The international money transfer industry is evolving rapidly — new regulations, provider launches, and technology shifts can directly affect how much you pay to send money abroad. We track the developments that matter most to consumers and businesses making cross-border payments.
           </p>
@@ -84,17 +84,17 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-3">
                   <CategoryBadge category={featured.category} />
-                  <time className="text-[12px] text-[var(--color-on-surface-variant)]" dateTime={featured.publishedAt}>
+                  <time className="text-xs text-[var(--color-on-surface-variant)]" dateTime={featured.publishedAt}>
                     {formatLocalDate(featured.publishedAt)}
                   </time>
                 </div>
-                <h2 className="text-[22px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-3 leading-tight">
+                <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-3 leading-tight">
                   {featured.title}
                 </h2>
-                <p className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
+                <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
                   {featured.excerpt}
                 </p>
-                <span className="inline-block mt-4 text-[14px] font-medium text-[var(--color-primary)]">
+                <span className="inline-block mt-4 text-sm font-medium text-[var(--color-primary)]">
                   Read more &rarr;
                 </span>
               </div>
@@ -120,17 +120,17 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-center gap-3 mb-3">
                     <CategoryBadge category={item.category} />
-                    <time className="text-[11px] text-[var(--color-on-surface-variant)]" dateTime={item.publishedAt}>
+                    <time className="text-2xs text-[var(--color-on-surface-variant)]" dateTime={item.publishedAt}>
                       {formatLocalDate(item.publishedAt, { month: "short", day: "numeric" })}
                     </time>
                   </div>
-                  <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-2 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
+                  <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed flex-1">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed flex-1">
                     {item.excerpt}
                   </p>
-                  <span className="inline-block mt-3 text-[13px] font-medium text-[var(--color-primary)]">
+                  <span className="inline-block mt-3 text-2sm font-medium text-[var(--color-primary)]">
                     Read more &rarr;
                   </span>
                 </div>
@@ -143,16 +143,16 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
         <div className="mt-12 pt-8 border-t border-[var(--color-outline)]">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h2 className="text-[18px] font-normal text-[var(--color-on-surface)] mb-1">
+              <h2 className="text-lg font-normal text-[var(--color-on-surface)] mb-1">
                 {t("lookingForGuides")}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+              <p className="text-sm text-[var(--color-on-surface-variant)]">
                 {t("guidesDescription")}
               </p>
             </div>
             <Link
               href="/guides"
-              className="inline-flex items-center gap-2 h-10 px-6 text-[13px] font-medium text-[var(--color-primary)] border border-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-surface)] transition-colors shrink-0"
+              className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-medium text-[var(--color-primary)] border border-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-surface)] transition-colors shrink-0"
             >
               {t("browseGuides")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

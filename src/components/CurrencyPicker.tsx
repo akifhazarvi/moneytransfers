@@ -149,7 +149,7 @@ export default function CurrencyPicker({
         return (
           <>
             {info && <CircleFlag code={info.code} size={18} />}
-            <span className="text-[14px] font-medium text-[var(--color-on-surface)]">{info?.code}</span>
+            <span className="text-sm font-medium text-[var(--color-on-surface)]">{info?.code}</span>
             <svg className="w-3.5 h-3.5 text-[var(--color-on-surface-variant)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -159,8 +159,8 @@ export default function CurrencyPicker({
         return (
           <>
             {info && <CircleFlag code={info.code} size={16} />}
-            <span className="text-[14px] text-[var(--color-on-surface)]">{info?.name}</span>
-            <span className="text-[14px] text-[var(--color-on-surface-variant)]">{info?.code}</span>
+            <span className="text-sm text-[var(--color-on-surface)]">{info?.name}</span>
+            <span className="text-sm text-[var(--color-on-surface-variant)]">{info?.code}</span>
             <svg className="w-3.5 h-3.5 text-[var(--color-on-surface-variant)] shrink-0 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -170,8 +170,8 @@ export default function CurrencyPicker({
         return (
           <>
             {info && <CircleFlag code={info.code} size={32} />}
-            <span className="text-[22px] font-medium text-[var(--color-on-surface)] whitespace-nowrap">{info?.code}</span>
-            <span className="text-[14px] text-[var(--color-on-surface-variant)] whitespace-nowrap hidden sm:inline">{info?.name}</span>
+            <span className="text-h4 font-medium text-[var(--color-on-surface)] whitespace-nowrap">{info?.code}</span>
+            <span className="text-sm text-[var(--color-on-surface-variant)] whitespace-nowrap hidden sm:inline">{info?.name}</span>
             <svg className="w-4 h-4 text-[var(--color-on-surface-variant)] shrink-0 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -181,8 +181,8 @@ export default function CurrencyPicker({
         return (
           <>
             {info && <CircleFlag code={info.code} size={22} />}
-            <span className="text-[15px] font-medium text-[var(--color-on-surface)]">{info?.code}</span>
-            <span className="text-[14px] text-[var(--color-on-surface-variant)] hidden sm:inline">— {info?.name}</span>
+            <span className="text-md font-medium text-[var(--color-on-surface)]">{info?.code}</span>
+            <span className="text-sm text-[var(--color-on-surface-variant)] hidden sm:inline">— {info?.name}</span>
             <svg className="w-4 h-4 text-[var(--color-on-surface-variant)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -229,7 +229,7 @@ export default function CurrencyPicker({
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search currencies..."
               aria-label="Search currencies"
-              className="w-full text-[14px] px-3 py-2 rounded-lg border border-[var(--color-outline)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
+              className="w-full text-sm px-3 py-2 rounded-lg border border-[var(--color-outline)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
             />
           </div>
           <div className="overflow-y-auto overscroll-contain">
@@ -244,13 +244,13 @@ export default function CurrencyPicker({
               >
                 <CircleFlag code={c.code} size={18} />
                 <div>
-                  <span className="text-[14px] font-medium text-[var(--color-on-surface)]">{c.code}</span>
-                  <span className="text-[13px] text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
+                  <span className="text-sm font-medium text-[var(--color-on-surface)]">{c.code}</span>
+                  <span className="text-2sm text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
                 </div>
               </button>
             ))}
             {filtered.length === 0 && (
-              <p className="px-4 py-3 text-[13px] text-[var(--color-on-surface-variant)]">No currencies found</p>
+              <p className="px-4 py-3 text-2sm text-[var(--color-on-surface-variant)]">No currencies found</p>
             )}
           </div>
         </div>
@@ -307,7 +307,7 @@ export function AddCurrencyPicker({
         ref={btnRef}
         onClick={() => !disabled && setOpen(!open)}
         disabled={disabled}
-        className="flex items-center gap-2 text-[14px] font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+        className="flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -328,7 +328,7 @@ export function AddCurrencyPicker({
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search currencies to add..."
               aria-label="Search currencies to add"
-              className="w-full text-[14px] px-3 py-2 rounded-lg border border-[var(--color-outline)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
+              className="w-full text-sm px-3 py-2 rounded-lg border border-[var(--color-outline)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
             />
           </div>
           <div className="overflow-y-auto overscroll-contain">
@@ -343,13 +343,13 @@ export function AddCurrencyPicker({
               >
                 <CircleFlag code={c.code} size={18} />
                 <div>
-                  <span className="text-[14px] font-medium text-[var(--color-on-surface)]">{c.code}</span>
-                  <span className="text-[13px] text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
+                  <span className="text-sm font-medium text-[var(--color-on-surface)]">{c.code}</span>
+                  <span className="text-2sm text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
                 </div>
               </button>
             ))}
             {filtered.length === 0 && (
-              <p className="px-4 py-3 text-[13px] text-[var(--color-on-surface-variant)]">No currencies available</p>
+              <p className="px-4 py-3 text-2sm text-[var(--color-on-surface-variant)]">No currencies available</p>
             )}
           </div>
         </div>

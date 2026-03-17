@@ -81,11 +81,11 @@ export default function ForexTicker() {
             href="/exchange-rates"
             className="flex items-center gap-2 hover:opacity-80 transition-opacity shrink-0"
           >
-            <span className="text-[13px]">{pair.flag}</span>
-            <span className="text-[12px] font-medium text-white/90">
+            <span className="text-2sm">{pair.flag}</span>
+            <span className="text-xs font-medium text-white/90">
               {pair.from}/{pair.to}
             </span>
-            <span className="text-[12px] text-sky-300 font-mono">
+            <span className="text-xs text-sky-300 font-mono">
               {pair.rate}
             </span>
           </Link>

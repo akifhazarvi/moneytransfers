@@ -127,7 +127,7 @@ function DetailedReview({
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 md:py-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-muted)] mb-6">
+          <nav className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-muted)] mb-6">
             <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
             <span>/</span>
             <Link href="/companies" className="hover:text-[var(--color-primary)] transition-colors">Companies</Link>
@@ -149,12 +149,12 @@ function DetailedReview({
                   </h1>
                   <div className="flex flex-wrap items-center gap-2 mt-2">
                     <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />
-                    <span className="text-[12px] text-[var(--color-on-surface-muted)]">·</span>
-                    <span className="text-[12px] text-[var(--color-on-surface-variant)]">Updated {review.updatedAt}</span>
-                    <span className="text-[12px] text-[var(--color-on-surface-muted)]">·</span>
-                    <span className="text-[12px] text-[var(--color-on-surface-variant)]">{review.readTime}</span>
+                    <span className="text-xs text-[var(--color-on-surface-muted)]">·</span>
+                    <span className="text-xs text-[var(--color-on-surface-variant)]">Updated {review.updatedAt}</span>
+                    <span className="text-xs text-[var(--color-on-surface-muted)]">·</span>
+                    <span className="text-xs text-[var(--color-on-surface-variant)]">{review.readTime}</span>
                   </div>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[12px] text-[var(--color-on-surface-muted)]">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-[var(--color-on-surface-muted)]">
                     <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
                     <span>Fact-checked by <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline font-medium">{review.factChecker}</Link></span>
                     <span>Verified {review.lastVerified}</span>
@@ -176,9 +176,9 @@ function DetailedReview({
                       {review.editorRating}
                     </span>
                     <div className="mb-1">
-                      <span className="text-[var(--color-on-surface-muted)] text-[14px]">/10</span>
+                      <span className="text-[var(--color-on-surface-muted)] text-sm">/10</span>
                       <div
-                        className="text-[13px] font-bold"
+                        className="text-2sm font-bold"
                         style={{ color: score.color }}
                       >
                         {score.label}
@@ -186,7 +186,7 @@ function DetailedReview({
                     </div>
                   </div>
                 </div>
-                <div className="px-5 py-3 text-[13px] text-[var(--color-on-surface-variant)] italic leading-relaxed" style={{ background: `${score.bg}` }}>
+                <div className="px-5 py-3 text-2sm text-[var(--color-on-surface-variant)] italic leading-relaxed" style={{ background: `${score.bg}` }}>
                   &ldquo;{review.editorVerdict}&rdquo;
                 </div>
                 <div className="p-4 space-y-2">
@@ -195,7 +195,7 @@ function DetailedReview({
                   </PrimaryButton>
                   <Link
                     href="/send-money"
-                    className="flex items-center justify-center w-full h-9 border border-[var(--color-outline)] rounded-full text-[13px] font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors"
+                    className="flex items-center justify-center w-full h-9 border border-[var(--color-outline)] rounded-full text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors"
                   >
                     Compare Rates
                   </Link>
@@ -223,7 +223,7 @@ function DetailedReview({
               className="flex-none flex flex-col items-center px-5 py-3.5 bg-[var(--color-surface)] min-w-[100px] hover:bg-[var(--color-surface-dim)] transition-colors"
             >
               <span className="text-overline text-[var(--color-on-surface-muted)] mb-1">{stat.label}</span>
-              <span className="text-[15px] font-semibold text-[var(--color-on-surface)] whitespace-nowrap">{stat.value}</span>
+              <span className="text-md font-semibold text-[var(--color-on-surface)] whitespace-nowrap">{stat.value}</span>
             </div>
           ))}
         </div>
@@ -237,21 +237,21 @@ function DetailedReview({
               <p className="text-overline text-[var(--color-on-surface-muted)] mb-3">In this review</p>
               <div className="grid sm:grid-cols-2 gap-x-6 gap-y-1">
                 {review.sections.map((s) => (
-                  <a key={s.id} href={`#${s.id}`} className="text-[13px] text-[var(--color-primary)] hover:underline py-1 block leading-snug">
+                  <a key={s.id} href={`#${s.id}`} className="text-2sm text-[var(--color-primary)] hover:underline py-1 block leading-snug">
                     {s.heading}
                   </a>
                 ))}
-                <a href="#pros-cons" className="text-[13px] text-[var(--color-primary)] hover:underline py-1 block">Pros and Cons</a>
-                <a href="#who-should-use" className="text-[13px] text-[var(--color-primary)] hover:underline py-1 block">Who Should Use {provider.name}</a>
-                <a href="#alternatives" className="text-[13px] text-[var(--color-primary)] hover:underline py-1 block">Alternatives</a>
-                <a href="#how-we-tested" className="text-[13px] text-[var(--color-primary)] hover:underline py-1 block">How We Tested</a>
-                <a href="#faq" className="text-[13px] text-[var(--color-primary)] hover:underline py-1 block">FAQ</a>
+                <a href="#pros-cons" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">Pros and Cons</a>
+                <a href="#who-should-use" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">Who Should Use {provider.name}</a>
+                <a href="#alternatives" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">Alternatives</a>
+                <a href="#how-we-tested" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">How We Tested</a>
+                <a href="#faq" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">FAQ</a>
               </div>
             </Card>
 
             {/* Live corridor performance */}
             <Card>
-              <h2 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
                 Live {provider.name} rates today
               </h2>
               <BestTransferToday amount={1000} from="USD" to="INR" symbol="₹" />
@@ -264,7 +264,7 @@ function DetailedReview({
                   {section.heading}
                 </h2>
                 <div
-                  className="prose-content prose-custom text-[var(--color-on-surface-variant)] [&_table]:w-full [&_table]:text-[13px] [&_table]:border-collapse [&_th]:bg-[var(--color-surface-container)] [&_th]:text-left [&_th]:px-3 [&_th]:py-2 [&_th]:text-[var(--color-on-surface)] [&_th]:font-semibold [&_td]:px-3 [&_td]:py-2 [&_td]:border-t [&_td]:border-[var(--color-outline)] [&_strong]:text-[var(--color-on-surface)] [&_ul]:space-y-1.5 [&_li]:text-[14px] [&_em]:text-[var(--color-on-surface)] [&_p]:mb-4"
+                  className="prose-content prose-custom text-[var(--color-on-surface-variant)] [&_table]:w-full [&_table]:text-2sm [&_table]:border-collapse [&_th]:bg-[var(--color-surface-container)] [&_th]:text-left [&_th]:px-3 [&_th]:py-2 [&_th]:text-[var(--color-on-surface)] [&_th]:font-semibold [&_td]:px-3 [&_td]:py-2 [&_td]:border-t [&_td]:border-[var(--color-outline)] [&_strong]:text-[var(--color-on-surface)] [&_ul]:space-y-1.5 [&_li]:text-sm [&_em]:text-[var(--color-on-surface)] [&_p]:mb-4"
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
               </Card>
@@ -286,16 +286,16 @@ function DetailedReview({
                   const isIdeal = group.heading.toLowerCase().includes("ideal");
                   return (
                     <div key={group.heading}>
-                      <h3 className={`text-[14px] font-semibold mb-3 flex items-center gap-2 ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[#B91C1C]"}`}>
-                        <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white ${isIdeal ? "bg-[var(--color-success)]" : "bg-[var(--color-danger)]"}`}>
+                      <h3 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[#B91C1C]"}`}>
+                        <span className={`w-5 h-5 rounded-full flex items-center justify-center text-2xs font-bold text-white ${isIdeal ? "bg-[var(--color-success)]" : "bg-[var(--color-danger)]"}`}>
                           {isIdeal ? "✓" : "✗"}
                         </span>
                         {group.heading}
                       </h3>
                       <ul className="space-y-2">
                         {group.items.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-[14px] text-[var(--color-on-surface-variant)]">
-                            <span className={`mt-0.5 shrink-0 text-[13px] font-bold ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[#C53030]"}`}>
+                          <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-on-surface-variant)]">
+                            <span className={`mt-0.5 shrink-0 text-2sm font-bold ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[#C53030]"}`}>
                               {isIdeal ? "✓" : "✗"}
                             </span>
                             {item}
@@ -327,15 +327,15 @@ function DetailedReview({
                           <Image src={altProvider.logo} alt={altProvider.name} width={40} height={40} className="object-contain p-0.5" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[14px] font-semibold text-[var(--color-on-surface)] truncate">{altProvider.name}</p>
-                          <p className="text-[12px] text-[var(--color-on-surface-variant)] truncate">{alt.reason}</p>
+                          <p className="text-sm font-semibold text-[var(--color-on-surface)] truncate">{altProvider.name}</p>
+                          <p className="text-xs text-[var(--color-on-surface-variant)] truncate">{alt.reason}</p>
                         </div>
                       </div>
                       <div className="flex gap-3 shrink-0 ml-3">
-                        <Link href={`/companies/${alt.slug}`} className="text-[12px] font-semibold text-[var(--color-primary)] hover:underline">
+                        <Link href={`/companies/${alt.slug}`} className="text-xs font-semibold text-[var(--color-primary)] hover:underline">
                           Review
                         </Link>
-                        <Link href={`/compare/${slug}-vs-${alt.slug}`} className="text-[12px] font-semibold text-[var(--color-primary)] hover:underline">
+                        <Link href={`/compare/${slug}-vs-${alt.slug}`} className="text-xs font-semibold text-[var(--color-primary)] hover:underline">
                           Compare
                         </Link>
                       </div>
@@ -350,10 +350,10 @@ function DetailedReview({
               <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-4">
                 How we tested {provider.name}
               </h2>
-              <p className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
+              <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
                 {review.howWeTested}
               </p>
-              <p className="text-[12px] text-[var(--color-on-surface-muted)] pt-3 border-t border-[var(--color-outline)]">
+              <p className="text-xs text-[var(--color-on-surface-muted)] pt-3 border-t border-[var(--color-outline)]">
                 Last verified: {review.lastVerified} · Reviewed by{" "}
                 <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link>
                 {" "}· Fact-checked by{" "}
@@ -369,13 +369,13 @@ function DetailedReview({
               <div className="space-y-0 divide-y divide-[var(--color-outline)]">
                 {review.faqs.map((faq, i) => (
                   <details key={i} className="group py-4 first:pt-0">
-                    <summary className="flex items-center justify-between cursor-pointer text-[15px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors select-none">
+                    <summary className="flex items-center justify-between cursor-pointer text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors select-none">
                       {faq.q}
                       <svg className="w-4 h-4 text-[var(--color-on-surface-muted)] group-open:rotate-180 transition-transform ml-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
-                    <p className="mt-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed pr-6">{faq.a}</p>
+                    <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-6">{faq.a}</p>
                   </details>
                 ))}
               </div>
@@ -388,7 +388,7 @@ function DetailedReview({
             <div className="lg:sticky lg:top-20 space-y-5">
               <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] overflow-hidden">
                 <div className="px-5 py-4 border-b border-[var(--color-outline)] bg-[var(--color-surface-dim)]">
-                  <h3 className="text-[14px] font-semibold text-[var(--color-on-surface)]">{provider.name} at a glance</h3>
+                  <h3 className="text-sm font-semibold text-[var(--color-on-surface)]">{provider.name} at a glance</h3>
                 </div>
                 <div className="divide-y divide-[var(--color-outline)]">
                   {[
@@ -399,7 +399,7 @@ function DetailedReview({
                     { label: "Countries", value: `${provider.supportedCountries}+` },
                     { label: "Rate Markup", value: provider.exchangeRateMarkup },
                   ].map((row) => (
-                    <div key={row.label} className="flex justify-between items-center px-5 py-2.5 text-[13px]">
+                    <div key={row.label} className="flex justify-between items-center px-5 py-2.5 text-2sm">
                       <span className="text-[var(--color-on-surface-variant)]">{row.label}</span>
                       <span className="font-semibold text-[var(--color-on-surface)]">{row.value}</span>
                     </div>
@@ -414,13 +414,13 @@ function DetailedReview({
 
               {/* Compare widget */}
               <Card>
-                <h3 className="text-[14px] font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
+                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
                 <ComparisonWidget compact />
               </Card>
 
               {/* Compare with */}
               <Card>
-                <h3 className="text-[14px] font-semibold text-[var(--color-on-surface)] mb-3">Compare With</h3>
+                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">Compare With</h3>
                 <div className="space-y-2">
                   {otherProviders.map((other) => (
                     <Link
@@ -428,10 +428,10 @@ function DetailedReview({
                       href={`/compare/${slug}-vs-${other.slug}`}
                       className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] transition-colors group"
                     >
-                      <span className="text-[13px] font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
+                      <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
                         {provider.name} vs {other.name}
                       </span>
-                      <span className="text-[12px] text-[var(--color-primary)]">→</span>
+                      <span className="text-xs text-[var(--color-primary)]">→</span>
                     </Link>
                   ))}
                 </div>
@@ -492,7 +492,7 @@ function DefaultReview({
       {/* Hero */}
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8">
-          <nav className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-muted)] mb-6">
+          <nav className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-muted)] mb-6">
             <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
             <span>/</span>
             <Link href="/companies" className="hover:text-[var(--color-primary)] transition-colors">Companies</Link>
@@ -509,7 +509,7 @@ function DefaultReview({
               </h1>
               <div className="flex items-center gap-3 mt-2">
                 <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />
-                <span className="text-[13px] text-[var(--color-on-surface-variant)]">Est. {provider.founded}</span>
+                <span className="text-2sm text-[var(--color-on-surface-variant)]">Est. {provider.founded}</span>
               </div>
             </div>
           </div>
@@ -521,10 +521,10 @@ function DefaultReview({
           <div className="lg:col-span-2 space-y-8">
             {/* Header card */}
             <Card>
-              <p className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed mb-5">{provider.description}</p>
+              <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-5">{provider.description}</p>
               <div className="flex gap-3">
                 <PrimaryButton href={getGoUrl(provider.slug)} external size="sm">Visit {provider.name}</PrimaryButton>
-                <Link href="/send-money" className="inline-flex items-center h-9 px-5 border border-[var(--color-outline)] rounded-full text-[13px] font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
+                <Link href="/send-money" className="inline-flex items-center h-9 px-5 border border-[var(--color-outline)] rounded-full text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
                   Compare Rates
                 </Link>
               </div>
@@ -550,10 +550,10 @@ function DefaultReview({
 
             {/* Features */}
             <Card>
-              <h2 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-4">Key Features</h2>
+              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">Key Features</h2>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {provider.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-2.5 text-[14px] bg-[var(--color-surface-dim)] rounded-xl p-3">
+                  <div key={feature} className="flex items-center gap-2.5 text-sm bg-[var(--color-surface-dim)] rounded-xl p-3">
                     <svg className="w-4 h-4 text-[var(--color-primary)] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
@@ -565,7 +565,7 @@ function DefaultReview({
 
             {/* Details */}
             <Card>
-              <h2 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-4">Transfer Details</h2>
+              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">Transfer Details</h2>
               <div className="divide-y divide-[var(--color-outline)]">
                 {[
                   { label: "Headquarters", value: provider.headquarters },
@@ -577,7 +577,7 @@ function DefaultReview({
                   { label: "Delivery Methods", value: provider.deliveryMethods.join(", ") },
                   { label: "Exchange Rate Markup", value: provider.exchangeRateMarkup },
                 ].map((row) => (
-                  <div key={row.label} className="flex justify-between py-3 text-[14px]">
+                  <div key={row.label} className="flex justify-between py-3 text-sm">
                     <span className="text-[var(--color-on-surface-variant)]">{row.label}</span>
                     <span className="font-medium text-[var(--color-on-surface)] text-right max-w-[60%]">{row.value}</span>
                   </div>
@@ -589,11 +589,11 @@ function DefaultReview({
           {/* Sidebar */}
           <div className="space-y-5">
             <Card className="lg:sticky lg:top-20">
-              <h3 className="text-[14px] font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
               <ComparisonWidget compact />
             </Card>
             <Card>
-              <h3 className="text-[14px] font-semibold text-[var(--color-on-surface)] mb-3">Compare With</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">Compare With</h3>
               <div className="space-y-2">
                 {otherProviders.map((other) => (
                   <Link
@@ -601,10 +601,10 @@ function DefaultReview({
                     href={`/compare/${provider.slug}-vs-${other.slug}`}
                     className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] transition-colors group"
                   >
-                    <span className="text-[13px] font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
+                    <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
                       {provider.name} vs {other.name}
                     </span>
-                    <span className="text-[12px] text-[var(--color-primary)]">→</span>
+                    <span className="text-xs text-[var(--color-primary)]">→</span>
                   </Link>
                 ))}
               </div>

@@ -178,7 +178,7 @@ export default async function IbanCountryPage({ params }: Props) {
     <>
     <Container className="py-8">
       {/* Breadcrumb */}
-      <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+      <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
         {" / "}
         <Link href="/iban" className="hover:text-[var(--color-primary)]">IBAN</Link>
@@ -194,17 +194,17 @@ export default async function IbanCountryPage({ params }: Props) {
             <div className="flex items-center gap-4 mb-4">
               <CircleFlag code={countryCode} size={40} />
               <div>
-                <h1 className="text-[24px] md:text-[30px] font-normal text-[var(--color-on-surface)]">
+                <h1 className="text-2xl md:text-3xl font-normal text-[var(--color-on-surface)]">
                   {name} IBAN
                 </h1>
                 <div className="flex items-center gap-3 mt-1">
-                  <span className="text-[13px] text-[var(--color-on-surface-variant)]">{country.countryCode}</span>
-                  <span className="text-[13px] text-[var(--color-on-surface-variant)]">·</span>
-                  <span className="text-[13px] text-[var(--color-on-surface-variant)]">{country.currency}</span>
+                  <span className="text-2sm text-[var(--color-on-surface-variant)]">{country.countryCode}</span>
+                  <span className="text-2sm text-[var(--color-on-surface-variant)]">·</span>
+                  <span className="text-2sm text-[var(--color-on-surface-variant)]">{country.currency}</span>
                   {country.sepa && (
                     <>
-                      <span className="text-[13px] text-[var(--color-on-surface-variant)]">·</span>
-                      <span className="text-[11px] font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
+                      <span className="text-2sm text-[var(--color-on-surface-variant)]">·</span>
+                      <span className="text-2xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
                         SEPA
                       </span>
                     </>
@@ -212,14 +212,14 @@ export default async function IbanCountryPage({ params }: Props) {
                 </div>
               </div>
             </div>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-3">
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
               The International Bank Account Number (IBAN) for {name} is <strong className="font-medium text-[var(--color-on-surface)]">{country.ibanLength} characters</strong> long
               and is used to identify bank accounts for international transactions
               {country.sepa
                 ? ", within the SEPA network for euro transfers and via SWIFT for non-euro currencies."
                 : " via the SWIFT network."}
             </p>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+            <p className="text-sm text-[var(--color-on-surface-variant)]">
               A {name} IBAN begins with the country code <strong className="font-medium text-[var(--color-on-surface)]">{country.countryCode}</strong>{" "}
               and two check digits, followed by the {country.ibanLength - 4}-character BBAN (Basic Bank Account Number).
               {country.bbanFields.length > 0
@@ -245,22 +245,22 @@ export default async function IbanCountryPage({ params }: Props) {
 
           {/* Example IBAN */}
           <Card>
-            <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
               Example IBAN
             </h2>
             <div className="bg-[var(--color-surface-dim)] rounded-lg p-4 mb-4">
-              <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1">
+              <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1">
                 Electronic format
               </p>
-              <p className="text-[18px] font-mono text-[var(--color-on-surface)] tracking-wide">
+              <p className="text-lg font-mono text-[var(--color-on-surface)] tracking-wide">
                 {country.exampleIban}
               </p>
             </div>
             <div className="bg-[var(--color-surface-dim)] rounded-lg p-4">
-              <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1">
+              <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1">
                 Print format
               </p>
-              <p className="text-[18px] font-mono text-[var(--color-on-surface)] tracking-wide">
+              <p className="text-lg font-mono text-[var(--color-on-surface)] tracking-wide">
                 {formatIban(country.exampleIban)}
               </p>
             </div>
@@ -268,10 +268,10 @@ export default async function IbanCountryPage({ params }: Props) {
 
           {/* IBAN Structure */}
           <Card>
-            <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
               IBAN structure for {name}
             </h2>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-4">
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
               A {name} IBAN is {country.ibanLength} characters long and consists of the following components:
             </p>
             <div className="divide-y divide-[var(--color-outline)]">
@@ -282,14 +282,14 @@ export default async function IbanCountryPage({ params }: Props) {
                       className="w-2 h-2 rounded-full shrink-0"
                       style={{ backgroundColor: part.color }}
                     />
-                    <span className="text-[14px] text-[var(--color-on-surface)]">{part.label}</span>
+                    <span className="text-sm text-[var(--color-on-surface)]">{part.label}</span>
                   </div>
-                  <span className="text-[14px] font-medium text-[var(--color-on-surface)]">{part.value}</span>
+                  <span className="text-sm font-medium text-[var(--color-on-surface)]">{part.value}</span>
                 </div>
               ))}
               <div className="flex items-center justify-between py-3 font-medium">
-                <span className="text-[14px] text-[var(--color-on-surface)]">Total length</span>
-                <span className="text-[14px] text-[var(--color-primary)]">{country.ibanLength} characters</span>
+                <span className="text-sm text-[var(--color-on-surface)]">Total length</span>
+                <span className="text-sm text-[var(--color-primary)]">{country.ibanLength} characters</span>
               </div>
             </div>
           </Card>
@@ -297,10 +297,10 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* BBAN Validation */}
           {country.bbanFields.length > 0 && (
             <Card>
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 BBAN format details
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-4">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
                 The Basic Bank Account Number (BBAN) is the domestic part of the IBAN, following the country code
                 and check digits. Here is the BBAN validation format for {name}:
               </p>
@@ -308,16 +308,16 @@ export default async function IbanCountryPage({ params }: Props) {
                 {country.bbanFields.map((field, i) => (
                   <div key={i} className="bg-[var(--color-surface-dim)] rounded-lg p-3">
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-[14px] font-medium text-[var(--color-on-surface)]">
+                      <span className="text-sm font-medium text-[var(--color-on-surface)]">
                         {(bbanLabels[field.type] || field.label.replace(/_/g, " ")).charAt(0).toUpperCase() +
                           (bbanLabels[field.type] || field.label.replace(/_/g, " ")).slice(1)}
                       </span>
-                      <span className="text-[12px] text-[var(--color-on-surface-variant)]">
+                      <span className="text-xs text-[var(--color-on-surface-variant)]">
                         {field.length} characters
                       </span>
                     </div>
                     {field.regex && (
-                      <code className="text-[12px] text-[var(--color-on-surface-variant)] font-mono bg-[var(--color-surface)] px-2 py-1 rounded border border-[var(--color-outline)]">
+                      <code className="text-xs text-[var(--color-on-surface-variant)] font-mono bg-[var(--color-surface)] px-2 py-1 rounded border border-[var(--color-outline)]">
                         {field.regex}
                       </code>
                     )}
@@ -330,10 +330,10 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* Banks */}
           {country.banks.length > 0 && (
             <Card>
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 Major banks in {name}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-4">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
                 {country.banks.length} banks in {name} that support IBAN-based international transfers:
               </p>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -342,10 +342,10 @@ export default async function IbanCountryPage({ params }: Props) {
                     key={bank.slug}
                     className="flex items-center gap-3 p-3 bg-[var(--color-surface-dim)] rounded-lg"
                   >
-                    <div className="w-8 h-8 bg-[var(--color-surface)] rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-[12px] font-medium text-[var(--color-primary)] shrink-0">
+                    <div className="w-8 h-8 bg-[var(--color-surface)] rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-xs font-medium text-[var(--color-primary)] shrink-0">
                       {bank.name.charAt(0)}
                     </div>
-                    <span className="text-[14px] text-[var(--color-on-surface)] truncate">{bank.name}</span>
+                    <span className="text-sm text-[var(--color-on-surface)] truncate">{bank.name}</span>
                   </div>
                 ))}
               </div>
@@ -355,16 +355,16 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* Content sections from scraped data — rewritten for SEO */}
           {usefulSections.length > 0 && (
             <Card>
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 Understanding IBAN in {name}
               </h2>
               <div className="space-y-6">
                 {usefulSections.map((section, i) => (
                   <div key={i}>
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       {section.heading.replace(/\?$/, "").trim()}
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed whitespace-pre-line">
+                    <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed whitespace-pre-line">
                       {section.content
                         .replace(/Calculate IBAN|Check IBAN|Already have an IBAN code\?/g, "")
                         .trim()}
@@ -377,17 +377,17 @@ export default async function IbanCountryPage({ params }: Props) {
 
           {/* FAQ Schema content */}
           <Card>
-            <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
               Frequently asked questions
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {countryFaqsList ? (
                 countryFaqsList.map((faq, i) => (
                   <div key={i} className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       {faq.q}
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       {faq.a}
                     </p>
                   </div>
@@ -395,22 +395,22 @@ export default async function IbanCountryPage({ params }: Props) {
               ) : (
                 <>
                   <div className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       How many characters is a {name} IBAN?
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       A {name} IBAN is exactly {country.ibanLength} alphanumeric characters long,
                       starting with the country code &quot;{country.countryCode}&quot; followed by two check digits and
                       the domestic bank account details (BBAN).
                     </p>
                   </div>
                   <div className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       What does a {name} IBAN look like?
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       A {name} IBAN follows this format:{" "}
-                      <code className="font-mono text-[13px] bg-[var(--color-surface-dim)] px-1.5 py-0.5 rounded">
+                      <code className="font-mono text-2sm bg-[var(--color-surface-dim)] px-1.5 py-0.5 rounded">
                         {formatIban(country.exampleIban)}
                       </code>.
                       The first two letters ({country.countryCode}) identify the country, followed by two check digits,
@@ -420,20 +420,20 @@ export default async function IbanCountryPage({ params }: Props) {
                     </p>
                   </div>
                   <div className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       Is {name} part of SEPA?
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       {country.sepa
                         ? `Yes, ${name} is a SEPA (Single Euro Payments Area) member. This means euro transfers to and from ${name} can be processed quickly and at low cost through the SEPA network.`
                         : `No, ${name} is not part of the SEPA (Single Euro Payments Area). International transfers to ${name} are processed through the SWIFT network, which may take longer and cost more than SEPA transfers.`}
                     </p>
                   </div>
                   <div className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       How do I find my IBAN in {name}?
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       You can find your {name} IBAN on your bank statement, in your online banking portal,
                       or by contacting your bank directly. The IBAN is typically printed on the front or back
                       of your bank card in many countries. You can also use our IBAN calculator tool to
@@ -447,17 +447,17 @@ export default async function IbanCountryPage({ params }: Props) {
 
           {editorialNote && (
             <Card>
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {editorialNote.title}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
                 {editorialNote.intro}
               </p>
               <ul className="space-y-3">
                 {editorialNote.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-3">
                     <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                    <span className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <span className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       {bullet}
                     </span>
                   </li>
@@ -470,7 +470,7 @@ export default async function IbanCountryPage({ params }: Props) {
         {/* Sidebar */}
         <div className="space-y-6">
           <Card className="sticky top-20">
-            <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
               Send money to {name}
             </h3>
             <ComparisonWidget compact />
@@ -479,7 +479,7 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* Popular corridors for this country */}
           {ibanCorridors[slug] && (
             <Card>
-              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
                 Popular money transfers
               </h3>
               <ul className="space-y-2">
@@ -487,14 +487,14 @@ export default async function IbanCountryPage({ params }: Props) {
                   <li key={corridor.href}>
                     <Link
                       href={corridor.href}
-                      className="text-[13px] text-[var(--color-primary)] hover:underline"
+                      className="text-2sm text-[var(--color-primary)] hover:underline"
                     >
                       {corridor.label}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link href="/send-money" className="text-[13px] text-[var(--color-primary)] hover:underline">
+                  <Link href="/send-money" className="text-2sm text-[var(--color-primary)] hover:underline">
                     Compare all providers →
                   </Link>
                 </li>
@@ -505,7 +505,7 @@ export default async function IbanCountryPage({ params }: Props) {
           {/* Related countries */}
           {related.length > 0 && (
             <Card>
-              <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
                 Related countries
               </h3>
               <div className="space-y-2">
@@ -517,11 +517,11 @@ export default async function IbanCountryPage({ params }: Props) {
                       href={`/iban/${c.slug}`}
                       className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-lg hover:bg-[var(--color-primary-surface)] transition-colors"
                     >
-                      <span className="flex items-center gap-2 text-[13px] font-medium text-[var(--color-on-surface)]">
+                      <span className="flex items-center gap-2 text-2sm font-medium text-[var(--color-on-surface)]">
                         <CircleFlag code={c.countryCode} size={16} />
                         {cName}
                       </span>
-                      <span className="text-[12px] text-[var(--color-on-surface-variant)]">
+                      <span className="text-xs text-[var(--color-on-surface-variant)]">
                         {c.ibanLength} chars
                       </span>
                     </Link>
@@ -533,7 +533,7 @@ export default async function IbanCountryPage({ params }: Props) {
 
           {/* Quick reference */}
           <Card>
-            <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
               Quick reference
             </h3>
             <div className="divide-y divide-[var(--color-outline)]">
@@ -544,7 +544,7 @@ export default async function IbanCountryPage({ params }: Props) {
                 { label: "SEPA member", value: country.sepa ? "Yes" : "No" },
                 { label: "Example", value: formatIban(country.exampleIban) },
               ].map((row) => (
-                <div key={row.label} className="flex justify-between py-2.5 text-[13px]">
+                <div key={row.label} className="flex justify-between py-2.5 text-2sm">
                   <span className="text-[var(--color-on-surface-variant)]">{row.label}</span>
                   <span className="font-medium text-[var(--color-on-surface)] text-right font-mono">{row.value}</span>
                 </div>
@@ -556,10 +556,10 @@ export default async function IbanCountryPage({ params }: Props) {
 
       {/* CTA */}
       <div className="text-center mt-12 mb-4">
-        <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-3">
+        <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
           Sending money to {name}?
         </h2>
-        <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
           Compare exchange rates and fees to find the cheapest way to transfer.
         </p>
         <PrimaryButton href="/send-money" size="lg">

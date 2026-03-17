@@ -112,7 +112,7 @@ export default async function BusinessHubPage({
         <Container>
           <nav
             aria-label="Breadcrumb"
-            className="text-[13px] text-[var(--color-on-surface-variant)] mb-4"
+            className="text-2sm text-[var(--color-on-surface-variant)] mb-4"
           >
             <Link href="/" className="hover:underline">
               Home
@@ -121,10 +121,10 @@ export default async function BusinessHubPage({
             <span>Business Payments</span>
           </nav>
           <div className="max-w-3xl">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               International Business Payments
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed max-w-2xl">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed max-w-2xl">
               Banks charge $25–$50 per wire plus 2–5% FX markup. Specialist
               providers like Wise Business, OFX, and Revolut cut that by
               80–95%. Compare the best options for your business.
@@ -137,11 +137,11 @@ export default async function BusinessHubPage({
       <section className="py-10">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-[24px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6">
+            <h2 className="text-2xl md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
               Best providers for business international payments
             </h2>
             <div className="overflow-x-auto">
-              <table className="w-full text-[14px] border-collapse">
+              <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr className="border-b-2 border-[var(--color-outline)]">
                     <th className="text-left py-3 px-3 font-medium">
@@ -227,7 +227,7 @@ export default async function BusinessHubPage({
                 </tbody>
               </table>
             </div>
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-3">
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mt-3">
               Rates verified March 2026.{" "}
               <Link
                 href="/send-money"
@@ -243,20 +243,20 @@ export default async function BusinessHubPage({
       {/* ─── Subpage cards ─── */}
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
-          <h2 className="text-[24px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-h3 font-normal text-[var(--color-on-surface)] mb-6 max-w-4xl mx-auto">
             Business payment guides
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {businessPages.map((page) => (
               <Card key={page.slug}>
                 <Link href={`/business/${page.slug}`} className="block p-6">
-                  <h3 className="text-[18px] font-medium text-[var(--color-on-surface)] mb-2">
+                  <h3 className="text-lg font-medium text-[var(--color-on-surface)] mb-2">
                     {page.title}
                   </h3>
-                  <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     {page.intro.slice(0, 160)}...
                   </p>
-                  <span className="inline-block mt-3 text-[14px] text-[var(--color-primary)] font-medium">
+                  <span className="inline-block mt-3 text-sm text-[var(--color-primary)] font-medium">
                     Read guide →
                   </span>
                 </Link>
@@ -270,31 +270,31 @@ export default async function BusinessHubPage({
       <section className="py-10">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-[24px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6">
+            <h2 className="text-2xl md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
               Why businesses switch from bank wires
             </h2>
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-[36px] font-medium text-[var(--color-primary)]">
+                <div className="text-4xl font-medium text-[var(--color-primary)]">
                   80–95%
                 </div>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-sm text-[var(--color-on-surface-variant)] mt-1">
                   Lower costs vs bank wires
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-[36px] font-medium text-[var(--color-primary)]">
+                <div className="text-4xl font-medium text-[var(--color-primary)]">
                   Same day
                 </div>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-sm text-[var(--color-on-surface-variant)] mt-1">
                   Delivery vs 3–5 day bank wires
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-[36px] font-medium text-[var(--color-primary)]">
+                <div className="text-4xl font-medium text-[var(--color-primary)]">
                   0%
                 </div>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-sm text-[var(--color-on-surface-variant)] mt-1">
                   FX markup with Wise Business
                 </p>
               </div>
@@ -307,16 +307,16 @@ export default async function BusinessHubPage({
       <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-[24px] md:text-[28px] font-normal text-[var(--color-on-surface)] mb-6">
+            <h2 className="text-2xl md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
               Frequently asked questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
                 <div key={i}>
-                  <h3 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-2">
+                  <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">
                     {faq.name}
                   </h3>
-                  <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     {faq.acceptedAnswer.text}
                   </p>
                 </div>
@@ -330,10 +330,10 @@ export default async function BusinessHubPage({
       <section className="py-10">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-[20px] font-normal text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-xl font-normal text-[var(--color-on-surface)] mb-4">
               Related guides
             </h2>
-            <ul className="space-y-2 text-[14px]">
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="/guides/business-international-payments-guide"

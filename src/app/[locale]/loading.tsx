@@ -8,7 +8,7 @@ export default async function Loading() {
     <Container className="py-16">
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="w-8 h-8 border-3 border-[var(--color-outline)] border-t-[var(--color-primary)] rounded-full animate-spin" />
-        <p className="text-[14px] text-[var(--color-on-surface-variant)]">{t("text")}</p>
+        <p className="text-sm text-[var(--color-on-surface-variant)]">{t("text")}</p>
       </div>
     </Container>
   );

@@ -44,7 +44,7 @@ export default function NewsletterForm({ placeholder, buttonLabel }: Props) {
 
   if (status === "success") {
     return (
-      <p className="text-[14px] text-[var(--color-success-dark)] font-medium py-3">
+      <p className="text-sm text-[var(--color-success-dark)] font-medium py-3">
         You&apos;re subscribed! We&apos;ll send you the latest guides and rate alerts.
       </p>
     );
@@ -60,17 +60,17 @@ export default function NewsletterForm({ placeholder, buttonLabel }: Props) {
         placeholder={placeholder}
         aria-label={placeholder}
         disabled={status === "loading"}
-        className="flex-1 border border-[var(--color-outline)] rounded-full px-4 py-3 text-[14px] bg-[var(--color-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors disabled:opacity-60"
+        className="flex-1 border border-[var(--color-outline)] rounded-full px-4 py-3 text-sm bg-[var(--color-surface)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors disabled:opacity-60"
       />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-all whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
+        className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-2sm font-medium hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-all whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === "loading" ? "Subscribing..." : buttonLabel}
       </button>
       {status === "error" && (
-        <p className="w-full text-[12px] text-[var(--color-error)] mt-1 text-center sm:text-left">
+        <p className="w-full text-xs text-[var(--color-error)] mt-1 text-center sm:text-left">
           {errorMsg}
         </p>
       )}

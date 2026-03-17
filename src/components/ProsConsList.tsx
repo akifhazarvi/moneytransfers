@@ -22,15 +22,15 @@ export default function ProsConsList({ type, items }: Props) {
 
   return (
     <div className={`rounded-2xl p-5 ${wrapperCls}`}>
-      <h3 className={`text-[15px] font-semibold ${titleColor} mb-4 flex items-center gap-2`}>
-        <span className={`w-6 h-6 ${iconBg} rounded-full flex items-center justify-center text-[11px] font-bold shrink-0`}>
+      <h3 className={`text-md font-semibold ${titleColor} mb-4 flex items-center gap-2`}>
+        <span className={`w-6 h-6 ${iconBg} rounded-full flex items-center justify-center text-2xs font-bold shrink-0`}>
           {isPros ? "✓" : "✕"}
         </span>
         {isPros ? "Pros" : "Cons"}
       </h3>
       <ul className="space-y-2.5">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5 text-[14px] text-[var(--color-on-surface)]">
+          <li key={item} className="flex items-start gap-2.5 text-sm text-[var(--color-on-surface)]">
             <span className={`${iconColor} mt-0.5 shrink-0`}>
               {isPros ? (
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">

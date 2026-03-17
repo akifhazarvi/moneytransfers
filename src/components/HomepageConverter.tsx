@@ -37,11 +37,11 @@ export default function HomepageConverter() {
 
         {/* Amount Row */}
         <div className="px-5 sm:px-6 pt-5 pb-4">
-          <label htmlFor="hp-amount" className="text-[12px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">
+          <label htmlFor="hp-amount" className="text-xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">
             {t("amount")}
           </label>
           <div className="flex items-center gap-2 mt-1">
-            <span className="text-[28px] sm:text-[32px] font-medium text-[var(--color-on-surface)]">
+            <span className="text-h3 sm:text-h2 font-medium text-[var(--color-on-surface)]">
               {fromInfo?.symbol || "$"}
             </span>
             <input
@@ -53,7 +53,7 @@ export default function HomepageConverter() {
                 setConverted(null);
               }}
               min={0}
-              className="text-[28px] sm:text-[32px] font-medium text-[var(--color-on-surface)] bg-transparent border-none focus:outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              className="text-h3 sm:text-h2 font-medium text-[var(--color-on-surface)] bg-transparent border-none focus:outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               placeholder="0"
             />
           </div>
@@ -66,7 +66,7 @@ export default function HomepageConverter() {
           <div className="flex items-center gap-3">
             {/* From */}
             <div className="flex-1">
-              <span className="text-[12px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("from")}</span>
+              <span className="text-xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("from")}</span>
               <div className="mt-1">
                 <CurrencyPicker
                   value={from}
@@ -89,7 +89,7 @@ export default function HomepageConverter() {
 
             {/* To */}
             <div className="flex-1">
-              <span className="text-[12px] text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("to")}</span>
+              <span className="text-xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("to")}</span>
               <div className="mt-1">
                 <CurrencyPicker
                   value={to}
@@ -103,12 +103,12 @@ export default function HomepageConverter() {
 
         {/* Rate info */}
         <div className="px-5 sm:px-6 pb-3">
-          <div className="flex items-center gap-2 text-[13px] text-[var(--color-on-surface-variant)]">
+          <div className="flex items-center gap-2 text-2sm text-[var(--color-on-surface-variant)]">
             <CircleFlag code={from} size={16} />
             <span>1 {from} = {rate.toFixed(4)} {to}</span>
             <CircleFlag code={to} size={16} />
             {isLive && (
-              <span className="inline-flex items-center gap-1 ml-auto text-[11px] text-[var(--color-success)]">
+              <span className="inline-flex items-center gap-1 ml-auto text-2xs text-[var(--color-success)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
                 {t("live")}
               </span>
@@ -121,16 +121,16 @@ export default function HomepageConverter() {
           <>
             <div className="h-px bg-[var(--color-outline)]" />
             <div className="px-5 sm:px-6 py-4 bg-[var(--color-surface-dim)]">
-              <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-1">
+              <p className="text-2sm text-[var(--color-on-surface-variant)] mb-1">
                 {fromInfo?.symbol || ""}{amount.toLocaleString()} {from} =
               </p>
-              <p className="text-[28px] sm:text-[32px] font-semibold text-[var(--color-on-surface)]">
+              <p className="text-h3 sm:text-h2 font-semibold text-[var(--color-on-surface)]">
                 {toInfo?.symbol || ""}{converted.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {to}
               </p>
               <div className="flex gap-3 mt-3">
                 <Link
                   href={`/send-money?from=${from}&to=${to}&amount=${amount}`}
-                  className="text-[13px] font-medium text-[var(--color-primary)] hover:underline"
+                  className="text-2sm font-medium text-[var(--color-primary)] hover:underline"
                 >
                   {t("compareTransferProviders")} &rarr;
                 </Link>
@@ -143,13 +143,13 @@ export default function HomepageConverter() {
         <div className="px-5 sm:px-6 py-4 flex items-center justify-between gap-4">
           <Link
             href="/currency-converter"
-            className="text-[13px] text-[var(--color-primary)] hover:underline"
+            className="text-2sm text-[var(--color-primary)] hover:underline"
           >
             {t("advancedConverter")}
           </Link>
           <button
             onClick={handleConvert}
-            className="px-8 py-3 bg-[var(--color-primary)] text-white text-[15px] font-medium rounded-full hover:bg-[var(--color-primary-dark,#1557b0)] transition-colors shadow-[0_1px_3px_rgba(26,115,232,0.3)]"
+            className="px-8 py-3 bg-[var(--color-primary)] text-white text-md font-medium rounded-full hover:bg-[var(--color-primary-dark,#1557b0)] transition-colors shadow-[0_1px_3px_rgba(26,115,232,0.3)]"
           >
             {t("convert")}
           </button>

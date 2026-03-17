@@ -71,7 +71,7 @@ function CategoryBadge({ category }: { category: string }) {
     Regulatory: "text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)]",
   };
   return (
-    <span className={`text-[11px] font-medium px-2.5 py-1 rounded-full ${colorMap[category] || colorMap.Announcement}`}>
+    <span className={`text-2xs font-medium px-2.5 py-1 rounded-full ${colorMap[category] || colorMap.Announcement}`}>
       {category}
     </span>
   );
@@ -122,7 +122,7 @@ export default async function NewsArticlePage({ params }: Props) {
 
       <Container className="py-8">
         {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+        <nav className="flex items-center gap-2 text-2sm text-[var(--color-on-surface-variant)] mb-6">
           <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
           <span>/</span>
           <Link href="/news" className="hover:text-[var(--color-primary)]">News</Link>
@@ -149,21 +149,21 @@ export default async function NewsArticlePage({ params }: Props) {
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <CategoryBadge category={item.category} />
-                <time className="text-[13px] text-[var(--color-on-surface-variant)]" dateTime={item.publishedAt}>
+                <time className="text-2sm text-[var(--color-on-surface-variant)]" dateTime={item.publishedAt}>
                   {formatLocalDate(item.publishedAt)}
                 </time>
               </div>
-              <h1 className="text-[28px] md:text-[36px] font-normal text-[var(--color-on-surface)] leading-tight mb-4">
+              <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] leading-tight mb-4">
                 {item.title}
               </h1>
-              <p className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">
                 {item.excerpt}
               </p>
             </div>
 
             {/* Related providers */}
             {item.providerSlugs && item.providerSlugs.length > 0 && (
-              <div className="flex items-center gap-2 mb-6 text-[12px] text-[var(--color-on-surface-variant)]">
+              <div className="flex items-center gap-2 mb-6 text-xs text-[var(--color-on-surface-variant)]">
                 <span className="font-medium">Related:</span>
                 {item.providerSlugs.map((slug) => (
                   <Link
@@ -179,13 +179,13 @@ export default async function NewsArticlePage({ params }: Props) {
 
             {/* Content */}
             <div
-              className="prose-custom text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
+              className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.content) }}
             />
 
             {/* Source */}
             {item.source && (
-              <div className="mt-6 pt-4 border-t border-[var(--color-outline)] text-[13px] text-[var(--color-on-surface-variant)]">
+              <div className="mt-6 pt-4 border-t border-[var(--color-outline)] text-2sm text-[var(--color-on-surface-variant)]">
                 Source:{" "}
                 {item.sourceUrl ? (
                   <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">
@@ -204,7 +204,7 @@ export default async function NewsArticlePage({ params }: Props) {
               {/* Latest news */}
               {related.length > 0 && (
                 <div>
-                  <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-4">Latest News</h3>
+                  <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-4">Latest News</h3>
                   <div className="space-y-3">
                     {related.map((n) => (
                       <Link key={n.slug} href={`/news/${n.slug}`} className="block group">
@@ -221,10 +221,10 @@ export default async function NewsArticlePage({ params }: Props) {
                           )}
                           <div className="p-4">
                             <CategoryBadge category={n.category} />
-                            <h4 className="text-[14px] font-medium text-[var(--color-on-surface)] mt-2 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
+                            <h4 className="text-sm font-medium text-[var(--color-on-surface)] mt-2 leading-snug group-hover:text-[var(--color-primary)] transition-colors">
                               {n.title}
                             </h4>
-                            <time className="text-[11px] text-[var(--color-on-surface-variant)] mt-1 block" dateTime={n.publishedAt}>
+                            <time className="text-2xs text-[var(--color-on-surface-variant)] mt-1 block" dateTime={n.publishedAt}>
                               {formatLocalDate(n.publishedAt, { month: "short", day: "numeric" })}
                             </time>
                           </div>
@@ -237,13 +237,13 @@ export default async function NewsArticlePage({ params }: Props) {
 
               {/* CTA */}
               <div className="bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-xl p-5 text-white">
-                <h3 className="text-[15px] font-medium mb-2">Compare Providers Now</h3>
-                <p className="text-[13px] text-white/80 mb-4">
+                <h3 className="text-md font-medium mb-2">Compare Providers Now</h3>
+                <p className="text-2sm text-white/80 mb-4">
                   Find the cheapest way to send money with our real-time comparison tool.
                 </p>
                 <Link
                   href="/send-money"
-                  className="block text-center bg-[var(--color-surface)] text-[var(--color-primary)] px-4 py-2.5 rounded-full text-[13px] font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
+                  className="block text-center bg-[var(--color-surface)] text-[var(--color-primary)] px-4 py-2.5 rounded-full text-2sm font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
                 >
                   Compare Rates
                 </Link>
@@ -251,14 +251,14 @@ export default async function NewsArticlePage({ params }: Props) {
 
               {/* Guides link */}
               <div>
-                <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-4">Explore</h3>
+                <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-4">Explore</h3>
                 <ul className="space-y-2">
-                  <li><Link href="/guides" className="text-[13px] text-[var(--color-primary)] hover:underline">Guides & tutorials</Link></li>
-                  <li><Link href="/companies" className="text-[13px] text-[var(--color-primary)] hover:underline">Provider reviews</Link></li>
-                  <li><Link href="/compare" className="text-[13px] text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
-                  <li><Link href="/send-money/uk-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">UK to India transfers</Link></li>
-                  <li><Link href="/send-money/usa-to-india" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
-                  <li><Link href="/send-money/usa-to-mexico" className="text-[13px] text-[var(--color-primary)] hover:underline">USA to Mexico transfers</Link></li>
+                  <li><Link href="/guides" className="text-2sm text-[var(--color-primary)] hover:underline">Guides & tutorials</Link></li>
+                  <li><Link href="/companies" className="text-2sm text-[var(--color-primary)] hover:underline">Provider reviews</Link></li>
+                  <li><Link href="/compare" className="text-2sm text-[var(--color-primary)] hover:underline">Head-to-head comparisons</Link></li>
+                  <li><Link href="/send-money/uk-to-india" className="text-2sm text-[var(--color-primary)] hover:underline">UK to India transfers</Link></li>
+                  <li><Link href="/send-money/usa-to-india" className="text-2sm text-[var(--color-primary)] hover:underline">USA to India transfers</Link></li>
+                  <li><Link href="/send-money/usa-to-mexico" className="text-2sm text-[var(--color-primary)] hover:underline">USA to Mexico transfers</Link></li>
                 </ul>
               </div>
             </div>

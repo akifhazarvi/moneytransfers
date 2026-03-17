@@ -22,9 +22,9 @@ interface LinkProps extends BaseProps {
 type Props = ButtonProps | LinkProps;
 
 const sizeMap = {
-  sm: "h-9 px-5 text-[13px]",
-  md: "h-10 px-6 text-[14px]",
-  lg: "h-12 px-8 text-[15px]",
+  sm: "h-9 px-5 text-2sm",
+  md: "h-10 px-6 text-sm",
+  lg: "h-12 px-8 text-md",
 };
 
 const variantMap = {

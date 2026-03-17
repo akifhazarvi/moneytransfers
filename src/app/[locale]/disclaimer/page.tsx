@@ -29,10 +29,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("title")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("lastUpdated")}
             </p>
           </div>
@@ -44,10 +44,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
           <div className="max-w-3xl mx-auto space-y-10">
             {/* General */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("generalTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   The information provided on{" "}
                   <Link href="/" className="text-[var(--color-primary)] hover:underline">
@@ -62,10 +62,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
 
             {/* Not Financial Advice */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("notFinancialAdviceTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Nothing on this website should be construed as financial advice,
                   investment advice, or a recommendation to use any particular money
@@ -81,10 +81,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
 
             {/* Data Accuracy */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("dataAccuracyTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   While we strive to keep exchange rates, fees, and provider information
                   as accurate and current as possible, the data on our website is
@@ -114,10 +114,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
                       key={item.title}
                       className="bg-[var(--color-surface-dim)] rounded-xl p-5"
                     >
-                      <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                      <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                      <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -128,10 +128,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
 
             {/* Affiliate Disclosure */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("affiliateDisclosureTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare participates in affiliate programmes with some of the
                   providers listed on our website. This means we may earn a commission
@@ -154,10 +154,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
 
             {/* Provider Responsibility */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("providerResponsibilityTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   We list only providers that are regulated by at least one major
                   financial authority. However, we do not endorse, guarantee, or take
@@ -175,10 +175,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
 
             {/* Limitation of Liability */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("limitationOfLiabilityTitle")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   To the maximum extent permitted by applicable law, SendMoneyCompare
                   shall not be held liable for any loss or damage (whether direct,
@@ -195,10 +195,10 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
 
             {/* Contact */}
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("questionsTitle")}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 If you have questions about this disclaimer or spot any inaccurate
                 information on our website, please contact us at{" "}
                 <a

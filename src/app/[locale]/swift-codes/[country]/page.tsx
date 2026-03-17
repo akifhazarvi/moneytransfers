@@ -80,7 +80,7 @@ export default async function SwiftCountryPage({ params }: Props) {
     <>
     <Container className="py-8">
       {/* Breadcrumb */}
-      <nav className="text-[13px] text-[var(--color-on-surface-variant)] mb-6">
+      <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">{t("home")}</Link>
         {" / "}
         <Link href="/swift-codes" className="hover:text-[var(--color-primary)]">{t("swiftCodesLabel")}</Link>
@@ -96,15 +96,15 @@ export default async function SwiftCountryPage({ params }: Props) {
             <div className="flex items-center gap-4 mb-4">
               <CircleFlag code={country.countryCode} size={40} />
               <div>
-                <h1 className="text-[24px] md:text-[30px] font-normal text-[var(--color-on-surface)]">
+                <h1 className="text-2xl md:text-3xl font-normal text-[var(--color-on-surface)]">
                   {t("swiftCodesIn", { country: country.name })}
                 </h1>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-1">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
                   {country.countryCode} · {country.currencyCode || "—"}
                 </p>
               </div>
             </div>
-            <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+            <p className="text-sm text-[var(--color-on-surface-variant)]">
               {t("introText", { country: country.name })}
             </p>
           </Card>
@@ -120,20 +120,20 @@ export default async function SwiftCountryPage({ params }: Props) {
           {/* Banks with SWIFT codes */}
           {country.branches.length > 0 ? (
             <Card>
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {t("banksAndSwiftCodes", { country: country.name })}
               </h2>
               <div className="space-y-6">
                 {Array.from(bankBranches.entries()).map(([bankKey, branches]) => (
                   <div key={bankKey}>
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-3 flex items-center gap-2">
-                      <div className="w-7 h-7 bg-[var(--color-surface-container)] rounded-lg flex items-center justify-center text-[11px] font-medium text-[var(--color-primary)] shrink-0">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3 flex items-center gap-2">
+                      <div className="w-7 h-7 bg-[var(--color-surface-container)] rounded-lg flex items-center justify-center text-2xs font-medium text-[var(--color-primary)] shrink-0">
                         {branches[0]?.bankName.charAt(0) || "?"}
                       </div>
                       {branches[0]?.bankName}
                     </h3>
                     <div className="overflow-x-auto">
-                      <table className="w-full text-[13px]">
+                      <table className="w-full text-2sm">
                         <thead>
                           <tr className="border-b border-[var(--color-outline)]">
                             <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)]">{t("swiftBic")}</th>
@@ -146,7 +146,7 @@ export default async function SwiftCountryPage({ params }: Props) {
                           {branches.map((branch, i) => (
                             <tr key={i} className="border-b border-[var(--color-outline)] last:border-0">
                               <td className="py-2.5 px-3">
-                                <code className="text-[13px] font-mono text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-0.5 rounded">
+                                <code className="text-2sm font-mono text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-0.5 rounded">
                                   {branch.bic11 || branch.bic8}
                                 </code>
                               </td>
@@ -171,7 +171,7 @@ export default async function SwiftCountryPage({ params }: Props) {
           ) : (
             /* Bank list without branch data */
             <Card>
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {t("banksIn", { country: country.name })}
               </h2>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -180,10 +180,10 @@ export default async function SwiftCountryPage({ params }: Props) {
                     key={bank.slug}
                     className="flex items-center gap-3 p-3 bg-[var(--color-surface-dim)] rounded-lg"
                   >
-                    <div className="w-8 h-8 bg-[var(--color-surface)] rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-[12px] font-medium text-[var(--color-primary)] shrink-0">
+                    <div className="w-8 h-8 bg-[var(--color-surface)] rounded-lg border border-[var(--color-outline)] flex items-center justify-center text-xs font-medium text-[var(--color-primary)] shrink-0">
                       {bank.name.charAt(0)}
                     </div>
-                    <span className="text-[14px] text-[var(--color-on-surface)] truncate">
+                    <span className="text-sm text-[var(--color-on-surface)] truncate">
                       {bank.name}
                     </span>
                   </div>
@@ -194,17 +194,17 @@ export default async function SwiftCountryPage({ params }: Props) {
 
           {/* FAQ */}
           <Card>
-            <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
               {t("faq")}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {swiftFaqsList ? (
                 swiftFaqsList.map((faq, i) => (
                   <div key={i} className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       {faq.q}
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       {faq.a}
                     </p>
                   </div>
@@ -212,26 +212,26 @@ export default async function SwiftCountryPage({ params }: Props) {
               ) : (
                 <>
                   <div className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       {t("faqWhatIs", { country: country.name })}
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       {t("faqWhatIsAnswer", { country: country.name, countryCode: country.countryCode })}
                     </p>
                   </div>
                   <div className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       {t("faqHowToFind", { country: country.name })}
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       {t("faqHowToFindAnswer", { country: country.name, countryCode: country.countryCode })}
                     </p>
                   </div>
                   <div className="py-4">
-                    <h3 className="text-[14px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-2">
                       {t("faqDoINeed", { country: country.name })}
                     </h3>
-                    <p className="text-[14px] text-[var(--color-on-surface-variant)]">
+                    <p className="text-sm text-[var(--color-on-surface-variant)]">
                       {t("faqDoINeedAnswer", { country: country.name })}
                     </p>
                   </div>
@@ -242,17 +242,17 @@ export default async function SwiftCountryPage({ params }: Props) {
 
           {editorialNote && (
             <Card>
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {editorialNote.title}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
                 {editorialNote.intro}
               </p>
               <ul className="space-y-3">
                 {editorialNote.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-3">
                     <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                    <span className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <span className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       {bullet}
                     </span>
                   </li>
@@ -265,7 +265,7 @@ export default async function SwiftCountryPage({ params }: Props) {
         {/* Sidebar */}
         <div className="space-y-6">
           <Card className="sticky top-20">
-            <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
               {t("sendMoneyTo", { country: country.name })}
             </h3>
             <ComparisonWidget compact />
@@ -273,7 +273,7 @@ export default async function SwiftCountryPage({ params }: Props) {
 
           {/* Related countries */}
           <Card>
-            <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-4">
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
               {t("otherCountries")}
             </h3>
             <div className="space-y-2">
@@ -283,11 +283,11 @@ export default async function SwiftCountryPage({ params }: Props) {
                   href={`/swift-codes/${c.slug}`}
                   className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-lg hover:bg-[var(--color-primary-surface)] transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-[13px] font-medium text-[var(--color-on-surface)]">
+                  <span className="flex items-center gap-2 text-2sm font-medium text-[var(--color-on-surface)]">
                     <CircleFlag code={c.countryCode} size={16} />
                     {c.name}
                   </span>
-                  <span className="text-[12px] text-[var(--color-on-surface-variant)]">
+                  <span className="text-xs text-[var(--color-on-surface-variant)]">
                     {c.bankCount} {t("banks").toLowerCase()}
                   </span>
                 </Link>
@@ -297,15 +297,15 @@ export default async function SwiftCountryPage({ params }: Props) {
 
           {/* IBAN cross-link */}
           <Card>
-            <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
               {t("needIban")}
             </h3>
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] mb-3">
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
               {t("ibanDescription", { country: country.name })}
             </p>
             <Link
               href="/iban"
-              className="text-[13px] text-[var(--color-primary)] hover:underline"
+              className="text-2sm text-[var(--color-primary)] hover:underline"
             >
               {t("findIbanFormats")} &rarr;
             </Link>
@@ -315,10 +315,10 @@ export default async function SwiftCountryPage({ params }: Props) {
 
       {/* CTA */}
       <div className="text-center mt-12 mb-4">
-        <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-3">
+        <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
           {t("sendingMoneyTo", { country: country.name })}
         </h2>
-        <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-6">
+        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
           {t("compareDescription")}
         </p>
         <PrimaryButton href="/send-money" size="lg">

@@ -43,10 +43,10 @@ export default function CookieConsent() {
       <div className="max-w-3xl mx-auto bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl shadow-lg p-5 md:p-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="flex-1">
-            <p className="text-[14px] font-medium text-[var(--color-on-surface)] mb-1">
+            <p className="text-sm font-medium text-[var(--color-on-surface)] mb-1">
               {t("title")}
             </p>
-            <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+            <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
               {t("description")}{" "}
               <Link
                 href="/cookies"
@@ -59,13 +59,13 @@ export default function CookieConsent() {
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={handleDecline}
-              className="px-4 py-2 text-[13px] font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] border border-[var(--color-outline)] rounded-full transition-colors cursor-pointer"
+              className="px-4 py-2 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] border border-[var(--color-outline)] rounded-full transition-colors cursor-pointer"
             >
               {t("decline")}
             </button>
             <button
               onClick={handleAccept}
-              className="px-4 py-2 text-[13px] font-medium text-white bg-[var(--color-primary)] hover:bg-[#1557b0] rounded-full transition-colors cursor-pointer"
+              className="px-4 py-2 text-2sm font-medium text-white bg-[var(--color-primary)] hover:bg-[#1557b0] rounded-full transition-colors cursor-pointer"
             >
               {t("accept")}
             </button>

@@ -67,10 +67,10 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               Corrections & Updates
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               We are committed to accuracy and transparency. This page documents corrections, data updates,
               and significant editorial changes made to our content. If you spot an error, please email{" "}
               <a href="mailto:corrections@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
@@ -88,12 +88,12 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
               {corrections.map((item, i) => (
                 <div key={i} className="border border-[var(--color-outline)] rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <time className="text-[13px] font-medium text-[var(--color-on-surface)]">{item.date}</time>
-                    <span className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${typeColors[item.type] || ""}`}>
+                    <time className="text-2sm font-medium text-[var(--color-on-surface)]">{item.date}</time>
+                    <span className={`text-2xs font-medium px-2 py-0.5 rounded-full ${typeColors[item.type] || ""}`}>
                       {item.type}
                     </span>
                   </div>
-                  <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     {item.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
@@ -101,7 +101,7 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
                       <Link
                         key={page}
                         href={page.includes("*") ? "#" : page}
-                        className={`text-[12px] text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] px-2.5 py-1 rounded-full ${page.includes("*") ? "cursor-default" : "hover:text-[var(--color-primary)]"}`}
+                        className={`text-xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] px-2.5 py-1 rounded-full ${page.includes("*") ? "cursor-default" : "hover:text-[var(--color-primary)]"}`}
                       >
                         {page}
                       </Link>
@@ -112,8 +112,8 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
             </div>
 
             <div className="mt-10 p-5 bg-[var(--color-surface-dim)] rounded-xl">
-              <h2 className="text-[16px] font-medium text-[var(--color-on-surface)] mb-2">Our corrections policy</h2>
-              <div className="space-y-2 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-2">Our corrections policy</h2>
+              <div className="space-y-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   When we identify an error in our content — whether factual, numerical, or contextual — we correct
                   it promptly and document the change here. We do not silently edit published content.

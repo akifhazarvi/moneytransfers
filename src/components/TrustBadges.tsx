@@ -39,7 +39,7 @@ export default function TrustBadges() {
       {badges.map((badge) => (
         <div
           key={badge.label}
-          className="flex items-center gap-1.5 text-[12px] text-[var(--color-on-surface-variant)]"
+          className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-variant)]"
         >
           <span className="text-[var(--color-on-surface-variant)] opacity-60">{badge.icon}</span>
           {badge.label}

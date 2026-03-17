@@ -29,10 +29,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-[32px] md:text-[44px] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
+            <h1 className="text-h2 md:text-h1 font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {t("heading")}
             </h1>
-            <p className="text-[15px] md:text-[16px] text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
+            <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               {t("subheading")}
             </p>
           </div>
@@ -44,10 +44,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("ourStoryHeading")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare was born out of a personal frustration. Sending money to
                   family overseas, we discovered that banks were quietly adding 3–5% markups
@@ -71,7 +71,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("whatWeBelieveHeading")}
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -97,10 +97,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     key={item.title}
                     className="bg-[var(--color-surface-dim)] rounded-xl p-5"
                   >
-                    <h3 className="text-[15px] font-medium text-[var(--color-on-surface)] mb-2">
+                    <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -109,10 +109,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("howWeMakeMoneyHeading")}
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare is free for consumers. We earn revenue when you click
                   through to a provider and complete a transfer — this is called an
@@ -136,10 +136,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Our team
               </h2>
-              <div className="space-y-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare is built and maintained by a small team with backgrounds
                   in fintech, product management, and data engineering. Our editorial content
@@ -149,13 +149,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="grid sm:grid-cols-2 gap-4 mt-4">
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-[16px] font-medium text-[var(--color-primary)]">AH</div>
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AH</div>
                     <div>
-                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Akif Hazarvi</p>
-                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">Founder &amp; Editor</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Akif Hazarvi</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Founder &amp; Editor</p>
                     </div>
                   </div>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     Product manager with 8+ years in fintech and international payments.
                     Previously worked on cross-border payment products handling millions in
                     monthly volume. Oversees data methodology, provider reviews, and
@@ -164,13 +164,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 </div>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-[16px] font-medium text-[var(--color-primary)]">AI</div>
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AI</div>
                     <div>
-                      <p className="text-[14px] font-medium text-[var(--color-on-surface)]">Awais Imran</p>
-                      <p className="text-[12px] text-[var(--color-on-surface-variant)]">Co-founder &amp; Technical Lead</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Awais Imran</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Co-founder &amp; Technical Lead</p>
                     </div>
                   </div>
-                  <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                     Software engineer specialising in data pipelines and automation.
                     Designed and maintains the scraping infrastructure that collects live
                     quotes from 60+ providers every 6 hours. Ensures data accuracy and
@@ -181,17 +181,17 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Company details
               </h2>
-              <div className="space-y-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <div className="space-y-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   SendMoneyCompare is operated from London, United Kingdom. We are an
                   independent comparison platform — we are not a money transfer service
                   and do not hold or transmit funds.
                 </p>
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mt-3">
-                  <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-[13px]">
+                  <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-2sm">
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Location</dt>
                       <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">London, United Kingdom</dd>
@@ -214,7 +214,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     </div>
                   </dl>
                 </div>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-3">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] mt-3">
                   SendMoneyCompare is not a money transfer service and does not hold, transmit, or process funds.
                   We are an information service that compares publicly available data from regulated financial providers.
                   All providers listed on our platform are licensed by at least one major financial authority (FCA, FinCEN, ASIC, or equivalent).
@@ -223,10 +223,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
 
             <div>
-              <h2 className="text-[22px] font-normal text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 {t("getInTouchHeading")}
               </h2>
-              <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 Have a question, suggestion, or correction? We&apos;d love to hear from
                 you. Visit our{" "}
                 <Link

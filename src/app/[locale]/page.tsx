@@ -100,18 +100,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-16 pb-14">
         <Container>
           <div className="text-center mb-10">
-            <h1 className="text-[30px] sm:text-[38px] md:text-[48px] font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px] max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px] max-w-3xl mx-auto">
               {tHero("title")}{" "}
               <span className="text-[var(--color-primary)]">{tHero("titleHighlight")}</span>
             </h1>
-            <p className="text-[16px] md:text-[18px] text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
               {tHero("subtitle")}
             </p>
           </div>
           <div className="max-w-[860px] mx-auto">
             <HeroTabs />
           </div>
-          <p className="text-center text-[12px] text-[var(--color-on-surface-variant)] mt-5 max-w-md mx-auto">
+          <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-5 max-w-md mx-auto">
             {tHero("disclaimer")}
           </p>
         </Container>
@@ -126,10 +126,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
-              <h2 className="text-[12px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+              <h2 className="text-xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 {tLive("title")}
               </h2>
-              <Link href="/exchange-rates" className="text-[12px] text-[var(--color-primary)] hover:underline ml-auto">
+              <Link href="/exchange-rates" className="text-xs text-[var(--color-primary)] hover:underline ml-auto">
                 {tLive("seeAll")} &rarr;
               </Link>
             </div>
@@ -140,10 +140,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   href={`/send-money/${r.corridor}`}
                   className="flex flex-col items-center px-3 py-3 min-h-[48px] rounded-xl bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] transition-colors group"
                 >
-                  <span className="text-[12px] text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
+                  <span className="text-xs text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
                     {r.label}
                   </span>
-                  <span className="text-[15px] font-semibold text-[var(--color-on-surface)] tabular-nums mt-0.5">
+                  <span className="text-md font-semibold text-[var(--color-on-surface)] tabular-nums mt-0.5">
                     {r.rate >= 1000 ? r.rate.toFixed(2) : r.rate >= 100 ? r.rate.toFixed(3) : r.rate.toFixed(4)}
                   </span>
                 </Link>
@@ -164,7 +164,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
                   </svg>
                 </div>
-                <p className="text-[14px] font-medium text-[var(--color-on-surface)] leading-snug">{item.text}</p>
+                <p className="text-sm font-medium text-[var(--color-on-surface)] leading-snug">{item.text}</p>
               </div>
             ))}
           </div>
@@ -175,21 +175,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="text-center mb-10">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tHow("title")}
             </h2>
-            <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {tHow("subtitle")}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {steps.map((item) => (
               <div key={item.step} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-7 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white text-[15px] font-bold flex items-center justify-center mb-5">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white text-md font-bold flex items-center justify-center mb-5">
                   {item.step}
                 </div>
-                <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-2">{item.title}</h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">{item.desc}</p>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{item.title}</h3>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -200,10 +200,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-14">
         <Container>
           <div className="text-center mb-10">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tBest("title")}
             </h2>
-            <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {tBest("subtitle")}
             </p>
           </div>
@@ -221,12 +221,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     />
                   </div>
                   <div>
-                    <h3 className="text-[15px] font-semibold text-[var(--color-on-surface)]">{provider.name}</h3>
+                    <h3 className="text-md font-semibold text-[var(--color-on-surface)]">{provider.name}</h3>
                     <RatingBadge rating={provider.rating} label={provider.ratingLabel} />
                   </div>
                 </div>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] line-clamp-2 mb-3">{provider.description}</p>
-                <div className="grid grid-cols-2 gap-2 text-[12px]">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-2 mb-3">{provider.description}</p>
+                <div className="grid grid-cols-2 gap-2 text-xs">
                   <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
                     <span className="text-[var(--color-on-surface-variant)]">{tBest("countries")} </span>
                     <span className="font-semibold text-[var(--color-on-surface)]">{provider.supportedCountries}+</span>
@@ -240,7 +240,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/companies" className="text-[14px] font-medium text-[var(--color-primary)] hover:underline">
+            <Link href="/companies" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
               {tBest("seeAll")} &rarr;
             </Link>
           </div>
@@ -251,10 +251,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-14 bg-[var(--color-surface)]">
         <Container>
           <div className="text-center mb-10">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               Best Money Transfer Service by Need
             </h2>
-            <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               No single provider wins every category. Here&apos;s who leads for each use case.
             </p>
           </div>
@@ -273,15 +273,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 className="group block p-5 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:shadow-[var(--shadow-md)] transition-all"
               >
                 <span
-                  className="inline-block text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3"
+                  className="inline-block text-2xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3"
                   style={{ background: `color-mix(in srgb, ${item.color} 12%, transparent)`, color: item.color }}
                 >
                   {item.badge}
                 </span>
-                <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-1.5 group-hover:text-[var(--color-primary)]">
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-1.5 group-hover:text-[var(--color-primary)]">
                   {item.provider}
                 </h3>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
                   {item.reason}
                 </p>
               </Link>
@@ -294,10 +294,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="text-center mb-8">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tExplore("destinationsTitle")}
             </h2>
-            <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {tExplore("destinationsSubtitle")}
             </p>
           </div>
@@ -350,7 +350,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               ]},
             ].map((group) => (
               <div key={group.region}>
-                <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
+                <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
                   {group.region}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -358,7 +358,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <Link
                       key={dest.slug}
                       href={`/send-money/send-money-to-${dest.slug}`}
-                      className="flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-[13px] text-[var(--color-on-surface-variant)] transition-colors"
+                      className="flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-2sm text-[var(--color-on-surface-variant)] transition-colors"
                     >
                       <span>{dest.flag}</span>
                       <span>{dest.name}</span>
@@ -369,7 +369,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/send-money" className="text-[14px] font-medium text-[var(--color-primary)] hover:underline">
+            <Link href="/send-money" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
               {tExplore("seeAllDestinations")} &rarr;
             </Link>
           </div>
@@ -380,13 +380,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="text-center mb-2">
-            <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-[12px] font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
+            <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
               {tExample("badge")}
             </div>
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tExample("title")}
             </h2>
-            <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 mb-6 max-w-lg mx-auto">
+            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 mb-6 max-w-lg mx-auto">
               {tExample("subtitle")}
             </p>
           </div>
@@ -403,13 +403,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)] text-center mb-10">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] text-center mb-10">
               {tFaq("title")}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {faqs.map((faq) => (
                 <details key={faq.q} className="group py-5">
-                  <summary className="flex items-center justify-between cursor-pointer list-none text-[15px] font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[48px]">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[48px]">
                     {faq.q}
                     <svg
                       className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
@@ -420,7 +420,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <p className="mt-3 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                  <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
                     {faq.a}
                   </p>
                 </details>
@@ -446,10 +446,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Container>
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--color-on-surface)]">
+              <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
                 {tWhy("title")}
               </h2>
-              <p className="text-[15px] text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+              <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
                 {tWhy("subtitle")}
               </p>
             </div>
@@ -460,8 +460,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
-                <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("independentTitle")}</h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("independentDesc")}</p>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("independentTitle")}</h3>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("independentDesc")}</p>
               </div>
               <div className="bg-[var(--color-surface-dim)] rounded-2xl p-6 hover:shadow-[var(--shadow-md)] transition-shadow">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center mb-4">
@@ -469,8 +469,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                 </div>
-                <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("realDataTitle")}</h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("realDataDesc")}</p>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("realDataTitle")}</h3>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("realDataDesc")}</p>
               </div>
               <div className="bg-[var(--color-surface-dim)] rounded-2xl p-6 hover:shadow-[var(--shadow-md)] transition-shadow">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center mb-4">
@@ -478,8 +478,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
-                <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("regulatedTitle")}</h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("regulatedDesc")}</p>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("regulatedTitle")}</h3>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("regulatedDesc")}</p>
               </div>
               <div className="bg-[var(--color-surface-dim)] rounded-2xl p-6 hover:shadow-[var(--shadow-md)] transition-shadow">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center mb-4">
@@ -487,8 +487,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                   </svg>
                 </div>
-                <h3 className="text-[16px] font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("transparentTitle")}</h3>
-                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("transparentDesc")}</p>
+                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("transparentTitle")}</h3>
+                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("transparentDesc")}</p>
               </div>
             </div>
           </div>
@@ -500,53 +500,53 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Container>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div>
-              <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("popularCorridors")}</h3>
+              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("popularCorridors")}</h3>
               <ul className="space-y-2">
-                <li><Link href="/send-money/usa-to-india" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("usaToIndia")}</Link></li>
-                <li><Link href="/send-money/usa-to-pakistan" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("usaToPakistan")}</Link></li>
-                <li><Link href="/send-money/uk-to-europe" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("ukToEurope")}</Link></li>
-                <li><Link href="/send-money/usa-to-philippines" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("usaToPhilippines")}</Link></li>
-                <li><Link href="/send-money/usa-to-mexico" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("usaToMexico")}</Link></li>
+                <li><Link href="/send-money/usa-to-india" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToIndia")}</Link></li>
+                <li><Link href="/send-money/usa-to-pakistan" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToPakistan")}</Link></li>
+                <li><Link href="/send-money/uk-to-europe" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("ukToEurope")}</Link></li>
+                <li><Link href="/send-money/usa-to-philippines" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToPhilippines")}</Link></li>
+                <li><Link href="/send-money/usa-to-mexico" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToMexico")}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("comparisons")}</h3>
+              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("comparisons")}</h3>
               <ul className="space-y-2">
-                <li><Link href="/compare/wise-vs-remitly" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("wiseVsRemitly")}</Link></li>
-                <li><Link href="/compare/wise-vs-western-union" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("wiseVsWu")}</Link></li>
-                <li><Link href="/compare/remitly-vs-western-union" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("remitlyVsWu")}</Link></li>
-                <li><Link href="/compare" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("allComparisons")} &rarr;</Link></li>
+                <li><Link href="/compare/wise-vs-remitly" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("wiseVsRemitly")}</Link></li>
+                <li><Link href="/compare/wise-vs-western-union" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("wiseVsWu")}</Link></li>
+                <li><Link href="/compare/remitly-vs-western-union" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("remitlyVsWu")}</Link></li>
+                <li><Link href="/compare" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("allComparisons")} &rarr;</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("guides")}</h3>
+              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("guides")}</h3>
               <ul className="space-y-2">
-                <li><Link href="/guides/how-to-send-money-abroad" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("howToSend")}</Link></li>
-                <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("cheapestWay")}</Link></li>
-                <li><Link href="/guides/exchange-rate-markup-explained" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("exchangeRates")}</Link></li>
-                <li><Link href="/guides" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("allGuides")} &rarr;</Link></li>
+                <li><Link href="/guides/how-to-send-money-abroad" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("howToSend")}</Link></li>
+                <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("cheapestWay")}</Link></li>
+                <li><Link href="/guides/exchange-rate-markup-explained" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("exchangeRates")}</Link></li>
+                <li><Link href="/guides" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("allGuides")} &rarr;</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-[13px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("toolsResearch")}</h3>
+              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("toolsResearch")}</h3>
               <ul className="space-y-2">
-                <li><Link href="/send-money" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("rateCalculator")}</Link></li>
-                <li><Link href="/currency-converter" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("currencyConverter")}</Link></li>
-                <li><Link href="/exchange-rates" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("liveExchangeRates")}</Link></li>
-                <li><Link href="/remittance-cost-index" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("remittanceCostIndex")}</Link></li>
-                <li><Link href="/iban" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("ibanLookup")}</Link></li>
-                <li><Link href="/swift-codes" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("swiftCodes")}</Link></li>
+                <li><Link href="/send-money" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("rateCalculator")}</Link></li>
+                <li><Link href="/currency-converter" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("currencyConverter")}</Link></li>
+                <li><Link href="/exchange-rates" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("liveExchangeRates")}</Link></li>
+                <li><Link href="/remittance-cost-index" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("remittanceCostIndex")}</Link></li>
+                <li><Link href="/iban" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("ibanLookup")}</Link></li>
+                <li><Link href="/swift-codes" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("swiftCodes")}</Link></li>
               </ul>
             </div>
             <div className="mt-8 pt-6 border-t border-[var(--color-outline)] flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-[12px] text-[var(--color-on-surface-muted)] uppercase tracking-wide font-medium">Regulated by</span>
-              <a href="https://www.fca.org.uk" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+              <span className="text-xs text-[var(--color-on-surface-muted)] uppercase tracking-wide font-medium">Regulated by</span>
+              <a href="https://www.fca.org.uk" target="_blank" rel="noopener noreferrer" className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
                 FCA (UK)
               </a>
-              <a href="https://www.cfpb.gov" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+              <a href="https://www.cfpb.gov" target="_blank" rel="noopener noreferrer" className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
                 CFPB (US)
               </a>
-              <a href="https://remittanceprices.worldbank.org" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+              <a href="https://remittanceprices.worldbank.org" target="_blank" rel="noopener noreferrer" className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
                 World Bank Remittance Prices
               </a>
             </div>

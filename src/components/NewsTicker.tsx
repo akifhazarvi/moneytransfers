@@ -52,14 +52,14 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-60" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
             </span>
-            <span className="text-[13px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">
+            <span className="text-2sm font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">
               {t("latestNews")}
             </span>
           </div>
           <div className="flex items-center gap-3">
             <Link
               href="/news"
-              className="text-[13px] font-medium text-[var(--color-primary)] hover:underline"
+              className="text-2sm font-medium text-[var(--color-primary)] hover:underline"
             >
               {t("allNews")} &rarr;
             </Link>
@@ -98,21 +98,21 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
             >
               <div className="flex items-center gap-2 mb-3">
                 <span
-                  className={`text-[11px] font-medium px-2 py-0.5 rounded-full ${categoryColor[item.category] || "bg-gray-100 text-gray-700"}`}
+                  className={`text-2xs font-medium px-2 py-0.5 rounded-full ${categoryColor[item.category] || "bg-gray-100 text-gray-700"}`}
                 >
                   {item.category}
                 </span>
-                <span className="text-[11px] text-[var(--color-on-surface-variant)]">
+                <span className="text-2xs text-[var(--color-on-surface-variant)]">
                   {formatDate(item.publishedAt)}
                 </span>
               </div>
-              <h3 className="text-[15px] sm:text-[16px] font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors leading-snug mb-2 line-clamp-2">
+              <h3 className="text-md sm:text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors leading-snug mb-2 line-clamp-2">
                 {item.title}
               </h3>
-              <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-2 flex-1">
+              <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-2 flex-1">
                 {item.excerpt}
               </p>
-              <span className="inline-block mt-3 text-[13px] font-medium text-[var(--color-primary)]">
+              <span className="inline-block mt-3 text-2sm font-medium text-[var(--color-primary)]">
                 {t("readMore")} &rarr;
               </span>
             </Link>

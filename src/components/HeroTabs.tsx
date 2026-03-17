@@ -28,7 +28,7 @@ export default function HeroTabs() {
             <button
               key={tab.id}
               onClick={() => setActive(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-[14px] font-medium transition-all ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 active === tab.id
                   ? "bg-[var(--color-primary)] text-white shadow-[0_1px_3px_rgba(26,115,232,0.3)]"
                   : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface)]"
