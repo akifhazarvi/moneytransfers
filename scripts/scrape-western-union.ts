@@ -148,10 +148,12 @@ async function scrapeCorridorAmount(
   // Set a hard per-page timeout to prevent indefinite hangs
   page.setDefaultTimeout(45000);
   let capturedQuote: ProviderQuote | null = null;
+  let pageClosing = false;
 
   try {
     // Intercept pricing catalog responses
     page.on("response", async (response) => {
+      if (pageClosing) return;
       const url = response.url();
       if (
         url.includes("/prices/catalog") ||
@@ -255,6 +257,7 @@ async function scrapeCorridorAmount(
     console.log(`    ⚠ Browser error: ${(err as Error).message?.slice(0, 80)}`);
     return null;
   } finally {
+    pageClosing = true;
     await page.close().catch(() => {});
   }
 }
