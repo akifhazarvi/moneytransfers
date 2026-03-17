@@ -14,6 +14,7 @@ import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -54,9 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         type: "article",
         modifiedTime: article.updatedAt,
       },
-      alternates: {
-        canonical: `https://sendmoneycompare.com/compare/${slug}`,
-      },
+      alternates: getAlternates(`compare/${slug}`, locale),
     };
   }
 
@@ -67,9 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${a.name} vs ${b.name}: Fees, Rates & Speed Compared (${new Date().getFullYear()})`,
     description: desc,
-    alternates: {
-      canonical: `https://sendmoneycompare.com/compare/${slug}`,
-    },
+    alternates: getAlternates(`compare/${slug}`, locale),
     openGraph: {
       title: `${a.name} vs ${b.name}: Fees, Rates & Speed Compared (${new Date().getFullYear()})`,
       description: desc,

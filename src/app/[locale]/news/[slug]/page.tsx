@@ -6,6 +6,7 @@ import { newsItems, getNewsItem, getLatestNews } from "@/data/news";
 import { getProviderName } from "@/data/providers";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -58,9 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: item.excerpt,
       ...(item.image && { images: [`https://sendmoneycompare.com${item.image}`] }),
     },
-    alternates: {
-      canonical: `https://sendmoneycompare.com/news/${slug}`,
-    },
+    alternates: getAlternates(`news/${slug}`, locale),
   };
 }
 

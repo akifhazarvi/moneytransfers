@@ -4,6 +4,7 @@ import { providers } from "@/data/providers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import RatingBadge from "@/components/RatingBadge";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -14,9 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: t("metaDescription"),
     keywords: t("metaKeywords"),
-    alternates: {
-      canonical: "https://sendmoneycompare.com/companies",
-    },
+    alternates: getAlternates("companies", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

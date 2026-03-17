@@ -15,6 +15,7 @@ import BestTransferToday from "@/components/BestTransferToday";
 import { getGoUrl } from "@/lib/affiliate";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -43,9 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: "article",
     },
-    alternates: {
-      canonical: `https://sendmoneycompare.com/companies/${slug}`,
-    },
+    alternates: getAlternates(`companies/${slug}`, locale),
   };
 }
 

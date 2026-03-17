@@ -14,6 +14,7 @@ import {
 } from "@/data/wise-iban";
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getIbanEditorial, getIbanFaqs } from "@/data/iban-content";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 
 interface Props {
@@ -64,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${name} IBAN Format — Structure & Example`,
     description: `Learn the IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}. See the IBAN structure, BBAN breakdown, example IBAN, and list of ${country.banks.length > 0 ? country.banks.length + " " : ""}major banks.`,
     keywords: `${name} IBAN, ${country.countryCode} IBAN format, ${name} bank code, IBAN ${country.countryCode}, ${name} BBAN, ${country.currency}`,
-    alternates: { canonical: `https://sendmoneycompare.com/iban/${slug}` },
+    alternates: getAlternates(`iban/${slug}`, locale),
     openGraph: {
       title: `${name} IBAN Format — Code, Structure & Banks`,
       description: `IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}.`,

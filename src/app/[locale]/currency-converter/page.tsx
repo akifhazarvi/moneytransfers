@@ -1,3 +1,4 @@
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -11,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: "https://sendmoneycompare.com/currency-converter" },
+    alternates: getAlternates("currency-converter", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

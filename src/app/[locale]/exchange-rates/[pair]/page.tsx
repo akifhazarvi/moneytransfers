@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import CircleFlag from "@/components/CircleFlag";
+import { getAlternates } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
 
 /* ── Corridor pair config ─────────────────────────────────── */
@@ -264,7 +265,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { pair } = await params;
+  const { pair, locale } = await params;
   const p = PAIR_MAP.get(pair);
   if (!p) return { title: "Not Found" };
 
@@ -275,7 +276,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     keywords: `${p.from} to ${p.to} exchange rate, ${p.from} to ${p.to} rate today, ${p.from}/${p.to}, ${p.fromName} to ${p.toName}, convert ${p.from} to ${p.to}, ${p.from} ${p.to} mid-market rate`,
-    alternates: { canonical: `https://sendmoneycompare.com/exchange-rates/${pair}` },
+    alternates: getAlternates(`exchange-rates/${pair}`, locale),
     openGraph: { title, description, url: `https://sendmoneycompare.com/exchange-rates/${pair}` },
   };
 }

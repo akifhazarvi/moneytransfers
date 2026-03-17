@@ -9,6 +9,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
 import { getSwiftEditorial, getSwiftFaqs } from "@/data/swift-content";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 
 interface Props {
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${country.name} SWIFT/BIC Codes — ${country.bankCount} Banks`,
     description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified SWIFT codes with branch details, city, and address for international wire transfers to ${country.name}.`,
     keywords: `${country.name} SWIFT code, ${country.name} BIC code, ${country.countryCode} SWIFT, banks in ${country.name}, wire transfer ${country.name}`,
-    alternates: { canonical: `https://sendmoneycompare.com/swift-codes/${slug}` },
+    alternates: getAlternates(`swift-codes/${slug}`, locale),
     openGraph: {
       title: `${country.name} SWIFT/BIC Codes — ${country.bankCount} Banks`,
       description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified codes for international wire transfers.`,

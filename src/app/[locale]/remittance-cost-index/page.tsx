@@ -7,6 +7,7 @@ import providerSummaryData from "@/data/scraped/provider-summary.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 import { corridors } from "@/data/corridors";
 import { providers, generateQuotes } from "@/data/providers";
+import { getAlternates } from "@/lib/i18n-metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -15,9 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: t("metaDescription"),
     keywords: t("metaKeywords"),
-    alternates: {
-      canonical: "https://sendmoneycompare.com/remittance-cost-index",
-    },
+    alternates: getAlternates("remittance-cost-index", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

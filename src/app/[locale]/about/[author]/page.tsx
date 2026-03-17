@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { authors, getAuthor } from "@/data/authors";
 import { blogPosts } from "@/data/blog-posts";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -16,7 +17,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { author: slug } = await params;
+  const { author: slug, locale } = await params;
   const author = getAuthor(slug);
   if (!author) return { title: "Not Found" };
 
@@ -28,9 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: author.byline,
       type: "profile",
     },
-    alternates: {
-      canonical: `https://sendmoneycompare.com/about/${slug}`,
-    },
+    alternates: getAlternates(`about/${slug}`, locale),
   };
 }
 

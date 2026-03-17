@@ -3,6 +3,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { businessPages, getBusinessPage } from "@/data/business-pages";
 import { sanitizeHtml } from "@/lib/sanitize";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -15,16 +16,14 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const page = getBusinessPage(slug);
   if (!page) return { title: "Not Found" };
 
   return {
     title: page.metaTitle,
     description: page.metaDescription,
-    alternates: {
-      canonical: `https://sendmoneycompare.com/business/${slug}`,
-    },
+    alternates: getAlternates(`business/${slug}`, locale),
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,

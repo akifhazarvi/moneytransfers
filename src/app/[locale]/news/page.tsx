@@ -3,6 +3,7 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import { getLatestNews } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: "https://sendmoneycompare.com/news" },
+    alternates: getAlternates("news", locale),
     keywords: t("metaKeywords"),
     openGraph: {
       title: t("heading"),

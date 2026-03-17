@@ -7,6 +7,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import CircleFlag from "@/components/CircleFlag";
 import { wiseCountries, getSepaCountries } from "@/data/wise-iban";
 import { getCountryByAlpha2 } from "@/data/countries";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: t("metaDescription"),
     keywords: t("metaKeywords"),
-    alternates: { canonical: "https://sendmoneycompare.com/iban" },
+    alternates: getAlternates("iban", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

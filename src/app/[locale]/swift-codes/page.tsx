@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import PrimaryButton from "@/components/PrimaryButton";
 import CircleFlag from "@/components/CircleFlag";
 import { getSwiftCountries } from "@/data/swift-codes";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: t("metaDescription"),
     keywords: t("metaKeywords"),
-    alternates: { canonical: "https://sendmoneycompare.com/swift-codes" },
+    alternates: getAlternates("swift-codes", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

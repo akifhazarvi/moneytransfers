@@ -20,6 +20,7 @@ import {
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
 import { getCountryDetails } from "@/data/corridor-details";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -323,9 +324,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: ogDescription,
       type: "website",
     },
-    alternates: {
-      canonical: `https://sendmoneycompare.com/send-money/${slug}`,
-    },
+    alternates: getAlternates(`send-money/${slug}`, locale),
     robots: noindexCorridors.has(slug) ? { index: false, follow: true } : undefined,
   };
 }

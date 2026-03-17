@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import SendMoneyClient from "@/components/SendMoneyClient";
 import CircleFlag from "@/components/CircleFlag";
 import { generateQuotes, providers, currencies, getProviderName } from "@/data/providers";
+import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 const DESTINATION_REGIONS = [
@@ -109,7 +110,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t("indexMetaTitle"),
     description: t("indexMetaDescription"),
-    alternates: { canonical: "https://sendmoneycompare.com/send-money" },
+    alternates: getAlternates("send-money", locale),
     openGraph: {
       title: t("indexMetaTitle"),
       description: t("indexMetaDescription"),

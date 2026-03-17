@@ -2,10 +2,12 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { businessPages } from "@/data/business-pages";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   return {
     title:
       "International Business Payments — Compare Providers & Fees (2026)",
@@ -13,9 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "Compare the cheapest ways to make international business payments. Wise Business, OFX, and Revolut Business compared for SME transfers, bulk payments, vendor payouts, and B2B cross-border payments.",
     keywords:
       "international business payments, business money transfer, B2B international payments, small business international payments, bulk international payments, business fx payments, international vendor payments",
-    alternates: {
-      canonical: "https://sendmoneycompare.com/business",
-    },
+    alternates: getAlternates("business", locale),
     openGraph: {
       title:
         "International Business Payments — Compare Providers & Fees (2026)",

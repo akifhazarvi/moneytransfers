@@ -1,14 +1,18 @@
 import Container from "@/components/Container";
 import Link from "next/link";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Corrections & Updates — SendMoneyCompare",
-  description:
-    "A transparent log of corrections, data updates, and editorial changes made to SendMoneyCompare content. We believe in accountability and accuracy.",
-  alternates: { canonical: "https://sendmoneycompare.com/corrections" },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Corrections & Updates — SendMoneyCompare",
+    description:
+      "A transparent log of corrections, data updates, and editorial changes made to SendMoneyCompare content. We believe in accountability and accuracy.",
+    alternates: getAlternates("corrections", locale),
+  };
+}
 
 const corrections = [
   {

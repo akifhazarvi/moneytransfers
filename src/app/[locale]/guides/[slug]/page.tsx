@@ -6,6 +6,7 @@ import Card from "@/components/Card";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
+import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -42,9 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.metaDescription,
       ...(post.featuredImage && { images: [post.featuredImage] }),
     },
-    alternates: {
-      canonical: `https://sendmoneycompare.com/guides/${slug}`,
-    },
+    alternates: getAlternates(`guides/${slug}`, locale),
   };
 }
 

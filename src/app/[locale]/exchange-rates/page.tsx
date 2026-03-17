@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
+import { getAlternates } from "@/lib/i18n-metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -11,9 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: t("metaDescription"),
     keywords: t("metaKeywords"),
-    alternates: {
-      canonical: "https://sendmoneycompare.com/exchange-rates",
-    },
+    alternates: getAlternates("exchange-rates", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
