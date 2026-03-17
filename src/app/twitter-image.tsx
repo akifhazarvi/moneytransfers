@@ -20,7 +20,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #1a73e8 0%, #0d47a1 50%, #1565c0 100%)",
+          background: "linear-gradient(135deg, #2D3A8C 0%, #1E2761 50%, #2D3A8C 100%)",
           fontFamily: "system-ui, sans-serif",
           position: "relative",
           overflow: "hidden",
@@ -122,7 +122,7 @@ export default async function Image() {
             marginBottom: "12px",
           }}
         >
-          SendMoneyCompare
+          Send Money Compare
         </div>
 
         <div
@@ -134,7 +134,7 @@ export default async function Image() {
             marginBottom: "32px",
           }}
         >
-          Find the cheapest way to send money internationally
+          Compare 60+ providers — Find the Best International Money Transfer
         </div>
 
         <div
@@ -144,7 +144,7 @@ export default async function Image() {
             left: "0",
             right: "0",
             height: "6px",
-            background: "linear-gradient(90deg, #FFD700, #4CAF50, #1a73e8, #FFD700)",
+            background: "linear-gradient(90deg, #F59E0B, #4CAF50, #2D3A8C, #F59E0B)",
             display: "flex",
           }}
         />

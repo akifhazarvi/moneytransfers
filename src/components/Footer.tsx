@@ -100,9 +100,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-8">
           {translatedSections.map((section) => (
             <div key={section.titleKey}>
-              <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
+              <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
                 {t(section.titleKey)}
-              </h3>
+              </p>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.labelKey}>
@@ -121,9 +121,9 @@ export default function Footer() {
 
         {/* Send Money To destinations row */}
         <div className="border-t border-[var(--color-outline)] pt-8 mb-8">
-          <h3 className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
+          <p className="text-[12px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
             {sendMoneyToSection.title}
-          </h3>
+          </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {sendMoneyToSection.links.map((link) => (
               <li key={link.href}>

@@ -34,15 +34,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       type: "website",
       locale: localeMap[locale] || "en_US",
-      url: SITE_URL,
+      url: locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`,
       siteName: "SendMoneyCompare",
       title: t("title"),
       description: t("description"),
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "SendMoneyCompare — Compare International Money Transfers" }],
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
+      images: [`${SITE_URL}/twitter-image`],
     },
     alternates: {
       canonical: locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`,
@@ -101,11 +103,24 @@ const websiteSchema = {
   name: "SendMoneyCompare",
   url: SITE_URL,
   publisher: { "@id": `${SITE_URL}/#organization` },
+  dateModified: new Date().toISOString().split("T")[0],
   potentialAction: {
     "@type": "SearchAction",
     target: `${SITE_URL}/send-money?q={search_term_string}`,
     "query-input": "required name=search_term_string",
   },
+};
+
+const financialServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "@id": `${SITE_URL}/#service`,
+  name: "SendMoneyCompare",
+  url: SITE_URL,
+  description: "Independent comparison platform for international money transfers. Compare fees, exchange rates and delivery times from 60+ providers.",
+  serviceType: "Money Transfer Comparison",
+  areaServed: "Worldwide",
+  provider: { "@id": `${SITE_URL}/#organization` },
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -141,6 +156,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(financialServiceSchema) }}
       />
       <NextIntlClientProvider locale={locale} messages={messages}>
         <ThemeProvider>

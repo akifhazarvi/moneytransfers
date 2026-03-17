@@ -487,6 +487,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <li><Link href="/swift-codes" className="text-[14px] text-[var(--color-primary)] hover:underline">{tExplore("swiftCodes")}</Link></li>
               </ul>
             </div>
+            <div className="mt-8 pt-6 border-t border-[var(--color-outline)] flex flex-wrap items-center gap-x-6 gap-y-2">
+              <span className="text-[12px] text-[var(--color-on-surface-muted)] uppercase tracking-wide font-medium">Regulated by</span>
+              <a href="https://www.fca.org.uk" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                FCA (UK)
+              </a>
+              <a href="https://www.cfpb.gov" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                CFPB (US)
+              </a>
+              <a href="https://remittanceprices.worldbank.org" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                World Bank Remittance Prices
+              </a>
+            </div>
           </div>
         </Container>
       </section>
