@@ -552,22 +552,26 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             <div className="divide-y divide-[var(--color-outline)]">
               {[
                 {
-                  q: `What is the mid-market rate for ${p.from} to ${p.to}?`,
+                  q: `What is the mid-market ${p.from}/${p.to} exchange rate today?`,
                   a: midRate
-                    ? `The current mid-market rate for ${p.from} to ${p.to} is ${fmtRate(midRate)} — meaning 1 ${p.from} equals ${fmtRate(midRate)} ${p.to}. This is the interbank rate before any provider markup or fees are applied. The actual rate you receive from a money transfer provider will be slightly lower, as providers add a margin to cover their costs and profit.`
-                    : `The mid-market rate is the midpoint between the global buy and sell prices for ${p.from}/${p.to}. It is the fairest reference rate, before any provider markup is applied.`,
+                    ? `The mid-market rate for ${p.from} to ${p.to} today is ${fmtRate(midRate)}, meaning 1 ${p.fromName} buys ${fmtRate(midRate)} ${p.toName}. The inverse rate is 1 ${p.to} = ${inverseRate ? fmtRate(inverseRate) : "—"} ${p.from}. This is the interbank reference rate — money transfer providers apply a markup above this, so the rate you receive will be slightly lower.`
+                    : `The mid-market rate is the midpoint between global buy and sell prices for ${p.from}/${p.to}. It is the fairest reference rate, before any provider markup is applied.`,
                 },
                 {
-                  q: `How much does it cost to send ${p.from} to ${p.to}?`,
-                  a: `The total cost of a ${p.from} to ${p.to} transfer has two components: the exchange rate markup (the difference between the mid-market rate and what the provider charges) and any flat transfer fee. The best specialist providers typically charge a markup of 0.3–1% and a small flat fee, while banks can charge 2–5% in markup plus higher fees. Comparing providers using the table above shows you exactly how much ${p.to} your recipient would receive.`,
+                  q: `What moves the ${p.from}/${p.to} exchange rate?`,
+                  a: editorial
+                    ? `${editorial.bullets[0]}. ${editorial.bullets[1]}. ${editorial.intro.split(".")[0]}.`
+                    : `The ${p.from}/${p.to} rate is driven by the monetary policies of the relevant central banks, inflation data, trade balances, and broader market risk sentiment. Major economic data releases — such as employment figures and GDP reports — can move the rate by 0.5% or more in a single session.`,
                 },
                 {
-                  q: `Which provider offers the best ${p.from} to ${p.to} exchange rate?`,
-                  a: `The best provider for ${p.from} to ${p.to} varies day to day depending on which provider has the tightest spread. Specialist remittance providers like Wise, Revolut, and OFX typically offer significantly better rates than banks. The comparison table above shows real-time quotes from multiple providers — always check before you send, as the rankings can change.`,
+                  q: `Which provider offers the best ${p.fromName} to ${p.toName} rate?`,
+                  a: quotes.length > 0
+                    ? `Based on today's quotes, ${getProviderName(quotes[0].providerSlug)} is offering the best ${p.from} to ${p.to} rate — sending 1,000 ${p.from} gives your recipient ${quotes[0].receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${p.to}. Rankings shift daily, so compare the full table above before every transfer.${editorial ? " " + editorial.tip : ""}`
+                    : `The best ${p.from} to ${p.to} provider varies day to day. Specialist providers like Wise, Revolut, and OFX consistently beat banks on rate — compare above before every transfer.${editorial ? " " + editorial.tip : ""}`,
                 },
                 {
-                  q: `How often does the ${p.from}/${p.to} exchange rate change?`,
-                  a: `The ${p.from}/${p.to} exchange rate fluctuates continuously during forex market hours (Sunday 5pm ET through Friday 5pm ET). Rates can change multiple times per second during active trading sessions, though moves of more than 0.5% in a single day are notable for major pairs. The rate shown on this page is refreshed regularly from independent data sources.`,
+                  q: `How much does it cost to convert ${p.fromName} to ${p.toName}?`,
+                  a: `The total cost of a ${p.from} to ${p.to} transfer has two parts: the exchange rate markup (the gap between the mid-market rate and the provider's rate) and any flat fee. The best specialist providers on this corridor typically charge a markup of ${midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"} plus a small flat fee, while banks can add 2–5% in markup. The table above shows you exactly how much ${p.to} your recipient would receive from each provider on a 1,000 ${p.from} transfer.`,
                 },
               ].map((faq, i) => (
                 <div key={i} className="py-4">
@@ -597,28 +601,40 @@ export default async function ExchangeRatePairPage({ params }: Props) {
             mainEntity: [
               {
                 "@type": "Question",
-                name: `What is the mid-market rate for ${p.from} to ${p.to}?`,
+                name: `What is the mid-market ${p.from}/${p.to} exchange rate today?`,
                 acceptedAnswer: {
                   "@type": "Answer",
                   text: midRate
-                    ? `The current mid-market rate for ${p.from} to ${p.to} is ${fmtRate(midRate)} — meaning 1 ${p.from} equals ${fmtRate(midRate)} ${p.to}. This is the interbank rate before any provider markup or fees are applied.`
+                    ? `The mid-market rate for ${p.from} to ${p.to} today is ${fmtRate(midRate)}, meaning 1 ${p.fromName} buys ${fmtRate(midRate)} ${p.toName}. This is the interbank reference rate before provider markups.`
                     : `The mid-market rate is the fairest reference rate for ${p.from}/${p.to}, before any provider markup is applied.`,
                 },
               },
               {
                 "@type": "Question",
-                name: `How much does it cost to send ${p.from} to ${p.to}?`,
+                name: `What moves the ${p.from}/${p.to} exchange rate?`,
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: `The total cost has two components: the exchange rate markup and any flat transfer fee. The best specialist providers charge a markup of 0.3–1% and a small flat fee, while banks can charge 2–5% in markup plus higher fees.`,
+                  text: editorial
+                    ? `${editorial.bullets[0]}. ${editorial.bullets[1]}.`
+                    : `The ${p.from}/${p.to} rate is driven by central bank monetary policy, inflation data, trade balances, and broader market risk sentiment.`,
                 },
               },
               {
                 "@type": "Question",
-                name: `Which provider offers the best ${p.from} to ${p.to} exchange rate?`,
+                name: `Which provider offers the best ${p.fromName} to ${p.toName} rate?`,
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: `The best provider varies day to day. Specialist providers like Wise, Revolut, and OFX typically offer significantly better rates than banks. Always compare before you send.`,
+                  text: quotes.length > 0
+                    ? `Based on today's quotes, ${getProviderName(quotes[0].providerSlug)} is offering the best rate for ${p.from} to ${p.to}. Rankings shift daily — always compare before sending.`
+                    : `Specialist providers like Wise, Revolut, and OFX consistently beat banks on ${p.from} to ${p.to}. Always compare before sending.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `How much does it cost to convert ${p.fromName} to ${p.toName}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `The total cost has two parts: the exchange rate markup and any flat fee. The best providers on ${p.from}/${p.to} typically charge ${midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"} in markup plus a small flat fee, while banks can add 2–5%.`,
                 },
               },
             ],

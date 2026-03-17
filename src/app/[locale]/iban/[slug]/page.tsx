@@ -174,20 +174,25 @@ export default async function IbanCountryPage({ params }: Props) {
               </div>
             </div>
             <p className="text-[14px] text-[var(--color-on-surface-variant)] mb-3">
-              The International Bank Account Number (IBAN) for {name} consists of {country.ibanLength} alphanumeric
-              characters. It is used to identify individual bank accounts for international transactions
+              The International Bank Account Number (IBAN) for {name} is <strong className="font-medium text-[var(--color-on-surface)]">{country.ibanLength} characters</strong> long
+              and is used to identify bank accounts for international transactions
               {country.sepa
-                ? " and is part of the SEPA network, enabling fast and low-cost euro transfers."
-                : "."}
+                ? ", within the SEPA network for euro transfers and via SWIFT for non-euro currencies."
+                : " via the SWIFT network."}
             </p>
             <p className="text-[14px] text-[var(--color-on-surface-variant)]">
-              Every {name} IBAN starts with the two-letter country code <strong className="font-medium text-[var(--color-on-surface)]">{country.countryCode}</strong>,
-              followed by two check digits used to validate the number, then the domestic Basic Bank Account Number (BBAN)
-              which encodes the bank, branch, and account details specific to {name}.
-              {country.sepa
-                ? ` As a SEPA member, ${name} uses the ${country.currency} and participates in the Single Euro Payments Area, which enables low-cost, near-instant euro transfers across 36+ European countries.`
-                : ` ${name} uses the ${country.currency} currency for international transfers, which are typically processed via the SWIFT network.`}
-              {" "}When sending money internationally to or from {name}, you will need to provide the recipient's full IBAN along with the bank's BIC/SWIFT code.
+              A {name} IBAN begins with the country code <strong className="font-medium text-[var(--color-on-surface)]">{country.countryCode}</strong>{" "}
+              and two check digits, followed by the {country.ibanLength - 4}-character BBAN (Basic Bank Account Number).
+              {country.bbanFields.length > 0
+                ? ` The ${name} BBAN encodes ${country.bbanFields.map((f) => {
+                    const label = (bbanLabels[f.type] || f.label.replace(/_/g, " ")).toLowerCase();
+                    return `a ${f.length}-character ${label}`;
+                  }).join(", followed by ")}.`
+                : ""}
+              {" "}{country.sepa
+                ? `As a SEPA member, ${name} supports low-cost euro transfers across 36+ European countries using the ${country.currency} currency.`
+                : `International transfers to ${name} are processed in ${country.currency} via SWIFT, typically taking 1–3 business days.`}
+              {" "}Always include the full {country.ibanLength}-character IBAN together with the bank's BIC/SWIFT code when making or receiving international payments.
             </p>
           </Card>
 
