@@ -323,7 +323,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
                   <Link
                     href="/send-money"
-                    className="flex items-center justify-center w-full h-10 bg-[var(--color-accent)] text-white text-[14px] font-semibold rounded-full hover:bg-[var(--color-accent-dark)] transition-colors"
+                    className="flex items-center justify-center w-full h-10 bg-[var(--color-primary)] text-white text-[14px] font-semibold rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
                   >
                     Compare Rates →
                   </Link>

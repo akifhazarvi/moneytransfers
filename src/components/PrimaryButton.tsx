@@ -5,7 +5,7 @@ interface BaseProps {
   children: ReactNode;
   className?: string;
   size?: "sm" | "md" | "lg";
-  variant?: "primary" | "secondary" | "accent";
+  variant?: "primary" | "secondary";
 }
 
 interface ButtonProps extends BaseProps {
@@ -30,7 +30,6 @@ const sizeMap = {
 const variantMap = {
   primary:   "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]",
   secondary: "border border-[var(--color-outline)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]",
-  accent:    "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]",
 };
 
 export default function PrimaryButton(props: Props) {
