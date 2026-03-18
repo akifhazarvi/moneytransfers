@@ -173,5 +173,40 @@
         "receiveAmount": 8855.95
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "xoom": {
+        "rate": 86.7003,
+        "fee": 4.99,
+        "markup": 3.2376,
+        "receiveAmount": 8237.4
+      },
+      "remitly": {
+        "rate": 89.177,
+        "fee": 1.49,
+        "markup": 0.4736,
+        "receiveAmount": 8784.82
+      },
+      "bmo": {
+        "rate": 86.3425,
+        "fee": 0,
+        "markup": 3.637,
+        "receiveAmount": 8634.25
+      },
+      "wise": {
+        "rate": 89.5882,
+        "fee": 4.78,
+        "markup": 0.0146,
+        "receiveAmount": 8530.59
+      },
+      "instarem": {
+        "rate": 88.5231,
+        "fee": 0,
+        "markup": 1.2034,
+        "receiveAmount": 8852.31
+      }
+    }
   }
 ]

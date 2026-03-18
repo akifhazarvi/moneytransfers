@@ -203,5 +203,46 @@
         "receiveAmount": 5051.28
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "deutsche-bank": {
+        "rate": 50.9529,
+        "fee": 36.55,
+        "markup": 0.0729,
+        "receiveAmount": 3232.96
+      },
+      "wise": {
+        "rate": 50.9901,
+        "fee": 7.58,
+        "markup": 0,
+        "receiveAmount": 4712.51
+      },
+      "instarem": {
+        "rate": 50.7085,
+        "fee": 0,
+        "markup": 0.5522,
+        "receiveAmount": 5070.85
+      },
+      "commerzbank": {
+        "rate": 50.9412,
+        "fee": 12.5,
+        "markup": 0.0959,
+        "receiveAmount": 4457.35
+      },
+      "moneygram": {
+        "rate": 50.5812,
+        "fee": 1.49,
+        "markup": 0.802,
+        "receiveAmount": 4982.75
+      },
+      "remitly": {
+        "rate": 50.4212,
+        "fee": 1.99,
+        "markup": 1.1157,
+        "receiveAmount": 4941.78
+      }
+    }
   }
 ]

@@ -143,5 +143,34 @@
         "receiveAmount": 2562203
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "xoom": {
+        "rate": 25521.404,
+        "fee": 2.99,
+        "markup": 2.9457,
+        "receiveAmount": 2475831
+      },
+      "wise": {
+        "rate": 26296,
+        "fee": 2.51,
+        "markup": 0,
+        "receiveAmount": 2563597
+      },
+      "instarem": {
+        "rate": 26183.3436,
+        "fee": 0,
+        "markup": 0.4284,
+        "receiveAmount": 2618334
+      },
+      "remitly": {
+        "rate": 26025.6126,
+        "fee": 1.99,
+        "markup": 1.0282,
+        "receiveAmount": 2550770
+      }
+    }
   }
 ]

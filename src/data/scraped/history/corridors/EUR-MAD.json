@@ -173,5 +173,40 @@
         "receiveAmount": 1010.37
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "xoom": {
+        "rate": 10.4812,
+        "fee": 1.49,
+        "markup": 2.9708,
+        "receiveAmount": 1032.5
+      },
+      "commerzbank": {
+        "rate": 10.4501,
+        "fee": 12.5,
+        "markup": 3.2583,
+        "receiveAmount": 914.39
+      },
+      "remitly": {
+        "rate": 10.5703,
+        "fee": 0.49,
+        "markup": 2.1459,
+        "receiveAmount": 1051.85
+      },
+      "wise": {
+        "rate": 10.8028,
+        "fee": 6.45,
+        "markup": -0.0065,
+        "receiveAmount": 1010.6
+      },
+      "deutsche-bank": {
+        "rate": 10.5513,
+        "fee": 36.55,
+        "markup": 2.3215,
+        "receiveAmount": 669.48
+      }
+    }
   }
 ]

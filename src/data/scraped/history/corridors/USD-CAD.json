@@ -281,5 +281,64 @@
         "receiveAmount": 132.58
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "chase": {
+        "rate": 1.328,
+        "fee": 5,
+        "markup": 3.0237,
+        "receiveAmount": 126.16
+      },
+      "worldremit": {
+        "rate": 1.3426,
+        "fee": 2.99,
+        "markup": 1.9559,
+        "receiveAmount": 130.25
+      },
+      "wells-fargo": {
+        "rate": 1.3257,
+        "fee": 0,
+        "markup": 3.1933,
+        "receiveAmount": 132.57
+      },
+      "instarem": {
+        "rate": 1.3637,
+        "fee": 0,
+        "markup": 0.4163,
+        "receiveAmount": 136.37
+      },
+      "wise": {
+        "rate": 1.3694,
+        "fee": 1.72,
+        "markup": 0,
+        "receiveAmount": 134.58
+      },
+      "xoom": {
+        "rate": 1.2221,
+        "fee": 0,
+        "markup": 10.7581,
+        "receiveAmount": 122.21
+      },
+      "bank-of-america": {
+        "rate": 1.3318,
+        "fee": 0,
+        "markup": 2.7428,
+        "receiveAmount": 133.18
+      },
+      "moneygram": {
+        "rate": 1.3552,
+        "fee": 1.99,
+        "markup": 1.0397,
+        "receiveAmount": 132.82
+      },
+      "remitly": {
+        "rate": 1.3636,
+        "fee": 0,
+        "markup": 0.4236,
+        "receiveAmount": 136.36
+      }
+    }
   }
 ]

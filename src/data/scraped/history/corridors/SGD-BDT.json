@@ -143,5 +143,34 @@
         "receiveAmount": 9247.25
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "uob": {
+        "rate": 93.2588,
+        "fee": 40,
+        "markup": 2.9865,
+        "receiveAmount": 5595.53
+      },
+      "instarem": {
+        "rate": 95.7342,
+        "fee": 0.77,
+        "markup": 0.4114,
+        "receiveAmount": 9499.71
+      },
+      "remitly": {
+        "rate": 93.7783,
+        "fee": 4.99,
+        "markup": 2.446,
+        "receiveAmount": 8909.88
+      },
+      "wise": {
+        "rate": 96.1297,
+        "fee": 3.65,
+        "markup": 0,
+        "receiveAmount": 9262.1
+      }
+    }
   }
 ]

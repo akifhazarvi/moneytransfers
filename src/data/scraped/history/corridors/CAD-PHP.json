@@ -203,5 +203,46 @@
         "receiveAmount": 4156.93
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "bmo": {
+        "rate": 40.601,
+        "fee": 0,
+        "markup": 6.7036,
+        "receiveAmount": 4060.1
+      },
+      "xoom": {
+        "rate": 42.6506,
+        "fee": 0,
+        "markup": 1.9939,
+        "receiveAmount": 4265.06
+      },
+      "paypal": {
+        "rate": 41.5605,
+        "fee": 4.99,
+        "markup": 4.4989,
+        "receiveAmount": 3948.66
+      },
+      "wise": {
+        "rate": 43.5183,
+        "fee": 2.59,
+        "markup": 0,
+        "receiveAmount": 4239.12
+      },
+      "instarem": {
+        "rate": 43.0836,
+        "fee": 0,
+        "markup": 0.9989,
+        "receiveAmount": 4308.36
+      },
+      "rbc": {
+        "rate": 42.0161,
+        "fee": 0,
+        "markup": 3.4519,
+        "receiveAmount": 4201.61
+      }
+    }
   }
 ]

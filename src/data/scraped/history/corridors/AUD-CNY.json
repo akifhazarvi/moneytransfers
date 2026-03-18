@@ -173,5 +173,40 @@
         "receiveAmount": 473.23
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "remitly": {
+        "rate": 4.8399,
+        "fee": 2.99,
+        "markup": 1.1656,
+        "receiveAmount": 469.51
+      },
+      "instarem": {
+        "rate": 4.9015,
+        "fee": 0.37,
+        "markup": -0.0934,
+        "receiveAmount": 488.34
+      },
+      "national-australia-bank": {
+        "rate": 4.7565,
+        "fee": 0,
+        "markup": 2.8674,
+        "receiveAmount": 475.65
+      },
+      "wise": {
+        "rate": 4.8969,
+        "fee": 5.2,
+        "markup": 0,
+        "receiveAmount": 464.23
+      },
+      "western-union": {
+        "rate": 4.8709,
+        "fee": 4.99,
+        "markup": 0.532,
+        "receiveAmount": 462.78
+      }
+    }
   }
 ]

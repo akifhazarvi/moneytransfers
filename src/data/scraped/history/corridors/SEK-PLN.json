@@ -21,5 +21,28 @@
         "receiveAmount": 29.92
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "paypal": {
+        "rate": 0.3771,
+        "fee": 19.99,
+        "markup": 5.2709,
+        "receiveAmount": 30.17
+      },
+      "wise": {
+        "rate": 0.3981,
+        "fee": 10.72,
+        "markup": 0.003,
+        "receiveAmount": 35.54
+      },
+      "remitly": {
+        "rate": 0.3877,
+        "fee": 19.9,
+        "markup": 2.6263,
+        "receiveAmount": 31.05
+      }
+    }
   }
 ]

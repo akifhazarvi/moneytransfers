@@ -39,5 +39,46 @@
         "receiveAmount": 103.18
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "wise": {
+        "rate": 1.1036,
+        "fee": 1.44,
+        "markup": 0,
+        "receiveAmount": 108.77
+      },
+      "postfinance": {
+        "rate": 1.0901,
+        "fee": 0,
+        "markup": 1.2217,
+        "receiveAmount": 109.01
+      },
+      "zkb": {
+        "rate": 1.0902,
+        "fee": 0,
+        "markup": 1.2163,
+        "receiveAmount": 109.02
+      },
+      "raiffeisen-ch": {
+        "rate": 1.0854,
+        "fee": 5,
+        "markup": 1.6486,
+        "receiveAmount": 103.12
+      },
+      "paypal": {
+        "rate": 1.0572,
+        "fee": 2.49,
+        "markup": 4.2053,
+        "receiveAmount": 103.09
+      },
+      "western-union": {
+        "rate": 1.0784,
+        "fee": 0,
+        "markup": 2.2826,
+        "receiveAmount": 107.84
+      }
+    }
   }
 ]

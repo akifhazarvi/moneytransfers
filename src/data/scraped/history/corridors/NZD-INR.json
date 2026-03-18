@@ -173,5 +173,40 @@
         "receiveAmount": 5299.98
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "remitly": {
+        "rate": 53.6701,
+        "fee": 0,
+        "markup": 0.8829,
+        "receiveAmount": 5367.01
+      },
+      "auckland-savings-bank-nz": {
+        "rate": 53.0816,
+        "fee": 5,
+        "markup": 1.9698,
+        "receiveAmount": 5042.75
+      },
+      "bank-of-new-zealand-nz": {
+        "rate": 53.1876,
+        "fee": 0,
+        "markup": 1.774,
+        "receiveAmount": 5318.76
+      },
+      "wise": {
+        "rate": 54.1482,
+        "fee": 1.82,
+        "markup": 0,
+        "receiveAmount": 5316.27
+      },
+      "westpac-nz": {
+        "rate": 52.8,
+        "fee": 0,
+        "markup": 2.4897,
+        "receiveAmount": 5280
+      }
+    }
   }
 ]

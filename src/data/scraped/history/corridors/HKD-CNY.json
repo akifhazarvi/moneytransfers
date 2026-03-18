@@ -27,5 +27,34 @@
         "receiveAmount": 26.22
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "hang-seng": {
+        "rate": 0.8733,
+        "fee": 0,
+        "markup": 0.5881,
+        "receiveAmount": 87.33
+      },
+      "instarem": {
+        "rate": 0.8786,
+        "fee": 0.35,
+        "markup": -0.0058,
+        "receiveAmount": 87.55
+      },
+      "wise": {
+        "rate": 0.8785,
+        "fee": 27.58,
+        "markup": 0,
+        "receiveAmount": 63.62
+      },
+      "hsbc-hk": {
+        "rate": 0.8727,
+        "fee": 70,
+        "markup": 0.6575,
+        "receiveAmount": 26.18
+      }
+    }
   }
 ]

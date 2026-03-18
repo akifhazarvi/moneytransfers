@@ -233,5 +233,52 @@
         "receiveAmount": 4155.97
       }
     }
+  },
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "remitly": {
+        "rate": 45.854,
+        "fee": 3.99,
+        "markup": 1.7887,
+        "receiveAmount": 4402.44
+      },
+      "instarem": {
+        "rate": 46.5993,
+        "fee": 0.68,
+        "markup": 0.1924,
+        "receiveAmount": 4628.24
+      },
+      "hsbc-sg": {
+        "rate": 45.9942,
+        "fee": 0,
+        "markup": 1.4884,
+        "receiveAmount": 4599.42
+      },
+      "wise": {
+        "rate": 46.6891,
+        "fee": 1.43,
+        "markup": 0,
+        "receiveAmount": 4602.14
+      },
+      "ocbc": {
+        "rate": 45.9929,
+        "fee": 30,
+        "markup": 1.491,
+        "receiveAmount": 3219.51
+      },
+      "paypal": {
+        "rate": 44.4818,
+        "fee": 6.37,
+        "markup": 4.7276,
+        "receiveAmount": 4164.91
+      },
+      "uob": {
+        "rate": 45.608,
+        "fee": 40,
+        "markup": 2.3155,
+        "receiveAmount": 2736.48
+      }
+    }
   }
 ]
