@@ -179,6 +179,14 @@ export function extractDeliveryTime(obj: Record<string, unknown>): string | null
   return raw;
 }
 
+export function extractReceiveAmount(obj: Record<string, unknown>): number {
+  const raw = obj.receiveAmount ?? obj.receivedAmount ?? obj.receive_amount ??
+    obj.destinationAmount ?? obj.targetAmount ?? obj.recipientAmount ??
+    obj.destination_amount ?? obj.payout_amount ?? obj.payoutAmount ??
+    obj.amountReceived ?? obj.toAmount ?? obj.convertedAmount ?? 0;
+  return parseFloat(String(raw)) || 0;
+}
+
 export function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }

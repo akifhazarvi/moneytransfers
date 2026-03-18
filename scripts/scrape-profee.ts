@@ -20,6 +20,7 @@ import {
   withRetry,
   writeOutput,
   parseNumber,
+  extractReceiveAmount,
   type ProviderQuote,
 } from "./lib/browser";
 import type { BrowserContext } from "playwright";
@@ -48,7 +49,8 @@ const CORRIDORS = [
 
 function buildQuote(
   from: string, to: string, amount: number,
-  rate: number, fee: number, source: string
+  rate: number, fee: number, source: string,
+  apiRecv = 0
 ): ProviderQuote {
   return {
     provider: "Profee",
@@ -57,7 +59,7 @@ function buildQuote(
     sendCurrency: from, receiveCurrency: to, sendAmount: amount,
     fee: Math.round(fee * 100) / 100,
     exchangeRate: Math.round(rate * 10000) / 10000,
-    receiveAmount: Math.round((amount - fee) * rate * 100) / 100,
+    receiveAmount: apiRecv > 0 ? Math.round(apiRecv * 100) / 100 : Math.round((amount - fee) * rate * 100) / 100,
     paymentMethod: "Card",
     deliveryEstimate: "Instant - 1 hour",
     deliveryMethod: "Card",
@@ -95,7 +97,7 @@ async function tryPublicApi(from: string, to: string, amount: number): Promise<P
       const rate = parseFloat(String(root.rate ?? root.exchangeRate ?? root.fx_rate ?? root.conversionRate ?? "0"));
       const fee = parseFloat(String(root.fee ?? root.totalFee ?? root.serviceFee ?? "0"));
       if (rate <= 0) continue;
-      return buildQuote(from, to, amount, rate, fee, "profee-api");
+      return buildQuote(from, to, amount, rate, fee, "profee-api", extractReceiveAmount(root));
     } catch { continue; }
   }
   return null;

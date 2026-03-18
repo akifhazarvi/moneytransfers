@@ -19,6 +19,7 @@ import {
   writeOutput,
   parseNumber,
   extractDeliveryTime,
+  extractReceiveAmount,
   type ProviderQuote,
 } from "./lib/browser";
 import type { BrowserContext } from "playwright";
@@ -72,8 +73,9 @@ async function tryPublicApi(from: string, to: string, amount: number): Promise<P
       const fee = data.fee ?? data.feeAmount ?? data.totalFee ?? 0;
       if (!rate || rate <= 0) continue;
 
+      const apiRecv = extractReceiveAmount(data as unknown as Record<string, unknown>);
       const effectiveSend = amount - fee;
-      const receiveAmount = effectiveSend > 0 ? effectiveSend * rate : amount * rate;
+      const receiveAmount = apiRecv > 0 ? apiRecv : (effectiveSend > 0 ? effectiveSend * rate : amount * rate);
 
       return {
         provider: "Paysend",

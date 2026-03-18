@@ -18,6 +18,7 @@ import {
   withRetry,
   writeOutput,
   parseNumber,
+  extractReceiveAmount,
   type ProviderQuote,
 } from "./lib/browser";
 import type { BrowserContext } from "playwright";
@@ -43,7 +44,8 @@ const CORRIDORS = [
 
 function buildSkrillQuote(
   from: string, to: string, amount: number,
-  rate: number, fee: number, delivery: string | null, source: string
+  rate: number, fee: number, delivery: string | null, source: string,
+  apiRecv = 0
 ): ProviderQuote {
   const effectiveSend = amount - fee;
   return {
@@ -53,7 +55,7 @@ function buildSkrillQuote(
     sendCurrency: from, receiveCurrency: to, sendAmount: amount,
     fee: Math.round(fee * 100) / 100,
     exchangeRate: Math.round(rate * 10000) / 10000,
-    receiveAmount: Math.round((effectiveSend > 0 ? effectiveSend : amount) * rate * 100) / 100,
+    receiveAmount: apiRecv > 0 ? Math.round(apiRecv * 100) / 100 : Math.round((effectiveSend > 0 ? effectiveSend : amount) * rate * 100) / 100,
     paymentMethod: null,
     deliveryEstimate: delivery, deliveryMethod: null,
     dateCollected: new Date().toISOString(), source,
@@ -84,7 +86,8 @@ async function tryPublicApi(from: string, to: string, amount: number): Promise<P
       const rate = parseFloat(String(data.rate ?? data.exchangeRate ?? data.fx_rate ?? "0"));
       const fee = parseFloat(String(data.fee ?? data.totalFee ?? data.feeAmount ?? "0"));
       if (rate <= 0) continue;
-      return buildSkrillQuote(from, to, amount, rate, fee, data.deliveryTime as string ?? null, "skrill-api");
+      const apiRecv = extractReceiveAmount(data);
+      return buildSkrillQuote(from, to, amount, rate, fee, data.deliveryTime as string ?? null, "skrill-api", apiRecv);
     } catch { continue; }
   }
   return null;

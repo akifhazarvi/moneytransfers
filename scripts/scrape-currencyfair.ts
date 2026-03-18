@@ -20,6 +20,7 @@ import {
   withRetry,
   writeOutput,
   parseNumber,
+  extractReceiveAmount,
   type ProviderQuote,
 } from "./lib/browser";
 import type { BrowserContext } from "playwright";
@@ -46,7 +47,8 @@ const rateCache = new Map<string, number>();
 
 function buildQuote(
   from: string, to: string, amount: number,
-  rate: number, fee: number, source: string
+  rate: number, fee: number, source: string,
+  apiRecv = 0
 ): ProviderQuote {
   // CurrencyFair charges a flat €3 / £3 / $3 fee per transfer + minimal markup
   const effectiveFee = fee || 3;
@@ -57,7 +59,7 @@ function buildQuote(
     sendCurrency: from, receiveCurrency: to, sendAmount: amount,
     fee: Math.round(effectiveFee * 100) / 100,
     exchangeRate: Math.round(rate * 10000) / 10000,
-    receiveAmount: Math.round((amount - effectiveFee) * rate * 100) / 100,
+    receiveAmount: apiRecv > 0 ? Math.round(apiRecv * 100) / 100 : Math.round((amount - effectiveFee) * rate * 100) / 100,
     paymentMethod: null,
     deliveryEstimate: "1-2 business days",
     deliveryMethod: null,
@@ -96,7 +98,7 @@ async function tryPublicApi(from: string, to: string, amount: number): Promise<P
       const rate = parseFloat(String(data.rate ?? data.exchangeRate ?? data.marketRate ?? data.bestRate ?? data[to] ?? "0"));
       if (rate <= 0) continue;
       rateCache.set(`${from}:${to}`, rate);
-      return buildQuote(from, to, amount, rate, 0, "currencyfair-api");
+      return buildQuote(from, to, amount, rate, 0, "currencyfair-api", extractReceiveAmount(data));
     } catch { continue; }
   }
   return null;

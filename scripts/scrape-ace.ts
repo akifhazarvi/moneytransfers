@@ -20,6 +20,7 @@ import {
   withRetry,
   writeOutput,
   parseNumber,
+  extractReceiveAmount,
   type ProviderQuote,
 } from "./lib/browser";
 import type { BrowserContext } from "playwright";
@@ -59,7 +60,8 @@ const RECEIVE_TO_COUNTRY: Record<string, string> = {
 
 function buildQuote(
   from: string, to: string, amount: number,
-  rate: number, fee: number, delivery: string | null, source: string
+  rate: number, fee: number, delivery: string | null, source: string,
+  apiRecv = 0
 ): ProviderQuote {
   return {
     provider: "ACE Money Transfer",
@@ -68,7 +70,7 @@ function buildQuote(
     sendCurrency: from, receiveCurrency: to, sendAmount: amount,
     fee: Math.round(fee * 100) / 100,
     exchangeRate: Math.round(rate * 10000) / 10000,
-    receiveAmount: Math.round((amount - fee) * rate * 100) / 100,
+    receiveAmount: apiRecv > 0 ? Math.round(apiRecv * 100) / 100 : Math.round((amount - fee) * rate * 100) / 100,
     paymentMethod: null,
     deliveryEstimate: delivery ?? "Same day - 1 business day",
     deliveryMethod: null,
@@ -103,7 +105,7 @@ async function tryPublicApi(from: string, to: string, amount: number): Promise<P
       const rate = parseFloat(String(data.rate ?? data.exchangeRate ?? data.fx_rate ?? data.transferRate ?? "0"));
       const fee = parseFloat(String(data.fee ?? data.transferFee ?? data.serviceFee ?? "0"));
       if (rate <= 0) continue;
-      return buildQuote(from, to, amount, rate, fee, data.deliveryTime as string ?? null, "ace-api");
+      return buildQuote(from, to, amount, rate, fee, data.deliveryTime as string ?? null, "ace-api", extractReceiveAmount(data));
     } catch { continue; }
   }
   return null;

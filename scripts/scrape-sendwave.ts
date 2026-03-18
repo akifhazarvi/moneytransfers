@@ -20,6 +20,7 @@ import {
   withRetry,
   writeOutput,
   parseNumber,
+  extractReceiveAmount,
   type ProviderQuote,
 } from "./lib/browser";
 import type { BrowserContext } from "playwright";
@@ -67,7 +68,8 @@ const CURRENCY_TO_COUNTRY: Record<string, string> = {
 
 function buildQuote(
   from: string, to: string, amount: number,
-  rate: number, fee: number, source: string
+  rate: number, fee: number, source: string,
+  apiRecv = 0
 ): ProviderQuote {
   // SendWave is typically zero-fee
   return {
@@ -77,7 +79,7 @@ function buildQuote(
     sendCurrency: from, receiveCurrency: to, sendAmount: amount,
     fee: Math.round(fee * 100) / 100,
     exchangeRate: Math.round(rate * 10000) / 10000,
-    receiveAmount: Math.round((amount - fee) * rate * 100) / 100,
+    receiveAmount: apiRecv > 0 ? Math.round(apiRecv * 100) / 100 : Math.round((amount - fee) * rate * 100) / 100,
     paymentMethod: null,
     deliveryEstimate: "Minutes",
     deliveryMethod: "Mobile Money",
@@ -111,7 +113,7 @@ async function tryPublicApi(from: string, to: string, amount: number): Promise<P
       const rate = parseFloat(String(data.rate ?? data.exchangeRate ?? data.fxRate ?? data.conversionRate ?? "0"));
       const fee = parseFloat(String(data.fee ?? data.transferFee ?? "0"));
       if (rate <= 0) continue;
-      return buildQuote(from, to, amount, rate, fee, "sendwave-api");
+      return buildQuote(from, to, amount, rate, fee, "sendwave-api", extractReceiveAmount(data));
     } catch { continue; }
   }
   return null;
