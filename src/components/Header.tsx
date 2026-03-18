@@ -97,15 +97,16 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
-          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-2.5 shrink-0">
-            <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-              <defs><linearGradient id="hdr-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#2D3A8C"/><stop offset="100%" stopColor="#1E2761"/></linearGradient></defs>
-              <rect width="32" height="32" rx="8" fill="url(#hdr-bg)" />
-              <path d="M9 10.5C9 10.5 13 10.5 16 10.5C20.5 10.5 23 12.5 23 15C23 17.5 20.5 19 16 19" stroke="#C7D2F6" strokeWidth="2.8" strokeLinecap="round" fill="none" />
-              <path d="M23 21.5C23 21.5 19 21.5 16 21.5C11.5 21.5 9 19.5 9 17C9 14.5 11.5 13 16 13" stroke="#F59E0B" strokeWidth="2.8" strokeLinecap="round" fill="none" />
+          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-3 shrink-0 group">
+            {/* Icon: paper plane — adapts to light/dark via CSS vars */}
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200">
+              <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-primary)"/>
+              <path d="M14.5 19.5L26.5 4.5" stroke="var(--color-surface)" strokeWidth="0.8" opacity="0.8"/>
+              <path d="M14.5 19.5L21 27L18 20.5Z" fill="var(--color-primary)" opacity="0.45"/>
             </svg>
-            <span className="text-xl font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
-              Send Money
+            {/* Wordmark */}
+            <span className="text-[20px] tracking-[-0.4px] text-[var(--color-on-surface)]">
+              <span className="font-extrabold">Send</span><span className="font-normal text-[var(--color-on-surface-variant)]">money</span>
             </span>
           </Link>
 
