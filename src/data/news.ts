@@ -346,6 +346,129 @@ export const newsItems: NewsItem[] = [
     sourceUrl: "https://sendmoneycompare.com/guides/money-transfer-promo-codes-referral-programs",
     providerSlugs: ["remitly", "worldremit", "wise", "western-union", "torfx"],
   },
+
+  // ── March 18, 2026 stories ──
+
+  {
+    slug: "fed-holds-rates-march-2026-one-cut-dot-plot",
+    title: "Fed Holds Rates Steady, Signals Just One Cut in 2026 — What It Means for Your Transfers",
+    excerpt:
+      "The Federal Reserve kept rates at 3.5–3.75% and the dot plot projects only one cut this year. Here's how the stronger dollar affects remittance costs across key corridors.",
+    content: `<p>The Federal Reserve held interest rates steady at <strong>3.5–3.75%</strong> at its March 18–19 meeting, as widely expected. But the real story is in the updated "dot plot" — the Fed now projects <strong>just one rate cut in 2026</strong>, down from two projected in January. Rising oil prices and sticky inflation readings narrowed the window for easing.</p>
+
+<h2>What this means for money transfers</h2>
+<p>Fewer rate cuts means the US dollar stays <strong>stronger for longer</strong>. For Americans sending money abroad, this is actually good news — a stronger dollar means your recipient gets more local currency per dollar sent. Here's the corridor-by-corridor impact:</p>
+
+<ul>
+<li><strong>USD → INR:</strong> The rupee has weakened against the dollar this week. If you're sending to India, now is a relatively good time — you're getting more rupees per dollar than you were a month ago. <a href="/send-money/usa-to-india">Check live USD to INR rates →</a></li>
+<li><strong>USD → MXN:</strong> The peso has been resilient but a hawkish Fed could push USD/MXN higher. Mexican families may receive slightly more pesos per dollar. <a href="/send-money/usa-to-mexico">Check live USD to MXN rates →</a></li>
+<li><strong>USD → PHP:</strong> The Philippine peso is sensitive to dollar strength. OFW families could benefit from improved rates in the short term. <a href="/send-money/usa-to-philippines">Check live USD to PHP rates →</a></li>
+<li><strong>GBP → INR / EUR → INR:</strong> The Bank of England also held rates this week. Sterling and the euro are relatively stable against the dollar, so UK and European senders see less impact.</li>
+</ul>
+
+<h2>The bigger picture: oil prices and inflation</h2>
+<p>Fed Chair Jerome Powell pointed to <strong>Middle East oil supply disruptions</strong> as a key inflation risk. Higher oil prices flow through to shipping costs, energy bills, and ultimately to the currencies of oil-importing nations like India, Pakistan, and the Philippines. If oil prices stay elevated, currencies in these countries may weaken further — which paradoxically benefits senders from the US (more local currency per dollar) but hurts local purchasing power.</p>
+
+<h2>What to do now</h2>
+<p>If you have a transfer planned:</p>
+<ol>
+<li><strong>Compare rates now</strong> — the post-Fed dollar strength may not last if economic data softens. Use our <a href="/send-money">comparison tool</a> to lock in today's rates.</li>
+<li><strong>Set rate alerts</strong> — <a href="/companies/wise">Wise</a> and <a href="/companies/xe">Xe</a> let you set alerts when your target rate hits. If you're not in a rush, wait for the optimal moment.</li>
+<li><strong>Avoid banks</strong> — Banks widen their exchange rate markup during volatile weeks. Specialist providers like <a href="/companies/wise">Wise</a> (0% markup) and <a href="/companies/remitly">Remitly</a> pass through the real rate. Our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> explains exactly how this works.</li>
+</ol>
+
+<p>The next major catalyst is the <strong>May 6–7 Fed meeting</strong> and the April jobs report. We'll cover both as they happen. For the full breakdown of how central bank decisions affect your transfers, read our <a href="/news/central-bank-super-week-march-2026">central bank super week analysis</a>.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-03-18",
+    source: "CNBC / Federal Reserve",
+    sourceUrl: "https://www.cnbc.com/2026/03/18/fed-interest-rate-decision-march-2026.html",
+    providerSlugs: ["wise", "remitly", "xe"],
+  },
+  {
+    slug: "gcash-free-middle-east-transfers-philippines-ofw-2026",
+    title: "GCash Drops All Fees for Filipino Transfers to the Middle East — Philippine Congress Pushes for Sector-Wide Waiver",
+    excerpt:
+      "GCash is offering zero-fee transfers to the UAE, Saudi Arabia, Qatar, and Oman through March 31. Meanwhile, the Philippine House passed a resolution urging all providers to waive OFW remittance fees.",
+    content: `<p>Two developments in the Philippines this week could reshape how over <strong>10 million overseas Filipino workers (OFWs)</strong> send money home:</p>
+
+<h2>GCash: Zero fees to the Middle East through March 31</h2>
+<p><strong>GCash</strong>, the Philippines' largest mobile wallet with over 90 million users, launched a <strong>zero-fee international transfer promotion</strong> covering the UAE, Saudi Arabia, Qatar, and Oman from March 12–31, 2026. No minimum amount. Most transfers credited same-day.</p>
+
+<p>The timing is significant — rising oil prices driven by <strong>Middle East supply disruptions</strong> are increasing the cost of living for Filipino workers in the Gulf. GCash is positioning the fee waiver as relief for OFWs who need every dirham and riyal to stretch further.</p>
+
+<p>For OFWs with GCash Overseas accounts in the UAE, Saudi Arabia, Qatar, Bahrain, Kuwait, and Oman, the waiver also covers bank transfers, mobile load purchases, and bill payments. GCash is even issuing <strong>retroactive cashback</strong> for eligible transactions completed March 4–10, credited on March 20.</p>
+
+<h2>Philippine Congress: Waive ALL OFW remittance fees</h2>
+<p>On March 18, the Philippine House of Representatives passed <strong>House Resolution 905</strong>, authored by Majority Leader Ferdinand Alexander Marcos, urging banks, remittance centres, and money transfer providers to <strong>temporarily waive or reduce fees</strong> for all OFW remittances — not just through GCash.</p>
+
+<p>The resolution is non-binding (it cannot force providers to comply), but it sends a strong signal. If major players like <a href="/companies/western-union">Western Union</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> follow GCash's lead, Filipino workers could save billions of pesos collectively.</p>
+
+<h2>What this means for OFWs right now</h2>
+<p>If you're a Filipino worker in the Gulf sending money home, here's what to do:</p>
+<ul>
+<li><strong>Use GCash for zero-fee transfers through March 31</strong> — this is the cheapest it will get. The offer has no minimum amount and covers the key Gulf countries.</li>
+<li><strong>Compare against other providers anyway</strong> — GCash waives fees but still applies an exchange rate. Our <a href="/send-money/uae-to-philippines">UAE to Philippines comparison</a> shows whether GCash's zero-fee offer beats providers like <a href="/companies/remitly">Remitly</a> and <a href="/companies/wise">Wise</a> on total value.</li>
+<li><strong>Watch for more waivers</strong> — The congressional resolution may pressure other providers to match. We'll update our <a href="/guides/money-transfer-promo-codes-referral-programs">promo codes and deals page</a> as new offers appear.</li>
+</ul>
+
+<p>The Philippines is the world's <strong>fourth-largest remittance recipient</strong>, with over $40 billion in annual inflows. The Gulf states account for roughly 30% of that total. Every percentage point in fee reduction translates to hundreds of millions of pesos back in Filipino families' pockets.</p>
+
+<p>For the cheapest ways to send money to the Philippines from anywhere, see our <a href="/guides/send-money-to-philippines-guide">Philippines transfer guide</a> and <a href="/send-money/usa-to-philippines">USA to Philippines comparison</a>.</p>`,
+    category: "Provider Update",
+    publishedAt: "2026-03-18",
+    source: "PhilNews / FintechNews.ph / Manila Bulletin",
+    sourceUrl: "https://fintechnews.ph/70421/remittance/gcash-waives-transaction-fees-overseas-filipinos-middle-east-march/",
+    providerSlugs: ["western-union", "remitly", "worldremit", "wise"],
+  },
+  {
+    slug: "swift-75-percent-payments-ten-minutes-fsb-stablecoins-thunes-2026",
+    title: "75% of Cross-Border Payments Now Arrive in 10 Minutes — But Stablecoins Are Coming for the Rest",
+    excerpt:
+      "SWIFT says three-quarters of international payments reach banks in under 10 minutes. Meanwhile, Thunes just connected 500 million stablecoin wallets to the SWIFT network. The race to eliminate slow, expensive transfers is accelerating.",
+    content: `<p>Two announcements this week paint a picture of an industry in rapid transformation — and suggest that the days of 3–5 day international bank wires are numbered.</p>
+
+<h2>SWIFT: 75% of payments in 10 minutes</h2>
+<p>At the <strong>Financial Stability Board's Cross-Border Payments Summit</strong> in London (March 16), SWIFT revealed that <strong>75% of cross-border payments now reach the beneficiary bank within 10 minutes</strong>, with some settling in seconds. This is a dramatic improvement from just a few years ago, when 3–5 business days was the norm for international bank wires.</p>
+
+<p>SWIFT also announced plans for a <strong>new retail payments framework by June 2026</strong>, ensuring consumer payments benefit from the fastest possible speeds, cost certainty, and end-to-end transparency. And in a nod to the blockchain competition, SWIFT is integrating a <strong>shared blockchain-based ledger</strong> for 24/7 real-time settlement.</p>
+
+<p>For consumers, this means the traditional bank wire is getting faster — but it's still not cheap. Banks continue to charge <strong>$25–$50 per wire plus 2–5% exchange rate markup</strong>, even as the underlying infrastructure improves. The speed gains benefit banks' bottom lines more than their customers' wallets. For a full breakdown of wire transfer costs, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a>.</p>
+
+<h2>Thunes + SWIFT: 500 million stablecoin wallets connected</h2>
+<p>On March 17, <strong>Thunes</strong> (a major payments infrastructure provider) announced it can now route stablecoin payouts — in <strong>USDC and USDT</strong> — to over <strong>500 million crypto wallets</strong> worldwide, all connected via SWIFT. The 11,500 banks already on the SWIFT network can now send payments to stablecoin addresses with zero additional integration.</p>
+
+<p>This is a quiet revolution. It means a corporate treasurer in New York could soon initiate a "wire transfer" through their normal banking portal and have the funds arrive in a vendor's stablecoin wallet in Lagos or Manila in <strong>seconds, at a fraction of the cost</strong>.</p>
+
+<h2>Wizz Financial: First US stablecoin remittance completed</h2>
+<p>Separately, <strong>Wizz Financial</strong> completed its first stablecoin-powered cross-border remittance from the United States on March 12, with capabilities into 80 countries. Using <strong>BitGo's digital trust bank infrastructure</strong>, Wizz converts fiat to stablecoins on the back end, settles instantly, and delivers in local currency — the sender and recipient never touch crypto.</p>
+
+<h2>What this means for people sending money abroad</h2>
+<p>The convergence of faster SWIFT rails, stablecoin infrastructure, and fintech competition is compressing both cost and time:</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">How the Landscape Is Changing</h3>
+<table>
+<thead><tr><th>Channel</th><th>Speed (2023)</th><th>Speed (2026)</th><th>Cost (2026)</th></tr></thead>
+<tbody>
+<tr><td>Bank wire (SWIFT)</td><td>3–5 days</td><td>Minutes–hours</td><td>$25–$50 + 2–5% markup</td></tr>
+<tr class="blog-row-highlight"><td><strong>Specialist provider (Wise, Remitly)</strong></td><td>Hours–1 day</td><td><strong>Minutes</strong></td><td><strong>$0–$7 + 0–0.5% markup</strong></td></tr>
+<tr><td>Stablecoin rail</td><td>Not available</td><td>Seconds</td><td>$0.01–$1 network fee</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>For most people sending money today, <strong>specialist providers remain the best option</strong>. They're already fast (minutes via <a href="/send-money/usa-to-india">IMPS</a>, <a href="/send-money/usa-to-kenya">M-Pesa</a>, <a href="/send-money/usa-to-mexico">SPEI</a>) and dramatically cheaper than banks. Stablecoins are the future, but most recipients still need local currency in a bank account or mobile wallet — and that "last mile" conversion is where fintechs like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> excel today.</p>
+
+<h2>Our take</h2>
+<p>The market is bifurcating. SWIFT is getting faster, but banks aren't passing the savings through to consumers. Stablecoins offer near-zero cost, but require both parties to be comfortable with crypto infrastructure. <strong>Specialist transfer providers sit in the sweet spot</strong> — fast, cheap, and no crypto knowledge required. We expect this to remain true through at least 2027, with stablecoins gradually eating into B2B corridors first and consumer remittances later.</p>
+
+<p>Compare providers for your next transfer using our <a href="/send-money">live comparison tool</a>. For the latest on how stablecoins are reshaping payments, read our <a href="/news/stablecoins-cross-border-payments-2026">stablecoin payments analysis</a>.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-03-18",
+    source: "FSB / Thunes / PYMNTS.com",
+    sourceUrl: "https://www.fsb.org/2026/03/fsb-kicks-off-new-implementation-phase-to-enhance-cross-border-payments-through-public-private-partnership/",
+    providerSlugs: ["wise", "remitly", "western-union"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {
