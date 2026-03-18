@@ -105,8 +105,8 @@ export default function Header() {
               <path d="M24 21H14" stroke="#F59E0B" strokeWidth="2.2" strokeLinecap="round" />
               <path d="M17 17.5L13.5 21 17 24.5" stroke="#F59E0B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-lg sm:text-xl font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
-              SendMoney<span className="text-[var(--color-primary)]">Compare</span>
+            <span className="text-xl font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
+              Send Money
             </span>
           </Link>
 
