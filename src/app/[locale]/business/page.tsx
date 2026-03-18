@@ -154,102 +154,82 @@ export default async function BusinessHubPage({
         <Container>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
-              Best providers for business international payments
+              How much your business could save
             </h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">
+              Switching from bank wires to specialist providers saves 80–95% on every
+              international payment. Here&apos;s the annual impact by business size:
+            </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse">
                 <thead>
                   <tr className="border-b-2 border-[var(--color-outline)]">
                     <th className="text-left py-3 px-3 font-medium">
-                      Provider
+                      Monthly Volume
                     </th>
                     <th className="text-left py-3 px-3 font-medium">
-                      Best For
+                      Bank Wire Cost
                     </th>
                     <th className="text-left py-3 px-3 font-medium">
-                      FX Markup
+                      Specialist Cost
                     </th>
-                    <th className="text-left py-3 px-3 font-medium">Fees</th>
                     <th className="text-left py-3 px-3 font-medium">
-                      Key Features
+                      Annual Savings
+                    </th>
+                    <th className="text-left py-3 px-3 font-medium">
+                      Best Provider
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-[var(--color-outline)] bg-[#e8f5e9]">
-                    <td className="py-3 px-3 font-medium">
-                      <Link
-                        href="/companies/wise"
-                        className="text-[var(--color-primary)] hover:underline"
-                      >
-                        Wise Business
-                      </Link>
-                    </td>
-                    <td className="py-3 px-3">Most SMBs</td>
-                    <td className="py-3 px-3">0% (mid-market)</td>
-                    <td className="py-3 px-3">0.41–0.71%</td>
+                    <td className="py-3 px-3">$5K/month (freelancer)</td>
+                    <td className="py-3 px-3">~$175/mo</td>
+                    <td className="py-3 px-3">~$30/mo</td>
+                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$1,740/yr</td>
                     <td className="py-3 px-3">
-                      Batch payments, API, Xero/QuickBooks
+                      <Link href="/companies/wise" className="text-[var(--color-primary)] hover:underline">Wise Business</Link>
                     </td>
                   </tr>
                   <tr className="border-b border-[var(--color-outline)]">
-                    <td className="py-3 px-3 font-medium">
-                      <Link
-                        href="/companies/ofx"
-                        className="text-[var(--color-primary)] hover:underline"
-                      >
-                        OFX Business
-                      </Link>
-                    </td>
-                    <td className="py-3 px-3">Large transfers ($10K+)</td>
-                    <td className="py-3 px-3">0.3–1.5%</td>
-                    <td className="py-3 px-3">$0</td>
+                    <td className="py-3 px-3">$25K/month (SMB)</td>
+                    <td className="py-3 px-3">~$875/mo</td>
+                    <td className="py-3 px-3">~$125/mo</td>
+                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$9,000/yr</td>
                     <td className="py-3 px-3">
-                      Dedicated dealer, forward contracts
+                      <Link href="/companies/wise" className="text-[var(--color-primary)] hover:underline">Wise</Link> or{" "}
+                      <Link href="/companies/revolut" className="text-[var(--color-primary)] hover:underline">Revolut</Link>
                     </td>
                   </tr>
                   <tr className="border-b border-[var(--color-outline)]">
-                    <td className="py-3 px-3 font-medium">
-                      <Link
-                        href="/companies/revolut"
-                        className="text-[var(--color-primary)] hover:underline"
-                      >
-                        Revolut Business
-                      </Link>
-                    </td>
-                    <td className="py-3 px-3">Startups & tech</td>
-                    <td className="py-3 px-3">0% (market hours)</td>
-                    <td className="py-3 px-3">Free tier</td>
+                    <td className="py-3 px-3">$100K/month (mid-market)</td>
+                    <td className="py-3 px-3">~$3,500/mo</td>
+                    <td className="py-3 px-3">~$400/mo</td>
+                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$37,200/yr</td>
                     <td className="py-3 px-3">
-                      Multi-currency, expense mgmt, cards
+                      <Link href="/companies/ofx" className="text-[var(--color-primary)] hover:underline">OFX</Link> (negotiated)
                     </td>
                   </tr>
                   <tr className="border-b border-[var(--color-outline)]">
-                    <td className="py-3 px-3 font-medium">
-                      <Link
-                        href="/companies/xe"
-                        className="text-[var(--color-primary)] hover:underline"
-                      >
-                        XE Business
-                      </Link>
-                    </td>
-                    <td className="py-3 px-3">Mid-size businesses</td>
-                    <td className="py-3 px-3">0.5–1.5%</td>
-                    <td className="py-3 px-3">$0</td>
+                    <td className="py-3 px-3">$500K+/month (enterprise)</td>
+                    <td className="py-3 px-3">~$17,500/mo</td>
+                    <td className="py-3 px-3">~$2,000/mo</td>
+                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$186,000/yr</td>
                     <td className="py-3 px-3">
-                      130+ currencies, rate alerts
+                      <Link href="/companies/ofx" className="text-[var(--color-primary)] hover:underline">OFX</Link> or{" "}
+                      <Link href="/companies/xe" className="text-[var(--color-primary)] hover:underline">XE Business</Link>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mt-3">
-              Rates verified March 2026.{" "}
+              Savings estimates based on 3.5% avg bank cost vs specialist provider rates. See{" "}
               <Link
-                href="/send-money"
+                href="/business/small-business"
                 className="text-[var(--color-primary)] hover:underline"
               >
-                Compare live rates →
+                detailed provider comparison →
               </Link>
             </p>
           </div>

@@ -78,6 +78,13 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
             <p className="text-base text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
               {t("subheading")}
             </p>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mt-2">
+              By{" "}
+              <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">
+                Akif Hazarvi
+              </Link>
+              {" · Updated March 2026 · Data verified from official bank records"}
+            </p>
           </div>
 
           {/* Quick stats */}

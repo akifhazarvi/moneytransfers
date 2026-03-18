@@ -137,10 +137,10 @@ export const corridorGuides2: BlogPost[] = [
     tags: ["Kenya", "KES", "remittance", "USD to KES", "M-Pesa", "corridor guide", "send money to Kenya"],
     sections: [
       {
-        heading: "Kenya: East Africa's Remittance Powerhouse",
-        content: `<p>Kenya received over <strong>$4 billion in remittances</strong> in 2025, according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>, with the United States as the single largest source country. The Kenyan diaspora in the US numbers over 130,000, and remittances are a critical economic lifeline for families across the country.</p>
-<p>What makes Kenya unique as a remittance destination is <strong>M-Pesa</strong> — the mobile money platform used by over <strong>30 million Kenyans</strong> (in a country of 55 million). M-Pesa delivery is instant, widely accepted for everything from groceries to rent, and has fundamentally changed how money moves in Kenya. Most international providers now support M-Pesa, making Kenya one of the easiest and fastest corridors to send money to.</p>
-<p>The competition among providers keeps costs relatively low, but the gap between the cheapest and most expensive option on a $500 transfer can still be <strong>KES 3,000–7,000</strong> (roughly $20–$50). This guide helps you find the best deal. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
+        heading: "Why M-Pesa Makes Kenya the Easiest Country to Send Money To",
+        content: `<p>If you're sending money to Kenya from the US, you have a major advantage: <strong>M-Pesa</strong>. Used by over <strong>30 million Kenyans</strong> — more than half the country — M-Pesa is the world's most successful mobile money platform. Your transfer arrives in your recipient's phone in <strong>seconds</strong>, and they can use it instantly for bills, shopping, or cash withdrawal at any of 250,000+ agent locations.</p>
+<p>This puts Kenya ahead of almost every other remittance corridor on speed and convenience. But it doesn't mean all providers are equal — the gap between the cheapest and most expensive option on a $500 transfer is still <strong>KES 3,000–7,000</strong> ($20–$50).</p>
+<p>The US is Kenya's single largest remittance source, contributing to over <strong>$4 billion in annual inflows</strong> according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>. This guide compares the 6 best providers for USD-to-KES transfers. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
       },
       {
         heading: "Best Providers for USD to KES Transfers",
@@ -368,9 +368,10 @@ export const corridorGuides2: BlogPost[] = [
     tags: ["Morocco", "MAD", "remittance", "EUR to MAD", "USD to MAD", "corridor guide", "send money to Morocco"],
     sections: [
       {
-        heading: "Morocco: North Africa's Remittance Leader",
-        content: `<p>Morocco received over <strong>$12 billion in remittances</strong> in 2025. The Moroccan diaspora is concentrated in <strong>France, Spain, Italy, Belgium, and the Netherlands</strong>, with growing communities in the US and Canada. EUR to MAD is the most important currency pair, followed by USD to MAD.</p>
-<p>The MAD is a managed currency pegged to a basket of EUR (60%) and USD (40%), making it relatively stable. This means <strong>provider markups matter more than timing</strong>. See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a>.</p>`,
+        heading: "Morocco: Why the Stable Dirham Makes Provider Choice Everything",
+        content: `<p>Unlike volatile currencies where timing matters, Morocco's Dirham (MAD) is pegged to a basket of <strong>EUR (60%) and USD (40%)</strong>, keeping it remarkably stable. This means one thing for senders: <strong>the provider you choose is the single biggest factor in how much your recipient gets</strong>. There's no "waiting for a better rate" — the rate barely moves. But provider markups of 0.5–3% are constant and compounding.</p>
+<p>Morocco is home to one of the world's most competitive remittance corridors, with over <strong>$12 billion</strong> flowing in from its diaspora in <strong>France, Spain, Italy, Belgium, and the Netherlands</strong>. Uniquely, <strong>Ria Money Transfer</strong> offers home delivery of cash in Moroccan cities — something no other corridor in this guide can match.</p>
+<p>EUR to MAD is the most important pair (given the peg weighting), followed by USD to MAD. See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a> for broader advice.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Morocco",
@@ -454,9 +455,10 @@ export const corridorGuides2: BlogPost[] = [
     tags: ["Jamaica", "JMD", "remittance", "USD to JMD", "corridor guide", "send money to Jamaica", "cash pickup"],
     sections: [
       {
-        heading: "Jamaica: A Remittance-Dependent Economy",
-        content: `<p>Jamaica received approximately <strong>$3.5 billion in remittances</strong> in 2025, representing roughly 16% of GDP. The US, UK, and Canada are the primary source countries, with the majority of senders in New York, South Florida, Atlanta, London, and Toronto.</p>
-<p>What makes Jamaica unique is the importance of <strong>cash pickup</strong>. While digital banking is growing, many Jamaicans — particularly in rural parishes — prefer collecting cash at agent locations. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
+        heading: "Jamaica: Where Cash Pickup Still Beats Bank Transfers",
+        content: `<p>Jamaica is different from most corridors in this guide: <strong>cash pickup is still the most popular delivery method</strong>. While mobile banking is growing, many Jamaicans — especially in rural parishes outside Kingston, Montego Bay, and Spanish Town — rely on collecting physical cash from agent locations. This means your choice of provider depends heavily on their pickup network reach.</p>
+<p>Remittances represent roughly <strong>16% of Jamaica's GDP</strong> (~$3.5 billion in 2025), making it one of the most remittance-dependent economies in the world. The Jamaican diaspora is large — over 1 million abroad, primarily in <strong>New York, South Florida, Atlanta, London, and Toronto</strong>.</p>
+<p>The good news: digital-first providers like <a href="/companies/remitly">Remitly</a> and <a href="/companies/wise">Wise</a> now offer JMD transfers at 50–70% lower cost than traditional operators. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Jamaica",
@@ -532,9 +534,10 @@ export const corridorGuides2: BlogPost[] = [
     tags: ["Sri Lanka", "LKR", "remittance", "USD to LKR", "corridor guide", "send money to Sri Lanka"],
     sections: [
       {
-        heading: "Sri Lanka: Remittances as an Economic Lifeline",
-        content: `<p>Sri Lanka received approximately <strong>$6 billion in remittances</strong> in 2025. Following the 2022 economic crisis, remittances became even more critical for foreign exchange. The LKR lost over 50% of its value during the crisis, meaning even small percentage markups translate to <strong>LKR 10,000–25,000 on a $500 transfer</strong>.</p>
-<p>The Sri Lankan diaspora spans the Middle East, Europe, North America, and East Asia. See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a>.</p>`,
+        heading: "Sri Lanka: Why the 2022 Crisis Made Provider Comparison Essential",
+        content: `<p>Sri Lanka's 2022 economic crisis changed everything about sending money to the island. The Sri Lankan Rupee <strong>lost over 50% of its value</strong>, and while it has partially recovered, the LKR remains at historically weak levels — meaning your dollars, pounds, or dirhams buy far more rupees than they did before the crisis.</p>
+<p>But here's the catch: at 300+ LKR per USD, even a <strong>small percentage markup translates to huge absolute losses</strong>. A 1% markup on a $500 transfer costs you LKR 1,500+. A 3% markup (typical of Western Union on small amounts) costs LKR 4,500+. Provider comparison has never mattered more on this corridor.</p>
+<p>Sri Lanka's diaspora spans the <strong>Gulf states, UK, Italy, South Korea, and North America</strong>, sending home approximately <strong>$6 billion annually</strong> — a critical lifeline for the country's foreign exchange reserves. See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a>.</p>`,
       },
       {
         heading: "Best Providers for USD to LKR Transfers",
