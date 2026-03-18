@@ -1798,10 +1798,18 @@ export default async function CorridorPage({ params }: Props) {
           {
             title: "Useful guides",
             links: [
-              { href: "/guides/how-to-send-money-abroad", label: "How to send money abroad" },
+              ...(corridor.toCountry === "India" ? [{ href: "/guides/send-money-to-india-guide", label: "Best ways to send money to India" }] : []),
+              ...(corridor.toCountry === "Pakistan" ? [{ href: "/guides/send-money-to-pakistan-guide", label: "Best ways to send money to Pakistan" }] : []),
+              ...(corridor.toCountry === "Philippines" ? [{ href: "/guides/send-money-to-philippines-guide", label: "Best ways to send money to Philippines" }] : []),
+              ...(corridor.toCountry === "Mexico" ? [{ href: "/guides/send-money-to-mexico-guide", label: "Best ways to send money to Mexico" }] : []),
+              ...(corridor.toCountry === "Nigeria" ? [{ href: "/guides/send-money-to-nigeria-guide", label: "Best ways to send money to Nigeria" }] : []),
+              ...(corridor.toCountry === "Bangladesh" ? [{ href: "/guides/send-money-to-bangladesh-guide", label: "Best ways to send money to Bangladesh" }] : []),
+              ...(corridor.fromCountry === "UK" && corridor.toCountry === "India" ? [{ href: "/guides/send-money-uk-to-india-guide", label: "UK to India: complete guide" }] : []),
               { href: "/guides/cheapest-way-to-send-money-internationally", label: "Cheapest way to send money" },
               { href: "/guides/exchange-rate-markup-explained", label: "Exchange rates explained" },
+              { href: "/guides/wire-transfer-guide", label: "Wire transfers: fees & alternatives" },
               { href: "/compare", label: "Head-to-head provider comparisons" },
+              { href: "/business", label: "Business international payments" },
             ],
           },
         ]}

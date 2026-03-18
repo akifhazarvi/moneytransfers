@@ -10,11 +10,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   return {
     title:
-      "International Business Payments — Compare Providers & Fees (2026)",
+      "International Business Payments — Compare 4 Best Providers (2026)",
     description:
-      "Compare the cheapest ways to make international business payments. Wise Business, OFX, and Revolut Business compared for SME transfers, bulk payments, vendor payouts, and B2B cross-border payments.",
+      "Compare the cheapest ways to make international business payments in 2026. Side-by-side comparison of Wise Business, OFX, Revolut, and XE for small business international payments, bulk transfers, vendor payouts, and B2B FX. Save 80–95% vs bank wires.",
     keywords:
-      "international business payments, business money transfer, B2B international payments, small business international payments, bulk international payments, business fx payments, international vendor payments",
+      "international business payments, small business international payments, business international payments, make international business payments, bulk international payments, business fx payments, international vendor payments, B2B international money transfer, international payments for business, business account international payments, cost-effective international payments, international salary payments",
     alternates: getAlternates("business", locale),
     openGraph: {
       title:
@@ -98,12 +98,30 @@ export default async function BusinessHubPage({
     ],
   };
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "International Business Payments — Compare Providers & Fees (2026)",
+    description: "Compare the cheapest ways to make international business payments. Wise Business, OFX, and Revolut Business compared for SME transfers, bulk payments, vendor payouts, and B2B cross-border payments.",
+    datePublished: "2026-02-01",
+    dateModified: "2026-03-18",
+    author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+    publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
+    mainEntityOfPage: "https://sendmoneycompare.com/business",
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
         }}
       />
 
@@ -326,8 +344,44 @@ export default async function BusinessHubPage({
         </Container>
       </section>
 
-      {/* ─── Internal links ─── */}
+      {/* ─── Business corridor guides ─── */}
       <section className="py-10">
+        <Container>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
+              Business payment guides by corridor
+            </h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 leading-relaxed">
+              Costs vary significantly by corridor. These guides compare business-specific pricing for the most popular international payment routes.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { href: "/guides/business-payments-usa-to-uk", label: "USA → UK (USD to GBP)" },
+                { href: "/guides/business-payments-usa-to-india", label: "USA → India (USD to INR)" },
+                { href: "/guides/business-payments-usa-to-europe", label: "USA → Europe (USD to EUR)" },
+                { href: "/guides/business-payments-usa-to-mexico", label: "USA → Mexico (USD to MXN)" },
+                { href: "/guides/business-payments-usa-to-canada", label: "USA → Canada (USD to CAD)" },
+                { href: "/guides/business-payments-uk-to-europe", label: "UK → Europe (GBP to EUR)" },
+                { href: "/guides/business-payments-uk-to-india", label: "UK → India (GBP to INR)" },
+                { href: "/guides/business-payments-usa-to-philippines", label: "USA → Philippines (USD to PHP)" },
+                { href: "/guides/business-payments-usa-to-china", label: "USA → China (USD to CNY)" },
+              ].map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="flex items-center gap-2 p-3 rounded-xl border border-[var(--color-outline)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors text-sm text-[var(--color-on-surface)]"
+                >
+                  <span className="text-[var(--color-primary)]">→</span>
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─── Internal links ─── */}
+      <section className="py-10 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-xl font-normal text-[var(--color-on-surface)] mb-4">
@@ -356,6 +410,38 @@ export default async function BusinessHubPage({
                   className="text-[var(--color-primary)] hover:underline"
                 >
                   Multi-Currency Accounts & Exchange Rates
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guides/lowest-fx-fees-business-payments-2026"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  Lowest FX Fees for Business Payments 2026
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guides/how-to-pay-international-suppliers"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  How to Pay International Suppliers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guides/international-payroll-pay-remote-teams"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  International Payroll: How to Pay Remote Teams
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/guides/wire-transfer-guide"
+                  className="text-[var(--color-primary)] hover:underline"
+                >
+                  Wire Transfers: Fees, Speed & Cheaper Alternatives
                 </Link>
               </li>
               <li>

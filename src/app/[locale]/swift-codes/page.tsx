@@ -44,8 +44,28 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
   const totalBanks = countries.reduce((s, c) => s + c.bankCount, 0);
   const totalBranches = countries.reduce((s, c) => s + c.branches.length, 0);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+      { "@type": "ListItem", position: 2, name: "SWIFT Codes", item: "https://sendmoneycompare.com/swift-codes" },
+    ],
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "SWIFT/BIC Code Lookup — Find Codes for Banks in 100+ Countries",
+    description: `Search SWIFT/BIC codes for ${totalBanks.toLocaleString()}+ banks across ${countries.length} countries. Verified data updated regularly.`,
+    url: "https://sendmoneycompare.com/swift-codes",
+    isPartOf: { "@type": "WebSite", name: "SendMoneyCompare", url: "https://sendmoneycompare.com" },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       {/* Hero */}
       <section className="bg-[var(--color-surface)] pt-12 pb-8 border-b border-[var(--color-outline)]">
         <Container>
@@ -186,6 +206,44 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
                 SWIFT/BIC code for receiving international transfers.
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Related resources */}
+      <section className="py-10">
+        <Container>
+          <div className="max-w-3xl">
+            <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+              Related resources
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/iban" className="text-[var(--color-primary)] hover:underline">
+                  IBAN Number Guide — Format, Validation & Country Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/swift-codes-explained" className="text-[var(--color-primary)] hover:underline">
+                  SWIFT Codes Explained: What They Are & How to Find Yours
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/iban-numbers-explained" className="text-[var(--color-primary)] hover:underline">
+                  IBAN Numbers Explained: Format, Validation & Country Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/wire-transfer-guide" className="text-[var(--color-primary)] hover:underline">
+                  Wire Transfers: Fees, Speed & Cheaper Alternatives
+                </Link>
+              </li>
+              <li>
+                <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
+                  Compare International Money Transfer Rates →
+                </Link>
+              </li>
+            </ul>
           </div>
         </Container>
       </section>

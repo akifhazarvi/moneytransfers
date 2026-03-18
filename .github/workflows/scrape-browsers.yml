@@ -1,0 +1,111 @@
+name: Scrape Provider Data (Slow - Browser)
+
+on:
+  schedule:
+    # Once daily at 3am UTC (offset from fast scrapers to avoid git conflicts)
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-monito:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape Monito comparison (Playwright)
+        run: npx tsx scripts/scrape-monito.ts
+        timeout-minutes: 28
+        continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-monito
+          path: src/data/scraped/
+          retention-days: 1
+
+  scrape-xoom:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape Xoom/PayPal (browser)
+        run: npx tsx scripts/scrape-xoom.ts
+        timeout-minutes: 20
+        continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-xoom
+          path: src/data/scraped/
+          retention-days: 1
+
+  commit-data:
+    runs-on: ubuntu-latest
+    needs: [scrape-monito, scrape-xoom]
+    if: always()
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Monito scraper results
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-monito
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download Xoom scraper results
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-xoom
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Aggregate historical data
+        run: npx tsx scripts/aggregate-history.ts
+
+      - name: Commit scraped data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/scraped/
+          git diff --staged --quiet || git commit -m "chore: update browser-scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
+          git pull --rebase
+          git push
