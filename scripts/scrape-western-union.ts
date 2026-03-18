@@ -25,6 +25,21 @@ import {
   type ProviderQuote,
 } from "./lib/browser";
 
+// WU regional site prefixes by send currency
+const WU_SITE: Record<string, string> = {
+  USD: "us/en",
+  GBP: "gb/en",
+  EUR: "de/en",
+  CAD: "ca/en",
+  AUD: "au/en",
+  AED: "ae/en",
+  SAR: "sa/en",
+  SGD: "sg/en",
+  NZD: "nz/en",
+  CHF: "ch/en",
+  HKD: "hk/en",
+};
+
 // WU country names for destination selection
 const CORRIDORS = [
   { from: "USD", to: "INR", destCountry: "India", destCode: "IN" },
@@ -190,9 +205,11 @@ async function scrapeCorridorAmount(
       }
     });
 
-    // Always use the US site — it supports all send currencies via the
-    // currency selector on the page, and we know its selectors work reliably.
-    const url = `https://www.westernunion.com/us/en/web/send-money/start`;
+    // Use the regional WU site matching the send currency so the correct
+    // send currency is pre-selected and the /prices/catalog API returns
+    // the right corridor rates.
+    const sitePath = WU_SITE[corridor.from] ?? "us/en";
+    const url = `https://www.westernunion.com/${sitePath}/web/send-money/start`;
     await page.goto(url, {
       waitUntil: "domcontentloaded",
       timeout: 60000,

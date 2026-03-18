@@ -173,8 +173,17 @@ async function scrapeDom(
 
     if (!rate && !receiveAmount) return null;
 
-    const effectiveRate = rate || receiveAmount / amount;
-    const effectiveReceive = receiveAmount || amount * rate;
+    // Prefer rate-based calculation: DOM pages often show a fixed/default receive
+    // amount that doesn't scale with sendAmount, but the "1 X = Y Z" rate is reliable.
+    let effectiveRate: number;
+    let effectiveReceive: number;
+    if (rate > 0) {
+      effectiveRate = rate;
+      effectiveReceive = (amount - fee) * rate;
+    } else {
+      effectiveRate = receiveAmount / amount;
+      effectiveReceive = receiveAmount;
+    }
 
     return {
       provider: "Ria Money Transfer",

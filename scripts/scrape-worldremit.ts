@@ -331,8 +331,17 @@ async function scrapeDom(
 
     if (!receiveAmount && !rate) return null;
 
-    const effectiveRate = rate || (receiveAmount > 0 ? receiveAmount / amount : 0);
-    const effectiveReceive = receiveAmount || (rate > 0 ? amount * rate : 0);
+    // Prefer rate-based calculation: "They get" can match a fixed/default page value
+    // that doesn't scale with sendAmount. The "1 X = Y Z" rate is more reliable.
+    let effectiveRate: number;
+    let effectiveReceive: number;
+    if (rate > 0) {
+      effectiveRate = rate;
+      effectiveReceive = (amount - fee) * rate;
+    } else {
+      effectiveRate = receiveAmount / amount;
+      effectiveReceive = receiveAmount;
+    }
 
     return {
       provider: "WorldRemit",

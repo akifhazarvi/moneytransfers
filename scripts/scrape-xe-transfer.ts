@@ -183,8 +183,21 @@ async function scrapeDom(
 
     if (!rate && !receiveAmount) return null;
 
-    const effectiveRate = rate || (receiveAmount > 0 ? receiveAmount / amount : 0);
-    const effectiveReceive = receiveAmount || (rate > 0 ? amount * rate : 0);
+    // Prefer rate-based calculation: the "1 X = Y Z" rate text is more reliable
+    // than the receive amount pattern which can match page limits or unrelated values.
+    let effectiveRate: number;
+    let effectiveReceive: number;
+    if (rate > 0) {
+      effectiveRate = rate;
+      effectiveReceive = (amount - fee) * rate;
+    } else {
+      // No rate found — validate receiveAmount is plausible (not a page limit/example).
+      // Max plausible rate is ~100,000 (e.g. IDR ~17,000, NGN ~1,600).
+      // If receiveAmount / sendAmount > 100,000 it's almost certainly wrong.
+      if (receiveAmount / amount > 100000) return null;
+      effectiveRate = receiveAmount / amount;
+      effectiveReceive = receiveAmount;
+    }
 
     return {
       provider: "XE",
