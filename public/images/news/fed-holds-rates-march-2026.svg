@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1f36"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <g stroke="#ffffff10" stroke-width="1">
+    <line x1="100" y1="400" x2="1100" y2="400"/>
+    <line x1="100" y1="300" x2="1100" y2="300"/>
+    <line x1="100" y1="200" x2="1100" y2="200"/>
+  </g>
+  <!-- Rate bars visualization -->
+  <rect x="200" y="180" width="180" height="220" rx="8" fill="#1a73e8" opacity="0.8"/>
+  <rect x="510" y="180" width="180" height="220" rx="8" fill="#1a73e8" opacity="0.8"/>
+  <rect x="820" y="220" width="180" height="180" rx="8" fill="#ff9800" opacity="0.9"/>
+  <!-- Labels on bars -->
+  <text x="290" y="170" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">Dec 2025</text>
+  <text x="290" y="310" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="42" font-weight="700">2</text>
+  <text x="290" y="345" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="16">cuts projected</text>
+  <text x="600" y="170" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">Jan 2026</text>
+  <text x="600" y="310" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="42" font-weight="700">2</text>
+  <text x="600" y="345" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="16">cuts projected</text>
+  <text x="910" y="210" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">Mar 2026</text>
+  <text x="910" y="330" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="42" font-weight="700">1</text>
+  <text x="910" y="365" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="16">cut projected</text>
+  <!-- Arrow -->
+  <path d="M 730 300 L 790 300" stroke="#ff9800" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ff9800"/></marker></defs>
+  <!-- Title -->
+  <text x="600" y="80" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">Fed Rate Cut Projections: The Hawkish Shift</text>
+  <text x="600" y="115" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">Rates held at 3.50–3.75% | Dot plot signals fewer cuts ahead</text>
+  <!-- Footer -->
+  <text x="600" y="560" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">Source: Federal Reserve FOMC Meeting, March 18–19, 2026</text>
+  <text x="600" y="590" text-anchor="middle" fill="#1a73e8" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

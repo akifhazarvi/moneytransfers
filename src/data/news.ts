@@ -354,6 +354,8 @@ export const newsItems: NewsItem[] = [
     title: "Fed Holds Rates Steady, Signals Just One Cut in 2026 — What It Means for Your Transfers",
     excerpt:
       "The Federal Reserve kept rates at 3.5–3.75% and the dot plot projects only one cut this year. Here's how the stronger dollar affects remittance costs across key corridors.",
+    image: "/images/news/fed-holds-rates-march-2026.svg",
+    imageAlt: "Chart showing Federal Reserve rate cut projections declining from 2 cuts to 1 cut between December 2025 and March 2026",
     content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
 <p><strong>Key takeaway:</strong> The Fed held rates at 3.5–3.75% and projects just one cut in 2026 (down from two in January). A stronger dollar means Americans sending money abroad get more local currency per dollar — but the window may narrow if oil prices push inflation higher. Compare rates from multiple providers before your next transfer.</p>
 </div>
@@ -419,6 +421,8 @@ export const newsItems: NewsItem[] = [
     title: "GCash Drops All Fees for Filipino Transfers to the Middle East — Philippine Congress Pushes for Sector-Wide Waiver",
     excerpt:
       "GCash is offering zero-fee transfers to the UAE, Saudi Arabia, Qatar, and Oman through March 31. Meanwhile, the Philippine House passed a resolution urging all providers to waive OFW remittance fees.",
+    image: "/images/news/gcash-ofw-fee-waiver-2026.svg",
+    imageAlt: "Infographic showing GCash zero-fee transfer promotion to UAE, Saudi Arabia, Qatar and Oman for overseas Filipino workers, with key statistics: 10M+ OFWs, $40B+ annual remittances",
     content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
 <p><strong>Quick summary:</strong> GCash is offering zero-fee international transfers to the UAE, Saudi Arabia, Qatar, and Oman through March 31, 2026 — no minimum amount. Separately, the Philippine House of Representatives passed Resolution 905 urging all banks and remittance providers to waive OFW fees amid the Middle East crisis. If you're an OFW in the Gulf, act before March 31.</p>
 </div>
@@ -491,6 +495,8 @@ export const newsItems: NewsItem[] = [
     title: "75% of Cross-Border Payments Now Arrive in 10 Minutes — But Stablecoins Are Coming for the Rest",
     excerpt:
       "SWIFT says three-quarters of international payments reach banks in under 10 minutes. Meanwhile, Thunes just connected 500 million stablecoin wallets to the SWIFT network. The race to eliminate slow, expensive transfers is accelerating.",
+    image: "/images/news/swift-stablecoins-payments-2026.svg",
+    imageAlt: "Chart comparing cross-border payment speeds from 2020 to 2026: bank wires went from 3-5 days to 10 minutes, while stablecoins settle in seconds",
     content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
 <p><strong>Key facts:</strong> SWIFT announced that 75% of cross-border payments now reach banks within 10 minutes (up from days just a few years ago). Separately, Thunes connected 500 million stablecoin wallets to the SWIFT network via USDC/USDT. And Wizz Financial completed the first US stablecoin remittance into 80 countries. The race to make international transfers instant and near-free is accelerating — but for consumers, specialist providers like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> remain the best option today.</p>
 </div>
