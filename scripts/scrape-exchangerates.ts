@@ -19,7 +19,7 @@ const DELAY_MS = 2000;
 const REQUEST_TIMEOUT = 15000;
 
 const USER_AGENT =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36";
 
 // Known provider name cleanup: the site prefixes cell text with "Money Transfer" or "Best Rate\nMoney Transfer"
 const PROVIDER_NAME_MAP: Record<string, { name: string; slug: string; type: string }> = {
@@ -83,7 +83,10 @@ const CORRIDORS = [
   { slug: "belgium-to-india", from: "EUR", to: "INR" },
 ];
 
-const SEND_AMOUNTS = [1000, 5000, 10000];
+// Only scrape 2 amounts — derive the rest via linear fee model
+const SCRAPE_AMOUNTS = [100, 1000];
+// Expand to these amounts in the output using the computed fee model
+const EXPAND_AMOUNTS = [100, 250, 500, 1000, 2000, 5000, 10000];
 
 interface ExchangeRatesQuote {
   provider: string;
@@ -125,8 +128,18 @@ async function fetchPage(url: string): Promise<string | null> {
     const response = await fetch(url, {
       headers: {
         "User-Agent": USER_AGENT,
-        Accept: "text/html,application/xhtml+xml",
+        Accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1",
+        "Upgrade-Insecure-Requests": "1",
+        Referer: "https://www.google.com/",
       },
       signal: controller.signal,
     });
@@ -231,10 +244,133 @@ function parseComparisonTable(
   return quotes;
 }
 
+/**
+ * Build a linear fee model from 2 scraped data points:
+ *   fee(amount) = baseFee + feePercent * amount
+ *
+ * With quotes at amounts A1 and A2:
+ *   feePercent = (fee2 - fee1) / (A2 - A1)
+ *   baseFee = fee1 - feePercent * A1
+ *
+ * If both fees are 0 (common for banks on this site), model stays all-zero.
+ */
+interface FeeModel {
+  baseFee: number;
+  feePercent: number;
+  exchangeRate: number; // avg of both data points (typically identical)
+  provider: string;
+  providerSlug: string;
+  providerType: string;
+  sendCurrency: string;
+  receiveCurrency: string;
+  deliveryEstimate: string | null;
+}
+
+function buildFeeModels(
+  quotesLow: ExchangeRatesQuote[],
+  quotesHigh: ExchangeRatesQuote[]
+): FeeModel[] {
+  // Index high-amount quotes by provider slug
+  const highBySlug = new Map<string, ExchangeRatesQuote>();
+  for (const q of quotesHigh) highBySlug.set(q.providerSlug, q);
+
+  const models: FeeModel[] = [];
+
+  for (const low of quotesLow) {
+    const high = highBySlug.get(low.providerSlug);
+
+    if (high) {
+      // Two data points — solve linear model
+      const amtDiff = high.sendAmount - low.sendAmount;
+      const feePercent = amtDiff > 0
+        ? (high.fee - low.fee) / amtDiff
+        : 0;
+      const baseFee = low.fee - feePercent * low.sendAmount;
+
+      models.push({
+        baseFee: Math.round(Math.max(baseFee, 0) * 100) / 100,
+        feePercent: Math.round(Math.max(feePercent, 0) * 1000000) / 1000000,
+        exchangeRate: Math.round(((low.exchangeRate + high.exchangeRate) / 2) * 1000000) / 1000000,
+        provider: low.provider,
+        providerSlug: low.providerSlug,
+        providerType: low.providerType,
+        sendCurrency: low.sendCurrency,
+        receiveCurrency: low.receiveCurrency,
+        deliveryEstimate: low.deliveryEstimate,
+      });
+    } else {
+      // Only low-amount data point — assume flat fee
+      models.push({
+        baseFee: low.fee,
+        feePercent: 0,
+        exchangeRate: low.exchangeRate,
+        provider: low.provider,
+        providerSlug: low.providerSlug,
+        providerType: low.providerType,
+        sendCurrency: low.sendCurrency,
+        receiveCurrency: low.receiveCurrency,
+        deliveryEstimate: low.deliveryEstimate,
+      });
+    }
+  }
+
+  // Also add providers that only appeared in high quotes
+  const lowSlugs = new Set(quotesLow.map((q) => q.providerSlug));
+  for (const high of quotesHigh) {
+    if (!lowSlugs.has(high.providerSlug)) {
+      models.push({
+        baseFee: high.fee,
+        feePercent: 0,
+        exchangeRate: high.exchangeRate,
+        provider: high.provider,
+        providerSlug: high.providerSlug,
+        providerType: high.providerType,
+        sendCurrency: high.sendCurrency,
+        receiveCurrency: high.receiveCurrency,
+        deliveryEstimate: high.deliveryEstimate,
+      });
+    }
+  }
+
+  return models;
+}
+
+function expandModels(models: FeeModel[], dateCollected: string): ExchangeRatesQuote[] {
+  const expanded: ExchangeRatesQuote[] = [];
+
+  for (const m of models) {
+    for (const amount of EXPAND_AMOUNTS) {
+      const fee = Math.round(Math.max(m.baseFee + m.feePercent * amount, 0) * 100) / 100;
+      const receiveAmount = Math.round((amount - fee) * m.exchangeRate * 100) / 100;
+
+      if (receiveAmount <= 0) continue;
+
+      expanded.push({
+        provider: m.provider,
+        providerSlug: m.providerSlug,
+        providerType: m.providerType,
+        sendCurrency: m.sendCurrency,
+        receiveCurrency: m.receiveCurrency,
+        sendAmount: amount,
+        fee,
+        exchangeRate: m.exchangeRate,
+        receiveAmount,
+        paymentMethod: null,
+        deliveryEstimate: m.deliveryEstimate,
+        dateCollected,
+        source: "exchangerates-uk",
+      });
+    }
+  }
+
+  return expanded;
+}
+
 async function main() {
   console.log("=== ExchangeRates.org.uk Money Transfer Scraper ===\n");
   console.log(`Corridors: ${CORRIDORS.length}`);
-  console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}\n`);
+  console.log(`Scrape amounts: ${SCRAPE_AMOUNTS.join(", ")}`);
+  console.log(`Expand to: ${EXPAND_AMOUNTS.join(", ")}\n`);
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
@@ -242,10 +378,15 @@ async function main() {
   const providersSeen = new Set<string>();
   let successCount = 0;
   let failCount = 0;
+  let modelsBuilt = 0;
   const startTime = Date.now();
+  const dateCollected = new Date().toISOString();
 
   for (const corridor of CORRIDORS) {
-    for (const amount of SEND_AMOUNTS) {
+    // Scrape both amounts for this corridor
+    const quotesByAmount: Record<number, ExchangeRatesQuote[]> = {};
+
+    for (const amount of SCRAPE_AMOUNTS) {
       console.log(`  Fetching: ${corridor.from} → ${corridor.to} (${corridor.slug}, ${amount})...`);
 
       const url = `https://www.exchangerates.org.uk/compare-money-transfers/best-rate-send-${corridor.slug}?amount=${amount}`;
@@ -261,7 +402,7 @@ async function main() {
       const quotes = parseComparisonTable(html, corridor.from, corridor.to, amount);
 
       if (quotes.length > 0) {
-        allQuotes.push(...quotes);
+        quotesByAmount[amount] = quotes;
         for (const q of quotes) providersSeen.add(q.providerSlug);
         successCount++;
         console.log(`    ✓ ${quotes.length} providers`);
@@ -270,8 +411,22 @@ async function main() {
         console.log(`    ✗ No data parsed`);
       }
 
-      // Be polite — delay between requests
       await delay(DELAY_MS + Math.random() * 1000);
+    }
+
+    // Build fee models and expand to all amounts
+    const low = quotesByAmount[SCRAPE_AMOUNTS[0]] || [];
+    const high = quotesByAmount[SCRAPE_AMOUNTS[1]] || [];
+
+    if (low.length > 0 || high.length > 0) {
+      const models = buildFeeModels(low, high);
+      modelsBuilt += models.length;
+      const expanded = expandModels(models, dateCollected);
+      allQuotes.push(...expanded);
+
+      for (const m of models) {
+        console.log(`    📐 ${m.provider}: fee = ${m.baseFee} + ${(m.feePercent * 100).toFixed(4)}% × amount, rate = ${m.exchangeRate}`);
+      }
     }
   }
 
@@ -280,8 +435,8 @@ async function main() {
 
   const elapsed = Math.round((Date.now() - startTime) / 1000);
   console.log(`\n=== ExchangeRates.org.uk Scraping Complete ===`);
-  console.log(`Wrote ${outputPath} (${allQuotes.length} quotes)`);
-  console.log(`Corridors: ${successCount} success, ${failCount} failed`);
+  console.log(`Wrote ${outputPath} (${allQuotes.length} quotes, expanded from ${modelsBuilt} fee models)`);
+  console.log(`Scraped: ${successCount} success, ${failCount} failed (of ${CORRIDORS.length * SCRAPE_AMOUNTS.length} requests)`);
   console.log(`Unique providers: ${providersSeen.size}`);
   console.log(`Providers: ${[...providersSeen].sort().join(", ")}`);
   console.log(`Duration: ${Math.floor(elapsed / 60)}m ${elapsed % 60}s`);
