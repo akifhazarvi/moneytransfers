@@ -694,11 +694,36 @@ export default async function CorridorPage({ params }: Props) {
     ],
   };
 
+  const isCurr = corridor.isCurrencyCorridor;
+  const isCountryPg = corridor.isCountryPage;
+  const pageTitle = isCurr
+    ? `${fromCurrency} to ${toCurrency} — Best Exchange Rates & Low Fees`
+    : isCountryPg
+    ? `Send Money to ${corridor.toCountry} — Best ${toCurrency} Rates & Cheapest Providers`
+    : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates & Lowest Fees`;
+  const pageDescription = isCurr
+    ? `Compare real-time ${fromCurrency} to ${toCurrency} exchange rates from 15+ providers. Find the cheapest way to convert ${fromCurrency} to ${toCurrency} with the lowest fees.`
+    : isCountryPg
+    ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
+    : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency}).`;
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: pageTitle,
+    description: pageDescription,
+    url: `https://sendmoneycompare.com/send-money/${slug}`,
+    isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       {/* ─── Hero ─── */}
       <section className="bg-[var(--color-surface)] pt-8 pb-6">

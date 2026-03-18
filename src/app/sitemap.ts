@@ -6,14 +6,16 @@ import { newsItems } from "@/data/news";
 import { businessPages } from "@/data/business-pages";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
+import { authors } from "@/data/authors";
+import { providerReviews } from "@/data/provider-reviews";
 import { statSync } from "fs";
 import { join } from "path";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const EXCLUDED_CORRIDOR_SLUGS = new Set(["gbp-to-fjd"]);
 
-// Fixed deploy date — update manually when static content changes
-const LAST_DEPLOY = "2026-03-17";
+// Automatically set to today's date at build time
+const LAST_DEPLOY = new Date().toISOString().split("T")[0];
 
 // Dynamically derived from the most recently modified scraped quotes file.
 // This ensures lastmod reflects when live data actually changed, not the deploy date.
@@ -114,9 +116,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((c) => !EXCLUDED_CORRIDOR_SLUGS.has(c.slug))
     .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
 
-  const providerPages: MetadataRoute.Sitemap = providers.map((p) =>
-    entry(`companies/${p.slug}`, DATA_UPDATED)
-  );
+  // Only include providers that have editorial reviews (others are noindexed)
+  const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));
+  const providerPages: MetadataRoute.Sitemap = providers
+    .filter((p) => reviewedSlugs.has(p.slug))
+    .map((p) => entry(`companies/${p.slug}`, DATA_UPDATED));
 
   const comparisonPages: MetadataRoute.Sitemap = [];
   for (let i = 0; i < providers.length; i++) {
@@ -164,6 +168,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...businessPages.map((p) => entry(`business/${p.slug}`, LAST_DEPLOY)),
   ];
 
+  const authorPages: MetadataRoute.Sitemap = authors.map((author) =>
+    entry(`about/${author.slug}`, LAST_DEPLOY)
+  );
+
+  const correctionsPage: MetadataRoute.Sitemap = [
+    entry("corrections", LAST_DEPLOY),
+  ];
+
   return [
     ...staticPages,
     ...staticLocalePages,
@@ -176,5 +188,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...businessHubPages,
     ...ibanPages,
     ...swiftPages,
+    ...authorPages,
+    ...correctionsPage,
   ];
 }

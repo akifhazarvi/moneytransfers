@@ -64,7 +64,7 @@ const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: "SendMoneyCompare",
   url: SITE_URL,
-  logo: `${SITE_URL}/logos/sendmoneycompare-logo.png`,
+  logo: { "@type": "ImageObject", url: `${SITE_URL}/logos/sendmoneycompare-logo.png`, width: 512, height: 512 },
   description:
     "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from leading providers.",
   foundingDate: "2024",

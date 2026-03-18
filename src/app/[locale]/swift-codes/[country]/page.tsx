@@ -327,6 +327,22 @@ export default async function SwiftCountryPage({ params }: Props) {
       </div>
     </Container>
 
+    {/* BreadcrumbList JSON-LD */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+            { "@type": "ListItem", position: 2, name: "SWIFT Codes", item: "https://sendmoneycompare.com/swift-codes" },
+            { "@type": "ListItem", position: 3, name: `${country.name} SWIFT Codes`, item: `https://sendmoneycompare.com/swift-codes/${slug}` },
+          ],
+        }),
+      }}
+    />
+
     {/* FAQ JSON-LD Schema */}
     {swiftFaqsList && (
       <script

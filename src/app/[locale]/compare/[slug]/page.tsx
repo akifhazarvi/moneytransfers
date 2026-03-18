@@ -117,10 +117,16 @@ function ArticleComparison({
             "@type": "Article",
             headline: article.title,
             description: article.metaDescription,
-            datePublished: article.updatedAt,
+            datePublished: "2026-03-01",
             dateModified: article.updatedAt,
             author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
-            publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
+            publisher: {
+              "@type": "Organization",
+              name: "SendMoneyCompare",
+              "@id": "https://sendmoneycompare.com/#organization",
+              logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
+            },
+            mainEntityOfPage: `https://sendmoneycompare.com/compare/${slug}`,
           }),
         }}
       />

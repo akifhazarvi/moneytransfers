@@ -94,8 +94,33 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { step: "3", title: tHow("step3Title"), desc: tHow("step3Desc") },
   ];
 
+  const homePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Compare Money Transfers — Best Rates & Lowest Fees",
+    description: "Compare fees, exchange rates, and delivery times from 60+ money transfer providers across 64+ corridors. Updated every 6 hours with live data.",
+    url: "https://sendmoneycompare.com",
+    isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+  };
+
+  const homeBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeBreadcrumbSchema) }}
+      />
       {/* ─── 1. HERO ─── */}
       <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-16 pb-14">
         <Container>
@@ -539,7 +564,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </ul>
             </div>
             <div className="mt-8 pt-6 border-t border-[var(--color-outline)] flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-xs text-[var(--color-on-surface-muted)] uppercase tracking-wide font-medium">Regulated by</span>
+              <span className="text-xs text-[var(--color-on-surface-muted)] uppercase tracking-wide font-medium">Providers regulated by</span>
               <a href="https://www.fca.org.uk" target="_blank" rel="noopener noreferrer" className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
                 FCA (UK)
               </a>

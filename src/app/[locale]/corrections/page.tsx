@@ -132,6 +132,13 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
                 </p>
               </div>
             </div>
+
+            <div className="mt-8 pt-6 border-t border-[var(--color-outline)]">
+              <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-3">Corrections Log</h2>
+              <p className="text-sm text-[var(--color-on-surface-variant)]">
+                We have not needed to issue formal corrections to date. All data is verified every 6 hours via automated scraping, and editorial content is reviewed before publication. If you find an error, please contact us at corrections@sendmoneycompare.com.
+              </p>
+            </div>
           </div>
         </Container>
       </section>

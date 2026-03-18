@@ -443,7 +443,15 @@ function DetailedReview({
         itemReviewed: { "@type": "FinancialService", name: provider.name, description: provider.description, url: provider.website },
         reviewRating: { "@type": "Rating", ratingValue: review.editorRating, bestRating: 10, worstRating: 1 },
         author: { "@type": "Person", name: review.reviewer, url: `https://sendmoneycompare.com/about/${review.reviewer.toLowerCase().replace(/\s+/g, "-")}` },
-        datePublished: review.updatedAt, reviewBody: review.editorVerdict,
+        publisher: {
+          "@type": "Organization",
+          name: "SendMoneyCompare",
+          "@id": "https://sendmoneycompare.com/#organization",
+          logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
+        },
+        datePublished: "2026-03-01",
+        dateModified: review.updatedAt,
+        reviewBody: review.editorVerdict,
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",

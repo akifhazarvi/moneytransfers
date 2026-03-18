@@ -35,6 +35,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },
+      // Bing search crawler — same rules as general crawlers
+      {
+        userAgent: "bingbot",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
       // Block training-only crawlers
       {
         userAgent: "CCBot",

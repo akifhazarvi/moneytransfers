@@ -104,7 +104,7 @@ export default async function BusinessHubPage({
     datePublished: "2026-02-01",
     dateModified: "2026-03-18",
     author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
-    publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
+    publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization", logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 } },
     mainEntityOfPage: "https://sendmoneycompare.com/business",
   };
 

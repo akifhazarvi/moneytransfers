@@ -66,11 +66,12 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
     author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}` },
+    mainEntityOfPage: `https://sendmoneycompare.com/guides/${slug}`,
     publisher: {
       "@type": "Organization",
       name: "SendMoneyCompare",
       "@id": "https://sendmoneycompare.com/#organization",
-      logo: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png",
+      logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
     },
   };
 
@@ -84,26 +85,10 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-  const howToSchema = post.howToSteps?.length ? {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: post.title,
-    description: post.metaDescription,
-    step: post.howToSteps.map((step, i) => ({
-      "@type": "HowToStep",
-      position: i + 1,
-      name: step.name,
-      text: step.text,
-    })),
-  } : null;
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {howToSchema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
-      )}
 
       {/* ── Article Hero ── */}
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">

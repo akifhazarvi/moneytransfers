@@ -86,10 +86,12 @@ export default async function BusinessSubPage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "SendMoneyCompare",
+      "@id": "https://sendmoneycompare.com/#organization",
       url: "https://sendmoneycompare.com",
+      logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
     },
-    datePublished: "2026-03-17",
-    dateModified: "2026-03-17",
+    datePublished: "2026-03-01",
+    dateModified: "2026-03-18",
     mainEntityOfPage: `https://sendmoneycompare.com/business/${slug}`,
   };
 
