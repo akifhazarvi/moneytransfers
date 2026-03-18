@@ -54,7 +54,7 @@ export default async function Image() {
           }}
         />
 
-        {/* Logo mark - exchange arrows */}
+        {/* Logo mark - abstract S flowing curves */}
         <div
           style={{
             display: "flex",
@@ -63,39 +63,14 @@ export default async function Image() {
             width: "100px",
             height: "100px",
             borderRadius: "22px",
-            background: "rgba(255,255,255,0.1)",
+            background: "rgba(255,255,255,0.08)",
             marginBottom: "28px",
-            position: "relative",
           }}
         >
-          {/* Top arrow (sending - light) */}
-          <div
-            style={{
-              position: "absolute",
-              top: "24px",
-              left: "18px",
-              fontSize: "36px",
-              color: "#C7D2F6",
-              display: "flex",
-              fontWeight: 700,
-            }}
-          >
-            →
-          </div>
-          {/* Bottom arrow (receiving - amber) */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "24px",
-              right: "18px",
-              fontSize: "36px",
-              color: "#F59E0B",
-              display: "flex",
-              fontWeight: 700,
-            }}
-          >
-            ←
-          </div>
+          <svg width="60" height="60" viewBox="0 0 32 32" fill="none">
+            <path d="M9 10.5C9 10.5 13 10.5 16 10.5C20.5 10.5 23 12.5 23 15C23 17.5 20.5 19 16 19" stroke="#C7D2F6" strokeWidth="2.8" strokeLinecap="round" fill="none" />
+            <path d="M23 21.5C23 21.5 19 21.5 16 21.5C11.5 21.5 9 19.5 9 17C9 14.5 11.5 13 16 13" strokeWidth="2.8" stroke="#F59E0B" strokeLinecap="round" fill="none" />
+          </svg>
         </div>
 
         {/* Brand name */}

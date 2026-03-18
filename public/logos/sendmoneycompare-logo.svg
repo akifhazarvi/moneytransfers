@@ -1,11 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <!-- Background: rounded square -->
-  <rect width="512" height="512" rx="112" fill="#2D3A8C"/>
-  <!-- Stylized comparison arrows forming abstract exchange symbol -->
-  <!-- Top arrow: sending (light indigo) -->
-  <path d="M128 176h160" stroke="#C7D2F6" stroke-width="36" stroke-linecap="round"/>
-  <path d="M240 120L296 176 240 232" stroke="#C7D2F6" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <!-- Bottom arrow: receiving (amber accent) -->
-  <path d="M384 336H224" stroke="#F59E0B" stroke-width="36" stroke-linecap="round"/>
-  <path d="M272 280L216 336 272 392" stroke="#F59E0B" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2D3A8C"/>
+      <stop offset="100%" stop-color="#1E2761"/>
+    </linearGradient>
+  </defs>
+  <!-- Premium rounded square -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Abstract "S" formed by two flowing curves — Send + Compare -->
+  <!-- Top curve: outward flow (sending) — light indigo -->
+  <path d="M144 168C144 168 208 168 256 168C328 168 368 200 368 240C368 280 328 304 256 304"
+        stroke="#C7D2F6" stroke-width="44" stroke-linecap="round" fill="none"/>
+  <!-- Bottom curve: return flow (comparing) — amber accent -->
+  <path d="M368 344C368 344 304 344 256 344C184 344 144 312 144 272C144 232 184 208 256 208"
+        stroke="#F59E0B" stroke-width="44" stroke-linecap="round" fill="none"/>
 </svg>
