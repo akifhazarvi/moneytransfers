@@ -65,6 +65,7 @@ interface CapturedQuote {
   fee: number;
   exchangeRate: number;
   receiveAmount: number;
+  paymentMethod: string | null;
   deliveryEstimate: string | null;
 }
 
@@ -117,6 +118,7 @@ function parseApiResponse(body: string): CapturedQuote[] {
           typeof receiveAmount === "number"
             ? Math.round(receiveAmount * 100) / 100
             : 0,
+        paymentMethod: null,
         deliveryEstimate: typeof delivery === "string" ? delivery : null,
       });
     }
@@ -137,6 +139,7 @@ async function extractFromDOM(page: Page): Promise<CapturedQuote[]> {
       fee: number;
       exchangeRate: number;
       receiveAmount: number;
+      paymentMethod: string | null;
       deliveryEstimate: string | null;
     }[] = [];
 
@@ -186,6 +189,7 @@ async function extractFromDOM(page: Page): Promise<CapturedQuote[]> {
           fee: 0,
           exchangeRate: 0,
           receiveAmount: numbers[numbers.length - 1] || 0, // Usually last number is receive amount
+          paymentMethod: null,
           deliveryEstimate: null,
         });
       }
@@ -297,6 +301,7 @@ async function scrapeCorridor(
       fee: q.fee,
       exchangeRate: q.exchangeRate,
       receiveAmount: q.receiveAmount,
+      paymentMethod: null,
       deliveryEstimate: q.deliveryEstimate,
       deliveryMethod: null,
       dateCollected: now,

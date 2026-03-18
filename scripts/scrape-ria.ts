@@ -187,7 +187,7 @@ async function scrapeDom(
       exchangeRate: Math.round(effectiveRate * 10000) / 10000,
       receiveAmount: Math.round(effectiveReceive * 100) / 100,
       paymentMethod: null,
-    deliveryEstimate: null,
+      deliveryEstimate: null,
       deliveryMethod: null,
       dateCollected: new Date().toISOString(),
       source: "ria-browser-dom",

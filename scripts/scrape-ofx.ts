@@ -48,6 +48,7 @@ interface OFXQuote {
   interbankRate: number;
   markup: number;
   receiveAmount: number;
+  paymentMethod: string | null;
   deliveryEstimate: string | null;
   deliveryMethod: null;
   dateCollected: string;
@@ -104,6 +105,7 @@ async function fetchOFXQuote(
       interbankRate,
       markup,
       receiveAmount: Math.round(customerAmount * 100) / 100,
+      paymentMethod: null,
       deliveryEstimate: deliveryDays
         ? `${deliveryDays} day${deliveryDays > 1 ? "s" : ""}`
         : null,

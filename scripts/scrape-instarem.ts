@@ -60,6 +60,7 @@ interface InstaremQuote {
   midMarketRate: number;
   markup: number;
   receiveAmount: number;
+  paymentMethod: string | null;
   deliveryEstimate: string | null;
   deliveryMethod: null;
   dateCollected: string;
@@ -116,6 +117,7 @@ async function fetchInstaremQuote(
       midMarketRate: midMarketRate || 0,
       markup: Math.round(marginPercent * 100) / 100,
       receiveAmount: Math.round(receiveAmount * 100) / 100,
+      paymentMethod: null,
       deliveryEstimate: null,
       deliveryMethod: null,
       dateCollected: new Date().toISOString(),
@@ -171,6 +173,7 @@ async function fetchCompetitorComparison(
         midMarketRate: 0,
         markup: 0,
         receiveAmount: Math.round(comp.received_amount * 100) / 100,
+        paymentMethod: null,
         deliveryEstimate: null,
         deliveryMethod: null,
         dateCollected: new Date().toISOString(),
