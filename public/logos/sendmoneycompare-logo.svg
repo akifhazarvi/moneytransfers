@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Background: rounded square -->
+  <rect width="512" height="512" rx="112" fill="#2D3A8C"/>
+  <!-- Stylized comparison arrows forming abstract exchange symbol -->
+  <!-- Top arrow: sending (light indigo) -->
+  <path d="M128 176h160" stroke="#C7D2F6" stroke-width="36" stroke-linecap="round"/>
+  <path d="M240 120L296 176 240 232" stroke="#C7D2F6" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Bottom arrow: receiving (amber accent) -->
+  <path d="M384 336H224" stroke="#F59E0B" stroke-width="36" stroke-linecap="round"/>
+  <path d="M272 280L216 336 272 392" stroke="#F59E0B" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

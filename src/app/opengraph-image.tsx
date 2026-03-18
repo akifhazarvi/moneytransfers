@@ -20,169 +20,204 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #2D3A8C 0%, #1E2761 50%, #2D3A8C 100%)",
+          background: "linear-gradient(135deg, #2D3A8C 0%, #1E2761 50%, #151B4A 100%)",
           fontFamily: "system-ui, sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Background pattern - subtle circles */}
+        {/* Background pattern - subtle geometric shapes */}
         <div
           style={{
             position: "absolute",
-            top: "-100px",
-            right: "-100px",
-            width: "500px",
-            height: "500px",
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.05)",
+            top: "-80px",
+            right: "-80px",
+            width: "400px",
+            height: "400px",
+            borderRadius: "80px",
+            background: "rgba(255,255,255,0.03)",
             display: "flex",
+            transform: "rotate(15deg)",
           }}
         />
         <div
           style={{
             position: "absolute",
-            bottom: "-150px",
-            left: "-100px",
-            width: "600px",
-            height: "600px",
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.04)",
+            bottom: "-120px",
+            left: "-60px",
+            width: "500px",
+            height: "500px",
+            borderRadius: "100px",
+            background: "rgba(255,255,255,0.025)",
             display: "flex",
+            transform: "rotate(-10deg)",
           }}
         />
 
-        {/* Logo icon - money transfer arrows with coin */}
+        {/* Logo mark - exchange arrows */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            marginBottom: "24px",
+            width: "100px",
+            height: "100px",
+            borderRadius: "22px",
+            background: "rgba(255,255,255,0.1)",
+            marginBottom: "28px",
+            position: "relative",
           }}
         >
-          {/* Coin circle */}
+          {/* Top arrow (sending - light) */}
           <div
             style={{
-              width: "120px",
-              height: "120px",
-              borderRadius: "60px",
-              background: "linear-gradient(145deg, #FFD700, #FFA000)",
+              position: "absolute",
+              top: "24px",
+              left: "18px",
+              fontSize: "36px",
+              color: "#C7D2F6",
               display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-              position: "relative",
+              fontWeight: 700,
             }}
           >
-            {/* Dollar sign */}
-            <span
-              style={{
-                fontSize: "64px",
-                fontWeight: 800,
-                color: "#7B5800",
-                lineHeight: 1,
-              }}
-            >
-              $
-            </span>
+            →
           </div>
-
-          {/* Transfer arrows */}
+          {/* Bottom arrow (receiving - amber) */}
           <div
             style={{
+              position: "absolute",
+              bottom: "24px",
+              right: "18px",
+              fontSize: "36px",
+              color: "#F59E0B",
               display: "flex",
-              flexDirection: "column",
-              marginLeft: "16px",
-              marginRight: "16px",
-              gap: "8px",
+              fontWeight: 700,
             }}
           >
-            <div
-              style={{
-                fontSize: "40px",
-                color: "#81D4FA",
-                lineHeight: 1,
-                display: "flex",
-              }}
-            >
-              →
-            </div>
-            <div
-              style={{
-                fontSize: "40px",
-                color: "#A5D6A7",
-                lineHeight: 1,
-                display: "flex",
-              }}
-            >
-              ←
-            </div>
-          </div>
-
-          {/* Globe circle */}
-          <div
-            style={{
-              width: "120px",
-              height: "120px",
-              borderRadius: "60px",
-              background: "linear-gradient(145deg, #4CAF50, #2E7D32)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "60px",
-                lineHeight: 1,
-              }}
-            >
-              🌍
-            </span>
+            ←
           </div>
         </div>
 
         {/* Brand name */}
         <div
           style={{
-            fontSize: "64px",
-            fontWeight: 800,
-            color: "#FFFFFF",
-            letterSpacing: "-1px",
             display: "flex",
-            marginBottom: "12px",
+            alignItems: "baseline",
+            marginBottom: "16px",
           }}
         >
-          Send Money Compare
+          <span
+            style={{
+              fontSize: "60px",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              letterSpacing: "-1.5px",
+              display: "flex",
+            }}
+          >
+            SendMoney
+          </span>
+          <span
+            style={{
+              fontSize: "60px",
+              fontWeight: 800,
+              color: "#F59E0B",
+              letterSpacing: "-1.5px",
+              display: "flex",
+            }}
+          >
+            Compare
+          </span>
         </div>
 
         {/* Tagline */}
         <div
           style={{
-            fontSize: "26px",
-            color: "rgba(255,255,255,0.85)",
+            fontSize: "24px",
+            color: "rgba(255,255,255,0.7)",
             fontWeight: 500,
             display: "flex",
-            marginBottom: "32px",
+            marginBottom: "36px",
           }}
         >
-          Compare 60+ providers — Find the Best International Money Transfer
+          60+ Providers Compared — Real Rates, Updated Every 6 Hours
         </div>
 
-        {/* Bottom accent bar */}
+        {/* Stats bar */}
+        <div
+          style={{
+            display: "flex",
+            gap: "48px",
+            padding: "16px 40px",
+            borderRadius: "16px",
+            background: "rgba(255,255,255,0.07)",
+          }}
+        >
+          {[
+            { num: "60+", label: "Providers" },
+            { num: "64+", label: "Corridors" },
+            { num: "6hr", label: "Data Refresh" },
+            { num: "$0", label: "To Compare" },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "28px",
+                  fontWeight: 800,
+                  color: "#FFFFFF",
+                  display: "flex",
+                }}
+              >
+                {stat.num}
+              </span>
+              <span
+                style={{
+                  fontSize: "13px",
+                  color: "rgba(255,255,255,0.5)",
+                  fontWeight: 500,
+                  display: "flex",
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                }}
+              >
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom accent line */}
         <div
           style={{
             position: "absolute",
             bottom: "0",
             left: "0",
             right: "0",
-            height: "6px",
-            background: "linear-gradient(90deg, #F59E0B, #4CAF50, #2D3A8C, #F59E0B)",
+            height: "4px",
+            background: "linear-gradient(90deg, #2D3A8C, #F59E0B, #2D3A8C)",
             display: "flex",
           }}
         />
+
+        {/* URL watermark */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "16px",
+            fontSize: "14px",
+            color: "rgba(255,255,255,0.3)",
+            display: "flex",
+          }}
+        >
+          sendmoneycompare.com
+        </div>
       </div>
     ),
     {

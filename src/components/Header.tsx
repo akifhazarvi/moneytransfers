@@ -97,20 +97,16 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
-          <Link href="/" aria-label="Send Money — Home" className="flex items-center gap-2 shrink-0">
+          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-2.5 shrink-0">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-              <circle cx="16" cy="16" r="16" fill="#2D3A8C" />
-              <circle cx="16" cy="16" r="10" fill="none" stroke="white" strokeWidth="1.5" opacity="0.3" />
-              <text x="16" y="21" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif">$</text>
-              <path d="M6 12h5" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M8 12l2-2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M8 12l2 2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M26 20h-5" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M24 20l-2-2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M24 20l-2 2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
+              <rect width="32" height="32" rx="7" fill="#2D3A8C" />
+              <path d="M8 11h10" stroke="#C7D2F6" strokeWidth="2.2" strokeLinecap="round" />
+              <path d="M15 7.5L18.5 11 15 14.5" stroke="#C7D2F6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M24 21H14" stroke="#F59E0B" strokeWidth="2.2" strokeLinecap="round" />
+              <path d="M17 17.5L13.5 21 17 24.5" stroke="#F59E0B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="text-xl font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
-              Send Money
+            <span className="text-lg sm:text-xl font-semibold tracking-[-0.3px] text-[var(--color-on-surface)]">
+              SendMoney<span className="text-[var(--color-primary)]">Compare</span>
             </span>
           </Link>
 
