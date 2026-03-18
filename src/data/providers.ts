@@ -653,23 +653,6 @@ for (const provider of providers) {
   }
 }
 
-// Fallback simulation config for providers/corridors not in scraped data
-const fallbackMarkups: Record<string, { markup: number; fee: number; speed: string }> = {
-  wise: { markup: 0.004, fee: 6, speed: "1-2 business days" },
-  remitly: { markup: 0.009, fee: 1.99, speed: "Minutes to 3 days" },
-  ofx: { markup: 0.027, fee: 8, speed: "1-3 business days" },
-  xe: { markup: 0.009, fee: 0, speed: "1-4 business days" },
-  "western-union": { markup: 0.025, fee: 4.99, speed: "Minutes to 5 days" },
-  worldremit: { markup: 0.015, fee: 2.99, speed: "Minutes to 3 days" },
-  revolut: { markup: 0.003, fee: 0, speed: "Instant to 3 days" },
-  paypal: { markup: 0.035, fee: 2.99, speed: "Instant to 3 days" },
-  moneygram: { markup: 0.004, fee: 1.99, speed: "Minutes to 3 days" },
-  xoom: { markup: 0.023, fee: 0, speed: "Minutes to 3 days" },
-  torfx: { markup: 0.006, fee: 0, speed: "1-3 business days" },
-  instarem: { markup: 0.004, fee: 0, speed: "1-3 business days" },
-  "taptap-send": { markup: 0.008, fee: 0, speed: "Minutes to 1 day" },
-  "ace-money-transfer": { markup: 0.006, fee: 2.99, speed: "Minutes to 2 days" },
-};
 
 export function generateQuotes(
   amount: number,
@@ -740,49 +723,11 @@ export function generateQuotes(
       });
     }
 
-    // Include remaining hardcoded providers using fallback data
-    const scrapedSlugs = new Set(quotes.map((q) => q.providerSlug));
-    for (const provider of providers) {
-      if (scrapedSlugs.has(provider.slug)) continue;
-      const config = fallbackMarkups[provider.slug] || { markup: 0.02, fee: 2.99, speed: "1-3 days" };
-      const providerRate = baseRate * (1 - config.markup);
-      const receiveAmount = (amount - config.fee) * providerRate;
-      quotes.push({
-        providerSlug: provider.slug,
-        sendAmount: amount,
-        sendCurrency: fromCurrency,
-        receiveCurrency: toCurrency,
-        exchangeRate: Math.round(providerRate * 10000) / 10000,
-        fee: Math.round(config.fee * 100) / 100,
-        receiveAmount: Math.round(receiveAmount * 100) / 100,
-        transferSpeed: config.speed,
-        rating: provider.rating,
-        ratingLabel: provider.ratingLabel,
-      });
-    }
-
     return quotes.sort((a, b) => b.receiveAmount - a.receiveAmount);
   }
 
-  // Fallback: simulate quotes for corridors we didn't scrape
-  return providers.map((provider) => {
-    const config = fallbackMarkups[provider.slug] || { markup: 0.02, fee: 2.99, speed: "1-3 days" };
-    const providerRate = baseRate * (1 - config.markup);
-    const receiveAmount = (amount - config.fee) * providerRate;
-
-    return {
-      providerSlug: provider.slug,
-      sendAmount: amount,
-      sendCurrency: fromCurrency,
-      receiveCurrency: toCurrency,
-      exchangeRate: Math.round(providerRate * 10000) / 10000,
-      fee: Math.round(config.fee * 100) / 100,
-      receiveAmount: Math.round(receiveAmount * 100) / 100,
-      transferSpeed: config.speed,
-      rating: provider.rating,
-      ratingLabel: provider.ratingLabel,
-    };
-  }).sort((a, b) => b.receiveAmount - a.receiveAmount);
+  // No scraped data for this corridor — return empty
+  return [];
 }
 
 export function getProvider(slug: string): Provider | undefined {

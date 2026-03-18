@@ -33,7 +33,8 @@ const COUNTRY_MAP: Record<string, string> = {
 
 const CORRIDORS = [
   { from: "USD", to: "INR" }, { from: "USD", to: "PHP" },
-  { from: "USD", to: "MXN" }, { from: "USD", to: "EUR" },
+  { from: "USD", to: "IDR" }, { from: "USD", to: "THB" }, { from: "USD", to: "TRY" },
+  { from: "USD", to: "PLN" }, { from: "USD", to: "MXN" }, { from: "USD", to: "EUR" },
   { from: "USD", to: "GBP" }, { from: "USD", to: "NGN" },
   { from: "USD", to: "PKR" }, { from: "USD", to: "BRL" },
   { from: "GBP", to: "INR" }, { from: "GBP", to: "EUR" },

@@ -39,6 +39,7 @@ const CORRIDORS = [
   // From USD
   { from: "USD", to: "INR" },
   { from: "USD", to: "PHP" },
+  { from: "USD", to: "IDR" },
   { from: "USD", to: "NGN" },
   { from: "USD", to: "PKR" },
   { from: "USD", to: "BDT" },

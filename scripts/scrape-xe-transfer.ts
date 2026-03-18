@@ -32,6 +32,11 @@ import type { BrowserContext, Page } from "playwright";
 const CORRIDORS = [
   { from: "USD", to: "INR", destCountry: "India" },
   { from: "USD", to: "PHP", destCountry: "Philippines" },
+  { from: "USD", to: "IDR", destCountry: "Indonesia" },
+  { from: "USD", to: "THB", destCountry: "Thailand" },
+  { from: "USD", to: "MYR", destCountry: "Malaysia" },
+  { from: "USD", to: "TRY", destCountry: "Turkey" },
+  { from: "USD", to: "PLN", destCountry: "Poland" },
   { from: "USD", to: "MXN", destCountry: "Mexico" },
   { from: "USD", to: "NGN", destCountry: "Nigeria" },
   { from: "USD", to: "PKR", destCountry: "Pakistan" },

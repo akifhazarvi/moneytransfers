@@ -1,9 +1,9 @@
 {
-  "scrapedAt": "2026-03-17T03:24:17.570Z",
+  "scrapedAt": "2026-03-18T03:04:05.295Z",
   "source": "Wise Comparison API v4 (wise.com/gateway/v4/comparisons)",
-  "totalQuotes": 2419,
-  "totalProviders": 53,
-  "totalCorridors": 98,
+  "totalQuotes": 2827,
+  "totalProviders": 54,
+  "totalCorridors": 123,
   "sendAmounts": [
     100,
     500,
@@ -53,128 +53,144 @@
       "providers": 5
     },
     {
+      "corridor": "USD→IDR",
+      "providers": 7
+    },
+    {
+      "corridor": "USD→IDR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→IDR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→IDR",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→IDR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→MXN",
+      "providers": 7
+    },
+    {
       "corridor": "USD→MXN",
       "providers": 8
     },
     {
       "corridor": "USD→MXN",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→MXN",
+      "providers": 6
+    },
+    {
+      "corridor": "USD→MXN",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→NGN",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→NGN",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→NGN",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→NGN",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→NGN",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→PKR",
+      "providers": 7
+    },
+    {
+      "corridor": "USD→PKR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→PKR",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→PKR",
+      "providers": 6
+    },
+    {
+      "corridor": "USD→PKR",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→BDT",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→BDT",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→BDT",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→BDT",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→BDT",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→GBP",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→GBP",
       "providers": 9
     },
     {
-      "corridor": "USD→MXN",
+      "corridor": "USD→GBP",
       "providers": 9
     },
     {
-      "corridor": "USD→MXN",
+      "corridor": "USD→GBP",
       "providers": 7
     },
     {
-      "corridor": "USD→MXN",
+      "corridor": "USD→GBP",
       "providers": 5
     },
     {
-      "corridor": "USD→NGN",
-      "providers": 2
-    },
-    {
-      "corridor": "USD→NGN",
-      "providers": 2
-    },
-    {
-      "corridor": "USD→NGN",
-      "providers": 2
-    },
-    {
-      "corridor": "USD→NGN",
-      "providers": 1
-    },
-    {
-      "corridor": "USD→NGN",
-      "providers": 1
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 7
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 6
-    },
-    {
-      "corridor": "USD→PKR",
-      "providers": 5
-    },
-    {
-      "corridor": "USD→BDT",
-      "providers": 4
-    },
-    {
-      "corridor": "USD→BDT",
-      "providers": 4
-    },
-    {
-      "corridor": "USD→BDT",
-      "providers": 4
-    },
-    {
-      "corridor": "USD→BDT",
-      "providers": 3
-    },
-    {
-      "corridor": "USD→BDT",
-      "providers": 2
-    },
-    {
-      "corridor": "USD→GBP",
-      "providers": 7
-    },
-    {
-      "corridor": "USD→GBP",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→GBP",
-      "providers": 8
-    },
-    {
-      "corridor": "USD→GBP",
-      "providers": 6
-    },
-    {
-      "corridor": "USD→GBP",
-      "providers": 4
-    },
-    {
-      "corridor": "USD→EUR",
-      "providers": 7
-    },
-    {
       "corridor": "USD→EUR",
       "providers": 8
     },
     {
       "corridor": "USD→EUR",
-      "providers": 8
+      "providers": 9
+    },
+    {
+      "corridor": "USD→EUR",
+      "providers": 9
+    },
+    {
+      "corridor": "USD→EUR",
+      "providers": 7
     },
     {
       "corridor": "USD→EUR",
       "providers": 6
-    },
-    {
-      "corridor": "USD→EUR",
-      "providers": 5
-    },
-    {
-      "corridor": "USD→CAD",
-      "providers": 8
     },
     {
       "corridor": "USD→CAD",
@@ -182,15 +198,19 @@
     },
     {
       "corridor": "USD→CAD",
-      "providers": 9
+      "providers": 10
     },
     {
       "corridor": "USD→CAD",
-      "providers": 7
+      "providers": 10
     },
     {
       "corridor": "USD→CAD",
-      "providers": 5
+      "providers": 8
+    },
+    {
+      "corridor": "USD→CAD",
+      "providers": 6
     },
     {
       "corridor": "USD→BRL",
@@ -391,6 +411,486 @@
     {
       "corridor": "USD→VND",
       "providers": 4
+    },
+    {
+      "corridor": "USD→TRY",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→TRY",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→TRY",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→TRY",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→TRY",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→MAD",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→MAD",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→MAD",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→MAD",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→MAD",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→MYR",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→MYR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→MYR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→MYR",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→MYR",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→FJD",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→FJD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→FJD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→FJD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→FJD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→NPR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→NPR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→NPR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→NPR",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→NPR",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→LKR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→LKR",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→LKR",
+      "providers": 5
+    },
+    {
+      "corridor": "USD→LKR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→LKR",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→EGP",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→EGP",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→EGP",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→EGP",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→EGP",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→ETB",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→ETB",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→ETB",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→ETB",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→ETB",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→THB",
+      "providers": 7
+    },
+    {
+      "corridor": "USD→THB",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→THB",
+      "providers": 8
+    },
+    {
+      "corridor": "USD→THB",
+      "providers": 6
+    },
+    {
+      "corridor": "USD→THB",
+      "providers": 6
+    },
+    {
+      "corridor": "USD→PEN",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→PEN",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→PEN",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→PEN",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→PEN",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→UGX",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→UGX",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→UGX",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→UGX",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→UGX",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→TZS",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→TZS",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→TZS",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→TZS",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→TZS",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→JMD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→JMD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→JMD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→JMD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→JMD",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→DOP",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→DOP",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→DOP",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→DOP",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→DOP",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→XOF",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→XOF",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→XOF",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→XOF",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→XOF",
+      "providers": 1
+    },
+    {
+      "corridor": "USD→PLN",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→PLN",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→RON",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→RON",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→RON",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→RON",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→RON",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→TWD",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→TWD",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→TWD",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→TWD",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→TWD",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→CZK",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→CZK",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→CZK",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→CZK",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→CZK",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→HUF",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→HUF",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→HUF",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→HUF",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→HUF",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→ILS",
+      "providers": 3
+    },
+    {
+      "corridor": "USD→ILS",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→ILS",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→ILS",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→ILS",
+      "providers": 4
+    },
+    {
+      "corridor": "USD→RWF",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→RWF",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→RWF",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→RWF",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→RWF",
+      "providers": 2
+    },
+    {
+      "corridor": "USD→ZMW",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→ZMW",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→ZMW",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→ZMW",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→ZMW",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→XAF",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→XAF",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→XAF",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→XAF",
+      "providers": 0
+    },
+    {
+      "corridor": "USD→XAF",
+      "providers": 0
     },
     {
       "corridor": "GBP→EUR",
@@ -514,23 +1014,23 @@
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 4
+      "providers": 3
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 4
+      "providers": 3
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 4
+      "providers": 3
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 4
+      "providers": 3
     },
     {
       "corridor": "GBP→GHS",
-      "providers": 2
+      "providers": 1
     },
     {
       "corridor": "GBP→ZAR",
@@ -914,46 +1414,42 @@
     },
     {
       "corridor": "AUD→INR",
-      "providers": 7
+      "providers": 8
+    },
+    {
+      "corridor": "AUD→INR",
+      "providers": 9
+    },
+    {
+      "corridor": "AUD→INR",
+      "providers": 9
+    },
+    {
+      "corridor": "AUD→INR",
+      "providers": 9
     },
     {
       "corridor": "AUD→INR",
       "providers": 8
     },
     {
-      "corridor": "AUD→INR",
-      "providers": 8
-    },
-    {
-      "corridor": "AUD→INR",
-      "providers": 8
-    },
-    {
-      "corridor": "AUD→INR",
-      "providers": 7
-    },
-    {
-      "corridor": "AUD→PHP",
-      "providers": 8
-    },
-    {
       "corridor": "AUD→PHP",
       "providers": 9
     },
     {
       "corridor": "AUD→PHP",
-      "providers": 9
+      "providers": 10
     },
     {
       "corridor": "AUD→PHP",
-      "providers": 9
+      "providers": 10
     },
     {
       "corridor": "AUD→PHP",
-      "providers": 8
+      "providers": 10
     },
     {
-      "corridor": "AUD→GBP",
+      "corridor": "AUD→PHP",
       "providers": 9
     },
     {
@@ -962,15 +1458,19 @@
     },
     {
       "corridor": "AUD→GBP",
-      "providers": 10
+      "providers": 11
     },
     {
       "corridor": "AUD→GBP",
-      "providers": 10
+      "providers": 11
     },
     {
       "corridor": "AUD→GBP",
-      "providers": 8
+      "providers": 11
+    },
+    {
+      "corridor": "AUD→GBP",
+      "providers": 9
     },
     {
       "corridor": "AUD→EUR",
@@ -994,43 +1494,43 @@
     },
     {
       "corridor": "AUD→USD",
+      "providers": 10
+    },
+    {
+      "corridor": "AUD→USD",
+      "providers": 11
+    },
+    {
+      "corridor": "AUD→USD",
+      "providers": 11
+    },
+    {
+      "corridor": "AUD→USD",
+      "providers": 11
+    },
+    {
+      "corridor": "AUD→USD",
       "providers": 9
     },
     {
-      "corridor": "AUD→USD",
-      "providers": 10
-    },
-    {
-      "corridor": "AUD→USD",
-      "providers": 10
-    },
-    {
-      "corridor": "AUD→USD",
-      "providers": 10
-    },
-    {
-      "corridor": "AUD→USD",
-      "providers": 8
-    },
-    {
-      "corridor": "AUD→NZD",
-      "providers": 7
-    },
-    {
       "corridor": "AUD→NZD",
       "providers": 8
     },
     {
       "corridor": "AUD→NZD",
-      "providers": 8
+      "providers": 9
+    },
+    {
+      "corridor": "AUD→NZD",
+      "providers": 9
+    },
+    {
+      "corridor": "AUD→NZD",
+      "providers": 9
     },
     {
       "corridor": "AUD→NZD",
       "providers": 8
-    },
-    {
-      "corridor": "AUD→NZD",
-      "providers": 7
     },
     {
       "corridor": "AUD→CNY",
@@ -1586,11 +2086,11 @@
     },
     {
       "corridor": "CHF→INR",
-      "providers": 3
+      "providers": 4
     },
     {
       "corridor": "CHF→INR",
-      "providers": 3
+      "providers": 4
     },
     {
       "corridor": "CHF→EUR",
@@ -1606,11 +2106,11 @@
     },
     {
       "corridor": "CHF→EUR",
-      "providers": 5
+      "providers": 6
     },
     {
       "corridor": "CHF→EUR",
-      "providers": 5
+      "providers": 6
     },
     {
       "corridor": "CHF→PKR",
@@ -1983,6 +2483,7 @@
     "bmo",
     "bnc",
     "ccb-hk",
+    "chase",
     "commerzbank",
     "commonwealth-bank-of-australia",
     "deutsche-bank",

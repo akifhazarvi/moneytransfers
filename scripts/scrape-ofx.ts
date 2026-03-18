@@ -15,7 +15,8 @@ const DELAY_MS = 1500;
 
 const CORRIDORS = [
   { from: "USD", to: "INR" }, { from: "USD", to: "PHP" },
-  { from: "USD", to: "MXN" }, { from: "USD", to: "EUR" },
+  { from: "USD", to: "IDR" }, { from: "USD", to: "THB" }, { from: "USD", to: "MYR" },
+  { from: "USD", to: "TRY" }, { from: "USD", to: "MXN" }, { from: "USD", to: "EUR" },
   { from: "USD", to: "GBP" }, { from: "USD", to: "NGN" },
   { from: "USD", to: "PKR" }, { from: "USD", to: "BRL" },
   { from: "USD", to: "COP" }, { from: "USD", to: "KES" },

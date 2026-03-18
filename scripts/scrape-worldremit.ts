@@ -12,6 +12,10 @@ const MAX_RETRIES = 3;
 const CORRIDORS = [
   { from: "USD", to: "INR", sendCountry: "us", receiveCountry: "india" },
   { from: "USD", to: "PHP", sendCountry: "us", receiveCountry: "philippines" },
+  { from: "USD", to: "IDR", sendCountry: "us", receiveCountry: "indonesia" },
+  { from: "USD", to: "THB", sendCountry: "us", receiveCountry: "thailand" },
+  { from: "USD", to: "NPR", sendCountry: "us", receiveCountry: "nepal" },
+  { from: "USD", to: "EGP", sendCountry: "us", receiveCountry: "egypt" },
   { from: "USD", to: "MXN", sendCountry: "us", receiveCountry: "mexico" },
   { from: "USD", to: "NGN", sendCountry: "us", receiveCountry: "nigeria" },
   { from: "USD", to: "PKR", sendCountry: "us", receiveCountry: "pakistan" },
