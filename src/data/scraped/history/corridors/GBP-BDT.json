@@ -208,40 +208,40 @@
     "date": "2026-03-18",
     "providers": {
       "western-union": {
-        "rate": 163.1098,
+        "rate": 163.0979,
         "fee": 2.99,
         "markup": 0.4499,
-        "receiveAmount": 15823.29
+        "receiveAmount": 15822.13
       },
       "xoom": {
-        "rate": 160.51,
+        "rate": 160.4983,
         "fee": 2.99,
         "markup": 2.0366,
-        "receiveAmount": 15571.08
+        "receiveAmount": 15569.94
       },
       "wise": {
-        "rate": 163.878,
+        "rate": 163.866,
         "fee": 2.5,
         "markup": -0.0189,
-        "receiveAmount": 15978.11
+        "receiveAmount": 15976.94
       },
       "skrill": {
-        "rate": 162.12,
+        "rate": 162.3593,
         "fee": 0,
-        "markup": 1.054,
-        "receiveAmount": 16212
+        "markup": 0.9008,
+        "receiveAmount": 16235.93
       },
       "instarem": {
-        "rate": 162.5263,
+        "rate": 162.4666,
         "fee": 0,
-        "markup": 0.8061,
-        "receiveAmount": 16252.63
+        "markup": 0.8353,
+        "receiveAmount": 16246.66
       },
       "remitly": {
-        "rate": 163.588,
+        "rate": 163.564,
         "fee": 0.99,
-        "markup": 0.1581,
-        "receiveAmount": 16196.85
+        "markup": 0.1654,
+        "receiveAmount": 16194.47
       }
     }
   }

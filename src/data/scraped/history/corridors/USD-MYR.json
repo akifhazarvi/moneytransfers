@@ -1,0 +1,25 @@
+[
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "remitly": {
+        "rate": 3.8831,
+        "fee": 1.49,
+        "markup": 0.7133,
+        "receiveAmount": 382.52
+      },
+      "wise": {
+        "rate": 3.9115,
+        "fee": 7.39,
+        "markup": -0.0128,
+        "receiveAmount": 362.24
+      },
+      "instarem": {
+        "rate": 3.8924,
+        "fee": 0,
+        "markup": 0.4756,
+        "receiveAmount": 389.24
+      }
+    }
+  }
+]

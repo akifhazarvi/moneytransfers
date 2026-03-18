@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "remitly": {
+        "rate": 43.762,
+        "fee": 2.99,
+        "markup": 1.012,
+        "receiveAmount": 4245.35
+      },
+      "instarem": {
+        "rate": 44.0212,
+        "fee": 0,
+        "markup": 0.4257,
+        "receiveAmount": 4402.12
+      },
+      "bank-of-america": {
+        "rate": 42.6229,
+        "fee": 0,
+        "markup": 3.5887,
+        "receiveAmount": 4262.29
+      },
+      "wise": {
+        "rate": 44.2094,
+        "fee": 7.3,
+        "markup": 0,
+        "receiveAmount": 4098.21
+      }
+    }
+  }
+]

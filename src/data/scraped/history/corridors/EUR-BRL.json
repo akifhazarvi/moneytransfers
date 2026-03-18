@@ -238,46 +238,46 @@
     "date": "2026-03-18",
     "providers": {
       "wise": {
-        "rate": 5.9898,
+        "rate": 5.9893,
         "fee": 1.95,
         "markup": 0,
-        "receiveAmount": 587.3
+        "receiveAmount": 587.25
       },
       "moneygram": {
-        "rate": 5.8351,
+        "rate": 5.8346,
         "fee": 1.99,
         "markup": 2.5832,
-        "receiveAmount": 571.9
+        "receiveAmount": 571.85
       },
       "xoom": {
-        "rate": 5.814,
+        "rate": 5.8135,
         "fee": 2.99,
         "markup": 2.9356,
-        "receiveAmount": 564.02
+        "receiveAmount": 563.97
       },
       "skrill": {
-        "rate": 5.7885,
+        "rate": 5.7876,
         "fee": 0,
-        "markup": 3.3613,
-        "receiveAmount": 578.85
+        "markup": 3.3688,
+        "receiveAmount": 578.76
       },
       "remitly": {
-        "rate": 5.887,
+        "rate": 5.8858,
         "fee": 1.99,
-        "markup": 1.7167,
-        "receiveAmount": 576.99
+        "markup": 1.7292,
+        "receiveAmount": 576.86
       },
       "instarem": {
-        "rate": 5.9571,
+        "rate": 5.9559,
         "fee": 0,
-        "markup": 0.5463,
-        "receiveAmount": 595.71
+        "markup": 0.5587,
+        "receiveAmount": 595.59
       },
       "paypal": {
-        "rate": 5.6978,
+        "rate": 5.6976,
         "fee": 3.99,
-        "markup": 4.8754,
-        "receiveAmount": 547.05
+        "markup": 4.8712,
+        "receiveAmount": 547.02
       }
     }
   }

@@ -328,64 +328,64 @@
     "date": "2026-03-18",
     "providers": {
       "wise": {
-        "rate": 0.6333,
+        "rate": 0.6331,
         "fee": 2.31,
         "markup": -0.0243,
-        "receiveAmount": 61.87
+        "receiveAmount": 61.85
       },
       "scotiabank": {
-        "rate": 0.6107,
+        "rate": 0.6106,
         "fee": 1.99,
         "markup": 3.5401,
-        "receiveAmount": 59.86
+        "receiveAmount": 59.84
       },
       "instarem": {
-        "rate": 0.6299,
+        "rate": 0.6295,
         "fee": 0,
-        "markup": 0.5168,
-        "receiveAmount": 62.99
+        "markup": 0.5444,
+        "receiveAmount": 62.95
       },
       "rbc": {
-        "rate": 0.615,
+        "rate": 0.6149,
         "fee": 0,
         "markup": 2.8625,
-        "receiveAmount": 61.5
+        "receiveAmount": 61.49
       },
       "bnc": {
-        "rate": 0.6175,
+        "rate": 0.62,
         "fee": 5.95,
-        "markup": 2.4637,
-        "receiveAmount": 58.08
+        "markup": 2.0449,
+        "receiveAmount": 58.31
       },
       "paypal": {
-        "rate": 0.6067,
+        "rate": 0.6068,
         "fee": 2.99,
-        "markup": 4.1755,
-        "receiveAmount": 58.85
+        "markup": 4.1411,
+        "receiveAmount": 58.86
       },
       "xoom": {
-        "rate": 0.6115,
+        "rate": 0.6114,
         "fee": 2.99,
         "markup": 3.4143,
-        "receiveAmount": 59.32
+        "receiveAmount": 59.31
       },
       "bmo": {
-        "rate": 0.6092,
+        "rate": 0.609,
         "fee": 0,
         "markup": 3.7806,
-        "receiveAmount": 60.92
+        "receiveAmount": 60.9
       },
       "td-bank": {
-        "rate": 0.6146,
+        "rate": 0.6145,
         "fee": 0,
-        "markup": 2.9262,
-        "receiveAmount": 61.46
+        "markup": 2.9234,
+        "receiveAmount": 61.45
       },
       "remitly": {
-        "rate": 0.6301,
+        "rate": 0.6299,
         "fee": 0,
-        "markup": 0.4853,
-        "receiveAmount": 63.01
+        "markup": 0.4812,
+        "receiveAmount": 62.99
       }
     }
   }

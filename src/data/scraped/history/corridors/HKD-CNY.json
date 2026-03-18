@@ -32,28 +32,28 @@
     "date": "2026-03-18",
     "providers": {
       "hang-seng": {
-        "rate": 0.8733,
+        "rate": 0.8726,
         "fee": 0,
-        "markup": 0.5881,
-        "receiveAmount": 87.33
+        "markup": 0.6123,
+        "receiveAmount": 87.26
       },
       "instarem": {
-        "rate": 0.8786,
+        "rate": 0.8778,
         "fee": 0.35,
-        "markup": -0.0058,
-        "receiveAmount": 87.55
+        "markup": 0.0262,
+        "receiveAmount": 87.47
       },
       "wise": {
-        "rate": 0.8785,
-        "fee": 27.58,
+        "rate": 0.878,
+        "fee": 27.59,
         "markup": 0,
-        "receiveAmount": 63.62
+        "receiveAmount": 63.58
       },
       "hsbc-hk": {
-        "rate": 0.8727,
+        "rate": 0.8724,
         "fee": 70,
-        "markup": 0.6575,
-        "receiveAmount": 26.18
+        "markup": 0.6315,
+        "receiveAmount": 26.17
       }
     }
   }

@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2026-03-18",
+    "providers": {
+      "xoom": {
+        "rate": 303.7715,
+        "fee": 4.99,
+        "markup": 2.4027,
+        "receiveAmount": 28861.33
+      },
+      "remitly": {
+        "rate": 310.3133,
+        "fee": 1.99,
+        "markup": 0.3009,
+        "receiveAmount": 30413.81
+      },
+      "wise": {
+        "rate": 311.25,
+        "fee": 2.32,
+        "markup": 0,
+        "receiveAmount": 30402.9
+      },
+      "instarem": {
+        "rate": 310.6237,
+        "fee": 0,
+        "markup": 0.2012,
+        "receiveAmount": 31062.37
+      }
+    }
+  }
+]

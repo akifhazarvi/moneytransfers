@@ -20,16 +20,16 @@
     "date": "2026-03-18",
     "providers": {
       "remitly": {
-        "rate": 9.5444,
+        "rate": 9.5533,
         "fee": 5.9,
-        "markup": 1.0067,
-        "receiveAmount": 898.13
+        "markup": 0.9773,
+        "receiveAmount": 898.96
       },
       "wise": {
-        "rate": 9.6438,
+        "rate": 9.65,
         "fee": 6.56,
         "markup": -0.0249,
-        "receiveAmount": 901.12
+        "receiveAmount": 901.69
       }
     }
   }

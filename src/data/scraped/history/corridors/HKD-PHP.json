@@ -32,28 +32,28 @@
     "date": "2026-03-18",
     "providers": {
       "paypal": {
-        "rate": 7.2785,
+        "rate": 7.2875,
         "fee": 38.99,
-        "markup": 4.2772,
-        "receiveAmount": 444.06
+        "markup": 4.171,
+        "receiveAmount": 444.61
       },
       "hsbc-hk": {
-        "rate": 7.4694,
+        "rate": 7.4642,
         "fee": 70,
-        "markup": 1.7663,
-        "receiveAmount": 224.08
+        "markup": 1.8477,
+        "receiveAmount": 223.92
       },
       "wise": {
-        "rate": 7.6037,
+        "rate": 7.6047,
         "fee": 7.94,
         "markup": 0,
-        "receiveAmount": 700
+        "receiveAmount": 700.08
       },
       "instarem": {
-        "rate": 7.5884,
+        "rate": 7.6046,
         "fee": 0.03,
-        "markup": 0.2013,
-        "receiveAmount": 758.61
+        "markup": 0.0012,
+        "receiveAmount": 760.23
       }
     }
   }
