@@ -13,8 +13,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       "International Business Payments — Compare 4 Best Providers (2026)",
     description:
       "Compare the cheapest ways to make international business payments in 2026. Side-by-side comparison of Wise Business, OFX, Revolut, and XE for small business international payments, bulk transfers, vendor payouts, and B2B FX. Save 80–95% vs bank wires.",
-    keywords:
-      "international business payments, small business international payments, business international payments, make international business payments, bulk international payments, business fx payments, international vendor payments, B2B international money transfer, international payments for business, business account international payments, cost-effective international payments, international salary payments",
     alternates: getAlternates("business", locale),
     openGraph: {
       title:

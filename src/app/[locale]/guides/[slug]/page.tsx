@@ -84,10 +84,26 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
+  const howToSchema = post.howToSteps?.length ? {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: post.title,
+    description: post.metaDescription,
+    step: post.howToSteps.map((step, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  } : null;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {howToSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      )}
 
       {/* ── Article Hero ── */}
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">

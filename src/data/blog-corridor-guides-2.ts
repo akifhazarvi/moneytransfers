@@ -138,8 +138,9 @@ export const corridorGuides2: BlogPost[] = [
     sections: [
       {
         heading: "Kenya: East Africa's Remittance Powerhouse",
-        content: `<p>Kenya received over <strong>$4 billion in remittances</strong> in 2025 with the United States as the single largest source. What makes Kenya unique is <strong>M-Pesa</strong> — the mobile money platform used by over 30 million Kenyans. M-Pesa delivery is instant, widely accepted, and fundamentally changed how money moves in Kenya.</p>
-<p>The gap between the cheapest and most expensive provider on a $500 transfer can be <strong>KES 3,000–7,000</strong> ($20–$50). This guide helps you find the best deal. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
+        content: `<p>Kenya received over <strong>$4 billion in remittances</strong> in 2025, according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>, with the United States as the single largest source country. The Kenyan diaspora in the US numbers over 130,000, and remittances are a critical economic lifeline for families across the country.</p>
+<p>What makes Kenya unique as a remittance destination is <strong>M-Pesa</strong> — the mobile money platform used by over <strong>30 million Kenyans</strong> (in a country of 55 million). M-Pesa delivery is instant, widely accepted for everything from groceries to rent, and has fundamentally changed how money moves in Kenya. Most international providers now support M-Pesa, making Kenya one of the easiest and fastest corridors to send money to.</p>
+<p>The competition among providers keeps costs relatively low, but the gap between the cheapest and most expensive option on a $500 transfer can still be <strong>KES 3,000–7,000</strong> (roughly $20–$50). This guide helps you find the best deal. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
       },
       {
         heading: "Best Providers for USD to KES Transfers",
@@ -175,14 +176,32 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "What You Need to Send Money to Kenya",
-        content: `<h3>Sender Requirements (US)</h3>
-<ul><li>Government-issued photo ID</li><li>SSN</li><li>US bank account (cheapest) or debit card</li></ul>
-<h3>Recipient Details</h3>
+        content: `<h3>Sender Requirements (US Side)</h3>
 <ul>
-<li><strong>M-Pesa:</strong> Safaricom phone number (+254 7XX XXX XXX)</li>
-<li><strong>Bank deposit:</strong> Full name, bank name (KCB, Equity, Co-op), account number</li>
-<li><strong>Cash pickup:</strong> Full name and national ID number</li>
-</ul>`,
+<li><strong>Government-issued photo ID</strong> — passport, driver's license, or state ID</li>
+<li><strong>Social Security Number (SSN)</strong> — required by most US-regulated providers for identity verification</li>
+<li><strong>US address and phone number</strong></li>
+<li><strong>Funding source</strong> — US bank account (cheapest via ACH), debit card, or credit card (highest fees)</li>
+</ul>
+<h3>Recipient Details (Kenya Side)</h3>
+<ul>
+<li><strong>For M-Pesa:</strong> Recipient's full name and Safaricom phone number (format: +254 7XX XXX XXX)</li>
+<li><strong>For bank deposit:</strong> Full name, bank name (KCB, Equity Bank, Co-operative Bank, Standard Chartered Kenya, NCBA), and account number</li>
+<li><strong>For Airtel Money:</strong> Recipient's Airtel Kenya phone number — supported by <a href="/companies/worldremit">WorldRemit</a></li>
+<li><strong>For cash pickup:</strong> Full name and national ID number. Recipient needs physical ID to collect.</li>
+</ul>
+<h3>Kenyan Banking Landscape</h3>
+<p>Kenya's banking system is modern and well-connected. Major banks include <strong>KCB Bank</strong>, <strong>Equity Bank</strong>, <strong>Co-operative Bank</strong>, <strong>Standard Chartered Kenya</strong>, and <strong>NCBA</strong>. All accept incoming international transfers. However, M-Pesa has become so dominant that many Kenyans — particularly in rural areas — prefer mobile money over traditional banking. If your recipient uses M-Pesa, it's almost always the better delivery option.</p>`,
+      },
+      {
+        heading: "KES Exchange Rate and True Transfer Cost",
+        content: `<p>The Kenyan Shilling (KES) is a floating currency managed by the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>. Key context for US senders:</p>
+<ul>
+<li><strong>Fee vs. rate trade-off:</strong> Some providers (like Sendwave) charge zero fees but build cost into a worse exchange rate. Others (like <a href="/companies/wise">Wise</a>) charge a visible fee but give the real mid-market rate. Always compare the <strong>total KES received</strong>, not just the fee.</li>
+<li><strong>KES volatility:</strong> The Kenyan Shilling experienced significant depreciation in 2023–2024 before partially recovering. Rates can shift meaningfully week to week, making comparison at time of transfer important.</li>
+<li><strong>Provider markups matter:</strong> A 2% markup on a $1,000 transfer costs you an extra KES 2,600–3,000. Over 12 monthly transfers, that's KES 31,000+ lost to unnecessary markup.</li>
+</ul>
+<p>Use our <a href="/send-money/usa-to-kenya">comparison tool</a> to check real-time rates. For strategies on understanding exchange rate markups, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
       },
       {
         heading: "Tips for Sending Money to Kenya",
@@ -234,8 +253,10 @@ export const corridorGuides2: BlogPost[] = [
     sections: [
       {
         heading: "Egypt: A Major Remittance Market",
-        content: `<p>Egypt received over <strong>$24 billion in remittances</strong> in 2025, ranking among the world's top five. The EGP experienced major devaluations in 2022–2024, narrowing the gap between official and parallel market rates. Senders now get much closer to fair value through formal channels.</p>
-<p>The difference between the best and worst provider on a $1,000 transfer can be <strong>EGP 2,000–5,000</strong>. See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a>.</p>`,
+        content: `<p>Egypt is a country of over 100 million people and one of the world's largest remittance recipients. In 2025, Egyptian expatriates sent home over <strong>$24 billion</strong> according to the <a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a> — making Egypt the fifth-largest remittance destination globally after India, Mexico, China, and the Philippines.</p>
+<p>The Egyptian diaspora is concentrated in the <strong>Gulf states</strong> (Saudi Arabia, UAE, Kuwait, Qatar), <strong>Europe</strong> (Italy, France, Germany), and the <strong>United States</strong>. Remittances are critical for millions of Egyptian families, funding everything from daily expenses and education to healthcare and housing.</p>
+<p>Since Egypt's currency liberalization in 2022–2024, the Egyptian Pound (EGP) lost roughly half its value against the US dollar. While painful domestically, this means senders abroad now receive significantly more EGP per dollar — and the gap between official and parallel market rates has largely closed, making formal transfer channels the clear choice.</p>
+<p>Competition among providers is growing, and the difference between the best and worst deal on a $1,000 transfer can be <strong>EGP 2,000–5,000</strong>. This guide covers the best options. For broader advice, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a>.</p>`,
       },
       {
         heading: "Best Providers for Sending Money to Egypt",
@@ -258,11 +279,37 @@ export const corridorGuides2: BlogPost[] = [
       {
         heading: "Delivery Methods in Egypt",
         content: `<h3>Bank Deposit</h3>
-<p>Deposit into Egyptian bank accounts (NBE, Banque Misr, CIB, QNB Egypt). Egyptian IBANs: <code>EG00 0000 0000 0000 0000 0000 000</code> (29 characters). Takes 1–3 business days.</p>
-<h3>Instapay</h3>
-<p>Egypt's domestic instant payment system enables real-time transfers between accounts once your money arrives at an Egyptian bank.</p>
+<p>The most common method for international transfers to Egypt. Major banks include <strong>National Bank of Egypt (NBE)</strong>, <strong>Banque Misr</strong>, <strong>Commercial International Bank (CIB)</strong>, <strong>QNB Egypt</strong>, and <strong>HSBC Egypt</strong>. You'll need the recipient's IBAN — Egyptian IBANs follow the format <code>EG00 0000 0000 0000 0000 0000 000</code> (29 characters). Processing typically takes <strong>1–3 business days</strong>.</p>
+<h3>Instapay (Instant Payment Network)</h3>
+<p><strong>Instapay</strong> is Egypt's domestic instant payment system, launched by the <a href="https://www.cbe.org.eg/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Egypt</a>. It enables real-time transfers between Egyptian bank accounts and mobile wallets. While primarily domestic, some international providers are integrating with Instapay for faster last-mile delivery. Once your transfer reaches an Egyptian bank, Instapay can move it to the final recipient instantly.</p>
 <h3>Cash Pickup</h3>
-<p><a href="/companies/western-union">Western Union</a> has the widest network across Egypt. Available within minutes.</p>`,
+<p><a href="/companies/western-union">Western Union</a> has the widest cash pickup network in Egypt, with agent locations across Cairo, Alexandria, Giza, and smaller cities. <a href="/companies/remitly">Remitly</a> and <a href="/companies/worldremit">WorldRemit</a> also offer cash pickup through partner networks. The recipient brings their national ID and reference number. Cash is available within <strong>minutes</strong>.</p>
+<h3>Mobile Wallets</h3>
+<p>Egypt's mobile wallet ecosystem is growing with services from <strong>Vodafone Cash</strong>, <strong>Orange Money</strong>, and <strong>Etisalat Cash</strong>. <a href="/companies/worldremit">WorldRemit</a> supports some mobile wallet delivery in Egypt. Adoption is increasing but bank deposit remains the dominant delivery method for international transfers.</p>
+<p><strong>Tip:</strong> Bank deposit to a major Egyptian bank (NBE, CIB, Banque Misr) is the most reliable delivery method. Use cash pickup for urgent needs or recipients without bank accounts.</p>`,
+      },
+      {
+        heading: "What You Need for an Egypt Transfer",
+        content: `<h3>Sender Requirements</h3>
+<ul>
+<li><strong>Government-issued photo ID</strong> — passport, driver's license, or national ID card</li>
+<li><strong>Proof of address</strong> — some providers require a utility bill or bank statement</li>
+<li><strong>For US senders:</strong> SSN (Social Security Number) for identity verification</li>
+<li><strong>For Gulf senders:</strong> Emirates ID (UAE), Iqama (Saudi Arabia), or equivalent residency permit</li>
+</ul>
+<h3>Recipient Details</h3>
+<ul>
+<li><strong>For bank deposit:</strong> Full name (matching bank account), bank name, IBAN (29 characters starting with EG)</li>
+<li><strong>For cash pickup:</strong> Full name and national ID number</li>
+<li><strong>For mobile wallet:</strong> Registered Egyptian mobile number</li>
+</ul>
+<h3>Regulatory Notes</h3>
+<ul>
+<li>Deposits arrive in EGP, converted at the provider's rate. Recipients cannot typically receive USD directly into standard accounts.</li>
+<li>There are <strong>no taxes on incoming remittances</strong> for recipients in Egypt.</li>
+<li>Egypt has foreign currency regulations managed by the Central Bank of Egypt — transfers through regulated providers are compliant by default.</li>
+<li>Large deposits may trigger standard bank compliance checks — this is normal and not a cause for concern.</li>
+</ul>`,
       },
       {
         heading: "EGP Exchange Rate: What Senders Should Know",
