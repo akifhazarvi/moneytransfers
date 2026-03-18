@@ -615,7 +615,7 @@ export const providers: Provider[] = [
   },
 ];
 
-export { currencies } from "@/data/transfer-currencies";
+export { currencies, sendCurrencies } from "@/data/transfer-currencies";
 
 // --- Exchange rates from XE mid-market (authoritative) with static fallback ---
 import {

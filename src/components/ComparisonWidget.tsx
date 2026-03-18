@@ -3,6 +3,7 @@
 import { useState, useId } from "react";
 import { useRouter } from "next/navigation";
 import CurrencyPicker from "@/components/CurrencyPicker";
+import { sendCurrencies } from "@/data/transfer-currencies";
 import { trackCompareSearch } from "@/lib/analytics";
 import { useTranslations } from "next-intl";
 
@@ -85,7 +86,7 @@ export default function ComparisonWidget({
           <div>
             <label className="block text-xs font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("from")}</label>
             <div className="h-12 border border-[var(--color-outline)] rounded-lg px-4 flex items-center bg-[var(--color-surface)]">
-              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="compact" />
+              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="compact" />
             </div>
           </div>
           <div>
@@ -127,7 +128,7 @@ export default function ComparisonWidget({
 
           <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
             <p className="text-2xs text-[var(--color-on-surface-variant)] font-medium">{t("from")}</p>
-            <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="inline" />
+            <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="inline" />
           </div>
 
           {/* Swap button — visible on all screen sizes */}

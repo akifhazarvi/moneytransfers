@@ -1,3 +1,21 @@
+// Send currencies — only those with at least 1 provider in our scraped data
+export const sendCurrencies = [
+  { code: "USD", name: "US Dollar", flag: "🇺🇸", symbol: "$" },
+  { code: "GBP", name: "British Pound", flag: "🇬🇧", symbol: "£" },
+  { code: "EUR", name: "Euro", flag: "🇪🇺", symbol: "€" },
+  { code: "CAD", name: "Canadian Dollar", flag: "🇨🇦", symbol: "C$" },
+  { code: "AUD", name: "Australian Dollar", flag: "🇦🇺", symbol: "A$" },
+  { code: "NZD", name: "New Zealand Dollar", flag: "🇳🇿", symbol: "NZ$" },
+  { code: "SGD", name: "Singapore Dollar", flag: "🇸🇬", symbol: "S$" },
+  { code: "AED", name: "UAE Dirham", flag: "🇦🇪", symbol: "د.إ" },
+  { code: "SAR", name: "Saudi Riyal", flag: "🇸🇦", symbol: "﷼" },
+  { code: "CHF", name: "Swiss Franc", flag: "🇨🇭", symbol: "CHF" },
+  { code: "HKD", name: "Hong Kong Dollar", flag: "🇭🇰", symbol: "HK$" },
+  { code: "JPY", name: "Japanese Yen", flag: "🇯🇵", symbol: "¥" },
+  { code: "KRW", name: "South Korean Won", flag: "🇰🇷", symbol: "₩" },
+];
+
+// All currencies (used for receive / currency converter)
 export const currencies = [
   { code: "USD", name: "US Dollar", flag: "🇺🇸", symbol: "$" },
   { code: "GBP", name: "British Pound", flag: "🇬🇧", symbol: "£" },

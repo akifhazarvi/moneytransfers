@@ -34,7 +34,7 @@ const CORRIDORS = [
 ];
 
 // OFX has a minimum of ~150 USD equivalent
-const SEND_AMOUNTS = [500, 1000, 5000, 10000];
+const SEND_AMOUNTS = [500, 1000];
 
 interface OFXQuote {
   provider: string;

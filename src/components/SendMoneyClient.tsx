@@ -12,6 +12,7 @@ import ProviderCard from "@/components/ProviderCard";
 import TrustBadges from "@/components/TrustBadges";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import { generateQuotes, currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
+import { sendCurrencies } from "@/data/transfer-currencies";
 import { promos } from "@/data/promos";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
@@ -310,7 +311,7 @@ function SendMoneyContent() {
           <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-4 sm:px-5 lg:pr-8 py-3 sm:py-4 min-w-0">
             <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
-              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} size="large" />
+              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
               <div className="flex items-baseline gap-1 shrink-0 ml-auto border-l border-[var(--color-outline)] pl-4">
                 <span className="text-h4 font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
                 <input

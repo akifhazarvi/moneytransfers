@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
-import { currencies } from "@/data/transfer-currencies";
+import { currencies, type TransferCurrency } from "@/data/transfer-currencies";
 import CircleFlag from "@/components/CircleFlag";
 
 /* ─── Floating Dropdown (Portal) ─── */
@@ -96,6 +96,7 @@ export default function CurrencyPicker({
   value,
   onChange,
   excludeCodes = [],
+  currencyList,
   label,
   size = "default",
   position = "below",
@@ -103,6 +104,8 @@ export default function CurrencyPicker({
   value: string;
   onChange: (code: string) => void;
   excludeCodes?: string[];
+  /** Override the default currency list (e.g. pass sendCurrencies for "from" pickers) */
+  currencyList?: TransferCurrency[];
   label?: string;
   /** "default" = flag + code + name + chevron. "compact" = flag + code + chevron (no name). "inline" = fits inside search bars. "large" = big flag + code + name for prominent display. */
   size?: "default" | "compact" | "inline" | "large";
@@ -115,7 +118,8 @@ export default function CurrencyPicker({
   const inputRef = useRef<HTMLInputElement>(null);
   const portalId = `picker-portal-${value}-${size}`;
 
-  const info = currencies.find((c) => c.code === value);
+  const list = currencyList ?? currencies;
+  const info = list.find((c) => c.code === value) ?? currencies.find((c) => c.code === value);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -136,7 +140,7 @@ export default function CurrencyPicker({
     }
   }, [open]);
 
-  const filtered = currencies.filter(
+  const filtered = list.filter(
     (c) =>
       !excludeCodes.includes(c.code) &&
       (c.code.toLowerCase().includes(search.toLowerCase()) ||

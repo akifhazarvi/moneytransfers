@@ -46,7 +46,7 @@ const CORRIDORS = [
   { from: "NZD", to: "INR" }, { from: "NZD", to: "PHP" },
 ];
 
-const SEND_AMOUNTS = [500, 1000, 5000];
+const SEND_AMOUNTS = [100, 1000];
 
 interface InstaremQuote {
   provider: string;

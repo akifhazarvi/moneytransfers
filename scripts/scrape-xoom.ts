@@ -46,7 +46,7 @@ const CORRIDORS = [
   { from: "USD", to: "THB", country: "thailand" },
 ];
 
-const SEND_AMOUNTS = [100, 500, 1000, 5000];
+const SEND_AMOUNTS = [100, 1000];
 
 function parseXoomResponse(
   body: string,

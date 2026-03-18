@@ -102,7 +102,7 @@ export const STANDARD_CORRIDORS = [
   { from: "AED", to: "PKR" },
 ];
 
-export const SEND_AMOUNTS = [100, 500, 1000, 5000];
+export const SEND_AMOUNTS = [100, 1000];
 
 export interface ProviderQuote {
   provider: string;
