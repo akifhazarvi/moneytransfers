@@ -134,6 +134,7 @@ async function tryBrowser(
         fee: Math.round(fee * 100) / 100,
         exchangeRate: Math.round(rate * 10000) / 10000,
         receiveAmount: Math.round((effectiveSend > 0 ? effectiveSend * rate : amount * rate) * 100) / 100,
+        paymentMethod: null,
         deliveryEstimate: null,
         deliveryMethod: null,
         dateCollected: new Date().toISOString(),
@@ -204,6 +205,7 @@ async function tryBrowser(
           sendCurrency: from, receiveCurrency: to, sendAmount: amount,
           fee: f, exchangeRate: Math.round(r * 10000) / 10000,
           receiveAmount: Math.round((amount - f) * r * 100) / 100,
+          paymentMethod: null,
           deliveryEstimate: null, deliveryMethod: null,
           dateCollected: new Date().toISOString(), source: "paysend-dom",
         };

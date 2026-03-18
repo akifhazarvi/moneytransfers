@@ -95,6 +95,7 @@ interface ExchangeRatesQuote {
   fee: number;
   exchangeRate: number;
   receiveAmount: number;
+  paymentMethod: string | null;
   deliveryEstimate: string | null;
   dateCollected: string;
   source: string;
@@ -220,6 +221,7 @@ function parseComparisonTable(
       fee: Math.round(fee * 100) / 100,
       exchangeRate: Math.round(exchangeRate * 1000000) / 1000000,
       receiveAmount: Math.round(receiveAmount * 100) / 100,
+      paymentMethod: null,
       deliveryEstimate,
       dateCollected: now,
       source: "exchangerates-uk",

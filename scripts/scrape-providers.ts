@@ -229,6 +229,7 @@ interface ScrapedQuote {
   midMarketRate: number;
   markup: number;
   receiveAmount: number;
+  paymentMethod: string | null;
   deliveryEstimate: string | null;
   dateCollected: string;
   logoUrl: string | null;
@@ -416,6 +417,7 @@ async function main() {
           midMarketRate: midRate ?? quote.rate / (1 - quote.markup / 100),
           markup: Math.round(quote.markup * 10000) / 10000,
           receiveAmount: Math.round(quote.receivedAmount * 100) / 100,
+          paymentMethod: null,
           deliveryEstimate,
           dateCollected: quote.dateCollected,
           logoUrl: provider.logos?.normal?.svgUrl || provider.logo || null,

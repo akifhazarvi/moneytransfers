@@ -71,7 +71,8 @@ interface CapturedQuote {
   fee: number;
   exchangeRate: number;
   receiveAmount: number;
-  deliveryEstimate: string | null;
+  paymentMethod: null,
+    deliveryEstimate: string | null;
 }
 
 /**
@@ -153,7 +154,8 @@ function parseApiResponse(body: string): CapturedQuote[] {
           typeof receiveAmount === "number"
             ? Math.round(receiveAmount * 100) / 100
             : 0,
-        deliveryEstimate: typeof delivery === "string" ? delivery : null,
+        paymentMethod: null,
+    deliveryEstimate: typeof delivery === "string" ? delivery : null,
       });
     }
     return quotes;
@@ -174,7 +176,8 @@ async function extractFromDOM(page: Page): Promise<CapturedQuote[]> {
       fee: number;
       exchangeRate: number;
       receiveAmount: number;
-      deliveryEstimate: string | null;
+      paymentMethod: null,
+    deliveryEstimate: string | null;
     }[] = [];
 
     // Try multiple selector strategies
@@ -262,7 +265,8 @@ async function extractFromDOM(page: Page): Promise<CapturedQuote[]> {
           fee,
           exchangeRate,
           receiveAmount: Math.round(receiveAmount * 100) / 100,
-          deliveryEstimate: null,
+          paymentMethod: null,
+    deliveryEstimate: null,
         });
       }
 
@@ -380,7 +384,8 @@ async function scrapeCorridor(
       fee: q.fee,
       exchangeRate: q.exchangeRate,
       receiveAmount: q.receiveAmount,
-      deliveryEstimate: q.deliveryEstimate,
+      paymentMethod: null,
+    deliveryEstimate: q.deliveryEstimate,
       deliveryMethod: null,
       dateCollected: now,
       source: "remitfinder-comparison",

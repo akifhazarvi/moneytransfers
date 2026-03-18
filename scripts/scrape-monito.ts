@@ -77,6 +77,7 @@ interface MonitoQuote {
   midMarketRate: number;
   markup: number;
   receiveAmount: number;
+  paymentMethod: string | null;
   deliveryEstimate: string | null;
   payinMethod: string | null;
   payoutMethod: string | null;
@@ -143,6 +144,7 @@ function parseGraphQLResponse(
         midMarketRate,
         markup,
         receiveAmount: Math.round(receiveAmount * 100) / 100,
+        paymentMethod: null,
         deliveryEstimate,
         payinMethod: bankQuote.payin || null,
         payoutMethod: bankQuote.payout || null,

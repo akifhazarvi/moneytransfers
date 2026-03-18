@@ -71,7 +71,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
               )}
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-3">
-                  <CategoryBadge category={featured.category} />
+                  <Badge label={featured.category} category={featured.category} />
                   <time className="text-xs text-[var(--color-on-surface-variant)]" dateTime={featured.publishedAt}>
                     {formatLocalDate(featured.publishedAt)}
                   </time>
@@ -107,7 +107,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
                 )}
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-center gap-3 mb-3">
-                    <CategoryBadge category={item.category} />
+                    <Badge label={item.category} category={item.category} />
                     <time className="text-2xs text-[var(--color-on-surface-variant)]" dateTime={item.publishedAt}>
                       {formatLocalDate(item.publishedAt, { month: "short", day: "numeric" })}
                     </time>

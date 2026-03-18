@@ -56,6 +56,7 @@ interface WorldRemitQuote {
   fee: number;
   exchangeRate: number;
   receiveAmount: number;
+  paymentMethod: string | null;
   deliveryEstimate: string | null;
   payoutMethod: string | null;
   dateCollected: string;
@@ -171,6 +172,7 @@ function parseGraphQLResponse(
       fee: Math.round(feeSummary * 100) / 100,
       exchangeRate: Math.round(effectiveRate * 10000) / 10000,
       receiveAmount: Math.round(receiveAmount * 100) / 100,
+      paymentMethod: null,
       deliveryEstimate,
       payoutMethod: null,
       dateCollected: new Date().toISOString(),
@@ -342,6 +344,7 @@ async function scrapeDom(
       fee: Math.round(fee * 100) / 100,
       exchangeRate: Math.round(effectiveRate * 10000) / 10000,
       receiveAmount: Math.round(effectiveReceive * 100) / 100,
+      paymentMethod: null,
       deliveryEstimate: null,
       payoutMethod: null,
       dateCollected: new Date().toISOString(),

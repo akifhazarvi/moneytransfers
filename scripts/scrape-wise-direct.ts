@@ -114,6 +114,7 @@ function makeQuote(
     fee: Math.round(fee * 100) / 100,
     exchangeRate: Math.round(rate * 10000) / 10000,
     receiveAmount: Math.round(receiveAmount * 100) / 100,
+    paymentMethod: null,
     deliveryEstimate,
     deliveryMethod: null,
     dateCollected: new Date().toISOString(),

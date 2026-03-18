@@ -65,6 +65,7 @@ function buildQuote(
     fee: Math.round(fee * 100) / 100,
     exchangeRate: Math.round(rate * 10000) / 10000,
     receiveAmount: Math.round((effectiveSend > 0 ? effectiveSend : amount) * rate * 100) / 100,
+    paymentMethod: null,
     deliveryEstimate: delivery ?? "1-3 business days",
     deliveryMethod: null,
     dateCollected: new Date().toISOString(), source,

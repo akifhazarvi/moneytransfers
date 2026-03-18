@@ -274,7 +274,6 @@ export async function setupBrowserContext(opts: { userAgent?: string } = {}): Pr
       { name: "Chrome PDF Viewer", filename: "mhjfbmdgcfjbbpaeojofohoefgiehjai", description: "", mimeTypes: [{ type: "application/pdf", suffixes: "pdf", description: "" }] },
       { name: "Native Client", filename: "internal-nacl-plugin", description: "", mimeTypes: [{ type: "application/x-nacl", suffixes: "", description: "Native Client Executable" }, { type: "application/x-pnacl", suffixes: "", description: "Portable Native Client Executable" }] },
     ];
-    // @ts-expect-error override read-only
     Object.defineProperty(navigator, "plugins", {
       get: () => {
         const arr = pluginData as unknown[];
@@ -311,8 +310,7 @@ export async function setupBrowserContext(opts: { userAgent?: string } = {}): Pr
     // 7. Permissions API — spoof notification query
     if ("Permissions" in window && window.Permissions?.prototype?.query) {
       const origQuery = window.Permissions.prototype.query.bind(window.Permissions.prototype);
-      // @ts-expect-error override
-      window.Permissions.prototype.query = (params: { name: string }) =>
+      window.Permissions.prototype.query = (params: PermissionDescriptor) =>
         params.name === "notifications"
           ? Promise.resolve(Object.assign(Object.create(PermissionStatus.prototype), { state: Notification.permission, onchange: null }))
           : origQuery(params);
@@ -331,7 +329,7 @@ export async function setupBrowserContext(opts: { userAgent?: string } = {}): Pr
     // 9. Canvas fingerprint noise — XOR 1 bit on a handful of pixels
     try {
       const origToDataURL = HTMLCanvasElement.prototype.toDataURL;
-      HTMLCanvasElement.prototype.toDataURL = function (type?: string, quality?: unknown) {
+      HTMLCanvasElement.prototype.toDataURL = function (type?: string, quality?: number) {
         const ctx = this.getContext("2d");
         if (ctx && this.width > 0 && this.height > 0) {
           const d = ctx.getImageData(0, 0, this.width, this.height);

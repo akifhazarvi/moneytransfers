@@ -134,7 +134,8 @@ function parsePricingCatalog(
       fee: Math.round(bestQuote.grossFee * 100) / 100,
       exchangeRate: bestQuote.fxRate,
       receiveAmount: Math.round(bestQuote.receiveAmount * 100) / 100,
-      deliveryEstimate: bestQuote.serviceName.includes("Minutes")
+      paymentMethod: null,
+    deliveryEstimate: bestQuote.serviceName.includes("Minutes")
         ? "Minutes"
         : bestQuote.serviceName.includes("Next Day")
           ? "1 day"
@@ -253,7 +254,8 @@ async function scrapeCorridorAmount(
           fee: 0,
           exchangeRate: rate,
           receiveAmount: Math.round(amount * rate * 100) / 100,
-          deliveryEstimate: null,
+          paymentMethod: null,
+    deliveryEstimate: null,
           deliveryMethod: null,
           dateCollected: new Date().toISOString(),
           source: "western-union-browser-dom",
