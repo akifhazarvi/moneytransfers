@@ -141,6 +141,7 @@ function extractWiseQuote(
       rate?: number;
       receivedAmount?: number;
       sendAmount?: number | null;
+      sourceCountry?: string | null;
       deliveryEstimation?: {
         duration?: { min?: string; max?: string } | null;
         deliveryDate?: { min?: string; max?: string } | null;
@@ -161,7 +162,12 @@ function extractWiseQuote(
 
   if (!wiseProvider?.quotes?.length) return null;
 
-  const q = wiseProvider.quotes[0];
+  // Prefer the quote with a matching sourceCountry (country-specific, more accurate)
+  // over the generic quote with sourceCountry: null
+  const sourceCountry = CURRENCY_TO_COUNTRY[from];
+  const q =
+    wiseProvider.quotes.find((quote) => quote.sourceCountry === sourceCountry) ??
+    wiseProvider.quotes[0];
   const fee = q.fee ?? 0;
   const rate = q.rate ?? 0;
   const receiveAmount = q.receivedAmount ?? 0;
