@@ -14,7 +14,7 @@
     "type": "moneyTransferProvider",
     "corridors": 379,
     "avgFee": 3.31,
-    "avgMarkup": 1.1689,
+    "avgMarkup": 1.1679,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/remitly.svg"
   },
   {
@@ -32,7 +32,7 @@
     "type": "moneyTransferProvider",
     "corridors": 262,
     "avgFee": 7.02,
-    "avgMarkup": 2.5432,
+    "avgMarkup": 2.5417,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/ofx.svg"
   },
   {
@@ -171,15 +171,6 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/nab.svg"
   },
   {
-    "name": "HSBC",
-    "slug": "hsbc",
-    "type": "bank",
-    "corridors": 25,
-    "avgFee": 0,
-    "avgMarkup": 1.4023,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc.svg"
-  },
-  {
     "name": "Barclays",
     "slug": "barclays",
     "type": "bank",
@@ -187,6 +178,15 @@
     "avgFee": 0,
     "avgMarkup": 2.7022,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/barclays.svg"
+  },
+  {
+    "name": "HSBC",
+    "slug": "hsbc",
+    "type": "bank",
+    "corridors": 25,
+    "avgFee": 0,
+    "avgMarkup": 1.4023,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/hsbc.svg"
   },
   {
     "name": "Royal Bank of Canada",
@@ -198,15 +198,6 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/royal-bank-of-canada.svg"
   },
   {
-    "name": "NatWest",
-    "slug": "natwest",
-    "type": "bank",
-    "corridors": 20,
-    "avgFee": 0,
-    "avgMarkup": 2.2617,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/natwest.svg"
-  },
-  {
     "name": "RBS",
     "slug": "rbs",
     "type": "bank",
@@ -214,6 +205,15 @@
     "avgFee": 0,
     "avgMarkup": 2.2617,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/rbs.svg"
+  },
+  {
+    "name": "NatWest",
+    "slug": "natwest",
+    "type": "bank",
+    "corridors": 20,
+    "avgFee": 0,
+    "avgMarkup": 2.2617,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/natwest.svg"
   },
   {
     "name": "Commerzbank",
@@ -243,12 +243,21 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/uob.svg"
   },
   {
+    "name": "Westpac NZ",
+    "slug": "westpac-nz",
+    "type": "bank",
+    "corridors": 20,
+    "avgFee": 0,
+    "avgMarkup": 2.7347,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/westpac.svg"
+  },
+  {
     "name": "ASB NZ",
     "slug": "auckland-savings-bank-nz",
     "type": "bank",
     "corridors": 20,
     "avgFee": 5,
-    "avgMarkup": 1.8861,
+    "avgMarkup": 1.8245,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/asb.svg"
   },
   {
@@ -257,17 +266,8 @@
     "type": "bank",
     "corridors": 20,
     "avgFee": 0,
-    "avgMarkup": 2.0224,
+    "avgMarkup": 2.0513,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/bnz.svg"
-  },
-  {
-    "name": "Westpac NZ",
-    "slug": "westpac-nz",
-    "type": "bank",
-    "corridors": 20,
-    "avgFee": 0,
-    "avgMarkup": 2.7347,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/westpac.svg"
   },
   {
     "name": "BMO",
@@ -306,13 +306,13 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/chase.svg"
   },
   {
-    "name": "Halifax",
-    "slug": "halifax",
+    "name": "Lloyds",
+    "slug": "lloyds",
     "type": "bank",
     "corridors": 15,
     "avgFee": 6.33,
-    "avgMarkup": 3.7645,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/halifax.svg"
+    "avgMarkup": 3.4176,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/lloyds.svg"
   },
   {
     "name": "Starling Bank",
@@ -324,13 +324,13 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/starling-bank.svg"
   },
   {
-    "name": "Lloyds",
-    "slug": "lloyds",
+    "name": "Halifax",
+    "slug": "halifax",
     "type": "bank",
     "corridors": 15,
     "avgFee": 6.33,
-    "avgMarkup": 3.4176,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/lloyds.svg"
+    "avgMarkup": 3.7645,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/halifax.svg"
   },
   {
     "name": "BNC",
@@ -360,15 +360,6 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/kiwi-bank.svg"
   },
   {
-    "name": "PostFinance",
-    "slug": "postfinance",
-    "type": "bank",
-    "corridors": 10,
-    "avgFee": 11,
-    "avgMarkup": 2.6292,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/post-finance.svg"
-  },
-  {
     "name": "Raiffeisen Schweiz",
     "slug": "raiffeisen-ch",
     "type": "bank",
@@ -376,6 +367,15 @@
     "avgFee": 5,
     "avgMarkup": 1.7173,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/raiffeisen.svg"
+  },
+  {
+    "name": "PostFinance",
+    "slug": "postfinance",
+    "type": "bank",
+    "corridors": 10,
+    "avgFee": 11,
+    "avgMarkup": 2.6292,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/post-finance.svg"
   },
   {
     "name": "HSBC HK",
@@ -450,15 +450,6 @@
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/bank-of-east-asia.svg"
   },
   {
-    "name": "SMBC",
-    "slug": "smbc-jp",
-    "type": "bank",
-    "corridors": 4,
-    "avgFee": 3500,
-    "avgMarkup": 6.9424,
-    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/smbc.svg"
-  },
-  {
     "name": "Rakuten",
     "slug": "rakuten-jp",
     "type": "bank",
@@ -466,6 +457,15 @@
     "avgFee": 1750,
     "avgMarkup": 7.9989,
     "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/rakuten.svg"
+  },
+  {
+    "name": "SMBC",
+    "slug": "smbc-jp",
+    "type": "bank",
+    "corridors": 4,
+    "avgFee": 3500,
+    "avgMarkup": 6.9424,
+    "logoUrl": "https://dq8dwmysp7hk1.cloudfront.net/logos/smbc.svg"
   },
   {
     "name": "SBI Remit",
