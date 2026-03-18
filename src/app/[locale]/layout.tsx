@@ -80,8 +80,9 @@ const organizationSchema = {
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "London",
-    addressCountry: "GB",
+    addressLocality: "Denver",
+    addressRegion: "CO",
+    addressCountry: "US",
   },
   areaServed: "Worldwide",
   knowsAbout: [

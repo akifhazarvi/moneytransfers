@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -352,14 +353,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
       <div className="bg-[var(--color-surface)] min-h-screen">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 py-8">
 
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-2sm text-[var(--color-on-surface-variant)] mb-6">
-            <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
-            <span>/</span>
-            <Link href="/exchange-rates" className="hover:text-[var(--color-primary)]">Exchange Rates</Link>
-            <span>/</span>
-            <span className="text-[var(--color-on-surface)]">{p.from} to {p.to}</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Exchange Rates", href: "/exchange-rates" }, { label: `${p.from} to ${p.to}` }]} />
 
           {/* Hero rate card */}
           <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-10 mb-8">

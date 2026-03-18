@@ -7,8 +7,8 @@ export default function ProsConsList({ type, items }: Props) {
   const isPros = type === "pros";
 
   const wrapperCls = isPros
-    ? "bg-[var(--color-success-surface)] border border-[#BBF7D0]"
-    : "bg-[var(--color-danger-surface)] border border-[#FECACA]";
+    ? "bg-[var(--color-success-surface)] border border-[var(--color-success-surface-dim)]"
+    : "bg-[var(--color-danger-surface)] border border-[var(--color-danger-surface)]";
 
   const iconBg = isPros
     ? "bg-[var(--color-success)] text-white"
@@ -16,7 +16,7 @@ export default function ProsConsList({ type, items }: Props) {
 
   const titleColor = isPros
     ? "text-[var(--color-success-dark)]"
-    : "text-[#B91C1C]";
+    : "text-[var(--color-danger)]";
 
   const iconColor = isPros ? "text-[var(--color-success-dark)]" : "text-[var(--color-danger)]";
 

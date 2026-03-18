@@ -6,13 +6,39 @@ import { newsItems } from "@/data/news";
 import { businessPages } from "@/data/business-pages";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
+import { statSync } from "fs";
+import { join } from "path";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const EXCLUDED_CORRIDOR_SLUGS = new Set(["gbp-to-fjd"]);
 
-// Fixed dates — update LAST_DEPLOY when content changes, DATA_UPDATED when scrapers run
+// Fixed deploy date — update manually when static content changes
 const LAST_DEPLOY = "2026-03-17";
-const DATA_UPDATED = "2026-03-17";
+
+// Dynamically derived from the most recently modified scraped quotes file.
+// This ensures lastmod reflects when live data actually changed, not the deploy date.
+function getDataUpdatedDate(): string {
+  const scrapedDir = join(process.cwd(), "src/data/scraped");
+  const quoteFiles = [
+    "provider-quotes.json",
+    "mid-market-rates.json",
+    "exchange-rates.json",
+  ];
+  let latest = new Date(0);
+  for (const file of quoteFiles) {
+    try {
+      const mtime = statSync(join(scrapedDir, file)).mtime;
+      if (mtime > latest) latest = mtime;
+    } catch {
+      // file may not exist — skip
+    }
+  }
+  return latest.getTime() > 0
+    ? latest.toISOString().split("T")[0]
+    : LAST_DEPLOY;
+}
+
+const DATA_UPDATED = getDataUpdatedDate();
 
 const LOCALES = ["es", "fr"] as const;
 

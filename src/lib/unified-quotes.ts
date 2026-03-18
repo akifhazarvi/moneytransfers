@@ -28,6 +28,15 @@ import taptapsendQuotes from "@/data/scraped/taptapsend-quotes.json";
 import moneygramQuotes from "@/data/scraped/moneygram-quotes.json";
 import wiseDirectQuotes from "@/data/scraped/wise-direct-quotes.json";
 import exchangeratesUkQuotes from "@/data/scraped/exchangerates-uk-quotes.json";
+// New direct scrapers (Priority 1)
+import paysendQuotes from "@/data/scraped/paysend-quotes.json";
+import skrillQuotes from "@/data/scraped/skrill-quotes.json";
+import torfxQuotes from "@/data/scraped/torfx-quotes.json";
+import aceQuotes from "@/data/scraped/ace-money-transfer-quotes.json";
+import paypalQuotes from "@/data/scraped/paypal-quotes.json";
+import currencyfairQuotes from "@/data/scraped/currencyfair-quotes.json";
+import sendwaveQuotes from "@/data/scraped/sendwave-quotes.json";
+import profeeQuotes from "@/data/scraped/profee-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -97,6 +106,14 @@ const SLUG_ALIASES: Record<string, string> = {
   "ria-financial": "ria",
   money_gram: "moneygram",
   "money-gram": "moneygram",
+  "ace-money-transfer": "ace-money-transfer",
+  "ace_money_transfer": "ace-money-transfer",
+  "currency-fair": "currencyfair",
+  "currency_fair": "currencyfair",
+  "send-wave": "sendwave",
+  "send_wave": "sendwave",
+  "tor-fx": "torfx",
+  "tor_fx": "torfx",
   "chase-bank": "chase",
   "state-bank-of-india": "sbi",
   "the-royal-bank-of-scotland": "rbs",
@@ -185,7 +202,7 @@ function addQuotes(
 }
 
 // Load sources in priority order (lower priority number = preferred)
-// Priority 1: Direct provider scrapes
+// Priority 1: Direct provider scrapes (first-party, most accurate)
 addQuotes(ofxQuotes as unknown[], 1, "ofx-api");
 addQuotes(instaremQuotes as unknown[], 1, "instarem-api");
 addQuotes(westernUnionQuotes as unknown[], 1, "western-union-browser");
@@ -195,17 +212,26 @@ addQuotes(worldremitQuotes as unknown[], 1, "worldremit-browser");
 addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
 addQuotes(riaQuotes as unknown[], 1, "ria-browser");
 addQuotes(xeTransferQuotes as unknown[], 1, "xe-transfer-browser");
-addQuotes(taptapsendQuotes as unknown[], 1, "taptapsend-browser");
+addQuotes(taptapsendQuotes as unknown[], 1, "taptapsend-api");
 addQuotes(moneygramQuotes as unknown[], 1, "moneygram-browser");
-addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-browser");
+addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-api");
+// New direct scrapers
+addQuotes(paysendQuotes as unknown[], 1, "paysend-direct");
+addQuotes(skrillQuotes as unknown[], 1, "skrill-direct");
+addQuotes(torfxQuotes as unknown[], 1, "torfx-direct");
+addQuotes(aceQuotes as unknown[], 1, "ace-direct");
+addQuotes(paypalQuotes as unknown[], 1, "paypal-direct");
+addQuotes(currencyfairQuotes as unknown[], 1, "currencyfair-direct");
+addQuotes(sendwaveQuotes as unknown[], 1, "sendwave-direct");
+addQuotes(profeeQuotes as unknown[], 1, "profee-direct");
 
-// Priority 2: Comparison aggregators
+// Priority 2: Comparison aggregators (fallback when no direct scrape exists)
 addQuotes(monitoQuotes as unknown[], 2, "monito-comparison");
 addQuotes(moneytransfersQuotes as unknown[], 2, "moneytransfers-comparison");
 addQuotes(remitfinderQuotes as unknown[], 2, "remitfinder-comparison");
 addQuotes(exchangeratesUkQuotes as unknown[], 2, "exchangerates-uk");
 
-// Priority 3: Wise comparison API
+// Priority 3: Wise comparison API (broadest coverage, last resort)
 addQuotes(wiseQuotes as unknown[], 3, "wise-comparison");
 
 // --- Deduplicate: for the same provider+corridor+amount, keep highest priority ---

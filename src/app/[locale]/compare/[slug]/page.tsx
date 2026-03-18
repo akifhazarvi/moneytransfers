@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -166,14 +167,7 @@ function ArticleComparison({
       />
 
       <Container className="py-8">
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-muted)] mb-6">
-          <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
-          <span>/</span>
-          <Link href="/compare" className="hover:text-[var(--color-primary)] transition-colors">Compare</Link>
-          <span>/</span>
-          <span className="text-[var(--color-on-surface-variant)] truncate">{a.name} vs {b.name}</span>
-        </nav>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Compare", href: "/compare" }, { label: `${a.name} vs ${b.name}` }]} />
 
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Main content */}

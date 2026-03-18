@@ -186,7 +186,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               </h2>
               <div className="space-y-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  SendMoneyCompare is operated from London, United Kingdom. We are an
+                  SendMoneyCompare is operated from Denver, Colorado, United States. We are an
                   independent comparison platform — we are not a money transfer service
                   and do not hold or transmit funds.
                 </p>
@@ -194,7 +194,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-2sm">
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Location</dt>
-                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">London, United Kingdom</dd>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">Denver, CO, United States</dd>
                     </div>
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Founded</dt>

@@ -195,6 +195,11 @@ jobs:
         timeout-minutes: 20
         continue-on-error: true
 
+      - name: Scrape MoneyGram (browser + API)
+        run: npx tsx scripts/scrape-moneygram.ts
+        timeout-minutes: 25
+        continue-on-error: true
+
       - name: Upload scraped data
         uses: actions/upload-artifact@v4
         with:
@@ -202,9 +207,97 @@ jobs:
           path: src/data/scraped/
           retention-days: 1
 
+  scrape-browsers-4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape Paysend (direct)
+        run: npx tsx scripts/scrape-paysend.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape Skrill (direct)
+        run: npx tsx scripts/scrape-skrill.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape TorFX (direct)
+        run: npx tsx scripts/scrape-torfx.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape ACE Money Transfer (direct)
+        run: npx tsx scripts/scrape-ace.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-browsers-4
+          path: src/data/scraped/
+          retention-days: 1
+
+  scrape-browsers-5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape PayPal international transfers (browser)
+        run: npx tsx scripts/scrape-paypal.ts
+        timeout-minutes: 20
+        continue-on-error: true
+
+      - name: Scrape CurrencyFair (direct)
+        run: npx tsx scripts/scrape-currencyfair.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape SendWave (direct)
+        run: npx tsx scripts/scrape-sendwave.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Scrape Profee (direct)
+        run: npx tsx scripts/scrape-profee.ts
+        timeout-minutes: 15
+        continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-browsers-5
+          path: src/data/scraped/
+          retention-days: 1
+
   commit-data:
     runs-on: ubuntu-latest
-    needs: [scrape-api, scrape-monito, scrape-browsers-1, scrape-browsers-2, scrape-browsers-3]
+    needs: [scrape-api, scrape-monito, scrape-browsers-1, scrape-browsers-2, scrape-browsers-3, scrape-browsers-4, scrape-browsers-5]
     if: always()
     timeout-minutes: 5
 
@@ -243,6 +336,20 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: scraped-browsers-3
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download browser scraper results (batch 4)
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-browsers-4
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download browser scraper results (batch 5)
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-browsers-5
           path: src/data/scraped/
         continue-on-error: true
 

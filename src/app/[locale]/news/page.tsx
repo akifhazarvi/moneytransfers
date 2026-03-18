@@ -1,3 +1,4 @@
+import Badge from "@/components/Badge";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -23,19 +24,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-function CategoryBadge({ category }: { category: string }) {
-  const colorMap: Record<string, string> = {
-    "Industry News": "text-[var(--color-primary)] bg-[var(--color-primary-surface)]",
-    "Provider Update": "text-[var(--color-success-dark)] bg-[var(--color-success-surface)]",
-    Announcement: "text-[var(--color-on-surface)] bg-[var(--color-surface-container)]",
-    Regulatory: "text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)]",
-  };
-  return (
-    <span className={`text-2xs font-medium px-2.5 py-1 rounded-full ${colorMap[category] || colorMap.Announcement}`}>
-      {category}
-    </span>
-  );
-}
 
 export default async function NewsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

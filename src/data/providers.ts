@@ -52,7 +52,7 @@ export const providers: Provider[] = [
     website: "https://wise.com",
     minTransfer: 1,
     maxTransfer: 1000000,
-    transferSpeed: "1-2 business days",
+    transferSpeed: "Instant to 2 days",
     supportedCountries: 80,
     supportedCurrencies: 50,
     paymentMethods: ["Bank Transfer", "Debit Card", "Credit Card", "Apple Pay"],

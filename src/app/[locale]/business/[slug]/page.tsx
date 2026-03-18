@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -106,20 +107,7 @@ export default async function BusinessSubPage({ params }: Props) {
       {/* ─── HERO ─── */}
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
-          <nav
-            aria-label="Breadcrumb"
-            className="text-2sm text-[var(--color-on-surface-variant)] mb-4"
-          >
-            <Link href="/" className="hover:underline">
-              Home
-            </Link>
-            <span className="mx-1.5">›</span>
-            <Link href="/business" className="hover:underline">
-              Business Payments
-            </Link>
-            <span className="mx-1.5">›</span>
-            <span>{page.title}</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Business Payments", href: "/business" }, { label: page.title }]} />
           <div className="max-w-3xl">
             <h1 className="text-h3 md:text-h2-plus font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
               {page.heading}

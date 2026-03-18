@@ -4,6 +4,7 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
+import Breadcrumb from "@/components/Breadcrumb";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { getAlternates } from "@/lib/i18n-metadata";
@@ -92,14 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 md:py-14">
 
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-muted)] mb-6">
-            <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/guides" className="hover:text-[var(--color-primary)] transition-colors">Guides</Link>
-            <span>/</span>
-            <span className="text-[var(--color-on-surface-variant)] truncate max-w-[260px]">{post.title}</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Guides", href: "/guides" }, { label: post.title }]} />
 
           <div className="max-w-[720px]">
             {/* Category badge */}

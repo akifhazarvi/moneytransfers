@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -121,14 +122,7 @@ export default async function NewsArticlePage({ params }: Props) {
       />
 
       <Container className="py-8">
-        {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-2sm text-[var(--color-on-surface-variant)] mb-6">
-          <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
-          <span>/</span>
-          <Link href="/news" className="hover:text-[var(--color-primary)]">News</Link>
-          <span>/</span>
-          <span className="text-[var(--color-on-surface)] truncate max-w-[300px]">{item.title}</span>
-        </nav>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "News", href: "/news" }, { label: item.title }]} />
 
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Main content */}

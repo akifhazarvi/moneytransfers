@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -126,14 +127,7 @@ function DetailedReview({
       {/* ── Review Hero ── */}
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 md:py-10">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-muted)] mb-6">
-            <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/companies" className="hover:text-[var(--color-primary)] transition-colors">Companies</Link>
-            <span>/</span>
-            <span className="text-[var(--color-on-surface-variant)]">{provider.name}</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Companies", href: "/companies" }, { label: provider.name }]} />
 
           <div className="flex flex-col md:flex-row gap-8">
             {/* Left: Provider identity */}

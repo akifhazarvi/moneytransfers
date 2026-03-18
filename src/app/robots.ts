@@ -29,13 +29,15 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },
+      // Allow Google-Extended — powers Google AI Overviews and Gemini (important for AI search visibility)
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
       // Block training-only crawlers
       {
         userAgent: "CCBot",
-        disallow: "/",
-      },
-      {
-        userAgent: "Google-Extended",
         disallow: "/",
       },
       {
