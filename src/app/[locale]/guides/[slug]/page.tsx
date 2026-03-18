@@ -73,6 +73,10 @@ export default async function BlogPostPage({ params }: Props) {
       "@id": "https://sendmoneycompare.com/#organization",
       logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
     },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".blog-answer-box", "article h1", "article h2"],
+    },
   };
 
   const breadcrumbSchema = {
@@ -247,6 +251,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <details
                       key={i}
                       className="group border border-[var(--color-outline)] rounded-xl overflow-hidden"
+                      {...(i < 3 ? { open: true } : {})}
                     >
                       <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-md font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors select-none">
                         {faq.question}

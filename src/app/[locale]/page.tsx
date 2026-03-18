@@ -432,8 +432,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {tFaq("title")}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
-              {faqs.map((faq) => (
-                <details key={faq.q} className="group py-5">
+              {faqs.map((faq, i) => (
+                <details key={faq.q} className="group py-5" {...(i < 3 ? { open: true } : {})}>
                   <summary className="flex items-center justify-between cursor-pointer list-none text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[48px]">
                     {faq.q}
                     <svg
