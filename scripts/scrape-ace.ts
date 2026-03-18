@@ -2,183 +2,134 @@
  * ACE Money Transfer Scraper
  *
  * ACE specialises in UK/EU → South Asia + Middle East remittances.
- * Their calculator at acemoneytransfer.com makes API calls for live rates.
+ * Their send-money pages embed rate data directly in the HTML as
+ * JavaScript variables (all_payers / payer_details).
  *
- * Strategy:
- *  1. Direct API — try known ACE API endpoint patterns
- *  2. Browser interception — load calculator, capture API response
- *  3. DOM fallback
+ * Strategy: Cheerio HTML scrape — fetch each destination page,
+ * extract the embedded JSON rate data. No browser or API needed.
  */
+import * as cheerio from "cheerio";
 import {
-  NAV_TIMEOUT,
   SEND_AMOUNTS,
-  delay,
   jitteredDelay,
-  dismissOverlays,
-  setupBrowserContext,
-  fillAmountInput,
-  withRetry,
   writeOutput,
-  parseNumber,
-  extractReceiveAmount,
   type ProviderQuote,
 } from "./lib/browser";
-import type { BrowserContext } from "playwright";
 
-// ACE's core corridors — GBP/EUR/AED → Pakistan/India/Bangladesh etc.
-const CORRIDORS = [
-  { from: "GBP", to: "PKR" }, { from: "GBP", to: "INR" },
-  { from: "GBP", to: "BDT" }, { from: "GBP", to: "LKR" },
-  { from: "GBP", to: "NPR" }, { from: "GBP", to: "NGN" },
-  { from: "GBP", to: "GHS" }, { from: "GBP", to: "KES" },
-  { from: "GBP", to: "PHP" }, { from: "GBP", to: "EUR" },
-  { from: "EUR", to: "PKR" }, { from: "EUR", to: "INR" },
-  { from: "EUR", to: "BDT" }, { from: "EUR", to: "NGN" },
-  { from: "EUR", to: "GHS" }, { from: "EUR", to: "PHP" },
-  { from: "USD", to: "PKR" }, { from: "USD", to: "INR" },
-  { from: "USD", to: "BDT" }, { from: "USD", to: "NGN" },
-  { from: "USD", to: "PHP" }, { from: "USD", to: "GHS" },
-  { from: "AED", to: "PKR" }, { from: "AED", to: "INR" },
-  { from: "AED", to: "BDT" }, { from: "AED", to: "LKR" },
-  { from: "SAR", to: "PKR" }, { from: "SAR", to: "INR" },
-  { from: "SAR", to: "BDT" },
-  { from: "CAD", to: "PKR" }, { from: "CAD", to: "INR" },
-  { from: "AUD", to: "PKR" }, { from: "AUD", to: "INR" },
+const UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
+// ---------------------------------------------------------------------------
+// Corridors — ACE pages always default to GBP as the send currency.
+// Each destination page has one set of embedded rates for GBP → X.
+// ---------------------------------------------------------------------------
+interface Corridor {
+  from: string;          // always GBP (page default)
+  to: string;            // receive currency
+  country: string;       // URL slug: /Country/Send-Money-to-Country
+}
+
+const CORRIDORS: Corridor[] = [
+  { from: "GBP", to: "PKR", country: "Pakistan" },
+  { from: "GBP", to: "INR", country: "India" },
+  { from: "GBP", to: "BDT", country: "Bangladesh" },
+  { from: "GBP", to: "LKR", country: "Sri-Lanka" },
+  { from: "GBP", to: "NPR", country: "Nepal" },
+  { from: "GBP", to: "NGN", country: "Nigeria" },
+  { from: "GBP", to: "GHS", country: "Ghana" },
+  { from: "GBP", to: "KES", country: "Kenya" },
+  { from: "GBP", to: "PHP", country: "Philippines" },
+  { from: "GBP", to: "EGP", country: "Egypt" },
+  { from: "GBP", to: "MAD", country: "Morocco" },
+  { from: "GBP", to: "TRY", country: "Turkey" },
+  { from: "GBP", to: "THB", country: "Thailand" },
+  { from: "GBP", to: "VND", country: "Vietnam" },
+  { from: "GBP", to: "MXN", country: "Mexico" },
+  { from: "GBP", to: "IDR", country: "Indonesia" },
+  { from: "GBP", to: "UGX", country: "Uganda" },
+  { from: "GBP", to: "TZS", country: "Tanzania" },
+  { from: "GBP", to: "ZMW", country: "Zambia" },
+  { from: "GBP", to: "ETB", country: "Ethiopia" },
+  { from: "GBP", to: "RWF", country: "Rwanda" },
+  { from: "GBP", to: "CNY", country: "China" },
+  { from: "GBP", to: "BRL", country: "Brazil" },
+  { from: "GBP", to: "COP", country: "Colombia" },
 ];
 
-// Currency → ACE send country slug
-const CURRENCY_TO_COUNTRY: Record<string, string> = {
-  GBP: "gb", EUR: "de", USD: "us", AED: "ae", SAR: "sa", CAD: "ca", AUD: "au",
+// Delivery method labels
+const METHOD_DELIVERY: Record<string, string> = {
+  Bank: "Same day – 1 business day",
+  Cash: "Minutes",
+  Wallet: "Minutes",
+  "Mobile Topup": "Instant",
 };
 
-// Receive currency → ACE destination slug
-const RECEIVE_TO_COUNTRY: Record<string, string> = {
-  PKR: "pakistan", INR: "india", BDT: "bangladesh", LKR: "srilanka",
-  NPR: "nepal", NGN: "nigeria", GHS: "ghana", KES: "kenya",
-  PHP: "philippines", EUR: "germany",
-};
+// ---------------------------------------------------------------------------
+// Parse embedded rate data from page HTML
+// ---------------------------------------------------------------------------
+interface PayerEntry {
+  company_rate: number;
+  company_method: string;
+  company_currency: string;
+  company_name: string;
+  method_masking?: string;
+}
+
+function extractRates(html: string): PayerEntry[] {
+  // Try all_payers first, then payer_details
+  const allPayersMatch = html.match(/all_payers\s*=\s*(\[[\s\S]*?\])\s*;/);
+  if (allPayersMatch) {
+    try {
+      return JSON.parse(allPayersMatch[1]);
+    } catch { /* fall through */ }
+  }
+
+  // payer_details is { "Bank": [...], "Cash": [...], ... }
+  const payerDetailsMatch = html.match(/payer_details\s*=\s*(\{[\s\S]*?\})\s*;?\s*var\s/);
+  if (payerDetailsMatch) {
+    try {
+      const obj = JSON.parse(payerDetailsMatch[1]) as Record<string, PayerEntry[]>;
+      return Object.values(obj).flat();
+    } catch { /* fall through */ }
+  }
+
+  return [];
+}
+
+function bestRate(payers: PayerEntry[]): { rate: number; method: string } | null {
+  // Pick the highest customer rate (Bank deposit is usually best).
+  // Exclude Mobile Topup as it has distorted rates.
+  let best: { rate: number; method: string } | null = null;
+  for (const p of payers) {
+    const method = p.method_masking ?? p.company_method;
+    if (method === "Mobile Topup" || method === "Airtime Topup") continue;
+    if (p.company_rate > 0 && (!best || p.company_rate > best.rate)) {
+      best = { rate: p.company_rate, method };
+    }
+  }
+  return best;
+}
 
 function buildQuote(
   from: string, to: string, amount: number,
-  rate: number, fee: number, delivery: string | null, source: string,
-  apiRecv = 0
+  rate: number, method: string,
 ): ProviderQuote {
   return {
     provider: "ACE Money Transfer",
     providerSlug: "ace-money-transfer",
     providerType: "moneyTransferProvider",
-    sendCurrency: from, receiveCurrency: to, sendAmount: amount,
-    fee: Math.round(fee * 100) / 100,
+    sendCurrency: from,
+    receiveCurrency: to,
+    sendAmount: amount,
+    fee: 0,
     exchangeRate: Math.round(rate * 10000) / 10000,
-    receiveAmount: apiRecv > 0 ? Math.round(apiRecv * 100) / 100 : Math.round((amount - fee) * rate * 100) / 100,
-    paymentMethod: null,
-    deliveryEstimate: delivery ?? "Same day - 1 business day",
-    deliveryMethod: null,
-    dateCollected: new Date().toISOString(), source,
+    receiveAmount: Math.round(amount * rate * 100) / 100,
+    paymentMethod: method === "Bank" ? "Bank Transfer" : method,
+    deliveryEstimate: METHOD_DELIVERY[method] ?? "Same day – 1 business day",
+    deliveryMethod: method === "Bank" ? "Bank Deposit" : method === "Cash" ? "Cash Pickup" : method === "Wallet" ? "Mobile Wallet" : null,
+    dateCollected: new Date().toISOString(),
+    source: "ace-html",
   };
-}
-
-// ---------------------------------------------------------------------------
-// Strategy 1 — direct API
-// ---------------------------------------------------------------------------
-async function tryPublicApi(from: string, to: string, amount: number): Promise<ProviderQuote | null> {
-  const country = CURRENCY_TO_COUNTRY[from] ?? "gb";
-  const endpoints = [
-    `https://www.acemoneytransfer.com/api/v1/rates?sendCurrency=${from}&receiveCurrency=${to}&sendAmount=${amount}`,
-    `https://api.acemoneytransfer.com/rates?from=${from}&to=${to}&amount=${amount}`,
-    `https://www.acemoneytransfer.com/${country}/api/exchange-rate?from=${from}&to=${to}&amount=${amount}`,
-    `https://www.acemoneytransfer.com/api/calculator?sendCurrency=${from}&receiveCurrency=${to}&sendAmount=${amount}`,
-  ];
-
-  for (const url of endpoints) {
-    try {
-      const res = await fetch(url, {
-        headers: {
-          "Accept": "application/json",
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-          "Referer": "https://www.acemoneytransfer.com/",
-          "Origin": "https://www.acemoneytransfer.com",
-        },
-      });
-      if (!res.ok) continue;
-      const data: Record<string, unknown> = await res.json();
-      const rate = parseFloat(String(data.rate ?? data.exchangeRate ?? data.fx_rate ?? data.transferRate ?? "0"));
-      const fee = parseFloat(String(data.fee ?? data.transferFee ?? data.serviceFee ?? "0"));
-      if (rate <= 0) continue;
-      return buildQuote(from, to, amount, rate, fee, data.deliveryTime as string ?? null, "ace-api", extractReceiveAmount(data));
-    } catch { continue; }
-  }
-  return null;
-}
-
-// ---------------------------------------------------------------------------
-// Strategy 2 — browser interception
-// ---------------------------------------------------------------------------
-async function tryBrowser(
-  context: BrowserContext,
-  from: string,
-  to: string,
-  amount: number
-): Promise<ProviderQuote | null> {
-  const page = await context.newPage();
-  let captured: ProviderQuote | null = null;
-
-  page.on("response", async (response) => {
-    const url = response.url();
-    if (captured) return;
-    if (!url.includes("acemoneytransfer.com")) return;
-    if (response.status() !== 200) return;
-    if (!url.includes("rate") && !url.includes("calc") && !url.includes("exchange") && !url.includes("quote") && !url.includes("fee")) return;
-    try {
-      const ct = response.headers()["content-type"] ?? "";
-      if (!ct.includes("json")) return;
-      const body = await response.text();
-      const data: Record<string, unknown> = JSON.parse(body);
-      const rate = parseFloat(String(data.rate ?? data.exchangeRate ?? data.transferRate ?? data.fx_rate ?? "0"));
-      const fee = parseFloat(String(data.fee ?? data.transferFee ?? data.serviceFee ?? "0"));
-      if (rate <= 0) return;
-      captured = buildQuote(from, to, amount, rate, fee, null, "ace-browser");
-    } catch { /* ignore */ }
-  });
-
-  try {
-    const country = CURRENCY_TO_COUNTRY[from] ?? "gb";
-    const destSlug = RECEIVE_TO_COUNTRY[to];
-    const url = destSlug
-      ? `https://www.acemoneytransfer.com/${country}/send-money-to-${destSlug}`
-      : `https://www.acemoneytransfer.com/${country}/`;
-
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
-    await delay(2500);
-    await dismissOverlays(page);
-
-    // Fill amount
-    await fillAmountInput(page, amount, [
-      'input[name*="amount"]', 'input[id*="amount"]', 'input[data-testid*="amount"]',
-      'input[placeholder*="amount" i]', 'input[aria-label*="send" i]',
-      'input[inputmode="decimal"]', 'input[inputmode="numeric"]', 'input[type="number"]',
-    ]);
-    await page.keyboard.press("Tab");
-    await delay(3500);
-
-    if (captured) return captured;
-
-    // DOM fallback
-    const bodyText = await page.locator("body").textContent({ timeout: 3000 }) ?? "";
-    const rateRe = new RegExp(`1\\s*${from}[^\\d]*([\\d,.]+)\\s*${to}`, "i");
-    const rateMatch = bodyText.match(rateRe) ?? bodyText.match(/exchange rate[:\s]*([\d,.]+)/i);
-    const feeMatch = bodyText.match(/(?:fee|service fee)[:\s£$]*([\d,.]+)/i);
-    if (rateMatch) {
-      const r = parseNumber(rateMatch[1]);
-      const f = feeMatch ? parseNumber(feeMatch[1]) : 0;
-      if (r > 0) return buildQuote(from, to, amount, r, f, null, "ace-dom");
-    }
-    return null;
-  } catch {
-    return null;
-  } finally {
-    await page.close();
-  }
 }
 
 // ---------------------------------------------------------------------------
@@ -186,37 +137,65 @@ async function tryBrowser(
 // ---------------------------------------------------------------------------
 async function main() {
   console.log("=== ACE Money Transfer Scraper ===\n");
-  const context = await setupBrowserContext();
   const allQuotes: ProviderQuote[] = [];
-  let successCount = 0, failCount = 0;
+  let successCount = 0;
+  let failCount = 0;
   const startTime = Date.now();
 
-  try {
-    for (const c of CORRIDORS) {
-      console.log(`\n${c.from} → ${c.to}`);
-      for (const amount of SEND_AMOUNTS) {
-        const quote = await withRetry(async () => {
-          const api = await tryPublicApi(c.from, c.to, amount);
-          if (api) return api;
-          return tryBrowser(context, c.from, c.to, amount);
-        }, 2, `${c.from}→${c.to} $${amount}`);
+  for (const c of CORRIDORS) {
+    const url = `https://acemoneytransfer.com/${c.country}/Send-Money-to-${c.country}`;
+    process.stdout.write(`${c.from} → ${c.to} (${c.country})`);
 
-        if (quote) {
-          allQuotes.push(quote);
-          successCount++;
-          console.log(`  ✓ $${amount} rate=${quote.exchangeRate} recv=${quote.receiveAmount} [${quote.source}]`);
-        } else {
-          failCount++;
-          console.log(`  ✗ $${amount} failed`);
-        }
-        await jitteredDelay(800);
+    try {
+      const res = await fetch(url, {
+        headers: { "User-Agent": UA, Accept: "text/html" },
+      });
+
+      if (!res.ok) {
+        console.log(` ✗ HTTP ${res.status}`);
+        failCount += SEND_AMOUNTS.length;
+        await jitteredDelay(500);
+        continue;
       }
+
+      const html = await res.text();
+      const payers = extractRates(html);
+
+      if (payers.length === 0) {
+        console.log(" ✗ no rate data found");
+        failCount += SEND_AMOUNTS.length;
+        await jitteredDelay(500);
+        continue;
+      }
+
+      const best = bestRate(payers);
+      if (!best) {
+        console.log(" ✗ no valid rate");
+        failCount += SEND_AMOUNTS.length;
+        await jitteredDelay(500);
+        continue;
+      }
+
+      // ACE rates are flat (not amount-dependent), generate quotes for each amount
+      for (const amount of SEND_AMOUNTS) {
+        const quote = buildQuote(c.from, c.to, amount, best.rate, best.method);
+        allQuotes.push(quote);
+        successCount++;
+      }
+
+      console.log(` ✓ rate=${best.rate} method=${best.method}`);
+    } catch (err) {
+      console.log(` ✗ ${(err as Error).message}`);
+      failCount += SEND_AMOUNTS.length;
     }
-  } finally {
-    await context.browser()?.close();
+
+    await jitteredDelay(500);
   }
 
   writeOutput("ACE Money Transfer", "ace-money-transfer", allQuotes, startTime, successCount, failCount);
 }
 
-main().catch(err => { console.error("ACE Money Transfer scraper failed:", err); process.exit(1); });
+main().catch((err) => {
+  console.error("ACE Money Transfer scraper failed:", err);
+  process.exit(1);
+});
