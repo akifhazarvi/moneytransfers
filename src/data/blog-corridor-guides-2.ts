@@ -101,7 +101,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected every 6 hours. Use our <a href="/send-money/uae-to-pakistan">UAE to Pakistan comparison tool</a> for the latest rates. External sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices</a>, <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Pakistan</a>.</p>`,
+        content: `<p>Data based on real quotes collected every 6 hours. Use our <a href="/send-money/uae-to-pakistan">UAE to Pakistan comparison tool</a> for the latest rates. See our <a href="/methodology">methodology page</a> for how we collect and verify data. External sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices</a>, <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Pakistan</a>.</p>`,
       },
     ],
     faqs: [
@@ -197,7 +197,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a>. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>.</p>`,
+        content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a>. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>.</p>`,
       },
     ],
     faqs: [
@@ -282,11 +282,12 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>Verify IBAN carefully</strong> — 29 characters, one digit error causes delays</li>
 <li><strong>Fund via bank transfer</strong> — cheapest option</li>
 <li><strong>Use formal channels only</strong> — rates are now fair, informal channels carry risk</li>
-</ol>`,
+</ol>
+<p>For more on how exchange rate markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>. See our <a href="/guides/money-transfer-safety-guide">safety guide</a> for tips on verifying providers.</p>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes every 6 hours. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.cbe.org.eg/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Egypt</a>.</p>`,
+        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.cbe.org.eg/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Egypt</a>.</p>`,
       },
     ],
     faqs: [
@@ -367,11 +368,12 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>Consider Ria for cash/home delivery</strong> — strongest Morocco coverage.</li>
 <li><strong>Send in EUR if possible</strong> — tighter spreads than USD.</li>
 <li><strong>Fund via SEPA (Europe) or ACH (US)</strong> — cheapest.</li>
-</ol>`,
+</ol>
+<p>For more on how markups affect your transfer, see our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes every 6 hours. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a>.</p>`,
+        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a>.</p>`,
       },
     ],
     faqs: [
@@ -449,7 +451,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes every 6 hours. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://boj.org.jm/" target="_blank" rel="noopener noreferrer nofollow">Bank of Jamaica</a>.</p>`,
+        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://boj.org.jm/" target="_blank" rel="noopener noreferrer nofollow">Bank of Jamaica</a>.</p>`,
       },
     ],
     faqs: [
@@ -537,7 +539,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes every 6 hours. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.cbsl.gov.lk/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Sri Lanka</a>.</p>`,
+        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.cbsl.gov.lk/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Sri Lanka</a>.</p>`,
       },
     ],
     faqs: [
