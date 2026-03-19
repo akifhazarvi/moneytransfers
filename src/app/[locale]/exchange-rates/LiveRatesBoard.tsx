@@ -220,7 +220,6 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
   return (
     <>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
         .led-font {
           font-family: var(--font-mono-display);
         }
@@ -272,10 +271,10 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" style={{ boxShadow: "0 0 6px #22ff77" }} />
               </span>
-              <h1 className="led-font text-lg sm:text-2xl font-bold text-[#e84020] tracking-widest uppercase"
-                  style={{ textShadow: "0 0 15px rgba(232,64,32,0.6), 0 0 4px rgba(232,64,32,0.3)" }}>
+              <h2 className="led-font text-lg sm:text-2xl font-bold text-[#e84020] tracking-widest uppercase"
+                  style={{ textShadow: "0 0 15px rgba(232,64,32,0.6), 0 0 4px rgba(232,64,32,0.3)" }} aria-hidden="true">
                 Foreign Exchange Rates
-              </h1>
+              </h2>
             </div>
             <div className="led-font text-[#e84020] text-sm sm:text-lg tracking-wider"
                  style={{ textShadow: "0 0 8px rgba(232,64,32,0.5)" }}>

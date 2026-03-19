@@ -15,7 +15,7 @@
   --text-h0:      2.875rem;  /* 46px — large viewport hero */
   --text-display: 4rem;      /* 64px — large display text */
   --text-3xs:     0.5rem;    /* 8px  — LED micro labels */
-  --font-mono-display: 'Share Tech Mono', 'Courier New', monospace;
+  /* --font-mono-display is set by next/font via Share_Tech_Mono in layout.tsx */
 }
 
 :root {

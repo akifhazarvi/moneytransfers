@@ -17,6 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/exchange-rates",
+      type: "website",
+      images: [{ url: "https://sendmoneycompare.com/opengraph-image", width: 1200, height: 630, alt: "Live Exchange Rates — SendMoneyCompare" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("metaTitle"),
+      description: t("metaDescription"),
     },
   };
 }
@@ -75,18 +82,8 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
+// FAQPage schema removed — Google restricted FAQ rich results to gov/health sites since Aug 2023.
+// FAQ content is still rendered on the page for users.
 
 const SSR_CURRENCIES = [
   { code: "EUR", name: "Euro" },
@@ -123,9 +120,27 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
     .map((c) => ({ ...c, rate: rates[c.code] }))
     .filter((c) => c.rate && c.rate > 0);
 
-  // ExchangeRateSpecification JSON-LD for each major currency
-  const rateSchemas = ssrRates.slice(0, 10).map((c) => ({
+  // WebPage + BreadcrumbList schema
+  const today = new Date().toISOString().split("T")[0];
+  const webPageSchema = {
     "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Exchange Rates Today — Live Mid-Market Rates",
+    description: "Live exchange rates from 4 independent sources, updated every 60 seconds. Compare mid-market rates for 150+ currencies.",
+    url: "https://sendmoneycompare.com/exchange-rates",
+    dateModified: today,
+    isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+        { "@type": "ListItem", position: 2, name: "Exchange Rates", item: "https://sendmoneycompare.com/exchange-rates" },
+      ],
+    },
+  };
+
+  // ExchangeRateSpecification JSON-LD for top 10 currencies
+  const rateSchemas = ssrRates.slice(0, 10).map((c) => ({
     "@type": "ExchangeRateSpecification",
     currency: "USD",
     currentExchangeRate: {
@@ -140,12 +155,15 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(rateSchemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": rateSchemas }) }}
       />
+
+      {/* Server-rendered H1 for crawlers — LiveRatesBoard has a visual H1 but it's client-only */}
+      <h1 className="sr-only">{t("title")}</h1>
 
       {/* Live Rates Board — pre-rendered with server-fetched rates for SEO */}
       <LiveRatesBoard initialRates={rates} />
@@ -157,13 +175,13 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             {t("todaysRatesHeading")}
           </h2>
           <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
-            Mid-market exchange rates for 1 USD. Updated at build time from multiple independent sources.
+            {t("todaysRatesDesc")}
           </p>
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
             <div className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-              <span>Currency</span>
-              <span className="text-right">Code</span>
-              <span className="text-right">1 USD =</span>
+              <span>{t("colCurrency")}</span>
+              <span className="text-right">{t("colCode")}</span>
+              <span className="text-right">{t("colRate")}</span>
             </div>
             {ssrRates.map((c) => (
               <div
@@ -179,7 +197,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             ))}
           </div>
           <p className="text-xs text-[var(--color-on-surface-variant)] mt-3">
-            The live board above updates every 60 seconds with real-time data from 4 independent feeds. This table shows the latest server-side snapshot.
+            {t("ssrTableNote")}
           </p>
         </div>
       </section>
@@ -194,7 +212,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
               {t("compareTransferRates")}
             </h2>
             <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
-              The mid-market rate above is the fairest rate — but providers add markups. Compare actual rates from 60+ services on these popular corridors.
+              {t("compareTransferRatesDesc")}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {popularCorridors.map((c) => (
@@ -228,18 +246,18 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="rounded-2xl bg-[var(--color-surface-dim)] p-6">
                 <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
-                  Mid-Market Rate vs. Transfer Rate
+                  {t("midMarketVsTransferRate")}
                 </h3>
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  The mid-market rate you see on this page is the &ldquo;real&rdquo; exchange rate — the midpoint between buy and sell prices on global currency markets. When you send money internationally, providers add a markup to this rate. That markup is their profit margin, and it can vary widely between services. Always compare the rate a provider offers against the mid-market rate to see the true cost.
+                  {t("midMarketVsTransferRateDesc")}
                 </p>
               </div>
               <div className="rounded-2xl bg-[var(--color-surface-dim)] p-6">
                 <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
-                  How We Calculate These Rates
+                  {t("howWeCalculateTheseRates")}
                 </h3>
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  We aggregate exchange rate data from 4 independent sources in real-time and take the median value. This approach eliminates outliers and provides a more reliable rate than relying on any single source. Rates refresh every 60 seconds while you&apos;re on this page. The buy/sell spreads shown are simulated based on typical banking margins for each currency.
+                  {t("howWeCalculateTheseRatesDesc")}
                 </p>
               </div>
             </div>
@@ -248,10 +266,10 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           {/* Popular Exchange Rate Pairs */}
           <section className="mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
-              Popular Exchange Rates
+              {t("popularExchangeRates")}
             </h2>
             <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
-              Detailed rate pages with conversion tables, provider comparisons, and expert analysis for the most popular currency pairs.
+              {t("popularExchangeRatesDesc")}
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {topRatePairs.map((pair) => {
@@ -310,10 +328,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
 
           {/* Disclaimer */}
           <p className="text-xs text-[var(--color-on-surface-variant)] mt-10 leading-relaxed">
-            Exchange rates shown are mid-market rates aggregated from multiple independent sources for informational purposes only.
-            Actual rates offered by money transfer providers, banks, and currency exchange services will differ.
-            These rates do not constitute financial advice and should not be relied upon for trading decisions.
-            Last updated in real-time from 4 independent data feeds.
+            {t("disclaimerFull")}
           </p>
         </div>
       </div>
