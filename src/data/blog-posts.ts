@@ -8038,6 +8038,295 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 
+  // ============================
+  // Best Money Transfer Apps for Large Transfers (2026)
+  // ============================
+  {
+    slug: "best-money-transfer-apps-large-transfers",
+    title: "Best Money Transfer Apps for Large Transfers in 2026 (£5,000–£350,000)",
+    metaDescription:
+      "Compare the best money transfer apps for sending large amounts abroad in 2026. XE, OFX, Wise, and TorFX compared on fees, forward contracts, and exchange rates for £5,000+ transfers.",
+    excerpt:
+      "For large international transfers — property purchases, tuition fees, inheritance, or business payments — the provider you choose matters more than ever. We compare the top apps for £5K+ transfers.",
+    category: "Guides",
+    readTime: "12 min read",
+    publishedAt: "2026-03-18",
+    updatedAt: "2026-03-18",
+    author: "Akif Hazarvi",
+    tags: ["large transfers", "XE", "OFX", "forward contracts", "exchange rates", "property purchase", "business transfers", "comparison"],
+    sections: [
+      {
+        heading: "Why Large Transfers Need a Different Approach",
+        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+<p><strong>Quick answer:</strong> For large international transfers (£5,000+), <a href="/companies/xe">XE</a> and <a href="/companies/ofx">OFX</a> are the best options. Both charge zero transfer fees, offer forward contracts to lock exchange rates for up to 12–24 months, and provide dedicated support for high-value transfers. XE handles up to £350,000 per transfer and delivers same-day for major corridors. Wise is cheapest on mid-range amounts (£1,000–£5,000) but lacks forward contracts. Traditional banks are the worst option — charging £25–£50 per wire plus 2–5% hidden markup.</p>
+</div>
+
+<p>When you're sending £500 abroad, the difference between the cheapest and most expensive provider might be £10–£20. Annoying, but not life-changing.</p>
+<p>When you're sending <strong>£50,000</strong> — for a property deposit, university tuition, inheritance transfer, or business payment — that same percentage difference becomes <strong>£1,000–£2,500</strong>. On a £100,000 transfer, it can exceed £5,000.</p>
+<p>This is why large transfers need a fundamentally different approach. The priorities shift:</p>
+<ul>
+<li><strong>Exchange rate markup</strong> becomes the dominant cost — a 0.5% difference on £50,000 = £250</li>
+<li><strong>Forward contracts</strong> matter — if you're buying property abroad, you need to lock the rate weeks or months before completion</li>
+<li><strong>Transfer limits</strong> matter — many apps cap at £10,000–£25,000 per transfer</li>
+<li><strong>Dedicated support</strong> matters — you want a human to call if a £100,000 transfer gets stuck</li>
+<li><strong>Flat fees become irrelevant</strong> — a £5 fee on £50,000 is 0.01%. The exchange rate is everything.</li>
+</ul>
+<p>We analysed the top money transfer apps — as ranked by <a href="https://www.forbes.com/advisor/uk/money-transfer/money-transfer-apps/" target="_blank" rel="noopener noreferrer nofollow">Forbes Advisor UK</a> — specifically through the lens of large transfers. Here's what we found.</p>`,
+      },
+      {
+        heading: "The Best Apps for Large Transfers: Head-to-Head",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Large Transfer Comparison: £10,000 and £50,000</h3>
+<table>
+<thead><tr><th>Feature</th><th><a href="/companies/xe">XE</a></th><th><a href="/companies/ofx">OFX</a></th><th><a href="/companies/wise">Wise</a></th><th>TorFX</th><th>UK Bank Wire</th></tr></thead>
+<tbody>
+<tr><td><strong>Transfer fee</strong></td><td>£0</td><td>£0</td><td>~£50 (0.5%)</td><td>£0</td><td>£25–£40</td></tr>
+<tr><td><strong>FX markup</strong></td><td>0.4–0.7%</td><td>0.3–1.0%</td><td>0% (mid-market)</td><td>0.3–0.8%</td><td>2–5%</td></tr>
+<tr class="blog-row-highlight"><td><strong>Cost on £10,000</strong></td><td><strong>~£50</strong></td><td><strong>~£40</strong></td><td><strong>~£55</strong></td><td><strong>~£45</strong></td><td><strong>£225–£540</strong></td></tr>
+<tr class="blog-row-highlight"><td><strong>Cost on £50,000</strong></td><td><strong>~£250</strong></td><td><strong>~£200</strong></td><td><strong>~£260</strong></td><td><strong>~£225</strong></td><td><strong>£1,025–£2,540</strong></td></tr>
+<tr><td><strong>Max transfer</strong></td><td>£350,000</td><td>No limit</td><td>£1,000,000</td><td>No limit</td><td>Varies</td></tr>
+<tr><td><strong>Forward contracts</strong></td><td>Up to 36 months</td><td>Up to 12 months</td><td>No</td><td>Up to 24 months</td><td>Some banks</td></tr>
+<tr><td><strong>Dedicated dealer</strong></td><td>£50K+/year</td><td>All clients</td><td>No</td><td>All clients</td><td>Private banking only</td></tr>
+<tr><td><strong>Speed (major corridors)</strong></td><td>Same day</td><td>1–2 days</td><td>1–2 days</td><td>1–3 days</td><td>3–5 days</td></tr>
+<tr><td><strong>Regulated by</strong></td><td>FCA, ASIC, FINTRAC</td><td>FCA, ASIC</td><td>FCA, FinCEN</td><td>FCA</td><td>FCA, PRA</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Costs are approximate and depend on corridor and market conditions. <a href="/send-money">Compare live rates for your exact amount →</a></p>
+</div>
+
+<p><strong>Key takeaway:</strong> All four specialist providers cost <strong>80–95% less</strong> than a UK bank wire on large transfers. The difference between the specialists is smaller — typically £10–£60 on a £10,000 transfer. The choice comes down to which features matter for your specific use case.</p>`,
+      },
+      {
+        heading: "XE: The Currency Authority (Best for Reliability + Speed)",
+        content: `<h3>Company History</h3>
+<p><strong><a href="/companies/xe">XE</a></strong> is one of the oldest names in currency exchange. Founded in <strong>1993</strong> by high school friends Steven Dengler and Beric Farmer as Xenon Laboratories in Kitchener, Ontario, Canada, it started as a computer consulting firm before launching the Universal Currency Converter — which became the world's most visited currency website.</p>
+<p>In 2002, XE expanded into money transfers, leveraging its massive brand recognition (over <strong>200 million users annually</strong>) and currency data infrastructure. In 2015, XE was acquired by <strong>Euronet Worldwide</strong> and merged with <a href="https://en.wikipedia.org/wiki/XE.com" target="_blank" rel="noopener noreferrer nofollow">HiFX</a> — a specialist large-transfer provider — combining XE's brand authority with HiFX's FX dealing desk expertise. This merger is why XE is particularly strong for large transfers today.</p>
+
+<h3>Why XE Excels for Large Transfers</h3>
+<ul>
+<li><strong>Zero fees on transfers over £500</strong> — on a £50,000 transfer, that's genuinely £0 in fees. The cost is entirely in the exchange rate markup (typically 0.4–0.7%).</li>
+<li><strong>Forward contracts up to 36 months</strong> — the longest in the industry. If you're buying property in Spain and completion is 6 months away, you can lock today's EUR rate and eliminate currency risk entirely.</li>
+<li><strong>Same-day delivery</strong> for major corridors — XE delivers a £10,000 transfer to the UK, Canada, or Australia on the same day. <a href="/companies/wise">Wise</a> takes 1–2 days for the same amount.</li>
+<li><strong>130+ currencies across 220 countries</strong> — the widest coverage of any provider. If you're sending to an exotic currency, XE likely supports it.</li>
+<li><strong>Dedicated dealing team</strong> for clients sending £50,000+/year — you get a named contact who understands your situation.</li>
+<li><strong>Rate alerts</strong> — set a target rate and XE notifies you when it hits, so you can time your transfer for maximum value.</li>
+<li><strong>Market orders</strong> — XE automatically executes your transfer when your target rate is reached, even if you're asleep.</li>
+</ul>
+
+<h3>Where XE Falls Short</h3>
+<ul>
+<li><strong>Exchange rate markup of 0.4–0.7%</strong> — not as transparent as <a href="/companies/wise">Wise's</a> 0% markup. On £50,000, that's ~£250 vs Wise's ~£260 (fee-based). Close, but Wise is more transparent about the cost.</li>
+<li><strong>No cash pickup option</strong> — bank transfer only. If your recipient needs physical cash, look at <a href="/companies/western-union">Western Union</a>.</li>
+<li><strong>£350,000 per transfer limit</strong> — high, but <a href="/companies/ofx">OFX</a> and TorFX have no limits.</li>
+</ul>
+
+<p><strong>Best for:</strong> Property purchases, inheritance transfers, tuition payments, and anyone who needs forward contracts + same-day speed + the security of a 30-year-old currency brand.</p>
+<p>Read our <a href="/companies/xe">full XE review</a> for a detailed breakdown.</p>`,
+      },
+      {
+        heading: "OFX: The Specialist for Very Large Transfers",
+        content: `<p><strong><a href="/companies/ofx">OFX</a></strong> (formerly OzForex, founded in 1998 in Sydney) is a publicly traded company on the Australian Securities Exchange. It specialises in large transfers and business payments, with <strong>no transfer fees and no maximum transfer amount</strong>.</p>
+
+<h3>Why OFX Stands Out for £10,000+</h3>
+<ul>
+<li><strong>No fees, no limits</strong> — send £10,000 or £1,000,000 with zero transfer fees. OFX makes money purely on the exchange rate margin.</li>
+<li><strong>Rates improve with size</strong> — unlike most providers where the rate is the same regardless of amount, OFX negotiates better rates for larger transfers. Send £50,000+ and you'll get a tighter spread than someone sending £1,000.</li>
+<li><strong>Dedicated FX dealer for every client</strong> — not just high-value ones. You get a named person you can call to discuss timing, rate outlook, and transfer strategy.</li>
+<li><strong>Forward contracts up to 12 months</strong> — lock today's rate for a transfer up to a year from now.</li>
+<li><strong>Limit orders</strong> — set your ideal rate. OFX monitors the market 24/7 and executes automatically when it hits.</li>
+<li><strong>Recurring transfers</strong> — set up regular monthly transfers (mortgage payments, pension, salary) with preferential rates.</li>
+</ul>
+
+<h3>Where OFX Falls Short</h3>
+<ul>
+<li><strong>Slower delivery</strong> — 1–2 business days for most corridors. XE is same-day on major routes.</li>
+<li><strong>Minimum transfer £1,000</strong> — not for small sends. Use <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> for amounts under £1,000.</li>
+<li><strong>No app-first experience</strong> — OFX is more of a traditional dealing desk than a sleek fintech app.</li>
+</ul>
+
+<p><strong>Best for:</strong> Very large one-off transfers (property, business acquisitions), regular large payments (overseas mortgage, contractor payments), and anyone who wants a personal dealer relationship.</p>
+<p>Read our <a href="/companies/ofx">full OFX review</a>.</p>`,
+      },
+      {
+        heading: "Wise: The Transparent Option (But No Forward Contracts)",
+        content: `<p><strong><a href="/companies/wise">Wise</a></strong> (formerly TransferWise, founded 2011) is the world's most popular online money transfer service, known for its mid-market exchange rate with 0% markup. But is it the best for large transfers?</p>
+
+<h3>Wise's Advantage</h3>
+<ul>
+<li><strong>0% exchange rate markup</strong> — you always get the real mid-market rate. No hidden margin. This is unmatched transparency.</li>
+<li><strong>High limit: £1,000,000 per transfer</strong> — higher than XE's £350,000.</li>
+<li><strong>Multi-currency account</strong> — hold balances in 40+ currencies and convert when rates are favourable.</li>
+<li><strong>Regulated globally</strong> — FCA, FinCEN, ASIC, and more.</li>
+</ul>
+
+<h3>Why Wise May NOT Be Best for Large Transfers</h3>
+<ul>
+<li><strong>Percentage-based fees scale up</strong> — Wise charges ~0.5% on GBP transfers. On £50,000, that's ~£260. On £100,000, that's ~£520. XE and OFX charge £0 in fees.</li>
+<li><strong>No forward contracts</strong> — if you need to lock a rate for a property purchase months away, Wise can't help. You must transfer at the spot rate on the day.</li>
+<li><strong>No dedicated dealer</strong> — it's fully self-service. Great for tech-savvy users, but if your £100,000 transfer hits a compliance delay, there's no one to call directly.</li>
+<li><strong>1–2 day delivery</strong> — not same-day like XE for major corridors.</li>
+</ul>
+
+<p><strong>Best for:</strong> Mid-range transfers (£1,000–£5,000) where the 0% markup wins. Also excellent if you need a multi-currency account and don't need forward contracts.</p>
+<p>See our <a href="/compare/wise-vs-xe">Wise vs XE comparison</a> for a head-to-head on your corridor.</p>`,
+      },
+      {
+        heading: "When to Use Forward Contracts (And Why They Matter for Large Transfers)",
+        content: `<p>A <strong>forward contract</strong> lets you lock in today's exchange rate for a transfer you'll make weeks or months from now. This is critical for large transfers where currency movements can cost thousands.</p>
+
+<h3>Real Example: Buying Property in Spain</h3>
+<p>You're buying a villa for €300,000. Today's GBP/EUR rate is 1.17, so you need <strong>£256,410</strong>. But completion is 3 months away.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">What Happens If the Rate Moves</h3>
+<table>
+<thead><tr><th>Scenario</th><th>GBP/EUR Rate</th><th>Cost in GBP</th><th>Difference</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Lock rate today (forward contract)</strong></td><td>1.17</td><td><strong>£256,410</strong></td><td>—</td></tr>
+<tr><td>Rate improves to 1.20</td><td>1.20</td><td>£250,000</td><td>You overpaid £6,410</td></tr>
+<tr><td>Rate drops to 1.14</td><td>1.14</td><td>£263,158</td><td><strong>You saved £6,748</strong></td></tr>
+<tr><td>Rate drops to 1.10</td><td>1.10</td><td>£272,727</td><td><strong>You saved £16,317</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>A forward contract eliminates this risk entirely. You know <em>exactly</em> what your property costs in pounds, regardless of what happens to the exchange rate before completion.</p>
+
+<h3>Who Offers Forward Contracts?</h3>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Forward Contract Comparison</h3>
+<table>
+<thead><tr><th>Provider</th><th>Max Duration</th><th>Deposit Required</th><th>Minimum Amount</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/xe">XE</a></strong></td><td><strong>36 months</strong></td><td>~10%</td><td>Varies</td></tr>
+<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>12 months</td><td>~5–10%</td><td>£1,000</td></tr>
+<tr><td><strong>TorFX</strong></td><td>24 months</td><td>~10%</td><td>£2,000</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Not available</td><td>—</td><td>—</td></tr>
+<tr><td><strong>UK Banks</strong></td><td>Varies (private banking)</td><td>Varies</td><td>Usually £100K+</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><a href="/companies/xe">XE</a> offers the longest forward contracts at 36 months — ideal for long-horizon property purchases or planned business payments. Read our <a href="/guides/fx-hedging-strategies-small-business">FX hedging guide</a> for more strategies.</p>`,
+      },
+      {
+        heading: "Banks vs Specialists: The Real Cost on £50,000",
+        content: `<p>If you're still considering your bank for a large transfer, here's the reality:</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">£50,000 GBP to EUR: Bank vs Specialist</h3>
+<table>
+<thead><tr><th>Provider</th><th>Fee</th><th>Rate</th><th>EUR Received</th><th>Cost vs Mid-Market</th></tr></thead>
+<tbody>
+<tr><td><strong>HSBC UK</strong></td><td>£30</td><td>1.13 (3.4% markup)</td><td>€56,335</td><td><strong>£2,045 lost</strong></td></tr>
+<tr><td><strong>Barclays</strong></td><td>£25</td><td>1.13 (3.1% markup)</td><td>€56,475</td><td><strong>£1,920 lost</strong></td></tr>
+<tr><td><strong>Lloyds</strong></td><td>£20</td><td>1.14 (2.8% markup)</td><td>€56,800</td><td><strong>£1,650 lost</strong></td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/xe">XE</a></strong></td><td><strong>£0</strong></td><td><strong>1.165 (0.5% markup)</strong></td><td><strong>€58,125</strong></td><td><strong>£250 lost</strong></td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/ofx">OFX</a></strong></td><td><strong>£0</strong></td><td><strong>1.166 (0.4% markup)</strong></td><td><strong>€58,200</strong></td><td><strong>£200 lost</strong></td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>£260</td><td>1.17 (0% markup)</td><td>€58,240</td><td>£260 (fee only)</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Rates are illustrative based on typical markups. <a href="/send-money">Check live rates for your exact amount →</a></p>
+</div>
+
+<p>On a £50,000 transfer, switching from HSBC to <a href="/companies/xe">XE</a> saves approximately <strong>€1,790</strong> (£1,795). That's not a rounding error — it's a month's rent in most European cities.</p>
+<p>Over a year of monthly £5,000 transfers (e.g., overseas mortgage), the savings compound to <strong>£2,000–£4,000 annually</strong>.</p>
+<p>See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> for a detailed explanation of how banks hide their costs.</p>`,
+      },
+      {
+        heading: "Which Provider for Which Scenario?",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Decision Guide: Large Transfer Scenarios</h3>
+<table>
+<thead><tr><th>Scenario</th><th>Best Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Property purchase abroad (completion in 3+ months)</td><td><strong><a href="/companies/xe">XE</a></strong></td><td>Forward contracts up to 36 months + same-day delivery + £350K limit</td></tr>
+<tr><td>Very large one-off transfer (£100K+)</td><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>No limit, dedicated dealer negotiates best rate, zero fees</td></tr>
+<tr><td>Regular overseas mortgage/rent (monthly £5K–£20K)</td><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>Recurring transfer setup, preferential rates, limit orders</td></tr>
+<tr><td>University tuition (£10K–£30K, date known)</td><td><strong><a href="/companies/xe">XE</a></strong></td><td>Lock rate with forward contract, zero fees, fast delivery</td></tr>
+<tr><td>One-off £5K–£10K transfer (no urgency)</td><td><strong><a href="/companies/wise">Wise</a></strong></td><td>0% markup wins at this size, transparent pricing</td></tr>
+<tr><td>Inheritance transfer (complex, multi-currency)</td><td><strong><a href="/companies/xe">XE</a></strong> or <strong><a href="/companies/ofx">OFX</a></strong></td><td>Dedicated dealer handles compliance, large limits</td></tr>
+<tr><td>Business supplier payments (regular, multi-country)</td><td><strong><a href="/companies/xe">XE</a></strong></td><td>130+ currencies, forward contracts, ERP integration</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>For more on business-specific use cases, see our <a href="/business">international business payments hub</a> and <a href="/guides/how-to-pay-international-suppliers">supplier payments guide</a>.</p>`,
+      },
+      {
+        heading: "Tips for Getting the Best Rate on Large Transfers",
+        content: `<ol>
+<li><strong>Always compare at your exact amount</strong> — provider rankings shift significantly between £1,000 and £50,000. Use our <a href="/send-money">comparison tool</a> with your real transfer amount.</li>
+<li><strong>Check the mid-market rate first</strong> — Google "[currency pair]" to see the real rate, then compare what each provider offers. The difference is their markup. See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</li>
+<li><strong>Use forward contracts when timing is uncertain</strong> — if completion is more than 2 weeks away, lock the rate. A 2% currency swing on £100,000 = £2,000.</li>
+<li><strong>Fund via bank transfer, never credit card</strong> — large transfers funded by card incur 1.5–3% card processing fees on top of everything else. Always use bank transfer.</li>
+<li><strong>Call the dealing desk</strong> — for transfers over £25,000, call <a href="/companies/ofx">OFX</a> or <a href="/companies/xe">XE</a> and ask for a better rate. Dealers have discretion to tighten the spread for large amounts.</li>
+<li><strong>Time your transfer around central bank decisions</strong> — the Fed, ECB, and BoE rate decisions move currencies 1–2% in hours. Check our <a href="/news/fed-holds-rates-march-2026-one-cut-dot-plot">central bank analysis</a> for the latest.</li>
+<li><strong>Set rate alerts</strong> — <a href="/companies/xe">XE</a> and <a href="/companies/wise">Wise</a> let you set alerts at your target rate. If you're not in a rush, wait for the market to come to you.</li>
+<li><strong>Never use your bank</strong> — this cannot be overstated. On a £50,000 transfer, banks cost <strong>£1,500–£2,500 more</strong> than specialist providers. That's a holiday.</li>
+</ol>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Provider data in this article is based on published fee schedules, real quotes from our comparison engine (updated every 6 hours), and features verified from official provider websites as of March 2026. See our <a href="/methodology">methodology page</a> for details.</p>
+<p>External references:</p>
+<ul>
+<li><a href="https://www.forbes.com/advisor/uk/money-transfer/money-transfer-apps/" target="_blank" rel="noopener noreferrer nofollow">Forbes Advisor UK: Best Money Transfer Apps 2026</a></li>
+<li><a href="https://www.xe.com/company/" target="_blank" rel="noopener noreferrer nofollow">XE Company History</a></li>
+<li><a href="https://en.wikipedia.org/wiki/XE.com" target="_blank" rel="noopener noreferrer nofollow">XE.com — Wikipedia</a></li>
+<li><a href="https://www.xe.com/large-money-transfer/" target="_blank" rel="noopener noreferrer nofollow">XE Large Money Transfers</a></li>
+<li><a href="https://www.ofx.com/en-us/personal/money-transfer-types/forward-contracts/" target="_blank" rel="noopener noreferrer nofollow">OFX Forward Contracts</a></li>
+<li><a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">Financial Conduct Authority (FCA)</a></li>
+</ul>
+<p>Compare providers for your large transfer using our <a href="/send-money">live comparison tool</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the best way to transfer a large amount of money internationally?",
+        answer:
+          "For large transfers (£5,000+), use specialist providers like XE or OFX instead of banks. Both charge zero transfer fees and offer forward contracts to lock exchange rates. XE delivers same-day on major corridors with up to £350,000 per transfer. OFX has no transfer limits and assigns dedicated dealers who negotiate better rates for large amounts. Banks charge 2–5% markup plus £25–£50 fees — costing £1,500–£2,500 more on a £50,000 transfer.",
+      },
+      {
+        question: "Is XE good for large money transfers?",
+        answer:
+          "Yes — XE is one of the best options for large transfers. It charges zero fees on transfers over £500, offers forward contracts up to 36 months (longest in the industry), delivers same-day on major corridors, supports 130+ currencies, and provides dedicated dealers for clients transferring £50,000+/year. XE has been in the currency business since 1993 and processes over $10 billion annually.",
+      },
+      {
+        question: "What is a forward contract for money transfers?",
+        answer:
+          "A forward contract lets you lock in today's exchange rate for a transfer you'll make in the future (weeks or months later). This eliminates currency risk — essential for property purchases, tuition payments, or business contracts where the amount is fixed but the transfer date is later. XE offers forwards up to 36 months, OFX up to 12 months, and TorFX up to 24 months. Wise does not offer forward contracts.",
+      },
+      {
+        question: "How much can you save on a £50,000 transfer vs using a bank?",
+        answer:
+          "On a £50,000 transfer, switching from a UK high-street bank (HSBC, Barclays, Lloyds) to a specialist like XE or OFX typically saves £1,500–£2,000. Banks charge £25–£40 in wire fees plus 2–5% exchange rate markup. Specialists charge £0 in fees with 0.3–0.7% markup. The savings increase proportionally with transfer size.",
+      },
+      {
+        question: "Does Wise offer forward contracts?",
+        answer:
+          "No. Wise does not offer forward contracts. You can only transfer at the current spot rate. For large transfers where you need to lock a rate for a future date (property purchases, planned payments), use XE (up to 36 months), OFX (up to 12 months), or TorFX (up to 24 months). Wise is best for immediate transfers where you want the mid-market rate with 0% markup.",
+      },
+      {
+        question: "What is the maximum amount you can transfer with XE?",
+        answer:
+          "XE allows transfers up to £350,000 per transaction. For transfers above this amount, OFX and TorFX have no maximum limits. Wise allows up to £1,000,000 per transfer. For very large amounts (£500,000+), contact OFX or TorFX's dealing desk directly to arrange the best rate.",
+      },
+      {
+        question: "Is it safe to transfer large amounts through money transfer apps?",
+        answer:
+          "Yes, when using regulated providers. XE is regulated by the FCA (UK), ASIC (Australia), and FINTRAC (Canada). OFX is regulated by the FCA and ASIC. Wise is regulated by the FCA and FinCEN. All use bank-grade encryption and segregated client accounts. These providers collectively process billions of pounds annually. Check our money transfer safety guide for verification steps.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "exchange-rate-markup-explained",
+      "best-money-transfer-services",
+      "wire-transfer-guide",
+      "fx-hedging-strategies-small-business",
+    ],
+  },
+
 ];
 
 // Helper to get a blog post by slug
