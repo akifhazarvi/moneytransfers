@@ -27,11 +27,17 @@ export default function Footer() {
       titleKey: "popularRoutes",
       links: [
         { href: "/send-money/usa-to-india", labelKey: "usaToIndia" },
-        { href: "/send-money/uk-to-europe", labelKey: "ukToEurope" },
+        { href: "/send-money/uk-to-india", labelKey: "ukToIndia" },
+        { href: "/send-money/uae-to-india", labelKey: "uaeToIndia" },
         { href: "/send-money/usa-to-philippines", labelKey: "usaToPhilippines" },
-        { href: "/send-money/usa-to-mexico", labelKey: "usaToMexico" },
+        { href: "/send-money/uk-to-philippines", labelKey: "ukToPhilippines" },
         { href: "/send-money/usa-to-pakistan", labelKey: "usaToPakistan" },
+        { href: "/send-money/usa-to-mexico", labelKey: "usaToMexico" },
         { href: "/send-money/usa-to-nigeria", labelKey: "usaToNigeria" },
+        { href: "/send-money/europe-to-india", labelKey: "europeToIndia" },
+        { href: "/send-money/uk-to-europe", labelKey: "ukToEurope" },
+        { href: "/send-money/usa-to-ghana", labelKey: "usaToGhana" },
+        { href: "/send-money/usa-to-colombia", labelKey: "usaToColombia" },
       ],
     },
     {
@@ -90,6 +96,11 @@ export default function Footer() {
       { href: "/send-money/send-money-to-uae", label: "Send Money to UAE" },
       { href: "/send-money/send-money-to-germany", label: "Send Money to Germany" },
       { href: "/send-money/send-money-to-france", label: "Send Money to France" },
+      { href: "/send-money/send-money-to-colombia", label: "Send Money to Colombia" },
+      { href: "/send-money/send-money-to-egypt", label: "Send Money to Egypt" },
+      { href: "/send-money/send-money-to-vietnam", label: "Send Money to Vietnam" },
+      { href: "/send-money/send-money-to-indonesia", label: "Send Money to Indonesia" },
+      { href: "/send-money/send-money-to-sri-lanka", label: "Send Money to Sri Lanka" },
     ],
   };
 

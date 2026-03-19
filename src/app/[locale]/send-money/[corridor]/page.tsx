@@ -346,6 +346,398 @@ const corridorEditorialNotes: Record<
     warningBody:
       "The Pakistani rupee has experienced significant volatility. On this corridor, the rate difference between providers can be 3–6% on any given day. Always compare live rates immediately before sending — a comparison done this morning may already be stale by the afternoon.",
   },
+  "uae-to-india": {
+    title: "What matters on the UAE to India corridor",
+    summary:
+      "With 3.5 million Indians living in the UAE, AED to INR is one of the world's largest remittance corridors. Competition is fierce between traditional exchange houses and digital providers, keeping margins tight and delivery speeds fast.",
+    bullets: [
+      "IMPS delivery to Indian bank accounts (SBI, HDFC, ICICI, Axis, Kotak) arrives within minutes from most UAE providers. This is the default delivery method and works 24/7 including weekends and Indian holidays.",
+      "Traditional UAE exchange houses like Al Ansari Exchange and Lulu Exchange have physical branches across every emirate and offer competitive AED/INR rates. However, digital providers like Wise and Remitly now frequently match or beat exchange house rates.",
+      "The AED is pegged to the USD at 3.6725, so AED/INR rates track USD/INR closely. Rate differences between providers come down to their markup over the mid-market rate rather than currency movements.",
+      "All money transfer operators in the UAE must be licensed by the Central Bank of the UAE (CBUAE). Only use CBUAE-registered providers — the regulator maintains a public register of authorised firms.",
+    ],
+    warningTitle: "Don't assume exchange houses are cheapest — compare digitally",
+    warningBody:
+      "UAE exchange houses are trusted and convenient, but digital providers have closed the gap on AED to INR rates. A 5-minute comparison between your usual exchange house and Wise or Remitly often reveals AED 15–40 in savings per AED 1,000 transfer.",
+  },
+  "usa-to-uk": {
+    title: "What matters on the USA to UK corridor",
+    summary:
+      "USD to GBP is one of the most liquid currency pairs in the world, meaning spreads are tight and competition among providers is strong. Faster Payments delivery in the UK means recipients typically receive funds within minutes of conversion.",
+    bullets: [
+      "Faster Payments is the UK's instant bank transfer network and is supported by virtually all UK banks. Transfers from US providers that deliver via Faster Payments arrive within seconds to minutes — far faster than SWIFT wire transfers.",
+      "GBP/USD is the third most traded currency pair globally. This high liquidity means providers have less room to hide markups, and the difference between the best and worst rates is typically smaller than on exotic corridors.",
+      "US providers are regulated at both federal (FinCEN) and state levels (money transmitter licences). UK recipients benefit from FCA-regulated receiving institutions. This dual-regulated corridor offers strong consumer protection on both ends.",
+      "Post-Brexit, some EU-focused providers no longer serve UK recipients directly. Ensure your chosen provider explicitly supports GBP delivery to UK bank accounts rather than EUR delivery to a European intermediary.",
+    ],
+    warningTitle: "Watch for hidden fees on bank wire transfers",
+    warningBody:
+      "US banks often charge $25–50 for outgoing international wires to the UK, plus a markup on the USD/GBP exchange rate. Specialist transfer providers typically offer the same Faster Payments delivery at a fraction of the cost. Always compare the total cost including the exchange rate margin.",
+  },
+  "saudi-arabia-to-bangladesh": {
+    title: "What matters on the Saudi Arabia to Bangladesh corridor",
+    summary:
+      "Over 2 million Bangladeshi workers in Saudi Arabia send billions home annually, making SAR to BDT a critical remittance corridor. Bangladesh offers a 2.5% government incentive on inward remittances through banking channels, which adds meaningful value to every transfer.",
+    bullets: [
+      "Bangladesh Bank offers a 2.5% cash incentive on inward remittances received through authorised banking channels. This incentive is paid directly to the recipient and effectively improves the exchange rate — make sure your provider delivers through qualifying channels.",
+      "bKash mobile wallet delivery is widely available from Saudi providers and reaches recipients in minutes. With over 70 million bKash users in Bangladesh, this is the most accessible delivery method for recipients outside major cities.",
+      "SAMA (Saudi Central Bank) licenses all money transfer operators in Saudi Arabia. Only use SAMA-registered providers — the regulator publishes a list of authorised payment service providers on its website.",
+      "Al Rajhi Bank and Saudi National Bank offer dedicated Bangladesh remittance services, but digital providers and exchange houses like Lulu Exchange often provide better SAR/BDT rates on smaller transfer amounts.",
+    ],
+    warningTitle: "Ensure your transfer qualifies for Bangladesh's 2.5% incentive",
+    warningBody:
+      "Bangladesh's 2.5% remittance incentive only applies to transfers received through authorised banking channels. Transfers via informal hundi/hawala networks do not qualify. Confirm with your provider that they deliver through a Bangladesh Bank-authorised channel to ensure your recipient receives the incentive.",
+  },
+  "saudi-arabia-to-egypt": {
+    title: "What matters on the Saudi Arabia to Egypt corridor",
+    summary:
+      "Egypt's currency has undergone massive devaluation since 2022, with EGP losing over 60% of its value against major currencies. For Egyptians in Saudi Arabia, this means remittances now stretch significantly further — but also that timing and rate comparison matter more than ever.",
+    bullets: [
+      "The Egyptian pound's devaluation means SAR/EGP rates have changed dramatically. Providers that update their rates in real time offer better value than those using stale exchange rates — always check the rate is current before confirming a transfer.",
+      "InstaPay is Egypt's instant payment network, enabling real-time transfers to Egyptian bank accounts. Providers that support InstaPay delivery can get funds to recipients within minutes, compared to 1–2 business days for traditional bank transfers.",
+      "The Central Bank of Egypt (CBE) has liberalised the exchange rate regime, allowing market-driven pricing. This means rates between providers can differ significantly — comparison is more valuable on this corridor than on pegged-currency corridors.",
+      "SAMA-licensed exchange houses like Al Rajhi and Lulu Exchange offer Egypt remittance services, but digital providers like Wise and Remitly often provide more competitive SAR/EGP rates, especially after Egypt's rate liberalisation.",
+    ],
+    warningTitle: "EGP rates move fast — compare immediately before sending",
+    warningBody:
+      "Egypt's exchange rate has been highly volatile since the CBE floated the pound. A rate quoted in the morning may differ significantly by the afternoon. Always compare live rates from multiple providers immediately before sending, and consider rate-lock features if your provider offers them.",
+  },
+  "singapore-to-india": {
+    title: "What matters on the Singapore to India corridor",
+    summary:
+      "Singapore's large Indian diaspora and strong fintech ecosystem make SGD to INR a well-served corridor. MAS-regulated providers compete aggressively on rates, and UPI delivery in India means recipients can access funds almost instantly.",
+    bullets: [
+      "UPI and IMPS delivery to Indian bank accounts arrives within minutes from most Singapore-based providers. India's payment infrastructure is among the most advanced globally, enabling 24/7 instant transfers to virtually any Indian bank account.",
+      "PayNow and FAST funding from Singapore bank accounts is supported by most providers, making it quick and free to fund your transfer. This removes the delays associated with traditional bank transfers on the sending side.",
+      "Instarem (now Nium-backed) was founded in Singapore and is particularly strong on the SGD to INR corridor, often offering competitive rates and low fees. Wise is also well-established in Singapore with MAS licensing.",
+      "All money transfer providers in Singapore must hold a Major Payment Institution (MPI) or Standard Payment Institution (SPI) licence from the Monetary Authority of Singapore (MAS). Verify licensing before using any provider.",
+    ],
+    warningTitle: "Check if your provider passes through the full mid-market rate",
+    warningBody:
+      "On this competitive corridor, some providers advertise 'zero fees' but add a 1–2% markup to the SGD/INR exchange rate. Always compare the total amount your recipient will receive (in INR) rather than comparing fees alone — the exchange rate margin is where most of the cost hides.",
+  },
+  "singapore-to-philippines": {
+    title: "What matters on the Singapore to Philippines corridor",
+    summary:
+      "Around 200,000 Filipinos work in Singapore, and SGD to PHP transfers are well-served by both specialist remittance providers and digital fintechs. GCash delivery is near-universal in the Philippines, and PayNow funding makes sending fast from the Singapore side.",
+    bullets: [
+      "GCash and Maya (formerly PayMaya) wallet delivery reaches Filipino recipients in minutes. With over 90 million GCash accounts in the Philippines, this is the most convenient delivery method for most recipients.",
+      "PayNow funding from Singapore bank accounts is supported by Instarem, Wise, Remitly, and others. Transfers can be funded instantly from DBS, OCBC, UOB, or any PayNow-enabled bank account.",
+      "Instarem and Remitly are particularly competitive on the SGD to PHP corridor, often offering lower total costs than traditional remittance centres in Lucky Plaza and Peninsula Plaza.",
+      "MAS regulation ensures all Singapore-based providers meet strict anti-money-laundering and consumer protection standards. Only use MAS-licensed providers — check the MAS Financial Institutions Directory for verification.",
+    ],
+    warningTitle: "Compare digital providers against Lucky Plaza rates",
+    warningBody:
+      "Traditional remittance centres in Singapore's Lucky Plaza are popular with Filipino senders but don't always offer the best SGD/PHP rates. Digital providers now frequently match or beat walk-in rates while offering faster delivery. A quick comparison before your next visit could save SGD 5–15 per transfer.",
+  },
+  "singapore-to-indonesia": {
+    title: "What matters on the Singapore to Indonesia corridor",
+    summary:
+      "Singapore and Indonesia's geographic proximity and deep economic ties make SGD to IDR a high-volume corridor. Cross-border payments are increasingly fast and digital, with PayNow funding on the Singapore side and direct bank delivery to BCA, BRI, and Mandiri in Indonesia.",
+    bullets: [
+      "Bank delivery to BCA, BRI, Bank Mandiri, and CIMB Niaga accounts typically arrives within minutes to a few hours. These four banks cover the vast majority of Indonesian recipients.",
+      "PayNow and FAST funding from Singapore bank accounts makes it quick and free to initiate transfers. Most digital providers support instant funding from DBS, OCBC, and UOB accounts.",
+      "The SGD/IDR pair involves a relatively wide spread due to IDR's lower liquidity compared to major currencies. This means exchange rate markups between providers can vary significantly — comparison is especially valuable on this corridor.",
+      "MAS-licensed providers in Singapore must meet strict regulatory standards. On the Indonesian side, Bank Indonesia regulates inbound transfers. This dual regulation offers reasonable consumer protection on both ends.",
+    ],
+    warningTitle: "IDR spreads are wider than you might expect",
+    warningBody:
+      "Because the Indonesian rupiah is less liquid than major currencies, providers can embed larger markups in the SGD/IDR exchange rate without it being obvious. Always compare the total IDR your recipient will receive across at least 3 providers — rate differences of 2–4% are common on this corridor.",
+  },
+  "new-zealand-to-india": {
+    title: "What matters on the New Zealand to India corridor",
+    summary:
+      "New Zealand's growing Indian community sends regular transfers home via a smaller but competitive corridor. NZD to INR is well-served by Wise and Instarem, with IMPS delivery ensuring recipients in India receive funds within minutes.",
+    bullets: [
+      "IMPS delivery to Indian bank accounts (SBI, HDFC, ICICI, Axis, Kotak) arrives within minutes and is available from most NZ-based providers. India's 24/7 instant payment infrastructure makes delivery fast regardless of time zones.",
+      "POLi online banking is a common funding method in New Zealand, allowing instant transfers from NZ bank accounts to your provider. Wise and Instarem both support POLi funding for NZD transfers.",
+      "Wise and Instarem are the strongest digital providers on this corridor, consistently offering competitive NZD/INR rates. Traditional banks like ANZ and Westpac NZ charge significantly higher fees and worse exchange rates.",
+      "New Zealand's Financial Markets Authority (FMA) and anti-money-laundering regulations govern money transfer operators. Ensure your provider is registered with the NZ Companies Office and compliant with AML/CFT requirements.",
+    ],
+    warningTitle: "NZ bank international transfers are expensive — use a specialist",
+    warningBody:
+      "New Zealand banks typically charge NZD 15–30 per international transfer plus a 2–4% exchange rate markup on NZD/INR. Specialist providers like Wise or Instarem usually offer savings of NZD 20–60 per NZD 1,000 transfer compared to bank rates.",
+  },
+  "new-zealand-to-philippines": {
+    title: "What matters on the New Zealand to Philippines corridor",
+    summary:
+      "New Zealand has a growing Filipino community, but NZD to PHP is a smaller corridor with fewer provider options than larger routes. GCash delivery is the most convenient option for Philippine recipients, though not all NZ-based providers support it.",
+    bullets: [
+      "GCash wallet delivery is available from Remitly and WorldRemit for NZ senders, reaching Filipino recipients within minutes. With over 90 million GCash users, this is the most accessible delivery method in the Philippines.",
+      "Wise offers competitive NZD/PHP rates with transparent pricing, though delivery is limited to bank deposits (BDO, BPI, Metrobank) rather than mobile wallets. Bank deposits typically arrive within 1–2 business days.",
+      "This is a smaller corridor with fewer providers competing, which can mean wider rate spreads. Comparing at least 3 providers before each transfer is especially important here to avoid overpaying.",
+      "Cash pickup through Cebuana Lhuillier and M Lhuillier is available from some NZ providers and can be a lifeline for recipients in rural Philippine areas without bank accounts or reliable internet.",
+    ],
+    warningTitle: "Fewer providers means less competition — always compare",
+    warningBody:
+      "Because NZD to PHP is a smaller corridor, some providers offer less competitive rates than they do on higher-volume routes. Don't assume your usual provider is the cheapest — check at least Wise, Remitly, and one other option before every transfer.",
+  },
+  "new-zealand-to-fiji": {
+    title: "What matters on the New Zealand to Fiji corridor",
+    summary:
+      "New Zealand is home to the largest Fijian diaspora globally, making NZD to FJD an important Pacific remittance corridor. However, limited competition means costs are higher than on mainstream corridors, and cash pickup remains a critical delivery method.",
+    bullets: [
+      "Cash pickup is an important delivery option in Fiji, where many recipients rely on services like Western Union and MoneyGram agents in Suva, Nadi, and Lautoka. Bank account penetration in Fiji is lower than in larger Asian markets.",
+      "NZD to FJD is a low-competition corridor with relatively few specialist providers. Western Union, MoneyGram, and a small number of NZ-based operators dominate. Wise does not currently offer FJD as a receive currency.",
+      "Pacific Island remittance corridors have historically been among the most expensive globally, with costs averaging 8–10% according to World Bank data. This makes comparison especially valuable — even small rate differences translate into significant savings.",
+      "KlickEx and other Pacific-focused fintech providers are working to reduce remittance costs on NZ–Pacific corridors. Check whether newer providers have entered this corridor since costs remain stubbornly high.",
+    ],
+    warningTitle: "Pacific remittances are expensive — compare every time",
+    warningBody:
+      "The NZD to FJD corridor remains one of the world's most expensive for remittances. Fees and rate markups can total 8–12% of the transfer amount. Always compare at least 3 providers and consider whether sending larger, less frequent transfers can help reduce the per-transfer cost.",
+  },
+  "uk-to-philippines": {
+    title: "What matters on the UK to Philippines corridor",
+    summary:
+      "Around 200,000 Filipinos live in the UK, making GBP to PHP a well-established remittance corridor. GCash and Maya wallet delivery are near-universal in the Philippines, and Faster Payments funding from UK bank accounts makes sending quick and easy.",
+    bullets: [
+      "GCash and Maya wallet delivery reaches Filipino recipients within minutes. Remitly, WorldRemit, and other UK-based providers support direct wallet deposits, making this the fastest and most convenient delivery method.",
+      "Faster Payments funding from UK bank accounts means you can fund your transfer instantly from any major UK bank. This eliminates the 1–3 day waiting period associated with traditional bank transfers.",
+      "All UK money transfer providers must be authorised by the Financial Conduct Authority (FCA) as an Electronic Money Institution (EMI) or Payment Institution (PI). Check the FCA register before using any unfamiliar provider.",
+      "Cash pickup through Cebuana Lhuillier, M Lhuillier, and LBC branches is available across thousands of Philippine locations. This remains important for recipients in provincial areas without smartphones or bank accounts.",
+    ],
+    warningTitle: "Check GCash limits before sending large amounts",
+    warningBody:
+      "GCash has a PHP 100,000 incoming transfer limit per transaction and monthly caps that vary by verification tier. For larger transfers, deliver directly to a Philippine bank account (BDO, BPI, Metrobank) instead. Confirm your recipient's GCash limits before sending to avoid failed or delayed deliveries.",
+  },
+  "europe-to-india": {
+    title: "What matters on the Europe to India corridor",
+    summary:
+      "With 1.4 million Indians across the EU, EUR to INR is a significant remittance corridor spanning multiple sending countries. SEPA transfers provide a unified, low-cost funding method from any eurozone bank, and UPI delivery in India ensures near-instant receipt.",
+    bullets: [
+      "SEPA bank transfers provide a standardised, low-cost way to fund transfers from any eurozone country (Germany, France, Netherlands, Italy, Spain, etc.). Most providers accept SEPA payments at no extra charge, settling within 1 business day.",
+      "UPI and IMPS delivery to Indian bank accounts arrives within minutes regardless of which European country you send from. India's 24/7 instant payment infrastructure ensures fast delivery across all time zones.",
+      "Wise, Remitly, and Western Union all offer EUR to INR from multiple European countries. Rates and fees can vary by sending country even within the eurozone, so compare from your specific location.",
+      "European providers are regulated under EU Payment Services Directive (PSD2), which mandates strong customer authentication, transparent pricing, and clear complaint procedures. This gives senders across the EU consistent consumer protection.",
+    ],
+    warningTitle: "Rates may vary by sending country within Europe",
+    warningBody:
+      "Even though SEPA unifies bank transfers across the eurozone, some providers charge different fees or offer different EUR/INR rates depending on which EU country you send from. Always compare from your actual country of residence rather than assuming pan-European pricing.",
+  },
+  "europe-to-philippines": {
+    title: "What matters on the Europe to Philippines corridor",
+    summary:
+      "Around 400,000 Filipinos live across the EU, with large communities in Italy, Spain, Germany, and the Netherlands. SEPA funding makes sending from any eurozone country straightforward, and GCash delivery ensures fast receipt in the Philippines.",
+    bullets: [
+      "GCash and Maya wallet delivery is available from Remitly, WorldRemit, and other EU-licensed providers. This reaches Filipino recipients within minutes and is the most popular delivery method among OFWs (Overseas Filipino Workers).",
+      "SEPA bank transfers fund your account from any eurozone bank at minimal cost. This makes EUR to PHP accessible whether you're sending from Italy, Spain, Germany, the Netherlands, or any other EU member state.",
+      "Italy and Spain host the largest Filipino communities in Europe. Providers like Remitly and Wise have strong coverage in both countries with localised apps and customer support in Filipino/Tagalog.",
+      "EU regulation under PSD2 ensures transparent pricing and strong consumer protection. All EU-based money transfer providers must display the total cost (fees plus exchange rate margin) before you confirm a transfer.",
+    ],
+    warningTitle: "Avoid informal channels — use PSD2-regulated providers",
+    warningBody:
+      "Informal money transfer operators in some European cities target Filipino communities with seemingly attractive rates but operate outside EU regulation. Using unlicensed operators means no consumer protection if something goes wrong. Always verify your provider holds an EU payment institution licence.",
+  },
+  "europe-to-nigeria": {
+    title: "What matters on the Europe to Nigeria corridor",
+    summary:
+      "Nigeria's diaspora in Germany, Italy, the UK, and across Europe sends billions home annually. The naira's extreme volatility since 2023 makes real-time rate comparison essential, and specialist providers like Lemfi have emerged to serve this corridor.",
+    bullets: [
+      "The Nigerian naira has experienced massive devaluation and volatility since the CBN allowed the exchange rate to float freely. EUR/NGN rates can swing 5–10% within weeks, making timing and live comparison critical for every transfer.",
+      "Lemfi (formerly Lemonade Finance) is a specialist provider built for African diaspora remittances, offering competitive EUR/NGN rates and direct delivery to Nigerian bank accounts. It's worth comparing alongside Wise and Remitly on this corridor.",
+      "SEPA funding from any eurozone bank account makes it straightforward to send from Germany, Italy, France, Spain, or any other EU country. Most providers accept SEPA transfers at no additional charge.",
+      "Nigerian bank account delivery (GTBank, First Bank, Access Bank, Zenith Bank, UBA) typically arrives within minutes to a few hours. Mobile money via Opay and Palmpay is growing but not yet universally supported by European providers.",
+    ],
+    warningTitle: "Naira volatility demands real-time comparison",
+    warningBody:
+      "The Nigerian naira's free float means EUR/NGN rates vary significantly between providers and change rapidly. Never rely on a rate quoted yesterday — always compare live rates from at least 3 providers immediately before sending. The difference between the best and worst provider can exceed 5% on this corridor.",
+  },
+  "europe-to-pakistan": {
+    title: "What matters on the Europe to Pakistan corridor",
+    summary:
+      "SEPA-funded transfers from the Eurozone to Pakistan are dominated by specialists like ACE Money Transfer and Wise. The PKR has depreciated sharply since 2022, so locking in rates and choosing providers with tight spreads matters more than ever.",
+    bullets: [
+      "SEPA bank transfers typically fund in 1 business day and avoid card fees — always choose bank transfer if your provider supports it.",
+      "JazzCash and Easypaisa wallet delivery is near-instant and avoids the recipient needing a bank account, which is critical in a country where ~75% of adults are unbanked.",
+      "ACE Money Transfer often leads on EUR→PKR rates due to its Pakistani diaspora focus, but compare against Wise and Remitly for each transfer.",
+      "PKR volatility means the rate you see today could shift 2–3% within a week — send promptly once you find a good rate rather than waiting.",
+    ],
+    warningTitle: "Watch for hidden PKR markup",
+    warningBody:
+      "Some providers advertise 'zero fees' but add a 3–5% spread on the EUR→PKR mid-market rate. Always compare the total receive amount, not just the fee.",
+  },
+  "usa-to-ghana": {
+    title: "What matters on the USA to Ghana corridor",
+    summary:
+      "The USD→GHS corridor is shaped by Ghana's persistent cedi depreciation, which has seen GHS lose over 50% of its value since 2022. Mobile money delivery via MTN MoMo is the preferred method for most recipients in Ghana.",
+    bullets: [
+      "Sendwave offers zero-fee, zero-markup transfers to Ghana and delivers directly to MTN MoMo wallets — it consistently ranks among the cheapest options.",
+      "MTN Mobile Money is the dominant delivery method; over 60% of Ghanaian adults use it, making it faster and more accessible than bank deposits.",
+      "The cedi has been one of Africa's worst-performing currencies — recipients benefit from receiving USD-equivalent value quickly before further depreciation.",
+      "Bank of Ghana periodically restricts FX transactions; during such periods, some providers may temporarily pause or slow GHS payouts.",
+    ],
+    warningTitle: "Beware parallel market rate confusion",
+    warningBody:
+      "Ghana has seen a significant gap between official and parallel market rates. Licensed providers pay the official Bank of Ghana rate — if someone offers a rate that looks too good, it may not be a legitimate channel.",
+  },
+  "usa-to-colombia": {
+    title: "What matters on the USA to Colombia corridor",
+    summary:
+      "Colombia's fintech ecosystem has matured rapidly, with Nequi and Daviplata wallets now holding over 30 million accounts combined. The COP is volatile but transfer infrastructure is excellent, with Transfiya enabling real-time interbank settlement.",
+    bullets: [
+      "Nequi and Daviplata wallet delivery is near-instant and free to the recipient — ask your recipient which wallet they use before sending.",
+      "Colombia's Transfiya instant payment rail means bank deposits often arrive in minutes, not days, making Colombia one of the fastest corridors in Latin America.",
+      "The COP can swing 5–10% in a month due to oil price sensitivity and political risk — timing your transfer or using rate alerts can save significant money.",
+      "Remitly and Wise both offer competitive USD→COP rates, but Remitly often wins on speed with express delivery options under 30 minutes.",
+    ],
+    warningTitle: "Colombia's 4x1000 financial transaction tax",
+    warningBody:
+      "Colombia charges a 0.4% tax (known as 4x1000) on financial transactions including withdrawals from bank accounts. Your recipient will pay this when withdrawing received funds, so factor it into the total cost.",
+  },
+  "uae-to-bangladesh": {
+    title: "What matters on the UAE to Bangladesh corridor",
+    summary:
+      "The UAE hosts over 1 million Bangladeshi workers, making AED→BDT one of the Gulf's largest remittance corridors. bKash mobile wallet delivery dominates, and Bangladesh Bank's 2.5% cash incentive on inward remittances sweetens the deal for recipients.",
+    bullets: [
+      "Bangladesh Bank pays a 2.5% cash incentive on all inward remittances received through legal channels — your recipient gets a bonus on top of the transferred amount.",
+      "bKash delivery is the fastest option, with most transfers arriving in minutes; it serves over 65 million registered users across Bangladesh.",
+      "UAE exchange houses like Al Ansari and UAE Exchange are CBUAE-licensed and often offer competitive AED→BDT rates, especially for cash-in transactions.",
+      "CBUAE requires all remittance providers to be licensed — always use a regulated exchange house or digital provider to ensure your transfer is protected.",
+    ],
+    warningTitle: "Only legal channels qualify for the 2.5% incentive",
+    warningBody:
+      "The Bangladesh Bank incentive only applies to remittances sent through licensed providers. Money sent via hundi/hawala networks is illegal and disqualifies the recipient from the bonus.",
+  },
+  "canada-to-pakistan": {
+    title: "What matters on the Canada to Pakistan corridor",
+    summary:
+      "Canada's large Pakistani diaspora (over 300,000 strong) drives fierce competition on the CAD→PKR corridor. Interac e-Transfer funding makes it easy to send from any Canadian bank, and JazzCash/Easypaisa delivery covers recipients without bank accounts.",
+    bullets: [
+      "Interac e-Transfer funding is supported by most providers and settles in minutes — it's faster and cheaper than wire transfers from your Canadian bank.",
+      "JazzCash and Easypaisa wallet delivery reaches recipients in rural Pakistan where bank branches are scarce, with funds available almost instantly.",
+      "Remitly and Wise are the most popular digital options, but ACE Money Transfer and smaller diaspora-focused providers sometimes offer better CAD→PKR rates.",
+      "FINTRAC compliance means all Canadian money transfer providers must verify your identity — have your Canadian ID and proof of address ready for first-time transfers.",
+    ],
+    warningTitle: "PKR rate can shift dramatically overnight",
+    warningBody:
+      "Pakistan's rupee has experienced sudden devaluations of 5–10% in a single week. If you're sending a large amount, consider splitting it across multiple transfers or using a provider with rate-lock features.",
+  },
+  "australia-to-pakistan": {
+    title: "What matters on the Australia to Pakistan corridor",
+    summary:
+      "Australia's Pakistani community relies heavily on digital remittance providers for AUD→PKR transfers. PayID and NPP-based funding from Australian banks enables near-instant transfer initiation, and competition among providers keeps costs low.",
+    bullets: [
+      "PayID funding via Australia's New Payments Platform (NPP) lets you fund transfers instantly from your bank account — no waiting for BECS processing.",
+      "JazzCash and Easypaisa wallet delivery is the fastest way to get money to recipients in Pakistan, especially outside major cities like Karachi, Lahore, and Islamabad.",
+      "Wise and Remitly are the leading digital options, but WorldRemit and ACE Money Transfer also compete aggressively on AUD→PKR rates.",
+      "All Australian remittance providers must be registered with AUSTRAC — check the AUSTRAC register if you're unsure about a provider's legitimacy.",
+    ],
+    warningTitle: "Avoid unregistered operators",
+    warningBody:
+      "AUSTRAC has cracked down on unlicensed money transfer operators in Australia. Using an unregistered provider means zero consumer protection and potential legal consequences — always verify AUSTRAC registration.",
+  },
+  "uae-to-egypt": {
+    title: "What matters on the UAE to Egypt corridor",
+    summary:
+      "Egypt's multiple pound devaluations since 2022 have made the AED→EGP corridor one of the most rate-sensitive in the Gulf region. The Central Bank of Egypt's shift to a flexible exchange rate means EGP rates move daily, and choosing the right provider matters enormously.",
+    bullets: [
+      "Egypt's InstaPay network enables real-time bank-to-bank transfers — providers that deliver via InstaPay can get funds to your recipient in minutes.",
+      "The EGP has lost over 60% of its value against the AED since early 2022 — recipients get significantly more pounds per dirham now, but rates can shift rapidly.",
+      "UAE exchange houses (Al Ansari, Al Fardan, UAE Exchange) must hold CBUAE licenses and often offer competitive walk-in rates for cash-funded AED→EGP transfers.",
+      "Wise and Remitly offer transparent mid-market rates on this corridor, making it easy to compare against exchange house rates before visiting in person.",
+    ],
+    warningTitle: "EGP rate can move sharply after CBE announcements",
+    warningBody:
+      "Central Bank of Egypt monetary policy meetings can trigger sudden EGP moves of 3–5%. Avoid sending large amounts the day of a scheduled CBE meeting unless you've locked in a rate.",
+  },
+  "saudi-arabia-to-philippines": {
+    title: "What matters on the Saudi Arabia to Philippines corridor",
+    summary:
+      "Over 1 million Filipino OFWs (Overseas Filipino Workers) in Saudi Arabia send billions in remittances home annually. SAMA-licensed providers and banks like Al Rajhi dominate, with GCash wallet delivery emerging as the fastest option for recipients.",
+    bullets: [
+      "Al Rajhi Bank's remittance service is the most widely used by Filipino workers in Saudi — its branch network and mobile app cover the entire Kingdom.",
+      "GCash delivery puts money directly into your recipient's mobile wallet, often within minutes — ideal for family members who need funds urgently.",
+      "SAMA (Saudi Central Bank) licenses all remittance providers — only use SAMA-authorized services to ensure regulatory protection and legal compliance.",
+      "Compare Al Rajhi against digital providers like Wise and Remitly; bank exchange rate markups can be 1–2% higher than specialist transfer services.",
+    ],
+    warningTitle: "Iqama-linked sending limits",
+    warningBody:
+      "Saudi remittance regulations tie sending limits to your Iqama (residency permit) status and salary. Exceeding your registered income bracket can trigger delays or blocks on your transfers.",
+  },
+  "uk-to-ghana": {
+    title: "What matters on the UK to Ghana corridor",
+    summary:
+      "The UK is one of the largest sources of remittances to Ghana, driven by a Ghanaian diaspora of over 100,000. Faster Payments funding and MTN MoMo delivery create a fast end-to-end experience, but cedi depreciation demands careful rate comparison.",
+    bullets: [
+      "Faster Payments funding means your GBP leaves your bank account and reaches your provider in seconds — always choose bank transfer over debit card to avoid card processing fees.",
+      "Sendwave and WorldRemit both specialize in GBP→GHS with MTN MoMo delivery, often arriving in under a minute.",
+      "The Ghanaian cedi has been one of the world's weakest currencies in recent years — recipients benefit when you send at peak GBP→GHS rates, so use rate alerts.",
+      "All UK money transfer providers must be FCA-authorized or registered — check the FCA register before trusting a new provider with your money.",
+    ],
+    warningTitle: "Cedi depreciation erodes value fast",
+    warningBody:
+      "GHS can lose 2–3% of its value in a single week during volatile periods. If your recipient plans to hold the cedis rather than spend immediately, consider sending smaller amounts more frequently.",
+  },
+  "canada-to-nigeria": {
+    title: "What matters on the Canada to Nigeria corridor",
+    summary:
+      "Nigeria's complex exchange rate environment makes the CAD→NGN corridor one of the trickiest to navigate. The naira's unification under CBN reforms has reduced the official-parallel gap, but rates still vary enormously between providers.",
+    bullets: [
+      "Interac e-Transfer funding is the fastest way to initiate a transfer from Canada — most providers process Interac-funded transfers within minutes.",
+      "Lemfi (formerly LemFi) specializes in the Canada-to-Nigeria corridor and often offers the best CAD→NGN rates, with direct bank deposit and mobile wallet delivery.",
+      "Naira volatility means the rate you see can change by 5% or more in a week — compare rates on the day you send, not based on past experience.",
+      "FINTRAC requires all Canadian remittance providers to verify your identity and report large transactions — have your documents ready to avoid delays on first transfers.",
+    ],
+    warningTitle: "Naira rate varies wildly between providers",
+    warningBody:
+      "Providers can differ by 10% or more on the CAD→NGN rate due to how they source naira. Always compare the actual NGN receive amount rather than the advertised exchange rate.",
+  },
+  "australia-to-uk": {
+    title: "What matters on the Australia to UK corridor",
+    summary:
+      "AUD→GBP transfers are common for Australian expats with UK mortgages, family support, and property investments. Both countries have excellent payment infrastructure, making this one of the fastest and most competitive corridors globally.",
+    bullets: [
+      "PayID funding from your Australian bank initiates transfers instantly via the NPP, and Faster Payments delivery in the UK means end-to-end settlement can happen in under an hour.",
+      "OFX, an Australian-founded provider, is especially competitive on large AUD→GBP transfers over $10,000 — their margins tighten significantly at higher amounts.",
+      "For recurring transfers like UK mortgage payments, providers like Wise and OFX offer scheduled transfers and rate alerts to help you time the market.",
+      "Both AUSTRAC (Australia) and the FCA (UK) regulate this corridor, providing strong consumer protection on both sides of the transaction.",
+    ],
+    warningTitle: "Large transfers need extra documentation",
+    warningBody:
+      "Transfers over AUD $10,000 trigger mandatory reporting under Australian anti-money laundering laws. Have your proof of funds and purpose of transfer ready to avoid processing delays.",
+  },
+  "singapore-to-bangladesh": {
+    title: "What matters on the Singapore to Bangladesh corridor",
+    summary:
+      "Singapore's Bangladeshi migrant worker community drives strong demand for SGD→BDT transfers. MAS-regulated providers compete with traditional remittance shops, and Bangladesh Bank's 2.5% incentive rewards recipients who use legal channels.",
+    bullets: [
+      "Bangladesh Bank's 2.5% cash incentive applies to all inward remittances through licensed channels — recipients receive a government bonus on top of your transfer amount.",
+      "bKash and Nagad wallet delivery is the fastest option, reaching recipients across Bangladesh in minutes — even in rural areas where bank branches are rare.",
+      "PayNow funding from your Singapore bank account is instant and free, making it the cheapest way to initiate a transfer with providers like Wise or Instarem.",
+      "MAS (Monetary Authority of Singapore) licenses all remittance providers — avoid unlicensed operators, even if they quote better rates.",
+    ],
+    warningTitle: "Unlicensed operators forfeit the 2.5% incentive",
+    warningBody:
+      "Transfers through unlicensed hundi networks don't qualify for Bangladesh Bank's incentive and carry legal risk in both Singapore and Bangladesh. The 2.5% bonus alone makes legal channels the better deal.",
+  },
+  "usa-to-vietnam": {
+    title: "What matters on the USA to Vietnam corridor",
+    summary:
+      "Vietnam receives over $12 billion in annual remittances, with the US being the largest source. Bank deposit is the primary delivery method, and the State Bank of Vietnam (SBV) manages the VND exchange rate within a tight band around a daily reference rate.",
+    bullets: [
+      "Bank deposit to Vietcombank, BIDV, or Agribank is the standard delivery method — Vietnam's mobile wallet ecosystem is less developed for inbound remittances.",
+      "The SBV manages USD→VND within a ±5% band around its daily reference rate, meaning rate differences between providers are smaller than on freely floating corridors.",
+      "Remitly and Ria are the most popular options for Vietnamese diaspora in the US, with competitive rates and widespread bank delivery coverage across Vietnam.",
+      "Vietnam does not charge tax on inbound remittances, and recipients can receive in VND or hold USD in a foreign currency account at their bank.",
+    ],
+    warningTitle: "Recipient bank details must be exact",
+    warningBody:
+      "Vietnamese banks are strict about matching recipient names with ID documents. Even minor discrepancies in spelling or diacritics can cause transfers to be returned — confirm your recipient's details exactly as they appear on their bank account.",
+  },
+  "usa-to-indonesia": {
+    title: "What matters on the USA to Indonesia corridor",
+    summary:
+      "Indonesia's archipelago of 17,000 islands creates unique delivery challenges, but its banking system has modernized rapidly. BCA and BRI dominate domestic banking, and Bank Indonesia's BI-FAST system enables real-time interbank settlement.",
+    bullets: [
+      "Bank deposit to BCA (Bank Central Asia) or BRI (Bank Rakyat Indonesia) covers the vast majority of recipients — these two banks alone serve over 200 million accounts.",
+      "BI-FAST, Indonesia's real-time payment system, means bank deposits from international transfers now settle in seconds rather than hours.",
+      "Indonesia's e-wallet ecosystem (GoPay, OVO, Dana) is growing fast but inbound international remittance support remains limited — bank deposit is still the most reliable option.",
+      "Wise and Remitly offer the most transparent USD→IDR rates, but Instarem (headquartered in Singapore) often competes well on Southeast Asian corridors.",
+    ],
+    warningTitle: "Double-check the bank code and branch",
+    warningBody:
+      "Indonesia has thousands of bank branches across its islands, and incorrect branch codes can delay transfers by days. Always confirm your recipient's full bank details including the branch code before sending.",
+  },
 };
 
 import { shouldNoindex } from "@/lib/corridor-tiers";
@@ -588,6 +980,256 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
       "Compare SAR to PKR rates from 10+ providers. Send to JazzCash and Easypaisa. Find the most rupees per riyal today.",
     keywords:
       "send money Saudi Arabia to Pakistan, SAR to PKR, cheapest way to send money from Saudi Arabia to Pakistan, Al Rajhi Pakistan, ACE Money Transfer Saudi Pakistan, JazzCash from Saudi, SAR PKR exchange rate",
+  },
+  "usa-to-uk": {
+    title: "Send Money USA to UK — USD to GBP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from USA to the UK in 2026. See real-time USD to GBP exchange rates from Wise, OFX, Remitly, and 10+ providers. Faster Payments delivery in minutes.",
+    ogTitle: "Send Money USA to UK — Best USD to GBP Rates",
+    ogDescription:
+      "Compare USD to GBP rates from 15+ providers. Faster Payments delivery to UK banks. Find the most pounds per dollar today.",
+    keywords:
+      "send money USA to UK, USD to GBP, cheapest way to send money from USA to UK, Wise USA UK, OFX USD GBP, money transfer USA UK, USD GBP exchange rate, Faster Payments from USA",
+  },
+  "saudi-arabia-to-bangladesh": {
+    title: "Send Money Saudi Arabia to Bangladesh — SAR to BDT Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Saudi Arabia to Bangladesh in 2026. SAR to BDT rates from Al Rajhi, ACE Money Transfer, Wise. Direct bKash delivery. Recipients get 2.5% government bonus.",
+    ogTitle: "Send Money Saudi Arabia to Bangladesh — Best SAR to BDT Rates",
+    ogDescription:
+      "Compare SAR to BDT rates. Send to bKash from Saudi Arabia. Recipients earn 2.5% government incentive on formal remittances.",
+    keywords:
+      "send money Saudi Arabia to Bangladesh, SAR to BDT, cheapest way to send money Saudi Bangladesh, bKash from Saudi, Al Rajhi Bangladesh, SAR BDT exchange rate, Bangladesh remittance incentive",
+  },
+  "saudi-arabia-to-egypt": {
+    title: "Send Money Saudi Arabia to Egypt — SAR to EGP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Saudi Arabia to Egypt in 2026. SAR to EGP rates from Lulu Exchange, Al Rajhi, Wise. InstaPay instant delivery. EGP floating rate — compare carefully.",
+    ogTitle: "Send Money Saudi Arabia to Egypt — Best SAR to EGP Rates",
+    ogDescription:
+      "Compare SAR to EGP rates from multiple providers. InstaPay delivery to Egyptian banks. Find the most pounds per riyal today.",
+    keywords:
+      "send money Saudi Arabia to Egypt, SAR to EGP, cheapest way to send money Saudi Egypt, InstaPay Egypt, Al Rajhi Egypt, SAR EGP exchange rate, Egypt remittance",
+  },
+  "singapore-to-india": {
+    title: "Send Money Singapore to India — SGD to INR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Singapore to India in 2026. SGD to INR rates from Instarem, Wise, Remitly. IMPS instant delivery to all Indian banks. PayNow funding supported.",
+    ogTitle: "Send Money Singapore to India — Best SGD to INR Rates",
+    ogDescription:
+      "Compare SGD to INR rates from 10+ providers. IMPS instant delivery to Indian banks. Find the most rupees per Singapore dollar today.",
+    keywords:
+      "send money Singapore to India, SGD to INR, cheapest way to send money Singapore India, Instarem Singapore India, Wise SGD INR, IMPS delivery, PayNow transfer India",
+  },
+  "singapore-to-philippines": {
+    title: "Send Money Singapore to Philippines — SGD to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Singapore to the Philippines in 2026. SGD to PHP rates from Instarem, Remitly, Wise. Direct GCash delivery. PayNow funding accepted.",
+    ogTitle: "Send Money Singapore to Philippines — Best SGD to PHP Rates",
+    ogDescription:
+      "Compare SGD to PHP rates from 10+ providers. Send to GCash in minutes from Singapore. Find the most pesos per Singapore dollar.",
+    keywords:
+      "send money Singapore to Philippines, SGD to PHP, cheapest way to send money Singapore Philippines, GCash from Singapore, Instarem Philippines, SGD PHP exchange rate",
+  },
+  "singapore-to-indonesia": {
+    title: "Send Money Singapore to Indonesia — SGD to IDR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Singapore to Indonesia in 2026. SGD to IDR rates from Instarem, Wise, Remitly. Bank deposit to BCA, BRI, Mandiri. BI-FAST instant settlement.",
+    ogTitle: "Send Money Singapore to Indonesia — Best SGD to IDR Rates",
+    ogDescription:
+      "Compare SGD to IDR rates from multiple providers. Fast delivery to BCA and BRI. Find the most rupiah per Singapore dollar today.",
+    keywords:
+      "send money Singapore to Indonesia, SGD to IDR, cheapest way to send money Singapore Indonesia, Instarem Indonesia, BCA transfer, SGD IDR exchange rate, BI-FAST",
+  },
+  "new-zealand-to-india": {
+    title: "Send Money New Zealand to India — NZD to INR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from New Zealand to India in 2026. NZD to INR rates from Wise, Instarem, Remitly. IMPS instant delivery to Indian banks.",
+    ogTitle: "Send Money New Zealand to India — Best NZD to INR Rates",
+    ogDescription:
+      "Compare NZD to INR rates from multiple providers. IMPS delivery to all Indian banks. Find the most rupees per NZ dollar today.",
+    keywords:
+      "send money New Zealand to India, NZD to INR, cheapest way to send money NZ India, Wise NZD INR, Instarem New Zealand, money transfer NZ India",
+  },
+  "new-zealand-to-philippines": {
+    title: "Send Money New Zealand to Philippines — NZD to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from New Zealand to the Philippines in 2026. NZD to PHP rates from Wise, Remitly, WorldRemit. GCash delivery supported.",
+    ogTitle: "Send Money New Zealand to Philippines — Best NZD to PHP Rates",
+    ogDescription:
+      "Compare NZD to PHP rates from multiple providers. Send to GCash from New Zealand. Find the most pesos per NZ dollar.",
+    keywords:
+      "send money New Zealand to Philippines, NZD to PHP, cheapest way to send money NZ Philippines, GCash from NZ, Wise NZD PHP, money transfer NZ Philippines",
+  },
+  "new-zealand-to-fiji": {
+    title: "Send Money New Zealand to Fiji — NZD to FJD Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from New Zealand to Fiji in 2026. NZD to FJD rates from Wise, Western Union, and specialist providers. Bank deposit and cash pickup options.",
+    ogTitle: "Send Money New Zealand to Fiji — Best NZD to FJD Rates",
+    ogDescription:
+      "Compare NZD to FJD rates. Send to Fijian bank accounts or cash pickup locations. Find the cheapest NZ to Fiji transfer.",
+    keywords:
+      "send money New Zealand to Fiji, NZD to FJD, cheapest way to send money NZ Fiji, Wise NZD FJD, Western Union Fiji, money transfer NZ Fiji, Pacific remittance",
+  },
+  "uk-to-philippines": {
+    title: "Send Money UK to Philippines — GBP to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from the UK to the Philippines in 2026. GBP to PHP rates from Wise, Remitly, WorldRemit. Direct GCash and Maya transfers. Faster Payments funding.",
+    ogTitle: "Send Money UK to Philippines — Best GBP to PHP Rates",
+    ogDescription:
+      "Compare GBP to PHP rates from 19+ providers. Send to GCash in minutes from the UK. Find the most pesos per pound today.",
+    keywords:
+      "send money UK to Philippines, GBP to PHP, cheapest way to send money UK Philippines, GCash from UK, Wise GBP PHP, Remitly UK Philippines, Faster Payments Philippines",
+  },
+  "europe-to-india": {
+    title: "Send Money Europe to India — EUR to INR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Europe to India in 2026. EUR to INR rates from Wise, Remitly, Instarem. SEPA funding, IMPS instant delivery. Compare 18+ providers.",
+    ogTitle: "Send Money Europe to India — Best EUR to INR Rates",
+    ogDescription:
+      "Compare EUR to INR rates from 18+ providers. SEPA funding and IMPS delivery. Find the most rupees per euro today.",
+    keywords:
+      "send money Europe to India, EUR to INR, cheapest way to send money Europe India, SEPA transfer India, Wise EUR INR, Instarem Europe, money transfer Europe India",
+  },
+  "europe-to-philippines": {
+    title: "Send Money Europe to Philippines — EUR to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Europe to the Philippines in 2026. EUR to PHP rates from Wise, Remitly, WorldRemit. SEPA funding, direct GCash delivery.",
+    ogTitle: "Send Money Europe to Philippines — Best EUR to PHP Rates",
+    ogDescription:
+      "Compare EUR to PHP rates from 16+ providers. Send to GCash from Europe via SEPA. Find the most pesos per euro today.",
+    keywords:
+      "send money Europe to Philippines, EUR to PHP, cheapest way to send money Europe Philippines, GCash from Europe, SEPA Philippines transfer, Wise EUR PHP, OFW remittance Europe",
+  },
+  "europe-to-nigeria": {
+    title: "Send Money Europe to Nigeria — EUR to NGN Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Europe to Nigeria in 2026. EUR to NGN rates from Lemfi, Wise, WorldRemit. SEPA funding. Naira volatile — compare live rates.",
+    ogTitle: "Send Money Europe to Nigeria — Best EUR to NGN Rates",
+    ogDescription:
+      "Compare EUR to NGN rates from 11+ providers. SEPA funding, bank deposit delivery. Navigate naira volatility with real-time comparison.",
+    keywords:
+      "send money Europe to Nigeria, EUR to NGN, cheapest way to send money Europe Nigeria, Lemfi Europe Nigeria, Wise EUR NGN, SEPA Nigeria transfer, naira exchange rate",
+  },
+  "europe-to-pakistan": {
+    title: "Send Money Europe to Pakistan — EUR to PKR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Europe to Pakistan in 2026. EUR to PKR rates from ACE Money Transfer, Wise, Remitly. SEPA funding, JazzCash and Easypaisa delivery.",
+    ogTitle: "Send Money Europe to Pakistan — Best EUR to PKR Rates",
+    ogDescription:
+      "Compare EUR to PKR rates from 10+ providers. Send to JazzCash and Easypaisa via SEPA. Find the most rupees per euro today.",
+    keywords:
+      "send money Europe to Pakistan, EUR to PKR, cheapest way to send money Europe Pakistan, JazzCash from Europe, ACE Money Transfer Europe, SEPA Pakistan, EUR PKR exchange rate",
+  },
+  "usa-to-ghana": {
+    title: "Send Money USA to Ghana — USD to GHS Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from USA to Ghana in 2026. USD to GHS rates from Sendwave, Wise, Remitly, WorldRemit. Direct MTN MoMo delivery. Zero-fee options available.",
+    ogTitle: "Send Money USA to Ghana — Best USD to GHS Rates",
+    ogDescription:
+      "Compare USD to GHS rates from 14+ providers. Send to MTN MoMo instantly. Zero-fee transfer options from the US to Ghana.",
+    keywords:
+      "send money USA to Ghana, USD to GHS, cheapest way to send money US Ghana, MTN MoMo from USA, Sendwave Ghana, Wise USD GHS, money transfer USA Ghana, cedi exchange rate",
+  },
+  "usa-to-colombia": {
+    title: "Send Money USA to Colombia — USD to COP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from USA to Colombia in 2026. USD to COP rates from Wise, Remitly, Xoom. Direct Nequi and Daviplata delivery. Transfiya instant settlement.",
+    ogTitle: "Send Money USA to Colombia — Best USD to COP Rates",
+    ogDescription:
+      "Compare USD to COP rates from 12+ providers. Send to Nequi and Daviplata in minutes. Find the most pesos per dollar today.",
+    keywords:
+      "send money USA to Colombia, USD to COP, cheapest way to send money US Colombia, Nequi from USA, Daviplata transfer, Wise USD COP, Remitly Colombia, COP exchange rate",
+  },
+  "uae-to-bangladesh": {
+    title: "Send Money UAE to Bangladesh — AED to BDT Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from UAE to Bangladesh in 2026. AED to BDT rates from Al Ansari, ACE Money Transfer, Wise. bKash delivery. Recipients get 2.5% government bonus.",
+    ogTitle: "Send Money UAE to Bangladesh — Best AED to BDT Rates",
+    ogDescription:
+      "Compare AED to BDT rates. Send to bKash from UAE. Recipients earn Bangladesh's 2.5% remittance incentive through legal channels.",
+    keywords:
+      "send money UAE to Bangladesh, AED to BDT, cheapest way to send money UAE Bangladesh, bKash from UAE, Al Ansari Bangladesh, AED BDT exchange rate, Bangladesh remittance incentive",
+  },
+  "canada-to-pakistan": {
+    title: "Send Money Canada to Pakistan — CAD to PKR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Canada to Pakistan in 2026. CAD to PKR rates from Wise, Remitly, ACE Money Transfer. Interac e-Transfer funding. JazzCash and Easypaisa delivery.",
+    ogTitle: "Send Money Canada to Pakistan — Best CAD to PKR Rates",
+    ogDescription:
+      "Compare CAD to PKR rates from multiple providers. Fund via Interac, deliver to JazzCash. Find the most rupees per Canadian dollar.",
+    keywords:
+      "send money Canada to Pakistan, CAD to PKR, cheapest way to send money Canada Pakistan, JazzCash from Canada, Interac Pakistan transfer, Wise CAD PKR, ACE Money Transfer Canada",
+  },
+  "australia-to-pakistan": {
+    title: "Send Money Australia to Pakistan — AUD to PKR Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Australia to Pakistan in 2026. AUD to PKR rates from Wise, Remitly, WorldRemit. PayID funding. JazzCash and Easypaisa delivery.",
+    ogTitle: "Send Money Australia to Pakistan — Best AUD to PKR Rates",
+    ogDescription:
+      "Compare AUD to PKR rates from multiple providers. PayID funding, JazzCash delivery. Find the most rupees per Australian dollar.",
+    keywords:
+      "send money Australia to Pakistan, AUD to PKR, cheapest way to send money Australia Pakistan, JazzCash from Australia, PayID Pakistan, Wise AUD PKR, AUSTRAC remittance",
+  },
+  "uae-to-egypt": {
+    title: "Send Money UAE to Egypt — AED to EGP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from UAE to Egypt in 2026. AED to EGP rates from Al Ansari, Wise, Remitly. InstaPay instant delivery. EGP floating rate — compare live rates.",
+    ogTitle: "Send Money UAE to Egypt — Best AED to EGP Rates",
+    ogDescription:
+      "Compare AED to EGP rates from multiple providers. InstaPay delivery to Egyptian banks. Navigate EGP volatility with real-time comparison.",
+    keywords:
+      "send money UAE to Egypt, AED to EGP, cheapest way to send money UAE Egypt, InstaPay Egypt, Al Ansari Egypt, AED EGP exchange rate, Egypt remittance UAE",
+  },
+  "saudi-arabia-to-philippines": {
+    title: "Send Money Saudi Arabia to Philippines — SAR to PHP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Saudi Arabia to the Philippines in 2026. SAR to PHP rates from Al Rajhi, Wise, Remitly. Direct GCash delivery. Over 1M Filipino OFWs in Saudi.",
+    ogTitle: "Send Money Saudi Arabia to Philippines — Best SAR to PHP Rates",
+    ogDescription:
+      "Compare SAR to PHP rates. Send to GCash from Saudi Arabia. Find the most pesos per riyal for Filipino OFWs.",
+    keywords:
+      "send money Saudi Arabia to Philippines, SAR to PHP, cheapest way to send money Saudi Philippines, GCash from Saudi, Al Rajhi Philippines, OFW remittance Saudi, SAR PHP exchange rate",
+  },
+  "uk-to-ghana": {
+    title: "Send Money UK to Ghana — GBP to GHS Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from the UK to Ghana in 2026. GBP to GHS rates from Sendwave, WorldRemit, Wise. Direct MTN MoMo delivery. Faster Payments funding. FCA regulated.",
+    ogTitle: "Send Money UK to Ghana — Best GBP to GHS Rates",
+    ogDescription:
+      "Compare GBP to GHS rates from multiple providers. Send to MTN MoMo instantly from the UK. FCA-regulated providers.",
+    keywords:
+      "send money UK to Ghana, GBP to GHS, cheapest way to send money UK Ghana, MTN MoMo from UK, Sendwave Ghana, WorldRemit GHS, cedi exchange rate, FCA money transfer",
+  },
+  "canada-to-nigeria": {
+    title: "Send Money Canada to Nigeria — CAD to NGN Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Canada to Nigeria in 2026. CAD to NGN rates from Lemfi, Wise, WorldRemit. Interac e-Transfer funding. Naira volatile — compare live rates.",
+    ogTitle: "Send Money Canada to Nigeria — Best CAD to NGN Rates",
+    ogDescription:
+      "Compare CAD to NGN rates from multiple providers. Interac funding, bank deposit delivery. Navigate naira volatility with real-time comparison.",
+    keywords:
+      "send money Canada to Nigeria, CAD to NGN, cheapest way to send money Canada Nigeria, Lemfi Canada Nigeria, Wise CAD NGN, Interac Nigeria transfer, naira exchange rate Canada",
+  },
+  "australia-to-uk": {
+    title: "Send Money Australia to UK — AUD to GBP Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Australia to the UK in 2026. AUD to GBP rates from OFX, Wise, Revolut. PayID funding. Faster Payments delivery to UK banks.",
+    ogTitle: "Send Money Australia to UK — Best AUD to GBP Rates",
+    ogDescription:
+      "Compare AUD to GBP rates from multiple providers. PayID funding, Faster Payments delivery. Find the most pounds per Australian dollar.",
+    keywords:
+      "send money Australia to UK, AUD to GBP, cheapest way to send money Australia UK, OFX AUD GBP, Wise Australia UK, PayID UK transfer, Faster Payments from Australia",
+  },
+  "singapore-to-bangladesh": {
+    title: "Send Money Singapore to Bangladesh — SGD to BDT Rates 2026",
+    description:
+      "Compare the cheapest ways to send money from Singapore to Bangladesh in 2026. SGD to BDT rates from Instarem, Wise, Remitly. bKash delivery. Recipients get 2.5% government bonus.",
+    ogTitle: "Send Money Singapore to Bangladesh — Best SGD to BDT Rates",
+    ogDescription:
+      "Compare SGD to BDT rates. Send to bKash from Singapore. Recipients earn Bangladesh's 2.5% remittance incentive.",
+    keywords:
+      "send money Singapore to Bangladesh, SGD to BDT, cheapest way to send money Singapore Bangladesh, bKash from Singapore, Instarem Bangladesh, SGD BDT exchange rate, MAS licensed",
   },
 };
 
