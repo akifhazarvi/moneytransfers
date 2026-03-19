@@ -12,7 +12,7 @@ import { statSync } from "fs";
 import { join } from "path";
 
 const SITE_URL = "https://sendmoneycompare.com";
-const EXCLUDED_CORRIDOR_SLUGS = new Set(["gbp-to-fjd"]);
+import { shouldIncludeInSitemap } from "@/lib/corridor-tiers";
 
 // Automatically set to today's date at build time
 const LAST_DEPLOY = new Date().toISOString().split("T")[0];
@@ -113,7 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const corridorPages: MetadataRoute.Sitemap = allCorridors
-    .filter((c) => !EXCLUDED_CORRIDOR_SLUGS.has(c.slug))
+    .filter((c) => shouldIncludeInSitemap(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
     .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
 
   // Only include providers that have editorial reviews (others are noindexed)

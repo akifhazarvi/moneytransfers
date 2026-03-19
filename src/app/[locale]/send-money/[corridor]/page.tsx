@@ -348,7 +348,7 @@ const corridorEditorialNotes: Record<
   },
 };
 
-const noindexCorridors = new Set(["gbp-to-fjd"]);
+import { shouldNoindex } from "@/lib/corridor-tiers";
 
 // ── Static generation ──
 
@@ -633,7 +633,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
     },
     alternates: getAlternates(`send-money/${slug}`, locale),
-    robots: noindexCorridors.has(slug) ? { index: false, follow: true } : undefined,
+    robots: shouldNoindex(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) ? { index: false, follow: true } : undefined,
   };
 }
 
