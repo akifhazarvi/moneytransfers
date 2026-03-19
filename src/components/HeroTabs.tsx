@@ -11,7 +11,13 @@ const HomepageConverter = dynamic(() => import("@/components/HomepageConverter")
 
 type TabId = "compare" | "convert";
 
-export default function HeroTabs() {
+interface HeroTabsProps {
+  defaultFrom?: string;
+  defaultTo?: string;
+  defaultAmount?: number;
+}
+
+export default function HeroTabs({ defaultFrom, defaultTo, defaultAmount }: HeroTabsProps) {
   const t = useTranslations("heroTabs");
   const [active, setActive] = useState<TabId>("compare");
   const TABS = [
@@ -41,7 +47,7 @@ export default function HeroTabs() {
       </div>
 
       {/* Tab Content */}
-      {active === "compare" && <ComparisonWidget />}
+      {active === "compare" && <ComparisonWidget defaultFrom={defaultFrom} defaultTo={defaultTo} defaultAmount={defaultAmount} />}
       {active === "convert" && <HomepageConverter />}
     </div>
   );
