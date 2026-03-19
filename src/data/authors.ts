@@ -29,7 +29,7 @@ export const authors: Author[] = [
 
 His experience spans product management, regulatory compliance, and payment infrastructure across the UK, US, and South Asian markets. This firsthand industry experience informs SendMoneyCompare's methodology: every provider ranking is based on real transfer data collected from provider APIs and websites every 6 hours, with no sponsored placements or paid rankings.
 
-Akif personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He has conducted hundreds of test transfers across 60+ providers to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
+Akif personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He has conducted hundreds of test transfers across 35+ providers to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
 
 Before founding SendMoneyCompare, Akif held product and analytics roles at fintech companies focused on cross-border payments, currency exchange, and digital banking. He holds a degree in Computer Science and is based in Denver, Colorado.`,
     expertise: [
@@ -43,7 +43,7 @@ Before founding SendMoneyCompare, Akif held product and analytics roles at finte
     credentials: [
       "8+ years in fintech and international payments",
       "Managed cross-border payment products at scale",
-      "Conducted 500+ test transfers across 60+ providers",
+      "Conducted 500+ test transfers across 35+ providers",
       "Published research on remittance costs and market transparency",
     ],
     linkedin: "https://www.linkedin.com/in/akifhazarvi",
@@ -55,7 +55,7 @@ Before founding SendMoneyCompare, Akif held product and analytics roles at finte
     name: "Awais Imran",
     role: "Co-founder & Technical Lead",
     initials: "AI",
-    bio: `Awais Imran is the co-founder and technical lead of SendMoneyCompare, responsible for the data infrastructure that powers the platform's real-time provider comparisons. He designed and maintains the scraping system that collects live transfer quotes from 60+ providers every 6 hours.
+    bio: `Awais Imran is the co-founder and technical lead of SendMoneyCompare, responsible for the data infrastructure that powers the platform's real-time provider comparisons. He designed and maintains the scraping system that collects live transfer quotes from 35+ providers every 6 hours.
 
 Awais specialises in data engineering, automation, and building reliable data pipelines for financial services. The SendMoneyCompare data pipeline uses a combination of direct API integrations, browser automation (Playwright), and HTML scraping (Cheerio) to collect exchange rates, fees, and delivery speeds from providers including Wise, Remitly, OFX, XE, Western Union, Revolut, and many others.
 
@@ -70,7 +70,7 @@ Awais also maintains the platform's automated testing, deployment pipelines, and
       "Software engineering and DevOps",
     ],
     credentials: [
-      "Designed data pipeline collecting quotes from 60+ providers",
+      "Designed data pipeline collecting quotes from 35+ providers",
       "Built automated scraping infrastructure processing 10,000+ quotes daily",
       "Software engineering background with focus on financial data systems",
     ],

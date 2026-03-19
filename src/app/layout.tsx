@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { headers } from "next/headers";
+import { Inter, Instrument_Serif, Share_Tech_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
 
@@ -15,6 +16,13 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   weight: "400",
   style: ["normal", "italic"],
+});
+
+const shareTechMono = Share_Tech_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono-display",
+  weight: "400",
 });
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -53,9 +61,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const nonce = (await headers()).get("x-nonce") || "";
 
   return (
-    <html lang={locale} className={`${inter.variable} ${instrumentSerif.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${inter.variable} ${instrumentSerif.variable} ${shareTechMono.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
