@@ -194,6 +194,23 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Trustpilot Review Collector */}
+        <div className="border-t border-[var(--color-outline)] pt-6 mb-6 flex justify-center">
+          <div
+            className="trustpilot-widget"
+            data-locale="en-US"
+            data-template-id="56278e9abfbbba0bdcd568bc"
+            data-businessunit-id="69bc5a943f1059db5792229b"
+            data-style-height="52px"
+            data-style-width="100%"
+            data-token="a6ccf0e6-609c-4efc-8441-5694ad5c3a05"
+          >
+            <a href="https://www.trustpilot.com/review/sendmoneycompare.com" target="_blank" rel="noopener">
+              Trustpilot
+            </a>
+          </div>
+        </div>
+
         <div className="border-t border-[var(--color-outline)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
