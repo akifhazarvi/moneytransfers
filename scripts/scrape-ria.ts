@@ -38,7 +38,6 @@ const CORRIDORS = [
   { from: "USD", to: "COP", countryFrom: "US", countryTo: "CO" },
   { from: "USD", to: "GTQ", countryFrom: "US", countryTo: "GT" },
   { from: "USD", to: "EUR", countryFrom: "US", countryTo: "DE" },
-  { from: "USD", to: "GBP", countryFrom: "US", countryTo: "GB" },
   { from: "USD", to: "DOP", countryFrom: "US", countryTo: "DO" },
   { from: "USD", to: "PEN", countryFrom: "US", countryTo: "PE" },
   { from: "USD", to: "JMD", countryFrom: "US", countryTo: "JM" },
@@ -76,7 +75,6 @@ const CORRIDORS = [
   { from: "EUR", to: "NGN", countryFrom: "DE", countryTo: "NG" },
   { from: "EUR", to: "PHP", countryFrom: "DE", countryTo: "PH" },
   { from: "EUR", to: "PKR", countryFrom: "DE", countryTo: "PK" },
-  { from: "EUR", to: "GBP", countryFrom: "DE", countryTo: "GB" },
   { from: "EUR", to: "MAD", countryFrom: "DE", countryTo: "MA" },
   { from: "EUR", to: "TRY", countryFrom: "DE", countryTo: "TR" },
   { from: "EUR", to: "BRL", countryFrom: "DE", countryTo: "BR" },
@@ -90,28 +88,19 @@ const CORRIDORS = [
   { from: "AUD", to: "INR", countryFrom: "AU", countryTo: "IN" },
   { from: "AUD", to: "PHP", countryFrom: "AU", countryTo: "PH" },
   { from: "AUD", to: "PKR", countryFrom: "AU", countryTo: "PK" },
-  // From AED (UAE)
-  { from: "AED", to: "INR", countryFrom: "AE", countryTo: "IN" },
-  { from: "AED", to: "PKR", countryFrom: "AE", countryTo: "PK" },
-  { from: "AED", to: "PHP", countryFrom: "AE", countryTo: "PH" },
-  { from: "AED", to: "BDT", countryFrom: "AE", countryTo: "BD" },
   // From SGD (Singapore)
   { from: "SGD", to: "INR", countryFrom: "SG", countryTo: "IN" },
   { from: "SGD", to: "PHP", countryFrom: "SG", countryTo: "PH" },
-  // From SAR (Saudi Arabia)
-  { from: "SAR", to: "INR", countryFrom: "SA", countryTo: "IN" },
-  { from: "SAR", to: "PKR", countryFrom: "SA", countryTo: "PK" },
-  { from: "SAR", to: "BDT", countryFrom: "SA", countryTo: "BD" },
-  { from: "SAR", to: "PHP", countryFrom: "SA", countryTo: "PH" },
   // From NZD (New Zealand)
   { from: "NZD", to: "INR", countryFrom: "NZ", countryTo: "IN" },
   { from: "NZD", to: "PHP", countryFrom: "NZ", countryTo: "PH" },
 ];
 
-// Locale mapping by send country
+// Locale mapping by send country — each region needs its own JWT
 const LOCALE_MAP: Record<string, string> = {
   US: "en-us", GB: "en-gb", DE: "de-de", CA: "en-ca",
-  AU: "en-au", AE: "en-ae", FR: "fr-fr", IT: "it-it",
+  AU: "en-au", FR: "fr-fr", IT: "it-it",
+  SG: "en-sg", NZ: "en-nz",
 };
 
 /**
@@ -151,9 +140,10 @@ async function extractBearerToken(locale: string = "en-us"): Promise<{ token: st
 
     await context.browser()?.close();
 
-    if (token) {
-      console.log(`  ✓ Got Bearer token (${token.length} chars)`);
-      return { token, cookies };
+    const capturedToken = token as unknown as string | null;
+    if (capturedToken) {
+      console.log(`  ✓ Got Bearer token (${capturedToken.length} chars)`);
+      return { token: capturedToken, cookies };
     }
 
     console.log("  ✗ No Bearer token captured");
@@ -254,37 +244,49 @@ async function main() {
   console.log(`Corridors: ${CORRIDORS.length}`);
   console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}\n`);
 
-  // Step 1: Get auth token via one browser page load
-  const auth = await extractBearerToken();
-  if (!auth) {
-    console.error("Failed to extract Bearer token — cannot proceed");
-    process.exit(1);
+  // Group corridors by send country — each region needs its own JWT
+  const byRegion = new Map<string, typeof CORRIDORS>();
+  for (const corridor of CORRIDORS) {
+    const locale = LOCALE_MAP[corridor.countryFrom] || "en-us";
+    if (!byRegion.has(locale)) byRegion.set(locale, []);
+    byRegion.get(locale)!.push(corridor);
   }
 
-  // Step 2: Call API for all corridors (no browser needed!)
   const allQuotes: ProviderQuote[] = [];
   let successCount = 0;
   let failCount = 0;
   const startTime = Date.now();
 
-  for (const corridor of CORRIDORS) {
-    console.log(`\n📍 ${corridor.from} → ${corridor.to}`);
+  // For each region: get a fresh JWT, then scrape all its corridors
+  for (const [locale, corridors] of byRegion) {
+    console.log(`\n━━━ Region: ${locale} (${corridors.length} corridors) ━━━`);
 
-    for (const amount of SEND_AMOUNTS) {
-      console.log(`  Fetching: ${corridor.from} → ${corridor.to} ($${amount})...`);
+    const auth = await extractBearerToken(locale);
+    if (!auth) {
+      console.log(`  ✗ Skipping ${locale} — failed to get JWT`);
+      failCount += corridors.length * SEND_AMOUNTS.length;
+      continue;
+    }
 
-      const quote = await fetchRiaQuote(corridor, amount, auth.token, auth.cookies);
+    for (const corridor of corridors) {
+      console.log(`\n📍 ${corridor.from} → ${corridor.to}`);
 
-      if (quote) {
-        allQuotes.push(quote);
-        successCount++;
-        console.log(`    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount}`);
-      } else {
-        failCount++;
-        console.log(`    ✗ No data`);
+      for (const amount of SEND_AMOUNTS) {
+        console.log(`  Fetching: ${corridor.from} → ${corridor.to} ($${amount})...`);
+
+        const quote = await fetchRiaQuote(corridor, amount, auth.token, auth.cookies);
+
+        if (quote) {
+          allQuotes.push(quote);
+          successCount++;
+          console.log(`    ✓ Fee: ${quote.fee}, Rate: ${quote.exchangeRate}, Receive: ${quote.receiveAmount}`);
+        } else {
+          failCount++;
+          console.log(`    ✗ No data`);
+        }
+
+        await delay(DELAY_MS + Math.random() * 400);
       }
-
-      await delay(DELAY_MS + Math.random() * 400);
     }
   }
 
