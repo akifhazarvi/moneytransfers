@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import Image from "next/image";
 import Link from "next/link";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -149,7 +150,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="grid sm:grid-cols-2 gap-4 mt-4">
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AH</div>
+                    <Image src="/images/authors/akif-hazarvi.jpeg" alt="Akif Hazarvi" width={48} height={48} className="w-12 h-12 rounded-full object-cover" />
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)]">Akif Hazarvi</p>
                       <p className="text-xs text-[var(--color-on-surface-variant)]">Founder &amp; Editor</p>

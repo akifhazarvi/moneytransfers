@@ -102,7 +102,12 @@ export default async function NewsArticlePage({ params }: Props) {
             dateModified: item.publishedAt,
             ...(item.image && { image: `https://sendmoneycompare.com${item.image}` }),
             author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
-            publisher: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
+            publisher: {
+              "@type": "Organization",
+              name: "SendMoneyCompare",
+              "@id": "https://sendmoneycompare.com/#organization",
+              logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/icon-192x192.png", width: 192, height: 192 },
+            },
           }),
         }}
       />

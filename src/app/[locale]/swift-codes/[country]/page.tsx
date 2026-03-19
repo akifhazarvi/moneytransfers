@@ -16,6 +16,158 @@ interface Props {
   params: Promise<{ country: string; locale: string }>;
 }
 
+/* Maps SWIFT country slugs to relevant money transfer corridors */
+const swiftCorridors: Record<string, { label: string; href: string }[]> = {
+  "united-kingdom": [
+    { label: "UK to India transfers", href: "/send-money/uk-to-india" },
+    { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "united-states": [
+    { label: "USA to India transfers", href: "/send-money/usa-to-india" },
+    { label: "USA to Mexico transfers", href: "/send-money/usa-to-mexico" },
+    { label: "USA to Philippines transfers", href: "/send-money/usa-to-philippines" },
+  ],
+  "india": [
+    { label: "Send money to India", href: "/send-money/send-money-to-india" },
+    { label: "USA to India transfers", href: "/send-money/usa-to-india" },
+    { label: "UK to India transfers", href: "/send-money/uk-to-india" },
+  ],
+  "pakistan": [
+    { label: "Send money to Pakistan", href: "/send-money/send-money-to-pakistan" },
+    { label: "USA to Pakistan transfers", href: "/send-money/usa-to-pakistan" },
+    { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
+  ],
+  "bangladesh": [
+    { label: "Send money to Bangladesh", href: "/send-money/send-money-to-bangladesh" },
+    { label: "UK to Bangladesh transfers", href: "/send-money/uk-to-bangladesh" },
+  ],
+  "philippines": [
+    { label: "Send money to Philippines", href: "/send-money/send-money-to-philippines" },
+    { label: "USA to Philippines transfers", href: "/send-money/usa-to-philippines" },
+  ],
+  "nigeria": [
+    { label: "Send money to Nigeria", href: "/send-money/send-money-to-nigeria" },
+    { label: "USA to Nigeria transfers", href: "/send-money/usa-to-nigeria" },
+  ],
+  "kenya": [
+    { label: "Send money to Kenya", href: "/send-money/send-money-to-kenya" },
+    { label: "USA to Kenya transfers", href: "/send-money/usa-to-kenya" },
+  ],
+  "ghana": [
+    { label: "Send money to Ghana", href: "/send-money/send-money-to-ghana" },
+    { label: "USA to Ghana transfers", href: "/send-money/usa-to-ghana" },
+  ],
+  "nepal": [
+    { label: "Send money to Nepal", href: "/send-money/send-money-to-nepal" },
+  ],
+  "sri-lanka": [
+    { label: "Send money to Sri Lanka", href: "/send-money/send-money-to-sri-lanka" },
+  ],
+  "mexico": [
+    { label: "Send money to Mexico", href: "/send-money/send-money-to-mexico" },
+    { label: "USA to Mexico transfers", href: "/send-money/usa-to-mexico" },
+  ],
+  "brazil": [
+    { label: "Send money to Brazil", href: "/send-money/send-money-to-brazil" },
+    { label: "USA to Brazil transfers", href: "/send-money/usa-to-brazil" },
+  ],
+  "colombia": [
+    { label: "Send money to Colombia", href: "/send-money/send-money-to-colombia" },
+    { label: "USA to Colombia transfers", href: "/send-money/usa-to-colombia" },
+  ],
+  "united-arab-emirates": [
+    { label: "UAE to India transfers", href: "/send-money/uae-to-india" },
+    { label: "UAE to Pakistan transfers", href: "/send-money/uae-to-pakistan" },
+  ],
+  "germany": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "france": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "australia": [
+    { label: "Australia to India transfers", href: "/send-money/australia-to-india" },
+    { label: "Send money to Australia", href: "/send-money/send-money-to-australia" },
+  ],
+  "canada": [
+    { label: "Canada to India transfers", href: "/send-money/canada-to-india" },
+    { label: "Send money to Canada", href: "/send-money/send-money-to-canada" },
+  ],
+  "singapore": [
+    { label: "Singapore to India transfers", href: "/send-money/singapore-to-india" },
+    { label: "Singapore to Philippines transfers", href: "/send-money/singapore-to-philippines" },
+  ],
+  "japan": [
+    { label: "Send money to Japan", href: "/send-money/send-money-to-japan" },
+  ],
+  "south-korea": [
+    { label: "Send money to South Korea", href: "/send-money/send-money-to-south-korea" },
+  ],
+  "thailand": [
+    { label: "Send money to Thailand", href: "/send-money/send-money-to-thailand" },
+  ],
+  "indonesia": [
+    { label: "Send money to Indonesia", href: "/send-money/send-money-to-indonesia" },
+  ],
+  "malaysia": [
+    { label: "Send money to Malaysia", href: "/send-money/send-money-to-malaysia" },
+  ],
+  "egypt": [
+    { label: "Send money to Egypt", href: "/send-money/send-money-to-egypt" },
+  ],
+  "morocco": [
+    { label: "Send money to Morocco", href: "/send-money/send-money-to-morocco" },
+  ],
+  "turkiye": [
+    { label: "Send money to Turkey", href: "/send-money/send-money-to-turkey" },
+  ],
+  "peru": [
+    { label: "Send money to Peru", href: "/send-money/send-money-to-peru" },
+  ],
+  "south-africa": [
+    { label: "Send money to South Africa", href: "/send-money/send-money-to-south-africa" },
+  ],
+};
+
+/* Maps SWIFT country slugs to matching IBAN slugs */
+const swiftToIbanSlug: Record<string, string> = {
+  "united-kingdom": "united-kingdom",
+  "germany": "germany",
+  "france": "france",
+  "netherlands": "netherlands",
+  "pakistan": "pakistan",
+  "united-arab-emirates": "united-arab-emirates",
+  "ireland": "ireland",
+  "brazil": "brazil",
+  "turkiye": "turkey",
+  "egypt": "egypt",
+  "spain": "spain",
+  "italy": "italy",
+  "belgium": "belgium",
+  "austria": "austria",
+  "portugal": "portugal",
+  "sweden": "sweden",
+  "switzerland": "switzerland",
+  "poland": "poland",
+  "norway": "norway",
+  "denmark": "denmark",
+  "romania": "romania",
+  "hungary": "hungary",
+  "croatia": "croatia",
+  "greece": "greece",
+  "georgia": "georgia",
+  "jordan": "jordan",
+  "saudi-arabia": "saudi-arabia",
+  "qatar": "qatar",
+  "kuwait": "kuwait",
+  "bahrain": "bahrain",
+  "israel": "israel",
+  "ukraine": "ukraine",
+};
+
 const indexedSwiftCountries = new Set([
   "united-kingdom", "united-states", "india", "pakistan", "germany",
   "france", "netherlands", "united-arab-emirates", "canada", "australia",
@@ -36,13 +188,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const country = getSwiftCountryBySlug(slug);
   if (!country) return {};
   return {
-    title: `${country.name} SWIFT/BIC Codes — ${country.bankCount} Banks`,
-    description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified SWIFT codes with branch details, city, and address for international wire transfers to ${country.name}.`,
-    keywords: `${country.name} SWIFT code, ${country.name} BIC code, ${country.countryCode} SWIFT, banks in ${country.name}, wire transfer ${country.name}`,
+    title: `${country.name} SWIFT/BIC Codes — All ${country.bankCount} Banks (2026)`,
+    description: `Find SWIFT/BIC codes for all ${country.bankCount} banks in ${country.name}. Free lookup with branch codes, city, and address — verified for international wire transfers to ${country.name}.`,
+    keywords: `${country.name} SWIFT code, ${country.name} BIC code, ${country.countryCode} SWIFT, banks in ${country.name}, wire transfer ${country.name}, bank swift code ${country.name}, swift code for ${country.name} banks`,
     alternates: getAlternates(`swift-codes/${slug}`, locale),
     openGraph: {
-      title: `${country.name} SWIFT/BIC Codes — ${country.bankCount} Banks`,
-      description: `Find SWIFT/BIC codes for ${country.bankCount}+ banks in ${country.name}. Verified codes for international wire transfers.`,
+      title: `${country.name} SWIFT/BIC Codes — All ${country.bankCount} Banks`,
+      description: `Free SWIFT/BIC code lookup for ${country.bankCount} banks in ${country.name}. Verified codes with branch details for wire transfers.`,
       url: `https://sendmoneycompare.com/swift-codes/${slug}`,
     },
     robots: indexedSwiftCountries.has(slug) ? undefined : { index: false, follow: true },
@@ -295,6 +447,33 @@ export default async function SwiftCountryPage({ params }: Props) {
             </div>
           </Card>
 
+          {/* Popular money transfers */}
+          {swiftCorridors[slug] && (
+            <Card>
+              <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
+                Popular transfers
+              </h3>
+              <div className="space-y-2">
+                {swiftCorridors[slug].map((c) => (
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    className="flex items-center justify-between p-2.5 bg-[var(--color-surface-dim)] rounded-lg hover:bg-[var(--color-primary-surface)] transition-colors text-2sm text-[var(--color-on-surface)]"
+                  >
+                    {c.label}
+                    <span className="text-[var(--color-primary)]">&rarr;</span>
+                  </Link>
+                ))}
+              </div>
+              <Link
+                href="/send-money"
+                className="block mt-3 text-2sm text-[var(--color-primary)] hover:underline"
+              >
+                Compare all providers &rarr;
+              </Link>
+            </Card>
+          )}
+
           {/* IBAN cross-link */}
           <Card>
             <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
@@ -304,10 +483,10 @@ export default async function SwiftCountryPage({ params }: Props) {
               {t("ibanDescription", { country: country.name })}
             </p>
             <Link
-              href="/iban"
+              href={swiftToIbanSlug[slug] ? `/iban/${swiftToIbanSlug[slug]}` : "/iban"}
               className="text-2sm text-[var(--color-primary)] hover:underline"
             >
-              {t("findIbanFormats")} &rarr;
+              {swiftToIbanSlug[slug] ? `${country.name} IBAN format` : t("findIbanFormats")} &rarr;
             </Link>
           </Card>
         </div>

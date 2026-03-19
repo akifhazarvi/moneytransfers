@@ -41,7 +41,7 @@ const corridorEditorialNotes: Record<
   "uk-to-india": {
     title: "What matters on the UK to India corridor",
     summary:
-      "GBP to INR is one of the most competitive remittance routes in Europe, but the cheapest option still changes based on how you fund the transfer, how quickly the money needs to arrive, and which payout rail the provider uses in India.",
+      "According to SendMoneyCompare's real-time comparison of 15+ providers, GBP to INR is one of the most competitive remittance routes in Europe — but the cheapest option still changes based on how you fund the transfer, how quickly the money needs to arrive, and which payout rail the provider uses in India.",
     bullets: [
       "Bank transfer funding is usually the cheapest option from the UK. Debit card funding can be faster, but the extra card fee often wipes out the speed benefit on smaller transfers.",
       "For urgent transfers, providers connected to IMPS or UPI-linked bank rails can deliver within minutes. Traditional bank SWIFT wires rarely compete on either cost or speed.",
@@ -55,7 +55,7 @@ const corridorEditorialNotes: Record<
   "usa-to-india": {
     title: "What matters on the USA to India corridor",
     summary:
-      "USD to INR is the most competitive remittance corridor from the United States, with over a dozen providers fighting for market share. The sheer competition means savings vary significantly depending on transfer size, funding method, and how your recipient receives the money in India.",
+      "SendMoneyCompare data shows USD to INR is the most competitive remittance corridor from the United States, with over a dozen providers fighting for market share. The sheer competition means savings vary significantly depending on transfer size, funding method, and how your recipient receives the money in India.",
     bullets: [
       "Providers using IMPS or UPI-linked rails can deliver INR to Indian bank accounts within minutes. If your recipient banks with HDFC, SBI, or ICICI, most major providers support instant credit — always confirm the delivery method before sending.",
       "Exchange rate markup is where providers make their real margin. A provider advertising zero fees but marking up the mid-market rate by 1.5% costs more on a $1,000 transfer than one charging a $5 fee with a 0.3% markup. Always compare the total INR received, not just the fee.",
@@ -69,7 +69,7 @@ const corridorEditorialNotes: Record<
   "usa-to-pakistan": {
     title: "What matters on the USA to Pakistan corridor",
     summary:
-      "Sending USD to Pakistan involves navigating State Bank of Pakistan (SBP) regulations and a currency that can move sharply. Cash pickup remains important here because a significant portion of recipients prefer collecting money in person rather than through bank transfers.",
+      "Based on SendMoneyCompare's analysis of 10+ providers, sending USD to Pakistan involves navigating State Bank of Pakistan (SBP) regulations and a currency that can move sharply. Cash pickup remains important here because a significant portion of recipients prefer collecting money in person rather than through bank transfers.",
     bullets: [
       "JazzCash and Easypaisa mobile wallets have become major payout options in Pakistan. If your recipient uses either service, you can often get same-day delivery at lower cost than traditional bank deposit or cash pickup.",
       "PKR has experienced significant volatility in recent years. If you are sending a large amount, consider locking in the rate at the time of transfer rather than using providers that quote indicative rates and settle later.",
@@ -1243,27 +1243,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isCurr = corridor.isCurrencyCorridor;
 
   const isCountryPg = corridor.isCountryPage;
+  const year = new Date().getFullYear();
   const title = override?.title ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates & Low Fees`
+    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Compare Rates from 15+ Providers (${year})`
     : isCountryPg
-    ? `Send Money to ${corridor.toCountry} — Best ${corridor.toCurrency} Rates & Cheapest Providers`
-    : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates & Lowest Fees`);
+    ? `Send Money to ${corridor.toCountry} — Cheapest Providers & Best ${corridor.toCurrency} Rates (${year})`
+    : `Send Money ${corridor.fromCountry} to ${corridor.toCountry} — Compare ${corridor.fromCurrency} to ${corridor.toCurrency} Rates (${year})`);
   const description = override?.description ?? (isCurr
-    ? `Compare real-time ${corridor.fromCurrency} to ${corridor.toCurrency} exchange rates from 15+ providers. Find the cheapest way to convert ${corridor.fromCurrency} to ${corridor.toCurrency} with the lowest fees.`
+    ? `Compare real-time ${corridor.fromCurrency} to ${corridor.toCurrency} exchange rates from 15+ providers. Find the cheapest way to convert ${corridor.fromCurrency} to ${corridor.toCurrency} with the lowest fees and fastest delivery.`
     : isCountryPg
-    ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${corridor.toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
-    : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${corridor.fromCurrency} to ${corridor.toCurrency}). ${corridor.intro.slice(0, 120)}`);
+    ? `Compare 15+ providers to find the cheapest way to send money to ${corridor.toCountry} in ${year}. See live ${corridor.toCurrency} exchange rates, fees, delivery times, and recipient requirements — updated every 6 hours.`
+    : `Compare the cheapest ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} in ${year}. Live ${corridor.fromCurrency} to ${corridor.toCurrency} rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.`);
   const ogTitle = override?.ogTitle ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates`
+    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates (${year})`
     : isCountryPg
-    ? `Send Money to ${corridor.toCountry} — Best ${corridor.toCurrency} Rates`
-    : `Send Money from ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates`);
+    ? `Send Money to ${corridor.toCountry} — Best ${corridor.toCurrency} Rates (${year})`
+    : `Send Money ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates (${year})`);
   const ogDescription = override?.ogDescription ?? description;
   const keywords = override?.keywords ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency}, ${corridor.fromCurrency} ${corridor.toCurrency} exchange rate, convert ${corridor.fromCurrency} to ${corridor.toCurrency}, best ${corridor.fromCurrency} to ${corridor.toCurrency} rate`
+    ? `${corridor.fromCurrency} to ${corridor.toCurrency}, ${corridor.fromCurrency} ${corridor.toCurrency} exchange rate, convert ${corridor.fromCurrency} to ${corridor.toCurrency}, best ${corridor.fromCurrency} to ${corridor.toCurrency} rate, ${corridor.fromCurrency} ${corridor.toCurrency} today`
     : isCountryPg
-    ? `send money to ${corridor.toCountry}, cheapest way to send money to ${corridor.toCountry}, how to send money to ${corridor.toCountry}, ${corridor.toCurrency} exchange rate, best remittance to ${corridor.toCountry}, international money transfer ${corridor.toCountry}, ${corridor.toCountry} bank transfer, ${corridor.toCurrency} rate today, money transfer to ${corridor.toCountry} online`
-    : `send money ${corridor.fromCountry} to ${corridor.toCountry}, ${corridor.fromCurrency} to ${corridor.toCurrency}, cheapest way to send money to ${corridor.toCountry}, money transfer ${corridor.toCountry}, how to send money to ${corridor.toCountry}, ${corridor.toCountry} bank transfer, ${corridor.toCurrency} exchange rate, remittance to ${corridor.toCountry}`);
+    ? `send money to ${corridor.toCountry}, cheapest way to send money to ${corridor.toCountry}, how to send money to ${corridor.toCountry}, best way to send money to ${corridor.toCountry}, ${corridor.toCurrency} exchange rate, money transfer to ${corridor.toCountry}, transfer money to ${corridor.toCountry}, ${corridor.toCountry} remittance, ${corridor.toCurrency} rate today`
+    : `send money ${corridor.fromCountry} to ${corridor.toCountry}, ${corridor.fromCurrency} to ${corridor.toCurrency}, cheapest way to send money to ${corridor.toCountry}, best way to send money from ${corridor.fromCountry} to ${corridor.toCountry}, money transfer ${corridor.toCountry}, ${corridor.toCurrency} exchange rate, transfer money to ${corridor.toCountry}`);
 
   return {
     title,
@@ -1283,6 +1284,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function getCurrencySymbol(code: string): string {
   return currencies.find((c) => c.code === code)?.symbol || code;
+}
+
+const countryToSwiftSlug: Record<string, string> = {
+  "India": "india", "Pakistan": "pakistan", "Bangladesh": "bangladesh",
+  "Philippines": "philippines", "Nigeria": "nigeria", "Kenya": "kenya",
+  "Ghana": "ghana", "Nepal": "nepal", "Sri Lanka": "sri-lanka",
+  "Mexico": "mexico", "Brazil": "brazil", "Colombia": "colombia",
+  "Peru": "peru", "United States": "united-states", "United Kingdom": "united-kingdom",
+  "Canada": "canada", "Australia": "australia", "New Zealand": "new-zealand",
+  "Singapore": "singapore", "UAE": "united-arab-emirates", "Germany": "germany",
+  "France": "france", "Japan": "japan", "South Korea": "south-korea",
+  "Thailand": "thailand", "Indonesia": "indonesia", "Malaysia": "malaysia",
+  "Egypt": "egypt", "Morocco": "morocco", "Turkey": "turkiye",
+  "South Africa": "south-africa", "China": "china", "Hong Kong": "hong-kong",
+};
+
+const countryToIbanSlug: Record<string, string> = {
+  "United Kingdom": "united-kingdom", "Germany": "germany", "France": "france",
+  "Netherlands": "netherlands", "Spain": "spain", "Italy": "italy",
+  "Belgium": "belgium", "Austria": "austria", "Ireland": "ireland",
+  "Portugal": "portugal", "Sweden": "sweden", "Denmark": "denmark",
+  "Norway": "norway", "Switzerland": "switzerland", "Poland": "poland",
+  "Pakistan": "pakistan", "Turkey": "turkey", "Romania": "romania",
+  "Hungary": "hungary", "Croatia": "croatia", "Greece": "greece",
+  "UAE": "united-arab-emirates", "Saudi Arabia": "saudi-arabia",
+  "Egypt": "egypt", "Jordan": "jordan", "Brazil": "brazil",
+  "Georgia": "georgia", "Ukraine": "ukraine", "Israel": "israel",
+};
+
+function swiftSlugForCountry(country: string): string | undefined {
+  return countryToSwiftSlug[country];
+}
+
+function ibanSlugForCountry(country: string): string | undefined {
+  return countryToIbanSlug[country];
 }
 
 // ── Page ──
@@ -1417,6 +1453,13 @@ export default async function CorridorPage({ params }: Props) {
       {/* ─── Introduction ─── */}
       <section className="bg-[var(--color-surface)] pb-8">
         <Container>
+          <div className="max-w-3xl">
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
+              By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">Akif Hazarvi</Link>
+              {" · "}Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+              {" · "}Data refreshed every 6 hours
+            </p>
+          </div>
           <div className="max-w-3xl text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
             <p>{corridor.intro}</p>
             {corridor.highlights && corridor.highlights.length > 0 ? (
@@ -1452,7 +1495,7 @@ export default async function CorridorPage({ params }: Props) {
       <section className="py-10">
         <Container>
           <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-            Compare providers: {fromCurrency} to {toCurrency}
+            What is the cheapest way to send {fromCurrency} to {toCurrency}?
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-2">
             Sending {sendSymbol}{sampleAmount.toLocaleString()} from {headingFrom} to {headingTo}. Sorted by best value — most money received.
@@ -1462,7 +1505,7 @@ export default async function CorridorPage({ params }: Props) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
             </span>
-            Data updated every 6 hours from live provider quotes
+            Source: SendMoneyCompare · Data updated every 6 hours from live provider APIs
           </p>
 
           {quotes.length > 0 ? (
@@ -1574,7 +1617,7 @@ export default async function CorridorPage({ params }: Props) {
         <section className="py-10 bg-[var(--color-surface-dim)]">
           <Container>
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
-              Best provider for {fromCurrency} to {toCurrency} right now
+              Which provider offers the best {fromCurrency} to {toCurrency} rate?
             </h2>
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-6 max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
@@ -1709,7 +1752,7 @@ export default async function CorridorPage({ params }: Props) {
           <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
             <Container>
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-                Best provider for each transfer type
+                Which provider is best for each transfer type?
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 Different providers excel at different things. Here&apos;s who&apos;s best for each use case on the {headingFrom} to {headingTo} route.
@@ -1886,7 +1929,7 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
-              {isCurrencyCorridor ? `Fees for ${fromCurrency} to ${toCurrency} transfers` : `Fees for sending money from ${corridor.fromCountry} to ${corridor.toCountry}`}
+              {isCurrencyCorridor ? `How much does it cost to convert ${fromCurrency} to ${toCurrency}?` : `How much does it cost to send money from ${corridor.fromCountry} to ${corridor.toCountry}?`}
             </h2>
             <div className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
               <p>{corridor.feesNote}</p>
@@ -1993,7 +2036,7 @@ export default async function CorridorPage({ params }: Props) {
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-              How to receive money in {corridor.toCountry}
+              How can my recipient receive money in {corridor.toCountry}?
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
               Your recipient in {corridor.toCountry} can receive money through these delivery methods. The best option depends on their location and preferences.
@@ -2052,7 +2095,7 @@ export default async function CorridorPage({ params }: Props) {
           <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
             <Container>
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-                Bank transfer rates: {fromCurrency} to {toCurrency}
+                How do bank rates compare for {fromCurrency} to {toCurrency}?
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 How do traditional banks and brokers compare for a {sendSymbol}{sampleAmount.toLocaleString()} {fromCurrency} to {toCurrency} transfer?
@@ -2195,7 +2238,7 @@ export default async function CorridorPage({ params }: Props) {
           <Container>
             <div className="max-w-3xl">
               <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
-                Transfer limits &amp; regulations for {corridor.toCountry}
+                What are the transfer limits and regulations for {corridor.toCountry}?
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
                 Important rules and requirements to know before sending money to {corridor.toCountry}.
@@ -2346,7 +2389,7 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">
-              Frequently asked questions: {headingFrom} to {headingTo} transfers
+              Common questions about sending money from {headingFrom} to {headingTo}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {corridor.faqs.map((faq) => (
@@ -2478,6 +2521,17 @@ export default async function CorridorPage({ params }: Props) {
               { href: "/compare", label: "Head-to-head provider comparisons" },
               { href: "/business", label: "Business international payments" },
             ],
+          },
+          {
+            title: "Banking tools",
+            links: [
+              { href: `/swift-codes/${swiftSlugForCountry(corridor.toCountry)}`, label: `${corridor.toCountry} SWIFT/BIC codes` },
+              ...(ibanSlugForCountry(corridor.toCountry) ? [{ href: `/iban/${ibanSlugForCountry(corridor.toCountry)}`, label: `${corridor.toCountry} IBAN format` }] : []),
+              { href: "/swift-codes", label: "SWIFT code lookup" },
+              { href: "/iban", label: "IBAN number checker" },
+              { href: "/guides/swift-codes-explained", label: "SWIFT codes explained" },
+              { href: "/guides/iban-numbers-explained", label: "IBAN numbers explained" },
+            ].filter((l) => !l.href.includes("undefined")),
           },
         ]}
       />

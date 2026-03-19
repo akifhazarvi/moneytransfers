@@ -146,6 +146,10 @@
     "usaToColombia": "EE.UU. a Colombia",
     "wiseReview": "Reseña de Wise",
     "remitlyReview": "Reseña de Remitly",
+    "westernUnionReview": "Reseña de Western Union",
+    "worldremitReview": "Reseña de WorldRemit",
+    "xoomReview": "Reseña de Xoom",
+    "revolutReview": "Reseña de Revolut",
     "ofxReview": "Reseña de OFX",
     "xeReview": "Reseña de Xe",
     "aboutLink": "Acerca de",
@@ -441,8 +445,8 @@
     "subheading": "Convierte divisas con tasas de cambio interbancarias en vivo. Ve tasas en tiempo real para más de 150 divisas."
   },
   "exchangeRates": {
-    "metaTitle": "Tasas de Cambio de Hoy — Base USD | Tasas Interbancarias en Vivo",
-    "metaDescription": "Ve las tasas de cambio en vivo de hoy para todas las divisas principales. Compara tasas interbancarias y entiende cómo las tasas de cambio afectan tus transferencias.",
+    "metaTitle": "Tasas de Cambio Hoy — Tasas Interbancarias en Vivo para 150+ Divisas",
+    "metaDescription": "Tasas de cambio en vivo actualizadas cada 60 segundos de 4 fuentes independientes. Compara tasas interbancarias para USD, EUR, GBP, INR y más de 150 divisas.",
     "metaKeywords": "tasas de cambio en vivo, tasas de cambio hoy, tasas de divisas, tasas forex, USD a INR, GBP a USD, tasa interbancaria",
     "title": "Tasas de Cambio de Hoy — Base USD",
     "compareTransferRates": "Comparar Tasas de Transferencia",
@@ -450,7 +454,20 @@
     "midMarketVsTransferRate": "Tasa Interbancaria vs. Tasa de Transferencia",
     "howWeCalculateTheseRates": "Cómo Calculamos Estas Tasas",
     "faqTitle": "Preguntas frecuentes",
-    "disclaimer": "Las tasas de cambio mostradas son tasas interbancarias y son solo para fines informativos. Las tasas reales ofrecidas por los proveedores serán diferentes."
+    "disclaimer": "Las tasas de cambio mostradas son tasas interbancarias y son solo para fines informativos. Las tasas reales ofrecidas por los proveedores serán diferentes.",
+    "todaysRatesHeading": "Tasas de Cambio de Hoy",
+    "todaysRatesDesc": "Tasas de cambio interbancarias para 1 USD. Actualizado en tiempo de compilación desde múltiples fuentes independientes.",
+    "colCurrency": "Divisa",
+    "colCode": "Código",
+    "colRate": "1 USD =",
+    "ssrTableNote": "El tablero en vivo se actualiza cada 60 segundos con datos en tiempo real de 4 fuentes independientes. Esta tabla muestra la última instantánea del servidor.",
+    "compareTransferRatesDesc": "La tasa interbancaria es la más justa, pero los proveedores agregan márgenes. Compara tasas reales de más de 60 servicios en estos corredores populares.",
+    "midMarketVsTransferRateDesc": "La tasa interbancaria que ves en esta página es la tasa de cambio \"real\" — el punto medio entre los precios de compra y venta en los mercados de divisas. Cuando envías dinero internacionalmente, los proveedores agregan un margen a esta tasa. Ese margen es su beneficio, y puede variar mucho entre servicios. Siempre compara la tasa que ofrece un proveedor con la tasa interbancaria para ver el costo real.",
+    "howWeCalculateTheseRatesDesc": "Agregamos datos de tasas de cambio de 4 fuentes independientes en tiempo real y tomamos el valor mediano. Este enfoque elimina valores atípicos y proporciona una tasa más fiable. Las tasas se actualizan cada 60 segundos mientras estás en esta página. Los spreads de compra/venta mostrados son simulados basados en márgenes bancarios típicos para cada divisa.",
+    "popularExchangeRates": "Tasas de Cambio Populares",
+    "popularExchangeRatesDesc": "Páginas de tasas detalladas con tablas de conversión, comparaciones de proveedores y análisis experto para los pares de divisas más populares.",
+    "faqHeading": "Preguntas Frecuentes",
+    "disclaimerFull": "Las tasas de cambio mostradas son tasas interbancarias agregadas de múltiples fuentes independientes solo con fines informativos. Las tasas reales ofrecidas por proveedores de transferencia, bancos y servicios de cambio serán diferentes. Estas tasas no constituyen asesoramiento financiero. Actualizado en tiempo real desde 4 fuentes de datos independientes."
   },
   "iban": {
     "metaTitle": "Códigos IBAN por País — Formatos, Ejemplos y Validación",

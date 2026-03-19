@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
-    author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}` },
+    author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}`, image: "https://sendmoneycompare.com/images/authors/akif-hazarvi.jpeg" },
     mainEntityOfPage: `https://sendmoneycompare.com/guides/${slug}`,
     publisher: {
       "@type": "Organization",
@@ -93,6 +93,22 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {post.faqs && post.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: post.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.question,
+                acceptedAnswer: { "@type": "Answer", text: f.answer },
+              })),
+            }),
+          }}
+        />
+      )}
 
       {/* ── Article Hero ── */}
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
@@ -122,9 +138,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Author row */}
             <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-[var(--color-outline)]">
               <Link href="/about/akif-hazarvi" className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
-                <div className="w-8 h-8 rounded-full bg-[var(--color-primary-surface)] border border-[var(--color-primary-light)] flex items-center justify-center text-2xs font-bold text-[var(--color-primary)]">
-                  {post.author.split(" ").map(n => n[0]).join("").slice(0, 2)}
-                </div>
+                <Image src="/images/authors/akif-hazarvi.jpeg" alt={post.author} width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
                 {post.author}
               </Link>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />

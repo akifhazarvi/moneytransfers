@@ -117,7 +117,7 @@ function ArticleComparison({
             "@type": "Article",
             headline: article.title,
             description: article.metaDescription,
-            datePublished: "2026-03-01",
+            datePublished: article.updatedAt,
             dateModified: article.updatedAt,
             author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
             publisher: {
@@ -155,7 +155,23 @@ function ArticleComparison({
           }}
         />
       ))}
-      {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
+      {/* FAQPage — still useful for AI/LLM citation discovery even though Google restricts rich results */}
+      {article.faqs && article.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: article.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }),
+          }}
+        />
+      )}
       {/* JSON-LD: BreadcrumbList */}
       <script
         type="application/ld+json"

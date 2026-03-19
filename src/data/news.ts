@@ -16,9 +16,9 @@ export const newsItems: NewsItem[] = [
   {
     slug: "central-bank-super-week-march-2026",
     title:
-      "Central Bank Rate Decisions This Week (March 17–19, 2026) — RBA Today, Fed, BoJ & BoE",
+      "Central Bank Rate Decisions This Week (March 17–19, 2026) — Fed, BoJ, BoE & RBA",
     excerpt:
-      "Four central banks announce interest rate decisions between March 17 and 19. The RBA statement is out today. Here's what each decision could mean for exchange rates and the cost of sending money abroad.",
+      "Fed holds at 3.5%, BoJ could hike, BoE expected to hold, RBA signals caution. How each March 17–19 decision affects exchange rates and what it means if you're sending money abroad this week.",
     image: "/images/news/central-bank-super-week.jpg",
     imageAlt:
       "The Federal Reserve building in Washington D.C., one of four central banks announcing rate decisions this week",
@@ -84,9 +84,9 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "revolut-files-us-bank-charter-2026",
-    title: "Revolut Bets Big on America with National Bank Charter Filing",
+    title: "Revolut News March 2026: Files for US National Bank Charter, Pledges $500M",
     excerpt:
-      "The London-based fintech giant has filed for a US national bank charter and pledged $500 million in domestic investment, signalling its most aggressive push into American finance yet.",
+      "Revolut files for a US national bank charter with the OCC and FDIC in March 2026, pledging $500M in domestic investment. What this means for Revolut's 50M+ customers and US money transfers.",
     image: "/images/news/revolut-us-charter.jpg",
     imageAlt: "The US Capitol building illuminated at night, representing Revolut's push into American finance",
     content: `<p>Revolut, the UK-headquartered fintech with over 50 million global customers, is making its boldest move yet in the American market. In early March the company filed applications with both the Office of the Comptroller of the Currency (OCC) and the Federal Deposit Insurance Corporation (FDIC) to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
@@ -167,9 +167,9 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "eu-instant-payments-mandate-2026",
-    title: "EU Mandates Instant Euro Transfers Around the Clock — What Changes for Senders",
+    title: "SEPA Instant Payments 2026: EU Mandates Free 10-Second Euro Transfers 24/7",
     excerpt:
-      "New European regulations require all payment providers to process euro transfers in under 10 seconds, 24/7, with mandatory payee verification to combat fraud.",
+      "New 2026 EU regulations mandate all banks to process SEPA instant euro transfers in under 10 seconds, 24/7, at no extra fee. Here's what changes for cross-border senders in Germany, France, and beyond.",
     image: "/images/news/eu-instant-payments.jpg",
     imageAlt: "The European Parliament building in Strasbourg, France, where EU instant payment regulations were shaped",
     content: `<p>A sweeping set of regulations taking effect across the European Union in 2026 is fundamentally changing how euro-denominated transfers work. Under the new Instant Payments Regulation, every bank and payment service provider in the EU must support real-time euro credit transfers — available 24 hours a day, 365 days a year, with funds arriving in the recipient's account within 10 seconds.</p>

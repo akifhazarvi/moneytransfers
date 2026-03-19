@@ -7,6 +7,8 @@ export interface Author {
   name: string;
   role: string;
   initials: string;
+  /** Path to author photo in /public, e.g. "/images/authors/akif-hazarvi.jpeg" */
+  photo?: string;
   bio: string;
   expertise: string[];
   credentials: string[];
@@ -22,6 +24,7 @@ export const authors: Author[] = [
     name: "Akif Hazarvi",
     role: "Founder & Editor",
     initials: "AH",
+    photo: "/images/authors/akif-hazarvi.jpeg",
     bio: `Akif Hazarvi is the founder and editor of SendMoneyCompare, an independent comparison platform for international money transfers. With over 8 years of experience in fintech and cross-border payments, Akif has worked on payment products processing millions in monthly transaction volume at leading financial technology companies.
 
 His experience spans product management, regulatory compliance, and payment infrastructure across the UK, US, and South Asian markets. This firsthand industry experience informs SendMoneyCompare's methodology: every provider ranking is based on real transfer data collected from provider APIs and websites every 6 hours, with no sponsored placements or paid rankings.

@@ -45,6 +45,10 @@ export default function Footer() {
       links: [
         { href: "/companies/wise", labelKey: "wiseReview" },
         { href: "/companies/remitly", labelKey: "remitlyReview" },
+        { href: "/companies/western-union", labelKey: "westernUnionReview" },
+        { href: "/companies/worldremit", labelKey: "worldremitReview" },
+        { href: "/companies/xoom", labelKey: "xoomReview" },
+        { href: "/companies/revolut", labelKey: "revolutReview" },
         { href: "/companies/ofx", labelKey: "ofxReview" },
         { href: "/companies/xe", labelKey: "xeReview" },
       ],
@@ -76,6 +80,19 @@ export default function Footer() {
     },
   ];
 
+  // Popular comparisons — static, driven by GSC demand
+  const comparisonsSection: { title: string; links: StaticLink[] } = {
+    title: "Popular Comparisons",
+    links: [
+      { href: "/compare/wise-vs-remitly", label: "Wise vs Remitly" },
+      { href: "/compare/wise-vs-western-union", label: "Wise vs Western Union" },
+      { href: "/compare/wise-vs-paypal", label: "Wise vs PayPal" },
+      { href: "/compare/wise-vs-xe", label: "Wise vs Xe" },
+      { href: "/compare/remitly-vs-western-union", label: "Remitly vs Western Union" },
+      { href: "/compare/remitly-vs-xe", label: "Remitly vs Xe" },
+    ],
+  };
+
   // Static "Send Money To" section — no translation keys needed
   const sendMoneyToSection: { title: string; links: StaticLink[] } = {
     title: "Send Money To",
@@ -101,6 +118,15 @@ export default function Footer() {
       { href: "/send-money/send-money-to-vietnam", label: "Send Money to Vietnam" },
       { href: "/send-money/send-money-to-indonesia", label: "Send Money to Indonesia" },
       { href: "/send-money/send-money-to-sri-lanka", label: "Send Money to Sri Lanka" },
+      { href: "/send-money/send-money-to-morocco", label: "Send Money to Morocco" },
+      { href: "/send-money/send-money-to-thailand", label: "Send Money to Thailand" },
+      { href: "/send-money/send-money-to-romania", label: "Send Money to Romania" },
+      { href: "/send-money/send-money-to-turkey", label: "Send Money to Turkey" },
+      { href: "/send-money/send-money-to-jamaica", label: "Send Money to Jamaica" },
+      { href: "/send-money/send-money-to-japan", label: "Send Money to Japan" },
+      { href: "/send-money/send-money-to-south-africa", label: "Send Money to South Africa" },
+      { href: "/send-money/send-money-to-peru", label: "Send Money to Peru" },
+      { href: "/send-money/send-money-to-fiji", label: "Send Money to Fiji" },
     ],
   };
 
@@ -137,6 +163,25 @@ export default function Footer() {
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {sendMoneyToSection.links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Popular Comparisons row */}
+        <div className="border-t border-[var(--color-outline)] pt-8 mb-8">
+          <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
+            {comparisonsSection.title}
+          </p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {comparisonsSection.links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

@@ -10,9 +10,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   return {
     title:
-      "International Business Payments — Compare 4 Best Providers (2026)",
+      "International Business Payments — Compare the 4 Cheapest Providers (2026)",
     description:
-      "Compare the cheapest ways to make international business payments in 2026. Side-by-side comparison of Wise Business, OFX, Revolut, and XE for small business international payments, bulk transfers, vendor payouts, and B2B FX. Save 80–95% vs bank wires.",
+      "Compare the cheapest ways to make international business payments in 2026. Wise Business, OFX, Revolut & XE save 80–95% vs bank wires. Compare fees, FX rates & speeds for SME payments, bulk transfers, vendor payouts & B2B transfers.",
+    keywords:
+      "international business payments, small business international payments, business international payments, business money transfer, business fx payments, bulk international payments, international vendor payments, B2B international money transfer, international payments for business, business bank transfer abroad",
     alternates: getAlternates("business", locale),
     openGraph: {
       title:

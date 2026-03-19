@@ -146,6 +146,10 @@
     "usaToColombia": "USA vers Colombie",
     "wiseReview": "Avis Wise",
     "remitlyReview": "Avis Remitly",
+    "westernUnionReview": "Avis Western Union",
+    "worldremitReview": "Avis WorldRemit",
+    "xoomReview": "Avis Xoom",
+    "revolutReview": "Avis Revolut",
     "ofxReview": "Avis OFX",
     "xeReview": "Avis Xe",
     "aboutLink": "À propos",
@@ -441,8 +445,8 @@
     "subheading": "Convertissez les devises avec les taux de change interbancaires en direct. Consultez les taux en temps réel pour plus de 150 devises."
   },
   "exchangeRates": {
-    "metaTitle": "Taux de Change du Jour — Base USD | Taux Interbancaires en Direct",
-    "metaDescription": "Consultez les taux de change en direct du jour pour toutes les principales devises. Comparez les taux interbancaires et comprenez comment les taux de change affectent vos transferts.",
+    "metaTitle": "Taux de Change Aujourd'hui — Taux Interbancaires en Direct pour 150+ Devises",
+    "metaDescription": "Taux de change en direct mis à jour toutes les 60 secondes depuis 4 sources indépendantes. Comparez les taux interbancaires pour USD, EUR, GBP, INR et plus de 150 devises.",
     "metaKeywords": "taux de change en direct, taux de change aujourd'hui, taux de devises, taux forex, USD vers INR, GBP vers USD, taux interbancaire",
     "title": "Taux de Change du Jour — Base USD",
     "compareTransferRates": "Comparer les Taux de Transfert",
@@ -450,7 +454,20 @@
     "midMarketVsTransferRate": "Taux Interbancaire vs. Taux de Transfert",
     "howWeCalculateTheseRates": "Comment Nous Calculons Ces Taux",
     "faqTitle": "Questions fréquemment posées",
-    "disclaimer": "Les taux de change affichés sont des taux interbancaires et sont fournis à titre informatif uniquement. Les taux réels proposés par les prestataires seront différents."
+    "disclaimer": "Les taux de change affichés sont des taux interbancaires et sont fournis à titre informatif uniquement. Les taux réels proposés par les prestataires seront différents.",
+    "todaysRatesHeading": "Taux de Change du Jour",
+    "todaysRatesDesc": "Taux de change interbancaires pour 1 USD. Mis à jour au moment de la compilation depuis plusieurs sources indépendantes.",
+    "colCurrency": "Devise",
+    "colCode": "Code",
+    "colRate": "1 USD =",
+    "ssrTableNote": "Le tableau en direct se met à jour toutes les 60 secondes avec des données en temps réel de 4 sources indépendantes. Ce tableau montre le dernier instantané du serveur.",
+    "compareTransferRatesDesc": "Le taux interbancaire est le plus juste, mais les prestataires ajoutent des marges. Comparez les taux réels de plus de 60 services sur ces corridors populaires.",
+    "midMarketVsTransferRateDesc": "Le taux interbancaire que vous voyez sur cette page est le taux de change « réel » — le point médian entre les prix d'achat et de vente sur les marchés des changes. Lorsque vous envoyez de l'argent à l'étranger, les prestataires ajoutent une marge à ce taux. Cette marge est leur profit, et elle peut varier considérablement d'un service à l'autre. Comparez toujours le taux proposé par un prestataire avec le taux interbancaire pour voir le vrai coût.",
+    "howWeCalculateTheseRatesDesc": "Nous agrégeons les données de taux de change de 4 sources indépendantes en temps réel et prenons la valeur médiane. Cette approche élimine les valeurs aberrantes et fournit un taux plus fiable. Les taux se rafraîchissent toutes les 60 secondes. Les spreads achat/vente affichés sont simulés sur la base des marges bancaires typiques pour chaque devise.",
+    "popularExchangeRates": "Taux de Change Populaires",
+    "popularExchangeRatesDesc": "Pages de taux détaillées avec tableaux de conversion, comparaisons de prestataires et analyses d'experts pour les paires de devises les plus populaires.",
+    "faqHeading": "Questions Fréquemment Posées",
+    "disclaimerFull": "Les taux de change affichés sont des taux interbancaires agrégés de plusieurs sources indépendantes à titre informatif uniquement. Les taux réels proposés par les prestataires de transfert, banques et services de change seront différents. Ces taux ne constituent pas des conseils financiers. Mis à jour en temps réel depuis 4 sources de données indépendantes."
   },
   "iban": {
     "metaTitle": "Codes IBAN par Pays — Formats, Exemples et Validation",

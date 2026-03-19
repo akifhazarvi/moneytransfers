@@ -449,7 +449,7 @@ function DetailedReview({
           "@id": "https://sendmoneycompare.com/#organization",
           logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
         },
-        datePublished: "2026-03-01",
+        datePublished: review.updatedAt,
         dateModified: review.updatedAt,
         reviewBody: review.editorVerdict,
       }) }} />

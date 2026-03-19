@@ -62,13 +62,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!country) return {};
   const name = getCountryName(country.countryCode, slug);
   return {
-    title: `${name} IBAN Format — Structure & Example`,
-    description: `Learn the IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}. See the IBAN structure, BBAN breakdown, example IBAN, and list of ${country.banks.length > 0 ? country.banks.length + " " : ""}major banks.`,
-    keywords: `${name} IBAN, ${country.countryCode} IBAN format, ${name} bank code, IBAN ${country.countryCode}, ${name} BBAN, ${country.currency}`,
+    title: `${name} IBAN — ${country.ibanLength}-Character Format, Example & Banks (2026)`,
+    description: `${name} IBAN format: ${country.ibanLength} characters starting with ${country.countryCode}${country.sepa ? ", SEPA member" : ""}. See real IBAN examples, BBAN structure breakdown${country.banks.length > 0 ? `, and ${country.banks.length} major banks` : ""}. Free lookup for ${country.currency} transfers.`,
+    keywords: `${name} IBAN, IBAN ${name}, ${country.countryCode} IBAN format, ${name} IBAN number, IBAN ${country.countryCode}, ${name} IBAN example, ${name} bank code, ${name} BBAN, ${country.currency} IBAN`,
     alternates: getAlternates(`iban/${slug}`, locale),
     openGraph: {
-      title: `${name} IBAN Format — Code, Structure & Banks`,
-      description: `IBAN format for ${name}: ${country.ibanLength} characters, ${country.currency} currency${country.sepa ? ", SEPA member" : ""}.`,
+      title: `${name} IBAN — ${country.ibanLength}-Char Format & Example`,
+      description: `${name} IBAN: ${country.ibanLength} characters, ${country.countryCode} prefix${country.sepa ? ", SEPA member" : ""}. Real examples, structure breakdown, and bank codes.`,
       url: `https://sendmoneycompare.com/iban/${slug}`,
     },
     robots: indexedIbanCountries.has(slug) ? undefined : { index: false, follow: true },
@@ -84,36 +84,129 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "UK to India transfers", href: "/send-money/uk-to-india" },
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
+    { label: "UK to Bangladesh transfers", href: "/send-money/uk-to-bangladesh" },
   ],
   "germany": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+    { label: "Europe to India transfers", href: "/send-money/europe-to-india" },
   ],
   "france": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+    { label: "Europe to India transfers", href: "/send-money/europe-to-india" },
   ],
   "netherlands": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "denmark": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "spain": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "italy": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "belgium": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "austria": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "ireland": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "portugal": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "sweden": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "switzerland": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "poland": [
+    { label: "Send money to Poland", href: "/send-money/send-money-to-poland" },
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "norway": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "pakistan": [
     { label: "USA to Pakistan transfers", href: "/send-money/usa-to-pakistan" },
     { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
+    { label: "UAE to Pakistan transfers", href: "/send-money/uae-to-pakistan" },
+    { label: "Send money to Pakistan", href: "/send-money/send-money-to-pakistan" },
+  ],
+  "turkey": [
+    { label: "Send money to Turkey", href: "/send-money/send-money-to-turkey" },
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "romania": [
+    { label: "Send money to Romania", href: "/send-money/send-money-to-romania" },
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "hungary": [
+    { label: "Send money to Hungary", href: "/send-money/send-money-to-hungary" },
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "croatia": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+  ],
+  "greece": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "united-arab-emirates": [
-    { label: "UK to UAE transfers", href: "/send-money/uk-to-uae" },
     { label: "USA to UAE transfers", href: "/send-money/usa-to-uae" },
+    { label: "UK to UAE transfers", href: "/send-money/uk-to-uae" },
+    { label: "UAE to India transfers", href: "/send-money/uae-to-india" },
+    { label: "UAE to Pakistan transfers", href: "/send-money/uae-to-pakistan" },
+  ],
+  "saudi-arabia": [
+    { label: "Saudi to India transfers", href: "/send-money/saudi-arabia-to-india" },
+    { label: "Saudi to Pakistan transfers", href: "/send-money/saudi-arabia-to-pakistan" },
+    { label: "Saudi to Philippines transfers", href: "/send-money/saudi-arabia-to-philippines" },
+  ],
+  "qatar": [
+    { label: "Send money from Qatar", href: "/send-money/send-money-to-qatar" },
+  ],
+  "kuwait": [
+    { label: "Send money from Kuwait", href: "/send-money/send-money-to-kuwait" },
+  ],
+  "jordan": [
+    { label: "Send money to Jordan", href: "/send-money/send-money-to-jordan" },
+  ],
+  "egypt": [
+    { label: "Send money to Egypt", href: "/send-money/send-money-to-egypt" },
+    { label: "UAE to Egypt transfers", href: "/send-money/uae-to-egypt" },
+  ],
+  "brazil": [
+    { label: "Send money to Brazil", href: "/send-money/send-money-to-brazil" },
+    { label: "USA to Brazil transfers", href: "/send-money/usa-to-brazil" },
+  ],
+  "ukraine": [
+    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "georgia": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+  ],
+  "israel": [
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
 };
 
@@ -567,6 +660,22 @@ export default async function IbanCountryPage({ params }: Props) {
         </PrimaryButton>
       </div>
     </Container>
+
+    {/* BreadcrumbList JSON-LD */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+            { "@type": "ListItem", position: 2, name: "IBAN", item: "https://sendmoneycompare.com/iban" },
+            { "@type": "ListItem", position: 3, name: `${name} IBAN`, item: `https://sendmoneycompare.com/iban/${slug}` },
+          ],
+        }),
+      }}
+    />
 
     {/* FAQ JSON-LD Schema */}
     {(() => {

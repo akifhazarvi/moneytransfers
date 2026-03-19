@@ -108,36 +108,52 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...withLocales("compare", DATA_UPDATED),
     ...withLocales("currency-converter", DATA_UPDATED),
     ...withLocales("guides", LAST_DEPLOY),
+    ...withLocales("iban", LAST_DEPLOY),
+    ...withLocales("swift-codes", LAST_DEPLOY),
+    ...withLocales("exchange-rates", DATA_UPDATED),
+    ...withLocales("business", LAST_DEPLOY),
+    ...withLocales("news", LAST_DEPLOY),
     ...withLocales("about", LAST_DEPLOY),
     ...withLocales("contact", LAST_DEPLOY),
   ];
 
-  const corridorPages: MetadataRoute.Sitemap = allCorridors
-    .filter((c) => shouldIncludeInSitemap(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
-    .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
+  const indexedCorridors = allCorridors
+    .filter((c) => shouldIncludeInSitemap(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage));
+  const corridorPages: MetadataRoute.Sitemap = [
+    ...indexedCorridors.map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED)),
+    ...indexedCorridors.flatMap((c) => withLocales(`send-money/${c.slug}`, DATA_UPDATED)),
+  ];
 
   // Only include providers that have editorial reviews (others are noindexed)
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));
+  const reviewDateMap = new Map(providerReviews.map((r) => [r.slug, r.updatedAt || DATA_UPDATED]));
   const providerPages: MetadataRoute.Sitemap = providers
     .filter((p) => reviewedSlugs.has(p.slug))
-    .map((p) => entry(`companies/${p.slug}`, DATA_UPDATED));
+    .flatMap((p) => {
+      const lastmod = reviewDateMap.get(p.slug) || DATA_UPDATED;
+      return [entry(`companies/${p.slug}`, lastmod), ...withLocales(`companies/${p.slug}`, lastmod)];
+    });
 
   const comparisonPages: MetadataRoute.Sitemap = [];
   for (let i = 0; i < providers.length; i++) {
     for (let j = i + 1; j < providers.length; j++) {
-      comparisonPages.push(
-        entry(`compare/${providers[i].slug}-vs-${providers[j].slug}`, DATA_UPDATED)
-      );
+      const slug = `compare/${providers[i].slug}-vs-${providers[j].slug}`;
+      comparisonPages.push(entry(slug, DATA_UPDATED));
+      comparisonPages.push(...withLocales(slug, DATA_UPDATED));
     }
   }
 
-  const guidePages: MetadataRoute.Sitemap = blogPosts.map((post) =>
-    entry(`guides/${post.slug}`, post.updatedAt)
-  );
+  const guidePages: MetadataRoute.Sitemap = blogPosts.flatMap((post) => [
+    entry(`guides/${post.slug}`, post.updatedAt),
+    ...withLocales(`guides/${post.slug}`, post.updatedAt),
+  ]);
 
   const newsPages: MetadataRoute.Sitemap = [
     entry("news", LAST_DEPLOY),
-    ...newsItems.map((item) => entry(`news/${item.slug}`, item.publishedAt)),
+    ...newsItems.flatMap((item) => [
+      entry(`news/${item.slug}`, item.publishedAt),
+      ...withLocales(`news/${item.slug}`, item.publishedAt),
+    ]),
   ];
 
   const EXCHANGE_RATE_PAIRS = [
@@ -157,15 +173,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
     .filter((c) => c.slug && INDEXED_IBAN_SLUGS.has(c.slug))
-    .map((c) => entry(`iban/${c.slug}`, LAST_DEPLOY));
+    .flatMap((c) => [entry(`iban/${c.slug}`, LAST_DEPLOY), ...withLocales(`iban/${c.slug}`, LAST_DEPLOY)]);
 
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
     .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
-    .map((c) => entry(`swift-codes/${c.slug}`, LAST_DEPLOY));
+    .flatMap((c) => [entry(`swift-codes/${c.slug}`, LAST_DEPLOY), ...withLocales(`swift-codes/${c.slug}`, LAST_DEPLOY)]);
 
   const businessHubPages: MetadataRoute.Sitemap = [
     entry("business", LAST_DEPLOY),
-    ...businessPages.map((p) => entry(`business/${p.slug}`, LAST_DEPLOY)),
+    ...businessPages.flatMap((p) => [entry(`business/${p.slug}`, LAST_DEPLOY), ...withLocales(`business/${p.slug}`, LAST_DEPLOY)]),
   ];
 
   const authorPages: MetadataRoute.Sitemap = authors.map((author) =>

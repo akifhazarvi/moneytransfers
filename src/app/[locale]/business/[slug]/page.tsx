@@ -90,8 +90,8 @@ export default async function BusinessSubPage({ params }: Props) {
       url: "https://sendmoneycompare.com",
       logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
     },
-    datePublished: "2026-03-01",
-    dateModified: "2026-03-18",
+    datePublished: "2026-02-15",
+    dateModified: new Date().toISOString().split("T")[0],
     mainEntityOfPage: `https://sendmoneycompare.com/business/${slug}`,
   };
 
