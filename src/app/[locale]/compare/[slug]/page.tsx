@@ -634,10 +634,11 @@ function DefaultComparison({
             <div className="flex flex-wrap items-center gap-4 text-2sm text-[var(--color-on-surface-variant)]">
               <span>SendMoneyCompare Editorial</span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <time dateTime={new Date().toISOString().slice(0, 10)}>
-                Updated{" "}
-                {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+              <time dateTime="2026-03-18">
+                Updated March 18, 2026
               </time>
+              <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
+              <span>Live data refreshed every 6 hours</span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <span>Data updated every 6 hours</span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />

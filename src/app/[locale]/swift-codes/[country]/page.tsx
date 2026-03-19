@@ -522,6 +522,29 @@ export default async function SwiftCountryPage({ params }: Props) {
       }}
     />
 
+    {/* Dataset JSON-LD for SWIFT code table data */}
+    {country.branches.length > 0 && (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Dataset",
+            name: `SWIFT/BIC Codes for Banks in ${country.name}`,
+            description: `Complete list of SWIFT/BIC codes for ${country.bankCount} banks and ${country.branches.length} branches in ${country.name}. Includes bank name, BIC code, city, and branch details.`,
+            url: `https://sendmoneycompare.com/swift-codes/${slug}`,
+            keywords: [`SWIFT code`, `BIC code`, country.name, `banks in ${country.name}`, `wire transfer ${country.name}`],
+            creator: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
+            distribution: {
+              "@type": "DataDownload",
+              contentUrl: `https://sendmoneycompare.com/swift-codes/${slug}`,
+              encodingFormat: "text/html",
+            },
+          }),
+        }}
+      />
+    )}
+
     {/* FAQ JSON-LD Schema */}
     {swiftFaqsList && (
       <script

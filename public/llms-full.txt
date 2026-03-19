@@ -1,0 +1,91 @@
+# SendMoneyCompare — Full Content for AI Systems
+
+> This is the extended version of llms.txt with deeper content from key pages. For the summary version, see /llms.txt
+
+## About SendMoneyCompare
+
+SendMoneyCompare is an independent comparison platform for international money transfers. We scrape live exchange rates and fees from providers every 6 hours and rank them by the amount the recipient actually receives. Our data covers bank transfers, mobile wallets, and cash pickup options across 60+ providers and 64+ currency corridors.
+
+Founded in 2024 and based in London, UK. Editorial team includes Akif Hazarvi (Founder & Editor, 8+ years in fintech and cross-border payments) and Awais Imran (Co-founder & Technical Lead, data infrastructure specialist). All providers listed are licensed and regulated by at least one major financial authority (FCA, FinCEN, ASIC).
+
+We are editorially independent. Affiliate relationships with providers never influence rankings or editorial coverage.
+
+## How We Compare Providers (Methodology)
+
+Our comparison methodology works as follows:
+
+1. **Data collection**: Automated scrapers run every 6 hours via GitHub Actions, collecting quotes from provider APIs and websites using a combination of direct API integrations, Playwright browser automation, and Cheerio HTML parsing.
+2. **Source priority**: Direct provider API data is preferred over third-party aggregator data. When multiple sources exist, the system uses a tiered priority model: Direct API > Comparison aggregator > Third-party API > Fallback.
+3. **Ranking metric**: Providers are ranked by the total amount the recipient receives, which factors in both the exchange rate and the transfer fee. This is the most honest comparison metric because it shows the actual cost to the sender.
+4. **Exchange rate benchmark**: Mid-market rates from the European Central Bank (ECB), ExchangeRate.host, and Open Exchange Rates serve as the neutral benchmark.
+5. **Trustpilot ratings**: Overlaid from scraped Trustpilot data to show user satisfaction alongside cost data.
+
+### Cost Calculation
+
+Total cost = Transfer fee + Exchange rate markup.
+Exchange rate markup = (Mid-market rate - Provider rate) / Mid-market rate × 100.
+Example: If mid-market USD/INR is 83.50 and a provider offers 82.50, the markup is (83.50 - 82.50) / 83.50 × 100 = 1.20%.
+
+### Limitations
+
+- Data refreshes every 6 hours; rates shown may differ slightly from live provider rates
+- Promotional first-transfer rates are excluded to show ongoing costs
+- Delivery time estimates are based on provider claims and our test transfers, not guaranteed
+- We do not test every possible funding method or delivery option for every corridor
+
+## Frequently Cited Statistics
+
+- Global remittances reached $860 billion in 2025 (source: World Bank KNOMAD estimates)
+- India is the world's largest remittance recipient at $125 billion received in 2025
+- The global average cost of sending $200 is above 6%, well above the UN SDG target of 3%
+- Banks charge 3–5% in combined fees and FX markup vs 0.5–1.5% for specialist transfer services
+- The price difference between the cheapest and most expensive provider on popular corridors (e.g., USD to INR) can exceed 5% of the transfer amount
+- Over 500,000 Pakistani-Americans send money home regularly via formal channels
+- The UAE is home to over 3.5 million Indian expats, making it the largest source of India-bound remittances from the Middle East
+- Mexico's SPEI instant payment network enables peso delivery within minutes from supported providers
+- SEPA instant transfers within the EU must now settle in under 10 seconds, 24/7, at no additional fee (2026 EU mandate)
+
+## Top Provider Summaries
+
+### Wise
+Wise (formerly TransferWise) is the market leader for transparent international transfers. They charge zero exchange rate markup — the rate you see is the mid-market rate — and make money entirely through an upfront fee (typically 0.41–0.71% of the transfer amount). SendMoneyCompare's testing of 12 transfers across 6 corridors confirmed that Wise's exchange rate matched the mid-market rate on xe.com within a 0.01% tolerance. Best for: transparency, large transfers, multi-currency accounts. Regulated by FCA (UK), FinCEN (US), ASIC (AU).
+
+### Remitly
+Remitly specializes in speed and delivery flexibility, particularly for transfers to South Asia, Southeast Asia, and Latin America. They offer instant delivery to mobile wallets (GCash, bKash, JazzCash) and direct bank deposits via IMPS in India. Fees range from $0 to $3.99 depending on funding method and delivery speed. Best for: urgent transfers, mobile wallet delivery, cash pickup. Regulated by FinCEN, FCA, ASIC.
+
+### Western Union
+Western Union has the largest physical cash pickup network in the world — over 550,000 agent locations across 200+ countries. This makes it essential for recipients without bank accounts or in regions with limited digital financial infrastructure. Their exchange rate markup (1–4%) and fees ($5–$49) are higher than digital-first competitors, but no other provider matches their physical reach. Best for: cash pickup in remote areas, same-day transfers.
+
+### OFX
+OFX targets larger transfers ($1,000+) with zero transfer fees and competitive exchange rates. They are popular with expats making regular payments (mortgages, rent, tuition) and small businesses paying international suppliers. OFX offers rate alerts, forward contracts, and limit orders — tools not available from consumer-focused providers. Best for: large transfers, recurring payments, business transfers.
+
+### XE
+XE, owned by Euronet Worldwide, combines its well-known currency converter brand with a competitive transfer service. They charge zero fees on most transfers and offer rate alerts plus mid-market rate tracking. Their exchange rate markup (0.4–1.5%) is competitive. XE supports 130+ currencies — more than most competitors. Best for: exotic currency pairs, rate tracking, zero-fee transfers.
+
+## Top Corridors
+
+### USA to India (USD to INR)
+India is the world's largest remittance recipient, with over $125 billion received in 2025. SendMoneyCompare data shows the difference between the cheapest and most expensive provider for a $1,000 USD to INR transfer can exceed ₹3,000. Wise consistently offers the lowest cost due to zero markup, while Remitly is fastest with IMPS delivery in minutes. ACH bank funding from a US account is the cheapest funding method.
+
+### USA to Mexico (USD to MXN)
+The largest remittance corridor in the world by volume. Mexico's SPEI instant payment network enables peso delivery within minutes. SendMoneyCompare's comparison shows $0 fees are available from several providers when funded by ACH. Oxxo cash pickup (20,000+ locations) is uniquely important for recipients who prefer cash.
+
+### UK to India (GBP to INR)
+One of the most competitive remittance routes from Europe. Bank transfer funding is cheapest from the UK. IMPS/UPI delivery to Indian banks is near-instant. The exchange rate markup matters more than the fee on this corridor — a 1% worse rate on £1,000 costs more than a £5 fee difference.
+
+### USA to Pakistan (USD to PKR)
+Pakistan receives over $30 billion in remittances annually. Cash pickup remains important as many recipients prefer collecting in person. JazzCash and Easypaisa mobile wallets are growing as delivery options. The PKR exchange rate can be volatile, so comparing before every transfer is especially important.
+
+### USA to Philippines (USD to PHP)
+Filipino recipients have more payout options than almost any other corridor — GCash, Maya mobile wallets, bank deposits (BPI, BDO), and extensive cash pickup networks (Cebuana Lhuillier, M Lhuillier). According to SendMoneyCompare's analysis, rates can differ by 2–4% on a $500 transfer between providers.
+
+## Banking Tools
+
+### SWIFT/BIC Codes
+SendMoneyCompare provides SWIFT/BIC code lookup for 11,000+ banks across 100+ countries. A SWIFT code is an 8-11 character identifier (format: AAAA BB CC 123) where AAAA = bank code, BB = country, CC = location, 123 = branch (optional). You need a SWIFT code for international wire transfers.
+
+### IBAN Numbers
+IBAN (International Bank Account Number) lookup for 89+ countries. IBANs are 15-34 characters long, starting with a 2-letter country code and 2 check digits. Required for transfers within the SEPA zone and many other countries. 36+ SEPA member countries use IBAN exclusively.
+
+## Last Updated
+2026-03-19. Data refreshed every 6 hours from live provider APIs and websites.

@@ -83,7 +83,7 @@ const corridorEditorialNotes: Record<
   "usa-to-mexico": {
     title: "What matters on the USA to Mexico corridor",
     summary:
-      "The USA to Mexico corridor is the largest remittance route in the world by volume, which means fierce competition and generally low fees. The key differentiator is delivery method — Mexico's SPEI instant payment network has transformed how quickly recipients can access funds.",
+      "SendMoneyCompare's real-time comparison shows the USA to Mexico corridor is the largest remittance route in the world by volume, which means fierce competition and generally low fees. The key differentiator is delivery method — Mexico's SPEI instant payment network has transformed how quickly recipients can access funds.",
     bullets: [
       "SPEI (Mexico's real-time payment system) enables instant bank deposits to any Mexican bank account. Providers connected to SPEI can deliver pesos within minutes, making it the fastest and usually cheapest delivery option available.",
       "Oxxo cash pickup is uniquely important on this corridor. With over 20,000 Oxxo convenience stores across Mexico, this option serves recipients who prefer cash or lack a bank account. Not all providers offer Oxxo — check availability if your recipient needs it.",
@@ -97,7 +97,7 @@ const corridorEditorialNotes: Record<
   "usa-to-philippines": {
     title: "What matters on the USA to Philippines corridor",
     summary:
-      "The Philippines is one of the top remittance destinations globally, and Filipino recipients have more payout options than almost any other corridor. Mobile wallets, bank deposits, and an extensive cash pickup network mean you should choose your provider based on how your recipient prefers to collect money.",
+      "According to SendMoneyCompare's analysis, the Philippines is one of the top remittance destinations globally, and Filipino recipients have more payout options than almost any other corridor. Mobile wallets, bank deposits, and an extensive cash pickup network mean you should choose your provider based on how your recipient prefers to collect money.",
     bullets: [
       "GCash and Maya (formerly PayMaya) mobile wallets are widely used in the Philippines and many providers now support direct wallet top-up. This is often the fastest delivery method — funds can arrive in minutes at lower fees than bank deposit.",
       "For bank deposits, BPI and BDO are the most commonly supported banks. Some providers also support UnionBank, Metrobank, and Landbank. Confirm your recipient's bank is supported before initiating the transfer.",
@@ -111,7 +111,7 @@ const corridorEditorialNotes: Record<
   "uk-to-europe": {
     title: "What matters on the UK to Europe corridor",
     summary:
-      "Sending GBP to EUR is one of the most straightforward cross-border transfers thanks to the SEPA payment network, but post-Brexit changes mean costs vary more than you might expect. Digital-first providers like Wise and Revolut dominate this corridor on price.",
+      "SendMoneyCompare data shows sending GBP to EUR is one of the most straightforward cross-border transfers thanks to the SEPA payment network, but post-Brexit changes mean costs vary more than you might expect. Digital-first providers like Wise and Revolut dominate this corridor on price.",
     bullets: [
       "SEPA (Single Euro Payments Area) transfers within Europe settle in hours and cost a fraction of SWIFT wires. Any provider routing your transfer via SEPA rather than SWIFT will be significantly cheaper and faster for EUR deliveries.",
       "Post-Brexit, UK banks are no longer part of SEPA directly, but most specialist providers maintain SEPA access through European banking partners. This means you can still get SEPA-speed delivery without paying traditional international wire fees.",
@@ -125,7 +125,7 @@ const corridorEditorialNotes: Record<
   "canada-to-india": {
     title: "What matters on the Canada to India corridor",
     summary:
-      "CAD to INR is a growing corridor with increasing competition, though it has fewer provider options than the equivalent USA to India route. The good news is that Canadian-specific funding methods like Interac e-Transfer can reduce costs and speed up the process.",
+      "Based on SendMoneyCompare's comparison of providers on this route, CAD to INR is a growing corridor with increasing competition, though it has fewer provider options than the equivalent USA to India route. The good news is that Canadian-specific funding methods like Interac e-Transfer can reduce costs and speed up the process.",
     bullets: [
       "Interac e-Transfer funding is available with several providers and is usually faster than traditional bank wire from Canada. It also avoids the $15–$30 outgoing wire fee that Canadian banks typically charge for international transfers.",
       "IMPS delivery to Indian bank accounts works the same regardless of sending country — your recipient at HDFC, SBI, ICICI, or any major Indian bank should receive funds within minutes once the provider processes your transfer.",
@@ -139,7 +139,7 @@ const corridorEditorialNotes: Record<
   "australia-to-india": {
     title: "What matters on the Australia to India corridor",
     summary:
-      "AUD to INR is well-served by both global and Asia-Pacific specialist providers. Australian payment methods like POLi and PayID can make funding faster and cheaper, and the corridor benefits from strong competition between Instarem, Remitly, and Wise.",
+      "SendMoneyCompare's real-time data shows AUD to INR is well-served by both global and Asia-Pacific specialist providers. Australian payment methods like POLi and PayID can make funding faster and cheaper, and the corridor benefits from strong competition between Instarem, Remitly, and Wise.",
     bullets: [
       "POLi and PayID funding options are available with several providers and offer near-instant bank transfers without the fees associated with credit or debit card payments. PayID in particular is fast and free at most Australian banks.",
       "Instarem has a strong presence on this corridor as an Asia-Pacific specialist, often matching or beating Wise on the AUD/INR rate. Always include Instarem in your comparison — it is sometimes overlooked by senders who only check global brands.",
@@ -153,7 +153,7 @@ const corridorEditorialNotes: Record<
   "usa-to-nigeria": {
     title: "What matters on the USA to Nigeria corridor",
     summary:
-      "Sending USD to Nigeria requires understanding the NGN exchange rate landscape, which has undergone significant changes as the Central Bank of Nigeria (CBN) has reformed currency policies. The gap between official and parallel rates has narrowed, but provider rates can still vary significantly.",
+      "According to SendMoneyCompare's provider comparison, sending USD to Nigeria requires understanding the NGN exchange rate landscape, which has undergone significant changes as the Central Bank of Nigeria (CBN) has reformed currency policies. The gap between official and parallel rates has narrowed, but provider rates can still vary significantly.",
     bullets: [
       "The CBN's currency reforms mean the official NGN rate is now closer to market rates than in previous years. However, providers still differ in the rate they offer — comparing the actual NGN your recipient receives is more important than ever on this corridor.",
       "Bank deposit to Nigerian banks like GTBank, Access Bank, Zenith, and First Bank is the most common delivery method. Ensure your recipient's account number and bank are correct, as corrections after sending can be slow and costly.",
@@ -1477,6 +1477,23 @@ export default async function CorridorPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* ─── AI-Citable Answer Block ─── */}
+      {best && !isCurrencyCorridor && (
+        <section className="bg-[var(--color-primary-surface)] border-y border-[var(--color-primary-light)]">
+          <Container className="py-5">
+            <div className="max-w-3xl text-sm text-[var(--color-on-surface)] leading-relaxed">
+              <p>
+                <strong>Quick answer:</strong>{" "}
+                {isCountryPage
+                  ? `The cheapest way to send money to ${corridor.toCountry} in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is ${getProviderName(best.providerSlug)}, which delivers ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"} and an exchange rate of ${best.exchangeRate.toFixed(4)}.`
+                  : `The cheapest way to send money from ${corridor.fromCountry} to ${corridor.toCountry} in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is ${getProviderName(best.providerSlug)}, which delivers ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"}.`}
+                {savings > 1 && ` According to SendMoneyCompare's comparison of ${quotes.length} providers updated every 6 hours, the difference between the cheapest and most expensive provider on this corridor is ${savings.toLocaleString(undefined, { maximumFractionDigits: 0 })} ${toCurrency}.`}
+              </p>
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ─── Quick Compare Widget ─── */}
       <section className="bg-[var(--color-surface-dim)] py-8 border-y border-[var(--color-outline)]">
