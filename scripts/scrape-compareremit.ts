@@ -17,6 +17,7 @@ import {
   NAV_TIMEOUT,
   OUTPUT_DIR,
   parseNumber,
+  blockHeavyResources,
   type ProviderQuote,
   writeOutput,
 } from "./lib/browser";
@@ -83,6 +84,7 @@ async function scrapeCorridorAmount(
   amount: number
 ): Promise<ParsedProvider[]> {
   const page = await context.newPage();
+  await blockHeavyResources(page);
 
   try {
     const url = `https://www.compareremit.com/compare-money-transfer-services-${corridor.urlPath}/?amt=${amount}&sc=${corridor.from}&rc=${corridor.to}`;

@@ -20,6 +20,7 @@ import {
   jitteredDelay,
   dismissOverlays,
   setupBrowserContext,
+  blockHeavyResources,
 } from "./lib/browser";
 
 const DELAY_MS = 2500;
@@ -167,6 +168,7 @@ async function scrapeCorridorAmount(
   amount: number
 ): Promise<{ midMarketRate: number; quotes: MonitoQuote[] } | null> {
   const page = await context.newPage();
+  await blockHeavyResources(page);
   let capturedResult: { midMarketRate: number; quotes: MonitoQuote[] } | null = null;
 
   try {

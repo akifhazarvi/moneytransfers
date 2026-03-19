@@ -24,6 +24,7 @@ import {
   setupBrowserContext,
   fillAmountInput,
   withRetry,
+  blockHeavyResources,
   type ProviderQuote,
 } from "./lib/browser";
 
@@ -106,6 +107,7 @@ async function scrapeCorridorAmount(
   amount: number
 ): Promise<ProviderQuote | null> {
   const page = await context.newPage();
+  await blockHeavyResources(page);
   let capturedQuote: ProviderQuote | null = null;
 
   try {
