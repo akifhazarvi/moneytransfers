@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { cookies } from "next/headers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -7,25 +8,17 @@ import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
 import NewsTicker from "@/components/NewsTicker";
 import HeroTabs from "@/components/HeroTabs";
-import { providers } from "@/data/providers";
+import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
-import { fetchExchangeRates } from "@/lib/exchange-rates";
+import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs
   .map((slug) => providers.find((p) => p.slug === slug)!)
   .filter(Boolean);
-
-const POPULAR_RATES = [
-  { code: "INR", label: "USD → INR", corridor: "usa-to-india" },
-  { code: "PKR", label: "USD → PKR", corridor: "usa-to-pakistan" },
-  { code: "EUR", label: "USD → EUR", corridor: "usd-to-eur" },
-  { code: "GBP", label: "USD → GBP", corridor: "usd-to-gbp" },
-  { code: "PHP", label: "USD → PHP", corridor: "usa-to-philippines" },
-  { code: "MXN", label: "USD → MXN", corridor: "usa-to-mexico" },
-];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -53,6 +46,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   setRequestLocale(locale);
 
+  // Geo-aware currency detection
+  const cookieStore = await cookies();
+  const geoCurrency = cookieStore.get("geo-currency")?.value || "USD";
+  const geoConfig = GEO_CORRIDORS[geoCurrency] || DEFAULT_GEO_CONFIG;
+  const sendCurrency = GEO_CORRIDORS[geoCurrency] ? geoCurrency : "USD";
+
   const [rates, tHero, tLive, tTrust, tHow, tBest, tExample, tFaq, tWhy, tExplore] = await Promise.all([
     fetchExchangeRates(),
     getTranslations({ locale, namespace: "hero" }),
@@ -66,9 +65,31 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     getTranslations({ locale, namespace: "explore" }),
   ]);
 
-  const liveRates = POPULAR_RATES
-    .map((r) => ({ ...r, rate: rates[r.code] }))
+  // Build popular rates from geo config
+  const liveRates = geoConfig.popularCorridors
+    .map((c) => ({
+      code: c.toCurrency,
+      label: `${sendCurrency} → ${c.toCurrency}`,
+      corridor: c.corridorSlug,
+      rate: getRate(rates, sendCurrency, c.toCurrency),
+    }))
     .filter((r) => r.rate && r.rate > 0);
+
+  // Top providers for the user's geo currency — top 3 payout corridors
+  const topCorridorProviders = geoConfig.popularCorridors.slice(0, 3).map((c) => {
+    const quotes = generateQuotes(geoConfig.defaultAmount, sendCurrency, c.toCurrency);
+    const best = quotes[0];
+    const provider = best ? providers.find((p) => p.slug === best.providerSlug) : null;
+    return {
+      ...c,
+      providerName: best ? getProviderName(best.providerSlug) : null,
+      providerSlug: best?.providerSlug || null,
+      providerLogo: provider?.logo || (best ? `/logos/${best.providerSlug}.png` : null),
+      receiveAmount: best?.receiveAmount || 0,
+      exchangeRate: best?.exchangeRate || 0,
+      fee: best?.fee ?? 0,
+    };
+  }).filter((c) => c.providerName);
 
   const faqs = [
     { q: tFaq("q1"), a: tFaq("a1") },
@@ -132,15 +153,88 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
               {tHero("subtitle")}
             </p>
+
+            {/* Trustpilot hero badge */}
+            <div className="flex items-center justify-center gap-2 mt-6">
+              <a
+                href="https://www.trustpilot.com/review/sendmoneycompare.com"
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--color-surface-container,var(--color-surface-dim))] border border-[var(--color-outline)] hover:border-[var(--color-primary)] transition-colors"
+              >
+                {/* Trustpilot logo */}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
+                </svg>
+                <span className="text-2sm font-medium text-[var(--color-on-surface)]">Trustpilot</span>
+                <span className="text-2xs text-[var(--color-on-surface-variant)]">|</span>
+                <span className="text-2sm text-[var(--color-on-surface-variant)]">Rate your experience</span>
+              </a>
+            </div>
           </div>
           <div className="max-w-[860px] mx-auto">
-            <HeroTabs />
+            <HeroTabs defaultFrom={sendCurrency} defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
           </div>
           <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-5 max-w-md mx-auto">
             {tHero("disclaimer")}
           </p>
         </Container>
       </section>
+
+      {/* ─── BEST PROVIDER BY CORRIDOR ─── */}
+      {topCorridorProviders.length > 0 && (
+        <section className="py-14 bg-[var(--color-surface)]">
+          <Container>
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+                Best Provider for {sendCurrency} Transfers
+              </h2>
+              <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+                We compared {sendCurrency} transfers across providers to find the cheapest option for each route.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {topCorridorProviders.map((c) => (
+                <Link
+                  key={c.toCurrency}
+                  href={`/send-money/${c.corridorSlug}`}
+                  className="group block p-5 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] transition-all"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-lg">{c.flag}</span>
+                    <span className="text-xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                      {sendCurrency} → {c.toCurrency}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    {c.providerLogo && (
+                      <div className="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center relative border border-[var(--color-outline)]/50">
+                        <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="object-cover" />
+                      </div>
+                    )}
+                    <p className="text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
+                      {c.providerName}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
+                      <span className="text-[var(--color-on-surface-variant)]">Rate </span>
+                      <span className="font-semibold text-[var(--color-on-surface)]">{c.exchangeRate.toFixed(2)}</span>
+                    </div>
+                    <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
+                      <span className="text-[var(--color-on-surface-variant)]">Fee </span>
+                      <span className="font-semibold text-[var(--color-success-dark)]">{c.fee === 0 ? "Free" : `$${c.fee.toFixed(2)}`}</span>
+                    </div>
+                  </div>
+                  <p className="text-2xs text-[var(--color-on-surface-variant)] mt-2">
+                    Recipient gets <strong className="text-[var(--color-on-surface)]">{c.symbol}{c.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> for {geoConfig.defaultAmount.toLocaleString()} {sendCurrency}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ─── LIVE RATES BAR ─── */}
       {liveRates.length > 0 && (
@@ -181,7 +275,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* ─── 2. TRUST SECTION ─── */}
       <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-10">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
             {trustItems.map((item) => (
               <div key={item.text} className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-[var(--color-success-surface,var(--color-primary-surface))] flex items-center justify-center shrink-0 mt-0.5">
@@ -192,6 +286,22 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <p className="text-sm font-medium text-[var(--color-on-surface)] leading-snug">{item.text}</p>
               </div>
             ))}
+            {/* Trustpilot trust signal */}
+            <a
+              href="https://www.trustpilot.com/review/sendmoneycompare.com"
+              target="_blank"
+              rel="noopener"
+              className="flex items-start gap-3 group"
+            >
+              <div className="w-8 h-8 rounded-full bg-[#00B67A]/10 flex items-center justify-center shrink-0 mt-0.5">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
+                </svg>
+              </div>
+              <p className="text-sm font-medium text-[var(--color-on-surface)] leading-snug group-hover:text-[var(--color-primary)] transition-colors">
+                Reviewed on Trustpilot
+              </p>
+            </a>
           </div>
         </Container>
       </section>
@@ -415,9 +525,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               {tExample("subtitle")}
             </p>
           </div>
-          <BestTransferToday amount={1000} from="USD" to="PKR" symbol="Rs" />
+          <BestTransferToday amount={geoConfig.defaultAmount} from={sendCurrency} to={geoConfig.defaultTo} symbol={geoConfig.popularCorridors[0]?.symbol || "₹"} />
           <div className="text-center mt-8">
-            <PrimaryButton href="/send-money?from=USD&to=PKR&amount=1000">
+            <PrimaryButton href={`/send-money?from=${sendCurrency}&to=${geoConfig.defaultTo}&amount=${geoConfig.defaultAmount}`}>
               {tExample("cta")}
             </PrimaryButton>
           </div>
@@ -527,11 +637,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div>
               <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("popularCorridors")}</h3>
               <ul className="space-y-2">
-                <li><Link href="/send-money/usa-to-india" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToIndia")}</Link></li>
-                <li><Link href="/send-money/usa-to-pakistan" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToPakistan")}</Link></li>
-                <li><Link href="/send-money/uk-to-europe" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("ukToEurope")}</Link></li>
-                <li><Link href="/send-money/usa-to-philippines" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToPhilippines")}</Link></li>
-                <li><Link href="/send-money/usa-to-mexico" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("usaToMexico")}</Link></li>
+                {geoConfig.popularCorridors.map((c) => (
+                  <li key={c.toCurrency}>
+                    <Link href={`/send-money/${c.corridorSlug}`} className="text-sm text-[var(--color-primary)] hover:underline">
+                      {c.flag} {sendCurrency} → {c.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
