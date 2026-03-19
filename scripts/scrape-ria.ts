@@ -25,6 +25,7 @@ import {
 const DELAY_MS = 800;
 
 const CORRIDORS = [
+  // From USD (US) — Ria's largest market
   { from: "USD", to: "INR", countryFrom: "US", countryTo: "IN" },
   { from: "USD", to: "PHP", countryFrom: "US", countryTo: "PH" },
   { from: "USD", to: "MXN", countryFrom: "US", countryTo: "MX" },
@@ -38,19 +39,73 @@ const CORRIDORS = [
   { from: "USD", to: "GTQ", countryFrom: "US", countryTo: "GT" },
   { from: "USD", to: "EUR", countryFrom: "US", countryTo: "DE" },
   { from: "USD", to: "GBP", countryFrom: "US", countryTo: "GB" },
+  { from: "USD", to: "DOP", countryFrom: "US", countryTo: "DO" },
+  { from: "USD", to: "PEN", countryFrom: "US", countryTo: "PE" },
+  { from: "USD", to: "JMD", countryFrom: "US", countryTo: "JM" },
+  { from: "USD", to: "HNL", countryFrom: "US", countryTo: "HN" },
+  { from: "USD", to: "IDR", countryFrom: "US", countryTo: "ID" },
+  { from: "USD", to: "THB", countryFrom: "US", countryTo: "TH" },
+  { from: "USD", to: "VND", countryFrom: "US", countryTo: "VN" },
+  { from: "USD", to: "ZAR", countryFrom: "US", countryTo: "ZA" },
+  { from: "USD", to: "ETB", countryFrom: "US", countryTo: "ET" },
+  { from: "USD", to: "MAD", countryFrom: "US", countryTo: "MA" },
+  { from: "USD", to: "EGP", countryFrom: "US", countryTo: "EG" },
+  { from: "USD", to: "LKR", countryFrom: "US", countryTo: "LK" },
+  { from: "USD", to: "NPR", countryFrom: "US", countryTo: "NP" },
+  { from: "USD", to: "UGX", countryFrom: "US", countryTo: "UG" },
+  { from: "USD", to: "TZS", countryFrom: "US", countryTo: "TZ" },
+  { from: "USD", to: "XOF", countryFrom: "US", countryTo: "SN" },
+  { from: "USD", to: "PLN", countryFrom: "US", countryTo: "PL" },
+  { from: "USD", to: "RON", countryFrom: "US", countryTo: "RO" },
+  { from: "USD", to: "TRY", countryFrom: "US", countryTo: "TR" },
+  { from: "USD", to: "CNY", countryFrom: "US", countryTo: "CN" },
+  // From GBP (UK)
   { from: "GBP", to: "INR", countryFrom: "GB", countryTo: "IN" },
   { from: "GBP", to: "NGN", countryFrom: "GB", countryTo: "NG" },
   { from: "GBP", to: "PKR", countryFrom: "GB", countryTo: "PK" },
   { from: "GBP", to: "PHP", countryFrom: "GB", countryTo: "PH" },
+  { from: "GBP", to: "EUR", countryFrom: "GB", countryTo: "DE" },
+  { from: "GBP", to: "BDT", countryFrom: "GB", countryTo: "BD" },
+  { from: "GBP", to: "GHS", countryFrom: "GB", countryTo: "GH" },
+  { from: "GBP", to: "KES", countryFrom: "GB", countryTo: "KE" },
+  { from: "GBP", to: "ZAR", countryFrom: "GB", countryTo: "ZA" },
+  { from: "GBP", to: "PLN", countryFrom: "GB", countryTo: "PL" },
+  { from: "GBP", to: "RON", countryFrom: "GB", countryTo: "RO" },
+  // From EUR (Germany)
   { from: "EUR", to: "INR", countryFrom: "DE", countryTo: "IN" },
   { from: "EUR", to: "NGN", countryFrom: "DE", countryTo: "NG" },
   { from: "EUR", to: "PHP", countryFrom: "DE", countryTo: "PH" },
+  { from: "EUR", to: "PKR", countryFrom: "DE", countryTo: "PK" },
+  { from: "EUR", to: "GBP", countryFrom: "DE", countryTo: "GB" },
+  { from: "EUR", to: "MAD", countryFrom: "DE", countryTo: "MA" },
+  { from: "EUR", to: "TRY", countryFrom: "DE", countryTo: "TR" },
+  { from: "EUR", to: "BRL", countryFrom: "DE", countryTo: "BR" },
+  { from: "EUR", to: "COP", countryFrom: "DE", countryTo: "CO" },
+  // From CAD (Canada)
   { from: "CAD", to: "INR", countryFrom: "CA", countryTo: "IN" },
   { from: "CAD", to: "PHP", countryFrom: "CA", countryTo: "PH" },
+  { from: "CAD", to: "PKR", countryFrom: "CA", countryTo: "PK" },
+  { from: "CAD", to: "NGN", countryFrom: "CA", countryTo: "NG" },
+  // From AUD (Australia)
   { from: "AUD", to: "INR", countryFrom: "AU", countryTo: "IN" },
   { from: "AUD", to: "PHP", countryFrom: "AU", countryTo: "PH" },
+  { from: "AUD", to: "PKR", countryFrom: "AU", countryTo: "PK" },
+  // From AED (UAE)
   { from: "AED", to: "INR", countryFrom: "AE", countryTo: "IN" },
   { from: "AED", to: "PKR", countryFrom: "AE", countryTo: "PK" },
+  { from: "AED", to: "PHP", countryFrom: "AE", countryTo: "PH" },
+  { from: "AED", to: "BDT", countryFrom: "AE", countryTo: "BD" },
+  // From SGD (Singapore)
+  { from: "SGD", to: "INR", countryFrom: "SG", countryTo: "IN" },
+  { from: "SGD", to: "PHP", countryFrom: "SG", countryTo: "PH" },
+  // From SAR (Saudi Arabia)
+  { from: "SAR", to: "INR", countryFrom: "SA", countryTo: "IN" },
+  { from: "SAR", to: "PKR", countryFrom: "SA", countryTo: "PK" },
+  { from: "SAR", to: "BDT", countryFrom: "SA", countryTo: "BD" },
+  { from: "SAR", to: "PHP", countryFrom: "SA", countryTo: "PH" },
+  // From NZD (New Zealand)
+  { from: "NZD", to: "INR", countryFrom: "NZ", countryTo: "IN" },
+  { from: "NZD", to: "PHP", countryFrom: "NZ", countryTo: "PH" },
 ];
 
 // Locale mapping by send country
