@@ -72,6 +72,14 @@ jobs:
           git pull --rebase
           git push
 
+      - name: Ping IndexNow (Bing)
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.INDEXNOW_KEY }}" \
+            -H "Content-Type: application/json" \
+            https://sendmoneycompare.com/api/indexnow || true
+        continue-on-error: true
+
   scrape-reviews:
     runs-on: ubuntu-latest
     timeout-minutes: 10

@@ -109,3 +109,11 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: update browser-scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
           git pull --rebase
           git push
+
+      - name: Ping IndexNow (Bing)
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.INDEXNOW_KEY }}" \
+            -H "Content-Type: application/json" \
+            https://sendmoneycompare.com/api/indexnow || true
+        continue-on-error: true
