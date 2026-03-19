@@ -194,24 +194,32 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Trustpilot Review Collector */}
-        <div className="border-t border-[var(--color-outline)] pt-6 mb-6 flex justify-center">
-          <div
-            className="trustpilot-widget"
-            data-locale="en-US"
-            data-template-id="56278e9abfbbba0bdcd568bc"
-            data-businessunit-id="69bc5a943f1059db5792229b"
-            data-style-height="52px"
-            data-style-width="100%"
-            data-token="a6ccf0e6-609c-4efc-8441-5694ad5c3a05"
-          >
-            <a href="https://www.trustpilot.com/review/sendmoneycompare.com" target="_blank" rel="noopener">
-              Trustpilot
-            </a>
-          </div>
-        </div>
-
         <div className="border-t border-[var(--color-outline)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          {/* Trustpilot — shows dynamic widget when reviews exist, static link as fallback */}
+          <div className="flex items-center gap-3">
+            <div
+              className="trustpilot-widget"
+              data-locale="en-US"
+              data-template-id="56278e9abfbbba0bdcd568bc"
+              data-businessunit-id="69bc5a943f1059db5792229b"
+              data-style-height="24px"
+              data-style-width="auto"
+              data-token="a6ccf0e6-609c-4efc-8441-5694ad5c3a05"
+            >
+              <a
+                href="https://www.trustpilot.com/review/sendmoneycompare.com"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center gap-2 text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
+              >
+                {/* Trustpilot star icon */}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
+                </svg>
+                Review us on Trustpilot
+              </a>
+            </div>
+          </div>
           <div className="flex items-center gap-2">
             <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
               <circle cx="16" cy="16" r="16" fill="#1a73e8" />
