@@ -27,7 +27,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   const provider = providers.find((p) => p.slug === quote.providerSlug);
   const providerName = provider?.name || getProviderName(quote.providerSlug);
   const providerLogo = provider?.logo || `/logos/${quote.providerSlug}.png`;
-  const providerWebsite = getGoUrl(quote.providerSlug);
+  const providerWebsite = getGoUrl(quote.providerSlug, {
+    sourceCurrency: quote.sendCurrency,
+    targetCurrency: quote.receiveCurrency,
+    sourceAmount: quote.sendAmount,
+  });
 
   const feeLabel = quote.fee === 0 ? t("free") : `${sendCurrencySymbol}${quote.fee.toFixed(2)}`;
   const isFast = quote.transferSpeed.toLowerCase().includes("minute") || quote.transferSpeed.toLowerCase().includes("instant");

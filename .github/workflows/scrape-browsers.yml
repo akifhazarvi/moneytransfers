@@ -111,9 +111,7 @@ jobs:
           git push
 
       - name: Ping IndexNow (Bing)
-        run: |
-          curl -s -X POST \
-            -H "Authorization: Bearer ${{ secrets.INDEXNOW_KEY }}" \
-            -H "Content-Type: application/json" \
-            https://sendmoneycompare.com/api/indexnow || true
+        run: npx tsx scripts/ping-indexnow.ts
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         continue-on-error: true

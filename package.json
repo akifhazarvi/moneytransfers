@@ -26,7 +26,8 @@
     "scrape:remitly": "npx tsx scripts/scrape-remitly.ts",
     "scrape:all-api": "npx tsx scripts/scrape-ofx.ts && npx tsx scripts/scrape-instarem.ts && npx tsx scripts/scrape-xe.ts && npx tsx scripts/scrape-taptapsend.ts && npx tsx scripts/scrape-wise-direct.ts && npx tsx scripts/scrape-remitly.ts && npx tsx scripts/scrape-ace.ts",
     "scrape:all-browser": "npx tsx scripts/scrape-monito.ts && npx tsx scripts/scrape-xoom.ts && npx tsx scripts/scrape-compareremit.ts && npx tsx scripts/scrape-ria.ts",
-    "scrape:all": "npm run scrape:all-api && npm run scrape:all-browser && npx tsx scripts/scrape-reviews.ts"
+    "scrape:all": "npm run scrape:all-api && npm run scrape:all-browser && npx tsx scripts/scrape-reviews.ts",
+    "ping:indexnow": "npx tsx scripts/ping-indexnow.ts"
   },
   "dependencies": {
     "@swc/helpers": "0.5.19",

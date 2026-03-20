@@ -14,7 +14,13 @@ export async function GET(
   }
 
   const { provider } = await params;
-  const url = getAffiliateUrl(provider);
+  const { searchParams } = new URL(request.url);
+
+  const url = getAffiliateUrl(provider, {
+    sourceCurrency: searchParams.get("from") || undefined,
+    targetCurrency: searchParams.get("to") || undefined,
+    sourceAmount: searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined,
+  });
 
   return NextResponse.redirect(url, {
     status: 302,
