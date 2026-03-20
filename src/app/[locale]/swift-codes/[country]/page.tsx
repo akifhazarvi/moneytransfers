@@ -534,6 +534,7 @@ export default async function SwiftCountryPage({ params }: Props) {
             description: `Complete list of SWIFT/BIC codes for ${country.bankCount} banks and ${country.branches.length} branches in ${country.name}. Includes bank name, BIC code, city, and branch details.`,
             url: `https://sendmoneycompare.com/swift-codes/${slug}`,
             keywords: [`SWIFT code`, `BIC code`, country.name, `banks in ${country.name}`, `wire transfer ${country.name}`],
+            license: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
             creator: { "@type": "Organization", name: "SendMoneyCompare", "@id": "https://sendmoneycompare.com/#organization" },
             distribution: {
               "@type": "DataDownload",
