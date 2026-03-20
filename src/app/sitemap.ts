@@ -14,8 +14,13 @@ import { join } from "path";
 const SITE_URL = "https://sendmoneycompare.com";
 import { shouldIncludeInSitemap } from "@/lib/corridor-tiers";
 
-// Automatically set to today's date at build time
+// ── Issue 5 fix: Use stable dates for truly static content ──
+// Google's John Mueller recommends lastmod should reflect actual content changes,
+// not deploy timestamps. Using a fixed date for pages that rarely change prevents
+// Google from losing trust in the lastmod signal across the entire sitemap.
+// See: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 const LAST_DEPLOY = new Date().toISOString().split("T")[0];
+const STATIC_CONTENT_DATE = "2026-03-01"; // Hardcoded for legal/policy pages that rarely change
 
 // Dynamically derived from the most recently modified scraped quotes file.
 // This ensures lastmod reflects when live data actually changed, not the deploy date.
@@ -79,7 +84,16 @@ function withLocales(path: string, lastModified: string): MetadataRoute.Sitemap 
   );
 }
 
+/**
+ * Generate both EN + locale entries for a given path.
+ * Consolidates the common pattern of entry() + withLocales() into one call.
+ */
+function entryWithLocales(path: string, lastModified: string): MetadataRoute.Sitemap {
+  return [entry(path, lastModified), ...withLocales(path, lastModified)];
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  // ── Static pages (EN) ──
   const staticPages: MetadataRoute.Sitemap = [
     entry("", LAST_DEPLOY),
     entry("send-money", DATA_UPDATED),
@@ -91,16 +105,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("swift-codes", LAST_DEPLOY),
     entry("about", LAST_DEPLOY),
     entry("contact", LAST_DEPLOY),
-    entry("editorial-policy", LAST_DEPLOY),
-    entry("how-we-review", LAST_DEPLOY),
-    entry("methodology", LAST_DEPLOY),
-    entry("privacy-policy", LAST_DEPLOY),
-    entry("terms", LAST_DEPLOY),
-    entry("cookies", LAST_DEPLOY),
-    entry("disclaimer", LAST_DEPLOY),
+    // Issue 5 fix: Legal/policy pages use stable date — content rarely changes
+    entry("editorial-policy", STATIC_CONTENT_DATE),
+    entry("how-we-review", STATIC_CONTENT_DATE),
+    entry("methodology", STATIC_CONTENT_DATE),
+    entry("privacy-policy", STATIC_CONTENT_DATE),
+    entry("terms", STATIC_CONTENT_DATE),
+    entry("cookies", STATIC_CONTENT_DATE),
+    entry("disclaimer", STATIC_CONTENT_DATE),
   ];
 
-  // Locale variants for key static pages
+  // ── Issue 1 fix: ALL static pages now have locale variants ──
+  // Google's Search Central docs recommend including all indexable locale
+  // variants in the sitemap to ensure complete crawl discovery.
   const staticLocalePages: MetadataRoute.Sitemap = [
     ...withLocales("", LAST_DEPLOY),
     ...withLocales("send-money", DATA_UPDATED),
@@ -110,11 +127,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...withLocales("guides", LAST_DEPLOY),
     ...withLocales("iban", LAST_DEPLOY),
     ...withLocales("swift-codes", LAST_DEPLOY),
-    ...withLocales("exchange-rates", DATA_UPDATED),
+    // exchange-rates locales handled in exchangeRatesPage via entryWithLocales()
     ...withLocales("business", LAST_DEPLOY),
     ...withLocales("news", LAST_DEPLOY),
     ...withLocales("about", LAST_DEPLOY),
     ...withLocales("contact", LAST_DEPLOY),
+    // Previously missing locale variants — now included
+    ...withLocales("editorial-policy", STATIC_CONTENT_DATE),
+    ...withLocales("how-we-review", STATIC_CONTENT_DATE),
+    ...withLocales("methodology", STATIC_CONTENT_DATE),
+    ...withLocales("privacy-policy", STATIC_CONTENT_DATE),
+    ...withLocales("terms", STATIC_CONTENT_DATE),
+    ...withLocales("cookies", STATIC_CONTENT_DATE),
+    ...withLocales("disclaimer", STATIC_CONTENT_DATE),
   ];
 
   const indexedCorridors = allCorridors
@@ -165,10 +190,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "usd-to-brl", "usd-to-cny",
   ];
 
+  // ── Issue 2 fix: Exchange rate pages now include locale variants ──
   const exchangeRatesPage: MetadataRoute.Sitemap = [
-    entry("exchange-rates", DATA_UPDATED),
-    entry("remittance-cost-index", DATA_UPDATED),
-    ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, DATA_UPDATED)),
+    ...entryWithLocales("exchange-rates", DATA_UPDATED),
+    ...entryWithLocales("remittance-cost-index", DATA_UPDATED),
+    ...EXCHANGE_RATE_PAIRS.flatMap((pair) => entryWithLocales(`exchange-rates/${pair}`, DATA_UPDATED)),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
@@ -184,13 +210,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...businessPages.flatMap((p) => [entry(`business/${p.slug}`, LAST_DEPLOY), ...withLocales(`business/${p.slug}`, LAST_DEPLOY)]),
   ];
 
-  const authorPages: MetadataRoute.Sitemap = authors.map((author) =>
-    entry(`about/${author.slug}`, LAST_DEPLOY)
+  // ── Issue 3 fix: Author pages now include locale variants ──
+  const authorPages: MetadataRoute.Sitemap = authors.flatMap((author) =>
+    entryWithLocales(`about/${author.slug}`, LAST_DEPLOY)
   );
 
-  const correctionsPage: MetadataRoute.Sitemap = [
-    entry("corrections", LAST_DEPLOY),
-  ];
+  // ── Issue 4 fix: Corrections page now includes locale variants ──
+  const correctionsPage: MetadataRoute.Sitemap = entryWithLocales("corrections", LAST_DEPLOY);
 
   return [
     ...staticPages,
