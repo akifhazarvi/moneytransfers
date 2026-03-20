@@ -609,6 +609,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
             name: "2026 Global Remittance Cost Index",
             description: `Average fees and exchange rate markups for ${totalProviders}+ money transfer providers across ${totalCorridors}+ currency corridors.`,
             url: "https://sendmoneycompare.com/remittance-cost-index",
+            license: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
             creator: {
               "@type": "Organization",
               name: "SendMoneyCompare",
