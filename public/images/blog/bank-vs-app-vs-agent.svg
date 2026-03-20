@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1f36"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">Cost of Sending $1,000 Abroad</text>
+  <text x="600" y="95" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">Bank vs Cash Agent vs Money Transfer App — Real data comparison</text>
+  <!-- Cost bars (horizontal) -->
+  <g transform="translate(100, 160)">
+    <!-- Bank -->
+    <text x="0" y="30" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="600">Bank</text>
+    <rect x="180" y="8" width="700" height="45" rx="8" fill="#ea4335" opacity="0.85"/>
+    <text x="890" y="38" fill="#ea4335" font-family="system-ui" font-size="22" font-weight="700">$50–$120</text>
+    <text x="530" y="38" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="16" font-weight="500">Wire fee + 2–5% markup + SWIFT deductions</text>
+    <!-- Agent -->
+    <text x="0" y="120" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="600">Cash Agent</text>
+    <rect x="180" y="98" width="480" height="45" rx="8" fill="#ff9800" opacity="0.85"/>
+    <text x="670" y="128" fill="#ff9800" font-family="system-ui" font-size="22" font-weight="700">$40–$80</text>
+    <text x="420" y="128" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="16" font-weight="500">Fee + 1.5–4% markup + 1% tax</text>
+    <!-- App -->
+    <text x="0" y="210" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="600">App</text>
+    <rect x="180" y="188" width="120" height="45" rx="8" fill="#34a853" opacity="0.9"/>
+    <text x="310" y="218" fill="#34a853" font-family="system-ui" font-size="22" font-weight="700">$5–$15</text>
+    <text x="240" y="218" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="16" font-weight="500">0–1%</text>
+  </g>
+  <!-- Savings callout -->
+  <rect x="300" y="430" width="600" height="70" rx="16" fill="#34a853" opacity="0.15" stroke="#34a853" stroke-width="2"/>
+  <text x="600" y="470" text-anchor="middle" fill="#34a853" font-family="system-ui" font-size="24" font-weight="700">Apps save you $35–$105 per transfer vs banks</text>
+  <!-- Scale line -->
+  <g stroke="#ffffff20" stroke-width="1">
+    <line x1="280" y1="400" x2="280" y2="140"/>
+    <text x="280" y="420" text-anchor="middle" fill="#ffffff40" font-family="system-ui" font-size="12">$0</text>
+  </g>
+  <!-- Footer -->
+  <text x="600" y="560" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">Based on real quotes from 35+ providers — March 2026</text>
+  <text x="600" y="590" text-anchor="middle" fill="#1a73e8" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

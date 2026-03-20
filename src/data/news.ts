@@ -573,6 +573,55 @@ export const newsItems: NewsItem[] = [
     sourceUrl: "https://www.fsb.org/2026/03/fsb-kicks-off-new-implementation-phase-to-enhance-cross-border-payments-through-public-private-partnership/",
     providerSlugs: ["wise", "remitly", "western-union"],
   },
+  {
+    slug: "mexico-62b-remittance-corridor-goes-digital-2026",
+    title:
+      "Mexico's $62B Remittance Corridor Goes Digital — What It Means for Senders in 2026",
+    excerpt:
+      "Cash remittances to Mexico are declining rapidly as digital transfers surge. Bloomberg reports the world's largest corridor is going cashless — here's how it affects your costs.",
+    image: "/images/news/mexico-remittance-digital.svg",
+    imageAlt:
+      "A smartphone showing a money transfer app with US and Mexican flags, representing the digital shift in US-Mexico remittances",
+    content: `<p>The world's largest remittance corridor is going cashless — and it's happening faster than anyone predicted.</p>
+
+<p>Bloomberg <a href="https://www.bloomberg.com/news/articles/2026-03-17/mexico-s-62-billion-in-us-remittances-shifts-away-from-cash" target="_blank" rel="noopener noreferrer nofollow">reported on March 17</a> that Mexico's US remittance corridor — worth over <strong>$62 billion annually</strong> — is experiencing a rapid shift from cash-based transfers to digital. Cash's share of inbound remittances has fallen from over 60% a decade ago to under 35% in early 2026, with app-based transfers now accounting for the majority of volume for the first time.</p>
+
+<h2>Why the shift is accelerating in 2026</h2>
+<p>Three forces are converging to push the US-Mexico corridor digital:</p>
+<ul>
+<li><strong>The 1% US remittance tax</strong> — The <a href="/news/us-remittance-excise-tax-takes-effect-2026">federal excise tax</a> that took effect in January 2026 applies only to cash-funded transfers. Digital transfers are exempt, giving millions of senders a direct financial incentive to switch from agent counters to apps.</li>
+<li><strong>Mexico's expanding digital infrastructure</strong> — Bank of Mexico's SPEI instant payment system now processes over 300 million transactions per month, and mobile banking penetration has doubled since 2022. Recipients who once needed cash pickup now have bank accounts or digital wallets that can receive instant deposits.</li>
+<li><strong>Provider competition on USD-MXN</strong> — <a href="/companies/remitly">Remitly</a>, <a href="/companies/wise">Wise</a>, and <a href="/companies/taptap-send">TapTap Send</a> have all expanded their Mexico offerings, driving fees down to near-zero on digital transfers. Our <a href="/send-money/usa-to-mexico">USA to Mexico comparison page</a> shows fees starting at $0 with exchange rate markups under 1%.</li>
+</ul>
+
+<h2>What this means for your transfers</h2>
+<p>The shift is unambiguously good for senders. As digital volume grows, providers compete harder on the corridor, pushing down both fees and exchange rate markups. Our data shows the average total cost of sending $500 digitally from the US to Mexico has fallen from 3.2% in 2024 to under 1.5% in March 2026.</p>
+
+<p>Cash transfers remain significantly more expensive — averaging 5–7% total cost at agent locations — and now carry the additional 1% tax burden. For a $1,000 transfer, switching from a cash agent to a digital app saves <strong>$40–$70</strong>.</p>
+
+<h2>Winners and losers</h2>
+<p>The clear winners are digital-first providers. <a href="/companies/remitly">Remitly</a> reports that Mexico is now its fastest-growing corridor by transaction count. <a href="/companies/wise">Wise</a> offers the mid-market exchange rate with 0% markup — consistently the cheapest option for bank-to-bank transfers to Mexico.</p>
+
+<p>The losers are traditional agent networks. <a href="/companies/western-union">Western Union</a>, whose CEO recently <a href="/news/western-union-ceo-digital-competition-2026">acknowledged losing ground to digital rivals</a>, still operates thousands of agent locations across Mexico but is seeing digital transactions grow 3x faster than in-person visits. <a href="/companies/moneygram">MoneyGram</a> faces similar pressure.</p>
+
+<p>That said, cash isn't dead yet. Roughly 10 million Mexican households still lack reliable banking access, and cash pickup remains essential for remittances to rural areas. But the trajectory is clear: digital is becoming the default.</p>
+
+<h2>How to get the best rate on USD to MXN</h2>
+<p>If you send money to Mexico regularly, here's how to maximise what your recipient receives:</p>
+<ul>
+<li><strong>Switch to digital</strong> — If you still send cash at an agent, switching to an app saves 3–5% per transfer plus avoids the 1% tax.</li>
+<li><strong>Compare at your exact amount</strong> — Provider rankings change at different amounts. Our <a href="/send-money/usa-to-mexico">USA to Mexico comparison tool</a> shows live rates from 10+ providers.</li>
+<li><strong>Check Ramadan promotions</strong> — Several providers are running <a href="/guides/ramadan-2026-money-transfer-deals-promotions">Ramadan 2026 deals</a> with fee waivers and enhanced rates through Eid al-Fitr.</li>
+</ul>
+
+<p>The $62 billion corridor going digital isn't just a story about Mexico — it's a preview of where every major remittance route is heading. For a broader view, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report and our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-03-20",
+    source: "Bloomberg",
+    sourceUrl:
+      "https://www.bloomberg.com/news/articles/2026-03-17/mexico-s-62-billion-in-us-remittances-shifts-away-from-cash",
+    providerSlugs: ["remitly", "wise", "western-union", "moneygram", "taptap-send"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {

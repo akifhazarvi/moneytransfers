@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">Mexico's $62B Remittance Corridor</text>
+  <text x="600" y="95" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">The world's largest corridor shifts from cash to digital</text>
+  <!-- Trend chart: Cash declining, Digital rising -->
+  <g transform="translate(100, 140)">
+    <!-- Axes -->
+    <line x1="80" y1="300" x2="950" y2="300" stroke="#ffffff30" stroke-width="2"/>
+    <line x1="80" y1="0" x2="80" y2="300" stroke="#ffffff30" stroke-width="2"/>
+    <!-- Y axis labels -->
+    <text x="70" y="10" text-anchor="end" fill="#ffffff60" font-family="system-ui" font-size="14">70%</text>
+    <text x="70" y="110" text-anchor="end" fill="#ffffff60" font-family="system-ui" font-size="14">50%</text>
+    <text x="70" y="210" text-anchor="end" fill="#ffffff60" font-family="system-ui" font-size="14">30%</text>
+    <text x="70" y="305" text-anchor="end" fill="#ffffff60" font-family="system-ui" font-size="14">10%</text>
+    <!-- X axis labels -->
+    <text x="150" y="325" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">2018</text>
+    <text x="350" y="325" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">2020</text>
+    <text x="550" y="325" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">2022</text>
+    <text x="750" y="325" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">2024</text>
+    <text x="900" y="325" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">2026</text>
+    <!-- Cash line (declining) -->
+    <polyline points="150,15 350,60 550,120 750,180 900,230" fill="none" stroke="#ea4335" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="900" cy="230" r="6" fill="#ea4335"/>
+    <text x="920" y="225" fill="#ea4335" font-family="system-ui" font-size="16" font-weight="600">35% Cash</text>
+    <!-- Digital line (rising) -->
+    <polyline points="150,270 350,230 550,180 750,120 900,70" fill="none" stroke="#34a853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="900" cy="70" r="6" fill="#34a853"/>
+    <text x="920" y="65" fill="#34a853" font-family="system-ui" font-size="16" font-weight="600">65% Digital</text>
+  </g>
+  <!-- Key stat -->
+  <rect x="300" y="510" width="600" height="50" rx="12" fill="#ffffff10"/>
+  <text x="600" y="542" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">Switching from cash to app saves $40–$70 per $1,000 transfer</text>
+  <!-- Footer -->
+  <text x="600" y="590" text-anchor="middle" fill="#1a73e8" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

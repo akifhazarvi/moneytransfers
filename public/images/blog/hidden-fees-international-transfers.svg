@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1f36"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Fee layers stacked -->
+  <g transform="translate(150, 120)">
+    <!-- Bank fee stack -->
+    <rect x="0" y="0" width="400" height="60" rx="8" fill="#ea4335" opacity="0.85"/>
+    <text x="200" y="38" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="18" font-weight="600">FX Markup: 2–5%</text>
+    <rect x="0" y="70" width="400" height="60" rx="8" fill="#ea4335" opacity="0.7"/>
+    <text x="200" y="108" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="18" font-weight="600">Flat Wire Fee: $25–$50</text>
+    <rect x="0" y="140" width="400" height="60" rx="8" fill="#ea4335" opacity="0.55"/>
+    <text x="200" y="178" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="18" font-weight="600">Correspondent Bank: $15–$60</text>
+    <rect x="0" y="210" width="400" height="60" rx="8" fill="#ea4335" opacity="0.4"/>
+    <text x="200" y="248" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="18" font-weight="600">Receiving Fee: $5–$25</text>
+    <rect x="0" y="280" width="400" height="60" rx="8" fill="#ea4335" opacity="0.25"/>
+    <text x="200" y="318" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="18" font-weight="600">Double Conversion + Timing</text>
+    <text x="200" y="380" text-anchor="middle" fill="#ea4335" font-family="system-ui" font-size="24" font-weight="700">Bank: $50–$120 total</text>
+    <!-- App fee stack (smaller) -->
+    <rect x="500" y="210" width="400" height="60" rx="8" fill="#34a853" opacity="0.85"/>
+    <text x="700" y="248" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="18" font-weight="600">Transparent Fee: $3–$7</text>
+    <rect x="500" y="280" width="400" height="60" rx="8" fill="#34a853" opacity="0.6"/>
+    <text x="700" y="318" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="18" font-weight="600">FX Markup: 0–1%</text>
+    <text x="700" y="380" text-anchor="middle" fill="#34a853" font-family="system-ui" font-size="24" font-weight="700">App: $5–$15 total</text>
+    <!-- VS -->
+    <text x="450" y="280" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="28" font-weight="700">vs</text>
+  </g>
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">7 Hidden Fees in International Transfers</text>
+  <text x="600" y="95" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">What banks don't tell you about the real cost of sending money abroad</text>
+  <!-- Footer -->
+  <text x="600" y="590" text-anchor="middle" fill="#1a73e8" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

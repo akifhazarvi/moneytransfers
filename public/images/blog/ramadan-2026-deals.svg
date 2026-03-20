@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Crescent moon -->
+  <circle cx="600" cy="250" r="100" fill="#f5c518"/>
+  <circle cx="640" cy="230" r="85" fill="#1a1a2e"/>
+  <!-- Star -->
+  <polygon points="700,200 710,230 742,230 716,248 726,278 700,260 674,278 684,248 658,230 690,230" fill="#f5c518"/>
+  <!-- Deal badges -->
+  <g transform="translate(150, 380)">
+    <rect x="0" y="0" width="250" height="70" rx="12" fill="#34a853" opacity="0.9"/>
+    <text x="125" y="30" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="16" font-weight="700">ACE Money Transfer</text>
+    <text x="125" y="55" text-anchor="middle" fill="#ffffffcc" font-family="system-ui" font-size="14">Zero fees + bonus rates</text>
+  </g>
+  <g transform="translate(440, 380)">
+    <rect x="0" y="0" width="250" height="70" rx="12" fill="#1a73e8" opacity="0.9"/>
+    <text x="125" y="30" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="16" font-weight="700">Remitly</text>
+    <text x="125" y="55" text-anchor="middle" fill="#ffffffcc" font-family="system-ui" font-size="14">$0 fees all corridors</text>
+  </g>
+  <g transform="translate(730, 380)">
+    <rect x="0" y="0" width="250" height="70" rx="12" fill="#ff9800" opacity="0.9"/>
+    <text x="125" y="30" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="16" font-weight="700">WorldRemit</text>
+    <text x="125" y="55" text-anchor="middle" fill="#ffffffcc" font-family="system-ui" font-size="14">Fee-free select routes</text>
+  </g>
+  <!-- Volume stat -->
+  <text x="600" y="510" text-anchor="middle" fill="#f5c518" font-family="system-ui" font-size="20" font-weight="600">Remittances spike 25–30% during Ramadan</text>
+  <!-- Title -->
+  <text x="600" y="60" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">Ramadan 2026 Money Transfer Deals</text>
+  <text x="600" y="95" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">Fee waivers, bonus rates &amp; promo codes through Eid al-Fitr</text>
+  <!-- Footer -->
+  <text x="600" y="590" text-anchor="middle" fill="#1a73e8" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>
