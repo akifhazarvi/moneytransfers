@@ -132,6 +132,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ],
   };
 
+  const homeFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+
   return (
     <>
       <script
@@ -141,6 +151,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeBreadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
       />
       {/* ─── 1. HERO ─── */}
       <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-16 pb-14">

@@ -473,6 +473,17 @@ function DetailedReview({
           },
         }),
       }) }} />
+      {review.faqs && review.faqs.length > 0 && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: review.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.a },
+          })),
+        }) }} />
+      )}
     </>
   );
 }

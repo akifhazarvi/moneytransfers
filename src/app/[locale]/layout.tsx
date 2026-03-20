@@ -148,6 +148,10 @@ export default async function LocaleLayout({ children, params }: Props) {
         }}
       />
       <Script
+        src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+        strategy="lazyOnload"
+      />
+      <Script
         id="theme-init"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{

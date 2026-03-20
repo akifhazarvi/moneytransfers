@@ -72,8 +72,6 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://open.er-api.com" />
         <link rel="preconnect" href="https://hatscripts.github.io" />
-        {/* Trustpilot widget bootstrap */}
-        <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async />
       </head>
       <body className="antialiased">{children}</body>
     </html>

@@ -23,9 +23,25 @@ import { getCountryDetails } from "@/data/corridor-details";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { statSync } from "fs";
+import { join } from "path";
 
 interface Props {
   params: Promise<{ corridor: string; locale: string }>;
+}
+
+/** Returns the most recent mtime of scraped quote files as an ISO date string. */
+function getDataFreshnessDate(): string {
+  const scrapedDir = join(process.cwd(), "src/data/scraped");
+  const quoteFiles = ["provider-quotes.json", "mid-market-rates.json", "exchange-rates.json"];
+  let latest = new Date(0);
+  for (const file of quoteFiles) {
+    try {
+      const mtime = statSync(join(scrapedDir, file)).mtime;
+      if (mtime > latest) latest = mtime;
+    } catch { /* file may not exist */ }
+  }
+  return latest.getTime() > 0 ? latest.toISOString().split("T")[0] : new Date().toISOString().split("T")[0];
 }
 
 const corridorEditorialNotes: Record<
@@ -1384,12 +1400,14 @@ export default async function CorridorPage({ params }: Props) {
     : isCountryPg
     ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency}).`;
+  const dataUpdatedDate = getDataFreshnessDate();
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: pageTitle,
     description: pageDescription,
     url: `https://sendmoneycompare.com/send-money/${slug}`,
+    dateModified: dataUpdatedDate,
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
   };
 
@@ -1456,8 +1474,8 @@ export default async function CorridorPage({ params }: Props) {
           <div className="max-w-3xl">
             <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
               By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">Akif Hazarvi</Link>
-              {" · "}Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-              {" · "}Data refreshed every 6 hours
+              {" · "}Data updated <time dateTime={dataUpdatedDate}>{new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time>
+              {" · "}Refreshed every 6 hours
             </p>
           </div>
           <div className="max-w-3xl text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
@@ -1684,7 +1702,7 @@ export default async function CorridorPage({ params }: Props) {
                     Read full review
                   </PrimaryButton>
                   <a
-                    href={getGoUrl(best.providerSlug)}
+                    href={getGoUrl(best.providerSlug, { sourceCurrency: corridor.fromCurrency, targetCurrency: corridor.toCurrency })}
                     rel="noopener noreferrer nofollow"
                     className="inline-flex items-center h-9 px-5 text-2sm font-medium text-[var(--color-primary)] border border-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-surface)] transition-colors"
                   >
