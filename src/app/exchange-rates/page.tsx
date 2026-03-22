@@ -3,18 +3,18 @@ import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
 
 export const metadata: Metadata = {
-  title: "Live Exchange Rates Today — Real-Time Currency Rates",
+  title: "Live Exchange Rates Today — Real-Time Currency Rates (Updated Every 60s)",
   description:
-    "Track live exchange rates for 20+ major currencies updated every 60 seconds. Compare mid-market rates from 4 independent sources. USD, EUR, GBP, INR, JPY and more.",
+    "Live mid-market exchange rates from 4 independent sources, updated every 60 seconds. USD, EUR, GBP, INR, JPY & 20+ currencies. See how much banks and transfer services mark up the real rate.",
   keywords:
-    "live exchange rates, exchange rates today, currency rates, forex rates, USD to INR, GBP to USD, mid-market rate",
+    "live exchange rates, exchange rates today, currency rates, forex rates, USD to INR, GBP to USD, mid-market rate, real exchange rate",
   alternates: {
     canonical: "https://sendmoneycompare.com/exchange-rates",
   },
   openGraph: {
-    title: "Live Exchange Rates Today | SendMoneyCompare",
+    title: "Exchange Rates Today — Real Rate vs. What Providers Charge",
     description:
-      "Real-time exchange rates for 20+ currencies. Mid-market rates aggregated from 4 independent sources, updated every 60 seconds.",
+      "Live mid-market rates for 20+ currencies from 4 independent sources. See how much providers mark up the real rate.",
     url: "https://sendmoneycompare.com/exchange-rates",
   },
 };

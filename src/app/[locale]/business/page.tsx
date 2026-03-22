@@ -8,17 +8,18 @@ import { setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  const year = new Date().getFullYear();
   return {
     title:
-      "International Business Payments — Compare the 4 Cheapest Providers (2026)",
+      `International Business Payments — Compare the 4 Cheapest Providers (${year})`,
     description:
-      "Compare the cheapest ways to make international business payments in 2026. Wise Business, OFX, Revolut & XE save 80–95% vs bank wires. Compare fees, FX rates & speeds for SME payments, bulk transfers, vendor payouts & B2B transfers.",
+      `Compare the cheapest ways to make international business payments in ${year}. Wise Business, OFX, Revolut & XE save 80–95% vs bank wires. Compare fees, FX rates & speeds for SME payments, bulk transfers, vendor payouts & B2B transfers.`,
     keywords:
-      "international business payments, small business international payments, business international payments, business money transfer, business fx payments, bulk international payments, international vendor payments, B2B international money transfer, international payments for business, business bank transfer abroad",
+      `international business payments ${year}, small business international payments, business money transfer, business fx payments, bulk international payments, international vendor payments, B2B international money transfer, business bank transfer abroad`,
     alternates: getAlternates("business", locale),
     openGraph: {
       title:
-        "International Business Payments — Compare Providers & Fees (2026)",
+        `International Business Payments — Compare Providers & Fees (${year})`,
       description:
         "Compare the cheapest ways to make international business payments. Specialist providers save 80–95% vs bank wire transfers.",
       url: "https://sendmoneycompare.com/business",

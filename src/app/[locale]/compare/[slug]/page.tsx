@@ -63,14 +63,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pair = parseSlug(slug);
   if (!pair) return {};
   const { a, b } = pair;
-  const desc = `${a.name} vs ${b.name}: side-by-side comparison of fees, exchange rates, speed, and features across ${6} corridors. ${a.name} charges ${a.feeStructure} with ${a.exchangeRateMarkup} markup; ${b.name} charges ${b.feeStructure}. See which delivers more.`;
+  const year = new Date().getFullYear();
+  const desc = `We compared ${a.name} vs ${b.name} across 6 corridors with real data. One consistently beats the other on exchange rates — but the cheaper option depends on where you're sending and how much. See the full ${year} breakdown.`;
   return {
-    title: `${a.name} vs ${b.name}: Fees, Rates & Speed Compared (${new Date().getFullYear()})`,
+    title: `${a.name} vs ${b.name} ${year}: Which Is Actually Cheaper? (Real Data)`,
     description: desc,
     alternates: getAlternates(`compare/${slug}`, locale),
     openGraph: {
-      title: `${a.name} vs ${b.name}: Fees, Rates & Speed Compared (${new Date().getFullYear()})`,
-      description: desc,
+      title: `${a.name} vs ${b.name}: Which Gives You More Money?`,
+      description: `We tested ${a.name} and ${b.name} side by side across 6 corridors. The winner surprised us on some routes. See the data.`,
       url: `https://sendmoneycompare.com/compare/${slug}`,
     },
   };

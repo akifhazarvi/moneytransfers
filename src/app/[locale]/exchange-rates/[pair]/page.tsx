@@ -270,15 +270,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = PAIR_MAP.get(pair);
   if (!p) return { title: "Not Found" };
 
-  const title = `${p.from} to ${p.to} Exchange Rate Today — ${p.fromName} to ${p.toName}`;
-  const description = `Live ${p.from}/${p.to} exchange rate today. Compare what ${providers.length}+ money transfer providers actually offer vs. the mid-market rate. Find the cheapest way to convert ${p.fromName} to ${p.toName}.`;
+  const year = new Date().getFullYear();
+  const title = `${p.from} to ${p.to} Exchange Rate Today — Live ${p.fromName} to ${p.toName} (${year})`;
+  const description = `Live ${p.from}/${p.to} exchange rate updated every 60 seconds. Compare what ${providers.length}+ transfer providers actually offer vs. the mid-market rate — most add a 0.5–4% hidden markup. Find who gives you the most ${p.toName}.`;
 
   return {
     title,
     description,
-    keywords: `${p.from} to ${p.to} exchange rate, ${p.from} to ${p.to} rate today, ${p.from}/${p.to}, ${p.fromName} to ${p.toName}, convert ${p.from} to ${p.to}, ${p.from} ${p.to} mid-market rate`,
+    keywords: `${p.from} to ${p.to} exchange rate, ${p.from} to ${p.to} rate today, ${p.from}/${p.to} ${year}, ${p.fromName} to ${p.toName}, convert ${p.from} to ${p.to}, ${p.from} ${p.to} mid-market rate, cheapest ${p.from} to ${p.to}`,
     alternates: getAlternates(`exchange-rates/${pair}`, locale),
-    openGraph: { title, description, url: `https://sendmoneycompare.com/exchange-rates/${pair}` },
+    openGraph: {
+      title: `${p.from}→${p.to}: Real Rate vs. What Providers Offer`,
+      description: `Live ${p.from}/${p.to} mid-market rate vs. what transfer providers charge. See the markup each provider adds.`,
+      url: `https://sendmoneycompare.com/exchange-rates/${pair}`,
+    },
   };
 }
 

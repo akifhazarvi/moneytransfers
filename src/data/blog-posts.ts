@@ -148,9 +148,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-to-send-money-abroad",
-    title: "How to Send Money Abroad: Complete Guide for 2026",
+    title: "How to Send Money Abroad in 2026 — 5 Methods Ranked by Cost & Speed",
     metaDescription:
-      "Step-by-step guide to sending money internationally in 2026. Compare transfer methods, understand fees and exchange rates, and avoid common costly mistakes.",
+      "5 ways to send money internationally in 2026, ranked by cost and speed. Bank wires cost $25–$50; digital providers cost under $5. Step-by-step guide to avoid the 3 most expensive mistakes.",
     excerpt:
       "Everything you need to know about sending money internationally — from choosing a provider to understanding fees, exchange rates, and transfer speeds.",
     category: "Guides",
@@ -294,9 +294,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "exchange-rate-markup-explained",
-    title: "Exchange Rate Markup Explained: How Providers Make Money",
+    title: "Exchange Rate Markup Explained — The Hidden Fee Costing You More Than You Think (2026)",
     metaDescription:
-      "Learn how exchange rate markups work, why the rate your provider offers differs from the mid-market rate, and how to calculate the true cost of any transfer.",
+      "Exchange rate markups are the hidden profit margin in every transfer — often 1–4% on top of the mid-market rate. Learn how to spot them, calculate the true cost, and find providers that charge near-zero markup.",
     excerpt:
       "The mid-market rate vs. provider rate gap is where most of your money goes. Here's how to spot markups and calculate the real cost.",
     category: "Education",
@@ -1345,9 +1345,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "wire-transfer-guide",
-    title: "International Wire Transfer: Fees, How It Works & Cheaper Alternatives (2026)",
+    title: "Wire Transfer Fees in 2026: $25–$50 Per Send — 3 Cheaper Alternatives That Save 80%",
     metaDescription:
-      "What is a wire transfer and how much does it cost? Compare wire transfer fees ($25–$50 per send) vs cheaper alternatives that save 80%. Bank wire transfer speeds, limits & how to send.",
+      "Banks charge $25–$50 per wire transfer plus a hidden 3–5% exchange rate markup. We tested 3 alternatives that save 80% on the same transfer. See how wire transfers actually work and when to use them.",
     excerpt:
       "Wire transfers remain one of the most common ways to send money internationally \u2014 but they\u2019re also one of the most expensive. Here\u2019s everything you need to know about wire transfer fees, speed, and smarter alternatives.",
     category: "Education",

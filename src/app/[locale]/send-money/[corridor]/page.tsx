@@ -766,482 +766,480 @@ export function generateStaticParams() {
 
 const corridorSeoOverrides: Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; keywords: string }> = {
   "usa-to-pakistan": {
-    title: "Send Money USA to Pakistan — USD to PKR Rates",
+    title: "Cheapest Way to Send Money USA to Pakistan — USD→PKR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to Pakistan in 2026. See real-time USD to PKR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
-    ogTitle: "Send Money USA to Pakistan — Best USD to PKR Rates",
+    ogTitle: "USA→Pakistan: Who Gives the Best USD→PKR Rate?",
     ogDescription:
       "Compare real-time USD to PKR rates from 15+ providers. Find the cheapest and fastest way to send money from USA to Pakistan.",
     keywords:
       "send money USA to Pakistan, USD to PKR, cheapest way to send money to Pakistan, money transfer Pakistan, remittance to Pakistan, USD PKR exchange rate",
   },
   "usa-to-india": {
-    title: "Send Money USA to India — USD to INR Rates",
+    title: "Cheapest Way to Send Money USA to India — USD→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to India in 2026. See real-time USD to INR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
-    ogTitle: "Send Money USA to India — Best USD to INR Rates",
+    ogTitle: "USA→India: Who Gives the Best USD→INR Rate?",
     ogDescription:
       "Compare real-time USD to INR rates from 15+ providers. Find the cheapest and fastest way to send money from USA to India.",
     keywords:
       "send money USA to India, USD to INR, cheapest way to send money to India, money transfer India, remittance to India, USD INR exchange rate",
   },
   "usa-to-mexico": {
-    title: "Send Money USA to Mexico — USD to MXN Rates",
+    title: "Cheapest Way to Send Money USA to Mexico — USD→MXN Rates (2026)",
     description:
       "Find the cheapest way to send money from USA to Mexico in 2026. Compare real-time USD to MXN exchange rates, fees, and delivery speeds from Wise, Remitly, Xoom, Western Union, and more. SPEI instant deposits available.",
-    ogTitle: "Send Money USA to Mexico — Best USD to MXN Rates",
+    ogTitle: "USA→Mexico: Who Gives the Best USD→MXN Rate?",
     ogDescription:
       "Compare USD to MXN rates from 15+ providers. Find the cheapest way to send money from USA to Mexico with SPEI instant delivery.",
     keywords:
       "send money USA to Mexico, USD to MXN, cheapest way to send money to Mexico, money transfer Mexico, remittance to Mexico, USD MXN exchange rate, SPEI transfer, Oxxo cash pickup",
   },
   "usa-to-philippines": {
-    title: "Send Money USA to Philippines — USD to PHP Rates",
+    title: "Cheapest Way to Send Money USA to Philippines — USD→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to Philippines in 2026. Real-time USD to PHP rates, fees, and delivery options including GCash, bank deposit, and cash pickup from 15+ providers.",
-    ogTitle: "Send Money USA to Philippines — Best USD to PHP Rates",
+    ogTitle: "USA→Philippines: Who Gives the Best USD→PHP Rate?",
     ogDescription:
       "Compare real-time USD to PHP rates from 15+ providers. Find the cheapest way to send money from USA to Philippines via GCash, bank, or cash pickup.",
     keywords:
       "send money USA to Philippines, USD to PHP, cheapest way to send money to Philippines, money transfer Philippines, remittance to Philippines, GCash transfer, USD PHP exchange rate",
   },
   "uk-to-europe": {
-    title: "Send Money UK to Europe — GBP to EUR Rates",
+    title: "Cheapest Way to Send Money UK to Europe — GBP→EUR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UK to Europe in 2026. Real-time GBP to EUR exchange rates, SEPA transfer fees, and delivery times from Wise, Revolut, and 10+ more providers.",
-    ogTitle: "Send Money UK to Europe — Best GBP to EUR Rates",
+    ogTitle: "UK→Europe: Who Gives the Best GBP→EUR Rate?",
     ogDescription:
       "Compare GBP to EUR rates from 15+ providers. Find the cheapest SEPA transfer from UK to Europe with the lowest fees.",
     keywords:
       "send money UK to Europe, GBP to EUR, cheapest way to send money to Europe, SEPA transfer from UK, money transfer Europe, GBP EUR exchange rate, post-Brexit transfers",
   },
   "uk-to-india": {
-    title:
-      "Send Money UK to India — Best GBP to INR Rates (2026)",
+    title: "Cheapest Way to Send Money UK to India — GBP→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UK to India. Real-time GBP to INR rates from Wise, Remitly, OFX & 10+ providers. IMPS instant delivery. Save £40–£70 per transfer vs banks.",
-    ogTitle:
-      "Send Money from UK to India — Cheapest GBP to INR Rates 2026",
+    ogTitle: "UK→India: Who Gives the Best GBP→INR Rate?",
     ogDescription:
       "Compare real-time GBP to INR rates from 15+ providers. Find the cheapest, fastest way to transfer money from UK to India.",
     keywords:
       "send money UK to India, send money from UK to India, money transfer UK to India, money to India from UK, best money transfer to India from UK, cheapest way to send money to India from UK, transfer money from UK to India, wire transfer from UK to India, GBP to INR, sending money from UK to India, how to send money from UK to India, best way to transfer money from UK to India, online money transfer from UK to India",
   },
   "canada-to-india": {
-    title: "Send Money Canada to India — CAD to INR Rates",
+    title: "Cheapest Way to Send Money Canada to India — CAD→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Canada to India in 2026. Real-time CAD to INR exchange rates, fees, and delivery times from Wise, Remitly, WorldRemit, and more. Fund via Interac e-Transfer.",
-    ogTitle: "Send Money Canada to India — Best CAD to INR Rates",
+    ogTitle: "Canada→India: Who Gives the Best CAD→INR Rate?",
     ogDescription:
       "Compare CAD to INR rates from 10+ providers. Find the cheapest way to send money from Canada to India with Interac funding.",
     keywords:
       "send money Canada to India, CAD to INR, cheapest way to send money to India from Canada, money transfer India, remittance to India, CAD INR exchange rate, Interac e-Transfer",
   },
   "australia-to-india": {
-    title: "Send Money Australia to India — AUD to INR Rates",
+    title: "Cheapest Way to Send Money Australia to India — AUD→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Australia to India in 2026. Real-time AUD to INR exchange rates, fees, and delivery times from Wise, Instarem, Remitly, and 10+ more providers.",
-    ogTitle: "Send Money Australia to India — Best AUD to INR Rates",
+    ogTitle: "Australia→India: Who Gives the Best AUD→INR Rate?",
     ogDescription:
       "Compare AUD to INR rates from 10+ providers. Find the cheapest way to send money from Australia to India with PayID funding.",
     keywords:
       "send money Australia to India, AUD to INR, cheapest way to send money to India from Australia, money transfer India, remittance to India, AUD INR exchange rate, POLi transfer, PayID",
   },
   "usa-to-nigeria": {
-    title: "Send Money USA to Nigeria — USD to NGN Rates 2026",
+    title: "Cheapest Way to Send Money USA to Nigeria — USD→NGN Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to Nigeria in 2026. Real-time USD to NGN exchange rates from Wise, Remitly, Lemfi, WorldRemit, and more. NGN rates vary by 10%+ between providers — compare before you send.",
-    ogTitle: "Send Money USA to Nigeria — Best USD to NGN Rates",
+    ogTitle: "USA→Nigeria: Who Gives the Best USD→NGN Rate?",
     ogDescription:
       "Compare real-time USD to NGN rates from 10+ providers. NGN rates vary by 10%+ — find the most naira for your dollar today.",
     keywords:
       "send money USA to Nigeria, USD to NGN, cheapest way to send money to Nigeria, money transfer Nigeria, remittance to Nigeria, USD NGN exchange rate, naira transfer, Lemfi Nigeria",
   },
   "usa-to-bangladesh": {
-    title: "Send Money USA to Bangladesh — USD to BDT Rates 2026",
+    title: "Cheapest Way to Send Money USA to Bangladesh — USD→BDT Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to Bangladesh in 2026. Real-time USD to BDT rates from Remitly, Wise, ACE Money Transfer, and 10+ providers. Direct bKash transfers available — funds arrive in minutes.",
-    ogTitle: "Send Money USA to Bangladesh — Best USD to BDT Rates",
+    ogTitle: "USA→Bangladesh: Who Gives the Best USD→BDT Rate?",
     ogDescription:
       "Compare USD to BDT rates from 10+ providers. Send directly to bKash in minutes. Find the most taka for your dollar today.",
     keywords:
       "send money USA to Bangladesh, USD to BDT, cheapest way to send money to Bangladesh, money transfer Bangladesh, remittance Bangladesh, bKash transfer from USA, USD BDT exchange rate, ACE Money Transfer Bangladesh",
   },
   "usa-to-europe": {
-    title: "Send Money USA to Europe — USD to EUR Rates 2026",
+    title: "Cheapest Way to Send Money USA to Europe — USD→EUR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from the USA to Europe in 2026. Real-time USD to EUR exchange rates, SEPA delivery, and fees from Wise, OFX, XE, and 10+ providers. Save $40–$70 per transfer versus US bank wires.",
-    ogTitle: "Send Money USA to Europe — Best USD to EUR Rates",
+    ogTitle: "USA→Europe: Who Gives the Best USD→EUR Rate?",
     ogDescription:
       "Compare USD to EUR rates from 10+ providers. SEPA delivery in 1 business day. Save 80% versus bank wire transfers.",
     keywords:
       "send money USA to Europe, USD to EUR, cheapest way to send money to Europe, SEPA transfer from USA, money transfer Europe, USD EUR exchange rate, wire money to Europe, best way to send money to Europe from USA",
   },
   "uk-to-pakistan": {
-    title: "Send Money UK to Pakistan — GBP to PKR Rates 2026",
+    title: "Cheapest Way to Send Money UK to Pakistan — GBP→PKR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UK to Pakistan in 2026. Real-time GBP to PKR rates from ACE Money Transfer, Wise, WorldRemit, Remitly, and more. Direct JazzCash and Easypaisa transfers available.",
-    ogTitle: "Send Money UK to Pakistan — Best GBP to PKR Rates",
+    ogTitle: "UK→Pakistan: Who Gives the Best GBP→PKR Rate?",
     ogDescription:
       "Compare GBP to PKR rates from 10+ providers. Send to JazzCash or Easypaisa in minutes. Find the most rupees per pound today.",
     keywords:
       "send money UK to Pakistan, GBP to PKR, cheapest way to send money to Pakistan from UK, money transfer Pakistan, JazzCash from UK, Easypaisa from UK, GBP PKR exchange rate, ACE Money Transfer Pakistan",
   },
   "uk-to-nigeria": {
-    title: "Send Money UK to Nigeria — GBP to NGN Rates 2026",
+    title: "Cheapest Way to Send Money UK to Nigeria — GBP→NGN Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UK to Nigeria in 2026. GBP to NGN rates from Lemfi, Wise, WorldRemit, Remitly, and more. NGN rates vary by 10%+ between providers — always compare before you send.",
-    ogTitle: "Send Money UK to Nigeria — Best GBP to NGN Rates",
+    ogTitle: "UK→Nigeria: Who Gives the Best GBP→NGN Rate?",
     ogDescription:
       "Compare GBP to NGN rates from 10+ providers. Up to 10% difference between best and worst. Find the most naira per pound today.",
     keywords:
       "send money UK to Nigeria, GBP to NGN, cheapest way to send money to Nigeria from UK, Lemfi UK Nigeria, money transfer Nigeria, GBP NGN exchange rate, naira exchange rate UK, remittance to Nigeria from UK",
   },
   "australia-to-philippines": {
-    title: "Send Money Australia to Philippines — AUD to PHP Rates 2026",
+    title: "Cheapest Way to Send Money Australia to Philippines — AUD→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Australia to the Philippines in 2026. AUD to PHP rates from Instarem, Wise, Remitly, WorldRemit, and more. Direct GCash transfers available. Save A$50–$80 per A$1,000 vs banks.",
-    ogTitle: "Send Money Australia to Philippines — Best AUD to PHP Rates",
+    ogTitle: "Australia→Philippines: Who Gives the Best AUD→PHP Rate?",
     ogDescription:
       "Compare AUD to PHP rates from 10+ providers. Send to GCash in minutes. Instarem often beats global brands on this corridor.",
     keywords:
       "send money Australia to Philippines, AUD to PHP, cheapest way to send money to Philippines from Australia, GCash from Australia, Instarem AUD PHP, money transfer Philippines, AUD PHP exchange rate",
   },
   "usa-to-brazil": {
-    title: "Send Money USA to Brazil — USD to BRL Rates 2026",
+    title: "Cheapest Way to Send Money USA to Brazil — USD→BRL Rates (2026)",
     description:
       "Compare the cheapest ways to send money from the USA to Brazil in 2026. USD to BRL rates from Wise, Remitly, Western Union, and 10+ providers. PIX instant delivery available. BRL volatile — compare before every send.",
-    ogTitle: "Send Money USA to Brazil — Best USD to BRL Rates",
+    ogTitle: "USA→Brazil: Who Gives the Best USD→BRL Rate?",
     ogDescription:
       "Compare USD to BRL rates from 10+ providers. PIX delivery in seconds. Find the most reais per dollar today.",
     keywords:
       "send money USA to Brazil, USD to BRL, cheapest way to send money to Brazil, PIX transfer from USA, money transfer Brazil, USD BRL exchange rate, remittance to Brazil, reais transfer",
   },
   "usa-to-kenya": {
-    title: "Send Money USA to Kenya — USD to KES Rates 2026",
+    title: "Cheapest Way to Send Money USA to Kenya — USD→KES Rates (2026)",
     description:
       "Compare the cheapest ways to send money from the USA to Kenya in 2026. USD to KES rates from Sendwave, WorldRemit, Remitly, and Wise. Direct M-Pesa transfers in minutes. Sendwave charges zero fees for M-Pesa delivery.",
-    ogTitle: "Send Money USA to Kenya — Best USD to KES Rates",
+    ogTitle: "USA→Kenya: Who Gives the Best USD→KES Rate?",
     ogDescription:
       "Compare USD to KES rates from 10+ providers. Send to M-Pesa in minutes. Sendwave offers zero-fee M-Pesa transfers to Kenya.",
     keywords:
       "send money USA to Kenya, USD to KES, cheapest way to send money to Kenya, M-Pesa transfer from USA, Sendwave Kenya, WorldRemit Kenya, money transfer Kenya, USD KES exchange rate",
   },
   "canada-to-philippines": {
-    title: "Send Money Canada to Philippines — CAD to PHP Rates 2026",
+    title: "Cheapest Way to Send Money Canada to Philippines — CAD→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Canada to the Philippines in 2026. CAD to PHP rates from Remitly, Wise, Instarem, WorldRemit, and more. Direct GCash transfers via Interac e-Transfer. Save C$60–$100 vs Canadian banks.",
-    ogTitle: "Send Money Canada to Philippines — Best CAD to PHP Rates",
+    ogTitle: "Canada→Philippines: Who Gives the Best CAD→PHP Rate?",
     ogDescription:
       "Compare CAD to PHP rates from 10+ providers. Fund via Interac e-Transfer, send to GCash in minutes. Find the best rate today.",
     keywords:
       "send money Canada to Philippines, CAD to PHP, cheapest way to send money to Philippines from Canada, GCash from Canada, Interac transfer Philippines, Instarem CAD PHP, money transfer Philippines, CAD PHP exchange rate",
   },
   "uk-to-bangladesh": {
-    title: "Send Money UK to Bangladesh — GBP to BDT Rates 2026",
+    title: "Cheapest Way to Send Money UK to Bangladesh — GBP→BDT Rates (2026)",
     description:
       "Compare the cheapest ways to send money from the UK to Bangladesh in 2026. GBP to BDT rates from ACE Money Transfer, WorldRemit, Wise, and Remitly. Direct bKash transfers in minutes. Bangladesh 2.5% remittance incentive applies.",
-    ogTitle: "Send Money UK to Bangladesh — Best GBP to BDT Rates",
+    ogTitle: "UK→Bangladesh: Who Gives the Best GBP→BDT Rate?",
     ogDescription:
       "Compare GBP to BDT rates from 10+ providers. Send directly to bKash in minutes. Get Bangladesh's 2.5% remittance cash incentive.",
     keywords:
       "send money UK to Bangladesh, GBP to BDT, cheapest way to send money to Bangladesh from UK, bKash from UK, ACE Money Transfer Bangladesh, money transfer Bangladesh, GBP BDT exchange rate",
   },
   "uae-to-india": {
-    title: "Send Money UAE to India — AED to INR Rates 2026",
+    title: "Cheapest Way to Send Money UAE to India — AED→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UAE to India in 2026. AED to INR rates from Wise, Remitly, Al Ansari Exchange, and 10+ providers. IMPS instant delivery to all major Indian banks. Competition is intense — compare before every send.",
-    ogTitle: "Send Money UAE to India — Best AED to INR Rates",
+    ogTitle: "UAE→India: Who Gives the Best AED→INR Rate?",
     ogDescription:
       "Compare AED to INR rates from 10+ providers. IMPS instant delivery to Indian banks. Find the most rupees per dirham today.",
     keywords:
       "send money UAE to India, AED to INR, cheapest way to send money from UAE to India, Al Ansari Exchange, money transfer India from UAE, AED INR exchange rate, IMPS transfer, remittance India UAE",
   },
   "uae-to-pakistan": {
-    title: "Send Money UAE to Pakistan — AED to PKR Rates 2026",
+    title: "Cheapest Way to Send Money UAE to Pakistan — AED→PKR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UAE to Pakistan in 2026. AED to PKR rates from ACE Money Transfer, Wise, Remitly, Al Ansari, and more. Direct JazzCash and Easypaisa transfers available. PKR volatile — compare every time.",
-    ogTitle: "Send Money UAE to Pakistan — Best AED to PKR Rates",
+    ogTitle: "UAE→Pakistan: Who Gives the Best AED→PKR Rate?",
     ogDescription:
       "Compare AED to PKR rates from 10+ providers. Send to JazzCash and Easypaisa. Find the most rupees per dirham today.",
     keywords:
       "send money UAE to Pakistan, AED to PKR, cheapest way to send money from UAE to Pakistan, ACE Money Transfer UAE Pakistan, JazzCash from UAE, Easypaisa from UAE, AED PKR exchange rate",
   },
   "uae-to-philippines": {
-    title: "Send Money UAE to Philippines — AED to PHP Rates 2026",
+    title: "Cheapest Way to Send Money UAE to Philippines — AED→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UAE to the Philippines in 2026. AED to PHP rates from Remitly, LuLu Exchange, Al Ansari, and more. Direct GCash and Maya transfers available. Fast delivery to all Philippine banks.",
-    ogTitle: "Send Money UAE to Philippines — Best AED to PHP Rates",
+    ogTitle: "UAE→Philippines: Who Gives the Best AED→PHP Rate?",
     ogDescription:
       "Compare AED to PHP rates from 10+ providers. Send to GCash in minutes from the UAE. Find the most pesos per dirham today.",
     keywords:
       "send money UAE to Philippines, AED to PHP, cheapest way to send money from UAE to Philippines, GCash from UAE, LuLu Exchange Philippines, money transfer Philippines UAE, AED PHP exchange rate",
   },
   "saudi-arabia-to-india": {
-    title: "Send Money Saudi Arabia to India — SAR to INR Rates 2026",
+    title: "Cheapest Way to Send Money Saudi Arabia to India — SAR→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Saudi Arabia to India in 2026. SAR to INR rates from Lulu Exchange, Al Rajhi, Wise, Remitly, and more. IMPS instant delivery. SAR pegged to USD — compare provider margins carefully.",
-    ogTitle: "Send Money Saudi Arabia to India — Best SAR to INR Rates",
+    ogTitle: "Saudi Arabia→India: Who Gives the Best SAR→INR Rate?",
     ogDescription:
       "Compare SAR to INR rates from 10+ providers. IMPS delivery to all Indian banks. Find the most rupees per riyal today.",
     keywords:
       "send money Saudi Arabia to India, SAR to INR, cheapest way to send money from Saudi Arabia to India, Lulu Exchange Saudi India, Al Rajhi remittance India, money transfer India Saudi, SAR INR exchange rate",
   },
   "saudi-arabia-to-pakistan": {
-    title: "Send Money Saudi Arabia to Pakistan — SAR to PKR Rates 2026",
+    title: "Cheapest Way to Send Money Saudi Arabia to Pakistan — SAR→PKR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Saudi Arabia to Pakistan in 2026. SAR to PKR rates from Al Rajhi, ACE Money Transfer, Wise, and more. Direct JazzCash and Easypaisa transfers. PKR volatile — compare at time of sending.",
-    ogTitle: "Send Money Saudi Arabia to Pakistan — Best SAR to PKR Rates",
+    ogTitle: "Saudi Arabia→Pakistan: Who Gives the Best SAR→PKR Rate?",
     ogDescription:
       "Compare SAR to PKR rates from 10+ providers. Send to JazzCash and Easypaisa. Find the most rupees per riyal today.",
     keywords:
       "send money Saudi Arabia to Pakistan, SAR to PKR, cheapest way to send money from Saudi Arabia to Pakistan, Al Rajhi Pakistan, ACE Money Transfer Saudi Pakistan, JazzCash from Saudi, SAR PKR exchange rate",
   },
   "usa-to-uk": {
-    title: "Send Money USA to UK — USD to GBP Rates 2026",
+    title: "Cheapest Way to Send Money USA to UK — USD→GBP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to the UK in 2026. See real-time USD to GBP exchange rates from Wise, OFX, Remitly, and 10+ providers. Faster Payments delivery in minutes.",
-    ogTitle: "Send Money USA to UK — Best USD to GBP Rates",
+    ogTitle: "USA→UK: Who Gives the Best USD→GBP Rate?",
     ogDescription:
       "Compare USD to GBP rates from 15+ providers. Faster Payments delivery to UK banks. Find the most pounds per dollar today.",
     keywords:
       "send money USA to UK, USD to GBP, cheapest way to send money from USA to UK, Wise USA UK, OFX USD GBP, money transfer USA UK, USD GBP exchange rate, Faster Payments from USA",
   },
   "saudi-arabia-to-bangladesh": {
-    title: "Send Money Saudi Arabia to Bangladesh — SAR to BDT Rates 2026",
+    title: "Cheapest Way to Send Money Saudi Arabia to Bangladesh — SAR→BDT Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Saudi Arabia to Bangladesh in 2026. SAR to BDT rates from Al Rajhi, ACE Money Transfer, Wise. Direct bKash delivery. Recipients get 2.5% government bonus.",
-    ogTitle: "Send Money Saudi Arabia to Bangladesh — Best SAR to BDT Rates",
+    ogTitle: "Saudi Arabia→Bangladesh: Who Gives the Best SAR→BDT Rate?",
     ogDescription:
       "Compare SAR to BDT rates. Send to bKash from Saudi Arabia. Recipients earn 2.5% government incentive on formal remittances.",
     keywords:
       "send money Saudi Arabia to Bangladesh, SAR to BDT, cheapest way to send money Saudi Bangladesh, bKash from Saudi, Al Rajhi Bangladesh, SAR BDT exchange rate, Bangladesh remittance incentive",
   },
   "saudi-arabia-to-egypt": {
-    title: "Send Money Saudi Arabia to Egypt — SAR to EGP Rates 2026",
+    title: "Cheapest Way to Send Money Saudi Arabia to Egypt — SAR→EGP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Saudi Arabia to Egypt in 2026. SAR to EGP rates from Lulu Exchange, Al Rajhi, Wise. InstaPay instant delivery. EGP floating rate — compare carefully.",
-    ogTitle: "Send Money Saudi Arabia to Egypt — Best SAR to EGP Rates",
+    ogTitle: "Saudi Arabia→Egypt: Who Gives the Best SAR→EGP Rate?",
     ogDescription:
       "Compare SAR to EGP rates from multiple providers. InstaPay delivery to Egyptian banks. Find the most pounds per riyal today.",
     keywords:
       "send money Saudi Arabia to Egypt, SAR to EGP, cheapest way to send money Saudi Egypt, InstaPay Egypt, Al Rajhi Egypt, SAR EGP exchange rate, Egypt remittance",
   },
   "singapore-to-india": {
-    title: "Send Money Singapore to India — SGD to INR Rates 2026",
+    title: "Cheapest Way to Send Money Singapore to India — SGD→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Singapore to India in 2026. SGD to INR rates from Instarem, Wise, Remitly. IMPS instant delivery to all Indian banks. PayNow funding supported.",
-    ogTitle: "Send Money Singapore to India — Best SGD to INR Rates",
+    ogTitle: "Singapore→India: Who Gives the Best SGD→INR Rate?",
     ogDescription:
       "Compare SGD to INR rates from 10+ providers. IMPS instant delivery to Indian banks. Find the most rupees per Singapore dollar today.",
     keywords:
       "send money Singapore to India, SGD to INR, cheapest way to send money Singapore India, Instarem Singapore India, Wise SGD INR, IMPS delivery, PayNow transfer India",
   },
   "singapore-to-philippines": {
-    title: "Send Money Singapore to Philippines — SGD to PHP Rates 2026",
+    title: "Cheapest Way to Send Money Singapore to Philippines — SGD→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Singapore to the Philippines in 2026. SGD to PHP rates from Instarem, Remitly, Wise. Direct GCash delivery. PayNow funding accepted.",
-    ogTitle: "Send Money Singapore to Philippines — Best SGD to PHP Rates",
+    ogTitle: "Singapore→Philippines: Who Gives the Best SGD→PHP Rate?",
     ogDescription:
       "Compare SGD to PHP rates from 10+ providers. Send to GCash in minutes from Singapore. Find the most pesos per Singapore dollar.",
     keywords:
       "send money Singapore to Philippines, SGD to PHP, cheapest way to send money Singapore Philippines, GCash from Singapore, Instarem Philippines, SGD PHP exchange rate",
   },
   "singapore-to-indonesia": {
-    title: "Send Money Singapore to Indonesia — SGD to IDR Rates 2026",
+    title: "Cheapest Way to Send Money Singapore to Indonesia — SGD→IDR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Singapore to Indonesia in 2026. SGD to IDR rates from Instarem, Wise, Remitly. Bank deposit to BCA, BRI, Mandiri. BI-FAST instant settlement.",
-    ogTitle: "Send Money Singapore to Indonesia — Best SGD to IDR Rates",
+    ogTitle: "Singapore→Indonesia: Who Gives the Best SGD→IDR Rate?",
     ogDescription:
       "Compare SGD to IDR rates from multiple providers. Fast delivery to BCA and BRI. Find the most rupiah per Singapore dollar today.",
     keywords:
       "send money Singapore to Indonesia, SGD to IDR, cheapest way to send money Singapore Indonesia, Instarem Indonesia, BCA transfer, SGD IDR exchange rate, BI-FAST",
   },
   "new-zealand-to-india": {
-    title: "Send Money New Zealand to India — NZD to INR Rates 2026",
+    title: "Cheapest Way to Send Money New Zealand to India — NZD→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from New Zealand to India in 2026. NZD to INR rates from Wise, Instarem, Remitly. IMPS instant delivery to Indian banks.",
-    ogTitle: "Send Money New Zealand to India — Best NZD to INR Rates",
+    ogTitle: "New Zealand→India: Who Gives the Best NZD→INR Rate?",
     ogDescription:
       "Compare NZD to INR rates from multiple providers. IMPS delivery to all Indian banks. Find the most rupees per NZ dollar today.",
     keywords:
       "send money New Zealand to India, NZD to INR, cheapest way to send money NZ India, Wise NZD INR, Instarem New Zealand, money transfer NZ India",
   },
   "new-zealand-to-philippines": {
-    title: "Send Money New Zealand to Philippines — NZD to PHP Rates 2026",
+    title: "Cheapest Way to Send Money New Zealand to Philippines — NZD→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from New Zealand to the Philippines in 2026. NZD to PHP rates from Wise, Remitly, WorldRemit. GCash delivery supported.",
-    ogTitle: "Send Money New Zealand to Philippines — Best NZD to PHP Rates",
+    ogTitle: "New Zealand→Philippines: Who Gives the Best NZD→PHP Rate?",
     ogDescription:
       "Compare NZD to PHP rates from multiple providers. Send to GCash from New Zealand. Find the most pesos per NZ dollar.",
     keywords:
       "send money New Zealand to Philippines, NZD to PHP, cheapest way to send money NZ Philippines, GCash from NZ, Wise NZD PHP, money transfer NZ Philippines",
   },
   "new-zealand-to-fiji": {
-    title: "Send Money New Zealand to Fiji — NZD to FJD Rates 2026",
+    title: "Cheapest Way to Send Money New Zealand to Fiji — NZD→FJD Rates (2026)",
     description:
       "Compare the cheapest ways to send money from New Zealand to Fiji in 2026. NZD to FJD rates from Wise, Western Union, and specialist providers. Bank deposit and cash pickup options.",
-    ogTitle: "Send Money New Zealand to Fiji — Best NZD to FJD Rates",
+    ogTitle: "New Zealand→Fiji: Who Gives the Best NZD→FJD Rate?",
     ogDescription:
       "Compare NZD to FJD rates. Send to Fijian bank accounts or cash pickup locations. Find the cheapest NZ to Fiji transfer.",
     keywords:
       "send money New Zealand to Fiji, NZD to FJD, cheapest way to send money NZ Fiji, Wise NZD FJD, Western Union Fiji, money transfer NZ Fiji, Pacific remittance",
   },
   "uk-to-philippines": {
-    title: "Send Money UK to Philippines — GBP to PHP Rates 2026",
+    title: "Cheapest Way to Send Money UK to Philippines — GBP→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from the UK to the Philippines in 2026. GBP to PHP rates from Wise, Remitly, WorldRemit. Direct GCash and Maya transfers. Faster Payments funding.",
-    ogTitle: "Send Money UK to Philippines — Best GBP to PHP Rates",
+    ogTitle: "UK→Philippines: Who Gives the Best GBP→PHP Rate?",
     ogDescription:
       "Compare GBP to PHP rates from 19+ providers. Send to GCash in minutes from the UK. Find the most pesos per pound today.",
     keywords:
       "send money UK to Philippines, GBP to PHP, cheapest way to send money UK Philippines, GCash from UK, Wise GBP PHP, Remitly UK Philippines, Faster Payments Philippines",
   },
   "europe-to-india": {
-    title: "Send Money Europe to India — EUR to INR Rates 2026",
+    title: "Cheapest Way to Send Money Europe to India — EUR→INR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Europe to India in 2026. EUR to INR rates from Wise, Remitly, Instarem. SEPA funding, IMPS instant delivery. Compare 18+ providers.",
-    ogTitle: "Send Money Europe to India — Best EUR to INR Rates",
+    ogTitle: "Europe→India: Who Gives the Best EUR→INR Rate?",
     ogDescription:
       "Compare EUR to INR rates from 18+ providers. SEPA funding and IMPS delivery. Find the most rupees per euro today.",
     keywords:
       "send money Europe to India, EUR to INR, cheapest way to send money Europe India, SEPA transfer India, Wise EUR INR, Instarem Europe, money transfer Europe India",
   },
   "europe-to-philippines": {
-    title: "Send Money Europe to Philippines — EUR to PHP Rates 2026",
+    title: "Cheapest Way to Send Money Europe to Philippines — EUR→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Europe to the Philippines in 2026. EUR to PHP rates from Wise, Remitly, WorldRemit. SEPA funding, direct GCash delivery.",
-    ogTitle: "Send Money Europe to Philippines — Best EUR to PHP Rates",
+    ogTitle: "Europe→Philippines: Who Gives the Best EUR→PHP Rate?",
     ogDescription:
       "Compare EUR to PHP rates from 16+ providers. Send to GCash from Europe via SEPA. Find the most pesos per euro today.",
     keywords:
       "send money Europe to Philippines, EUR to PHP, cheapest way to send money Europe Philippines, GCash from Europe, SEPA Philippines transfer, Wise EUR PHP, OFW remittance Europe",
   },
   "europe-to-nigeria": {
-    title: "Send Money Europe to Nigeria — EUR to NGN Rates 2026",
+    title: "Cheapest Way to Send Money Europe to Nigeria — EUR→NGN Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Europe to Nigeria in 2026. EUR to NGN rates from Lemfi, Wise, WorldRemit. SEPA funding. Naira volatile — compare live rates.",
-    ogTitle: "Send Money Europe to Nigeria — Best EUR to NGN Rates",
+    ogTitle: "Europe→Nigeria: Who Gives the Best EUR→NGN Rate?",
     ogDescription:
       "Compare EUR to NGN rates from 11+ providers. SEPA funding, bank deposit delivery. Navigate naira volatility with real-time comparison.",
     keywords:
       "send money Europe to Nigeria, EUR to NGN, cheapest way to send money Europe Nigeria, Lemfi Europe Nigeria, Wise EUR NGN, SEPA Nigeria transfer, naira exchange rate",
   },
   "europe-to-pakistan": {
-    title: "Send Money Europe to Pakistan — EUR to PKR Rates 2026",
+    title: "Cheapest Way to Send Money Europe to Pakistan — EUR→PKR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Europe to Pakistan in 2026. EUR to PKR rates from ACE Money Transfer, Wise, Remitly. SEPA funding, JazzCash and Easypaisa delivery.",
-    ogTitle: "Send Money Europe to Pakistan — Best EUR to PKR Rates",
+    ogTitle: "Europe→Pakistan: Who Gives the Best EUR→PKR Rate?",
     ogDescription:
       "Compare EUR to PKR rates from 10+ providers. Send to JazzCash and Easypaisa via SEPA. Find the most rupees per euro today.",
     keywords:
       "send money Europe to Pakistan, EUR to PKR, cheapest way to send money Europe Pakistan, JazzCash from Europe, ACE Money Transfer Europe, SEPA Pakistan, EUR PKR exchange rate",
   },
   "usa-to-ghana": {
-    title: "Send Money USA to Ghana — USD to GHS Rates 2026",
+    title: "Cheapest Way to Send Money USA to Ghana — USD→GHS Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to Ghana in 2026. USD to GHS rates from Sendwave, Wise, Remitly, WorldRemit. Direct MTN MoMo delivery. Zero-fee options available.",
-    ogTitle: "Send Money USA to Ghana — Best USD to GHS Rates",
+    ogTitle: "USA→Ghana: Who Gives the Best USD→GHS Rate?",
     ogDescription:
       "Compare USD to GHS rates from 14+ providers. Send to MTN MoMo instantly. Zero-fee transfer options from the US to Ghana.",
     keywords:
       "send money USA to Ghana, USD to GHS, cheapest way to send money US Ghana, MTN MoMo from USA, Sendwave Ghana, Wise USD GHS, money transfer USA Ghana, cedi exchange rate",
   },
   "usa-to-colombia": {
-    title: "Send Money USA to Colombia — USD to COP Rates 2026",
+    title: "Cheapest Way to Send Money USA to Colombia — USD→COP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from USA to Colombia in 2026. USD to COP rates from Wise, Remitly, Xoom. Direct Nequi and Daviplata delivery. Transfiya instant settlement.",
-    ogTitle: "Send Money USA to Colombia — Best USD to COP Rates",
+    ogTitle: "USA→Colombia: Who Gives the Best USD→COP Rate?",
     ogDescription:
       "Compare USD to COP rates from 12+ providers. Send to Nequi and Daviplata in minutes. Find the most pesos per dollar today.",
     keywords:
       "send money USA to Colombia, USD to COP, cheapest way to send money US Colombia, Nequi from USA, Daviplata transfer, Wise USD COP, Remitly Colombia, COP exchange rate",
   },
   "uae-to-bangladesh": {
-    title: "Send Money UAE to Bangladesh — AED to BDT Rates 2026",
+    title: "Cheapest Way to Send Money UAE to Bangladesh — AED→BDT Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UAE to Bangladesh in 2026. AED to BDT rates from Al Ansari, ACE Money Transfer, Wise. bKash delivery. Recipients get 2.5% government bonus.",
-    ogTitle: "Send Money UAE to Bangladesh — Best AED to BDT Rates",
+    ogTitle: "UAE→Bangladesh: Who Gives the Best AED→BDT Rate?",
     ogDescription:
       "Compare AED to BDT rates. Send to bKash from UAE. Recipients earn Bangladesh's 2.5% remittance incentive through legal channels.",
     keywords:
       "send money UAE to Bangladesh, AED to BDT, cheapest way to send money UAE Bangladesh, bKash from UAE, Al Ansari Bangladesh, AED BDT exchange rate, Bangladesh remittance incentive",
   },
   "canada-to-pakistan": {
-    title: "Send Money Canada to Pakistan — CAD to PKR Rates 2026",
+    title: "Cheapest Way to Send Money Canada to Pakistan — CAD→PKR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Canada to Pakistan in 2026. CAD to PKR rates from Wise, Remitly, ACE Money Transfer. Interac e-Transfer funding. JazzCash and Easypaisa delivery.",
-    ogTitle: "Send Money Canada to Pakistan — Best CAD to PKR Rates",
+    ogTitle: "Canada→Pakistan: Who Gives the Best CAD→PKR Rate?",
     ogDescription:
       "Compare CAD to PKR rates from multiple providers. Fund via Interac, deliver to JazzCash. Find the most rupees per Canadian dollar.",
     keywords:
       "send money Canada to Pakistan, CAD to PKR, cheapest way to send money Canada Pakistan, JazzCash from Canada, Interac Pakistan transfer, Wise CAD PKR, ACE Money Transfer Canada",
   },
   "australia-to-pakistan": {
-    title: "Send Money Australia to Pakistan — AUD to PKR Rates 2026",
+    title: "Cheapest Way to Send Money Australia to Pakistan — AUD→PKR Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Australia to Pakistan in 2026. AUD to PKR rates from Wise, Remitly, WorldRemit. PayID funding. JazzCash and Easypaisa delivery.",
-    ogTitle: "Send Money Australia to Pakistan — Best AUD to PKR Rates",
+    ogTitle: "Australia→Pakistan: Who Gives the Best AUD→PKR Rate?",
     ogDescription:
       "Compare AUD to PKR rates from multiple providers. PayID funding, JazzCash delivery. Find the most rupees per Australian dollar.",
     keywords:
       "send money Australia to Pakistan, AUD to PKR, cheapest way to send money Australia Pakistan, JazzCash from Australia, PayID Pakistan, Wise AUD PKR, AUSTRAC remittance",
   },
   "uae-to-egypt": {
-    title: "Send Money UAE to Egypt — AED to EGP Rates 2026",
+    title: "Cheapest Way to Send Money UAE to Egypt — AED→EGP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from UAE to Egypt in 2026. AED to EGP rates from Al Ansari, Wise, Remitly. InstaPay instant delivery. EGP floating rate — compare live rates.",
-    ogTitle: "Send Money UAE to Egypt — Best AED to EGP Rates",
+    ogTitle: "UAE→Egypt: Who Gives the Best AED→EGP Rate?",
     ogDescription:
       "Compare AED to EGP rates from multiple providers. InstaPay delivery to Egyptian banks. Navigate EGP volatility with real-time comparison.",
     keywords:
       "send money UAE to Egypt, AED to EGP, cheapest way to send money UAE Egypt, InstaPay Egypt, Al Ansari Egypt, AED EGP exchange rate, Egypt remittance UAE",
   },
   "saudi-arabia-to-philippines": {
-    title: "Send Money Saudi Arabia to Philippines — SAR to PHP Rates 2026",
+    title: "Cheapest Way to Send Money Saudi Arabia to Philippines — SAR→PHP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Saudi Arabia to the Philippines in 2026. SAR to PHP rates from Al Rajhi, Wise, Remitly. Direct GCash delivery. Over 1M Filipino OFWs in Saudi.",
-    ogTitle: "Send Money Saudi Arabia to Philippines — Best SAR to PHP Rates",
+    ogTitle: "Saudi Arabia→Philippines: Who Gives the Best SAR→PHP Rate?",
     ogDescription:
       "Compare SAR to PHP rates. Send to GCash from Saudi Arabia. Find the most pesos per riyal for Filipino OFWs.",
     keywords:
       "send money Saudi Arabia to Philippines, SAR to PHP, cheapest way to send money Saudi Philippines, GCash from Saudi, Al Rajhi Philippines, OFW remittance Saudi, SAR PHP exchange rate",
   },
   "uk-to-ghana": {
-    title: "Send Money UK to Ghana — GBP to GHS Rates 2026",
+    title: "Cheapest Way to Send Money UK to Ghana — GBP→GHS Rates (2026)",
     description:
       "Compare the cheapest ways to send money from the UK to Ghana in 2026. GBP to GHS rates from Sendwave, WorldRemit, Wise. Direct MTN MoMo delivery. Faster Payments funding. FCA regulated.",
-    ogTitle: "Send Money UK to Ghana — Best GBP to GHS Rates",
+    ogTitle: "UK→Ghana: Who Gives the Best GBP→GHS Rate?",
     ogDescription:
       "Compare GBP to GHS rates from multiple providers. Send to MTN MoMo instantly from the UK. FCA-regulated providers.",
     keywords:
       "send money UK to Ghana, GBP to GHS, cheapest way to send money UK Ghana, MTN MoMo from UK, Sendwave Ghana, WorldRemit GHS, cedi exchange rate, FCA money transfer",
   },
   "canada-to-nigeria": {
-    title: "Send Money Canada to Nigeria — CAD to NGN Rates 2026",
+    title: "Cheapest Way to Send Money Canada to Nigeria — CAD→NGN Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Canada to Nigeria in 2026. CAD to NGN rates from Lemfi, Wise, WorldRemit. Interac e-Transfer funding. Naira volatile — compare live rates.",
-    ogTitle: "Send Money Canada to Nigeria — Best CAD to NGN Rates",
+    ogTitle: "Canada→Nigeria: Who Gives the Best CAD→NGN Rate?",
     ogDescription:
       "Compare CAD to NGN rates from multiple providers. Interac funding, bank deposit delivery. Navigate naira volatility with real-time comparison.",
     keywords:
       "send money Canada to Nigeria, CAD to NGN, cheapest way to send money Canada Nigeria, Lemfi Canada Nigeria, Wise CAD NGN, Interac Nigeria transfer, naira exchange rate Canada",
   },
   "australia-to-uk": {
-    title: "Send Money Australia to UK — AUD to GBP Rates 2026",
+    title: "Cheapest Way to Send Money Australia to UK — AUD→GBP Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Australia to the UK in 2026. AUD to GBP rates from OFX, Wise, Revolut. PayID funding. Faster Payments delivery to UK banks.",
-    ogTitle: "Send Money Australia to UK — Best AUD to GBP Rates",
+    ogTitle: "Australia→UK: Who Gives the Best AUD→GBP Rate?",
     ogDescription:
       "Compare AUD to GBP rates from multiple providers. PayID funding, Faster Payments delivery. Find the most pounds per Australian dollar.",
     keywords:
       "send money Australia to UK, AUD to GBP, cheapest way to send money Australia UK, OFX AUD GBP, Wise Australia UK, PayID UK transfer, Faster Payments from Australia",
   },
   "singapore-to-bangladesh": {
-    title: "Send Money Singapore to Bangladesh — SGD to BDT Rates 2026",
+    title: "Cheapest Way to Send Money Singapore to Bangladesh — SGD→BDT Rates (2026)",
     description:
       "Compare the cheapest ways to send money from Singapore to Bangladesh in 2026. SGD to BDT rates from Instarem, Wise, Remitly. bKash delivery. Recipients get 2.5% government bonus.",
-    ogTitle: "Send Money Singapore to Bangladesh — Best SGD to BDT Rates",
+    ogTitle: "Singapore→Bangladesh: Who Gives the Best SGD→BDT Rate?",
     ogDescription:
       "Compare SGD to BDT rates. Send to bKash from Singapore. Recipients earn Bangladesh's 2.5% remittance incentive.",
     keywords:
@@ -1261,20 +1259,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isCountryPg = corridor.isCountryPage;
   const year = new Date().getFullYear();
   const title = override?.title ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Compare Rates from 15+ Providers (${year})`
+    ? `Cheapest ${corridor.fromCurrency} to ${corridor.toCurrency} Rates — Compare 15+ Providers (${year})`
     : isCountryPg
-    ? `Send Money to ${corridor.toCountry} — Cheapest Providers & Best ${corridor.toCurrency} Rates (${year})`
-    : `Send Money ${corridor.fromCountry} to ${corridor.toCountry} — Compare ${corridor.fromCurrency} to ${corridor.toCurrency} Rates (${year})`);
+    ? `Cheapest Way to Send Money to ${corridor.toCountry} — Compare ${corridor.toCurrency} Rates (${year})`
+    : `Cheapest Way to Send Money ${corridor.fromCountry} to ${corridor.toCountry} — ${corridor.fromCurrency}→${corridor.toCurrency} (${year})`);
   const description = override?.description ?? (isCurr
-    ? `Compare real-time ${corridor.fromCurrency} to ${corridor.toCurrency} exchange rates from 15+ providers. Find the cheapest way to convert ${corridor.fromCurrency} to ${corridor.toCurrency} with the lowest fees and fastest delivery.`
+    ? `Compare live ${corridor.fromCurrency} to ${corridor.toCurrency} exchange rates from 15+ providers, updated every 6 hours. See who gives you the most ${corridor.toCurrency} after fees — the cheapest option changes daily.`
     : isCountryPg
-    ? `Compare 15+ providers to find the cheapest way to send money to ${corridor.toCountry} in ${year}. See live ${corridor.toCurrency} exchange rates, fees, delivery times, and recipient requirements — updated every 6 hours.`
-    : `Compare the cheapest ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} in ${year}. Live ${corridor.fromCurrency} to ${corridor.toCurrency} rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.`);
+    ? `We compared 15+ providers for sending money to ${corridor.toCountry} in ${year}. Live ${corridor.toCurrency} rates, fees, and delivery times — updated every 6 hours. The cheapest provider depends on your amount and payment method.`
+    : `We compared 15+ providers for sending money from ${corridor.fromCountry} to ${corridor.toCountry} in ${year}. Live ${corridor.fromCurrency}→${corridor.toCurrency} rates show one provider consistently delivers more — but it depends on your amount. See the full breakdown.`);
   const ogTitle = override?.ogTitle ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency} — Best Exchange Rates (${year})`
+    ? `${corridor.fromCurrency}→${corridor.toCurrency}: Who Gives the Best Rate?`
     : isCountryPg
-    ? `Send Money to ${corridor.toCountry} — Best ${corridor.toCurrency} Rates (${year})`
-    : `Send Money ${corridor.fromCountry} to ${corridor.toCountry} — Best Rates (${year})`);
+    ? `Send Money to ${corridor.toCountry} — Who's Cheapest Right Now?`
+    : `${corridor.fromCountry}→${corridor.toCountry}: Which Provider Gives You the Most?`);
   const ogDescription = override?.ogDescription ?? description;
   const keywords = override?.keywords ?? (isCurr
     ? `${corridor.fromCurrency} to ${corridor.toCurrency}, ${corridor.fromCurrency} ${corridor.toCurrency} exchange rate, convert ${corridor.fromCurrency} to ${corridor.toCurrency}, best ${corridor.fromCurrency} to ${corridor.toCurrency} rate, ${corridor.fromCurrency} ${corridor.toCurrency} today`

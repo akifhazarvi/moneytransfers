@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!country) return {};
   const name = getCountryName(country.countryCode, slug);
   return {
-    title: `${name} IBAN — ${country.ibanLength}-Character Format, Example & Banks (2026)`,
+    title: `${name} IBAN — ${country.ibanLength}-Character Format, Example & Banks (${new Date().getFullYear()})`,
     description: `${name} IBAN format: ${country.ibanLength} characters starting with ${country.countryCode}${country.sepa ? ", SEPA member" : ""}. See real IBAN examples, BBAN structure breakdown${country.banks.length > 0 ? `, and ${country.banks.length} major banks` : ""}. Free lookup for ${country.currency} transfers.`,
     keywords: `${name} IBAN, IBAN ${name}, ${country.countryCode} IBAN format, ${name} IBAN number, IBAN ${country.countryCode}, ${name} IBAN example, ${name} bank code, ${name} BBAN, ${country.currency} IBAN`,
     alternates: getAlternates(`iban/${slug}`, locale),

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Compare Money Transfers — Best Rates & Lowest Fees",
+      "Compare 35+ Money Transfer Services — Find the Cheapest Rate (2026)",
     template: "%s | SendMoneyCompare",
   },
   icons: {

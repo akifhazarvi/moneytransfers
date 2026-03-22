@@ -34,14 +34,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) return {};
   const review = getProviderReview(slug);
-  const title = review?.title ?? `${provider.name} Review — Fees, Rates & Features`;
-  const description = review?.metaDescription ?? provider.description;
+  const year = new Date().getFullYear();
+  const tp = trustpilotIndex[slug];
+  const ratingStr = tp?.score ? ` ★${tp.score.toFixed(1)}` : "";
+  const title = review?.title ?? `${provider.name} Review ${year}:${ratingStr} — Fees, Pros & Cons`;
+  const fallbackDesc = `${provider.name} review for ${year}${tp?.score ? ` — rated ${tp.score.toFixed(1)}/5 on Trustpilot` : ""}. We analyzed fees, exchange rates, speed, and coverage across real corridors. See if ${provider.name} is the cheapest for your transfer.`;
+  const description = review?.metaDescription ?? fallbackDesc;
   return {
     title,
     description,
     ...(!review && { robots: { index: false, follow: true } }),
     openGraph: {
-      title: review?.title ?? `${provider.name} Review — Fees, Rates & Features`,
+      title: `${provider.name} Review (${year}) — Is It the Cheapest? Real Data Inside`,
       description,
       type: "article",
     },

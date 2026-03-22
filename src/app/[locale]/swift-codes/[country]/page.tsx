@@ -188,7 +188,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const country = getSwiftCountryBySlug(slug);
   if (!country) return {};
   return {
-    title: `${country.name} SWIFT/BIC Codes — All ${country.bankCount} Banks (2026)`,
+    title: `${country.name} SWIFT/BIC Codes — All ${country.bankCount} Banks (${new Date().getFullYear()})`,
     description: `Find SWIFT/BIC codes for all ${country.bankCount} banks in ${country.name}. Free lookup with branch codes, city, and address — verified for international wire transfers to ${country.name}.`,
     keywords: `${country.name} SWIFT code, ${country.name} BIC code, ${country.countryCode} SWIFT, banks in ${country.name}, wire transfer ${country.name}, bank swift code ${country.name}, swift code for ${country.name} banks`,
     alternates: getAlternates(`swift-codes/${slug}`, locale),
