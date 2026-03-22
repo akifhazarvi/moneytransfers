@@ -93,7 +93,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                     <>
                       <span className="text-[var(--color-outline)]">&middot;</span>
                       <span className={`font-semibold ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
-                        {markupPct >= 0 ? "+" : ""}{markupPct.toFixed(2)}%
+                        {markupPct >= 0 ? `▲${markupPct.toFixed(2)}% above mid` : `▼${Math.abs(markupPct).toFixed(2)}% below mid`}
                       </span>
                     </>
                   )}
@@ -186,16 +186,17 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 {feeLabel}
               </p>
             </div>
-            <div className="w-[110px] shrink-0">
+            <div className="w-[130px] shrink-0">
               <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("rate")}</p>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <p className="text-2sm text-[var(--color-on-surface)] tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
-                {markupPct !== null && (
-                  <span className={`text-2xs font-semibold tabular-nums ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
-                    {markupPct >= 0 ? "+" : ""}{markupPct.toFixed(2)}%
+              <p className="text-2sm text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+              {markupPct !== null && midMarketRate && (
+                <p className="text-[10px] text-[var(--color-on-surface-variant)] tabular-nums mt-px">
+                  Mid {midMarketRate.toFixed(4)}{" "}
+                  <span className={`font-semibold ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
+                    {markupPct >= 0 ? `▲${markupPct.toFixed(2)}%` : `▼${Math.abs(markupPct).toFixed(2)}%`}
                   </span>
-                )}
-              </div>
+                </p>
+              )}
             </div>
           </div>
 
@@ -223,14 +224,15 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             <div className="grid grid-cols-2 sm:grid-cols-4 bg-[var(--color-surface-dim)]">
               <div className="px-4 py-3 border-r border-b sm:border-b-0 border-[var(--color-outline)]">
                 <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("exchangeRate")}</p>
-                <div className="flex items-center gap-2 mt-1">
-                  <p className="text-md font-medium text-[var(--color-on-surface)] tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
-                  {markupPct !== null && (
-                    <span className={`text-xs font-semibold tabular-nums ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
-                      {markupPct >= 0 ? "+" : ""}{markupPct.toFixed(2)}%
+                <p className="text-md font-medium text-[var(--color-on-surface)] mt-1 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+                {markupPct !== null && midMarketRate && (
+                  <p className="text-2xs text-[var(--color-on-surface-variant)] tabular-nums mt-0.5">
+                    Mid-market: {midMarketRate.toFixed(4)}{" "}
+                    <span className={`font-semibold ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
+                      ({markupPct >= 0 ? `${markupPct.toFixed(2)}% above` : `${Math.abs(markupPct).toFixed(2)}% below`})
                     </span>
-                  )}
-                </div>
+                  </p>
+                )}
               </div>
               <div className="px-4 py-3 sm:border-r border-b sm:border-b-0 border-[var(--color-outline)]">
                 <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("transferFee")}</p>
