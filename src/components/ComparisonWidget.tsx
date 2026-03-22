@@ -26,7 +26,8 @@ export default function ComparisonWidget({
   const router = useRouter();
   const [fromCurrency, setFromCurrency] = useState(defaultFrom);
   const [toCurrency, setToCurrency] = useState(defaultTo);
-  const [amount, setAmount] = useState(defaultAmount);
+  const [amountStr, setAmountStr] = useState(String(defaultAmount));
+  const amount = Number(amountStr) || 0;
   const [amountError, setAmountError] = useState("");
   const id = useId();
   const t = useTranslations("comparisonWidget");
@@ -38,8 +39,8 @@ export default function ComparisonWidget({
   }
 
   function handleAmountChange(raw: string) {
+    setAmountStr(raw);
     const value = Number(raw);
-    setAmount(value);
     setAmountError(validateAmount(value));
   }
 
@@ -69,12 +70,16 @@ export default function ComparisonWidget({
             <label htmlFor={`${id}-amount`} className="block text-xs font-medium text-[var(--color-on-surface-variant)] mb-1.5">{t("youSend")}</label>
             <input
               id={`${id}-amount`}
-              type="number"
-              value={amount}
-              onChange={(e) => handleAmountChange(e.target.value)}
-              min={MIN_AMOUNT}
-              max={MAX_AMOUNT}
-              step="any"
+              type="text"
+              inputMode="decimal"
+              value={amountStr}
+              onChange={(e) => {
+                const v = e.target.value;
+                if (v === "" || /^\d*\.?\d*$/.test(v)) handleAmountChange(v);
+              }}
+              onBlur={() => {
+                if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
+              }}
               className={`${inputClass} ${amountError ? "border-[var(--color-error)]" : ""}`}
               placeholder="1,000"
               aria-describedby={amountError ? `${id}-amount-error` : undefined}
@@ -103,55 +108,76 @@ export default function ComparisonWidget({
     );
   }
 
+  const sendCurrency = sendCurrencies.find((c) => c.code === fromCurrency);
+
   return (
     <form onSubmit={handleCompare}>
-      <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)]">
-        <div className="flex flex-col md:flex-row items-stretch">
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
-            <label htmlFor={`${id}-send`} className="text-2xs text-[var(--color-on-surface-variant)] font-medium">{t("youSend")}</label>
-            <input
-              id={`${id}-send`}
-              type="number"
-              value={amount}
-              onChange={(e) => handleAmountChange(e.target.value)}
-              min={MIN_AMOUNT}
-              max={MAX_AMOUNT}
-              step="any"
-              className={`w-full bg-transparent text-base text-[var(--color-on-surface)] focus:outline-none mt-0.5 ${amountError ? "text-[var(--color-error)]" : ""}`}
-              placeholder="1,000"
-              aria-describedby={amountError ? `${id}-send-error` : undefined}
-            />
+      <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow">
+        <div className="flex flex-col lg:flex-row">
+          {/* You send — currency + amount */}
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-3 sm:px-5 lg:pr-8 py-2.5 sm:py-4 min-w-0">
+            <label htmlFor={`${id}-send`} className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
+            <div className="flex items-center gap-4 mt-1.5">
+              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
+              <div className="flex items-baseline gap-1 shrink-0 ml-auto border-l border-[var(--color-outline)] pl-4">
+                <span className="text-h4 font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
+                <input
+                  id={`${id}-send`}
+                  type="text"
+                  inputMode="decimal"
+                  value={amountStr}
+                  onChange={(e) => {
+                    const v = e.target.value;
+                    if (v === "" || /^\d*\.?\d*$/.test(v)) handleAmountChange(v);
+                  }}
+                  onBlur={() => {
+                    if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
+                  }}
+                  className={`bg-transparent text-h4 font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[100px] tabular-nums ${amountError ? "text-[var(--color-error)]" : ""}`}
+                  placeholder="1,000"
+                  aria-describedby={amountError ? `${id}-send-error` : undefined}
+                />
+              </div>
+            </div>
             {amountError && (
-              <p id={`${id}-send-error`} className="text-2xs text-[var(--color-error)] mt-0.5">{amountError}</p>
+              <p id={`${id}-send-error`} className="text-2xs text-[var(--color-error)] mt-1">{amountError}</p>
             )}
           </div>
 
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-[var(--color-outline)] px-4 py-2.5">
-            <p className="text-2xs text-[var(--color-on-surface-variant)] font-medium">{t("from")}</p>
-            <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="inline" />
-          </div>
-
-          {/* Swap button — visible on all screen sizes */}
-          <div className="flex items-center justify-center px-3 py-2 md:py-0 border-b md:border-b-0 border-[var(--color-outline)]">
+          {/* Swap button — desktop */}
+          <div className="hidden lg:flex items-center -mx-5 z-10">
             <button
               type="button"
               onClick={swap}
-              className="w-10 h-10 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-container)] hover:border-[var(--color-on-surface-variant)] active:scale-95 transition-all"
+              className="w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
               aria-label={t("swapCurrencies")}
             >
-              {/* Vertical arrows on mobile, horizontal on desktop */}
-              <svg className="w-5 h-5 text-[var(--color-on-surface-variant)] md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-              </svg>
-              <svg className="w-5 h-5 text-[var(--color-on-surface-variant)] hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              <svg className="w-[18px] h-[18px] text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
               </svg>
             </button>
           </div>
 
-          <div className="flex-1 border-b md:border-b-0 md:border-l border-[var(--color-outline)] px-4 py-2.5">
-            <p className="text-2xs text-[var(--color-on-surface-variant)] font-medium">{t("to")}</p>
-            <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="inline" />
+          {/* Swap button — mobile */}
+          <div className="flex lg:hidden items-center justify-center -my-3 z-10">
+            <button
+              type="button"
+              onClick={swap}
+              className="w-9 h-9 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
+              aria-label={t("swapCurrencies")}
+            >
+              <svg className="w-4 h-4 text-[var(--color-on-surface-variant)] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+            </button>
+          </div>
+
+          {/* They receive in */}
+          <div className="flex-1 px-3 sm:px-5 lg:pl-8 py-2.5 sm:py-4 min-w-0">
+            <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("to")}</p>
+            <div className="mt-1.5">
+              <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
+            </div>
           </div>
         </div>
       </div>
