@@ -314,7 +314,7 @@ function SendMoneyContent() {
 
   return (
     <Container>
-      {/* Search bar — clean, minimal, Google Flights-inspired */}
+      {/* Search bar */}
       <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-2 sm:mt-3">
         <div className="flex flex-col lg:flex-row">
           {/* You send — amount + currency */}
@@ -378,13 +378,13 @@ function SendMoneyContent() {
         </div>
       </div>
 
-      {/* Trust indicators */}
-      <div className="mb-6">
+      {/* Trust indicators — hidden on mobile, shown on desktop */}
+      <div className="hidden sm:block mb-6">
         <TrustBadges />
       </div>
 
-      {/* Filter pills — functional dropdowns */}
-      <div className="flex items-center gap-2 mb-5 overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 scrollbar-hide" style={{ WebkitOverflowScrolling: "touch" }}>
+      {/* Filter + sort pills — single horizontal scroll row, Google Flights-style */}
+      <div className="flex items-center gap-1.5 sm:gap-2 mb-4 sm:mb-5 overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 scrollbar-hide" style={{ WebkitOverflowScrolling: "touch" }}>
         {/* All filters / clear */}
         <button
           onClick={clearFilters}
@@ -522,85 +522,39 @@ function SendMoneyContent() {
             </>
           )}
         </FilterDropdown>
+
+        {/* Sort — as a filter chip on mobile, integrated into the row */}
+        <FilterDropdown
+          label={sortBy === "receiveAmount" ? t("bestValue") : sortBy === "fee" ? t("lowestFees") : sortBy === "deals" ? t("bestDeals") : t("topRated")}
+          active={sortBy !== "receiveAmount"}
+        >
+          {(close) => (
+            <>
+              <DropdownOption label={t("bestValue")} selected={sortBy === "receiveAmount"} onClick={() => { setSortBy("receiveAmount"); trackSortChanged("receiveAmount"); close(); }} />
+              <DropdownOption label={t("lowestFees")} selected={sortBy === "fee"} onClick={() => { setSortBy("fee"); trackSortChanged("fee"); close(); }} />
+              <DropdownOption label={t("bestDeals")} selected={sortBy === "deals"} onClick={() => { setSortBy("deals"); trackSortChanged("deals"); close(); }} />
+              <DropdownOption label={t("topRated")} selected={sortBy === "rating"} onClick={() => { setSortBy("rating"); trackSortChanged("rating"); close(); }} />
+            </>
+          )}
+        </FilterDropdown>
       </div>
 
-      {/* Sort tabs */}
-      <div className="flex rounded-xl border border-[var(--color-outline)] mb-6" role="tablist">
-        <button
-          role="tab"
-          aria-selected={sortBy === "receiveAmount"}
-          onClick={() => { setSortBy("receiveAmount"); trackSortChanged("receiveAmount"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm font-medium transition-colors rounded-l-xl ${
-            sortBy === "receiveAmount"
-              ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-[inset_0_-3px_0_var(--color-primary)]"
-              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
-          }`}
-        >
-          {t("bestValue")}
-        </button>
-        <button
-          role="tab"
-          aria-selected={sortBy === "fee"}
-          onClick={() => { setSortBy("fee"); trackSortChanged("fee"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm transition-colors border-l border-[var(--color-outline)] ${
-            sortBy === "fee"
-              ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
-              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
-          }`}
-        >
-          {t("lowestFees")}
-          {cheapestQuote && (
-            <span className={`text-xs hidden sm:inline ${sortBy === "fee" ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
-              from {sendCurrency?.symbol || "$"}{cheapestQuote.fee === 0 ? "0" : cheapestQuote.fee.toFixed(0)}
-            </span>
-          )}
-        </button>
-        <button
-          role="tab"
-          aria-selected={sortBy === "deals"}
-          onClick={() => { setSortBy("deals"); trackSortChanged("deals"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm transition-colors border-l border-[var(--color-outline)] ${
-            sortBy === "deals"
-              ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
-              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
-          }`}
-        >
-          {t("bestDeals")}
-        </button>
-        <button
-          role="tab"
-          aria-selected={sortBy === "rating"}
-          onClick={() => { setSortBy("rating"); trackSortChanged("rating"); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 sm:py-3.5 text-2sm sm:text-sm transition-colors border-l border-[var(--color-outline)] rounded-r-xl ${
-            sortBy === "rating"
-              ? "bg-[var(--color-primary-light)] text-[var(--color-primary)] font-medium shadow-[inset_0_-3px_0_var(--color-primary)]"
-              : "bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
-          }`}
-        >
-          {t("topRated")}
-        </button>
-      </div>
-
-      {/* Results header */}
-      <div className="mb-1">
-        <div className="flex items-center gap-3">
-          <h2 className="text-h4 font-normal text-[var(--color-on-surface)]">{t("topProviders")}</h2>
-          {isLive && (
-            <span className="inline-flex items-center gap-1.5 text-xs text-[var(--color-success)] font-medium bg-[var(--color-success-surface)] px-2.5 py-1 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
-              {t("liveRates")}
-            </span>
-          )}
-        </div>
-        <div className="flex items-start justify-between mt-1">
-          <p className="text-xs text-[var(--color-on-surface-variant)] max-w-xl">
-            Ranked by total value — fees and exchange rate markup included.{" "}
-            Showing results for {sendCurrency?.symbol}{amount.toLocaleString()} {fromCurrency} to {toCurrency}.
-          </p>
-          <span className="text-2sm text-[var(--color-on-surface-variant)] shrink-0 ml-4">
-            {filteredQuotes.length} of {quotes.length} providers
+      {/* Results header — minimal, Google Flights "About these results" style */}
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-[var(--color-on-surface-variant)]">
+            {filteredQuotes.length} providers
           </span>
+          {isLive && (
+            <span className="inline-flex items-center gap-1 text-[10px] text-[var(--color-success)] font-medium">
+              <span className="w-1 h-1 rounded-full bg-[var(--color-success)] animate-pulse" />
+              Live
+            </span>
+          )}
         </div>
+        <span className="text-xs text-[var(--color-on-surface-variant)]">
+          {sendCurrency?.symbol}{amount.toLocaleString()} {fromCurrency} → {toCurrency}
+        </span>
       </div>
 
       {/* Savings callout */}
@@ -616,16 +570,9 @@ function SendMoneyContent() {
       )}
 
       {/* Results list */}
-      <div className="mt-3 sm:mt-4 mb-12">
-        {/* Rate disclaimer */}
-        <p className="text-2xs text-[var(--color-on-surface-variant)] mb-3 flex items-center gap-1">
-          <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          Rates are indicative and updated every 6 hours. Actual rates may vary at time of transfer.
-        </p>
+      <div className="mb-12">
         {filteredQuotes.length > 0 ? (
-          <div className="rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
+          <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
             {filteredQuotes.map((quote, index) => (
               <ProviderCard
                 key={quote.providerSlug}
