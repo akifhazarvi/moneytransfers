@@ -2,8 +2,8 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 
-type TranslatedLink = { href: string; labelKey: string };
-type StaticLink = { href: string; label: string };
+type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean };
+type StaticLink = { href: string; label: string; noFollow?: boolean };
 type FooterLink = TranslatedLink | StaticLink;
 
 function isStatic(l: FooterLink): l is StaticLink {
@@ -60,10 +60,10 @@ export default function Footer() {
         { href: "/contact", labelKey: "contactLink" },
         { href: "/editorial-policy", labelKey: "editorialLink" },
         { href: "/methodology", labelKey: "methodologyLink" },
-        { href: "/privacy-policy", labelKey: "privacyLink" },
-        { href: "/terms", labelKey: "termsLink" },
-        { href: "/cookies", labelKey: "cookiesLink" },
-        { href: "/disclaimer", labelKey: "disclaimerLink" },
+        { href: "/privacy-policy", labelKey: "privacyLink", noFollow: true },
+        { href: "/terms", labelKey: "termsLink", noFollow: true },
+        { href: "/cookies", labelKey: "cookiesLink", noFollow: true },
+        { href: "/disclaimer", labelKey: "disclaimerLink", noFollow: true },
       ],
     },
     {
@@ -145,6 +145,7 @@ export default function Footer() {
                   <li key={link.labelKey}>
                     <Link
                       href={link.href}
+                      {...(link.noFollow && { rel: "nofollow" })}
                       className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
                     >
                       {t(link.labelKey)}
