@@ -39,6 +39,25 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   const isBest = rank === 1;
   const promo = promos.find((p) => p.providerSlug === quote.providerSlug);
 
+  // Abbreviate speed for mobile (prevent wrapping)
+  const mobileSpeed = (() => {
+    const s = quote.transferSpeed.toLowerCase();
+    if (s.includes("instant")) return "Instant";
+    if (s.includes("minute")) return "Minutes";
+    if (s.includes("same day") || s.includes("same-day")) return "Same day";
+    if (s.match(/\d+\s*-?\s*\d*\s*hour/)) return quote.transferSpeed.replace(/\s+/g, " ");
+    if (s.match(/0\s*-?\s*1\s*day/)) return "0-1 days";
+    if (s.match(/1\s*-?\s*2\s*day/)) return "1-2 days";
+    if (s.match(/1\s*-?\s*3\s*(business\s+)?day/)) return "1-3 days";
+    if (s.match(/2\s*-?\s*5\s*(business\s+)?day/)) return "2-5 days";
+    if (s.match(/minutes?\s*to\s*\d+\s*(business\s+)?day/)) return "Min–1 day";
+    if (s.includes("day")) {
+      const match = s.match(/(\d+\s*-?\s*\d*)\s*(business\s+)?day/);
+      return match ? `${match[1]} days` : quote.transferSpeed;
+    }
+    return quote.transferSpeed;
+  })();
+
   // % above/below mid-market rate
   const markupPct = midMarketRate && midMarketRate > 0
     ? ((quote.exchangeRate - midMarketRate) / midMarketRate) * 100
@@ -64,49 +83,52 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         }}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); const next = !expanded; setExpanded(next); if (next) trackProviderExpanded(quote.providerSlug, rank, `${quote.sendCurrency}-${quote.receiveCurrency}`); } }}
         aria-expanded={expanded}
-        className={`group/row w-full text-left px-3 sm:px-6 cursor-pointer ${isBest ? "py-3 sm:py-5 pt-6 sm:pt-8" : "py-2.5 sm:py-4"}`}
+        className={`group/row w-full text-left px-4 sm:px-6 cursor-pointer ${isBest ? "py-3.5 sm:py-5 pt-7 sm:pt-8" : "py-3 sm:py-4"}`}
       >
-        {/* Mobile layout — clean, scannable, Apple-inspired */}
-        <div className="flex sm:hidden items-center gap-2.5">
-          <span className={`text-2xs font-bold tabular-nums w-4 text-center shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-muted)]"}`}>
+        {/* Mobile layout — Google Flights-inspired: consistent height, generous spacing, clear hierarchy */}
+        <div className="flex sm:hidden items-center gap-3 min-h-[56px]">
+          {/* Rank */}
+          <span className={`text-xs font-semibold tabular-nums w-5 text-center shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-muted)]"}`}>
             {rank}
           </span>
-          <div className={`${isBest ? "w-9 h-9" : "w-8 h-8"} rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/50`}>
-            <Image src={providerLogo} alt={`${providerName} logo`} width={36} height={36} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
+          {/* Logo — larger for quick recognition */}
+          <div className={`w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/40`}>
+            <Image src={providerLogo} alt={`${providerName} logo`} width={40} height={40} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
+          {/* Content */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between gap-2">
-              <div className="min-w-0">
-                <div className="flex items-center gap-1.5">
-                  <p className={`text-sm font-semibold text-[var(--color-on-surface)] truncate`}>{providerName}</p>
-                  {isFast && (
-                    <span className="text-[10px] font-bold uppercase text-[var(--color-success)] shrink-0">
-                      {t("fast")}
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-center gap-2 mt-px text-[11px] text-[var(--color-on-surface-variant)]">
-                  <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel}</span>
-                  <span className="text-[var(--color-outline)]">&middot;</span>
-                  <span>{quote.transferSpeed}</span>
-                  {markupPct !== null && (
-                    <>
-                      <span className="text-[var(--color-outline)]">&middot;</span>
-                      <span className={`font-semibold ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
-                        {markupPct >= 0 ? `▲${markupPct.toFixed(2)}% above mid` : `▼${Math.abs(markupPct).toFixed(2)}% below mid`}
-                      </span>
-                    </>
-                  )}
-                </div>
+            {/* Row 1: Name + Receive amount */}
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <p className="text-[15px] font-semibold text-[var(--color-on-surface)] truncate leading-tight">{providerName}</p>
+                {isFast && (
+                  <span className="text-[10px] font-bold uppercase text-[var(--color-success)] shrink-0 tracking-wide">
+                    {t("fast")}
+                  </span>
+                )}
               </div>
-              <div className="text-right shrink-0 flex items-center gap-1">
-                <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-base text-[var(--color-success-dark)]" : "text-[15px] text-[var(--color-on-surface)]"}`}>
+              <div className="shrink-0 flex items-center gap-1.5">
+                <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-[17px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
                   {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
                 <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 shrink-0 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
+            </div>
+            {/* Row 2: Fee · Speed · Rate markup — spaced, no wrapping */}
+            <div className="flex items-center gap-1.5 mt-1 text-xs text-[var(--color-on-surface-variant)]">
+              <span className={`shrink-0 ${quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}`}>{feeLabel}</span>
+              <span className="text-[var(--color-outline)] shrink-0">&middot;</span>
+              <span className="shrink-0">{mobileSpeed}</span>
+              {markupPct !== null && (
+                <>
+                  <span className="text-[var(--color-outline)] shrink-0">&middot;</span>
+                  <span className={`font-semibold shrink-0 ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
+                    {markupPct >= 0 ? `+${markupPct.toFixed(2)}%` : `${markupPct.toFixed(2)}%`}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>
