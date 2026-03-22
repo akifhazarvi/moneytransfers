@@ -197,14 +197,14 @@ export default function Footer() {
 
         <div className="border-t border-[var(--color-outline)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Trustpilot — shows dynamic widget when reviews exist, static link as fallback */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 min-h-[52px]">
             <div
               className="trustpilot-widget"
               data-locale="en-US"
               data-template-id="56278e9abfbbba0bdcd568bc"
               data-businessunit-id="69bc5a943f1059db5792229b"
-              data-style-height="24px"
-              data-style-width="auto"
+              data-style-height="52px"
+              data-style-width="250px"
               data-token="a6ccf0e6-609c-4efc-8441-5694ad5c3a05"
             >
               <a
