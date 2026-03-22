@@ -20,8 +20,10 @@ export interface BlogPost {
 }
 
 import { corridorGuides2 } from "./blog-corridor-guides-2";
+import { corridorGuidesIndia } from "./blog-corridor-guides-india";
 
 export const blogPosts: BlogPost[] = [
+  ...corridorGuidesIndia,
   ...corridorGuides2,
   // ============================
   // 1. Cheapest Way to Send Money Internationally (2026)
