@@ -770,8 +770,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
 
-      {/* Mobile back-to-top button */}
-      <MobileScrollNav />
+      {/* Mobile back-to-top + section label */}
+      <MobileScrollNav
+        sections={[
+          { id: "best-routes", label: "Best Routes" },
+          { id: "live-rates", label: "Rates" },
+          { id: "how-it-works", label: "How It Works" },
+          { id: "providers", label: "Providers" },
+          { id: "destinations", label: "Destinations" },
+          { id: "faq", label: "FAQ" },
+        ]}
+      />
     </>
   );
 }

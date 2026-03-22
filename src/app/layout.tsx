@@ -27,6 +27,12 @@ const shareTechMono = Share_Tech_Mono({
 
 const SITE_URL = "https://sendmoneycompare.com";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover" as const,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {

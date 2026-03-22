@@ -73,8 +73,16 @@ export default function ForexTicker() {
   const doubled = [...items, ...items];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-ticker-bg)] border-t border-[var(--color-ticker-border)] overflow-hidden" style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
-      <div className="flex animate-ticker whitespace-nowrap py-1.5 sm:py-2 gap-8 w-max">
+    <div
+      className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-ticker-bg)] border-t border-[var(--color-ticker-border)]"
+      style={{
+        /* Extend bg below safe area on notched devices + iOS address bar bounce */
+        paddingBottom: "env(safe-area-inset-bottom, 0px)",
+        /* Prevent iOS address bar from creating gap */
+        transform: "translate3d(0,0,0)",
+      }}
+    >
+      <div className="flex animate-ticker whitespace-nowrap py-1.5 sm:py-2 gap-8 w-max overflow-hidden">
         {doubled.map((pair, i) => (
           <Link
             key={`${pair.from}${pair.to}-${i}`}
