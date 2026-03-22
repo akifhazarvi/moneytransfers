@@ -61,17 +61,21 @@ export default function MobileScrollNav({ sections }: Props) {
   return (
     <nav
       aria-label="Page sections"
-      className="fixed bottom-[40px] left-0 right-0 z-50 sm:hidden pointer-events-none"
+      className="fixed bottom-[44px] left-0 right-0 z-50 sm:hidden pointer-events-none"
     >
       <div className="flex justify-center px-3">
-        <div className="pointer-events-auto inline-flex items-center gap-0.5 bg-[var(--color-on-surface)] rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.3)] p-1 max-w-full overflow-x-auto scrollbar-hide">
+        <div
+          className="pointer-events-auto inline-flex items-center gap-px rounded-full p-[3px] max-w-full overflow-x-auto scrollbar-hide"
+          style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}
+        >
           {/* Back to top */}
           <button
             onClick={scrollToTop}
-            className="shrink-0 w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+            className="shrink-0 w-[28px] h-[28px] rounded-full flex items-center justify-center"
+            style={{ background: "rgba(255,255,255,0.12)" }}
             aria-label="Back to top"
           >
-            <svg className="w-3.5 h-3.5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="white" strokeOpacity={0.7} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
             </svg>
           </button>
@@ -83,11 +87,14 @@ export default function MobileScrollNav({ sections }: Props) {
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`shrink-0 rounded-full text-[11px] font-medium transition-all duration-150 leading-none ${
-                  isActive
-                    ? "bg-white text-[var(--color-on-surface)] px-2.5 py-1.5"
-                    : "text-white/50 px-2 py-1.5 hover:text-white/80"
-                }`}
+                className="shrink-0 rounded-full leading-none transition-all duration-150"
+                style={{
+                  fontSize: "11px",
+                  fontWeight: isActive ? 600 : 500,
+                  padding: "6px 8px",
+                  color: isActive ? "rgba(0,0,0,0.9)" : "rgba(255,255,255,0.45)",
+                  background: isActive ? "white" : "transparent",
+                }}
                 aria-label={section.label}
                 aria-current={isActive ? "true" : undefined}
               >
