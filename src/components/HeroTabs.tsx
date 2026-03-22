@@ -28,13 +28,13 @@ export default function HeroTabs({ defaultFrom, defaultTo, defaultAmount }: Hero
   return (
     <div>
       {/* Tab Bar */}
-      <div className="flex items-center justify-center gap-1 mb-6">
+      <div className="flex items-center justify-center gap-1 mb-4 sm:mb-6">
         <div className="inline-flex bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-full p-1">
           {TABS.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActive(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-2sm sm:text-sm font-medium transition-all ${
                 active === tab.id
                   ? "bg-[var(--color-primary)] text-white shadow-[0_1px_3px_rgba(26,115,232,0.3)]"
                   : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface)]"

@@ -8,6 +8,7 @@ import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
 import NewsTicker from "@/components/NewsTicker";
 import HeroTabs from "@/components/HeroTabs";
+import MobileScrollNav from "@/components/MobileScrollNav";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
@@ -157,19 +158,19 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
       />
       {/* ─── 1. HERO ─── */}
-      <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-16 pb-14">
+      <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-6 sm:pt-16 pb-6 sm:pb-14">
         <Container>
-          <div className="text-center mb-10">
-            <h1 className="text-3xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px] max-w-3xl mx-auto">
+          <div className="text-center mb-5 sm:mb-10">
+            <h1 className="text-2xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px] max-w-3xl mx-auto">
               {tHero("title")}{" "}
               <span className="text-[var(--color-primary)]">{tHero("titleHighlight")}</span>
             </h1>
-            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[var(--color-on-surface-variant)] mt-2 sm:mt-5 max-w-2xl mx-auto leading-relaxed">
               {tHero("subtitle")}
             </p>
 
-            {/* Trustpilot hero badge */}
-            <div className="flex items-center justify-center gap-2 mt-6">
+            {/* Trustpilot hero badge — hidden on mobile to save space */}
+            <div className="hidden sm:flex items-center justify-center gap-2 mt-6">
               <a
                 href="https://www.trustpilot.com/review/sendmoneycompare.com"
                 target="_blank"
@@ -189,7 +190,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="max-w-[860px] mx-auto">
             <HeroTabs defaultFrom={sendCurrency} defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
           </div>
-          <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-5 max-w-md mx-auto">
+          <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-3 sm:mt-5 max-w-md mx-auto hidden sm:block">
             {tHero("disclaimer")}
           </p>
         </Container>
@@ -197,10 +198,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       {/* ─── BEST PROVIDER BY CORRIDOR ─── */}
       {topCorridorProviders.length > 0 && (
-        <section className="py-14 bg-[var(--color-surface)]">
+        <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
           <Container>
-            <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+            <div className="text-center mb-6 sm:mb-10">
+              <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
                 Best Provider for {sendCurrency} Transfers
               </h2>
               <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
@@ -252,7 +253,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       {/* ─── LIVE RATES BAR ─── */}
       {liveRates.length > 0 && (
-        <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-4">
+        <section id="live-rates" className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-4">
           <Container>
             <div className="flex items-center gap-2 mb-3">
               <span className="relative flex h-2 w-2 shrink-0">
@@ -287,7 +288,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       )}
 
       {/* ─── 2. TRUST SECTION ─── */}
-      <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-10">
+      <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-6 sm:py-10">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
             {trustItems.map((item) => (
@@ -321,10 +322,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 3. HOW IT WORKS ─── */}
-      <section className="py-14 bg-[var(--color-surface-dim)]">
+      <section id="how-it-works" className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+          <div className="text-center mb-6 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tHow("title")}
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
@@ -346,10 +347,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 4. BEST PROVIDERS ─── */}
-      <section className="py-14">
+      <section id="providers" className="py-8 sm:py-14">
         <Container>
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+          <div className="text-center mb-6 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tBest("title")}
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
@@ -397,10 +398,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 4b. BEST FOR USE CASES ─── */}
-      <section className="py-14 bg-[var(--color-surface)]">
+      <section id="best-by-need" className="py-8 sm:py-14 bg-[var(--color-surface)]">
         <Container>
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+          <div className="text-center mb-6 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               Best Money Transfer Service by Need
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
@@ -440,10 +441,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 4c. SEND MONEY TO DESTINATIONS ─── */}
-      <section className="py-14 bg-[var(--color-surface-dim)]">
+      <section id="destinations" className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+          <div className="text-center mb-5 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tExplore("destinationsTitle")}
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
@@ -526,13 +527,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 5. LIVE EXAMPLE: $1,000 USD → PKR ─── */}
-      <section className="py-14 bg-[var(--color-surface-dim)]">
+      <section id="live-example" className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="text-center mb-2">
             <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
               {tExample("badge")}
             </div>
-            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tExample("title")}
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mt-3 mb-6 max-w-lg mx-auto">
@@ -549,10 +550,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 6. FAQ ─── */}
-      <section className="py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+      <section id="faq" className="py-8 sm:py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] text-center mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] text-center mb-6 sm:mb-10">
               {tFaq("title")}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
@@ -591,11 +592,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       />
 
       {/* ─── 8. WHY TRUST US ─── */}
-      <section className="py-14">
+      <section className="py-8 sm:py-14">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+            <div className="text-center mb-6 sm:mb-10">
+              <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
                 {tWhy("title")}
               </h2>
               <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
@@ -645,7 +646,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── EXPLORE MORE ─── */}
-      <section className="py-14 bg-[var(--color-surface-dim)]">
+      <section className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div>
@@ -706,6 +707,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
+
+      {/* Mobile floating scroll navigation */}
+      <MobileScrollNav
+        sections={[
+          { id: "best-routes", label: "Best Routes" },
+          { id: "live-rates", label: "Rates" },
+          { id: "how-it-works", label: "How It Works" },
+          { id: "providers", label: "Providers" },
+          { id: "destinations", label: "Destinations" },
+          { id: "faq", label: "FAQ" },
+        ]}
+      />
     </>
   );
 }

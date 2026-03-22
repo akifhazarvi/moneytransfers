@@ -156,10 +156,10 @@ export default function ComparisonWidget({
         </div>
       </div>
 
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-4 sm:mt-6">
         <button
           type="submit"
-          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-md px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all"
+          className="h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all w-full sm:w-auto"
         >
           {t("compareTransfers")}
         </button>

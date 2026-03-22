@@ -305,10 +305,10 @@ function SendMoneyContent() {
   return (
     <Container>
       {/* Search bar — clean, minimal, Google Flights-inspired */}
-      <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-3">
+      <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-2 sm:mt-3">
         <div className="flex flex-col lg:flex-row">
           {/* You send — amount + currency */}
-          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-4 sm:px-5 lg:pr-8 py-3 sm:py-4 min-w-0">
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-3 sm:px-5 lg:pr-8 py-2.5 sm:py-4 min-w-0">
             <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
@@ -359,7 +359,7 @@ function SendMoneyContent() {
           </div>
 
           {/* They receive — currency picker as primary element */}
-          <div className="flex-1 px-4 sm:px-5 lg:pl-8 py-3 sm:py-4 min-w-0">
+          <div className="flex-1 px-3 sm:px-5 lg:pl-8 py-2.5 sm:py-4 min-w-0">
             <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("theyReceiveIn")}</label>
             <div className="mt-1.5">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
@@ -606,7 +606,7 @@ function SendMoneyContent() {
       )}
 
       {/* Results list */}
-      <div className="mt-4 mb-12">
+      <div className="mt-3 sm:mt-4 mb-12">
         {/* Rate disclaimer */}
         <p className="text-2xs text-[var(--color-on-surface-variant)] mb-3 flex items-center gap-1">
           <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

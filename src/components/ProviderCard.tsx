@@ -58,57 +58,42 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         }}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); const next = !expanded; setExpanded(next); if (next) trackProviderExpanded(quote.providerSlug, rank, `${quote.sendCurrency}-${quote.receiveCurrency}`); } }}
         aria-expanded={expanded}
-        className={`group/row w-full text-left px-3 sm:px-6 cursor-pointer ${isBest ? "py-4 sm:py-5 pt-7 sm:pt-8" : "py-3 sm:py-4"}`}
+        className={`group/row w-full text-left px-3 sm:px-6 cursor-pointer ${isBest ? "py-3 sm:py-5 pt-6 sm:pt-8" : "py-2.5 sm:py-4"}`}
       >
-        {/* Mobile layout */}
-        <div className="flex sm:hidden items-start gap-3">
-          <span className={`text-xs font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+        {/* Mobile layout — clean, scannable, Apple-inspired */}
+        <div className="flex sm:hidden items-center gap-2.5">
+          <span className={`text-2xs font-bold tabular-nums w-4 text-center shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-muted)]"}`}>
             {rank}
           </span>
-          <div className={`${isBest ? "w-10 h-10" : "w-9 h-9"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
-            <Image src={providerLogo} alt={`${providerName} logo`} width={40} height={40} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
+          <div className={`${isBest ? "w-9 h-9" : "w-8 h-8"} rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/50`}>
+            <Image src={providerLogo} alt={`${providerName} logo`} width={36} height={36} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-2">
+            <div className="flex items-center justify-between gap-2">
               <div className="min-w-0">
-                <p className={`text-sm font-medium text-[var(--color-on-surface)] truncate ${isBest ? "text-md" : ""}`}>{providerName}</p>
-                <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                  <RatingBadge rating={quote.rating} label={quote.ratingLabel} size="sm" />
+                <div className="flex items-center gap-1.5">
+                  <p className={`text-sm font-semibold text-[var(--color-on-surface)] truncate`}>{providerName}</p>
                   {isFast && (
-                    <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-success)] bg-[var(--color-success-surface)] px-1.5 py-px rounded">
+                    <span className="text-[10px] font-bold uppercase text-[var(--color-success)] shrink-0">
                       {t("fast")}
                     </span>
                   )}
-                  {promo?.referralBadge && (
-                    <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded">
-                      {promo.referralBadge}
-                    </span>
-                  )}
-                  {promo?.signUpBadge && (
-                    <span className="text-2xs font-semibold tracking-wide uppercase text-[var(--color-on-surface)] bg-[var(--color-surface-container)] px-1.5 py-px rounded">
-                      {promo.signUpBadge}
-                    </span>
-                  )}
+                </div>
+                <div className="flex items-center gap-2 mt-px text-[11px] text-[var(--color-on-surface-variant)]">
+                  <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel}</span>
+                  <span className="text-[var(--color-outline)]">&middot;</span>
+                  <span>{quote.transferSpeed}</span>
                 </div>
               </div>
-              <div className="text-right shrink-0">
-                <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-lg text-[var(--color-success-dark)]" : "text-base text-[var(--color-on-surface)]"}`}>
+              <div className="text-right shrink-0 flex items-center gap-1">
+                <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-base text-[var(--color-success-dark)]" : "text-[15px] text-[var(--color-on-surface)]"}`}>
                   {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
+                <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 shrink-0 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
             </div>
-            <div className="flex items-center gap-3 mt-1.5 text-2xs text-[var(--color-on-surface-variant)]">
-              <span>{quote.transferSpeed}</span>
-              <span className="w-px h-3 bg-[var(--color-outline)]" />
-              <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel} {t("fee")}</span>
-              <span className="w-px h-3 bg-[var(--color-outline)]" />
-              <span className="tabular-nums">{quote.exchangeRate.toFixed(4)}</span>
-            </div>
-          </div>
-          <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-            <svg className={`w-4 h-4 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-            </svg>
           </div>
         </div>
 
