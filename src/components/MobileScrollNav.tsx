@@ -14,22 +14,17 @@ interface Props {
 export default function MobileScrollNav({ sections }: Props) {
   const [activeSection, setActiveSection] = useState("");
   const [visible, setVisible] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
   const ticking = useRef(false);
 
   const update = useCallback(() => {
     const scrollY = window.scrollY;
-    // Show after scrolling past ~400px (below hero)
     setVisible(scrollY > 400);
-    setShowBackToTop(scrollY > 800);
 
-    // Find current section by checking which section element is in view
     let current = "";
     for (const section of sections) {
       const el = document.getElementById(section.id);
       if (!el) continue;
       const rect = el.getBoundingClientRect();
-      // Section is "active" if its top is above center of viewport
       if (rect.top <= window.innerHeight * 0.4) {
         current = section.id;
       }
@@ -61,48 +56,47 @@ export default function MobileScrollNav({ sections }: Props) {
     }
   }
 
-  const currentLabel = sections.find((s) => s.id === activeSection)?.label || "";
-
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-5 left-0 right-0 z-50 flex justify-center px-4 sm:hidden pointer-events-none">
-      <div className="pointer-events-auto flex items-center gap-1 bg-[var(--color-on-surface)]/90 backdrop-blur-lg rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.25)] px-1.5 py-1.5 max-w-[92vw]">
-        {/* Section dots / pills */}
-        <div className="flex items-center gap-0.5 overflow-x-auto scrollbar-hide">
+    <nav
+      aria-label="Page sections"
+      className="fixed bottom-[40px] left-0 right-0 z-50 sm:hidden pointer-events-none"
+    >
+      <div className="flex justify-center px-3">
+        <div className="pointer-events-auto inline-flex items-center gap-0.5 bg-[var(--color-on-surface)] rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.3)] p-1 max-w-full overflow-x-auto scrollbar-hide">
+          {/* Back to top */}
+          <button
+            onClick={scrollToTop}
+            className="shrink-0 w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+            aria-label="Back to top"
+          >
+            <svg className="w-3.5 h-3.5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
+
+          {/* Section pills */}
           {sections.map((section) => {
             const isActive = section.id === activeSection;
             return (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`shrink-0 transition-all duration-200 ${
+                className={`shrink-0 rounded-full text-[11px] font-medium transition-all duration-150 leading-none ${
                   isActive
-                    ? "bg-white text-[var(--color-on-surface)] px-3 py-1.5 rounded-full text-2xs font-semibold"
-                    : "w-1.5 h-1.5 rounded-full bg-white/30 mx-0.5"
+                    ? "bg-white text-[var(--color-on-surface)] px-2.5 py-1.5"
+                    : "text-white/50 px-2 py-1.5 hover:text-white/80"
                 }`}
                 aria-label={section.label}
                 aria-current={isActive ? "true" : undefined}
               >
-                {isActive ? section.label : ""}
+                {section.label}
               </button>
             );
           })}
         </div>
-
-        {/* Back to top */}
-        {showBackToTop && (
-          <button
-            onClick={scrollToTop}
-            className="shrink-0 w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors ml-0.5"
-            aria-label="Back to top"
-          >
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-            </svg>
-          </button>
-        )}
       </div>
-    </div>
+    </nav>
   );
 }

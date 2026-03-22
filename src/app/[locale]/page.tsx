@@ -204,34 +204,34 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
                 Best Provider for {sendCurrency} Transfers
               </h2>
-              <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+              <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
                 We compared {sendCurrency} transfers across providers to find the cheapest option for each route.
               </p>
             </div>
-            <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto">
               {topCorridorProviders.map((c) => (
                 <Link
                   key={c.toCurrency}
                   href={`/send-money/${c.corridorSlug}`}
-                  className="group block p-5 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] transition-all"
+                  className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] transition-all"
                 >
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-lg">{c.flag}</span>
-                    <span className="text-xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                  <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                    <span className="text-sm sm:text-lg">{c.flag}</span>
+                    <span className="text-[10px] sm:text-xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                       {sendCurrency} → {c.toCurrency}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2.5 mb-3">
+                  <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
                     {c.providerLogo && (
-                      <div className="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center relative border border-[var(--color-outline)]/50">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center relative border border-[var(--color-outline)]/50">
                         <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="object-cover" />
                       </div>
                     )}
-                    <p className="text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
+                    <p className="text-2sm sm:text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] truncate">
                       {c.providerName}
                     </p>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="hidden sm:grid grid-cols-2 gap-2 text-xs">
                     <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
                       <span className="text-[var(--color-on-surface-variant)]">Rate </span>
                       <span className="font-semibold text-[var(--color-on-surface)]">{c.exchangeRate.toFixed(2)}</span>
@@ -241,8 +241,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       <span className="font-semibold text-[var(--color-success-dark)]">{c.fee === 0 ? "Free" : `$${c.fee.toFixed(2)}`}</span>
                     </div>
                   </div>
-                  <p className="text-2xs text-[var(--color-on-surface-variant)] mt-2">
-                    Recipient gets <strong className="text-[var(--color-on-surface)]">{c.symbol}{c.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> for {geoConfig.defaultAmount.toLocaleString()} {sendCurrency}
+                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-variant)] mt-1 sm:mt-2">
+                    <strong className="text-[var(--color-on-surface)]">{c.symbol}{c.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</strong>
+                    <span className="hidden sm:inline"> for {geoConfig.defaultAmount.toLocaleString()} {sendCurrency}</span>
                   </p>
                 </Link>
               ))}
@@ -267,17 +268,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 {tLive("seeAll")} &rarr;
               </Link>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
               {liveRates.map((r) => (
                 <Link
                   key={r.code}
                   href={`/send-money/${r.corridor}`}
-                  className="flex flex-col items-center px-3 py-3 min-h-[48px] rounded-xl bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] transition-colors group"
+                  className="flex flex-col items-center px-2 sm:px-3 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] transition-colors group"
                 >
-                  <span className="text-xs text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
+                  <span className="text-[10px] sm:text-xs text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
                     {r.label}
                   </span>
-                  <span className="text-md font-semibold text-[var(--color-on-surface)] tabular-nums mt-0.5">
+                  <span className="text-sm sm:text-md font-semibold text-[var(--color-on-surface)] tabular-nums mt-px sm:mt-0.5">
                     {r.rate >= 1000 ? r.rate.toFixed(2) : r.rate >= 100 ? r.rate.toFixed(3) : r.rate.toFixed(4)}
                   </span>
                 </Link>
@@ -288,9 +289,33 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       )}
 
       {/* ─── 2. TRUST SECTION ─── */}
-      <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-6 sm:py-10">
+      {/* Mobile: horizontal scroll of compact chips */}
+      <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-3 sm:py-10">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+          {/* Mobile — compact horizontal scroll */}
+          <div className="flex sm:hidden items-center gap-2 overflow-x-auto -mx-4 px-4 scrollbar-hide" style={{ WebkitOverflowScrolling: "touch" }}>
+            {trustItems.map((item) => (
+              <span key={item.text} className="shrink-0 inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] rounded-full px-3 py-1.5 border border-[var(--color-outline)]">
+                <svg className="w-3 h-3 text-[var(--color-success)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                </svg>
+                {item.text}
+              </span>
+            ))}
+            <a
+              href="https://www.trustpilot.com/review/sendmoneycompare.com"
+              target="_blank"
+              rel="noopener"
+              className="shrink-0 inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] rounded-full px-3 py-1.5 border border-[var(--color-outline)]"
+            >
+              <svg className="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
+              </svg>
+              Trustpilot
+            </a>
+          </div>
+          {/* Desktop — original icon grid */}
+          <div className="hidden sm:grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
             {trustItems.map((item) => (
               <div key={item.text} className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-[var(--color-success-surface,var(--color-primary-surface))] flex items-center justify-center shrink-0 mt-0.5">
@@ -301,7 +326,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <p className="text-sm font-medium text-[var(--color-on-surface)] leading-snug">{item.text}</p>
               </div>
             ))}
-            {/* Trustpilot trust signal */}
             <a
               href="https://www.trustpilot.com/review/sendmoneycompare.com"
               target="_blank"
@@ -322,17 +346,32 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 3. HOW IT WORKS ─── */}
-      <section id="how-it-works" className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
+      <section id="how-it-works" className="py-6 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
-          <div className="text-center mb-6 sm:mb-10">
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+          <div className="text-center mb-4 sm:mb-10">
+            <h2 className="text-lg sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tHow("title")}
             </h2>
-            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
               {tHow("subtitle")}
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Mobile: compact horizontal steps */}
+          <div className="flex sm:hidden gap-3 overflow-x-auto -mx-4 px-4 scrollbar-hide snap-x snap-mandatory" style={{ WebkitOverflowScrolling: "touch" }}>
+            {steps.map((item) => (
+              <div key={item.step} className="snap-start shrink-0 w-[75vw] bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] p-4 shadow-[var(--shadow-xs)]">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center shrink-0">
+                    {item.step}
+                  </div>
+                  <h3 className="text-sm font-semibold text-[var(--color-on-surface)]">{item.title}</h3>
+                </div>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          {/* Desktop: card grid */}
+          <div className="hidden sm:grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {steps.map((item) => (
               <div key={item.step} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-7 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-shadow">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white text-md font-bold flex items-center justify-center mb-5">
@@ -353,11 +392,34 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tBest("title")}
             </h2>
-            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
               {tBest("subtitle")}
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          {/* Mobile: horizontal scroll */}
+          <div className="flex sm:hidden gap-2.5 overflow-x-auto -mx-4 px-4 scrollbar-hide snap-x snap-mandatory" style={{ WebkitOverflowScrolling: "touch" }}>
+            {featuredProviders.map((provider) => (
+              <Link key={provider.slug} href={`/companies/${provider.slug}`} className="snap-start shrink-0 w-[65vw] block p-3.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-all">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <div className="w-9 h-9 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0">
+                    <Image src={provider.logo} alt={`${provider.name} logo`} width={36} height={36} className="object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[var(--color-on-surface)]">{provider.name}</h3>
+                    <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="sm" />
+                  </div>
+                </div>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] line-clamp-2 mb-2">{provider.description}</p>
+                <div className="flex items-center gap-3 text-[10px] text-[var(--color-on-surface-variant)]">
+                  <span>{provider.supportedCountries}+ countries</span>
+                  <span className="text-[var(--color-outline)]">&middot;</span>
+                  <span>{provider.transferSpeed}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          {/* Desktop: grid */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {featuredProviders.map((provider) => (
               <Card key={provider.slug} href={`/companies/${provider.slug}`}>
                 <div className="flex items-center gap-3 mb-3">
@@ -389,7 +451,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </Card>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-5 sm:mt-8">
             <Link href="/companies" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
               {tBest("seeAll")} &rarr;
             </Link>
@@ -404,34 +466,34 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               Best Money Transfer Service by Need
             </h2>
-            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
               No single provider wins every category. Here&apos;s who leads for each use case.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
             {[
-              { badge: "Best Exchange Rate", provider: "Wise", reason: "Uses the real mid-market rate with fees from 0.41%. Consistently the lowest total cost for most corridors.", href: "/companies/wise", color: "var(--color-primary)" },
-              { badge: "Best for Speed", provider: "Remitly", reason: "Express transfers arrive in minutes to 170+ countries. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
-              { badge: "Best for Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
-              { badge: "Best for Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },
-              { badge: "Best for Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", href: "/companies/revolut", color: "var(--color-success)" },
-              { badge: "Best for Reliability", provider: "MoneyGram", reason: "Global presence in 200+ countries with cash, bank, and mobile wallet delivery. Trusted by millions since 1940.", href: "/companies/moneygram", color: "var(--color-warning)" },
+              { badge: "Best Rate", provider: "Wise", reason: "Uses the real mid-market rate with fees from 0.41%. Consistently the lowest total cost for most corridors.", href: "/companies/wise", color: "var(--color-primary)" },
+              { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes to 170+ countries. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
+              { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
+              { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },
+              { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", href: "/companies/revolut", color: "var(--color-success)" },
+              { badge: "Most Reliable", provider: "MoneyGram", reason: "Global presence in 200+ countries with cash, bank, and mobile wallet delivery. Trusted by millions since 1940.", href: "/companies/moneygram", color: "var(--color-warning)" },
             ].map((item) => (
               <Link
                 key={item.provider}
                 href={item.href}
-                className="group block p-5 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:shadow-[var(--shadow-md)] transition-all"
+                className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:shadow-[var(--shadow-md)] transition-all"
               >
                 <span
-                  className="inline-block text-2xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3"
+                  className="inline-block text-[10px] sm:text-2xs font-semibold uppercase tracking-wide px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mb-2 sm:mb-3"
                   style={{ background: `color-mix(in srgb, ${item.color} 12%, transparent)`, color: item.color }}
                 >
                   {item.badge}
                 </span>
-                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-1.5 group-hover:text-[var(--color-primary)]">
+                <h3 className="text-sm sm:text-base font-semibold text-[var(--color-on-surface)] mb-1 sm:mb-1.5 group-hover:text-[var(--color-primary)]">
                   {item.provider}
                 </h3>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-2 sm:line-clamp-none">
                   {item.reason}
                 </p>
               </Link>
@@ -447,7 +509,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
               {tExplore("destinationsTitle")}
             </h2>
-            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
               {tExplore("destinationsSubtitle")}
             </p>
           </div>
@@ -599,7 +661,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
                 {tWhy("title")}
               </h2>
-              <p className="text-md text-[var(--color-on-surface-variant)] mt-3 max-w-xl mx-auto">
+              <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
                 {tWhy("subtitle")}
               </p>
             </div>
