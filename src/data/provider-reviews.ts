@@ -1366,6 +1366,220 @@ export const providerReviews: ProviderReview[] = [
       },
     ],
   },
+  {
+    slug: "xoom",
+    title: "Xoom Review 2026 — Fees, Rates & Cash Pickup Options",
+    metaDescription:
+      "In-depth Xoom review covering fees ($0–$4.99), exchange rates, cash pickup network, mobile reload, and delivery speed. Backed by PayPal, serving 130+ countries with 50 currencies.",
+    updatedAt: "2026-03-21",
+    lastVerified: "2026-03-21",
+    readTime: "10 min read",
+    editorRating: 7.5,
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested: "We tested 6 corridors through Xoom (USD→INR, USD→PHP, USD→MXN, USD→BRL, USD→PKR, USD→COL) between February and March 2026. Each transfer was tested using both bank transfer and debit card funding to verify fee differences. We checked cash pickup availability in Mexico, the Philippines, and India, and verified mobile reload functionality for the Philippines. Exchange rates were compared against the mid-market rate at the time of each transfer to measure the actual markup. Our automated scraping system also collects Xoom quotes every 6 hours across supported corridors to track fee and rate fluctuations.",
+    editorVerdict:
+      "Xoom is a strong choice for cash pickup and mobile reload transfers, especially to Latin America, the Philippines, and India. The PayPal backing gives it a level of trust and security that few competitors match. However, the exchange rate markup of 1–3% above mid-market is its biggest weakness and makes it significantly more expensive than Wise or OFX for large bank-to-bank transfers. If your recipient needs cash pickup or mobile airtime top-up and you value PayPal's ecosystem, Xoom delivers. For large transfers where the exchange rate matters most, look at Wise or Remitly instead.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview",
+        content: `<p>Xoom was founded in 2001 as a digital remittance platform focused on making it easy to send money, reload phones, and pay bills internationally. In 2015, PayPal acquired Xoom for $890 million, integrating it into the PayPal ecosystem while maintaining Xoom as a standalone brand for international money transfers.</p>
+
+<p>Xoom is headquartered in San Francisco, USA, and is regulated by FinCEN (the Financial Crimes Enforcement Network) in the United States. As a subsidiary of PayPal Holdings (NASDAQ: PYPL), Xoom benefits from PayPal's regulatory infrastructure, compliance frameworks, and financial stability.</p>
+
+<p><strong>What makes Xoom different:</strong> Xoom's key strengths are its extensive cash pickup network, mobile reload (airtime top-up) service, and bill payment options in select countries. While many transfer services focus primarily on bank-to-bank transfers, Xoom has built strong infrastructure for recipients who need physical cash or airtime — particularly in Latin America and the Philippines.</p>
+
+<p>Xoom supports transfers to <strong>130+ countries</strong> in <strong>50 currencies</strong>, with minimum transfers starting at just $1 and a maximum of $50,000 per transaction. The PayPal integration means PayPal account holders can fund Xoom transfers directly from their PayPal balance.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Transfer fees",
+        content: `<p>Xoom charges a flat transfer fee ranging from <strong>$0 to $4.99</strong> per transaction. The fee depends on the destination country, delivery method, and how you fund the transfer. Some corridors offer fee-free transfers when funded by bank account.</p>
+
+<p><strong>Typical fees by corridor and funding method:</strong></p>
+
+<table>
+<tr><th>Corridor</th><th>Bank funding</th><th>Debit card</th><th>Credit card</th></tr>
+<tr><td>USD → MXN</td><td>$0</td><td>$1.99</td><td>$4.99</td></tr>
+<tr><td>USD → INR</td><td>$0</td><td>$1.99</td><td>$4.99</td></tr>
+<tr><td>USD → PHP</td><td>$0</td><td>$1.99</td><td>$4.99</td></tr>
+<tr><td>USD → BRL</td><td>$0</td><td>$2.99</td><td>$4.99</td></tr>
+<tr><td>USD → PKR</td><td>$0</td><td>$1.99</td><td>$4.99</td></tr>
+<tr><td>USD → COL</td><td>$0</td><td>$2.99</td><td>$4.99</td></tr>
+</table>
+
+<p><strong>Important:</strong> While Xoom's flat fees appear low, the real cost of a Xoom transfer includes the exchange rate markup. Unlike Wise (which charges a transparent fee with no markup), Xoom bakes a 1–3% margin into the exchange rate. This means a "$0 fee" transfer may still cost $10–$30 on a $1,000 send when the rate markup is factored in.</p>
+
+<p><strong>Fee-free promotions:</strong> Xoom frequently offers fee-free first transfers for new users and periodic promotions on specific corridors. These can make Xoom competitive for one-off transfers, but the exchange rate markup still applies.</p>`,
+      },
+      {
+        id: "exchange-rates",
+        heading: "Exchange rates",
+        content: `<p><strong>Exchange rates are Xoom's biggest weakness.</strong> Xoom adds a markup of approximately <strong>1–3% above the mid-market rate</strong>, depending on the corridor and delivery method. This markup is not shown separately — it is built into the exchange rate you see on the Xoom website or app.</p>
+
+<p><strong>How Xoom's rates compare to competitors:</strong></p>
+
+<table>
+<tr><th>Provider</th><th>Exchange rate approach</th><th>Typical markup</th></tr>
+<tr><td>Wise</td><td>Mid-market rate</td><td>0%</td></tr>
+<tr><td>Remitly</td><td>Marked up</td><td>0.5%–2%</td></tr>
+<tr><td>Xoom</td><td>Marked up</td><td>1%–3%</td></tr>
+<tr><td>Western Union</td><td>Marked up</td><td>1%–4%</td></tr>
+<tr><td>Banks (average)</td><td>Marked up</td><td>3%–5%</td></tr>
+</table>
+
+<p><strong>What this means in practice:</strong> On a $1,000 transfer to Mexico, a 2% markup means you lose approximately $20 in the exchange rate — on top of any transfer fee. Compared to Wise (0% markup), Xoom typically delivers $15–$25 less to the recipient per $1,000 sent, depending on the corridor.</p>
+
+<p>The markup varies by corridor. Popular corridors like USD→MXN and USD→INR tend to have lower markups (closer to 1–1.5%), while less common corridors may see markups at the higher end (2–3%). Cash pickup transfers sometimes carry a slightly higher markup than bank deposit transfers.</p>
+
+<p><strong>Rate transparency:</strong> Xoom does show you the total amount your recipient will receive before you confirm, so you can compare this figure against competitors. However, the markup itself is not disclosed as a separate line item, making it harder for users to understand the true cost.</p>`,
+      },
+      {
+        id: "speed",
+        heading: "Delivery speed",
+        content: `<p>Xoom offers competitive delivery speeds, particularly for cash pickup and mobile reload transfers.</p>
+
+<p><strong>Speed by delivery method:</strong></p>
+
+<table>
+<tr><th>Delivery method</th><th>Typical speed</th><th>Best case</th></tr>
+<tr><td>Cash pickup</td><td>Minutes</td><td>Minutes</td></tr>
+<tr><td>Mobile reload</td><td>Minutes</td><td>Minutes</td></tr>
+<tr><td>Bank deposit</td><td>1–3 business days</td><td>Same day</td></tr>
+<tr><td>Door-to-door</td><td>1–5 business days</td><td>1 business day</td></tr>
+<tr><td>Bill payment</td><td>1–3 business days</td><td>Same day</td></tr>
+</table>
+
+<p><strong>Factors that affect speed:</strong></p>
+<ul>
+<li><strong>Funding method:</strong> Debit card and PayPal balance funding are processed immediately. Bank transfer (ACH) funding takes 1–3 days to clear before Xoom can send the money.</li>
+<li><strong>Delivery method:</strong> Cash pickup and mobile reload are nearly instant once funded. Bank deposits depend on the receiving bank's processing times.</li>
+<li><strong>Verification:</strong> First-time transfers and large amounts may require additional verification, adding 1–2 days.</li>
+<li><strong>Receiving country:</strong> Some countries process incoming transfers faster than others. India and the Philippines are among the quickest for bank deposits.</li>
+</ul>
+
+<p><strong>Express availability:</strong> For select corridors, Xoom offers express bank deposits that arrive within hours rather than days. This is available for destinations like India (IMPS/NEFT), the Philippines, and Mexico.</p>`,
+      },
+      {
+        id: "payment-methods",
+        heading: "Payment and delivery methods",
+        content: `<p>Xoom offers a broad range of both funding and delivery options, which is one of its key competitive advantages.</p>
+
+<p><strong>Sending (funding) methods:</strong></p>
+
+<table>
+<tr><th>Method</th><th>Extra cost</th><th>Speed to fund</th></tr>
+<tr><td>Bank transfer (ACH)</td><td>Often free</td><td>1–3 business days</td></tr>
+<tr><td>Debit card</td><td>$1.99–$2.99</td><td>Instant</td></tr>
+<tr><td>Credit card</td><td>$4.99</td><td>Instant</td></tr>
+<tr><td>PayPal balance</td><td>Often free</td><td>Instant</td></tr>
+</table>
+
+<p><strong>Receiving (delivery) methods:</strong></p>
+<ul>
+<li><strong>Bank deposit:</strong> Available in 130+ countries — the standard delivery method for most corridors</li>
+<li><strong>Cash pickup:</strong> Xoom's standout feature. Available in 60+ countries through partner banks, supermarkets, convenience stores, and dedicated agent locations. Particularly strong networks in Mexico, the Philippines, India, Colombia, and across Central America.</li>
+<li><strong>Mobile reload (airtime top-up):</strong> Send prepaid airtime directly to a mobile phone in select countries. Popular in the Philippines, Latin America, and parts of Africa.</li>
+<li><strong>Bill payment:</strong> Pay utility bills, school fees, and other bills directly on behalf of your recipient in select countries (notably the Philippines and Mexico).</li>
+<li><strong>Door-to-door delivery:</strong> Available in select countries where agents deliver cash to the recipient's home address. Available in the Philippines, Vietnam, and a few other markets.</li>
+</ul>
+
+<p><strong>Cash pickup network:</strong> Xoom partners with major local banks, supermarkets, and money transfer agents in each country. In Mexico, recipients can collect from OXXO stores, Banco Azteca, Elektra, and more. In the Philippines, pickup is available at banks, pawnshops, and convenience stores nationwide. This makes Xoom especially useful for recipients in areas with limited banking infrastructure.</p>`,
+      },
+      {
+        id: "reviews",
+        heading: "Customer reviews summary",
+        content: `<p>Xoom has a solid but mixed review profile, reflecting its strengths in cash pickup alongside frustrations about exchange rates.</p>
+
+<p><strong>Trustpilot:</strong> 4.0/5 based on 30,000+ reviews — rated "Great". This is a respectable score, though it trails market leaders like Wise (4.3/5) and Remitly (4.3/5) by volume and rating.</p>
+
+<p><strong>Common praise:</strong></p>
+<ul>
+<li>"Cash pickup is fast and reliable" — recipients consistently report being able to collect funds within minutes at local agents</li>
+<li>"The PayPal integration is seamless" — PayPal users appreciate being able to fund transfers directly from their balance</li>
+<li>"Great coverage in Latin America" — Mexico, Colombia, and Central American corridors are frequently praised</li>
+<li>"Mobile reload is a lifesaver" — users value the ability to top up family members' phones instantly</li>
+</ul>
+
+<p><strong>Common complaints:</strong></p>
+<ul>
+<li>"The exchange rate is not competitive" — rate-conscious users frequently note that Wise and Remitly offer better rates</li>
+<li>"Hard to see the real cost" — the lack of transparent markup disclosure frustrates comparison shoppers</li>
+<li>"Account verification delays" — some users report extended hold times on first transfers while identity is verified</li>
+<li>"Customer service can be slow" — phone wait times and email response times are a recurring complaint</li>
+</ul>
+
+<p><strong>Our assessment:</strong> Xoom's reviews reflect a service that excels at what it does best — fast cash pickup and mobile reload — while falling short on pricing transparency. Users who choose Xoom for its delivery options tend to be satisfied; those expecting the best exchange rates are often disappointed.</p>`,
+      },
+    ],
+
+    whoShouldUse: [
+      {
+        heading: "Xoom is ideal for",
+        items: [
+          "Recipients who need cash pickup — Xoom's agent network is extensive in Latin America, the Philippines, and India",
+          "Mobile reload needs — topping up a family member's phone abroad is fast and easy",
+          "PayPal users who want to fund transfers directly from their PayPal balance",
+          "Sending to Latin America and the Philippines where Xoom has the strongest coverage",
+          "Bill payment and door-to-door delivery in select countries",
+          "Users who value PayPal's brand trust and buyer protections",
+        ],
+      },
+      {
+        heading: "Xoom may not be the best choice for",
+        items: [
+          "Rate-sensitive large transfers where the 1–3% markup becomes costly ($10–$30+ per $1,000)",
+          "Users who want mid-market exchange rates (Wise offers 0% markup)",
+          "Business or commercial transfers (Xoom is consumer-only)",
+          "Transfers between developed countries (US to UK, US to EU) where Wise or OFX are cheaper",
+        ],
+      },
+    ],
+
+    alternatives: [
+      { slug: "wise", reason: "Mid-market exchange rates with 0% markup — significantly cheaper for bank-to-bank transfers" },
+      { slug: "remitly", reason: "Similar cash pickup and mobile money options with generally better exchange rates" },
+      { slug: "western-union", reason: "Largest cash pickup network globally (500,000+ locations) for the most remote destinations" },
+      { slug: "worldremit", reason: "More mobile money options (M-Pesa, GCash, bKash) for African and Asian corridors" },
+    ],
+
+    faqs: [
+      {
+        q: "Is Xoom safe and legitimate?",
+        a: "Yes. Xoom is a wholly owned subsidiary of PayPal Holdings (NASDAQ: PYPL), one of the world's largest digital payment companies. Xoom is registered with FinCEN as a Money Services Business and is licensed to operate in all US states. PayPal's regulatory infrastructure, anti-fraud systems, and encryption protect all Xoom transactions. Xoom has been operating since 2001 and has processed billions of dollars in transfers.",
+      },
+      {
+        q: "Is Xoom connected to PayPal?",
+        a: "Yes. PayPal acquired Xoom in 2015 for $890 million. You can fund Xoom transfers directly from your PayPal balance, and your PayPal account credentials can be used to log in. However, Xoom operates as a separate service focused specifically on international remittances, cash pickup, mobile reload, and bill payment — features that PayPal's core platform does not offer directly.",
+      },
+      {
+        q: "How much does Xoom charge per transfer?",
+        a: "Xoom charges a flat fee of $0–$4.99 per transfer depending on the corridor, delivery method, and funding method. Bank-funded transfers are often fee-free. However, the total cost also includes an exchange rate markup of 1–3% above the mid-market rate. On a $1,000 transfer, the combined cost (fee + markup) typically ranges from $10 to $35. Always compare the total amount received rather than just the fee.",
+      },
+      {
+        q: "How fast is Xoom?",
+        a: "Cash pickup and mobile reload transfers arrive within minutes once funded. Bank deposits typically take 1–3 business days, with express options available for some corridors (India, Philippines, Mexico) that deliver within hours. Funding with a debit card or PayPal balance is instant, while ACH bank transfers take 1–3 days to clear before Xoom sends the money.",
+      },
+      {
+        q: "Where can recipients pick up cash with Xoom?",
+        a: "Xoom offers cash pickup in 60+ countries through partner banks, supermarkets, convenience stores, and money transfer agents. In Mexico, pickup locations include OXXO, Banco Azteca, and Elektra. In the Philippines, recipients can collect from banks, pawnshops, and stores like Cebuana Lhuillier. In India, cash pickup is available through select banks and agents. Recipients need valid government ID and the transaction reference number to collect funds.",
+      },
+      {
+        q: "Is Xoom cheaper than Western Union?",
+        a: "It depends on the corridor and delivery method. Xoom often has lower flat fees ($0–$4.99 vs $5–$10+ for Western Union) but both services add an exchange rate markup. For cash pickup to Latin America and the Philippines, Xoom is generally competitive with or slightly cheaper than Western Union. However, for the best overall value, Wise and Remitly typically beat both Xoom and Western Union on total cost.",
+      },
+      {
+        q: "Can I send money with Xoom from outside the US?",
+        a: "Xoom supports sending from the United States, Canada, the United Kingdom, and several European countries. However, its primary market and strongest feature set is for US-based senders. Available corridors, fees, and delivery methods vary by your sending country. For the widest range of options, Xoom works best when sending from the US.",
+      },
+      {
+        q: "What is Xoom mobile reload?",
+        a: "Mobile reload lets you add prepaid airtime (credit) directly to a mobile phone in another country. You enter the recipient's phone number on Xoom, choose an amount, and the credit is delivered within minutes. This is especially popular for topping up phones in the Philippines, Mexico, Guatemala, El Salvador, and other Latin American countries. It is one of Xoom's unique features that few competitors match at the same scale.",
+      },
+    ],
+  },
 ];
 
 export function getProviderReview(slug: string): ProviderReview | undefined {

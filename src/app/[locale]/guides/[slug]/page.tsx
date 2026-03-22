@@ -15,6 +15,80 @@ interface Props {
   params: Promise<{ slug: string; locale: string }>;
 }
 
+const TAG_CORRIDOR_MAP: Record<string, { href: string; label: string }> = {
+  india: { href: "/send-money/usa-to-india", label: "USA to India transfers" },
+  inr: { href: "/send-money/usa-to-india", label: "USA to India transfers" },
+  pakistan: { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan transfers" },
+  pkr: { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan transfers" },
+  mexico: { href: "/send-money/usa-to-mexico", label: "USA to Mexico transfers" },
+  mxn: { href: "/send-money/usa-to-mexico", label: "USA to Mexico transfers" },
+  philippines: { href: "/send-money/usa-to-philippines", label: "USA to Philippines transfers" },
+  php: { href: "/send-money/usa-to-philippines", label: "USA to Philippines transfers" },
+  europe: { href: "/send-money/uk-to-europe", label: "UK to Europe transfers" },
+  eur: { href: "/send-money/uk-to-europe", label: "UK to Europe transfers" },
+  nigeria: { href: "/send-money/usa-to-nigeria", label: "USA to Nigeria transfers" },
+  ngn: { href: "/send-money/usa-to-nigeria", label: "USA to Nigeria transfers" },
+  bangladesh: { href: "/send-money/uk-to-bangladesh", label: "UK to Bangladesh transfers" },
+  bdt: { href: "/send-money/uk-to-bangladesh", label: "UK to Bangladesh transfers" },
+  uk: { href: "/send-money/uk-to-india", label: "UK to India transfers" },
+  gbp: { href: "/send-money/uk-to-india", label: "UK to India transfers" },
+  usd: { href: "/send-money/usa-to-india", label: "USA to India transfers" },
+  iban: { href: "/iban", label: "IBAN lookup tool" },
+  swift: { href: "/swift-codes", label: "SWIFT code finder" },
+  business: { href: "/business", label: "Business transfers" },
+};
+
+const DEFAULT_CORRIDORS = [
+  { href: "/send-money/uk-to-india", label: "UK to India transfers" },
+  { href: "/send-money/usa-to-india", label: "USA to India transfers" },
+  { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan transfers" },
+  { href: "/send-money/usa-to-mexico", label: "USA to Mexico transfers" },
+  { href: "/send-money/uk-to-europe", label: "UK to Europe transfers" },
+];
+
+function getExploreLinks(tags: string[], category: string): { href: string; label: string }[] {
+  const fixed = [
+    { href: "/companies", label: "Provider reviews" },
+    { href: "/compare", label: "Head-to-head comparisons" },
+  ];
+
+  const seen = new Set(fixed.map((l) => l.href));
+  const dynamic: { href: string; label: string }[] = [];
+
+  // Add business link for Business category
+  if (category === "Business" && !seen.has("/business")) {
+    dynamic.push({ href: "/business", label: "Business transfers" });
+    seen.add("/business");
+  }
+
+  // Scan tags for corridor matches
+  for (const tag of tags) {
+    const words = tag.toLowerCase().split(/[\s,/-]+/);
+    for (const word of words) {
+      const match = TAG_CORRIDOR_MAP[word];
+      if (match && !seen.has(match.href)) {
+        dynamic.push(match);
+        seen.add(match.href);
+      }
+      if (dynamic.length >= 5) break;
+    }
+    if (dynamic.length >= 5) break;
+  }
+
+  // Fall back to default corridors if fewer than 3 tag matches
+  if (dynamic.length < 3) {
+    for (const fallback of DEFAULT_CORRIDORS) {
+      if (!seen.has(fallback.href)) {
+        dynamic.push(fallback);
+        seen.add(fallback.href);
+      }
+      if (dynamic.length >= 5) break;
+    }
+  }
+
+  return [...fixed, ...dynamic.slice(0, 5)];
+}
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -382,15 +456,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div>
                 <p className="text-overline text-[var(--color-on-surface-muted)] mb-3">Explore</p>
                 <ul className="space-y-1">
-                  {[
-                    { href: "/companies", label: "Provider reviews" },
-                    { href: "/compare", label: "Head-to-head comparisons" },
-                    { href: "/send-money/uk-to-india", label: "UK to India transfers" },
-                    { href: "/send-money/usa-to-india", label: "USA to India transfers" },
-                    { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan transfers" },
-                    { href: "/send-money/usa-to-mexico", label: "USA to Mexico transfers" },
-                    { href: "/send-money/uk-to-europe", label: "UK to Europe transfers" },
-                  ].map((link) => (
+                  {getExploreLinks(post.tags, post.category).map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
