@@ -83,16 +83,16 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
         }}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); const next = !expanded; setExpanded(next); if (next) trackProviderExpanded(quote.providerSlug, rank, `${quote.sendCurrency}-${quote.receiveCurrency}`); } }}
         aria-expanded={expanded}
-        className={`group/row w-full text-left px-4 sm:px-6 cursor-pointer ${isBest ? "py-4 sm:py-5 pt-8 sm:pt-8" : "py-4 sm:py-4"}`}
+        className={`group/row w-full text-left px-4 sm:px-6 cursor-pointer ${isBest ? "py-5 sm:py-5 pt-9 sm:pt-8" : "py-5 sm:py-4"}`}
       >
-        {/* Mobile layout — generous spacing, clear hierarchy, Google Flights feel */}
+        {/* Mobile layout */}
         <div className="flex sm:hidden items-start gap-3">
           {/* Rank */}
-          <span className={`text-xs font-bold tabular-nums w-4 text-center shrink-0 mt-1 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-muted)]"}`}>
+          <span className={`text-xs font-bold tabular-nums w-4 text-center shrink-0 mt-2 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-muted)]"}`}>
             {rank}
           </span>
           {/* Logo */}
-          <div className="w-11 h-11 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/30">
+          <div className="w-11 h-11 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/30 mt-0.5">
             <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-cover" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
           {/* Content */}
@@ -107,18 +107,19 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               )}
             </div>
             {/* Row 2: Fee · Speed */}
-            <div className="flex items-center gap-2 mt-1 text-xs text-[var(--color-on-surface-variant)]">
+            <div className="flex items-center gap-2 mt-1.5 text-xs text-[var(--color-on-surface-variant)]">
               <span className={`${quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}`}>{feeLabel}</span>
               <span className="text-[var(--color-outline)]">&middot;</span>
               <span>{mobileSpeed}</span>
             </div>
           </div>
-          {/* Amount — right aligned, prominent */}
-          <div className="shrink-0 text-right mt-0.5">
+          {/* Amount — right aligned with label */}
+          <div className="shrink-0 text-right">
             <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-[17px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
               {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
-            <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 ml-auto mt-0.5 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{t("recipientGets")}</p>
+            <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 ml-auto mt-1 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
