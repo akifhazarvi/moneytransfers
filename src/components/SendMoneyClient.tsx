@@ -314,11 +314,55 @@ function SendMoneyContent() {
 
   return (
     <Container>
-      {/* Search bar */}
-      <div className="rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-2 sm:mt-3">
+      {/* Search bar — compact on mobile, Google Flights-inspired */}
+      {/* Mobile: compact 2-row layout */}
+      <div className="sm:hidden mt-2 mb-3">
+        <div className="rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_4px_rgba(32,33,36,0.08)]">
+          {/* Row 1: From currency + Amount */}
+          <div className="flex items-center border-b border-[var(--color-outline)] px-3 py-2">
+            <div className="flex-1 min-w-0">
+              <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="compact" />
+            </div>
+            <div className="flex items-baseline gap-0.5 shrink-0 ml-2 border-l border-[var(--color-outline)] pl-3">
+              <span className="text-lg font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
+              <input
+                type="text"
+                inputMode="decimal"
+                value={amountStr}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  if (v === "" || /^\d*\.?\d*$/.test(v)) setAmountStr(v);
+                }}
+                onBlur={() => {
+                  if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
+                }}
+                className="bg-transparent text-lg font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[80px] tabular-nums"
+                placeholder="1,000"
+              />
+            </div>
+          </div>
+          {/* Row 2: Swap + To currency */}
+          <div className="flex items-center px-3 py-2">
+            <button
+              onClick={swap}
+              className="w-7 h-7 rounded-full border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shrink-0 mr-2"
+              aria-label="Swap currencies"
+            >
+              <svg className="w-3.5 h-3.5 text-[var(--color-on-surface-variant)] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+            </button>
+            <div className="flex-1 min-w-0">
+              <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: original wide search bar */}
+      <div className="hidden sm:block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow mb-4 mt-3">
         <div className="flex flex-col lg:flex-row">
-          {/* You send — amount + currency */}
-          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-3 sm:px-5 lg:pr-8 py-2.5 sm:py-4 min-w-0">
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-[var(--color-outline)] px-5 lg:pr-8 py-4 min-w-0">
             <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
@@ -342,7 +386,6 @@ function SendMoneyContent() {
             </div>
           </div>
 
-          {/* Swap button — desktop */}
           <div className="hidden lg:flex items-center -mx-5 z-10">
             <button
               onClick={swap}
@@ -355,21 +398,7 @@ function SendMoneyContent() {
             </button>
           </div>
 
-          {/* Swap button — mobile */}
-          <div className="flex lg:hidden items-center justify-center -my-3 z-10">
-            <button
-              onClick={swap}
-              className="w-9 h-9 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm"
-              aria-label="Swap currencies"
-            >
-              <svg className="w-4 h-4 text-[var(--color-on-surface-variant)] rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-              </svg>
-            </button>
-          </div>
-
-          {/* They receive — currency picker as primary element */}
-          <div className="flex-1 px-3 sm:px-5 lg:pl-8 py-2.5 sm:py-4 min-w-0">
+          <div className="flex-1 px-5 lg:pl-8 py-4 min-w-0">
             <label className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("theyReceiveIn")}</label>
             <div className="mt-1.5">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
@@ -557,14 +586,14 @@ function SendMoneyContent() {
         </span>
       </div>
 
-      {/* Savings callout */}
+      {/* Savings callout — compact */}
       {savings > 100 && bestQuote && worstQuote && (
-        <div className="mt-3 bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/15 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 flex items-center gap-3">
-          <svg className="w-5 h-5 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="mb-2 bg-[var(--color-success-surface)] rounded-lg px-3 py-2 flex items-center gap-2">
+          <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>
-          <p className="text-2sm text-[var(--color-success-dark)]">
-            <strong>Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} {toCurrency}</strong> by choosing {getProviderName(bestQuote.providerSlug)} over {getProviderName(worstQuote.providerSlug)} on this transfer.
+          <p className="text-xs text-[var(--color-success-dark)]">
+            <strong>Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</strong> — {getProviderName(bestQuote.providerSlug)} vs {getProviderName(worstQuote.providerSlug)}
           </p>
         </div>
       )}
