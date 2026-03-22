@@ -274,6 +274,16 @@ function SendMoneyContent() {
 
   const sendCurrency = currencies.find((c) => c.code === fromCurrency);
   const receiveCurrency = currencies.find((c) => c.code === toCurrency);
+
+  // Mid-market rate from live/static rates (USD-based cross rate)
+  const midMarketRate = useMemo(() => {
+    if (fromCurrency === "USD") return rates[toCurrency] ?? null;
+    if (toCurrency === "USD") return rates[fromCurrency] ? 1 / rates[fromCurrency] : null;
+    const fromUsd = rates[fromCurrency];
+    const toUsd = rates[toCurrency];
+    if (!fromUsd || !toUsd) return null;
+    return toUsd / fromUsd;
+  }, [rates, fromCurrency, toCurrency]);
   const cheapestQuote = [...quotes].sort((a, b) => a.fee - b.fee)[0];
   const bestQuote = filteredQuotes[0];
   const worstQuote = filteredQuotes[filteredQuotes.length - 1];
@@ -626,6 +636,7 @@ function SendMoneyContent() {
                 compareSelected={compareList.includes(quote.providerSlug)}
                 onCompareToggle={toggleCompare}
                 compareDisabled={compareList.length >= 2}
+                midMarketRate={midMarketRate ?? undefined}
               />
             ))}
           </div>

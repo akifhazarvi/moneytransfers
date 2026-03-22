@@ -19,9 +19,10 @@ interface Props {
   compareSelected?: boolean;
   onCompareToggle?: (slug: string) => void;
   compareDisabled?: boolean;
+  midMarketRate?: number;
 }
 
-export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled }: Props) {
+export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate }: Props) {
   const [expanded, setExpanded] = useState(false);
   const t = useTranslations("providerCard");
   const provider = providers.find((p) => p.slug === quote.providerSlug);
@@ -37,6 +38,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   const isFast = quote.transferSpeed.toLowerCase().includes("minute") || quote.transferSpeed.toLowerCase().includes("instant");
   const isBest = rank === 1;
   const promo = promos.find((p) => p.providerSlug === quote.providerSlug);
+
+  // % above/below mid-market rate
+  const markupPct = midMarketRate && midMarketRate > 0
+    ? ((quote.exchangeRate - midMarketRate) / midMarketRate) * 100
+    : null;
 
   return (
     <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
@@ -83,6 +89,14 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   <span className={quote.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : ""}>{feeLabel}</span>
                   <span className="text-[var(--color-outline)]">&middot;</span>
                   <span>{quote.transferSpeed}</span>
+                  {markupPct !== null && (
+                    <>
+                      <span className="text-[var(--color-outline)]">&middot;</span>
+                      <span className={`font-semibold ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
+                        {markupPct >= 0 ? "+" : ""}{markupPct.toFixed(2)}%
+                      </span>
+                    </>
+                  )}
                 </div>
               </div>
               <div className="text-right shrink-0 flex items-center gap-1">
@@ -172,9 +186,16 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 {feeLabel}
               </p>
             </div>
-            <div className="w-[90px] shrink-0">
+            <div className="w-[110px] shrink-0">
               <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("rate")}</p>
-              <p className="text-2sm text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <p className="text-2sm text-[var(--color-on-surface)] tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+                {markupPct !== null && (
+                  <span className={`text-2xs font-semibold tabular-nums ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
+                    {markupPct >= 0 ? "+" : ""}{markupPct.toFixed(2)}%
+                  </span>
+                )}
+              </div>
             </div>
           </div>
 
@@ -202,7 +223,14 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             <div className="grid grid-cols-2 sm:grid-cols-4 bg-[var(--color-surface-dim)]">
               <div className="px-4 py-3 border-r border-b sm:border-b-0 border-[var(--color-outline)]">
                 <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("exchangeRate")}</p>
-                <p className="text-md font-medium text-[var(--color-on-surface)] mt-1 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+                <div className="flex items-center gap-2 mt-1">
+                  <p className="text-md font-medium text-[var(--color-on-surface)] tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
+                  {markupPct !== null && (
+                    <span className={`text-xs font-semibold tabular-nums ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>
+                      {markupPct >= 0 ? "+" : ""}{markupPct.toFixed(2)}%
+                    </span>
+                  )}
+                </div>
               </div>
               <div className="px-4 py-3 sm:border-r border-b sm:border-b-0 border-[var(--color-outline)]">
                 <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("transferFee")}</p>
