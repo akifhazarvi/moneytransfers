@@ -756,12 +756,16 @@ const corridorEditorialNotes: Record<
   },
 };
 
-import { shouldNoindex } from "@/lib/corridor-tiers";
+import { shouldNoindex, getCorridorTier } from "@/lib/corridor-tiers";
 
 // ── Static generation ──
+// Only pre-render corridors with real data (Tier 1 & 2).
+// Tier 3 (zero quotes, non-editorial) returns 404 at runtime.
 
 export function generateStaticParams() {
-  return allCorridors.map((c) => ({ corridor: c.slug }));
+  return allCorridors
+    .filter((c) => getCorridorTier(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2)
+    .map((c) => ({ corridor: c.slug }));
 }
 
 const corridorSeoOverrides: Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; keywords: string }> = {
@@ -1253,6 +1257,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const corridor = getCorridor(slug);
   if (!corridor) return {};
 
+  // No metadata needed for Tier 3 corridors — they'll 404
+  if (getCorridorTier(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) === 3) return {};
+
   const override = corridorSeoOverrides[slug];
   const isCurr = corridor.isCurrencyCorridor;
 
@@ -1347,6 +1354,12 @@ export default async function CorridorPage({ params }: Props) {
 
   const { fromCurrency, toCurrency, sampleAmount, isCurrencyCorridor, isCountryPage } = corridor;
   const quotes = generateQuotes(sampleAmount, fromCurrency, toCurrency);
+
+  // Return 404 for corridors with no quote data and no editorial content (Tier 3).
+  // This avoids soft-404 signals from thin auto-generated pages.
+  if (quotes.length === 0 && getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage) === 3) {
+    notFound();
+  }
   const midRate = getExchangeRate(fromCurrency, toCurrency);
   const sendSymbol = getCurrencySymbol(fromCurrency);
   const receiveSymbol = getCurrencySymbol(toCurrency);
