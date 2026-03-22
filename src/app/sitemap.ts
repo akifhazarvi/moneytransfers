@@ -168,17 +168,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  const guidePages: MetadataRoute.Sitemap = blogPosts.flatMap((post) => [
+  // Guide content is English-only — locale variants are noindexed, so exclude from sitemap
+  const guidePages: MetadataRoute.Sitemap = blogPosts.map((post) =>
     entry(`guides/${post.slug}`, post.updatedAt),
-    ...withLocales(`guides/${post.slug}`, post.updatedAt),
-  ]);
+  );
 
+  // News content is English-only — locale variants are noindexed, so exclude from sitemap
   const newsPages: MetadataRoute.Sitemap = [
     entry("news", LAST_DEPLOY),
-    ...newsItems.flatMap((item) => [
+    ...newsItems.map((item) =>
       entry(`news/${item.slug}`, item.publishedAt),
-      ...withLocales(`news/${item.slug}`, item.publishedAt),
-    ]),
+    ),
   ];
 
   const EXCHANGE_RATE_PAIRS = [
@@ -190,11 +190,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "usd-to-brl", "usd-to-cny",
   ];
 
-  // ── Issue 2 fix: Exchange rate pages now include locale variants ──
+  // Exchange rate index/hub pages keep locale variants (translated UI).
+  // Individual pair pages are English-only content — locale variants are noindexed.
   const exchangeRatesPage: MetadataRoute.Sitemap = [
     ...entryWithLocales("exchange-rates", DATA_UPDATED),
     ...entryWithLocales("remittance-cost-index", DATA_UPDATED),
-    ...EXCHANGE_RATE_PAIRS.flatMap((pair) => entryWithLocales(`exchange-rates/${pair}`, DATA_UPDATED)),
+    ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, DATA_UPDATED)),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
@@ -205,9 +206,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
     .flatMap((c) => [entry(`swift-codes/${c.slug}`, LAST_DEPLOY), ...withLocales(`swift-codes/${c.slug}`, LAST_DEPLOY)]);
 
+  // Business content is English-only — locale variants are noindexed
   const businessHubPages: MetadataRoute.Sitemap = [
     entry("business", LAST_DEPLOY),
-    ...businessPages.flatMap((p) => [entry(`business/${p.slug}`, LAST_DEPLOY), ...withLocales(`business/${p.slug}`, LAST_DEPLOY)]),
+    ...businessPages.map((p) => entry(`business/${p.slug}`, LAST_DEPLOY)),
   ];
 
   // ── Issue 3 fix: Author pages now include locale variants ──

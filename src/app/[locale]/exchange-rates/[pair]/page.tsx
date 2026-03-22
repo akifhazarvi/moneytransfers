@@ -279,6 +279,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords: `${p.from} to ${p.to} exchange rate, ${p.from} to ${p.to} rate today, ${p.from}/${p.to} ${year}, ${p.fromName} to ${p.toName}, convert ${p.from} to ${p.to}, ${p.from} ${p.to} mid-market rate, cheapest ${p.from} to ${p.to}`,
     alternates: getAlternates(`exchange-rates/${pair}`, locale),
+    // Exchange rate content is English-only; noindex locale variants to avoid duplicate content
+    ...(locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${p.from}→${p.to}: Real Rate vs. What Providers Offer`,
       description: `Live ${p.from}/${p.to} mid-market rate vs. what transfer providers charge. See the markup each provider adds.`,

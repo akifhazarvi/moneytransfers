@@ -119,6 +119,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...(post.featuredImage && { images: [post.featuredImage] }),
     },
     alternates: getAlternates(`guides/${slug}`, locale),
+    // Guide content is English-only; noindex locale variants to avoid duplicate content
+    ...(locale !== "en" && { robots: { index: false, follow: true } }),
   };
 }
 

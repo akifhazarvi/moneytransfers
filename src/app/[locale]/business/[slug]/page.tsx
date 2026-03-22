@@ -25,6 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: page.metaTitle,
     description: page.metaDescription,
     alternates: getAlternates(`business/${slug}`, locale),
+    // Business content is English-only; noindex locale variants to avoid duplicate content
+    ...(locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
