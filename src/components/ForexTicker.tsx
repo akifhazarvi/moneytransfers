@@ -74,15 +74,19 @@ export default function ForexTicker() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-ticker-bg)] border-t border-[var(--color-ticker-border)]"
+      className="fixed left-0 right-0 z-50 border-t border-[var(--color-ticker-border)]"
       style={{
-        /* Extend bg below safe area on notched devices + iOS address bar bounce */
-        paddingBottom: "env(safe-area-inset-bottom, 0px)",
-        /* Prevent iOS address bar from creating gap */
+        bottom: 0,
+        /* 100px overshoot below viewport covers iOS address bar resize gap */
+        paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 100px)",
+        marginBottom: "-100px",
+        background: "var(--color-ticker-bg)",
+        /* Force GPU layer — prevents iOS reflow flicker */
         transform: "translate3d(0,0,0)",
+        willChange: "transform",
       }}
     >
-      <div className="flex animate-ticker whitespace-nowrap py-1.5 sm:py-2 gap-8 w-max overflow-hidden">
+      <div className="flex animate-ticker whitespace-nowrap py-1.5 sm:py-2 gap-8 w-max">
         {doubled.map((pair, i) => (
           <Link
             key={`${pair.from}${pair.to}-${i}`}
