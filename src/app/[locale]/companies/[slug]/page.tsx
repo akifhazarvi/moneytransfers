@@ -262,7 +262,7 @@ function DetailedReview({
                   {section.heading}
                 </h2>
                 <div
-                  className="prose-content prose-custom text-[var(--color-on-surface-variant)] [&_table]:w-full [&_table]:text-2sm [&_table]:border-collapse [&_th]:bg-[var(--color-surface-container)] [&_th]:text-left [&_th]:px-3 [&_th]:py-2 [&_th]:text-[var(--color-on-surface)] [&_th]:font-semibold [&_td]:px-3 [&_td]:py-2 [&_td]:border-t [&_td]:border-[var(--color-outline)] [&_strong]:text-[var(--color-on-surface)] [&_ul]:space-y-1.5 [&_li]:text-sm [&_em]:text-[var(--color-on-surface)] [&_p]:mb-4"
+                  className="prose-content prose-custom"
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
               </Card>

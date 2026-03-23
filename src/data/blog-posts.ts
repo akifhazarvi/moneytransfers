@@ -45,7 +45,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why the 'Cheapest' Option Depends on Your Transfer",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> Based on our analysis of 35+ providers across 80+ corridors in March 2026, the cheapest way to send money internationally is through specialist online transfer services rather than traditional banks. <a href="/companies/wise">Wise</a> consistently offers the lowest total cost with its mid-market exchange rate (0% markup) and transparent fees starting from 0.41%. <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with express delivery in minutes. <a href="/companies/instarem">Instarem</a> combines zero transfer fees with a low average markup of 0.42%. All three are 80–95% cheaper than traditional banks, which typically charge $25–$50 per wire plus 2–5% hidden exchange rate markup. The cheapest provider varies by amount and corridor — <a href="/send-money">use our comparison tool</a> with your exact transfer details to find the best deal.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Based on our analysis of 35+ providers across 80+ corridors in March 2026, the cheapest way to send money internationally is through specialist online transfer services rather than traditional banks. <a href="/companies/wise">Wise</a> consistently offers the lowest total cost with its mid-market exchange rate (0% markup) and transparent fees starting from 0.41%. <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with express delivery in minutes. <a href="/companies/instarem">Instarem</a> combines zero transfer fees with a low average markup of 0.42%. All three are 80–95% cheaper than traditional banks, which typically charge $25–$50 per wire plus 2–5% hidden exchange rate markup. The cheapest provider varies by amount and corridor — <a href="/send-money">use our comparison tool</a> with your exact transfer details to find the best deal.</p></div>
 <p>There's no single cheapest way to send money internationally — it depends on how much you're sending, where you're sending it, and how fast you need it there. A provider that's cheapest for a $100 transfer to India might be expensive for a $10,000 transfer to Europe.</p>
 <p>We analyzed <strong>thousands of real quotes</strong> from 35+ providers across 80+ corridors to find the true cost of sending money abroad. Here's what matters most.</p>`,
       },
@@ -715,7 +715,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How We Ranked These Apps",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> The best money transfer app in 2026 is <a href="/companies/wise">Wise</a>, based on our analysis of fees, exchange rates, speed, and user experience across 8 leading apps. Wise offers the mid-market exchange rate with 0% markup, transparent fees from 0.41%, and delivery to 70+ countries — all from a clean, intuitive mobile app rated 4.6/5 on Trustpilot with over 284,000 reviews. <a href="/companies/remitly">Remitly</a> is the best app for speed, delivering money in minutes via express transfer to over 100 countries. <a href="/companies/instarem">Instarem</a> is the cheapest app overall with zero transfer fees and a low average markup of 0.42%. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We ranked every app using real quote data from 80+ corridors, not opinions.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best money transfer app in 2026 is <a href="/companies/wise">Wise</a>, based on our analysis of fees, exchange rates, speed, and user experience across 8 leading apps. Wise offers the mid-market exchange rate with 0% markup, transparent fees from 0.41%, and delivery to 70+ countries — all from a clean, intuitive mobile app rated 4.6/5 on Trustpilot with over 284,000 reviews. <a href="/companies/remitly">Remitly</a> is the best app for speed, delivering money in minutes via express transfer to over 100 countries. <a href="/companies/instarem">Instarem</a> is the cheapest app overall with zero transfer fees and a low average markup of 0.42%. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We ranked every app using real quote data from 80+ corridors, not opinions.</p></div>
 <p>Unlike other comparison sites that rely on subjective reviews, we ranked providers using <strong>hard data</strong>:</p>
 <ul>
 <li><strong>thousands of real quotes</strong> scraped across 80+ corridors and 5 transfer amounts ($100–$10,000)</li>
@@ -1361,7 +1361,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is a Wire Transfer?",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> A wire transfer is an electronic payment sent from one bank to another, typically through the SWIFT network for international transfers. International wire transfers cost $15–$50 in sending fees at major US and UK banks, plus a hidden exchange rate markup of 2–5% that most banks do not disclose upfront. Domestic wires cost $15–$30 and arrive same-day, while international wires take 1–5 business days and may incur additional correspondent bank fees of $10–$25 per intermediary. Cheaper alternatives now exist: <a href="/companies/wise">Wise</a> charges 0.41%+ with 0% exchange rate markup, and <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with delivery in minutes. These specialist services save 80–95% compared to traditional bank wire transfers. <a href="/send-money">Compare wire transfer alternatives</a> using our tool.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A wire transfer is an electronic payment sent from one bank to another, typically through the SWIFT network for international transfers. International wire transfers cost $15–$50 in sending fees at major US and UK banks, plus a hidden exchange rate markup of 2–5% that most banks do not disclose upfront. Domestic wires cost $15–$30 and arrive same-day, while international wires take 1–5 business days and may incur additional correspondent bank fees of $10–$25 per intermediary. Cheaper alternatives now exist: <a href="/companies/wise">Wise</a> charges 0.41%+ with 0% exchange rate markup, and <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with delivery in minutes. These specialist services save 80–95% compared to traditional bank wire transfers. <a href="/send-money">Compare wire transfer alternatives</a> using our tool.</p></div>
 <p>A <strong>wire transfer</strong> is an electronic transfer of funds between bank accounts, either within the same country (domestic wire) or across borders (international wire). Wire transfers use secure banking networks to move money directly from the sender\u2019s bank to the recipient\u2019s bank.</p>
 <p>There are two main types:</p>
 <ul>
@@ -1653,7 +1653,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How We Ranked These Providers",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> The best money transfer services in 2026 are <a href="/companies/wise">Wise</a> (best overall — mid-market rate with 0% markup and transparent fees), <a href="/companies/remitly">Remitly</a> (fastest — express delivery in minutes to 100+ countries), <a href="/companies/ofx">OFX</a> (best for large transfers — $0 fees on every transfer with dedicated dealers for amounts over $10,000), and <a href="/companies/revolut">Revolut</a> (best multi-currency account — hold and convert 30+ currencies in-app). We ranked 8 services based on real fee data from 35+ providers across 80+ corridors, weighted across exchange rate competitiveness, fee transparency, transfer speed, country coverage, and user satisfaction from over 1.3 million combined Trustpilot reviews. For most people sending $500–$5,000 abroad, Wise offers the best combination of low cost, speed, and reliability.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best money transfer services in 2026 are <a href="/companies/wise">Wise</a> (best overall — mid-market rate with 0% markup and transparent fees), <a href="/companies/remitly">Remitly</a> (fastest — express delivery in minutes to 100+ countries), <a href="/companies/ofx">OFX</a> (best for large transfers — $0 fees on every transfer with dedicated dealers for amounts over $10,000), and <a href="/companies/revolut">Revolut</a> (best multi-currency account — hold and convert 30+ currencies in-app). We ranked 8 services based on real fee data from 35+ providers across 80+ corridors, weighted across exchange rate competitiveness, fee transparency, transfer speed, country coverage, and user satisfaction from over 1.3 million combined Trustpilot reviews. For most people sending $500–$5,000 abroad, Wise offers the best combination of low cost, speed, and reliability.</p></div>
 <p>We evaluated dozens of money transfer providers across five key criteria: <strong>fees and pricing transparency</strong>, <strong>exchange rate competitiveness</strong>, <strong>transfer speed</strong>, <strong>country coverage</strong>, and <strong>user experience</strong>. Each provider receives a score out of 10, weighted toward the factors that matter most to everyday senders.</p>
 <p>Our rankings combine our own data from comparing 35+ providers across 80+ currency corridors with editorial research on features, regulation, and customer satisfaction. Customer satisfaction ratings sourced from <a href="https://www.trustpilot.com/" target="_blank" rel="noopener noreferrer nofollow">Trustpilot</a> and verified as of March 2026. Here are the top 8 services for 2026.</p>
 <p>For a data-driven look at costs, see our <a href="/guides/cost-of-sending-1000-abroad">report on the cost of sending $1,000 abroad</a>. To understand how exchange rate markups affect you, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explained</a> guide.</p>
@@ -3583,7 +3583,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "UK to India: A High-Volume Remittance Corridor",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> The cheapest way to send money from UK to India in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market GBP to INR exchange rate with 0% markup and a fee of approximately £5 on a £1,000 transfer. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering money in minutes via IMPS/UPI to any Indian bank account, 24/7. For large transfers over £5,000, <a href="/companies/ofx">OFX</a> offers no transfer fees and negotiated exchange rates with dedicated dealers. On a typical £1,000 transfer, specialist providers deliver ₹2,000–₹5,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Over a year of monthly transfers, that difference adds up to ₹24,000–₹60,000. <a href="/send-money/uk-to-india">Compare live GBP to INR rates</a> from 10+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from UK to India in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market GBP to INR exchange rate with 0% markup and a fee of approximately £5 on a £1,000 transfer. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering money in minutes via IMPS/UPI to any Indian bank account, 24/7. For large transfers over £5,000, <a href="/companies/ofx">OFX</a> offers no transfer fees and negotiated exchange rates with dedicated dealers. On a typical £1,000 transfer, specialist providers deliver ₹2,000–₹5,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Over a year of monthly transfers, that difference adds up to ₹24,000–₹60,000. <a href="/send-money/uk-to-india">Compare live GBP to INR rates</a> from 10+ providers.</p></div>
 <p>India received over <strong>$125 billion in total remittances</strong> in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, and the UK is one of the top source countries. Over 1.5 million people of Indian origin live in the UK, many sending money home regularly to support families, pay for property, or fund education.</p>
 <p>The GBP to INR corridor is well-served by specialist providers who undercut high-street banks by a wide margin. On a £1,000 transfer, the difference between the best specialist provider and a typical UK bank can be <strong>₹2,000–₹5,000</strong>. That adds up to tens of thousands of rupees over a year of regular transfers.</p>`,
       },
@@ -7461,7 +7461,7 @@ export const blogPosts: BlogPost[] = [
   <img src="/images/blog/lowest-fx-fees-business-2026.jpg"
        alt="Multiple international banknotes including US dollars and other currencies spread out representing business FX payments"
        width="800" height="450" loading="lazy" />
-  <figcaption style="font-size: 14px; color: #5f6368; margin-top: 8px; text-align: center;">
+  <figcaption class="blog-footnote" style="text-align:center">
     Cross-border B2B payment volumes are projected to exceed $35 trillion by 2028 — FX costs at even 1% represent $350 billion in annual drag on global trade.
   </figcaption>
 </figure>
@@ -7568,7 +7568,7 @@ export const blogPosts: BlogPost[] = [
   <img src="/images/blog/business-payment-mobile-app.jpg"
        alt="Person using a mobile payment app on a smartphone for international business transfers"
        width="800" height="450" loading="lazy" />
-  <figcaption style="font-size: 14px; color: #5f6368; margin-top: 8px; text-align: center;">
+  <figcaption class="blog-footnote" style="text-align:center">
     Airwallex's mobile app supports multi-currency payments from anywhere — critical for businesses operating across multiple markets.
   </figcaption>
 </figure>
@@ -8059,7 +8059,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why Large Transfers Need a Different Approach",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+        content: `<div class="blog-answer-box">
 <p><strong>Quick answer:</strong> For large international transfers (£5,000+), <a href="/companies/xe">XE</a> and <a href="/companies/ofx">OFX</a> are the best options. Both charge zero transfer fees, offer forward contracts to lock exchange rates for up to 12–24 months, and provide dedicated support for high-value transfers. XE handles up to £350,000 per transfer and delivers same-day for major corridors. Wise is cheapest on mid-range amounts (£1,000–£5,000) but lacks forward contracts. Traditional banks are the worst option — charging £25–£50 per wire plus 2–5% hidden markup.</p>
 </div>
 
@@ -8358,7 +8358,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Where Does the Dollar Stand Right Now?",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> As of March 2026, the US dollar remains strong but faces growing headwinds. The Fed's broad dollar index sits at <strong>120.55</strong>, the Fed funds rate is <strong>3.50–3.75%</strong> after four consecutive cuts, and inflation has re-accelerated to an estimated <strong>3.0%+</strong>. Most major bank forecasts — including <a href="https://think.ing.com/" target="_blank" rel="noopener noreferrer nofollow">ING</a> and <a href="https://www.morganstanley.com/ideas" target="_blank" rel="noopener noreferrer nofollow">Morgan Stanley</a> — project moderate dollar weakness through 2027, though safe-haven demand and persistent yield advantages could delay the decline. For people sending money abroad, a weaker dollar means fewer foreign currency units per dollar sent — making it critical to <a href="/send-money">compare providers</a> and lock in good rates while they last.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> As of March 2026, the US dollar remains strong but faces growing headwinds. The Fed's broad dollar index sits at <strong>120.55</strong>, the Fed funds rate is <strong>3.50–3.75%</strong> after four consecutive cuts, and inflation has re-accelerated to an estimated <strong>3.0%+</strong>. Most major bank forecasts — including <a href="https://think.ing.com/" target="_blank" rel="noopener noreferrer nofollow">ING</a> and <a href="https://www.morganstanley.com/ideas" target="_blank" rel="noopener noreferrer nofollow">Morgan Stanley</a> — project moderate dollar weakness through 2027, though safe-haven demand and persistent yield advantages could delay the decline. For people sending money abroad, a weaker dollar means fewer foreign currency units per dollar sent — making it critical to <a href="/send-money">compare providers</a> and lock in good rates while they last.</p></div>
 
 <p>The US dollar is the world's most watched currency, and for good reason. It's the reserve currency held by central banks on every continent, the settlement currency for global oil markets, and the yardstick against which all other currencies are measured. When the dollar moves, it ripples through every international money transfer, every import bill, and every remittance home.</p>
 
@@ -8404,7 +8404,7 @@ export const blogPosts: BlogPost[] = [
 <h3>5. Inflation Re-Acceleration Could Pause Rate Cuts</h3>
 <p>ING's inflation forecast projects CPI spiking to <strong>3.8% year-over-year in Q2 2026</strong> before moderating. If this materializes, the Fed may be forced to pause or slow further rate cuts — keeping the dollar supported relative to currencies where central banks are cutting faster.</p>
 
-<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Bull case summary:</strong> Higher yields, stronger growth, safe-haven demand, and potential inflation re-acceleration all favor the dollar. If the global economy stumbles and risk aversion spikes, the dollar could rally sharply — even against these headwinds.</p></div>`,
+<div class="blog-answer-box"><p><strong>Bull case summary:</strong> Higher yields, stronger growth, safe-haven demand, and potential inflation re-acceleration all favor the dollar. If the global economy stumbles and risk aversion spikes, the dollar could rally sharply — even against these headwinds.</p></div>`,
       },
       {
         heading: "The Bear Case: Why the Dollar Could Weaken Significantly",
@@ -8437,7 +8437,7 @@ export const blogPosts: BlogPost[] = [
 <h3>7. Tariff Blowback Effects</h3>
 <p>While tariffs initially support the dollar, the second-order effects can be bearish. Retaliation reduces US exports (widening the trade deficit), supply chain disruptions raise costs (hurting growth), and trade policy uncertainty dampens business investment. The Supreme Court tariff reversal flagged by Morgan Stanley showed just how unpredictable policy can be.</p>
 
-<div class="blog-answer-box" style="background:#fff3e0;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #e65100"><p><strong>Bear case summary:</strong> Rate cuts, narrowing growth differentials, fiscal deterioration, persistent trade deficits, and slow de-dollarization all point to a gradually weaker dollar. ING projects a 4–9% decline against major currencies by late 2027.</p></div>`,
+<div class="blog-answer-box-warning"><p><strong>Bear case summary:</strong> Rate cuts, narrowing growth differentials, fiscal deterioration, persistent trade deficits, and slow de-dollarization all point to a gradually weaker dollar. ING projects a 4–9% decline against major currencies by late 2027.</p></div>`,
       },
       {
         heading: "What Top Economists and Banks Are Saying",
@@ -8479,7 +8479,7 @@ export const blogPosts: BlogPost[] = [
 <h3>2017–2020: Trump 1.0</h3>
 <p>Despite tax cuts and initially strong growth, the dollar weakened as fiscal deficits widened and the Fed eventually cut rates. The trade-weighted dollar declined roughly <strong>10%</strong> from its 2017 peak before COVID safe-haven flows reversed it.</p>
 
-<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>The pattern:</strong> In every case where the US ran large twin deficits during a Fed easing cycle, the dollar eventually weakened significantly. The typical lag is <strong>6–18 months</strong> after the first rate cut before sustained weakness takes hold. We're now roughly 15 months into this cycle.</p></div>
+<div class="blog-answer-box"><p><strong>The pattern:</strong> In every case where the US ran large twin deficits during a Fed easing cycle, the dollar eventually weakened significantly. The typical lag is <strong>6–18 months</strong> after the first rate cut before sustained weakness takes hold. We're now roughly 15 months into this cycle.</p></div>
 
 <div class="blog-table-box">
 <h3 style="margin-top:0">Historical Dollar Cycles vs. Today</h3>
@@ -8539,7 +8539,7 @@ export const blogPosts: BlogPost[] = [
 <h3>Global Remittances: The $656 Billion Flow</h3>
 <p>According to <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">World Bank KNOMAD data</a>, global remittances totaled approximately <strong>$656 billion in 2023</strong> — equivalent to Belgium's entire GDP. Remittances account for <strong>3% or more of GDP in over 60 countries</strong>. When the dollar moves, it moves the economic needle for millions of families worldwide.</p>
 
-<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Practical tip:</strong> If forecasters are right about gradual dollar weakness, US-based senders may want to send larger amounts sooner rather than later — or use forward contracts and rate alerts to lock in today's rates. Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/ofx">OFX</a> offer rate alerts, while <a href="/companies/ofx">OFX</a> and <a href="/companies/xe">Xe</a> offer forward contracts for large transfers.</p></div>
+<div class="blog-answer-box"><p><strong>Practical tip:</strong> If forecasters are right about gradual dollar weakness, US-based senders may want to send larger amounts sooner rather than later — or use forward contracts and rate alerts to lock in today's rates. Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/ofx">OFX</a> offer rate alerts, while <a href="/companies/ofx">OFX</a> and <a href="/companies/xe">Xe</a> offer forward contracts for large transfers.</p></div>
 
 <h3>How to Protect Yourself Regardless of Direction</h3>
 <ol>
@@ -8572,7 +8572,7 @@ export const blogPosts: BlogPost[] = [
 
 <p><strong>The bottom line for people sending money abroad:</strong> Don't try to time the currency market — even professional traders get it wrong. Instead, focus on what you <em>can</em> control: choosing the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest provider</a>, avoiding <a href="/guides/exchange-rate-markup-explained">hidden exchange rate markups</a>, and <a href="/send-money">comparing live rates</a> before every transfer. That saves you money regardless of where the dollar goes.</p>
 
-<p style="text-align:center;margin-top:24px"><a href="/send-money" style="display:inline-block;background:#1a73e8;color:#fff;font-weight:600;padding:12px 32px;border-radius:9999px;text-decoration:none">Compare 35+ Providers — Live Rates →</a></p>`,
+<p style="text-align:center;margin-top:24px"><a href="/send-money" class="blog-cta-button">Compare 35+ Providers — Live Rates →</a></p>`,
       },
     ],
     faqs: [
@@ -8645,7 +8645,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading:
           "Why Do Banks Charge So Much for International Transfers?",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> Banks make international transfers look cheap by advertising low or zero flat fees — then hide the real cost inside inflated exchange rates, correspondent bank deductions, and receiving-side charges. On a typical $1,000 transfer, these hidden fees can total $30–$80, compared to $5–$15 with specialist providers like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. Below we break down every hidden cost, explain how each one works, and show you how to avoid them.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Banks make international transfers look cheap by advertising low or zero flat fees — then hide the real cost inside inflated exchange rates, correspondent bank deductions, and receiving-side charges. On a typical $1,000 transfer, these hidden fees can total $30–$80, compared to $5–$15 with specialist providers like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. Below we break down every hidden cost, explain how each one works, and show you how to avoid them.</p></div>
 <p>If you've ever sent money abroad through your bank, you probably noticed that the amount your recipient received was less than expected. That's not a rounding error — it's the result of multiple fees stacked on top of each other, most of which never appear on the transfer confirmation screen.</p>
 <p>According to the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database, sending money through a bank costs an average of <strong>12.1%</strong> of the transfer amount — more than double the cost of using a specialist digital provider. Here are the seven fees responsible for that gap.</p>`,
       },
@@ -8790,7 +8790,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Can You Use Stablecoins to Send Money Abroad?",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> Yes — and a growing number of people are doing it. Stablecoin payment volume reached <strong>$11.1 trillion in 2025</strong>, up 85% year-over-year. For international transfers, stablecoins like USDT (Tether) and USDC (Circle) can move value across borders in minutes for under $1 in network fees. However, the real cost includes on-ramp and off-ramp fees (converting local currency to/from stablecoins), which can total 1–3%. For most people, specialist providers like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> remain cheaper and simpler. Stablecoins make sense for specific use cases — tech-savvy senders, unbanked recipients, or corridors with limited provider coverage.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Yes — and a growing number of people are doing it. Stablecoin payment volume reached <strong>$11.1 trillion in 2025</strong>, up 85% year-over-year. For international transfers, stablecoins like USDT (Tether) and USDC (Circle) can move value across borders in minutes for under $1 in network fees. However, the real cost includes on-ramp and off-ramp fees (converting local currency to/from stablecoins), which can total 1–3%. For most people, specialist providers like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> remain cheaper and simpler. Stablecoins make sense for specific use cases — tech-savvy senders, unbanked recipients, or corridors with limited provider coverage.</p></div>
 <p>The promise of stablecoins for remittances is straightforward: skip the banks, skip SWIFT, skip the middlemen. Convert your dollars to USDT, send it on the blockchain, and have your recipient convert it back to local currency. In theory, it's instant and nearly free.</p>
 <p>In practice, it's more nuanced. Let's break down how it actually works, what it costs, and where it makes sense in 2026.</p>`,
       },
@@ -8943,7 +8943,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading:
           "Three Ways to Send Money Abroad — One Is 5x More Expensive",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> Based on our analysis of real quotes from 35+ providers, <strong>money transfer apps</strong> are the cheapest way to send money abroad in 2026, costing an average of $5–$15 per $1,000. Cash agents cost $40–$80, and banks cost $50–$120. The winner depends on your priorities — apps win on cost and speed, agents win for cash pickup in rural areas, and banks win for... very little. Here's the full breakdown.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Based on our analysis of real quotes from 35+ providers, <strong>money transfer apps</strong> are the cheapest way to send money abroad in 2026, costing an average of $5–$15 per $1,000. Cash agents cost $40–$80, and banks cost $50–$120. The winner depends on your priorities — apps win on cost and speed, agents win for cash pickup in rural areas, and banks win for... very little. Here's the full breakdown.</p></div>
 <p>Every time someone needs to send money abroad, they face the same three options: walk into a bank, visit a cash agent, or open an app on their phone. The price difference between these three methods is staggering.</p>
 <p>We used real data from our <a href="/send-money">comparison engine</a> — which collects quotes from 35+ providers every 6 hours — to compare the true cost of each method. Here's what we found.</p>`,
       },
@@ -9089,7 +9089,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading:
           "Ramadan 2026 Money Transfer Deals: Save on Every Transfer Home",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8"><p><strong>Quick answer:</strong> Ramadan 2026 runs from approximately February 28 to March 30, with Eid al-Fitr around March 30\u201331. During this period, remittance volumes spike 25\u201330% as families send money home for celebrations. Providers respond with their best deals of the year. Below we've collected every active Ramadan promotion from 14+ providers \u2014 including fee waivers, bonus exchange rates, and first-timer promo codes. We update this page daily through Eid.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Ramadan 2026 runs from approximately February 28 to March 30, with Eid al-Fitr around March 30\u201331. During this period, remittance volumes spike 25\u201330% as families send money home for celebrations. Providers respond with their best deals of the year. Below we've collected every active Ramadan promotion from 14+ providers \u2014 including fee waivers, bonus exchange rates, and first-timer promo codes. We update this page daily through Eid.</p></div>
 <p>If there's one time of year to shop around for money transfer deals, it's Ramadan. Providers compete aggressively for seasonal volume, offering promotions that can save you $10\u2013$50 per transfer. Here's every deal we've found for 2026.</p>`,
       },
       {
@@ -9211,7 +9211,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Pakistan Rupee Exchange Rate — Where Are We Now?",
         content: `<p>The Pakistani rupee has had an eventful 18 months. After the dramatic depreciation of 2022-2023 — when USD/PKR surged from around 175 to nearly 310 — the currency has gradually stabilised under the weight of IMF-mandated reforms, tighter monetary policy, and a crackdown on the informal hawala market. As of March 2026, the key cross-rates stand at approximately:</p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <p><strong>Current exchange rates (March 2026):</strong></p>
   <ul>
   <li><strong>GBP to PKR:</strong> ~368 Pakistani rupees per pound</li>
@@ -9363,7 +9363,7 @@ export const blogPosts: BlogPost[] = [
   
   <p>As noted above, SBP reserves of ~$12.5 billion provide roughly two months of import cover. The IMF program targets a reserves buildup to ~$15 billion by mid-2027. Every upside surprise (e.g., a successful Eurobond, a bilateral deposit from Saudi Arabia or China) strengthens the SBP's ability to smooth volatility. Every miss (e.g., delayed IMF disbursement, higher-than-expected oil imports) erodes the buffer.</p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <p><strong>Bottom line:</strong> The rupee's fate in 2026 is not a mystery — it hinges on the IMF program, oil prices, and remittance flows. If all three cooperate, PKR could modestly appreciate. If two or more turn negative, depreciation of 8-12% is plausible. For remittance senders, this means the range of outcomes for GBP/PKR by December 2026 spans roughly 350 to 398 — a £1,000 transfer could yield anywhere from PKR 350,000 to PKR 398,000.</p>
   </div>`,
       },
@@ -9433,7 +9433,7 @@ export const blogPosts: BlogPost[] = [
   
   <p><strong>Western Union</strong> charges more but remains indispensable for cash pickup — particularly in rural areas where bank penetration is lower. If your recipient does not have a bank account, WU's network of 45,000+ agent locations in Pakistan is unmatched.</p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <p><strong>Our recommendation:</strong> For most regular senders from the UK, <a href="/companies/ace-money-transfer">ACE Money Transfer</a> or <a href="/companies/wise">Wise</a> will deliver the most rupees per pound. Always <a href="/send-money/uk-to-pakistan">compare all providers for GBP to PKR</a> before each transfer — rates change daily, and the leader board shifts frequently.</p>
   </div>`,
       },
@@ -9551,7 +9551,7 @@ export const blogPosts: BlogPost[] = [
         heading: "What Are Bulk International Payments?",
         content: `<p>Bulk international payments — also called batch payments or mass payouts — refer to the process of sending multiple cross-border payments in a single transaction batch. Instead of initiating each wire transfer individually, businesses upload a file containing all recipient details and payment amounts, and the platform processes them together.</p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <strong>Key definition:</strong> A bulk international payment is a single batch instruction that triggers multiple cross-border transfers to different recipients, currencies, and countries simultaneously. It replaces the manual process of sending individual wire transfers one at a time.
   </div>
   
@@ -9604,7 +9604,7 @@ export const blogPosts: BlogPost[] = [
   
   <p><em>Assumptions: Bank wire at $35 fee + 3.5% FX markup; specialist at $2 fee + 0.5% FX markup. Based on SendMoneyCompare data from Q1 2026.</em></p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <strong>Bottom line:</strong> A business making 50 international payments per month at $5,000 each saves approximately $57,000 per year by switching from bank wires to a specialist bulk payment platform. The savings come primarily from tighter FX margins, not fee reductions.
   </div>`,
       },
@@ -9722,7 +9722,7 @@ export const blogPosts: BlogPost[] = [
   <p>Consider a UK e-commerce business paying 40 Chinese suppliers monthly. Using CSV batch uploads through <a href="/companies/wise">Wise Business</a>, the finance manager spends approximately 2 hours per month preparing the payment file, uploading it, and reconciling the results. At 40 payments, this is efficient and manageable.</p>
   <p>Now consider a US-based freelancer marketplace paying 2,000 contractors across 30 countries every two weeks. At that scale, CSV uploads would require a dedicated team member. An API integration with Airwallex or Payoneer automates the entire flow: when a project is marked complete, the payment is triggered automatically, the contractor receives funds in 1–2 days, and the accounting system is updated via webhook — zero manual intervention.</p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <strong>Rule of thumb:</strong> If you are making fewer than 100 international payments per month and have no developer on staff, start with CSV batch uploads. You can always migrate to API later as you scale.
   </div>`,
       },
@@ -9759,7 +9759,7 @@ export const blogPosts: BlogPost[] = [
   <h3>Record-Keeping Requirements</h3>
   <p>Most jurisdictions require businesses to retain records of international payments for a minimum of 5 years. This includes recipient details, payment amounts, exchange rates applied, and the purpose of each payment. Specialist platforms automatically generate audit trails, which is a significant advantage over manual bank wire processes where documentation is often scattered across emails and PDF confirmations.</p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <strong>Compliance checklist:</strong> Before sending your first batch, confirm that your provider (1) is regulated in your jurisdiction, (2) performs AML/sanctions screening on every payment, (3) supports the FATF travel rule, and (4) provides exportable audit trails for record-keeping.
   </div>`,
       },
@@ -9788,7 +9788,7 @@ export const blogPosts: BlogPost[] = [
   <h3>7. Audit Your Payment Corridors Regularly</h3>
   <p>Provider pricing varies significantly by corridor. A platform that offers the best rate for GBP-to-INR may not be competitive for USD-to-PHP. Review your payment corridors quarterly using SendMoneyCompare and consider splitting your payments across providers if one consistently underperforms on specific routes.</p>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <strong>Quick wins summary:</strong> Consolidate payment dates (save 15–20%), use multi-currency accounts (eliminate unnecessary conversions), and negotiate volume pricing (available at 50+ payments/month). Combined, these strategies can reduce your total international payment costs by 30–50% compared to unoptimised bank wire processes.
   </div>`,
       },
@@ -9826,7 +9826,7 @@ export const blogPosts: BlogPost[] = [
   </tbody>
   </table></div>
   
-  <div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;">
+  <div class="blog-answer-box">
   <strong>Decision rule:</strong> If you are paying <em>employees</em> (not contractors) in countries where you have no legal entity, use an EOR. If you are paying correctly classified <em>contractors</em>, a bulk payment platform like <a href="/companies/wise">Wise Business</a> is significantly cheaper. Misclassifying employees as contractors carries severe legal and financial penalties in most jurisdictions.
   </div>
   

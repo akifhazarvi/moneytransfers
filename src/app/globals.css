@@ -175,6 +175,7 @@ body {
 }
 
 /* ─── Article / Prose Styles ─── */
+/* ─── Premium article reading experience ─── */
 /* Optimized for reading: 17px body, 1.75 line-height, 68ch max-width */
 .prose-content {
   font-size: 1.0625rem;          /* 17px — sweet spot for readability */
@@ -229,7 +230,10 @@ body {
 }
 .prose-content ul { list-style: disc; }
 .prose-content ol { list-style: decimal; }
-.prose-content li { margin-bottom: 0.45rem; }
+.prose-content li {
+  margin-bottom: 0.45rem;
+  line-height: 1.65;
+}
 
 .prose-content blockquote {
   border-left: 3px solid var(--color-accent);
@@ -239,23 +243,40 @@ body {
   color: var(--color-on-surface-variant);
 }
 
+/* ─── Tables — premium rounded style with alternating rows ─── */
 .prose-content table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 1.25rem 0;
-  font-size: 0.9375rem;
-}
-.prose-content th,
-.prose-content td {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
   border: 1px solid var(--color-outline);
-  padding: 0.625rem 0.875rem;
-  text-align: left;
+  border-radius: 12px;
+  overflow: hidden;
 }
 .prose-content th {
-  background: var(--color-surface-dim);
+  background: var(--color-surface-container);
   font-weight: 600;
   font-size: 0.8125rem;
   color: var(--color-on-surface);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-outline);
+}
+.prose-content td {
+  padding: 0.625rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-outline);
+  color: var(--color-on-surface-variant);
+}
+.prose-content tr:last-child td {
+  border-bottom: none;
+}
+.prose-content tbody tr:nth-child(even) {
+  background: var(--color-surface-dim);
+}
+.prose-content tbody tr:hover {
+  background: var(--color-primary-surface);
 }
 
 /* ─── Legacy prose class (for backward compat) ─── */
@@ -279,23 +300,76 @@ body {
 }
 .prose-custom table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 1em 0;
   font-size: 0.875rem;
-}
-.prose-custom th,
-.prose-custom td {
   border: 1px solid var(--color-outline);
-  padding: 0.5em 0.75em;
-  text-align: left;
+  border-radius: 12px;
+  overflow: hidden;
 }
 .prose-custom th {
-  background: var(--color-surface-dim);
+  background: var(--color-surface-container);
   font-weight: 600;
+  color: var(--color-on-surface);
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-outline);
+}
+.prose-custom td {
+  padding: 0.5em 0.875rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-outline);
+  color: var(--color-on-surface-variant);
+}
+.prose-custom tr:last-child td {
+  border-bottom: none;
+}
+.prose-custom tbody tr:nth-child(even) {
+  background: var(--color-surface-dim);
+}
+.prose-custom tbody tr:hover {
+  background: var(--color-primary-surface);
+}
+
+/* ─── Blog answer/callout boxes (dark mode safe) ─── */
+.blog-answer-box {
+  background: var(--color-primary-surface);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  color: var(--color-on-surface);
+}
+.blog-answer-box p { margin-bottom: 0.5em; }
+.blog-answer-box p:last-child { margin-bottom: 0; }
+.blog-answer-box strong { color: var(--color-on-surface); }
+
+/* Orange/warning variant for answer boxes */
+.blog-answer-box-warning {
+  background: var(--color-warning-surface);
+  border-left: 4px solid var(--color-warning);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin-bottom: 20px;
   color: var(--color-on-surface);
 }
 
-/* ─── Blog callout boxes ─── */
+/* CTA button inside blog content */
+.blog-cta-button {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.blog-cta-button:hover {
+  background: var(--color-primary-dark);
+}
+
 .blog-table-box {
   background: var(--color-surface-container);
   border-radius: 16px;
