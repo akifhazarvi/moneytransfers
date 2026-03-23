@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Inter, Instrument_Serif, Share_Tech_Mono } from "next/font/google";
+import { Source_Serif_4, Inter, Instrument_Serif, Share_Tech_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-serif",
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,7 +78,7 @@ export default async function RootLayout({
   const nonce = (await headers()).get("x-nonce") || "";
 
   return (
-    <html lang={locale} className={`${inter.variable} ${instrumentSerif.variable} ${shareTechMono.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${inter.variable} ${instrumentSerif.variable} ${shareTechMono.variable} ${sourceSerif.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

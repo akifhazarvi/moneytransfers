@@ -72,6 +72,7 @@
 
   /* ─── Typography ─── */
   --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --font-reading: var(--font-source-serif), Georgia, "Times New Roman", serif;
   --reading-width: 68ch;
 }
 
@@ -176,43 +177,51 @@ body {
 
 /* ─── Article / Prose Styles ─── */
 /* ─── Premium article reading experience ─── */
-/* Optimized for reading: 17px body, 1.75 line-height, 68ch max-width */
+/* Source Serif 4 body, Instrument Serif display headings, 17.5px, 1.8 line-height */
 .prose-content {
-  font-size: 1.0625rem;          /* 17px — sweet spot for readability */
-  line-height: 1.78;
+  font-family: var(--font-reading);
+  font-size: 1.09375rem;         /* 17.5px — optimal for serif reading */
+  line-height: 1.8;
   color: var(--color-on-surface);
   max-width: var(--reading-width);
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .prose-content p {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.005em;
 }
 
 .prose-content h2 {
   font-family: var(--font-display);
-  font-size: 1.625rem;           /* 26px */
-  line-height: 1.25;
+  font-size: 1.75rem;            /* 28px */
+  line-height: 1.2;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   color: var(--color-on-surface);
-  margin-top: 2.75rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
 }
 
 .prose-content h3 {
-  font-size: 1.125rem;           /* 18px */
-  font-weight: 600;
+  font-family: var(--font-reading);
+  font-size: 1.1875rem;          /* 19px */
+  font-weight: 700;
   color: var(--color-on-surface);
-  margin-top: 2rem;
-  margin-bottom: 0.625rem;
-  line-height: 1.4;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
 }
 
 .prose-content a {
   color: var(--color-primary);
   text-decoration: underline;
-  text-decoration-color: transparent;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
   text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
   transition: text-decoration-color 0.15s ease;
 }
 .prose-content a:hover {
@@ -220,36 +229,42 @@ body {
 }
 
 .prose-content strong {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-on-surface);
 }
 
 .prose-content ul, .prose-content ol {
-  margin: 0.875rem 0 1.25rem;
+  margin: 1rem 0 1.5rem;
   padding-left: 1.5rem;
 }
 .prose-content ul { list-style: disc; }
 .prose-content ol { list-style: decimal; }
 .prose-content li {
-  margin-bottom: 0.45rem;
-  line-height: 1.65;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+  padding-left: 0.25rem;
+}
+.prose-content li::marker {
+  color: var(--color-primary);
 }
 
 .prose-content blockquote {
   border-left: 3px solid var(--color-accent);
-  padding-left: 1.25rem;
-  margin: 1.75rem 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  margin: 2rem 0;
   font-style: italic;
   color: var(--color-on-surface-variant);
 }
 
-/* ─── Tables — premium rounded style with alternating rows ─── */
+/* ─── Tables — premium rounded style, sans-serif for data clarity ─── */
 .prose-content table {
+  font-family: var(--font-inter), system-ui, sans-serif;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 1.5rem 0;
-  font-size: 0.875rem;
+  margin: 1.75rem 0;
+  font-size: 0.8125rem;           /* 13px — compact data */
+  line-height: 1.5;
   border: 1px solid var(--color-outline);
   border-radius: 12px;
   overflow: hidden;
@@ -257,9 +272,11 @@ body {
 .prose-content th {
   background: var(--color-surface-container);
   font-weight: 600;
-  font-size: 0.8125rem;
-  color: var(--color-on-surface);
-  padding: 0.75rem 1rem;
+  font-size: 0.75rem;             /* 12px — smaller header */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-muted);
+  padding: 0.625rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
 }
@@ -268,6 +285,10 @@ body {
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
   color: var(--color-on-surface-variant);
+}
+.prose-content td strong {
+  font-weight: 600;
+  color: var(--color-on-surface);
 }
 .prose-content tr:last-child td {
   border-bottom: none;
@@ -299,11 +320,13 @@ body {
   margin: 1.5em 0 0.5em;
 }
 .prose-custom table {
+  font-family: var(--font-inter), system-ui, sans-serif;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 1em 0;
-  font-size: 0.875rem;
+  margin: 1.5em 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
   border: 1px solid var(--color-outline);
   border-radius: 12px;
   overflow: hidden;
@@ -311,13 +334,16 @@ body {
 .prose-custom th {
   background: var(--color-surface-container);
   font-weight: 600;
-  color: var(--color-on-surface);
-  padding: 0.625rem 0.875rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-muted);
+  padding: 0.625rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
 }
 .prose-custom td {
-  padding: 0.5em 0.875rem;
+  padding: 0.5rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
   color: var(--color-on-surface-variant);
@@ -332,26 +358,32 @@ body {
   background: var(--color-primary-surface);
 }
 
-/* ─── Blog answer/callout boxes (dark mode safe) ─── */
+/* ─── Blog answer/callout boxes (dark mode safe, premium feel) ─── */
 .blog-answer-box {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.65;
   background: var(--color-primary-surface);
   border-left: 4px solid var(--color-primary);
   border-radius: 0 12px 12px 0;
-  padding: 16px 20px;
-  margin-bottom: 20px;
+  padding: 20px 24px;
+  margin: 24px 0;
   color: var(--color-on-surface);
 }
 .blog-answer-box p { margin-bottom: 0.5em; }
 .blog-answer-box p:last-child { margin-bottom: 0; }
-.blog-answer-box strong { color: var(--color-on-surface); }
+.blog-answer-box strong { color: var(--color-on-surface); font-weight: 600; }
 
-/* Orange/warning variant for answer boxes */
+/* Orange/warning variant */
 .blog-answer-box-warning {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.65;
   background: var(--color-warning-surface);
   border-left: 4px solid var(--color-warning);
   border-radius: 0 12px 12px 0;
-  padding: 16px 20px;
-  margin-bottom: 20px;
+  padding: 20px 24px;
+  margin: 24px 0;
   color: var(--color-on-surface);
 }
 
