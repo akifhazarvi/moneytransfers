@@ -133,97 +133,84 @@ function DetailedReview({
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 md:py-10">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Companies", href: "/companies" }, { label: provider.name }]} />
 
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Left: Provider identity */}
-            <div className="flex-1 min-w-0">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden shrink-0 border border-[var(--color-outline)] shadow-[var(--shadow-xs)] bg-white flex items-center justify-center">
-                  <Image src={provider.logo} alt={provider.name} width={80} height={80} className="object-contain p-1" />
-                </div>
-                <div>
-                  <div className="text-overline text-[var(--color-on-surface-muted)] mb-1">Review</div>
-                  <h1 className="font-display text-[clamp(1.5rem,3.5vw,2rem)] font-normal leading-[1.2] tracking-[-0.015em] text-[var(--color-on-surface)]">
-                    {review.title}
-                  </h1>
-                  <div className="flex flex-wrap items-center gap-2 mt-2">
-                    <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />
-                    <span className="text-xs text-[var(--color-on-surface-muted)]">·</span>
-                    <span className="text-xs text-[var(--color-on-surface-variant)]">Updated {review.updatedAt}</span>
-                    <span className="text-xs text-[var(--color-on-surface-muted)]">·</span>
-                    <span className="text-xs text-[var(--color-on-surface-variant)]">{review.readTime}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-[var(--color-on-surface-muted)]">
-                    <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
-                    <span>Fact-checked by <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline font-medium">{review.factChecker}</Link></span>
-                    <span>Verified {review.lastVerified}</span>
-                  </div>
-                </div>
-              </div>
+          {/* Provider identity — full width, title is the hero */}
+          <div className="flex items-start gap-4 mb-6">
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl overflow-hidden shrink-0 border border-[var(--color-outline)] shadow-[var(--shadow-xs)] bg-white flex items-center justify-center">
+              <Image src={provider.logo} alt={provider.name} width={64} height={64} className="object-contain p-1" />
             </div>
+            <div className="min-w-0">
+              <div className="text-overline text-[var(--color-primary)] mb-1.5">Review</div>
+              <h1 className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--color-on-surface)]" style={{ fontFamily: "var(--font-reading)" }}>
+                {review.title}
+              </h1>
+            </div>
+          </div>
 
-            {/* Right: Verdict card */}
-            <div className="md:w-[260px] shrink-0">
-              <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-md)] overflow-hidden">
-                <div className="px-5 pt-5 pb-4 border-b border-[var(--color-outline)]">
-                  <div className="text-overline text-[var(--color-on-surface-muted)] mb-2">Editor Score</div>
-                  <div className="flex items-end gap-2">
-                    <span
-                      className="text-[3.25rem] font-bold leading-none tabular-nums"
-                      style={{ color: score.color }}
-                    >
-                      {review.editorRating}
-                    </span>
-                    <div className="mb-1">
-                      <span className="text-[var(--color-on-surface-muted)] text-sm">/10</span>
-                      <div
-                        className="text-2sm font-bold"
-                        style={{ color: score.color }}
-                      >
-                        {score.label}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="px-5 py-3 text-2sm text-[var(--color-on-surface-variant)] italic leading-relaxed" style={{ background: `${score.bg}` }}>
-                  &ldquo;{review.editorVerdict}&rdquo;
-                </div>
-                <div className="p-4 space-y-2">
-                  <PrimaryButton href={getGoUrl(provider.slug)} external size="sm" className="w-full">
-                    Visit {provider.name} ↗
-                  </PrimaryButton>
-                  <Link
-                    href="/send-money"
-                    className="flex items-center justify-center w-full h-9 border border-[var(--color-outline)] rounded-full text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors"
-                  >
-                    Compare Rates
-                  </Link>
-                </div>
-              </div>
-            </div>
+          {/* Meta row — rating, date, credits */}
+          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[var(--color-outline)]">
+            <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />
+            <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
+            <span className="text-2sm text-[var(--color-on-surface-variant)]">Updated {review.updatedAt}</span>
+            <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
+            <span className="text-2sm text-[var(--color-on-surface-variant)]">{review.readTime}</span>
+          </div>
+          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-2sm text-[var(--color-on-surface-muted)]">
+            <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
+            <span>Fact-checked by <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline font-medium">{review.factChecker}</Link></span>
+            <span>Verified {review.lastVerified}</span>
           </div>
         </div>
       </div>
 
       <Container className="py-8">
-        {/* ── Quick Stats Bar ── */}
-        <div className="flex overflow-x-auto gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden scrollbar-hide mb-8">
-          {[
-            { label: "Countries", value: `${provider.supportedCountries}+` },
-            { label: "Currencies", value: `${provider.supportedCurrencies}+` },
-            { label: "Speed", value: provider.transferSpeed },
-            { label: "Fees", value: provider.feeStructure },
-            { label: "Founded", value: String(provider.founded) },
-            { label: "Min Transfer", value: `$${provider.minTransfer}` },
-            { label: "Editor Rating", value: `${review.editorRating}/10` },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="flex-none flex flex-col items-center px-5 py-3.5 bg-[var(--color-surface)] min-w-[100px] hover:bg-[var(--color-surface-dim)] transition-colors"
-            >
-              <span className="text-overline text-[var(--color-on-surface-muted)] mb-1">{stat.label}</span>
-              <span className="text-md font-semibold text-[var(--color-on-surface)] whitespace-nowrap">{stat.value}</span>
+        {/* ── Verdict banner + Quick Stats ── */}
+        <div className="mb-8 space-y-4">
+          {/* Verdict — moved from hero, now full-width and readable */}
+          <div className="rounded-2xl border border-[var(--color-outline)] overflow-hidden">
+            <div className="flex items-center gap-4 px-5 py-4" style={{ background: score.bg }}>
+              <div className="shrink-0 text-center">
+                <span className="text-[2.5rem] font-bold leading-none tabular-nums" style={{ color: score.color }}>
+                  {review.editorRating}
+                </span>
+                <span className="text-[var(--color-on-surface-muted)] text-xs">/10</span>
+                <div className="text-xs font-bold mt-0.5" style={{ color: score.color }}>{score.label}</div>
+              </div>
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-4">
+                &ldquo;{review.editorVerdict}&rdquo;
+              </p>
             </div>
-          ))}
+            <div className="flex gap-2 px-5 py-3 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+              <PrimaryButton href={getGoUrl(provider.slug)} external size="sm" className="flex-1">
+                Visit {provider.name} ↗
+              </PrimaryButton>
+              <Link
+                href="/send-money"
+                className="flex items-center justify-center flex-1 h-9 border border-[var(--color-outline)] rounded-full text-2sm font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors"
+              >
+                Compare Rates
+              </Link>
+            </div>
+          </div>
+
+          {/* Stats grid — wraps instead of scrolling */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden">
+            {[
+              { label: "Countries", value: `${provider.supportedCountries}+` },
+              { label: "Currencies", value: `${provider.supportedCurrencies}+` },
+              { label: "Speed", value: provider.transferSpeed },
+              { label: "Fees", value: provider.feeStructure },
+              { label: "Founded", value: String(provider.founded) },
+              { label: "Markup", value: provider.exchangeRateMarkup },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="flex flex-col items-center justify-center px-3 py-3 bg-[var(--color-surface)] text-center"
+              >
+                <span className="text-overline text-[var(--color-on-surface-muted)] mb-1">{stat.label}</span>
+                <span className="text-2sm font-semibold text-[var(--color-on-surface)] leading-snug">{stat.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -232,18 +219,26 @@ function DetailedReview({
 
             {/* Table of Contents */}
             <Card>
-              <p className="text-overline text-[var(--color-on-surface-muted)] mb-3">In this review</p>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-1">
-                {review.sections.map((s) => (
-                  <a key={s.id} href={`#${s.id}`} className="text-2sm text-[var(--color-primary)] hover:underline py-1 block leading-snug">
+              <p className="text-overline text-[var(--color-on-surface-muted)] mb-4">In this review</p>
+              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-0.5">
+                {review.sections.map((s, i) => (
+                  <a key={s.id} href={`#${s.id}`} className="flex items-center gap-2.5 text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] py-1.5 transition-colors leading-snug">
+                    <span className="w-5 h-5 rounded-md bg-[var(--color-surface-container)] text-[10px] font-bold text-[var(--color-on-surface-muted)] flex items-center justify-center shrink-0">{i + 1}</span>
                     {s.heading}
                   </a>
                 ))}
-                <a href="#pros-cons" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">Pros and Cons</a>
-                <a href="#who-should-use" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">Who Should Use {provider.name}</a>
-                <a href="#alternatives" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">Alternatives</a>
-                <a href="#how-we-tested" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">How We Tested</a>
-                <a href="#faq" className="text-2sm text-[var(--color-primary)] hover:underline py-1 block">FAQ</a>
+                {[
+                  { id: "pros-cons", label: "Pros and Cons" },
+                  { id: "who-should-use", label: `Who Should Use ${provider.name}` },
+                  { id: "alternatives", label: "Alternatives" },
+                  { id: "how-we-tested", label: "How We Tested" },
+                  { id: "faq", label: "FAQ" },
+                ].map((item, i) => (
+                  <a key={item.id} href={`#${item.id}`} className="flex items-center gap-2.5 text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] py-1.5 transition-colors leading-snug">
+                    <span className="w-5 h-5 rounded-md bg-[var(--color-surface-container)] text-[10px] font-bold text-[var(--color-on-surface-muted)] flex items-center justify-center shrink-0">{review.sections.length + i + 1}</span>
+                    {item.label}
+                  </a>
+                ))}
               </div>
             </Card>
 
@@ -258,7 +253,7 @@ function DetailedReview({
             {/* Article Sections */}
             {review.sections.map((section) => (
               <Card key={section.id} id={section.id}>
-                <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-4">
+                <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-4" style={{ fontFamily: "var(--font-reading)" }}>
                   {section.heading}
                 </h2>
                 <div
@@ -276,7 +271,7 @@ function DetailedReview({
 
             {/* Who should use */}
             <Card id="who-should-use">
-              <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
+              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5" style={{ fontFamily: "var(--font-reading)" }}>
                 Who should use {provider.name}?
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -308,7 +303,7 @@ function DetailedReview({
 
             {/* Alternatives */}
             <Card id="alternatives">
-              <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
+              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5" style={{ fontFamily: "var(--font-reading)" }}>
                 {provider.name} alternatives
               </h2>
               <div className="space-y-3">
@@ -345,7 +340,7 @@ function DetailedReview({
 
             {/* How we tested */}
             <Card id="how-we-tested">
-              <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-4">
+              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-4" style={{ fontFamily: "var(--font-reading)" }}>
                 How we tested {provider.name}
               </h2>
               <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
@@ -361,7 +356,7 @@ function DetailedReview({
 
             {/* FAQ */}
             <Card id="faq">
-              <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
+              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5" style={{ fontFamily: "var(--font-reading)" }}>
                 Frequently asked questions
               </h2>
               <div className="space-y-0 divide-y divide-[var(--color-outline)]">
