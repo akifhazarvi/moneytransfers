@@ -1285,4 +1285,71 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       },
     ],
   },
+
+  italy: {
+    slug: "italy",
+    countryName: "Italy",
+    currency: "EUR",
+    intro:
+      "Italy is the 4th largest economy in Europe with over 5 million registered foreign residents — making it both one of the continent's biggest remittance-sending countries and a significant receiving destination. The largest immigrant communities are Romanian (1.1 million), Albanian (430,000), Moroccan (420,000), Chinese (300,000), and Filipino (165,000), many of whom receive regular transfers from family abroad. Italy uses SEPA (Single Euro Payments Area) for EUR payments, which means intra-European transfers settle in hours for under €1 — but transfers from outside Europe (USD, GBP, AUD) must convert to EUR first, and that conversion is where the real cost hides.",
+    highlights: [
+      "SEPA Instant Credit Transfer (SCT Inst) delivers EUR to Italian banks in under 10 seconds, 24/7, including weekends. Wise and Revolut support SCT Inst; most traditional providers still use standard SEPA (same-day on business days).",
+      "Poste Italiane (Italian Post Office) has 12,800+ branches and serves as both a banking service (BancoPosta) and a cash pickup point for Western Union — making it the most accessible financial institution in Italy, especially in rural areas and small towns.",
+      "Italian IBANs are 27 characters starting with 'IT' followed by 2 check digits, 1 national check character, 5-digit ABI (bank code), 5-digit CAB (branch code), and 12-digit account number.",
+      "Post-Brexit, UK→Italy transfers no longer route via SEPA by default through banks. Specialist providers like Wise and Revolut maintain SEPA access through European partners, saving £20–£40 vs SWIFT.",
+      "Italy's tabaccherie (licensed tobacconists) serve as payment agents for Western Union and MoneyGram — there are over 50,000 tabaccherie across Italy, more than any other retail network.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Italy?",
+        answer:
+          "If you're sending EUR from another European country, Wise and Revolut route via SEPA with fees under €1 and delivery in hours. From the UK, these same providers maintain SEPA access through European banking partners — far cheaper than the £25–£40 SWIFT fee your bank would charge. From the US or Australia, the cost depends on the USD/EUR or AUD/EUR conversion rate markup. SendMoneyCompare shows the total EUR your recipient receives after all fees and markups, which is the only fair way to compare.",
+      },
+      {
+        question: "How long does a money transfer to Italy take?",
+        answer:
+          "SEPA Instant (SCT Inst) delivers in under 10 seconds — Wise and Revolut support this. Standard SEPA transfers settle in 1–4 hours on business days. SWIFT transfers from outside Europe take 1–3 business days. Cash pickup through Western Union at Poste Italiane or tabaccherie is available within minutes. The delivery method depends on your provider — always confirm whether they route via SEPA or SWIFT before sending.",
+      },
+      {
+        question: "What is SEPA and why does it matter for Italy transfers?",
+        answer:
+          "SEPA (Single Euro Payments Area) is a payment network covering 36 European countries that makes EUR transfers as fast and cheap as domestic payments. An intra-SEPA transfer costs €0–€1 and settles in hours (or seconds with SCT Inst). A SWIFT transfer to Italy costs $20–$50 and takes 2–3 days. If your provider routes via SEPA, you save dramatically. Since Brexit, UK banks default to SWIFT for Italy — but specialist providers maintain SEPA access through EU-based partner banks.",
+      },
+      {
+        question: "Can I send money to Italy from the UK after Brexit?",
+        answer:
+          "Yes, but the routing matters enormously. UK high-street banks (Barclays, HSBC, Lloyds, NatWest) lost direct SEPA membership after Brexit and default to SWIFT — costing £20–£40 plus a 2–3% FX markup per transfer. Specialist providers like Wise, Revolut, and CurrencyFair route through European banking partners that retain SEPA access, delivering EUR to Italian accounts in hours for under £5 total. That's a real-world saving of £25–£50 on every transfer.",
+      },
+      {
+        question: "What details do I need to send money to an Italian bank account?",
+        answer:
+          "You need the recipient's Italian IBAN (27 characters, starts with 'IT') and their full name as registered with the bank. The IBAN contains the ABI code (bank identifier) and CAB code (branch identifier), so a BIC/SWIFT code is technically optional for SEPA transfers — but some providers still ask for it. Major Italian banks: Intesa Sanpaolo (BCITITMM), UniCredit (UNCRITMM), Banco BPM (BAPPIT21), and Poste Italiane BancoPosta (BPPIITRRXXX).",
+      },
+      {
+        question: "Can I pick up cash in Italy instead of using a bank account?",
+        answer:
+          "Yes. Western Union has the largest cash pickup network in Italy, accessible through 12,800+ Poste Italiane branches and over 50,000 tabaccherie (licensed tobacconists that double as payment agents). MoneyGram and Ria also have agent locations in major cities. Cash pickup is available within minutes of sending. This option is particularly useful for recipients who don't have an Italian bank account — common among recently arrived immigrants.",
+      },
+      {
+        question: "What is Poste Italiane and can I use it for money transfers?",
+        answer:
+          "Poste Italiane is Italy's national postal service, but it's also one of the country's largest financial institutions. Through its BancoPosta service, it offers bank accounts, payment cards, and financial products to millions of Italians. For international transfers, Poste Italiane branches serve as Western Union agents — your recipient can collect cash in minutes with their ID and transfer reference number. With 12,800+ branches (more than any Italian bank), Poste Italiane reaches even the smallest towns.",
+      },
+      {
+        question: "Is it expensive to send USD to Italy?",
+        answer:
+          "The cost depends entirely on the USD/EUR conversion rate your provider offers. A provider charging $0 fee but marking up the exchange rate by 1.5% costs more on a $1,000 transfer than one charging $5 with a 0.3% markup. The hidden markup can mean $15–$20 less for your recipient. SendMoneyCompare shows the total EUR received after all costs, making it easy to see through zero-fee marketing. Wise, OFX, and XE are typically competitive on the USD→EUR corridor.",
+      },
+      {
+        question: "Are there limits on sending money to Italy?",
+        answer:
+          "Italy has no caps on receiving international transfers — it's an EU member state with free movement of capital. However, transfers over €10,000 (or equivalent) may trigger anti-money-laundering reporting in both the sending and receiving country. Italian banks may ask the recipient about the purpose of large or frequent incoming transfers as part of standard compliance. Your sending country's regulations (FinCEN in the US, FCA in the UK) may also apply for large amounts.",
+      },
+      {
+        question: "Which providers deliver the most EUR to Italy?",
+        answer:
+          "For EUR→EUR transfers within Europe, Wise and Revolut consistently deliver the most because they route via SEPA with minimal fees. For USD→EUR from the US, Wise, OFX, and Remitly tend to offer the best conversion rates. For GBP→EUR from the UK, Wise, Revolut, and CurrencyFair are strongest. The best provider changes daily based on exchange rate fluctuations — use SendMoneyCompare's comparison tool above to see today's real-time winner for your specific amount.",
+      },
+    ],
+  },
 };
