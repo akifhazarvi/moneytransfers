@@ -152,6 +152,48 @@ const corridorEditorialNotes: Record<
     warningBody:
       "Some providers convert CAD to USD first, then USD to INR, taking a margin on each conversion. Look for providers that offer a direct CAD/INR rate — you will almost always receive more rupees with a single conversion.",
   },
+  "send-money-to-morocco": {
+    title: "What matters when sending money to Morocco",
+    summary:
+      "SendMoneyCompare's comparison of providers shows Morocco is one of Africa's top remittance destinations, receiving over $11 billion annually. The Moroccan dirham (MAD) is partially pegged to a basket of EUR and USD, which provides relative stability — but provider markups still vary widely, making comparison essential.",
+    bullets: [
+      "Cash pickup remains the most popular delivery method in Morocco. Western Union and MoneyGram have extensive agent networks through Wafacash, Barid Cash, and Banque Populaire branches — especially important for recipients in smaller cities and rural areas.",
+      "For bank deposits, you'll need the recipient's RIB (Relevé d'Identité Bancaire) — a 24-digit number, or their Moroccan IBAN starting with 'MA'. Attijariwafa Bank, BMCE Bank of Africa, and Banque Populaire are the three largest banks.",
+      "If sending EUR to Morocco from Europe, providers routing via SEPA can often deliver faster and cheaper than those using SWIFT. The EUR/MAD corridor benefits from Morocco's strong trade ties with France, Spain, and Belgium.",
+      "Mobile money is growing but still limited compared to cash pickup and bank deposit. WorldRemit supports mobile wallet delivery in Morocco, but adoption is lower than in Sub-Saharan African markets.",
+    ],
+    warningTitle: "Don't ignore the exchange rate markup on MAD",
+    warningBody:
+      "Some providers advertise zero fees on Morocco transfers but mark up the dirham exchange rate by 2–4%. On a €500 transfer, that can mean 50–100 MAD less for your recipient. Always compare the total MAD received, not just the fee.",
+  },
+  "send-money-to-italy": {
+    title: "What matters when sending money to Italy",
+    summary:
+      "According to SendMoneyCompare data, Italy is both one of Europe's largest remittance-sending countries and a significant receiving destination. Over 5 million foreign residents live in Italy — with large communities from Romania, Albania, Morocco, China, and the Philippines — and many also receive money from family abroad.",
+    bullets: [
+      "SEPA transfers are the fastest and cheapest way to send EUR to Italy. If your provider routes via SEPA rather than SWIFT, bank deposits typically arrive within hours instead of 1–3 days — and fees are significantly lower.",
+      "For senders from the UK (post-Brexit), most specialist providers like Wise and Revolut still access SEPA through European banking partners. This means you can get SEPA-speed delivery without the traditional £20–£40 international wire fee your bank would charge.",
+      "Cash pickup in Italy is available through Western Union and MoneyGram agent networks, including Poste Italiane (post offices) and tabaccherie. This is useful for recipients without an Italian bank account.",
+      "If sending non-EUR currencies (USD, GBP, AUD) to Italy, the provider converts to EUR before delivery. Compare the total EUR your recipient gets — the conversion rate matters more than the transfer fee on cross-currency transfers.",
+    ],
+    warningTitle: "UK senders: confirm your provider uses SEPA, not SWIFT",
+    warningBody:
+      "Post-Brexit, some UK banks route Italy transfers via SWIFT, which costs £20–£40 and takes 2–3 days. Specialist providers using SEPA deliver in hours for a fraction of the cost. Always check the delivery route before sending.",
+  },
+  "usa-to-morocco": {
+    title: "What matters on the USA to Morocco corridor",
+    summary:
+      "SendMoneyCompare data shows the USD to MAD corridor serves a large Moroccan diaspora in the United States. Morocco received over $11 billion in remittances in 2023, with the US being a significant source. Cash pickup dominates this corridor, but bank deposit options are improving.",
+    bullets: [
+      "ACH bank funding from the US keeps costs lowest. Avoid credit card funding — the card processing fee plus potential cash advance charge can add $10–$20 to a single transfer.",
+      "Western Union and MoneyGram have the strongest agent networks in Morocco, with thousands of locations through Wafacash, Barid Cash, and bank branches. For recipients in rural areas, cash pickup may be the only practical option.",
+      "For bank deposits, Morocco's IBAN format (28 characters starting with 'MA') is required. The three largest banks — Attijariwafa, BMCE, and Banque Populaire — are supported by most providers.",
+      "The dirham's partial peg to EUR/USD means less volatility than many African currencies, but provider markups still vary by 1–3% across the corridor.",
+    ],
+    warningTitle: "Cash pickup fees vary significantly between providers",
+    warningBody:
+      "On the USA to Morocco corridor, the difference between the cheapest and most expensive cash pickup provider can be $20–$40 on a $500 transfer. Always compare total MAD received, as some providers offset zero fees with worse exchange rates.",
+  },
   "australia-to-india": {
     title: "What matters on the Australia to India corridor",
     summary:

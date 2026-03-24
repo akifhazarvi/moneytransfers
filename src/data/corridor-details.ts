@@ -788,6 +788,44 @@ const countryDetailsMap: Record<string, CountryDetails> = {
     ],
   },
 
+  italy: {
+    countryName: "Italy",
+    countryCode: "IT",
+    currency: "EUR",
+    recipientRequirements: [
+      { label: "Full name", description: "Recipient's full name as registered with their Italian bank account", required: true },
+      { label: "IBAN", description: "Italian IBAN (27 characters starting with 'IT') — required for all bank deposits", required: true },
+      { label: "BIC/SWIFT code", description: "Bank identifier code for the receiving bank (e.g. BCITITMM for Intesa Sanpaolo)", required: false },
+    ],
+    requirementsNote: "Italy uses SEPA (Single Euro Payments Area) for EUR transfers, meaning bank deposits from other EU/EEA countries settle within hours. For transfers from outside Europe (USD, GBP, AUD), the provider converts to EUR and routes via SEPA or SWIFT.",
+    deliveryMethods: [
+      { method: "Bank Deposit (SEPA)", speed: "Hours to 1 business day", description: "EUR transfers within SEPA settle within hours. Cross-currency transfers from outside Europe may take 1–2 days.", providers: ["wise", "revolut", "remitly", "xe"] },
+      { method: "Bank Deposit (SWIFT)", speed: "1–3 business days", description: "Traditional wire transfer to Italian bank accounts. Slower and more expensive than SEPA but available from any currency.", providers: ["western-union", "ofx", "moneycorp"] },
+      { method: "Cash Pickup", speed: "Minutes", description: "Collect cash from Western Union and MoneyGram agent locations across Italy including post offices and tabaccherie.", providers: ["western-union", "moneygram", "ria"] },
+    ],
+    receivingNote: "SEPA transfers are by far the cheapest and fastest option for sending EUR to Italy. If sending from the UK (post-Brexit), most specialist providers still route via SEPA through European banking partners — always confirm this with your provider.",
+    regulations: {
+      regulatoryBody: "Banca d'Italia (Bank of Italy) and CONSOB",
+      inboundLimit: "No restriction on receiving remittances — Italy is an EU member state with free movement of capital",
+      documentationNeeded: [
+        "Sender's government-issued ID",
+        "Recipient's Italian IBAN number",
+      ],
+      importantNotes: [
+        "Italy uses EUR and is part of SEPA — intra-EU transfers are fast and cheap.",
+        "Italy has a large immigrant community (over 5 million foreign residents) making it both a major remittance-sending and receiving country.",
+        "Poste Italiane (Italian Post Office) is a common cash pickup location for Western Union and MoneyGram.",
+      ],
+    },
+    popularBanks: [
+      { name: "Intesa Sanpaolo", swiftCode: "BCITITMM", notes: "Largest Italian bank by assets" },
+      { name: "UniCredit", swiftCode: "UNCRITMM", notes: "Major pan-European bank headquartered in Milan" },
+      { name: "Banco BPM", swiftCode: "BAPPIT21", notes: "Third-largest Italian banking group" },
+      { name: "BPER Banca", swiftCode: "BPMOIT22", notes: "Major regional bank" },
+      { name: "Poste Italiane (BancoPosta)", swiftCode: "BPPIITRRXXX", notes: "Postal banking service — very widely used" },
+    ],
+  },
+
   morocco: {
     countryName: "Morocco",
     countryCode: "MA",

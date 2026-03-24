@@ -150,9 +150,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-to-send-money-abroad",
-    title: "How to Send Money Abroad in 2026 — 5 Methods Ranked by Cost & Speed",
+    title: "How to Send Money Internationally in 2026 — 5 Methods Ranked (Cheapest First)",
     metaDescription:
-      "5 ways to send money internationally in 2026, ranked by cost and speed. Bank wires cost $25–$50; digital providers cost under $5. Step-by-step guide to avoid the 3 most expensive mistakes.",
+      "How to send money internationally in 2026: bank wires ($25–$50), digital apps (under $5), PayPal (3–4% hidden), crypto, and cash. We ranked all 5 methods by total cost. Step-by-step guide.",
     excerpt:
       "Everything you need to know about sending money internationally — from choosing a provider to understanding fees, exchange rates, and transfer speeds.",
     category: "Guides",
