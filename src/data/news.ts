@@ -16,9 +16,9 @@ export const newsItems: NewsItem[] = [
   {
     slug: "central-bank-super-week-march-2026",
     title:
-      "Central Bank Rate Decisions This Week (March 17–19, 2026) — Fed, BoJ, BoE & RBA",
+      "Central Bank Rate Decisions March 2026 — Fed Holds, BoJ Hikes: What It Means for Your Transfers",
     excerpt:
-      "Fed holds at 3.5%, BoJ could hike, BoE expected to hold, RBA signals caution. How each March 17–19 decision affects exchange rates and what it means if you're sending money abroad this week.",
+      "Fed holds at 3.5%, Bank of Japan hikes rates, Bank of England holds, RBA signals caution. Here's exactly how each March 17–19 decision affects USD, GBP, JPY & AUD exchange rates — and what to do before sending money abroad.",
     image: "/images/news/central-bank-super-week.jpg",
     imageAlt:
       "The Federal Reserve building in Washington D.C., one of four central banks announcing rate decisions this week",
@@ -167,9 +167,9 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "eu-instant-payments-mandate-2026",
-    title: "SEPA Instant Payments 2026: EU Mandates Free 10-Second Euro Transfers 24/7",
+    title: "SEPA Instant Payments 2026: Free 10-Second Transfers Now Mandatory — What Changes for You",
     excerpt:
-      "New 2026 EU regulations mandate all banks to process SEPA instant euro transfers in under 10 seconds, 24/7, at no extra fee. Here's what changes for cross-border senders in Germany, France, and beyond.",
+      "EU banks must now process SEPA instant euro transfers in under 10 seconds, 24/7, with no extra fee. No more €100K limits in Germany. Here's what changed, which banks comply, and how it affects your international transfers.",
     image: "/images/news/eu-instant-payments.jpg",
     imageAlt: "The European Parliament building in Strasbourg, France, where EU instant payment regulations were shaped",
     content: `<p>A sweeping set of regulations taking effect across the European Union in 2026 is fundamentally changing how euro-denominated transfers work. Under the new Instant Payments Regulation, every bank and payment service provider in the EU must support real-time euro credit transfers — available 24 hours a day, 365 days a year, with funds arriving in the recipient's account within 10 seconds.</p>

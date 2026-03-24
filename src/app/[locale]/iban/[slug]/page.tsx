@@ -61,13 +61,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const country = getWiseCountryBySlug(slug);
   if (!country) return {};
   const name = getCountryName(country.countryCode, slug);
+  const year = new Date().getFullYear();
+  const exampleIban = country.exampleIban || `${country.countryCode}XX XXXX XXXX XXXX`;
+  const formattedExample = exampleIban.replace(/(.{4})/g, "$1 ").trim();
   return {
-    title: `${name} IBAN — ${country.ibanLength}-Character Format, Example & Banks (${new Date().getFullYear()})`,
-    description: `${name} IBAN format: ${country.ibanLength} characters starting with ${country.countryCode}${country.sepa ? ", SEPA member" : ""}. See real IBAN examples, BBAN structure breakdown${country.banks.length > 0 ? `, and ${country.banks.length} major banks` : ""}. Free lookup for ${country.currency} transfers.`,
+    title: `${name} IBAN: Format, Example & How to Find Yours (${year})`,
+    description: `${name} IBAN is ${country.ibanLength} characters starting with "${country.countryCode}". Example: ${formattedExample.slice(0, 25)}... Find your ${name} IBAN format, check the BBAN structure${country.banks.length > 0 ? `, and see codes for ${country.banks.length}+ banks` : ""}. ${country.sepa ? "SEPA member — fast EUR transfers." : `Used for ${country.currency} transfers.`}`,
     keywords: `${name} IBAN, IBAN ${name}, ${country.countryCode} IBAN format, ${name} IBAN number, IBAN ${country.countryCode}, ${name} IBAN example, ${name} bank code, ${name} BBAN, ${country.currency} IBAN`,
     alternates: getAlternates(`iban/${slug}`, locale),
     openGraph: {
-      title: `${name} IBAN — ${country.ibanLength}-Char Format & Example`,
+      title: `${name} IBAN: ${country.ibanLength}-Character Format & Example (${year})`,
       description: `${name} IBAN: ${country.ibanLength} characters, ${country.countryCode} prefix${country.sepa ? ", SEPA member" : ""}. Real examples, structure breakdown, and bank codes.`,
       url: `https://sendmoneycompare.com/iban/${slug}`,
     },
