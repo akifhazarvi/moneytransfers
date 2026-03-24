@@ -70,7 +70,7 @@ const organizationSchema = {
   foundingDate: "2024",
   founder: {
     "@type": "Person",
-    name: "Akif Hazarvi",
+    name: "Daniel Rowe",
     jobTitle: "Founder",
   },
   contactPoint: {

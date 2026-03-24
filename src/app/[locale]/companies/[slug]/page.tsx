@@ -155,7 +155,7 @@ function DetailedReview({
             <span className="text-2sm text-[var(--color-on-surface-variant)]">{review.readTime}</span>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-2sm text-[var(--color-on-surface-muted)]">
-            <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
+            <span>By <Link href="/about/daniel-rowe" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
             <span>Fact-checked by <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline font-medium">{review.factChecker}</Link></span>
             <span>Verified {review.lastVerified}</span>
           </div>
@@ -348,7 +348,7 @@ function DetailedReview({
               </p>
               <p className="text-xs text-[var(--color-on-surface-muted)] pt-3 border-t border-[var(--color-outline)]">
                 Last verified: {review.lastVerified} · Reviewed by{" "}
-                <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link>
+                <Link href="/about/daniel-rowe" className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link>
                 {" "}· Fact-checked by{" "}
                 <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">{review.factChecker}</Link>
               </p>

@@ -1526,7 +1526,7 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
-              By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">Akif Hazarvi</Link>
+              By <Link href="/about/daniel-rowe" className="text-[var(--color-primary)] hover:underline">Daniel Rowe</Link>
               {" · "}Data updated <time dateTime={dataUpdatedDate}>{new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time>
               {" · "}Refreshed every 6 hours
             </p>

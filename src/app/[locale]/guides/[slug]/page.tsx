@@ -141,7 +141,7 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
-    author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}`, image: "https://sendmoneycompare.com/images/authors/akif-hazarvi.jpeg" },
+    author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}` },
     mainEntityOfPage: `https://sendmoneycompare.com/guides/${slug}`,
     publisher: {
       "@type": "Organization",
@@ -213,8 +213,8 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Author row */}
             <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-[var(--color-outline)]">
-              <Link href="/about/akif-hazarvi" className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
-                <Image src="/images/authors/akif-hazarvi.jpeg" alt={post.author} width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
+              <Link href="/about/daniel-rowe" className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                <span className="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-xs">DR</span>
                 {post.author}
               </Link>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />

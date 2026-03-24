@@ -82,8 +82,8 @@ export default async function BusinessSubPage({ params }: Props) {
     description: page.metaDescription,
     author: {
       "@type": "Person",
-      name: "Akif Hazarvi",
-      url: "https://sendmoneycompare.com/about/akif-hazarvi",
+      name: "Daniel Rowe",
+      url: "https://sendmoneycompare.com/about/daniel-rowe",
     },
     publisher: {
       "@type": "Organization",
@@ -123,10 +123,10 @@ export default async function BusinessSubPage({ params }: Props) {
               <span>
                 By{" "}
                 <Link
-                  href="/about/akif-hazarvi"
+                  href="/about/daniel-rowe"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  Akif Hazarvi
+                  Daniel Rowe
                 </Link>
               </span>
               <span>Updated March 2026</span>

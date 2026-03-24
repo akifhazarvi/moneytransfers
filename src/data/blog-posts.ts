@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-01-15",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["cheap transfers", "fees", "comparison", "best rates", "international transfers"],
     featuredImage: "/images/blog/cheapest-way-to-send-money.jpg",
     sections: [
@@ -159,7 +159,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-01-10",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["how to", "international transfer", "guide", "beginners", "send money"],
     featuredImage: "/images/blog/how-to-send-money-abroad.jpg",
     sections: [
@@ -305,7 +305,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-01-20",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["exchange rates", "markup", "mid-market rate", "hidden fees", "education"],
     featuredImage: "/images/blog/exchange-rate-markup.jpg",
     sections: [
@@ -405,7 +405,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-02-01",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["security", "safety", "scams", "regulation", "fraud protection"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
@@ -498,7 +498,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-10",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["SWIFT code", "BIC code", "bank transfer", "international transfer", "how to"],
     featuredImage: "/images/blog/swift-codes-explained.jpg",
     sections: [
@@ -593,7 +593,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["IBAN", "bank account", "international transfer", "Europe", "validation"],
     featuredImage: "/images/blog/iban-numbers-explained.jpg",
     sections: [
@@ -709,7 +709,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-02-20",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
     featuredImage: "/images/blog/best-money-transfer-apps.jpg",
     sections: [
@@ -821,7 +821,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-02-25",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Wise", "Remitly", "comparison", "vs", "fees", "exchange rates"],
     featuredImage: "/images/blog/wise-vs-remitly.jpg",
     sections: [
@@ -935,7 +935,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-01",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["India", "INR", "remittance", "USD to INR", "GBP to INR", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
@@ -1061,7 +1061,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-05",
     updatedAt: "2026-03-13",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "B2B payments", "invoicing", "FX management", "batch payments"],
     featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
@@ -1197,7 +1197,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-10",
     updatedAt: "2026-03-17",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["remittance", "statistics", "trends", "2026", "global", "research"],
     featuredImage: "/images/blog/global-remittance-trends.jpg",
     sections: [
@@ -1356,7 +1356,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "wire transfer alternatives", "bank wire", "wire transfer services"],
     sections: [
       {
@@ -1641,7 +1641,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "best transfer services",
       "provider rankings",
@@ -1855,7 +1855,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-17",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "promo codes",
       "referral programs",
@@ -2196,7 +2196,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Ramadan", "Eid", "remittances", "send money home", "cheap transfers"],
     featuredImage: "/images/blog/ramadan-eid-send-money.jpg",
     sections: [
@@ -2358,7 +2358,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "data",
       "comparison",
@@ -2542,7 +2542,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Pakistan", "PKR", "remittance", "USD to PKR", "GBP to PKR", "corridor guide", "send money to Pakistan"],
     featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
@@ -2723,7 +2723,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["multi-currency account", "exchange rates", "Wise", "Revolut", "Xe", "forex"],
     featuredImage: "/images/blog/multi-currency-accounts-v3.jpg",
     sections: [
@@ -2919,7 +2919,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Philippines", "PHP", "remittance", "USD to PHP", "GCash", "corridor guide", "send money to Philippines"],
     featuredImage: "/images/blog/send-money-to-philippines.jpg",
     sections: [
@@ -3085,7 +3085,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Mexico", "MXN", "remittance", "USD to MXN", "SPEI", "OXXO", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-mexico.jpg",
     sections: [
@@ -3250,7 +3250,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Nigeria", "NGN", "remittance", "USD to NGN", "naira", "corridor guide", "send money to Nigeria"],
     featuredImage: "/images/blog/send-money-to-nigeria.jpg",
     sections: [
@@ -3409,7 +3409,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Bangladesh", "BDT", "remittance", "USD to BDT", "bKash", "Nagad", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-bangladesh.jpg",
     sections: [
@@ -3577,7 +3577,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["India", "INR", "GBP to INR", "UK", "remittance", "UPI", "corridor guide", "send money to India"],
     featuredImage: "/images/blog/send-money-uk-to-india.jpg",
     sections: [
@@ -3752,7 +3752,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["India", "INR", "CAD to INR", "Canada", "remittance", "Interac", "corridor guide", "send money to India"],
     sections: [
       {
@@ -3935,7 +3935,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "B2B payments", "Wise Business", "OFX", "Revolut Business", "provider review", "batch payments", "FX management"],
     sections: [
       {
@@ -4245,7 +4245,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Ria", "cash pickup", "India", "INR", "remittance", "expat", "money transfer", "USD to INR"],
     sections: [
       {
@@ -4463,7 +4463,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "business",
       "B2B payments",
@@ -4590,7 +4590,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "business",
       "international payroll",
@@ -4723,7 +4723,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "business",
       "FX hedging",
@@ -4852,7 +4852,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "business",
       "invoicing",
@@ -4985,7 +4985,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "business",
       "USA to Canada",
@@ -5120,7 +5120,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "USA to UK", "USD to GBP", "B2B payments", "cross-border payments"],
     sections: [
       {
@@ -5239,7 +5239,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "USA to India", "USD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
@@ -5365,7 +5365,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "USA to Mexico", "USD to MXN", "B2B payments", "nearshoring", "CUSMA"],
     sections: [
       {
@@ -5486,7 +5486,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "USA to Europe", "USD to EUR", "B2B payments", "SEPA", "cross-border payments"],
     sections: [
       {
@@ -5606,7 +5606,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "UK to Europe", "GBP to EUR", "B2B payments", "SEPA", "post-Brexit"],
     sections: [
       {
@@ -5725,7 +5725,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "UK to India", "GBP to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
@@ -5845,7 +5845,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "USA to Philippines", "USD to PHP", "B2B payments", "BPO", "outsourcing"],
     sections: [
       {
@@ -5966,7 +5966,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "USA to Australia", "USD to AUD", "B2B payments", "cross-border payments"],
     sections: [
       {
@@ -6084,7 +6084,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "USA to China", "USD to CNY", "B2B payments", "manufacturing", "supply chain"],
     sections: [
       {
@@ -6211,7 +6211,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "Canada to USA", "CAD to USD", "B2B payments", "cross-border payments", "CUSMA"],
     sections: [
       {
@@ -6330,7 +6330,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business", "Australia to India", "AUD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
@@ -6449,7 +6449,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "remittance tax",
       "US tax",
@@ -6642,7 +6642,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "crypto",
       "banking license",
@@ -6829,7 +6829,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "Revolut",
       "banking license",
@@ -6974,7 +6974,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "EU payments",
       "instant payments",
@@ -7119,7 +7119,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "multi-currency",
       "Wise",
@@ -7271,7 +7271,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "euribor",
       "euro transfers",
@@ -7448,7 +7448,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["business payments", "FX fees", "international transfers", "B2B payments", "exchange rate markup"],
     featuredImage: "/images/blog/lowest-fx-fees-business-2026.jpg",
     sections: [
@@ -7763,7 +7763,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-17",
     updatedAt: "2026-03-17",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Eid 2026", "Holi 2026", "festival transfers", "money transfer rates", "comparison", "remittance", "send money home"],
     featuredImage: "/images/blog/eid-holi-money-transfer-2026.jpg",
     sections: [
@@ -8054,7 +8054,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["large transfers", "XE", "OFX", "forward contracts", "exchange rates", "property purchase", "business transfers", "comparison"],
     sections: [
       {
@@ -8343,7 +8343,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "US dollar forecast",
       "dollar prediction 2026",
@@ -8632,7 +8632,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "hidden fees",
       "bank transfers",
@@ -8777,7 +8777,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "stablecoins",
       "USDT",
@@ -8929,7 +8929,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "comparison",
       "bank transfer",
@@ -9075,7 +9075,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "Ramadan",
       "Eid",
@@ -9193,7 +9193,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-03-23",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "pound to pakistani rupee rate today",
       "gbp to pkr",
@@ -9536,7 +9536,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-03-23",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "bulk international payments",
       "b2b international payments",
@@ -9910,6 +9910,260 @@ export const blogPosts: BlogPost[] = [
       "business-international-payments-guide",
       "best-money-transfer-services",
       "wire-transfer-guide",
+    ],
+  },
+  // ============================
+  // Xe Business Payments — Why Xe Is a Top Choice for Business Payments
+  // ============================
+  {
+    slug: "xe-business-payments-review",
+    title: "Xe Business Payments Review 2026 — Why 17,000+ Companies Use Xe",
+    metaDescription:
+      "Xe Business review: multi-currency accounts, batch payments to 190+ countries in 145+ currencies, FX hedging, ERP integrations, and 24/7 dealer support. Is Xe right for your business?",
+    excerpt:
+      "Xe processes $17B+ in annual business payments for 17,000+ companies. We break down Xe's multi-currency accounts, batch payments, FX risk management tools, and ERP integrations to help you decide if it's the right platform for your business.",
+    category: "Business" as const,
+    readTime: "11 min read",
+    publishedAt: "2026-03-23",
+    updatedAt: "2026-03-23",
+    author: "Daniel Rowe",
+    tags: [
+      "xe business",
+      "xe business payments",
+      "business international payments",
+      "multi-currency account",
+      "fx risk management",
+      "bulk payments",
+      "erp payments",
+      "xe review",
+    ],
+    sections: [
+      {
+        heading: "What Makes Xe Stand Out for Business Payments?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Xe is one of the strongest platforms for businesses that need to send international payments at scale. Trusted by 17,000+ businesses moving $17B+ a year, Xe combines multi-currency accounts with zero setup fees, batch payment processing, FX hedging tools (forward contracts, limit orders, options), and direct ERP integrations with Microsoft Dynamics 365 and Sage Intacct. Xe is U.S. state licensed, FinCEN registered, and backed by <a href="https://www.euronetworldwide.com/" target="_blank" rel="noopener noreferrer nofollow">Euronet Worldwide</a> — a NASDAQ-listed company with a $4B+ market cap and 30+ years in financial services. For personal transfers, <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> are cheaper. But for businesses needing hedging, compliance controls, and dedicated FX dealer support, <a href="/companies/xe">Xe</a> is a top-tier choice.</p></div>
+
+<p>Most money transfer comparison sites focus on personal remittances — sending $500 to family abroad. But businesses have fundamentally different needs: paying dozens of suppliers in multiple currencies, managing FX exposure on large invoices, controlling team permissions for payment approvals, and integrating payments into accounting systems.</p>
+
+<p>Xe has built an entire platform specifically for these use cases. While <a href="/companies/wise">Wise Business</a> wins on raw pricing with its mid-market rate, Xe competes on sophistication — offering FX risk management tools, dedicated currency dealers, and enterprise-grade compliance controls that most fintechs don't provide.</p>
+
+<p>In this review, we break down every feature of <a href="https://www.xe.com/business/" target="_blank" rel="noopener noreferrer">Xe's business platform</a> using real data from our <a href="/companies/xe">Xe review</a> — so you can decide if it's the right fit for your company.</p>`,
+      },
+      {
+        heading: "Multi-Currency Accounts — Hold, Convert, and Send from One Place",
+        content: `<p>Xe offers multi-currency accounts with <strong>no setup fees and no monthly fees</strong>. This is a significant advantage over traditional bank multi-currency accounts, which typically charge $10–$50/month per currency held.</p>
+
+<p>With a <a href="https://www.xe.com/business/payments/" target="_blank" rel="noopener noreferrer">Xe multi-currency account</a>, your business can:</p>
+<ul>
+<li><strong>Hold balances in multiple currencies</strong> — Receive payments in foreign currencies without converting immediately</li>
+<li><strong>Convert when rates suit you</strong> — Time your conversions using Xe's rate alert system, built on decades of exchange rate data expertise</li>
+<li><strong>Send payments instantly from pre-funded balances</strong> — No waiting for bank processing when you've already converted</li>
+</ul>
+
+<p>This is particularly useful for businesses that invoice in foreign currencies. Instead of converting every incoming payment immediately (and paying the spread each time), you can hold the foreign currency and convert in bulk when the rate is favourable.</p>
+
+<h3>How Xe compares on multi-currency accounts</h3>
+<div class="blog-table-box"><table>
+<thead><tr><th>Feature</th><th>Xe</th><th>Wise Business</th><th>OFX</th><th>Traditional Bank</th></tr></thead>
+<tbody>
+<tr><td>Setup fee</td><td>Free</td><td>Free</td><td>Free</td><td>$50–$500</td></tr>
+<tr><td>Monthly fee</td><td>$0</td><td>$0</td><td>$0</td><td>$10–$50/currency</td></tr>
+<tr><td>Currencies supported</td><td>145+</td><td>40+</td><td>55+</td><td>5–10</td></tr>
+<tr><td>Rate alerts</td><td>Yes (industry-leading)</td><td>Yes</td><td>Yes</td><td>Limited</td></tr>
+<tr><td>Countries reached</td><td>190+</td><td>80+</td><td>170+</td><td>Varies</td></tr>
+</tbody>
+</table></div>
+
+<p>Xe's 145+ currency support is one of the widest in the industry — far broader than Wise's 40+ currencies. If your business pays suppliers in exotic currencies (Thai baht, Kenyan shilling, Peruvian sol), Xe is one of the few platforms that can handle those corridors without routing through intermediary banks.</p>`,
+      },
+      {
+        heading: "Batch Payments — Pay Multiple Recipients in One Go",
+        content: `<p>One of Xe's strongest business features is batch payment processing. Instead of sending individual wire transfers to each supplier or employee, you can pay multiple recipients in a single batch — whether it's a few payments or a few hundred.</p>
+
+<p>Common use cases for Xe's batch payments:</p>
+<ul>
+<li><strong>International payroll</strong> — Pay employees across 190+ countries in their local currencies</li>
+<li><strong>Vendor and supplier payments</strong> — Process monthly supplier invoices in one batch</li>
+<li><strong>Affiliate and commission payouts</strong> — Distribute earnings to partners worldwide</li>
+<li><strong>Dividend and royalty payments</strong> — Send recurring payments to international stakeholders</li>
+</ul>
+
+<p><a href="https://www.xe.com/business/mass-payments/" target="_blank" rel="noopener noreferrer">Xe's mass payments platform</a> processes 139 currencies to 220 countries with automated payment verification and validation. It's available as a <strong>standalone platform</strong>, a <strong>managed service</strong> (where Xe handles the operations for you), or a <strong>fully integrated API</strong> — so you can choose the level of control that suits your team's technical capabilities.</p>
+
+<p>For businesses making 10+ international payments per month, batch processing saves enormous time compared to initiating individual bank wires. Our <a href="/guides/bulk-international-payments-guide">bulk international payments guide</a> shows that businesses switching from individual bank wires to batch platforms save an average of $11,000–$57,000 per year depending on volume.</p>
+
+<h3>Scheduled payments</h3>
+<p>Xe also lets you schedule payments in advance to go out automatically on a chosen date. This avoids missed deadlines and eliminates last-minute payment stress — particularly useful for businesses with recurring international obligations like rent, licensing fees, or regular supplier payments.</p>`,
+      },
+      {
+        heading: "FX Risk Management — Protect Your Margins from Currency Volatility",
+        content: `<p>This is where Xe truly differentiates from consumer-focused transfer services like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. Xe offers a full suite of <a href="https://www.xe.com/business/risk-management/" target="_blank" rel="noopener noreferrer">FX risk management tools</a> designed for businesses with significant currency exposure.</p>
+
+<h3>Forward contracts</h3>
+<p>Lock in today's exchange rate for a payment that will be made weeks or months from now. If you've agreed a contract with a supplier at a specific price, a <a href="https://www.xe.com/business/risk-management/forward-contracts/" target="_blank" rel="noopener noreferrer">forward contract</a> ensures your costs don't blow out because the exchange rate moves against you. Xe offers forward contracts for up to 3 years ahead — one of the longest windows in the industry.</p>
+
+<h3>Limit orders</h3>
+<p>Set your target exchange rate and Xe will automatically execute the transfer when the market hits that rate via a <a href="https://www.xe.com/business/risk-management/limit-orders/" target="_blank" rel="noopener noreferrer">limit order</a>. This is effectively a "buy at this price" instruction — you don't need to monitor rates constantly. Xe's rate alert system, built on 30+ years of currency data, makes this particularly sophisticated.</p>
+
+<h3>FX options</h3>
+<p>For businesses with complex FX exposure, Xe offers options contracts that give you the right (but not the obligation) to exchange currency at a specific rate. Options are more flexible than forward contracts — they protect against adverse movements while allowing you to benefit from favourable ones.</p>
+
+<h3>Dedicated FX dealers</h3>
+<p>Xe provides access to experienced currency dealers who can help you build an FX risk strategy tailored to your business. This is a level of service that most fintech platforms don't offer — Wise and Remitly are entirely self-service. For businesses managing six- or seven-figure monthly FX exposure, having a human dealer who understands your operations is genuinely valuable.</p>
+
+<div class="blog-answer-box"><p><strong>Who needs FX hedging?</strong> If your business has predictable future payments in foreign currencies (e.g., you pay a Chinese manufacturer every quarter, or you receive EUR revenue that covers GBP costs), FX hedging can protect your profit margins from exchange rate swings of 5–10% that are common over a 3–6 month period.</p></div>`,
+      },
+      {
+        heading: "Team Access and Compliance Controls",
+        content: `<p>Unlike consumer transfer apps, Xe's business platform includes granular user permissions and approval workflows — critical for companies with finance teams, CFOs who need oversight, or compliance requirements.</p>
+
+<p>Xe's team access features:</p>
+<ul>
+<li><strong>Role-based access control</strong> — Assign roles to control who can view, create, or approve payments</li>
+<li><strong>Multi-level approval workflows</strong> — Require dual authorisation for payments above certain thresholds</li>
+<li><strong>Audit trails</strong> — Full history of who created, approved, and executed each payment</li>
+<li><strong>Segregation of duties</strong> — The person who creates a payment isn't necessarily the person who approves it</li>
+</ul>
+
+<p>These controls matter for two reasons: <strong>fraud prevention</strong> (no single employee can unilaterally send large payments) and <strong>regulatory compliance</strong> (auditors want to see proper controls around international payments). If your business is subject to SOX compliance, financial audits, or simply good governance, Xe's permission system is far more robust than what you'll find on Wise Business or most other fintech platforms.</p>`,
+      },
+      {
+        heading: "ERP Integrations — Pay Directly from Your Accounting System",
+        content: `<p>Xe integrates directly with major ERP platforms, allowing businesses to initiate and track international payments without leaving their accounting system. Currently supported integrations include:</p>
+
+<ul>
+<li><strong>Microsoft Dynamics 365</strong> — Initiate payments, track statuses, and auto-reconcile within Dynamics</li>
+<li><strong>Sage Intacct</strong> — Connect payment flows to your Sage accounting workflows</li>
+</ul>
+
+<p>Learn more about <a href="https://www.xe.com/business/enterprise-resource-planning/" target="_blank" rel="noopener noreferrer">Xe's ERP payment solutions</a>. ERP integration eliminates the manual process of exporting payment data from your accounting system, logging into a separate payment platform, re-entering details, and then manually reconciling once payments are confirmed. For businesses processing dozens of international payments monthly, this saves hours of finance team time.</p>
+
+<p>Xe also provides a <a href="https://www.xe.com/xecurrencydata/" target="_blank" rel="noopener noreferrer">currency data API</a> that delivers real-time exchange rates for 170+ currencies, sourced from over 100 financial data providers and central banks. This API is used by developers building financial applications, treasury management systems, and pricing engines that need accurate, up-to-date FX data.</p>
+
+<h3>How ERP integration compares</h3>
+<div class="blog-table-box"><table>
+<thead><tr><th>Platform</th><th>ERP Integrations</th><th>API Access</th><th>Accounting Software</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Xe</strong></td><td>Dynamics 365, Sage Intacct</td><td>Yes (currency data)</td><td>Via ERP</td></tr>
+<tr><td>Wise Business</td><td>Limited</td><td>Yes (payments + data)</td><td>Xero, QuickBooks, NetSuite</td></tr>
+<tr><td>OFX</td><td>No</td><td>Limited</td><td>No</td></tr>
+<tr><td>Airwallex</td><td>Limited</td><td>Yes (full)</td><td>Xero, NetSuite</td></tr>
+</tbody>
+</table></div>
+
+<p>Wise Business has broader accounting software integrations (Xero, QuickBooks), while Xe's strength is in enterprise ERP systems. The right choice depends on your company's tech stack.</p>`,
+      },
+      {
+        heading: "Xe Business Pricing — What Does It Actually Cost?",
+        content: `<p>Xe's business pricing follows the same model as its personal transfer service: <strong>zero transfer fees</strong> on most corridors, with revenue coming from the exchange rate markup.</p>
+
+<p>Based on our <a href="/companies/xe">Xe review data</a>, the typical markup ranges from 0.4% to 1.5% depending on the corridor and transfer size:</p>
+
+<div class="blog-table-box"><table>
+<thead><tr><th>Corridor</th><th>Typical Markup</th><th>Cost on $10,000</th><th>Cost on $50,000</th></tr></thead>
+<tbody>
+<tr><td>USD → EUR</td><td>0.5%–1.0%</td><td>$50–$100</td><td>$250–$500</td></tr>
+<tr><td>USD → GBP</td><td>0.5%–1.0%</td><td>$50–$100</td><td>$250–$500</td></tr>
+<tr><td>USD → INR</td><td>0.8%–1.5%</td><td>$80–$150</td><td>$400–$750</td></tr>
+<tr><td>GBP → EUR</td><td>0.4%–0.8%</td><td>£40–£80</td><td>£200–£400</td></tr>
+</tbody>
+</table></div>
+
+<p><strong>Is Xe the cheapest for business payments?</strong> No — <a href="/companies/wise">Wise Business</a> offers the mid-market rate with a transparent percentage fee (typically 0.4%–0.7%), which is usually lower than Xe's spread. But Xe's pricing is significantly cheaper than banks (which charge 2%–5% markup plus $25–$50 wire fees), and you get hedging tools and dealer support that Wise doesn't offer.</p>
+
+<p>For businesses where a few basis points on the exchange rate matters less than having dedicated FX support, hedging instruments, and enterprise compliance controls, Xe's pricing is competitive and transparent.</p>
+
+<p><a href="/compare/wise-vs-xe">See our full Wise vs Xe comparison →</a></p>`,
+      },
+      {
+        heading: "Regulation and Security — Is Xe Safe for Business Payments?",
+        content: `<p>Xe is one of the most heavily regulated money transfer platforms in the industry:</p>
+
+<ul>
+<li><strong>U.S.</strong> — State licensed and FinCEN registered</li>
+<li><strong>UK</strong> — Regulated by the Financial Conduct Authority (FCA)</li>
+<li><strong>Australia</strong> — Regulated by ASIC</li>
+<li><strong>Canada</strong> — Registered with FINTRAC</li>
+</ul>
+
+<p>Funds are safeguarded through regulated protections, top-tier financial partners, and enterprise-grade security. Xe is owned by <strong>Euronet Worldwide</strong> (NASDAQ: EEFT), a Fortune 500-adjacent company with a $4B+ market cap and 30+ years in financial services. This corporate backing provides a level of stability and financial strength that standalone fintech startups cannot match.</p>
+
+<p>For businesses, this regulatory breadth matters because:</p>
+<ul>
+<li>Your compliance team can verify Xe's regulatory status in multiple jurisdictions</li>
+<li>Client funds are held in segregated, safeguarded accounts</li>
+<li>Euronet's public company status means regular financial audits and disclosures</li>
+<li>Xe has operated continuously since 1993 — over 30 years of track record</li>
+</ul>`,
+      },
+      {
+        heading: "Who Should Use Xe Business — and Who Shouldn't?",
+        content: `<h3>Xe Business is ideal for:</h3>
+<ul>
+<li><strong>Mid-market and enterprise companies</strong> with significant FX exposure that need hedging tools</li>
+<li><strong>Businesses paying in exotic currencies</strong> — Xe's 145+ currency coverage handles corridors most competitors can't</li>
+<li><strong>Companies using Microsoft Dynamics 365 or Sage Intacct</strong> — Direct ERP integration streamlines operations</li>
+<li><strong>Finance teams that need compliance controls</strong> — Role-based access, dual authorisation, and audit trails</li>
+<li><strong>Businesses that value human support</strong> — 24/7 access to FX specialists, not just chatbots</li>
+<li><strong>Companies interested in referral partnerships</strong> — Xe's <a href="https://www.xe.com/business/affiliate-partner-program/" target="_blank" rel="noopener noreferrer">affiliate partner program</a> lets businesses refer clients and earn from Xe's payment services</li>
+</ul>
+
+<h3>Consider alternatives if:</h3>
+<ul>
+<li><strong>You want the absolute cheapest rate</strong> — <a href="/companies/wise">Wise Business</a> offers mid-market rates with lower total cost</li>
+<li><strong>You need API-first automation</strong> — Airwallex or Wise have more developer-friendly payment APIs</li>
+<li><strong>You use Xero or QuickBooks</strong> — Wise Business integrates directly; Xe doesn't</li>
+<li><strong>You're a freelancer or sole trader</strong> — Xe's business features are overkill; use <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> instead</li>
+</ul>
+
+<div class="blog-answer-box"><p><strong>Bottom line:</strong> Xe Business is best suited for companies that need more than just cheap transfers — they need FX risk management, compliance controls, and dedicated dealer support. If your monthly FX exposure exceeds $50,000 and you pay suppliers or staff in multiple currencies, Xe should be on your shortlist alongside Wise Business and OFX. <a href="/send-money">Compare live rates</a> to see how Xe's pricing compares for your specific corridors.</p></div>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "Is Xe good for business payments?",
+        answer:
+          "Yes. Xe is trusted by 17,000+ businesses moving $17B+ annually. It offers multi-currency accounts, batch payments to 190+ countries in 145+ currencies, FX hedging tools (forward contracts, limit orders, options), team permission controls, and ERP integrations. Xe is regulated by the FCA, FinCEN, ASIC, and FINTRAC, and is backed by Euronet Worldwide (NASDAQ-listed). It's particularly strong for mid-market businesses with significant FX exposure.",
+      },
+      {
+        question: "How much does Xe charge for business transfers?",
+        answer:
+          "Xe charges no transfer fees on most corridors. Revenue comes from the exchange rate markup, which typically ranges from 0.4% to 1.5% depending on the corridor and amount. On a $10,000 USD to EUR transfer, the cost is approximately $50–$100. This is significantly cheaper than banks (2%–5% markup plus $25–$50 wire fees) but slightly more expensive than Wise Business, which offers the mid-market rate.",
+      },
+      {
+        question: "Does Xe offer forward contracts for businesses?",
+        answer:
+          "Yes. Xe offers forward contracts that let businesses lock in exchange rates up to 3 years in advance. This protects against adverse currency movements on future payments. Xe also offers limit orders (automatic execution when your target rate is reached) and FX options for more complex hedging strategies.",
+      },
+      {
+        question: "How does Xe Business compare to Wise Business?",
+        answer:
+          "Wise Business is cheaper on raw exchange rates (mid-market rate with 0.4%–0.7% fee). Xe Business offers broader currency coverage (145+ vs 40+), FX hedging tools (forward contracts, options), dedicated human dealers, ERP integrations (Dynamics 365, Sage Intacct), and more robust compliance controls. Choose Wise for cost, Xe for sophistication.",
+      },
+      {
+        question: "What ERP systems does Xe integrate with?",
+        answer:
+          "Xe integrates directly with Microsoft Dynamics 365 and Sage Intacct, allowing businesses to initiate and track international payments from within their ERP. Xe also offers a currency data API providing real-time rates for 170+ currencies, which developers can integrate into custom financial applications and treasury systems.",
+      },
+      {
+        question: "Is Xe safe and regulated for business payments?",
+        answer:
+          "Yes. Xe is regulated by the FCA (UK), FinCEN (US), ASIC (Australia), and FINTRAC (Canada). Client funds are held in segregated safeguarded accounts. Xe is owned by Euronet Worldwide, a NASDAQ-listed company (EEFT) with a $4B+ market cap and 30+ years in financial services. Xe has operated continuously since 1993.",
+      },
+      {
+        question: "Can I pay multiple recipients at once with Xe?",
+        answer:
+          "Yes. Xe's batch payment feature lets you send payments to multiple recipients in a single batch — from a few payments to several hundred. This is commonly used for international payroll, supplier payments, affiliate payouts, and commission disbursements across 190+ countries.",
+      },
+      {
+        question: "Does Xe offer 24/7 business support?",
+        answer:
+          "Yes. Xe provides 24/7 access to a team of FX specialists — real people, not chatbots. Businesses also get access to dedicated currency dealers who can help build an FX risk management strategy tailored to your specific payment patterns and currency exposures.",
+      },
+    ],
+    relatedSlugs: [
+      "business-international-payments-guide",
+      "bulk-international-payments-guide",
+      "best-money-transfer-services",
     ],
   }
 ];

@@ -31,7 +31,7 @@ export const corridorGuidesIndia: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-22",
     updatedAt: "2026-03-22",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: [
       "india",
       "INR",

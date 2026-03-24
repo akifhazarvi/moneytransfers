@@ -25,7 +25,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["UAE", "Pakistan", "AED to PKR", "remittance", "corridor guide", "send money from UAE to Pakistan", "uae to pakistan money transfer"],
     sections: [
       {
@@ -133,7 +133,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Kenya", "KES", "remittance", "USD to KES", "M-Pesa", "corridor guide", "send money to Kenya"],
     sections: [
       {
@@ -248,7 +248,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Egypt", "EGP", "remittance", "USD to EGP", "corridor guide", "send money to Egypt"],
     sections: [
       {
@@ -364,7 +364,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Morocco", "MAD", "remittance", "EUR to MAD", "USD to MAD", "corridor guide", "send money to Morocco"],
     sections: [
       {
@@ -451,7 +451,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Jamaica", "JMD", "remittance", "USD to JMD", "corridor guide", "send money to Jamaica", "cash pickup"],
     sections: [
       {
@@ -530,7 +530,7 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Akif Hazarvi",
+    author: "Daniel Rowe",
     tags: ["Sri Lanka", "LKR", "remittance", "USD to LKR", "corridor guide", "send money to Sri Lanka"],
     sections: [
       {
