@@ -43,11 +43,8 @@ export default function CookieConsent() {
       <div className="max-w-3xl mx-auto bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl shadow-lg p-5 md:p-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="flex-1">
-            <p className="text-sm font-medium text-[var(--color-on-surface)] mb-1">
-              {t("title")}
-            </p>
             <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
-              {t("description")}{" "}
+              {t("message")}{" "}
               <Link
                 href="/cookies"
                 className="text-[var(--color-primary)] hover:underline"
