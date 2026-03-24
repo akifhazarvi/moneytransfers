@@ -155,44 +155,44 @@ const corridorEditorialNotes: Record<
   "send-money-to-morocco": {
     title: "What matters when sending money to Morocco",
     summary:
-      "SendMoneyCompare's comparison of providers shows Morocco is one of Africa's top remittance destinations, receiving over $11 billion annually. The Moroccan dirham (MAD) is partially pegged to a basket of EUR and USD, which provides relative stability — but provider markups still vary widely, making comparison essential.",
+      "SendMoneyCompare's comparison of providers shows Morocco received over $11 billion in remittances in 2023 — the 2nd highest in Africa after Egypt. The dirham (MAD) is pegged 60% to EUR and 40% to USD, meaning your EUR transfers are less affected by volatility than many African corridors. But provider markups on MAD still range from 0.5% to 4%, so comparing is essential.",
     bullets: [
-      "Cash pickup remains the most popular delivery method in Morocco. Western Union and MoneyGram have extensive agent networks through Wafacash, Barid Cash, and Banque Populaire branches — especially important for recipients in smaller cities and rural areas.",
-      "For bank deposits, you'll need the recipient's RIB (Relevé d'Identité Bancaire) — a 24-digit number, or their Moroccan IBAN starting with 'MA'. Attijariwafa Bank, BMCE Bank of Africa, and Banque Populaire are the three largest banks.",
-      "If sending EUR to Morocco from Europe, providers routing via SEPA can often deliver faster and cheaper than those using SWIFT. The EUR/MAD corridor benefits from Morocco's strong trade ties with France, Spain, and Belgium.",
-      "Mobile money is growing but still limited compared to cash pickup and bank deposit. WorldRemit supports mobile wallet delivery in Morocco, but adoption is lower than in Sub-Saharan African markets.",
+      "Cash pickup dominates Morocco — roughly 70% of remittances arrive as cash. Wafacash (1,500+ locations) and Barid Cash (1,800+ post offices via Poste Maroc) give Western Union and MoneyGram near-total geographic coverage, including Atlas Mountain towns and Saharan cities like Ouarzazate where bank branches are scarce.",
+      "For bank deposits, ask your recipient for their RIB (Relevé d'Identité Bancaire) — it's 24 digits and encodes the bank code, branch, account, and check key. Alternatively, Moroccan IBANs start with 'MA' and are 28 characters. Attijariwafa handles ~25% of Morocco's retail banking, followed by Banque Populaire and BMCE Bank of Africa.",
+      "If sending EUR from France, Spain, or Belgium — the three largest sources of remittances to Morocco — providers routing via SEPA deliver to Moroccan banks in hours via local clearing, compared to 2–3 days for SWIFT. This single routing difference can save €10–€15 per transfer.",
+      "Morocco's Bank Al-Maghrib requires all inbound transfers to be converted to MAD at the receiving bank's rate. Some providers pre-convert at their own rate before sending, giving you certainty. Others let the Moroccan bank convert — which can result in a worse rate. Ask your provider which model they use.",
     ],
-    warningTitle: "Don't ignore the exchange rate markup on MAD",
+    warningTitle: "The '0% fee' Morocco trap",
     warningBody:
-      "Some providers advertise zero fees on Morocco transfers but mark up the dirham exchange rate by 2–4%. On a €500 transfer, that can mean 50–100 MAD less for your recipient. Always compare the total MAD received, not just the fee.",
+      "Several providers advertise zero-fee Morocco transfers but mark up the EUR/MAD or USD/MAD rate by 2–4%. On a €500 transfer at 2% markup, your recipient loses ~110 MAD (about €10). SendMoneyCompare shows the total MAD received after all costs — that's the only number that matters.",
   },
   "send-money-to-italy": {
     title: "What matters when sending money to Italy",
     summary:
-      "According to SendMoneyCompare data, Italy is both one of Europe's largest remittance-sending countries and a significant receiving destination. Over 5 million foreign residents live in Italy — with large communities from Romania, Albania, Morocco, China, and the Philippines — and many also receive money from family abroad.",
+      "Italy is Europe's 4th largest economy with over 5 million registered foreign residents — the largest immigrant communities are Romanian (1.1M), Albanian (430K), Moroccan (420K), Chinese (300K), and Filipino (165K). Many receive regular support from family abroad. SendMoneyCompare data shows the key variable on this corridor is whether your transfer routes via SEPA or SWIFT — the cost difference can be 10x.",
     bullets: [
-      "SEPA transfers are the fastest and cheapest way to send EUR to Italy. If your provider routes via SEPA rather than SWIFT, bank deposits typically arrive within hours instead of 1–3 days — and fees are significantly lower.",
-      "For senders from the UK (post-Brexit), most specialist providers like Wise and Revolut still access SEPA through European banking partners. This means you can get SEPA-speed delivery without the traditional £20–£40 international wire fee your bank would charge.",
-      "Cash pickup in Italy is available through Western Union and MoneyGram agent networks, including Poste Italiane (post offices) and tabaccherie. This is useful for recipients without an Italian bank account.",
-      "If sending non-EUR currencies (USD, GBP, AUD) to Italy, the provider converts to EUR before delivery. Compare the total EUR your recipient gets — the conversion rate matters more than the transfer fee on cross-currency transfers.",
+      "SEPA Instant Credit Transfer (SCT Inst) can deliver EUR to Italian bank accounts in under 10 seconds, 24/7 including weekends. Not all providers support SCT Inst yet — Wise and Revolut do. Standard SEPA settles within a few hours on business days. Either way, SEPA is dramatically cheaper than SWIFT (€0–€1 vs €20–€40).",
+      "Post-Brexit, UK banks lost direct SEPA membership. But Wise, Revolut, and CurrencyFair route through European banking partners that retain SEPA access — so a UK→Italy transfer via these providers still settles in hours at SEPA rates. Your high-street bank will default to SWIFT at 10x the cost. Always ask which rail is used.",
+      "Cash pickup matters in Italy more than you'd expect for a Eurozone country. Over 12,800 Poste Italiane branches, plus tabaccherie (tobacconists licensed as payment agents) and Western Union/MoneyGram locations serve recipients who are unbanked or prefer cash — common among newly arrived immigrants.",
+      "For USD, GBP, or AUD senders: the provider converts to EUR before crediting the Italian bank account. The conversion markup is where the real cost hides. A provider charging $0 fee but marking up USD/EUR by 1.5% costs more on a $1,000 transfer than one charging $5 with a 0.3% markup. SendMoneyCompare shows total EUR received so you can compare directly.",
     ],
-    warningTitle: "UK senders: confirm your provider uses SEPA, not SWIFT",
+    warningTitle: "UK senders: your bank is almost certainly using SWIFT",
     warningBody:
-      "Post-Brexit, some UK banks route Italy transfers via SWIFT, which costs £20–£40 and takes 2–3 days. Specialist providers using SEPA deliver in hours for a fraction of the cost. Always check the delivery route before sending.",
+      "Post-Brexit, UK high-street banks (Barclays, HSBC, Lloyds, NatWest) default to SWIFT for Italy transfers — costing £20–£40 plus 2–3% FX markup, taking 2–3 business days. Specialist providers route the same transfer via SEPA in hours for under £5 total cost. That's a real-world saving of £25–£50 on every transfer.",
   },
   "usa-to-morocco": {
     title: "What matters on the USA to Morocco corridor",
     summary:
-      "SendMoneyCompare data shows the USD to MAD corridor serves a large Moroccan diaspora in the United States. Morocco received over $11 billion in remittances in 2023, with the US being a significant source. Cash pickup dominates this corridor, but bank deposit options are improving.",
+      "The Moroccan diaspora in the US numbers over 100,000, concentrated in New York, the DC metro area, and Florida. SendMoneyCompare data shows this corridor has fewer specialist providers than USA→Mexico or USA→India, which means less competition and wider price spreads between the cheapest and most expensive option — often $15–$30 on a $500 transfer.",
     bullets: [
-      "ACH bank funding from the US keeps costs lowest. Avoid credit card funding — the card processing fee plus potential cash advance charge can add $10–$20 to a single transfer.",
-      "Western Union and MoneyGram have the strongest agent networks in Morocco, with thousands of locations through Wafacash, Barid Cash, and bank branches. For recipients in rural areas, cash pickup may be the only practical option.",
-      "For bank deposits, Morocco's IBAN format (28 characters starting with 'MA') is required. The three largest banks — Attijariwafa, BMCE, and Banque Populaire — are supported by most providers.",
-      "The dirham's partial peg to EUR/USD means less volatility than many African currencies, but provider markups still vary by 1–3% across the corridor.",
+      "ACH bank funding is the cheapest way to send from the US — it avoids the $3–$10 card processing fee that debit/credit card funding adds. Some providers (Remitly, Wise) process ACH within hours; others take 1–2 business days to clear. Never use a credit card — many issuers classify international transfers as cash advances, triggering a separate fee plus interest from day one.",
+      "Cash pickup is critical on this corridor. Wafacash operates 1,500+ locations and is the primary Western Union sub-agent in Morocco. Barid Cash (via Poste Maroc) adds another 1,800+ points. MoneyGram and Ria also have strong networks through local banks. If your recipient is outside Casablanca, Rabat, or Marrakech, cash pickup may be the only realistic option.",
+      "For bank deposits, you need the recipient's Moroccan IBAN (28 characters, starts with 'MA') or their RIB (24 digits). Attijariwafa Bank handles roughly 25% of Morocco's retail accounts, followed by Banque Populaire (strong in rural areas) and BMCE Bank of Africa. Double-check the account number — corrections after sending can take 5–10 business days.",
+      "The MAD is pegged to a 60/40 EUR/USD basket, which limits volatility compared to free-floating African currencies. But provider markups vary from 0.5% (Wise) to 3%+ (PayPal, some banks). On a $500 transfer, that spread means your recipient could get anywhere from 4,850 to 5,000 MAD depending solely on which provider you choose.",
     ],
-    warningTitle: "Cash pickup fees vary significantly between providers",
+    warningTitle: "Watch for the 'good rate, bad fee' switcheroo",
     warningBody:
-      "On the USA to Morocco corridor, the difference between the cheapest and most expensive cash pickup provider can be $20–$40 on a $500 transfer. Always compare total MAD received, as some providers offset zero fees with worse exchange rates.",
+      "Some providers quote a competitive USD/MAD rate but charge a $5–$15 transfer fee. Others quote zero fees but inflate the rate by 2–3%. On a $500 transfer, a provider charging $0 fee with 2.5% markup costs your recipient ~125 MAD more than one charging $4.99 with 0.5% markup. Always compare total MAD received — that's what SendMoneyCompare ranks by.",
   },
   "australia-to-india": {
     title: "What matters on the Australia to India corridor",
