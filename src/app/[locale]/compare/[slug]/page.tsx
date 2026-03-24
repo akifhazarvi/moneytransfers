@@ -64,14 +64,54 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!pair) return {};
   const { a, b } = pair;
   const year = new Date().getFullYear();
-  const desc = `We compared ${a.name} vs ${b.name} across 6 corridors with real data. One consistently beats the other on exchange rates — but the cheaper option depends on where you're sending and how much. See the full ${year} breakdown.`;
+
+  // Custom titles for high-impression comparisons (CTR-optimized)
+  const customMeta: Record<string, { title: string; desc: string }> = {
+    "wise-vs-revolut": {
+      title: `Wise vs Revolut ${year} — We Sent $1,000 Through Both. Here's Who Won`,
+      desc: `Wise charges 0.33–0.63% with no markup. Revolut offers free transfers on weekdays but adds a weekend surcharge. We compared real costs across 6 corridors — see which saves you more.`,
+    },
+    "remitly-vs-xoom": {
+      title: `Remitly vs Xoom ${year} — Fees, Speed & Which Sends More Money`,
+      desc: `Remitly delivers in minutes with Express. Xoom is backed by PayPal. But which gives your recipient more? We compared fees and exchange rates on 6 real transfers.`,
+    },
+    "remitly-vs-taptap-send": {
+      title: `Remitly vs TapTap Send ${year} — Zero Fees vs Fast Delivery Compared`,
+      desc: `TapTap Send charges zero fees. Remitly offers Express delivery in minutes. We tested both on USD→INR, GBP→PKR and 4 more corridors to see who wins.`,
+    },
+    "remitly-vs-moneygram": {
+      title: `Remitly vs MoneyGram ${year} — App Transfer vs Cash Pickup Compared`,
+      desc: `Remitly is mobile-first with bank deposit. MoneyGram has 350,000+ cash pickup locations. We compared fees, rates, and total cost on 6 corridors.`,
+    },
+    "remitly-vs-revolut": {
+      title: `Remitly vs Revolut ${year} — Which Is Cheaper for Sending Money Abroad?`,
+      desc: `Remitly specialises in remittances. Revolut is a multi-currency fintech app. We compared real transfer costs across 6 corridors to find the better deal.`,
+    },
+    "paypal-vs-xoom": {
+      title: `PayPal vs Xoom ${year} — Same Company, Very Different Fees`,
+      desc: `PayPal owns Xoom but charges different fees and rates. We tested both side by side — Xoom saves up to 4% on international transfers. See the full breakdown.`,
+    },
+    "wise-vs-xoom": {
+      title: `Wise vs Xoom ${year} — Mid-Market Rate vs PayPal's Exchange Rate`,
+      desc: `Wise uses the real mid-market rate with a small fee. Xoom marks up the rate but sometimes charges no fee. We tested 6 corridors to find which delivers more.`,
+    },
+    "wise-vs-western-union": {
+      title: `Wise vs Western Union ${year} — How Much More Does Your Family Get?`,
+      desc: `Western Union has 550,000+ agent locations. Wise has the mid-market rate. On a $1,000 transfer, the difference can be $30–$60. See the real comparison.`,
+    },
+  };
+
+  const custom = customMeta[slug];
+  const title = custom?.title ?? `${a.name} vs ${b.name} ${year}: Fees, Rates & Which Sends More Money`;
+  const desc = custom?.desc ?? `Compare ${a.name} vs ${b.name} fees, exchange rates, and delivery speed. We tested real transfers across 6 corridors — see which provider delivers more to your recipient in ${year}.`;
+
   return {
-    title: `${a.name} vs ${b.name} ${year}: Which Is Actually Cheaper? (Real Data)`,
+    title,
     description: desc,
     alternates: getAlternates(`compare/${slug}`, locale),
     openGraph: {
-      title: `${a.name} vs ${b.name}: Which Gives You More Money?`,
-      description: `We tested ${a.name} and ${b.name} side by side across 6 corridors. The winner surprised us on some routes. See the data.`,
+      title: custom?.title ?? `${a.name} vs ${b.name}: Which Gives You More Money?`,
+      description: custom?.desc ?? `We tested ${a.name} and ${b.name} side by side across 6 corridors. See which delivers more in ${year}.`,
       url: `https://sendmoneycompare.com/compare/${slug}`,
     },
   };
