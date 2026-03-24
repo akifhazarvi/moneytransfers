@@ -58,3 +58,49 @@ export function trackCompareSelected(providerA: string, providerB: string, corri
 export function trackCurrencySwapped(from: string, to: string) {
   gtagEvent("currency_swapped", { from, to });
 }
+
+// ── Content engagement events ─────────────────────────────────
+
+/** User visits a guide/review/news article */
+export function trackContentView(contentType: string, slug: string) {
+  gtagEvent("content_view", { content_type: contentType, slug });
+}
+
+/** User scrolls past 50% of a page (meaningful read) */
+export function trackScrollDepth(slug: string, depth: number) {
+  gtagEvent("scroll_depth", { slug, depth_percent: depth });
+}
+
+/** User clicks an internal link within content */
+export function trackInternalLinkClick(from: string, to: string) {
+  gtagEvent("internal_link_click", { from_page: from, to_page: to });
+}
+
+// ── Conversion events ─────────────────────────────────────────
+
+/** Affiliate redirect — fired server-side or via beacon */
+export function trackAffiliateRedirect(provider: string, from?: string, to?: string, amount?: string) {
+  gtagEvent("affiliate_redirect", { provider, from: from || "", to: to || "", amount: amount || "" });
+}
+
+/** Newsletter signup */
+export function trackNewsletterSignup(source: string) {
+  gtagEvent("newsletter_signup", { source });
+}
+
+/** User clicks comparison CTA on a vs page */
+export function trackComparisonCTA(providerA: string, providerB: string, action: string) {
+  gtagEvent("comparison_cta", { provider_a: providerA, provider_b: providerB, action });
+}
+
+/** User copies IBAN/SWIFT data from reference pages */
+export function trackDataCopied(dataType: string, country: string) {
+  gtagEvent("data_copied", { data_type: dataType, country });
+}
+
+// ── FAQ engagement ────────────────────────────────────────────
+
+/** User expands an FAQ item */
+export function trackFAQExpanded(question: string, page: string) {
+  gtagEvent("faq_expanded", { question: question.slice(0, 100), page });
+}

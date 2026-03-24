@@ -10,6 +10,7 @@ import { sanitizeHtml } from "@/lib/sanitize";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ScrollTracker } from "@/components/ScrollTracker";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -91,6 +92,7 @@ export default async function NewsArticlePage({ params }: Props) {
 
   return (
     <div className="bg-[var(--color-surface)] min-h-screen">
+      <ScrollTracker slug={slug} contentType="news" />
       {/* Article structured data */}
       <script
         type="application/ld+json"

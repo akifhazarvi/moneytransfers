@@ -13,6 +13,7 @@ import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import CrossLinks from "@/components/CrossLinks";
 import BestTransferToday from "@/components/BestTransferToday";
+import { ScrollTracker } from "@/components/ScrollTracker";
 import { getGoUrl } from "@/lib/affiliate";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
@@ -128,6 +129,7 @@ function DetailedReview({
 
   return (
     <>
+      <ScrollTracker slug={slug} contentType="review" />
       {/* ── Review Hero ── */}
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 md:py-10">

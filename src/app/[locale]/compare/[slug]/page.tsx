@@ -18,6 +18,7 @@ import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ScrollTracker } from "@/components/ScrollTracker";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -149,6 +150,7 @@ function ArticleComparison({
 
   return (
     <>
+      <ScrollTracker slug={slug} contentType="comparison" />
       {/* Structured data */}
       <script
         type="application/ld+json"
@@ -595,6 +597,7 @@ function DefaultComparison({
 
   return (
     <>
+      <ScrollTracker slug={`${a.slug}-vs-${b.slug}`} contentType="comparison" />
       {/* JSON-LD: BreadcrumbList */}
       <script
         type="application/ld+json"
