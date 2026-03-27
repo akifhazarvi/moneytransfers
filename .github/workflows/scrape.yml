@@ -54,6 +54,11 @@ jobs:
         timeout-minutes: 10
         continue-on-error: true
 
+      - name: Scrape Exiap / TheCurrencyShop (Cheerio JSON-LD)
+        run: npx tsx scripts/scrape-exiap.ts
+        timeout-minutes: 8
+        continue-on-error: true
+
       # ACE Money Transfer scraper disabled — site returns 403 (bot protection added March 2026)
       # - name: Scrape ACE Money Transfer (HTML)
       #   run: npx tsx scripts/scrape-ace.ts
