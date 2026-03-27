@@ -65,8 +65,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const exampleIban = country.exampleIban || `${country.countryCode}XX XXXX XXXX XXXX`;
   const formattedExample = exampleIban.replace(/(.{4})/g, "$1 ").trim();
   return {
-    title: `${name} IBAN: Format, Example & How to Find Yours (${year})`,
-    description: `${name} IBAN is ${country.ibanLength} characters starting with "${country.countryCode}". Example: ${formattedExample.slice(0, 25)}... Find your ${name} IBAN format, check the BBAN structure${country.banks.length > 0 ? `, and see codes for ${country.banks.length}+ banks` : ""}. ${country.sepa ? "SEPA member — fast EUR transfers." : `Used for ${country.currency} transfers.`}`,
+    title: `${name} IBAN: ${country.ibanLength}-Character Format, Example & Bank Code`,
+    description: `${name} IBANs are ${country.ibanLength} characters and start with ${country.countryCode}. See the ${name} IBAN format, example, BBAN structure${country.banks.length > 0 ? `, and codes for ${country.banks.length}+ banks` : ""}${country.sepa ? ". SEPA member — fast EUR transfers." : `. Used for ${country.currency} transfers.`} How ${name.includes("Swiss") ? "Swiss" : name} account numbers differ from IBANs.`,
     keywords: `${name} IBAN, IBAN ${name}, ${country.countryCode} IBAN format, ${name} IBAN number, IBAN ${country.countryCode}, ${name} IBAN example, ${name} bank code, ${name} BBAN, ${country.currency} IBAN`,
     alternates: getAlternates(`iban/${slug}`, locale),
     openGraph: {

@@ -73,8 +73,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       desc: `Wise charges 0.33–0.63% with no markup. Revolut offers free transfers on weekdays but adds a weekend surcharge. We compared real costs across 6 corridors — see which saves you more.`,
     },
     "remitly-vs-xoom": {
-      title: `Remitly vs Xoom ${year} — Fees, Speed & Which Sends More Money`,
-      desc: `Remitly delivers in minutes with Express. Xoom is backed by PayPal. But which gives your recipient more? We compared fees and exchange rates on 6 real transfers.`,
+      title: `Remitly vs Xoom Fees Comparison ${year} — Rates, Speed & Total Cost`,
+      desc: `Compare Remitly vs Xoom fees, exchange rates and delivery speed in ${year}. We tested real transfers to show which service sends more money after markup and fees.`,
     },
     "remitly-vs-taptap-send": {
       title: `Remitly vs TapTap Send ${year} — Zero Fees vs Fast Delivery Compared`,
@@ -110,6 +110,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description: desc,
     alternates: getAlternates(`compare/${slug}`, locale),
+    // Comparison content is English-only; noindex locale variants to avoid diluting the English page
+    ...(locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: {
       title: custom?.title ?? `${a.name} vs ${b.name}: Which Gives You More Money?`,
       description: custom?.desc ?? `We tested ${a.name} and ${b.name} side by side across 6 corridors. See which delivers more in ${year}.`,

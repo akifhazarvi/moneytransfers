@@ -1052,9 +1052,9 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "business-international-payments-guide",
     title:
-      "International Business Payments: Compare Providers, Fees & FX (2026)",
+      "International Business Payments for SMEs (2026) — Fees, FX & Best Providers",
     metaDescription:
-      "Compare the cheapest ways to make international business payments in 2026. Wise Business vs OFX vs Revolut — batch payments, FX management, vendor payouts, and SME solutions.",
+      "Compare the cheapest ways to make international business payments in 2026. Wise Business vs OFX vs Revolut for batch payments, FX management, vendor payouts, and SME solutions.",
     excerpt:
       "International business payments cost 2–5% through banks. Specialist providers cut that to under 1%. Compare Wise Business, OFX, and Revolut for FX, batch payments, and compliance.",
     category: "Business",
@@ -1188,9 +1188,9 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "global-remittance-trends-2026",
     title:
-      "International Money Transfer Statistics 2026 — $860B Global Remittance Trends",
+      "International Money Transfer Statistics 2026: Global Remittances, India & Fees",
     metaDescription:
-      "2026 international money transfer statistics: global remittances hit $860B, India received $125B. Full data on market size, corridor costs, average fees, and trends for 2025–2026.",
+      "Global remittances reached $860B in 2025. See 2026 international money transfer statistics, India remittance data, market size, average fees, and top receiving countries.",
     excerpt:
       "Global remittances reached $860 billion in 2025, with India receiving $125 billion. Here are the trends, statistics, and shifts shaping the international money transfer industry.",
     category: "Research",
@@ -1846,9 +1846,9 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "money-transfer-promo-codes-referral-programs",
     title:
-      "First-Time User Deals & Special Rates — 14 Money Transfer Promos (March 2026)",
+      "Money Transfer Promo Codes 2026: First-Time User Deals, Bonuses & Special Rates",
     metaDescription:
-      "Special rates for first-time money transfer users: 14 verified promotions, promo codes & referral bonuses from Wise, Remitly, WorldRemit + more. Save up to $115 — updated March 2026.",
+      "Compare 14 verified money transfer promo codes, first-time user offers, referral bonuses and special rates. Updated March 2026 with Wise, Remitly, WorldRemit and more.",
     excerpt:
       "Special rates for first-time users, promo codes, and referral bonuses from 14 money transfer providers — compiled and verified so you can save the most on your next transfer.",
     category: "Guides",
@@ -2533,9 +2533,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-pakistan-guide",
-    title: "Best Ways to Send Money to Pakistan in 2026",
+    title: "Best Way to Send Money to Pakistan (2026) — Cheapest USD, GBP & EUR to PKR",
     metaDescription:
-      "Compare the cheapest and fastest ways to send money to Pakistan. We analyzed 10+ providers for USD, GBP, EUR, and CAD to PKR transfers with real data.",
+      "Compare the cheapest and fastest ways to send money to Pakistan. See USD, GBP, EUR and CAD to PKR rates, JazzCash/Easypaisa options, fees, and delivery times from 10+ providers.",
     excerpt:
       "Pakistan is one of the world's top remittance destinations. We compared 10+ providers across multiple source currencies to find the best way to send money to Pakistan.",
     category: "Corridors",

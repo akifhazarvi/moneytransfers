@@ -45,6 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     ...(!review && { robots: { index: false, follow: true } }),
+    // Company reviews are English-only; noindex locale variants to avoid diluting the English page
+    ...(review && locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `${provider.name} Review (${year}) — Is It the Cheapest? Real Data Inside`,
       description,

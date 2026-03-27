@@ -1291,6 +1291,16 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
     keywords:
       "send money Singapore to Bangladesh, SGD to BDT, cheapest way to send money Singapore Bangladesh, bKash from Singapore, Instarem Bangladesh, SGD BDT exchange rate, MAS licensed",
   },
+  "send-money-to-morocco": {
+    title: "Best Way to Send Money to Morocco (2026) — Fees, Rates & Cash Pickup",
+    description:
+      "Compare the cheapest way to send money to Morocco in 2026. Live MAD rates, bank deposit vs cash pickup, and provider-by-provider fees from Wise, Remitly, Western Union and more.",
+    ogTitle: "Send Money to Morocco: Who Gives the Best MAD Rate?",
+    ogDescription:
+      "Compare live MAD rates from 10+ providers. Bank deposit vs cash pickup options. Find the cheapest way to send money to Morocco.",
+    keywords:
+      "send money to Morocco, cheapest way to send money to Morocco, money transfer Morocco, MAD exchange rate, cash pickup Morocco, Western Union Morocco, Remitly Morocco, bank transfer Morocco",
+  },
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -271,8 +271,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return { title: "Not Found" };
 
   const year = new Date().getFullYear();
-  const title = `${p.from} to ${p.to} Exchange Rate Today — Live ${p.fromName} to ${p.toName} (${year})`;
-  const description = `Live ${p.from}/${p.to} exchange rate updated every 60 seconds. Compare what ${providers.length}+ transfer providers actually offer vs. the mid-market rate — most add a 0.5–4% hidden markup. Find who gives you the most ${p.toName}.`;
+
+  // CTR-optimized overrides for high-impression pairs
+  const pairOverrides: Record<string, { title: string; description: string }> = {
+    "usd-to-brl": {
+      title: `USD to BRL Exchange Rate Today: Current Dollar to Brazilian Real Rate`,
+      description: `See the current USD to BRL exchange rate today, updated every 60 seconds. Compare the live dollar-to-real rate with what transfer providers actually offer after markup and fees.`,
+    },
+  };
+
+  const override = pairOverrides[pair];
+  const title = override?.title ?? `${p.from} to ${p.to} Exchange Rate Today — Live ${p.fromName} to ${p.toName} (${year})`;
+  const description = override?.description ?? `Live ${p.from}/${p.to} exchange rate updated every 60 seconds. Compare what ${providers.length}+ transfer providers actually offer vs. the mid-market rate — most add a 0.5–4% hidden markup. Find who gives you the most ${p.toName}.`;
 
   return {
     title,
