@@ -28,7 +28,13 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("companies");
-  const sorted = [...providers].sort((a, b) => b.rating - a.rating);
+  // Sort: specialist transfer providers first (higher rated), then banks
+  const sorted = [...providers].sort((a, b) => {
+    const aIsBank = a.paymentMethods.length === 1 && a.paymentMethods[0] === "Bank Transfer" && a.deliveryMethods.length === 1 && (a.exchangeRateMarkup.includes("3%") || a.exchangeRateMarkup.includes("4%") || a.exchangeRateMarkup.includes("5%"));
+    const bIsBank = b.paymentMethods.length === 1 && b.paymentMethods[0] === "Bank Transfer" && b.deliveryMethods.length === 1 && (b.exchangeRateMarkup.includes("3%") || b.exchangeRateMarkup.includes("4%") || b.exchangeRateMarkup.includes("5%"));
+    if (aIsBank !== bIsBank) return aIsBank ? 1 : -1;
+    return b.rating - a.rating;
+  });
 
   return (
     <Container className="py-8">
