@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#001a4d"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Venmo blue accent -->
+  <circle cx="300" cy="300" r="120" fill="#3d95ce" opacity="0.15"/>
+  <circle cx="300" cy="300" r="80" fill="#3d95ce" opacity="0.2"/>
+  <!-- Venmo icon area -->
+  <text x="300" y="280" text-anchor="middle" fill="#3d95ce" font-family="system-ui" font-size="60" font-weight="700">V</text>
+  <text x="300" y="330" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">Venmo</text>
+  <!-- Arrow to world -->
+  <path d="M 420 290 L 540 290" stroke="#3d95ce" stroke-width="3" fill="none"/>
+  <polygon points="540,280 560,290 540,300" fill="#3d95ce"/>
+  <!-- PayPal globe area -->
+  <circle cx="700" cy="290" r="130" fill="none" stroke="#ffffff20" stroke-width="2"/>
+  <circle cx="700" cy="290" r="130" fill="none" stroke="#ffffff10" stroke-width="1" stroke-dasharray="8,4"/>
+  <ellipse cx="700" cy="290" rx="50" ry="130" fill="none" stroke="#ffffff15" stroke-width="1"/>
+  <line x1="570" y1="250" x2="830" y2="250" stroke="#ffffff10" stroke-width="1"/>
+  <line x1="570" y1="330" x2="830" y2="330" stroke="#ffffff10" stroke-width="1"/>
+  <!-- PayPal label -->
+  <text x="700" y="280" text-anchor="middle" fill="#0070ba" font-family="system-ui" font-size="20" font-weight="700">PayPal</text>
+  <text x="700" y="310" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="36" font-weight="700">90 Countries</text>
+  <!-- Stats boxes -->
+  <rect x="900" y="200" width="220" height="70" rx="10" fill="#ffffff10"/>
+  <text x="1010" y="232" text-anchor="middle" fill="#3d95ce" font-family="system-ui" font-size="24" font-weight="700">200M+</text>
+  <text x="1010" y="255" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="13">New addressable users</text>
+  <rect x="900" y="290" width="220" height="70" rx="10" fill="#ffffff10"/>
+  <text x="1010" y="322" text-anchor="middle" fill="#ff9800" font-family="system-ui" font-size="24" font-weight="700">$0 fees</text>
+  <text x="1010" y="345" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="13">Through Aug 24, 2026</text>
+  <rect x="900" y="380" width="220" height="70" rx="10" fill="#ffffff10"/>
+  <text x="1010" y="412" text-anchor="middle" fill="#ff3d00" font-family="system-ui" font-size="24" font-weight="700">3-4%</text>
+  <text x="1010" y="435" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="13">Typical PayPal FX markup</text>
+  <!-- Title -->
+  <text x="600" y="70" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="30" font-weight="700">PayPal Takes Venmo Global for International Transfers</text>
+  <text x="600" y="108" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">90 countries | 200M users | Fee-free promo through August 2026</text>
+  <!-- Comparison bar -->
+  <g transform="translate(100, 480)">
+    <text x="0" y="0" fill="#ffffff60" font-family="system-ui" font-size="14">FX markup comparison:</text>
+    <rect x="220" y="-15" width="600" height="24" rx="12" fill="#ffffff10"/>
+    <rect x="220" y="-15" width="90" height="24" rx="12" fill="#1a73e8"/>
+    <text x="320" y="3" fill="#ffffff" font-family="system-ui" font-size="12" font-weight="600">Wise 0.4%</text>
+    <rect x="400" y="-15" width="120" height="24" rx="12" fill="#4caf50"/>
+    <text x="470" y="3" fill="#ffffff" font-family="system-ui" font-size="12" font-weight="600">Remitly 1-2%</text>
+    <rect x="600" y="-15" width="220" height="24" rx="12" fill="#ff3d00" opacity="0.8"/>
+    <text x="720" y="3" fill="#ffffff" font-family="system-ui" font-size="12" font-weight="600">PayPal/Venmo 3-4%</text>
+  </g>
+  <!-- Footer -->
+  <text x="600" y="560" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">Source: PayPal Newsroom, March 23, 2026</text>
+  <text x="600" y="590" text-anchor="middle" fill="#1a73e8" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

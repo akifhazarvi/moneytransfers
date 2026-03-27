@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1f36"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Title -->
+  <text x="600" y="70" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="28" font-weight="700">US Remittance Tax: 3 Months of Behavioral Data</text>
+  <text x="600" y="108" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">Cash declining, digital surging, transaction volumes rising</text>
+  <!-- Before/After comparison -->
+  <!-- Before box -->
+  <rect x="100" y="150" width="460" height="300" rx="16" fill="#ffffff08" stroke="#ffffff15" stroke-width="1"/>
+  <text x="330" y="190" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="16" font-weight="600">BEFORE TAX (2025)</text>
+  <rect x="140" y="210" width="380" height="60" rx="8" fill="#ff3d00" opacity="0.3"/>
+  <text x="330" y="248" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">Cash: 38% of US remittances</text>
+  <rect x="140" y="290" width="380" height="60" rx="8" fill="#1a73e8" opacity="0.3"/>
+  <text x="330" y="328" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">14 transactions/year avg</text>
+  <rect x="140" y="370" width="380" height="60" rx="8" fill="#ffffff10"/>
+  <text x="330" y="408" text-anchor="middle" fill="#ffffff80" font-family="system-ui" font-size="18">$500 send = $5-$15 fees + markup</text>
+  <!-- Arrow -->
+  <path d="M 580 300 L 620 300" stroke="#ff9800" stroke-width="4" fill="none"/>
+  <polygon points="620,290 640,300 620,310" fill="#ff9800"/>
+  <!-- After box -->
+  <rect x="640" y="150" width="460" height="300" rx="16" fill="#ffffff08" stroke="#4caf50" stroke-width="1"/>
+  <text x="870" y="190" text-anchor="middle" fill="#4caf50" font-family="system-ui" font-size="16" font-weight="600">AFTER TAX (Q1 2026)</text>
+  <rect x="680" y="210" width="380" height="60" rx="8" fill="#4caf50" opacity="0.3"/>
+  <text x="870" y="248" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">Cash declining rapidly</text>
+  <rect x="680" y="290" width="380" height="60" rx="8" fill="#1a73e8" opacity="0.5"/>
+  <text x="870" y="328" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">18 transactions/year avg (+29%)</text>
+  <rect x="680" y="370" width="380" height="60" rx="8" fill="#4caf50" opacity="0.2"/>
+  <text x="870" y="408" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="600">Digital: $0 tax + lower fees</text>
+  <!-- Bottom stats -->
+  <g transform="translate(0, 470)">
+    <rect x="150" y="0" width="260" height="70" rx="10" fill="#ffffff10"/>
+    <text x="280" y="30" text-anchor="middle" fill="#4caf50" font-family="system-ui" font-size="24" font-weight="700">$500-1,000+</text>
+    <text x="280" y="52" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="13">Annual savings switching to digital</text>
+    <rect x="470" y="0" width="260" height="70" rx="10" fill="#ffffff10"/>
+    <text x="600" y="30" text-anchor="middle" fill="#ff9800" font-family="system-ui" font-size="24" font-weight="700">4.2M</text>
+    <text x="600" y="52" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="13">Remitly active users (+48% YoY)</text>
+    <rect x="790" y="0" width="260" height="70" rx="10" fill="#ffffff10"/>
+    <text x="920" y="30" text-anchor="middle" fill="#ff3d00" font-family="system-ui" font-size="24" font-weight="700">$90/yr</text>
+    <text x="920" y="52" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="13">Tax cost for frequent cash senders</text>
+  </g>
+  <!-- Footer -->
+  <text x="600" y="570" text-anchor="middle" fill="#ffffff60" font-family="system-ui" font-size="14">Source: Inter-American Dialogue survey, Marketplace, March 2026</text>
+  <text x="600" y="598" text-anchor="middle" fill="#1a73e8" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>
