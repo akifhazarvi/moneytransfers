@@ -3,6 +3,7 @@
  *
  * Merges all scraped data sources into a single lookup with source priority:
  *   1. Direct provider scrape (OFX, Instarem, Xoom, TapTap Send, Wise, ACE)
+ *   2. Wise Comparison API (8-18 competitors per corridor, pure API)
  *   2. Monito comparison (covers 39 providers including Remitly, WU, Revolut, etc.)
  *
  * Also loads XE mid-market rates and Trustpilot ratings.
@@ -10,6 +11,7 @@
 
 // --- Raw data imports ---
 import monitoQuotes from "@/data/scraped/monito-quotes.json";
+import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
 import ofxQuotes from "@/data/scraped/ofx-quotes.json";
 import instaremQuotes from "@/data/scraped/instarem-quotes.json";
 import xoomQuotes from "@/data/scraped/xoom-quotes.json";
@@ -98,8 +100,14 @@ const SLUG_ALIASES: Record<string, string> = {
   "the-royal-bank-of-scotland": "rbs",
   "bank-of-america": "bank-of-america",
   "commonwealth-bank": "commonwealth-bank",
+  "commonwealth-bank-of-australia": "commonwealth-bank",
+  "national-australia-bank": "nab",
+  "hsbc-australia": "hsbc",
   "lloyds-bank": "lloyds",
   "bank-of-scotland": "lloyds",
+  "santander-uk": "santander",
+  "starling-bank": "starling",
+  "deutsche-bank": "deutsche-bank",
 };
 
 function normalizeSlug(slug: string): string {
@@ -188,6 +196,9 @@ addQuotes(xoomQuotes as unknown[], 1, "xoom-browser");
 addQuotes(taptapsendQuotes as unknown[], 1, "taptapsend-api");
 addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-api");
 addQuotes(aceQuotes as unknown[], 1, "ace-direct");
+
+// Priority 2: Wise Comparison API (8-18 competitors per corridor, pure REST API)
+addQuotes(wiseComparisonQuotes as unknown[], 2, "wise-comparison-api");
 
 // Priority 2: Monito comparison aggregator (covers 39 providers)
 addQuotes(monitoQuotes as unknown[], 2, "monito-comparison");
