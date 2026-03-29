@@ -16,37 +16,46 @@ export const newsItems: NewsItem[] = [
   {
     slug: "central-bank-super-week-march-2026",
     title:
-      "Central Bank Decisions This Week (March 17–19, 2026): Fed, BoJ, BoE & RBA",
+      "How Central Bank Rate Decisions Affect Your Money Transfers (2026)",
     excerpt:
-      "Fed holds at 3.5%, Bank of Japan hikes rates, Bank of England holds, RBA signals caution. Track the March 17–19, 2026 central bank decisions, what moved FX markets, and what it means for USD, GBP, JPY and AUD transfers.",
+      "Fed held at 3.5%, Bank of Japan hiked, Bank of England held, RBA signalled caution. How central bank interest rate decisions move exchange rates — and what to do before, during, and after rate announcements to protect your transfer.",
     image: "/images/news/central-bank-super-week.jpg",
     imageAlt:
       "The Federal Reserve building in Washington D.C., one of four central banks announcing rate decisions this week",
-    content: `<p>This week is one of the most consequential in the 2026 currency calendar. Between March 17 and 19, four major central banks — the <strong>Reserve Bank of Australia</strong>, <strong>US Federal Reserve</strong>, <strong>Bank of Japan</strong>, and <strong>Bank of England</strong> — all publish rate decisions or monetary policy statements. For anyone planning an international money transfer, the timing matters.</p>
+    content: `<p>Central bank interest rate decisions are the single biggest driver of exchange rate movements. When the Federal Reserve, Bank of England, Bank of Japan, or European Central Bank announce rate changes, currency pairs can move 1–2% within hours — that's a <strong>£100–£200 difference on a £10,000 transfer</strong>. If you send money internationally, understanding rate decisions helps you time transfers and avoid losing money to volatility.</p>
 
-<h2>What's expected — and what could surprise</h2>
-<p>The <strong>Reserve Bank of Australia</strong> (March 17 — today) publishes its monetary policy statement following its board meeting. The RBA cut rates in February 2026 for the first time in years, and markets are watching whether the board signals another cut is on the table. An unexpectedly dovish tone could weaken the Australian dollar, affecting corridors like AUD/INR and AUD/PHP.</p>
+<h2>How central bank rates affect your transfer</h2>
+<p>Interest rate changes affect exchange rates because money flows toward higher-yielding currencies. When the Fed cuts rates, the dollar typically weakens — great if you're sending dollars abroad (your recipient gets more), bad if you're sending money <em>to</em> the US. The same logic applies to every major currency pair.</p>
 
-<p>The <strong>Federal Reserve</strong> (March 17–18) is widely expected to hold rates steady. The real focus is the updated "dot plot" — the Fed's projection of future rate cuts. A shift from one projected cut in 2026 to zero would strengthen the dollar, meaning your recipient gets fewer euros, pounds, or rupees per dollar sent. A shift to two projected cuts would weaken the dollar and improve rates for US senders.</p>
+<p>The effect isn't always immediate. Markets price in expectations ahead of time, so a "surprise hold" or an unexpected change in guidance can move currencies more than the actual decision. This is why the <strong>central bank statement and press conference</strong> often matter more than the rate itself.</p>
 
-<p>The <strong>Bank of Japan</strong> (March 18–19) is the wildcard. The BoJ has been gradually normalising policy after decades of ultra-loose monetary settings. Any hint of further rate hikes could strengthen the yen sharply, affecting corridors like USD/JPY and GBP/JPY. Japan-bound transfers could suddenly become more expensive if the yen rallies.</p>
-
-<p>The <strong>Bank of England</strong> (March 19) is also expected to hold. UK inflation has proven sticky, and higher energy prices have complicated the case for easing. Sterling has been relatively strong in 2026, with GBP/USD trading around 1.32 — good news for British senders, but a hold decision that signals delayed cuts could push the pound even higher.</p>
-
-<h2>How rate decisions move your transfer costs</h2>
-<p>Interest rate changes affect exchange rates because money flows toward higher-yielding currencies. When the Fed cuts rates, the dollar typically weakens — great if you're sending dollars abroad (your recipient gets more), but bad if you're sending money <em>to</em> the US.</p>
-
-<p>The effect isn't always immediate, either. Markets price in expectations ahead of time, so a "surprise hold" or an unexpected change in guidance can move currencies more than the actual rate decision. On past super-weeks, major pairs have moved 1–2% within hours of announcements — that's a £100–£200 difference on a £10,000 transfer.</p>
-
-<h2>What to do this week</h2>
-<p>If you have a transfer planned for this week, you have three options:</p>
+<h2>Key central banks that move transfer rates</h2>
 <ul>
-<li><strong>Send today before the RBA statement lands</strong> — Lock in current rates and avoid early volatility. The RBA publishes at 14:30 AEDT.</li>
-<li><strong>Wait until Thursday or Friday</strong> — By then, all four decisions will be public and the initial volatility will have settled. You'll know whether rates moved in your favour.</li>
-<li><strong>Set a rate alert</strong> — Use a multi-currency account with <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> to set an alert at your target rate. If the post-announcement volatility pushes rates in your direction, you'll be notified instantly and can convert on the spot.</li>
+<li><strong>Federal Reserve (Fed)</strong> — Controls the USD. Rate cuts weaken the dollar (good for US senders to India, Mexico, Philippines). Rate hikes strengthen it.</li>
+<li><strong>Bank of England (BoE)</strong> — Controls GBP. UK senders to India, Pakistan, Bangladesh, Nigeria should watch BoE decisions closely.</li>
+<li><strong>European Central Bank (ECB)</strong> — Controls the EUR. Affects Europe-to-India, Europe-to-Morocco, and EUR/GBP corridors.</li>
+<li><strong>Bank of Japan (BoJ)</strong> — Controls JPY. BoJ is the wildcard — decades of ultra-low rates mean any hint of normalisation moves USD/JPY sharply.</li>
+<li><strong>Reserve Bank of Australia (RBA)</strong> — Controls AUD. Important for Australia-to-India, Australia-to-Philippines, AUD/NZD corridors.</li>
 </ul>
 
-<p>Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> is especially important during volatile weeks like this — providers absorb or pass on currency swings very differently. If you hold multiple currencies, our guide on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates</a> explains which products give you the most flexibility. Whichever approach you choose, compare rates from multiple providers before committing — our guide to the <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a> explains exactly what to look for. Our <a href="/send-money">comparison tool</a> shows live rates and fees, so you can see exactly how much your recipient will receive — before and after the central banks have their say.</p>`,
+<h2>Case study: March 17–19, 2026 — four decisions in three days</h2>
+<p>One of the most consequential weeks in the 2026 currency calendar saw four major central banks all announce within 72 hours:</p>
+<ul>
+<li><strong>RBA (March 17)</strong> — Held rates after cutting in February 2026 for the first time in years. Dovish tone weakened AUD, benefiting AUD/INR and AUD/PHP senders.</li>
+<li><strong>Fed (March 17–18)</strong> — Held at 3.5%. The "dot plot" projections were the real driver — showing one projected cut in 2026, keeping the dollar stable.</li>
+<li><strong>BoJ (March 18–19)</strong> — Continued normalising policy after decades of ultra-loose settings. Yen strengthened, making Japan-bound transfers more expensive.</li>
+<li><strong>BoE (March 19)</strong> — Held steady. Sticky UK inflation complicated the case for easing. Sterling stayed strong at GBP/USD ~1.32 — good for British senders.</li>
+</ul>
+
+<h2>How to protect your transfer around rate decisions</h2>
+<p>Three strategies to manage central bank volatility:</p>
+<ol>
+<li><strong>Send before the announcement</strong> — Lock in current rates and avoid volatility. Most central bank decisions are published at a set time (e.g., Fed at 14:00 ET, BoE at 12:00 GMT).</li>
+<li><strong>Wait 24–48 hours after</strong> — Initial volatility settles within 1–2 days. You'll know whether rates moved in your favour.</li>
+<li><strong>Set a rate alert</strong> — Use <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> to set an alert at your target rate. If post-announcement volatility pushes rates in your direction, you'll be notified instantly.</li>
+</ol>
+
+<p>Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> is especially important during volatile weeks — providers absorb or pass on currency swings very differently. If you hold multiple currencies, our guide on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts</a> explains which products give you the most flexibility. Our <a href="/send-money">comparison tool</a> shows live rates and fees, so you can see exactly how much your recipient receives — before and after central banks have their say. For broader context, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-17",
     source: "Reuters / Bank of England / Federal Reserve",
