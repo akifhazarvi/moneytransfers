@@ -17,6 +17,8 @@ import { promos } from "@/data/promos";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
+import { getRateInsight, rateLevelConfig, getProviderInsight } from "@/lib/rate-history";
+import { Sparkline } from "@/components/RateInsight";
 
 type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
@@ -597,6 +599,93 @@ function SendMoneyContent() {
           </p>
         </div>
       )}
+
+      {/* Corridor Rate Insight */}
+      {(() => {
+        const insight = getRateInsight(fromCurrency, toCurrency);
+        if (!insight || insight.totalDays < 2) return null;
+        const lvl = rateLevelConfig(insight.level);
+
+        // Compute per-provider summaries for top providers in current results
+        const topSlugs = filteredQuotes.slice(0, 5).map((q) => q.providerSlug);
+        const providerStats = topSlugs
+          .map((slug) => {
+            const pi = getProviderInsight(fromCurrency, toCurrency, slug);
+            const sp = insight.sparklines[slug];
+            if (!pi || !sp || sp.length < 2) return null;
+            return { slug, ...pi, sparkline: sp };
+          })
+          .filter(Boolean) as Array<{ slug: string; avgRate: number; minRate: number; maxRate: number; currentRate: number; trendPct: number; trendDirection: "up" | "down" | "stable"; daysTracked: number; currentVsAvg: number; sparkline: { date: string; rate: number; receiveAmount: number }[] }>;
+
+        return (
+          <div className="mb-3 rounded-xl border overflow-hidden" style={{ borderColor: lvl.color + "33", backgroundColor: lvl.bg }}>
+            {/* Overall corridor banner */}
+            <div className="px-4 py-3 sm:px-5 sm:py-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-base font-semibold" style={{ color: lvl.color }}>{lvl.icon}</span>
+                    <h3 className="text-sm font-semibold" style={{ color: lvl.color }}>
+                      {fromCurrency} → {toCurrency} rates are {lvl.label.toLowerCase()} right now
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-1 mb-1">
+                    {Array.from({ length: 10 }, (_, i) => (
+                      <span key={i} className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: i < Math.round(insight.levelPct / 10) ? lvl.color : lvl.color + "30" }} />
+                    ))}
+                    <span className="ml-1.5 text-2xs font-medium" style={{ color: lvl.color }}>{insight.levelPct}th percentile</span>
+                  </div>
+                  <p className="text-2xs text-[var(--color-on-surface-variant)]">
+                    Based on {insight.totalDays} days of data · Best today: {getProviderName(insight.today.bestProvider)} at {insight.today.bestRate.toFixed(4)}
+                  </p>
+                </div>
+                <div className="grid grid-cols-3 gap-x-4 gap-y-1 text-2xs sm:text-xs">
+                  <div>
+                    <span className="text-[var(--color-on-surface-muted)]">Avg</span>
+                    <p className="font-semibold text-[var(--color-on-surface)] tabular-nums">{insight.stats.avgRate.toFixed(4)}</p>
+                  </div>
+                  <div>
+                    <span className="text-[var(--color-on-surface-muted)]">Best</span>
+                    <p className="font-semibold text-[var(--color-success)] tabular-nums">{insight.stats.bestRate.toFixed(4)}</p>
+                  </div>
+                  <div>
+                    <span className="text-[var(--color-on-surface-muted)]">Worst</span>
+                    <p className="font-semibold text-[var(--color-danger)] tabular-nums">{insight.stats.worstRate.toFixed(4)}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Per-provider mini breakdown */}
+            {providerStats.length > 0 && (
+              <div className="border-t px-4 py-3 sm:px-5 sm:py-3 bg-[var(--color-surface)]" style={{ borderColor: lvl.color + "22" }}>
+                <p className="text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-2">Provider trends ({insight.totalDays} days)</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                  {providerStats.map((ps) => (
+                    <div key={ps.slug} className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/50">
+                      <Sparkline data={ps.sparkline} width={56} height={20} />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-2xs font-medium text-[var(--color-on-surface)] truncate">{getProviderName(ps.slug)}</p>
+                        <div className="flex items-center gap-2 text-[10px]">
+                          <span style={{ color: ps.trendDirection === "up" ? "var(--color-success)" : ps.trendDirection === "down" ? "var(--color-danger)" : "var(--color-on-surface-muted)" }}>
+                            {ps.trendDirection === "up" ? "↑" : ps.trendDirection === "down" ? "↓" : "→"}{Math.abs(ps.trendPct).toFixed(1)}%
+                          </span>
+                          <span className="text-[var(--color-on-surface-muted)]">
+                            Avg {ps.avgRate.toFixed(2)}
+                          </span>
+                          <span style={{ color: ps.currentVsAvg > 0.05 ? "var(--color-success)" : ps.currentVsAvg < -0.05 ? "var(--color-danger)" : "var(--color-on-surface-muted)" }}>
+                            {ps.currentVsAvg > 0 ? "+" : ""}{ps.currentVsAvg.toFixed(1)}%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Results list */}
       <div className="mb-12">
