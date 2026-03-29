@@ -338,40 +338,46 @@
         "receiveAmount": 588.46
       },
       "moneygram": {
-        "rate": 5.9342,
+        "rate": 5.9266,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 581.61
+        "receiveAmount": 580.87
       },
       "remitly": {
-        "rate": 5.9258,
+        "rate": 5.9113,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 580.79
+        "receiveAmount": 579.37
       },
       "instarem": {
-        "rate": 5.9829,
+        "rate": 5.9647,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 598.29
+        "receiveAmount": 596.47
       },
       "skrill": {
-        "rate": 5.8302,
+        "rate": 5.8125,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 583.02
+        "receiveAmount": 581.25
       },
       "paypal": {
-        "rate": 5.7598,
+        "rate": 5.7543,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 553
+        "receiveAmount": 552.47
       },
       "xoom": {
-        "rate": 5.8526,
+        "rate": 5.8558,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 567.76
+        "receiveAmount": 568.07
+      },
+      "wise": {
+        "rate": 6.0234,
+        "fee": 1.95,
+        "markup": null,
+        "receiveAmount": 590.6
       }
     }
   }

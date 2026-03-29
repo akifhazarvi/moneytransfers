@@ -440,10 +440,10 @@
         "receiveAmount": 6261.15
       },
       "western-union": {
-        "rate": 64.7921,
-        "fee": 7.99,
-        "markup": null,
-        "receiveAmount": 5961.52
+        "rate": 64.6135,
+        "fee": 0.99,
+        "markup": 1.83,
+        "receiveAmount": 6397.39
       },
       "currencyfair": {
         "rate": 65.2915,
@@ -452,10 +452,10 @@
         "receiveAmount": 6409.01
       },
       "instarem": {
-        "rate": 65.1174,
+        "rate": 64.8093,
         "fee": 0.6,
         "markup": null,
-        "receiveAmount": 6472.67
+        "receiveAmount": 6442.04
       },
       "xe-money-transfer": {
         "rate": 65.2203,
@@ -470,10 +470,10 @@
         "receiveAmount": 6400.44
       },
       "remitly": {
-        "rate": 64.46,
+        "rate": 64.1829,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6446
+        "receiveAmount": 6418.29
       },
       "revolut-money-transfer": {
         "rate": 65.4652,
@@ -494,34 +494,34 @@
         "receiveAmount": 6500
       },
       "hsbc": {
-        "rate": 63.7663,
+        "rate": 63.528,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6376.63
+        "receiveAmount": 6352.8
       },
       "commonwealth-bank": {
-        "rate": 63.4215,
+        "rate": 63.2225,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6342.15
+        "receiveAmount": 6322.25
       },
       "anz": {
-        "rate": 62.6207,
+        "rate": 62.3867,
         "fee": 9,
         "markup": null,
-        "receiveAmount": 5698.49
+        "receiveAmount": 5677.19
       },
       "nab": {
-        "rate": 62.8456,
+        "rate": 63.1185,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6284.56
+        "receiveAmount": 6311.85
       },
       "wise": {
-        "rate": 65.1531,
+        "rate": 64.8954,
         "fee": 1.55,
         "markup": null,
-        "receiveAmount": 6414.32
+        "receiveAmount": 6388.95
       }
     }
   }

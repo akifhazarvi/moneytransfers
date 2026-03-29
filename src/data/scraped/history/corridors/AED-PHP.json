@@ -54,6 +54,18 @@
         "fee": 5,
         "markup": 1.09,
         "receiveAmount": 1539
+      },
+      "taptap-send": {
+        "rate": 16.2,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1620
+      },
+      "wise": {
+        "rate": 16.4711,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1647.11
       }
     }
   }

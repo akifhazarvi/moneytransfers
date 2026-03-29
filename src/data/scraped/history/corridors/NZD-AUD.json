@@ -326,34 +326,34 @@
     "date": "2026-03-29",
     "providers": {
       "kiwibank": {
-        "rate": 0.8207,
+        "rate": 0.8224,
         "fee": 20,
         "markup": null,
-        "receiveAmount": 65.66
+        "receiveAmount": 65.79
       },
       "auckland-savings-bank-nz": {
-        "rate": 0.823,
+        "rate": 0.8247,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 78.19
+        "receiveAmount": 78.34
       },
       "bank-of-new-zealand-nz": {
-        "rate": 0.7891,
+        "rate": 0.8217,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 78.91
+        "receiveAmount": 82.17
       },
       "remitly": {
-        "rate": 0.822,
+        "rate": 0.8239,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 78.92
+        "receiveAmount": 79.1
       },
       "paypal": {
-        "rate": 0.8009,
+        "rate": 0.8018,
         "fee": 6.99,
         "markup": null,
-        "receiveAmount": 74.49
+        "receiveAmount": 74.58
       }
     }
   }

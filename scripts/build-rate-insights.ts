@@ -15,6 +15,8 @@ import path from "path";
 
 const CORRIDORS_DIR = path.join("src/data/scraped/history/corridors");
 const OUTPUT_PATH = path.join("src/data/scraped/rate-insights.json");
+const MIDMARKET_HISTORY_PATH = path.join("src/data/scraped/history/midmarket-daily.json");
+const MIDMARKET_OUTPUT_PATH = path.join("src/data/scraped/midmarket-history.json");
 
 interface ProviderDayData {
   rate: number;
@@ -216,6 +218,51 @@ function main() {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(insights));
   console.log(`Wrote ${Object.keys(insights).length} corridor insights to ${OUTPUT_PATH}`);
+
+  // Build mid-market history for the widget (all currency pairs)
+  buildMidMarketOutput();
+}
+
+interface MidMarketDay {
+  date: string;
+  rates: Record<string, number>;
+}
+
+function buildMidMarketOutput(): void {
+  if (!fs.existsSync(MIDMARKET_HISTORY_PATH)) {
+    console.log("No midmarket-daily.json — skipping mid-market output");
+    // Write empty but valid output so static import doesn't break
+    fs.writeFileSync(MIDMARKET_OUTPUT_PATH, JSON.stringify({ currencies: [], days: [] }));
+    return;
+  }
+
+  let history: MidMarketDay[];
+  try {
+    history = JSON.parse(fs.readFileSync(MIDMARKET_HISTORY_PATH, "utf-8"));
+  } catch {
+    fs.writeFileSync(MIDMARKET_OUTPUT_PATH, JSON.stringify({ currencies: [], days: [] }));
+    return;
+  }
+
+  if (history.length === 0) {
+    fs.writeFileSync(MIDMARKET_OUTPUT_PATH, JSON.stringify({ currencies: [], days: [] }));
+    return;
+  }
+
+  // Collect all currencies across all days
+  const allCurrencies = new Set<string>();
+  for (const day of history) {
+    for (const code of Object.keys(day.rates)) allCurrencies.add(code);
+  }
+
+  // Output: { currencies: string[], days: [{ date, rates: {code: rate} }] }
+  const output = {
+    currencies: [...allCurrencies].sort(),
+    days: history.map((d) => ({ date: d.date, rates: d.rates })),
+  };
+
+  fs.writeFileSync(MIDMARKET_OUTPUT_PATH, JSON.stringify(output));
+  console.log(`Wrote mid-market history: ${output.currencies.length} currencies, ${output.days.length} days to ${MIDMARKET_OUTPUT_PATH}`);
 }
 
 main();

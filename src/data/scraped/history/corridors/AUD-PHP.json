@@ -458,10 +458,10 @@
         "receiveAmount": 4063.69
       },
       "western-union": {
-        "rate": 41.2195,
+        "rate": 41.6071,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 4121.95
+        "markup": 1.2,
+        "receiveAmount": 4160.71
       },
       "currencyfair": {
         "rate": 41.86,
@@ -470,10 +470,10 @@
         "receiveAmount": 4106.05
       },
       "instarem": {
-        "rate": 41.5412,
+        "rate": 41.3871,
         "fee": 0.75,
         "markup": null,
-        "receiveAmount": 4122.96
+        "receiveAmount": 4107.67
       },
       "xe-money-transfer": {
         "rate": 41.8829,
@@ -488,10 +488,10 @@
         "receiveAmount": 3989.52
       },
       "remitly": {
-        "rate": 40.83,
+        "rate": 40.6973,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4083
+        "receiveAmount": 4069.73
       },
       "revolut-money-transfer": {
         "rate": 41.7713,
@@ -500,10 +500,10 @@
         "receiveAmount": 4118.23
       },
       "wise": {
-        "rate": 41.5691,
+        "rate": 41.4447,
         "fee": 1.46,
         "markup": null,
-        "receiveAmount": 4096.22
+        "receiveAmount": 4083.96
       },
       "ria": {
         "rate": 42,
@@ -518,34 +518,34 @@
         "receiveAmount": 4160
       },
       "nab": {
-        "rate": 40.12,
+        "rate": 40.3476,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4012
+        "receiveAmount": 4034.76
       },
       "hsbc": {
-        "rate": 40.754,
+        "rate": 40.6824,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4075.4
+        "receiveAmount": 4068.24
       },
       "anz": {
-        "rate": 39.8676,
+        "rate": 39.7976,
         "fee": 9,
         "markup": null,
-        "receiveAmount": 3627.95
+        "receiveAmount": 3621.58
       },
       "commonwealth-bank": {
-        "rate": 39.7131,
+        "rate": 39.6266,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3971.31
+        "receiveAmount": 3962.66
       },
       "paypal": {
-        "rate": 39.6142,
+        "rate": 39.5825,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 3763.35
+        "receiveAmount": 3760.33
       }
     }
   }

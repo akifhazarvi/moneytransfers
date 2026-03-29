@@ -184,13 +184,91 @@ function aggregateCorridors(files: string[]): void {
   );
 }
 
+// ── Mid-market rate history ────────────────────────────────────
+// Save daily XE mid-market snapshots so we can show rate charts
+// for all 229 currency pairs, not just provider corridors.
+
+const MIDMARKET_HISTORY_PATH = path.join(HISTORY_DIR, "midmarket-daily.json");
+
+interface MidMarketDay {
+  date: string;
+  rates: Record<string, number>; // currency code → rate vs USD
+}
+
+function saveMidMarketSnapshot(): void {
+  const xePath = path.join(SCRAPED_DIR, "xe-midmarket-rates.json");
+  if (!fs.existsSync(xePath)) {
+    console.log("No xe-midmarket-rates.json — skipping mid-market history");
+    return;
+  }
+
+  let xeData: { baseCurrency: string; timestamp: string; rates: Record<string, number> };
+  try {
+    xeData = JSON.parse(fs.readFileSync(xePath, "utf-8"));
+  } catch {
+    console.warn("Failed to parse xe-midmarket-rates.json");
+    return;
+  }
+
+  if (!xeData.rates || Object.keys(xeData.rates).length < 10) return;
+
+  const today = new Date().toISOString().slice(0, 10);
+
+  // Load existing history
+  let history: MidMarketDay[] = [];
+  if (fs.existsSync(MIDMARKET_HISTORY_PATH)) {
+    try {
+      history = JSON.parse(fs.readFileSync(MIDMARKET_HISTORY_PATH, "utf-8"));
+    } catch {
+      history = [];
+    }
+  }
+
+  // Skip if we already have today's data
+  if (history.some((d) => d.date === today)) {
+    console.log(`Mid-market snapshot for ${today} already exists — skipping`);
+    return;
+  }
+
+  // Keep only major currencies to limit file size (~100 currencies)
+  const majorCurrencies = new Set([
+    "USD", "EUR", "GBP", "CAD", "AUD", "NZD", "CHF", "JPY", "CNY", "HKD",
+    "SGD", "AED", "SAR", "KRW", "INR", "PKR", "BDT", "PHP", "VND", "IDR",
+    "THB", "MYR", "LKR", "NPR", "MXN", "BRL", "COP", "PEN", "GTQ", "DOP",
+    "JMD", "ARS", "CLP", "NGN", "GHS", "KES", "ZAR", "EGP", "MAD", "ETB",
+    "UGX", "TZS", "RWF", "ZMW", "XOF", "XAF", "TRY", "PLN", "CZK", "HUF",
+    "RON", "NOK", "SEK", "DKK", "ILS", "KWD", "QAR", "BHD", "OMR", "JOD",
+    "FJD", "TWD", "HNL", "BOB", "UAH",
+  ]);
+
+  const filteredRates: Record<string, number> = {};
+  for (const [code, rate] of Object.entries(xeData.rates)) {
+    if (majorCurrencies.has(code)) {
+      filteredRates[code] = Math.round(rate * 1000000) / 1000000;
+    }
+  }
+
+  history.push({ date: today, rates: filteredRates });
+
+  // Keep last 90 days max
+  if (history.length > 90) {
+    history = history.slice(history.length - 90);
+  }
+
+  fs.writeFileSync(MIDMARKET_HISTORY_PATH, JSON.stringify(history));
+  console.log(`Saved mid-market snapshot for ${today} (${Object.keys(filteredRates).length} currencies, ${history.length} days total)`);
+}
+
 function main() {
   fs.mkdirSync(HISTORY_DIR, { recursive: true });
 
   // Step 1: Create a new snapshot from live quote files
   createSnapshot();
 
-  // Step 2: Aggregate all snapshots into corridor time series
+  // Step 2: Save daily XE mid-market rates
+  saveMidMarketSnapshot();
+
+  // Step 3: Aggregate all snapshots into corridor time series
   const files = loadSnapshotFiles();
   if (files.length === 0) {
     console.log("No snapshot files found — nothing to aggregate.");
