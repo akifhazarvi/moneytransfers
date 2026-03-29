@@ -110,7 +110,7 @@ export default async function NewsArticlePage({ params }: Props) {
               "@type": "Organization",
               name: "SendMoneyCompare",
               "@id": "https://sendmoneycompare.com/#organization",
-              logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/icon-192x192.png", width: 192, height: 192 },
+              logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
             },
           }),
         }}

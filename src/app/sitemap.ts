@@ -19,7 +19,9 @@ import { shouldIncludeInSitemap } from "@/lib/corridor-tiers";
 // not deploy timestamps. Using a fixed date for pages that rarely change prevents
 // Google from losing trust in the lastmod signal across the entire sitemap.
 // See: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
-const LAST_DEPLOY = new Date().toISOString().split("T")[0];
+// Stable date for hub/static pages — only update when content actually changes.
+// Using new Date() here was inflating lastmod on every deploy, eroding Google's trust in the signal.
+const STATIC_HUB_DATE = "2026-03-28";
 const STATIC_CONTENT_DATE = "2026-03-01"; // Hardcoded for legal/policy pages that rarely change
 
 // Dynamically derived from the most recently modified scraped quotes file.
@@ -42,7 +44,7 @@ function getDataUpdatedDate(): string {
   }
   return latest.getTime() > 0
     ? latest.toISOString().split("T")[0]
-    : LAST_DEPLOY;
+    : STATIC_HUB_DATE;
 }
 
 const DATA_UPDATED = getDataUpdatedDate();
@@ -95,16 +97,16 @@ function entryWithLocales(path: string, lastModified: string): MetadataRoute.Sit
 export default function sitemap(): MetadataRoute.Sitemap {
   // ── Static pages (EN) ──
   const staticPages: MetadataRoute.Sitemap = [
-    entry("", LAST_DEPLOY),
+    entry("", DATA_UPDATED), // Homepage has live comparison data
     entry("send-money", DATA_UPDATED),
     entry("companies", DATA_UPDATED),
     entry("compare", DATA_UPDATED),
     entry("currency-converter", DATA_UPDATED),
-    entry("guides", LAST_DEPLOY),
-    entry("iban", LAST_DEPLOY),
-    entry("swift-codes", LAST_DEPLOY),
-    entry("about", LAST_DEPLOY),
-    entry("contact", LAST_DEPLOY),
+    entry("guides", STATIC_HUB_DATE),
+    entry("iban", STATIC_HUB_DATE),
+    entry("swift-codes", STATIC_HUB_DATE),
+    entry("about", STATIC_HUB_DATE),
+    entry("contact", STATIC_HUB_DATE),
     // Issue 5 fix: Legal/policy pages use stable date — content rarely changes
     entry("editorial-policy", STATIC_CONTENT_DATE),
     entry("how-we-review", STATIC_CONTENT_DATE),
@@ -119,19 +121,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Google's Search Central docs recommend including all indexable locale
   // variants in the sitemap to ensure complete crawl discovery.
   const staticLocalePages: MetadataRoute.Sitemap = [
-    ...withLocales("", LAST_DEPLOY),
+    ...withLocales("", DATA_UPDATED), // Homepage has live data
     ...withLocales("send-money", DATA_UPDATED),
     ...withLocales("companies", DATA_UPDATED),
     ...withLocales("compare", DATA_UPDATED),
     ...withLocales("currency-converter", DATA_UPDATED),
-    ...withLocales("guides", LAST_DEPLOY),
-    ...withLocales("iban", LAST_DEPLOY),
-    ...withLocales("swift-codes", LAST_DEPLOY),
+    ...withLocales("guides", STATIC_HUB_DATE),
+    ...withLocales("iban", STATIC_HUB_DATE),
+    ...withLocales("swift-codes", STATIC_HUB_DATE),
     // exchange-rates locales handled in exchangeRatesPage via entryWithLocales()
-    ...withLocales("business", LAST_DEPLOY),
-    ...withLocales("news", LAST_DEPLOY),
-    ...withLocales("about", LAST_DEPLOY),
-    ...withLocales("contact", LAST_DEPLOY),
+    ...withLocales("business", STATIC_HUB_DATE),
+    ...withLocales("news", STATIC_HUB_DATE),
+    ...withLocales("about", STATIC_HUB_DATE),
+    ...withLocales("contact", STATIC_HUB_DATE),
     // Previously missing locale variants — now included
     ...withLocales("editorial-policy", STATIC_CONTENT_DATE),
     ...withLocales("how-we-review", STATIC_CONTENT_DATE),
@@ -175,7 +177,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // News content is English-only — locale variants are noindexed, so exclude from sitemap
   const newsPages: MetadataRoute.Sitemap = [
-    entry("news", LAST_DEPLOY),
+    entry("news", STATIC_HUB_DATE),
     ...newsItems.map((item) =>
       entry(`news/${item.slug}`, item.publishedAt),
     ),
@@ -200,25 +202,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
     .filter((c) => c.slug && INDEXED_IBAN_SLUGS.has(c.slug))
-    .flatMap((c) => [entry(`iban/${c.slug}`, LAST_DEPLOY), ...withLocales(`iban/${c.slug}`, LAST_DEPLOY)]);
+    .flatMap((c) => [entry(`iban/${c.slug}`, STATIC_HUB_DATE), ...withLocales(`iban/${c.slug}`, STATIC_HUB_DATE)]);
 
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
     .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
-    .flatMap((c) => [entry(`swift-codes/${c.slug}`, LAST_DEPLOY), ...withLocales(`swift-codes/${c.slug}`, LAST_DEPLOY)]);
+    .flatMap((c) => [entry(`swift-codes/${c.slug}`, STATIC_HUB_DATE), ...withLocales(`swift-codes/${c.slug}`, STATIC_HUB_DATE)]);
 
   // Business content is English-only — locale variants are noindexed
   const businessHubPages: MetadataRoute.Sitemap = [
-    entry("business", LAST_DEPLOY),
-    ...businessPages.map((p) => entry(`business/${p.slug}`, LAST_DEPLOY)),
+    entry("business", STATIC_HUB_DATE),
+    ...businessPages.map((p) => entry(`business/${p.slug}`, STATIC_HUB_DATE)),
   ];
 
   // ── Issue 3 fix: Author pages now include locale variants ──
   const authorPages: MetadataRoute.Sitemap = authors.flatMap((author) =>
-    entryWithLocales(`about/${author.slug}`, LAST_DEPLOY)
+    entryWithLocales(`about/${author.slug}`, STATIC_HUB_DATE)
   );
 
   // ── Issue 4 fix: Corrections page now includes locale variants ──
-  const correctionsPage: MetadataRoute.Sitemap = entryWithLocales("corrections", LAST_DEPLOY);
+  const correctionsPage: MetadataRoute.Sitemap = entryWithLocales("corrections", STATIC_HUB_DATE);
 
   return [
     ...staticPages,

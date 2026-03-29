@@ -48,9 +48,9 @@ export const comparisonArticles: ComparisonArticle[] = [
     slug: "wise-vs-remitly",
     providerA: "wise",
     providerB: "remitly",
-    title: "Wise vs Remitly: Best for International Transfers?",
+    title: "Wise vs Remitly 2026: Fees, Rates & Which Sends More Money",
     metaDescription:
-      "Detailed comparison of Wise and Remitly — fees, exchange rates, speed, payment methods, and which is better for large vs small transfers. Based on real data.",
+      "We tested Wise vs Remitly across 6 corridors. Wise charges 0.33–0.63% with mid-market rates. Remitly offers express delivery in minutes. See who wins.",
     updatedAt: "2026-03-14",
     readTime: "12 min read",
     intro:
