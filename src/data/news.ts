@@ -840,6 +840,59 @@ export const newsItems: NewsItem[] = [
       "https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems",
     providerSlugs: ["wise", "remitly", "worldremit", "western-union", "moneygram"],
   },
+  {
+    slug: "april-2026-central-bank-calendar",
+    title: "April 2026 Central Bank Calendar: ECB, Fed Minutes, RBA & BoC Rate Decisions",
+    excerpt:
+      "Four major central bank events in April 2026 could move GBP, EUR, USD, AUD, and CAD exchange rates. Here's when decisions land and how they affect your international transfers.",
+    image: "/images/news/central-bank-super-week.jpg",
+    imageAlt: "Central bank buildings representing April 2026 rate decisions that will affect international money transfer costs",
+    content: `<p>April 2026 brings several central bank decisions that could move the exchange rates on your international transfers. After a busy March (see our <a href="/news/central-bank-super-week-march-2026">guide to how central bank decisions affect your transfers</a>), April continues with the ECB, Fed minutes, RBA, and Bank of Canada all on the calendar.</p>
+
+<h2>April 2026 Central Bank Schedule</h2>
+<table>
+<thead><tr><th>Date</th><th>Central Bank</th><th>Event</th><th>Currencies Affected</th></tr></thead>
+<tbody>
+<tr><td><strong>April 2</strong></td><td>Reserve Bank of Australia (RBA)</td><td>Rate decision + statement</td><td>AUD — affects AUD/INR, AUD/PHP, AUD/NZD</td></tr>
+<tr><td><strong>April 9</strong></td><td>US Federal Reserve</td><td>March meeting minutes release</td><td>USD — affects all USD pairs</td></tr>
+<tr><td><strong>April 16</strong></td><td>Bank of Canada (BoC)</td><td>Rate decision + Monetary Policy Report</td><td>CAD — affects CAD/INR, CAD/PHP, CAD/PKR</td></tr>
+<tr class="blog-row-highlight"><td><strong>April 17</strong></td><td>European Central Bank (ECB)</td><td>Rate decision + press conference</td><td>EUR — affects EUR/GBP, EUR/INR, EUR/USD</td></tr>
+</tbody>
+</table>
+
+<h2>What to watch for each decision</h2>
+
+<h3>RBA (April 2) — AUD Senders</h3>
+<p>The RBA cut rates in February 2026 and held in March. Markets are pricing in a ~40% chance of another cut in April. If the RBA cuts, the Australian dollar will likely weaken — meaning Australian senders to India, Philippines, and the UK will get fewer rupees/pesos/pounds per dollar. If you're planning a large AUD transfer, consider sending before April 2.</p>
+<p><strong>Corridors to watch:</strong> <a href="/send-money/australia-to-india">AUD to INR</a>, <a href="/send-money/australia-to-philippines">AUD to PHP</a></p>
+
+<h3>Fed Minutes (April 9) — USD Senders</h3>
+<p>The Fed held rates at 3.5% in March. The April 9 minutes release will reveal the internal debate — how many members favoured cuts, and what economic conditions they see as triggers. Hawkish minutes (fewer members wanting cuts) would strengthen the dollar; dovish minutes would weaken it.</p>
+<p><strong>Corridors to watch:</strong> <a href="/send-money/usa-to-india">USD to INR</a>, <a href="/send-money/usa-to-mexico">USD to MXN</a>, <a href="/send-money/usa-to-philippines">USD to PHP</a></p>
+
+<h3>Bank of Canada (April 16) — CAD Senders</h3>
+<p>The BoC has been cutting rates through late 2025 and early 2026. The April meeting comes with the quarterly Monetary Policy Report, which includes updated GDP and inflation forecasts. A pause would strengthen CAD; another cut would weaken it.</p>
+<p><strong>Corridors to watch:</strong> <a href="/send-money/canada-to-india">CAD to INR</a>, <a href="/send-money/canada-to-philippines">CAD to PHP</a></p>
+
+<h3>ECB (April 17) — EUR Senders</h3>
+<p>The ECB is the most likely to cut rates in April, with markets pricing in a ~65% probability. European inflation has been falling faster than expected. A cut would weaken the euro against GBP and USD — bad for European senders but good for anyone sending <em>to</em> Europe. The press conference language matters as much as the decision itself.</p>
+<p><strong>Corridors to watch:</strong> <a href="/send-money/uk-to-europe">GBP to EUR</a>, <a href="/send-money/europe-to-india">EUR to INR</a>, <a href="/exchange-rates/eur-to-usd">EUR to USD rate</a></p>
+
+<h2>How to protect your transfer</h2>
+<p>The same strategies apply every time central banks meet:</p>
+<ol>
+<li><strong>Send before the decision</strong> if you want certainty. Lock in today's rate.</li>
+<li><strong>Wait 24–48 hours after</strong> if you can be flexible. Initial volatility settles quickly.</li>
+<li><strong>Set a rate alert</strong> with <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> at your target rate. If post-decision volatility pushes rates in your favour, you'll be notified instantly.</li>
+<li><strong>For large transfers ($5,000+)</strong>, consider <a href="/companies/ofx">OFX</a> forward contracts to lock in rates for up to 12 months.</li>
+</ol>
+<p>For a deeper explanation of how interest rates move currencies, read our <a href="/news/central-bank-super-week-march-2026">guide to central bank decisions and transfer costs</a>. Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> helps you spot providers widening spreads during volatile periods. Our <a href="/send-money">comparison tool</a> shows live rates from 35+ providers.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-03-29",
+    source: "ECB / Federal Reserve / Bank of Canada / RBA",
+    sourceUrl: "https://www.ecb.europa.eu/press/govcdec/mopo/html/index.en.html",
+    providerSlugs: ["wise", "xe", "revolut", "ofx"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {
