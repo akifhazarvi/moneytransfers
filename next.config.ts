@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: false,
+  outputFileTracingIncludes: {
+    "/[locale]/send-money/[corridor]": ["./src/data/scraped/history/**/*.json"],
+  },
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
