@@ -71,6 +71,48 @@ export function getRateInsight(
   return insights[`${fromCurrency}-${toCurrency}`] ?? null;
 }
 
+// ── Per-provider insights ──────────────────────────────────────
+
+export interface ProviderInsight {
+  avgRate: number;
+  minRate: number;
+  maxRate: number;
+  currentRate: number;
+  trendPct: number;
+  trendDirection: "up" | "down" | "stable";
+  daysTracked: number;
+  currentVsAvg: number;
+}
+
+export function getProviderInsight(
+  fromCurrency: string,
+  toCurrency: string,
+  providerSlug: string
+): ProviderInsight | null {
+  const insight = getRateInsight(fromCurrency, toCurrency);
+  if (!insight) return null;
+  const points = insight.sparklines[providerSlug];
+  if (!points || points.length < 2) return null;
+
+  const rates = points.map((p) => p.rate);
+  const avg = rates.reduce((s, r) => s + r, 0) / rates.length;
+  const current = rates[rates.length - 1];
+  const first = rates[0];
+  const trendPct = first > 0 ? ((current - first) / first) * 100 : 0;
+  const currentVsAvg = avg > 0 ? ((current - avg) / avg) * 100 : 0;
+
+  return {
+    avgRate: Math.round(avg * 10000) / 10000,
+    minRate: Math.min(...rates),
+    maxRate: Math.max(...rates),
+    currentRate: current,
+    trendPct: Math.round(trendPct * 100) / 100,
+    trendDirection: Math.abs(trendPct) < 0.05 ? "stable" : trendPct > 0 ? "up" : "down",
+    daysTracked: points.length,
+    currentVsAvg: Math.round(currentVsAvg * 100) / 100,
+  };
+}
+
 // ── Helpers ────────────────────────────────────────────────────
 
 export function rateLevelConfig(level: RateLevel) {

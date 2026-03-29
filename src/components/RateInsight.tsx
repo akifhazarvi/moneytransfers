@@ -1,6 +1,7 @@
 import {
   type RateInsight,
   type ProviderBadge,
+  type ProviderInsight,
   type SparklinePoint,
   rateLevelConfig,
 } from "@/lib/rate-history";
@@ -322,6 +323,59 @@ export function RateHistorySection({
         </table>
       </div>
     </section>
+  );
+}
+
+// ── Per-Provider Inline Insight ─────────────────────────────────
+// Compact row shown inside each provider's quote result
+
+export function ProviderRateInsightLine({
+  insight,
+  sparklineData,
+  toCurrency,
+}: {
+  insight: ProviderInsight;
+  sparklineData: SparklinePoint[];
+  toCurrency: string;
+}) {
+  const trendColor =
+    insight.trendDirection === "up"
+      ? "var(--color-success)"
+      : insight.trendDirection === "down"
+        ? "var(--color-danger)"
+        : "var(--color-on-surface-muted)";
+  const trendIcon =
+    insight.trendDirection === "up" ? "↑" : insight.trendDirection === "down" ? "↓" : "→";
+  const vsAvgColor =
+    insight.currentVsAvg > 0.05
+      ? "var(--color-success)"
+      : insight.currentVsAvg < -0.05
+        ? "var(--color-danger)"
+        : "var(--color-on-surface-muted)";
+
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1 text-2xs text-[var(--color-on-surface-muted)]">
+      {/* Trend */}
+      <span style={{ color: trendColor }}>
+        {trendIcon} {Math.abs(insight.trendPct).toFixed(1)}%
+        <span className="text-[var(--color-on-surface-muted)]"> over {insight.daysTracked}d</span>
+      </span>
+
+      {/* Current vs avg */}
+      <span>
+        Avg: {insight.avgRate.toFixed(2)} {toCurrency}
+        {Math.abs(insight.currentVsAvg) >= 0.05 && (
+          <span style={{ color: vsAvgColor }}>
+            {" "}({insight.currentVsAvg > 0 ? "+" : ""}{insight.currentVsAvg.toFixed(1)}% vs avg)
+          </span>
+        )}
+      </span>
+
+      {/* Range */}
+      <span className="hidden sm:inline">
+        Range: {insight.minRate.toFixed(2)}–{insight.maxRate.toFixed(2)}
+      </span>
+    </div>
   );
 }
 

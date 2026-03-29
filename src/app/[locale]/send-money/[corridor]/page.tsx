@@ -25,9 +25,9 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { statSync } from "fs";
 import { join } from "path";
-import { getRateInsight } from "@/lib/rate-history";
+import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
-import { RateInsightBanner, ProviderBadgeTag, Sparkline, RateHistorySection } from "@/components/RateInsight";
+import { RateInsightBanner, ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
 
 interface Props {
   params: Promise<{ corridor: string; locale: string }>;
@@ -1691,6 +1691,13 @@ export default async function CorridorPage({ params }: Props) {
                             <ProviderBadgeTag badge={badgeByProvider[q.providerSlug]} />
                           </div>
                         )}
+                        {(() => {
+                          const pi = getProviderInsight(fromCurrency, toCurrency, q.providerSlug);
+                          const sp = rateInsight?.sparklines[q.providerSlug];
+                          return pi && sp ? (
+                            <ProviderRateInsightLine insight={pi} sparklineData={sp} toCurrency={toCurrency} />
+                          ) : null;
+                        })()}
                       </div>
                     </div>
 
