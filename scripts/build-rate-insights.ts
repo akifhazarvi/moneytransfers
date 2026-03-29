@@ -165,6 +165,25 @@ function computeInsight(corridor: string, history: DayEntry[]): RateInsight | nu
     }));
   }
 
+  // Mid-market rate line: estimate from provider with lowest markup per day
+  const midMarketLine: SparklinePoint[] = [];
+  for (const day of history) {
+    const entries = Object.entries(day.providers).filter(([, d]) => d.rate > 0);
+    if (entries.length === 0) continue;
+    // Find provider with lowest markup (closest to mid-market)
+    const lowestMarkup = entries.reduce((best, [, d]) =>
+      d.markup < best.markup ? d : best
+    , { rate: 0, fee: 0, markup: Infinity, receiveAmount: 0 });
+    // Derive mid-market: rate / (1 - markup/100)
+    const midRate = lowestMarkup.markup > 0
+      ? lowestMarkup.rate / (1 - lowestMarkup.markup / 100)
+      : lowestMarkup.rate;
+    midMarketLine.push({ date: day.date, rate: Math.round(midRate * 10000) / 10000, receiveAmount: 0 });
+  }
+  if (midMarketLine.length >= 2) {
+    sparklines["__mid-market__"] = midMarketLine;
+  }
+
   return {
     corridor, totalDays: history.length,
     dateRange: { from: history[0].date, to: history[history.length - 1].date },

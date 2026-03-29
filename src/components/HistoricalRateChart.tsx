@@ -36,10 +36,13 @@ export default function HistoricalRateChart({
   toCurrency,
   maxProviders = 6,
 }: ChartProps) {
-  // Sort providers by data points (most first), take top N
+  // Extract mid-market line (special key from build-rate-insights)
+  const midMarketData = useMemo(() => sparklines["__mid-market__"] || [], [sparklines]);
+
+  // Sort providers by data points (most first), take top N (exclude mid-market)
   const sortedProviders = useMemo(() =>
     Object.entries(sparklines)
-      .filter(([, pts]) => pts.length >= 2)
+      .filter(([slug, pts]) => slug !== "__mid-market__" && pts.length >= 2)
       .sort((a, b) => b[1].length - a[1].length)
       .slice(0, maxProviders),
   [sparklines, maxProviders]);
@@ -50,17 +53,22 @@ export default function HistoricalRateChart({
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // Collect all dates across enabled providers
+  const [showMidMarket, setShowMidMarket] = useState(midMarketData.length >= 2);
+
+  // Collect all dates across enabled providers + mid-market
   const allDates = useMemo(() => {
     const dateSet = new Set<string>();
     for (const [slug, pts] of sortedProviders) {
       if (!enabledProviders.has(slug)) continue;
       for (const p of pts) dateSet.add(p.date);
     }
+    if (showMidMarket) {
+      for (const p of midMarketData) dateSet.add(p.date);
+    }
     return [...dateSet].sort();
-  }, [sortedProviders, enabledProviders]);
+  }, [sortedProviders, enabledProviders, midMarketData, showMidMarket]);
 
-  // Compute Y range across enabled providers
+  // Compute Y range across enabled providers + mid-market
   const { minRate, maxRate } = useMemo(() => {
     let min = Infinity, max = -Infinity;
     for (const [slug, pts] of sortedProviders) {
@@ -70,11 +78,16 @@ export default function HistoricalRateChart({
         if (p.rate > max) max = p.rate;
       }
     }
+    if (showMidMarket) {
+      for (const p of midMarketData) {
+        if (p.rate < min) min = p.rate;
+        if (p.rate > max) max = p.rate;
+      }
+    }
     if (min === Infinity) return { minRate: 0, maxRate: 1 };
-    // Add 2% padding
     const padding = (max - min) * 0.02 || 0.01;
     return { minRate: min - padding, maxRate: max + padding };
-  }, [sortedProviders, enabledProviders]);
+  }, [sortedProviders, enabledProviders, midMarketData, showMidMarket]);
 
   // SVG dimensions
   const width = 700;
@@ -157,10 +170,15 @@ export default function HistoricalRateChart({
       const pt = pts.find(p => p.date === date);
       if (pt) provData.push({ slug, rate: pt.rate, color: colorMap.get(slug)! });
     }
+    // Add mid-market rate to tooltip
+    if (showMidMarket) {
+      const midPt = midMarketData.find(p => p.date === date);
+      if (midPt) provData.push({ slug: "__mid-market__", rate: midPt.rate, color: "var(--color-on-surface-muted)" });
+    }
     provData.sort((a, b) => b.rate - a.rate);
 
     setTooltip({ date, x: xScale(nearestIdx), y: padT, providers: provData });
-  }, [allDates, sortedProviders, enabledProviders, xScale]);
+  }, [allDates, sortedProviders, enabledProviders, midMarketData, showMidMarket, xScale]);
 
   const handleMouseLeave = useCallback(() => setTooltip(null), []);
 
@@ -217,6 +235,29 @@ export default function HistoricalRateChart({
             </text>
           ))}
 
+          {/* Mid-market reference line (dashed) */}
+          {showMidMarket && midMarketData.length >= 2 && (() => {
+            const dateMap = new Map(midMarketData.map(p => [p.date, p]));
+            const pts = allDates
+              .map((d, i) => {
+                const pt = dateMap.get(d);
+                return pt ? `${xScale(i)},${yScale(pt.rate)}` : null;
+              })
+              .filter(Boolean)
+              .join(" ");
+            return (
+              <polyline
+                points={pts}
+                fill="none"
+                stroke="var(--color-on-surface-muted)"
+                strokeWidth="1.5"
+                strokeDasharray="6 3"
+                strokeLinecap="round"
+                opacity={0.7}
+              />
+            );
+          })()}
+
           {/* Provider lines */}
           {providerLines.map(({ slug, points, color }) => (
             <polyline
@@ -252,8 +293,14 @@ export default function HistoricalRateChart({
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-0.5">
             {tooltip.providers.map(({ slug, rate, color }) => (
               <div key={slug} className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color }} />
-                <span className="text-[var(--color-on-surface-variant)] truncate">{getProviderName(slug)}</span>
+                {slug === "__mid-market__" ? (
+                  <span className="w-3 h-0 border-t-2 border-dashed shrink-0" style={{ borderColor: color }} />
+                ) : (
+                  <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color }} />
+                )}
+                <span className={`truncate ${slug === "__mid-market__" ? "italic text-[var(--color-on-surface-muted)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                  {slug === "__mid-market__" ? "Mid-Market (XE)" : getProviderName(slug)}
+                </span>
                 <span className="font-medium text-[var(--color-on-surface)] tabular-nums ml-auto">{rate.toFixed(4)}</span>
               </div>
             ))}
@@ -263,6 +310,21 @@ export default function HistoricalRateChart({
 
       {/* Legend / provider toggles */}
       <div className="flex flex-wrap gap-2 mt-3">
+        {/* Mid-market toggle */}
+        {midMarketData.length >= 2 && (
+          <button
+            onClick={() => setShowMidMarket((v) => !v)}
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-2xs font-medium transition-all ${
+              showMidMarket
+                ? "border-[var(--color-on-surface-muted)] bg-[var(--color-surface)]"
+                : "border-[var(--color-outline)] bg-[var(--color-surface-dim)] opacity-50"
+            }`}
+            style={{ color: showMidMarket ? "var(--color-on-surface-variant)" : "var(--color-on-surface-muted)" }}
+          >
+            <span className="w-3 h-0 border-t-2 border-dashed" style={{ borderColor: showMidMarket ? "var(--color-on-surface-muted)" : "var(--color-outline)" }} />
+            Mid-Market (XE)
+          </button>
+        )}
         {sortedProviders.map(([slug], i) => {
           const color = getProviderColor(i);
           const enabled = enabledProviders.has(slug);
