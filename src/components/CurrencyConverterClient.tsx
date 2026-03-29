@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
@@ -12,6 +12,7 @@ import { currencies } from "@/data/transfer-currencies";
 import CircleFlag from "@/components/CircleFlag";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getRate } from "@/lib/rates-util";
+import { useConverterPagePrefs } from "@/lib/useConverterPrefs";
 
 interface TargetCurrency {
   id: string;
@@ -39,12 +40,42 @@ export default function CurrencyConverterClient() {
     return `tc-${idCounter.current++}`;
   }
 
-  const [amount, setAmount] = useState(1000);
-  const [fromCurrency, setFromCurrency] = useState("USD");
-  const [targets, setTargets] = useState<TargetCurrency[]>(() => [
+  const prefs = useConverterPagePrefs();
+  const [amount, setAmountRaw] = useState(1000);
+  const [fromCurrency, setFromCurrencyRaw] = useState("USD");
+  const [targets, setTargetsRaw] = useState<TargetCurrency[]>(() => [
     { id: `tc-0`, code: "EUR" },
   ]);
   const { rates, isLive, lastUpdated, secondsUntilRefresh } = useExchangeRates();
+
+  // Hydrate state from localStorage once prefs are loaded
+  const hydratedRef = useRef(false);
+  useEffect(() => {
+    if (!prefs.loaded || hydratedRef.current) return;
+    hydratedRef.current = true;
+    setFromCurrencyRaw(prefs.from);
+    setAmountRaw(prefs.amount);
+    setTargetsRaw(prefs.targets.map((code) => ({ id: genId(), code })));
+  }, [prefs.loaded, prefs.from, prefs.amount, prefs.targets]);
+
+  // Wrap setters to also persist
+  const setAmount = useCallback((v: number) => {
+    setAmountRaw(v);
+    prefs.setAmount(v);
+  }, [prefs]);
+
+  const setFromCurrency = useCallback((v: string) => {
+    setFromCurrencyRaw(v);
+    prefs.setFrom(v);
+  }, [prefs]);
+
+  const setTargets: typeof setTargetsRaw = useCallback((updater) => {
+    setTargetsRaw((prev) => {
+      const next = typeof updater === "function" ? updater(prev) : updater;
+      prefs.setTargets(next.map((t) => t.code));
+      return next;
+    });
+  }, [prefs]);
 
   // Drag state
   const [dragId, setDragId] = useState<string | null>(null);

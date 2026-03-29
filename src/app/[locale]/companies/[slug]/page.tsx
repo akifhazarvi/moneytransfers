@@ -90,6 +90,7 @@ export default async function CompanyPage({ params }: Props) {
           title: "Guides & tools",
           links: [
             { href: "/send-money", label: "Compare all providers" },
+            { href: "/currency-converter", label: "Currency converter" },
             { href: "/guides/how-to-send-money-abroad", label: "How to send money abroad" },
             { href: "/guides/cheapest-way-to-send-money-internationally", label: "Cheapest way to send money" },
             { href: "/guides/exchange-rate-markup-explained", label: "Exchange rates explained" },

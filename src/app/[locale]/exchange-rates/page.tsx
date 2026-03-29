@@ -261,6 +261,17 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 </p>
               </div>
             </div>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mt-4">
+              Need to convert a specific amount? Try our{" "}
+              <Link href="/currency-converter" className="text-[var(--color-primary)] hover:underline font-medium">
+                currency converter
+              </Link>{" "}
+              with live mid-market rates, or{" "}
+              <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">
+                compare transfer providers
+              </Link>{" "}
+              to find the cheapest way to send money abroad.
+            </p>
           </section>
 
           {/* Popular Exchange Rate Pairs */}

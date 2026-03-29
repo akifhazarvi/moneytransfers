@@ -2680,6 +2680,7 @@ export default async function CorridorPage({ params }: Props) {
           {
             title: "Banking tools",
             links: [
+              { href: `/currency-converter`, label: `${fromCurrency} to ${toCurrency} converter` },
               { href: `/swift-codes/${swiftSlugForCountry(corridor.toCountry)}`, label: `${corridor.toCountry} SWIFT/BIC codes` },
               ...(ibanSlugForCountry(corridor.toCountry) ? [{ href: `/iban/${ibanSlugForCountry(corridor.toCountry)}`, label: `${corridor.toCountry} IBAN format` }] : []),
               { href: "/swift-codes", label: "SWIFT code lookup" },

@@ -8,12 +8,16 @@ import CircleFlag from "@/components/CircleFlag";
 import { currencies } from "@/data/transfer-currencies";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getRate } from "@/lib/rates-util";
+import { useHomepageConverterPrefs } from "@/lib/useConverterPrefs";
 
 export default function HomepageConverter() {
   const t = useTranslations("homepageConverter");
+  const prefs = useHomepageConverterPrefs();
   const [amount, setAmount] = useState(1);
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("EUR");
+  const from = prefs.from;
+  const to = prefs.to;
+  const setFrom = prefs.setFrom;
+  const setTo = prefs.setTo;
   const [converted, setConverted] = useState<number | null>(null);
   const { rates, isLive } = useExchangeRates();
 
@@ -29,7 +33,7 @@ export default function HomepageConverter() {
     setFrom(to);
     setTo(from);
     setConverted(null);
-  }, [from, to]);
+  }, [from, to, setFrom, setTo]);
 
   return (
     <div className="max-w-2xl mx-auto">

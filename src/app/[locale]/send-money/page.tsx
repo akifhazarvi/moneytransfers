@@ -250,6 +250,13 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
                 <li>Delivery methods — bank deposit, cash pickup, mobile money</li>
                 <li>Trustpilot ratings and regulatory status</li>
               </ul>
+              <p className="!mt-4">
+                Just need to check exchange rates? Use our{" "}
+                <Link href="/currency-converter" className="text-[var(--color-primary)] hover:underline font-medium">
+                  currency converter
+                </Link>{" "}
+                for live mid-market rates across 60+ currencies.
+              </p>
             </div>
           </div>
         </div>
