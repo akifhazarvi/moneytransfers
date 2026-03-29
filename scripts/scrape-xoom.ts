@@ -114,9 +114,9 @@ function parseXoomResponse(
       fee: Math.round(fee * 100) / 100,
       exchangeRate: rate,
       receiveAmount: Math.round(receiveAmount * 100) / 100,
-      paymentMethod: null,
+      paymentMethod: paymentType,
       deliveryEstimate: null,
-      deliveryMethod: paymentType,
+      deliveryMethod: null,
       dateCollected: new Date().toISOString(),
       source: "xoom-browser-api",
     };

@@ -153,7 +153,6 @@ function normalizeQuote(
     markup,
     deliveryEstimate:
       (raw.deliveryEstimate as string) ||
-      (raw.deliveryMethod as string) ||
       null,
     source: (raw.source as string) || defaultSource,
     sourcePriority,
