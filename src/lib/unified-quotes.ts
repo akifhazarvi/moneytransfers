@@ -20,6 +20,9 @@ import xoomQuotes from "@/data/scraped/xoom-quotes.json";
 import taptapsendQuotes from "@/data/scraped/taptapsend-quotes.json";
 import wiseDirectQuotes from "@/data/scraped/wise-direct-quotes.json";
 import aceQuotes from "@/data/scraped/ace-money-transfer-quotes.json";
+import riaQuotes from "@/data/scraped/ria-quotes.json";
+import remitlyQuotes from "@/data/scraped/remitly-quotes.json";
+import compareremitQuotes from "@/data/scraped/compareremit-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -199,6 +202,9 @@ addQuotes(xoomQuotes as unknown[], 1, "xoom-browser");
 addQuotes(taptapsendQuotes as unknown[], 1, "taptapsend-api");
 addQuotes(wiseDirectQuotes as unknown[], 1, "wise-direct-api");
 addQuotes(aceQuotes as unknown[], 1, "ace-direct");
+addQuotes(riaQuotes as unknown[], 1, "ria-browser");
+addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
+addQuotes(compareremitQuotes as unknown[], 1, "compareremit-browser");
 
 // Priority 2: Wise Comparison API (8-18 competitors per corridor, pure REST API)
 addQuotes(wiseComparisonQuotes as unknown[], 2, "wise-comparison-api");

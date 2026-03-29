@@ -79,6 +79,10 @@ const CORRIDORS = [
   { from: "EUR", to: "TRY", countryFrom: "DE", countryTo: "TR" },
   { from: "EUR", to: "BRL", countryFrom: "DE", countryTo: "BR" },
   { from: "EUR", to: "COP", countryFrom: "DE", countryTo: "CO" },
+  { from: "EUR", to: "MXN", countryFrom: "DE", countryTo: "MX" },
+  { from: "EUR", to: "BDT", countryFrom: "DE", countryTo: "BD" },
+  { from: "EUR", to: "GHS", countryFrom: "DE", countryTo: "GH" },
+  { from: "EUR", to: "KES", countryFrom: "DE", countryTo: "KE" },
   // From CAD (Canada)
   { from: "CAD", to: "INR", countryFrom: "CA", countryTo: "IN" },
   { from: "CAD", to: "PHP", countryFrom: "CA", countryTo: "PH" },

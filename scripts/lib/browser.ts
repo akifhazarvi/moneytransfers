@@ -91,6 +91,15 @@ export const STANDARD_CORRIDORS = [
   { from: "EUR", to: "GBP" },
   { from: "EUR", to: "NGN" },
   { from: "EUR", to: "PHP" },
+  { from: "EUR", to: "PKR" },
+  { from: "EUR", to: "MXN" },
+  { from: "EUR", to: "BDT" },
+  { from: "EUR", to: "GHS" },
+  { from: "EUR", to: "KES" },
+  { from: "EUR", to: "BRL" },
+  { from: "EUR", to: "COP" },
+  { from: "EUR", to: "TRY" },
+  { from: "EUR", to: "MAD" },
   // From CAD
   { from: "CAD", to: "INR" },
   { from: "CAD", to: "PHP" },
@@ -100,6 +109,39 @@ export const STANDARD_CORRIDORS = [
   // From AED
   { from: "AED", to: "INR" },
   { from: "AED", to: "PKR" },
+  { from: "AED", to: "PHP" },
+  { from: "AED", to: "BDT" },
+  { from: "AED", to: "NGN" },
+  { from: "AED", to: "EGP" },
+  { from: "AED", to: "NPR" },
+  { from: "AED", to: "LKR" },
+  // From SAR
+  { from: "SAR", to: "INR" },
+  { from: "SAR", to: "PKR" },
+  { from: "SAR", to: "PHP" },
+  { from: "SAR", to: "BDT" },
+  { from: "SAR", to: "NGN" },
+  { from: "SAR", to: "EGP" },
+  // From OMR
+  { from: "OMR", to: "INR" },
+  { from: "OMR", to: "PKR" },
+  { from: "OMR", to: "PHP" },
+  { from: "OMR", to: "BDT" },
+  // From KWD
+  { from: "KWD", to: "INR" },
+  { from: "KWD", to: "PKR" },
+  { from: "KWD", to: "PHP" },
+  { from: "KWD", to: "BDT" },
+  // From BHD
+  { from: "BHD", to: "INR" },
+  { from: "BHD", to: "PKR" },
+  { from: "BHD", to: "PHP" },
+  { from: "BHD", to: "BDT" },
+  // From QAR
+  { from: "QAR", to: "INR" },
+  { from: "QAR", to: "PKR" },
+  { from: "QAR", to: "PHP" },
+  { from: "QAR", to: "BDT" },
 ];
 
 export const SEND_AMOUNTS = [100, 1000];
