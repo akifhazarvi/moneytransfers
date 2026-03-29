@@ -31,6 +31,10 @@ const CURRENCY_TO_ORIGIN_ISO: Record<string, string> = {
   AUD: "AU",
   AED: "AE",
   SAR: "SA",
+  OMR: "OM",
+  KWD: "KW",
+  BHD: "BH",
+  QAR: "QA",
   SGD: "SG",
 };
 
@@ -66,6 +70,10 @@ const CORRIDORS = [
   { from: "EUR", to: "INR" },
   { from: "EUR", to: "GBP" },
   { from: "EUR", to: "PHP" },
+  { from: "EUR", to: "PKR" },
+  { from: "EUR", to: "BDT" },
+  { from: "EUR", to: "MAD" },
+  { from: "EUR", to: "TRY" },
   // From CAD
   { from: "CAD", to: "INR" },
   { from: "CAD", to: "PHP" },
@@ -75,11 +83,39 @@ const CORRIDORS = [
   // From AED
   { from: "AED", to: "INR" },
   { from: "AED", to: "PKR" },
+  { from: "AED", to: "PHP" },
+  { from: "AED", to: "BDT" },
+  { from: "AED", to: "NGN" },
+  { from: "AED", to: "EGP" },
+  { from: "AED", to: "NPR" },
+  { from: "AED", to: "LKR" },
   // From SAR
   { from: "SAR", to: "INR" },
   { from: "SAR", to: "PKR" },
   { from: "SAR", to: "BDT" },
   { from: "SAR", to: "PHP" },
+  { from: "SAR", to: "NGN" },
+  { from: "SAR", to: "EGP" },
+  // From OMR
+  { from: "OMR", to: "INR" },
+  { from: "OMR", to: "PKR" },
+  { from: "OMR", to: "PHP" },
+  { from: "OMR", to: "BDT" },
+  // From KWD
+  { from: "KWD", to: "INR" },
+  { from: "KWD", to: "PKR" },
+  { from: "KWD", to: "PHP" },
+  { from: "KWD", to: "BDT" },
+  // From BHD
+  { from: "BHD", to: "INR" },
+  { from: "BHD", to: "PKR" },
+  { from: "BHD", to: "PHP" },
+  { from: "BHD", to: "BDT" },
+  // From QAR
+  { from: "QAR", to: "INR" },
+  { from: "QAR", to: "PKR" },
+  { from: "QAR", to: "PHP" },
+  { from: "QAR", to: "BDT" },
   // From SGD
   { from: "SGD", to: "INR" },
   { from: "SGD", to: "PHP" },

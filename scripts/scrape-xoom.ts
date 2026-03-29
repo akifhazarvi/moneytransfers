@@ -45,6 +45,30 @@ const CORRIDORS = [
   { from: "USD", to: "ZAR", country: "south-africa" },
   { from: "USD", to: "IDR", country: "indonesia" },
   { from: "USD", to: "THB", country: "thailand" },
+  // From GBP
+  { from: "GBP", to: "INR", country: "india" },
+  { from: "GBP", to: "PHP", country: "philippines" },
+  { from: "GBP", to: "NGN", country: "nigeria" },
+  { from: "GBP", to: "PKR", country: "pakistan" },
+  { from: "GBP", to: "BDT", country: "bangladesh" },
+  // From EUR
+  { from: "EUR", to: "INR", country: "india" },
+  { from: "EUR", to: "PHP", country: "philippines" },
+  { from: "EUR", to: "NGN", country: "nigeria" },
+  { from: "EUR", to: "PKR", country: "pakistan" },
+  { from: "EUR", to: "BDT", country: "bangladesh" },
+  { from: "EUR", to: "MXN", country: "mexico" },
+  { from: "EUR", to: "BRL", country: "brazil" },
+  // From AED
+  { from: "AED", to: "INR", country: "india" },
+  { from: "AED", to: "PKR", country: "pakistan" },
+  { from: "AED", to: "PHP", country: "philippines" },
+  { from: "AED", to: "BDT", country: "bangladesh" },
+  // From SAR
+  { from: "SAR", to: "INR", country: "india" },
+  { from: "SAR", to: "PKR", country: "pakistan" },
+  { from: "SAR", to: "PHP", country: "philippines" },
+  { from: "SAR", to: "BDT", country: "bangladesh" },
 ];
 
 const SEND_AMOUNTS = [100, 1000];

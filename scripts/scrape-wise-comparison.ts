@@ -88,6 +88,11 @@ const CORRIDORS: { from: string; to: string; country: string }[] = [
   { from: "EUR", to: "COP", country: "DE" },
   { from: "EUR", to: "TRY", country: "DE" },
   { from: "EUR", to: "PLN", country: "DE" },
+  { from: "EUR", to: "MXN", country: "DE" },
+  { from: "EUR", to: "BDT", country: "DE" },
+  { from: "EUR", to: "GHS", country: "DE" },
+  { from: "EUR", to: "KES", country: "DE" },
+  { from: "EUR", to: "MAD", country: "DE" },
 
   // CAD corridors
   { from: "CAD", to: "INR", country: "CA" },
@@ -127,6 +132,38 @@ const CORRIDORS: { from: string; to: string; country: string }[] = [
   { from: "SAR", to: "BDT", country: "SA" },
   { from: "SAR", to: "EGP", country: "SA" },
   { from: "SAR", to: "IDR", country: "SA" },
+  { from: "SAR", to: "NGN", country: "SA" },
+  { from: "SAR", to: "NPR", country: "SA" },
+
+  // OMR corridors (Oman remittances)
+  { from: "OMR", to: "INR", country: "OM" },
+  { from: "OMR", to: "PKR", country: "OM" },
+  { from: "OMR", to: "PHP", country: "OM" },
+  { from: "OMR", to: "BDT", country: "OM" },
+  { from: "OMR", to: "NGN", country: "OM" },
+  { from: "OMR", to: "EGP", country: "OM" },
+
+  // KWD corridors (Kuwait remittances)
+  { from: "KWD", to: "INR", country: "KW" },
+  { from: "KWD", to: "PKR", country: "KW" },
+  { from: "KWD", to: "PHP", country: "KW" },
+  { from: "KWD", to: "BDT", country: "KW" },
+  { from: "KWD", to: "NGN", country: "KW" },
+  { from: "KWD", to: "EGP", country: "KW" },
+
+  // BHD corridors (Bahrain remittances)
+  { from: "BHD", to: "INR", country: "BH" },
+  { from: "BHD", to: "PKR", country: "BH" },
+  { from: "BHD", to: "PHP", country: "BH" },
+  { from: "BHD", to: "BDT", country: "BH" },
+
+  // QAR corridors (Qatar remittances)
+  { from: "QAR", to: "INR", country: "QA" },
+  { from: "QAR", to: "PKR", country: "QA" },
+  { from: "QAR", to: "PHP", country: "QA" },
+  { from: "QAR", to: "BDT", country: "QA" },
+  { from: "QAR", to: "NGN", country: "QA" },
+  { from: "QAR", to: "EGP", country: "QA" },
 
   // SGD corridors
   { from: "SGD", to: "INR", country: "SG" },
