@@ -6,6 +6,7 @@ import CircleFlag from "@/components/CircleFlag";
 import { generateQuotes, providers, currencies, getProviderName } from "@/data/providers";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getRateInsight, rateLevelConfig } from "@/lib/rate-history";
 
 const DESTINATION_REGIONS = [
   {
@@ -199,17 +200,31 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
                     {region.region}
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {region.destinations.map((dest) => (
-                      <Link
-                        key={dest.slug}
-                        href={`/send-money/send-money-to-${dest.slug}`}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface-dim)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-2sm text-[var(--color-on-surface-variant)] transition-colors"
-                      >
-                        <span>{dest.flag}</span>
-                        <span>{dest.name}</span>
-                        <span className="text-2xs opacity-70">{dest.currency}</span>
-                      </Link>
-                    ))}
+                    {region.destinations.map((dest) => {
+                      const insight = getRateInsight("USD", dest.currency);
+                      const lvl = insight ? rateLevelConfig(insight.level) : null;
+                      return (
+                        <Link
+                          key={dest.slug}
+                          href={`/send-money/send-money-to-${dest.slug}`}
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface-dim)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-2sm text-[var(--color-on-surface-variant)] transition-colors"
+                        >
+                          <span>{dest.flag}</span>
+                          <span>{dest.name}</span>
+                          <span className="text-2xs opacity-70">{dest.currency}</span>
+                          {lvl && (
+                            <span
+                              className="inline-flex items-center gap-0.5 text-2xs font-medium"
+                              style={{ color: lvl.color }}
+                              title={`USD→${dest.currency} rates are ${lvl.label.toLowerCase()} (${insight!.levelPct}th percentile)`}
+                            >
+                              <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: lvl.color }} />
+                              {lvl.label}
+                            </span>
+                          )}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
