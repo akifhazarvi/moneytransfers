@@ -26,7 +26,7 @@ export function RateInsightBanner({
     <div
       className="rounded-2xl border p-5 sm:p-6"
       style={{
-        borderColor: level.color + "33",
+        borderColor: level.bg,
         backgroundColor: level.bg,
       }}
     >
@@ -52,8 +52,8 @@ export function RateInsightBanner({
                 key={i}
                 className="inline-block h-2 w-2 rounded-full"
                 style={{
-                  backgroundColor:
-                    i < filledDots ? level.color : level.color + "30",
+                  backgroundColor: level.color,
+                  opacity: i < filledDots ? 1 : 0.2,
                 }}
               />
             ))}

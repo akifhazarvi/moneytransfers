@@ -616,7 +616,7 @@ function SendMoneyContent() {
         const corridorSparkline = Object.values(overallSparkline).sort((a, b) => a.date.localeCompare(b.date));
 
         return (
-          <div className="mb-3 rounded-xl border overflow-hidden" style={{ borderColor: lvl.color + "33", backgroundColor: lvl.bg }}>
+          <div className="mb-3 rounded-xl border overflow-hidden" style={{ borderColor: lvl.bg, backgroundColor: lvl.bg }}>
             <div className="px-4 py-3 sm:px-5 sm:py-4">
               {/* Row 1: Level + sparkline */}
               <div className="flex items-start justify-between gap-3">
@@ -629,7 +629,7 @@ function SendMoneyContent() {
                   </div>
                   <div className="flex items-center gap-1 mt-1">
                     {Array.from({ length: 10 }, (_, i) => (
-                      <span key={i} className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: i < filledDots ? lvl.color : lvl.color + "30" }} />
+                      <span key={i} className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: lvl.color, opacity: i < filledDots ? 1 : 0.2 }} />
                     ))}
                     <span className="ml-1.5 text-2xs font-medium" style={{ color: lvl.color }}>{insight.levelPct}th percentile</span>
                   </div>
@@ -643,7 +643,7 @@ function SendMoneyContent() {
               </div>
 
               {/* Row 2: Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-2 mt-3 pt-3 border-t" style={{ borderColor: lvl.color + "22" }}>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-2 mt-3 pt-3 border-t border-[var(--color-outline)]">
                 <div>
                   <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">Today&apos;s best</p>
                   <p className="text-xs sm:text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">{insight.today.bestRate.toFixed(4)}</p>
