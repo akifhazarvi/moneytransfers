@@ -9,6 +9,7 @@ import BestTransferToday from "@/components/BestTransferToday";
 import NewsTicker from "@/components/NewsTicker";
 import HeroTabs from "@/components/HeroTabs";
 import MobileScrollNav from "@/components/MobileScrollNav";
+import HistoricalRateWidget from "@/components/HistoricalRateWidget";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
@@ -287,6 +288,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </Container>
         </section>
       )}
+
+      {/* ─── RATE TRENDS WIDGET ─── */}
+      <section id="rate-trends" className="py-8 sm:py-12 bg-[var(--color-surface-dim)]">
+        <Container>
+          <div className="max-w-[860px] mx-auto">
+            <HistoricalRateWidget defaultCorridor={`${sendCurrency}-${geoConfig.defaultTo}`} />
+          </div>
+        </Container>
+      </section>
 
       {/* ─── 2. TRUST SECTION ─── */}
       {/* Mobile: horizontal scroll of compact chips */}

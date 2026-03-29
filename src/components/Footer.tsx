@@ -75,6 +75,7 @@ export default function Footer() {
         { href: "/iban", labelKey: "ibanLink" },
         { href: "/swift-codes", labelKey: "swiftLink" },
         { href: "/exchange-rates", labelKey: "exchangeRatesLink" },
+        { href: "/exchange-rates/history", labelKey: "rateHistoryLink" },
         { href: "/guides/how-euribor-affects-euro-transfers", labelKey: "euriborGuideLink" },
       ],
     },

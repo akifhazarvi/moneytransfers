@@ -113,14 +113,40 @@ export function getProviderInsight(
   };
 }
 
+// ── All corridors ─────────────────────────────────────────────
+
+/** Get all corridor insights, optionally filtered by minimum days */
+export function getAllInsights(minDays = 2): RateInsight[] {
+  return Object.values(insights).filter((i) => i.totalDays >= minDays);
+}
+
+/** Get insight by URL slug (e.g. "usd-to-inr") */
+export function getInsightBySlug(slug: string): RateInsight | null {
+  const [from, to] = slug.toUpperCase().split("-TO-");
+  if (!from || !to) return null;
+  return insights[`${from}-${to}`] ?? null;
+}
+
+/** Convert corridor key "USD-INR" to URL slug "usd-to-inr" */
+export function corridorToSlug(corridor: string): string {
+  const [from, to] = corridor.split("-");
+  return `${from.toLowerCase()}-to-${to.toLowerCase()}`;
+}
+
+/** Convert URL slug "usd-to-inr" to corridor key "USD-INR" */
+export function slugToCorridor(slug: string): string {
+  const [from, to] = slug.split("-to-");
+  return `${from.toUpperCase()}-${to.toUpperCase()}`;
+}
+
 // ── Helpers ────────────────────────────────────────────────────
 
 export function rateLevelConfig(level: RateLevel) {
   const config = {
-    great: { label: "Great", color: "#0d652d", bg: "#e6f4ea", icon: "↑" },
-    good: { label: "Good", color: "#1a73e8", bg: "#e8f0fe", icon: "↗" },
-    typical: { label: "Typical", color: "#e37400", bg: "#fef7e0", icon: "→" },
-    low: { label: "Low", color: "#c5221f", bg: "#fce8e6", icon: "↓" },
+    great: { label: "Great", color: "var(--color-success)", bg: "var(--color-success-surface)", icon: "↑" },
+    good: { label: "Good", color: "var(--color-primary)", bg: "var(--color-primary-surface)", icon: "↗" },
+    typical: { label: "Typical", color: "var(--color-warning)", bg: "var(--color-warning-surface)", icon: "→" },
+    low: { label: "Low", color: "var(--color-danger)", bg: "var(--color-danger-surface)", icon: "↓" },
   };
   return config[level];
 }

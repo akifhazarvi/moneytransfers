@@ -8,6 +8,7 @@ import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 import { authors } from "@/data/authors";
 import { providerReviews } from "@/data/provider-reviews";
+import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { statSync } from "fs";
 import { join } from "path";
 
@@ -198,6 +199,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...entryWithLocales("exchange-rates", DATA_UPDATED),
     ...entryWithLocales("remittance-cost-index", DATA_UPDATED),
     ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, DATA_UPDATED)),
+    // History hub + per-corridor history pages
+    ...entryWithLocales("exchange-rates/history", DATA_UPDATED),
+    ...getAllInsights(2).map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, DATA_UPDATED)),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
