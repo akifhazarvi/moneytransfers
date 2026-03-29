@@ -316,5 +316,52 @@
         "receiveAmount": 31998.73
       }
     }
+  },
+  {
+    "date": "2026-03-28",
+    "providers": {
+      "ria": {
+        "rate": 323.463,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 33137
+      },
+      "xoom": {
+        "rate": 314.0515,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31405.15
+      },
+      "skrill": {
+        "rate": 317.4974,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31749.74
+      },
+      "remitly": {
+        "rate": 319.8008,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31663.47
+      },
+      "instarem": {
+        "rate": 319.4957,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31949.57
+      },
+      "deutsche-bank": {
+        "rate": 318.213,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 20190.62
+      },
+      "worldremit": {
+        "rate": 318.4757,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31847.57
+      }
+    }
   }
 ]

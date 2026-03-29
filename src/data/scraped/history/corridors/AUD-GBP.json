@@ -376,5 +376,70 @@
         "receiveAmount": 52.98
       }
     }
+  },
+  {
+    "date": "2026-03-28",
+    "providers": {
+      "western-union": {
+        "rate": 0.5159,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 50.05
+      },
+      "westpac": {
+        "rate": 0.4983,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 49.83
+      },
+      "hsbc": {
+        "rate": 0.5075,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 50.75
+      },
+      "nab": {
+        "rate": 0.5042,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 50.42
+      },
+      "remitly": {
+        "rate": 0.5106,
+        "fee": 0.89,
+        "markup": null,
+        "receiveAmount": 50.61
+      },
+      "anz": {
+        "rate": 0.5002,
+        "fee": 9,
+        "markup": null,
+        "receiveAmount": 45.52
+      },
+      "instarem": {
+        "rate": 0.5171,
+        "fee": 0.5,
+        "markup": null,
+        "receiveAmount": 51.46
+      },
+      "worldremit": {
+        "rate": 0.5101,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 50
+      },
+      "commonwealth-bank": {
+        "rate": 0.4978,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 49.78
+      },
+      "paypal": {
+        "rate": 0.4951,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 47.04
+      }
+    }
   }
 ]

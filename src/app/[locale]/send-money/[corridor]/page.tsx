@@ -25,6 +25,9 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { statSync } from "fs";
 import { join } from "path";
+import { getRateInsight } from "@/lib/rate-history";
+import type { ProviderBadge } from "@/lib/rate-history";
+import { RateInsightBanner, ProviderBadgeTag, Sparkline, RateHistorySection } from "@/components/RateInsight";
 
 interface Props {
   params: Promise<{ corridor: string; locale: string }>;
@@ -814,7 +817,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-pakistan": {
     title: "Cheapest Way to Send Money USA to Pakistan — USD→PKR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to Pakistan in 2026. See real-time USD to PKR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
+      "USD to PKR rates from Wise, Remitly, Western Union & 10+ providers — updated every 6 hrs. Compare fees, speed & delivery options to Pakistan.",
     ogTitle: "USA→Pakistan: Who Gives the Best USD→PKR Rate?",
     ogDescription:
       "Compare real-time USD to PKR rates from 15+ providers. Find the cheapest and fastest way to send money from USA to Pakistan.",
@@ -824,7 +827,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-india": {
     title: "Cheapest Way to Send Money USA to India — USD→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to India in 2026. See real-time USD to INR exchange rates, fees, and delivery times from Wise, Remitly, Western Union, and 10+ more providers.",
+      "USD to INR rates from Wise, Remitly, Western Union & 10+ providers — updated every 6 hrs. See who delivers the most rupees after all fees.",
     ogTitle: "USA→India: Who Gives the Best USD→INR Rate?",
     ogDescription:
       "Compare real-time USD to INR rates from 15+ providers. Find the cheapest and fastest way to send money from USA to India.",
@@ -834,7 +837,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-mexico": {
     title: "Cheapest Way to Send Money USA to Mexico — USD→MXN Rates (2026)",
     description:
-      "Find the cheapest way to send money from USA to Mexico in 2026. Compare real-time USD to MXN exchange rates, fees, and delivery speeds from Wise, Remitly, Xoom, Western Union, and more. SPEI instant deposits available.",
+      "USD to MXN rates from Wise, Remitly, Xoom & more — SPEI instant deposits available. Compare fees and total cost from 15+ providers.",
     ogTitle: "USA→Mexico: Who Gives the Best USD→MXN Rate?",
     ogDescription:
       "Compare USD to MXN rates from 15+ providers. Find the cheapest way to send money from USA to Mexico with SPEI instant delivery.",
@@ -844,7 +847,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-philippines": {
     title: "Cheapest Way to Send Money USA to Philippines — USD→PHP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to Philippines in 2026. Real-time USD to PHP rates, fees, and delivery options including GCash, bank deposit, and cash pickup from 15+ providers.",
+      "USD to PHP rates from 15+ providers — GCash, bank deposit & cash pickup options. Compare Wise, Remitly, WorldRemit fees and delivery speed.",
     ogTitle: "USA→Philippines: Who Gives the Best USD→PHP Rate?",
     ogDescription:
       "Compare real-time USD to PHP rates from 15+ providers. Find the cheapest way to send money from USA to Philippines via GCash, bank, or cash pickup.",
@@ -854,7 +857,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-europe": {
     title: "Cheapest Way to Send Money UK to Europe — GBP→EUR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UK to Europe in 2026. Real-time GBP to EUR exchange rates, SEPA transfer fees, and delivery times from Wise, Revolut, and 10+ more providers.",
+      "GBP to EUR rates from Wise, Revolut & 10+ providers. SEPA transfers with fees from 0%. Compare real-time rates — updated every 6 hours.",
     ogTitle: "UK→Europe: Who Gives the Best GBP→EUR Rate?",
     ogDescription:
       "Compare GBP to EUR rates from 15+ providers. Find the cheapest SEPA transfer from UK to Europe with the lowest fees.",
@@ -864,7 +867,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-india": {
     title: "Cheapest Way to Send Money UK to India — GBP→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UK to India. Real-time GBP to INR rates from Wise, Remitly, OFX & 10+ providers. IMPS instant delivery. Save £40–£70 per transfer vs banks.",
+      "GBP to INR rates from Wise, Remitly, OFX & 10+ providers. IMPS instant delivery. Save £40–£70 per transfer vs banks.",
     ogTitle: "UK→India: Who Gives the Best GBP→INR Rate?",
     ogDescription:
       "Compare real-time GBP to INR rates from 15+ providers. Find the cheapest, fastest way to transfer money from UK to India.",
@@ -874,7 +877,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "canada-to-india": {
     title: "Cheapest Way to Send Money Canada to India — CAD→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Canada to India in 2026. Real-time CAD to INR exchange rates, fees, and delivery times from Wise, Remitly, WorldRemit, and more. Fund via Interac e-Transfer.",
+      "CAD to INR rates from Wise, Remitly, WorldRemit & more. Fund via Interac e-Transfer, IMPS delivery. See who gives the most rupees.",
     ogTitle: "Canada→India: Who Gives the Best CAD→INR Rate?",
     ogDescription:
       "Compare CAD to INR rates from 10+ providers. Find the cheapest way to send money from Canada to India with Interac funding.",
@@ -884,7 +887,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "australia-to-india": {
     title: "Cheapest Way to Send Money Australia to India — AUD→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Australia to India in 2026. Real-time AUD to INR exchange rates, fees, and delivery times from Wise, Instarem, Remitly, and 10+ more providers.",
+      "AUD to INR rates from Wise, Instarem, Remitly & 10+ providers. PayID funding, IMPS instant delivery. Compare fees and total cost.",
     ogTitle: "Australia→India: Who Gives the Best AUD→INR Rate?",
     ogDescription:
       "Compare AUD to INR rates from 10+ providers. Find the cheapest way to send money from Australia to India with PayID funding.",
@@ -894,7 +897,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-nigeria": {
     title: "Cheapest Way to Send Money USA to Nigeria — USD→NGN Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to Nigeria in 2026. Real-time USD to NGN exchange rates from Wise, Remitly, Lemfi, WorldRemit, and more. NGN rates vary by 10%+ between providers — compare before you send.",
+      "USD to NGN rates from Wise, Remitly, Lemfi & more. NGN rates vary 10%+ between providers — compare before you send. Updated every 6 hrs.",
     ogTitle: "USA→Nigeria: Who Gives the Best USD→NGN Rate?",
     ogDescription:
       "Compare real-time USD to NGN rates from 10+ providers. NGN rates vary by 10%+ — find the most naira for your dollar today.",
@@ -904,7 +907,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-bangladesh": {
     title: "Cheapest Way to Send Money USA to Bangladesh — USD→BDT Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to Bangladesh in 2026. Real-time USD to BDT rates from Remitly, Wise, ACE Money Transfer, and 10+ providers. Direct bKash transfers available — funds arrive in minutes.",
+      "USD to BDT rates from Remitly, Wise, ACE & 10+ providers. Direct bKash transfers — funds arrive in minutes. Compare fees and total cost.",
     ogTitle: "USA→Bangladesh: Who Gives the Best USD→BDT Rate?",
     ogDescription:
       "Compare USD to BDT rates from 10+ providers. Send directly to bKash in minutes. Find the most taka for your dollar today.",
@@ -914,7 +917,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-europe": {
     title: "Cheapest Way to Send Money USA to Europe — USD→EUR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from the USA to Europe in 2026. Real-time USD to EUR exchange rates, SEPA delivery, and fees from Wise, OFX, XE, and 10+ providers. Save $40–$70 per transfer versus US bank wires.",
+      "USD to EUR rates from Wise, OFX, XE & 10+ providers. SEPA delivery in 1 day. Save $40–$70 per transfer vs US bank wires.",
     ogTitle: "USA→Europe: Who Gives the Best USD→EUR Rate?",
     ogDescription:
       "Compare USD to EUR rates from 10+ providers. SEPA delivery in 1 business day. Save 80% versus bank wire transfers.",
@@ -924,7 +927,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-pakistan": {
     title: "Cheapest Way to Send Money UK to Pakistan — GBP→PKR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UK to Pakistan in 2026. Real-time GBP to PKR rates from ACE Money Transfer, Wise, WorldRemit, Remitly, and more. Direct JazzCash and Easypaisa transfers available.",
+      "GBP to PKR rates from ACE, Wise, WorldRemit & Remitly. Direct JazzCash and Easypaisa delivery. Compare 10+ FCA-regulated providers.",
     ogTitle: "UK→Pakistan: Who Gives the Best GBP→PKR Rate?",
     ogDescription:
       "Compare GBP to PKR rates from 10+ providers. Send to JazzCash or Easypaisa in minutes. Find the most rupees per pound today.",
@@ -934,7 +937,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-nigeria": {
     title: "Cheapest Way to Send Money UK to Nigeria — GBP→NGN Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UK to Nigeria in 2026. GBP to NGN rates from Lemfi, Wise, WorldRemit, Remitly, and more. NGN rates vary by 10%+ between providers — always compare before you send.",
+      "GBP to NGN rates from Lemfi, Wise, WorldRemit & more. Naira rates vary 10%+ between providers — compare before you send. Updated every 6 hrs.",
     ogTitle: "UK→Nigeria: Who Gives the Best GBP→NGN Rate?",
     ogDescription:
       "Compare GBP to NGN rates from 10+ providers. Up to 10% difference between best and worst. Find the most naira per pound today.",
@@ -944,7 +947,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "australia-to-philippines": {
     title: "Cheapest Way to Send Money Australia to Philippines — AUD→PHP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Australia to the Philippines in 2026. AUD to PHP rates from Instarem, Wise, Remitly, WorldRemit, and more. Direct GCash transfers available. Save A$50–$80 per A$1,000 vs banks.",
+      "AUD to PHP rates from Instarem, Wise, Remitly & more. Direct GCash transfers available. Save A$50–A$80 per A$1,000 vs banks.",
     ogTitle: "Australia→Philippines: Who Gives the Best AUD→PHP Rate?",
     ogDescription:
       "Compare AUD to PHP rates from 10+ providers. Send to GCash in minutes. Instarem often beats global brands on this corridor.",
@@ -954,7 +957,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-brazil": {
     title: "Cheapest Way to Send Money USA to Brazil — USD→BRL Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from the USA to Brazil in 2026. USD to BRL rates from Wise, Remitly, Western Union, and 10+ providers. PIX instant delivery available. BRL volatile — compare before every send.",
+      "USD to BRL rates from Wise, Remitly, Western Union & 10+ providers. PIX instant delivery. BRL volatile — compare before every send.",
     ogTitle: "USA→Brazil: Who Gives the Best USD→BRL Rate?",
     ogDescription:
       "Compare USD to BRL rates from 10+ providers. PIX delivery in seconds. Find the most reais per dollar today.",
@@ -964,7 +967,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-kenya": {
     title: "Cheapest Way to Send Money USA to Kenya — USD→KES Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from the USA to Kenya in 2026. USD to KES rates from Sendwave, WorldRemit, Remitly, and Wise. Direct M-Pesa transfers in minutes. Sendwave charges zero fees for M-Pesa delivery.",
+      "USD to KES rates from Sendwave, WorldRemit, Remitly & Wise. Direct M-Pesa in minutes. Sendwave charges zero fees for M-Pesa delivery.",
     ogTitle: "USA→Kenya: Who Gives the Best USD→KES Rate?",
     ogDescription:
       "Compare USD to KES rates from 10+ providers. Send to M-Pesa in minutes. Sendwave offers zero-fee M-Pesa transfers to Kenya.",
@@ -974,7 +977,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "canada-to-philippines": {
     title: "Cheapest Way to Send Money Canada to Philippines — CAD→PHP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Canada to the Philippines in 2026. CAD to PHP rates from Remitly, Wise, Instarem, WorldRemit, and more. Direct GCash transfers via Interac e-Transfer. Save C$60–$100 vs Canadian banks.",
+      "CAD to PHP rates from Remitly, Wise, Instarem & more. GCash delivery via Interac e-Transfer. Save C$60–C$100 vs Canadian banks.",
     ogTitle: "Canada→Philippines: Who Gives the Best CAD→PHP Rate?",
     ogDescription:
       "Compare CAD to PHP rates from 10+ providers. Fund via Interac e-Transfer, send to GCash in minutes. Find the best rate today.",
@@ -984,7 +987,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-bangladesh": {
     title: "Cheapest Way to Send Money UK to Bangladesh — GBP→BDT Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from the UK to Bangladesh in 2026. GBP to BDT rates from ACE Money Transfer, WorldRemit, Wise, and Remitly. Direct bKash transfers in minutes. Bangladesh 2.5% remittance incentive applies.",
+      "GBP to BDT rates from ACE, WorldRemit, Wise & Remitly. Direct bKash in minutes. Bangladesh 2.5% remittance incentive applies.",
     ogTitle: "UK→Bangladesh: Who Gives the Best GBP→BDT Rate?",
     ogDescription:
       "Compare GBP to BDT rates from 10+ providers. Send directly to bKash in minutes. Get Bangladesh's 2.5% remittance cash incentive.",
@@ -994,7 +997,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uae-to-india": {
     title: "Cheapest Way to Send Money UAE to India — AED→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UAE to India in 2026. AED to INR rates from Wise, Remitly, Al Ansari Exchange, and 10+ providers. IMPS instant delivery to all major Indian banks. Competition is intense — compare before every send.",
+      "AED to INR rates from Wise, Remitly, Al Ansari & 10+ providers. IMPS instant delivery. Competition intense — compare before every send.",
     ogTitle: "UAE→India: Who Gives the Best AED→INR Rate?",
     ogDescription:
       "Compare AED to INR rates from 10+ providers. IMPS instant delivery to Indian banks. Find the most rupees per dirham today.",
@@ -1004,7 +1007,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uae-to-pakistan": {
     title: "Cheapest Way to Send Money UAE to Pakistan — AED→PKR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UAE to Pakistan in 2026. AED to PKR rates from ACE Money Transfer, Wise, Remitly, Al Ansari, and more. Direct JazzCash and Easypaisa transfers available. PKR volatile — compare every time.",
+      "AED to PKR rates from ACE, Wise, Remitly & Al Ansari. JazzCash and Easypaisa delivery. PKR volatile — compare every time.",
     ogTitle: "UAE→Pakistan: Who Gives the Best AED→PKR Rate?",
     ogDescription:
       "Compare AED to PKR rates from 10+ providers. Send to JazzCash and Easypaisa. Find the most rupees per dirham today.",
@@ -1014,7 +1017,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uae-to-philippines": {
     title: "Cheapest Way to Send Money UAE to Philippines — AED→PHP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UAE to the Philippines in 2026. AED to PHP rates from Remitly, LuLu Exchange, Al Ansari, and more. Direct GCash and Maya transfers available. Fast delivery to all Philippine banks.",
+      "AED to PHP rates from Remitly, LuLu Exchange, Al Ansari & more. Direct GCash and Maya delivery. Compare fees from 10+ providers.",
     ogTitle: "UAE→Philippines: Who Gives the Best AED→PHP Rate?",
     ogDescription:
       "Compare AED to PHP rates from 10+ providers. Send to GCash in minutes from the UAE. Find the most pesos per dirham today.",
@@ -1024,7 +1027,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "saudi-arabia-to-india": {
     title: "Cheapest Way to Send Money Saudi Arabia to India — SAR→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Saudi Arabia to India in 2026. SAR to INR rates from Lulu Exchange, Al Rajhi, Wise, Remitly, and more. IMPS instant delivery. SAR pegged to USD — compare provider margins carefully.",
+      "SAR to INR rates from Lulu Exchange, Al Rajhi, Wise & more. IMPS instant delivery. SAR pegged to USD — compare margins carefully.",
     ogTitle: "Saudi Arabia→India: Who Gives the Best SAR→INR Rate?",
     ogDescription:
       "Compare SAR to INR rates from 10+ providers. IMPS delivery to all Indian banks. Find the most rupees per riyal today.",
@@ -1034,7 +1037,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "saudi-arabia-to-pakistan": {
     title: "Cheapest Way to Send Money Saudi Arabia to Pakistan — SAR→PKR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Saudi Arabia to Pakistan in 2026. SAR to PKR rates from Al Rajhi, ACE Money Transfer, Wise, and more. Direct JazzCash and Easypaisa transfers. PKR volatile — compare at time of sending.",
+      "SAR to PKR rates from Al Rajhi, ACE, Wise & more. JazzCash and Easypaisa delivery. PKR volatile — compare at time of sending.",
     ogTitle: "Saudi Arabia→Pakistan: Who Gives the Best SAR→PKR Rate?",
     ogDescription:
       "Compare SAR to PKR rates from 10+ providers. Send to JazzCash and Easypaisa. Find the most rupees per riyal today.",
@@ -1044,7 +1047,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-uk": {
     title: "Cheapest Way to Send Money USA to UK — USD→GBP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to the UK in 2026. See real-time USD to GBP exchange rates from Wise, OFX, Remitly, and 10+ providers. Faster Payments delivery in minutes.",
+      "USD to GBP rates from Wise, OFX, Remitly & 10+ providers. Faster Payments delivery in minutes. See who gives the most pounds.",
     ogTitle: "USA→UK: Who Gives the Best USD→GBP Rate?",
     ogDescription:
       "Compare USD to GBP rates from 15+ providers. Faster Payments delivery to UK banks. Find the most pounds per dollar today.",
@@ -1054,7 +1057,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "saudi-arabia-to-bangladesh": {
     title: "Cheapest Way to Send Money Saudi Arabia to Bangladesh — SAR→BDT Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Saudi Arabia to Bangladesh in 2026. SAR to BDT rates from Al Rajhi, ACE Money Transfer, Wise. Direct bKash delivery. Recipients get 2.5% government bonus.",
+      "SAR to BDT rates from Al Rajhi, ACE, Wise. Direct bKash delivery. Recipients get Bangladesh's 2.5% government remittance bonus.",
     ogTitle: "Saudi Arabia→Bangladesh: Who Gives the Best SAR→BDT Rate?",
     ogDescription:
       "Compare SAR to BDT rates. Send to bKash from Saudi Arabia. Recipients earn 2.5% government incentive on formal remittances.",
@@ -1064,7 +1067,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "saudi-arabia-to-egypt": {
     title: "Cheapest Way to Send Money Saudi Arabia to Egypt — SAR→EGP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Saudi Arabia to Egypt in 2026. SAR to EGP rates from Lulu Exchange, Al Rajhi, Wise. InstaPay instant delivery. EGP floating rate — compare carefully.",
+      "SAR to EGP rates from Lulu Exchange, Al Rajhi, Wise. InstaPay instant delivery. EGP floating rate — compare carefully.",
     ogTitle: "Saudi Arabia→Egypt: Who Gives the Best SAR→EGP Rate?",
     ogDescription:
       "Compare SAR to EGP rates from multiple providers. InstaPay delivery to Egyptian banks. Find the most pounds per riyal today.",
@@ -1074,7 +1077,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "singapore-to-india": {
     title: "Cheapest Way to Send Money Singapore to India — SGD→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Singapore to India in 2026. SGD to INR rates from Instarem, Wise, Remitly. IMPS instant delivery to all Indian banks. PayNow funding supported.",
+      "SGD to INR rates from Instarem, Wise, Remitly. IMPS instant delivery. PayNow funding supported. Compare fees from 10+ providers.",
     ogTitle: "Singapore→India: Who Gives the Best SGD→INR Rate?",
     ogDescription:
       "Compare SGD to INR rates from 10+ providers. IMPS instant delivery to Indian banks. Find the most rupees per Singapore dollar today.",
@@ -1094,7 +1097,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "singapore-to-indonesia": {
     title: "Cheapest Way to Send Money Singapore to Indonesia — SGD→IDR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Singapore to Indonesia in 2026. SGD to IDR rates from Instarem, Wise, Remitly. Bank deposit to BCA, BRI, Mandiri. BI-FAST instant settlement.",
+      "SGD to IDR rates from Instarem, Wise, Remitly. Deposit to BCA, BRI, Mandiri. BI-FAST instant settlement. Compare fees today.",
     ogTitle: "Singapore→Indonesia: Who Gives the Best SGD→IDR Rate?",
     ogDescription:
       "Compare SGD to IDR rates from multiple providers. Fast delivery to BCA and BRI. Find the most rupiah per Singapore dollar today.",
@@ -1134,7 +1137,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-philippines": {
     title: "Cheapest Way to Send Money UK to Philippines — GBP→PHP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from the UK to the Philippines in 2026. GBP to PHP rates from Wise, Remitly, WorldRemit. Direct GCash and Maya transfers. Faster Payments funding.",
+      "GBP to PHP rates from Wise, Remitly, WorldRemit. Direct GCash and Maya delivery. Faster Payments funding. Compare 19+ providers.",
     ogTitle: "UK→Philippines: Who Gives the Best GBP→PHP Rate?",
     ogDescription:
       "Compare GBP to PHP rates from 19+ providers. Send to GCash in minutes from the UK. Find the most pesos per pound today.",
@@ -1144,7 +1147,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "europe-to-india": {
     title: "Cheapest Way to Send Money Europe to India — EUR→INR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Europe to India in 2026. EUR to INR rates from Wise, Remitly, Instarem. SEPA funding, IMPS instant delivery. Compare 18+ providers.",
+      "EUR to INR rates from Wise, Remitly, Instarem & 18+ providers. SEPA funding, IMPS instant delivery. Compare fees and total cost.",
     ogTitle: "Europe→India: Who Gives the Best EUR→INR Rate?",
     ogDescription:
       "Compare EUR to INR rates from 18+ providers. SEPA funding and IMPS delivery. Find the most rupees per euro today.",
@@ -1154,7 +1157,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "europe-to-philippines": {
     title: "Cheapest Way to Send Money Europe to Philippines — EUR→PHP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Europe to the Philippines in 2026. EUR to PHP rates from Wise, Remitly, WorldRemit. SEPA funding, direct GCash delivery.",
+      "EUR to PHP rates from Wise, Remitly, WorldRemit. SEPA funding, direct GCash delivery. Compare 16+ providers — updated every 6 hrs.",
     ogTitle: "Europe→Philippines: Who Gives the Best EUR→PHP Rate?",
     ogDescription:
       "Compare EUR to PHP rates from 16+ providers. Send to GCash from Europe via SEPA. Find the most pesos per euro today.",
@@ -1164,7 +1167,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "europe-to-nigeria": {
     title: "Cheapest Way to Send Money Europe to Nigeria — EUR→NGN Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Europe to Nigeria in 2026. EUR to NGN rates from Lemfi, Wise, WorldRemit. SEPA funding. Naira volatile — compare live rates.",
+      "EUR to NGN rates from Lemfi, Wise, WorldRemit. SEPA funding. Naira volatile — compare live rates from 11+ providers.",
     ogTitle: "Europe→Nigeria: Who Gives the Best EUR→NGN Rate?",
     ogDescription:
       "Compare EUR to NGN rates from 11+ providers. SEPA funding, bank deposit delivery. Navigate naira volatility with real-time comparison.",
@@ -1174,7 +1177,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "europe-to-pakistan": {
     title: "Cheapest Way to Send Money Europe to Pakistan — EUR→PKR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Europe to Pakistan in 2026. EUR to PKR rates from ACE Money Transfer, Wise, Remitly. SEPA funding, JazzCash and Easypaisa delivery.",
+      "EUR to PKR rates from ACE, Wise, Remitly. SEPA funding, JazzCash and Easypaisa delivery. Compare 10+ providers today.",
     ogTitle: "Europe→Pakistan: Who Gives the Best EUR→PKR Rate?",
     ogDescription:
       "Compare EUR to PKR rates from 10+ providers. Send to JazzCash and Easypaisa via SEPA. Find the most rupees per euro today.",
@@ -1184,7 +1187,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-ghana": {
     title: "Cheapest Way to Send Money USA to Ghana — USD→GHS Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to Ghana in 2026. USD to GHS rates from Sendwave, Wise, Remitly, WorldRemit. Direct MTN MoMo delivery. Zero-fee options available.",
+      "USD to GHS rates from Sendwave, Wise, Remitly & WorldRemit. Direct MTN MoMo delivery. Zero-fee options available.",
     ogTitle: "USA→Ghana: Who Gives the Best USD→GHS Rate?",
     ogDescription:
       "Compare USD to GHS rates from 14+ providers. Send to MTN MoMo instantly. Zero-fee transfer options from the US to Ghana.",
@@ -1194,7 +1197,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "usa-to-colombia": {
     title: "Cheapest Way to Send Money USA to Colombia — USD→COP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from USA to Colombia in 2026. USD to COP rates from Wise, Remitly, Xoom. Direct Nequi and Daviplata delivery. Transfiya instant settlement.",
+      "USD to COP rates from Wise, Remitly, Xoom. Direct Nequi and Daviplata delivery. Transfiya instant settlement. Compare today.",
     ogTitle: "USA→Colombia: Who Gives the Best USD→COP Rate?",
     ogDescription:
       "Compare USD to COP rates from 12+ providers. Send to Nequi and Daviplata in minutes. Find the most pesos per dollar today.",
@@ -1204,7 +1207,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uae-to-bangladesh": {
     title: "Cheapest Way to Send Money UAE to Bangladesh — AED→BDT Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UAE to Bangladesh in 2026. AED to BDT rates from Al Ansari, ACE Money Transfer, Wise. bKash delivery. Recipients get 2.5% government bonus.",
+      "AED to BDT rates from Al Ansari, ACE, Wise. bKash delivery from UAE. Recipients get Bangladesh's 2.5% government remittance bonus.",
     ogTitle: "UAE→Bangladesh: Who Gives the Best AED→BDT Rate?",
     ogDescription:
       "Compare AED to BDT rates. Send to bKash from UAE. Recipients earn Bangladesh's 2.5% remittance incentive through legal channels.",
@@ -1214,7 +1217,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "canada-to-pakistan": {
     title: "Cheapest Way to Send Money Canada to Pakistan — CAD→PKR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Canada to Pakistan in 2026. CAD to PKR rates from Wise, Remitly, ACE Money Transfer. Interac e-Transfer funding. JazzCash and Easypaisa delivery.",
+      "CAD to PKR rates from Wise, Remitly, ACE. Interac funding, JazzCash and Easypaisa delivery. Compare fees from multiple providers.",
     ogTitle: "Canada→Pakistan: Who Gives the Best CAD→PKR Rate?",
     ogDescription:
       "Compare CAD to PKR rates from multiple providers. Fund via Interac, deliver to JazzCash. Find the most rupees per Canadian dollar.",
@@ -1224,7 +1227,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "australia-to-pakistan": {
     title: "Cheapest Way to Send Money Australia to Pakistan — AUD→PKR Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Australia to Pakistan in 2026. AUD to PKR rates from Wise, Remitly, WorldRemit. PayID funding. JazzCash and Easypaisa delivery.",
+      "AUD to PKR rates from Wise, Remitly, WorldRemit. PayID funding, JazzCash and Easypaisa delivery. Compare fees today.",
     ogTitle: "Australia→Pakistan: Who Gives the Best AUD→PKR Rate?",
     ogDescription:
       "Compare AUD to PKR rates from multiple providers. PayID funding, JazzCash delivery. Find the most rupees per Australian dollar.",
@@ -1234,7 +1237,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uae-to-egypt": {
     title: "Cheapest Way to Send Money UAE to Egypt — AED→EGP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from UAE to Egypt in 2026. AED to EGP rates from Al Ansari, Wise, Remitly. InstaPay instant delivery. EGP floating rate — compare live rates.",
+      "AED to EGP rates from Al Ansari, Wise, Remitly. InstaPay instant delivery. EGP floating rate — compare live rates today.",
     ogTitle: "UAE→Egypt: Who Gives the Best AED→EGP Rate?",
     ogDescription:
       "Compare AED to EGP rates from multiple providers. InstaPay delivery to Egyptian banks. Navigate EGP volatility with real-time comparison.",
@@ -1244,7 +1247,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "saudi-arabia-to-philippines": {
     title: "Cheapest Way to Send Money Saudi Arabia to Philippines — SAR→PHP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Saudi Arabia to the Philippines in 2026. SAR to PHP rates from Al Rajhi, Wise, Remitly. Direct GCash delivery. Over 1M Filipino OFWs in Saudi.",
+      "SAR to PHP rates from Al Rajhi, Wise, Remitly. Direct GCash delivery. Over 1M Filipino OFWs in Saudi — compare fees today.",
     ogTitle: "Saudi Arabia→Philippines: Who Gives the Best SAR→PHP Rate?",
     ogDescription:
       "Compare SAR to PHP rates. Send to GCash from Saudi Arabia. Find the most pesos per riyal for Filipino OFWs.",
@@ -1254,7 +1257,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "uk-to-ghana": {
     title: "Cheapest Way to Send Money UK to Ghana — GBP→GHS Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from the UK to Ghana in 2026. GBP to GHS rates from Sendwave, WorldRemit, Wise. Direct MTN MoMo delivery. Faster Payments funding. FCA regulated.",
+      "GBP to GHS rates from Sendwave, WorldRemit, Wise. Direct MTN MoMo delivery. FCA-regulated providers. Compare fees today.",
     ogTitle: "UK→Ghana: Who Gives the Best GBP→GHS Rate?",
     ogDescription:
       "Compare GBP to GHS rates from multiple providers. Send to MTN MoMo instantly from the UK. FCA-regulated providers.",
@@ -1264,7 +1267,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "canada-to-nigeria": {
     title: "Cheapest Way to Send Money Canada to Nigeria — CAD→NGN Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Canada to Nigeria in 2026. CAD to NGN rates from Lemfi, Wise, WorldRemit. Interac e-Transfer funding. Naira volatile — compare live rates.",
+      "CAD to NGN rates from Lemfi, Wise, WorldRemit. Interac funding. Naira volatile — compare live rates before every transfer.",
     ogTitle: "Canada→Nigeria: Who Gives the Best CAD→NGN Rate?",
     ogDescription:
       "Compare CAD to NGN rates from multiple providers. Interac funding, bank deposit delivery. Navigate naira volatility with real-time comparison.",
@@ -1274,7 +1277,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "australia-to-uk": {
     title: "Cheapest Way to Send Money Australia to UK — AUD→GBP Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Australia to the UK in 2026. AUD to GBP rates from OFX, Wise, Revolut. PayID funding. Faster Payments delivery to UK banks.",
+      "AUD to GBP rates from OFX, Wise, Revolut. PayID funding, Faster Payments delivery to UK banks. Compare fees today.",
     ogTitle: "Australia→UK: Who Gives the Best AUD→GBP Rate?",
     ogDescription:
       "Compare AUD to GBP rates from multiple providers. PayID funding, Faster Payments delivery. Find the most pounds per Australian dollar.",
@@ -1284,7 +1287,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "singapore-to-bangladesh": {
     title: "Cheapest Way to Send Money Singapore to Bangladesh — SGD→BDT Rates (2026)",
     description:
-      "Compare the cheapest ways to send money from Singapore to Bangladesh in 2026. SGD to BDT rates from Instarem, Wise, Remitly. bKash delivery. Recipients get 2.5% government bonus.",
+      "SGD to BDT rates from Instarem, Wise, Remitly. bKash delivery. Recipients get Bangladesh's 2.5% government remittance bonus.",
     ogTitle: "Singapore→Bangladesh: Who Gives the Best SGD→BDT Rate?",
     ogDescription:
       "Compare SGD to BDT rates. Send to bKash from Singapore. Recipients earn Bangladesh's 2.5% remittance incentive.",
@@ -1294,7 +1297,7 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
   "send-money-to-morocco": {
     title: "Best Way to Send Money to Morocco (2026) — Fees, Rates & Cash Pickup",
     description:
-      "Compare the cheapest way to send money to Morocco in 2026. Live MAD rates, bank deposit vs cash pickup, and provider-by-provider fees from Wise, Remitly, Western Union and more.",
+      "Live MAD rates from Wise, Remitly, Western Union & more. Bank deposit vs cash pickup options. Compare provider fees — updated every 6 hrs.",
     ogTitle: "Send Money to Morocco: Who Gives the Best MAD Rate?",
     ogDescription:
       "Compare live MAD rates from 10+ providers. Bank deposit vs cash pickup options. Find the cheapest way to send money to Morocco.",
@@ -1323,10 +1326,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `Cheapest Way to Send Money to ${corridor.toCountry} — Compare ${corridor.toCurrency} Rates (${year})`
     : `Cheapest Way to Send Money ${corridor.fromCountry} to ${corridor.toCountry} — ${corridor.fromCurrency}→${corridor.toCurrency} (${year})`);
   const description = override?.description ?? (isCurr
-    ? `Compare live ${corridor.fromCurrency} to ${corridor.toCurrency} exchange rates from 15+ providers, updated every 6 hours. See who gives you the most ${corridor.toCurrency} after fees — the cheapest option changes daily.`
+    ? `Live ${corridor.fromCurrency} to ${corridor.toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees and see who gives you the most ${corridor.toCurrency}.`
     : isCountryPg
-    ? `We compared 15+ providers for sending money to ${corridor.toCountry} in ${year}. Live ${corridor.toCurrency} rates, fees, and delivery times — updated every 6 hours. The cheapest provider depends on your amount and payment method.`
-    : `We compared 15+ providers for sending money from ${corridor.fromCountry} to ${corridor.toCountry} in ${year}. Live ${corridor.fromCurrency}→${corridor.toCurrency} rates show one provider consistently delivers more — but it depends on your amount. See the full breakdown.`);
+    ? `${corridor.toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees, speed & delivery options for sending money to ${corridor.toCountry}.`
+    : `${corridor.fromCurrency} to ${corridor.toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees and see who delivers the most to ${corridor.toCountry}.`);
   const ogTitle = override?.ogTitle ?? (isCurr
     ? `${corridor.fromCurrency}→${corridor.toCurrency}: Who Gives the Best Rate?`
     : isCountryPg
@@ -1431,6 +1434,17 @@ export default async function CorridorPage({ params }: Props) {
   const savings = best && worst ? best.receiveAmount - worst.receiveAmount : 0;
   const editorialNote = corridorEditorialNotes[slug];
   const countryDetails = !isCurrencyCorridor ? getCountryDetails(corridor.toCountry, toCurrency) : null;
+  const rateInsight = getRateInsight(fromCurrency, toCurrency);
+
+  // Build a badge lookup for quick access per provider in the quote table
+  const badgeByProvider: Record<string, ProviderBadge> = {};
+  if (rateInsight) {
+    for (const badge of rateInsight.providerBadges) {
+      if (!badgeByProvider[badge.providerSlug]) {
+        badgeByProvider[badge.providerSlug] = badge;
+      }
+    }
+  }
 
   // Group by speed for the delivery section
   const fastProviders = quotes.filter(
@@ -1589,6 +1603,19 @@ export default async function CorridorPage({ params }: Props) {
         </Container>
       </section>
 
+      {/* ─── Rate Insight Banner ─── */}
+      {rateInsight && (
+        <section className="py-6 bg-[var(--color-surface)]">
+          <Container>
+            <RateInsightBanner
+              insight={rateInsight}
+              toCurrencySymbol={receiveSymbol}
+              toCurrency={toCurrency}
+            />
+          </Container>
+        </section>
+      )}
+
       {/* ─── Comparison Table ─── */}
       <section className="py-10">
         <Container>
@@ -1659,13 +1686,23 @@ export default async function CorridorPage({ params }: Props) {
                             </span>
                           )}
                         </div>
+                        {badgeByProvider[q.providerSlug] && (
+                          <div className="mt-0.5">
+                            <ProviderBadgeTag badge={badgeByProvider[q.providerSlug]} />
+                          </div>
+                        )}
                       </div>
                     </div>
 
                     {/* Rate */}
-                    <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
-                      {q.exchangeRate.toFixed(4)}
-                    </p>
+                    <div className="text-right">
+                      <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] tabular-nums">
+                        {q.exchangeRate.toFixed(4)}
+                      </p>
+                      {rateInsight?.sparklines[q.providerSlug] && rateInsight.sparklines[q.providerSlug].length >= 2 && (
+                        <Sparkline data={rateInsight.sparklines[q.providerSlug]} width={64} height={18} />
+                      )}
+                    </div>
 
                     {/* Fee */}
                     <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
@@ -2478,6 +2515,19 @@ export default async function CorridorPage({ params }: Props) {
                 ))}
               </div>
             </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ─── Rate History ─── */}
+      {rateInsight && rateInsight.totalDays >= 3 && (
+        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+          <Container>
+            <RateHistorySection
+              insight={rateInsight}
+              fromCurrency={fromCurrency}
+              toCurrency={toCurrency}
+            />
           </Container>
         </section>
       )}

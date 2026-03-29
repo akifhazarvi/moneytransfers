@@ -1,8 +1,10 @@
 /**
  * aggregate-history.ts
  *
- * Reads all history/quotes-*.json snapshots and produces compact per-corridor
- * time series files at history/corridors/{FROM}-{TO}.json.
+ * 1. Creates a new snapshot by merging all live *-quotes.json files into
+ *    history/quotes-{timestamp}.json (skipped if one already exists for this hour).
+ * 2. Reads all history/quotes-*.json snapshots and produces compact per-corridor
+ *    time series files at history/corridors/{FROM}-{TO}.json.
  *
  * Output shape per corridor file:
  * [
@@ -24,7 +26,8 @@
 import fs from "fs";
 import path from "path";
 
-const HISTORY_DIR = path.join("src/data/scraped/history");
+const SCRAPED_DIR = path.join("src/data/scraped");
+const HISTORY_DIR = path.join(SCRAPED_DIR, "history");
 const CORRIDORS_DIR = path.join(HISTORY_DIR, "corridors");
 const INDEX_PATH = path.join(HISTORY_DIR, "index.json");
 
@@ -55,6 +58,56 @@ interface DayEntry {
 
 function isoToDate(iso: string): string {
   return iso.slice(0, 10); // "2026-03-16"
+}
+
+/**
+ * Merge all live *-quotes.json files into a single snapshot.
+ * Skips if a snapshot for the current hour already exists (avoids duplicates
+ * when both API and browser workflows run close together).
+ */
+function createSnapshot(): string | null {
+  const now = new Date();
+  const tag = now.toISOString().replace(/:/g, "-").slice(0, 16); // "2026-03-28T18-27"
+  const filename = `quotes-${tag}.json`;
+  const outPath = path.join(HISTORY_DIR, filename);
+
+  // Skip if a snapshot for this hour already exists
+  const hourPrefix = `quotes-${tag.slice(0, 13)}`; // "quotes-2026-03-28T18"
+  const existing = fs
+    .readdirSync(HISTORY_DIR)
+    .filter((f) => f.startsWith(hourPrefix) && f.endsWith(".json"));
+  if (existing.length > 0) {
+    console.log(`Snapshot already exists for this hour (${existing[0]}) — skipping`);
+    return null;
+  }
+
+  // Collect all live quote files
+  const quoteFiles = fs
+    .readdirSync(SCRAPED_DIR)
+    .filter((f) => f.endsWith("-quotes.json"));
+
+  const allQuotes: Quote[] = [];
+  for (const file of quoteFiles) {
+    try {
+      const data = JSON.parse(
+        fs.readFileSync(path.join(SCRAPED_DIR, file), "utf-8")
+      );
+      if (Array.isArray(data)) allQuotes.push(...data);
+    } catch {
+      console.warn(`Warning: failed to parse ${file}, skipping`);
+    }
+  }
+
+  if (allQuotes.length === 0) {
+    console.log("No quotes found in live files — skipping snapshot");
+    return null;
+  }
+
+  fs.writeFileSync(outPath, JSON.stringify(allQuotes));
+  console.log(
+    `Created snapshot ${filename} (${allQuotes.length} quotes from ${quoteFiles.length} files)`
+  );
+  return filename;
 }
 
 function loadSnapshotFiles(): string[] {
@@ -132,11 +185,12 @@ function aggregateCorridors(files: string[]): void {
 }
 
 function main() {
-  if (!fs.existsSync(HISTORY_DIR)) {
-    console.error(`History directory not found: ${HISTORY_DIR}`);
-    process.exit(1);
-  }
+  fs.mkdirSync(HISTORY_DIR, { recursive: true });
 
+  // Step 1: Create a new snapshot from live quote files
+  createSnapshot();
+
+  // Step 2: Aggregate all snapshots into corridor time series
   const files = loadSnapshotFiles();
   if (files.length === 0) {
     console.log("No snapshot files found — nothing to aggregate.");
