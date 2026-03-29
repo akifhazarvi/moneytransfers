@@ -8,6 +8,8 @@ import { providers, getProviderName, type TransferQuote } from "@/data/providers
 import { trackProviderExpanded, trackProviderClicked, trackReviewClicked } from "@/lib/analytics";
 import { getGoUrl } from "@/lib/affiliate";
 import { promos, type PromoInfo } from "@/data/promos";
+import { getProviderInsight, getRateInsight } from "@/lib/rate-history";
+import { Sparkline, ProviderBadgeTag, ProviderRateInsightLine } from "./RateInsight";
 import RatingBadge from "./RatingBadge";
 import { useTranslations } from "next-intl";
 
@@ -62,6 +64,12 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   const markupPct = midMarketRate && midMarketRate > 0
     ? ((quote.exchangeRate - midMarketRate) / midMarketRate) * 100
     : null;
+
+  // Historical rate insight for this provider on this corridor
+  const providerInsight = getProviderInsight(quote.sendCurrency, quote.receiveCurrency, quote.providerSlug);
+  const corridorInsight = getRateInsight(quote.sendCurrency, quote.receiveCurrency);
+  const sparklineData = corridorInsight?.sparklines[quote.providerSlug];
+  const badge = corridorInsight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug);
 
   return (
     <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
@@ -309,6 +317,43 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 </a>
               </div>
             </div>
+
+            {/* Rate History Insight */}
+            {providerInsight && sparklineData && sparklineData.length >= 2 && (
+              <div className="px-5 py-4 border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]/50">
+                <div className="flex items-center gap-2 mb-2">
+                  <p className="text-xs font-semibold text-[var(--color-on-surface)] uppercase tracking-wide">Rate History</p>
+                  {badge && <ProviderBadgeTag badge={badge} />}
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                  <div className="shrink-0">
+                    <Sparkline data={sparklineData} width={120} height={32} />
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-5 gap-y-1.5 text-xs flex-1">
+                    <div>
+                      <span className="text-[var(--color-on-surface-muted)]">Trend</span>
+                      <p className="font-medium" style={{ color: providerInsight.trendDirection === "up" ? "var(--color-success)" : providerInsight.trendDirection === "down" ? "var(--color-danger)" : "var(--color-on-surface-variant)" }}>
+                        {providerInsight.trendDirection === "up" ? "↑" : providerInsight.trendDirection === "down" ? "↓" : "→"} {Math.abs(providerInsight.trendPct).toFixed(1)}% over {providerInsight.daysTracked}d
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-[var(--color-on-surface-muted)]">Avg rate</span>
+                      <p className="font-medium text-[var(--color-on-surface)] tabular-nums">{providerInsight.avgRate.toFixed(4)}</p>
+                    </div>
+                    <div>
+                      <span className="text-[var(--color-on-surface-muted)]">Range</span>
+                      <p className="font-medium text-[var(--color-on-surface)] tabular-nums">{providerInsight.minRate.toFixed(2)} – {providerInsight.maxRate.toFixed(2)}</p>
+                    </div>
+                    <div>
+                      <span className="text-[var(--color-on-surface-muted)]">vs Average</span>
+                      <p className="font-medium" style={{ color: providerInsight.currentVsAvg > 0.05 ? "var(--color-success)" : providerInsight.currentVsAvg < -0.05 ? "var(--color-danger)" : "var(--color-on-surface-variant)" }}>
+                        {providerInsight.currentVsAvg > 0 ? "+" : ""}{providerInsight.currentVsAvg.toFixed(1)}%
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {provider && provider.paymentMethods.length > 0 && (
               <div className="px-5 py-3 border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]/50 flex items-center gap-4 text-xs text-[var(--color-on-surface-variant)]">
