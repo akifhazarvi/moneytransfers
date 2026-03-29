@@ -73,6 +73,9 @@ jobs:
       - name: Aggregate historical data
         run: npx tsx scripts/aggregate-history.ts
 
+      - name: Build rate insights
+        run: npx tsx scripts/build-rate-insights.ts
+
       - name: Commit scraped data
         run: |
           git config user.name "github-actions[bot]"
