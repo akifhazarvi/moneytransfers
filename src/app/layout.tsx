@@ -8,8 +8,7 @@ const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-source-serif",
-  weight: ["400", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["400", "700"],
 });
 
 const inter = Inter({
@@ -23,7 +22,6 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
   variable: "--font-instrument-serif",
   weight: "400",
-  style: ["normal", "italic"],
 });
 
 const shareTechMono = Share_Tech_Mono({

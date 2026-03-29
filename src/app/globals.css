@@ -257,7 +257,7 @@ body {
 }
 
 /* ─── Tables — premium rounded style, sans-serif for data clarity ─── */
-.prose-content table {
+:is(.prose-content, .prose-custom) table {
   font-family: var(--font-inter), system-ui, sans-serif;
   width: 100%;
   border-collapse: separate;
@@ -269,7 +269,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
 }
-.prose-content th {
+:is(.prose-content, .prose-custom) th {
   background: var(--color-surface-container);
   font-weight: 600;
   font-size: 0.75rem;             /* 12px — smaller header */
@@ -280,23 +280,23 @@ body {
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
 }
-.prose-content td {
+:is(.prose-content, .prose-custom) td {
   padding: 0.625rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
   color: var(--color-on-surface-variant);
 }
-.prose-content td strong {
+:is(.prose-content, .prose-custom) td strong {
   font-weight: 600;
   color: var(--color-on-surface);
 }
-.prose-content tr:last-child td {
+:is(.prose-content, .prose-custom) tr:last-child td {
   border-bottom: none;
 }
-.prose-content tbody tr:nth-child(even) {
+:is(.prose-content, .prose-custom) tbody tr:nth-child(even) {
   background: var(--color-surface-dim);
 }
-.prose-content tbody tr:hover {
+:is(.prose-content, .prose-custom) tbody tr:hover {
   background: var(--color-primary-surface);
 }
 
@@ -318,44 +318,6 @@ body {
   font-weight: 600;
   color: var(--color-on-surface);
   margin: 1.5em 0 0.5em;
-}
-.prose-custom table {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 1.5em 0;
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  border: 1px solid var(--color-outline);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.prose-custom th {
-  background: var(--color-surface-container);
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--color-on-surface-muted);
-  padding: 0.625rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--color-outline);
-}
-.prose-custom td {
-  padding: 0.5rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid var(--color-outline);
-  color: var(--color-on-surface-variant);
-}
-.prose-custom tr:last-child td {
-  border-bottom: none;
-}
-.prose-custom tbody tr:nth-child(even) {
-  background: var(--color-surface-dim);
-}
-.prose-custom tbody tr:hover {
-  background: var(--color-primary-surface);
 }
 
 /* ─── Blog answer/callout boxes (dark mode safe, premium feel) ─── */

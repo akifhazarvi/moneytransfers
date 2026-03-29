@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
       // HTML pages: cache for 5 minutes, serve stale for up to 1 hour while revalidating
       // Balances freshness (live rate data updated every 6hrs) with repeat-visit performance
       {

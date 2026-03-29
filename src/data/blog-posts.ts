@@ -10165,7 +10165,1423 @@ export const blogPosts: BlogPost[] = [
       "bulk-international-payments-guide",
       "best-money-transfer-services",
     ],
-  }
+  },
+
+  // ============================
+  // Send Money to Nepal — Corridor Guide
+  // ============================
+  {
+    slug: "send-money-to-nepal-guide",
+    title: "Best Way to Send Money to Nepal (2026) — Cheapest NPR Rates & Fastest Options",
+    metaDescription:
+      "Compare the cheapest and fastest ways to send money to Nepal in 2026. Live NPR rates from 10+ providers, eSewa/Khalti wallet delivery, bank deposit and cash pickup options.",
+    excerpt:
+      "Nepal received $10.6 billion in remittances in 2025 — over 22% of GDP. We compared every major provider to find who delivers the most Nepali Rupees for your money.",
+    category: "Corridors",
+    readTime: "12 min read",
+    publishedAt: "2026-03-27",
+    updatedAt: "2026-03-27",
+    author: "Daniel Rowe",
+    tags: ["Nepal", "NPR", "remittance", "send money to Nepal", "eSewa", "Khalti", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-nepal.jpg",
+    sections: [
+      {
+        heading: "Why Nepal Is a Critical Remittance Corridor",
+        content: `<p>Nepal received over <strong>$10.6 billion in remittances in 2025</strong>, according to the <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer nofollow">Nepal Rastra Bank</a> — representing roughly <strong>22% of the country's GDP</strong>. That makes Nepal one of the most remittance-dependent economies in the world.</p>
+<p>An estimated 4–5 million Nepalis work abroad, primarily in the Gulf states (Qatar, UAE, Saudi Arabia, Kuwait), Malaysia, Australia, the UK, and the United States. Remittances fund everything from daily household expenses to education, healthcare, and house construction.</p>
+<p>The corridor is competitive, but not all providers serve it equally. Some offer excellent rates on the India corridor but mark up NPR by 2–3%. The difference between the best and worst provider on a $1,000 transfer can be <strong>NPR 3,000–8,000</strong> — enough to cover a week of groceries in Kathmandu.</p>
+<p>For broader context on how international transfers work, see our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
+      },
+      {
+        heading: "Step 1: Choose Your Provider — Best Options by Source Country",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Sending to Nepal</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup, transparent $4–$7 fee — best for $500+</td></tr>
+<tr><td><strong>Fastest Delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bank in minutes, eSewa wallet instant</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>4,500+ agent locations across Nepal including rural areas</td></tr>
+<tr><td><strong>Cheapest Small Amounts</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Low fees under $200, competitive NPR rates</td></tr>
+<tr><td><strong>Best for Mobile Wallet</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct eSewa delivery — funds arrive in seconds</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Based on real quotes from our comparison engine, updated every 6 hours. <a href="/send-money/australia-to-nepal">Compare live rates →</a></p>
+</div>
+
+<h3>From Australia (AUD → NPR)</h3>
+<p>Australia is one of the largest source countries for Nepal remittances. For an A$1,000 transfer:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: Mid-market rate with ~A$7–$10 fee. Consistently delivers the most NPR on amounts over A$500.</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: A$0–$4.99 fee with Express delivery. Slightly lower rate than Wise but faster. Supports eSewa and bank deposit.</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Competitive on smaller amounts (under A$300). Supports cash pickup and mobile wallet.</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher fees (A$5–$15) and 1.5%–3% markup, but essential if your recipient needs cash pickup in a rural area.</li>
+</ul>
+
+<h3>From the UK (GBP → NPR)</h3>
+<p>For a £500 transfer:</p>
+<ul>
+<li><strong>Wise</strong> and <strong>Remitly</strong> compete closely. Wise wins on rate transparency; Remitly wins on speed.</li>
+<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Zero fee with a competitive NPR rate — strong option for the UK corridor.</li>
+<li><strong>WorldRemit</strong>: Good all-rounder with multiple delivery options including eSewa.</li>
+</ul>
+
+<h3>From the USA (USD → NPR)</h3>
+<p>For a $1,000 transfer:</p>
+<ul>
+<li><strong>Wise</strong>: Best value on larger amounts. Mid-market rate minus a $4–$8 transparent fee.</li>
+<li><strong>Remitly</strong>: $0–$3.99 fee with Express delivery. First transfer is often fee-free.</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Good for cash pickup if your recipient doesn't have a bank account.</li>
+</ul>
+
+<h3>From Gulf States (QAR/AED/SAR → NPR)</h3>
+<p>The Gulf is the single largest source of Nepal remittances. Workers in Qatar, UAE, Saudi Arabia and Kuwait send billions annually. Key options:</p>
+<ul>
+<li><strong>Western Union</strong> and <strong>MoneyGram</strong>: Dominate in Gulf countries with extensive agent networks</li>
+<li><strong>WorldRemit</strong>: Growing presence, often cheaper than agent-based options</li>
+<li><strong>IME</strong> and <strong>Prabhu Money Transfer</strong>: Nepal-specialist remittance companies with competitive Gulf rates</li>
+</ul>`,
+      },
+      {
+        heading: "Step 2: Pick Your Delivery Method",
+        content: `<p>Nepal supports four delivery methods, each with different speed, cost, and convenience trade-offs:</p>
+
+<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Speed:</strong> 1–2 business days (same-day possible with Remitly Express)</li>
+<li><strong>Supported banks:</strong> All major Nepali banks — Nepal Investment Mega Bank, Nabil Bank, Standard Chartered Nepal, NIC Asia Bank, Global IME Bank, Machhapuchchhre Bank, Sunrise Bank</li>
+<li><strong>Best for:</strong> Regular transfers, larger amounts, recipients with active bank accounts</li>
+<li><strong>What you need:</strong> Recipient's full name, bank name, account number, and branch</li>
+</ul>
+
+<h3>Mobile Wallet (eSewa / Khalti / IME Pay)</h3>
+<ul>
+<li><strong>Speed:</strong> Instant — typically under 30 seconds</li>
+<li><strong>Limit:</strong> NPR 100,000 per transaction (approximately $750 at current rates)</li>
+<li><strong>Best for:</strong> Small to medium amounts, recipients without bank accounts, emergency transfers</li>
+<li><strong>What you need:</strong> Recipient's mobile number registered with the wallet</li>
+<li><strong>Key detail:</strong> <a href="https://esewa.com.np/" target="_blank" rel="noopener noreferrer nofollow">eSewa</a> has 15+ million users — it's the most widely used digital wallet in Nepal. <a href="https://khalti.com/" target="_blank" rel="noopener noreferrer nofollow">Khalti</a> and IME Pay are growing alternatives.</li>
+</ul>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Speed:</strong> Available within minutes</li>
+<li><strong>Best for:</strong> Recipients without bank accounts or mobile wallets, rural areas</li>
+<li><strong>Providers:</strong> Western Union (4,500+ locations), MoneyGram, WorldRemit, IME, Prabhu</li>
+<li><strong>What you need:</strong> Recipient's full name and citizenship/ID number. They'll need photo ID and the tracking number to collect.</li>
+<li><strong>Important:</strong> Cash pickup is the most expensive option (higher fees + wider spreads) but has the broadest reach in rural Nepal.</li>
+</ul>
+
+<h3>Home Delivery</h3>
+<ul>
+<li><strong>Speed:</strong> 1–3 business days</li>
+<li><strong>Best for:</strong> Elderly recipients or those far from pickup points</li>
+<li><strong>Availability:</strong> Limited to major cities (Kathmandu, Pokhara, Biratnagar). Offered by select providers including Prabhu and IME.</li>
+</ul>
+
+<p><strong>Recommendation:</strong> If your recipient has eSewa, use mobile wallet delivery — it's the fastest and cheapest option. For amounts over NPR 100,000, use bank deposit.</p>`,
+      },
+      {
+        heading: "Step 3: Understand NPR Exchange Rates",
+        content: `<p>The Nepali Rupee (NPR) has several characteristics that affect your transfer:</p>
+
+<h3>NPR Is Pegged to INR</h3>
+<p>Nepal maintains a <strong>fixed exchange rate peg</strong> with the Indian Rupee at 1 INR = 1.6 NPR. This peg has been in place since 1993. In practice, this means:</p>
+<ul>
+<li>NPR moves in lockstep with INR against other currencies (USD, GBP, AUD, EUR)</li>
+<li>If INR strengthens against USD, NPR also strengthens — your recipient gets fewer rupees</li>
+<li>The peg is set by the <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer nofollow">Nepal Rastra Bank</a> and rarely changes</li>
+</ul>
+
+<h3>Provider Markup Is Where You Lose Money</h3>
+<p>Because NPR tracks INR, the "real" exchange rate is well-established. The difference between providers comes down to <strong>how much markup they add</strong> on top of the mid-market rate:</p>
+<ul>
+<li><strong>Wise:</strong> 0% markup — uses the actual mid-market rate</li>
+<li><strong>Remitly:</strong> 0.3%–1% markup depending on amount and delivery speed</li>
+<li><strong>WorldRemit:</strong> 0.5%–1.5% markup</li>
+<li><strong>Western Union:</strong> 1.5%–3% markup — the convenience of cash pickup comes at a price</li>
+<li><strong>Banks:</strong> 2%–5% markup plus flat fees — always the most expensive option</li>
+</ul>
+
+<h3>Timing Your Transfer</h3>
+<p>Since NPR tracks INR, watch the USD/INR or GBP/INR rate rather than NPR directly. Key factors:</p>
+<ul>
+<li><strong>RBI decisions:</strong> Reserve Bank of India rate decisions directly affect NPR. Check our <a href="/news">news section</a> for central bank updates.</li>
+<li><strong>Seasonal patterns:</strong> Remittance flows to Nepal peak during Dashain (October) and Tihar (November) — rates can be slightly less favorable due to higher demand.</li>
+<li><strong>Set rate alerts:</strong> Use Wise or Remitly's rate alert feature to get notified when NPR hits your target rate.</li>
+</ul>`,
+      },
+      {
+        heading: "Step 4: Gather Your Documents and Recipient Details",
+        content: `<h3>What You Need as the Sender</h3>
+<ul>
+<li><strong>Government-issued ID</strong> (passport, driving licence, or national ID)</li>
+<li><strong>Proof of address</strong> (required by some providers for first-time registration)</li>
+<li><strong>Source of funds</strong> (may be requested for amounts over $5,000)</li>
+<li><strong>Funding method:</strong> Bank account (cheapest), debit card (fast), or credit card (most expensive — surcharges apply)</li>
+</ul>
+
+<h3>What You Need for Your Recipient</h3>
+
+<p><strong>For bank deposit:</strong></p>
+<ul>
+<li>Full name (as on their bank account)</li>
+<li>Bank name (e.g., Nabil Bank, NIC Asia, Global IME)</li>
+<li>Account number</li>
+<li>Branch name and location</li>
+</ul>
+
+<p><strong>For eSewa/Khalti:</strong></p>
+<ul>
+<li>Recipient's registered mobile number</li>
+<li>Full name</li>
+</ul>
+
+<p><strong>For cash pickup:</strong></p>
+<ul>
+<li>Full name (as on citizenship certificate or passport)</li>
+<li>City of collection</li>
+<li>They'll need: photo ID + transaction reference number</li>
+</ul>
+
+<p><strong>Tip:</strong> Double-check the recipient's name matches their ID exactly. Mismatches are the number one reason transfers get delayed in Nepal.</p>`,
+      },
+      {
+        heading: "Step 5: Send Your Transfer — What to Expect",
+        content: `<p>Here's a typical transfer timeline once you initiate payment:</p>
+
+<ol>
+<li><strong>Verification (first transfer only):</strong> 5 minutes to 24 hours. Most providers verify ID within minutes using automated checks. First transfer sometimes requires manual review.</li>
+<li><strong>Payment processing:</strong> Instant (debit card) to 1–2 business days (bank transfer/ACH). UK Faster Payments and Australian PayID are near-instant.</li>
+<li><strong>Currency conversion:</strong> Happens immediately at the quoted rate once your payment clears.</li>
+<li><strong>Delivery:</strong>
+  <ul>
+  <li>eSewa/Khalti: Seconds</li>
+  <li>Cash pickup: Available in minutes</li>
+  <li>Bank deposit: 1–2 business days (same-day with Remitly Express)</li>
+  </ul>
+</li>
+<li><strong>Confirmation:</strong> You'll receive an email/SMS when funds are delivered. Ask your recipient to check immediately — if there's an issue, the sooner you contact support the faster it's resolved.</li>
+</ol>
+
+<p><strong>Common delays:</strong> Transfers initiated on Friday evening may not process until Monday. Nepal's banking hours are Sunday–Thursday (Friday is a half-day, Saturday is the weekly holiday). Public holidays like Dashain can delay bank deposits by 3–5 days.</p>`,
+      },
+      {
+        heading: "Nepal Transfer Rules and Regulations You Should Know",
+        content: `<p>Understanding the regulatory landscape helps you avoid surprises:</p>
+
+<h3>Nepal Rastra Bank (NRB) Rules</h3>
+<ul>
+<li><strong>Receiving limits:</strong> There is no upper limit on receiving remittances in Nepal through banking channels.</li>
+<li><strong>Reporting:</strong> Banks must report remittances over NPR 1 million (~$7,500) to NRB for anti-money laundering compliance.</li>
+<li><strong>Tax on remittances:</strong> Incoming remittances are <strong>not taxed</strong> in Nepal. The government actively encourages formal remittance channels.</li>
+</ul>
+
+<h3>Sender Country Regulations</h3>
+<ul>
+<li><strong>Australia:</strong> AUSTRAC-regulated providers must verify your identity. No tax on outgoing personal transfers. Transfers over A$10,000 require additional reporting.</li>
+<li><strong>UK:</strong> FCA-regulated providers. No tax on personal remittances. Gift amounts are not taxable for the sender.</li>
+<li><strong>USA:</strong> FinCEN-regulated providers. Gifts under $18,000/year per recipient don't require Form 709. <a href="/news/us-remittance-excise-tax-takes-effect-2026">Cash-funded transfers now incur a 1% excise tax</a> — use digital funding to avoid this.</li>
+<li><strong>Gulf states:</strong> Most countries require work permits and ID verification. No outgoing transfer tax in UAE, Qatar, or Saudi Arabia.</li>
+</ul>
+
+<h3>Government Incentive Programs</h3>
+<p>The Nepal government has introduced several programs to attract remittances through formal channels:</p>
+<ul>
+<li><strong>Productive use of remittances:</strong> NRB offers preferential interest rates on deposits funded by remittances</li>
+<li><strong>Remittance bonds:</strong> Special government bonds available to Nepali diaspora at attractive rates</li>
+<li><strong>Financial literacy programs:</strong> Initiatives through local banks to help recipients use remittances productively</li>
+</ul>`,
+      },
+      {
+        heading: "Tips for Sending Money to Nepal Regularly",
+        content: `<ol>
+<li><strong>Compare every single time:</strong> Provider rankings on the Nepal corridor shift weekly. Use our <a href="/send-money">comparison tool</a> before each transfer.</li>
+<li><strong>Fund via bank transfer, not credit card:</strong> Credit cards add 1.5%–3% in cash advance fees. Debit cards or bank transfers are always cheaper.</li>
+<li><strong>Use eSewa for speed and cost:</strong> If your recipient has eSewa, it's the fastest and cheapest delivery method. Help them set it up if they haven't — registration takes 5 minutes with a Nepali mobile number.</li>
+<li><strong>Batch your transfers:</strong> Most providers charge per-transaction fees. One $1,000 transfer is cheaper than four $250 transfers.</li>
+<li><strong>Avoid weekends for bank deposits:</strong> Nepal's banking week is Sunday–Thursday. Transfers initiated Friday–Saturday will queue until Sunday.</li>
+<li><strong>Watch for Dashain/Tihar timing:</strong> Remittance volumes spike 30%+ during Nepal's major festivals. Send a few days early to avoid processing delays.</li>
+<li><strong>Keep transfer receipts:</strong> Nepal banks may ask recipients for proof of remittance source for large amounts. Digital receipts from providers satisfy this requirement.</li>
+</ol>
+<p>For more general guidance, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest way to send money internationally</a> and <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data in this guide is based on real quotes collected from provider APIs and websites every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+<p>External sources: <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer nofollow">Nepal Rastra Bank</a> remittance statistics, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> migration data, and provider-published fee schedules.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Nepal?",
+        answer:
+          "Wise consistently delivers the most NPR per dollar, pound, or Australian dollar because it uses the mid-market rate with 0% markup. Remitly and TapTap Send (from the UK) compete closely on smaller amounts. Western Union and MoneyGram are the most expensive options but necessary for cash pickup in rural areas.",
+      },
+      {
+        question: "How long does it take to send money to Nepal?",
+        answer:
+          "eSewa and Khalti mobile wallet delivery is instant (under 30 seconds). Cash pickup through Western Union or MoneyGram is available within minutes. Bank deposits take 1–2 business days, or same-day with Remitly Express. Note that Nepal banks operate Sunday–Thursday, so Friday/Saturday transfers queue until the next banking day.",
+      },
+      {
+        question: "Can I send money to an eSewa account in Nepal?",
+        answer:
+          "Yes. Remitly and WorldRemit both support direct delivery to eSewa wallets. You just need your recipient's eSewa-registered mobile number. eSewa has over 15 million users in Nepal and is the fastest delivery option — funds arrive in seconds.",
+      },
+      {
+        question: "Is the Nepali Rupee pegged to the Indian Rupee?",
+        answer:
+          "Yes. Nepal maintains a fixed peg of 1 INR = 1.6 NPR, set by Nepal Rastra Bank. This means NPR moves in lockstep with INR against other currencies. When the Indian Rupee strengthens against USD, NPR strengthens too — affecting how many rupees your recipient receives.",
+      },
+      {
+        question: "Are remittances taxed in Nepal?",
+        answer:
+          "No. Incoming remittances through formal banking channels are not taxed in Nepal. The government actively encourages formal remittance transfers. For US senders, cash-funded transfers now incur a 1% federal excise tax — fund digitally (bank account or debit card) to avoid this.",
+      },
+      {
+        question: "What documents does my recipient need for cash pickup in Nepal?",
+        answer:
+          "Your recipient needs a valid photo ID (citizenship certificate, passport, or national ID card) and the transaction reference number or MTCN (Money Transfer Control Number) that you receive after sending. Some providers also require the exact amount being collected.",
+      },
+      {
+        question: "How much money can I send to Nepal?",
+        answer:
+          "There is no upper limit on receiving remittances in Nepal through banking channels. However, amounts over NPR 1 million (~$7,500) may require additional reporting by the receiving bank. On the sending side, limits depend on your provider and verification level — most allow $10,000–$50,000 per transfer once fully verified.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-pakistan-guide",
+      "send-money-to-india-guide",
+      "send-money-to-bangladesh-guide",
+      "cheapest-way-to-send-money-internationally",
+    ],
+  },
+
+  // ============================
+  // Send Money to Nigeria from UK — Corridor Guide
+  // ============================
+  {
+    slug: "send-money-to-nigeria-guide",
+    title: "Best Way to Send Money to Nigeria from UK (2026) — GBP to NGN Rates & Fees",
+    metaDescription:
+      "Compare the cheapest ways to send money to Nigeria in 2026. Live GBP, USD and EUR to NGN rates from 10+ providers. Bank deposit, cash pickup, and how to avoid losing 10%+ on exchange rates.",
+    excerpt:
+      "Nigeria is Africa's largest remittance market at $19.5 billion annually. NGN rates vary by 10%+ between providers — here's how to find the best deal from the UK, US, and Europe.",
+    category: "Corridors",
+    readTime: "13 min read",
+    publishedAt: "2026-03-27",
+    updatedAt: "2026-03-27",
+    author: "Daniel Rowe",
+    tags: ["Nigeria", "NGN", "Naira", "GBP to NGN", "remittance", "send money to Nigeria", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-nigeria.jpg",
+    sections: [
+      {
+        heading: "Why the Nigeria Corridor Demands Extra Attention",
+        content: `<p>Nigeria is <strong>Africa's largest remittance destination</strong>, receiving an estimated <strong>$19.5 billion in 2025</strong> according to <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>. The UK is one of the top source countries, with a large Nigerian diaspora sending money home for family support, business investment, and property.</p>
+
+<p>But here's what makes Nigeria different from other corridors: <strong>the spread between the best and worst NGN exchange rate can exceed 10%</strong>. On a £1,000 transfer, that's a difference of over ₦100,000 — real money that your recipient either receives or loses to provider markup.</p>
+
+<p>This guide explains exactly why the spread is so wide, how to navigate it, and which providers consistently deliver the most Naira.</p>`,
+      },
+      {
+        heading: "Step 1: Understand the NGN Exchange Rate Landscape",
+        content: `<p>The Nigerian Naira has multiple exchange rates, and understanding them is critical before choosing a provider:</p>
+
+<h3>Official CBN Rate vs. Market Rate</h3>
+<ul>
+<li><strong>CBN official rate:</strong> Set by the <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria</a>. Used for official transactions and government imports.</li>
+<li><strong>NAFEM rate:</strong> The Nigerian Autonomous Foreign Exchange Market rate — the primary rate used by banks and licensed bureaux de change.</li>
+<li><strong>Parallel market rate:</strong> The informal "black market" rate, typically 5–20% higher than NAFEM. This rate reflects actual supply/demand but carries legal risk.</li>
+</ul>
+
+<h3>What Rate Will Your Provider Use?</h3>
+<p>Most international money transfer providers offer a rate somewhere between NAFEM and the parallel market rate. The key insight: <strong>providers that offer rates closer to the parallel market rate deliver significantly more Naira to your recipient</strong>.</p>
+
+<ul>
+<li><strong>Lemfi (formerly LemFi):</strong> Often offers rates close to the parallel market — can deliver 5–10% more Naira than traditional providers</li>
+<li><strong>Wise:</strong> Uses a mid-market rate based on NAFEM with transparent markup — reliable but not always the best NGN rate</li>
+<li><strong>WorldRemit:</strong> Competitive NGN rates, often closer to parallel market</li>
+<li><strong>Western Union:</strong> Typically offers rates closer to the CBN/NAFEM rate — resulting in fewer Naira per pound</li>
+</ul>
+
+<p><strong>This is why you must compare every time you send to Nigeria.</strong> The "cheapest" provider changes more frequently on this corridor than almost any other. Use our <a href="/send-money/uk-to-nigeria">UK to Nigeria comparison tool</a> to check live rates.</p>`,
+      },
+      {
+        heading: "Step 2: Choose Your Provider",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Sending to Nigeria</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best NGN Rate</strong></td><td>Lemfi</td><td>Rates often 5–10% better than banks, close to parallel market</td></tr>
+<tr><td><strong>Most Transparent</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on NAFEM-based mid-market rate, clear fee structure</td></tr>
+<tr><td><strong>Fastest Delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express bank deposit in minutes</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Thousands of agent locations across Nigeria</td></tr>
+<tr><td><strong>Best All-Rounder</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Competitive rates + bank, cash, mobile money options</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Based on real quotes. NGN rates change rapidly — <a href="/send-money/uk-to-nigeria">compare live rates →</a></p>
+</div>
+
+<h3>From the UK (GBP → NGN)</h3>
+<p>For a £1,000 transfer:</p>
+<ul>
+<li><strong>Lemfi:</strong> Typically offers the highest NGN amount. Founded by Nigerians in the UK, specializes in this corridor. FCA-regulated.</li>
+<li><strong><a href="/companies/wise">Wise</a></strong>: Transparent pricing with ~£4–£7 fee. Uses mid-market rate — reliable but check against Lemfi's rate.</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Strong competitor with multiple delivery options (bank, cash, mobile money).</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive on speed. Express delivery gets funds to Nigerian banks in minutes.</li>
+</ul>
+<p>See our <a href="/compare/wise-vs-worldremit">Wise vs WorldRemit comparison</a> for a detailed head-to-head.</p>
+
+<h3>From the USA (USD → NGN)</h3>
+<p>Similar provider rankings apply. Lemfi, WorldRemit, and Remitly compete closely. <a href="/send-money/usa-to-nigeria">Compare USD to NGN rates here →</a></p>
+
+<h3>From Europe (EUR → NGN)</h3>
+<p>Wise and WorldRemit have the strongest EUR→NGN offerings. Lemfi is expanding its European presence. SEPA transfers make funding fast and cheap.</p>`,
+      },
+      {
+        heading: "Step 3: Pick Your Delivery Method",
+        content: `<h3>Bank Deposit (Recommended for Most Transfers)</h3>
+<ul>
+<li><strong>Speed:</strong> 1–2 business days standard, minutes with Remitly Express</li>
+<li><strong>Supported banks:</strong> All major Nigerian banks — GTBank, Access Bank, Zenith Bank, First Bank, UBA, Stanbic IBTC, Fidelity Bank, Sterling Bank</li>
+<li><strong>What you need:</strong> Recipient's full name (as on bank account), bank name, account number (NUBAN — 10 digits)</li>
+<li><strong>Best for:</strong> Amounts over ₦100,000, recipients with active accounts</li>
+</ul>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Speed:</strong> Available within minutes</li>
+<li><strong>Networks:</strong> Western Union, MoneyGram, and WorldRemit have the widest coverage</li>
+<li><strong>Limit:</strong> Varies by provider — typically ₦500,000–₦1,000,000 per transaction</li>
+<li><strong>What you need:</strong> Recipient's full name, city, phone number. They'll need a valid ID (National ID, passport, or driver's licence) plus the tracking number.</li>
+<li><strong>Best for:</strong> Recipients without bank accounts, urgent small amounts</li>
+</ul>
+
+<h3>Mobile Money (Opay / PalmPay)</h3>
+<ul>
+<li><strong>Speed:</strong> Instant</li>
+<li><strong>Providers:</strong> WorldRemit supports delivery to Opay and PalmPay wallets</li>
+<li><strong>Best for:</strong> Small to medium amounts, unbanked recipients</li>
+<li><strong>Growing fast:</strong> Opay alone has over 35 million users in Nigeria</li>
+</ul>
+
+<h3>Airtime Top-Up</h3>
+<ul>
+<li><strong>Available through:</strong> WorldRemit</li>
+<li><strong>Networks:</strong> MTN, Airtel, Glo, 9mobile</li>
+<li><strong>Best for:</strong> Emergency communication support — not a replacement for remittances</li>
+</ul>`,
+      },
+      {
+        heading: "Step 4: Know the NUBAN System and Required Details",
+        content: `<p>Nigeria uses the <strong>NUBAN (Nigeria Uniform Bank Account Number)</strong> system — a 10-digit account number format standardized by the CBN.</p>
+
+<h3>How NUBAN Works</h3>
+<ul>
+<li>Format: 10 digits (e.g., 0123456789)</li>
+<li>First 3 digits identify the bank</li>
+<li>The 10th digit is a check digit (validates the number)</li>
+<li>Each Nigerian bank has a unique 3-digit code assigned by CBN</li>
+</ul>
+
+<h3>Verifying Before You Send</h3>
+<p><strong>Critical step:</strong> Always verify the account number with your recipient before sending. Nigeria's banking system does <strong>name verification</strong> — the name you enter must match the bank account holder. If it doesn't, the transfer may be delayed or returned.</p>
+
+<p>Most providers now do real-time name verification during the transfer process. When you enter the account number, the provider will show you the name on the account — confirm with your recipient that it matches.</p>
+
+<h3>What You'll Need</h3>
+<ul>
+<li>Recipient's <strong>full name</strong> (exactly as registered with their bank)</li>
+<li><strong>Bank name</strong></li>
+<li><strong>10-digit NUBAN</strong> account number</li>
+<li>Recipient's <strong>phone number</strong> (for delivery notifications)</li>
+</ul>`,
+      },
+      {
+        heading: "Step 5: Avoid Common Pitfalls on the Nigeria Corridor",
+        content: `<ol>
+<li><strong>Never accept the first rate you see.</strong> The NGN corridor has the widest spreads of any major corridor. Always compare at least 3 providers for your exact amount.</li>
+<li><strong>Check the rate, not just the fee.</strong> A provider charging £0 fee but offering a 5% worse exchange rate costs you far more than one charging £5 fee with a 1% rate markup.</li>
+<li><strong>Avoid sending on weekends.</strong> Nigerian banks process transfers during business hours (Monday–Friday). Weekend transfers queue until Monday.</li>
+<li><strong>Don't use your UK bank.</strong> High-street banks (Barclays, HSBC, Lloyds, NatWest) typically mark up GBP/NGN by 3–5% and charge £15–£30 wire fees. Specialist providers save 5–10% per transfer.</li>
+<li><strong>Watch for CBN policy changes.</strong> The Central Bank of Nigeria periodically adjusts FX policy, which can cause sudden rate shifts. Follow our <a href="/news">news page</a> for updates.</li>
+<li><strong>Verify the recipient account number.</strong> Incorrect NUBAN numbers are the top cause of delays. Use the provider's name-matching feature to confirm before sending.</li>
+<li><strong>Consider Lemfi for the best NGN rate.</strong> While not as well-known as Wise or WorldRemit, Lemfi consistently offers some of the most competitive NGN rates from the UK.</li>
+</ol>`,
+      },
+      {
+        heading: "Nigeria Transfer Regulations",
+        content: `<h3>For Senders</h3>
+<ul>
+<li><strong>UK (FCA):</strong> All providers must be FCA-authorized. Your money is safeguarded. No UK tax on personal remittances.</li>
+<li><strong>USA (FinCEN):</strong> Regulated by FinCEN and state agencies. <a href="/news/us-remittance-excise-tax-takes-effect-2026">New 1% excise tax</a> applies only to cash-funded transfers — digital transfers exempt.</li>
+</ul>
+
+<h3>For Recipients in Nigeria</h3>
+<ul>
+<li><strong>No tax on incoming remittances:</strong> The CBN exempts personal remittances from tax</li>
+<li><strong>Receiving in Naira vs. domiciliary accounts:</strong> Recipients can receive in Naira (auto-converted) or into a domiciliary (foreign currency) account at their bank. Dom accounts let them hold USD/GBP and convert when rates are favorable.</li>
+<li><strong>BVN requirement:</strong> Bank Verification Number is required for all Nigerian bank accounts. This is automatically linked to the account — no extra action needed for receiving transfers.</li>
+</ul>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data based on real quotes collected from provider APIs every 6 hours. NGN rates are volatile — use our <a href="/send-money">comparison tool</a> for the latest.</p>
+<p>External sources: <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>, and <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA</a> provider registers.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Nigeria from the UK?",
+        answer:
+          "Lemfi typically offers the highest NGN rate from the UK — often 5–10% more Naira per pound than traditional providers. Wise and WorldRemit are strong alternatives. Always compare at least 3 providers because NGN rates vary by over 10% between the best and worst options.",
+      },
+      {
+        question: "Why do NGN exchange rates vary so much between providers?",
+        answer:
+          "Nigeria has multiple exchange rate tiers — the official CBN rate, the NAFEM rate used by banks, and the parallel market rate. Providers that source liquidity closer to the parallel market offer significantly better NGN rates. This creates wider spreads than you'd see on most other corridors.",
+      },
+      {
+        question: "How long does it take to send money to Nigeria?",
+        answer:
+          "Bank deposits take 1–2 business days (minutes with Remitly Express). Cash pickup through Western Union or MoneyGram is available within minutes. Mobile money delivery (Opay, PalmPay) via WorldRemit is instant.",
+      },
+      {
+        question: "What is a NUBAN number?",
+        answer:
+          "NUBAN (Nigeria Uniform Bank Account Number) is Nigeria's standardized 10-digit bank account format. The first 3 digits identify the bank, and the last digit is a check digit. You need your recipient's 10-digit NUBAN to send a bank deposit to Nigeria.",
+      },
+      {
+        question: "Should my recipient receive in Naira or a domiciliary account?",
+        answer:
+          "It depends on their needs. Receiving in Naira is simpler — funds arrive converted and ready to spend. A domiciliary (dom) account holds foreign currency (USD, GBP, EUR) and lets the recipient convert to Naira when rates are favorable. Dom accounts are useful if they expect NGN to weaken further.",
+      },
+      {
+        question: "Is it legal to send money to Nigeria?",
+        answer:
+          "Yes. Sending personal remittances to Nigeria through licensed providers is completely legal from the UK, US, EU, and most countries. All providers listed on our site are regulated by their local financial authority (FCA, FinCEN, etc.). Incoming remittances are tax-exempt in Nigeria.",
+      },
+      {
+        question: "Can I send money to Opay or PalmPay in Nigeria?",
+        answer:
+          "Yes. WorldRemit supports delivery to Opay and PalmPay mobile wallets. You just need your recipient's registered phone number. Delivery is instant. Opay has over 35 million users in Nigeria, making it increasingly accessible.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-pakistan-guide",
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+      "money-transfer-safety-guide",
+    ],
+  },
+
+  // ============================
+  // Send Money to Morocco — Corridor Guide
+  // ============================
+  {
+    slug: "send-money-to-morocco-guide",
+    title: "Best Way to Send Money to Morocco (2026) — MAD Rates, Fees & Cash Pickup",
+    metaDescription:
+      "Compare the cheapest ways to send money to Morocco in 2026. Live MAD exchange rates, bank deposit vs CashPlus pickup, provider fees, and step-by-step instructions from Europe, US and Canada.",
+    excerpt:
+      "Morocco received $12 billion in remittances in 2025, primarily from France, Spain, Italy and the Gulf. Here's how to get the best MAD rate and avoid overpaying.",
+    category: "Corridors",
+    readTime: "12 min read",
+    publishedAt: "2026-03-27",
+    updatedAt: "2026-03-27",
+    author: "Daniel Rowe",
+    tags: ["Morocco", "MAD", "Dirham", "remittance", "send money to Morocco", "CashPlus", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-morocco.jpg",
+    sections: [
+      {
+        heading: "Morocco's Remittance Market: What You Need to Know",
+        content: `<p>Morocco received approximately <strong>$12 billion in remittances in 2025</strong>, according to <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> data — representing about 9% of GDP. The Moroccan diaspora numbers over 5 million, concentrated in:</p>
+<ul>
+<li><strong>France:</strong> 1.5+ million — the single largest source of Morocco remittances</li>
+<li><strong>Spain and Italy:</strong> Large North African communities</li>
+<li><strong>Belgium and Netherlands:</strong> Significant Moroccan-origin populations</li>
+<li><strong>Gulf states:</strong> Growing worker communities in UAE, Saudi Arabia, Qatar</li>
+<li><strong>USA and Canada:</strong> Smaller but growing diaspora</li>
+</ul>
+
+<p>The Morocco corridor has a distinctive characteristic: <strong>cash pickup remains enormously popular</strong>. While other corridors have shifted heavily to bank transfers, many Moroccan recipients prefer collecting cash at local agents — particularly in smaller cities and rural areas. This affects which providers offer the best value.</p>
+
+<p>The Moroccan Dirham (MAD) is a managed currency — <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a> controls its value against a basket of EUR (60%) and USD (40%). This means MAD is relatively stable but still fluctuates enough that provider markup matters.</p>`,
+      },
+      {
+        heading: "Step 1: Choose Your Provider by Source Country",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Sending to Morocco</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best Overall (Europe)</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, transparent fees, fast bank deposit</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Wafacash, Barid Bank, and 10,000+ agent locations across Morocco</td></tr>
+<tr><td><strong>Best from France</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Competitive EUR→MAD rates, multiple delivery options</td></tr>
+<tr><td><strong>Fastest Delivery</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express bank deposit in minutes</td></tr>
+<tr><td><strong>Best for Large Amounts</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate scales better on £2,000+ transfers</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Based on real quotes. <a href="/send-money/send-money-to-morocco">Compare live MAD rates →</a></p>
+</div>
+
+<h3>From France (EUR → MAD)</h3>
+<p>France is Morocco's #1 remittance source. For a €500 transfer:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: Mid-market EUR/MAD rate with ~€2–€4 fee. Best value for bank deposits over €300.</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good rates with cash pickup at Wafacash and Barid Bank locations.</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: The dominant cash pickup brand in Morocco. Higher cost (1.5%–3% markup) but unmatched reach.</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Extensive cash pickup network through Al Barid Bank (Morocco's postal bank).</li>
+</ul>
+<p><strong>French banks (Société Générale, BNP Paribas, Crédit Agricole) charge 3%–5% markup</strong> on EUR/MAD — always more expensive than specialist providers.</p>
+
+<h3>From Spain and Italy (EUR → MAD)</h3>
+<p>Same EUR→MAD providers as France. <strong>Wise</strong>, <strong>WorldRemit</strong>, and <strong>Remitly</strong> are the best options. Cash pickup is widely used in the Spanish-Moroccan corridor.</p>
+
+<h3>From the UK (GBP → MAD)</h3>
+<ul>
+<li><strong>Wise:</strong> Strongest GBP→MAD rate with transparent pricing</li>
+<li><strong>WorldRemit:</strong> Competitive with multiple delivery options</li>
+<li><strong>Western Union:</strong> Best if recipient needs cash pickup</li>
+</ul>
+
+<h3>From the USA and Canada</h3>
+<ul>
+<li><strong>Wise</strong> and <strong>Remitly</strong> lead on value. <strong>Xoom</strong> (PayPal) offers cash pickup in Morocco through Western Union locations.</li>
+<li><strong>Western Union</strong> remains the go-to for cash pickup from North America.</li>
+</ul>`,
+      },
+      {
+        heading: "Step 2: Pick Your Delivery Method",
+        content: `<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Speed:</strong> 1–2 business days (same-day with Remitly Express)</li>
+<li><strong>Major banks:</strong> Attijariwafa Bank, BMCE Bank of Africa, Banque Populaire, CIH Bank, Crédit du Maroc, Société Générale Maroc</li>
+<li><strong>What you need:</strong> Recipient's full name, bank name, RIB (Relevé d'Identité Bancaire — 24-digit account identifier) or IBAN</li>
+<li><strong>Best for:</strong> Regular transfers, larger amounts, recipients in cities</li>
+</ul>
+
+<h3>Cash Pickup (Most Popular in Morocco)</h3>
+<ul>
+<li><strong>Speed:</strong> Available within minutes</li>
+<li><strong>Networks:</strong>
+  <ul>
+  <li><strong>Wafacash:</strong> Morocco's largest cash transfer network — over 4,000 locations. Partner of Western Union and WorldRemit.</li>
+  <li><strong>Barid Bank / Al Barid:</strong> Morocco's postal bank with 1,800+ branches, even in rural areas. Partner of MoneyGram.</li>
+  <li><strong>CashPlus:</strong> 1,200+ locations in urban areas. Fast processing.</li>
+  <li><strong>Western Union agents:</strong> Available at banks, post offices, and dedicated locations.</li>
+  </ul>
+</li>
+<li><strong>What you need:</strong> Recipient's full name and CIN (Carte d'Identité Nationale) number. They'll need their CIN and the MTCN/reference number to collect.</li>
+<li><strong>Best for:</strong> Recipients without bank accounts, rural areas, urgent transfers</li>
+</ul>
+
+<h3>Mobile Wallet (CashPlus / Inwi Money / Orange Money)</h3>
+<ul>
+<li><strong>Availability:</strong> Growing but not yet widely supported by international providers</li>
+<li><strong>Providers:</strong> WorldRemit offers limited mobile money delivery in Morocco</li>
+<li><strong>Best for:</strong> Small emergency transfers</li>
+</ul>
+
+<p><strong>Recommendation:</strong> For bank deposit, use Wise or Remitly. For cash pickup, Western Union and Wafacash have the widest network. If your recipient is in a rural area, confirm the pickup location is accessible before sending.</p>`,
+      },
+      {
+        heading: "Step 3: Understand MAD Exchange Rates",
+        content: `<h3>How the Dirham Works</h3>
+<p>The Moroccan Dirham is a <strong>managed float currency</strong>, pegged to a basket of:</p>
+<ul>
+<li><strong>Euro: 60% weight</strong></li>
+<li><strong>US Dollar: 40% weight</strong></li>
+</ul>
+<p><a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a> allows the Dirham to fluctuate within a ±5% band around the central rate. This means:</p>
+<ul>
+<li>EUR/MAD is relatively stable (moves within a narrow band)</li>
+<li>GBP/MAD and USD/MAD fluctuate more, driven by GBP/EUR and USD/EUR movements</li>
+<li>Major moves happen when Bank Al-Maghrib adjusts the band or ECB/Fed change rates</li>
+</ul>
+
+<h3>What Providers Mark Up</h3>
+<ul>
+<li><strong>Wise:</strong> 0% markup — uses the actual mid-market rate</li>
+<li><strong>WorldRemit:</strong> 0.5%–1.5% markup</li>
+<li><strong>Western Union:</strong> 1.5%–3% markup for cash pickup, less for bank deposit</li>
+<li><strong>Banks:</strong> 3%–5% markup — the most expensive option by far</li>
+</ul>
+
+<h3>Timing Tips</h3>
+<ul>
+<li><strong>EUR senders:</strong> Since MAD is 60% pegged to EUR, your rate is relatively predictable. Markup matters more than timing.</li>
+<li><strong>GBP/USD senders:</strong> Watch GBP/EUR and USD/EUR movements — these drive your MAD rate more than Morocco-specific factors.</li>
+<li><strong>Ramadan and Eid:</strong> Remittance volumes to Morocco spike significantly during Ramadan and around Eid al-Fitr and Eid al-Adha. Send early to avoid processing delays.</li>
+</ul>`,
+      },
+      {
+        heading: "Step 4: What You Need to Send",
+        content: `<h3>Sender Requirements</h3>
+<ul>
+<li><strong>ID verification:</strong> Passport or national ID card. European ID cards are accepted by most providers.</li>
+<li><strong>Address proof:</strong> May be required for first registration</li>
+<li><strong>Funding:</strong> SEPA bank transfer (cheapest from Europe), UK Faster Payments, debit card (fast), or credit card (most expensive)</li>
+</ul>
+
+<h3>Recipient Details for Bank Deposit</h3>
+<ul>
+<li>Full name (as on bank account)</li>
+<li>Bank name</li>
+<li><strong>RIB number</strong> (Relevé d'Identité Bancaire) — 24 digits, or IBAN format (MA + 2 check digits + 24 RIB digits = 28 characters total)</li>
+<li>Branch city</li>
+</ul>
+
+<h3>Recipient Details for Cash Pickup</h3>
+<ul>
+<li>Full name (as on CIN — Carte d'Identité Nationale)</li>
+<li>CIN number</li>
+<li>City of collection</li>
+<li>You'll receive a reference number (MTCN) to share with your recipient</li>
+</ul>
+
+<p><strong>Common mistake:</strong> The RIB/IBAN must match the recipient's registered name at the bank. Double-check this before sending — name mismatches cause the most delays in Morocco.</p>`,
+      },
+      {
+        heading: "Step 5: Regulations and What Recipients Should Know",
+        content: `<h3>Moroccan Regulations</h3>
+<ul>
+<li><strong>No tax on incoming remittances:</strong> Morocco does not tax personal remittances received through banking channels.</li>
+<li><strong>Office des Changes:</strong> Morocco's foreign exchange regulator. All international transfers must go through authorized intermediaries.</li>
+<li><strong>Currency controls:</strong> MAD is not freely convertible. Recipients receive funds in MAD — they cannot hold foreign currency accounts (with limited exceptions for MRE — Moroccans Resident Abroad).</li>
+<li><strong>MRE accounts:</strong> Moroccans living abroad can open special "convertible dirham" accounts that allow them to hold and repatriate funds in foreign currency. Useful if you're sending money to your own account in Morocco.</li>
+</ul>
+
+<h3>Transfer Limits</h3>
+<ul>
+<li>Most providers allow €5,000–€10,000 per transfer once verified</li>
+<li>Cash pickup may have lower limits (MAD 20,000–50,000 per transaction depending on the agent)</li>
+<li>Annual caps may apply depending on the provider and your verification level</li>
+</ul>`,
+      },
+      {
+        heading: "Tips for Regular Transfers to Morocco",
+        content: `<ol>
+<li><strong>Compare every time:</strong> Use our <a href="/send-money/send-money-to-morocco">Morocco comparison tool</a> before each transfer. Provider rankings shift frequently.</li>
+<li><strong>SEPA for the cheapest funding:</strong> If you're in the EU, fund via SEPA bank transfer — it's free or near-free and arrives within hours.</li>
+<li><strong>Avoid bank wire transfers:</strong> European and UK banks charge €15–€30 in wire fees plus 3–5% exchange rate markup. Specialist providers save you 50–80% on total cost.</li>
+<li><strong>Cash pickup is king in rural Morocco:</strong> If your recipient is outside major cities (Casablanca, Rabat, Marrakech, Fez, Tangier), cash pickup through Wafacash or Barid Bank may be the only practical option.</li>
+<li><strong>Plan around Ramadan:</strong> Transfer volumes spike during Ramadan and Eid. Send early to avoid delays — bank processing times can increase by 1–2 days during holiday periods.</li>
+<li><strong>Consider batch sending:</strong> One €500 transfer is cheaper than five €100 transfers due to per-transaction fees.</li>
+<li><strong>Keep records:</strong> Save transfer receipts. Moroccan banks may request proof of remittance source for amounts over MAD 50,000.</li>
+</ol>
+<p>For more tips, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest way to send money internationally</a> guide.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money">Compare live rates</a> for the latest.</p>
+<p>Sources: <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a>, <a href="https://www.oc.gov.ma/" target="_blank" rel="noopener noreferrer nofollow">Office des Changes</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Morocco?",
+        answer:
+          "For bank deposits, Wise offers the best value with 0% exchange rate markup and a small transparent fee. For cash pickup, WorldRemit is usually cheaper than Western Union while still offering access to Wafacash locations. Always compare — EUR/MAD markups vary by 1–3% between providers.",
+      },
+      {
+        question: "How long does it take to send money to Morocco?",
+        answer:
+          "Cash pickup through Western Union or Wafacash is available within minutes. Bank deposits take 1–2 business days (same-day with Remitly Express). SEPA transfers from Europe typically fund within hours, while UK Faster Payments are near-instant on the sender side.",
+      },
+      {
+        question: "Can I send money to Morocco in euros or does it convert to MAD?",
+        answer:
+          "All funds received in Morocco are converted to Moroccan Dirham (MAD). Morocco has currency controls that prevent most residents from holding foreign currency accounts. The exception is MRE (Moroccans Resident Abroad) accounts, which can hold convertible dirham.",
+      },
+      {
+        question: "What is a RIB number for Morocco?",
+        answer:
+          "A RIB (Relevé d'Identité Bancaire) is Morocco's 24-digit bank account identifier. It includes the bank code, city code, account number, and a check key. For international transfers, you may need the IBAN format which adds 'MA' plus 2 check digits at the beginning (28 characters total).",
+      },
+      {
+        question: "Where can my recipient collect cash in Morocco?",
+        answer:
+          "The three largest networks are Wafacash (4,000+ locations), Barid Bank/Al Barid (1,800+ including rural post offices), and CashPlus (1,200+ urban locations). Western Union and MoneyGram transfers are available at these partner locations plus bank branches.",
+      },
+      {
+        question: "Are there limits on sending money to Morocco?",
+        answer:
+          "Most providers allow €5,000–€10,000 per transfer once identity is verified. Cash pickup has lower per-transaction limits (typically MAD 20,000–50,000 depending on the agent). There's no limit on receiving remittances in Morocco through formal banking channels.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-pakistan-guide",
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+      "send-money-home-ramadan-eid-2026",
+    ],
+  },
+
+  // ============================
+  // Send Money to Romania — Corridor Guide
+  // ============================
+  {
+    slug: "send-money-to-romania-guide",
+    title: "Best Way to Send Money to Romania (2026) — EUR & RON Rates, SEPA & Fees",
+    metaDescription:
+      "Compare the cheapest ways to send money to Romania in 2026. SEPA instant transfers, EUR vs RON delivery, provider fees, and step-by-step instructions from UK, EU, US and Canada.",
+    excerpt:
+      "Romania received $9 billion in remittances in 2025, mostly from Italy, Spain, UK and Germany. SEPA makes EUR transfers near-instant — here's how to get the best deal.",
+    category: "Corridors",
+    readTime: "11 min read",
+    publishedAt: "2026-03-27",
+    updatedAt: "2026-03-27",
+    author: "Daniel Rowe",
+    tags: ["Romania", "RON", "EUR", "SEPA", "remittance", "send money to Romania", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-romania.jpg",
+    sections: [
+      {
+        heading: "Romania's Remittance Landscape",
+        content: `<p>Romania received approximately <strong>$9 billion in remittances in 2025</strong>, making it one of the largest remittance corridors in Europe. An estimated <strong>4–5 million Romanians live abroad</strong> — primarily in:</p>
+<ul>
+<li><strong>Italy:</strong> ~1.2 million — the largest Romanian community abroad</li>
+<li><strong>Spain:</strong> ~700,000</li>
+<li><strong>Germany:</strong> ~800,000</li>
+<li><strong>United Kingdom:</strong> ~400,000</li>
+<li><strong>France, Austria, Belgium:</strong> Smaller but significant communities</li>
+</ul>
+
+<p>Romania's position as an <strong>EU member state</strong> gives it a major advantage: <strong>SEPA (Single Euro Payments Area)</strong> transfers are available, making EUR deposits fast, cheap, and sometimes free. But Romania's national currency is the <strong>Romanian Leu (RON)</strong>, not the Euro — so currency conversion is still a factor for most transfers.</p>
+
+<p>For broader context on international transfers, see our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
+      },
+      {
+        heading: "Step 1: EUR Delivery vs. RON Delivery — The Critical Decision",
+        content: `<p>This is the most important choice for the Romania corridor and one most guides miss:</p>
+
+<h3>Option A: Send in EUR (to a Romanian EUR account)</h3>
+<ul>
+<li><strong>How it works:</strong> You send EUR, recipient receives EUR in their Romanian bank's EUR account</li>
+<li><strong>Cost:</strong> Very low — SEPA transfers from the EU are often free or under €1</li>
+<li><strong>Speed:</strong> SEPA Instant: seconds. Standard SEPA: 1 business day</li>
+<li><strong>Best for:</strong> Recipients who have EUR expenses (rent, imported goods), travel frequently in the EU, or want to avoid RON conversion</li>
+<li><strong>Key detail:</strong> Most Romanian banks offer multi-currency accounts. Your recipient can hold EUR and convert to RON when the rate is favorable using their own banking app.</li>
+</ul>
+
+<h3>Option B: Send in RON (converted at transfer)</h3>
+<ul>
+<li><strong>How it works:</strong> Your EUR/GBP/USD is converted to RON by the transfer provider</li>
+<li><strong>Cost:</strong> Provider markup on EUR/RON (0%–2% depending on provider)</li>
+<li><strong>Speed:</strong> 1–2 business days for bank deposit</li>
+<li><strong>Best for:</strong> Recipients who need RON immediately for local expenses, bills, or mortgage payments</li>
+</ul>
+
+<p><strong>Recommendation:</strong> If your recipient has a EUR account at their Romanian bank, <strong>send EUR via SEPA</strong>. It avoids conversion markup entirely and arrives in seconds with SEPA Instant. This is the single biggest money-saving tip for the Romania corridor.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">EUR vs RON Delivery: Cost Comparison on €1,000</h3>
+<table>
+<thead><tr><th>Method</th><th>Cost</th><th>Speed</th><th>Best Provider</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>EUR via SEPA Instant</strong></td><td>€0–€1</td><td>Seconds</td><td>Your bank or Wise</td></tr>
+<tr><td>EUR via Standard SEPA</td><td>€0–€2</td><td>1 business day</td><td>Your bank or Wise</td></tr>
+<tr><td>EUR→RON via Wise</td><td>~€4 (0% markup)</td><td>1–2 days</td><td><a href="/companies/wise">Wise</a></td></tr>
+<tr><td>EUR→RON via Revolut</td><td>€0 (weekdays)</td><td>Instant</td><td><a href="/companies/revolut">Revolut</a></td></tr>
+<tr><td>EUR→RON via bank</td><td>€15–€30 + 2%–4%</td><td>2–3 days</td><td>Avoid</td></tr>
+</tbody>
+</table>
+</div>`,
+      },
+      {
+        heading: "Step 2: Choose Your Provider",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Romania</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best EUR→EUR</strong></td><td>Your SEPA bank or <a href="/companies/wise">Wise</a></td><td>SEPA Instant is free or near-free — hard to beat</td></tr>
+<tr><td><strong>Best EUR→RON</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate with 0% markup, ~€2–€5 fee</td></tr>
+<tr><td><strong>Best GBP→RON</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, cheapest from UK post-Brexit</td></tr>
+<tr><td><strong>Best for Small Amounts</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Free weekday conversions up to €1,000/month</td></tr>
+<tr><td><strong>Best USD→RON</strong></td><td><a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a></td><td>Wise wins on rate, Remitly on speed</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote"><a href="/send-money/canada-to-romania">Compare live RON rates →</a></p>
+</div>
+
+<h3>From Italy, Spain, Germany (EUR → RON or EUR → EUR)</h3>
+<p>For a €500 transfer:</p>
+<ul>
+<li><strong>SEPA bank transfer:</strong> If sending EUR to a EUR account, use your regular bank's SEPA transfer — it's free or nearly free and arrives in seconds with SEPA Instant.</li>
+<li><strong><a href="/companies/wise">Wise</a></strong>: Best for EUR→RON conversion. Mid-market rate with ~€2–€4 fee.</li>
+<li><strong><a href="/companies/revolut">Revolut</a></strong>: Free RON conversion on weekdays up to €1,000/month. Both sender and recipient need Revolut accounts for the cheapest option.</li>
+</ul>
+
+<h3>From the UK (GBP → RON)</h3>
+<p>Post-Brexit, UK→Romania is no longer a SEPA transfer. For a £500 transfer:</p>
+<ul>
+<li><strong>Wise:</strong> Best GBP→RON rate. Mid-market rate with ~£3–£5 fee. Delivery in 1–2 business days.</li>
+<li><strong>Revolut:</strong> Competitive for smaller amounts if both parties have Revolut.</li>
+<li><strong>UK banks:</strong> Charge £15–£30 SWIFT fee plus 2%–4% markup — <strong>avoid for regular transfers</strong>.</li>
+</ul>
+
+<h3>From the USA and Canada</h3>
+<ul>
+<li><strong>Wise:</strong> Best USD/CAD→RON rate with transparent fee.</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive with faster delivery. Express option available.</li>
+<li><strong><a href="/companies/xe">XE</a></strong>: Good for larger amounts ($5,000+) with phone support.</li>
+</ul>`,
+      },
+      {
+        heading: "Step 3: Understand Romanian Banking Details",
+        content: `<h3>Romanian IBAN Format</h3>
+<p>Romania uses IBANs for all bank transfers. The format is:</p>
+<ul>
+<li><strong>Length:</strong> 24 characters</li>
+<li><strong>Format:</strong> RO + 2 check digits + 4-letter bank code + 16-digit account number</li>
+<li><strong>Example:</strong> <code>RO49 AAAA 1B31 0075 9384 0000</code></li>
+</ul>
+<p>See our <a href="/iban/romania">Romania IBAN guide</a> for full details on format and validation.</p>
+
+<h3>What You Need for a Transfer</h3>
+<p><strong>For bank deposit (EUR or RON):</strong></p>
+<ul>
+<li>Recipient's full name (as on bank account)</li>
+<li>Romanian IBAN (24 characters starting with RO)</li>
+<li>Bank name (e.g., Banca Transilvania, BRD, BCR, ING Romania, Raiffeisen)</li>
+<li>For SWIFT transfers: BIC/SWIFT code (8 or 11 characters)</li>
+</ul>
+
+<p><strong>For Revolut-to-Revolut:</strong></p>
+<ul>
+<li>Recipient's Revolut username or phone number</li>
+<li>Instant and free for Revolut users</li>
+</ul>
+
+<h3>Major Romanian Banks</h3>
+<ul>
+<li><strong>Banca Transilvania:</strong> Romania's largest bank. EUR and RON accounts widely available.</li>
+<li><strong>BRD - Groupe Société Générale:</strong> Strong international connectivity</li>
+<li><strong>BCR (Banca Comercială Română):</strong> Part of Erste Group. Excellent for EUR accounts.</li>
+<li><strong>ING Romania:</strong> Digital-first bank, popular with younger Romanians</li>
+<li><strong>Raiffeisen Bank Romania:</strong> Strong EUR/RON multi-currency offerings</li>
+</ul>`,
+      },
+      {
+        heading: "Step 4: SEPA Transfers Explained",
+        content: `<p>SEPA is the single most important thing to understand for the Romania corridor. Here's a complete breakdown:</p>
+
+<h3>What Is SEPA?</h3>
+<p>The <a href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">Single Euro Payments Area</a> allows EUR transfers between 36 European countries at near-zero cost. Romania is a full SEPA member.</p>
+
+<h3>SEPA Transfer Types</h3>
+<ul>
+<li><strong>SEPA Credit Transfer (SCT):</strong> Standard — arrives within 1 business day. Often free from EU bank accounts.</li>
+<li><strong>SEPA Instant Credit Transfer (SCT Inst):</strong> Arrives in under 10 seconds, 24/7/365. <a href="/news/eu-instant-payments-mandate-2026">The EU mandate requires all banks to support SEPA Instant by 2026</a> — most Romanian banks already do.</li>
+</ul>
+
+<h3>How to Use SEPA for Romania</h3>
+<ol>
+<li>Confirm your recipient has a EUR account at their Romanian bank (most banks offer this)</li>
+<li>Get their Romanian IBAN</li>
+<li>Initiate a SEPA transfer from your EU bank account (select "SEPA Instant" if available)</li>
+<li>The transfer arrives in seconds — no conversion fees, no markup</li>
+</ol>
+
+<p><strong>Why this matters:</strong> A SEPA Instant transfer of €1,000 costs €0–€1 and arrives in 10 seconds. The same transfer through a traditional wire costs €15–€30 plus 2–4% markup and takes 2–3 days. That's a potential saving of €35–€70 on a single transfer.</p>
+
+<h3>UK Senders: Post-Brexit SEPA Access</h3>
+<p>UK banks are no longer part of SEPA. Your options:</p>
+<ul>
+<li><strong>Wise:</strong> Acts as your SEPA bridge. Send GBP, Wise converts and delivers via SEPA to Romanian IBAN.</li>
+<li><strong>Revolut:</strong> Revolut's EU entity can send SEPA transfers — useful if you have a Revolut account.</li>
+<li><strong>Bank SWIFT transfer:</strong> Expensive (£15–£30 fee + poor rate). Avoid for regular transfers.</li>
+</ul>`,
+      },
+      {
+        heading: "Romanian Tax and Regulatory Considerations",
+        content: `<h3>For Recipients in Romania</h3>
+<ul>
+<li><strong>No tax on personal remittances:</strong> Money received as gifts or family support is not subject to Romanian income tax.</li>
+<li><strong>Gift tax:</strong> Romania does not have a gift tax. Personal transfers from family are tax-free regardless of amount.</li>
+<li><strong>Business payments:</strong> If the transfer is for services or business purposes, it may be subject to Romanian income tax. Consult a local accountant.</li>
+<li><strong>Property purchases:</strong> If sending money for real estate, the notary will require proof of funds origin. Keep all transfer receipts.</li>
+</ul>
+
+<h3>For Senders</h3>
+<ul>
+<li><strong>EU senders:</strong> No tax on outgoing personal transfers within the EU. SEPA regulation guarantees your right to send EUR at domestic pricing.</li>
+<li><strong>UK senders:</strong> No UK tax on personal remittances. FCA-regulated providers must safeguard your money.</li>
+<li><strong>US senders:</strong> No tax on gifts under $18,000/year per recipient. The new <a href="/news/us-remittance-excise-tax-takes-effect-2026">1% excise tax</a> only applies to cash-funded transfers.</li>
+</ul>`,
+      },
+      {
+        heading: "Tips for Sending to Romania Regularly",
+        content: `<ol>
+<li><strong>Send EUR to a EUR account whenever possible.</strong> This is the golden rule for Romania. SEPA is free, instant, and avoids conversion markup entirely.</li>
+<li><strong>If RON is needed, let the recipient convert locally.</strong> Romanian banking apps (especially ING, Revolut Romania, and Banca Transilvania) offer excellent EUR→RON conversion rates — often better than transfer providers.</li>
+<li><strong>Use Wise as your SEPA bridge from the UK.</strong> Since the UK left SEPA, Wise is the most cost-effective way to send GBP→EUR or GBP→RON to Romania.</li>
+<li><strong>Avoid traditional bank wires.</strong> The fees and markup are 5–10x what specialist providers charge.</li>
+<li><strong>Revolut-to-Revolut for small, frequent transfers.</strong> If both you and your recipient have Revolut, transfers are instant and free.</li>
+<li><strong>Keep Romanian bank holidays in mind:</strong> Major holidays (Easter, December 1 National Day, Christmas) can delay bank processing by 1–3 days.</li>
+<li><strong>RON exchange rate tends to be stable.</strong> EUR/RON typically stays in a narrow range (4.95–5.00). Timing matters less than for volatile currencies like NGN or PKR.</li>
+</ol>
+<p>For more tips, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest way to send money internationally</a> guide.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money">Compare live rates</a> for the latest.</p>
+<p>Sources: <a href="https://www.bnr.ro/" target="_blank" rel="noopener noreferrer nofollow">Banca Națională a României (BNR)</a>, <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Central Bank</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Romania?",
+        answer:
+          "Send EUR via SEPA Instant transfer to your recipient's EUR account at a Romanian bank. This costs €0–€1 and arrives in seconds. If your recipient needs RON, Wise offers the best EUR→RON conversion rate with 0% markup. From the UK, Wise is the cheapest option since UK banks no longer have SEPA access.",
+      },
+      {
+        question: "Can I send euros to a Romanian bank account?",
+        answer:
+          "Yes. Most Romanian banks (Banca Transilvania, BCR, BRD, ING Romania, Raiffeisen) offer EUR accounts alongside RON accounts. If your recipient has a EUR account, you can send EUR via SEPA for near-zero cost. Ask your recipient for their EUR IBAN — it will still start with RO.",
+      },
+      {
+        question: "How long does a SEPA transfer to Romania take?",
+        answer:
+          "SEPA Instant arrives in under 10 seconds, 24/7. Standard SEPA Credit Transfer takes up to 1 business day. Most Romanian banks now support SEPA Instant receiving. From the UK (non-SEPA), transfers via Wise take 1–2 business days.",
+      },
+      {
+        question: "Is it better to send EUR or RON to Romania?",
+        answer:
+          "Send EUR if your recipient has a EUR account — it avoids currency conversion costs entirely. If they need RON for local expenses, consider sending EUR and letting them convert locally through their Romanian banking app, which often offers better rates than transfer providers.",
+      },
+      {
+        question: "What is the Romania IBAN format?",
+        answer:
+          "Romanian IBANs are 24 characters: RO + 2 check digits + 4-letter bank code + 16-digit account number. Example: RO49 AAAA 1B31 0075 9384 0000. Your recipient can find their IBAN in their banking app, on their bank statement, or by asking their bank branch.",
+      },
+      {
+        question: "Are remittances to Romania taxed?",
+        answer:
+          "No. Personal remittances and gifts received in Romania are not subject to income tax or gift tax. Romania does not have a gift tax. However, if the transfer is payment for services or business purposes, it may be subject to Romanian income tax.",
+      },
+      {
+        question: "Can I use Revolut to send money to Romania?",
+        answer:
+          "Yes. If both you and your recipient have Revolut, transfers are instant and free. Revolut also offers competitive EUR→RON conversion on weekdays (free up to €1,000/month). For recipients without Revolut, you can send to their Romanian IBAN via Revolut's SEPA transfer feature.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "how-euribor-affects-euro-transfers",
+      "multi-currency-accounts-exchange-rates",
+      "best-money-transfer-apps",
+    ],
+  },
+  // ============================
+  // Send Money UK to Bangladesh Guide
+  // ============================
+  {
+    slug: "send-money-uk-to-bangladesh-guide",
+    title: "Send Money from UK to Bangladesh: Best Ways in 2026",
+    metaDescription:
+      "Compare the cheapest ways to send money from the UK to Bangladesh. Real GBP to BDT rates from 8+ providers — bKash, Nagad, bank deposit & cash pickup options compared.",
+    excerpt:
+      "The UK is one of Bangladesh's top remittance sources. We compared 8+ providers to find the cheapest GBP to BDT transfers, including bKash instant delivery and the 2.5% government incentive.",
+    category: "Corridors",
+    readTime: "11 min read",
+    publishedAt: "2026-03-27",
+    updatedAt: "2026-03-27",
+    author: "Daniel Rowe",
+    tags: ["Bangladesh", "BDT", "GBP to BDT", "UK", "remittance", "bKash", "Nagad", "corridor guide", "send money to Bangladesh"],
+    featuredImage: "/images/blog/send-money-uk-to-bangladesh.jpg",
+    sections: [
+      {
+        heading: "UK to Bangladesh: A Major Remittance Corridor",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from UK to Bangladesh in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market GBP to BDT exchange rate with 0% markup and a fee of approximately £5 on a £1,000 transfer. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering money in seconds via bKash to over 60 million accounts. For cash pickup in smaller towns, <a href="/companies/western-union">Western Union</a> has the widest agent network. On a typical £1,000 transfer, specialist providers deliver ৳3,000–৳7,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Recipients also get a <strong>2.5% government incentive</strong> on remittances through formal channels — worth an extra ৳3,500+ on a £1,000 transfer. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a> from 8+ providers.</p></div>
+<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025 according to <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a>, and the UK is the <strong>second-largest source</strong> after Saudi Arabia. Over 600,000 British Bangladeshis — concentrated in London, Birmingham, and Luton — send money home regularly to support families, fund education, and invest in property.</p>
+<p>The GBP to BDT corridor is well-served by specialist providers who undercut high-street banks by a wide margin. On a £1,000 transfer, the difference between the best specialist provider and a typical UK bank can be <strong>৳3,000–৳7,000</strong>. Combined with the 2.5% government incentive, formal channels deliver significantly more value than either bank transfers or informal hawala networks.</p>`,
+      },
+      {
+        heading: "Best Providers for GBP to BDT Transfers",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for GBP to BDT</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently cheapest for £500+</td></tr>
+<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bKash — near-instant delivery to 60M+ accounts, 24/7</td></tr>
+<tr><td><strong>Best for bKash</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Supports bKash, Nagad, and bank deposit with competitive GBP rates</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across Bangladesh including rural districts</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates →</a></p>
+</div>
+
+<p>For a £1,000 transfer to Bangladesh:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~£5 fee, 0% markup (mid-market rate) — consistently best value for medium to large amounts</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Low fee, competitive rate — Express delivery in seconds via bKash. First transfer fee often waived.</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good BDT rates with bKash, Nagad, and bank deposit delivery options</li>
+<li><strong><a href="/companies/xe">XE</a></strong>: No transfer fees, competitive rates — suited for larger transfers</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but extensive cash pickup network across Bangladesh, including Sylhet and Chittagong divisions</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide agent network at bank branches and post offices</li>
+</ul>
+<p>Check our <a href="/send-money/uk-to-bangladesh">GBP to BDT comparison</a> for today's live rates. <a href="/compare/wise-vs-remitly">See how Wise compares to Remitly</a> side by side.</p>`,
+      },
+      {
+        heading: "Step-by-Step: How to Send Money from UK to Bangladesh",
+        content: `<p>Sending money for the first time? Here's exactly what to do:</p>
+<ol>
+<li><strong>Choose a provider.</strong> Use our <a href="/send-money/uk-to-bangladesh">GBP to BDT comparison</a> to compare live rates and total BDT received. Focus on the total amount your recipient gets, not just the headline fee.</li>
+<li><strong>Create an account.</strong> You'll need your UK address, date of birth, and a photo ID (passport, driving licence, or BRP card). Most providers verify your identity within minutes.</li>
+<li><strong>Choose a delivery method.</strong> Options include:
+<ul>
+<li><strong>bKash</strong> — Fastest. Delivers in seconds to the recipient's bKash wallet. They can withdraw cash from 350,000+ agents or spend directly.</li>
+<li><strong>Nagad</strong> — Similar to bKash. Delivers instantly to Nagad wallet.</li>
+<li><strong>Bank deposit</strong> — 1–3 business days. Requires account number and routing number.</li>
+<li><strong>Cash pickup</strong> — Available within hours at Western Union/MoneyGram agents.</li>
+</ul>
+</li>
+<li><strong>Enter recipient details.</strong> For bKash/Nagad: their registered mobile number (11 digits starting with 01). For bank deposit: account number, routing number, and bank name. For cash pickup: full name matching their NID.</li>
+<li><strong>Fund the transfer.</strong> Pay via UK bank transfer (Faster Payments — free and instant), debit card, or credit card. <strong>Avoid credit cards</strong> — most providers add 1.5–3% surcharge, and your card issuer may treat it as a cash advance.</li>
+<li><strong>Confirm and track.</strong> You'll receive a confirmation email and tracking link. bKash transfers typically show as completed within seconds.</li>
+</ol>
+<p><strong>Pro tip:</strong> Fund via <strong>UK Faster Payments</strong> (bank transfer). It's free, instant during banking hours, and avoids the credit card surcharges that can wipe out savings from a competitive exchange rate.</p>`,
+      },
+      {
+        heading: "What You Need for a Bangladesh Transfer from the UK",
+        content: `<h3>bKash (Mobile Financial Service)</h3>
+<ul>
+<li><strong>Recipient's bKash-registered mobile number</strong> — 11 digits starting with 01 (e.g., 01712345678)</li>
+<li><strong>Recipient's full name</strong> — must match their bKash account registration</li>
+</ul>
+<p>bKash has over <strong>60 million registered accounts</strong> and 350,000+ agents across Bangladesh, including in rural villages that banks don't reach. It's the most accessible delivery method. Recipients can withdraw cash at any bKash agent, pay bills, buy mobile top-up, or transfer to a bank account.</p>
+
+<h3>Nagad</h3>
+<ul>
+<li><strong>Recipient's Nagad-registered mobile number</strong></li>
+<li><strong>Recipient's full name</strong></li>
+</ul>
+<p>Nagad is Bangladesh's second-largest mobile financial service, operated by the Bangladesh Post Office. Growing rapidly with competitive cash-out fees.</p>
+
+<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with the bank)</li>
+<li><strong>Bank name</strong> — Sonali Bank, Islami Bank Bangladesh, Dutch-Bangla Bank (DBBL), BRAC Bank, Eastern Bank (EBL), Agrani Bank</li>
+<li><strong>Account number</strong> — typically 13–16 digits depending on the bank</li>
+<li><strong>Branch name and routing number</strong> — Bangladesh uses a 9-digit routing number format</li>
+</ul>
+<p>Bangladesh does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For international wire transfers, you need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a> and the branch routing number.</p>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (must match their National Identity Card — NID)</li>
+<li><strong>NID number</strong></li>
+<li><strong>Collection city</strong></li>
+</ul>
+<p>Western Union and MoneyGram have agent locations across Bangladesh at bank branches, post offices, and dedicated exchange houses.</p>`,
+      },
+      {
+        heading: "Top Banks in Bangladesh for Receiving Transfers",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Sonali Bank</strong></td><td>BSONBDDH</td><td>Largest state-owned bank. Widest branch network in rural areas (1,200+ branches).</td></tr>
+<tr><td><strong>Islami Bank Bangladesh</strong></td><td>IBBLBDDH</td><td>Largest private bank by deposits. Sharia-compliant. 400+ branches.</td></tr>
+<tr><td><strong>Dutch-Bangla Bank (DBBL)</strong></td><td>DBBLBDDH</td><td>Pioneer in mobile banking. Strong digital infrastructure and ATM network.</td></tr>
+<tr><td><strong>BRAC Bank</strong></td><td>BABOROMM</td><td>Operates bKash as a subsidiary. Good SME banking services.</td></tr>
+<tr><td><strong>Eastern Bank (EBL)</strong></td><td>EABOROMM</td><td>Strong corporate and retail banking with online remittance tracking.</td></tr>
+<tr><td><strong>Agrani Bank</strong></td><td>AGBKBDDH</td><td>State-owned. Good coverage in Sylhet and Chittagong divisions.</td></tr>
+<tr><td><strong>Janata Bank</strong></td><td>JANBBDDH</td><td>State-owned. Second-largest by branches. Active in remittance processing.</td></tr>
+</tbody>
+</table>
+<p>For the full list, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Transfers to DBBL, Islami Bank, and BRAC Bank typically process faster than smaller or state-owned banks.</p>`,
+      },
+      {
+        heading: "UK High-Street Banks vs Specialist Providers",
+        content: `<p>If you're still using your UK bank for Bangladesh transfers, you're almost certainly overpaying. Here's a typical comparison on a £1,000 transfer:</p>
+<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ৳ Received</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~£5</td><td>0%</td><td>৳140,000 (example)</td></tr>
+<tr><td><strong>Remitly</strong></td><td>~£2</td><td>0.3–0.5%</td><td>৳139,200 (example)</td></tr>
+<tr><td><strong>HSBC UK</strong></td><td>£15–£30</td><td>2.5–4%</td><td>৳133,000 (example)</td></tr>
+<tr><td><strong>Barclays</strong></td><td>£25</td><td>3–4%</td><td>৳132,000 (example)</td></tr>
+</tbody>
+</table>
+<p><em>Rates are illustrative — <a href="/send-money/uk-to-bangladesh">check live rates here</a>.</em></p>
+<p>High-street banks typically charge £15–£30 in fees PLUS a 2.5–4% exchange rate markup. On £1,000, that means your family receives <strong>৳7,000–৳8,000 less</strong>. Over 12 monthly transfers, that's <strong>৳84,000–৳96,000 lost</strong> to bank charges.</p>
+<p>For a detailed breakdown of how markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
+      },
+      {
+        heading: "The 2.5% Government Incentive: What UK Senders Need to Know",
+        content: `<p>One of Bangladesh's most unique remittance features is the <strong>2.5% cash incentive</strong> paid by <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> on all inbound remittances through formal channels.</p>
+<h3>How It Works</h3>
+<ul>
+<li>When you send money through a licensed provider (Wise, Remitly, WorldRemit, Western Union, etc.), the recipient automatically receives an <strong>extra 2.5%</strong> on top of the transferred amount.</li>
+<li>On a £1,000 transfer (roughly ৳140,000), that's approximately <strong>৳3,500 extra</strong> — paid directly by the government, not deducted from your transfer.</li>
+<li>The incentive is credited to the recipient's bank account or mobile wallet, usually within a few days of the transfer arriving.</li>
+</ul>
+<h3>Why It Matters</h3>
+<p>The Bangladesh government introduced this incentive to encourage remittances through <strong>formal banking channels</strong> rather than informal hawala/hundi networks. For UK senders, this means:</p>
+<ul>
+<li><strong>Your recipient gets more.</strong> The 2.5% bonus makes formal transfers competitive even with informal channels that may offer slightly better headline rates.</li>
+<li><strong>It's automatic.</strong> No need to apply — the incentive is processed by the receiving bank or mobile financial service provider.</li>
+<li><strong>It applies to all formal channels.</strong> Whether you use Wise, Remitly, Western Union, or a direct bank wire, the recipient qualifies.</li>
+</ul>
+<p>Over 12 monthly transfers of £1,000, the incentive adds up to approximately <strong>৳42,000</strong> — essentially a free month's transfer.</p>`,
+      },
+      {
+        heading: "Tax and Regulatory Considerations",
+        content: `<p>Important rules for UK to Bangladesh transfers:</p>
+<ul>
+<li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments. Transfers are not reportable unless you're claiming tax relief.</li>
+<li><strong>For recipients in Bangladesh:</strong> Remittances from abroad are <strong>not subject to income tax</strong> in Bangladesh. The 2.5% incentive is also tax-free.</li>
+<li><strong>NID requirement:</strong> Recipients may need to provide their National Identity Card (NID) number for bank deposits and cash pickups above certain thresholds set by Bangladesh Bank.</li>
+<li><strong>FCA regulation:</strong> All UK-based transfer providers must be authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a>. Check the FCA register if you're unsure about a provider.</li>
+<li><strong>Formal channels encouraged:</strong> The Bangladeshi government actively promotes formal remittance channels over informal hawala/hundi networks, supported by the 2.5% incentive scheme. Using informal channels means losing the incentive and having no consumer protection.</li>
+</ul>
+<p>This is general information — consult a tax professional for your specific situation.</p>
+<p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, Bangladesh is among the world's top ten remittance recipients at over $23 billion annually. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks average costs on the UK-Bangladesh corridor.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> remittance statistics and incentive policy documents, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money from UK to Bangladesh?",
+        answer:
+          "Wise and Remitly consistently offer the best value for GBP to BDT transfers. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with bKash Express delivery in seconds. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
+      },
+      {
+        question: "How long does it take to send money from UK to Bangladesh?",
+        answer:
+          "bKash and Nagad transfers arrive in seconds, even on weekends. Bank deposits take 1–3 business days depending on the bank — DBBL and Islami Bank tend to be faster. Cash pickup through Western Union or MoneyGram is usually available within hours.",
+      },
+      {
+        question: "Can I send money directly to bKash from the UK?",
+        answer:
+          "Yes. Remitly, WorldRemit, and several other providers support direct bKash transfers from the UK. The recipient gets the money instantly on their bKash account and can withdraw from any of 350,000+ agent points across Bangladesh or spend directly via the bKash app.",
+      },
+      {
+        question: "What is the 2.5% remittance incentive in Bangladesh?",
+        answer:
+          "Bangladesh Bank pays a 2.5% cash incentive on all inbound remittances received through formal banking channels. On a £1,000 transfer (roughly ৳140,000), your recipient gets approximately ৳3,500 extra, paid by the government. It's automatic — no application needed. This incentive only applies to formal channels, not informal hawala transfers.",
+      },
+      {
+        question: "Do I need an IBAN to send money to Bangladesh?",
+        answer:
+          "No, Bangladesh does not use IBANs. For bank deposits, you need the recipient's account number, 9-digit routing number, and the bank's SWIFT code. For bKash or Nagad, you just need their registered mobile number (11 digits starting with 01).",
+      },
+      {
+        question: "Are UK banks expensive for Bangladesh transfers?",
+        answer:
+          "Yes. High-street banks (HSBC, Barclays, Lloyds, NatWest) typically charge £15–£30 in fees plus 2.5–4% exchange rate markup. On a £1,000 transfer, your family could receive ৳7,000–৳8,000 less than using a specialist provider like Wise or Remitly. Over a year of monthly transfers, that's ৳84,000+ lost to bank charges.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-bangladesh-guide",
+      "cheapest-way-to-send-money-internationally",
+      "exchange-rate-markup-explained",
+      "swift-codes-explained",
+    ],
+  },
+  // ============================
+  // Send Money to Kenya Guide
+  // ============================
+  {
+    slug: "send-money-to-kenya-guide",
+    title: "Send Money to Kenya: Cheapest Ways in 2026",
+    metaDescription:
+      "Compare the cheapest ways to send money to Kenya. Real USD/GBP/EUR to KES rates from 10+ providers — M-Pesa, bank deposit & cash pickup options compared.",
+    excerpt:
+      "Kenya is Africa's M-Pesa powerhouse. We compared 10+ providers to find the cheapest ways to send money to Kenya, including direct M-Pesa delivery and the unique mobile money ecosystem.",
+    category: "Corridors",
+    readTime: "10 min read",
+    publishedAt: "2026-03-27",
+    updatedAt: "2026-03-27",
+    author: "Daniel Rowe",
+    tags: ["Kenya", "KES", "remittance", "M-Pesa", "Safaricom", "corridor guide", "send money to Kenya", "Africa"],
+    featuredImage: "/images/blog/send-money-to-kenya.jpg",
+    sections: [
+      {
+        heading: "Kenya: Africa's Mobile Money Leader",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Kenya in 2026 depends on your source country. From the US, <a href="/companies/wise">Wise</a> offers the mid-market rate with 0% markup. <a href="/companies/remitly">Remitly</a> is the fastest option with direct M-Pesa delivery in seconds. Kenya's unique advantage is <strong>M-Pesa</strong> — the world's most successful mobile money platform with 35+ million active users, reaching every corner of the country. On a $1,000 transfer, specialist providers deliver KES 5,000–15,000 more than traditional banks. <a href="/send-money/usa-to-kenya">Compare live rates</a> from 10+ providers.</p></div>
+<p>Kenya received over <strong>$4.2 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya (CBK)</a>, making it East Africa's largest remittance recipient. The US, UK, Canada, and Gulf states are the primary source countries.</p>
+<p>What makes the Kenya corridor unique is <strong>M-Pesa</strong>. Launched by Safaricom in 2007, M-Pesa has become the default financial infrastructure for most Kenyans — used for everything from receiving remittances to paying school fees, rent, and utility bills. Over 35 million Kenyans (out of 55 million) have an active M-Pesa account, making mobile money the most accessible delivery method by far.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Kenya",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Transfers to Kenya</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — consistently cheapest for $500+</td></tr>
+<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to M-Pesa — delivers in seconds, 24/7</td></tr>
+<tr><td><strong>Best for M-Pesa</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Direct M-Pesa delivery with competitive rates from US, UK, and Canada</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across Kenya including rural areas</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-kenya">Compare live rates →</a></p>
+</div>
+
+<p>For a $1,000 transfer to Kenya:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup (mid-market rate) — consistently best value for medium to large amounts</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Low fee, competitive rate — Express delivery to M-Pesa in seconds. First transfer fee often waived.</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Strong on Kenya corridor with M-Pesa, bank deposit, and Airtel Money delivery</li>
+<li><strong><a href="/companies/xe">XE</a></strong>: No transfer fees, competitive rates — suited for larger bank-to-bank transfers</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but cash pickup and M-Pesa options available. Strong brand trust in Kenya.</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong>: Wide agent network with M-Pesa partnership</li>
+</ul>
+<p>Check our <a href="/send-money/usa-to-kenya">USD to KES comparison</a> or <a href="/send-money/uk-to-kenya">GBP to KES comparison</a> for today's live rates. <a href="/compare/wise-vs-remitly">See how Wise compares to Remitly</a> side by side.</p>`,
+      },
+      {
+        heading: "Step-by-Step: How to Send Money to Kenya",
+        content: `<p>Here's exactly how to send your first transfer to Kenya:</p>
+<ol>
+<li><strong>Choose a provider.</strong> Use our comparison tool (<a href="/send-money/usa-to-kenya">USD to KES</a> or <a href="/send-money/uk-to-kenya">GBP to KES</a>) to compare live rates. Focus on the total KES your recipient receives after all fees and markups.</li>
+<li><strong>Create an account.</strong> You'll need your government-issued ID, address, and basic personal information. Most providers verify within minutes.</li>
+<li><strong>Choose a delivery method:</strong>
+<ul>
+<li><strong>M-Pesa</strong> — Fastest and most popular. Delivers in seconds to recipient's M-Pesa wallet. They can withdraw at any Safaricom agent (300,000+ nationwide), pay bills, or transfer to others.</li>
+<li><strong>Bank deposit</strong> — 1–2 business days. Good for larger amounts that exceed M-Pesa's transaction limits.</li>
+<li><strong>Airtel Money</strong> — Alternative mobile wallet. Growing network but smaller than M-Pesa.</li>
+<li><strong>Cash pickup</strong> — Available within hours at Western Union/MoneyGram agents.</li>
+</ul>
+</li>
+<li><strong>Enter recipient details.</strong> For M-Pesa: their Safaricom mobile number (starts with +254 7xx). For bank deposit: account number, bank name, and branch code. For cash pickup: full name matching their national ID.</li>
+<li><strong>Fund the transfer.</strong> From the US: bank transfer (ACH) is cheapest. From the UK: Faster Payments (instant, free). <strong>Avoid credit cards</strong> — surcharges of 1.5–3% can wipe out your savings.</li>
+<li><strong>Confirm and track.</strong> M-Pesa transfers typically complete in seconds. The recipient gets an SMS confirmation from Safaricom.</li>
+</ol>
+<p><strong>Important:</strong> M-Pesa has a per-transaction limit of KES 150,000 (~$1,150) and a daily limit of KES 300,000. For larger amounts, use bank deposit or split across multiple M-Pesa transfers.</p>`,
+      },
+      {
+        heading: "Understanding M-Pesa: Kenya's Financial Backbone",
+        content: `<p>M-Pesa isn't just a money transfer app — it's the financial infrastructure of Kenya. Understanding how it works helps you send money more effectively:</p>
+<h3>Key M-Pesa Facts</h3>
+<ul>
+<li><strong>35+ million active users</strong> — roughly 65% of Kenya's entire population</li>
+<li><strong>300,000+ agents</strong> — in every village, town, and city. Agents are shopkeepers, kiosk operators, and dedicated M-Pesa outlets.</li>
+<li><strong>Processes 60%+ of Kenya's GDP</strong> — M-Pesa handles more transactions than some national banking systems</li>
+<li><strong>24/7 operation</strong> — no banking hours, no holidays. Transfers arrive instantly any time.</li>
+</ul>
+<h3>What Your Recipient Can Do with M-Pesa Money</h3>
+<ul>
+<li><strong>Withdraw cash</strong> at any Safaricom agent point (free for small amounts, small fee for larger withdrawals)</li>
+<li><strong>Pay bills</strong> — electricity (Kenya Power), water, rent, school fees via Lipa na M-Pesa</li>
+<li><strong>Buy goods</strong> — most shops, supermarkets, and matatu (minibus) operators accept M-Pesa</li>
+<li><strong>Transfer to bank account</strong> — M-Pesa to bank is instant for most Kenyan banks</li>
+<li><strong>Save and borrow</strong> — M-Shwari and KCB M-Pesa offer savings and micro-loans linked to M-Pesa</li>
+</ul>
+<h3>M-Pesa Transaction Limits</h3>
+<table>
+<thead><tr><th>Limit Type</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Per transaction</td><td>KES 150,000 (~$1,150)</td></tr>
+<tr><td>Daily limit</td><td>KES 300,000 (~$2,300)</td></tr>
+<tr><td>Maximum balance</td><td>KES 300,000 (~$2,300)</td></tr>
+</tbody>
+</table>
+<p>For amounts above these limits, send via bank deposit or split across multiple M-Pesa transfers on different days.</p>`,
+      },
+      {
+        heading: "Top Banks in Kenya for Receiving Transfers",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Equity Bank</strong></td><td>EABOROMM</td><td>Largest bank by customers. Strong mobile banking (Equitel). Good M-Pesa integration.</td></tr>
+<tr><td><strong>KCB Bank</strong></td><td>KCABOROM</td><td>Largest by assets. KCB M-Pesa partnership for savings. Wide branch network.</td></tr>
+<tr><td><strong>Co-operative Bank</strong></td><td>KCOOKENA</td><td>Third-largest. Strong in Sacco (savings co-operative) banking. M-Co-op Cash mobile wallet.</td></tr>
+<tr><td><strong>Standard Chartered Kenya</strong></td><td>SCBLKENX</td><td>International bank. Good for large wire transfers and corporate banking.</td></tr>
+<tr><td><strong>Absa Bank Kenya</strong></td><td>BABOROMM</td><td>Formerly Barclays Kenya. Well-established with modern digital banking.</td></tr>
+<tr><td><strong>NCBA Bank</strong></td><td>CBABOROM</td><td>Merged NIC and CBA. Partner behind M-Shwari savings product.</td></tr>
+<tr><td><strong>Stanbic Bank Kenya</strong></td><td>SBICKENX</td><td>Standard Bank subsidiary. Good for South Africa-Kenya corridor.</td></tr>
+</tbody>
+</table>
+<p>For the full list of SWIFT codes, check our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>. Equity Bank and KCB process international transfers fastest among Kenyan banks.</p>`,
+      },
+      {
+        heading: "Banks vs Specialist Providers: Cost Comparison",
+        content: `<p>Here's a typical comparison on a $1,000 transfer to Kenya:</p>
+<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. KES Received</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~$7</td><td>0%</td><td>KES 129,000 (example)</td></tr>
+<tr><td><strong>Remitly</strong></td><td>~$4</td><td>0.5–1%</td><td>KES 128,000 (example)</td></tr>
+<tr><td><strong>WorldRemit</strong></td><td>~$4</td><td>0.5–1%</td><td>KES 127,500 (example)</td></tr>
+<tr><td><strong>US bank wire</strong></td><td>$25–$50</td><td>3–5%</td><td>KES 120,000 (example)</td></tr>
+</tbody>
+</table>
+<p><em>Rates are illustrative — <a href="/send-money/usa-to-kenya">check live rates here</a>.</em></p>
+<p>Traditional bank wires to Kenya are expensive in two ways: high upfront fees ($25–$50) AND a 3–5% exchange rate markup. The Kenyan recipient's bank may also charge an incoming wire fee of KES 500–2,000. On $1,000, you could lose <strong>KES 9,000–15,000</strong> compared to a specialist provider. Over a year of monthly transfers, that's <strong>KES 108,000–180,000</strong> (~$835–$1,400) in unnecessary costs.</p>
+<p>For a detailed breakdown, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explainer</a>.</p>`,
+      },
+      {
+        heading: "Tax and Regulatory Considerations",
+        content: `<p>Important rules for sending money to Kenya:</p>
+<ul>
+<li><strong>For US/UK senders:</strong> No tax on personal remittances to family in the US or UK. In the US, transfers over $10,000 are reported under the Bank Secrecy Act but are not taxed. In the UK, HMRC does not tax outgoing personal transfers.</li>
+<li><strong>For recipients in Kenya:</strong> Personal remittances from abroad are generally <strong>not taxable</strong>. Kenya Revenue Authority (KRA) does not treat family support as income. However, if the money is payment for services or business income, it may be subject to income tax.</li>
+<li><strong>M-Pesa withdrawal fees:</strong> Safaricom charges a small withdrawal fee at agent points. For KES 75,001–150,000, the fee is KES 197. These are Safaricom's standard fees, not provider fees.</li>
+<li><strong>Central Bank of Kenya (CBK) regulations:</strong> The <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">CBK</a> regulates all inbound remittances. Licensed money transfer providers are listed on the CBK website.</li>
+<li><strong>Anti-money laundering:</strong> Kenyan banks and M-Pesa may request additional documentation for large or frequent transfers, in compliance with the Proceeds of Crime and Anti-Money Laundering Act.</li>
+</ul>
+<p>This is general information — consult a tax professional for your specific situation.</p>
+<p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank</a>, Kenya is East Africa's largest remittance recipient. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks average costs on corridors to Kenya. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> migration tracker provides annual remittance flow data.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya (CBK)</a> remittance statistics, <a href="https://www.safaricom.co.ke/" target="_blank" rel="noopener noreferrer nofollow">Safaricom</a> M-Pesa data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Kenya?",
+        answer:
+          "Wise offers the best value for medium to large transfers with 0% markup on the mid-market rate and a ~$7 fee. Remitly and WorldRemit are strong alternatives with competitive rates and direct M-Pesa delivery. Always compare the total KES received rather than just the advertised fee.",
+      },
+      {
+        question: "How do I send money to M-Pesa from abroad?",
+        answer:
+          "Choose a provider that supports M-Pesa delivery (Remitly, WorldRemit, Western Union, Wise). Enter your recipient's Safaricom mobile number (starting with +254 7xx) and their name. The money arrives in seconds to their M-Pesa wallet, and they can withdraw cash at any of 300,000+ agents.",
+      },
+      {
+        question: "How long does it take to send money to Kenya?",
+        answer:
+          "M-Pesa transfers arrive in seconds, 24/7. Bank deposits take 1–2 business days. Cash pickup through Western Union or MoneyGram is usually available within hours. M-Pesa is the fastest and most popular option.",
+      },
+      {
+        question: "What are M-Pesa's transaction limits?",
+        answer:
+          "M-Pesa has a per-transaction limit of KES 150,000 (~$1,150), a daily limit of KES 300,000, and a maximum wallet balance of KES 300,000. For larger amounts, use bank deposit or split across multiple M-Pesa transfers on different days.",
+      },
+      {
+        question: "Do I need an IBAN to send money to Kenya?",
+        answer:
+          "No, Kenya does not use IBANs. For bank deposits, you need the recipient's account number, bank name, branch code, and the bank's SWIFT code. For M-Pesa, you only need their Safaricom mobile number.",
+      },
+      {
+        question: "Is money received in Kenya from abroad taxable?",
+        answer:
+          "Personal remittances from abroad are generally not taxable in Kenya. Kenya Revenue Authority (KRA) does not treat family support payments as income. However, if the money is payment for services or business purposes, it may be subject to income tax.",
+      },
+      {
+        question: "Which is better for Kenya: M-Pesa or bank deposit?",
+        answer:
+          "M-Pesa is better for most transfers — it's instant, works 24/7, and your recipient can withdraw cash from 300,000+ agents or pay bills directly. Bank deposit is better for large amounts above M-Pesa's KES 150,000 limit or if your recipient prefers keeping money in a bank account.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+      "exchange-rate-markup-explained",
+      "swift-codes-explained",
+    ],
+  },
 ];
 
 // Helper to get a blog post by slug

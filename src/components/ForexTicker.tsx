@@ -83,7 +83,7 @@ export default function ForexTicker() {
         background: "var(--color-ticker-bg)",
         /* Force GPU layer — prevents iOS reflow flicker */
         transform: "translate3d(0,0,0)",
-        willChange: "transform",
+        contain: "layout style paint",
       }}
     >
       <div className="flex animate-ticker whitespace-nowrap py-1.5 sm:py-2 gap-8 w-max">
