@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Source_Serif_4, Inter } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
@@ -59,7 +58,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
-  const nonce = (await headers()).get("x-nonce") || "";
 
   return (
     <html lang={locale} className={`${inter.variable} ${sourceSerif.variable}`} suppressHydrationWarning>

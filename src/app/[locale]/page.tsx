@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { cookies } from "next/headers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -55,11 +54,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   setRequestLocale(locale);
 
-  // Geo-aware currency detection
-  const cookieStore = await cookies();
-  const geoCurrency = cookieStore.get("geo-currency")?.value || "USD";
-  const geoConfig = GEO_CORRIDORS[geoCurrency] || DEFAULT_GEO_CONFIG;
-  const sendCurrency = GEO_CORRIDORS[geoCurrency] ? geoCurrency : "USD";
+  // Default to USD — geo personalization handled client-side via ComparisonWidget
+  const geoConfig = DEFAULT_GEO_CONFIG;
+  const sendCurrency = "USD";
 
   const [rates, tHero, tLive, tTrust, tHow, tBest, tExample, tFaq, tWhy, tExplore] = await Promise.all([
     fetchExchangeRates(),
