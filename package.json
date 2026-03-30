@@ -38,6 +38,12 @@
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ],
   "devDependencies": {
     "@google-cloud/local-auth": "^3.0.1",
     "@modelcontextprotocol/sdk": "^1.27.1",
