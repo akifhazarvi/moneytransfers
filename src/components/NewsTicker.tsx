@@ -121,18 +121,20 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
 
         {/* Dots */}
         {totalPages > 1 && (
-          <div className="flex justify-center gap-1.5 mt-5">
+          <div className="flex justify-center gap-0.5 mt-5">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => setPage(i)}
                 aria-label={`Go to page ${i + 1}`}
-                className={`w-2 h-2 rounded-full transition-colors ${
+                className="flex items-center justify-center w-6 h-6"
+              >
+                <span className={`block w-2 h-2 rounded-full transition-colors ${
                   i === page
                     ? "bg-[var(--color-primary)]"
                     : "bg-[var(--color-outline)] hover:bg-[var(--color-on-surface-variant)]"
-                }`}
-              />
+                }`} />
+              </button>
             ))}
           </div>
         )}

@@ -1,21 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { cookies } from "next/headers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
 import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
-import NewsTicker from "@/components/NewsTicker";
 import HeroTabs from "@/components/HeroTabs";
 import MobileScrollNav from "@/components/MobileScrollNav";
-import HistoricalRateWidget from "@/components/HistoricalRateWidget";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
+
+const HistoricalRateWidget = dynamic(() => import("@/components/HistoricalRateWidget"), {
+  loading: () => <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] h-[360px] animate-pulse" />,
+});
+
+const NewsTicker = dynamic(() => import("@/components/NewsTicker"), {
+  loading: () => <div className="h-[200px]" />,
+});
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs

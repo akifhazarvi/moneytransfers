@@ -47,7 +47,7 @@
   /* ─── Text Colors (Slate-based — more editorial) ─── */
   --color-on-surface:         #0F172A;   /* Slate-950 — rich, not pure black */
   --color-on-surface-variant: #475569;   /* Slate-600 */
-  --color-on-surface-muted:   #94A3B8;   /* Slate-400 */
+  --color-on-surface-muted:   #64748B;   /* Slate-500 — 4.6:1 contrast on white (AA) */
   --color-outline:            #E2E8F0;   /* Slate-200 */
 
   /* ─── Surfaces ─── */
@@ -109,7 +109,7 @@
   /* Text — neutral, not blue-tinted */
   --color-on-surface:         #E8E8E8;   /* off-white, not pure white */
   --color-on-surface-variant: #A0A0A0;   /* mid gray */
-  --color-on-surface-muted:   #5A5A5A;   /* dark gray */
+  --color-on-surface-muted:   #787878;   /* mid-dark gray — 4.5:1 contrast on #141414 (AA) */
   --color-outline:            #2A2A2A;   /* subtle border */
 
   /* Surfaces — neutral near-black, no blue tint */

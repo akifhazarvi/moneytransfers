@@ -254,12 +254,14 @@ function CurrencySelect({
   options: string[];
   onChange: (val: string) => void;
 }) {
+  const id = `currency-select-${label.toLowerCase()}`;
   return (
     <div className="flex-1">
-      <label className="text-[10px] font-semibold text-[var(--color-on-surface-muted)] uppercase tracking-wide mb-0.5 block">
+      <label htmlFor={id} className="text-[10px] font-semibold text-[var(--color-on-surface-muted)] uppercase tracking-wide mb-0.5 block">
         {label}
       </label>
       <select
+        id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full px-3 py-2 rounded-lg border border-[var(--color-outline)] bg-[var(--color-surface-dim)] text-sm text-[var(--color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
