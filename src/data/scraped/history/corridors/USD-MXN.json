@@ -583,16 +583,16 @@
     "date": "2026-03-30",
     "providers": {
       "instarem": {
-        "rate": 17.8294,
+        "rate": 17.9822,
         "fee": 0,
-        "markup": 0.65,
-        "receiveAmount": 1782.94
+        "markup": null,
+        "receiveAmount": 1798.22
       },
       "moneygram": {
-        "rate": 17.819,
-        "fee": 10,
-        "markup": 0.7,
-        "receiveAmount": 1603.71
+        "rate": 17.8724,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 1733.62
       },
       "ria": {
         "rate": 17.56,
@@ -637,10 +637,10 @@
         "receiveAmount": 1685.88
       },
       "worldremit": {
-        "rate": 17.5343,
+        "rate": 17.6999,
         "fee": 1.99,
-        "markup": 2.29,
-        "receiveAmount": 1718.53
+        "markup": null,
+        "receiveAmount": 1734.77
       },
       "xe-money-transfer": {
         "rate": 17.66,
@@ -667,34 +667,40 @@
         "receiveAmount": 1750.66
       },
       "wise": {
-        "rate": 18.0598,
-        "fee": 7.64,
+        "rate": 18.116,
+        "fee": 1.75,
         "markup": null,
-        "receiveAmount": 1668
+        "receiveAmount": 1779.9
       },
       "taptap-send": {
-        "rate": 17.85,
+        "rate": 18,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1785
+        "receiveAmount": 1800
       },
       "wells-fargo": {
-        "rate": 17.4865,
+        "rate": 17.5307,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1748.65
+        "receiveAmount": 1753.07
       },
       "remitly": {
-        "rate": 17.3571,
+        "rate": 17.4255,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1701.17
+        "receiveAmount": 1707.87
       },
       "chase": {
-        "rate": 17.5153,
+        "rate": 17.5597,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 1663.96
+        "receiveAmount": 1668.17
+      },
+      "bank-of-america": {
+        "rate": 17.6039,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1760.39
       }
     }
   }

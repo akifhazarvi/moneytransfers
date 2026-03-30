@@ -517,10 +517,10 @@
         "receiveAmount": 5896.93
       },
       "remitly": {
-        "rate": 60.27,
+        "rate": 58.9581,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6027
+        "receiveAmount": 5895.81
       },
       "moneygram": {
         "rate": 60.08,
@@ -571,10 +571,10 @@
         "receiveAmount": 5778.19
       },
       "instarem": {
-        "rate": 59.5568,
+        "rate": 60.335,
         "fee": 0,
-        "markup": 0.98,
-        "receiveAmount": 5955.68
+        "markup": null,
+        "receiveAmount": 6033.5
       },
       "xe-money-transfer": {
         "rate": 59.4689,
@@ -601,10 +601,10 @@
         "receiveAmount": 5844.16
       },
       "wise": {
-        "rate": 60.711,
-        "fee": 7.55,
+        "rate": 60.737,
+        "fee": 1.65,
         "markup": null,
-        "receiveAmount": 5612.73
+        "receiveAmount": 5973.48
       },
       "taptap-send": {
         "rate": 60.5,
@@ -613,10 +613,16 @@
         "receiveAmount": 6050
       },
       "wells-fargo": {
-        "rate": 58.813,
+        "rate": 58.8014,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5881.3
+        "receiveAmount": 5880.14
+      },
+      "bank-of-america": {
+        "rate": 58.9386,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5893.86
       }
     }
   }

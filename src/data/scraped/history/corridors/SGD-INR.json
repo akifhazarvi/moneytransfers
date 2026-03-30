@@ -427,16 +427,16 @@
         "receiveAmount": 7138.88
       },
       "instarem": {
-        "rate": 72.9675,
+        "rate": 73.0611,
         "fee": 0.55,
-        "markup": 0.36,
-        "receiveAmount": 7256.62
+        "markup": null,
+        "receiveAmount": 7265.93
       },
       "remitly": {
-        "rate": 72.13,
+        "rate": 72.2041,
         "fee": 3.99,
-        "markup": 1.5,
-        "receiveAmount": 6925.2
+        "markup": null,
+        "receiveAmount": 6932.31
       },
       "revolut-money-transfer": {
         "rate": 72.9266,
@@ -451,28 +451,28 @@
         "receiveAmount": 7318.29
       },
       "ocbc": {
-        "rate": 72.4941,
+        "rate": 72.0651,
         "fee": 30,
         "markup": null,
-        "receiveAmount": 5074.58
+        "receiveAmount": 5044.56
       },
       "uob": {
-        "rate": 71.4124,
+        "rate": 71.3367,
         "fee": 40,
         "markup": null,
-        "receiveAmount": 4284.74
+        "receiveAmount": 4280.2
       },
       "hsbc-sg": {
-        "rate": 72.7747,
+        "rate": 72.3678,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 7277.47
+        "receiveAmount": 7236.78
       },
       "wise": {
-        "rate": 73.4195,
+        "rate": 73.086,
         "fee": 1.52,
         "markup": null,
-        "receiveAmount": 7230.35
+        "receiveAmount": 7197.51
       }
     }
   }

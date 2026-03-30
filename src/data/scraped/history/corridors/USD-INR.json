@@ -493,10 +493,10 @@
     "date": "2026-03-30",
     "providers": {
       "instarem": {
-        "rate": 93.2973,
+        "rate": 93.545,
         "fee": 0,
-        "markup": 0.65,
-        "receiveAmount": 9329.73
+        "markup": null,
+        "receiveAmount": 9354.5
       },
       "panda-remit": {
         "rate": 94.1438,
@@ -505,10 +505,10 @@
         "receiveAmount": 9038.75
       },
       "moneygram": {
-        "rate": 93.1835,
-        "fee": 11,
-        "markup": 0.77,
-        "receiveAmount": 8293.33
+        "rate": 94.0135,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 9214.27
       },
       "ria": {
         "rate": 93.1,
@@ -577,28 +577,28 @@
         "receiveAmount": 9400
       },
       "wells-fargo": {
-        "rate": 91.7466,
+        "rate": 91.397,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 9174.66
+        "receiveAmount": 9139.7
       },
       "remitly": {
-        "rate": 94.5186,
+        "rate": 94.108,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 9074.73
+        "receiveAmount": 9035.31
       },
       "chase": {
-        "rate": 91.8,
+        "rate": 91.4502,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 8721
+        "receiveAmount": 8687.77
       },
       "wise": {
-        "rate": 94.6745,
-        "fee": 7.6,
+        "rate": 94.374,
+        "fee": 1.69,
         "markup": null,
-        "receiveAmount": 8747.92
+        "receiveAmount": 9277.91
       }
     }
   }

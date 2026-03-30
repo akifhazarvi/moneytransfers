@@ -355,10 +355,10 @@
     "date": "2026-03-30",
     "providers": {
       "instarem": {
-        "rate": 121.7112,
+        "rate": 121.9404,
         "fee": 0,
-        "markup": 0.75,
-        "receiveAmount": 12171.12
+        "markup": null,
+        "receiveAmount": 12194.04
       },
       "moneygram": {
         "rate": 123.022,
@@ -422,15 +422,15 @@
       },
       "wise": {
         "rate": 123,
-        "fee": 9.09,
+        "fee": 3.19,
         "markup": null,
-        "receiveAmount": 11181.93
+        "receiveAmount": 11907.63
       },
       "remitly": {
-        "rate": 122.61,
-        "fee": 3.99,
+        "rate": 122.43,
+        "fee": 0.99,
         "markup": null,
-        "receiveAmount": 12261
+        "receiveAmount": 12121.79
       },
       "taptap-send": {
         "rate": 121.56,

@@ -301,28 +301,34 @@
         "receiveAmount": 689.42
       },
       "remitly": {
-        "rate": 6.8425,
+        "rate": 6.8462,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 670.63
+        "receiveAmount": 671
       },
       "instarem": {
-        "rate": 6.8597,
+        "rate": 6.8635,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 685.97
+        "receiveAmount": 686.35
       },
       "xoom": {
-        "rate": 7.0396,
+        "rate": 7.0402,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 682.91
+        "receiveAmount": 682.97
       },
       "wise": {
-        "rate": 6.91,
-        "fee": 10.27,
+        "rate": 6.9126,
+        "fee": 4.38,
         "markup": null,
-        "receiveAmount": 620.03
+        "receiveAmount": 660.98
+      },
+      "bank-of-america": {
+        "rate": 6.648,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 664.8
       }
     }
   }

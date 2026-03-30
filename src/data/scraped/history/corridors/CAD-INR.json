@@ -565,10 +565,10 @@
         "receiveAmount": 6682.58
       },
       "scotiabank": {
-        "rate": 65.8111,
-        "fee": 29.43,
-        "markup": 3.95,
-        "receiveAmount": 4644.18
+        "rate": 65.6955,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 6438.82
       },
       "skrill": {
         "rate": 67.5288,
@@ -601,10 +601,10 @@
         "receiveAmount": 6534.68
       },
       "instarem": {
-        "rate": 67.7858,
+        "rate": 67.3147,
         "fee": 0,
-        "markup": 1.06,
-        "receiveAmount": 6778.58
+        "markup": null,
+        "receiveAmount": 6731.47
       },
       "xe-money-transfer": {
         "rate": 67.6266,
@@ -625,10 +625,10 @@
         "receiveAmount": 6737.64
       },
       "remitly": {
-        "rate": 69.04,
+        "rate": 67.3413,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 6904
+        "receiveAmount": 6600.12
       },
       "ria": {
         "rate": 67.5247,
@@ -643,34 +643,34 @@
         "receiveAmount": 6750
       },
       "td-bank": {
-        "rate": 65.7532,
+        "rate": 65.3798,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6575.32
+        "receiveAmount": 6537.98
       },
       "bmo": {
-        "rate": 66.2406,
+        "rate": 65.8824,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6624.06
+        "receiveAmount": 6588.24
       },
       "rbc": {
-        "rate": 65.7964,
+        "rate": 65.7712,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6579.64
+        "receiveAmount": 6577.12
       },
       "xoom": {
-        "rate": 67.1754,
+        "rate": 66.8872,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6717.54
+        "receiveAmount": 6688.72
       },
       "wise": {
-        "rate": 67.9889,
+        "rate": 67.7787,
         "fee": 2.67,
         "markup": null,
-        "receiveAmount": 6617.36
+        "receiveAmount": 6596.9
       }
     }
   }

@@ -349,10 +349,10 @@
         "receiveAmount": 360755.3
       },
       "instarem": {
-        "rate": 3675.6295,
+        "rate": 3645.0848,
         "fee": 0,
-        "markup": 0.75,
-        "receiveAmount": 367562.95
+        "markup": null,
+        "receiveAmount": 364508.48
       },
       "xe-money-transfer": {
         "rate": 3652.254,
@@ -367,10 +367,10 @@
         "receiveAmount": 357894.05
       },
       "wise": {
-        "rate": 3664.4,
-        "fee": 10.46,
+        "rate": 3670.1,
+        "fee": 4.65,
         "markup": null,
-        "receiveAmount": 328110.38
+        "receiveAmount": 349944.04
       },
       "remitly": {
         "rate": 3826.05,
@@ -379,10 +379,10 @@
         "receiveAmount": 382605
       },
       "taptap-send": {
-        "rate": 3635,
+        "rate": 3630,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 363500
+        "receiveAmount": 363000
       }
     }
   }

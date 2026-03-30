@@ -523,10 +523,10 @@
     "date": "2026-03-30",
     "providers": {
       "instarem": {
-        "rate": 0.7475,
+        "rate": 0.7524,
         "fee": 0,
-        "markup": 0.44,
-        "receiveAmount": 74.75
+        "markup": null,
+        "receiveAmount": 75.24
       },
       "panda-remit": {
         "rate": 0.7575,
@@ -535,10 +535,10 @@
         "receiveAmount": 72.72
       },
       "moneygram": {
-        "rate": 0.7326,
+        "rate": 0.7502,
         "fee": 1.99,
-        "markup": 2.42,
-        "receiveAmount": 71.8
+        "markup": null,
+        "receiveAmount": 73.53
       },
       "boss-money": {
         "rate": 0.7315,
@@ -565,10 +565,10 @@
         "receiveAmount": 72.02
       },
       "worldremit": {
-        "rate": 0.7303,
+        "rate": 0.7369,
         "fee": 1.99,
-        "markup": 2.73,
-        "receiveAmount": 71.58
+        "markup": null,
+        "receiveAmount": 72.22
       },
       "xe-money-transfer": {
         "rate": 0.7304,
@@ -589,34 +589,40 @@
         "receiveAmount": 73.52
       },
       "wise": {
-        "rate": 0.7557,
-        "fee": 7.33,
+        "rate": 0.7582,
+        "fee": 1.42,
         "markup": null,
-        "receiveAmount": 70.03
+        "receiveAmount": 74.74
       },
       "remitly": {
-        "rate": 0.7532,
-        "fee": 2.99,
+        "rate": 0.7542,
+        "fee": 0,
         "markup": null,
-        "receiveAmount": 75.32
+        "receiveAmount": 75.42
       },
       "taptap-send": {
-        "rate": 0.751,
+        "rate": 0.754,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 75.1
+        "receiveAmount": 75.4
       },
       "chase": {
-        "rate": 0.7325,
+        "rate": 0.736,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 69.59
+        "receiveAmount": 69.92
       },
       "wells-fargo": {
-        "rate": 0.7314,
+        "rate": 0.7349,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 73.14
+        "receiveAmount": 73.49
+      },
+      "bank-of-america": {
+        "rate": 0.737,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 73.7
       }
     }
   }

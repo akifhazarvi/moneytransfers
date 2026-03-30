@@ -571,10 +571,10 @@
         "receiveAmount": 4106.05
       },
       "instarem": {
-        "rate": 41.8181,
+        "rate": 41.5722,
         "fee": 0.75,
-        "markup": 0.7,
-        "receiveAmount": 4150.45
+        "markup": null,
+        "receiveAmount": 4126.04
       },
       "xe-money-transfer": {
         "rate": 41.8829,
@@ -589,10 +589,10 @@
         "receiveAmount": 3989.52
       },
       "remitly": {
-        "rate": 43.02,
-        "fee": 4.99,
+        "rate": 40.8696,
+        "fee": 0,
         "markup": null,
-        "receiveAmount": 4302
+        "receiveAmount": 4086.96
       },
       "revolut-money-transfer": {
         "rate": 41.7713,
@@ -601,10 +601,10 @@
         "receiveAmount": 4118.23
       },
       "wise": {
-        "rate": 41.6696,
+        "rate": 41.6231,
         "fee": 1.46,
         "markup": null,
-        "receiveAmount": 4106.12
+        "receiveAmount": 4101.54
       },
       "ria": {
         "rate": 42,
@@ -619,34 +619,40 @@
         "receiveAmount": 4165
       },
       "nab": {
-        "rate": 40.5968,
+        "rate": 40.4698,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4059.68
+        "receiveAmount": 4046.98
       },
       "hsbc": {
-        "rate": 40.915,
+        "rate": 40.8015,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4091.5
+        "receiveAmount": 4080.15
       },
       "anz": {
-        "rate": 40.0251,
+        "rate": 39.9141,
         "fee": 9,
         "markup": null,
-        "receiveAmount": 3642.28
+        "receiveAmount": 3632.18
       },
       "commonwealth-bank": {
-        "rate": 39.7845,
+        "rate": 39.616,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3978.45
+        "receiveAmount": 3961.6
       },
       "paypal": {
-        "rate": 39.606,
+        "rate": 39.5944,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 3762.57
+        "receiveAmount": 3761.47
+      },
+      "westpac": {
+        "rate": 40.0389,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4003.89
       }
     }
   }

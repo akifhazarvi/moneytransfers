@@ -595,16 +595,16 @@
         "receiveAmount": 6816.99
       },
       "worldremit": {
-        "rate": 68.0214,
+        "rate": 68.8555,
         "fee": 0,
-        "markup": 2,
-        "receiveAmount": 6802.14
+        "markup": null,
+        "receiveAmount": 6885.55
       },
       "instarem": {
-        "rate": 68.6195,
+        "rate": 69.2348,
         "fee": 0,
-        "markup": 1.14,
-        "receiveAmount": 6861.95
+        "markup": null,
+        "receiveAmount": 6923.48
       },
       "xe-money-transfer": {
         "rate": 68.9634,
@@ -625,10 +625,10 @@
         "receiveAmount": 6699.18
       },
       "remitly": {
-        "rate": 68.7,
-        "fee": 2.99,
+        "rate": 68.1889,
+        "fee": 0.99,
         "markup": null,
-        "receiveAmount": 6870
+        "receiveAmount": 6751.38
       },
       "revolut-money-transfer": {
         "rate": 68.6729,
@@ -637,10 +637,10 @@
         "receiveAmount": 6778.02
       },
       "wise": {
-        "rate": 69.7249,
+        "rate": 69.6319,
         "fee": 1.68,
         "markup": null,
-        "receiveAmount": 6855.35
+        "receiveAmount": 6846.21
       },
       "ria": {
         "rate": 69.0121,
@@ -661,16 +661,16 @@
         "receiveAmount": 5743.55
       },
       "monese": {
-        "rate": 69.6936,
+        "rate": 69.2916,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 6760.28
+        "receiveAmount": 6721.28
       },
       "paypal": {
-        "rate": 66.3324,
+        "rate": 66.4236,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 6368.58
+        "receiveAmount": 6377.33
       }
     }
   }

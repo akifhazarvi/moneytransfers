@@ -168,10 +168,10 @@
     "date": "2026-03-30",
     "providers": {
       "remitly": {
-        "rate": 16901.83,
-        "fee": 1.99,
+        "rate": 16855.7783,
+        "fee": 0.99,
         "markup": null,
-        "receiveAmount": 1690183
+        "receiveAmount": 1668890.61
       },
       "ria": {
         "rate": 16668.468,
@@ -192,28 +192,34 @@
         "receiveAmount": 1658413
       },
       "instarem": {
-        "rate": 16859.4535,
+        "rate": 16820.4899,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1685945.35
+        "receiveAmount": 1682048.99
       },
       "worldremit": {
-        "rate": 16745.9405,
+        "rate": 16731.3504,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1641269.63
+        "receiveAmount": 1639839.65
       },
       "moneygram": {
-        "rate": 16786.8624,
+        "rate": 16773.2921,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 1662067.25
+        "receiveAmount": 1660723.65
       },
       "wise": {
-        "rate": 17015,
-        "fee": 7.76,
+        "rate": 16972,
+        "fee": 1.86,
         "markup": null,
-        "receiveAmount": 1569464
+        "receiveAmount": 1665632
+      },
+      "bank-of-america": {
+        "rate": 16296.1195,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1629611.95
       }
     }
   }
