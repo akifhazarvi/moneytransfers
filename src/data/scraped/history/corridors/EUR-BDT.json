@@ -44,28 +44,28 @@
     "date": "2026-03-30",
     "providers": {
       "taptap-send": {
-        "rate": 140.5,
+        "rate": 140.78,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14050
+        "receiveAmount": 14078
       },
       "skrill": {
-        "rate": 137.7586,
+        "rate": 138.2671,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 13775.86
+        "receiveAmount": 13826.71
       },
       "remitly": {
-        "rate": 140.6598,
+        "rate": 140.7508,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 13926.73
+        "receiveAmount": 13935.73
       },
       "instarem": {
-        "rate": 140.5631,
+        "rate": 140.4709,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14056.31
+        "receiveAmount": 14047.09
       },
       "xoom": {
         "rate": 120.1947,
@@ -74,10 +74,10 @@
         "receiveAmount": 12019.47
       },
       "wise": {
-        "rate": 141.555,
+        "rate": 141.505,
         "fee": 3.14,
         "markup": null,
-        "receiveAmount": 13711.02
+        "receiveAmount": 13706.17
       }
     }
   }

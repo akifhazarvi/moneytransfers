@@ -505,52 +505,52 @@
     "date": "2026-03-30",
     "providers": {
       "nab": {
-        "rate": 0.5042,
+        "rate": 0.5049,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 50.42
+        "receiveAmount": 50.49
       },
       "hsbc": {
-        "rate": 0.507,
+        "rate": 0.5075,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 50.7
+        "receiveAmount": 50.75
       },
       "anz": {
-        "rate": 0.4997,
+        "rate": 0.5002,
         "fee": 9,
         "markup": null,
-        "receiveAmount": 45.47
+        "receiveAmount": 45.52
       },
       "remitly": {
-        "rate": 0.5108,
+        "rate": 0.511,
         "fee": 0.89,
         "markup": null,
-        "receiveAmount": 50.63
+        "receiveAmount": 50.64
       },
       "instarem": {
-        "rate": 0.5169,
+        "rate": 0.5178,
         "fee": 0.5,
         "markup": null,
-        "receiveAmount": 51.43
+        "receiveAmount": 51.52
       },
       "commonwealth-bank": {
-        "rate": 0.498,
+        "rate": 0.4987,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 49.8
+        "receiveAmount": 49.87
       },
       "worldremit": {
-        "rate": 0.5096,
+        "rate": 0.5101,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 49.95
+        "receiveAmount": 50
       },
       "paypal": {
         "rate": 0.4947,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 47
+        "receiveAmount": 46.99
       }
     }
   }

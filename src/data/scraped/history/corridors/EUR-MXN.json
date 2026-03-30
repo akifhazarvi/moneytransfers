@@ -68,52 +68,52 @@
     "date": "2026-03-30",
     "providers": {
       "paypal": {
-        "rate": 19.7132,
+        "rate": 19.6762,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 1892.66
+        "receiveAmount": 1889.12
       },
       "skrill": {
-        "rate": 20.6624,
+        "rate": 20.5728,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 2066.24
+        "receiveAmount": 2057.28
       },
       "commerzbank": {
-        "rate": 20.5528,
+        "rate": 20.4819,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 1798.37
+        "receiveAmount": 1792.17
       },
       "deutsche-bank": {
-        "rate": 20.5793,
+        "rate": 20.5083,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 1305.76
+        "receiveAmount": 1301.25
       },
       "worldremit": {
-        "rate": 20.5908,
+        "rate": 20.5198,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 2038.7
+        "receiveAmount": 2031.67
       },
       "monese": {
-        "rate": 20.8363,
-        "fee": 4,
+        "rate": 20.7548,
+        "fee": 3,
         "markup": null,
-        "receiveAmount": 2000.29
+        "receiveAmount": 2013.22
       },
       "remitly": {
-        "rate": 20.6337,
+        "rate": 20.5419,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 2022.31
+        "receiveAmount": 2013.32
       },
       "moneygram": {
-        "rate": 20.3523,
+        "rate": 20.2822,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1994.73
+        "receiveAmount": 1987.85
       },
       "xoom": {
         "rate": 18.321,
@@ -122,10 +122,10 @@
         "receiveAmount": 1832
       },
       "wise": {
-        "rate": 20.8428,
+        "rate": 20.7749,
         "fee": 1.77,
         "markup": null,
-        "receiveAmount": 2047.39
+        "receiveAmount": 2040.72
       }
     }
   }
