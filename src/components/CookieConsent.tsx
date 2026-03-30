@@ -19,7 +19,9 @@ export default function CookieConsent() {
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
     if (!consent) {
-      setVisible(true);
+      // Delay showing banner so it doesn't become the LCP element
+      const id = setTimeout(() => setVisible(true), 3000);
+      return () => clearTimeout(id);
     } else if (consent === "accepted") {
       enableAnalytics();
     }
