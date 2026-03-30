@@ -266,5 +266,28 @@
         "receiveAmount": 470.39
       }
     }
+  },
+  {
+    "date": "2026-03-30",
+    "providers": {
+      "nab": {
+        "rate": 4.6045,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 460.45
+      },
+      "remitly": {
+        "rate": 4.6819,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 454.19
+      },
+      "instarem": {
+        "rate": 4.7436,
+        "fee": 0.37,
+        "markup": null,
+        "receiveAmount": 472.61
+      }
+    }
   }
 ]

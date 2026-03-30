@@ -61,5 +61,28 @@
         "receiveAmount": 15639.7
       }
     }
+  },
+  {
+    "date": "2026-03-30",
+    "providers": {
+      "ria": {
+        "rate": 174,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 17400
+      },
+      "xoom": {
+        "rate": 141.2772,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13705.31
+      },
+      "wise": {
+        "rate": 149.69,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14969
+      }
+    }
   }
 ]

@@ -1040,5 +1040,208 @@
         "receiveAmount": 12392.51
       }
     }
+  },
+  {
+    "date": "2026-03-30",
+    "providers": {
+      "ace-money-transfer": {
+        "rate": 125.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12550
+      },
+      "panda-remit": {
+        "rate": 125.7713,
+        "fee": 1.99,
+        "markup": -0.45,
+        "receiveAmount": 12326.85
+      },
+      "state-bank-of-india": {
+        "rate": 121.8306,
+        "fee": 7,
+        "markup": 2.7,
+        "receiveAmount": 11330.65
+      },
+      "hsbc": {
+        "rate": 122.4977,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12249.77
+      },
+      "skrill": {
+        "rate": 124.1152,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12411.52
+      },
+      "taptapsend": {
+        "rate": 124.5,
+        "fee": 0,
+        "markup": 0.57,
+        "receiveAmount": 12450
+      },
+      "xe-money-transfer-fx": {
+        "rate": 124.2824,
+        "fee": 2,
+        "markup": 0.74,
+        "receiveAmount": 12179.68
+      },
+      "western-union": {
+        "rate": 123.6899,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 12122.84
+      },
+      "profee": {
+        "rate": 125.1892,
+        "fee": 2.2,
+        "markup": 0.02,
+        "receiveAmount": 12243.51
+      },
+      "dahabshiil": {
+        "rate": 123.0313,
+        "fee": 1.79,
+        "markup": 1.74,
+        "receiveAmount": 12082.9
+      },
+      "ofx": {
+        "rate": 119.0881,
+        "fee": 0,
+        "markup": 4.89,
+        "receiveAmount": 11908.81
+      },
+      "currencyfair": {
+        "rate": 124.0639,
+        "fee": 0.97,
+        "markup": 0.92,
+        "receiveAmount": 12286.05
+      },
+      "transfergo": {
+        "rate": 123.6434,
+        "fee": 0,
+        "markup": 1.25,
+        "receiveAmount": 12364.34
+      },
+      "worldremit": {
+        "rate": 121.8029,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 11937.9
+      },
+      "instarem": {
+        "rate": 124.2399,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12423.99
+      },
+      "xe-money-transfer": {
+        "rate": 124.2824,
+        "fee": 2,
+        "markup": 0.74,
+        "receiveAmount": 12179.68
+      },
+      "mukuru": {
+        "rate": 120.76,
+        "fee": 2.99,
+        "markup": 3.56,
+        "receiveAmount": 11714.93
+      },
+      "paysend": {
+        "rate": 124.1141,
+        "fee": 0,
+        "markup": 0.88,
+        "receiveAmount": 12411.41
+      },
+      "remitly": {
+        "rate": 123.7923,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 12132.88
+      },
+      "revolut-money-transfer": {
+        "rate": 124.2693,
+        "fee": 1.5,
+        "markup": 0.75,
+        "receiveAmount": 12240.52
+      },
+      "ria": {
+        "rate": 124.63,
+        "fee": 1.5,
+        "markup": null,
+        "receiveAmount": 12857.37
+      },
+      "taptap-send": {
+        "rate": 125.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12550
+      },
+      "monese": {
+        "rate": 124.2658,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 11929.52
+      },
+      "halifax": {
+        "rate": 118.6643,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 10739.12
+      },
+      "natwest": {
+        "rate": 120.8796,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12087.96
+      },
+      "rbs": {
+        "rate": 120.8796,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12087.96
+      },
+      "icici-bank": {
+        "rate": 124.1925,
+        "fee": 1,
+        "markup": null,
+        "receiveAmount": 12295.06
+      },
+      "lloyds": {
+        "rate": 119.3832,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 10804.18
+      },
+      "nationwide": {
+        "rate": 121.5858,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 10334.79
+      },
+      "santander": {
+        "rate": 120.1652,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 9012.39
+      },
+      "barclays": {
+        "rate": 120.4707,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 12047.07
+      },
+      "xoom": {
+        "rate": 123.2931,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 12083.95
+      },
+      "wise": {
+        "rate": 123.781,
+        "fee": 1.21,
+        "markup": null,
+        "receiveAmount": 12228.32
+      }
+    }
   }
 ]
