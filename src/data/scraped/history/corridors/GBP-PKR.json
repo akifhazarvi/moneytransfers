@@ -655,10 +655,10 @@
         "receiveAmount": 28690.65
       },
       "skrill": {
-        "rate": 364.9023,
+        "rate": 366.9118,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 36490.23
+        "markup": 1.29,
+        "receiveAmount": 36691.18
       },
       "taptapsend": {
         "rate": 374,
@@ -667,10 +667,10 @@
         "receiveAmount": 37029.74
       },
       "western-union": {
-        "rate": 370.9101,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 37091.01
+        "rate": 372.5288,
+        "fee": 1.99,
+        "markup": -0.22,
+        "receiveAmount": 36511.55
       },
       "profee": {
         "rate": 374.3475,
@@ -697,16 +697,16 @@
         "receiveAmount": 35803.77
       },
       "worldremit": {
-        "rate": 371.0842,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 37108.42
+        "rate": 372.6497,
+        "fee": 0.99,
+        "markup": -0.25,
+        "receiveAmount": 36896.04
       },
       "instarem": {
-        "rate": 368.13,
+        "rate": 369.7203,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 36813
+        "markup": 0.54,
+        "receiveAmount": 36972.03
       },
       "xe-money-transfer": {
         "rate": 372.4309,
@@ -733,10 +733,10 @@
         "receiveAmount": 36800.32
       },
       "remitly": {
-        "rate": 372.5193,
-        "fee": 0.99,
+        "rate": 376.17,
+        "fee": 2.99,
         "markup": null,
-        "receiveAmount": 36883.14
+        "receiveAmount": 37617
       },
       "revolut-money-transfer": {
         "rate": 369.9034,
@@ -775,10 +775,10 @@
         "receiveAmount": 26618.89
       },
       "wise": {
-        "rate": 370.229,
+        "rate": 369.559,
         "fee": 1.6,
         "markup": null,
-        "receiveAmount": 36430.53
+        "receiveAmount": 36364.61
       }
     }
   }

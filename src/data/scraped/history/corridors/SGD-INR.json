@@ -427,16 +427,16 @@
         "receiveAmount": 7138.88
       },
       "instarem": {
-        "rate": 73.4799,
+        "rate": 72.9675,
         "fee": 0.55,
-        "markup": null,
-        "receiveAmount": 7307.57
+        "markup": 0.36,
+        "receiveAmount": 7256.62
       },
       "remitly": {
-        "rate": 72.645,
+        "rate": 72.13,
         "fee": 3.99,
-        "markup": null,
-        "receiveAmount": 6974.65
+        "markup": 1.5,
+        "receiveAmount": 6925.2
       },
       "revolut-money-transfer": {
         "rate": 72.9266,
@@ -469,10 +469,10 @@
         "receiveAmount": 7277.47
       },
       "wise": {
-        "rate": 73.5197,
+        "rate": 73.4195,
         "fee": 1.52,
         "markup": null,
-        "receiveAmount": 7240.22
+        "receiveAmount": 7230.35
       }
     }
   }

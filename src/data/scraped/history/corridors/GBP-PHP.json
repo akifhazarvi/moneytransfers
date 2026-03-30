@@ -853,16 +853,16 @@
         "receiveAmount": 6116.78
       },
       "hsbc": {
-        "rate": 78.3428,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 7834.28
+        "rate": 77.3143,
+        "fee": 20.01,
+        "markup": 3.5,
+        "receiveAmount": 6184
       },
       "skrill": {
-        "rate": 79.5896,
+        "rate": 78.6104,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 7958.96
+        "markup": 1.88,
+        "receiveAmount": 7861.04
       },
       "taptapsend": {
         "rate": 80,
@@ -871,10 +871,10 @@
         "receiveAmount": 8000
       },
       "western-union": {
-        "rate": 80.0508,
+        "rate": 78.2418,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 7845.77
+        "markup": 2.34,
+        "receiveAmount": 7668.47
       },
       "profee": {
         "rate": 79.7078,
@@ -907,16 +907,16 @@
         "receiveAmount": 7967.68
       },
       "worldremit": {
-        "rate": 79.1298,
+        "rate": 78.1064,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 7755.51
+        "markup": 2.51,
+        "receiveAmount": 7655.21
       },
       "instarem": {
-        "rate": 80.2384,
+        "rate": 79.282,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 8023.84
+        "markup": 1.04,
+        "receiveAmount": 7928.2
       },
       "xe-money-transfer": {
         "rate": 79.9237,
@@ -943,10 +943,10 @@
         "receiveAmount": 7811.7
       },
       "remitly": {
-        "rate": 79.9093,
-        "fee": 0,
+        "rate": 81.23,
+        "fee": 1.99,
         "markup": null,
-        "receiveAmount": 7990.93
+        "receiveAmount": 8123
       },
       "revolut-money-transfer": {
         "rate": 79.2923,
@@ -955,10 +955,10 @@
         "receiveAmount": 7794.43
       },
       "wise": {
-        "rate": 80.597,
+        "rate": 80.3247,
         "fee": 1.21,
         "markup": null,
-        "receiveAmount": 7962.18
+        "receiveAmount": 7935.28
       },
       "ria": {
         "rate": 80.2,
@@ -967,10 +967,10 @@
         "receiveAmount": 8239.9
       },
       "taptap-send": {
-        "rate": 80.55,
+        "rate": 80.4,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 8055
+        "receiveAmount": 8040
       },
       "moneygram": {
         "rate": 80.6426,

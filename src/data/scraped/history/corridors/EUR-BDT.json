@@ -44,10 +44,10 @@
     "date": "2026-03-30",
     "providers": {
       "taptap-send": {
-        "rate": 140.78,
+        "rate": 140,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14078
+        "receiveAmount": 14000
       },
       "skrill": {
         "rate": 138.2671,
@@ -74,10 +74,10 @@
         "receiveAmount": 12019.47
       },
       "wise": {
-        "rate": 141.505,
+        "rate": 141.266,
         "fee": 3.14,
         "markup": null,
-        "receiveAmount": 13706.17
+        "receiveAmount": 13683.02
       }
     }
   }

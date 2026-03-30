@@ -583,16 +583,16 @@
     "date": "2026-03-30",
     "providers": {
       "instarem": {
-        "rate": 17.9177,
+        "rate": 17.8294,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 1791.77
+        "markup": 0.65,
+        "receiveAmount": 1782.94
       },
       "moneygram": {
-        "rate": 17.7967,
-        "fee": 3,
-        "markup": null,
-        "receiveAmount": 1726.28
+        "rate": 17.819,
+        "fee": 10,
+        "markup": 0.7,
+        "receiveAmount": 1603.71
       },
       "ria": {
         "rate": 17.56,
@@ -637,10 +637,10 @@
         "receiveAmount": 1685.88
       },
       "worldremit": {
-        "rate": 17.6552,
+        "rate": 17.5343,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 1730.39
+        "markup": 2.29,
+        "receiveAmount": 1718.53
       },
       "xe-money-transfer": {
         "rate": 17.66,
@@ -667,16 +667,16 @@
         "receiveAmount": 1750.66
       },
       "wise": {
-        "rate": 18.0705,
-        "fee": 1.75,
+        "rate": 18.0598,
+        "fee": 7.64,
         "markup": null,
-        "receiveAmount": 1775.43
+        "receiveAmount": 1668
       },
       "taptap-send": {
-        "rate": 18,
+        "rate": 17.85,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1800
+        "receiveAmount": 1785
       },
       "wells-fargo": {
         "rate": 17.4865,

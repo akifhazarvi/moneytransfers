@@ -559,10 +559,10 @@
         "receiveAmount": 6409.01
       },
       "instarem": {
-        "rate": 64.8954,
+        "rate": 65.5092,
         "fee": 0.6,
-        "markup": null,
-        "receiveAmount": 6450.6
+        "markup": 0.47,
+        "receiveAmount": 6511.61
       },
       "xe-money-transfer": {
         "rate": 65.2203,
@@ -577,10 +577,10 @@
         "receiveAmount": 6400.44
       },
       "remitly": {
-        "rate": 64.3117,
-        "fee": 0,
+        "rate": 66.19,
+        "fee": 1.99,
         "markup": null,
-        "receiveAmount": 6431.17
+        "receiveAmount": 6619
       },
       "revolut-money-transfer": {
         "rate": 65.4652,
@@ -625,10 +625,10 @@
         "receiveAmount": 6326.66
       },
       "wise": {
-        "rate": 65.0398,
+        "rate": 64.9846,
         "fee": 1.55,
         "markup": null,
-        "receiveAmount": 6403.17
+        "receiveAmount": 6397.73
       }
     }
   }

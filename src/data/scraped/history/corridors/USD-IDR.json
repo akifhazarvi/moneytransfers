@@ -168,10 +168,10 @@
     "date": "2026-03-30",
     "providers": {
       "remitly": {
-        "rate": 16884.8792,
-        "fee": 0.99,
+        "rate": 16901.83,
+        "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1671771.89
+        "receiveAmount": 1690183
       },
       "ria": {
         "rate": 16668.468,
@@ -210,10 +210,10 @@
         "receiveAmount": 1662067.25
       },
       "wise": {
-        "rate": 16990,
-        "fee": 1.86,
+        "rate": 17015,
+        "fee": 7.76,
         "markup": null,
-        "receiveAmount": 1667399
+        "receiveAmount": 1569464
       }
     }
   }

@@ -1063,16 +1063,16 @@
         "receiveAmount": 11330.65
       },
       "hsbc": {
-        "rate": 124.2024,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12420.24
+        "rate": 120.8076,
+        "fee": 20.02,
+        "markup": 3.52,
+        "receiveAmount": 9662.74
       },
       "skrill": {
-        "rate": 124.8963,
+        "rate": 124.1044,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 12489.63
+        "markup": 0.88,
+        "receiveAmount": 12410.44
       },
       "taptapsend": {
         "rate": 124.5,
@@ -1087,10 +1087,10 @@
         "receiveAmount": 12179.68
       },
       "western-union": {
-        "rate": 125.4111,
+        "rate": 124.4037,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 12291.54
+        "markup": 0.64,
+        "receiveAmount": 12192.81
       },
       "profee": {
         "rate": 125.1892,
@@ -1123,16 +1123,16 @@
         "receiveAmount": 12364.34
       },
       "worldremit": {
-        "rate": 123.4979,
+        "rate": 121.8621,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 12104.03
+        "markup": 2.67,
+        "receiveAmount": 11943.71
       },
       "instarem": {
-        "rate": 124.9761,
+        "rate": 124.1883,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 12497.61
+        "markup": 0.82,
+        "receiveAmount": 12418.83
       },
       "xe-money-transfer": {
         "rate": 124.2824,
@@ -1153,10 +1153,10 @@
         "receiveAmount": 12411.41
       },
       "remitly": {
-        "rate": 125.289,
+        "rate": 125.82,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 12279.57
+        "receiveAmount": 12582
       },
       "revolut-money-transfer": {
         "rate": 124.2693,
@@ -1171,10 +1171,10 @@
         "receiveAmount": 12857.37
       },
       "taptap-send": {
-        "rate": 124.5,
+        "rate": 125,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 12450
+        "receiveAmount": 12500
       },
       "monese": {
         "rate": 125.1058,
@@ -1237,10 +1237,10 @@
         "receiveAmount": 9456
       },
       "wise": {
-        "rate": 125.496,
+        "rate": 125.264,
         "fee": 1.21,
         "markup": null,
-        "receiveAmount": 12397.75
+        "receiveAmount": 12374.83
       }
     }
   }

@@ -571,10 +571,10 @@
         "receiveAmount": 4106.05
       },
       "instarem": {
-        "rate": 41.7244,
+        "rate": 41.8181,
         "fee": 0.75,
-        "markup": null,
-        "receiveAmount": 4141.15
+        "markup": 0.7,
+        "receiveAmount": 4150.45
       },
       "xe-money-transfer": {
         "rate": 41.8829,
@@ -589,10 +589,10 @@
         "receiveAmount": 3989.52
       },
       "remitly": {
-        "rate": 41.0214,
-        "fee": 0,
+        "rate": 43.02,
+        "fee": 4.99,
         "markup": null,
-        "receiveAmount": 4102.14
+        "receiveAmount": 4302
       },
       "revolut-money-transfer": {
         "rate": 41.7713,
@@ -601,10 +601,10 @@
         "receiveAmount": 4118.23
       },
       "wise": {
-        "rate": 41.7366,
+        "rate": 41.6696,
         "fee": 1.46,
         "markup": null,
-        "receiveAmount": 4112.72
+        "receiveAmount": 4106.12
       },
       "ria": {
         "rate": 42,
@@ -613,10 +613,10 @@
         "receiveAmount": 4321.15
       },
       "taptap-send": {
-        "rate": 41.7,
+        "rate": 41.65,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4170
+        "receiveAmount": 4165
       },
       "nab": {
         "rate": 40.5968,

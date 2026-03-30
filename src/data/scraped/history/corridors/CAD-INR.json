@@ -565,10 +565,10 @@
         "receiveAmount": 6682.58
       },
       "scotiabank": {
-        "rate": 65.8505,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 6454
+        "rate": 65.8111,
+        "fee": 29.43,
+        "markup": 3.95,
+        "receiveAmount": 4644.18
       },
       "skrill": {
         "rate": 67.5288,
@@ -601,10 +601,10 @@
         "receiveAmount": 6534.68
       },
       "instarem": {
-        "rate": 67.6474,
+        "rate": 67.7858,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 6764.74
+        "markup": 1.06,
+        "receiveAmount": 6778.58
       },
       "xe-money-transfer": {
         "rate": 67.6266,
@@ -625,10 +625,10 @@
         "receiveAmount": 6737.64
       },
       "remitly": {
-        "rate": 67.6961,
+        "rate": 69.04,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 6634.9
+        "receiveAmount": 6904
       },
       "ria": {
         "rate": 67.5247,
@@ -637,10 +637,10 @@
         "receiveAmount": 6868.01
       },
       "taptap-send": {
-        "rate": 67.25,
+        "rate": 67.5,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6725
+        "receiveAmount": 6750
       },
       "td-bank": {
         "rate": 65.7532,
@@ -667,10 +667,10 @@
         "receiveAmount": 6717.54
       },
       "wise": {
-        "rate": 68.1887,
+        "rate": 67.9889,
         "fee": 2.67,
         "markup": null,
-        "receiveAmount": 6636.81
+        "receiveAmount": 6617.36
       }
     }
   }

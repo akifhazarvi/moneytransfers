@@ -541,10 +541,10 @@
         "receiveAmount": 10176.97
       },
       "skrill": {
-        "rate": 108.3807,
+        "rate": 107.4926,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 10838.07
+        "markup": 0.91,
+        "receiveAmount": 10749.26
       },
       "taptapsend": {
         "rate": 107.8,
@@ -553,10 +553,10 @@
         "receiveAmount": 10780
       },
       "deutsche-bank": {
-        "rate": 107.442,
-        "fee": 36.55,
-        "markup": null,
-        "receiveAmount": 6817.19
+        "rate": 106.7237,
+        "fee": 28.88,
+        "markup": 1.62,
+        "receiveAmount": 7590.01
       },
       "xe-money-transfer-fx": {
         "rate": 107.3795,
@@ -595,10 +595,10 @@
         "receiveAmount": 10380.41
       },
       "instarem": {
-        "rate": 108.1138,
+        "rate": 107.4935,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 10811.38
+        "markup": 0.91,
+        "receiveAmount": 10749.35
       },
       "xe-money-transfer": {
         "rate": 107.3795,
@@ -613,10 +613,10 @@
         "receiveAmount": 10695.17
       },
       "remitly": {
-        "rate": 108.2084,
-        "fee": 0.99,
+        "rate": 108.93,
+        "fee": 2.99,
         "markup": null,
-        "receiveAmount": 10713.72
+        "receiveAmount": 10893
       },
       "revolut-money-transfer": {
         "rate": 107.6264,
@@ -631,10 +631,10 @@
         "receiveAmount": 10782.89
       },
       "taptap-send": {
-        "rate": 107.7,
+        "rate": 108.5,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10770
+        "receiveAmount": 10850
       },
       "xoom": {
         "rate": 94.5609,
@@ -649,10 +649,10 @@
         "receiveAmount": 10536.88
       },
       "wise": {
-        "rate": 109.011,
+        "rate": 108.753,
         "fee": 1.71,
         "markup": null,
-        "receiveAmount": 10714.69
+        "receiveAmount": 10689.33
       }
     }
   }
