@@ -130,6 +130,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://sendmoneycompare.com/#website",
+    name: "SendMoneyCompare",
+    alternateName: "Send Money Compare",
+    url: "https://sendmoneycompare.com",
+  };
+
   const homeBreadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -150,6 +159,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}

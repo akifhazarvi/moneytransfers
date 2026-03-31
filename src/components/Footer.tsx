@@ -234,7 +234,7 @@ export default function Footer() {
             </svg>
             <span className="text-sm font-medium text-[var(--color-on-surface-variant)]">SendMoneyCompare</span>
           </div>
-          <p className="text-xs text-[var(--color-on-surface-variant)] text-center max-w-xl">
+          <p className="text-xs text-[var(--color-on-surface-variant)] text-center max-w-xl" data-nosnippet="">
             {t("footerDisclaimer")}
           </p>
           <p className="text-xs text-[var(--color-on-surface-variant)]">

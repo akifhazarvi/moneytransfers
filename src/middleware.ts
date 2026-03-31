@@ -51,5 +51,5 @@ export const config = {
   // - _next (Next.js internals)
   // - _vercel (Vercel internals)
   // - files with extensions (static files like .ico, .svg, .png, etc.)
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|_vercel|opengraph-image|twitter-image|.*\\..*).*)"],
 };
