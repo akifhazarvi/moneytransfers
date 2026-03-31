@@ -39,7 +39,7 @@ const CURRENCY_PAIRS: CurrencyPair[] = [
   { slug: "usd-to-cad", from: "USD", to: "CAD", fromName: "US Dollar", toName: "Canadian Dollar", fromCountry: "US", toCountry: "CA" },
   { slug: "usd-to-aud", from: "USD", to: "AUD", fromName: "US Dollar", toName: "Australian Dollar", fromCountry: "US", toCountry: "AU" },
   { slug: "usd-to-jpy", from: "USD", to: "JPY", fromName: "US Dollar", toName: "Japanese Yen", fromCountry: "US", toCountry: "JP" },
-  { slug: "usd-to-brl", from: "USD", to: "BRL", fromName: "US Dollar", toName: "Brazilian Real", fromCountry: "US", toCountry: "BR" },
+  { slug: "usd-to-brl", from: "USD", to: "BRL", fromName: "US Dollar", toName: "Brazilian Real", fromCountry: "US", toCountry: "BR", corridor: "usa-to-brazil" },
   { slug: "usd-to-cny", from: "USD", to: "CNY", fromName: "US Dollar", toName: "Chinese Yuan", fromCountry: "US", toCountry: "CN" },
 ];
 
@@ -275,8 +275,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // CTR-optimized overrides for high-impression pairs
   const pairOverrides: Record<string, { title: string; description: string }> = {
     "usd-to-brl": {
-      title: `USD to BRL Exchange Rate Today: Current Dollar to Brazilian Real Rate`,
-      description: `See the current USD to BRL exchange rate today, updated every 60 seconds. Compare the live dollar-to-real rate with what transfer providers actually offer after markup and fees.`,
+      title: `USD to BRL Rate Today — Compare What Providers Actually Pay vs Mid-Market (2026)`,
+      description: `Live USD to BRL mid-market rate vs what Wise, Remitly & 10+ providers offer after hidden markup. See who gives the most reais per dollar — up to 4% difference between best and worst.`,
     },
   };
 
