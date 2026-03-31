@@ -893,6 +893,53 @@ export const newsItems: NewsItem[] = [
     sourceUrl: "https://www.ecb.europa.eu/press/govcdec/mopo/html/index.en.html",
     providerSlugs: ["wise", "xe", "revolut", "ofx"],
   },
+  {
+    slug: "world-bank-remittance-costs-q1-2026",
+    title: "Global Remittance Costs Drop to 6.0% in Q1 2026 — But Your Corridor May Be Higher",
+    excerpt:
+      "The World Bank's latest Remittance Prices Worldwide data shows the global average cost of sending $200 fell to 6.0% in early 2026. But costs vary wildly by corridor — from 2% (India) to 15%+ (Sub-Saharan Africa). Here's what it means for senders.",
+    image: "/images/news/central-bank-super-week.jpg",
+    imageAlt: "A globe illustrating international remittance flows and costs across different corridors",
+    content: `<p>The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a> — the most comprehensive tracker of international transfer costs — shows the global average cost of sending $200 fell to approximately <strong>6.0% in Q1 2026</strong>, down from 6.2% a year ago. While this represents progress toward the <strong>UN Sustainable Development Goal of under 3% by 2030</strong>, the global average masks enormous corridor-by-corridor differences.</p>
+
+<h2>The cheapest and most expensive corridors</h2>
+<table>
+<thead><tr><th>Corridor</th><th>Average Cost</th><th>Cheapest Provider</th><th>Compare</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>USA → India</strong></td><td>~2.5%</td><td>Wise (0.5%)</td><td><a href="/send-money/usa-to-india">Live rates →</a></td></tr>
+<tr><td><strong>UAE → India</strong></td><td>~2.8%</td><td>Wise / Remitly</td><td><a href="/send-money/uae-to-india">Live rates →</a></td></tr>
+<tr><td><strong>USA → Mexico</strong></td><td>~3.5%</td><td>Wise / Remitly</td><td><a href="/send-money/usa-to-mexico">Live rates →</a></td></tr>
+<tr><td><strong>UK → Nigeria</strong></td><td>~5.5%</td><td>Wise / LemFi</td><td><a href="/send-money/uk-to-nigeria">Live rates →</a></td></tr>
+<tr><td><strong>USA → Philippines</strong></td><td>~4.0%</td><td>Remitly</td><td><a href="/send-money/usa-to-philippines">Live rates →</a></td></tr>
+<tr class="blog-row-danger"><td><strong>South Africa → Mozambique</strong></td><td>~15%</td><td>Limited providers</td><td>—</td></tr>
+<tr class="blog-row-danger"><td><strong>Sub-Saharan Africa (intra)</strong></td><td>~8–12%</td><td>WorldRemit / Wise</td><td>—</td></tr>
+</tbody>
+</table>
+
+<h2>Why your corridor cost matters more than the global average</h2>
+<p>The "6.0% global average" is misleading because it's weighted by corridor volume. High-volume corridors like USA→India and UAE→India pull the average down (they're under 3%). But if you send money to Sub-Saharan Africa, the Caribbean, or Pacific Islands, you may be paying <strong>2–3x the global average</strong>.</p>
+<p>The World Bank identifies three cost drivers:</p>
+<ol>
+<li><strong>Competition:</strong> Corridors with 10+ providers (India, Mexico, Philippines) have the lowest costs. Corridors with 2–3 providers are most expensive.</li>
+<li><strong>Regulation:</strong> De-risking by correspondent banks has reduced access to formal channels in some African and Caribbean corridors, pushing costs up.</li>
+<li><strong>Digital adoption:</strong> Corridors where most transfers are digital (app-to-bank, app-to-mobile-wallet) are 30–50% cheaper than those still relying on cash-based in-store services.</li>
+</ol>
+
+<h2>How to ensure you're below the average</h2>
+<p>The global average of 6.0% means <strong>most people are still overpaying</strong>. Banks and legacy providers are far above the average, while specialist digital providers are far below it. Here's how to stay on the cheap side:</p>
+<ul>
+<li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows the exact total cost across 35+ providers for your specific corridor and amount.</li>
+<li><strong>Use digital providers.</strong> <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> are consistently below the global average on most corridors.</li>
+<li><strong>Avoid bank wires.</strong> The World Bank data confirms banks charge 2–3x more than specialist providers. Our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> explains why.</li>
+<li><strong>Fund digitally.</strong> Since the <a href="/guides/us-remittance-tax-2026">US 1% remittance tax</a> on cash transfers, digital funding is both cheaper AND tax-exempt.</li>
+</ul>
+<p>For corridor-specific guidance, see our <a href="/guides/send-money-to-india-guide">India</a>, <a href="/guides/send-money-to-pakistan-guide">Pakistan</a>, <a href="/guides/send-money-to-philippines-guide">Philippines</a>, <a href="/guides/send-money-to-nigeria-guide">Nigeria</a>, <a href="/guides/send-money-to-kenya-guide">Kenya</a>, and <a href="/guides/send-money-to-south-africa-guide">South Africa</a> corridor guides. For the full methodology behind the World Bank data, visit the <a href="https://remittanceprices.worldbank.org/methodology" target="_blank" rel="noopener noreferrer">RPW methodology page</a>.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-03-31",
+    source: "World Bank Remittance Prices Worldwide",
+    sourceUrl: "https://remittanceprices.worldbank.org/",
+    providerSlugs: ["wise", "remitly", "worldremit", "western-union"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {
