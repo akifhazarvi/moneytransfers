@@ -1635,6 +1635,392 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
     ],
   },
+
+  // ── Remitly vs Xoom ──
+  {
+    slug: "remitly-vs-xoom",
+    providerA: "remitly",
+    providerB: "xoom",
+    title: "Remitly vs Xoom 2026 — We Compared Fees, Rates & Speed Across 6 Corridors",
+    metaDescription:
+      "Remitly vs Xoom compared on real data: Remitly's exchange rate markup is 0.4–3% while Xoom's averages 4.5%. See who delivers more to India, Philippines, Mexico — and when Xoom wins.",
+    updatedAt: "2026-03-31",
+    readTime: "12 min read",
+    intro:
+      "Remitly and Xoom are two of the most popular apps for sending money to family abroad — particularly to India, the Philippines, and Mexico. Remitly is a digital-first remittance specialist; Xoom is PayPal's dedicated international transfer service. Both offer fast delivery, cash pickup, and mobile wallet options. But the cost difference is significant and often hidden in the exchange rate. This comparison uses real transfer data to show exactly who delivers more money to your recipient — and the one scenario where Xoom actually wins.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview: Remitly vs Xoom at a glance",
+        content: `<table>
+<tr><th>Feature</th><th>Remitly</th><th>Xoom (PayPal)</th></tr>
+<tr><td>Founded</td><td>2011 (Seattle, US)</td><td>2001 (San Francisco, US — acquired by PayPal 2015)</td></tr>
+<tr><td>Best for</td><td>Cheapest remittances, Express speed</td><td>PayPal users, cash pickup in India/Mexico</td></tr>
+<tr><td>Fee model</td><td>$0–$3.99 (Express) / $0.49+ (Economy)</td><td>$0–$4.99 (avg $5.43). $0 with PYUSD.</td></tr>
+<tr><td>Exchange rate</td><td>0.4%–3% markup</td><td>~4.5% avg markup (varies by corridor)</td></tr>
+<tr><td>Transfer speed</td><td>Minutes (Express) / 3–5 days (Economy)</td><td>Minutes to hours</td></tr>
+<tr><td>Max transfer</td><td>$10,000</td><td>$50,000</td></tr>
+<tr><td>Destination countries</td><td>170+</td><td>130–160</td></tr>
+<tr><td>Cash pickup locations</td><td>460,000+</td><td>100,000+ (India), 14,500+ (Mexico)</td></tr>
+<tr><td>Mobile wallets</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>GCash, PayMaya, GrabPay, Coins, U-mobile</td></tr>
+<tr><td>Door-to-door delivery</td><td>Select countries</td><td>Yes (Philippines: 6hrs Metro Manila)</td></tr>
+<tr><td>PayPal balance funding</td><td>No</td><td>Yes</td></tr>
+<tr><td>PYUSD stablecoin ($0 fee)</td><td>No</td><td>Yes (expanded to 68 countries, March 2026)</td></tr>
+<tr><td>Trustpilot</td><td>4.6/5 (108,000 reviews)</td><td>4.7/5 (166,000 reviews)</td></tr>
+<tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FinCEN (PayPal subsidiary)</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> Remitly is significantly cheaper on most corridors due to its tighter exchange rate markup (0.4–3% vs Xoom's ~4.5% average). Xoom's unique advantage is PayPal integration — especially the PYUSD zero-fee option — and its massive cash pickup network in India (100,000+ locations).</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Fees: Remitly is cheaper — but Xoom has a zero-fee trick",
+        content: `<h3>Remitly fees</h3>
+<p>Remitly offers two transfer tiers:</p>
+<ul>
+<li><strong>Express:</strong> $2.99–$14.99 depending on corridor. Delivers in minutes. Better exchange rate than Economy on some corridors.</li>
+<li><strong>Economy:</strong> As low as $0.49 (e.g., US to Argentina). Delivers in 3–5 business days. Better exchange rate.</li>
+</ul>
+<p>First-time users often get fee-free promotions on their first transfer.</p>
+
+<h3>Xoom fees</h3>
+<p>Xoom's fees vary by corridor, funding method, and delivery type:</p>
+<table>
+<tr><th>Funding method</th><th>Typical fee</th></tr>
+<tr><td>Bank account (ACH)</td><td>$0–$4.99 (varies by corridor)</td></tr>
+<tr><td>Debit card</td><td>$1.99–$4.99</td></tr>
+<tr><td>Credit card</td><td>$2.99–$4.99</td></tr>
+<tr><td>PayPal balance</td><td>$0–$4.99</td></tr>
+<tr class="blog-row-highlight"><td><strong>PYUSD stablecoin</strong></td><td><strong>$0</strong></td></tr>
+</table>
+
+<h3>The PYUSD zero-fee play</h3>
+<p>Xoom's most interesting feature: if you fund your transfer with <strong>PayPal's PYUSD stablecoin</strong>, the transfer fee is $0. In March 2026, PayPal expanded PYUSD settlement to 68 new countries. The catch: you still pay Xoom's exchange rate markup (see below), so "zero fee" doesn't mean "zero cost."</p>
+
+<p><strong>Bottom line on fees:</strong> Remitly's Economy tier ($0.49–$3.99) is cheaper than Xoom's average of $5.43 per transfer. But fees are only half the story — the exchange rate markup is where the real cost hides.</p>`,
+      },
+      {
+        id: "exchange-rates",
+        heading: "Exchange rates: The hidden cost where Remitly wins big",
+        content: `<p>This is the most important section. The exchange rate markup is where most of the cost lies — and where the two providers differ most dramatically.</p>
+
+<table>
+<tr><th>Metric</th><th>Remitly</th><th>Xoom</th></tr>
+<tr><td><strong>Average FX markup</strong></td><td>0.4%–3.0%</td><td>~4.5% (up to 6% on some corridors)</td></tr>
+<tr><td>USD → INR (Express)</td><td>~0.87%</td><td>~1.5–2.5%</td></tr>
+<tr><td>USD → INR (Economy)</td><td>~0.42%</td><td>N/A (single tier)</td></tr>
+<tr><td>USD → PHP</td><td>~1.0–1.5%</td><td>~2.5–4%</td></tr>
+<tr><td>USD → MXN</td><td>~1.0–2.0%</td><td>~2.5–4%</td></tr>
+</table>
+
+<h3>What this means on a $1,000 transfer to Mexico</h3>
+<p>Real example from our comparison data:</p>
+<ul>
+<li><strong>Remitly:</strong> Delivered MX$18,770 (fee + rate combined)</li>
+<li><strong>Xoom:</strong> Delivered MX$18,604 (fee + rate combined)</li>
+<li><strong>Difference:</strong> MX$166 more with Remitly (~$9 USD)</li>
+</ul>
+
+<p>On a $1,000 transfer to India, the gap is similar: Remitly typically delivers <strong>₹500–₹1,500 more</strong> than Xoom, depending on Express vs Economy tier.</p>
+
+<p><strong>Why Xoom's rate is worse:</strong> Xoom is a PayPal subsidiary, and PayPal has historically monetized through exchange rate markups rather than transparent fees. While Xoom's markup isn't as extreme as PayPal's direct transfer service (3–4%), it's still significantly above specialist providers like Remitly, <a href="/companies/wise">Wise</a>, or <a href="/companies/worldremit">WorldRemit</a>.</p>
+
+<p>For a full explanation of how markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>. To see the actual rates right now, use our <a href="/send-money">comparison tool</a>.</p>`,
+      },
+      {
+        id: "speed",
+        heading: "Transfer speed: Both are fast — but Remitly gives you a choice",
+        content: `<table>
+<tr><th>Delivery method</th><th>Remitly</th><th>Xoom</th></tr>
+<tr><td>Bank deposit (fast)</td><td>Minutes (Express)</td><td>Minutes (up to 2hrs for large India transfers)</td></tr>
+<tr><td>Bank deposit (slow/cheap)</td><td>3–5 business days (Economy)</td><td>N/A — single tier</td></tr>
+<tr><td>Cash pickup</td><td>Minutes</td><td>Minutes</td></tr>
+<tr><td>GCash (Philippines)</td><td>Minutes</td><td>Minutes</td></tr>
+<tr><td>Mobile reload</td><td>Not available</td><td>Minutes (Philippines, others)</td></tr>
+<tr><td>Door-to-door delivery</td><td>Limited</td><td>6 hours (Metro Manila), 1–2 days (provinces)</td></tr>
+</table>
+
+<p><strong>Remitly's advantage:</strong> The two-tier system (Express + Economy) lets you choose speed vs. cost. If you don't need instant delivery, Economy saves money AND often gives a better exchange rate.</p>
+
+<p><strong>Xoom's advantage:</strong> Door-to-door delivery in the Philippines (6 hours in Metro Manila if sent before 3 PM) and mobile phone reload (airtime top-up) — neither of which Remitly offers.</p>`,
+      },
+      {
+        id: "delivery",
+        heading: "Delivery methods and cash pickup networks",
+        content: `<h3>Cash pickup: Where Xoom shines in specific corridors</h3>
+
+<p><strong>India:</strong> Xoom has <strong>100,000+ cash pickup locations</strong> through Muthoot Finance and Manappuram Finance — the largest network of any provider in India. Remitly has a smaller but growing network.</p>
+
+<p><strong>Mexico:</strong> Xoom has <strong>14,500+ locations</strong> at Oxxo, Elektra, and BanCoppel — covering even small towns. Remitly's Mexico network is smaller.</p>
+
+<p><strong>Philippines:</strong> Both have strong networks. Xoom partners with Cebuana Lhuillier and M. Lhuillier (12,000+ locations). Remitly also covers major collection points.</p>
+
+<p><strong>Overall:</strong> Remitly claims 460,000+ global pickup points across 170+ countries, which is larger total. But Xoom's <strong>concentrated networks</strong> in India and Mexico are deeper in those specific countries.</p>
+
+<h3>Mobile wallets: Xoom has more Philippine options</h3>
+<p>For the Philippines, Xoom supports <strong>5 mobile wallets</strong> (GCash, PayMaya, GrabPay, Coins, U-mobile) compared to Remitly's primary GCash support. For other countries, Remitly supports bKash (Bangladesh), M-Pesa (Kenya), and Easypaisa (Pakistan) — corridors where Xoom is weaker.</p>
+
+<h3>Unique to Xoom</h3>
+<ul>
+<li><strong>Mobile phone reload:</strong> Top up airtime for recipients in the Philippines and select countries — no other major provider offers this</li>
+<li><strong>Bill payments:</strong> Pay utility bills in select countries ($2.99 flat fee)</li>
+</ul>`,
+      },
+      {
+        id: "corridors",
+        heading: "Corridor-by-corridor: Who wins where?",
+        content: `<div class="blog-table-box">
+<table>
+<thead><tr><th>Corridor</th><th>Winner</th><th>Why</th><th>Compare</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>USA → India</strong></td><td><strong>Remitly</strong></td><td>0.42–0.87% markup vs ~2%. Economy tier saves even more.</td><td><a href="/send-money/usa-to-india">Live rates →</a></td></tr>
+<tr><td><strong>USA → Philippines</strong></td><td><strong>Remitly</strong></td><td>Better rate + GCash Express. But Xoom has more wallet options.</td><td><a href="/send-money/usa-to-philippines">Live rates →</a></td></tr>
+<tr><td><strong>USA → Mexico</strong></td><td><strong>Remitly</strong></td><td>~MX$166 more per $1,000. But Xoom has deeper cash pickup (Oxxo).</td><td><a href="/send-money/usa-to-mexico">Live rates →</a></td></tr>
+<tr><td><strong>USA → Pakistan</strong></td><td><strong>Remitly</strong></td><td>Easypaisa/JazzCash support + better rates.</td><td><a href="/send-money/usa-to-pakistan">Live rates →</a></td></tr>
+<tr><td><strong>Cash pickup India</strong></td><td><strong>Xoom</strong></td><td>100,000+ locations (Muthoot, Manappuram) — largest in India.</td><td><a href="/send-money/usa-to-india">Live rates →</a></td></tr>
+<tr><td><strong>PayPal users</strong></td><td><strong>Xoom</strong></td><td>Fund from PayPal balance. PYUSD = $0 fee.</td><td>—</td></tr>
+<tr><td><strong>Door-to-door Philippines</strong></td><td><strong>Xoom</strong></td><td>6-hour delivery in Metro Manila. Remitly doesn't offer this.</td><td><a href="/send-money/usa-to-philippines">Live rates →</a></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Pattern:</strong> Remitly wins on pure cost in every corridor. Xoom wins on specific delivery features (India cash pickup network, Philippines door-to-door, PayPal/PYUSD integration).</p>`,
+      },
+      {
+        id: "verdict",
+        heading: "Verdict: Which should you use?",
+        content: `<p><strong>Choose Remitly if:</strong></p>
+<ul>
+<li>You want the <strong>most money delivered</strong> to your recipient (Remitly's tighter markup delivers ₹500–₹1,500 more per $1,000)</li>
+<li>You don't need instant delivery — <strong>Economy tier</strong> saves even more with better rates</li>
+<li>You send to <strong>Bangladesh, Kenya, Pakistan</strong> — corridors where Xoom is weaker</li>
+<li>You value <strong>24/7 multilingual customer support</strong></li>
+</ul>
+
+<p><strong>Choose Xoom if:</strong></p>
+<ul>
+<li>Your recipient needs <strong>cash pickup in India</strong> — Xoom's 100,000+ location network is unmatched</li>
+<li>You want <strong>door-to-door delivery in the Philippines</strong> (6 hours in Metro Manila)</li>
+<li>You already have a <strong>PayPal account or PYUSD balance</strong> — fund directly and get $0 transfer fees</li>
+<li>You need to <strong>reload a phone</strong> or <strong>pay bills</strong> for your recipient</li>
+<li>You're sending <strong>over $10,000</strong> (Xoom's limit is $50,000 vs Remitly's $10,000)</li>
+</ul>
+
+<p>For the most accurate comparison on your specific corridor and amount, use our <a href="/send-money">live comparison tool</a> — it shows real-time quotes from both Remitly and Xoom plus 30+ other providers.</p>`,
+      },
+    ],
+    verdict: {
+      largeTransfers: { winner: "remitly", explanation: "Remitly's tighter exchange rate markup saves significantly more on large transfers. On $5,000 to India, the FX markup difference alone is $150–$200. However, Xoom's $50,000 limit vs Remitly's $10,000 means Xoom handles larger single transactions." },
+      smallTransfers: { winner: "remitly", explanation: "Remitly's Economy tier offers the best value for small, non-urgent transfers — fees as low as $0.49 with better exchange rates. Xoom's PYUSD option is the only scenario where Xoom matches Remitly's pricing." },
+      overall: "Remitly wins for the majority of senders. The exchange rate difference (0.4–3% vs ~4.5%) means your recipient gets meaningfully more money with Remitly — ₹500–₹1,500 more per $1,000 to India, MX$166 more per $1,000 to Mexico. Xoom wins in three specific scenarios: cash pickup in India (100K+ locations), door-to-door in the Philippines, and PayPal/PYUSD users who want seamless integration.",
+    },
+    faqs: [
+      {
+        q: "Is Remitly cheaper than Xoom?",
+        a: "Yes, significantly. Remitly's exchange rate markup averages 0.4–3% while Xoom's averages ~4.5%. On a $1,000 transfer to India, Remitly typically delivers ₹500–₹1,500 more. Even when Xoom's advertised transfer fee looks similar, the hidden FX markup makes it more expensive overall.",
+      },
+      {
+        q: "Does Xoom use PayPal's exchange rate?",
+        a: "Not exactly. Xoom has its own exchange rate engine, separate from PayPal's standard currency conversion. But Xoom's markup (~4.5% average) is still higher than specialist providers like Remitly (0.4–3%) or Wise (0%). As a PayPal subsidiary, Xoom monetizes through FX margins rather than transparent fees.",
+      },
+      {
+        q: "Can I use my PayPal balance to fund a Xoom transfer?",
+        a: "Yes. Xoom is fully integrated with PayPal — you can fund transfers directly from your PayPal balance, linked bank account, or PayPal's PYUSD stablecoin. Funding with PYUSD gives you $0 transfer fees (though the exchange rate markup still applies).",
+      },
+      {
+        q: "Which has more cash pickup locations?",
+        a: "Remitly claims 460,000+ global locations across 170+ countries. Xoom's network is smaller overall but deeper in specific corridors: 100,000+ locations in India (Muthoot Finance, Manappuram Finance), 14,500+ in Mexico (Oxxo, Elektra), and 12,000+ in the Philippines (Cebuana, M. Lhuillier). If your recipient is in India and needs cash, Xoom has the edge.",
+      },
+      {
+        q: "Does Xoom support GCash?",
+        a: "Yes. Both Remitly and Xoom support GCash delivery in the Philippines. Xoom actually supports more Philippine mobile wallets: GCash, PayMaya, GrabPay, Coins, and U-mobile — five total compared to Remitly's primary focus on GCash.",
+      },
+      {
+        q: "Which is faster: Remitly Express or Xoom?",
+        a: "Both deliver in minutes for bank deposits and cash pickup. The difference is that Remitly offers a cheaper Economy tier (3–5 days) for non-urgent transfers, while Xoom only has one speed tier. If you need speed, both are comparable. If you can wait, Remitly Economy saves money.",
+      },
+      {
+        q: "What is Remitly Economy vs Express?",
+        a: "Remitly offers two transfer tiers: Express delivers in minutes but costs $2.99–$14.99. Economy delivers in 3–5 business days but costs as little as $0.49 and often gets a better exchange rate. No other major provider offers this two-tier choice — it's Remitly's unique advantage for budget-conscious senders.",
+      },
+      {
+        q: "Is Xoom safe?",
+        a: "Yes. Xoom is a subsidiary of PayPal Holdings (NASDAQ: PYPL), regulated by FinCEN in the US. It has a 4.7/5 Trustpilot rating from 166,000+ reviews. The PayPal backing provides financial stability and consumer protection infrastructure. Both Remitly and Xoom are safe, regulated services.",
+      },
+    ],
+  },
+
+  // ── Remitly vs TapTap Send ──
+  {
+    slug: "remitly-vs-taptap-send",
+    providerA: "remitly",
+    providerB: "taptap-send",
+    title: "Remitly vs TapTap Send 2026 — Zero Fees vs Express Speed: Which Wins?",
+    metaDescription:
+      "Remitly vs TapTap Send compared: TapTap charges $0 fees with competitive rates to Africa and South Asia. Remitly offers Express delivery in minutes to 170+ countries. See who delivers more.",
+    updatedAt: "2026-03-31",
+    readTime: "11 min read",
+    intro:
+      "TapTap Send has exploded in popularity among diaspora communities sending money to Africa and South Asia — with a simple pitch: zero transfer fees and competitive exchange rates. Remitly is the established challenger with Express delivery, cash pickup, and wider country coverage. This comparison breaks down who actually delivers more money to your recipient, where each provider excels, and the trade-offs behind TapTap Send's '$0 fee' model.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview: Remitly vs TapTap Send at a glance",
+        content: `<table>
+<tr><th>Feature</th><th>Remitly</th><th>TapTap Send</th></tr>
+<tr><td>Founded</td><td>2011 (Seattle, US)</td><td>2018 (London, UK)</td></tr>
+<tr><td>Best for</td><td>Speed, cash pickup, wide coverage</td><td>Zero-fee transfers to Africa/South Asia</td></tr>
+<tr><td>Transfer fee</td><td>$0–$3.99 (Express) / $0.49+ (Economy)</td><td><strong>$0 — always</strong></td></tr>
+<tr><td>Exchange rate</td><td>0.4%–3% markup</td><td>0.5%–2% markup (competitive)</td></tr>
+<tr><td>Transfer speed</td><td>Minutes (Express) / 3–5 days (Economy)</td><td>Minutes to 1 business day</td></tr>
+<tr><td>Max transfer</td><td>$10,000</td><td>$10,000 (varies by corridor)</td></tr>
+<tr><td>Destination countries</td><td>170+</td><td>~30</td></tr>
+<tr><td>Send from</td><td>US, UK, Canada, 17+ countries</td><td>US, UK, EU (select countries)</td></tr>
+<tr><td>Funding methods</td><td>Bank, debit card, credit card</td><td>Debit card only</td></tr>
+<tr><td>Cash pickup</td><td>Yes (460,000+ locations)</td><td>No</td></tr>
+<tr><td>Mobile money</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>M-Pesa, MTN MoMo, Airtel Money, bKash</td></tr>
+<tr><td>Multi-currency account</td><td>No</td><td>No</td></tr>
+<tr><td>Platform</td><td>App + website</td><td>App only (mobile-first)</td></tr>
+<tr><td>Trustpilot</td><td>4.6/5 (108,000 reviews)</td><td>4.4/5 (15,000+ reviews)</td></tr>
+<tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FCA, FinCEN</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> TapTap Send is a focused disruptor — zero fees, competitive rates, but limited to ~30 countries with debit-card-only funding and no cash pickup. Remitly is the broader, more flexible service with Express speed, cash pickup in 170+ countries, and multiple funding methods. The "better" provider depends on your corridor and delivery needs.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Fees: TapTap Send's $0 vs Remitly's $0–$3.99",
+        content: `<h3>TapTap Send: Zero fees — genuinely</h3>
+<p>TapTap Send charges <strong>$0 transfer fee on every corridor, every amount, every time</strong>. There are no hidden tiers, no minimum amounts, and no "first transfer free" gimmicks. The fee is always zero.</p>
+<p>How do they make money? Through a small exchange rate markup (typically 0.5–2% above mid-market). This is lower than most competitors but not zero — your recipient gets slightly less than the mid-market rate.</p>
+
+<h3>Remitly: Tiered fees</h3>
+<ul>
+<li><strong>Express:</strong> $2.99–$14.99 (delivers in minutes)</li>
+<li><strong>Economy:</strong> $0.49–$3.99 (delivers in 3–5 days, often better exchange rate)</li>
+<li><strong>First transfer:</strong> Often fee-free as a promotional offer</li>
+</ul>
+
+<h3>Who's actually cheaper?</h3>
+<p>It depends on the corridor. TapTap Send's $0 fee advantage is offset by Remitly's sometimes-tighter exchange rate. On high-competition corridors (GBP→NGN, GBP→PKR), TapTap Send often delivers more. On corridors where Remitly's Economy rate is tight (USD→INR, USD→PHP), Remitly can match or beat TapTap despite the fee.</p>
+
+<p><strong>The only way to know:</strong> Compare both on our <a href="/send-money">comparison tool</a> for your exact amount and corridor.</p>`,
+      },
+      {
+        id: "exchange-rates",
+        heading: "Exchange rates: Both competitive, different corridors",
+        content: `<p>Neither provider uses the mid-market rate — both mark it up. But the markups are relatively small compared to banks or legacy providers:</p>
+
+<table>
+<tr><th>Corridor</th><th>Remitly markup</th><th>TapTap Send markup</th><th>Winner</th></tr>
+<tr><td>GBP → NGN (Nigeria)</td><td>1.5–2.5%</td><td>0.5–1.5%</td><td>TapTap Send</td></tr>
+<tr><td>GBP → PKR (Pakistan)</td><td>1–2%</td><td>0.5–1.5%</td><td>TapTap Send</td></tr>
+<tr><td>GBP → GHS (Ghana)</td><td>2–3%</td><td>1–2%</td><td>TapTap Send</td></tr>
+<tr><td>GBP → BDT (Bangladesh)</td><td>1–2%</td><td>0.5–1.5%</td><td>TapTap Send</td></tr>
+<tr><td>USD → INR (India)</td><td>0.4–0.9%</td><td>0.8–1.5%</td><td>Remitly</td></tr>
+<tr><td>USD → PHP (Philippines)</td><td>1–1.5%</td><td>1–2%</td><td>Remitly</td></tr>
+</table>
+
+<p><strong>Pattern:</strong> TapTap Send tends to win on UK→Africa and UK→South Asia corridors — its core market. Remitly tends to win on US→India and US→Philippines — its strongest corridors. For the latest real-time comparison, check our <a href="/send-money/uk-to-nigeria">GBP to NGN</a> or <a href="/send-money/uk-to-pakistan">GBP to PKR</a> comparison pages.</p>`,
+      },
+      {
+        id: "coverage",
+        heading: "Country coverage: Remitly's 170+ vs TapTap Send's ~30",
+        content: `<p>This is the biggest difference between the two providers.</p>
+
+<h3>TapTap Send's focused coverage (~30 countries)</h3>
+<p>TapTap Send covers a curated list of high-remittance corridors:</p>
+<ul>
+<li><strong>Africa:</strong> Nigeria, Ghana, Kenya, Ethiopia, Uganda, Tanzania, Senegal, Cameroon, DR Congo, Zimbabwe, Mozambique, Madagascar, Guinea, Ivory Coast, Mali, Burkina Faso</li>
+<li><strong>South Asia:</strong> Pakistan, Bangladesh, Nepal, Sri Lanka</li>
+<li><strong>Others:</strong> Morocco, Colombia, Mexico (select), Philippines (limited)</li>
+</ul>
+<p>You can send <strong>from</strong> the US, UK, and select EU countries.</p>
+
+<h3>Remitly's broad coverage (170+ countries)</h3>
+<p>Remitly covers almost every major remittance corridor globally, including Latin America, the Caribbean, and Pacific Islands that TapTap Send doesn't reach.</p>
+
+<p><strong>If your corridor isn't on TapTap Send's list, the choice is made for you.</strong> But if it is — particularly UK→Nigeria, UK→Ghana, UK→Pakistan, UK→Bangladesh — TapTap Send is a serious contender.</p>`,
+      },
+      {
+        id: "delivery",
+        heading: "Delivery methods: Remitly has more options",
+        content: `<table>
+<tr><th>Delivery method</th><th>Remitly</th><th>TapTap Send</th></tr>
+<tr><td>Bank deposit</td><td>Yes (170+ countries)</td><td>Yes (~30 countries)</td></tr>
+<tr><td>Mobile money</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>M-Pesa, MTN MoMo, Airtel Money, bKash, EcoCash</td></tr>
+<tr><td>Cash pickup</td><td><strong>Yes (460,000+ locations)</strong></td><td>No</td></tr>
+<tr><td>Home delivery</td><td>Select countries</td><td>No</td></tr>
+<tr><td>Airtime top-up</td><td>Select countries</td><td>Yes (some corridors)</td></tr>
+</table>
+
+<p><strong>Key difference:</strong> TapTap Send has <strong>no cash pickup option</strong>. If your recipient doesn't have a bank account or mobile wallet, you need Remitly (or <a href="/companies/western-union">Western Union</a>). For African mobile money (M-Pesa, MTN MoMo, Airtel Money), both providers have good coverage.</p>
+
+<p><strong>Funding limitation:</strong> TapTap Send only accepts <strong>debit card</strong> payments. No bank transfers, no credit cards. Remitly accepts all three. If you want to pay via bank transfer (free ACH in the US, Faster Payments in the UK), only Remitly supports it.</p>`,
+      },
+      {
+        id: "verdict",
+        heading: "Verdict: Which should you use?",
+        content: `<p><strong>Choose TapTap Send if:</strong></p>
+<ul>
+<li>You send from the <strong>UK to Africa</strong> (Nigeria, Ghana, Kenya, Ethiopia) — TapTap's strongest corridors</li>
+<li>You send from the <strong>UK to Pakistan or Bangladesh</strong> — zero fee + competitive rates</li>
+<li>You prefer <strong>zero-fee simplicity</strong> — no tiers, no calculations, always $0</li>
+<li>Your recipient has a <strong>bank account or mobile wallet</strong></li>
+<li>You're comfortable with a <strong>mobile-only app</strong> (no website)</li>
+</ul>
+
+<p><strong>Choose Remitly if:</strong></p>
+<ul>
+<li>You need <strong>cash pickup</strong> — TapTap Send doesn't offer it</li>
+<li>You send to a country <strong>outside TapTap's ~30 country list</strong></li>
+<li>You want <strong>Express delivery in minutes</strong> — Remitly's fastest tier</li>
+<li>You want to fund via <strong>bank transfer or credit card</strong> (TapTap is debit-only)</li>
+<li>You send from the <strong>US to India or Philippines</strong> — Remitly's strongest corridors</li>
+<li>You want the <strong>flexibility of a web app</strong> alongside mobile</li>
+</ul>
+
+<p><strong>The smart approach:</strong> If your corridor is served by TapTap Send, compare both on our <a href="/send-money">comparison tool</a> before each transfer. The cheapest option shifts by corridor and amount. Having accounts with both services costs nothing and ensures you always get the best rate.</p>`,
+      },
+    ],
+    verdict: {
+      largeTransfers: { winner: "taptap-send", explanation: "On TapTap Send's core corridors (UK→Africa, UK→South Asia), the zero-fee model saves more on larger transfers where Remitly's flat fee becomes a smaller percentage but the exchange rate still favours TapTap." },
+      smallTransfers: { winner: "taptap-send", explanation: "Zero fee on every amount — even $20 transfers. Remitly's $2.99 Express fee on a $50 transfer is 6%, which is painful. TapTap wins convincingly for small, frequent remittances." },
+      overall: "TapTap Send wins on its core corridors (UK→Nigeria, UK→Ghana, UK→Pakistan, UK→Bangladesh) due to zero fees and competitive rates. Remitly wins on breadth (170+ countries), delivery options (cash pickup, home delivery), and US corridors (India, Philippines, Mexico). Neither is universally better — the right choice depends entirely on where you're sending.",
+    },
+    faqs: [
+      {
+        q: "Is TapTap Send really free?",
+        a: "TapTap Send charges $0 transfer fee on every corridor. However, they make money through a small exchange rate markup (typically 0.5–2% above mid-market). So 'free' means no fee, not no cost — your recipient gets slightly less than the mid-market rate. Still, the total cost is competitive with or better than most providers.",
+      },
+      {
+        q: "Why is TapTap Send so cheap?",
+        a: "TapTap Send keeps costs low through a focused business model: ~30 countries (not 170+), mobile app only (no web platform), debit card funding only (lower processing costs), and no cash pickup infrastructure. This lean approach lets them offer zero fees with competitive rates on high-volume corridors.",
+      },
+      {
+        q: "Does TapTap Send work in the US?",
+        a: "Yes. TapTap Send operates in the US (regulated by FinCEN) and the UK (regulated by FCA), plus select European countries. From the US, you can send to most of TapTap's destination countries, though some corridors are UK/Europe-only.",
+      },
+      {
+        q: "Can I send money to Nigeria with TapTap Send?",
+        a: "Yes. Nigeria is one of TapTap Send's strongest corridors, with competitive GBP→NGN and USD→NGN rates. Delivery is via bank deposit to all major Nigerian banks. No cash pickup option, though. For live rates, check our UK to Nigeria comparison.",
+      },
+      {
+        q: "Does TapTap Send offer cash pickup?",
+        a: "No. TapTap Send only delivers via bank deposit and mobile money. If your recipient needs to collect cash in person, use Remitly (460,000+ locations), Western Union, or MoneyGram instead.",
+      },
+      {
+        q: "Which is better for sending to Pakistan from the UK?",
+        a: "TapTap Send often delivers more PKR per pound due to its zero-fee model and competitive GBP→PKR rate. However, Remitly supports JazzCash and Easypaisa mobile wallet delivery, which TapTap also supports. For cash pickup in Pakistan, you need Remitly or another provider. Compare live rates on our UK to Pakistan page.",
+      },
+      {
+        q: "Is TapTap Send safe?",
+        a: "Yes. TapTap Send is authorised by the UK Financial Conduct Authority (FCA) and registered with FinCEN in the US. It has a 4.4/5 Trustpilot rating from 15,000+ reviews. The company was founded in 2018 by former WorldRemit executives.",
+      },
+    ],
+  },
 ];
 
 export function getComparisonArticle(slug: string): ComparisonArticle | undefined {
