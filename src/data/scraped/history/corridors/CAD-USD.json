@@ -624,64 +624,64 @@
     "date": "2026-03-31",
     "providers": {
       "xoom": {
-        "rate": 0.6964,
+        "rate": 0.6963,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 67.56
+        "receiveAmount": 67.55
       },
       "bmo": {
+        "rate": 0.6964,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 69.64
+      },
+      "remitly": {
+        "rate": 0.7133,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 71.33
+      },
+      "td-bank": {
         "rate": 0.6971,
         "fee": 0,
         "markup": null,
         "receiveAmount": 69.71
       },
-      "remitly": {
-        "rate": 0.7142,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 71.42
-      },
-      "td-bank": {
-        "rate": 0.6983,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 69.83
-      },
       "worldremit": {
-        "rate": 0.7038,
+        "rate": 0.7032,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 67.58
+        "receiveAmount": 67.51
       },
       "bnc": {
-        "rate": 0.7006,
+        "rate": 0.7019,
         "fee": 5.95,
         "markup": null,
-        "receiveAmount": 65.89
+        "receiveAmount": 66.01
       },
       "instarem": {
-        "rate": 0.7145,
+        "rate": 0.7135,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 71.45
+        "receiveAmount": 71.35
       },
       "rbc": {
-        "rate": 0.7027,
+        "rate": 0.7021,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 70.27
+        "receiveAmount": 70.21
       },
       "scotiabank": {
-        "rate": 0.6988,
+        "rate": 0.6982,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 68.49
+        "receiveAmount": 68.43
       },
       "paypal": {
-        "rate": 0.6883,
+        "rate": 0.6879,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 66.77
+        "receiveAmount": 66.74
       }
     }
   }

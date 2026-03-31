@@ -564,58 +564,58 @@
     "date": "2026-03-31",
     "providers": {
       "anz": {
-        "rate": 0.5021,
+        "rate": 0.5013,
         "fee": 9,
         "markup": null,
-        "receiveAmount": 45.69
+        "receiveAmount": 45.62
       },
       "westpac": {
+        "rate": 0.4991,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 49.91
+      },
+      "remitly": {
+        "rate": 0.5119,
+        "fee": 0.89,
+        "markup": null,
+        "receiveAmount": 50.74
+      },
+      "nab": {
+        "rate": 0.5053,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 50.53
+      },
+      "worldremit": {
+        "rate": 0.5112,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 50.11
+      },
+      "paypal": {
+        "rate": 0.4957,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 47.09
+      },
+      "commonwealth-bank": {
         "rate": 0.4999,
         "fee": 0,
         "markup": null,
         "receiveAmount": 49.99
       },
-      "remitly": {
-        "rate": 0.5126,
-        "fee": 0.89,
-        "markup": null,
-        "receiveAmount": 50.81
-      },
-      "nab": {
-        "rate": 0.5064,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 50.64
-      },
-      "worldremit": {
-        "rate": 0.512,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 50.19
-      },
-      "paypal": {
-        "rate": 0.4959,
-        "fee": 5,
-        "markup": null,
-        "receiveAmount": 47.11
-      },
-      "commonwealth-bank": {
-        "rate": 0.5008,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 50.08
-      },
       "instarem": {
-        "rate": 0.5193,
+        "rate": 0.5184,
         "fee": 0.5,
         "markup": null,
-        "receiveAmount": 51.67
+        "receiveAmount": 51.58
       },
       "hsbc": {
-        "rate": 0.5094,
+        "rate": 0.5086,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 50.94
+        "receiveAmount": 50.86
       }
     }
   }
