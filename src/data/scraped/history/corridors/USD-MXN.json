@@ -703,5 +703,130 @@
         "receiveAmount": 1760.39
       }
     }
+  },
+  {
+    "date": "2026-03-31",
+    "providers": {
+      "instarem": {
+        "rate": 17.9465,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1794.65
+      },
+      "moneygram": {
+        "rate": 17.874,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 1733.77
+      },
+      "ria": {
+        "rate": 17.56,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1807.68
+      },
+      "taptapsend": {
+        "rate": 17.73,
+        "fee": 0,
+        "markup": 1.2,
+        "receiveAmount": 1773
+      },
+      "boss-money": {
+        "rate": 17.7459,
+        "fee": 1.99,
+        "markup": 1.11,
+        "receiveAmount": 1739.28
+      },
+      "xe-money-transfer-fx": {
+        "rate": 17.66,
+        "fee": 4,
+        "markup": 1.59,
+        "receiveAmount": 1695.36
+      },
+      "western-union": {
+        "rate": 17.4304,
+        "fee": 1.99,
+        "markup": 2.87,
+        "receiveAmount": 1708.35
+      },
+      "xoom": {
+        "rate": 18.3507,
+        "fee": 1.69,
+        "markup": null,
+        "receiveAmount": 1835
+      },
+      "currencyfair": {
+        "rate": 17.5613,
+        "fee": 4,
+        "markup": 2.14,
+        "receiveAmount": 1685.88
+      },
+      "worldremit": {
+        "rate": 17.7014,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1734.92
+      },
+      "xe-money-transfer": {
+        "rate": 17.66,
+        "fee": 4,
+        "markup": 1.59,
+        "receiveAmount": 1695.36
+      },
+      "paysend": {
+        "rate": 17.6911,
+        "fee": 0.99,
+        "markup": 1.42,
+        "receiveAmount": 1751.6
+      },
+      "sendwave": {
+        "rate": 17.8214,
+        "fee": 0,
+        "markup": 0.69,
+        "receiveAmount": 1782.14
+      },
+      "revolut-money-transfer": {
+        "rate": 17.8184,
+        "fee": 1.75,
+        "markup": 0.71,
+        "receiveAmount": 1750.66
+      },
+      "wise": {
+        "rate": 18.079,
+        "fee": 1.75,
+        "markup": null,
+        "receiveAmount": 1776.26
+      },
+      "taptap-send": {
+        "rate": 18,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1800
+      },
+      "chase": {
+        "rate": 17.5612,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1668.31
+      },
+      "bank-of-america": {
+        "rate": 17.6055,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1760.55
+      },
+      "wells-fargo": {
+        "rate": 17.5322,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1753.22
+      },
+      "remitly": {
+        "rate": 17.43,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1708.31
+      }
+    }
   }
 ]
