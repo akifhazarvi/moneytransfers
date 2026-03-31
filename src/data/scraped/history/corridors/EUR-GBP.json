@@ -660,10 +660,10 @@
     "date": "2026-03-31",
     "providers": {
       "remitly": {
-        "rate": 0.8584,
+        "rate": 0.8589,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 84.14
+        "receiveAmount": 84.19
       },
       "taptap-send": {
         "rate": 0.864,
@@ -672,16 +672,16 @@
         "receiveAmount": 86.4
       },
       "moneygram": {
-        "rate": 0.8516,
+        "rate": 0.8511,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 83.47
+        "receiveAmount": 83.42
       },
       "xoom": {
-        "rate": 0.812,
+        "rate": 0.8129,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 79.58
+        "receiveAmount": 79.68
       },
       "paypal": {
         "rate": 0.8321,
@@ -702,22 +702,22 @@
         "receiveAmount": 54.86
       },
       "instarem": {
-        "rate": 0.8631,
+        "rate": 0.8628,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 86.31
+        "receiveAmount": 86.28
       },
       "skrill": {
-        "rate": 0.852,
+        "rate": 0.8522,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 85.2
+        "receiveAmount": 85.22
       },
       "commerzbank": {
-        "rate": 0.867,
+        "rate": 0.8668,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 75.86
+        "receiveAmount": 75.85
       },
       "monese": {
         "rate": 0.8687,
@@ -726,10 +726,10 @@
         "receiveAmount": 84.27
       },
       "wise": {
-        "rate": 0.8689,
+        "rate": 0.869,
         "fee": 1.45,
         "markup": null,
-        "receiveAmount": 85.63
+        "receiveAmount": 85.64
       }
     }
   }
