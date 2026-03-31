@@ -1070,7 +1070,7 @@ export const comparisonArticles: ComparisonArticle[] = [
     title: "Wise vs PayPal 2026 — PayPal Charges 3–4% Hidden Markup. Here's the Proof",
     metaDescription:
       "We sent $1,000 through Wise and PayPal to 6 countries. PayPal's 'no fee' transfers hide a 3–4% exchange rate markup. Wise uses the real mid-market rate. See exactly how much more your recipient gets.",
-    updatedAt: "2026-03-14",
+    updatedAt: "2026-03-31",
     readTime: "9 min read",
     intro:
       "PayPal is the world's most recognized online payment brand, but is it the best way to send money internationally? Wise was built specifically to disrupt expensive providers like PayPal, offering the mid-market exchange rate and transparent fees. This comparison reveals the true cost gap between the two — and it's larger than most people realize.",
@@ -1462,6 +1462,176 @@ export const comparisonArticles: ComparisonArticle[] = [
       {
         q: "Which has better customer support?",
         a: "Western Union offers both online and in-person support through its agent network. Remitly offers 24/7 chat and phone support. Both are generally responsive, but Western Union's physical presence gives it an edge for customers who prefer face-to-face help.",
+      },
+    ],
+  },
+
+  // ── Wise vs Revolut ──
+  {
+    slug: "wise-vs-revolut",
+    providerA: "wise",
+    providerB: "revolut",
+    title: "Wise vs Revolut 2026 — Which Is Cheaper for International Transfers?",
+    metaDescription:
+      "Wise vs Revolut compared for international money transfers in 2026. Mid-market rate vs interbank rate, fee structures, multi-currency accounts, and which saves you more.",
+    updatedAt: "2026-03-31",
+    readTime: "10 min read",
+    intro:
+      "Wise and Revolut are the two most popular fintech alternatives to bank transfers. Both offer multi-currency accounts, competitive exchange rates, and slick mobile apps. But they price international transfers very differently — and the 'cheaper' option depends on how much you send, when you send, and which currencies you use. This comparison breaks down exactly where each wins.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview: Wise vs Revolut at a glance",
+        content: `<table>
+<tr><th>Feature</th><th>Wise</th><th>Revolut</th></tr>
+<tr><td>Founded</td><td>2011 (London, UK)</td><td>2015 (London, UK)</td></tr>
+<tr><td>Best for</td><td>International transfers, transparency</td><td>Multi-currency spending, travel</td></tr>
+<tr><td>Fee model</td><td>Variable % (0.41%–1.5%)</td><td>Free tier + paid plans (Plus/Premium/Metal)</td></tr>
+<tr><td>Exchange rate</td><td>Mid-market (0% markup)</td><td>Interbank (0% weekday, 1% weekend)</td></tr>
+<tr><td>Transfer speed</td><td>1–2 business days (55% under 1hr)</td><td>Instant (Revolut-to-Revolut), 1–5 days (external)</td></tr>
+<tr><td>Currencies</td><td>50+</td><td>36+</td></tr>
+<tr><td>Multi-currency account</td><td>Yes (40+ currencies)</td><td>Yes (36+ currencies)</td></tr>
+<tr><td>Debit card</td><td>Yes</td><td>Yes (virtual + physical)</td></tr>
+<tr><td>Monthly free FX allowance</td><td>Unlimited (always pay the fee)</td><td>£1,000/month on free plan</td></tr>
+<tr><td>Weekend markup</td><td>None</td><td>1% on major, 2% on exotic</td></tr>
+<tr><td>Regulated by</td><td>FCA, FinCEN, ASIC</td><td>FCA, ECB (EU banking licence)</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> Wise is more predictable — you always pay a transparent fee on the mid-market rate, any day, any amount. Revolut can be cheaper for small amounts on weekdays (within the free tier) but becomes more expensive on weekends and for amounts above the free FX allowance.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Fees comparison: It depends on the amount",
+        content: `<p>This is where it gets nuanced. Both can be cheapest depending on your situation:</p>
+
+<h3>Wise: Always transparent, always a fee</h3>
+<p>Wise charges <strong>0.41%–1.5%</strong> of the transfer amount (varies by currency pair). There is <strong>no exchange rate markup</strong> — you always get the mid-market rate. On a £1,000 transfer to EUR, you'll pay roughly £4–£7.</p>
+
+<h3>Revolut: Free tier with limits</h3>
+<p>Revolut's free plan includes <strong>£1,000/month of fee-free FX conversion</strong> at the interbank rate (essentially mid-market). Above that, you pay 0.5% per conversion. Paid plans (Plus £3.99/mo, Premium £7.99/mo, Metal £13.99/mo) increase the free allowance.</p>
+
+<h3>Cost comparison on £1,000 transfer to EUR</h3>
+<table>
+<tr><th>Scenario</th><th>Wise</th><th>Revolut (free plan)</th></tr>
+<tr><td>Weekday, within £1K allowance</td><td>~£5</td><td><strong>£0</strong></td></tr>
+<tr><td>Weekday, above allowance</td><td>~£5</td><td>~£5 (0.5%)</td></tr>
+<tr><td>Weekend</td><td>~£5</td><td>~£10 (1% markup)</td></tr>
+<tr><td>Exotic currency (weekday)</td><td>~£10–£15</td><td>~£10–£20</td></tr>
+</table>
+
+<p><strong>Bottom line:</strong> If you send under £1,000/month on weekdays, Revolut's free plan wins. For larger amounts, regular transfers, weekend transfers, or exotic currencies, Wise is consistently cheaper and more predictable.</p>`,
+      },
+      {
+        id: "exchange-rates",
+        heading: "Exchange rates: Mid-market vs interbank",
+        content: `<p>Both Wise and Revolut claim to use the "real" exchange rate — but there's a subtle difference.</p>
+
+<p><strong>Wise</strong> uses the <strong>mid-market rate</strong> — the midpoint between buy and sell rates, with 0% markup. This rate is the same 24/7, weekdays and weekends.</p>
+
+<p><strong>Revolut</strong> uses the <strong>interbank rate</strong> during market hours (Mon–Fri). On weekends and bank holidays, Revolut adds a <strong>1% markup on major currencies</strong> (EUR, USD, GBP) and <strong>2% on exotic currencies</strong> to protect against Monday gap risk.</p>
+
+<p><strong>Why weekends matter:</strong> Currency markets close on Friday evening and reopen Monday morning. Prices can gap up or down. Revolut's weekend markup compensates for this risk. Wise absorbs this risk into their regular fee structure.</p>
+
+<p>If you regularly send money on weekends (many people do — Friday evening after payday), <strong>Wise is significantly cheaper</strong>. If you always send on weekdays, the rates are essentially identical.</p>`,
+      },
+      {
+        id: "multi-currency",
+        heading: "Multi-currency accounts",
+        content: `<p>Both offer excellent multi-currency accounts, but with different strengths:</p>
+
+<h3>Wise multi-currency account</h3>
+<ul>
+<li>Hold <strong>40+ currencies</strong></li>
+<li>Get local account details in <strong>USD, EUR, GBP, AUD, NZD, SGD, CAD, HUF, TRY, RON</strong></li>
+<li>Receive payments like a local (US routing number, UK sort code, EUR IBAN)</li>
+<li>Wise debit card: spend in any currency at mid-market rate</li>
+</ul>
+
+<h3>Revolut multi-currency account</h3>
+<ul>
+<li>Hold <strong>36+ currencies</strong></li>
+<li>Get local account details in <strong>USD, EUR, GBP</strong></li>
+<li>Revolut card: spend at interbank rate (weekday) or with markup (weekend)</li>
+<li>Additional features: budgeting, savings vaults, crypto trading, stock trading</li>
+</ul>
+
+<p><strong>For receiving payments from abroad:</strong> Wise wins — more local account details in more currencies. If a US client needs to pay you, Wise gives you a real US routing number. Revolut's local details are more limited.</p>
+
+<p><strong>For everyday spending:</strong> Revolut wins — more features (budgeting, vaults, crypto) and a better app experience for day-to-day banking.</p>`,
+      },
+      {
+        id: "speed",
+        heading: "Transfer speed",
+        content: `<table>
+<tr><th>Transfer type</th><th>Wise</th><th>Revolut</th></tr>
+<tr><td>To same platform</td><td>Instant</td><td>Instant</td></tr>
+<tr><td>To EU bank (SEPA)</td><td>Hours to 1 day</td><td>Hours to 1 day</td></tr>
+<tr><td>To UK bank (FPS)</td><td>Seconds</td><td>Seconds</td></tr>
+<tr><td>To US bank (ACH)</td><td>1–2 days</td><td>1–3 days</td></tr>
+<tr><td>To India (UPI)</td><td>Minutes</td><td>1–3 days (SWIFT)</td></tr>
+<tr><td>To other countries</td><td>1–2 days (55% under 1hr)</td><td>1–5 days</td></tr>
+</table>
+
+<p><strong>Wise is faster for international transfers</strong> because it uses local payment rails (UPI in India, FPS in UK, SEPA in Europe) rather than SWIFT. Revolut often routes through SWIFT for non-SEPA, non-UK transfers, which is slower.</p>
+
+<p><strong>Revolut is faster for Revolut-to-Revolut</strong> — instant and free. If both sender and recipient have Revolut, it's unbeatable.</p>`,
+      },
+      {
+        id: "verdict",
+        heading: "Verdict: Which should you use?",
+        content: `<p><strong>Choose Wise if:</strong></p>
+<ul>
+<li>You send large amounts (£1,000+) regularly</li>
+<li>You send on weekends</li>
+<li>You need to receive payments from abroad (freelancers, businesses)</li>
+<li>You send to non-European countries (India, Philippines, Pakistan, Nigeria)</li>
+<li>You value transparent, predictable pricing</li>
+</ul>
+
+<p><strong>Choose Revolut if:</strong></p>
+<ul>
+<li>You send small amounts (<£1,000/month) on weekdays</li>
+<li>Both you and your recipient have Revolut (free instant transfers)</li>
+<li>You want an all-in-one banking app (spending, budgeting, crypto)</li>
+<li>You travel frequently and need a multi-currency travel card</li>
+<li>You mostly send within Europe (SEPA)</li>
+</ul>
+
+<p><strong>Many people use both:</strong> Revolut as a daily spending card and Wise for international transfers above £1,000. The two aren't mutually exclusive — and having both gives you the cheapest option in every scenario.</p>
+
+<p>Compare live rates for your specific transfer: <a href="/send-money">use our comparison tool</a> to see Wise and Revolut side-by-side for your exact amount and currency pair.</p>`,
+      },
+    ],
+    verdict: {
+      largeTransfers: { winner: "wise", explanation: "Wise is cheaper and more predictable for transfers above £1,000. No weekend markup, transparent fee, faster delivery to non-European countries." },
+      smallTransfers: { winner: "revolut", explanation: "Revolut's free FX allowance (£1,000/month on free plan) makes it cheaper for small weekday transfers. If both parties have Revolut, transfers are instant and free." },
+      overall: "Wise wins for dedicated international transfers — more predictable pricing, faster delivery, and better for receiving payments. Revolut wins as an all-in-one financial app with multi-currency spending, budgeting, and a better day-to-day banking experience. For transfers specifically, Wise has the edge.",
+    },
+    faqs: [
+      {
+        q: "Is Wise cheaper than Revolut for international transfers?",
+        a: "It depends on the amount and timing. For transfers under £1,000/month on weekdays, Revolut's free tier is cheaper (£0 vs Wise's ~£5 fee). For larger amounts, weekend transfers, or exotic currencies, Wise is consistently cheaper with no markup and no weekend surcharge.",
+      },
+      {
+        q: "Does Revolut charge extra on weekends?",
+        a: "Yes. Revolut adds a 1% markup on major currencies (EUR, USD, GBP) and 2% on exotic currencies during weekends and bank holidays. Wise charges the same fee 24/7 with no weekend markup.",
+      },
+      {
+        q: "Can I use both Wise and Revolut?",
+        a: "Yes, and many people do. Revolut works well as a daily spending card with budgeting features, while Wise is better for large international transfers and receiving payments from abroad. Having both gives you the cheapest option in every scenario.",
+      },
+      {
+        q: "Which is faster: Wise or Revolut?",
+        a: "Revolut is faster for Revolut-to-Revolut transfers (instant, free). Wise is faster for international transfers to bank accounts because it uses local payment rails (UPI in India, FPS in UK) rather than SWIFT. 55% of Wise transfers arrive in under 1 hour.",
+      },
+      {
+        q: "Is Revolut safer than Wise?",
+        a: "Both are safe and well-regulated. Wise is authorised by the FCA, FinCEN, and ASIC. Revolut holds an FCA e-money licence in the UK and a full banking licence from the ECB in Lithuania. Both segregate customer funds from corporate funds.",
+      },
+      {
+        q: "Which has a better multi-currency account?",
+        a: "Wise offers more local account details (10 currencies vs Revolut's 3), making it better for receiving international payments. Revolut offers more day-to-day features (budgeting, savings vaults, crypto, stock trading). For freelancers and businesses receiving payments from abroad, Wise is better. For everyday banking, Revolut is more feature-rich.",
       },
     ],
   },

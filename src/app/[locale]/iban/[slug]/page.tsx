@@ -138,10 +138,14 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   "switzerland": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+    { label: "CHF to EUR exchange rate", href: "/exchange-rates/chf-to-eur" },
+    { label: "Wise vs Revolut comparison", href: "/compare/wise-vs-revolut" },
+    { label: "Multi-currency accounts guide", href: "/guides/multi-currency-accounts-exchange-rates" },
   ],
   "poland": [
     { label: "Send money to Poland", href: "/send-money/send-money-to-poland" },
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "SEPA instant payments guide", href: "/news/eu-instant-payments-mandate-2026" },
   ],
   "norway": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
@@ -160,6 +164,8 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   "romania": [
     { label: "Send money to Romania", href: "/send-money/send-money-to-romania" },
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "Romania corridor guide", href: "/guides/send-money-to-romania-guide" },
+    { label: "SEPA instant payments", href: "/news/eu-instant-payments-mandate-2026" },
   ],
   "hungary": [
     { label: "Send money to Hungary", href: "/send-money/send-money-to-hungary" },
@@ -200,10 +206,13 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   "brazil": [
     { label: "Send money to Brazil", href: "/send-money/send-money-to-brazil" },
     { label: "USA to Brazil transfers", href: "/send-money/usa-to-brazil" },
+    { label: "USD to BRL exchange rate", href: "/exchange-rates/usd-to-brl" },
+    { label: "Best money transfer apps", href: "/guides/best-money-transfer-apps" },
   ],
   "ukraine": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+    { label: "Wise vs Remitly comparison", href: "/compare/wise-vs-remitly" },
   ],
   "georgia": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
