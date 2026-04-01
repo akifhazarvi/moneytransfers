@@ -26,6 +26,23 @@ const affiliateLinks: Record<string, string> = {
   instarem: "https://instarem.com/?ref=moneytransfers",
   "taptap-send": "https://taptapsend.com/?ref=moneytransfers",
   "ace-money-transfer": "https://acemoneytransfer.com/?ref=moneytransfers",
+  currencyfair: "https://currencyfair.com/?ref=moneytransfers",
+  skrill: "https://skrill.com/?ref=moneytransfers",
+  "currencies-direct": "https://currenciesdirect.com/?ref=moneytransfers",
+  monese: "https://monese.com/?ref=moneytransfers",
+  chase: "https://chase.com/personal/international-transfers",
+  "bank-of-america": "https://bankofamerica.com/foreign-exchange/",
+  "wells-fargo": "https://wellsfargo.com/international-remittances/",
+  hsbc: "https://hsbc.com/ways-to-bank/international-transfers",
+  barclays: "https://barclays.co.uk/ways-to-bank/international-payments/",
+  lloyds: "https://lloydsbank.com/international-payments.html",
+  nationwide: "https://nationwide.co.uk/current-accounts/international-payments/",
+  "commonwealth-bank": "https://commbank.com.au/international-transfers",
+  anz: "https://anz.com.au/ways-to-bank/international-money-transfers/",
+  westpac: "https://westpac.com.au/personal-banking/international-transfers/",
+  santander: "https://santander.co.uk/ways-to-bank/international-payments/",
+  natwest: "https://natwest.com/international-payments.html",
+  "td-bank": "https://td.com/us/en/personal-banking/international-transfers/",
 };
 
 function buildWiseDeepLink(params: AffiliateParams): string {
