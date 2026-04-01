@@ -42,6 +42,15 @@ export default function middleware(request: NextRequest) {
     });
   }
 
+  // Set geo-country cookie for GDPR-aware analytics consent
+  if (!request.cookies.get("geo-country")) {
+    response.cookies.set("geo-country", country || "US", {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30,
+      sameSite: "lax",
+    });
+  }
+
   return response;
 }
 

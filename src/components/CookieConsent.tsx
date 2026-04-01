@@ -18,13 +18,23 @@ export default function CookieConsent() {
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
-    if (!consent) {
-      // Delay showing banner so it doesn't become the LCP element
+    if (consent === "accepted") {
+      enableAnalytics();
+      return;
+    }
+    if (consent === "declined") return;
+
+    // No stored consent — check if EU user (needs explicit consent)
+    const EU = "AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH";
+    const cc = (document.cookie.match(/geo-country=([A-Z]{2})/)?.[1]) || "";
+    const isEU = EU.includes(cc);
+
+    if (isEU) {
+      // EU users: show consent banner (analytics stays denied until they accept)
       const id = setTimeout(() => setVisible(true), 3000);
       return () => clearTimeout(id);
-    } else if (consent === "accepted") {
-      enableAnalytics();
     }
+    // Non-EU users: analytics already granted by gtag init, no banner needed
   }, []);
 
   function handleAccept() {

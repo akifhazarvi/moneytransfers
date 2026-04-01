@@ -144,7 +144,16 @@ export default async function LocaleLayout({ children, params }: Props) {
         id="gtag-init"
         strategy="lazyOnload"
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied'});gtag('js',new Date());gtag('config','G-HJH07QEJ30');`,
+          __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+(function(){
+  var EU='AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH';
+  var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
+  var isEU=EU.indexOf(cc)!==-1;
+  var stored=localStorage.getItem('cookie_consent');
+  var consent=stored==='accepted'?'granted':stored==='declined'?'denied':isEU?'denied':'granted';
+  gtag('consent','default',{'analytics_storage':consent});
+  gtag('js',new Date());gtag('config','G-HJH07QEJ30');
+})();`,
         }}
       />
       <Script
