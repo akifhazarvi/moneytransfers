@@ -93,7 +93,7 @@ function buildSuggestions(query: string): Suggestion[] {
   return results.slice(0, 6);
 }
 
-export default function HeroSearch() {
+export default function HeroSearch({ compact = false }: { compact?: boolean }) {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -154,12 +154,12 @@ export default function HeroSearch() {
   }, [query]);
 
   return (
-    <div ref={wrapperRef} className="relative max-w-xl mx-auto mt-4 sm:mt-6">
+    <div ref={wrapperRef} className={`relative ${compact ? "" : "max-w-xl mx-auto mt-4 sm:mt-6"}`}>
       {/* Search input */}
       <div
         className={`
           flex items-center bg-[var(--color-surface)] border rounded-full
-          px-4 sm:px-5 py-2.5 sm:py-3 gap-3 transition-all
+          ${compact ? "px-3 py-1.5 gap-2" : "px-4 sm:px-5 py-2.5 sm:py-3 gap-3"} transition-all
           ${focused
             ? "border-[var(--color-primary)] shadow-[0_1px_6px_rgba(26,115,232,0.2)]"
             : "border-[var(--color-outline)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]"
@@ -168,7 +168,7 @@ export default function HeroSearch() {
       >
         {/* Search icon */}
         <svg
-          className={`w-5 h-5 shrink-0 transition-colors ${focused ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}
+          className={`${compact ? "w-4 h-4" : "w-5 h-5"} shrink-0 transition-colors ${focused ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -183,8 +183,8 @@ export default function HeroSearch() {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setFocused(true)}
           onKeyDown={handleKeyDown}
-          placeholder="Try &quot;USD to INR&quot; or &quot;send money to India&quot;"
-          className="flex-1 bg-transparent text-sm sm:text-base text-[var(--color-on-surface)] placeholder:text-[var(--color-on-surface-variant)] outline-none"
+          placeholder={compact ? "e.g. USD to INR" : "Try \"USD to INR\" or \"send money to India\""}
+          className={`flex-1 bg-transparent ${compact ? "text-xs" : "text-sm sm:text-base"} text-[var(--color-on-surface)] placeholder:text-[var(--color-on-surface-variant)] outline-none`}
           autoComplete="off"
           role="combobox"
           aria-expanded={showDropdown}
@@ -197,7 +197,7 @@ export default function HeroSearch() {
         {query && (
           <button
             onClick={() => { setQuery(""); inputRef.current?.focus(); }}
-            className="w-5 h-5 shrink-0 text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors"
+            className={`${compact ? "w-4 h-4" : "w-5 h-5"} shrink-0 text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] transition-colors`}
             aria-label="Clear search"
           >
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -209,10 +209,10 @@ export default function HeroSearch() {
         {/* Submit button */}
         <button
           onClick={() => submit()}
-          className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark,#1557b0)] text-white flex items-center justify-center transition-colors"
+          className={`shrink-0 ${compact ? "w-6 h-6" : "w-8 h-8 sm:w-9 sm:h-9"} rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark,#1557b0)] text-white flex items-center justify-center transition-colors`}
           aria-label="Search"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={compact ? "w-3 h-3" : "w-4 h-4"} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </button>

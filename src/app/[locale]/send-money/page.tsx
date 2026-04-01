@@ -140,9 +140,22 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
         <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] pt-6 mb-2">
           {heading}
         </h1>
-        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 max-w-2xl">
-          {subheading}
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-6">
+          <p className="text-sm text-[var(--color-on-surface-variant)] max-w-2xl">
+            {subheading}
+          </p>
+          <a
+            href="https://www.trustpilot.com/review/sendmoneycompare.com"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className="shrink-0 inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface)] rounded-full px-3 py-1.5 border border-[var(--color-outline)] hover:border-[var(--color-primary)] transition-colors w-fit"
+          >
+            <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
+            </svg>
+            Reviewed on Trustpilot
+          </a>
+        </div>
       </Container>
 
       {/* Interactive client widget — replaces static table once JS loads */}

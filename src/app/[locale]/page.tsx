@@ -187,40 +187,28 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* ─── 1. HERO ─── */}
       <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-6 sm:pt-16 pb-6 sm:pb-14">
         <Container>
-          <div className="text-center mb-5 sm:mb-10">
+          <div className="text-center mb-4 sm:mb-6">
             <h1 className="text-2xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px] max-w-3xl mx-auto">
               {tHero("title")}{" "}
               <span className="text-[var(--color-primary)]">{tHero("titleHighlight")}</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-[var(--color-on-surface-variant)] mt-2 sm:mt-5 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[var(--color-on-surface-variant)] mt-2 sm:mt-4 max-w-2xl mx-auto leading-relaxed">
               {tHero("subtitle")}
             </p>
-
-            {/* Quick search — Google-style freetext search */}
-            <HeroSearch />
-
-            {/* Trustpilot hero badge — hidden on mobile to save space */}
-            <div className="hidden sm:flex items-center justify-center gap-2 mt-6">
-              <a
-                href="https://www.trustpilot.com/review/sendmoneycompare.com"
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--color-surface-container,var(--color-surface-dim))] border border-[var(--color-outline)] hover:border-[var(--color-primary)] transition-colors"
-              >
-                {/* Trustpilot logo */}
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
-                </svg>
-                <span className="text-2sm font-medium text-[var(--color-on-surface)]">Trustpilot</span>
-                <span className="text-2xs text-[var(--color-on-surface-variant)]">|</span>
-                <span className="text-2sm text-[var(--color-on-surface-variant)]">Rate your experience</span>
-              </a>
-            </div>
           </div>
           <div className="max-w-[860px] mx-auto">
             <HeroTabs defaultFrom={sendCurrency} defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
           </div>
-          <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-3 sm:mt-5 max-w-md mx-auto hidden sm:block">
+          {/* Quick search — subtle alternative below widget */}
+          <div className="hidden sm:flex items-center justify-center mt-4">
+            <div className="flex items-center gap-2 text-xs text-[var(--color-on-surface-variant)]">
+              <span>or search</span>
+              <div className="w-64">
+                <HeroSearch compact />
+              </div>
+            </div>
+          </div>
+          <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-3 sm:mt-4 max-w-md mx-auto hidden sm:block">
             {tHero("disclaimer")}
           </p>
         </Container>
