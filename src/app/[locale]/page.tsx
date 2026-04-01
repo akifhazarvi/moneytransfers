@@ -7,6 +7,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
 import HeroTabs from "@/components/HeroTabs";
+import HeroSearch from "@/components/HeroSearch";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
@@ -137,6 +138,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     name: "SendMoneyCompare",
     alternateName: "Send Money Compare",
     url: "https://sendmoneycompare.com",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://sendmoneycompare.com/api/search?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 
   const homeBreadcrumbSchema = {
@@ -186,6 +195,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="text-sm sm:text-base md:text-lg text-[var(--color-on-surface-variant)] mt-2 sm:mt-5 max-w-2xl mx-auto leading-relaxed">
               {tHero("subtitle")}
             </p>
+
+            {/* Quick search — Google-style freetext search */}
+            <HeroSearch />
 
             {/* Trustpilot hero badge — hidden on mobile to save space */}
             <div className="hidden sm:flex items-center justify-center gap-2 mt-6">
