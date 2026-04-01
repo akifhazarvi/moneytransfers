@@ -317,10 +317,10 @@
     "date": "2026-04-01",
     "providers": {
       "remitly": {
-        "rate": 26070.9572,
+        "rate": 26046.9,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 2555215
+        "receiveAmount": 2552857
       },
       "ria": {
         "rate": 26687.97,
@@ -335,16 +335,16 @@
         "receiveAmount": 2556900
       },
       "instarem": {
-        "rate": 26149.9601,
+        "rate": 26125.83,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 2614996
+        "receiveAmount": 2612583
       },
       "wise": {
-        "rate": 26335.3,
+        "rate": 26336.5,
         "fee": 2.51,
         "markup": null,
-        "receiveAmount": 2567428
+        "receiveAmount": 2567545
       }
     }
   }
