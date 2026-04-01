@@ -629,16 +629,16 @@
     "date": "2026-04-01",
     "providers": {
       "instarem": {
-        "rate": 5.1047,
+        "rate": 5.1275,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 510.47
+        "receiveAmount": 512.75
       },
       "moneygram": {
-        "rate": 5.0898,
+        "rate": 5.0835,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 498.85
+        "receiveAmount": 498.23
       },
       "ria": {
         "rate": 5.1949,
@@ -695,10 +695,10 @@
         "receiveAmount": 519.71
       },
       "remitly": {
-        "rate": 5.1143,
+        "rate": 5.1326,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 511.43
+        "receiveAmount": 513.26
       },
       "taptap-send": {
         "rate": 5.13,
@@ -707,16 +707,16 @@
         "receiveAmount": 513
       },
       "bank-of-america": {
-        "rate": 4.881,
+        "rate": 4.875,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 488.1
+        "receiveAmount": 487.5
       },
       "wise": {
-        "rate": 5.1718,
+        "rate": 5.1579,
         "fee": 1.92,
         "markup": null,
-        "receiveAmount": 507.25
+        "receiveAmount": 505.89
       }
     }
   }
