@@ -15,6 +15,7 @@ import RatingBadge from "@/components/RatingBadge";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
+import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -1020,6 +1021,34 @@ function DefaultComparison({
                 Compare Rates
               </Link>
             </div>
+
+            {/* Rate History */}
+            <Card className="!p-4">
+              <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">Rate history</h3>
+              <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
+                See how {a.name} and {b.name} rates have changed over time on popular corridors.
+              </p>
+              <ul className="space-y-2">
+                {[
+                  { corridor: "USD-INR", label: "USD → INR history" },
+                  { corridor: "GBP-EUR", label: "GBP → EUR history" },
+                  { corridor: "USD-PHP", label: "USD → PHP history" },
+                  { corridor: "USD-MXN", label: "USD → MXN history" },
+                  { corridor: "GBP-PKR", label: "GBP → PKR history" },
+                ].map((c) => (
+                  <li key={c.corridor}>
+                    <Link href={`/exchange-rates/history/${corridorToSlug(c.corridor)}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                      {c.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/exchange-rates/history" className="text-2sm font-medium text-[var(--color-primary)] hover:underline">
+                    All 90+ corridors →
+                  </Link>
+                </li>
+              </ul>
+            </Card>
 
             {/* Related Comparisons */}
             <Card className="!p-4">

@@ -7,6 +7,7 @@ import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import CircleFlag from "@/components/CircleFlag";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
+import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 
 /* ── Corridor pair config ─────────────────────────────────── */
 interface CurrencyPair {
@@ -506,6 +507,31 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   <p className="text-2sm font-medium text-[var(--color-primary)] mb-1">Tip</p>
                   <p className="text-sm text-[var(--color-on-surface)]">{editorial.tip}</p>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* Rate history link */}
+          {getRateInsight(p.from, p.to) && (
+            <div className="bg-[var(--color-primary-surface)] rounded-2xl border border-[var(--color-primary)] border-opacity-20 p-6 md:p-8 mb-8">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
+                    {p.from}/{p.to} Rate History
+                  </h2>
+                  <p className="text-sm text-[var(--color-on-surface-variant)]">
+                    Track how provider rates have changed over time. See which providers consistently offer the best {p.from} to {p.to} rates.
+                  </p>
+                </div>
+                <Link
+                  href={`/exchange-rates/history/${corridorToSlug(`${p.from}-${p.to}`)}`}
+                  className="shrink-0 inline-flex items-center gap-2 bg-[var(--color-primary)] text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+                >
+                  View history
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
               </div>
             </div>
           )}

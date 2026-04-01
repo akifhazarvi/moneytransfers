@@ -337,6 +337,23 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             </div>
           </section>
 
+          {/* Rate history link */}
+          <section className="mt-10 bg-[var(--color-primary-surface)] rounded-2xl border border-[var(--color-primary)] border-opacity-20 p-6 md:p-8">
+            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-2">Historical Exchange Rates</h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
+              Track how provider exchange rates have changed over time across 90+ currency corridors. See which providers consistently offer the best rates and find the optimal time to send.
+            </p>
+            <Link
+              href="/exchange-rates/history"
+              className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+            >
+              View rate history for 90+ corridors
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+          </section>
+
           {/* Disclaimer */}
           <p className="text-xs text-[var(--color-on-surface-variant)] mt-10 leading-relaxed">
             {t("disclaimerFull")}
