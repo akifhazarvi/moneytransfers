@@ -336,6 +336,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Your bank</strong> (3% markup): Gives you 89.53 INR per dollar</li>
 </ul>
 <p>On a $1,000 transfer, that 3% bank markup costs you ₹2,770 compared to the mid-market rate — and the bank may also charge a separate transfer fee on top. See how <a href="/compare/wise-vs-remitly">Wise compares to Remitly</a> in detail.</p>
+<p>Markups are particularly impactful on volatile emerging market corridors like <a href="/exchange-rates/usd-to-brl">USD to BRL (Brazilian Real)</a>, where the rate can swing 3–5% in a week. On these corridors, a 3% bank markup combined with bad timing can cost you 6–8% of your transfer value.</p>
 <p>The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks these costs globally and shows the global average remains well above the 3% SDG target.</p>`,
       },
       {
@@ -638,7 +639,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>All of Europe</strong> (EU, UK, Switzerland, etc.)</li>
 <li><strong>Middle East</strong> (UAE, Saudi Arabia, Qatar, etc.)</li>
 <li><strong>Parts of Africa</strong> (Tunisia, Mauritania, etc.)</li>
-<li><strong>Parts of South America</strong> (Brazil, Costa Rica)</li>
+<li><strong>Parts of South America</strong> (<a href="/exchange-rates/usd-to-brl">Brazil</a>, Costa Rica)</li>
 <li><strong>Pakistan, Turkey, Israel</strong></li>
 </ul>
 <p><strong>Countries that do NOT use IBANs:</strong></p>

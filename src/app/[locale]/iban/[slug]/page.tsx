@@ -98,6 +98,9 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "Europe to India transfers", href: "/send-money/europe-to-india" },
+    { label: "EUR to USD exchange rate", href: "/exchange-rates/eur-to-usd" },
+    { label: "SEPA instant payments explained", href: "/news/eu-instant-payments-mandate-2026" },
+    { label: "Wise vs Revolut for EUR", href: "/compare/wise-vs-revolut" },
   ],
   "netherlands": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
