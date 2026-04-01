@@ -194,11 +194,11 @@
         "markup": null,
         "receiveAmount": 12329.12
       },
-      "taptapsend": {
-        "rate": 121.5,
+      "taptap-send": {
+        "rate": 121.3,
         "fee": 0,
-        "markup": 0.92,
-        "receiveAmount": 12150
+        "markup": null,
+        "receiveAmount": 12130
       },
       "boss-money": {
         "rate": 121.1058,
@@ -224,7 +224,7 @@
         "markup": 1.07,
         "receiveAmount": 12131.39
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 122.0603,
         "fee": 4,
         "markup": 0.46,
@@ -253,12 +253,6 @@
         "fee": 0.99,
         "markup": null,
         "receiveAmount": 12123.77
-      },
-      "taptap-send": {
-        "rate": 121.3,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12130
       }
     }
   },
@@ -283,11 +277,11 @@
         "markup": null,
         "receiveAmount": 12329.12
       },
-      "taptapsend": {
-        "rate": 121.5,
+      "taptap-send": {
+        "rate": 121.3,
         "fee": 0,
-        "markup": 0.92,
-        "receiveAmount": 12150
+        "markup": null,
+        "receiveAmount": 12130
       },
       "boss-money": {
         "rate": 121.1058,
@@ -313,7 +307,7 @@
         "markup": 1.07,
         "receiveAmount": 12131.39
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 122.0603,
         "fee": 4,
         "markup": 0.46,
@@ -342,12 +336,6 @@
         "fee": 0.99,
         "markup": null,
         "receiveAmount": 12122.78
-      },
-      "taptap-send": {
-        "rate": 121.3,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12130
       }
     }
   },
@@ -372,11 +360,11 @@
         "markup": null,
         "receiveAmount": 12329.12
       },
-      "taptapsend": {
-        "rate": 121.5,
+      "taptap-send": {
+        "rate": 121.56,
         "fee": 0,
-        "markup": 0.92,
-        "receiveAmount": 12150
+        "markup": null,
+        "receiveAmount": 12156
       },
       "boss-money": {
         "rate": 121.1058,
@@ -402,7 +390,7 @@
         "markup": 1.07,
         "receiveAmount": 12131.39
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 122.0603,
         "fee": 4,
         "markup": 0.46,
@@ -431,12 +419,6 @@
         "fee": 0.99,
         "markup": null,
         "receiveAmount": 12121.79
-      },
-      "taptap-send": {
-        "rate": 121.56,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12156
       }
     }
   },
@@ -461,11 +443,11 @@
         "markup": null,
         "receiveAmount": 12329.12
       },
-      "taptapsend": {
-        "rate": 121.5,
+      "taptap-send": {
+        "rate": 121.75,
         "fee": 0,
-        "markup": 0.92,
-        "receiveAmount": 12150
+        "markup": null,
+        "receiveAmount": 12175
       },
       "boss-money": {
         "rate": 121.1058,
@@ -491,7 +473,7 @@
         "markup": 1.07,
         "receiveAmount": 12131.39
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 122.0603,
         "fee": 4,
         "markup": 0.46,
@@ -520,12 +502,6 @@
         "fee": 0.99,
         "markup": null,
         "receiveAmount": 12119.81
-      },
-      "taptap-send": {
-        "rate": 121.75,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12175
       }
     }
   },
@@ -550,11 +526,11 @@
         "markup": null,
         "receiveAmount": 12329.12
       },
-      "taptapsend": {
-        "rate": 121.5,
+      "taptap-send": {
+        "rate": 121.45,
         "fee": 0,
-        "markup": 0.92,
-        "receiveAmount": 12150
+        "markup": null,
+        "receiveAmount": 12145
       },
       "boss-money": {
         "rate": 121.1058,
@@ -580,7 +556,7 @@
         "markup": 1.07,
         "receiveAmount": 12131.39
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 122.0603,
         "fee": 4,
         "markup": 0.46,
@@ -609,12 +585,6 @@
         "fee": 0.99,
         "markup": null,
         "receiveAmount": 12119.81
-      },
-      "taptap-send": {
-        "rate": 121.45,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12145
       }
     }
   }

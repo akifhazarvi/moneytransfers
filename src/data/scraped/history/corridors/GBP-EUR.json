@@ -62,7 +62,7 @@
         "markup": 2.3662,
         "receiveAmount": 96.12
       },
-      "starling-bank": {
+      "starling": {
         "rate": 1.1522,
         "fee": 5.9,
         "markup": 0.5172,
@@ -104,7 +104,7 @@
         "markup": 0,
         "receiveAmount": 114.76
       },
-      "santander-uk": {
+      "santander": {
         "rate": 1.1222,
         "fee": 0,
         "markup": 3.1092,
@@ -175,7 +175,7 @@
         "markup": 4.2538,
         "receiveAmount": 107.58
       },
-      "santander-uk": {
+      "santander": {
         "rate": 1.1206,
         "fee": 0,
         "markup": 3.2489,
@@ -199,7 +199,7 @@
         "markup": 3.7573,
         "receiveAmount": 111.47
       },
-      "starling-bank": {
+      "starling": {
         "rate": 1.1522,
         "fee": 5.9,
         "markup": 0.5172,
@@ -282,7 +282,7 @@
         "markup": 4.2538,
         "receiveAmount": 107.58
       },
-      "santander-uk": {
+      "santander": {
         "rate": 1.1206,
         "fee": 0,
         "markup": 3.2489,
@@ -330,7 +330,7 @@
         "markup": 0.0268,
         "receiveAmount": 111.16
       },
-      "starling-bank": {
+      "starling": {
         "rate": 1.1522,
         "fee": 5.9,
         "markup": 0.5172,
@@ -407,7 +407,7 @@
         "markup": 3.5851,
         "receiveAmount": 111.6
       },
-      "starling-bank": {
+      "starling": {
         "rate": 1.1572,
         "fee": 5.9,
         "markup": 0.0294,
@@ -443,7 +443,7 @@
         "markup": -0.0173,
         "receiveAmount": 114.71
       },
-      "santander-uk": {
+      "santander": {
         "rate": 1.1199,
         "fee": 0,
         "markup": 3.2489,
@@ -466,7 +466,7 @@
         "markup": 3.6105,
         "receiveAmount": 111.58
       },
-      "santander-uk": {
+      "santander": {
         "rate": 1.12,
         "fee": 0,
         "markup": 3.2489,
@@ -532,7 +532,7 @@
         "markup": 0.0112,
         "receiveAmount": 114.68
       },
-      "starling-bank": {
+      "starling": {
         "rate": 1.1571,
         "fee": 5.9,
         "markup": 0.0406,
@@ -573,7 +573,7 @@
         "markup": 4.5036,
         "receiveAmount": 109.47
       },
-      "starling-bank": {
+      "starling": {
         "rate": 1.1575,
         "fee": 5.9,
         "markup": 0.0294,
@@ -603,7 +603,7 @@
         "markup": 1.0313,
         "receiveAmount": 112.88
       },
-      "santander-uk": {
+      "santander": {
         "rate": 1.1198,
         "fee": 0,
         "markup": 3.2824,
@@ -692,13 +692,13 @@
         "markup": null,
         "receiveAmount": 112.99
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 1.15,
         "fee": 0,
-        "markup": 0.37,
+        "markup": null,
         "receiveAmount": 115
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 1.1456,
         "fee": 3,
         "markup": 0.75,
@@ -728,11 +728,11 @@
         "markup": 1.45,
         "receiveAmount": 113.75
       },
-      "the-royal-bank-of-scotland": {
-        "rate": 1.1333,
-        "fee": 10,
-        "markup": 1.81,
-        "receiveAmount": 102
+      "rbs": {
+        "rate": 1.1258,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.58
       },
       "ofx": {
         "rate": 1.1522,
@@ -758,12 +758,6 @@
         "markup": null,
         "receiveAmount": 114.75
       },
-      "xe-money-transfer": {
-        "rate": 1.1456,
-        "fee": 3,
-        "markup": 0.75,
-        "receiveAmount": 111.12
-      },
       "mukuru": {
         "rate": 1.1494,
         "fee": 1.89,
@@ -782,7 +776,7 @@
         "markup": null,
         "receiveAmount": 112.38
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 1.1503,
         "fee": 20.79,
         "markup": 0.34,
@@ -800,12 +794,6 @@
         "markup": null,
         "receiveAmount": 113.85
       },
-      "taptap-send": {
-        "rate": 1.15,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 115
-      },
       "halifax": {
         "rate": 1.1107,
         "fee": 0,
@@ -817,12 +805,6 @@
         "fee": 0.99,
         "markup": null,
         "receiveAmount": 109.3
-      },
-      "rbs": {
-        "rate": 1.1258,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 112.58
       },
       "natwest": {
         "rate": 1.1258,
@@ -889,13 +871,13 @@
         "markup": null,
         "receiveAmount": 112.85
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 1.15,
         "fee": 0,
-        "markup": 0.37,
+        "markup": null,
         "receiveAmount": 115
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 1.1456,
         "fee": 3,
         "markup": 0.75,
@@ -925,11 +907,11 @@
         "markup": 1.45,
         "receiveAmount": 113.75
       },
-      "the-royal-bank-of-scotland": {
-        "rate": 1.1333,
-        "fee": 10,
-        "markup": 1.81,
-        "receiveAmount": 102
+      "rbs": {
+        "rate": 1.1255,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.55
       },
       "ofx": {
         "rate": 1.1522,
@@ -955,12 +937,6 @@
         "markup": null,
         "receiveAmount": 114.59
       },
-      "xe-money-transfer": {
-        "rate": 1.1456,
-        "fee": 3,
-        "markup": 0.75,
-        "receiveAmount": 111.12
-      },
       "mukuru": {
         "rate": 1.1494,
         "fee": 1.89,
@@ -979,7 +955,7 @@
         "markup": null,
         "receiveAmount": 112.22
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 1.1503,
         "fee": 20.79,
         "markup": 0.34,
@@ -996,12 +972,6 @@
         "fee": 4.5,
         "markup": null,
         "receiveAmount": 113.85
-      },
-      "taptap-send": {
-        "rate": 1.15,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 115
       },
       "santander": {
         "rate": 1.1199,
@@ -1045,12 +1015,6 @@
         "markup": null,
         "receiveAmount": 107.87
       },
-      "rbs": {
-        "rate": 1.1255,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 112.55
-      },
       "lloyds": {
         "rate": 1.1104,
         "fee": 0,
@@ -1086,13 +1050,13 @@
         "markup": null,
         "receiveAmount": 112.8
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 1.15,
         "fee": 0,
-        "markup": 0.37,
+        "markup": null,
         "receiveAmount": 115
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 1.1456,
         "fee": 3,
         "markup": 0.75,
@@ -1122,11 +1086,11 @@
         "markup": 1.45,
         "receiveAmount": 113.75
       },
-      "the-royal-bank-of-scotland": {
-        "rate": 1.1333,
-        "fee": 10,
-        "markup": 1.81,
-        "receiveAmount": 102
+      "rbs": {
+        "rate": 1.124,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.4
       },
       "ofx": {
         "rate": 1.1522,
@@ -1152,12 +1116,6 @@
         "markup": null,
         "receiveAmount": 114.58
       },
-      "xe-money-transfer": {
-        "rate": 1.1456,
-        "fee": 3,
-        "markup": 0.75,
-        "receiveAmount": 111.12
-      },
       "mukuru": {
         "rate": 1.1494,
         "fee": 1.89,
@@ -1176,7 +1134,7 @@
         "markup": null,
         "receiveAmount": 112.22
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 1.1503,
         "fee": 20.79,
         "markup": 0.34,
@@ -1193,12 +1151,6 @@
         "fee": 4.5,
         "markup": null,
         "receiveAmount": 113.85
-      },
-      "taptap-send": {
-        "rate": 1.15,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 115
       },
       "santander": {
         "rate": 1.1184,
@@ -1242,12 +1194,6 @@
         "markup": null,
         "receiveAmount": 108.23
       },
-      "rbs": {
-        "rate": 1.124,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 112.4
-      },
       "lloyds": {
         "rate": 1.1089,
         "fee": 0,
@@ -1283,13 +1229,13 @@
         "markup": null,
         "receiveAmount": 112.37
       },
-      "taptapsend": {
-        "rate": 1.15,
+      "taptap-send": {
+        "rate": 1.14,
         "fee": 0,
-        "markup": 0.37,
-        "receiveAmount": 115
+        "markup": null,
+        "receiveAmount": 114
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 1.1456,
         "fee": 3,
         "markup": 0.75,
@@ -1319,11 +1265,11 @@
         "markup": 1.45,
         "receiveAmount": 113.75
       },
-      "the-royal-bank-of-scotland": {
-        "rate": 1.1333,
-        "fee": 10,
-        "markup": 1.81,
-        "receiveAmount": 102
+      "rbs": {
+        "rate": 1.119,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 111.9
       },
       "ofx": {
         "rate": 1.1522,
@@ -1349,12 +1295,6 @@
         "markup": null,
         "receiveAmount": 113.99
       },
-      "xe-money-transfer": {
-        "rate": 1.1456,
-        "fee": 3,
-        "markup": 0.75,
-        "receiveAmount": 111.12
-      },
       "mukuru": {
         "rate": 1.1494,
         "fee": 1.89,
@@ -1373,7 +1313,7 @@
         "markup": null,
         "receiveAmount": 111.75
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 1.1503,
         "fee": 20.79,
         "markup": 0.34,
@@ -1390,12 +1330,6 @@
         "fee": 4.5,
         "markup": null,
         "receiveAmount": 113.85
-      },
-      "taptap-send": {
-        "rate": 1.14,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 114
       },
       "lloyds": {
         "rate": 1.1043,
@@ -1420,12 +1354,6 @@
         "fee": 15,
         "markup": null,
         "receiveAmount": 95.38
-      },
-      "rbs": {
-        "rate": 1.119,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 111.9
       },
       "starling": {
         "rate": 1.1457,
@@ -1480,13 +1408,13 @@
         "markup": null,
         "receiveAmount": 112.53
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 1.15,
         "fee": 0,
-        "markup": 0.37,
+        "markup": null,
         "receiveAmount": 115
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 1.1456,
         "fee": 3,
         "markup": 0.75,
@@ -1516,11 +1444,11 @@
         "markup": 1.45,
         "receiveAmount": 113.75
       },
-      "the-royal-bank-of-scotland": {
-        "rate": 1.1333,
-        "fee": 10,
-        "markup": 1.81,
-        "receiveAmount": 102
+      "rbs": {
+        "rate": 1.1221,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.21
       },
       "ofx": {
         "rate": 1.1522,
@@ -1546,12 +1474,6 @@
         "markup": null,
         "receiveAmount": 114.16
       },
-      "xe-money-transfer": {
-        "rate": 1.1456,
-        "fee": 3,
-        "markup": 0.75,
-        "receiveAmount": 111.12
-      },
       "mukuru": {
         "rate": 1.1494,
         "fee": 1.89,
@@ -1570,7 +1492,7 @@
         "markup": null,
         "receiveAmount": 111.93
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 1.1503,
         "fee": 20.79,
         "markup": 0.34,
@@ -1587,12 +1509,6 @@
         "fee": 4.5,
         "markup": null,
         "receiveAmount": 113.85
-      },
-      "taptap-send": {
-        "rate": 1.15,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 115
       },
       "lloyds": {
         "rate": 1.1064,
@@ -1629,12 +1545,6 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 110.71
-      },
-      "rbs": {
-        "rate": 1.1221,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 112.21
       },
       "starling": {
         "rate": 1.1479,

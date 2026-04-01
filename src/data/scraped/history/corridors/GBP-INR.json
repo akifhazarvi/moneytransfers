@@ -44,7 +44,7 @@
         "markup": 4.1058,
         "receiveAmount": 10623.17
       },
-      "santander-uk": {
+      "santander": {
         "rate": 118.0136,
         "fee": 25,
         "markup": 3.5907,
@@ -199,7 +199,7 @@
         "markup": 0,
         "receiveAmount": 12092.79
       },
-      "santander-uk": {
+      "santander": {
         "rate": 118.9373,
         "fee": 25,
         "markup": 2.8362,
@@ -306,7 +306,7 @@
         "markup": 0,
         "receiveAmount": 12092.79
       },
-      "santander-uk": {
+      "santander": {
         "rate": 118.9373,
         "fee": 25,
         "markup": 2.8362,
@@ -371,7 +371,7 @@
         "markup": 0,
         "receiveAmount": 12149.79
       },
-      "santander-uk": {
+      "santander": {
         "rate": 119.4979,
         "fee": 25,
         "markup": 2.8362,
@@ -472,7 +472,7 @@
         "markup": 4.1058,
         "receiveAmount": 10663.27
       },
-      "santander-uk": {
+      "santander": {
         "rate": 119.3862,
         "fee": 25,
         "markup": 2.8362,
@@ -555,7 +555,7 @@
         "markup": 0.5253,
         "receiveAmount": 12277.17
       },
-      "santander-uk": {
+      "santander": {
         "rate": 119.28,
         "fee": 25,
         "markup": 3.3544,
@@ -650,7 +650,7 @@
         "markup": -0.45,
         "receiveAmount": 12326.85
       },
-      "state-bank-of-india": {
+      "sbi": {
         "rate": 121.8306,
         "fee": 7,
         "markup": 2.7,
@@ -668,13 +668,13 @@
         "markup": null,
         "receiveAmount": 12506.62
       },
-      "taptapsend": {
-        "rate": 124.5,
+      "taptap-send": {
+        "rate": 125.5,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 12450
+        "markup": null,
+        "receiveAmount": 12550
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 124.2824,
         "fee": 2,
         "markup": 0.74,
@@ -728,12 +728,6 @@
         "markup": null,
         "receiveAmount": 12496.32
       },
-      "xe-money-transfer": {
-        "rate": 124.2824,
-        "fee": 2,
-        "markup": 0.74,
-        "receiveAmount": 12179.68
-      },
       "mukuru": {
         "rate": 120.76,
         "fee": 2.99,
@@ -752,7 +746,7 @@
         "markup": null,
         "receiveAmount": 12279.49
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 124.2693,
         "fee": 1.5,
         "markup": 0.75,
@@ -763,12 +757,6 @@
         "fee": 1.5,
         "markup": null,
         "receiveAmount": 12857.37
-      },
-      "taptap-send": {
-        "rate": 125.5,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12550
       },
       "nationwide": {
         "rate": 123.3691,
@@ -853,7 +841,7 @@
         "markup": -0.45,
         "receiveAmount": 12326.85
       },
-      "state-bank-of-india": {
+      "sbi": {
         "rate": 121.8306,
         "fee": 7,
         "markup": 2.7,
@@ -871,13 +859,13 @@
         "markup": null,
         "receiveAmount": 12465.26
       },
-      "taptapsend": {
-        "rate": 124.5,
+      "taptap-send": {
+        "rate": 125.5,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 12450
+        "markup": null,
+        "receiveAmount": 12550
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 124.2824,
         "fee": 2,
         "markup": 0.74,
@@ -931,12 +919,6 @@
         "markup": null,
         "receiveAmount": 12481.79
       },
-      "xe-money-transfer": {
-        "rate": 124.2824,
-        "fee": 2,
-        "markup": 0.74,
-        "receiveAmount": 12179.68
-      },
       "mukuru": {
         "rate": 120.76,
         "fee": 2.99,
@@ -955,7 +937,7 @@
         "markup": null,
         "receiveAmount": 12257.68
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 124.2693,
         "fee": 1.5,
         "markup": 0.75,
@@ -966,12 +948,6 @@
         "fee": 1.5,
         "markup": null,
         "receiveAmount": 12857.37
-      },
-      "taptap-send": {
-        "rate": 125.5,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12550
       },
       "icici-bank": {
         "rate": 124.8459,
@@ -1056,7 +1032,7 @@
         "markup": -0.45,
         "receiveAmount": 12326.85
       },
-      "state-bank-of-india": {
+      "sbi": {
         "rate": 121.8306,
         "fee": 7,
         "markup": 2.7,
@@ -1074,13 +1050,13 @@
         "markup": null,
         "receiveAmount": 12438.59
       },
-      "taptapsend": {
-        "rate": 124.5,
+      "taptap-send": {
+        "rate": 125,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 12450
+        "markup": null,
+        "receiveAmount": 12500
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 124.2824,
         "fee": 2,
         "markup": 0.74,
@@ -1134,12 +1110,6 @@
         "markup": null,
         "receiveAmount": 12397.51
       },
-      "xe-money-transfer": {
-        "rate": 124.2824,
-        "fee": 2,
-        "markup": 0.74,
-        "receiveAmount": 12179.68
-      },
       "mukuru": {
         "rate": 120.76,
         "fee": 2.99,
@@ -1158,7 +1128,7 @@
         "markup": null,
         "receiveAmount": 12176.95
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 124.2693,
         "fee": 1.5,
         "markup": 0.75,
@@ -1169,12 +1139,6 @@
         "fee": 1.5,
         "markup": null,
         "receiveAmount": 12857.37
-      },
-      "taptap-send": {
-        "rate": 125,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12500
       },
       "monese": {
         "rate": 124.0606,
@@ -1259,7 +1223,7 @@
         "markup": -0.45,
         "receiveAmount": 12326.85
       },
-      "state-bank-of-india": {
+      "sbi": {
         "rate": 121.8306,
         "fee": 7,
         "markup": 2.7,
@@ -1277,13 +1241,13 @@
         "markup": null,
         "receiveAmount": 12482.56
       },
-      "taptapsend": {
-        "rate": 124.5,
+      "taptap-send": {
+        "rate": 124,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 12450
+        "markup": null,
+        "receiveAmount": 12400
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 124.2824,
         "fee": 2,
         "markup": 0.74,
@@ -1337,12 +1301,6 @@
         "markup": null,
         "receiveAmount": 12308.6
       },
-      "xe-money-transfer": {
-        "rate": 124.2824,
-        "fee": 2,
-        "markup": 0.74,
-        "receiveAmount": 12179.68
-      },
       "mukuru": {
         "rate": 120.76,
         "fee": 2.99,
@@ -1361,7 +1319,7 @@
         "markup": null,
         "receiveAmount": 12117.77
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 124.2693,
         "fee": 1.5,
         "markup": 0.75,
@@ -1372,12 +1330,6 @@
         "fee": 1.5,
         "markup": null,
         "receiveAmount": 12857.37
-      },
-      "taptap-send": {
-        "rate": 124,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12400
       },
       "icici-bank": {
         "rate": 123.688,
@@ -1462,7 +1414,7 @@
         "markup": -0.45,
         "receiveAmount": 12326.85
       },
-      "state-bank-of-india": {
+      "sbi": {
         "rate": 121.8306,
         "fee": 7,
         "markup": 2.7,
@@ -1480,13 +1432,13 @@
         "markup": null,
         "receiveAmount": 12525.54
       },
-      "taptapsend": {
-        "rate": 124.5,
+      "taptap-send": {
+        "rate": 124.2,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 12450
+        "markup": null,
+        "receiveAmount": 12420
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 124.2824,
         "fee": 2,
         "markup": 0.74,
@@ -1540,12 +1492,6 @@
         "markup": null,
         "receiveAmount": 12304.45
       },
-      "xe-money-transfer": {
-        "rate": 124.2824,
-        "fee": 2,
-        "markup": 0.74,
-        "receiveAmount": 12179.68
-      },
       "mukuru": {
         "rate": 120.76,
         "fee": 2.99,
@@ -1564,7 +1510,7 @@
         "markup": null,
         "receiveAmount": 12109.29
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 124.2693,
         "fee": 1.5,
         "markup": 0.75,
@@ -1575,12 +1521,6 @@
         "fee": 1.5,
         "markup": null,
         "receiveAmount": 12857.37
-      },
-      "taptap-send": {
-        "rate": 124.2,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 12420
       },
       "icici-bank": {
         "rate": 123.6015,

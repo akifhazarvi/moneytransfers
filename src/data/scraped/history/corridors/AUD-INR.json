@@ -8,7 +8,7 @@
         "markup": 3.8333,
         "receiveAmount": 6214.04
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 63.1104,
         "fee": 0,
         "markup": 2.332,
@@ -32,7 +32,7 @@
         "markup": -0.0429,
         "receiveAmount": 5947.99
       },
-      "national-australia-bank": {
+      "nab": {
         "rate": 62.2929,
         "fee": 0,
         "markup": 3.5972,
@@ -55,7 +55,7 @@
   {
     "date": "2026-03-14",
     "providers": {
-      "national-australia-bank": {
+      "nab": {
         "rate": 62.3861,
         "fee": 0,
         "markup": 3.4529,
@@ -73,7 +73,7 @@
         "markup": 1.0636,
         "receiveAmount": 6393
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 63.1104,
         "fee": 0,
         "markup": 2.332,
@@ -108,7 +108,7 @@
   {
     "date": "2026-03-15",
     "providers": {
-      "national-australia-bank": {
+      "nab": {
         "rate": 62.3861,
         "fee": 0,
         "markup": 3.4529,
@@ -126,7 +126,7 @@
         "markup": 0.9089,
         "receiveAmount": 6403
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 63.1104,
         "fee": 0,
         "markup": 2.332,
@@ -161,7 +161,7 @@
   {
     "date": "2026-03-16",
     "providers": {
-      "national-australia-bank": {
+      "nab": {
         "rate": 63.4773,
         "fee": 0,
         "markup": 2.7426,
@@ -179,7 +179,7 @@
         "markup": 0.9027,
         "receiveAmount": 6467.81
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 64.0058,
         "fee": 0,
         "markup": 1.9328,
@@ -208,7 +208,7 @@
   {
     "date": "2026-03-17",
     "providers": {
-      "national-australia-bank": {
+      "nab": {
         "rate": 63.6267,
         "fee": 0,
         "markup": 2.6619,
@@ -232,7 +232,7 @@
         "markup": 4.1227,
         "receiveAmount": 5703.14
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 64.1703,
         "fee": 0,
         "markup": 1.8303,
@@ -255,7 +255,7 @@
   {
     "date": "2026-03-18",
     "providers": {
-      "national-australia-bank": {
+      "nab": {
         "rate": 63.9492,
         "fee": 0,
         "markup": 2.6389,
@@ -279,7 +279,7 @@
         "markup": 0.9323,
         "receiveAmount": 6507.02
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 64.47,
         "fee": 0,
         "markup": 1.846,
@@ -320,7 +320,7 @@
         "markup": 2.77,
         "receiveAmount": 6399.65
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 65.2203,
         "fee": 4,
         "markup": 0.91,
@@ -344,12 +344,6 @@
         "markup": null,
         "receiveAmount": 6469.63
       },
-      "xe-money-transfer": {
-        "rate": 65.2203,
-        "fee": 4,
-        "markup": 0.91,
-        "receiveAmount": 6261.15
-      },
       "paysend": {
         "rate": 64.0044,
         "fee": 0,
@@ -362,7 +356,7 @@
         "markup": null,
         "receiveAmount": 6437.86
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 65.4652,
         "fee": 1.41,
         "markup": 0.53,
@@ -433,7 +427,7 @@
         "markup": 2.77,
         "receiveAmount": 6399.65
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 65.2203,
         "fee": 4,
         "markup": 0.91,
@@ -457,12 +451,6 @@
         "markup": null,
         "receiveAmount": 6442.04
       },
-      "xe-money-transfer": {
-        "rate": 65.2203,
-        "fee": 4,
-        "markup": 0.91,
-        "receiveAmount": 6261.15
-      },
       "paysend": {
         "rate": 64.0044,
         "fee": 0,
@@ -475,7 +463,7 @@
         "markup": null,
         "receiveAmount": 6418.29
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 65.4652,
         "fee": 1.41,
         "markup": 0.53,
@@ -540,7 +528,7 @@
         "markup": 2.77,
         "receiveAmount": 6399.65
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 65.2203,
         "fee": 4,
         "markup": 0.91,
@@ -564,12 +552,6 @@
         "markup": null,
         "receiveAmount": 6430
       },
-      "xe-money-transfer": {
-        "rate": 65.2203,
-        "fee": 4,
-        "markup": 0.91,
-        "receiveAmount": 6261.15
-      },
       "paysend": {
         "rate": 64.0044,
         "fee": 0,
@@ -582,7 +564,7 @@
         "markup": null,
         "receiveAmount": 6400.52
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 65.4652,
         "fee": 1.41,
         "markup": 0.53,
@@ -653,7 +635,7 @@
         "markup": 2.77,
         "receiveAmount": 6399.65
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 65.2203,
         "fee": 4,
         "markup": 0.91,
@@ -677,12 +659,6 @@
         "markup": null,
         "receiveAmount": 6417.67
       },
-      "xe-money-transfer": {
-        "rate": 65.2203,
-        "fee": 4,
-        "markup": 0.91,
-        "receiveAmount": 6261.15
-      },
       "paysend": {
         "rate": 64.0044,
         "fee": 0,
@@ -695,7 +671,7 @@
         "markup": null,
         "receiveAmount": 6392.82
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 65.4652,
         "fee": 1.41,
         "markup": 0.53,
@@ -766,7 +742,7 @@
         "markup": 2.77,
         "receiveAmount": 6399.65
       },
-      "xe-money-transfer-fx": {
+      "xe": {
         "rate": 65.2203,
         "fee": 4,
         "markup": 0.91,
@@ -790,12 +766,6 @@
         "markup": null,
         "receiveAmount": 6367.97
       },
-      "xe-money-transfer": {
-        "rate": 65.2203,
-        "fee": 4,
-        "markup": 0.91,
-        "receiveAmount": 6261.15
-      },
       "paysend": {
         "rate": 64.0044,
         "fee": 0,
@@ -808,7 +778,7 @@
         "markup": null,
         "receiveAmount": 6336.21
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 65.4652,
         "fee": 1.41,
         "markup": 0.53,

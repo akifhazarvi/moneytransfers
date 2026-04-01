@@ -518,10 +518,10 @@
         "markup": null,
         "receiveAmount": 7926.72
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 80,
         "fee": 0,
-        "markup": 0.15,
+        "markup": null,
         "receiveAmount": 8000
       },
       "western-union": {
@@ -572,7 +572,7 @@
         "markup": null,
         "receiveAmount": 7979.83
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 79.9237,
         "fee": 3,
         "markup": 0.24,
@@ -602,7 +602,7 @@
         "markup": null,
         "receiveAmount": 7952.53
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 79.2923,
         "fee": 1.7,
         "markup": 1.03,
@@ -619,12 +619,6 @@
         "fee": 1.99,
         "markup": null,
         "receiveAmount": 8239.9
-      },
-      "taptap-send": {
-        "rate": 80,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 8000
       },
       "nationwide": {
         "rate": 78.6707,
@@ -691,11 +685,11 @@
         "markup": null,
         "receiveAmount": 7899.55
       },
-      "taptapsend": {
-        "rate": 80,
+      "taptap-send": {
+        "rate": 80.1,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 8000
+        "markup": null,
+        "receiveAmount": 8010
       },
       "western-union": {
         "rate": 79.5519,
@@ -745,7 +739,7 @@
         "markup": null,
         "receiveAmount": 7955.86
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 79.9237,
         "fee": 3,
         "markup": 0.24,
@@ -775,7 +769,7 @@
         "markup": null,
         "receiveAmount": 7924.04
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 79.2923,
         "fee": 1.7,
         "markup": 1.03,
@@ -792,12 +786,6 @@
         "fee": 1.99,
         "markup": null,
         "receiveAmount": 8239.9
-      },
-      "taptap-send": {
-        "rate": 80.1,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 8010
       },
       "barclays": {
         "rate": 77.7246,
@@ -864,11 +852,11 @@
         "markup": null,
         "receiveAmount": 7911.32
       },
-      "taptapsend": {
-        "rate": 80,
+      "taptap-send": {
+        "rate": 80.4,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 8000
+        "markup": null,
+        "receiveAmount": 8040
       },
       "western-union": {
         "rate": 79.6165,
@@ -918,7 +906,7 @@
         "markup": null,
         "receiveAmount": 7975.85
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 79.9237,
         "fee": 3,
         "markup": 0.24,
@@ -948,7 +936,7 @@
         "markup": null,
         "receiveAmount": 7944.59
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 79.2923,
         "fee": 1.7,
         "markup": 1.03,
@@ -965,12 +953,6 @@
         "fee": 1.99,
         "markup": null,
         "receiveAmount": 8239.9
-      },
-      "taptap-send": {
-        "rate": 80.4,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 8040
       },
       "moneygram": {
         "rate": 80.0779,
@@ -1037,11 +1019,11 @@
         "markup": null,
         "receiveAmount": 7938.94
       },
-      "taptapsend": {
-        "rate": 80,
+      "taptap-send": {
+        "rate": 80.2,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 8000
+        "markup": null,
+        "receiveAmount": 8020
       },
       "western-union": {
         "rate": 79.4819,
@@ -1091,7 +1073,7 @@
         "markup": null,
         "receiveAmount": 7957.05
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 79.9237,
         "fee": 3,
         "markup": 0.24,
@@ -1121,7 +1103,7 @@
         "markup": null,
         "receiveAmount": 7938.95
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 79.2923,
         "fee": 1.7,
         "markup": 1.03,
@@ -1138,12 +1120,6 @@
         "fee": 1.99,
         "markup": null,
         "receiveAmount": 8239.9
-      },
-      "taptap-send": {
-        "rate": 80.2,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 8020
       },
       "barclays": {
         "rate": 77.6745,
@@ -1210,11 +1186,11 @@
         "markup": null,
         "receiveAmount": 7902.53
       },
-      "taptapsend": {
-        "rate": 80,
+      "taptap-send": {
+        "rate": 79.8,
         "fee": 0,
-        "markup": 0.15,
-        "receiveAmount": 8000
+        "markup": null,
+        "receiveAmount": 7980
       },
       "western-union": {
         "rate": 79.5894,
@@ -1264,7 +1240,7 @@
         "markup": null,
         "receiveAmount": 7955.23
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 79.9237,
         "fee": 3,
         "markup": 0.24,
@@ -1294,7 +1270,7 @@
         "markup": null,
         "receiveAmount": 7937.41
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 79.2923,
         "fee": 1.7,
         "markup": 1.03,
@@ -1311,12 +1287,6 @@
         "fee": 1.99,
         "markup": null,
         "receiveAmount": 8239.9
-      },
-      "taptap-send": {
-        "rate": 79.8,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 7980
       },
       "xoom": {
         "rate": 57.0622,

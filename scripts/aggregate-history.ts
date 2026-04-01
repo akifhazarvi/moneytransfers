@@ -31,6 +31,38 @@ const HISTORY_DIR = path.join(SCRAPED_DIR, "history");
 const CORRIDORS_DIR = path.join(HISTORY_DIR, "corridors");
 const INDEX_PATH = path.join(HISTORY_DIR, "index.json");
 
+// Normalize Monito/raw slugs to canonical provider slugs
+const SLUG_ALIASES: Record<string, string> = {
+  "world-remit": "worldremit",
+  "western_union": "western-union",
+  westernunion: "western-union",
+  "xe-money-transfer": "xe",
+  "xe-money-transfer-fx": "xe",
+  "revolut-money-transfer": "revolut",
+  taptapsend: "taptap-send",
+  "tap-tap-send": "taptap-send",
+  "ria-money-transfer": "ria",
+  "ria-financial": "ria",
+  money_gram: "moneygram",
+  "money-gram": "moneygram",
+  "currency-fair": "currencyfair",
+  "send-wave": "sendwave",
+  "chase-bank": "chase",
+  "state-bank-of-india": "sbi",
+  "the-royal-bank-of-scotland": "rbs",
+  "commonwealth-bank-of-australia": "commonwealth-bank",
+  "national-australia-bank": "nab",
+  "hsbc-australia": "hsbc",
+  "lloyds-bank": "lloyds",
+  "bank-of-scotland": "lloyds",
+  "santander-uk": "santander",
+  "starling-bank": "starling",
+};
+
+function normalizeSlug(slug: string): string {
+  return SLUG_ALIASES[slug] || slug;
+}
+
 interface Quote {
   providerSlug: string;
   sendCurrency: string;
@@ -159,7 +191,8 @@ function aggregateCorridors(files: string[]): void {
       if (!data[corridor][fileDate]) data[corridor][fileDate] = {};
 
       // Latest snapshot for this day wins (files are sorted chronologically)
-      data[corridor][fileDate][q.providerSlug] = {
+      const slug = normalizeSlug(q.providerSlug);
+      data[corridor][fileDate][slug] = {
         rate: Math.round(q.exchangeRate * 10000) / 10000,
         fee: q.fee,
         markup: Math.round(q.markup * 10000) / 10000,

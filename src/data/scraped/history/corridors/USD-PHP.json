@@ -296,10 +296,10 @@
         "markup": null,
         "receiveAmount": 6067.1
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 60,
         "fee": 0,
-        "markup": 0.25,
+        "markup": null,
         "receiveAmount": 6000
       },
       "boss-money": {
@@ -338,7 +338,7 @@
         "markup": null,
         "receiveAmount": 6007.36
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 59.4689,
         "fee": 4,
         "markup": 1.13,
@@ -356,7 +356,7 @@
         "markup": 3.07,
         "receiveAmount": 5830.02
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 59.4825,
         "fee": 1.75,
         "markup": 1.11,
@@ -367,12 +367,6 @@
         "fee": 1.65,
         "markup": null,
         "receiveAmount": 5950.77
-      },
-      "taptap-send": {
-        "rate": 60,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 6000
       },
       "wells-fargo": {
         "rate": 58.5141,
@@ -415,10 +409,10 @@
         "markup": null,
         "receiveAmount": 6067.1
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 60,
         "fee": 0,
-        "markup": 0.25,
+        "markup": null,
         "receiveAmount": 6000
       },
       "boss-money": {
@@ -457,7 +451,7 @@
         "markup": null,
         "receiveAmount": 6011.23
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 59.4689,
         "fee": 4,
         "markup": 1.13,
@@ -475,7 +469,7 @@
         "markup": 3.07,
         "receiveAmount": 5830.02
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 59.4825,
         "fee": 1.75,
         "markup": 1.11,
@@ -486,12 +480,6 @@
         "fee": 1.65,
         "markup": null,
         "receiveAmount": 5949.19
-      },
-      "taptap-send": {
-        "rate": 60,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 6000
       },
       "wells-fargo": {
         "rate": 58.5468,
@@ -534,11 +522,11 @@
         "markup": null,
         "receiveAmount": 6067.1
       },
-      "taptapsend": {
-        "rate": 60,
+      "taptap-send": {
+        "rate": 60.5,
         "fee": 0,
-        "markup": 0.25,
-        "receiveAmount": 6000
+        "markup": null,
+        "receiveAmount": 6050
       },
       "boss-money": {
         "rate": 59.6354,
@@ -576,7 +564,7 @@
         "markup": null,
         "receiveAmount": 6033.5
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 59.4689,
         "fee": 4,
         "markup": 1.13,
@@ -594,7 +582,7 @@
         "markup": 3.07,
         "receiveAmount": 5830.02
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 59.4825,
         "fee": 1.75,
         "markup": 1.11,
@@ -605,12 +593,6 @@
         "fee": 1.65,
         "markup": null,
         "receiveAmount": 5973.48
-      },
-      "taptap-send": {
-        "rate": 60.5,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 6050
       },
       "wells-fargo": {
         "rate": 58.8014,
@@ -653,11 +635,11 @@
         "markup": null,
         "receiveAmount": 6067.1
       },
-      "taptapsend": {
-        "rate": 60,
+      "taptap-send": {
+        "rate": 60.5,
         "fee": 0,
-        "markup": 0.25,
-        "receiveAmount": 6000
+        "markup": null,
+        "receiveAmount": 6050
       },
       "boss-money": {
         "rate": 59.6354,
@@ -695,7 +677,7 @@
         "markup": null,
         "receiveAmount": 6013.22
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 59.4689,
         "fee": 4,
         "markup": 1.13,
@@ -713,7 +695,7 @@
         "markup": 3.07,
         "receiveAmount": 5830.02
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 59.4825,
         "fee": 1.75,
         "markup": 1.11,
@@ -724,12 +706,6 @@
         "fee": 1.65,
         "markup": null,
         "receiveAmount": 5950.08
-      },
-      "taptap-send": {
-        "rate": 60.5,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 6050
       },
       "wells-fargo": {
         "rate": 58.5551,
@@ -772,10 +748,10 @@
         "markup": null,
         "receiveAmount": 6067.1
       },
-      "taptapsend": {
+      "taptap-send": {
         "rate": 60,
         "fee": 0,
-        "markup": 0.25,
+        "markup": null,
         "receiveAmount": 6000
       },
       "boss-money": {
@@ -814,7 +790,7 @@
         "markup": null,
         "receiveAmount": 5988.56
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 59.4689,
         "fee": 4,
         "markup": 1.13,
@@ -832,7 +808,7 @@
         "markup": 3.07,
         "receiveAmount": 5830.02
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 59.4825,
         "fee": 1.75,
         "markup": 1.11,
@@ -843,12 +819,6 @@
         "fee": 1.65,
         "markup": null,
         "receiveAmount": 5924.9
-      },
-      "taptap-send": {
-        "rate": 60,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 6000
       },
       "bank-of-america": {
         "rate": 58.3858,

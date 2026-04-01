@@ -14,7 +14,7 @@
         "markup": 0.3555,
         "receiveAmount": 4162.6
       },
-      "national-australia-bank": {
+      "nab": {
         "rate": 40.2819,
         "fee": 0,
         "markup": 3.5729,
@@ -50,7 +50,7 @@
         "markup": 0,
         "receiveAmount": 4116.46
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 39.84,
         "fee": 0,
         "markup": 4.6308,
@@ -61,7 +61,7 @@
   {
     "date": "2026-03-14",
     "providers": {
-      "national-australia-bank": {
+      "nab": {
         "rate": 40.28,
         "fee": 0,
         "markup": 3.5775,
@@ -79,7 +79,7 @@
         "markup": 1.9258,
         "receiveAmount": 4097
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 39.84,
         "fee": 0,
         "markup": 4.6308,
@@ -126,7 +126,7 @@
         "markup": 3.9338,
         "receiveAmount": 4013.12
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 39.84,
         "fee": 0,
         "markup": 4.6308,
@@ -156,7 +156,7 @@
         "markup": 0.3844,
         "receiveAmount": 4161.39
       },
-      "national-australia-bank": {
+      "nab": {
         "rate": 40.28,
         "fee": 0,
         "markup": 3.5775,
@@ -191,7 +191,7 @@
         "markup": 4.2159,
         "receiveAmount": 3684.15
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 40.6419,
         "fee": 0,
         "markup": 3.8451,
@@ -203,7 +203,7 @@
         "markup": 1.695,
         "receiveAmount": 4155.07
       },
-      "national-australia-bank": {
+      "nab": {
         "rate": 41.1292,
         "fee": 0,
         "markup": 2.6921,
@@ -238,7 +238,7 @@
         "markup": 0,
         "receiveAmount": 4164.5
       },
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 40.5721,
         "fee": 0,
         "markup": 3.9986,
@@ -256,7 +256,7 @@
         "markup": 1.661,
         "receiveAmount": 4156
       },
-      "national-australia-bank": {
+      "nab": {
         "rate": 41.1599,
         "fee": 0,
         "markup": 2.6077,
@@ -285,7 +285,7 @@
   {
     "date": "2026-03-18",
     "providers": {
-      "commonwealth-bank-of-australia": {
+      "commonwealth-bank": {
         "rate": 40.6606,
         "fee": 0,
         "markup": 3.9924,
@@ -315,7 +315,7 @@
         "markup": 4.3299,
         "receiveAmount": 3687.1
       },
-      "national-australia-bank": {
+      "nab": {
         "rate": 41.238,
         "fee": 0,
         "markup": 2.6289,
@@ -368,7 +368,7 @@
         "markup": null,
         "receiveAmount": 4118.62
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 41.8829,
         "fee": 5,
         "markup": 0.54,
@@ -386,7 +386,7 @@
         "markup": null,
         "receiveAmount": 4078.02
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 41.7713,
         "fee": 1.41,
         "markup": 0.81,
@@ -475,7 +475,7 @@
         "markup": null,
         "receiveAmount": 4107.67
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 41.8829,
         "fee": 5,
         "markup": 0.54,
@@ -493,7 +493,7 @@
         "markup": null,
         "receiveAmount": 4069.73
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 41.7713,
         "fee": 1.41,
         "markup": 0.81,
@@ -576,7 +576,7 @@
         "markup": null,
         "receiveAmount": 4126.04
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 41.8829,
         "fee": 5,
         "markup": 0.54,
@@ -594,7 +594,7 @@
         "markup": null,
         "receiveAmount": 4086.96
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 41.7713,
         "fee": 1.41,
         "markup": 0.81,
@@ -683,7 +683,7 @@
         "markup": null,
         "receiveAmount": 4140.6
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 41.8829,
         "fee": 5,
         "markup": 0.54,
@@ -701,7 +701,7 @@
         "markup": null,
         "receiveAmount": 4100.1
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 41.7713,
         "fee": 1.41,
         "markup": 0.81,
@@ -790,7 +790,7 @@
         "markup": null,
         "receiveAmount": 4126.04
       },
-      "xe-money-transfer": {
+      "xe": {
         "rate": 41.8829,
         "fee": 5,
         "markup": 0.54,
@@ -808,7 +808,7 @@
         "markup": null,
         "receiveAmount": 4085.35
       },
-      "revolut-money-transfer": {
+      "revolut": {
         "rate": 41.7713,
         "fee": 1.41,
         "markup": 0.81,
