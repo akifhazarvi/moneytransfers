@@ -329,28 +329,28 @@
     "date": "2026-04-01",
     "providers": {
       "remitly": {
-        "rate": 3.0781,
+        "rate": 3.0721,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 301.68
+        "receiveAmount": 301.1
       },
       "instarem": {
-        "rate": 3.1411,
+        "rate": 3.1347,
         "fee": 0.55,
         "markup": null,
-        "receiveAmount": 312.38
+        "receiveAmount": 311.74
       },
       "hsbc-sg": {
-        "rate": 3.1303,
+        "rate": 3.1287,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 313.03
+        "receiveAmount": 312.87
       },
       "uob": {
-        "rate": 3.087,
+        "rate": 3.0793,
         "fee": 30,
         "markup": null,
-        "receiveAmount": 216.09
+        "receiveAmount": 215.55
       }
     }
   }
