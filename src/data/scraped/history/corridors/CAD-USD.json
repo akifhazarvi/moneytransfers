@@ -684,5 +684,70 @@
         "receiveAmount": 66.79
       }
     }
+  },
+  {
+    "date": "2026-04-01",
+    "providers": {
+      "remitly": {
+        "rate": 0.7147,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 71.47
+      },
+      "instarem": {
+        "rate": 0.7148,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 71.48
+      },
+      "td-bank": {
+        "rate": 0.6981,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 69.81
+      },
+      "bnc": {
+        "rate": 0.7016,
+        "fee": 5.95,
+        "markup": null,
+        "receiveAmount": 65.98
+      },
+      "xoom": {
+        "rate": 0.6965,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 67.57
+      },
+      "bmo": {
+        "rate": 0.6922,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 69.22
+      },
+      "scotiabank": {
+        "rate": 0.7002,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 68.63
+      },
+      "rbc": {
+        "rate": 0.7035,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 70.35
+      },
+      "worldremit": {
+        "rate": 0.7033,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 67.53
+      },
+      "paypal": {
+        "rate": 0.6866,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 66.61
+      }
+    }
   }
 ]
