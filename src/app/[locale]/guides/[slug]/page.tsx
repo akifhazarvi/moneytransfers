@@ -4,6 +4,9 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
+
+// Revalidate every 24 hours — editorial content changes infrequently
+export const revalidate = 86400;
 import Breadcrumb from "@/components/Breadcrumb";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";

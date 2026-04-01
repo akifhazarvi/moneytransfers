@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+
+// Revalidate every 6 hours — matches scraper cadence
+export const revalidate = 21600;
 import Container from "@/components/Container";
 import CircleFlag from "@/components/CircleFlag";
 import CrossLinks from "@/components/CrossLinks";

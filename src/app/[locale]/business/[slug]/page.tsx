@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Container from "@/components/Container";
 import { businessPages, getBusinessPage } from "@/data/business-pages";
+
+// Revalidate every 24 hours — editorial content changes infrequently
+export const revalidate = 86400;
 import { sanitizeHtml } from "@/lib/sanitize";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";

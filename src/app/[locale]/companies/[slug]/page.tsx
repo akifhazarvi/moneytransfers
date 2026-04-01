@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { providers, getProviderName } from "@/data/providers";
+
+// Revalidate every 6 hours — matches scraper cadence
+export const revalidate = 21600;
 import { getProviderReview } from "@/data/provider-reviews";
 import Container from "@/components/Container";
 import Card from "@/components/Card";

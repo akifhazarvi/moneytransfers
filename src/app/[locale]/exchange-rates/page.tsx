@@ -3,6 +3,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
+
+// Revalidate every 6 hours — matches scraper cadence
+export const revalidate = 21600;
 import { getAlternates } from "@/lib/i18n-metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

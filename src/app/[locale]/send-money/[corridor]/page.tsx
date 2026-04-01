@@ -8,6 +8,9 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import CrossLinks from "@/components/CrossLinks";
+
+// Revalidate every 6 hours — matches scraper cadence
+export const revalidate = 21600;
 import CircleFlag from "@/components/CircleFlag";
 import {
   providers,

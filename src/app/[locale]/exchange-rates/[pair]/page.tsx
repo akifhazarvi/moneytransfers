@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
+
+// Revalidate every 6 hours — matches scraper cadence
+export const revalidate = 21600;
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import CircleFlag from "@/components/CircleFlag";
 import { getAlternates } from "@/lib/i18n-metadata";

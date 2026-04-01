@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { providers, generateQuotes } from "@/data/providers";
+
+// Revalidate every 6 hours — matches scraper cadence
+export const revalidate = 21600;
 import { getGoUrl } from "@/lib/affiliate";
 import { getComparisonArticle } from "@/data/comparison-articles";
 import { generateComparisonContent } from "@/lib/comparison-content";
@@ -34,14 +37,29 @@ function parseSlug(slug: string) {
   return { a, b };
 }
 
+// Only pre-render comparisons with editorial articles + top provider pairs.
+// All other valid pairs still work at runtime via ISR (dynamicParams = true by default).
+const TOP_PROVIDERS = ["wise", "remitly", "western-union", "moneygram", "revolut", "xe", "worldremit", "paypal", "xoom"];
+
 export async function generateStaticParams() {
-  const params: { slug: string }[] = [];
-  for (let i = 0; i < providers.length; i++) {
-    for (let j = i + 1; j < providers.length; j++) {
-      params.push({ slug: `${providers[i].slug}-vs-${providers[j].slug}` });
+  const params = new Set<string>();
+
+  // 1. All editorial article slugs (hand-written content — always pre-render)
+  const { comparisonArticles } = await import("@/data/comparison-articles");
+  for (const article of comparisonArticles) {
+    params.add(article.slug);
+  }
+
+  // 2. Top provider pairs (high-traffic comparisons)
+  for (let i = 0; i < TOP_PROVIDERS.length; i++) {
+    for (let j = i + 1; j < TOP_PROVIDERS.length; j++) {
+      const a = providers.find((p) => p.slug === TOP_PROVIDERS[i]);
+      const b = providers.find((p) => p.slug === TOP_PROVIDERS[j]);
+      if (a && b) params.add(`${a.slug}-vs-${b.slug}`);
     }
   }
-  return params;
+
+  return Array.from(params).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
