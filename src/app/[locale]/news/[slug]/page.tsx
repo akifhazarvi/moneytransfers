@@ -103,7 +103,8 @@ export default async function NewsArticlePage({ params }: Props) {
             headline: item.title,
             description: item.excerpt,
             datePublished: item.publishedAt,
-            dateModified: item.publishedAt,
+            dateModified: item.updatedAt || item.publishedAt,
+            mainEntityOfPage: { "@type": "WebPage", "@id": `https://sendmoneycompare.com/news/${item.slug}` },
             ...(item.image && { image: `https://sendmoneycompare.com${item.image}` }),
             author: { "@type": "Person", name: "Daniel Rowe", url: "https://sendmoneycompare.com/about/daniel-rowe" },
             publisher: {

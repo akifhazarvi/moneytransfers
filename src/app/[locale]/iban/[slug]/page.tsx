@@ -676,6 +676,21 @@ export default async function IbanCountryPage({ params }: Props) {
       </div>
     </Container>
 
+    {/* WebPage JSON-LD */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: `${name} IBAN: ${country.ibanLength}-Character Format, Example & Bank Code`,
+          url: `https://sendmoneycompare.com/iban/${slug}`,
+          isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+          about: { "@type": "Country", name },
+        }),
+      }}
+    />
+
     {/* BreadcrumbList JSON-LD */}
     <script
       type="application/ld+json"

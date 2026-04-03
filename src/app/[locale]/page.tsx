@@ -131,23 +131,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
   };
 
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://sendmoneycompare.com/#website",
-    name: "SendMoneyCompare",
-    alternateName: "Send Money Compare",
-    url: "https://sendmoneycompare.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://sendmoneycompare.com/api/search?q={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
-  };
-
   const homeBreadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -168,10 +151,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}

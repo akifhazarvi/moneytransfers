@@ -181,7 +181,7 @@ function ArticleComparison({
             "@type": "Article",
             headline: article.title,
             description: article.metaDescription,
-            datePublished: article.updatedAt,
+            datePublished: "2026-03-14",
             dateModified: article.updatedAt,
             author: { "@type": "Person", name: "Daniel Rowe", url: "https://sendmoneycompare.com/about/daniel-rowe" },
             publisher: {

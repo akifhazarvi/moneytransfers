@@ -1384,8 +1384,8 @@ export const blogPosts: BlogPost[] = [
         content: `<p>International remittances have continued their steady growth:</p>
 <ul>
 <li><strong>Total global remittances</strong>: $860 billion in 2025. Global remittance flows reached this estimate per the <a href="https://www.knomad.org/publication/migration-and-development-brief" target="_blank" rel="noopener noreferrer">KNOMAD Migration and Development Brief</a>.</li>
-<li><strong>Year-over-year growth</strong>: 3.8%, outpacing global GDP growth</li>
-<li><strong>Remittances to low- and middle-income countries</strong>: $685 billion — larger than foreign direct investment (FDI) for these countries</li>
+<li><strong>Year-over-year growth</strong>: 3.8%, outpacing global GDP growth (<a href="https://www.knomad.org/publication/migration-and-development-brief" target="_blank" rel="noopener noreferrer">KNOMAD, 2025</a>)</li>
+<li><strong>Remittances to low- and middle-income countries</strong>: $685 billion — larger than foreign direct investment (FDI) for these countries (<a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank, 2025</a>)</li>
 </ul>
 <p>For many developing nations, remittances represent 10–30% of GDP, making them a critical economic lifeline.</p>`,
       },
@@ -1435,7 +1435,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Digital Transformation Trends",
         content: `<p>The money transfer industry is undergoing rapid digital transformation:</p>
 <h3>Mobile-First Transfers</h3>
-<p>Over 65% of remittance transactions now originate from a mobile app, up from 40% in 2020. Mobile wallets (M-Pesa, GCash, bKash) are increasingly popular as delivery methods in developing countries.</p>
+<p>Over 65% of remittance transactions now originate from a mobile app, up from 40% in 2020, according to <a href="https://www.gsma.com/sotir/" target="_blank" rel="noopener noreferrer nofollow">GSMA State of the Industry Report</a>. Mobile wallets (M-Pesa, GCash, bKash) are increasingly popular as delivery methods in developing countries.</p>
 <h3>Real-Time Payments</h3>
 <p>Countries launching real-time payment systems (UPI in India, Pix in Brazil, FPS in UK) enable instant international transfers. Wise and Remitly already leverage these for same-day delivery. In 2026, <a href="/guides/eu-instant-payments-2026">the EU's Instant Payments Regulation is making 10-second euro transfers mandatory</a> — a game-changer for cross-border costs across the eurozone. Meanwhile, falling <a href="/guides/how-euribor-affects-euro-transfers">Euribor rates</a> are reshaping euro transfer pricing as the ECB's easing cycle continues.</p>
 <h3>Cryptocurrency and Stablecoins</h3>
@@ -1509,7 +1509,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What are the average remittance fees in 2025 and 2026?",
         answer:
-          "The global average cost of sending $200 internationally was approximately 5.8% in 2025, according to World Bank data. This remains above the UN's Sustainable Development Goal target of 3% by 2030. However, costs vary dramatically by corridor: Sub-Saharan Africa averages 7.9%, while South Asia averages 4.3%. Digital-first providers like Wise average just 0.7% total cost, dramatically cheaper than the global average.",
+          "The global average cost of sending $200 internationally was approximately 5.8% in 2025, according to World Bank Remittance Prices Worldwide data. This remains above the UN's Sustainable Development Goal target of 3% by 2030. However, costs vary dramatically by corridor: Sub-Saharan Africa averages 7.9% and South Asia averages 4.3% (World Bank RPW, 2025). Digital-first providers like Wise average just 0.7% total cost, dramatically cheaper than the global average.",
       },
     ],
     relatedSlugs: [

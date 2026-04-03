@@ -5,6 +5,7 @@ export interface NewsItem {
   content: string; // HTML
   category: "Industry News" | "Provider Update" | "Announcement" | "Regulatory";
   publishedAt: string;
+  updatedAt?: string; // ISO date — if content was revised after publication
   image?: string; // path to hero image
   imageAlt?: string;
   source?: string;
@@ -58,6 +59,7 @@ export const newsItems: NewsItem[] = [
 <p>Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> is especially important during volatile weeks — providers absorb or pass on currency swings very differently. If you hold multiple currencies, our guide on <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts</a> explains which products give you the most flexibility. Our <a href="/send-money">comparison tool</a> shows live rates and fees, so you can see exactly how much your recipient receives — before and after central banks have their say. For broader context, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-17",
+    updatedAt: "2026-03-31",
     source: "Reuters / Bank of England / Federal Reserve",
     sourceUrl: "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes",
     providerSlugs: ["wise", "xe", "revolut"],
