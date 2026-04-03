@@ -334,37 +334,37 @@
         "rate": 1.0389,
         "fee": 2.49,
         "markup": null,
-        "receiveAmount": 101.3
+        "receiveAmount": 101.31
       },
       "postfinance": {
-        "rate": 1.0718,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 107.18
-      },
-      "zkb": {
         "rate": 1.0712,
         "fee": 0,
         "markup": null,
         "receiveAmount": 107.12
       },
-      "raiffeisen-ch": {
-        "rate": 1.0655,
-        "fee": 5,
-        "markup": null,
-        "receiveAmount": 101.22
-      },
-      "western-union": {
-        "rate": 1.0598,
+      "zkb": {
+        "rate": 1.0708,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 105.98
+        "receiveAmount": 107.08
+      },
+      "raiffeisen-ch": {
+        "rate": 1.0648,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 101.16
+      },
+      "western-union": {
+        "rate": 1.0592,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 105.92
       },
       "wise": {
-        "rate": 1.0848,
+        "rate": 1.0844,
         "fee": 1.44,
         "markup": null,
-        "receiveAmount": 106.92
+        "receiveAmount": 106.88
       }
     }
   }
