@@ -411,5 +411,34 @@
         "receiveAmount": 300.65
       }
     }
+  },
+  {
+    "date": "2026-04-04",
+    "providers": {
+      "uob": {
+        "rate": 3.0851,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 215.96
+      },
+      "hsbc-sg": {
+        "rate": 3.131,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 313.1
+      },
+      "remitly": {
+        "rate": 3.0677,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 300.67
+      },
+      "instarem": {
+        "rate": 3.1269,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 310.97
+      }
+    }
   }
 ]
