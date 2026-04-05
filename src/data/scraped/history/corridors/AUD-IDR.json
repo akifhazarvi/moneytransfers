@@ -266,5 +266,40 @@
         "receiveAmount": 1162416.72
       }
     }
+  },
+  {
+    "date": "2026-04-05",
+    "providers": {
+      "nab": {
+        "rate": 11298.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1129850
+      },
+      "western-union": {
+        "rate": 11667.3053,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 1131845.29
+      },
+      "instarem": {
+        "rate": 11706.11,
+        "fee": 0.7,
+        "markup": null,
+        "receiveAmount": 1162416.72
+      },
+      "commonwealth-bank": {
+        "rate": 11081.6064,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1108160.64
+      },
+      "remitly": {
+        "rate": 11459.8964,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1134644.34
+      }
+    }
   }
 ]
