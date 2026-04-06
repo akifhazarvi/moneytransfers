@@ -1,15 +1,38 @@
 import { NextResponse } from "next/server";
 import { providers, generateQuotes, currencies, getProviderName } from "@/data/providers";
 
+/** CORS origins allowed to call this API (ChatGPT Actions, etc.) */
+const ALLOWED_ORIGINS = [
+  "https://chat.openai.com",
+  "https://chatgpt.com",
+  "https://sendmoneycompare.com",
+];
+
+function corsHeaders(origin: string | null) {
+  const allowedOrigin = origin && ALLOWED_ORIGINS.some((o) => origin.startsWith(o)) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, openai-conversation-id, openai-ephemeral-user-id",
+  };
+}
+
+/** Handle CORS preflight */
+export async function OPTIONS(request: Request) {
+  const origin = request.headers.get("origin");
+  return new NextResponse(null, { status: 204, headers: corsHeaders(origin) });
+}
+
 /**
  * AI-friendly API endpoint that returns structured data about providers,
  * corridors, and live quotes. Designed for consumption by AI crawlers,
- * ChatGPT plugins, and other LLM-powered tools.
+ * ChatGPT Custom GPTs, and other LLM-powered tools.
  *
  * GET /api/ai — returns provider summaries + top corridor data
  * GET /api/ai?from=USD&to=INR&amount=1000 — returns live quotes for a corridor
  */
 export async function GET(request: Request) {
+  const origin = request.headers.get("origin");
   const { searchParams } = new URL(request.url);
   const from = searchParams.get("from")?.toUpperCase();
   const to = searchParams.get("to")?.toUpperCase();
@@ -20,7 +43,7 @@ export async function GET(request: Request) {
     const validFrom = currencies.find((c) => c.code === from);
     const validTo = currencies.find((c) => c.code === to);
     if (!validFrom || !validTo) {
-      return NextResponse.json({ error: `Invalid currency. Supported: ${currencies.map((c) => c.code).join(", ")}` }, { status: 400 });
+      return NextResponse.json({ error: `Invalid currency. Supported: ${currencies.map((c) => c.code).join(", ")}` }, { status: 400, headers: corsHeaders(origin) });
     }
 
     const quotes = generateQuotes(amount, from, to);
@@ -42,6 +65,7 @@ export async function GET(request: Request) {
       compareUrl: `https://sendmoneycompare.com/send-money/${from.toLowerCase()}-to-${to.toLowerCase()}`,
     }, {
       headers: {
+        ...corsHeaders(origin),
         "Cache-Control": "public, max-age=3600, stale-while-revalidate=21600",
         "X-Robots-Tag": "noindex",
       },
@@ -83,6 +107,7 @@ export async function GET(request: Request) {
     timestamp: new Date().toISOString(),
   }, {
     headers: {
+      ...corsHeaders(origin),
       "Cache-Control": "public, max-age=3600, stale-while-revalidate=21600",
       "X-Robots-Tag": "noindex",
     },

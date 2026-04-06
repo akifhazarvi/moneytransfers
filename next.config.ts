@@ -82,6 +82,11 @@ const nextConfig: NextConfig = {
         destination: "/llms.txt",
         permanent: true,
       },
+      {
+        source: "/.well-known/openapi.json",
+        destination: "/openapi.json",
+        permanent: true,
+      },
     ];
   },
 };

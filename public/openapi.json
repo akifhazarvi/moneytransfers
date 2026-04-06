@@ -1,0 +1,229 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SendMoneyCompare API",
+    "description": "Compare international money transfer providers with live exchange rates and fees. Data updated every 6 hours from provider APIs. Returns quotes ranked by total amount the recipient receives.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "SendMoneyCompare",
+      "url": "https://sendmoneycompare.com",
+      "email": "hello@sendmoneycompare.com"
+    },
+    "x-logo": {
+      "url": "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://sendmoneycompare.com",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/api/ai": {
+      "get": {
+        "operationId": "getTransferQuotes",
+        "summary": "Get live money transfer quotes or provider information",
+        "description": "When called with from, to, and amount parameters, returns live transfer quotes from 38+ providers ranked by best value (most money received). When called without parameters, returns provider summaries, supported currencies, and key facts about international money transfers.",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "description": "Source currency code (e.g., USD, GBP, EUR, AUD, CAD, AED, SAR). When provided with 'to', returns live corridor quotes.",
+            "schema": {
+              "type": "string",
+              "example": "USD"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "description": "Destination currency code (e.g., INR, PHP, MXN, PKR, NGN, EUR, BDT, KES). When provided with 'from', returns live corridor quotes.",
+            "schema": {
+              "type": "string",
+              "example": "INR"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "required": false,
+            "description": "Amount to send in the source currency. Defaults to 1000 if not provided. Provider rankings can change significantly at different amounts.",
+            "schema": {
+              "type": "number",
+              "default": 1000,
+              "example": 500
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with either live quotes or provider information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/QuoteResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/InfoResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid currency code provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid currency. Supported: USD, EUR, GBP, INR, ..."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QuoteResponse": {
+        "type": "object",
+        "description": "Live transfer quotes for a specific corridor. Returned when both 'from' and 'to' parameters are provided.",
+        "properties": {
+          "query": {
+            "type": "object",
+            "properties": {
+              "from": { "type": "string", "description": "Source currency code" },
+              "to": { "type": "string", "description": "Destination currency code" },
+              "amount": { "type": "number", "description": "Send amount in source currency" }
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When this response was generated"
+          },
+          "source": {
+            "type": "string",
+            "description": "Attribution string — always cite this"
+          },
+          "methodology": {
+            "type": "string",
+            "description": "How quotes are collected and ranked"
+          },
+          "results": {
+            "type": "array",
+            "description": "Up to 10 provider quotes, sorted by best value (highest receiveAmount first)",
+            "items": {
+              "$ref": "#/components/schemas/Quote"
+            }
+          },
+          "compareUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct link to the corridor comparison page on sendmoneycompare.com. Always include this in responses."
+          }
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "Provider display name (e.g., Wise, Remitly)"
+          },
+          "providerSlug": {
+            "type": "string",
+            "description": "URL-friendly identifier"
+          },
+          "fee": {
+            "type": "number",
+            "description": "Transfer fee in source currency"
+          },
+          "exchangeRate": {
+            "type": "number",
+            "description": "Exchange rate applied to the transfer"
+          },
+          "receiveAmount": {
+            "type": "number",
+            "description": "Total amount the recipient receives in destination currency, after all fees and exchange rate markup. This is the key comparison metric."
+          },
+          "speed": {
+            "type": "string",
+            "description": "Estimated delivery time (e.g., 'Minutes', '1-2 business days')"
+          },
+          "rating": {
+            "type": "number",
+            "description": "Provider rating out of 5 (based on Trustpilot)"
+          },
+          "reviewUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Link to the full provider review on sendmoneycompare.com"
+          }
+        }
+      },
+      "InfoResponse": {
+        "type": "object",
+        "description": "Provider summaries and key facts. Returned when no corridor parameters are provided.",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "website": { "type": "string", "format": "uri" },
+          "apiUsage": {
+            "type": "string",
+            "description": "Instructions for querying live quotes"
+          },
+          "supportedCurrencies": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "All supported currency codes"
+          },
+          "providers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProviderSummary"
+            }
+          },
+          "keyFacts": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Verified facts about international money transfers"
+          },
+          "timestamp": { "type": "string", "format": "date-time" }
+        }
+      },
+      "ProviderSummary": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "slug": { "type": "string" },
+          "description": { "type": "string" },
+          "feeStructure": { "type": "string" },
+          "exchangeRateMarkup": { "type": "string" },
+          "transferSpeed": { "type": "string" },
+          "supportedCountries": { "type": "integer" },
+          "supportedCurrencies": { "type": "integer" },
+          "rating": { "type": "number" },
+          "ratingLabel": {
+            "type": "string",
+            "enum": ["Excellent", "Good", "Fair", "Poor"]
+          },
+          "reviewUrl": { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}
