@@ -2021,6 +2021,286 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
     ],
   },
+
+  // ── Remitly vs Revolut ──
+  {
+    slug: "remitly-vs-revolut",
+    providerA: "remitly",
+    providerB: "revolut",
+    title: "Remitly vs Revolut 2026 — Remittance Specialist vs All-in-One Banking App",
+    metaDescription:
+      "Remitly vs Revolut for international transfers: Remitly offers Express delivery in minutes to 170+ countries. Revolut gives you a multi-currency account with interbank rates. See who saves you more.",
+    updatedAt: "2026-04-04",
+    readTime: "10 min read",
+    intro:
+      "Remitly and Revolut are both popular for sending money abroad, but they're built for different purposes. Remitly is a remittance specialist — fast delivery, cash pickup, mobile wallets, 170+ countries. Revolut is a fintech banking app — multi-currency accounts, spending cards, budgeting tools. This comparison shows where each wins on price, speed, and delivery options.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview: Remitly vs Revolut at a glance",
+        content: `<table>
+<tr><th>Feature</th><th>Remitly</th><th>Revolut</th></tr>
+<tr><td>Founded</td><td>2011 (Seattle, US)</td><td>2015 (London, UK)</td></tr>
+<tr><td>Best for</td><td>Remittances to developing countries</td><td>Multi-currency spending + travel</td></tr>
+<tr><td>Fee model</td><td>$0–$3.99 (Express) / $0.49+ (Economy)</td><td>Free tier (£1K/mo), then 0.5%</td></tr>
+<tr><td>Exchange rate</td><td>0.4%–3% markup</td><td>Interbank (weekday), 1% weekend markup</td></tr>
+<tr><td>Transfer speed</td><td>Minutes (Express) / 3–5 days (Economy)</td><td>Instant (Revolut-to-Revolut), 1–5 days (external)</td></tr>
+<tr><td>Countries</td><td>170+ destinations</td><td>36+ currencies, fewer destination countries</td></tr>
+<tr><td>Cash pickup</td><td>Yes (460,000+ locations)</td><td>No</td></tr>
+<tr><td>Mobile wallets</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>No direct mobile wallet delivery</td></tr>
+<tr><td>Multi-currency account</td><td>No</td><td>Yes (36+ currencies)</td></tr>
+<tr><td>Debit card</td><td>No</td><td>Yes (virtual + physical)</td></tr>
+<tr><td>Trustpilot</td><td>4.6/5 (108K reviews)</td><td>4.3/5 (180K reviews)</td></tr>
+<tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FCA, ECB (banking licence)</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> They serve different needs. Remitly excels at getting money to family abroad quickly and cheaply — with cash pickup and mobile wallets in developing countries. Revolut excels as a daily financial app with multi-currency spending, but its international transfer coverage is narrower.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Fees and exchange rates",
+        content: `<h3>Remitly</h3>
+<ul>
+<li><strong>Express:</strong> $2.99–$14.99 — delivers in minutes</li>
+<li><strong>Economy:</strong> $0.49–$3.99 — delivers in 3–5 days, better exchange rate</li>
+<li><strong>Exchange rate markup:</strong> 0.4%–3% depending on corridor</li>
+</ul>
+
+<h3>Revolut</h3>
+<ul>
+<li><strong>Free plan:</strong> £1,000/month of fee-free FX at interbank rate. Above that, 0.5% fee.</li>
+<li><strong>Weekend markup:</strong> 1% on major currencies, 2% on exotic currencies (Remitly has no weekend markup)</li>
+<li><strong>Paid plans:</strong> Plus (£3.99/mo), Premium (£7.99/mo), Metal (£13.99/mo) — higher free FX limits</li>
+</ul>
+
+<h3>Cost comparison on $500 to Philippines</h3>
+<table>
+<tr><th>Scenario</th><th>Remitly</th><th>Revolut</th></tr>
+<tr><td>Weekday, under £1K limit</td><td>~$3 fee + 1% markup = ~$8</td><td>~$0 (within free tier)</td></tr>
+<tr><td>Weekday, over limit</td><td>~$3 fee + 1% markup = ~$8</td><td>~$2.50 (0.5%)</td></tr>
+<tr><td>Weekend</td><td>~$3 fee + 1% markup = ~$8</td><td>~$5 (1% weekend markup)</td></tr>
+</table>
+<p><strong>Bottom line:</strong> Revolut is cheaper for small weekday transfers within the free tier. Remitly is more predictable and has no weekend penalty.</p>`,
+      },
+      {
+        id: "delivery",
+        heading: "Where Remitly wins: delivery options and reach",
+        content: `<p>This is the biggest differentiator. Remitly was built for remittances; Revolut was built for banking.</p>
+<table>
+<tr><th>Delivery method</th><th>Remitly</th><th>Revolut</th></tr>
+<tr><td><strong>Bank deposit</strong></td><td>170+ countries</td><td>~36 currencies (fewer countries)</td></tr>
+<tr><td><strong>Cash pickup</strong></td><td>460,000+ locations globally</td><td>Not available</td></tr>
+<tr><td><strong>GCash (Philippines)</strong></td><td>Yes — instant</td><td>Not available</td></tr>
+<tr><td><strong>M-Pesa (Kenya)</strong></td><td>Yes — instant</td><td>Not available</td></tr>
+<tr><td><strong>bKash (Bangladesh)</strong></td><td>Yes — instant</td><td>Not available</td></tr>
+<tr><td><strong>Easypaisa (Pakistan)</strong></td><td>Yes — instant</td><td>Not available</td></tr>
+<tr><td><strong>Home delivery</strong></td><td>Select countries</td><td>Not available</td></tr>
+<tr><td><strong>Express speed</strong></td><td>Minutes</td><td>1–5 days (external SWIFT)</td></tr>
+</table>
+<p><strong>If your recipient needs cash pickup or a mobile wallet, Revolut simply can't do it.</strong> For bank-to-bank transfers within Europe (SEPA), Revolut is fast and often free. For everything else, Remitly has far wider reach.</p>`,
+      },
+      {
+        id: "revolut-wins",
+        heading: "Where Revolut wins: multi-currency and daily banking",
+        content: `<p>Revolut offers features Remitly doesn't have:</p>
+<ul>
+<li><strong>Multi-currency account:</strong> Hold 36+ currencies and convert when rates are good</li>
+<li><strong>Local account details:</strong> Get USD, EUR, GBP receiving accounts — clients pay you like a local</li>
+<li><strong>Debit card:</strong> Spend in any currency at interbank rates (weekday)</li>
+<li><strong>Budgeting and savings vaults:</strong> Track spending, set goals, round up spare change</li>
+<li><strong>Revolut-to-Revolut transfers:</strong> Free and instant globally — if both parties have Revolut</li>
+<li><strong>Crypto and stock trading:</strong> Available within the app</li>
+</ul>
+<p><strong>For receiving payments from abroad</strong> (freelancers, businesses), Revolut's local account details are a major advantage. Remitly is a one-way sending service — you can't receive money through it.</p>`,
+      },
+      {
+        id: "verdict",
+        heading: "Verdict: Which should you use?",
+        content: `<p><strong>Choose Remitly if:</strong></p>
+<ul>
+<li>You're sending money <strong>to family in developing countries</strong> (India, Philippines, Pakistan, Nigeria, Bangladesh, Kenya, Mexico)</li>
+<li>Your recipient needs <strong>cash pickup or mobile wallet</strong> delivery</li>
+<li>You want <strong>Express delivery in minutes</strong></li>
+<li>You send <strong>on weekends</strong> (no weekend markup)</li>
+</ul>
+
+<p><strong>Choose Revolut if:</strong></p>
+<ul>
+<li>You send <strong>bank-to-bank within Europe</strong> (SEPA — free and fast)</li>
+<li>Both you and your recipient <strong>have Revolut</strong> (free, instant)</li>
+<li>You need a <strong>multi-currency account</strong> for travel or receiving payments</li>
+<li>You want an <strong>all-in-one banking app</strong> (spending, budgeting, crypto)</li>
+<li>You send <strong>small amounts on weekdays</strong> (within free tier)</li>
+</ul>
+
+<p><strong>Many people use both:</strong> Revolut for daily spending and European transfers, Remitly for sending money home to family abroad. They complement each other well.</p>
+<p>Compare both for your specific transfer: <a href="/send-money">use our comparison tool</a>.</p>`,
+      },
+    ],
+    verdict: {
+      largeTransfers: { winner: "remitly", explanation: "For large transfers to developing countries, Remitly's Express delivery and tighter exchange rate markups win. Revolut's free tier runs out quickly on large amounts." },
+      smallTransfers: { winner: "revolut", explanation: "Revolut's free FX allowance (£1,000/month) means small weekday transfers cost nothing. Remitly charges $0.49+ even on Economy tier." },
+      overall: "Remitly wins for remittances to developing countries — wider reach, cash pickup, mobile wallets, Express speed. Revolut wins for European transfers, multi-currency accounts, and daily banking. They're not really competitors — they serve different use cases.",
+    },
+    faqs: [
+      {
+        q: "Is Remitly cheaper than Revolut for international transfers?",
+        a: "It depends on the amount and destination. For small weekday transfers under £1,000/month, Revolut's free tier is cheaper. For larger amounts, weekend transfers, or destinations outside Europe (especially developing countries), Remitly is typically cheaper and offers faster delivery.",
+      },
+      {
+        q: "Can Revolut send money to GCash, M-Pesa, or bKash?",
+        a: "No. Revolut only sends to bank accounts. It cannot deliver to mobile wallets like GCash (Philippines), M-Pesa (Kenya), bKash (Bangladesh), or Easypaisa (Pakistan). For mobile wallet delivery, use Remitly, WorldRemit, or TapTap Send.",
+      },
+      {
+        q: "Does Revolut offer cash pickup?",
+        a: "No. Revolut is a digital banking app — all transfers go to bank accounts. If your recipient needs to collect cash in person, use Remitly (460,000+ locations), Western Union, or MoneyGram.",
+      },
+      {
+        q: "Which is faster for sending money abroad?",
+        a: "Remitly Express delivers in minutes to most countries. Revolut-to-Revolut is instant and free. For external bank transfers, Revolut uses SWIFT (1–5 days) while Remitly uses local payment rails (often same-day). For non-European destinations, Remitly is usually faster.",
+      },
+      {
+        q: "Can I receive money with Remitly?",
+        a: "No. Remitly is a one-way sending service. You cannot receive money through Remitly. Revolut offers local account details (USD, EUR, GBP) so clients and employers can pay you directly — making it better for freelancers and businesses.",
+      },
+    ],
+  },
+
+  // ── Remitly vs MoneyGram ──
+  {
+    slug: "remitly-vs-moneygram",
+    providerA: "remitly",
+    providerB: "moneygram",
+    title: "Remitly vs MoneyGram 2026 — Digital Speed vs Global Cash Pickup Network",
+    metaDescription:
+      "Remitly vs MoneyGram compared: Remitly delivers in minutes via app with lower fees. MoneyGram has 350,000+ cash pickup locations in 200 countries. See who saves you more.",
+    updatedAt: "2026-04-04",
+    readTime: "10 min read",
+    intro:
+      "Remitly and MoneyGram both specialize in international remittances, but they come from different eras. Remitly is a digital-first app built for smartphone users — fast delivery, competitive rates, mobile wallet support. MoneyGram is a legacy cash transfer network with 350,000+ agent locations in 200 countries. This comparison shows where each wins and when to use which.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview: Remitly vs MoneyGram at a glance",
+        content: `<table>
+<tr><th>Feature</th><th>Remitly</th><th>MoneyGram</th></tr>
+<tr><td>Founded</td><td>2011 (Seattle, US)</td><td>1940 (Dallas, US)</td></tr>
+<tr><td>Best for</td><td>Digital remittances, Express speed</td><td>Cash-based transfers, global reach</td></tr>
+<tr><td>Fee model</td><td>$0–$3.99 (Express) / $0.49+ (Economy)</td><td>$0–$10+ (varies by corridor)</td></tr>
+<tr><td>Exchange rate</td><td>0.4%–3% markup</td><td>0.4%–2% markup</td></tr>
+<tr><td>Transfer speed</td><td>Minutes (Express) / 3–5 days (Economy)</td><td>Minutes (cash) / 1–3 days (bank)</td></tr>
+<tr><td>Destination countries</td><td>170+</td><td>200+</td></tr>
+<tr><td>Cash pickup locations</td><td>460,000+</td><td>350,000+</td></tr>
+<tr><td>Send from</td><td>App or website</td><td>App, website, or in-store</td></tr>
+<tr><td>Fund with cash</td><td>No (digital only)</td><td>Yes (walk-in service)</td></tr>
+<tr><td>Mobile wallets</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>Limited mobile wallet support</td></tr>
+<tr><td>Multi-currency account</td><td>No</td><td>No</td></tr>
+<tr><td>Trustpilot</td><td>4.6/5 (108K reviews)</td><td>4.1/5 (14K reviews)</td></tr>
+<tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FinCEN, FCA, various</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> Remitly is cheaper for digital senders. MoneyGram is essential for people who need to send or receive cash in person. If you have a smartphone and bank account, Remitly is almost always the better value.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Fees and exchange rates: Remitly wins on cost",
+        content: `<p>Both providers charge a transfer fee plus an exchange rate markup. Here's how they compare:</p>
+<table>
+<tr><th>Cost component</th><th>Remitly</th><th>MoneyGram</th></tr>
+<tr><td>Transfer fee (bank-funded)</td><td>$0–$3.99</td><td>$0–$5 (online) / $5–$10 (in-store)</td></tr>
+<tr><td>Transfer fee (card-funded)</td><td>$0–$14.99</td><td>$2–$10</td></tr>
+<tr><td>Transfer fee (cash in-store)</td><td>N/A</td><td>$5–$10+</td></tr>
+<tr><td>Exchange rate markup</td><td>0.4%–3%</td><td>0.4%–2%</td></tr>
+</table>
+
+<p>MoneyGram's exchange rate is surprisingly competitive — often similar to Remitly. The cost difference comes from transfer fees, especially for in-store cash transactions.</p>
+
+<h3>Example: $500 USD to Philippines (bank-funded)</h3>
+<ul>
+<li><strong>Remitly Express:</strong> ~$3.99 fee + 1% markup = ~$9 total cost</li>
+<li><strong>MoneyGram online:</strong> ~$2 fee + 0.8% markup = ~$6 total cost</li>
+<li><strong>MoneyGram in-store:</strong> ~$8 fee + 0.8% markup = ~$12 total cost</li>
+</ul>
+<p><strong>Surprise:</strong> MoneyGram online can actually beat Remitly on some corridors. Always compare at your exact amount — use our <a href="/send-money">comparison tool</a>.</p>`,
+      },
+      {
+        id: "delivery",
+        heading: "Delivery: Both offer cash pickup, but different digital strengths",
+        content: `<table>
+<tr><th>Delivery method</th><th>Remitly</th><th>MoneyGram</th></tr>
+<tr><td>Bank deposit</td><td>170+ countries</td><td>200+ countries</td></tr>
+<tr><td>Cash pickup</td><td>460,000+ locations</td><td>350,000+ locations</td></tr>
+<tr><td>GCash (Philippines)</td><td>Yes — instant</td><td>No</td></tr>
+<tr><td>M-Pesa (Kenya)</td><td>Yes — instant</td><td>Limited</td></tr>
+<tr><td>bKash (Bangladesh)</td><td>Yes — instant</td><td>No</td></tr>
+<tr><td>Express (minutes)</td><td>Yes — most corridors</td><td>Cash pickup only</td></tr>
+<tr><td>Economy (cheap, slow)</td><td>Yes — 3–5 days</td><td>No equivalent tier</td></tr>
+<tr><td>In-store sending</td><td>No</td><td>Yes — walk-in service</td></tr>
+</table>
+<p><strong>Remitly's edge:</strong> Mobile wallet delivery (GCash, bKash, M-Pesa) and the two-tier Express/Economy system. MoneyGram's edge: walk-in service for cash senders and slightly wider country coverage (200+ vs 170+).</p>`,
+      },
+      {
+        id: "cash",
+        heading: "When MoneyGram is the right choice",
+        content: `<p>Despite Remitly's digital advantages, MoneyGram wins in specific scenarios:</p>
+<ul>
+<li><strong>You want to pay with cash.</strong> If you don't have a bank account or prefer cash, MoneyGram's walk-in service is the only option. Remitly is digital-only. Note: the <a href="/guides/us-remittance-tax-2026">US 1% remittance tax</a> now applies to cash-funded transfers.</li>
+<li><strong>Your recipient is in a very remote area.</strong> MoneyGram's 350,000+ locations in 200+ countries include some regions Remitly doesn't reach.</li>
+<li><strong>You want online MoneyGram for the rate.</strong> MoneyGram's online platform sometimes beats Remitly on exchange rates for specific corridors. Always compare.</li>
+<li><strong>Your recipient needs cash quickly and has no mobile wallet.</strong> Both offer minutes-fast cash pickup, but MoneyGram has decades of trust in developing countries.</li>
+</ul>`,
+      },
+      {
+        id: "verdict",
+        heading: "Verdict",
+        content: `<p><strong>Choose Remitly if:</strong></p>
+<ul>
+<li>You send digitally (app or website) — better fees and faster delivery</li>
+<li>Your recipient uses <strong>mobile wallets</strong> (GCash, bKash, M-Pesa, Easypaisa)</li>
+<li>You want <strong>Express delivery in minutes</strong> to a bank account</li>
+<li>You want the <strong>Economy option</strong> to save money on non-urgent transfers</li>
+</ul>
+
+<p><strong>Choose MoneyGram if:</strong></p>
+<ul>
+<li>You need to <strong>send cash in person</strong> at a walk-in location</li>
+<li>Your recipient is in a <strong>very remote area</strong> where digital providers don't reach</li>
+<li>MoneyGram's <strong>online rate beats Remitly</strong> on your specific corridor (check first)</li>
+</ul>
+
+<p>For most digital senders, Remitly offers better value. But MoneyGram fills a critical gap for cash-based senders and the hardest-to-reach destinations. <a href="/send-money">Compare both live</a>.</p>`,
+      },
+    ],
+    verdict: {
+      largeTransfers: { winner: "remitly", explanation: "Remitly's Economy tier and tighter exchange rates save more on large digital transfers. MoneyGram's in-store fees become proportionally smaller on large amounts but the FX markup is similar." },
+      smallTransfers: { winner: "remitly", explanation: "Remitly's $0–$3.99 fees on small Express transfers are typically lower than MoneyGram's. Exception: MoneyGram online occasionally offers $0 promotions on specific corridors." },
+      overall: "Remitly wins for digital senders — better fees, faster Express delivery, mobile wallet support, and a two-tier pricing system. MoneyGram wins for cash-based senders and the hardest-to-reach destinations. If you have a smartphone and bank account, Remitly is the better choice in most scenarios.",
+    },
+    faqs: [
+      {
+        q: "Is Remitly cheaper than MoneyGram?",
+        a: "For online/app transfers, yes — Remitly typically charges $0–$3.99 vs MoneyGram's $2–$10 fees. Exchange rate markups are similar (0.4%–3% vs 0.4%–2%). The biggest difference is MoneyGram's in-store cash fees which add $5–$10+. Always compare the total received amount at your exact amount.",
+      },
+      {
+        q: "Can I send cash with Remitly?",
+        a: "No. Remitly is digital-only — you must fund transfers from a bank account, debit card, or credit card. If you need to send money using physical cash, MoneyGram and Western Union offer in-store walk-in service.",
+      },
+      {
+        q: "Does MoneyGram support GCash or M-Pesa?",
+        a: "MoneyGram's mobile wallet support is limited compared to Remitly. Remitly directly supports GCash (Philippines), bKash (Bangladesh), M-Pesa (Kenya), and Easypaisa (Pakistan) with instant delivery. For mobile wallet remittances, Remitly is the better choice.",
+      },
+      {
+        q: "Which has more cash pickup locations?",
+        a: "Remitly claims 460,000+ locations across 170+ countries. MoneyGram has 350,000+ locations across 200+ countries. Remitly has more total locations, but MoneyGram has wider country coverage (200+ vs 170+). In major remittance corridors (India, Philippines, Mexico), both have extensive networks.",
+      },
+      {
+        q: "Is MoneyGram safe?",
+        a: "Yes. MoneyGram has been operating since 1940 and is regulated by FinCEN (US), FCA (UK), and financial authorities in 200+ countries. It has a 4.1/5 Trustpilot rating from 14,000+ reviews. Both Remitly and MoneyGram are safe, regulated services.",
+      },
+    ],
+  },
 ];
 
 export function getComparisonArticle(slug: string): ComparisonArticle | undefined {
