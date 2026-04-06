@@ -1350,16 +1350,16 @@
     "date": "2026-04-06",
     "providers": {
       "instarem": {
-        "rate": 17.7036,
+        "rate": 17.6364,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1770.36
+        "receiveAmount": 1763.64
       },
       "moneygram": {
-        "rate": 17.7642,
-        "fee": 3,
-        "markup": null,
-        "receiveAmount": 1723.13
+        "rate": 17.819,
+        "fee": 10,
+        "markup": 0.7,
+        "receiveAmount": 1603.71
       },
       "ria": {
         "rate": 17.56,
@@ -1404,10 +1404,10 @@
         "receiveAmount": 1685.88
       },
       "worldremit": {
-        "rate": 17.4283,
+        "rate": 17.3721,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1708.15
+        "receiveAmount": 1702.64
       },
       "paysend": {
         "rate": 17.6911,
@@ -1428,34 +1428,34 @@
         "receiveAmount": 1750.66
       },
       "wise": {
-        "rate": 17.8346,
+        "rate": 17.7802,
         "fee": 1.75,
         "markup": null,
-        "receiveAmount": 1752.25
+        "receiveAmount": 1746.9
       },
       "wells-fargo": {
-        "rate": 17.2665,
+        "rate": 17.2108,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1726.65
+        "receiveAmount": 1721.08
       },
       "chase": {
-        "rate": 17.3004,
+        "rate": 17.2447,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 1643.54
+        "receiveAmount": 1638.24
       },
       "bank-of-america": {
-        "rate": 17.3536,
+        "rate": 17.2976,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1735.36
+        "receiveAmount": 1729.76
       },
       "remitly": {
-        "rate": 17.1737,
+        "rate": 17.1183,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1683.19
+        "receiveAmount": 1677.77
       }
     }
   }

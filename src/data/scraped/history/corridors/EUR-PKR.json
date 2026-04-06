@@ -852,28 +852,28 @@
         "receiveAmount": 32029.74
       },
       "worldremit": {
-        "rate": 318.6457,
+        "rate": 319.2393,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 31864.57
+        "receiveAmount": 31923.93
       },
       "remitly": {
-        "rate": 320.3739,
+        "rate": 320.9707,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 31720.22
+        "receiveAmount": 31779.31
       },
       "skrill": {
-        "rate": 317.7772,
+        "rate": 318.5594,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 31777.72
+        "receiveAmount": 31855.94
       },
       "instarem": {
-        "rate": 320.0039,
+        "rate": 320.4612,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 32000.39
+        "receiveAmount": 32046.12
       },
       "xoom": {
         "rate": 265.9517,
@@ -882,10 +882,16 @@
         "receiveAmount": 26595.17
       },
       "wise": {
-        "rate": 322.104,
+        "rate": 322.732,
         "fee": 2.14,
         "markup": null,
-        "receiveAmount": 31521.1
+        "receiveAmount": 31582.55
+      },
+      "deutsche-bank": {
+        "rate": 318.8895,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 20233.54
       }
     }
   }

@@ -642,70 +642,76 @@
     "date": "2026-04-06",
     "providers": {
       "santander": {
-        "rate": 2.2365,
+        "rate": 2.2369,
         "fee": 25,
         "markup": null,
-        "receiveAmount": 167.74
+        "receiveAmount": 167.76
       },
       "barclays": {
-        "rate": 2.253,
+        "rate": 2.2533,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 225.3
+        "receiveAmount": 225.33
       },
       "hsbc": {
-        "rate": 2.2894,
+        "rate": 2.2898,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 228.94
+        "receiveAmount": 228.98
       },
       "nationwide": {
-        "rate": 2.261,
+        "rate": 2.2613,
         "fee": 15,
         "markup": null,
-        "receiveAmount": 192.18
+        "receiveAmount": 192.21
       },
       "natwest": {
-        "rate": 2.2592,
+        "rate": 2.2618,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 225.92
+        "receiveAmount": 226.18
       },
       "lloyds": {
-        "rate": 2.2274,
+        "rate": 2.2277,
         "fee": 9.5,
         "markup": null,
-        "receiveAmount": 201.58
+        "receiveAmount": 201.61
       },
       "rbs": {
-        "rate": 2.2592,
+        "rate": 2.2618,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 225.92
+        "receiveAmount": 226.18
       },
       "starling": {
-        "rate": 2.3128,
+        "rate": 2.3151,
         "fee": 5.9,
         "markup": null,
-        "receiveAmount": 217.63
+        "receiveAmount": 217.85
       },
       "western-union": {
-        "rate": 2.2974,
+        "rate": 2.2978,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 222.87
+        "receiveAmount": 222.91
       },
       "paypal": {
-        "rate": 2.204,
+        "rate": 2.2073,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 213.81
+        "receiveAmount": 214.13
       },
       "xoom": {
-        "rate": 2.2738,
+        "rate": 2.2739,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 222.85
+        "receiveAmount": 222.86
+      },
+      "instarem": {
+        "rate": 2.3021,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 230.21
       }
     }
   }

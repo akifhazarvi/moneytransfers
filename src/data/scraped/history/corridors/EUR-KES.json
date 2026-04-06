@@ -396,34 +396,40 @@
         "receiveAmount": 14850
       },
       "remitly": {
-        "rate": 146.2979,
+        "rate": 146.5705,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 14338.66
+        "receiveAmount": 14365.37
       },
       "skrill": {
-        "rate": 144.938,
+        "rate": 145.8548,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14493.8
+        "receiveAmount": 14585.48
       },
       "instarem": {
-        "rate": 146.7786,
+        "rate": 146.9979,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14677.86
+        "receiveAmount": 14699.79
       },
       "xoom": {
-        "rate": 142.5936,
+        "rate": 142.624,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 13833
+        "receiveAmount": 13835.95
       },
       "wise": {
-        "rate": 149.755,
+        "rate": 150.04,
         "fee": 3.64,
         "markup": null,
-        "receiveAmount": 14430
+        "receiveAmount": 14458
+      },
+      "deutsche-bank": {
+        "rate": 147.6821,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 9370.43
       }
     }
   }

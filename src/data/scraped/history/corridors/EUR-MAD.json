@@ -606,34 +606,40 @@
         "receiveAmount": 1117.15
       },
       "taptap-send": {
-        "rate": 10.67,
+        "rate": 10.7,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1067
+        "receiveAmount": 1070
       },
       "remitly": {
-        "rate": 10.6169,
+        "rate": 10.625,
         "fee": 0.49,
         "markup": null,
-        "receiveAmount": 1056.49
+        "receiveAmount": 1057.3
       },
       "commerzbank": {
-        "rate": 10.5275,
+        "rate": 10.5356,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 921.16
+        "receiveAmount": 921.86
       },
       "xoom": {
-        "rate": 10.5332,
+        "rate": 10.5174,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 1037.63
+        "receiveAmount": 1036.07
       },
       "wise": {
-        "rate": 10.8545,
+        "rate": 10.8469,
         "fee": 6.05,
         "markup": null,
-        "receiveAmount": 1019.78
+        "receiveAmount": 1019.07
+      },
+      "deutsche-bank": {
+        "rate": 10.601,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 672.64
       }
     }
   }
