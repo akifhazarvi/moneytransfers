@@ -1122,10 +1122,10 @@
     "date": "2026-04-06",
     "providers": {
       "remitly": {
-        "rate": 0.862,
+        "rate": 0.8623,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 84.48
+        "receiveAmount": 84.51
       },
       "taptap-send": {
         "rate": 0.867,
@@ -1134,58 +1134,58 @@
         "receiveAmount": 86.7
       },
       "worldremit": {
-        "rate": 0.8593,
+        "rate": 0.8596,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 85.08
+        "receiveAmount": 85.11
       },
       "instarem": {
-        "rate": 0.8662,
+        "rate": 0.8667,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 86.62
+        "receiveAmount": 86.67
       },
       "skrill": {
-        "rate": 0.8551,
+        "rate": 0.8556,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 85.51
+        "receiveAmount": 85.56
       },
       "commerzbank": {
-        "rate": 0.8703,
+        "rate": 0.8706,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 76.15
+        "receiveAmount": 76.18
       },
       "paypal": {
-        "rate": 0.8353,
+        "rate": 0.8358,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 80.19
+        "receiveAmount": 80.25
       },
       "xoom": {
-        "rate": 0.8153,
+        "rate": 0.815,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 79.91
+        "receiveAmount": 79.88
       },
       "monese": {
-        "rate": 0.872,
-        "fee": 4,
+        "rate": 0.8725,
+        "fee": 3,
         "markup": null,
-        "receiveAmount": 83.72
+        "receiveAmount": 84.63
       },
       "moneygram": {
-        "rate": 0.8544,
+        "rate": 0.8547,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 83.74
+        "receiveAmount": 83.77
       },
       "wise": {
-        "rate": 0.8723,
+        "rate": 0.8726,
         "fee": 1.45,
         "markup": null,
-        "receiveAmount": 85.96
+        "receiveAmount": 85.99
       }
     }
   }
