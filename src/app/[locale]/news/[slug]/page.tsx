@@ -106,12 +106,19 @@ export default async function NewsArticlePage({ params }: Props) {
             dateModified: item.updatedAt || item.publishedAt,
             mainEntityOfPage: { "@type": "WebPage", "@id": `https://sendmoneycompare.com/news/${item.slug}` },
             ...(item.image && { image: `https://sendmoneycompare.com${item.image}` }),
-            author: { "@type": "Person", name: "Daniel Rowe", url: "https://sendmoneycompare.com/about/daniel-rowe" },
+            author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+            reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
+            isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/news" },
+            about: { "@type": "Thing", name: "International Money Transfer" },
             publisher: {
               "@type": "Organization",
               name: "SendMoneyCompare",
               "@id": "https://sendmoneycompare.com/#organization",
               logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
+            },
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["article h1", "article h2"],
             },
           }),
         }}

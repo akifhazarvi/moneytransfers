@@ -7,6 +7,7 @@ export interface ProviderReview {
   slug: string;
   title: string;
   metaDescription: string;
+  publishedAt: string;
   updatedAt: string;
   lastVerified: string;
   readTime: string;
@@ -27,11 +28,12 @@ export const providerReviews: ProviderReview[] = [
     title: "Wise Review 2026 — Fees, Exchange Rates & Speed",
     metaDescription:
       "In-depth Wise review covering fees, exchange rates, transfer speed, supported countries, payment methods, pros and cons. Based on real transfer data and 280,000+ Trustpilot reviews.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-14",
     lastVerified: "2026-03-17",
     readTime: "12 min read",
     editorRating: 9.2,
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested: "We sent 12 test transfers through Wise across 6 corridors (USD→INR, USD→EUR, GBP→EUR, USD→PHP, AUD→INR, GBP→INR) between January and March 2026. Each transfer was funded via both bank transfer and debit card to verify fee differences. We confirmed that the exchange rate matched the mid-market rate on xe.com at the time of each transfer within a 0.01% tolerance. Delivery times were tracked from funding confirmation to recipient notification. Our automated scraping system also collects Wise quotes every 6 hours across all supported corridors, giving us over 10,000 data points per month to verify fee ranges and rate consistency.",
     editorVerdict:
@@ -43,7 +45,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Overview",
         content: `<p>Wise (formerly TransferWise) was founded in 2011 by Kristo Käärmann and Taavet Hinrikus, two Estonian entrepreneurs frustrated by the hidden costs of international banking. Their core insight — that banks add a significant markup to the exchange rate on top of their transfer fee — became the foundation of a company now serving over 16 million customers.</p>
 
-<p>Wise is publicly traded on the London Stock Exchange and is regulated by financial authorities in every market it operates in, including the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). It holds customer funds in segregated accounts, meaning your money is protected even if Wise itself ran into financial difficulty.</p>
+<p>Wise is publicly traded on the London Stock Exchange and is regulated by financial authorities in every market it operates in, including the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a> (UK), <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> (US), ASIC (Australia), and MAS (Singapore). It holds customer funds in segregated accounts, meaning your money is protected even if Wise itself ran into financial difficulty.</p>
 
 <p><strong>What makes Wise different:</strong> Unlike most transfer services that make money from exchange rate markups, Wise uses the actual mid-market rate — the same rate you see on Google or Reuters — and charges a transparent, upfront fee. This means the fee you see is the total cost. There is no hidden spread.</p>
 
@@ -116,7 +118,7 @@ export const providerReviews: ProviderReview[] = [
 
 <p><strong>Where Wise has gaps:</strong></p>
 <ul>
-<li>Some African currencies (limited coverage compared to specialists like WorldRemit)</li>
+<li>Some African currencies (limited coverage compared to specialists like <a href="/companies/worldremit">WorldRemit</a>)</li>
 <li>Cash pickup destinations — Wise only supports bank deposits</li>
 <li>Some Middle Eastern corridors have restrictions</li>
 </ul>
@@ -156,7 +158,7 @@ export const providerReviews: ProviderReview[] = [
 <li><strong>Time of day:</strong> Transfers initiated during business hours in the receiving country are generally faster.</li>
 </ul>
 
-<p><strong>How this compares:</strong> Wise is faster than banks (3–5 days typically) but slower than Remitly's Express option (minutes). For most users, 1–2 day delivery is fast enough — and the cost savings over "instant" services more than compensates.</p>`,
+<p><strong>How this compares:</strong> Wise is faster than banks (3–5 days typically) but slower than <a href="/companies/remitly">Remitly's</a> Express option (minutes). For most users, 1–2 day delivery is fast enough — and the cost savings over "instant" services more than compensates.</p>`,
       },
       {
         id: "payment-methods",
@@ -188,7 +190,7 @@ export const providerReviews: ProviderReview[] = [
 <li>Home delivery — not available</li>
 </ul>
 
-<p>This is Wise's biggest limitation for remittances to developing countries where recipients may not have bank accounts. If your recipient needs cash pickup or mobile money, consider Remitly, WorldRemit, or Western Union instead.</p>`,
+<p>This is Wise's biggest limitation for remittances to developing countries where recipients may not have bank accounts. If your recipient needs cash pickup or mobile money, consider <a href="/companies/remitly">Remitly</a>, <a href="/companies/worldremit">WorldRemit</a>, or <a href="/companies/western-union">Western Union</a> instead.</p>`,
       },
       {
         id: "reviews",
@@ -290,15 +292,16 @@ export const providerReviews: ProviderReview[] = [
     title: "Remitly Review 2026 — Fees, Speed & Delivery Options",
     metaDescription:
       "Detailed Remitly review covering fees, exchange rates, express vs economy transfers, cash pickup, mobile money, and delivery speed. Based on real transfer data and 300,000+ Trustpilot reviews.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
     readTime: "11 min read",
     editorRating: 8.8,
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested: "We sent 8 test transfers through Remitly across 4 corridors (USD→INR, USD→PHP, USD→PKR, GBP→INR) between February and March 2026, testing both Express and Economy tiers. We verified cash pickup availability by having recipients collect funds at agent locations in India and the Philippines. Express transfers consistently arrived within 15 minutes for cash pickup and mobile money. Our automated system also scrapes Remitly quotes every 6 hours, collecting over 5,000 data points monthly to track fee and rate fluctuations across corridors.",
     editorVerdict:
-      "Remitly is the best choice for personal remittances to developing countries. Its express delivery option — arriving in minutes via cash pickup or mobile money — is unmatched for urgency. The exchange rate markup means you pay more than Wise on a per-dollar basis, but the convenience of multiple delivery methods (bank deposit, cash pickup, mobile money, home delivery) makes Remitly the clear winner when your recipient doesn't have a bank account. First-time transfer promotions are generous, and the mobile app experience is excellent. For large or recurring transfers where cost matters most, Wise or OFX may be better options.",
+      `Remitly is the best choice for personal remittances to developing countries. Its express delivery option — arriving in minutes via cash pickup or mobile money — is unmatched for urgency. The exchange rate markup means you pay more than Wise on a per-dollar basis, but the convenience of multiple delivery methods (bank deposit, cash pickup, mobile money, home delivery) makes Remitly the clear winner when your recipient doesn't have a bank account. First-time transfer promotions are generous, and the mobile app experience is excellent. For large or recurring transfers where cost matters most, <a href="/companies/wise">Wise</a> or <a href="/companies/ofx">OFX</a> may be better options.`,
 
     sections: [
       {
@@ -306,7 +309,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Overview",
         content: `<p>Remitly was founded in 2011 by Matt Oppenheimer, Josh Hug, and Shivaas Gulati in Seattle, Washington. The company was built specifically for the remittance market — people sending money home to family in developing countries. Unlike broad-market transfer services, Remitly focuses on the emotional and practical realities of remittances: urgency, reliability, and reaching recipients who may not have traditional bank accounts.</p>
 
-<p>Remitly went public on the NASDAQ in 2021 and now serves customers sending money from 17 countries to over 100 receiving countries. The company is regulated by FinCEN in the United States and the FCA in the United Kingdom. In 2022, Remitly acquired Rewire (now Passbook), a digital banking platform for immigrants, signalling its expansion beyond pure remittances.</p>
+<p>Remitly went public on the NASDAQ in 2021 and now serves customers sending money from 17 countries to over 100 receiving countries. The company is regulated by <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> in the United States and the <a href="https://register.fca.org.uk/s/firm?id=001b000002e8cY1AAI" target="_blank" rel="noopener noreferrer">FCA</a> in the United Kingdom. In 2022, Remitly acquired Rewire (now Passbook), a digital banking platform for immigrants, signalling its expansion beyond pure remittances.</p>
 
 <p><strong>What makes Remitly different:</strong> Remitly's key differentiator is its delivery options. While most competitors only offer bank deposits, Remitly supports cash pickup at retail locations, mobile money transfers (M-Pesa, GCash, bKash), home delivery in select countries, and airtime top-ups. The Express option delivers money in minutes — critical when families need funds urgently.</p>
 
@@ -352,7 +355,7 @@ export const providerReviews: ProviderReview[] = [
 <tr><td>USD → NGN</td><td>1.0%–2.5%</td><td>0.5%–1.5%</td></tr>
 </table>
 
-<p><strong>How this compares:</strong> Remitly's exchange rates are significantly better than Western Union or banks, but more expensive than Wise (0% markup) or OFX (0.2%–1.5%). The premium you pay with Remitly buys speed and delivery flexibility — whether that trade-off is worth it depends on your priorities.</p>
+<p><strong>How this compares:</strong> Remitly's exchange rates are significantly better than <a href="/companies/western-union">Western Union</a> or banks, but more expensive than <a href="/companies/wise">Wise</a> (0% markup) or <a href="/companies/ofx">OFX</a> (0.2%–1.5%). The premium you pay with Remitly buys speed and delivery flexibility — whether that trade-off is worth it depends on your priorities.</p>
 
 <p><strong>Rate guarantee:</strong> Remitly locks in the quoted rate at the time of transfer. If you fund via debit card (instant), you get the shown rate. ACH funding may result in a rate adjustment if the transfer takes days to fund.</p>`,
       },
@@ -418,13 +421,13 @@ export const providerReviews: ProviderReview[] = [
 
 <p><strong>Where Remitly has gaps:</strong></p>
 <ul>
-<li>European destinations — limited compared to Wise or OFX</li>
+<li>European destinations — limited compared to <a href="/companies/wise">Wise</a> or <a href="/companies/ofx">OFX</a></li>
 <li>Intra-European transfers — not Remitly's focus</li>
 <li>Business transfers — no business account offering</li>
 <li>Major currency pairs (USD/EUR, GBP/EUR) — less competitive than specialists</li>
 </ul>
 
-<p>Remitly is designed for one-directional remittances from wealthy nations to developing countries. If you need to transfer between developed economies (e.g., US to UK, UK to EU), Wise or Revolut are better suited.</p>`,
+<p>Remitly is designed for one-directional remittances from wealthy nations to developing countries. If you need to transfer between developed economies (e.g., US to UK, UK to EU), Wise or <a href="/companies/revolut">Revolut</a> are better suited.</p>`,
       },
       {
         id: "reviews",
@@ -520,15 +523,16 @@ export const providerReviews: ProviderReview[] = [
     title: "OFX Review 2026 — Fees, Rates & Large Transfers",
     metaDescription:
       "Comprehensive OFX review covering zero fees, exchange rates, forward contracts, and large transfer capabilities. Based on real quote data and independent analysis.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
     readTime: "10 min read",
     editorRating: 8.5,
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested: "We obtained quotes from OFX for 6 corridors (USD→GBP, USD→EUR, AUD→GBP, GBP→AUD, USD→INR, AUD→INR) at multiple transfer amounts ($1,000, $10,000, $50,000) between January and March 2026. We verified that exchange rate margins tighten at higher amounts by comparing OFX's quoted rates against the mid-market rate at the time of each quote. Our automated scraping system collects OFX rates every 6 hours via their API. We also confirmed the zero-fee claim by completing test transfers and checking that no fees were deducted beyond the exchange rate spread.",
     editorVerdict:
-      "OFX is the best option for large international transfers. With zero transfer fees and competitive exchange rates that improve as your transfer size increases, OFX consistently delivers more money on transfers above $5,000 than almost any competitor. The forward contract and limit order features are genuinely useful for anyone managing currency risk. The main drawbacks are the $100 minimum transfer, bank-transfer-only funding, and a less polished user experience compared to consumer-focused apps like Wise or Remitly. For high-value personal transfers (property purchases, emigration funds) and business payments, OFX is our top recommendation.",
+      "OFX is the best option for large international transfers. With zero transfer fees and competitive exchange rates that improve as your transfer size increases, OFX consistently delivers more money on transfers above $5,000 than almost any competitor. The forward contract and limit order features are genuinely useful for anyone managing currency risk. The main drawbacks are the $100 minimum transfer, bank-transfer-only funding, and a less polished user experience compared to consumer-focused apps like <a href=\"/companies/wise\">Wise</a> or <a href=\"/companies/remitly\">Remitly</a>. For high-value personal transfers (property purchases, emigration funds) and business payments, OFX is our top recommendation.",
 
     sections: [
       {
@@ -536,7 +540,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Overview",
         content: `<p>OFX (formerly OzForex) was founded in 1998 in Sydney, Australia. It started as one of the earliest online foreign exchange companies and has grown into a global transfer service handling over AUD $100 billion in transfers since inception. OFX is listed on the Australian Securities Exchange (ASX: OFX).</p>
 
-<p>OFX is regulated by ASIC (Australia), the FCA (UK), FinCEN (US), and financial regulators in Canada, New Zealand, Hong Kong, and Singapore. This broad regulatory coverage reflects OFX's institutional-grade compliance infrastructure.</p>
+<p>OFX is regulated by ASIC (Australia), the <a href="https://register.fca.org.uk/s/firm?id=001b000000Mg5hRAAR" target="_blank" rel="noopener noreferrer">FCA</a> (UK), FinCEN (US), and financial regulators in Canada, New Zealand, Hong Kong, and Singapore. This broad regulatory coverage reflects OFX's institutional-grade compliance infrastructure.</p>
 
 <p><strong>What makes OFX different:</strong> OFX is built for larger transfers. While consumer remittance services like Remitly focus on sending $200 to family overseas, OFX specialises in the $5,000–$500,000+ range: property purchases abroad, emigration funds, inheritance transfers, business payments, and regular salary conversions. There are no transfer fees at any amount, and exchange rate spreads tighten as transfer sizes increase.</p>
 
@@ -565,7 +569,7 @@ export const providerReviews: ProviderReview[] = [
 <tr><td>Bank wire</td><td>$30–$50</td><td>3%–5%</td><td>~$330–$550</td></tr>
 </table>
 
-<p>For transfers above $10,000, OFX often beats Wise on total cost because the zero-fee model combined with tightening spreads produces better overall value at higher amounts.</p>
+<p>For transfers above $10,000, OFX often beats <a href="/companies/wise">Wise</a> on total cost because the zero-fee model combined with tightening spreads produces better overall value at higher amounts.</p>
 
 <p><strong>Minimum transfer:</strong> $100 (or equivalent). This is higher than most consumer services and reflects OFX's focus on larger transfers.</p>`,
       },
@@ -584,7 +588,7 @@ export const providerReviews: ProviderReview[] = [
 <tr><td>$50,000+</td><td>0.2%–0.4%</td><td>Highly competitive — one of the cheapest options available</td></tr>
 </table>
 
-<p><strong>Rate negotiation:</strong> OFX has a team of currency dealers who can offer improved rates for very large transfers (typically $100,000+). This is a service that fully automated platforms like Wise cannot match — having a human negotiate a better spread can save thousands on property-sized transfers.</p>
+<p><strong>Rate negotiation:</strong> OFX has a team of currency dealers who can offer improved rates for very large transfers (typically $100,000+). This is a service that fully automated platforms like <a href="/companies/wise">Wise</a> cannot match — having a human negotiate a better spread can save thousands on property-sized transfers.</p>
 
 <p><strong>Forward contracts:</strong> OFX lets you lock in today's exchange rate for a transfer that won't happen for up to 12 months. This is invaluable when you know you'll need to make a large payment in the future (e.g., a property settlement) and want to eliminate currency risk. A small deposit (typically 5%–10%) is required.</p>
 
@@ -607,9 +611,9 @@ export const providerReviews: ProviderReview[] = [
 <tr><td>AUD → INR</td><td>2–3 business days</td></tr>
 </table>
 
-<p><strong>Why OFX is slightly slower:</strong> OFX only accepts bank transfer funding, which takes 1–2 business days to clear. Unlike Wise or Remitly, you cannot fund with a debit card for instant processing. Once OFX receives your funds, the outbound transfer is typically processed within 1 business day.</p>
+<p><strong>Why OFX is slightly slower:</strong> OFX only accepts bank transfer funding, which takes 1–2 business days to clear. Unlike <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>, you cannot fund with a debit card for instant processing. Once OFX receives your funds, the outbound transfer is typically processed within 1 business day.</p>
 
-<p><strong>Is this a problem?</strong> For OFX's target use cases (property payments, business invoices, planned emigration), 1–3 days is perfectly acceptable. If you need money to arrive in minutes, OFX is not the right service — use Remitly Express or Western Union instead.</p>`,
+<p><strong>Is this a problem?</strong> For OFX's target use cases (property payments, business invoices, planned emigration), 1–3 days is perfectly acceptable. If you need money to arrive in minutes, OFX is not the right service — use Remitly Express or <a href="/companies/western-union">Western Union</a> instead.</p>`,
       },
       {
         id: "countries",
@@ -624,7 +628,7 @@ export const providerReviews: ProviderReview[] = [
 <li><strong>Business corridors:</strong> CNY (China), BRL (Brazil), ZAR (South Africa) — important for trade payments</li>
 </ul>
 
-<p><strong>Sending from:</strong> OFX accepts senders from the US, UK, Australia, Canada, New Zealand, Europe, Hong Kong, and Singapore. This is broader than Remitly but narrower than Wise for some niche send countries.</p>
+<p><strong>Sending from:</strong> OFX accepts senders from the US, UK, Australia, Canada, New Zealand, Europe, Hong Kong, and Singapore. This is broader than <a href="/companies/remitly">Remitly</a> but narrower than <a href="/companies/wise">Wise</a> for some niche send countries.</p>
 
 <p><strong>Delivery methods:</strong> Bank deposit only. OFX does not offer cash pickup, mobile money, or any alternative delivery methods. This is the trade-off for their competitive exchange rates — the infrastructure is optimised purely for bank-to-bank transfers.</p>`,
       },
@@ -735,15 +739,16 @@ export const providerReviews: ProviderReview[] = [
     title: "XE Review 2026 — Fees, Rates & Currency Coverage",
     metaDescription:
       "In-depth XE money transfer review covering fees, exchange rates, 130+ currency support, delivery speed, and how it compares to Wise and OFX. Based on real transfer data.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
     readTime: "10 min read",
     editorRating: 8.3,
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested: "We collected quotes from XE Transfer across 5 corridors (USD→GBP, USD→EUR, USD→INR, GBP→EUR, AUD→INR) between February and March 2026, comparing the transfer rate against the xe.com mid-market rate displayed at the same time to measure the actual markup. We verified the zero-fee claim on major corridors and confirmed that the exchange rate spread is XE's sole revenue source. Our automated scraping system collects XE Transfer quotes every 6 hours via browser automation, providing continuous monitoring of rate competitiveness across corridors.",
     editorVerdict:
-      "XE combines the brand trust of the world's most recognised currency website with a genuine money transfer service. The zero-fee model, 130+ currency coverage, and user-friendly rate alert system make it a solid all-rounder. Exchange rates include a markup (0.5%–1.5%), so XE isn't the cheapest option for cost-sensitive senders — Wise beats it on pure price. But for users who value brand trust, wide currency coverage, and useful tools like rate alerts and forward contracts, XE is a reliable and competent choice. It sits comfortably between Wise (cheapest) and traditional banks (most expensive).",
+      "XE combines the brand trust of the world's most recognised currency website with a genuine money transfer service. The zero-fee model, 130+ currency coverage, and user-friendly rate alert system make it a solid all-rounder. Exchange rates include a markup (0.5%–1.5%), so XE isn't the cheapest option for cost-sensitive senders — <a href=\"/companies/wise\">Wise</a> beats it on pure price. But for users who value brand trust, wide currency coverage, and useful tools like rate alerts and forward contracts, XE is a reliable and competent choice. It sits comfortably between Wise (cheapest) and traditional banks (most expensive).",
 
     sections: [
       {
@@ -753,7 +758,7 @@ export const providerReviews: ProviderReview[] = [
 
 <p>In 2015, XE was acquired by Euronet Worldwide, the same company that owns Ria Money Transfer and HiFX. Under Euronet, XE expanded from a pure information platform into a full money transfer service. This transition leveraged XE's massive brand recognition: people who had been checking rates on xe.com for years could now transfer money through the same trusted brand.</p>
 
-<p>XE is regulated by the FCA (UK), FinCEN (US), ASIC (Australia), and FINTRAC (Canada), among others. The company transfers money to 130+ countries in 130+ currencies — one of the widest currency coverage ranges in the industry.</p>
+<p>XE is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000000MfYX6AAN" target="_blank" rel="noopener noreferrer">FCA</a> (UK), <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> (US), ASIC (Australia), and FINTRAC (Canada), among others. The company transfers money to 130+ countries in 130+ currencies — one of the widest currency coverage ranges in the industry.</p>
 
 <p><strong>What makes XE different:</strong> XE's unique advantage is the combination of trusted brand recognition and exceptional currency coverage. Supporting 130+ currencies means XE can handle exotic corridors that most competitors cannot. The rate alert feature — built on decades of exchange rate data expertise — is one of the most sophisticated in the industry and genuinely helps users time their transfers for better rates.</p>`,
       },
@@ -809,7 +814,7 @@ export const providerReviews: ProviderReview[] = [
 
 <p><strong>Where XE excels:</strong></p>
 <ul>
-<li><strong>Exotic currencies:</strong> XE handles many currencies that Wise, Remitly, or Revolut don't support</li>
+<li><strong>Exotic currencies:</strong> XE handles many currencies that <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, or <a href="/companies/revolut">Revolut</a> don't support</li>
 <li><strong>Pacific Islands:</strong> FJD, TOP, WST — hard to find elsewhere</li>
 <li><strong>African currencies:</strong> Broader coverage than most competitors</li>
 <li><strong>Middle Eastern currencies:</strong> Good support for BHD, OMR, QAR, KWD</li>
@@ -936,15 +941,16 @@ export const providerReviews: ProviderReview[] = [
     title: "Western Union Review 2026 — Fees, Speed & Cash Pickup",
     metaDescription:
       "Honest Western Union review covering fees, exchange rates, cash pickup network, delivery speed, and when it's worth the premium. Based on real transfer data from 60+ providers.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
     readTime: "11 min read",
     editorRating: 7.2,
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested: "We sent 6 test transfers through Western Union across 3 corridors (USD→INR, USD→PKR, GBP→INR) between January and March 2026, testing both online and in-store pricing to verify the cost difference. Cash pickup transfers were collected at agent locations in Pakistan and India to confirm availability and speed. We compared Western Union's quoted exchange rates against the mid-market rate to measure the actual markup at different transfer amounts. Our automated scraping system collects Western Union quotes every 6 hours via browser automation, capturing both fee and exchange rate data across all supported corridors.",
     editorVerdict:
-      "Western Union remains the undisputed leader for cash pickup transfers. With over 500,000 agent locations in 200+ countries, it reaches destinations that no digital-only service can match. However, this convenience comes at a significant cost — exchange rate markups of 1%–4% and fees of $0–$10+ make Western Union one of the more expensive options for standard bank-to-bank transfers. Our recommendation: use Western Union when you specifically need cash pickup in a remote location or when no other provider covers your corridor. For bank deposit transfers, Wise, OFX, or Remitly will almost always deliver more money to your recipient.",
+      "Western Union remains the undisputed leader for cash pickup transfers. With over 500,000 agent locations in 200+ countries, it reaches destinations that no digital-only service can match. However, this convenience comes at a significant cost — exchange rate markups of 1%–4% and fees of $0–$10+ make Western Union one of the more expensive options for standard bank-to-bank transfers. Our recommendation: use Western Union when you specifically need cash pickup in a remote location or when no other provider covers your corridor. For bank deposit transfers, <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/ofx\">OFX</a>, or <a href=\"/companies/remitly\">Remitly</a> will almost always deliver more money to your recipient.",
 
     sections: [
       {
@@ -952,7 +958,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Overview",
         content: `<p>Western Union is the oldest money transfer company in the world, founded in 1851 in Denver, Colorado. Originally a telegraph company, Western Union pivoted to money transfers in 1871 and has been the dominant player in international remittances for over 150 years.</p>
 
-<p>Western Union is publicly traded on the NYSE (ticker: WU) with a market capitalisation of several billion dollars. The company is regulated by FinCEN (US), the FCA (UK), and financial authorities in virtually every country it operates in. Its compliance infrastructure is among the most extensive in the industry — a necessity given the volume and geographic reach of its operations.</p>
+<p>Western Union is publicly traded on the NYSE (ticker: WU) with a market capitalisation of several billion dollars. The company is regulated by <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> (US), the <a href="https://register.fca.org.uk/s/firm?id=001b000000MfgqRAAR" target="_blank" rel="noopener noreferrer">FCA</a> (UK), and financial authorities in virtually every country it operates in. Its compliance infrastructure is among the most extensive in the industry — a necessity given the volume and geographic reach of its operations.</p>
 
 <p><strong>What makes Western Union different:</strong> Western Union's core asset is its physical agent network: over <strong>500,000 locations</strong> in <strong>200+ countries and territories</strong>. This includes banks, post offices, pharmacies, convenience stores, and dedicated Western Union offices. This network means that even in remote villages in Sub-Saharan Africa, Central Asia, or the Pacific Islands, there is often a Western Union agent within reach.</p>
 
@@ -976,7 +982,7 @@ export const providerReviews: ProviderReview[] = [
 
 <p><strong>In-store fees are significantly higher</strong> — often $5–$15+ even for moderate transfers. This is one of the biggest pricing pitfalls: many people visit a Western Union agent without realising that the same transfer would be cheaper online.</p>
 
-<p><strong>The hidden cost — exchange rate markup:</strong> The transfer fee is only part of the cost. Western Union applies a markup of 1%–4% to the exchange rate, which on a $1,000 transfer adds $10–$40 in hidden charges. Combined with the transfer fee, the total cost can be $15–$50 on a $1,000 transfer — significantly more than Wise ($4–$8) or Remitly ($7–$25).</p>
+<p><strong>The hidden cost — exchange rate markup:</strong> The transfer fee is only part of the cost. Western Union applies a markup of 1%–4% to the exchange rate, which on a $1,000 transfer adds $10–$40 in hidden charges. Combined with the transfer fee, the total cost can be $15–$50 on a $1,000 transfer — significantly more than <a href="/companies/wise">Wise</a> ($4–$8) or <a href="/companies/remitly">Remitly</a> ($7–$25).</p>
 
 <p><strong>Promotions:</strong> Western Union regularly offers fee-free promotions for specific corridors and payment methods. These are worth watching for — when available, they can reduce costs significantly. However, the exchange rate markup still applies.</p>`,
       },
@@ -998,9 +1004,9 @@ export const providerReviews: ProviderReview[] = [
 
 <p><strong>Online vs. in-store rates:</strong> Western Union's online exchange rates are typically better than in-store rates. The in-store markup can be 0.5%–1% higher, adding even more cost. If you must use Western Union, always check the online rate first.</p>
 
-<p><strong>Why Western Union charges more:</strong> The premium pays for the physical agent network. Maintaining 500,000+ locations worldwide — paying agent commissions, managing compliance at each location, handling cash logistics — is expensive. Digital-only providers like Wise don't bear these costs, which is why they can offer better rates.</p>
+<p><strong>Why Western Union charges more:</strong> The premium pays for the physical agent network. Maintaining 500,000+ locations worldwide — paying agent commissions, managing compliance at each location, handling cash logistics — is expensive. Digital-only providers like <a href="/companies/wise">Wise</a> don't bear these costs, which is why they can offer better rates.</p>
 
-<p><strong>Is the premium worth it?</strong> If your recipient has a bank account, almost certainly not — Wise, OFX, or Remitly will deliver more money. But if your recipient can only receive cash, and the nearest alternative cash pickup point is hours away, the Western Union premium is the cost of reaching them.</p>`,
+<p><strong>Is the premium worth it?</strong> If your recipient has a bank account, almost certainly not — <a href="/companies/ofx">OFX</a> or <a href="/companies/remitly">Remitly</a> will deliver more money. But if your recipient can only receive cash, and the nearest alternative cash pickup point is hours away, the Western Union premium is the cost of reaching them.</p>`,
       },
       {
         id: "cash-pickup",
@@ -1145,15 +1151,16 @@ export const providerReviews: ProviderReview[] = [
     title: "Revolut Review 2026 — Fees, Multi-Currency Account & Transfers",
     metaDescription:
       "In-depth Revolut review covering international transfers, exchange rates, multi-currency account, free tier limits, weekend markup, and how it compares to Wise and traditional banks.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
     readTime: "11 min read",
     editorRating: 8.4,
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested: "We used a Revolut Standard (free) account to test currency exchanges across 4 pairs (GBP→EUR, GBP→USD, USD→INR, GBP→INR) on both weekdays and weekends between February and March 2026. We verified the weekend markup by comparing Saturday exchange rates against the Friday closing mid-market rate. We also tested the £1,000 free-tier monthly limit by tracking when the 0.5% fee kicked in. International SWIFT transfers were tested to verify delivery times and any intermediary fees. Our scraping system monitors Revolut's quoted rates every 6 hours for ongoing accuracy tracking.",
     editorVerdict:
-      "Revolut offers an impressive multi-currency account with interbank exchange rates during market hours — a genuinely competitive alternative to Wise for everyday currency needs. The free tier is generous enough for occasional senders, and the paid plans unlock unlimited fee-free exchanges. The main caveats: a 0.5%–1% markup applies on weekends and public holidays when currency markets are closed, the free tier has a monthly exchange limit, and transfers to non-Revolut users can take 1–3 days. Revolut is best for people who want a full digital banking experience with multi-currency capabilities built in, rather than a standalone transfer service.",
+      "Revolut offers an impressive multi-currency account with interbank exchange rates during market hours — a genuinely competitive alternative to <a href=\"/companies/wise\">Wise</a> for everyday currency needs. The free tier is generous enough for occasional senders, and the paid plans unlock unlimited fee-free exchanges. The main caveats: a 0.5%–1% markup applies on weekends and public holidays when currency markets are closed, the free tier has a monthly exchange limit, and transfers to non-Revolut users can take 1–3 days. Revolut is best for people who want a full digital banking experience with multi-currency capabilities built in, rather than a standalone transfer service.",
 
     sections: [
       {
@@ -1163,7 +1170,7 @@ export const providerReviews: ProviderReview[] = [
 
 <p>Revolut now has over 35 million customers worldwide, a full UK banking licence (granted in 2024), and European banking licences through Lithuania. In the US, Revolut operates through partnerships with regulated banks. The company is valued at over $30 billion, making it one of Europe's most valuable fintech companies.</p>
 
-<p><strong>What makes Revolut different:</strong> Unlike dedicated transfer services (Wise, Remitly, OFX), Revolut is a full digital banking platform that happens to include international transfers. You get a multi-currency account, physical and virtual debit cards, salary deposits, bill splitting, crypto and stock trading, travel insurance, and more — all in one app. International transfers are just one feature among many.</p>
+<p><strong>What makes Revolut different:</strong> Unlike dedicated transfer services (<a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/ofx">OFX</a>), Revolut is a full digital banking platform that happens to include international transfers. You get a multi-currency account, physical and virtual debit cards, salary deposits, bill splitting, crypto and stock trading, travel insurance, and more — all in one app. International transfers are just one feature among many.</p>
 
 <p>This has pros and cons. The pro: if you want a single app that handles your entire financial life including international transfers, Revolut is unmatched. The con: Revolut's transfer service isn't as specialised or comprehensive as Wise or Remitly for users whose primary need is sending money abroad.</p>`,
       },
@@ -1214,7 +1221,7 @@ export const providerReviews: ProviderReview[] = [
 
 <p>These local details let you receive domestic payments in each currency. For freelancers billing clients in GBP, EUR, and USD, this means receiving payments without conversion fees — then exchanging to your home currency when you choose.</p>
 
-<p><strong>How this compares to Wise:</strong> Wise offers similar multi-currency functionality with local details in more countries (Australia, Singapore, Turkey, and others). Wise doesn't have the weekend markup issue. However, Revolut's broader banking features (card spending, salary deposit, bill splitting) make it more useful as a primary financial app.</p>`,
+<p><strong>How this compares to <a href="/companies/wise">Wise</a>:</strong> Wise offers similar multi-currency functionality with local details in more countries (Australia, Singapore, Turkey, and others). Wise doesn't have the weekend markup issue. However, Revolut's broader banking features (card spending, salary deposit, bill splitting) make it more useful as a primary financial app.</p>`,
       },
       {
         id: "speed",
@@ -1258,7 +1265,7 @@ export const providerReviews: ProviderReview[] = [
 
 <p><strong>Delivery methods:</strong> Bank deposit only (via local payment rails or SWIFT). Revolut does not offer cash pickup, mobile money, home delivery, or any non-digital delivery methods.</p>
 
-<p>Revolut is primarily designed for people living in the UK, EU, or US who need to manage multiple major currencies. It's less suited for remittance corridors to developing countries, where Remitly or Western Union offer more appropriate delivery options.</p>`,
+<p>Revolut is primarily designed for people living in the UK, EU, or US who need to manage multiple major currencies. It's less suited for remittance corridors to developing countries, where <a href="/companies/remitly">Remitly</a> or <a href="/companies/western-union">Western Union</a> offer more appropriate delivery options.</p>`,
       },
       {
         id: "card-spending",
@@ -1371,15 +1378,16 @@ export const providerReviews: ProviderReview[] = [
     title: "Xoom Review 2026 — Fees, Rates & Cash Pickup Options",
     metaDescription:
       "In-depth Xoom review covering fees ($0–$4.99), exchange rates, cash pickup network, mobile reload, and delivery speed. Backed by PayPal, serving 130+ countries with 50 currencies.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "10 min read",
     editorRating: 7.5,
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested: "We tested 6 corridors through Xoom (USD→INR, USD→PHP, USD→MXN, USD→BRL, USD→PKR, USD→COL) between February and March 2026. Each transfer was tested using both bank transfer and debit card funding to verify fee differences. We checked cash pickup availability in Mexico, the Philippines, and India, and verified mobile reload functionality for the Philippines. Exchange rates were compared against the mid-market rate at the time of each transfer to measure the actual markup. Our automated scraping system also collects Xoom quotes every 6 hours across supported corridors to track fee and rate fluctuations.",
     editorVerdict:
-      "Xoom is a strong choice for cash pickup and mobile reload transfers, especially to Latin America, the Philippines, and India. The PayPal backing gives it a level of trust and security that few competitors match. However, the exchange rate markup of 1–3% above mid-market is its biggest weakness and makes it significantly more expensive than Wise or OFX for large bank-to-bank transfers. If your recipient needs cash pickup or mobile airtime top-up and you value PayPal's ecosystem, Xoom delivers. For large transfers where the exchange rate matters most, look at Wise or Remitly instead.",
+      "Xoom is a strong choice for cash pickup and mobile reload transfers, especially to Latin America, the Philippines, and India. The PayPal backing gives it a level of trust and security that few competitors match. However, the exchange rate markup of 1–3% above mid-market is its biggest weakness and makes it significantly more expensive than <a href=\"/companies/wise\">Wise</a> or <a href=\"/companies/ofx\">OFX</a> for large bank-to-bank transfers. If your recipient needs cash pickup or mobile airtime top-up and you value PayPal's ecosystem, Xoom delivers. For large transfers where the exchange rate matters most, look at Wise or <a href=\"/companies/remitly\">Remitly</a> instead.",
 
     sections: [
       {
@@ -1387,7 +1395,7 @@ export const providerReviews: ProviderReview[] = [
         heading: "Overview",
         content: `<p>Xoom was founded in 2001 as a digital remittance platform focused on making it easy to send money, reload phones, and pay bills internationally. In 2015, PayPal acquired Xoom for $890 million, integrating it into the PayPal ecosystem while maintaining Xoom as a standalone brand for international money transfers.</p>
 
-<p>Xoom is headquartered in San Francisco, USA, and is regulated by FinCEN (the Financial Crimes Enforcement Network) in the United States. As a subsidiary of PayPal Holdings (NASDAQ: PYPL), Xoom benefits from PayPal's regulatory infrastructure, compliance frameworks, and financial stability.</p>
+<p>Xoom is headquartered in San Francisco, USA, and is regulated by <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> (the Financial Crimes Enforcement Network) in the United States. As a subsidiary of PayPal Holdings (NASDAQ: PYPL), Xoom benefits from PayPal's regulatory infrastructure, compliance frameworks, and financial stability.</p>
 
 <p><strong>What makes Xoom different:</strong> Xoom's key strengths are its extensive cash pickup network, mobile reload (airtime top-up) service, and bill payment options in select countries. While many transfer services focus primarily on bank-to-bank transfers, Xoom has built strong infrastructure for recipients who need physical cash or airtime — particularly in Latin America and the Philippines.</p>
 
@@ -1410,7 +1418,7 @@ export const providerReviews: ProviderReview[] = [
 <tr><td>USD → COL</td><td>$0</td><td>$2.99</td><td>$4.99</td></tr>
 </table>
 
-<p><strong>Important:</strong> While Xoom's flat fees appear low, the real cost of a Xoom transfer includes the exchange rate markup. Unlike Wise (which charges a transparent fee with no markup), Xoom bakes a 1–3% margin into the exchange rate. This means a "$0 fee" transfer may still cost $10–$30 on a $1,000 send when the rate markup is factored in.</p>
+<p><strong>Important:</strong> While Xoom's flat fees appear low, the real cost of a Xoom transfer includes the exchange rate markup. Unlike <a href="/companies/wise">Wise</a> (which charges a transparent fee with no markup), Xoom bakes a 1–3% margin into the exchange rate. This means a "$0 fee" transfer may still cost $10–$30 on a $1,000 send when the rate markup is factored in.</p>
 
 <p><strong>Fee-free promotions:</strong> Xoom frequently offers fee-free first transfers for new users and periodic promotions on specific corridors. These can make Xoom competitive for one-off transfers, but the exchange rate markup still applies.</p>`,
       },
@@ -1430,7 +1438,7 @@ export const providerReviews: ProviderReview[] = [
 <tr><td>Banks (average)</td><td>Marked up</td><td>3%–5%</td></tr>
 </table>
 
-<p><strong>What this means in practice:</strong> On a $1,000 transfer to Mexico, a 2% markup means you lose approximately $20 in the exchange rate — on top of any transfer fee. Compared to Wise (0% markup), Xoom typically delivers $15–$25 less to the recipient per $1,000 sent, depending on the corridor.</p>
+<p><strong>What this means in practice:</strong> On a $1,000 transfer to Mexico, a 2% markup means you lose approximately $20 in the exchange rate — on top of any transfer fee. Compared to <a href="/companies/wise">Wise</a> (0% markup), Xoom typically delivers $15–$25 less to the recipient per $1,000 sent, depending on the corridor.</p>
 
 <p>The markup varies by corridor. Popular corridors like USD→MXN and USD→INR tend to have lower markups (closer to 1–1.5%), while less common corridors may see markups at the higher end (2–3%). Cash pickup transfers sometimes carry a slightly higher markup than bank deposit transfers.</p>
 
@@ -1585,13 +1593,14 @@ export const providerReviews: ProviderReview[] = [
     title: "WorldRemit Review 2026 — Fees, Mobile Money & Delivery Options",
     metaDescription:
       "In-depth WorldRemit review covering fees ($0.99–$3.99), exchange rates, mobile money delivery, cash pickup, and airtime top-up across 130+ countries.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "11 min read",
     editorRating: 7.5,
     editorVerdict:
       "WorldRemit is the go-to service for sending money to developing countries where recipients may not have traditional bank accounts. Its mobile money integration (M-Pesa, MTN Mobile Money, GCash) and airtime top-up are genuinely unique features that most competitors can't match. Exchange rates carry a 0.5–3% markup — not the cheapest, but competitive for the delivery options offered. The main limitation is a $10,000 transfer cap that rules it out for large or business transfers. For regular remittances to Africa, South Asia, and Southeast Asia, WorldRemit hits the sweet spot of convenience, speed, and fair pricing.",
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
       "We sent 8 test transfers through WorldRemit across 5 corridors (GBP→KES, USD→PHP, GBP→GHS, USD→INR, EUR→NGN) between January and March 2026. Each transfer tested multiple delivery methods: bank deposit, mobile money, and cash pickup where available. We compared the total cost (fee + exchange rate markup) against Wise, Remitly, and Western Union on the same corridors at the same time. Delivery times were tracked from confirmation to recipient notification. Our automated system also collects WorldRemit quotes every 6 hours across 20+ corridors.",
@@ -1600,7 +1609,7 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          "<p>WorldRemit was founded in 2010 by Ismail Ahmed, a Somali-born entrepreneur who experienced firsthand the high cost and inconvenience of sending money to East Africa. The company set out to replace the agent-based model with a fully digital service — no more queuing at physical locations to send money home.</p>\n\n<p>In 2020, WorldRemit acquired Sendwave, a zero-fee mobile money transfer app popular in West Africa. The combined company rebranded as Zepz in 2021 (the parent holding company), though the consumer-facing brand remains WorldRemit. The company is headquartered in London and is regulated by the FCA (UK) and FinCEN (US), among other regulators.</p>\n\n<p><strong>What makes WorldRemit different:</strong> While most transfer services focus on bank-to-bank transfers, WorldRemit was built around the reality that billions of people in developing countries don't have bank accounts. Its mobile money delivery — sending directly to M-Pesa in Kenya, MTN Mobile Money in Ghana, or GCash in the Philippines — fills a genuine gap. The airtime top-up feature (sending phone credit) is another option no major competitor offers at the same scale.</p>\n\n<p>WorldRemit serves over 5 million customers and processes over 1 million transfers per month across 130+ countries. The company has raised over $400 million in funding and was last valued at approximately $5 billion.</p>",
+          `<p>WorldRemit was founded in 2010 by Ismail Ahmed, a Somali-born entrepreneur who experienced firsthand the high cost and inconvenience of sending money to East Africa. The company set out to replace the agent-based model with a fully digital service — no more queuing at physical locations to send money home.</p>\n\n<p>In 2020, WorldRemit acquired Sendwave, a zero-fee mobile money transfer app popular in West Africa. The combined company rebranded as Zepz in 2021 (the parent holding company), though the consumer-facing brand remains WorldRemit. The company is headquartered in London and is regulated by the <a href="https://register.fca.org.uk/s/firm?id=0010X00004D8FDGQA3" target="_blank" rel="noopener noreferrer">FCA</a> (UK) and FinCEN (US), among other regulators.</p>\n\n<p><strong>What makes WorldRemit different:</strong> While most transfer services focus on bank-to-bank transfers, WorldRemit was built around the reality that billions of people in developing countries don't have bank accounts. Its mobile money delivery — sending directly to M-Pesa in Kenya, MTN Mobile Money in Ghana, or GCash in the Philippines — fills a genuine gap. The airtime top-up feature (sending phone credit) is another option no major competitor offers at the same scale.</p>\n\n<p>WorldRemit serves over 5 million customers and processes over 1 million transfers per month across 130+ countries. The company has raised over $400 million in funding and was last valued at approximately $5 billion.</p>`,
       },
       {
         id: "fees",
@@ -1612,13 +1621,13 @@ export const providerReviews: ProviderReview[] = [
         id: "exchange-rates",
         heading: "Exchange rates",
         content:
-          "<p>WorldRemit does not use the mid-market exchange rate. Instead, it applies a markup of approximately <strong>0.5% to 3%</strong> above the mid-market rate, depending on the corridor. This markup is where WorldRemit makes most of its revenue.</p>\n\n<p><strong>Exchange rate markup by corridor (our measurements):</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>Typical markup</th><th>Assessment</th></tr>\n<tr><td>GBP → KES</td><td>0.8–1.5%</td><td>Competitive</td></tr>\n<tr><td>USD → PHP</td><td>0.5–1.2%</td><td>Good</td></tr>\n<tr><td>GBP → GHS</td><td>1.0–2.0%</td><td>Average</td></tr>\n<tr><td>USD → INR</td><td>1.0–1.8%</td><td>Below average</td></tr>\n<tr><td>EUR → NGN</td><td>1.5–3.0%</td><td>Expensive</td></tr>\n<tr><td>GBP → PKR</td><td>1.0–2.0%</td><td>Average</td></tr>\n</table>\n\n<p><strong>Key insight:</strong> WorldRemit's exchange rates are not the cheapest — Wise and Remitly typically beat them on pure rate comparison. However, when you factor in that WorldRemit delivers to mobile money wallets where others can't, the premium is justified for many users. If your recipient has a bank account and rate is your priority, Wise is cheaper. If they need mobile money or cash pickup, WorldRemit's total cost is competitive.</p>",
+          `<p>WorldRemit does not use the mid-market exchange rate. Instead, it applies a markup of approximately <strong>0.5% to 3%</strong> above the mid-market rate, depending on the corridor. This markup is where WorldRemit makes most of its revenue.</p>\n\n<p><strong>Exchange rate markup by corridor (our measurements):</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>Typical markup</th><th>Assessment</th></tr>\n<tr><td>GBP → KES</td><td>0.8–1.5%</td><td>Competitive</td></tr>\n<tr><td>USD → PHP</td><td>0.5–1.2%</td><td>Good</td></tr>\n<tr><td>GBP → GHS</td><td>1.0–2.0%</td><td>Average</td></tr>\n<tr><td>USD → INR</td><td>1.0–1.8%</td><td>Below average</td></tr>\n<tr><td>EUR → NGN</td><td>1.5–3.0%</td><td>Expensive</td></tr>\n<tr><td>GBP → PKR</td><td>1.0–2.0%</td><td>Average</td></tr>\n</table>\n\n<p><strong>Key insight:</strong> WorldRemit's exchange rates are not the cheapest — <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> typically beat them on pure rate comparison. However, when you factor in that WorldRemit delivers to mobile money wallets where others can't, the premium is justified for many users. If your recipient has a bank account and rate is your priority, Wise is cheaper. If they need mobile money or cash pickup, WorldRemit's total cost is competitive.</p>`,
       },
       {
         id: "speed",
         heading: "Delivery speed",
         content:
-          "<p>WorldRemit's delivery speed varies significantly by destination and delivery method:</p>\n\n<table>\n<tr><th>Delivery method</th><th>Typical speed</th><th>Notes</th></tr>\n<tr><td>Mobile money</td><td>Minutes</td><td>Fastest option — instant to M-Pesa, GCash, MTN</td></tr>\n<tr><td>Airtime top-up</td><td>Seconds to minutes</td><td>Near-instant phone credit delivery</td></tr>\n<tr><td>Cash pickup</td><td>Minutes to hours</td><td>Ready within 10 min at most agents</td></tr>\n<tr><td>Bank deposit</td><td>1–3 business days</td><td>Standard bank processing times apply</td></tr>\n</table>\n\n<p>In our testing, mobile money transfers to Kenya (M-Pesa) arrived in under 2 minutes. Bank deposits to India took 1–2 business days. Cash pickup in the Philippines was ready within 15 minutes.</p>\n\n<p><strong>Compared to competitors:</strong> WorldRemit's mobile money speed matches Remitly's express delivery. For bank deposits, Wise is often faster (same-day for many corridors). For cash pickup, Western Union's network is larger but WorldRemit's prices are lower.</p>",
+          `<p>WorldRemit's delivery speed varies significantly by destination and delivery method:</p>\n\n<table>\n<tr><th>Delivery method</th><th>Typical speed</th><th>Notes</th></tr>\n<tr><td>Mobile money</td><td>Minutes</td><td>Fastest option — instant to M-Pesa, GCash, MTN</td></tr>\n<tr><td>Airtime top-up</td><td>Seconds to minutes</td><td>Near-instant phone credit delivery</td></tr>\n<tr><td>Cash pickup</td><td>Minutes to hours</td><td>Ready within 10 min at most agents</td></tr>\n<tr><td>Bank deposit</td><td>1–3 business days</td><td>Standard bank processing times apply</td></tr>\n</table>\n\n<p>In our testing, mobile money transfers to Kenya (M-Pesa) arrived in under 2 minutes. Bank deposits to India took 1–2 business days. Cash pickup in the Philippines was ready within 15 minutes.</p>\n\n<p><strong>Compared to competitors:</strong> WorldRemit's mobile money speed matches Remitly's express delivery. For bank deposits, Wise is often faster (same-day for many corridors). For cash pickup, <a href="/companies/western-union">Western Union</a>'s network is larger but WorldRemit's prices are lower.</p>`,
       },
       {
         id: "countries",
@@ -1701,13 +1710,14 @@ export const providerReviews: ProviderReview[] = [
     title: "PayPal Review 2026 — International Transfer Fees, Rates & Hidden Costs",
     metaDescription:
       "Honest PayPal review for international transfers: 3–4% exchange rate markup, 5% fees, and why specialist services like Wise or Xoom are almost always cheaper.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "10 min read",
     editorRating: 5.5,
     editorVerdict:
       "PayPal is one of the world's most recognized payment brands, and for domestic P2P payments it remains excellent. But for international money transfers, it is one of the most expensive options available. The 3–4% exchange rate markup plus a 5% transfer fee (min $0.99, max $4.99) means you lose significantly more money compared to specialist transfer services. On a $1,000 transfer to India, PayPal delivers roughly $40–50 less than Wise. The irony is that PayPal's own subsidiary, Xoom, offers better rates for international transfers. Unless you're transferring between existing PayPal accounts for convenience, we cannot recommend PayPal for international money transfers in 2026.",
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
       "We sent 6 test transfers through PayPal's international transfer feature across 4 corridors (USD→EUR, USD→GBP, USD→INR, GBP→EUR) between February and March 2026. We compared PayPal's delivered amount against Wise, Xoom (PayPal's own remittance service), Remitly, and bank wire transfers on the same corridors at the same time. We also tested both PayPal balance funding and debit card funding to check for fee differences. Our automated system tracks PayPal's published exchange rates daily.",
@@ -1716,7 +1726,7 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          "<p>PayPal was founded in 1998 and has grown into the world's largest digital payment platform with over 430 million active accounts across 200+ countries. It revolutionized online payments and remains the default for e-commerce, freelancer payments, and casual P2P transfers.</p>\n\n<p>However, PayPal's international money transfer service is a separate product from its core payments platform. When you send money internationally through PayPal, you're using a service that was designed primarily for merchant payments, not remittances. This matters because PayPal's pricing reflects its payment gateway economics — high convenience, high cost.</p>\n\n<p><strong>The PayPal ecosystem:</strong> It's important to understand that PayPal owns <strong>Xoom</strong>, a dedicated international remittance service acquired in 2015 for $890 million. Xoom offers significantly better exchange rates and more delivery options than PayPal itself for international transfers. If you're a PayPal user wanting to send money abroad, Xoom is almost always the better choice within the PayPal family.</p>\n\n<p>PayPal is regulated by FinCEN in the US, the FCA in the UK, and financial regulators in every market it operates. As a publicly traded company (NASDAQ: PYPL) with a market cap exceeding $60 billion, there are no concerns about safety or legitimacy.</p>",
+          `<p>PayPal was founded in 1998 and has grown into the world's largest digital payment platform with over 430 million active accounts across 200+ countries. It revolutionized online payments and remains the default for e-commerce, freelancer payments, and casual P2P transfers.</p>\n\n<p>However, PayPal's international money transfer service is a separate product from its core payments platform. When you send money internationally through PayPal, you're using a service that was designed primarily for merchant payments, not remittances. This matters because PayPal's pricing reflects its payment gateway economics — high convenience, high cost.</p>\n\n<p><strong>The PayPal ecosystem:</strong> It's important to understand that PayPal owns <strong><a href="/companies/xoom">Xoom</a></strong>, a dedicated international remittance service acquired in 2015 for $890 million. Xoom offers significantly better exchange rates and more delivery options than PayPal itself for international transfers. If you're a PayPal user wanting to send money abroad, Xoom is almost always the better choice within the PayPal family.</p>\n\n<p>PayPal is regulated by FinCEN in the US, the <a href="https://register.fca.org.uk/s/firm?id=001b000000Mg3m1AAB" target="_blank" rel="noopener noreferrer">FCA</a> in the UK, and financial regulators in every market it operates. As a publicly traded company (NASDAQ: PYPL) with a market cap exceeding $60 billion, there are no concerns about safety or legitimacy.</p>`,
       },
       {
         id: "fees",
@@ -1728,7 +1738,7 @@ export const providerReviews: ProviderReview[] = [
         id: "exchange-rates",
         heading: "Exchange rates",
         content:
-          "<p>This is PayPal's biggest weakness for international transfers. PayPal applies an exchange rate markup of <strong>3% to 4% above the mid-market rate</strong> — one of the highest in the industry.</p>\n\n<p><strong>Real-world cost comparison on $1,000 transfers:</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>PayPal delivers</th><th>Wise delivers</th><th>You lose with PayPal</th></tr>\n<tr><td>USD → EUR</td><td>~€873</td><td>~€907</td><td>€34 (~3.7%)</td></tr>\n<tr><td>USD → GBP</td><td>~£740</td><td>~£769</td><td>£29 (~3.8%)</td></tr>\n<tr><td>USD → INR</td><td>~₹86,500</td><td>~₹89,800</td><td>₹3,300 (~3.7%)</td></tr>\n<tr><td>GBP → EUR</td><td>~€1,140</td><td>~€1,186</td><td>€46 (~3.9%)</td></tr>\n</table>\n\n<p><strong>Why is PayPal so expensive?</strong> PayPal's business model is built around merchant payments and platform fees, not competitive FX. The exchange rate markup subsidizes the convenience of instant PayPal-to-PayPal transfers and the buyer protection features. For PayPal, international transfers are a secondary product, not the core business — so there's little competitive pressure to improve rates.</p>\n\n<p><strong>Bottom line:</strong> If you're sending $1,000 internationally through PayPal, you're paying approximately $35–$50 more than you would through Wise, Remitly, or even PayPal's own Xoom service. This is not a competitive rate in 2026.</p>",
+          `<p>This is PayPal's biggest weakness for international transfers. PayPal applies an exchange rate markup of <strong>3% to 4% above the mid-market rate</strong> — one of the highest in the industry.</p>\n\n<p><strong>Real-world cost comparison on $1,000 transfers:</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>PayPal delivers</th><th>Wise delivers</th><th>You lose with PayPal</th></tr>\n<tr><td>USD → EUR</td><td>~€873</td><td>~€907</td><td>€34 (~3.7%)</td></tr>\n<tr><td>USD → GBP</td><td>~£740</td><td>~£769</td><td>£29 (~3.8%)</td></tr>\n<tr><td>USD → INR</td><td>~₹86,500</td><td>~₹89,800</td><td>₹3,300 (~3.7%)</td></tr>\n<tr><td>GBP → EUR</td><td>~€1,140</td><td>~€1,186</td><td>€46 (~3.9%)</td></tr>\n</table>\n\n<p><strong>Why is PayPal so expensive?</strong> PayPal's business model is built around merchant payments and platform fees, not competitive FX. The exchange rate markup subsidizes the convenience of instant PayPal-to-PayPal transfers and the buyer protection features. For PayPal, international transfers are a secondary product, not the core business — so there's little competitive pressure to improve rates.</p>\n\n<p><strong>Bottom line:</strong> If you're sending $1,000 internationally through PayPal, you're paying approximately $35–$50 more than you would through <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, or even PayPal's own Xoom service. This is not a competitive rate in 2026.</p>`,
       },
       {
         id: "speed",
@@ -1740,7 +1750,7 @@ export const providerReviews: ProviderReview[] = [
         id: "countries",
         heading: "Countries and coverage",
         content:
-          "<p>PayPal operates in <strong>200+ countries</strong> — the broadest coverage of any payment platform. However, international money transfer functionality is more limited. You can send from most developed countries, but many receiving countries have restricted functionality (receive-only, limited withdrawals, etc.).</p>\n\n<p><strong>Where PayPal works well:</strong></p>\n<ul>\n<li><strong>US ↔ Europe:</strong> Full functionality for P2P transfers</li>\n<li><strong>US ↔ UK/Canada/Australia:</strong> Full functionality</li>\n<li><strong>Freelancer payments:</strong> Many international freelancers use PayPal as their primary receiving method</li>\n</ul>\n\n<p><strong>Where PayPal falls short:</strong></p>\n<ul>\n<li><strong>No cash pickup:</strong> PayPal is entirely digital — use Western Union or MoneyGram if cash is needed</li>\n<li><strong>No mobile money:</strong> Can't send to M-Pesa, GCash, etc. — use WorldRemit or Remitly</li>\n<li><strong>Limited in many African countries:</strong> Many countries can receive but not easily withdraw</li>\n<li><strong>India:</strong> PayPal closed domestic operations in India — international receives only</li>\n</ul>",
+          `<p>PayPal operates in <strong>200+ countries</strong> — the broadest coverage of any payment platform. However, international money transfer functionality is more limited. You can send from most developed countries, but many receiving countries have restricted functionality (receive-only, limited withdrawals, etc.).</p>\n\n<p><strong>Where PayPal works well:</strong></p>\n<ul>\n<li><strong>US ↔ Europe:</strong> Full functionality for P2P transfers</li>\n<li><strong>US ↔ UK/Canada/Australia:</strong> Full functionality</li>\n<li><strong>Freelancer payments:</strong> Many international freelancers use PayPal as their primary receiving method</li>\n</ul>\n\n<p><strong>Where PayPal falls short:</strong></p>\n<ul>\n<li><strong>No cash pickup:</strong> PayPal is entirely digital — use Western Union or MoneyGram if cash is needed</li>\n<li><strong>No mobile money:</strong> Can't send to M-Pesa, GCash, etc. — use <a href="/companies/worldremit">WorldRemit</a> or <a href="/companies/remitly">Remitly</a></li>\n<li><strong>Limited in many African countries:</strong> Many countries can receive but not easily withdraw</li>\n<li><strong>India:</strong> PayPal closed domestic operations in India — international receives only</li>\n</ul>`,
       },
       {
         id: "reviews",
@@ -1813,13 +1823,14 @@ export const providerReviews: ProviderReview[] = [
     title: "MoneyGram Review 2026 — Fees, Cash Pickup & Agent Network",
     metaDescription:
       "In-depth MoneyGram review: fees from $1.99, 350,000+ cash pickup locations, 200+ countries, crypto integration. How it compares to Western Union and Remitly.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "10 min read",
     editorRating: 6.5,
     editorVerdict:
       "MoneyGram's strength is its massive 350,000+ agent network for cash-to-cash transfers — second only to Western Union. If your recipient needs physical cash and doesn't have a bank account, MoneyGram is one of very few reliable options. The fees are moderate ($1.99–$11.99) and exchange rates carry a 1–3% markup. It's not the cheapest option for bank-to-bank transfers — Wise, Remitly, and even MoneyGram's digital-first competitors beat it on price. But for cash pickup in remote locations across Latin America, Africa, and South Asia, MoneyGram fills a genuine need. The Stellar blockchain partnership is innovative but hasn't yet translated into meaningfully better pricing for consumers.",
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
       "We sent 6 test transfers through MoneyGram across 4 corridors (USD→MXN, USD→PHP, GBP→INR, USD→NGN) between January and March 2026, testing both online and the MoneyGram app. We compared bank deposit and cash pickup delivery for each corridor. Total costs were benchmarked against Western Union, Remitly, and Wise at the same time and amounts. Our automated system also collects MoneyGram exchange rates daily across 15+ corridors.",
@@ -1828,7 +1839,7 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          "<p>MoneyGram is one of the oldest names in money transfer, tracing its origins to 1940. Headquartered in Dallas, Texas, it operates in 200+ countries with over 350,000 agent locations worldwide — making it the second-largest cash transfer network after Western Union.</p>\n\n<p>In recent years, MoneyGram has undergone significant transformation. After a failed acquisition attempt by Ant Group (Alibaba) in 2018 due to US regulatory concerns, MoneyGram partnered with Ripple and later Stellar to integrate blockchain technology into its settlement layer. This partnership enables faster cross-border settlement and positions MoneyGram at the intersection of traditional remittances and crypto payments.</p>\n\n<p><strong>What makes MoneyGram different:</strong> MoneyGram bridges the physical and digital worlds. You can initiate a transfer online and have cash ready for pickup at an agent location within minutes. The Stellar blockchain integration enables crypto on/off ramps — you can receive a transfer as USDC (stablecoins) or fund transfers from crypto wallets in select markets. This hybrid approach is unique among major transfer providers.</p>\n\n<p>MoneyGram is regulated by FinCEN in the US, the FCA in the UK, and financial authorities in every country it operates. It is a publicly recognized financial institution with over 80 years of operating history.</p>",
+          `<p>MoneyGram is one of the oldest names in money transfer, tracing its origins to 1940. Headquartered in Dallas, Texas, it operates in 200+ countries with over 350,000 agent locations worldwide — making it the second-largest cash transfer network after Western Union.</p>\n\n<p>In recent years, MoneyGram has undergone significant transformation. After a failed acquisition attempt by Ant Group (Alibaba) in 2018 due to US regulatory concerns, MoneyGram partnered with Ripple and later Stellar to integrate blockchain technology into its settlement layer. This partnership enables faster cross-border settlement and positions MoneyGram at the intersection of traditional remittances and crypto payments.</p>\n\n<p><strong>What makes MoneyGram different:</strong> MoneyGram bridges the physical and digital worlds. You can initiate a transfer online and have cash ready for pickup at an agent location within minutes. The Stellar blockchain integration enables crypto on/off ramps — you can receive a transfer as USDC (stablecoins) or fund transfers from crypto wallets in select markets. This hybrid approach is unique among major transfer providers.</p>\n\n<p>MoneyGram is regulated by <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> in the US, the <a href="https://register.fca.org.uk/s/firm?id=001b000000MgGNGAA3" target="_blank" rel="noopener noreferrer">FCA</a> in the UK, and financial authorities in every country it operates. It is a publicly recognized financial institution with over 80 years of operating history.</p>`,
       },
       {
         id: "fees",
@@ -1840,7 +1851,7 @@ export const providerReviews: ProviderReview[] = [
         id: "exchange-rates",
         heading: "Exchange rates",
         content:
-          "<p>MoneyGram applies an exchange rate markup of approximately <strong>1% to 3% above the mid-market rate</strong>, depending on the corridor, delivery method, and whether you're sending online or in-store.</p>\n\n<p><strong>Exchange rate comparison on $1,000 transfers:</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>MoneyGram markup</th><th>Wise markup</th><th>Difference</th></tr>\n<tr><td>USD → MXN</td><td>~1.5%</td><td>0%</td><td>~$15 less with MoneyGram</td></tr>\n<tr><td>USD → PHP</td><td>~1.8%</td><td>0%</td><td>~$18 less with MoneyGram</td></tr>\n<tr><td>USD → NGN</td><td>~2.5%</td><td>0%</td><td>~$25 less with MoneyGram</td></tr>\n<tr><td>GBP → INR</td><td>~2.0%</td><td>0%</td><td>~$20 less with MoneyGram</td></tr>\n</table>\n\n<p><strong>Cash pickup vs bank deposit:</strong> We observed that MoneyGram's exchange rate is often slightly worse for cash pickup than for bank deposit delivery. This makes sense — cash handling involves physical agent costs. If your recipient can receive a bank deposit, you'll get a marginally better rate.</p>\n\n<p><strong>Bottom line:</strong> MoneyGram is not the cheapest option for exchange rates. On pure cost, Wise, Remitly, and TapTap Send consistently deliver more money. MoneyGram's value is in its physical network, not its pricing.</p>",
+          `<p>MoneyGram applies an exchange rate markup of approximately <strong>1% to 3% above the mid-market rate</strong>, depending on the corridor, delivery method, and whether you're sending online or in-store.</p>\n\n<p><strong>Exchange rate comparison on $1,000 transfers:</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>MoneyGram markup</th><th>Wise markup</th><th>Difference</th></tr>\n<tr><td>USD → MXN</td><td>~1.5%</td><td>0%</td><td>~$15 less with MoneyGram</td></tr>\n<tr><td>USD → PHP</td><td>~1.8%</td><td>0%</td><td>~$18 less with MoneyGram</td></tr>\n<tr><td>USD → NGN</td><td>~2.5%</td><td>0%</td><td>~$25 less with MoneyGram</td></tr>\n<tr><td>GBP → INR</td><td>~2.0%</td><td>0%</td><td>~$20 less with MoneyGram</td></tr>\n</table>\n\n<p><strong>Cash pickup vs bank deposit:</strong> We observed that MoneyGram's exchange rate is often slightly worse for cash pickup than for bank deposit delivery. This makes sense — cash handling involves physical agent costs. If your recipient can receive a bank deposit, you'll get a marginally better rate.</p>\n\n<p><strong>Bottom line:</strong> MoneyGram is not the cheapest option for exchange rates. On pure cost, <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/taptap-send">TapTap Send</a> consistently deliver more money. MoneyGram's value is in its physical network, not its pricing.</p>`,
       },
       {
         id: "speed",
@@ -1925,13 +1936,14 @@ export const providerReviews: ProviderReview[] = [
     title: "TorFX Review 2026 — Rates, Fees & Best for Large Transfers?",
     metaDescription:
       "TorFX review: zero transfer fees, dedicated account managers, forward contracts. Award-winning service for large transfers. FCA, ASIC, FINTRAC regulated.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "9 min read",
     editorRating: 7.8,
     editorVerdict:
       "TorFX is the standout choice for large international transfers — property purchases, emigration funds, inheritance, or regular business payments. With zero transfer fees, dedicated account managers, and tools like forward contracts and limit orders, it's designed for people moving significant amounts of money who want personalized service. The exchange rate markup (0.3–1.5%) is competitive for the large-transfer segment and significantly cheaper than banks. The limitations are clear: £100 minimum transfer, bank transfer funding only, and slower delivery than instant-transfer providers. If you're sending under £5,000, Wise or Revolut will be cheaper. If you're sending £10,000+, TorFX's combination of zero fees, tight rates, and personal service is hard to beat.",
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
       "We conducted 4 test transfers through TorFX across GBP→EUR, GBP→AUD, USD→GBP, and GBP→ZAR corridors between February and March 2026, ranging from £2,000 to £25,000. We worked with a dedicated account manager and tested both spot transfers and forward contract quotes. Exchange rates were benchmarked against the mid-market rate at the time of each transfer. We also compared TorFX's quoted rates against OFX and bank wire transfer rates for identical amounts and corridors.",
@@ -1940,7 +1952,7 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          "<p>TorFX was founded in 2004 in Cornwall, UK, and has grown into one of the UK's most respected international payment specialists. Unlike consumer-focused transfer apps, TorFX operates a high-touch service model — every customer is assigned a dedicated account manager who handles transfers, monitors rates, and provides market insight.</p>\n\n<p>TorFX is regulated by the FCA in the UK, ASIC in Australia, and FINTRAC in Canada. It has won multiple awards, including the International Money Transfer Index's \"Best Exchange Rate\" award, reflecting its consistently competitive pricing for larger amounts.</p>\n\n<p><strong>What makes TorFX different:</strong> TorFX targets a segment that consumer apps like Wise and Remitly don't serve well — people transferring £10,000+ for property purchases, emigration, pension transfers, inheritance, or business payments. The dedicated account manager, forward contracts (locking in today's rate for up to 2 years), and limit orders (automatic transfer when a target rate is hit) are tools designed for this audience. You won't find these features on Remitly or WorldRemit.</p>\n\n<p>TorFX processes over £8 billion in transfers annually and serves both personal and business clients across the UK, Australia, and Canada.</p>",
+          `<p>TorFX was founded in 2004 in Cornwall, UK, and has grown into one of the UK's most respected international payment specialists. Unlike consumer-focused transfer apps, TorFX operates a high-touch service model — every customer is assigned a dedicated account manager who handles transfers, monitors rates, and provides market insight.</p>\n\n<p>TorFX is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000000NMTpcAAH" target="_blank" rel="noopener noreferrer">FCA</a> in the UK, ASIC in Australia, and FINTRAC in Canada. It has won multiple awards, including the International Money Transfer Index's \"Best Exchange Rate\" award, reflecting its consistently competitive pricing for larger amounts.</p>\n\n<p><strong>What makes TorFX different:</strong> TorFX targets a segment that consumer apps like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> don't serve well — people transferring £10,000+ for property purchases, emigration, pension transfers, inheritance, or business payments. The dedicated account manager, forward contracts (locking in today's rate for up to 2 years), and limit orders (automatic transfer when a target rate is hit) are tools designed for this audience. You won't find these features on Remitly or WorldRemit.</p>\n\n<p>TorFX processes over £8 billion in transfers annually and serves both personal and business clients across the UK, Australia, and Canada.</p>`,
       },
       {
         id: "fees",
@@ -2036,13 +2048,14 @@ export const providerReviews: ProviderReview[] = [
     title: "InstaReM Review 2026 — Fees, Rates & Asia-Pacific Specialist",
     metaDescription:
       "InstaReM review: transparent pricing, InstaPoints rewards, strong Asia-Pacific coverage. MAS, ASIC, FCA regulated. How it compares to Wise and Remitly.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "9 min read",
     editorRating: 7.2,
     editorVerdict:
       "InstaReM (part of the Nium group) is a solid choice for transfers involving Asia-Pacific currencies — particularly corridors like Singapore→India, Australia→India, and Hong Kong→Philippines. The transparent fee structure and InstaPoints rewards program add genuine value for regular senders. Exchange rates carry a 0.25–1% markup, which is competitive though not as cheap as Wise. The limitations are limited coverage outside Asia-Pacific, bank deposit delivery only, and a less well-known brand. For Asia-Pacific corridors, InstaReM often competes with or beats Wise on total cost when you factor in the rewards program.",
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
       "We sent 5 test transfers through InstaReM across 4 Asia-Pacific corridors (SGD→INR, AUD→PHP, AUD→INR, HKD→PHP) between January and March 2026. Total costs (fee + exchange rate markup) were benchmarked against Wise and Remitly at the same time. We also tracked InstaPoints earned and calculated the effective discount when redeemed. Our automated system collects InstaReM quotes every 6 hours across 10+ corridors.",
@@ -2051,7 +2064,7 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          "<p>InstaReM was founded in 2014 in Singapore by Prajit Nanu and Michael Bermingham. The company is now part of the <strong>Nium</strong> group — a B2B global payments infrastructure platform valued at over $2 billion. While Nium powers enterprise payments behind the scenes, InstaReM remains the consumer-facing brand for personal international transfers.</p>\n\n<p>InstaReM is regulated by the Monetary Authority of Singapore (MAS), ASIC in Australia, and the FCA in the UK, among other regulators. The company has processed over $5 billion in transfers and serves customers in 60+ countries.</p>\n\n<p><strong>What makes InstaReM different:</strong> InstaReM was built specifically for Asia-Pacific corridors where traditional banks charge 3–5% markup on international transfers. The company's rates are particularly competitive on SGD, AUD, HKD, and MYR corridors. The <strong>InstaPoints</strong> loyalty program — where you earn points on every transfer that can be redeemed for fee waivers or discounts — is a unique feature that no major competitor offers at the same scale.</p>",
+          `<p>InstaReM was founded in 2014 in Singapore by Prajit Nanu and Michael Bermingham. The company is now part of the <strong>Nium</strong> group — a B2B global payments infrastructure platform valued at over $2 billion. While Nium powers enterprise payments behind the scenes, InstaReM remains the consumer-facing brand for personal international transfers.</p>\n\n<p>InstaReM is regulated by the Monetary Authority of Singapore (MAS), ASIC in Australia, and the <a href="https://register.fca.org.uk/s/firm?id=0010X00004cbzk3QAA" target="_blank" rel="noopener noreferrer">FCA</a> in the UK, among other regulators. The company has processed over $5 billion in transfers and serves customers in 60+ countries.</p>\n\n<p><strong>What makes InstaReM different:</strong> InstaReM was built specifically for Asia-Pacific corridors where traditional banks charge 3–5% markup on international transfers. The company's rates are particularly competitive on SGD, AUD, HKD, and MYR corridors. The <strong>InstaPoints</strong> loyalty program — where you earn points on every transfer that can be redeemed for fee waivers or discounts — is a unique feature that no major competitor offers at the same scale.</p>`,
       },
       {
         id: "fees",
@@ -2063,7 +2076,7 @@ export const providerReviews: ProviderReview[] = [
         id: "exchange-rates",
         heading: "Exchange rates",
         content:
-          "<p>InstaReM applies an exchange rate markup of approximately <strong>0.25% to 1%</strong> above the mid-market rate. This is competitive — better than PayPal (3–4%), Western Union (1–3%), and WorldRemit (0.5–3%), though slightly more expensive than Wise (0%).</p>\n\n<p><strong>Rate comparison on AUD 1,000 transfers:</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>InstaReM markup</th><th>Wise markup</th><th>Bank markup</th></tr>\n<tr><td>AUD → INR</td><td>~0.4%</td><td>0%</td><td>~3.5%</td></tr>\n<tr><td>AUD → PHP</td><td>~0.5%</td><td>0%</td><td>~4.0%</td></tr>\n<tr><td>SGD → INR</td><td>~0.3%</td><td>0%</td><td>~3.0%</td></tr>\n</table>\n\n<p><strong>Key insight:</strong> When you combine InstaReM's fee-free corridors with its 0.3–0.5% exchange rate markup, the total cost is very close to Wise (which charges 0% markup but a 0.4–0.7% fee). On some Asia-Pacific corridors, InstaReM can actually be cheaper than Wise when InstaPoints rewards are factored in. Always compare the total receive amount using SendMoneyCompare rather than looking at rates in isolation.</p>",
+          `<p>InstaReM applies an exchange rate markup of approximately <strong>0.25% to 1%</strong> above the mid-market rate. This is competitive — better than <a href="/companies/paypal">PayPal</a> (3–4%), <a href="/companies/western-union">Western Union</a> (1–3%), and <a href="/companies/worldremit">WorldRemit</a> (0.5–3%), though slightly more expensive than <a href="/companies/wise">Wise</a> (0%).</p>\n\n<p><strong>Rate comparison on AUD 1,000 transfers:</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>InstaReM markup</th><th>Wise markup</th><th>Bank markup</th></tr>\n<tr><td>AUD → INR</td><td>~0.4%</td><td>0%</td><td>~3.5%</td></tr>\n<tr><td>AUD → PHP</td><td>~0.5%</td><td>0%</td><td>~4.0%</td></tr>\n<tr><td>SGD → INR</td><td>~0.3%</td><td>0%</td><td>~3.0%</td></tr>\n</table>\n\n<p><strong>Key insight:</strong> When you combine InstaReM's fee-free corridors with its 0.3–0.5% exchange rate markup, the total cost is very close to Wise (which charges 0% markup but a 0.4–0.7% fee). On some Asia-Pacific corridors, InstaReM can actually be cheaper than Wise when InstaPoints rewards are factored in. Always compare the total receive amount using SendMoneyCompare rather than looking at rates in isolation.</p>`,
       },
       {
         id: "speed",
@@ -2075,7 +2088,7 @@ export const providerReviews: ProviderReview[] = [
         id: "countries",
         heading: "Countries and coverage",
         content:
-          "<p>InstaReM covers approximately <strong>60 countries across 40+ currencies</strong>. The coverage is focused on Asia-Pacific and major Western economies.</p>\n\n<p><strong>Strongest corridors:</strong></p>\n<ul>\n<li><strong>Singapore → India, Philippines, Indonesia, Malaysia, Bangladesh</strong></li>\n<li><strong>Australia → India, Philippines, Vietnam, China, Sri Lanka</strong></li>\n<li><strong>Hong Kong → Philippines, India, Indonesia</strong></li>\n<li><strong>UK → India, Sri Lanka, Bangladesh</strong></li>\n</ul>\n\n<p><strong>Coverage gaps:</strong></p>\n<ul>\n<li>Limited African coverage — use Remitly or WorldRemit for African corridors</li>\n<li>No Latin American destinations — use Wise or Remitly</li>\n<li>No cash pickup or mobile money — bank deposit only</li>\n<li>Cannot send from many Middle Eastern countries</li>\n</ul>",
+          `<p>InstaReM covers approximately <strong>60 countries across 40+ currencies</strong>. The coverage is focused on Asia-Pacific and major Western economies.</p>\n\n<p><strong>Strongest corridors:</strong></p>\n<ul>\n<li><strong>Singapore → India, Philippines, Indonesia, Malaysia, Bangladesh</strong></li>\n<li><strong>Australia → India, Philippines, Vietnam, China, Sri Lanka</strong></li>\n<li><strong>Hong Kong → Philippines, India, Indonesia</strong></li>\n<li><strong>UK → India, Sri Lanka, Bangladesh</strong></li>\n</ul>\n\n<p><strong>Coverage gaps:</strong></p>\n<ul>\n<li>Limited African coverage — use <a href="/companies/remitly">Remitly</a> or WorldRemit for African corridors</li>\n<li>No Latin American destinations — use Wise or Remitly</li>\n<li>No cash pickup or mobile money — bank deposit only</li>\n<li>Cannot send from many Middle Eastern countries</li>\n</ul>`,
       },
       {
         id: "reviews",
@@ -2141,13 +2154,14 @@ export const providerReviews: ProviderReview[] = [
     title: "TapTap Send Review 2026 — Zero Fees, Rates & Diaspora Remittances",
     metaDescription:
       "TapTap Send review: zero fees on every corridor, competitive exchange rates, mobile-only app. Strong for Africa and South Asia. FCA and FinCEN regulated.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "9 min read",
     editorRating: 8.0,
     editorVerdict:
       "TapTap Send is a standout service for diaspora remittances — zero fees on every single corridor is a genuine differentiator that no major competitor matches. The exchange rate markup (0.5–1.5%) means it's not always the absolute cheapest option (Wise can beat it on some corridors when you compare total receive amounts), but the simplicity and transparency are exceptional. No hidden costs, no variable fees, no payment method surcharges — what you see is what your family gets. The limitations are real: mobile app only, debit card funding only, and coverage limited to ~30 receive countries. But if you're sending to Africa or South Asia regularly, TapTap Send should be in every comparison you run.",
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
       "We sent 8 test transfers through TapTap Send across 6 corridors (GBP→GHS, GBP→KES, USD→NGN, GBP→PKR, USD→BDT, EUR→XOF) between January and March 2026. Each transfer was funded by debit card (the only option). We compared the total receive amount against Wise, Remitly, and WorldRemit at the same time. Our automated scraping system collects TapTap Send rates every 6 hours across all supported corridors, giving us thousands of data points for rate comparison.",
@@ -2156,7 +2170,7 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          "<p>TapTap Send was founded in 2018 by Michael Kent, who previously co-founded Azimo (another remittance company). The founding team includes veterans from WorldRemit and Wave — people who deeply understand the remittance market and its pain points.</p>\n\n<p>TapTap Send is regulated by the FCA in the UK and FinCEN in the US. The company is headquartered in London and has raised significant venture capital funding to support its zero-fee model.</p>\n\n<p><strong>What makes TapTap Send different:</strong> The zero-fee promise is the headline feature, and it's genuine. Every corridor, every amount, every time — $0 in fees. TapTap Send generates revenue solely from the exchange rate margin. The app is mobile-only (no website transfers) and accepts only debit card funding (no bank transfers, no credit cards). This stripped-down model keeps costs low and lets TapTap Send offer consistently competitive total pricing.</p>\n\n<p>The service is purpose-built for diaspora communities sending money home to developing countries. It doesn't try to be a multi-currency account, a business payment tool, or a travel card. It does one thing — remittances — and does it well.</p>",
+          `<p>TapTap Send was founded in 2018 by Michael Kent, who previously co-founded Azimo (another remittance company). The founding team includes veterans from <a href="/companies/worldremit">WorldRemit</a> and Wave — people who deeply understand the remittance market and its pain points.</p>\n\n<p>TapTap Send is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000003U0PSEAA3" target="_blank" rel="noopener noreferrer">FCA</a> in the UK and FinCEN in the US. The company is headquartered in London and has raised significant venture capital funding to support its zero-fee model.</p>\n\n<p><strong>What makes TapTap Send different:</strong> The zero-fee promise is the headline feature, and it's genuine. Every corridor, every amount, every time — $0 in fees. TapTap Send generates revenue solely from the exchange rate margin. The app is mobile-only (no website transfers) and accepts only debit card funding (no bank transfers, no credit cards). This stripped-down model keeps costs low and lets TapTap Send offer consistently competitive total pricing.</p>\n\n<p>The service is purpose-built for diaspora communities sending money home to developing countries. It doesn't try to be a multi-currency account, a business payment tool, or a travel card. It does one thing — remittances — and does it well.</p>`,
       },
       {
         id: "fees",
@@ -2168,13 +2182,13 @@ export const providerReviews: ProviderReview[] = [
         id: "exchange-rates",
         heading: "Exchange rates",
         content:
-          "<p>TapTap Send's exchange rate includes a markup of approximately <strong>0.5% to 1.5%</strong> above the mid-market rate. This is where TapTap Send generates all of its revenue.</p>\n\n<p><strong>Rate comparison across corridors (our measurements):</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>TapTap markup</th><th>Wise markup + fee</th><th>Winner</th></tr>\n<tr><td>GBP → GHS</td><td>~0.8%</td><td>~0.6%</td><td>Wise (marginally)</td></tr>\n<tr><td>GBP → KES</td><td>~0.7%</td><td>~0.7%</td><td>Tie</td></tr>\n<tr><td>USD → NGN</td><td>~1.2%</td><td>~0.6%</td><td>Wise</td></tr>\n<tr><td>GBP → PKR</td><td>~0.9%</td><td>~0.8%</td><td>Near tie</td></tr>\n<tr><td>EUR → XOF</td><td>~0.6%</td><td>~0.8%</td><td>TapTap Send</td></tr>\n<tr><td>USD → BDT</td><td>~0.7%</td><td>~0.9%</td><td>TapTap Send</td></tr>\n</table>\n\n<p><strong>Key finding:</strong> TapTap Send and Wise trade blows depending on the corridor. For West African CFA franc (XOF) and Bangladeshi taka (BDT) corridors, TapTap Send often delivers more money. For Nigerian naira (NGN) and Ghanaian cedi (GHS), Wise has a slight edge. The differences are typically under 1% — both are dramatically cheaper than banks or PayPal.</p>",
+          `<p>TapTap Send's exchange rate includes a markup of approximately <strong>0.5% to 1.5%</strong> above the mid-market rate. This is where TapTap Send generates all of its revenue.</p>\n\n<p><strong>Rate comparison across corridors (our measurements):</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>TapTap markup</th><th>Wise markup + fee</th><th>Winner</th></tr>\n<tr><td>GBP → GHS</td><td>~0.8%</td><td>~0.6%</td><td>Wise (marginally)</td></tr>\n<tr><td>GBP → KES</td><td>~0.7%</td><td>~0.7%</td><td>Tie</td></tr>\n<tr><td>USD → NGN</td><td>~1.2%</td><td>~0.6%</td><td>Wise</td></tr>\n<tr><td>GBP → PKR</td><td>~0.9%</td><td>~0.8%</td><td>Near tie</td></tr>\n<tr><td>EUR → XOF</td><td>~0.6%</td><td>~0.8%</td><td>TapTap Send</td></tr>\n<tr><td>USD → BDT</td><td>~0.7%</td><td>~0.9%</td><td>TapTap Send</td></tr>\n</table>\n\n<p><strong>Key finding:</strong> TapTap Send and <a href="/companies/wise">Wise</a> trade blows depending on the corridor. For West African CFA franc (XOF) and Bangladeshi taka (BDT) corridors, TapTap Send often delivers more money. For Nigerian naira (NGN) and Ghanaian cedi (GHS), Wise has a slight edge. The differences are typically under 1% — both are dramatically cheaper than banks or PayPal.</p>`,
       },
       {
         id: "speed",
         heading: "Delivery speed",
         content:
-          "<p>TapTap Send delivery is generally fast, especially for mobile money:</p>\n\n<table>\n<tr><th>Delivery method</th><th>Typical speed</th></tr>\n<tr><td>Mobile money (M-Pesa, MTN, Wave)</td><td>Minutes — often under 5 minutes</td></tr>\n<tr><td>Bank deposit</td><td>Minutes to 1 business day</td></tr>\n</table>\n\n<p>In our testing, mobile money transfers to Kenya (M-Pesa) arrived in under 3 minutes. Bank deposits to Pakistan arrived within 30 minutes during banking hours. Transfers to Ghana via MTN Mobile Money took approximately 5 minutes.</p>\n\n<p>TapTap Send is among the fastest options for African mobile money corridors, matching or exceeding Remitly and WorldRemit on speed.</p>",
+          `<p>TapTap Send delivery is generally fast, especially for mobile money:</p>\n\n<table>\n<tr><th>Delivery method</th><th>Typical speed</th></tr>\n<tr><td>Mobile money (M-Pesa, MTN, Wave)</td><td>Minutes — often under 5 minutes</td></tr>\n<tr><td>Bank deposit</td><td>Minutes to 1 business day</td></tr>\n</table>\n\n<p>In our testing, mobile money transfers to Kenya (M-Pesa) arrived in under 3 minutes. Bank deposits to Pakistan arrived within 30 minutes during banking hours. Transfers to Ghana via MTN Mobile Money took approximately 5 minutes.</p>\n\n<p>TapTap Send is among the fastest options for African mobile money corridors, matching or exceeding <a href="/companies/remitly">Remitly</a> and WorldRemit on speed.</p>`,
       },
       {
         id: "countries",
@@ -2253,13 +2267,14 @@ export const providerReviews: ProviderReview[] = [
     title: "ACE Money Transfer Review 2026 — Fees, PKR Rates & Loyalty Rewards",
     metaDescription:
       "ACE Money Transfer review: competitive Pakistan/South Asia rates, loyalty program, first-transfer-free. FCA, FinCEN, AUSTRAC regulated. 100+ countries.",
+    publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
     readTime: "9 min read",
     editorRating: 7.5,
     editorVerdict:
       "ACE Money Transfer has built a strong reputation in the Pakistan and South Asia corridor — and our data confirms it. On GBP→PKR and EUR→PKR transfers, ACE consistently delivers among the most rupees of any provider we track. The combination of competitive exchange rates, a genuine loyalty rewards program, and frequent first-transfer-free promotions makes ACE particularly attractive for the Pakistani diaspora in the UK and Europe. The service extends to 100+ countries but is clearly strongest on South Asian corridors. For Pakistan specifically, ACE often beats Wise and Remitly on total receive amount — a rare achievement given Wise's zero-markup model.",
-    reviewer: "Daniel Rowe",
+    reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
       "We sent 8 test transfers through ACE Money Transfer across 5 corridors (GBP→PKR, EUR→PKR, USD→PKR, GBP→INR, GBP→BDT) between January and March 2026. Each transfer tested bank deposit and cash pickup delivery where available. We compared the total receive amount (after fees and exchange rate markup) against Wise, Remitly, WorldRemit, and Western Union at the same time and amount. Our automated system collects ACE rates every 6 hours across Pakistan, India, and Bangladesh corridors, giving us thousands of data points.",
@@ -2268,7 +2283,7 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          "<p>ACE Money Transfer was founded in 2002 in Manchester, UK, by a team with deep roots in the South Asian diaspora community. Over 20+ years, ACE has built a reputation as one of the go-to services for sending money to Pakistan, India, Bangladesh, Nepal, and the Philippines.</p>\n\n<p>ACE is regulated by the FCA in the UK, FinCEN in the US, and AUSTRAC in Australia. The company operates in 100+ countries and offers bank deposit, cash pickup, and mobile wallet delivery. ACE has a network of banking partners in Pakistan including major banks like HBL, MCB, UBL, and JazzCash mobile wallet.</p>\n\n<p><strong>What makes ACE different:</strong> ACE's competitive advantage is specialization. While Wise and Remitly serve dozens of corridors, ACE focuses heavily on the UK/Europe/US→Pakistan corridor and has negotiated preferential banking relationships that often result in better exchange rates for PKR than broader competitors. The <strong>ACE Loyalty</strong> rewards program and frequent promotional rates for first-time users add genuine value for regular senders.</p>\n\n<p>ACE also has a strong physical presence in Pakistani and South Asian diaspora communities in the UK and Europe, with marketing that resonates with its core audience. This grassroots approach has built trust that newer digital-only providers are still working to earn.</p>",
+          `<p>ACE Money Transfer was founded in 2002 in Manchester, UK, by a team with deep roots in the South Asian diaspora community. Over 20+ years, ACE has built a reputation as one of the go-to services for sending money to Pakistan, India, Bangladesh, Nepal, and the Philippines.</p>\n\n<p>ACE is regulated by the <a href="https://register.fca.org.uk/s/firm?id=001b000000MgAqOAAV" target="_blank" rel="noopener noreferrer">FCA</a> in the UK, <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> in the US, and AUSTRAC in Australia. The company operates in 100+ countries and offers bank deposit, cash pickup, and mobile wallet delivery. ACE has a network of banking partners in Pakistan including major banks like HBL, MCB, UBL, and JazzCash mobile wallet.</p>\n\n<p><strong>What makes ACE different:</strong> ACE's competitive advantage is specialization. While <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> serve dozens of corridors, ACE focuses heavily on the UK/Europe/US→Pakistan corridor and has negotiated preferential banking relationships that often result in better exchange rates for PKR than broader competitors. The <strong>ACE Loyalty</strong> rewards program and frequent promotional rates for first-time users add genuine value for regular senders.</p>\n\n<p>ACE also has a strong physical presence in Pakistani and South Asian diaspora communities in the UK and Europe, with marketing that resonates with its core audience. This grassroots approach has built trust that newer digital-only providers are still working to earn.</p>`,
       },
       {
         id: "fees",
@@ -2292,7 +2307,7 @@ export const providerReviews: ProviderReview[] = [
         id: "countries",
         heading: "Countries and coverage",
         content:
-          "<p>ACE serves <strong>100+ countries with 30+ currencies</strong>. You can send from the UK, EU, US, Australia, Canada, and Switzerland.</p>\n\n<p><strong>Strongest corridors (where ACE excels):</strong></p>\n<ul>\n<li><strong>UK/EU → Pakistan:</strong> ACE's flagship corridor — often the best rate available</li>\n<li><strong>UK/EU → India:</strong> Competitive but not market-leading</li>\n<li><strong>UK/EU → Bangladesh:</strong> Strong rates, multiple delivery options</li>\n<li><strong>UK/EU → Nepal:</strong> One of few providers with good NPR coverage</li>\n<li><strong>UK/EU → Philippines:</strong> Competitive pricing with bank and wallet delivery</li>\n</ul>\n\n<p><strong>Coverage gaps:</strong></p>\n<ul>\n<li>Limited European (EUR→EUR) coverage — use Wise or Revolut</li>\n<li>Weaker on African corridors — use WorldRemit or TapTap Send</li>\n<li>No Latin American focus — use Remitly or Wise</li>\n<li>Limited in Oceania destinations beyond Australia sending</li>\n</ul>",
+          `<p>ACE serves <strong>100+ countries with 30+ currencies</strong>. You can send from the UK, EU, US, Australia, Canada, and Switzerland.</p>\n\n<p><strong>Strongest corridors (where ACE excels):</strong></p>\n<ul>\n<li><strong>UK/EU → Pakistan:</strong> ACE's flagship corridor — often the best rate available</li>\n<li><strong>UK/EU → India:</strong> Competitive but not market-leading</li>\n<li><strong>UK/EU → Bangladesh:</strong> Strong rates, multiple delivery options</li>\n<li><strong>UK/EU → Nepal:</strong> One of few providers with good NPR coverage</li>\n<li><strong>UK/EU → Philippines:</strong> Competitive pricing with bank and wallet delivery</li>\n</ul>\n\n<p><strong>Coverage gaps:</strong></p>\n<ul>\n<li>Limited European (EUR→EUR) coverage — use Wise or Revolut</li>\n<li>Weaker on African corridors — use <a href="/companies/worldremit">WorldRemit</a> or <a href="/companies/taptap-send">TapTap Send</a></li>\n<li>No Latin American focus — use Remitly or Wise</li>\n<li>Limited in Oceania destinations beyond Australia sending</li>\n</ul>`,
       },
       {
         id: "reviews",

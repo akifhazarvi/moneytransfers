@@ -309,9 +309,9 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   These Terms shall be governed by and construed in accordance with the
-                  laws of England and Wales. Any disputes arising from these Terms or your
-                  use of the Website shall be subject to the exclusive jurisdiction of the
-                  courts of England and Wales.
+                  laws of the State of Colorado, United States. Any disputes arising from
+                  these Terms or your use of the Website shall be subject to the exclusive
+                  jurisdiction of the courts located in Denver, Colorado.
                 </p>
               </div>
             </div>

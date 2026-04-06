@@ -150,9 +150,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="grid sm:grid-cols-2 gap-4 mt-4">
                 <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">DR</div>
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AH</div>
                     <div>
-                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Daniel Rowe</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Akif Hazarvi</p>
                       <p className="text-xs text-[var(--color-on-surface-variant)]">Founder &amp; Editor</p>
                     </div>
                   </div>

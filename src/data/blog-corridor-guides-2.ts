@@ -25,12 +25,13 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["UAE", "Pakistan", "AED to PKR", "remittance", "corridor guide", "send money from UAE to Pakistan", "uae to pakistan money transfer"],
     sections: [
       {
         heading: "UAE to Pakistan: One of the World's Busiest Remittance Corridors",
-        content: `<p>The UAE is home to over <strong>1.5 million Pakistani expatriates</strong>, making the AED-to-PKR corridor one of the highest-volume remittance routes in the world. The Gulf states collectively account for more than 60% of all remittances into Pakistan, with the UAE leading that share.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from UAE to Pakistan is <strong>ACE Money Transfer</strong> (zero fees, competitive AED-to-PKR rates) for small-medium amounts, and <a href="/companies/wise">Wise</a> for transfers above AED 2,000 thanks to its 0% exchange rate markup. The difference between providers on AED 3,000 can be PKR 3,000–8,000. Delivery to <strong>JazzCash</strong> or <strong>Easypaisa</strong> is instant. <a href="/send-money/uae-to-pakistan">Compare live UAE to Pakistan rates →</a></p></div>
+<p>The UAE is home to over <strong>1.5 million Pakistani expatriates</strong>, making the AED-to-PKR corridor one of the highest-volume remittance routes in the world. The Gulf states collectively account for more than 60% of all remittances into Pakistan, with the UAE leading that share.</p>
 <p>Competition on this corridor is fierce — exchange houses, digital-first providers, and banks all compete for your business. The difference between the cheapest and most expensive provider on a typical AED 3,000 transfer can be <strong>PKR 3,000–8,000</strong>.</p>
 <p>This guide breaks down the best providers for <strong>sending money from the UAE to Pakistan</strong>, covers delivery methods including <strong>JazzCash</strong> and <strong>Easypaisa</strong> mobile wallets, and explains how to avoid common pitfalls. For broader advice, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest way to send money internationally</a> guide.</p>`,
       },
@@ -133,12 +134,13 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Kenya", "KES", "remittance", "USD to KES", "M-Pesa", "corridor guide", "send money to Kenya"],
     sections: [
       {
         heading: "Why M-Pesa Makes Kenya the Easiest Country to Send Money To",
-        content: `<p>If you're sending money to Kenya from the US, you have a major advantage: <strong>M-Pesa</strong>. Used by over <strong>30 million Kenyans</strong> — more than half the country — M-Pesa is the world's most successful mobile money platform. Your transfer arrives in your recipient's phone in <strong>seconds</strong>, and they can use it instantly for bills, shopping, or cash withdrawal at any of 250,000+ agent locations.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from USA to Kenya is <strong>Sendwave</strong> for transfers under $500 (zero fees, instant M-Pesa delivery) and <a href="/companies/wise">Wise</a> for amounts above $500 (0% exchange rate markup delivers the most KES). The gap between cheapest and most expensive provider on $500 is KES 3,000–7,000. Always choose <strong>M-Pesa delivery</strong> — it arrives in seconds. <a href="/send-money/usa-to-kenya">Compare live USD to KES rates →</a></p></div>
+<p>If you're sending money to Kenya from the US, you have a major advantage: <strong>M-Pesa</strong>. Used by over <strong>30 million Kenyans</strong> — more than half the country — M-Pesa is the world's most successful mobile money platform. Your transfer arrives in your recipient's phone in <strong>seconds</strong>, and they can use it instantly for bills, shopping, or cash withdrawal at any of 250,000+ agent locations.</p>
 <p>This puts Kenya ahead of almost every other remittance corridor on speed and convenience. But it doesn't mean all providers are equal — the gap between the cheapest and most expensive option on a $500 transfer is still <strong>KES 3,000–7,000</strong> ($20–$50).</p>
 <p>The US is Kenya's single largest remittance source, contributing to over <strong>$4 billion in annual inflows</strong> according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>. This guide compares the 6 best providers for USD-to-KES transfers. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
       },
@@ -248,12 +250,13 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Egypt", "EGP", "remittance", "USD to EGP", "corridor guide", "send money to Egypt"],
     sections: [
       {
         heading: "Egypt: A Major Remittance Market",
-        content: `<p>Egypt is a country of over 100 million people and one of the world's largest remittance recipients. In 2025, Egyptian expatriates sent home over <strong>$24 billion</strong> according to the <a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a> — making Egypt the fifth-largest remittance destination globally after India, Mexico, China, and the Philippines.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Egypt in 2026 is <a href="/companies/wise">Wise</a> for transfers over $300 (0% exchange rate markup, mid-market EGP rate) and <a href="/companies/remitly">Remitly</a> for speed with Express delivery in minutes. The difference between providers on $1,000 can be EGP 2,000–5,000. Since Egypt's currency devaluations, formal channels now offer fair rates — avoid informal transfers. <a href="/send-money">Compare live rates →</a></p></div>
+<p>Egypt is a country of over 100 million people and one of the world's largest remittance recipients. In 2025, Egyptian expatriates sent home over <strong>$24 billion</strong> according to the <a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a> — making Egypt the fifth-largest remittance destination globally after India, Mexico, China, and the Philippines.</p>
 <p>The Egyptian diaspora is concentrated in the <strong>Gulf states</strong> (Saudi Arabia, UAE, Kuwait, Qatar), <strong>Europe</strong> (Italy, France, Germany), and the <strong>United States</strong>. Remittances are critical for millions of Egyptian families, funding everything from daily expenses and education to healthcare and housing.</p>
 <p>Since Egypt's currency liberalization in 2022–2024, the Egyptian Pound (EGP) lost roughly half its value against the US dollar. While painful domestically, this means senders abroad now receive significantly more EGP per dollar — and the gap between official and parallel market rates has largely closed, making formal transfer channels the clear choice.</p>
 <p>Competition among providers is growing, and the difference between the best and worst deal on a $1,000 transfer can be <strong>EGP 2,000–5,000</strong>. This guide covers the best options. For broader advice, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a>.</p>`,
@@ -364,12 +367,13 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Morocco", "MAD", "remittance", "EUR to MAD", "USD to MAD", "corridor guide", "send money to Morocco"],
     sections: [
       {
         heading: "Morocco: Why the Stable Dirham Makes Provider Choice Everything",
-        content: `<p>Unlike volatile currencies where timing matters, Morocco's Dirham (MAD) is pegged to a basket of <strong>EUR (60%) and USD (40%)</strong>, keeping it remarkably stable. This means one thing for senders: <strong>the provider you choose is the single biggest factor in how much your recipient gets</strong>. There's no "waiting for a better rate" — the rate barely moves. But provider markups of 0.5–3% are constant and compounding.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Morocco is <a href="/companies/wise">Wise</a> for bank transfers (0% markup on the mid-market MAD rate) and <strong>Ria Money Transfer</strong> for cash pickup or <strong>home delivery</strong> — a unique feature on this corridor. Since the Dirham is pegged to EUR/USD, the rate barely moves, making your choice of provider the single biggest factor. Send in EUR if possible for tighter spreads. <a href="/send-money">Compare live rates →</a></p></div>
+<p>Unlike volatile currencies where timing matters, Morocco's Dirham (MAD) is pegged to a basket of <strong>EUR (60%) and USD (40%)</strong>, keeping it remarkably stable. This means one thing for senders: <strong>the provider you choose is the single biggest factor in how much your recipient gets</strong>. There's no "waiting for a better rate" — the rate barely moves. But provider markups of 0.5–3% are constant and compounding.</p>
 <p>Morocco is home to one of the world's most competitive remittance corridors, with over <strong>$12 billion</strong> flowing in from its diaspora in <strong>France, Spain, Italy, Belgium, and the Netherlands</strong>. Uniquely, <strong>Ria Money Transfer</strong> offers home delivery of cash in Moroccan cities — something no other corridor in this guide can match.</p>
 <p>EUR to MAD is the most important pair (given the peg weighting), followed by USD to MAD. See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a> for broader advice.</p>`,
       },
@@ -451,12 +455,13 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Jamaica", "JMD", "remittance", "USD to JMD", "corridor guide", "send money to Jamaica", "cash pickup"],
     sections: [
       {
         heading: "Jamaica: Where Cash Pickup Still Beats Bank Transfers",
-        content: `<p>Jamaica is different from most corridors in this guide: <strong>cash pickup is still the most popular delivery method</strong>. While mobile banking is growing, many Jamaicans — especially in rural parishes outside Kingston, Montego Bay, and Spanish Town — rely on collecting physical cash from agent locations. This means your choice of provider depends heavily on their pickup network reach.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Jamaica is <a href="/companies/remitly">Remitly</a> for cash pickup (best price + Express delivery in minutes) and <a href="/companies/wise">Wise</a> for bank deposits (0% exchange rate markup). Cash pickup remains the most popular delivery method in Jamaica — <a href="/companies/western-union">Western Union</a> has the widest agent network across every parish. Digital providers save 50-70% vs traditional operators. <a href="/send-money">Compare live USD to JMD rates →</a></p></div>
+<p>Jamaica is different from most corridors in this guide: <strong>cash pickup is still the most popular delivery method</strong>. While mobile banking is growing, many Jamaicans — especially in rural parishes outside Kingston, Montego Bay, and Spanish Town — rely on collecting physical cash from agent locations. This means your choice of provider depends heavily on their pickup network reach.</p>
 <p>Remittances represent roughly <strong>16% of Jamaica's GDP</strong> (~$3.5 billion in 2025), making it one of the most remittance-dependent economies in the world. The Jamaican diaspora is large — over 1 million abroad, primarily in <strong>New York, South Florida, Atlanta, London, and Toronto</strong>.</p>
 <p>The good news: digital-first providers like <a href="/companies/remitly">Remitly</a> and <a href="/companies/wise">Wise</a> now offer JMD transfers at 50–70% lower cost than traditional operators. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
       },
@@ -530,12 +535,13 @@ export const corridorGuides2: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Sri Lanka", "LKR", "remittance", "USD to LKR", "corridor guide", "send money to Sri Lanka"],
     sections: [
       {
         heading: "Sri Lanka: Why the 2022 Crisis Made Provider Comparison Essential",
-        content: `<p>Sri Lanka's 2022 economic crisis changed everything about sending money to the island. The Sri Lankan Rupee <strong>lost over 50% of its value</strong>, and while it has partially recovered, the LKR remains at historically weak levels — meaning your dollars, pounds, or dirhams buy far more rupees than they did before the crisis.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Sri Lanka is <a href="/companies/wise">Wise</a> for bank transfers above $300 (0% exchange rate markup at 300+ LKR/USD) and <a href="/companies/worldremit">WorldRemit</a> for recipients without bank accounts via <strong>Dialog eZ Cash</strong> mobile wallet delivery. At current LKR rates, even a 1% markup on $500 costs LKR 1,500+ — provider comparison has never mattered more. <a href="/send-money">Compare live rates →</a></p></div>
+<p>Sri Lanka's 2022 economic crisis changed everything about sending money to the island. The Sri Lankan Rupee <strong>lost over 50% of its value</strong>, and while it has partially recovered, the LKR remains at historically weak levels — meaning your dollars, pounds, or dirhams buy far more rupees than they did before the crisis.</p>
 <p>But here's the catch: at 300+ LKR per USD, even a <strong>small percentage markup translates to huge absolute losses</strong>. A 1% markup on a $500 transfer costs you LKR 1,500+. A 3% markup (typical of Western Union on small amounts) costs LKR 4,500+. Provider comparison has never mattered more on this corridor.</p>
 <p>Sri Lanka's diaspora spans the <strong>Gulf states, UK, Italy, South Korea, and North America</strong>, sending home approximately <strong>$6 billion annually</strong> — a critical lifeline for the country's foreign exchange reserves. See our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfers guide</a>.</p>`,
       },

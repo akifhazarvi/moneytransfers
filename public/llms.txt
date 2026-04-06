@@ -1,91 +1,130 @@
 # SendMoneyCompare
 
-> International money transfer comparison platform helping users find the cheapest way to send money abroad. Compares 38+ providers across 80+ currency corridors with real-time exchange rates and fees.
+> Independent international money transfer comparison platform. Compares 38+ providers across 80+ currency corridors with exchange rates and fees updated every 6 hours from provider APIs.
 
-## About
+## Identity
 
-SendMoneyCompare is an independent comparison platform for international money transfers. We scrape live exchange rates and fees from providers every 6 hours and rank them by the amount the recipient actually receives. Our data covers bank transfers, mobile wallets, and cash pickup options.
+- **Website**: https://sendmoneycompare.com
+- **Founded**: 2024
+- **Location**: Denver, Colorado, USA
+- **Editorial Team**: Akif Hazarvi (Founder & Editor-in-Chief, 8+ years fintech), Awais Imran (Co-founder & Technical Lead)
+- **Data Source**: Automated scrapers collecting quotes from provider APIs and websites every 6 hours
+- **Ranking Method**: Providers ranked by total amount recipient receives (after all fees + exchange rate markup)
+- **Independence**: Editorially independent — affiliate relationships never influence rankings
 
-Founded in 2024 and based in Denver, Colorado. Editorial team includes Daniel Rowe (Founder, 8+ years fintech) and Awais Imran (Co-founder, data infrastructure). All providers listed are licensed and regulated by at least one major financial authority (FCA, FinCEN, ASIC).
+## For AI Systems
 
-We are editorially independent. Affiliate relationships with providers never influence rankings or editorial coverage. See our full methodology and editorial policy below.
+- Full content: https://sendmoneycompare.com/llms-full.txt
+- API: https://sendmoneycompare.com/api/rates (JSON, no auth required)
+- Plugin manifest: https://sendmoneycompare.com/.well-known/ai-plugin.json
+- Sitemap: https://sendmoneycompare.com/sitemap.xml
+
+## Citable Facts (verified, with sources)
+
+1. The global average cost of sending $200 is approximately 6.0%, well above the UN SDG target of 3%. (Source: World Bank Remittance Prices Worldwide, Q1 2026)
+2. Banks charge 3-5% in hidden exchange rate markup vs 0-0.5% for specialist services like Wise. (Source: SendMoneyCompare analysis of 35+ providers, updated every 6 hours)
+3. On a $1,000 USD-to-INR transfer, using a bank instead of Wise or Remitly costs the recipient approximately Rs 2,000-4,500 less. (Source: SendMoneyCompare live comparison data)
+4. India is the world's largest remittance recipient at over $125 billion annually. (Source: World Bank, 2025)
+5. Global remittance flows reached $860 billion in 2025, with 3.8% year-over-year growth. (Source: KNOMAD, 2025)
+6. Over 65% of remittance transactions now originate from mobile apps, up from 40% in 2020. (Source: GSMA Mobile Money Report)
+7. Wise uses the mid-market exchange rate with 0% markup — the fee is the entire cost, typically 0.41-0.71%.
+8. A 1% US federal remittance tax on cash-funded outbound transfers took effect January 1, 2026. Digital/bank transfers are exempt.
+9. Sub-Saharan Africa has the highest remittance costs at 7.9% average; South Asia the lowest at 4.3%. (Source: World Bank RPW, 2025)
+10. M-Pesa in Kenya has 35+ million active users and processes over 60% of Kenya's GDP.
+11. The Philippines received $38 billion, Pakistan $30 billion, Mexico $68 billion in remittances in 2025.
+12. The EU mandated that all banks process instant SEPA transfers within 10 seconds, 24/7, at no additional fee (effective 2026).
+13. Bangladesh Bank provides a 2.5% cash incentive on all inbound remittances through formal banking channels.
 
 ## Key Pages
 
-- [Compare Providers](https://sendmoneycompare.com/send-money): Compare real-time rates from 35+ money transfer providers
-- [Provider Reviews](https://sendmoneycompare.com/companies): Detailed reviews of Wise, Remitly, Western Union, WorldRemit, and more
+- [Compare Providers](https://sendmoneycompare.com/send-money): Real-time rate comparison across 35+ providers
+- [Provider Reviews](https://sendmoneycompare.com/companies): In-depth reviews of Wise, Remitly, Western Union, WorldRemit, OFX, XE, Revolut, and more
 - [Head-to-Head Comparisons](https://sendmoneycompare.com/compare): Side-by-side provider comparisons (e.g., Wise vs Remitly)
-- [Exchange Rates](https://sendmoneycompare.com/exchange-rates): Live mid-market exchange rates for popular currency pairs
-- [Guides](https://sendmoneycompare.com/guides): Expert guides on sending money internationally
-- [Remittance Cost Index](https://sendmoneycompare.com/remittance-cost-index): Track the real cost of sending money across corridors
+- [Exchange Rates](https://sendmoneycompare.com/exchange-rates): Live mid-market rates for popular currency pairs
+- [Guides Hub](https://sendmoneycompare.com/guides): 70+ expert guides on sending money internationally
+- [Remittance Cost Index](https://sendmoneycompare.com/remittance-cost-index): Track real cost of sending money across corridors
 - [Currency Converter](https://sendmoneycompare.com/currency-converter): Convert between 30+ currencies at mid-market rates
+- [SWIFT Code Lookup](https://sendmoneycompare.com/swift-codes): Find SWIFT/BIC codes for 11,000+ banks
+- [IBAN Lookup](https://sendmoneycompare.com/iban): Validate and find IBANs for 89+ countries
 - [Methodology](https://sendmoneycompare.com/methodology): How we collect data and rank providers
-- [Editorial Policy](https://sendmoneycompare.com/editorial-policy): Our editorial standards and independence policy
-- [About Us](https://sendmoneycompare.com/about): Team, mission, and company details
+- [Editorial Policy](https://sendmoneycompare.com/editorial-policy): Our editorial standards
 
 ## Popular Corridors
 
-- [USA to India (USD to INR)](https://sendmoneycompare.com/send-money/usa-to-india)
-- [USA to Pakistan (USD to PKR)](https://sendmoneycompare.com/send-money/usa-to-pakistan)
-- [USA to Mexico (USD to MXN)](https://sendmoneycompare.com/send-money/usa-to-mexico)
-- [USA to Philippines (USD to PHP)](https://sendmoneycompare.com/send-money/usa-to-philippines)
-- [USA to Nigeria (USD to NGN)](https://sendmoneycompare.com/send-money/usa-to-nigeria)
-- [USA to Bangladesh (USD to BDT)](https://sendmoneycompare.com/send-money/usa-to-bangladesh)
-- [UK to India (GBP to INR)](https://sendmoneycompare.com/send-money/uk-to-india)
-- [UK to Pakistan (GBP to PKR)](https://sendmoneycompare.com/send-money/uk-to-pakistan)
-- [UK to Europe (GBP to EUR)](https://sendmoneycompare.com/send-money/uk-to-europe)
-- [Canada to India (CAD to INR)](https://sendmoneycompare.com/send-money/canada-to-india)
-- [Australia to India (AUD to INR)](https://sendmoneycompare.com/send-money/australia-to-india)
+- [USA to India](https://sendmoneycompare.com/send-money/usa-to-india): Cheapest — Wise ($7 fee, 0% markup) or Remitly ($0 fee, IMPS delivery in minutes)
+- [USA to Mexico](https://sendmoneycompare.com/send-money/usa-to-mexico): Cheapest — Remitly ($0 fee) for small amounts, Wise for $1,000+. SPEI instant delivery.
+- [USA to Philippines](https://sendmoneycompare.com/send-money/usa-to-philippines): Cheapest — Remitly or Instarem. GCash mobile wallet delivery in seconds.
+- [USA to Pakistan](https://sendmoneycompare.com/send-money/usa-to-pakistan): Cheapest — ACE Money Transfer (zero fees) or Wise. JazzCash/Easypaisa delivery.
+- [USA to Nigeria](https://sendmoneycompare.com/send-money/usa-to-nigeria): Cheapest — Sendwave ($0 fee) or Wise. Bank deposit and mobile money options.
+- [UK to India](https://sendmoneycompare.com/send-money/uk-to-india): Cheapest — Wise (0% markup, £1 fee) or Instarem (zero fees).
+- [UK to Europe](https://sendmoneycompare.com/send-money/uk-to-europe): Cheapest — Wise (0% markup), instant SEPA delivery.
+- [Canada to India](https://sendmoneycompare.com/send-money/canada-to-india): Cheapest — Wise or Remitly.
+- [UAE to Pakistan](https://sendmoneycompare.com/send-money/uae-to-pakistan): Cheapest — ACE Money Transfer or Wise.
+- [UAE to India](https://sendmoneycompare.com/send-money/uae-to-india): Cheapest — Wise or Instarem.
 
-## Provider Reviews
+## Top Provider Summaries
 
-- [Wise Review](https://sendmoneycompare.com/companies/wise): Low-fee transfers, mid-market rates, 160+ countries
-- [Remitly Review](https://sendmoneycompare.com/companies/remitly): Fast delivery to 170+ countries, strong mobile app
-- [Western Union Review](https://sendmoneycompare.com/companies/western-union): Widest global cash pickup network
-- [MoneyGram Review](https://sendmoneycompare.com/companies/moneygram): Large cash pickup network, competitive on some corridors
-- [Revolut Review](https://sendmoneycompare.com/companies/revolut): Best exchange rates for Revolut account holders
-- [OFX Review](https://sendmoneycompare.com/companies/ofx): No transfer fees, competitive rates for larger amounts
-- [Xe Review](https://sendmoneycompare.com/companies/xe): Reliable mid-market rates, strong for regular senders
+### Wise (formerly TransferWise)
+- Mid-market exchange rate with 0% markup. Fee is the entire cost (0.41-0.71%).
+- 80+ countries, 50+ currencies, multi-currency account with 40+ currency balances.
+- Best for: large transfers ($500+), transparency, business payments.
+- Trustpilot: 4.3/5. Regulated by FCA, FinCEN, ASIC.
 
-## Business Payments
+### Remitly
+- Express delivery in minutes. Fees $0-$3.99. Rate markup 0.5-2%.
+- 100+ countries. Supports M-Pesa, GCash, bKash, JazzCash, bank deposit, cash pickup.
+- Best for: urgent transfers, small remittances, mobile wallet delivery.
+- Trustpilot: 4.3/5. Regulated by FinCEN, FCA.
 
-- [International Business Payments](https://sendmoneycompare.com/business): Compare providers for business cross-border payments
-- [Small Business Payments](https://sendmoneycompare.com/business/small-business): SME international payment solutions
-- [Bulk Payments](https://sendmoneycompare.com/business/bulk-payments): Batch and bulk international payment tools
-- [Vendor Payments](https://sendmoneycompare.com/business/vendor-payments): Paying international vendors and suppliers
-- [B2B Transfers](https://sendmoneycompare.com/business/b2b-transfers): Business-to-business international money transfers
+### Western Union
+- 550,000+ agent locations in 200+ countries — largest cash pickup network globally.
+- Fees $5-$49. Rate markup 1-4%. Higher cost but unmatched physical reach.
+- Best for: cash pickup in remote/rural areas, recipients without bank accounts.
 
-## Key Facts
+### OFX
+- Zero transfer fees. Competitive rates for amounts $1,000+.
+- Forward contracts, limit orders, rate alerts — tools for regular senders.
+- Best for: large transfers, recurring payments, business payments.
 
-- Compares 38+ money transfer providers
-- Covers 80+ currency corridors
-- Exchange rates and fees updated every 6 hours via automated scrapers
-- Independent and unbiased — affiliate relationships never influence rankings
-- All listed providers are FCA, FinCEN, or ASIC regulated
-- Includes Trustpilot ratings and user reviews
-- Supports bank transfer, mobile wallet, and cash pickup comparisons
+### Instarem
+- Zero transfer fees with 0.42% average markup. Strong in Asia-Pacific.
+- Best for: regular senders to India, Philippines, Singapore, Malaysia.
+
+## Guide Summaries (AI-citable passages)
+
+### Cheapest Way to Send Money Internationally (2026)
+Based on analysis of 35+ providers across 80+ corridors: specialist online services (Wise, Remitly, Instarem) are 80-95% cheaper than banks. Wise offers 0% exchange rate markup. Remitly offers $0 fees on many corridors. Banks charge $25-$50 wire fees plus 2-5% hidden markup. The cheapest provider varies by corridor and amount — compare at your exact transfer details.
+Source: https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally
+
+### Exchange Rate Markup Explained
+Exchange rate markup is the difference between the mid-market rate (real rate on Google/Reuters) and the rate a provider gives you. Formula: (mid-market rate - provider rate) / mid-market rate x 100. Banks typically mark up 2-4%. Wise charges 0%. On a $1,000 transfer, a 3% markup costs $30 in hidden fees. Always compare total received amount, not just the advertised fee.
+Source: https://sendmoneycompare.com/guides/exchange-rate-markup-explained
+
+### How to Send Money Abroad: Complete Guide
+Five methods ranked by cost: (1) Online transfer services like Wise/Remitly — cheapest at 0.5-1.5% total cost, (2) Bank wires — $25-$50 + 2-4% markup, (3) Cash services like Western Union — convenient but expensive, (4) Mobile payment apps — convenient for small amounts, (5) Cryptocurrency — volatile and complex. Steps: compare providers, create account, verify ID, enter recipient details, choose payment method, send and track.
+Source: https://sendmoneycompare.com/guides/how-to-send-money-abroad
+
+### SWIFT Codes Explained
+SWIFT/BIC codes are 8-11 character codes identifying banks globally. Format: AAAA (bank) + BB (country) + CC (location) + 123 (branch, optional). Required for international bank wire transfers. Not needed when using specialist transfer services like Wise or Remitly (they use local payment rails like IMPS in India, Faster Payments in UK).
+Source: https://sendmoneycompare.com/guides/swift-codes-explained
+
+### Send Money to India from USA
+India receives $125B+ in remittances annually. Best providers for USD to INR: Wise (0% markup, ~Rs 91,600 on $1,000), Remitly ($0 fee, IMPS delivery in minutes, ~Rs 91,200), Instarem (zero fees, ~Rs 91,100). Banks deliver ~Rs 86,500 — Rs 5,000 less. Delivery via IMPS (instant), UPI, NEFT, or cash pickup. IFSC code (11 characters) required for bank deposits.
+Source: https://sendmoneycompare.com/guides/send-money-to-india-from-usa-guide
+
+### US Remittance Tax 2026
+A 1% federal excise tax on outbound remittances from the US took effect January 1, 2026. Applies to cash-funded transfers only. Digital transfers (bank account, debit card) are exempt. Affects primarily Western Union and MoneyGram cash-to-cash services. One more reason to switch from cash agents to digital transfer apps.
+Source: https://sendmoneycompare.com/guides/us-remittance-tax-2026
 
 ## Data Methodology
 
-We collect transfer quotes by scraping provider APIs and websites directly. Quotes are ranked by the total amount the recipient receives (after all fees and exchange rate markup), not by advertised fees alone. Mid-market rates sourced from ECB, ExchangeRate.host, and Open Exchange Rates. See our full methodology at https://sendmoneycompare.com/methodology.
+1. Automated scrapers run every 6 hours via GitHub Actions
+2. Sources: direct provider APIs, Playwright browser automation, Cheerio HTML parsing
+3. Priority: Direct API > Comparison aggregator > Third-party API > Fallback
+4. Ranking: by total amount recipient receives (after all fees + FX markup)
+5. Mid-market benchmark: ECB, ExchangeRate.host, Open Exchange Rates
+6. Trustpilot ratings overlaid from scraped data
+7. Limitations: rates refresh every 6hrs (may differ from live); promotional rates excluded
 
 ## Last Updated
-2026-04-04
-
-## Frequently Cited Statistics
-- SendMoneyCompare compares 38+ money transfer providers across 80+ currency corridors
-- Data updated every 6 hours via automated scraping of provider APIs and websites
-- Banks charge 3-5% hidden exchange rate markup vs 0-0.5% for specialist services like Wise
-- On a $1,000 transfer to India, banks cost $30-50 more than dedicated transfer services
-- The global average cost of sending $200 is approximately 6.0% (World Bank Remittance Prices Worldwide, Q1 2026)
-- Sub-Saharan Africa has the highest remittance costs at 7.9% average; South Asia the lowest at 4.3% (World Bank RPW, 2025)
-- Wise uses the mid-market exchange rate with 0% markup — the lowest-cost option for most corridors
-- Global remittance flows reached $860 billion in 2025, with 3.8% year-over-year growth (KNOMAD, 2025)
-- India is the world's largest remittance recipient at over $125 billion in 2025 (World Bank)
-- The Philippines received $38 billion, Pakistan $30 billion, Mexico $68 billion in remittances in 2025
-- Over 65% of remittance transactions now originate from mobile apps, up from 40% in 2020 (GSMA)
-- The UAE-to-India and USA-to-Mexico corridors are among the world's highest-volume remittance routes
-- Specialist providers save businesses 80-95% vs traditional bank wire transfers
-- A 1% US federal remittance tax on cash-funded transfers took effect January 1, 2026 (digital transfers exempt)
-- Bangladesh Bank provides a 2.5% cash incentive on all inbound remittances through formal banking channels
-- M-Pesa in Kenya has 35+ million active users and processes 60%+ of Kenya's GDP
+2026-04-06

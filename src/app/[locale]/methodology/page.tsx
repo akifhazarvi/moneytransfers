@@ -57,8 +57,8 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               "A detailed explanation of how SendMoneyCompare collects exchange rate data, calculates total transfer costs, and ranks providers in our comparison tables.",
             author: {
               "@type": "Person",
-              name: "Daniel Rowe",
-              url: "https://sendmoneycompare.com/about/daniel-rowe",
+              name: "Akif Hazarvi",
+              url: "https://sendmoneycompare.com/about/akif-hazarvi",
               jobTitle:
                 "Product Manager – Fintech & International Payments",
             },

@@ -31,6 +31,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     description: t("description"),
     keywords: t("keywords"),
+    other: {
+      "citation_title": "SendMoneyCompare — International Money Transfer Comparison",
+      "citation_author": "Akif Hazarvi",
+      "citation_date": new Date().toISOString().split("T")[0],
+      "citation_journal_title": "SendMoneyCompare",
+      "ai-content-declaration": "human-written, data-verified",
+    },
     openGraph: {
       type: "website",
       locale: localeMap[locale] || "en_US",
@@ -70,7 +77,7 @@ const organizationSchema = {
   foundingDate: "2024",
   founder: {
     "@type": "Person",
-    name: "Daniel Rowe",
+    name: "Akif Hazarvi",
     jobTitle: "Founder",
   },
   contactPoint: {

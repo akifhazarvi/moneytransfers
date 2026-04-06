@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-01-15",
     updatedAt: "2026-03-13",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["cheap transfers", "fees", "comparison", "best rates", "international transfers"],
     featuredImage: "/images/blog/cheapest-way-to-send-money.jpg",
     sections: [
@@ -124,12 +124,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money internationally?",
         answer:
-          "Based on our analysis of 35+ providers, Wise, Remitly, and Instarem consistently offer the lowest total cost. Wise charges 0% exchange rate markup with a small transparent fee. Remitly often has $0 fees with small markups. The cheapest option depends on the amount and corridor.",
+          "Based on our analysis of 35+ providers, <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/instarem\">Instarem</a> consistently offer the lowest total cost. Wise charges 0% exchange rate markup with a small transparent fee. Remitly often has $0 fees with small markups. The cheapest option depends on the amount and corridor — <a href=\"/send-money\">compare live rates</a> for your specific transfer.",
       },
       {
         question: "Are bank transfers cheaper than money transfer services?",
         answer:
-          "No. Banks are consistently the most expensive option. Our data shows that banks like Chase and Wells Fargo charge 2–4% in hidden exchange rate markups, while dedicated transfer services like Wise charge 0–0.5%. On a $1,000 transfer, this difference can mean $20–$40 less received.",
+          "No. Banks are consistently the most expensive option. Our data shows that banks like Chase and Wells Fargo charge 2–4% in hidden <a href=\"/guides/exchange-rate-markup-explained\">exchange rate markups</a>, while dedicated transfer services like <a href=\"/companies/wise\">Wise</a> charge 0–0.5%. On a $1,000 transfer, this difference can mean $20–$40 less received.",
       },
       {
         question: "Is it cheaper to send a large amount or multiple small amounts?",
@@ -159,13 +159,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-01-10",
     updatedAt: "2026-03-13",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["how to", "international transfer", "guide", "beginners", "send money"],
     featuredImage: "/images/blog/how-to-send-money-abroad.jpg",
     sections: [
       {
         heading: "Methods for Sending Money Internationally",
-        content: `<p>There are several ways to <a href="/guides/cheapest-way-to-send-money-internationally">send money abroad cheaply</a>, each with different costs, speeds, and convenience levels:</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest and fastest way to send money abroad is through specialist online transfer services. <a href="/companies/wise">Wise</a> offers 0% exchange rate markup with transparent fees, <a href="/companies/remitly">Remitly</a> delivers in minutes with $0 fees on many corridors, and <a href="/companies/instarem">Instarem</a> combines zero fees with low markup. All three are 80-95% cheaper than bank wire transfers ($25-$50 + 2-4% markup). Below we rank all 5 methods by total cost.</p></div>
+<p>There are several ways to <a href="/guides/cheapest-way-to-send-money-internationally">send money abroad cheaply</a>, each with different costs, speeds, and convenience levels:</p>
 <h3>1. Online Money Transfer Services</h3>
 <p><strong>Best for:</strong> Most people. Services like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/ofx">OFX</a> offer the best combination of low costs and fast delivery. You send money from your bank account or card, and it arrives in the recipient's bank account, mobile wallet, or as cash pickup.</p>
 <h3>2. Bank Wire Transfers</h3>
@@ -241,12 +242,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "How much does it cost to send money internationally?",
         answer:
-          "Costs vary by provider and amount. Specialist services like Wise charge 0.3–1.5% total cost, while banks charge 2–5%. On a $1,000 transfer, you might pay $5–$15 with Wise vs $30–$50 with a bank.",
+          "Costs vary by provider and amount. Specialist services like <a href=\"/companies/wise\">Wise</a> charge 0.3–1.5% total cost, while banks charge 2–5%. On a $1,000 transfer, you might pay $5–$15 with Wise vs $30–$50 with a bank. See our <a href=\"/guides/cheapest-way-to-send-money-internationally\">cheapest transfers guide</a> for a full breakdown.",
       },
       {
         question: "What's the fastest way to send money internationally?",
         answer:
-          "Remitly Express and WorldRemit offer delivery in minutes to many countries. Wise offers instant delivery for some corridors. Cash pickup services like Western Union can also be instant if the recipient goes to an agent location.",
+          "<a href=\"/companies/remitly\">Remitly</a> Express and <a href=\"/companies/worldremit\">WorldRemit</a> offer delivery in minutes to many countries. <a href=\"/companies/wise\">Wise</a> offers instant delivery for some corridors. Cash pickup services like <a href=\"/companies/western-union\">Western Union</a> can also be instant if the recipient goes to an agent location.",
       },
       {
         question: "Do I need ID to send money abroad?",
@@ -305,13 +306,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-01-20",
     updatedAt: "2026-03-13",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["exchange rates", "markup", "mid-market rate", "hidden fees", "education"],
     featuredImage: "/images/blog/exchange-rate-markup.jpg",
     sections: [
       {
         heading: "What Is the Mid-Market Exchange Rate?",
-        content: `<p>The <strong>mid-market rate</strong> (also called the interbank rate or real exchange rate) is the midpoint between the buy and sell price of a currency on the global market. It's the rate banks use when trading with each other — and it's the fairest rate available. The mid-market rate is published by sources like <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">the European Central Bank</a> and the <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer nofollow">US Federal Reserve's H.10 release</a>.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An exchange rate markup is the difference between the mid-market rate (the real rate on Google) and the rate a provider gives you — typically 0.5-4% for banks. On a $1,000 transfer, a 3% bank markup costs you ~$30 in hidden fees. <a href="/companies/wise">Wise</a> charges 0% markup, while <a href="/companies/remitly">Remitly</a> averages 0.45%. <a href="/send-money">Compare real rates</a> across 35+ providers to see the true cost.</p></div>
+<p>The <strong>mid-market rate</strong> (also called the interbank rate or real exchange rate) is the midpoint between the buy and sell price of a currency on the global market. It's the rate banks use when trading with each other — and it's the fairest rate available. The mid-market rate is published by sources like <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">the European Central Bank</a> and the <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer nofollow">US Federal Reserve's H.10 release</a>.</p>
 <p>When you Google "USD to INR," the rate shown is the mid-market rate. No individual consumer gets this exact rate, but some providers come very close. Understanding this is key to finding <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally</a>.</p>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for Low Exchange Rate Markup</h3>
@@ -378,12 +380,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is a good exchange rate markup?",
         answer:
-          "Anything under 1% is good, under 0.5% is excellent. Wise offers 0% markup. Banks typically charge 2–4% which is poor value. Check our comparison tool to see the markup each provider charges for your specific corridor.",
+          "Anything under 1% is good, under 0.5% is excellent. <a href=\"/companies/wise\">Wise</a> offers 0% markup. Banks typically charge 2–4% which is poor value. Check our <a href=\"/send-money\">comparison tool</a> to see the markup each provider charges for your specific corridor.",
       },
       {
         question: "Why is my bank's exchange rate different from Google?",
         answer:
-          "Google shows the mid-market rate — the real rate at which currencies trade on global markets. Your bank adds a markup (typically 2–4%) to this rate as profit. That's why you always receive less than the Google rate suggests.",
+          "Google shows the mid-market rate — the real rate at which currencies trade on global markets. Your bank adds a markup (typically 2–4%) to this rate as profit. That's why you always receive less than the Google rate suggests. Use our <a href=\"/send-money\">comparison tool</a> to see the real cost across providers.",
       },
     ],
     relatedSlugs: [
@@ -406,7 +408,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-02-01",
     updatedAt: "2026-03-31",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["security", "safety", "scams", "regulation", "fraud protection", "FCA", "FinCEN"],
     featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
@@ -528,7 +530,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Are money transfers safe?",
         answer:
-          "Yes, online money transfers through regulated providers are safe. Services like Wise, Remitly, and Revolut are authorised by the FCA (UK) and FinCEN (US), hold your money in segregated accounts, use 256-bit encryption, and require two-factor authentication. The key is to always verify the provider is regulated before sending money.",
+          "Yes, online money transfers through regulated providers are safe. Services like <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/revolut\">Revolut</a> are authorised by the FCA (UK) and FinCEN (US), hold your money in segregated accounts, use 256-bit encryption, and require two-factor authentication. The key is to always verify the provider is regulated before sending money.",
       },
       {
         question: "Are bank transfers safe to receive money?",
@@ -538,12 +540,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Is Wise safe to use?",
         answer:
-          "Yes. Wise is authorized by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). They hold customer funds in segregated accounts at major banks like JP Morgan and Barclays. Wise has a 4.6/5 Trustpilot rating from over 284,000 reviews and serves 16+ million customers worldwide.",
+          "Yes. <a href=\"/companies/wise\">Wise</a> is authorized by the FCA (UK), FinCEN (US), ASIC (Australia), and MAS (Singapore). They hold customer funds in segregated accounts at major banks like JP Morgan and Barclays. Wise has a 4.6/5 Trustpilot rating from over 284,000 reviews and serves 16+ million customers worldwide.",
       },
       {
         question: "Is Remitly safe to use?",
         answer:
-          "Yes. Remitly is authorised by the FCA (UK) and registered with FinCEN (US). It has a 4.6/5 Trustpilot rating from over 108,000 reviews and is a NASDAQ-listed public company (RELY). Remitly uses bank-grade encryption and 2FA for all transactions.",
+          "Yes. <a href=\"/companies/remitly\">Remitly</a> is authorised by the FCA (UK) and registered with FinCEN (US). It has a 4.6/5 Trustpilot rating from over 108,000 reviews and is a NASDAQ-listed public company (RELY). Remitly uses bank-grade encryption and 2FA for all transactions.",
       },
       {
         question: "How do I check if a money transfer service is legitimate?",
@@ -558,7 +560,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the safest way to send money internationally?",
         answer:
-          "Use a regulated provider (check the FCA or FinCEN register), enable two-factor authentication, verify recipient details carefully before sending, fund via bank transfer or debit card (not credit card to a new provider), and start with a small test transfer before sending large amounts. Our comparison tool only lists regulated providers.",
+          "Use a regulated provider (check the FCA or FinCEN register), enable two-factor authentication, verify recipient details carefully before sending, fund via bank transfer or debit card (not credit card to a new provider), and start with a small test transfer before sending large amounts. Our <a href=\"/send-money\">comparison tool</a> only lists regulated providers.",
       },
     ],
     relatedSlugs: [
@@ -583,13 +585,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-10",
     updatedAt: "2026-03-13",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["SWIFT code", "BIC code", "bank transfer", "international transfer", "how to"],
     featuredImage: "/images/blog/swift-codes-explained.jpg",
     sections: [
       {
         heading: "What Is a SWIFT Code?",
-        content: `<p>A <strong>SWIFT code</strong> (also called a BIC — Bank Identifier Code) is a unique 8 or 11 character code that identifies a specific bank or branch worldwide. It's used to route international bank transfers to the correct destination.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A SWIFT code (also called a BIC code) is an 8-11 character code that identifies a specific bank or branch for international wire transfers. The format is: 4-letter bank code + 2-letter country code + 2-character location code + optional 3-character branch code. Modern transfer services like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> handle SWIFT routing automatically, so you often don't need one. Learn more in our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a>.</p></div>
+<p>A <strong>SWIFT code</strong> (also called a BIC — Bank Identifier Code) is a unique 8 or 11 character code that identifies a specific bank or branch worldwide. It's used to route international bank transfers to the correct destination.</p>
 <p>SWIFT, formally the Society for Worldwide Interbank Financial Telecommunication, connects over 11,000 institutions. Learn more about the network at <a href="https://www.swift.com/about-us" target="_blank" rel="noopener noreferrer nofollow">swift.com</a>. The standard is governed by <a href="https://www.iso.org/standard/60390.html" target="_blank" rel="noopener noreferrer nofollow">ISO 9362</a>.</p>
 <p>You'll need a SWIFT code when sending money via a bank wire transfer. However, modern services like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> handle SWIFT routing internally. Learn more in our guide to <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>.</p>
 <div class="blog-table-box">
@@ -658,7 +661,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Can I use the wrong SWIFT code?",
         answer:
-          "Using the wrong SWIFT code can send your money to the wrong bank. If this happens, the receiving bank will typically return the funds, but this can take days to weeks and may incur fees. Always double-check the SWIFT code before sending.",
+          "Using the wrong SWIFT code can send your money to the wrong bank. If this happens, the receiving bank will typically return the funds, but this can take days to weeks and may incur fees. Always double-check the SWIFT code before sending. See our <a href=\"/guides/wire-transfer-guide\">wire transfer guide</a> for more on how SWIFT codes are used in international transfers.",
       },
     ],
     relatedSlugs: ["how-to-send-money-abroad", "iban-numbers-explained"],
@@ -678,13 +681,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-13",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["IBAN", "bank account", "international transfer", "Europe", "validation"],
     featuredImage: "/images/blog/iban-numbers-explained.jpg",
     sections: [
       {
         heading: "What Is an IBAN?",
-        content: `<p>An <strong>IBAN</strong> (International Bank Account Number) is a standardized format for bank account numbers used in over 80 countries. The IBAN standard is maintained under <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer nofollow">ISO 13616</a> by the International Organization for Standardization. It was created to reduce errors in international transfers by providing a uniform way to identify bank accounts globally. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry provides IBAN structure details for all participating countries.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An IBAN (International Bank Account Number) is a standardized bank account number format used in 80+ countries, containing up to 34 characters including a country code, check digits, bank code, and account number. IBANs are required for transfers to Europe and many other regions. Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/xe">XE</a> accept IBANs directly and handle routing automatically. See our <a href="/send-money/uk-to-europe">UK to Europe</a> corridor page for IBAN-based transfer options.</p></div>
+<p>An <strong>IBAN</strong> (International Bank Account Number) is a standardized format for bank account numbers used in over 80 countries. The IBAN standard is maintained under <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer nofollow">ISO 13616</a> by the International Organization for Standardization. It was created to reduce errors in international transfers by providing a uniform way to identify bank accounts globally. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry provides IBAN structure details for all participating countries.</p>
 <p>An IBAN contains the country code, check digits (for validation), bank code, and account number — all in a single string of up to 34 characters. When sending to Europe (e.g., <a href="/send-money/uk-to-europe">UK to Europe</a>), you'll almost always need the recipient's IBAN.</p>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for International Transfers</h3>
@@ -794,7 +798,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-02-20",
     updatedAt: "2026-03-31",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
     featuredImage: "/images/blog/best-money-transfer-apps.jpg",
     sections: [
@@ -878,12 +882,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the best app to send money internationally?",
         answer:
-          "Wise is the best overall for transparent pricing and 0% exchange rate markup. Remitly is best for remittances to developing countries. Instarem offers the lowest total cost in many Asia-Pacific corridors. The best app depends on where you're sending and how much.",
+          "<a href=\"/companies/wise\">Wise</a> is the best overall for transparent pricing and 0% exchange rate markup. <a href=\"/companies/remitly\">Remitly</a> is best for remittances to developing countries. <a href=\"/companies/instarem\">Instarem</a> offers the lowest total cost in many Asia-Pacific corridors. The best app depends on where you're sending and how much.",
       },
       {
         question: "Is Wise better than Remitly?",
         answer:
-          "It depends on the corridor and amount. Wise offers 0% markup but charges a fee ($5–$15 on $1,000). Remitly often has $0 fees but a 0.45% markup. For large transfers, Wise usually wins. For small remittances to countries like India or Philippines, Remitly can be cheaper.",
+          "It depends on the corridor and amount. <a href=\"/companies/wise\">Wise</a> offers 0% markup but charges a fee ($5–$15 on $1,000). <a href=\"/companies/remitly\">Remitly</a> often has $0 fees but a 0.45% markup. For large transfers, Wise usually wins. For small remittances to countries like India or Philippines, Remitly can be cheaper. See our <a href=\"/compare/wise-vs-remitly\">Wise vs Remitly comparison</a> for full details.",
       },
     ],
     relatedSlugs: [
@@ -906,13 +910,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-02-25",
     updatedAt: "2026-03-13",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Wise", "Remitly", "comparison", "vs", "fees", "exchange rates"],
     featuredImage: "/images/blog/wise-vs-remitly.jpg",
     sections: [
       {
         heading: "The Key Difference: Fee vs Markup",
-        content: `<p><a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> use fundamentally different pricing models:</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a> is cheaper for large transfers with its 0% exchange rate markup and transparent fees, while <a href="/companies/remitly">Remitly</a> wins on speed and small remittances with $0 fees and express delivery in minutes. <a href="/compare/wise-vs-remitly">See our full head-to-head comparison</a>.</p></div>
+<p><a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> use fundamentally different pricing models:</p>
 <ul>
 <li><strong>Wise</strong>: Charges the real mid-market exchange rate (0% markup) + a transparent fee (typically $5–$15 on $1,000). Wise is authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> in the UK and regulated by <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> in the US.</li>
 <li><strong>Remitly</strong>: Often charges $0 transfer fees + a small exchange rate markup (0.3–0.8%)</li>
@@ -1020,13 +1025,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-01",
     updatedAt: "2026-03-13",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["India", "INR", "remittance", "USD to INR", "GBP to INR", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       {
         heading: "India: The World's Largest Remittance Market",
-        content: `<p>India is the world's top remittance-receiving country, with over $125 billion in inflows in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank's Migration and Remittances data</a>. Millions of people in the US, UK, Canada, Australia, and the Gulf states send money to family in India regularly.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest ways to send money to India are specialist apps like <a href="/companies/wise">Wise</a> (0% markup, ~$7 fee) and <a href="/companies/remitly">Remitly</a> ($0 fee, 0.45% markup). On a $1,000 USD to INR transfer, these providers deliver ₹91,500-91,900 vs ₹89,300 from a typical bank. You'll need the recipient's IFSC code for bank delivery. <a href="/send-money/usa-to-india">Compare live USD to INR rates</a> across 8+ providers.</p></div>
+<p>India is the world's top remittance-receiving country, with over $125 billion in inflows in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank's Migration and Remittances data</a>. Millions of people in the US, UK, Canada, Australia, and the Gulf states send money to family in India regularly.</p>
 <p>The Reserve Bank of India (RBI) oversees inbound remittance regulations through its <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Liberalised Remittance Scheme (LRS)</a> framework. The good news: because it's the most competitive corridor, you have more provider options and lower costs than almost any other destination.</p>`,
       },
       {
@@ -1109,12 +1115,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from US to India?",
         answer:
-          "Based on our data, Xoom and Instarem offer the best value for $1,000 USD to INR transfers with $0 fees and under 0.35% markup. Wise is also excellent with 0% markup but charges a $7.33 fee. For amounts over $3,000, Wise becomes the cheapest.",
+          "Based on our data, <a href=\"/companies/xoom\">Xoom</a> and <a href=\"/companies/instarem\">Instarem</a> offer the best value for $1,000 USD to INR transfers with $0 fees and under 0.35% markup. <a href=\"/companies/wise\">Wise</a> is also excellent with 0% markup but charges a $7.33 fee. <a href=\"/send-money/usa-to-india\">Compare live USD to INR rates</a> at your exact amount.",
       },
       {
         question: "How long does it take to send money to India?",
         answer:
-          "It depends on the provider: Remitly Express delivers in minutes, Wise takes 1–2 business days, and bank wire transfers take 2–5 business days. UPI-enabled transfers can be instant.",
+          "It depends on the provider: <a href=\"/companies/remitly\">Remitly</a> Express delivers in minutes, <a href=\"/companies/wise\">Wise</a> takes 1–2 business days, and bank wire transfers take 2–5 business days. UPI-enabled transfers can be instant.",
       },
       {
         question: "Do I need an IFSC code to send money to India?",
@@ -1146,7 +1152,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "16 min read",
     publishedAt: "2026-03-05",
     updatedAt: "2026-03-29",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "B2B payments", "invoicing", "FX management", "batch payments", "SWIFT", "SEPA", "international payments"],
     featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
@@ -1375,13 +1381,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-10",
     updatedAt: "2026-03-17",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["remittance", "statistics", "trends", "2026", "global", "research"],
     featuredImage: "/images/blog/global-remittance-trends.jpg",
     sections: [
       {
         heading: "How Much Money Was Sent Through Global Remittances in 2025–2026?",
-        content: `<p>International remittances have continued their steady growth:</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Global remittances exceeded $860 billion in 2025, with India receiving $125 billion. Digital providers now handle 30%+ of flows, and average transfer costs continue to fall. <a href="/send-money">Compare providers</a> to find the cheapest option for your corridor.</p></div>
+<p>International remittances have continued their steady growth:</p>
 <ul>
 <li><strong>Total global remittances</strong>: $860 billion in 2025. Global remittance flows reached this estimate per the <a href="https://www.knomad.org/publication/migration-and-development-brief" target="_blank" rel="noopener noreferrer">KNOMAD Migration and Development Brief</a>.</li>
 <li><strong>Year-over-year growth</strong>: 3.8%, outpacing global GDP growth (<a href="https://www.knomad.org/publication/migration-and-development-brief" target="_blank" rel="noopener noreferrer">KNOMAD, 2025</a>)</li>
@@ -1534,7 +1541,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "16 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-31",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
     sections: [
       {
@@ -1772,7 +1779,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to wire money internationally?",
         answer:
-          "The cheapest way to send money internationally is to avoid traditional bank wires altogether. Specialist providers like Wise (0% FX markup, ~0.5% fee), Remitly ($0\u2013$4.99 fee, small markup), and Instarem ($0 fee, ~0.4% markup) typically cost 60\u201380% less than bank wire transfers. For a $1,000 transfer, you might pay $6\u2013$12 with Wise vs $60\u2013$80 with a bank wire.",
+          "The cheapest way to send money internationally is to avoid traditional bank wires altogether. Specialist providers like <a href=\"/companies/wise\">Wise</a> (0% FX markup, ~0.5% fee), <a href=\"/companies/remitly\">Remitly</a> ($0\u2013$4.99 fee, small markup), and <a href=\"/companies/instarem\">Instarem</a> ($0 fee, ~0.4% markup) typically cost 60\u201380% less than bank wire transfers. <a href=\"/send-money\">Compare live rates</a> to find the cheapest option for your transfer.",
       },
       {
         question: "What is the difference between a wire transfer and a bank transfer?",
@@ -1787,7 +1794,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What information do I need to send an international wire transfer?",
         answer:
-          "To send an international wire, you need: the recipient\u2019s full legal name (as it appears on their bank account), their bank name and address, the bank\u2019s SWIFT/BIC code (8 or 11 characters), the recipient\u2019s IBAN (for European transfers) or account number, and in some cases the purpose of the transfer. For US domestic wires, you need the recipient bank\u2019s 9-digit ABA routing number instead of a SWIFT code.",
+          "To send an international wire, you need: the recipient\u2019s full legal name (as it appears on their bank account), their bank name and address, the bank\u2019s <a href=\"/guides/swift-codes-explained\">SWIFT/BIC code</a> (8 or 11 characters), the recipient\u2019s IBAN (for European transfers) or account number, and in some cases the purpose of the transfer. For US domestic wires, you need the recipient bank\u2019s 9-digit ABA routing number instead of a SWIFT code.",
       },
       {
         question: "Why is my international wire transfer taking so long?",
@@ -1802,7 +1809,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is SWIFT and how does it relate to wire transfers?",
         answer:
-          "SWIFT (Society for Worldwide Interbank Financial Telecommunication) is a global messaging network used by 11,000+ financial institutions in 200+ countries. SWIFT does not actually move money \u2014 it sends secure, standardized instructions between banks to facilitate international wire transfers. Each bank on the network has a unique SWIFT/BIC code (like CHASUS33 for JPMorgan Chase in New York) that identifies it in the system.",
+          "SWIFT (Society for Worldwide Interbank Financial Telecommunication) is a global messaging network used by 11,000+ financial institutions in 200+ countries. SWIFT does not actually move money \u2014 it sends secure, standardized instructions between banks to facilitate international wire transfers. Each bank on the network has a unique <a href=\"/guides/swift-codes-explained\">SWIFT/BIC code</a> (like CHASUS33 for JPMorgan Chase in New York) that identifies it in the system.",
       },
     ],
     howToSteps: [
@@ -1853,7 +1860,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "best transfer services",
       "provider rankings",
@@ -2022,17 +2029,17 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to transfer money internationally?",
         answer:
-          "Using an online money transfer specialist with transparent fees and mid-market exchange rates is typically the cheapest option. Services like Wise, XE, and OFX consistently beat bank wire transfers by 60–80% on total cost. The cheapest option varies by corridor — use our comparison tool to check real-time rates for your specific route.",
+          "Using an online money transfer specialist with transparent fees and mid-market exchange rates is typically the cheapest option. Services like <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/xe\">XE</a>, and <a href=\"/companies/ofx\">OFX</a> consistently beat bank wire transfers by 60–80% on total cost. The cheapest option varies by corridor — use our <a href=\"/send-money\">comparison tool</a> to check real-time rates for your specific route.",
       },
       {
         question: "How long does an international money transfer take?",
         answer:
-          "Transfer times range from instant to 5 business days depending on the provider, destination, and payment method. Express services like Remitly can deliver in minutes, while bank transfers and economy options typically take 1–3 business days.",
+          "Transfer times range from instant to 5 business days depending on the provider, destination, and payment method. Express services like <a href=\"/companies/remitly\">Remitly</a> can deliver in minutes, while bank transfers and economy options typically take 1–3 business days.",
       },
       {
         question: "Can I send money abroad without a bank account?",
         answer:
-          "Yes. Several services allow you to send using a debit card and have the recipient pick up cash. Western Union and OnePay (powered by MoneyGram) have the widest cash pickup networks with 500,000+ locations globally.",
+          "Yes. Several services allow you to send using a debit card and have the recipient pick up cash. <a href=\"/companies/western-union\">Western Union</a> and OnePay (powered by MoneyGram) have the widest cash pickup networks with 500,000+ locations globally.",
       },
       {
         question: "Why do transfer fees vary so much between providers?",
@@ -2067,7 +2074,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-17",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "promo codes",
       "referral programs",
@@ -2081,7 +2088,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How to Save on International Money Transfers",
-        content: `<p>Beyond comparing exchange rates and fees, you can save even more on international transfers by taking advantage of <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend programs</strong>. Most major providers offer at least one of these — and some offer all three.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/worldremit">WorldRemit</a> and others offer referral bonuses and promo codes, typically $10–$30 per referral or fee-free first transfers. <a href="/send-money">Compare all providers</a> to find the best deal alongside these bonuses.</p></div>
+<p>Beyond comparing exchange rates and fees, you can save even more on international transfers by taking advantage of <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend programs</strong>. Most major providers offer at least one of these — and some offer all three.</p>
 <p>We researched all 14 providers on our platform to bring you every active deal in one place. Here's how each type of offer works:</p>
 <ul>
 <li><strong>Sign-up offers</strong> — One-time bonuses for new customers, like fee-free first transfers or cash bonuses.</li>
@@ -2408,13 +2416,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Ramadan", "Eid", "remittances", "send money home", "cheap transfers"],
     featuredImage: "/images/blog/ramadan-eid-send-money.jpg",
     sections: [
       {
         heading: "Why Ramadan & Eid Are the Busiest Times for Money Transfers",
-        content: `<p>Ramadan is much more than a month of fasting — it's a time of generosity, family, and giving back. For the millions of people living and working abroad, sending money home during Ramadan is both a spiritual duty and a deeply personal act of love.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> offer special Ramadan/Eid rates and zero-fee promotions. <a href="/send-money">Compare rates before sending</a> to ensure your family receives the most this Ramadan 2026.</p></div>
+<p>Ramadan is much more than a month of fasting — it's a time of generosity, family, and giving back. For the millions of people living and working abroad, sending money home during Ramadan is both a spiritual duty and a deeply personal act of love.</p>
 <p>During Ramadan and the weeks leading up to <strong>Eid al-Fitr</strong> (expected around <strong>29–30 March 2026</strong>), international remittances spike dramatically. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, remittance volumes to South Asia and the Middle East typically spike 15–25% during Ramadan. Families rely on these transfers for:</p>
 <ul>
 <li><strong>Eid gifts and new clothes</strong> — especially for children</li>
@@ -2570,7 +2579,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-14",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "data",
       "comparison",
@@ -2583,7 +2592,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why This Matters",
-        content: `<p>Sending money internationally shouldn't cost a fortune — but depending on which provider you use, you could lose anywhere from <strong>$5 to $80+</strong> on a single $1,000 transfer.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Sending $1,000 abroad costs between $5 and $80+ depending on the provider. Specialist apps like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/instarem">Instarem</a> save 80-95% vs traditional banks. On a $1,000 USD to INR transfer, the difference between the best and worst provider is over ₹8,700 (~$94). <a href="/send-money">Compare live rates</a> with your exact transfer details to find the cheapest option.</p></div>
+<p>Sending money internationally shouldn't cost a fortune — but depending on which provider you use, you could lose anywhere from <strong>$5 to $80+</strong> on a single $1,000 transfer.</p>
 <p>We pulled <strong>real, live quotes</strong> from 35+ providers to find out who actually gives your recipient the most money. No estimates, no averages — these are actual quotes collected from provider APIs and websites on March 14, 2026. Exchange rates sourced via the <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">European Central Bank</a> reference rates and cross-referenced with the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices database</a>.</p>
 <p>The results might surprise you: the difference between the best and worst provider on a $1,000 USD → INR transfer is over <strong>₹8,700</strong> (roughly $94).</p>
 <p>To understand why the exchange rate matters more than the fee, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explained</a> guide. And if you're sending from the US, note that a <a href="/guides/us-remittance-tax-2026">new 1% remittance tax</a> can add to these costs — but only if you pay with cash. For a broader comparison across all providers, try our <a href="/send-money">comparison tool</a>.</p>
@@ -2710,12 +2720,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "Which provider is the cheapest for sending $1,000 abroad?",
         answer:
-          "It depends on the corridor. For USD to INR, Western Union currently offers the best receive amount (₹93,077). For GBP to EUR, Wise leads (€1,153.72). For USD to PHP, Remitly wins (₱60,180). The cheapest provider changes frequently — always compare before sending.",
+          "It depends on the corridor. For <a href=\"/send-money/usa-to-india\">USD to INR</a>, Western Union currently offers the best receive amount (₹93,077). For GBP to EUR, <a href=\"/companies/wise\">Wise</a> leads (€1,153.72). For USD to PHP, <a href=\"/companies/remitly\">Remitly</a> wins (₱60,180). The cheapest provider changes frequently — <a href=\"/send-money\">always compare</a> before sending.",
       },
       {
         question: "Why do banks charge so much for international transfers?",
         answer:
-          "Banks rely on exchange rate markups (2–4% above the mid-market rate) rather than transparent fees. On a $1,000 transfer, this hidden markup can cost $20–$40. Combined with wire fees ($25–$60), banks are consistently the most expensive option in our data.",
+          "Banks rely on <a href=\"/guides/exchange-rate-markup-explained\">exchange rate markups</a> (2–4% above the mid-market rate) rather than transparent fees. On a $1,000 transfer, this hidden markup can cost $20–$40. Combined with <a href=\"/guides/wire-transfer-guide\">wire fees</a> ($25–$60), banks are consistently the most expensive option in our data.",
       },
       {
         question: "Is a '$0 fee' transfer really free?",
@@ -2725,12 +2735,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "How often do exchange rates change?",
         answer:
-          "Exchange rates change constantly during market hours. Provider rates typically update every few minutes to hours. Our scrapers collect fresh quotes every 6 hours, but we recommend checking live rates on our comparison tool right before you send.",
+          "Exchange rates change constantly during market hours. Provider rates typically update every few minutes to hours. Our scrapers collect fresh quotes every 6 hours, but we recommend checking live rates on our <a href=\"/send-money\">comparison tool</a> right before you send.",
       },
       {
         question: "Does the transfer amount affect which provider is cheapest?",
         answer:
-          "Yes, significantly. Providers with flat fees (like Wise at $11.95) are less competitive on small transfers but more competitive on large ones. Providers with $0 fees but higher markups (like Remitly) are often better for smaller amounts. Always compare at your exact send amount.",
+          "Yes, significantly. Providers with flat fees (like <a href=\"/companies/wise\">Wise</a> at $11.95) are less competitive on small transfers but more competitive on large ones. Providers with $0 fees but higher markups (like <a href=\"/companies/remitly\">Remitly</a>) are often better for smaller amounts. Always compare at your exact send amount.",
       },
     ],
     relatedSlugs: [
@@ -2754,7 +2764,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-14",
     updatedAt: "2026-03-29",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Pakistan", "PKR", "remittance", "USD to PKR", "GBP to PKR", "corridor guide", "send money to Pakistan"],
     featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
@@ -2903,17 +2913,17 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money to Pakistan?",
         answer:
-          "Based on our data, Wise, Remitly, and ACE Money Transfer consistently offer the best value for USD and GBP to PKR transfers. Wise uses the mid-market rate with a small fee, making it cheapest for amounts over $500. Remitly and ACE compete closely for smaller amounts with low or zero fees.",
+          "Based on our data, <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/remitly\">Remitly</a>, and <a href=\"/companies/ace-money-transfer\">ACE Money Transfer</a> consistently offer the best value for USD and GBP to PKR transfers. Wise uses the mid-market rate with a small fee, making it cheapest for amounts over $500. <a href=\"/send-money/usa-to-pakistan\">Compare live USD to PKR rates</a> at your exact amount.",
       },
       {
         question: "How long does it take to send money to Pakistan?",
         answer:
-          "It depends on the provider and delivery method. Remitly Express and cash pickup (Western Union, MoneyGram) deliver in minutes. Mobile wallets (JazzCash, Easypaisa) are near-instant. Bank deposits typically take 1–2 business days. Economy transfers take 3–5 days.",
+          "It depends on the provider and delivery method. <a href=\"/companies/remitly\">Remitly</a> Express and cash pickup (<a href=\"/companies/western-union\">Western Union</a>, MoneyGram) deliver in minutes. Mobile wallets (JazzCash, Easypaisa) are near-instant. Bank deposits typically take 1–2 business days. Economy transfers take 3–5 days.",
       },
       {
         question: "Can I send money to a JazzCash or Easypaisa account?",
         answer:
-          "Yes. Providers including Remitly, WorldRemit, and ACE Money Transfer support delivery to JazzCash and Easypaisa mobile wallets. This is one of the fastest delivery methods — often instant — and is growing rapidly in Pakistan.",
+          "Yes. Providers including <a href=\"/companies/remitly\">Remitly</a>, <a href=\"/companies/worldremit\">WorldRemit</a>, and <a href=\"/companies/ace-money-transfer\">ACE Money Transfer</a> support delivery to JazzCash and Easypaisa mobile wallets. This is one of the fastest delivery methods — often instant — and is growing rapidly in Pakistan.",
       },
       {
         question: "Do I need the recipient's IBAN to send money to Pakistan?",
@@ -2928,7 +2938,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the best app to send money to Pakistan?",
         answer:
-          "Remitly, Wise, and ACE Money Transfer all have well-rated mobile apps for sending money to Pakistan. Remitly is best for speed (Express delivery in minutes). Wise is best for transparency and large amounts. ACE Money Transfer specializes in the Pakistan corridor with competitive rates.",
+          "<a href=\"/companies/remitly\">Remitly</a>, <a href=\"/companies/wise\">Wise</a>, and <a href=\"/companies/ace-money-transfer\">ACE Money Transfer</a> all have well-rated mobile apps for sending money to Pakistan. Remitly is best for speed (Express delivery in minutes). Wise is best for transparency and large amounts. ACE Money Transfer specializes in the Pakistan corridor with competitive rates.",
       },
     ],
     relatedSlugs: [
@@ -2952,13 +2962,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["multi-currency account", "exchange rates", "Wise", "Revolut", "Xe", "forex"],
     featuredImage: "/images/blog/multi-currency-accounts-v3.jpg",
     sections: [
       {
         heading: "Why a Multi-Currency Account Beats a One-Off Transfer",
-        content: `<p>A standard international transfer forces you to convert currency at the moment you send. If the rate is bad that day, you pay more — simple as that. A multi-currency account flips the equation: you hold money in multiple currencies and convert when the rate is in your favour.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Multi-currency accounts from <a href="/companies/wise">Wise</a> and <a href="/companies/revolut">Revolut</a> let you hold 40+ currencies and convert at near-mid-market rates, saving you money by timing conversions when rates are favourable. <a href="/compare/wise-vs-revolut">Compare Wise vs Revolut</a> to find the best account for you.</p></div>
+<p>A standard international transfer forces you to convert currency at the moment you send. If the rate is bad that day, you pay more — simple as that. A multi-currency account flips the equation: you hold money in multiple currencies and convert when the rate is in your favour.</p>
 <p>Think of it as a foreign-exchange savings account. You deposit pounds, dollars, or euros, watch the rates, and convert when the numbers work. The money sits in your account in the target currency until you're ready to spend it, send it, or withdraw it.</p>
 <p>Three platforms dominate this space in 2026: <strong><a href="/companies/xe">Xe</a></strong>, <strong><a href="/companies/wise">Wise</a></strong>, and <strong><a href="/companies/revolut">Revolut</a></strong>. Each takes a different approach to multi-currency holding and conversion — and the differences matter more than you'd expect.</p>`,
       },
@@ -3148,7 +3159,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-31",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Philippines", "PHP", "remittance", "USD to PHP", "GCash", "corridor guide", "send money to Philippines"],
     featuredImage: "/images/blog/send-money-to-philippines.jpg",
     sections: [
@@ -3315,13 +3326,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Mexico", "MXN", "remittance", "USD to MXN", "SPEI", "OXXO", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-mexico.jpg",
     sections: [
       {
         heading: "Mexico: The World's Second-Largest Remittance Market",
-        content: `<p>Mexico received a record <strong>$63 billion in remittances</strong> in 2025, almost entirely from the United States, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México (Banxico)</a>. That makes the US-Mexico corridor the single largest bilateral remittance route on the planet.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest ways to send money to Mexico are <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee with Express SPEI delivery in minutes), <a href="/companies/wise">Wise</a> (~$7 fee, 0% markup for best total value on $1,000+), and <a href="/companies/instarem">Instarem</a> (competitive rates). For cash pickup, <a href="/companies/western-union">Western Union</a> offers 50,000+ locations including OXXO stores. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> across 10+ providers.</p></div>
+<p>Mexico received a record <strong>$63 billion in remittances</strong> in 2025, almost entirely from the United States, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México (Banxico)</a>. That makes the US-Mexico corridor the single largest bilateral remittance route on the planet.</p>
 <p>The sheer volume means intense competition between providers. Fees are among the lowest of any corridor, and exchange rate spreads are tight. But even small differences matter at scale — a 0.5% rate markup on $1,000 costs roughly MXN 85. If you send monthly, that's MXN 1,000+ per year your family doesn't receive.</p>`,
       },
       {
@@ -3480,13 +3492,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Nigeria", "NGN", "remittance", "USD to NGN", "naira", "corridor guide", "send money to Nigeria"],
     featuredImage: "/images/blog/send-money-to-nigeria.jpg",
     sections: [
       {
         heading: "Nigeria: Africa's Largest Remittance Market",
-        content: `<p>Nigeria received over <strong>$20 billion in remittances</strong> in 2025, according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, making it Africa's top remittance destination. The United States is the largest source, followed by the UK and Canada.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best providers for sending money to Nigeria are <a href="/companies/wise">Wise</a> (0% markup, most transparent on this volatile corridor), <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee, Express delivery to GTBank/Access/Zenith), and <a href="/companies/worldremit">WorldRemit</a> (supports bank deposit and mobile money). Comparing is critical — we've seen differences of ₦50,000+ on a $1,000 USD to NGN transfer on the same day. <a href="/send-money/usa-to-nigeria">Compare live rates</a> before every transfer.</p></div>
+<p>Nigeria received over <strong>$20 billion in remittances</strong> in 2025, according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, making it Africa's top remittance destination. The United States is the largest source, followed by the UK and Canada.</p>
 <p>The USD to NGN corridor is unlike any other. Nigeria's exchange rate history — with periods of multiple official and parallel rates — means the naira amount your recipient gets can vary <strong>dramatically</strong> between providers. We've seen differences of ₦50,000+ on a $1,000 transfer on the same day. Comparing is not optional here — it's critical.</p>`,
       },
       {
@@ -3639,13 +3652,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Bangladesh", "BDT", "remittance", "USD to BDT", "bKash", "Nagad", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-bangladesh.jpg",
     sections: [
       {
         heading: "Bangladesh: A Top-10 Remittance Destination",
-        content: `<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025, according to the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a>, making it one of the top remittance-receiving countries globally. The US, Saudi Arabia, UAE, and Malaysia are the largest source countries.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest ways to send money to Bangladesh are <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee with Express bKash delivery in seconds), <a href="/companies/instarem">Instarem</a> (competitive BDT rates), and <a href="/companies/wise">Wise</a> (~$7 fee, 0% markup — best for $1,000+ transfers). bKash and Nagad mobile wallets make receiving money fast even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> from 8+ providers.</p></div>
+<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025, according to the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a>, making it one of the top remittance-receiving countries globally. The US, Saudi Arabia, UAE, and Malaysia are the largest source countries.</p>
 <p>The USD to BDT corridor has a growing number of providers competing for market share. Mobile financial services — particularly <strong>bKash</strong> and <strong>Nagad</strong> — have transformed how Bangladeshis receive money from abroad, making transfers faster and more accessible than ever, especially in rural areas.</p>`,
       },
       {
@@ -3807,7 +3821,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-15",
     updatedAt: "2026-03-15",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["India", "INR", "GBP to INR", "UK", "remittance", "UPI", "corridor guide", "send money to India"],
     featuredImage: "/images/blog/send-money-uk-to-india.jpg",
     sections: [
@@ -3982,12 +3996,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["India", "INR", "CAD to INR", "Canada", "remittance", "Interac", "corridor guide", "send money to India"],
     sections: [
       {
         heading: "Canada to India: One of the World's Busiest Remittance Corridors",
-        content: `<p>India received over <strong>$125 billion in total remittances</strong> in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, and Canada is one of the top source countries. Over <strong>1.8 million people of Indian origin</strong> live in Canada — the largest visible minority group — many sending money home regularly to support families, pay for property, or fund education.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest ways to send money from Canada to India are <a href="/companies/wise">Wise</a> (~C$7 fee, 0% markup), <a href="/companies/remitly">Remitly</a> (low fee, Express delivery via IMPS/UPI), and <a href="/companies/instarem">Instarem</a> (competitive rates with Interac e-Transfer support). On a C$1,000 transfer, these specialist providers save C$30-C$50 compared to Big Five banks. <a href="/send-money/canada-to-india">Compare live CAD to INR rates</a> from 9+ providers.</p></div>
+<p>India received over <strong>$125 billion in total remittances</strong> in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, and Canada is one of the top source countries. Over <strong>1.8 million people of Indian origin</strong> live in Canada — the largest visible minority group — many sending money home regularly to support families, pay for property, or fund education.</p>
 <p>The CAD to INR corridor has <strong>9+ competing providers</strong>, giving senders real choice. On a C$1,000 transfer, the difference between the best specialist provider and a typical Big Five bank can be <strong>C$30–C$50</strong>. That adds up to thousands of dollars over a year of regular transfers.</p>`,
       },
       {
@@ -4165,12 +4180,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "B2B payments", "Wise Business", "OFX", "Revolut Business", "provider review", "batch payments", "FX management"],
     sections: [
       {
         heading: "How We Evaluated Business Transfer Providers",
-        content: `<p>We evaluated each business money transfer provider across seven criteria:</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a>, <a href="/companies/ofx">OFX</a>, and Airwallex are the top-rated business transfer providers in 2026 — offering the lowest fees, best exchange rates, and strongest business features across all corridors we tested.</p></div>
+<p>We evaluated each business money transfer provider across seven criteria:</p>
 <ul>
 <li><strong>Pricing &amp; markup</strong> — Total cost including fees and exchange rate margin</li>
 <li><strong>Business features</strong> — Batch payments, API access, forward contracts</li>
@@ -4475,12 +4491,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Ria", "cash pickup", "India", "INR", "remittance", "expat", "money transfer", "USD to INR"],
     sections: [
       {
         heading: "Why Cash Pickup Still Matters for India Remittances",
-        content: `<p>India is the world's largest remittance recipient — over <strong>$135 billion</strong> flowed into the country in FY2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. While bank deposits and UPI transfers are growing fast, <strong>cash pickup remains essential</strong> for millions of recipients, especially in rural India where bank access is limited or where recipients prefer handling cash directly.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/ria">Ria</a> offers cash pickup across 120,000+ locations in India, with fees starting at $0–$5 depending on your payment method. Transfers arrive in as little as 15 minutes.</p></div>
+<p>India is the world's largest remittance recipient — over <strong>$135 billion</strong> flowed into the country in FY2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. While bank deposits and UPI transfers are growing fast, <strong>cash pickup remains essential</strong> for millions of recipients, especially in rural India where bank access is limited or where recipients prefer handling cash directly.</p>
 <p>For expats in the US, UK, Canada, and the Gulf states sending money home, cash pickup offers a unique advantage: <strong>your recipient doesn't need a bank account, a smartphone, or an app</strong>. They just need a valid ID and a reference number. That makes it the most accessible delivery method available.</p>
 <p><a href="/send-money">Ria Money Transfer</a>, backed by Euronet Worldwide (NASDAQ: EEFT), operates one of the largest cash pickup networks in India with <strong>over 120,000 agent locations</strong>. This guide covers exactly how the service works, what it costs, and when it makes sense over alternatives like bank deposit or <a href="/guides/best-money-transfer-apps">mobile transfers</a>.</p>`,
       },
@@ -4693,7 +4710,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "B2B payments",
@@ -4705,7 +4722,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why Paying International Suppliers Is So Expensive",
-        content: `<p>Cross-border B2B payments are projected to exceed <strong>$35 trillion by 2028</strong>, according to <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer nofollow">Juniper Research</a>. Yet most businesses still overpay on every international supplier invoice — often without realizing it.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Use <a href="/companies/wise">Wise Business</a> or <a href="/companies/ofx">OFX</a> for international supplier payments — they save 2–4% compared to bank wires, with faster delivery and better exchange rates.</p></div>
+<p>Cross-border B2B payments are projected to exceed <strong>$35 trillion by 2028</strong>, according to <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer nofollow">Juniper Research</a>. Yet most businesses still overpay on every international supplier invoice — often without realizing it.</p>
 <p>The problem comes down to three hidden cost layers:</p>
 <ol>
 <li><strong>Exchange rate markup</strong> — Banks typically add 1.5–3% above the mid-market rate. On a $50,000 supplier payment, that's $750–$1,500 lost per transaction.</li>
@@ -4820,7 +4838,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "international payroll",
@@ -4832,7 +4850,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The Rise of International Payroll",
-        content: `<p>The shift to remote work has created massive demand for cross-border payroll. According to <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer nofollow">McKinsey</a>, 35% of US workers can work fully remotely, and many companies now hire talent across borders to access wider talent pools and reduce costs.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a>, Deel, and Airwallex offer the cheapest ways to pay international teams — with lower FX costs, batch payments, and built-in compliance tools.</p></div>
+<p>The shift to remote work has created massive demand for cross-border payroll. According to <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer nofollow">McKinsey</a>, 35% of US workers can work fully remotely, and many companies now hire talent across borders to access wider talent pools and reduce costs.</p>
 <p>But paying international team members isn't as simple as sending a domestic bank transfer. You need to navigate:</p>
 <ul>
 <li><strong>Currency conversion costs</strong> — Paying in your home currency forces your team to bear FX costs; paying in their local currency means you absorb them</li>
@@ -4953,7 +4972,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "FX hedging",
@@ -4965,7 +4984,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why Exchange Rate Risk Matters for Your Business",
-        content: `<p>If your business earns revenue in one currency and pays costs in another, you're exposed to exchange rate risk — whether you realize it or not.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Forward contracts, options, and natural hedging can protect small businesses from FX volatility. Providers like <a href="/companies/ofx">OFX</a> and <a href="/companies/xe">XE</a> offer accessible hedging tools starting at $5,000.</p></div>
+<p>If your business earns revenue in one currency and pays costs in another, you're exposed to exchange rate risk — whether you realize it or not.</p>
 <p>Consider a US-based e-commerce company importing goods from Europe. When the EUR/USD rate moves from 1.08 to 1.12, a €100,000 invoice goes from costing $108,000 to $112,000 — a <strong>$4,000 hit</strong> with no change in the underlying business.</p>
 <p>According to the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements</a>, daily FX market turnover exceeds $7.5 trillion, and major currency pairs can move 5–15% in a single year. For businesses operating on 10–20% margins, that's enough to turn a profitable quarter into a loss.</p>
 <p>The good news: you don't need a corporate treasury team to manage this risk. Several accessible tools are available to small businesses through providers like <a href="/companies/ofx">OFX</a>, <a href="/companies/xe">XE Business</a>, and others.</p>`,
@@ -5082,7 +5102,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "invoicing",
@@ -5094,7 +5114,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The Challenge of Cross-Border Invoicing",
-        content: `<p>Whether you're a freelancer with overseas clients or an SMB exporting services, getting paid internationally brings unique challenges:</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Use multi-currency invoicing tools and collect in your client's local currency to avoid FX losses. <a href="/companies/wise">Wise Business</a> and <a href="/companies/revolut">Revolut Business</a> let you hold and convert 40+ currencies.</p></div>
+<p>Whether you're a freelancer with overseas clients or an SMB exporting services, getting paid internationally brings unique challenges:</p>
 <ul>
 <li><strong>Currency choice</strong> — Should you invoice in your currency or the client's? Each option has trade-offs for cost, speed, and client relationships.</li>
 <li><strong>Payment friction</strong> — The harder you make it for clients to pay, the longer it takes. International wire transfers are slow and expensive for both parties.</li>
@@ -5215,7 +5236,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "business",
       "USA to Canada",
@@ -5227,7 +5248,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "US-Canada: The World's Largest Bilateral Trade Corridor",
-        content: `<p>The US and Canada share the world's largest bilateral trade relationship, with over <strong>$900 billion</strong> in goods and services crossing the border annually, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/ofx">OFX</a> offer the lowest fees for USD to CAD business payments — saving 1–3% compared to bank wire transfers on every payment.</p></div>
+<p>The US and Canada share the world's largest bilateral trade relationship, with over <strong>$900 billion</strong> in goods and services crossing the border annually, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>.</p>
 <p>Yet despite this massive volume, many businesses still overpay on USD to CAD transfers. Banks routinely charge 1.5–3% exchange rate markups on business wire transfers between the two countries — that's $1,500–$3,000 on every $100,000 payment.</p>
 <p>The good news: because USD-CAD is one of the most liquid currency pairs in the world, specialist providers offer extremely competitive rates. Here's how to take advantage.</p>`,
       },
@@ -5350,12 +5372,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to UK", "USD to GBP", "B2B payments", "cross-border payments"],
     sections: [
       {
         heading: "The USD-GBP Business Payment Corridor",
-        content: `<p>The United States and the United Kingdom share one of the world's most significant economic partnerships, with bilateral trade in goods and services exceeding <strong>$300 billion annually</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>. The UK is the largest European destination for US foreign direct investment.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> offers 0% markup on the mid-market rate for USD to GBP business transfers, making it the cheapest option for regular <a href="/send-money/usa-to-uk">USA to UK payments</a>.</p></div>
+<p>The United States and the United Kingdom share one of the world's most significant economic partnerships, with bilateral trade in goods and services exceeding <strong>$300 billion annually</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>. The UK is the largest European destination for US foreign direct investment.</p>
 <p>Despite this deep economic integration, many US businesses still rely on traditional bank wires to pay UK suppliers and contractors — losing 1.5–3% per transfer in hidden exchange rate markups. On a $50,000 payment, that's $750–$1,500 that didn't need to be spent.</p>`,
       },
       {
@@ -5469,12 +5492,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to India", "USD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
         heading: "The USD-INR Business Payment Corridor",
-        content: `<p>India is the world's top destination for IT services outsourcing, with the US-India technology services corridor alone worth over <strong>$50 billion annually</strong>. Beyond tech, bilateral trade in goods and services exceeds <strong>$190 billion</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/instarem">Instarem</a> offer the cheapest USD to INR business payments — saving $400–$800/month compared to bank wires on a $20,000 transfer. <a href="/send-money/usa-to-india">Compare live rates</a>.</p></div>
+<p>India is the world's top destination for IT services outsourcing, with the US-India technology services corridor alone worth over <strong>$50 billion annually</strong>. Beyond tech, bilateral trade in goods and services exceeds <strong>$190 billion</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>.</p>
 <p>For US businesses paying Indian contractors, development teams, or suppliers, the payment method matters enormously. Bank wires to India typically cost 2–4% in total fees and markup — on a $20,000 monthly contractor payment, that's $400–$800 lost every month. Over a year, that's $4,800–$9,600 in unnecessary costs.</p>`,
       },
       {
@@ -5595,12 +5619,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Mexico", "USD to MXN", "B2B payments", "nearshoring", "CUSMA"],
     sections: [
       {
         heading: "The USD-MXN Business Payment Corridor",
-        content: `<p>Mexico surpassed China as America's <strong>largest trading partner in 2023</strong>, with bilateral goods trade exceeding <strong>$800 billion annually</strong>. The nearshoring boom — companies moving manufacturing closer to the US — has further accelerated cross-border business payments.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/ofx">OFX</a> and <a href="/companies/wise">Wise Business</a> are the cheapest options for regular USD to MXN business payments, with total costs under 0.5% vs. 1.5–3% at banks. <a href="/send-money/usa-to-mexico">Compare live rates</a>.</p></div>
+<p>Mexico surpassed China as America's <strong>largest trading partner in 2023</strong>, with bilateral goods trade exceeding <strong>$800 billion annually</strong>. The nearshoring boom — companies moving manufacturing closer to the US — has further accelerated cross-border business payments.</p>
 <p>Whether you're paying a maquiladora in Monterrey, a software team in Guadalajara, or a logistics partner in Mexico City, the payment method you choose can save or waste thousands per month. Banks charge 1.5–3% markup on USD to MXN, while specialist providers offer rates under 0.5%.</p>`,
       },
       {
@@ -5716,12 +5741,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Europe", "USD to EUR", "B2B payments", "SEPA", "cross-border payments"],
     sections: [
       {
         heading: "The USD-EUR Business Payment Corridor",
-        content: `<p>The European Union is the United States' largest trade and investment partner, with bilateral trade in goods and services exceeding <strong>$1.3 trillion annually</strong> and mutual investment stocks of over <strong>$5.6 trillion</strong>, according to the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Commission</a>.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and Airwallex offer the best USD to EUR rates for businesses — with 0–0.3% markup and SEPA routing for fast European delivery. <a href="/send-money/usa-to-europe">Compare live rates</a>.</p></div>
+<p>The European Union is the United States' largest trade and investment partner, with bilateral trade in goods and services exceeding <strong>$1.3 trillion annually</strong> and mutual investment stocks of over <strong>$5.6 trillion</strong>, according to the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Commission</a>.</p>
 <p>For US businesses paying European suppliers, contractors, or offices, understanding SEPA (the Single Euro Payments Area) is key. SEPA enables fast, cheap euro transfers across 36 European countries — and smart businesses can use FX platforms to route their USD payments via SEPA for dramatically lower costs than traditional SWIFT wires.</p>`,
       },
       {
@@ -5836,12 +5862,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "UK to Europe", "GBP to EUR", "B2B payments", "SEPA", "post-Brexit"],
     sections: [
       {
         heading: "The GBP-EUR Business Payment Corridor",
-        content: `<p>The EU remains the UK's largest trading partner, with bilateral trade exceeding <strong>£560 billion annually</strong>. However, post-Brexit changes have added new complexity — and cost — to cross-border payments. UK businesses are no longer part of SEPA by default, and some banks have reduced or repriced their European payment services.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> offers 0% markup on the mid-market rate for GBP to EUR business transfers, with SEPA delivery in seconds to 1 day — even post-Brexit.</p></div>
+<p>The EU remains the UK's largest trading partner, with bilateral trade exceeding <strong>£560 billion annually</strong>. However, post-Brexit changes have added new complexity — and cost — to cross-border payments. UK businesses are no longer part of SEPA by default, and some banks have reduced or repriced their European payment services.</p>
 <p>The good news: specialist FX platforms still offer UK businesses seamless access to SEPA. <a href="/companies/wise">Wise Business</a> and <a href="/companies/revolut">Revolut Business</a>, both UK-headquartered, maintain EU-licensed entities that route GBP-to-EUR payments via SEPA — delivering the same speed and cost as pre-Brexit.</p>`,
       },
       {
@@ -5955,12 +5982,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "UK to India", "GBP to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
         heading: "The GBP-INR Business Payment Corridor",
-        content: `<p>The UK-India economic relationship has entered a new phase, with bilateral trade exceeding <strong>£38 billion annually</strong> and ongoing negotiations for a comprehensive free trade agreement. India is one of the UK's fastest-growing trade partners, driven by the technology services sector, pharmaceutical trade, and professional services.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/instarem">Instarem</a> are the cheapest options for GBP to INR business payments, cutting costs by 80%+ compared to UK high street banks.</p></div>
+<p>The UK-India economic relationship has entered a new phase, with bilateral trade exceeding <strong>£38 billion annually</strong> and ongoing negotiations for a comprehensive free trade agreement. India is one of the UK's fastest-growing trade partners, driven by the technology services sector, pharmaceutical trade, and professional services.</p>
 <p>For UK businesses paying Indian IT development teams, BPO partners, or suppliers, traditional bank transfers are particularly expensive on the GBP-INR corridor — with markups often reaching 3–4%. Specialist providers can cut these costs by 80% or more.</p>`,
       },
       {
@@ -6075,12 +6103,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Philippines", "USD to PHP", "B2B payments", "BPO", "outsourcing"],
     sections: [
       {
         heading: "The USD-PHP Business Payment Corridor",
-        content: `<p>The Philippines is the world's second-largest BPO (Business Process Outsourcing) destination after India, with the industry employing over <strong>1.7 million workers</strong> and generating <strong>$32 billion in revenue</strong>. For US businesses, the Philippines is a top destination for customer support, virtual assistants, content moderation, and increasingly, software development.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/remitly">Remitly Business</a> are the cheapest options for USD to PHP business payments, with total costs under 0.5% vs. 2–5% at banks.</p></div>
+<p>The Philippines is the world's second-largest BPO (Business Process Outsourcing) destination after India, with the industry employing over <strong>1.7 million workers</strong> and generating <strong>$32 billion in revenue</strong>. For US businesses, the Philippines is a top destination for customer support, virtual assistants, content moderation, and increasingly, software development.</p>
 <p>US-Philippines bilateral trade exceeds <strong>$30 billion annually</strong>. Yet many US businesses still overpay when sending USD to PHP — bank wires typically cost 2–4% in hidden FX markup, and delivery can take 3–5 days. Here's how to do better.</p>`,
       },
       {
@@ -6196,12 +6225,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to Australia", "USD to AUD", "B2B payments", "cross-border payments"],
     sections: [
       {
         heading: "The USD-AUD Business Payment Corridor",
-        content: `<p>The US-Australia economic relationship is underpinned by the Australia-United States Free Trade Agreement (AUSFTA), with bilateral trade exceeding <strong>$70 billion annually</strong>. The US is Australia's largest source of foreign investment, and Australian companies are major investors in the US.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/ofx">OFX</a> and <a href="/companies/wise">Wise Business</a> offer the best rates for USD to AUD business transfers, with total costs of 0.3–0.4% vs. 1.5–2.5% at banks.</p></div>
+<p>The US-Australia economic relationship is underpinned by the Australia-United States Free Trade Agreement (AUSFTA), with bilateral trade exceeding <strong>$70 billion annually</strong>. The US is Australia's largest source of foreign investment, and Australian companies are major investors in the US.</p>
 <p>For US businesses paying Australian partners, contractors, or subsidiaries, the payment method choice matters. Banks charge 1.5–2.5% markup on USD to AUD transfers, while specialist platforms offer rates under 0.5%. On a $25,000 quarterly payment, switching from a bank to a specialist saves $250–$500 per transfer.</p>`,
       },
       {
@@ -6314,12 +6344,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "USA to China", "USD to CNY", "B2B payments", "manufacturing", "supply chain"],
     sections: [
       {
         heading: "The USD-CNY Business Payment Corridor",
-        content: `<p>Despite geopolitical tensions, the US-China trade relationship remains one of the world's largest, with bilateral goods trade exceeding <strong>$575 billion annually</strong>. China remains a critical manufacturing hub for US businesses across electronics, consumer goods, machinery, and textiles.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and Airwallex offer the lowest fees for USD to CNY business payments, with total costs under 1% vs. 2–4% at banks — even with China's capital controls.</p></div>
+<p>Despite geopolitical tensions, the US-China trade relationship remains one of the world's largest, with bilateral goods trade exceeding <strong>$575 billion annually</strong>. China remains a critical manufacturing hub for US businesses across electronics, consumer goods, machinery, and textiles.</p>
 <p>Paying Chinese suppliers is more complex than most corridors due to China's <strong>capital controls</strong> and the dual nature of the Chinese yuan (onshore CNY vs. offshore CNH). However, the right approach can save significant costs — banks charge 2–4% on USD to CNY, while specialist providers offer under 1%.</p>`,
       },
       {
@@ -6441,12 +6472,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "Canada to USA", "CAD to USD", "B2B payments", "cross-border payments", "CUSMA"],
     sections: [
       {
         heading: "The CAD-USD Business Payment Corridor",
-        content: `<p>The United States is Canada's largest trading partner by a wide margin, with bilateral trade exceeding <strong>$900 billion annually</strong>. For Canadian businesses, USD payments are a daily reality — from paying US-based SaaS subscriptions and cloud providers to importing goods and hiring American contractors.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/ofx">OFX</a> are the cheapest options for CAD to USD business transfers, saving 1–2% compared to the Big Five Canadian banks on every payment.</p></div>
+<p>The United States is Canada's largest trading partner by a wide margin, with bilateral trade exceeding <strong>$900 billion annually</strong>. For Canadian businesses, USD payments are a daily reality — from paying US-based SaaS subscriptions and cloud providers to importing goods and hiring American contractors.</p>
 <p>Canadian banks are notorious for high FX markups on CAD to USD conversions. The Big Five banks (RBC, TD, BMO, Scotiabank, CIBC) typically charge <strong>1.5–2.5% above the mid-market rate</strong>. On a C$50,000 annual USD spend, that's C$750–$1,250 in unnecessary costs.</p>`,
       },
       {
@@ -6560,12 +6592,13 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business", "Australia to India", "AUD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     sections: [
       {
         heading: "The AUD-INR Business Payment Corridor",
-        content: `<p>Australia-India bilateral trade has grown rapidly, exceeding <strong>A$50 billion annually</strong>. India is Australia's fastest-growing major trading partner, with strong connections in IT services, education, mining, and professional services. The Australia-India Economic Cooperation and Trade Agreement (ECTA) signed in 2022 is further boosting the relationship.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/instarem">Instarem</a> and <a href="/companies/wise">Wise Business</a> are the cheapest options for AUD to INR business payments, with total costs of 0.4–0.45% vs. 2.5–4% at Australian banks.</p></div>
+<p>Australia-India bilateral trade has grown rapidly, exceeding <strong>A$50 billion annually</strong>. India is Australia's fastest-growing major trading partner, with strong connections in IT services, education, mining, and professional services. The Australia-India Economic Cooperation and Trade Agreement (ECTA) signed in 2022 is further boosting the relationship.</p>
 <p>For Australian businesses paying Indian IT teams, BPO providers, or contractors, the AUD-INR corridor is one of the most expensive if using a traditional bank — markups of 2.5–4% are common. Switching to a specialist provider can save 80%+ on each transfer.</p>`,
       },
       {
@@ -6679,7 +6712,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "remittance tax",
       "US tax",
@@ -6693,7 +6726,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is the US Remittance Tax?",
-        content: `<p>Since January 1, 2026, a <strong>1% federal excise tax</strong> applies to certain international money transfers sent from the United States. The tax was signed into law as part of the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer nofollow">One Big Beautiful Bill Act</a> on July 4, 2025, and is codified under IRC Section 4475.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The new 1% federal tax on outbound transfers from the US only applies to cash-funded sends (cash, money orders, cashier's checks). Digital and bank transfers are exempt — use <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, or any app-based provider with bank/debit funding to avoid it entirely. <a href="/send-money">Compare tax-free providers</a>.</p></div>
+<p>Since January 1, 2026, a <strong>1% federal excise tax</strong> applies to certain international money transfers sent from the United States. The tax was signed into law as part of the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer nofollow">One Big Beautiful Bill Act</a> on July 4, 2025, and is codified under IRC Section 4475.</p>
 <p>Here's the part most people miss: the tax <strong>only applies to cash-funded transfers</strong> — cash, money orders, and cashier's checks. If you send money through a bank account, debit card, or credit card, you pay nothing extra.</p>
 <p>The <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer nofollow">IRS requires remittance providers</a> to collect and remit the tax. Senders don't need to file anything separately — the provider handles it at checkout.</p>
 <blockquote class="blog-callout-blue-sm">
@@ -6872,7 +6906,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "crypto",
       "banking license",
@@ -6886,7 +6920,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The Race for Crypto Banking Licenses: What's Happening?",
-        content: `<p>Between December 2025 and March 2026, <strong>11 companies filed for or received federal banking licenses</strong> from the Office of the Comptroller of the Currency (OCC). That's 11 applications in 83 days — more than the OCC typically processes in a full year.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Crypto firms like Circle, Ripple, and <a href="/companies/revolut">Revolut</a> are obtaining federal banking licenses from the OCC, enabling them to offer combined fiat and crypto transfer services. Stablecoin rails could cut cross-border payment fees by up to 50%. <a href="/send-money">Compare current providers</a> for the cheapest transfers today.</p></div>
+<p>Between December 2025 and March 2026, <strong>11 companies filed for or received federal banking licenses</strong> from the Office of the Comptroller of the Currency (OCC). That's 11 applications in 83 days — more than the OCC typically processes in a full year.</p>
 <p>These aren't small startups. Circle, Ripple, Crypto.com, Fidelity Digital Assets, Stripe's Bridge subsidiary, Morgan Stanley, and <a href="/companies/revolut">Revolut</a> are all in the queue. According to <a href="https://www.fintechweekly.com/news/occ-national-trust-bank-charter-crypto-fintech-2026" target="_blank" rel="noopener noreferrer nofollow">FinTech Weekly's analysis</a>, this wave of applications is unprecedented in modern banking regulation.</p>
 <p>Why now? Two things changed. First, the OCC <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer nofollow">amended its regulations</a> on February 27, 2026, broadening what national trust banks can do beyond traditional fiduciary activities — effective April 1, 2026. Second, the GENIUS Act (signed July 2025) created a clear path for stablecoin issuers to operate as licensed payment institutions.</p>
 <p>For people who send money internationally, this matters. A lot. These companies aren't just getting licenses to hold crypto — they're building infrastructure that could fundamentally change how cross-border payments work and what they cost.</p>`,
@@ -7059,7 +7094,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "Revolut",
       "banking license",
@@ -7073,7 +7108,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Revolut Filed for a US Banking License — Here's Why It Matters",
-        content: `<p>In early March 2026, <a href="/companies/revolut">Revolut</a> filed applications with the <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer nofollow">Office of the Comptroller of the Currency (OCC)</a> and the FDIC to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/revolut">Revolut</a> filed for a US banking charter in March 2026, which would enable FDIC-insured accounts, direct Fed access, and cheaper international transfers for American customers. <a href="/compare/wise-vs-revolut">See how Revolut compares to Wise</a> for transfers today.</p></div>
+<p>In early March 2026, <a href="/companies/revolut">Revolut</a> filed applications with the <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer nofollow">Office of the Comptroller of the Currency (OCC)</a> and the FDIC to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
 <p>This isn't Revolut's first attempt. The company previously pursued a US banking license through a bank acquisition, but <a href="https://www.pymnts.com/news/digital-banking/2026/revolut-drops-us-bank-buyout-plan-eyes-standalone-occ-charter/" target="_blank" rel="noopener noreferrer nofollow">dropped that plan in January 2026</a> in favour of a standalone charter. The timing isn't coincidental — the OCC has been granting crypto and fintech charters at record speed, approving 11 applications in just 83 days.</p>
 <p>Right now, Revolut operates in the US through a partnership with Lead Bank. That means it can't hold your deposits directly, can't access Federal Reserve payment systems, and can't offer lending products. A banking license changes all of that.</p>
 <blockquote class="blog-callout-blue-sm">
@@ -7204,7 +7240,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "EU payments",
       "instant payments",
@@ -7218,7 +7254,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Are EU Instant Payments?",
-        content: `<p>Since October 2025, all eurozone banks must accept <strong>instant euro transfers that settle in 10 seconds or less, 24/7/365</strong>. By early 2026, they must also be able to <em>send</em> instant payments. This is the EU's <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer nofollow">Instant Payments Regulation (IPR)</a>, and it's the biggest change to European payments infrastructure in a decade.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The EU now mandates all banks process instant SEPA transfers in 10 seconds or less, 24/7/365. This cuts the last-mile delivery time for cross-border EUR transfers from 1–3 days to seconds. <a href="/send-money/uk-to-europe">Compare providers for UK to Europe transfers</a>.</p></div>
+<p>Since October 2025, all eurozone banks must accept <strong>instant euro transfers that settle in 10 seconds or less, 24/7/365</strong>. By early 2026, they must also be able to <em>send</em> instant payments. This is the EU's <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer nofollow">Instant Payments Regulation (IPR)</a>, and it's the biggest change to European payments infrastructure in a decade.</p>
 <p>Before this mandate, SEPA credit transfers (the standard way to send euros between EU banks) took 1–3 business days. SEPA Instant existed since 2017, but adoption was voluntary and patchy. Now it's mandatory.</p>
 <p>The numbers are moving fast. According to <a href="https://www.ecb.europa.eu/press/stats/paysec/html/ecb.pis2025h1~36edd636c8.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB payment statistics</a>, instant payments reached approximately <strong>25% of all EU credit transfers</strong> by mid-2025, with 2,765 registered participants covering 91% of eurozone banks. That share is expected to climb rapidly now that the mandate is in effect.</p>`,
       },
@@ -7349,7 +7386,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "multi-currency",
       "Wise",
@@ -7363,7 +7400,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "The Multi-Currency Account Battleground",
-        content: `<p>Multi-currency accounts used to be a niche product for expats and frequent travellers. In 2026, they're a <strong>full-blown competitive battleground</strong> between fintechs, neobanks, and traditional banks — all fighting for the same customers.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, and traditional banks like FinecoBank are competing on multi-currency accounts with different fee structures — Wise offers 0% markup on 40+ currencies, Revolut adds auto-exchange features, and banks are catching up with expanded currency support. <a href="/guides/multi-currency-accounts-exchange-rates">See our detailed comparison</a>.</p></div>
+<p>Multi-currency accounts used to be a niche product for expats and frequent travellers. In 2026, they're a <strong>full-blown competitive battleground</strong> between fintechs, neobanks, and traditional banks — all fighting for the same customers.</p>
 <p>The latest move: <a href="https://financialit.net/news/banking/finecobank-expands-multi-currency-account-offering-new-currencies-expanded-trading" target="_blank" rel="noopener noreferrer nofollow">FinecoBank expanded to 21 currencies</a> with 21-hour/day FX trading including weekends. <a href="/companies/revolut">Revolut</a> launched its Ultra subscription tier. <a href="/companies/wise">Wise</a> keeps adding currencies (now 40+). And <a href="https://www.airwallex.com/us/blog/best-multi-currency-accounts" target="_blank" rel="noopener noreferrer nofollow">Airwallex</a> is aggressively targeting businesses.</p>
 <p>The result? More choice, lower fees, and better features for anyone who holds, sends, or receives money in multiple currencies. But picking the right account depends on what you actually need it for.</p>
 <p>Our <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates guide</a> covers the basics. This article goes deeper: a head-to-head comparison of the top options in 2026.</p>`,
@@ -7501,7 +7539,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "euribor",
       "euro transfers",
@@ -7514,7 +7552,8 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is Euribor?",
-        content: `<p><strong>Euribor</strong> (Euro Interbank Offered Rate) is the average interest rate at which major European banks lend euros to each other on the wholesale money market. Published daily by the <a href="https://www.emmi-benchmarks.eu/" target="_blank" rel="noopener noreferrer nofollow">European Money Markets Institute (EMMI)</a>, it serves as the benchmark for trillions of euros in financial products — from mortgages and savings accounts to interest rate swaps and business loans.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Euribor rate changes directly affect EUR exchange rates — when the ECB cuts rates, the euro typically weakens, meaning you get fewer euros per dollar or pound. Timing your transfer around ECB decisions can save money. <a href="/send-money/uk-to-europe">Compare EUR transfer rates</a> to find the best deal today.</p></div>
+<p><strong>Euribor</strong> (Euro Interbank Offered Rate) is the average interest rate at which major European banks lend euros to each other on the wholesale money market. Published daily by the <a href="https://www.emmi-benchmarks.eu/" target="_blank" rel="noopener noreferrer nofollow">European Money Markets Institute (EMMI)</a>, it serves as the benchmark for trillions of euros in financial products — from mortgages and savings accounts to interest rate swaps and business loans.</p>
 <p>Euribor comes in five maturities:</p>
 <ul>
 <li><strong>1 week</strong> — used for very short-term interbank lending</li>
@@ -7678,13 +7717,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-03-16",
     updatedAt: "2026-03-16",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["business payments", "FX fees", "international transfers", "B2B payments", "exchange rate markup"],
     featuredImage: "/images/blog/lowest-fx-fees-business-2026.jpg",
     sections: [
       {
         heading: "Your Business Is Probably Overpaying on International Transfers",
-        content: `<p>Last year, a UK importer told us he was sending £50,000 a month to Chinese suppliers through his bank. Total FX cost: around £1,750 per transfer. When we ran the same payment through WorldFirst, it cost £150. That's <strong>£19,200 saved in a single year</strong> — without changing anything about how or when he paid.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a>, OFX, and Airwallex offer the lowest FX fees for business payments in 2026, with markups as low as 0.3%–0.8% compared to 2–5% at traditional banks. <a href="/business">Compare business transfer providers</a> to see which saves the most for your payment volume.</p></div>
+<p>Last year, a UK importer told us he was sending £50,000 a month to Chinese suppliers through his bank. Total FX cost: around £1,750 per transfer. When we ran the same payment through WorldFirst, it cost £150. That's <strong>£19,200 saved in a single year</strong> — without changing anything about how or when he paid.</p>
 <p>The <strong>lowest FX fees for business international payments</strong> in 2026 come from five fintech platforms — not banks. Traditional banks embed a 2%–5% spread into every conversion, invisible until you compare the rate they gave you against the <a href="/guides/exchange-rate-markup-explained">mid-market rate</a>. Specialist providers have compressed that to 0.3%–1.0%. But FX cost is only part of the picture.</p>
 <p>We compared WorldFirst, <a href="/companies/wise">Wise Business</a>, Airwallex, <a href="/companies/revolut">Revolut Business</a>, and Convera across 14 dimensions — including three features no competitor article covers: whether you can <strong>add recipients before a transfer or only during one</strong>, which platforms work <strong>offline</strong>, and which will <strong>match a competitor's rate</strong>. According to the <a href="https://www.fsb.org/work-of-the-fsb/financial-innovation-and-structural-change/cross-border-payments/" target="_blank" rel="noopener noreferrer nofollow">Financial Stability Board's G20 cross-border payments roadmap</a>, the target is to bring average B2B transfer costs below 1% by 2027 — most banks still charge 3x that.</p>
 <figure style="margin: 24px 0;">
@@ -7993,13 +8033,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-17",
     updatedAt: "2026-03-17",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Eid 2026", "Holi 2026", "festival transfers", "money transfer rates", "comparison", "remittance", "send money home"],
     featuredImage: "/images/blog/eid-holi-money-transfer-2026.jpg",
     sections: [
       {
         heading: "Why Festival Season Is the Most Important Time to Compare Rates",
-        content: `<p>Eid al-Fitr 2026 falls on <strong>March 19–20</strong>, and Holi was celebrated on <strong>March 3</strong>. For the tens of millions of people sending money home across South Asia, the Middle East, and Southeast Asia, this is the single biggest remittance window of the year.</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Multiple providers offer special Eid and Holi promotional rates in 2026, including zero-fee transfers from <a href="/companies/remitly">Remitly</a>, <a href="/companies/wise">Wise</a>, and <a href="/companies/worldremit">WorldRemit</a>. <a href="/send-money">Compare live rates across all providers</a>.</p></div>
+<p>Eid al-Fitr 2026 falls on <strong>March 19–20</strong>, and Holi was celebrated on <strong>March 3</strong>. For the tens of millions of people sending money home across South Asia, the Middle East, and Southeast Asia, this is the single biggest remittance window of the year.</p>
 <p>Remittance inflows to Bangladesh were up <strong>over 30% year-on-year</strong> in the run-up to Eid — pure festival effect. With that demand spike comes urgency, and urgency is exactly when people forget to compare rates.</p>
 <p>The difference between the cheapest and most expensive provider on a $1,000 transfer to India can be <strong>over $70</strong>. On a $2,000 transfer to Pakistan, that gap can exceed <strong>$100</strong>. This article breaks down every major provider so you can choose confidently — and tells you which ones are running confirmed holiday promotions.</p>
 <div class="blog-table-box">
@@ -8284,7 +8325,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["large transfers", "XE", "OFX", "forward contracts", "exchange rates", "property purchase", "business transfers", "comparison"],
     sections: [
       {
@@ -8573,7 +8614,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-18",
     updatedAt: "2026-03-18",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "US dollar forecast",
       "dollar prediction 2026",
@@ -8862,7 +8903,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "hidden fees",
       "bank transfers",
@@ -9007,7 +9048,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "stablecoins",
       "USDT",
@@ -9159,7 +9200,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "comparison",
       "bank transfer",
@@ -9305,7 +9346,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     publishedAt: "2026-03-20",
     updatedAt: "2026-03-20",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "Ramadan",
       "Eid",
@@ -9423,7 +9464,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "14 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-03-23",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "pound to pakistani rupee rate today",
       "gbp to pkr",
@@ -9766,7 +9807,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-03-23",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "bulk international payments",
       "b2b international payments",
@@ -10156,7 +10197,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-23",
     updatedAt: "2026-03-23",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: [
       "xe business",
       "xe business payments",
@@ -10411,7 +10452,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Nepal", "NPR", "remittance", "send money to Nepal", "eSewa", "Khalti", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-nepal.jpg",
     sections: [
@@ -10701,7 +10742,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Nigeria", "NGN", "Naira", "GBP to NGN", "remittance", "send money to Nigeria", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-nigeria.jpg",
     sections: [
@@ -10920,7 +10961,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Morocco", "MAD", "Dirham", "remittance", "send money to Morocco", "CashPlus", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-morocco.jpg",
     sections: [
@@ -11163,7 +11204,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Romania", "RON", "EUR", "SEPA", "remittance", "send money to Romania", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-romania.jpg",
     sections: [
@@ -11419,7 +11460,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "11 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Bangladesh", "BDT", "GBP to BDT", "UK", "remittance", "bKash", "Nagad", "corridor guide", "send money to Bangladesh"],
     featuredImage: "/images/blog/send-money-uk-to-bangladesh.jpg",
     sections: [
@@ -11631,7 +11672,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     publishedAt: "2026-03-27",
     updatedAt: "2026-03-27",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Kenya", "KES", "remittance", "M-Pesa", "Safaricom", "corridor guide", "send money to Kenya", "Africa"],
     featuredImage: "/images/blog/send-money-to-kenya.jpg",
     sections: [
@@ -11826,7 +11867,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-03-29",
     updatedAt: "2026-03-29",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["Nigeria", "NGN", "GBP to NGN", "UK", "remittance", "corridor guide", "send money to Nigeria", "Naira"],
     featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
     sections: [
@@ -12001,7 +12042,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "13 min read",
     publishedAt: "2026-03-31",
     updatedAt: "2026-03-31",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["South Africa", "ZAR", "remittance", "USD to ZAR", "GBP to ZAR", "AUD to ZAR", "corridor guide", "FNB", "Capitec", "Mukuru"],
     featuredImage: "/images/blog/send-money-to-south-africa.jpg",
     sections: [
@@ -12208,7 +12249,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-04-04",
     updatedAt: "2026-04-04",
-    author: "Daniel Rowe",
+    author: "Akif Hazarvi",
     tags: ["UAE", "India", "AED to INR", "remittance", "NRI", "corridor guide", "send money to India", "Dubai"],
     featuredImage: "/images/blog/send-money-uae-to-india.jpg",
     sections: [

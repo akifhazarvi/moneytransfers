@@ -20,18 +20,18 @@ export interface Author {
 
 export const authors: Author[] = [
   {
-    slug: "daniel-rowe",
-    name: "Daniel Rowe",
+    slug: "akif-hazarvi",
+    name: "Akif Hazarvi",
     role: "Editor-in-Chief",
-    initials: "DR",
-    photo: "",
-    bio: `Daniel Rowe is the editor-in-chief of SendMoneyCompare, an independent comparison platform for international money transfers. With over 8 years of experience in fintech and cross-border payments, Daniel has worked on payment products processing millions in monthly transaction volume at leading financial technology companies.
+    initials: "AH",
+    photo: "/images/authors/akif-hazarvi.jpeg",
+    bio: `Akif Hazarvi is the editor-in-chief of SendMoneyCompare, an independent comparison platform for international money transfers. With over 8 years of experience in fintech and cross-border payments, Akif has worked on payment products processing millions in monthly transaction volume at leading financial technology companies.
 
 His experience spans product management, regulatory compliance, and payment infrastructure across the UK, US, and South Asian markets. This firsthand industry experience informs SendMoneyCompare's methodology: every provider ranking is based on real transfer data collected from provider APIs and websites every 6 hours, with no sponsored placements or paid rankings.
 
-Daniel personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He has conducted hundreds of test transfers across 35+ providers to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
+Akif personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He has conducted hundreds of test transfers across 35+ providers to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
 
-Before joining SendMoneyCompare, Daniel held product and analytics roles at fintech companies focused on cross-border payments, currency exchange, and digital banking. He holds a degree in Computer Science and is based in Denver, Colorado.`,
+Before founding SendMoneyCompare, Akif held product and analytics roles at fintech companies focused on cross-border payments, currency exchange, and digital banking. He holds a degree in Computer Science and is based in Denver, Colorado.`,
     expertise: [
       "International money transfers and remittances",
       "Cross-border payment infrastructure",
@@ -46,9 +46,9 @@ Before joining SendMoneyCompare, Daniel held product and analytics roles at fint
       "Conducted 500+ test transfers across 35+ providers",
       "Published research on remittance costs and market transparency",
     ],
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/akifhazarvi",
     articlesWritten: 49,
-    byline: "Daniel Rowe is the editor-in-chief of SendMoneyCompare with 8+ years in fintech and cross-border payments.",
+    byline: "Akif Hazarvi is the editor-in-chief of SendMoneyCompare with 8+ years in fintech and cross-border payments.",
   },
   {
     slug: "awais-imran",

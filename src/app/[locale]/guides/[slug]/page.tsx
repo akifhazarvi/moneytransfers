@@ -4,6 +4,7 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
+import { getAuthorByName } from "@/data/authors";
 
 // Revalidate every 24 hours — editorial content changes infrequently
 export const revalidate = 86400;
@@ -14,6 +15,16 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+
+/** Slugify a heading string into a URL-friendly ID */
+function slugifyHeading(heading: string): string {
+  return heading
+    .toLowerCase()
+    .replace(/['']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -106,6 +117,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.metaDescription,
+    other: {
+      "citation_title": post.title,
+      "citation_author": post.author,
+      "citation_date": post.updatedAt,
+      "citation_publication_date": post.publishedAt,
+      "citation_journal_title": "SendMoneyCompare Guides",
+      "citation_public_url": `https://sendmoneycompare.com/guides/${slug}`,
+      "ai-content-declaration": "human-written, data-verified, fact-checked",
+    },
     openGraph: {
       title: post.title,
       description: post.metaDescription,
@@ -137,6 +157,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedPosts = getRelatedPosts(slug);
 
+  const sectionIds = post.sections.map((s) => slugifyHeading(s.heading));
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -146,7 +168,13 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
     author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}` },
+    reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
     mainEntityOfPage: `https://sendmoneycompare.com/guides/${slug}`,
+    isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/guides" },
+    about: [
+      { "@type": "Thing", name: "International Money Transfer" },
+      ...(post.category === "Corridors" ? [{ "@type": "Thing", name: post.title.split(":")[0] }] : []),
+    ],
     publisher: {
       "@type": "Organization",
       name: "SendMoneyCompare",
@@ -189,6 +217,25 @@ export default async function BlogPostPage({ params }: Props) {
           }}
         />
       )}
+      {post.howToSteps && post.howToSteps.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              name: post.title,
+              description: post.metaDescription,
+              step: post.howToSteps.map((step, i) => ({
+                "@type": "HowToStep",
+                position: i + 1,
+                name: step.name,
+                text: step.text,
+              })),
+            }),
+          }}
+        />
+      )}
 
       <ScrollTracker slug={slug} contentType="guide" />
 
@@ -219,14 +266,26 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Author row */}
             <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-[var(--color-outline)]">
-              <Link href="/about/daniel-rowe" className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
-                <span className="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-xs">DR</span>
+              <Link href={`/about/${getAuthorByName(post.author)?.slug || "akif-hazarvi"}`} className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                {getAuthorByName(post.author)?.photo ? (
+                  <Image src={getAuthorByName(post.author)!.photo!} alt={post.author} width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
+                ) : (
+                  <span className="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-xs">{getAuthorByName(post.author)?.initials || "AH"}</span>
+                )}
                 {post.author}
               </Link>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <time dateTime={post.updatedAt} className="text-2sm text-[var(--color-on-surface-variant)]">
-                Updated {formatLocalDate(post.updatedAt)}
+              <time dateTime={post.publishedAt} className="text-2sm text-[var(--color-on-surface-variant)]">
+                Published {formatLocalDate(post.publishedAt)}
               </time>
+              {post.updatedAt !== post.publishedAt && (
+                <>
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
+                  <time dateTime={post.updatedAt} className="text-2sm text-[var(--color-on-surface-variant)]">
+                    Updated {formatLocalDate(post.updatedAt)}
+                  </time>
+                </>
+              )}
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <span className="text-2sm text-[var(--color-on-surface-variant)]">{post.readTime}</span>
               {/* Fact-checked badge */}
@@ -234,7 +293,8 @@ export default async function BlogPostPage({ params }: Props) {
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                Fact Checked
+                Fact-checked by{" "}
+                <Link href="/about/awais-imran" className="hover:underline">Awais Imran</Link>
               </div>
             </div>
           </div>
@@ -256,6 +316,10 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* ── Article ── */}
           <article className="flex-1 min-w-0">
+
+            <div className="mb-6">
+              <AffiliateDisclosure />
+            </div>
 
             {/* Key Takeaway */}
             {post.excerpt && (
@@ -286,7 +350,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <ol className="divide-y divide-[var(--color-outline)]">
                   {post.sections.map((section, i) => (
                     <li key={i}>
-                      <a href={`#section-${i}`} className="block px-5 py-3 text-sm text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
+                      <a href={`#${sectionIds[i]}`} className="block px-5 py-3 text-sm text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
                         {section.heading}
                       </a>
                     </li>
@@ -309,7 +373,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <ol className="space-y-1.5">
                   {post.sections.map((section, i) => (
                     <li key={i}>
-                      <a href={`#section-${i}`} className="text-2sm text-[var(--color-primary)] hover:underline leading-snug block">
+                      <a href={`#${sectionIds[i]}`} className="text-2sm text-[var(--color-primary)] hover:underline leading-snug block">
                         {section.heading}
                       </a>
                     </li>
@@ -325,7 +389,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Article Sections */}
             {post.sections.map((section, i) => (
-              <section key={i} id={`section-${i}`} className="mb-12">
+              <section key={i} id={sectionIds[i]} className="mb-12">
                 <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
                   {section.heading}
                 </h2>
@@ -333,8 +397,46 @@ export default async function BlogPostPage({ params }: Props) {
                   className="prose-content prose-custom"
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
+
+                {/* In-content CTA after 2nd section */}
+                {i === 1 && (
+                  <div className="mt-8 bg-[var(--color-primary-surface)] border border-[var(--color-primary-light)] rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4">
+                    <div className="flex-1">
+                      <p className="text-md font-semibold text-[var(--color-on-surface)] mb-1">Compare rates for your transfer</p>
+                      <p className="text-2sm text-[var(--color-on-surface-variant)]">See how much your recipient gets with 35+ providers — updated every 6 hours.</p>
+                    </div>
+                    <Link
+                      href="/send-money"
+                      className="shrink-0 inline-flex items-center justify-center h-10 px-6 bg-[var(--color-primary)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+                    >
+                      Compare Rates →
+                    </Link>
+                  </div>
+                )}
               </section>
             ))}
+
+            {/* HowTo Steps — visual rendering */}
+            {post.howToSteps && post.howToSteps.length > 0 && (
+              <section id="how-to-steps" className="mb-12">
+                <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
+                  Step-by-Step Guide
+                </h2>
+                <ol className="space-y-4">
+                  {post.howToSteps.map((step, i) => (
+                    <li key={i} className="flex gap-4">
+                      <span className="shrink-0 w-8 h-8 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-semibold">
+                        {i + 1}
+                      </span>
+                      <div className="flex-1 pt-0.5">
+                        <p className="text-md font-semibold text-[var(--color-on-surface)] mb-1">{step.name}</p>
+                        <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">{step.text}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
 
             {/* FAQs */}
             {post.faqs?.length ? (
@@ -358,9 +460,10 @@ export default async function BlogPostPage({ params }: Props) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </summary>
-                      <div className="px-5 pb-5 pt-1 text-md text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)]">
-                        {faq.answer}
-                      </div>
+                      <div
+                        className="px-5 pb-5 pt-1 text-md text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)] prose-custom"
+                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(faq.answer) }}
+                      />
                     </details>
                   ))}
                 </div>
@@ -392,7 +495,7 @@ export default async function BlogPostPage({ params }: Props) {
                     {post.sections.map((section, i) => (
                       <li key={i}>
                         <a
-                          href={`#section-${i}`}
+                          href={`#${sectionIds[i]}`}
                           className="block text-2sm text-[var(--color-on-surface-variant)] py-1.5 px-3 rounded-lg hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all leading-snug"
                         >
                           {section.heading}

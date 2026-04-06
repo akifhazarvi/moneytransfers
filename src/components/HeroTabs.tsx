@@ -4,12 +4,13 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import ComparisonWidget from "@/components/ComparisonWidget";
+import HeroSearch from "@/components/HeroSearch";
 
 const HomepageConverter = dynamic(() => import("@/components/HomepageConverter"), {
   loading: () => <div className="h-[320px] animate-pulse bg-[var(--color-surface-dim)] rounded-2xl" />,
 });
 
-type TabId = "compare" | "convert";
+type TabId = "compare" | "convert" | "search";
 
 interface HeroTabsProps {
   defaultFrom?: string;
@@ -23,6 +24,7 @@ export default function HeroTabs({ defaultFrom, defaultTo, defaultAmount }: Hero
   const TABS = [
     { id: "compare" as const, label: t("compareTransfers") },
     { id: "convert" as const, label: t("convert") },
+    { id: "search" as const, label: t("search") },
   ];
 
   return (
@@ -49,6 +51,14 @@ export default function HeroTabs({ defaultFrom, defaultTo, defaultAmount }: Hero
       {/* Tab Content */}
       {active === "compare" && <ComparisonWidget defaultFrom={defaultFrom} defaultTo={defaultTo} defaultAmount={defaultAmount} />}
       {active === "convert" && <HomepageConverter />}
+      {active === "search" && (
+        <div className="py-8 sm:py-12">
+          <p className="text-center text-sm text-[var(--color-on-surface-variant)] mb-4">
+            {t("searchHint")}
+          </p>
+          <HeroSearch />
+        </div>
+      )}
     </div>
   );
 }

@@ -7,7 +7,6 @@ import PrimaryButton from "@/components/PrimaryButton";
 import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
 import HeroTabs from "@/components/HeroTabs";
-import HeroSearch from "@/components/HeroSearch";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
@@ -174,18 +173,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="text-sm sm:text-base md:text-lg text-[var(--color-on-surface-variant)] mt-2 sm:mt-4 max-w-2xl mx-auto leading-relaxed">
               {tHero("subtitle")}
             </p>
+            {topCorridorProviders[0] && (
+              <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] mt-2 max-w-2xl mx-auto leading-relaxed">
+                As of {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}, sending ${topCorridorProviders[0].providerName && `$1,000 USD to ${topCorridorProviders[0].toCurrency} costs as little as $${topCorridorProviders[0].fee.toFixed(2)} with ${topCorridorProviders[0].providerName}`}. We compare 35+ providers across 64+ corridors, updated every 6 hours.
+              </p>
+            )}
           </div>
           <div className="max-w-[860px] mx-auto">
             <HeroTabs defaultFrom={sendCurrency} defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
-          </div>
-          {/* Quick search — subtle alternative below widget */}
-          <div className="hidden sm:flex items-center justify-center mt-4">
-            <div className="flex items-center gap-2 text-xs text-[var(--color-on-surface-variant)]">
-              <span>or search</span>
-              <div className="w-64">
-                <HeroSearch compact />
-              </div>
-            </div>
           </div>
           <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-3 sm:mt-4 max-w-md mx-auto hidden sm:block">
             {tHero("disclaimer")}

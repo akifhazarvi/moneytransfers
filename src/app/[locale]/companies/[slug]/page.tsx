@@ -13,6 +13,7 @@ import StatBox from "@/components/StatBox";
 import ProsConsList from "@/components/ProsConsList";
 import PrimaryButton from "@/components/PrimaryButton";
 import RatingBadge from "@/components/RatingBadge";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import CrossLinks from "@/components/CrossLinks";
 import BestTransferToday from "@/components/BestTransferToday";
@@ -163,7 +164,7 @@ function DetailedReview({
             <span className="text-2sm text-[var(--color-on-surface-variant)]">{review.readTime}</span>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-2sm text-[var(--color-on-surface-muted)]">
-            <span>By <Link href="/about/daniel-rowe" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
+            <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
             <span>Fact-checked by <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline font-medium">{review.factChecker}</Link></span>
             <span>Verified {review.lastVerified}</span>
           </div>
@@ -171,6 +172,9 @@ function DetailedReview({
       </div>
 
       <Container className="py-8">
+        <div className="max-w-3xl mb-6">
+          <AffiliateDisclosure />
+        </div>
         {/* ── Verdict banner + Quick Stats ── */}
         <div className="mb-8 space-y-4">
           {/* Verdict — moved from hero, now full-width and readable */}
@@ -356,7 +360,7 @@ function DetailedReview({
               </p>
               <p className="text-xs text-[var(--color-on-surface-muted)] pt-3 border-t border-[var(--color-outline)]">
                 Last verified: {review.lastVerified} · Reviewed by{" "}
-                <Link href="/about/daniel-rowe" className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link>
+                <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link>
                 {" "}· Fact-checked by{" "}
                 <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">{review.factChecker}</Link>
               </p>
@@ -456,9 +460,13 @@ function DetailedReview({
           "@id": "https://sendmoneycompare.com/#organization",
           logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
         },
-        datePublished: review.updatedAt,
+        datePublished: review.publishedAt,
         dateModified: review.updatedAt,
         reviewBody: review.editorVerdict,
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", ".editor-verdict", ".review-summary"],
+        },
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",

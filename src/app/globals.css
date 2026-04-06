@@ -375,6 +375,31 @@ body {
 .blog-footnote       { font-size: 0.875rem; color: var(--color-on-surface-variant); margin-bottom: 0; }
 .blog-callout-blue   { background: var(--color-primary-surface); border-radius: 16px; padding: 24px; margin: 24px 0; }
 .blog-callout-blue-sm  { background: var(--color-primary-surface); border-left: 4px solid var(--color-primary); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; }
+
+/* ─── AI Citation-Ready Passages ─── */
+/* Stat boxes: self-contained facts optimised for AI extraction and featured snippets */
+.blog-stat-box {
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-on-surface);
+}
+.blog-stat-box strong { font-weight: 700; }
+.blog-stat-box .stat-source { font-size: 0.8125rem; color: var(--color-on-surface-muted); margin-top: 4px; }
+
+/* Citable passage: marks a paragraph as an authoritative, self-contained statement */
+[data-ai-cite] {
+  /* Visual: subtle left border indicating this is a citable passage */
+}
+[data-ai-cite="true"] {
+  border-left: 3px solid var(--color-primary-light);
+  padding-left: 16px;
+  margin-left: -19px;
+}
 .blog-callout-green-sm { background: var(--color-success-surface); border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
 .blog-callout-warning-sm { background: var(--color-warning-surface); border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; }
 .blog-row-danger     { background: var(--color-danger-surface); }

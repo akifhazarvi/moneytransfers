@@ -8,6 +8,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import CrossLinks from "@/components/CrossLinks";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
@@ -1489,6 +1490,15 @@ export default async function CorridorPage({ params }: Props) {
     url: `https://sendmoneycompare.com/send-money/${slug}`,
     dateModified: dataUpdatedDate,
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+    about: [
+      { "@type": "Thing", name: "International Money Transfer" },
+      { "@type": "Thing", name: `${fromCurrency} to ${toCurrency} Exchange Rate` },
+    ],
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".corridor-answer-box", "h1", ".editorial-note"],
+    },
+    reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
   };
 
   return (
@@ -1553,10 +1563,13 @@ export default async function CorridorPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl">
             <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
-              By <Link href="/about/daniel-rowe" className="text-[var(--color-primary)] hover:underline">Daniel Rowe</Link>
+              By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">Akif Hazarvi</Link>
               {" · "}Data updated <time dateTime={dataUpdatedDate}>{new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time>
               {" · "}Refreshed every 6 hours
             </p>
+          </div>
+          <div className="max-w-3xl mb-4">
+            <AffiliateDisclosure />
           </div>
           <div className="max-w-3xl text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
             <p>{corridor.intro}</p>
@@ -1577,7 +1590,7 @@ export default async function CorridorPage({ params }: Props) {
       </section>
 
       {/* ─── AI-Citable Answer Block ─── */}
-      {best && !isCurrencyCorridor && (
+      {best && (
         <section className="bg-[var(--color-primary-surface)] border-y border-[var(--color-primary-light)]">
           <Container className="py-5">
             <div className="max-w-3xl text-sm text-[var(--color-on-surface)] leading-relaxed">
@@ -1585,6 +1598,8 @@ export default async function CorridorPage({ params }: Props) {
                 <strong>Quick answer:</strong>{" "}
                 {isCountryPage
                   ? `The cheapest way to send money to ${corridor.toCountry} in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is ${getProviderName(best.providerSlug)}, which delivers ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"} and an exchange rate of ${best.exchangeRate.toFixed(4)}.`
+                  : isCurrencyCorridor
+                  ? `The best ${fromCurrency} to ${toCurrency} exchange rate in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is offered by ${getProviderName(best.providerSlug)}, delivering ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"}.`
                   : `The cheapest way to send money from ${corridor.fromCountry} to ${corridor.toCountry} in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is ${getProviderName(best.providerSlug)}, which delivers ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"}.`}
                 {savings > 1 && ` According to SendMoneyCompare's comparison of ${quotes.length} providers updated every 6 hours, the difference between the cheapest and most expensive provider on this corridor is ${savings.toLocaleString(undefined, { maximumFractionDigits: 0 })} ${toCurrency}.`}
               </p>
@@ -1620,7 +1635,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── Comparison Table ─── */}
-      <section className="py-10">
+      <section id="compare-providers" className="py-10">
         <Container>
           <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
             What is the cheapest way to send {fromCurrency} to {toCurrency}?
@@ -1826,14 +1841,14 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {editorialNote && (
-        <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+        <section id="editorial-analysis" className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
             <div className="grid lg:grid-cols-[1.6fr_1fr] gap-6 items-start">
               <Card>
                 <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-3">
                   {editorialNote.title}
                 </h2>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-5">
+                <p className="editorial-note text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-5" data-ai-cite="true">
                   {editorialNote.summary}
                 </p>
                 <ul className="space-y-3">
@@ -2554,7 +2569,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── FAQ ─── */}
-      <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+      <section id="faq" className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl">
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-6">

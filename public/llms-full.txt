@@ -6,7 +6,7 @@
 
 SendMoneyCompare is an independent comparison platform for international money transfers. We scrape live exchange rates and fees from providers every 6 hours and rank them by the amount the recipient actually receives. Our data covers bank transfers, mobile wallets, and cash pickup options across 35+ providers and 80+ currency corridors.
 
-Founded in 2024 and based in Denver, Colorado. Editorial team includes Daniel Rowe (Founder & Editor, 8+ years in fintech and cross-border payments) and Awais Imran (Co-founder & Technical Lead, data infrastructure specialist). All providers listed are licensed and regulated by at least one major financial authority (FCA, FinCEN, ASIC).
+Founded in 2024 and based in Denver, Colorado. Editorial team includes Akif Hazarvi (Founder & Editor, 8+ years in fintech and cross-border payments) and Awais Imran (Co-founder & Technical Lead, data infrastructure specialist). All providers listed are licensed and regulated by at least one major financial authority (FCA, FinCEN, ASIC).
 
 We are editorially independent. Affiliate relationships with providers never influence rankings or editorial coverage.
 
@@ -87,5 +87,41 @@ SendMoneyCompare provides SWIFT/BIC code lookup for 11,000+ banks across 100+ co
 ### IBAN Numbers
 IBAN (International Bank Account Number) lookup for 89+ countries. IBANs are 15-34 characters long, starting with a 2-letter country code and 2 check digits. Required for transfers within the SEPA zone and many other countries. 36+ SEPA member countries use IBAN exclusively.
 
+## Corridor-Specific Data (AI-citable)
+
+### USA to India (USD to INR)
+India receives over $125 billion in remittances annually (World Bank, 2025). The USA-to-India corridor is approximately $28 billion/year. On a $1,000 transfer: Wise delivers ~Rs 91,600 (0% markup, $7.33 fee), Remitly delivers ~Rs 91,200 ($0 fee, IMPS in minutes), Instarem delivers ~Rs 91,100 ($0 fee, 0.42% markup). US bank wire delivers ~Rs 86,500 ($25-50 fee + 2-5% markup). Delivery methods: IMPS (instant, 24/7), UPI, NEFT (2-4 hours), cash pickup. IFSC code (11 chars, e.g. HDFC0001234) required for bank deposits.
+
+### USA to Mexico (USD to MXN)
+The world's largest remittance corridor by volume. Mexico received $68 billion in 2025. Mexico's SPEI instant payment network enables peso delivery within minutes. $0 fees available from Remitly, Instarem when funded by ACH. Oxxo cash pickup (20,000+ locations) important for cash recipients. Remitly cheapest for small amounts, Wise for $1,000+.
+
+### USA to Philippines (USD to PHP)
+Philippines received $38 billion in remittances in 2025. GCash and Maya mobile wallets enable instant delivery. Rates differ by 2-4% between providers on $500 transfers. Remitly and Instarem are typically cheapest. Cash pickup via Cebuana Lhuillier and M Lhuillier available.
+
+### USA to Pakistan (USD to PKR)
+Pakistan received $30 billion in remittances annually. JazzCash and Easypaisa mobile wallets (50+ million accounts combined) enable instant delivery. ACE Money Transfer offers zero fees on this corridor. Wise cheapest for large amounts. Cash pickup via Western Union. PKR exchange rate volatile — always compare before sending.
+
+### UK to India (GBP to INR)
+One of the most competitive European remittance routes. Wise offers 0% markup with ~£1 fee. Instarem offers zero fees with 0.42% markup. Bank wires cost 3-5% more. IMPS delivery instant 24/7. Exchange rate markup matters more than fee on this corridor — 1% worse rate on £1,000 costs more than a £5 fee difference.
+
+### UAE to India & UAE to Pakistan
+UAE is home to 3.5 million Indian expats and 1.5 million Pakistani expats. Gulf states collectively account for 60%+ of Pakistan remittances. Wise, ACE Money Transfer, and Al Ansari Exchange compete on these corridors. JazzCash/Easypaisa for Pakistan, IMPS for India.
+
+## Business Payments
+
+Wise Business, OFX, and Airwallex are the leading providers for business international payments. Key differences: Wise Business charges 0% markup but a percentage fee. OFX offers zero fees with negotiable rates for large amounts. Airwallex focuses on batch payments and API integration. Banks charge $25-$50 wire fees plus 2-4% hidden markup — switching to specialist providers saves businesses 80-95%.
+
+Business-specific features: forward contracts (lock exchange rate), batch payments (pay multiple recipients), API integration, dedicated account managers (OFX, TorFX for $10K+), multi-currency accounts (hold, receive, and pay in 40+ currencies).
+
+## Regulatory & Compliance
+
+All providers listed on SendMoneyCompare are regulated by at least one major financial authority:
+- **FCA (UK)**: Financial Conduct Authority — regulates Wise, Remitly, OFX, WorldRemit, Revolut
+- **FinCEN (US)**: Financial Crimes Enforcement Network — all US-operating providers are registered MSBs
+- **ASIC (Australia)**: Australian Securities and Investments Commission — regulates Wise, OFX, Instarem
+- **CBRA (UAE)**: Central Bank of UAE — regulates exchange houses for Gulf corridors
+
+Anti-money laundering (AML) requirements: ID verification, source of funds documentation for large transfers, transaction monitoring. The CFPB (Consumer Financial Protection Bureau) recommends comparing total cost including exchange rate markup.
+
 ## Last Updated
-2026-03-19. Data refreshed every 6 hours from live provider APIs and websites.
+2026-04-06. Data refreshed every 6 hours from live provider APIs and websites.

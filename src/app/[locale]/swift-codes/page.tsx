@@ -80,8 +80,8 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
             </p>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mt-2">
               By{" "}
-              <Link href="/about/daniel-rowe" className="text-[var(--color-primary)] hover:underline">
-                Daniel Rowe
+              <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">
+                Akif Hazarvi
               </Link>
               {" · Updated March 2026 · Data verified from official bank records"}
             </p>

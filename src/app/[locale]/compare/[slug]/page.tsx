@@ -23,9 +23,27 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+
+import { statSync } from "fs";
+import { join } from "path";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
+}
+
+/** Returns the most recent mtime of scraped quote files as an ISO date string. */
+function getDataFreshnessDate(): string {
+  const scrapedDir = join(process.cwd(), "src/data/scraped");
+  const quoteFiles = ["provider-quotes.json", "mid-market-rates.json", "exchange-rates.json"];
+  let latest = new Date(0);
+  for (const file of quoteFiles) {
+    try {
+      const mtime = statSync(join(scrapedDir, file)).mtime;
+      if (mtime > latest) latest = mtime;
+    } catch { /* file may not exist */ }
+  }
+  return latest.getTime() > 0 ? latest.toISOString().split("T")[0] : new Date().toISOString().split("T")[0];
 }
 
 function parseSlug(slug: string) {
@@ -183,7 +201,8 @@ function ArticleComparison({
             description: article.metaDescription,
             datePublished: "2026-03-14",
             dateModified: article.updatedAt,
-            author: { "@type": "Person", name: "Daniel Rowe", url: "https://sendmoneycompare.com/about/daniel-rowe" },
+            author: { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+            reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
             publisher: {
               "@type": "Organization",
               name: "SendMoneyCompare",
@@ -191,6 +210,16 @@ function ArticleComparison({
               logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
             },
             mainEntityOfPage: `https://sendmoneycompare.com/compare/${slug}`,
+            isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/compare" },
+            about: [
+              { "@type": "Thing", name: "International Money Transfer" },
+              { "@type": "FinancialService", name: a.name },
+              { "@type": "FinancialService", name: b.name },
+            ],
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["article h1", "article h2", "#verdict"],
+            },
           }),
         }}
       />
@@ -601,6 +630,7 @@ function DefaultComparison({
   const content = generateComparisonContent(a, b);
   const { corridorData, verdict, faqs, whenToUseA, whenToUseB, keyDifferences } = content;
   const relatedComparisons = getRelatedComparisons(a, b);
+  const dataUpdatedDate = getDataFreshnessDate();
 
   const comparisonRows = [
     { label: "Overall rating", valueA: `${a.rating.toFixed(1)}/5 (${a.ratingLabel})`, valueB: `${b.rating.toFixed(1)}/5 (${b.ratingLabel})`, winner: a.rating > b.rating ? "a" : a.rating < b.rating ? "b" : "tie" },
@@ -699,16 +729,18 @@ function DefaultComparison({
             <div className="flex flex-wrap items-center gap-4 text-2sm text-[var(--color-on-surface-variant)]">
               <span>SendMoneyCompare Editorial</span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <time dateTime="2026-03-18">
-                Updated March 18, 2026
+              <time dateTime={dataUpdatedDate}>
+                Updated {new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
               </time>
-              <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <span>Live data refreshed every 6 hours</span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <span>Data updated every 6 hours</span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">Our methodology</Link>
             </div>
+          </div>
+
+          <div className="mb-6">
+            <AffiliateDisclosure />
           </div>
 
           {/* Provider summary cards */}

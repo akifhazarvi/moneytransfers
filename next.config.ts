@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
+  outputFileTracingExcludes: {
+    "*": ["./src/data/scraped/history/**"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
