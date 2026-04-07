@@ -12425,6 +12425,412 @@ export const blogPosts: BlogPost[] = [
       "swift-codes-explained",
     ],
   },
+  // ============================
+  // Send Money to China Guide
+  // ============================
+  {
+    slug: "send-money-to-china-guide",
+    title: "How to Send Money to China from the USA (2026): Alipay, WeChat Pay, Bank & Capital Controls",
+    metaDescription:
+      "Compare the cheapest ways to send money to China from the US. USD to CNY rates, Alipay & WeChat Pay delivery, SAFE capital controls, CIPS vs SWIFT, and provider costs compared.",
+    excerpt:
+      "China's capital controls, dual exchange rates, and unique payment platforms make sending money there more complex than most corridors. Here's everything you need to know.",
+    category: "Corridors",
+    readTime: "15 min read",
+    publishedAt: "2026-04-07",
+    updatedAt: "2026-04-07",
+    author: "Daniel Rowe",
+    tags: ["China", "CNY", "USD to CNY", "Alipay", "WeChat Pay", "capital controls", "SAFE", "CIPS", "remittance", "corridor guide"],
+    featuredImage: "/images/blog/send-money-to-china.jpg",
+    sections: [
+      {
+        heading: "What Is the Cheapest Way to Send Money to China from the USA?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to China in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market USD to CNY exchange rate with 0% markup and a fee of ~$7 on $1,000. <a href="/companies/remitly">Remitly</a> offers delivery to Alipay and WeChat Pay wallets in minutes. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. China's <strong>SAFE capital controls</strong> limit individual recipients to the equivalent of $50,000/year in foreign exchange — you can send more, but your recipient may need documentation. <a href="/send-money/usa-to-china">Compare live USD to CNY rates</a> from 8+ providers.</p></div>
+<p>China is the world's <strong>second-largest remittance recipient</strong>, with ~5.4 million Chinese diaspora in the US alone. But sending money to China is more complex than most corridors due to capital controls, the dual exchange rate system (CNY vs CNH), and China's unique payment infrastructure (Alipay, WeChat Pay, UnionPay).</p>
+<p>This guide covers the cheapest providers, Alipay/WeChat delivery, SAFE regulations, CIPS vs SWIFT, and common mistakes that delay transfers.</p>`,
+      },
+      {
+        heading: "How Do China's Capital Controls Affect Your Transfer?",
+        content: `<p>China's <strong>State Administration of Foreign Exchange (SAFE)</strong> regulates all cross-border currency flows. Key rules:</p>
+<ul>
+<li><strong>$50,000 annual limit per individual</strong> — Chinese residents can convert up to $50,000 equivalent of foreign currency per year. Above this, they need documentation (proof of tuition, medical bills, property contracts).</li>
+<li><strong>Purpose-of-transfer declaration</strong> — Recipients must declare why they're receiving foreign money (family support, tuition, medical, etc.). "Investment" is not a valid purpose for personal transfers.</li>
+<li><strong>CNY vs CNH</strong> — CNY is the onshore yuan (traded within mainland China, SAFE-regulated). CNH is the offshore yuan (traded in Hong Kong and international markets, freely traded). The rates are usually close but can diverge by 0.5-1% during market stress. <strong>Make sure your provider delivers CNY, not CNH</strong>, unless your recipient has an offshore account.</li>
+<li><strong>Real-name verification</strong> — All bank accounts and Alipay/WeChat Pay wallets in China require real-name verification (linked to Chinese national ID). Your recipient's name on the transfer MUST match their verified name exactly.</li>
+</ul>
+<p><strong>Practical impact:</strong> For most family remittances under $50,000/year, these controls don't block your transfer — they just require your recipient to have proper ID verification and may add a day of processing for large amounts.</p>`,
+      },
+      {
+        heading: "Which Providers Are Best for USD to CNY Transfers?",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for USD to CNY</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~$7 fee, bank deposit to Chinese banks</td></tr>
+<tr><td><strong>Best for Alipay</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct Alipay delivery in minutes</td></tr>
+<tr><td><strong>Best for Large Transfers</strong></td><td><a href="/companies/ofx">OFX</a></td><td>$0 fees, dedicated FX dealer, forward contracts for $10K+</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations in major Chinese cities via partner banks</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money/usa-to-china">Compare live rates →</a></p>
+</div>
+
+<p>For a $1,000 transfer to China:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup — bank deposit to ICBC, Bank of China, CCB, ABC, CMB</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rate with Alipay delivery in minutes</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Bank deposit and Alipay delivery options</li>
+<li><strong><a href="/companies/ofx">OFX</a></strong>: No fees on $1,000+. Forward contracts for tuition payments. Best for $10K+</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but cash pickup available in Chinese cities</li>
+</ul>
+<p><a href="/send-money/usa-to-china">Compare live USD to CNY rates</a> for your exact amount.</p>`,
+      },
+      {
+        heading: "How Do You Send Money to Alipay or WeChat Pay?",
+        content: `<p>Alipay (owned by Ant Group) and WeChat Pay (owned by Tencent) are China's dominant payment platforms — used by over <strong>1 billion people</strong> for everything from groceries to rent. Sending money directly to these wallets is often the fastest delivery method.</p>
+<h3>Alipay Delivery</h3>
+<ol>
+<li>Choose a provider that supports Alipay (Remitly, WorldRemit)</li>
+<li>Enter your recipient's <strong>Alipay-registered mobile number</strong> or Alipay ID</li>
+<li>Enter their <strong>full legal name</strong> (must match their real-name verified Alipay account exactly — Chinese characters)</li>
+<li>The money arrives in their Alipay wallet in <strong>minutes to hours</strong></li>
+</ol>
+<p><strong>Limits:</strong> Alipay receiving limits vary but are typically ¥50,000 (~$7,000) per transaction. Annual limits depend on the recipient's verification level.</p>
+
+<h3>WeChat Pay Delivery</h3>
+<p>Fewer international providers support direct WeChat Pay delivery. Wise and some Chinese-focused services offer it. The process is similar — you need the recipient's WeChat-linked mobile number and verified name.</p>
+
+<h3>Important: Real-Name Verification</h3>
+<p>Both Alipay and WeChat Pay require <strong>real-name verification linked to a Chinese national ID card</strong>. If your recipient hasn't completed verification, they cannot receive international transfers. Most Chinese residents are already verified, but check with your recipient first.</p>`,
+      },
+      {
+        heading: "What Are the Top Chinese Banks for Receiving Transfers?",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>ICBC</strong></td><td>ICBKCNBJ</td><td>World's largest bank by assets. Most branches in China (16,000+).</td></tr>
+<tr><td><strong>Bank of China (BOC)</strong></td><td>BKCHCNBJ</td><td>Most international of the Big 4. Best for foreign currency accounts.</td></tr>
+<tr><td><strong>China Construction Bank (CCB)</strong></td><td>PCBCCNBJ</td><td>Second-largest. Strong in property-related banking.</td></tr>
+<tr><td><strong>Agricultural Bank of China (ABC)</strong></td><td>ABOCCNBJ</td><td>Best rural coverage. 23,000+ branches.</td></tr>
+<tr><td><strong>China Merchants Bank (CMB)</strong></td><td>CMBCCNBS</td><td>Best digital banking. Popular with younger Chinese.</td></tr>
+<tr><td><strong>Bank of Communications (BoCom)</strong></td><td>COMMCNSH</td><td>Fifth-largest. Good for cross-border business.</td></tr>
+</tbody>
+</table>
+<p>For bank deposits, you need the recipient's <strong>full name (in Chinese characters), bank name, account number, and the bank's SWIFT code</strong>. China does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For more on SWIFT codes, see our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>.</p>`,
+      },
+      {
+        heading: "What Is the Difference Between SWIFT and CIPS for China Transfers?",
+        content: `<p>China has built its own cross-border payment network — <strong>CIPS (Cross-Border Interbank Payment System)</strong> — as an alternative to SWIFT. Here's how they compare:</p>
+<table>
+<thead><tr><th>Feature</th><th>SWIFT</th><th>CIPS</th></tr></thead>
+<tbody>
+<tr><td><strong>Coverage</strong></td><td>200+ countries, 11,000+ banks</td><td>110+ countries, 1,400+ participants</td></tr>
+<tr><td><strong>Currency</strong></td><td>Any major currency</td><td>CNY only</td></tr>
+<tr><td><strong>Speed</strong></td><td>1–5 business days</td><td>Minutes to same-day</td></tr>
+<tr><td><strong>Cost</strong></td><td>$15–$50 + intermediary fees</td><td>Lower (fewer intermediaries)</td></tr>
+<tr><td><strong>Best for</strong></td><td>USD/EUR/GBP transfers to China</td><td>CNY-denominated transfers</td></tr>
+</tbody>
+</table>
+<p><strong>Which one do providers use?</strong> Most specialist providers (Wise, Remitly) use their own internal networks and local Chinese bank partnerships — they don't route through SWIFT or CIPS directly. Traditional bank wires use SWIFT. Some Chinese banks increasingly route through CIPS for CNY-denominated payments.</p>
+<p>From a sender's perspective, you don't choose the network — your provider handles the routing. What matters is the total cost and delivery time, which our <a href="/send-money/usa-to-china">comparison tool</a> shows.</p>`,
+      },
+      {
+        heading: "How Much Does It Cost to Send $1,000 to China?",
+        content: `<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ¥ Received</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~$7</td><td>0%</td><td>¥7,250 (example)</td></tr>
+<tr><td><strong>Remitly (Alipay)</strong></td><td>~$4</td><td>0.5–1%</td><td>¥7,180 (example)</td></tr>
+<tr><td><strong>OFX</strong></td><td>$0</td><td>0.3–0.5%</td><td>¥7,210 (example)</td></tr>
+<tr><td><strong>Chase bank wire</strong></td><td>$5–$50</td><td>2–3%</td><td>¥6,950 (example)</td></tr>
+<tr><td><strong>Bank of America wire</strong></td><td>$35–$45</td><td>2–3%</td><td>¥6,900 (example)</td></tr>
+</tbody>
+</table>
+<p><em>Rates are illustrative — <a href="/send-money/usa-to-china">check live rates here</a>.</em></p>
+<p>On a $1,000 transfer, using Wise instead of a bank wire saves approximately <strong>¥300–¥350</strong>. On a $10,000 tuition payment, that's ¥3,000–¥3,500 — a meaningful difference. For a detailed explanation of how markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>.</p>`,
+      },
+      {
+        heading: "How Do You Send Large Amounts ($10,000+) to China?",
+        content: `<p>Sending large sums to China — for tuition, property, or family support — requires extra attention:</p>
+<h3>Provider options for large transfers</h3>
+<ul>
+<li><strong><a href="/companies/ofx">OFX</a></strong>: No fees, dedicated FX dealer for $10K+. <strong>Forward contracts</strong> let you lock today's rate for a tuition payment due in 3 months.</li>
+<li><strong><a href="/companies/wise">Wise</a></strong>: Up to $1,000,000 per transfer. Transparent pricing at every amount.</li>
+<li><strong><a href="/companies/xe">XE</a></strong>: No fees, good for large bank-to-bank transfers.</li>
+</ul>
+<h3>Compliance considerations</h3>
+<ul>
+<li><strong>US side:</strong> Transfers over $10,000 are automatically reported to FinCEN (Currency Transaction Report). This is normal and legal — it's not a tax, just a report.</li>
+<li><strong>China side:</strong> If your recipient exceeds the $50,000 annual conversion limit, they need to provide supporting documents to their bank (tuition invoice, medical bills, property contract).</li>
+<li><strong>Splitting transfers:</strong> Don't deliberately split large transfers into amounts under $10,000 to avoid reporting — this is called "structuring" and is illegal under US law.</li>
+</ul>
+<p>For tuition payments specifically, many US providers offer direct payment to Chinese universities, which bypasses the individual $50,000 limit since it's categorized as institutional payment.</p>`,
+      },
+      {
+        heading: "What Are the Tax and Compliance Rules?",
+        content: `<ul>
+<li><strong>US sender:</strong> No tax on personal remittances. Gifts to foreign persons over $18,000 per recipient per year require filing IRS Form 709 (but no tax is typically owed). Transfers over $10,000 are reported via CTR.</li>
+<li><strong>Chinese recipient:</strong> Personal remittances from abroad are generally <strong>not subject to Chinese income tax</strong>. However, China taxes global income of tax residents — if the money is payment for services, it may be taxable.</li>
+<li><strong>FBAR requirement:</strong> If you hold financial accounts in China (including through a business) with aggregate value over $10,000 at any point in the year, you must file an FBAR (FinCEN Form 114).</li>
+<li><strong>FATCA:</strong> Chinese banks report US person account information to the IRS under FATCA agreements.</li>
+</ul>
+<p>For more guidance, read our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> and <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>.</p>`,
+      },
+      {
+        heading: "Common Mistakes That Delay Transfers to China",
+        content: `<ol>
+<li><strong>Name mismatch</strong> — Chinese bank accounts and Alipay use Chinese characters. The English transliteration must match the pinyin on your recipient's passport/ID exactly. Even small differences (e.g., "Xiao Ming" vs "XIAOMING") can block the transfer.</li>
+<li><strong>Wrong bank branch</strong> — China's Big 4 banks have thousands of branches. Some providers require the specific branch code. Confirm with your recipient.</li>
+<li><strong>Sending on Chinese public holidays</strong> — Chinese New Year (January/February), Golden Week (October 1-7), and other holidays can delay processing by a week or more. Plan ahead.</li>
+<li><strong>Exceeding the $50,000 annual limit</strong> — If your recipient has already converted $50,000 of foreign currency this year, additional transfers will be held until they provide documentation. Ask before sending large amounts.</li>
+<li><strong>Sending to the wrong currency</strong> — Some providers offer CNH (offshore yuan) instead of CNY (onshore yuan). For recipients in mainland China, you need CNY. Confirm your provider delivers onshore.</li>
+</ol>
+<p>For more on avoiding transfer mistakes, read our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to China from the USA?",
+        answer:
+          "Wise offers the best value with 0% exchange rate markup and ~$7 fee on $1,000. Remitly is best for Alipay delivery (arrives in minutes). OFX is cheapest for large amounts ($10,000+) with zero fees and dedicated FX dealers. Always compare the total CNY received, not just the fee.",
+      },
+      {
+        question: "Can I send money to Alipay from the US?",
+        answer:
+          "Yes. Remitly, WorldRemit, and several other providers support direct Alipay delivery. You need your recipient's Alipay-registered mobile number and their full legal name (must match their real-name verified account). Money typically arrives in minutes.",
+      },
+      {
+        question: "What is the $50,000 limit for China transfers?",
+        answer:
+          "China's SAFE (State Administration of Foreign Exchange) limits individual residents to converting the equivalent of $50,000 in foreign currency per year. You can SEND more than $50,000, but your recipient may need to provide documentation (tuition invoices, medical bills, contracts) to their bank to convert above the limit.",
+      },
+      {
+        question: "What is the difference between CNY and CNH?",
+        answer:
+          "CNY is the onshore Chinese yuan — traded within mainland China and regulated by SAFE. CNH is the offshore yuan — traded freely in Hong Kong and international markets. For recipients in mainland China, you need CNY. The rates are usually similar but can differ by 0.5-1% during market volatility.",
+      },
+      {
+        question: "How long does it take to send money to China?",
+        answer:
+          "Alipay delivery takes minutes. Bank deposits via specialist providers take 1-2 business days. Traditional SWIFT bank wires take 3-5 business days and may be delayed by SAFE compliance checks. Avoid sending during Chinese New Year and Golden Week when processing slows significantly.",
+      },
+      {
+        question: "Do I need to report money sent to China to the IRS?",
+        answer:
+          "Transfers over $10,000 are automatically reported to FinCEN — this is routine and legal, not a tax. Gifts to foreign persons over $18,000/year require filing Form 709 (no tax is typically owed). If you hold financial accounts in China worth over $10,000 total, you must file an FBAR.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "wire-transfer-guide",
+      "exchange-rate-markup-explained",
+      "swift-codes-explained",
+    ],
+  },
+  // ============================
+  // How to Send Large Amounts Guide
+  // ============================
+  {
+    slug: "how-to-send-large-amounts-internationally",
+    title: "How to Send Large Amounts of Money Internationally ($10K–$500K): Property, Inheritance & Relocation Guide",
+    metaDescription:
+      "Sending $10,000-$500,000 abroad for property, inheritance, or relocation? Compare OFX, Wise, TorFX for large transfers. Forward contracts, compliance, and real cost data at every amount tier.",
+    excerpt:
+      "The cheapest provider at $500 is NOT the cheapest at $50,000. Here's how to send large sums abroad without losing thousands to hidden fees — with real cost data at every amount tier.",
+    category: "Education",
+    readTime: "16 min read",
+    publishedAt: "2026-04-07",
+    updatedAt: "2026-04-07",
+    author: "Daniel Rowe",
+    tags: ["large transfers", "property purchase", "inheritance", "relocation", "forward contract", "OFX", "Wise", "FX broker"],
+    featuredImage: "/images/blog/large-transfers-internationally.jpg",
+    sections: [
+      {
+        heading: "What Is the Best Way to Send Large Amounts of Money Internationally?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For transfers of $10,000–$50,000, <a href="/companies/wise">Wise</a> offers the best value with 0% exchange rate markup and transparent fees. For $50,000+, <a href="/companies/ofx">OFX</a> is typically cheapest — zero transfer fees, dedicated FX dealers who negotiate rates, and forward contracts to lock rates for up to 12 months. For UK property purchases, TorFX offers rate-matching guarantees. On a $100,000 transfer, the difference between a bank wire and a specialist provider is <strong>$2,000–$5,000</strong> — purely from the exchange rate markup. <a href="/send-money">Compare rates for your exact amount</a>.</p></div>
+<p>If you're sending $10,000 or more abroad — for a property purchase, inheritance distribution, university tuition, emigration, or business payment — the stakes are much higher than a regular $500 remittance. A 1% cost difference on $100,000 is $1,000. A 3% bank markup costs you $3,000.</p>
+<p>This guide shows you exactly how costs scale with amount, which providers specialise in large transfers, how forward contracts protect you, and what compliance rules apply in the US, UK, EU, and Australia.</p>`,
+      },
+      {
+        heading: "How Do Costs Change as Transfer Amounts Increase?",
+        content: `<p>The cheapest provider at $500 is often NOT the cheapest at $50,000. Here's why: some providers charge flat fees (which become negligible on large amounts), while others charge percentage-based fees (which scale linearly). The exchange rate markup matters most on large transfers.</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Real Cost Comparison: USD to GBP at Different Amounts</h3>
+<table>
+<thead><tr><th>Provider</th><th>$1,000</th><th>$10,000</th><th>$50,000</th><th>$100,000</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~$6</td><td>~$50</td><td>~$250</td><td>~$500</td></tr>
+<tr><td><strong>OFX</strong></td><td>~$15</td><td>~$40</td><td>~$150</td><td>~$250</td></tr>
+<tr><td><strong>XE</strong></td><td>~$10</td><td>~$60</td><td>~$300</td><td>~$600</td></tr>
+<tr><td><strong>Bank wire (avg)</strong></td><td>~$65</td><td>~$350</td><td>~$1,750</td><td>~$3,500</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Estimates include all fees and exchange rate markup. Bank assumes 3% FX markup + $35 wire fee. <a href="/send-money">Compare live rates →</a></p>
+</div>
+<p><strong>Key insight:</strong> OFX has no transfer fee but a small exchange rate markup (0.3–0.5%). This makes them more expensive than Wise at $1,000 but <strong>cheaper than Wise at $50,000+</strong> because their markup compounds at a lower rate. At $100,000, OFX saves ~$250 vs Wise and ~$3,250 vs a bank wire.</p>`,
+      },
+      {
+        heading: "Which Providers Specialise in Large International Transfers?",
+        content: `<h3><a href="/companies/ofx">OFX</a> — Best for $50,000+</h3>
+<ul>
+<li><strong>Zero transfer fees</strong> on any amount</li>
+<li><strong>Dedicated FX dealer</strong> — a named person who knows your situation and can negotiate rates on $50K+ transfers</li>
+<li><strong>Forward contracts</strong> — lock today's rate for a payment due up to 12 months from now</li>
+<li><strong>Limit orders</strong> — set your target rate and OFX executes automatically when the market hits it</li>
+<li><strong>24/7 support</strong> for transfers in progress</li>
+<li>Regulated by ASIC, FCA, FinCEN</li>
+</ul>
+
+<h3><a href="/companies/wise">Wise</a> — Best for $10,000–$50,000</h3>
+<ul>
+<li><strong>0% exchange rate markup</strong> — always the mid-market rate</li>
+<li><strong>Transparent fee</strong> — 0.41–0.71% depending on corridor</li>
+<li>Up to <strong>$1,000,000 per transfer</strong></li>
+<li>Fastest delivery (55% under 1 hour)</li>
+<li>No forward contracts (you get today's rate only)</li>
+</ul>
+
+<h3><a href="/companies/xe">XE</a> — Best for Business Transfers</h3>
+<ul>
+<li><strong>Zero transfer fees</strong></li>
+<li>Good rates on 130+ currencies</li>
+<li>Forward contracts and limit orders available</li>
+<li>Strong for recurring large payments</li>
+</ul>
+
+<h3>TorFX — Best for UK Property Purchases</h3>
+<ul>
+<li>Rate-matching guarantee on competitor quotes</li>
+<li>Dedicated dealer for property transactions</li>
+<li>Forward contracts up to 2 years</li>
+<li>FCA regulated</li>
+</ul>`,
+      },
+      {
+        heading: "What Are Forward Contracts and How Do They Work?",
+        content: `<p>A <strong>forward contract</strong> lets you lock in today's exchange rate for a transfer you'll make in the future — up to 12 months ahead. This is essential for large transfers where you know the amount and date but want to eliminate exchange rate risk.</p>
+<h3>How it works</h3>
+<ol>
+<li>You agree with your provider (OFX, TorFX, XE) to exchange a specific amount at today's rate on a future date</li>
+<li>You pay a deposit — typically <strong>5–10% of the transfer amount</strong></li>
+<li>On the settlement date, you pay the remaining balance and the transfer is executed at the locked rate</li>
+<li>If the rate moved against you, you saved money. If it moved in your favour, you missed out — but you had certainty.</li>
+</ol>
+<h3>When to use a forward contract</h3>
+<ul>
+<li><strong>Property purchase with a completion date</strong> — you know you'll need £200,000 in 3 months. Lock the rate now.</li>
+<li><strong>University tuition due dates</strong> — semester fees in CNY, EUR, or GBP due on known dates</li>
+<li><strong>Scheduled business payments</strong> — supplier invoices due quarterly in a foreign currency</li>
+</ul>
+<h3>Example</h3>
+<p>You need to send $200,000 to buy a property in Spain (EUR). Today's rate is 1.08 USD/EUR. In 3 months, the rate could be 1.05 (costing you $5,700 more) or 1.11 (saving you $5,600). A forward contract at 1.08 gives you certainty — you know exactly what the property will cost in dollars.</p>
+<p>Forward contracts are free to set up (no upfront fee beyond the deposit). They're available from OFX, TorFX, XE, and Moneycorp — but NOT from Wise or Remitly.</p>`,
+      },
+      {
+        heading: "How Do You Send Money for a Property Purchase Abroad?",
+        content: `<p>Buying property abroad is the most common reason for large international transfers. Here's the step-by-step:</p>
+<ol>
+<li><strong>Get your proof of funds ready.</strong> The seller's solicitor will need evidence that your money is legitimate — bank statements, payslips, or tax returns covering the transfer amount.</li>
+<li><strong>Open an account with a large-transfer provider.</strong> OFX, TorFX, or XE — not your bank. You'll save 2–4% on the exchange rate.</li>
+<li><strong>Consider a forward contract.</strong> If your completion date is 2+ months away, lock the rate now to avoid currency risk.</li>
+<li><strong>Confirm the recipient details with the solicitor.</strong> Get the exact bank name, account number, SWIFT code, and <a href="/guides/iban-numbers-explained">IBAN</a> (if European). Double-check every character — errors on large transfers are costly and slow to resolve.</li>
+<li><strong>Send a test transfer first.</strong> For a $200,000 property payment, send $100 first to confirm the details are correct. This costs almost nothing and could save you weeks of delays.</li>
+<li><strong>Time the main transfer for a weekday.</strong> Monday to Friday, during banking hours in both countries. Avoid public holidays.</li>
+<li><strong>Keep all documentation.</strong> Transfer confirmations, exchange rate receipts, and correspondence with the solicitor — you'll need these for tax returns and potentially for the land registry.</li>
+</ol>`,
+      },
+      {
+        heading: "What About Inheritance and Estate Transfers?",
+        content: `<p>Receiving or distributing an inheritance across borders has unique complications:</p>
+<h3>Receiving inheritance from abroad</h3>
+<ul>
+<li><strong>US recipients:</strong> Foreign inheritance is not taxable as income in the US. But if you receive over $100,000 from a foreign person, you must file <strong>IRS Form 3520</strong> (Annual Return to Report Transactions with Foreign Trusts and Receipt of Certain Foreign Gifts). This is a reporting form, not a tax.</li>
+<li><strong>UK recipients:</strong> Inheritance from abroad may be subject to UK Inheritance Tax if the deceased was UK-domiciled. Otherwise, no UK tax on foreign inheritance.</li>
+</ul>
+<h3>Distributing estate funds abroad</h3>
+<ul>
+<li>Estate executors can use the same providers (OFX, Wise, XE) for large distributions</li>
+<li>Forward contracts are useful when the estate is being settled over months — lock the rate on the expected distribution amount</li>
+<li>Keep meticulous records — beneficiaries in other countries may need proof of the inheritance source for their local tax compliance</li>
+</ul>
+<h3>Probate delays</h3>
+<p>International probate can take 6–18 months. If you're expecting a large inheritance in a foreign currency, consider the exchange rate risk over that period. A forward contract or <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency account</a> can help manage this.</p>`,
+      },
+      {
+        heading: "What Compliance and Reporting Rules Apply?",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Reporting Thresholds by Country</h3>
+<table>
+<thead><tr><th>Country</th><th>Threshold</th><th>Requirement</th></tr></thead>
+<tbody>
+<tr><td><strong>US</strong></td><td>$10,000</td><td>Currency Transaction Report (CTR) — auto-filed by your bank/provider</td></tr>
+<tr><td><strong>US</strong></td><td>$100,000</td><td>Form 3520 if receiving gift/inheritance from foreign person</td></tr>
+<tr><td><strong>US</strong></td><td>$10,000 aggregate</td><td>FBAR (FinCEN 114) if you hold foreign accounts</td></tr>
+<tr><td><strong>UK</strong></td><td>No limit</td><td>Source-of-funds checks for large amounts. No reporting for personal transfers.</td></tr>
+<tr><td><strong>EU</strong></td><td>€10,000</td><td>Cross-border cash declaration. Electronic transfers have no declaration limit.</td></tr>
+<tr><td><strong>Australia</strong></td><td>AUD 10,000</td><td>International Funds Transfer Instruction (IFTI) report — auto-filed</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Critical rule:</strong> Never deliberately split large transfers into amounts below reporting thresholds. This is called "structuring" and is illegal in the US, UK, and most countries — even if the underlying transfer is perfectly legal. Send the full amount and let the automated reporting happen normally.</p>
+<p>For more on compliance, read our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> and <a href="/guides/business-international-payments-guide">business payments guide</a>.</p>`,
+      },
+      {
+        heading: "What Security Steps Should You Take for Large Transfers?",
+        content: `<ol>
+<li><strong>Send a test transfer first.</strong> $50–$100 to confirm all recipient details are correct. An error on a $200,000 transfer could take weeks to resolve and cost hundreds in additional fees.</li>
+<li><strong>Verify the recipient details independently.</strong> Don't rely on email alone for bank details — call the solicitor or recipient directly. Email accounts get compromised and fraudsters change bank details in intercepted emails.</li>
+<li><strong>Use a regulated provider.</strong> Check the <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a> (UK) or <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN MSB Search</a> (US). All providers on our <a href="/send-money">comparison tool</a> are regulated.</li>
+<li><strong>Keep confirmation receipts.</strong> Save the transfer reference number, exchange rate, fee breakdown, and timestamps. You'll need these for tax returns and dispute resolution.</li>
+<li><strong>Understand your provider's insurance.</strong> Most regulated providers hold client funds in segregated accounts. Ask about their safeguarding arrangements for large balances held during processing.</li>
+</ol>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Cost estimates in this guide are based on real quotes collected from provider APIs and websites via automated scraping. Actual costs vary by corridor, amount, and market conditions — use our <a href="/send-money">comparison tool</a> for the latest rates at your exact amount.</p>
+<p>External sources include the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a>, and provider-published fee schedules. Compliance information is general guidance — consult a tax professional for your specific situation.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send $50,000 internationally?",
+        answer:
+          "OFX is typically cheapest for $50,000+ transfers — zero fees, dedicated FX dealer, and competitive exchange rate markup (0.3–0.5%). Wise is best for $10,000–$50,000 with 0% exchange rate markup. Banks are the most expensive option — a 3% markup on $50,000 costs $1,500 in hidden fees.",
+      },
+      {
+        question: "Is there a limit on how much money I can send internationally?",
+        answer:
+          "There is no US or UK legal limit on how much you can send abroad. Individual providers have their own limits: Wise allows up to $1,000,000, OFX has no maximum. Transfers over $10,000 are reported to FinCEN (US) or AUSTRAC (Australia) — this is routine reporting, not a restriction.",
+      },
+      {
+        question: "How do forward contracts work for international transfers?",
+        answer:
+          "A forward contract lets you lock in today's exchange rate for a transfer you'll make in the future (up to 12 months). You pay a deposit (5–10%), and the transfer executes at the locked rate on the agreed date. Available from OFX, TorFX, and XE. Not available from Wise or Remitly.",
+      },
+      {
+        question: "Do I need to pay tax on large international transfers?",
+        answer:
+          "Personal transfers are generally not taxable. In the US, transfers over $10,000 are reported but not taxed. Gifts to foreign persons over $18,000/year require filing Form 709 (no tax owed in most cases). Foreign inheritances over $100,000 require Form 3520 (reporting only). Consult a tax professional for large amounts.",
+      },
+      {
+        question: "Should I use a bank or a specialist provider for a property purchase abroad?",
+        answer:
+          "A specialist provider (OFX, TorFX, Wise) — not your bank. On a $200,000 property payment, a bank's 3% exchange rate markup costs you $6,000. A specialist provider charges $300–$1,000 total. Forward contracts from OFX or TorFX also let you lock the rate when you agree to buy, protecting you until completion.",
+      },
+      {
+        question: "What is the difference between OFX and Wise for large transfers?",
+        answer:
+          "Wise uses the mid-market rate (0% markup) with a transparent fee of 0.41–0.71%. OFX charges zero fees but adds a small exchange rate markup (0.3–0.5%). At $10,000, Wise is slightly cheaper. At $50,000+, OFX is typically cheaper AND offers forward contracts and dedicated dealers that Wise doesn't.",
+      },
+    ],
+    relatedSlugs: [
+      "cheapest-way-to-send-money-internationally",
+      "wire-transfer-guide",
+      "exchange-rate-markup-explained",
+      "business-international-payments-guide",
+    ],
+  },
 ];
 
 // Helper to get a blog post by slug

@@ -942,6 +942,120 @@ export const newsItems: NewsItem[] = [
     sourceUrl: "https://remittanceprices.worldbank.org/",
     providerSlugs: ["wise", "remitly", "worldremit", "western-union"],
   },
+  {
+    slug: "liberation-day-tariffs-remittance-impact-2026",
+    title: "One Year After Liberation Day: How Trump's Tariffs Changed the Cost of Sending Money Abroad",
+    excerpt:
+      "The DXY dollar index fell to 99.9, the Indian rupee hit a record low of 88.8, and the Supreme Court struck down IEEPA tariffs. Here's what one year of trade war means for your international transfers.",
+    image: "/images/news/central-bank-super-week.jpg",
+    imageAlt: "US Dollar bills representing the weakening currency affecting international money transfer costs",
+    content: `<p>April 2, 2026, marked exactly one year since "Liberation Day" — when the Trump administration announced sweeping tariffs with country-specific rates up to 50% and a 10% baseline. For anyone sending money internationally, the consequences have been significant and largely negative.</p>
+
+<h2>What happened to the dollar?</h2>
+<p>The <strong>DXY dollar index fell to 99.9</strong> on April 7, 2026 — down nearly 3% over 12 months. Most forecasts place the dollar in the low-to-mid 90s by December 2026. Harvard economist Kenneth Rogoff has said historians may look back at Liberation Day as marking "the beginning of the end of the dollar's absolute dominance."</p>
+<p>For US-based senders, a weaker dollar means <strong>fewer units of foreign currency for each dollar transferred</strong>. If you sent $1,000 to India a year ago and got ₹84,000, the same amount today might only get you ₹80,000 — a ₹4,000 loss purely from currency depreciation.</p>
+
+<h2>How tariffs affect exchange rates</h2>
+<p>Tariffs create a chain reaction that weakens the dollar:</p>
+<ol>
+<li><strong>Higher import costs</strong> → US inflation increased by 0.76 percentage points → the Fed delays rate cuts → but trade uncertainty still weakens the dollar</li>
+<li><strong>Retaliatory tariffs</strong> → reduced US exports → weaker trade balance → the US goods deficit hit an all-time high in 2025 despite tariffs</li>
+<li><strong>Capital flight</strong> → international investors rethinking US assets → reduced dollar demand</li>
+</ol>
+
+<h2>Emerging market currencies hit hardest</h2>
+<p>The tariff shock didn't just weaken the dollar — it destabilised emerging market currencies that millions of diaspora senders depend on:</p>
+<table>
+<thead><tr><th>Currency</th><th>Impact</th><th>What It Means for Senders</th><th>Compare</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Indian Rupee (INR)</strong></td><td>Record low 88.8 vs USD</td><td>More rupees per dollar — good time to send</td><td><a href="/send-money/usa-to-india">Rates →</a></td></tr>
+<tr><td><strong>Pakistani Rupee (PKR)</strong></td><td>Under pressure</td><td>Volatile — use rate alerts</td><td><a href="/send-money/usa-to-pakistan">Rates →</a></td></tr>
+<tr><td><strong>South African Rand (ZAR)</strong></td><td>Fell 0.5-1%</td><td>Slightly more ZAR per dollar</td><td><a href="/send-money/usa-to-south-africa">Rates →</a></td></tr>
+<tr><td><strong>Thai Baht (THB)</strong></td><td>Fell 0.5-1%</td><td>Better rates for senders to Thailand</td><td>—</td></tr>
+<tr><td><strong>Mexican Peso (MXN)</strong></td><td>Resilient</td><td>MXN held up better than most — trade integration</td><td><a href="/send-money/usa-to-mexico">Rates →</a></td></tr>
+</tbody>
+</table>
+
+<h2>The double hit: weaker dollar + remittance tax</h2>
+<p>US-based senders now face two simultaneous cost pressures:</p>
+<ol>
+<li><strong>The weakening dollar</strong> reduces how much your recipient gets in local currency</li>
+<li><strong>The <a href="/guides/us-remittance-tax-2026">1% US remittance tax</a></strong> (effective January 1, 2026) adds an extra cost on cash-funded transfers</li>
+</ol>
+<p>Together, these make it more important than ever to <strong>compare providers</strong> before every transfer. The difference between the cheapest and most expensive provider can be 3-5% — which now matters even more when the base rate is moving against you.</p>
+
+<h2>What to do now</h2>
+<ol>
+<li><strong>Set rate alerts.</strong> Use <a href="/companies/wise">Wise</a> or <a href="/companies/xe">Xe</a> to get notified when your target rate hits. In volatile tariff periods, rates can swing 1-2% in a day.</li>
+<li><strong>Consider sending sooner rather than later.</strong> If the dollar continues weakening through 2026 as forecasters expect, today's rate may be better than next month's.</li>
+<li><strong>For large transfers, use forward contracts.</strong> <a href="/companies/ofx">OFX</a> lets you lock in today's rate for up to 12 months — protecting you from further dollar weakness.</li>
+<li><strong>Switch from cash to digital.</strong> Avoid the 1% remittance tax entirely by funding via bank transfer or debit card instead of cash. Read our <a href="/guides/us-remittance-tax-2026">remittance tax guide</a>.</li>
+<li><strong>Compare every time.</strong> Our <a href="/send-money">comparison tool</a> shows real-time rates from 35+ providers. In a volatile market, the cheapest provider can change daily.</li>
+</ol>
+<p>For broader context on how central bank decisions move exchange rates, read our <a href="/news/central-bank-super-week-march-2026">guide to central bank rate decisions and transfers</a>. For corridor-specific advice, see our <a href="/guides/send-money-to-india-guide">India</a>, <a href="/guides/send-money-to-pakistan-guide">Pakistan</a>, <a href="/guides/send-money-to-philippines-guide">Philippines</a>, and <a href="/guides/send-money-to-mexico-guide">Mexico</a> guides.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-04-07",
+    source: "NPR / Tax Foundation / CFR",
+    sourceUrl: "https://www.npr.org/2026/04/02/nx-s1-5766424/trump-tariffs-inflation-economy",
+    providerSlugs: ["wise", "xe", "ofx", "remitly"],
+  },
+  {
+    slug: "mastercard-bvnk-stablecoin-remittance-2026",
+    title: "Mastercard's $1.8B Bet on Stablecoins: What It Means for Your Remittance Fees",
+    excerpt:
+      "Mastercard is acquiring stablecoin infrastructure firm BVNK for $1.8 billion — the largest crypto deal in payments history. It could slash corridor fees from 6-8% to 1-2%. Here's what changes for regular senders.",
+    image: "/images/news/central-bank-super-week.jpg",
+    imageAlt: "Digital payment network representing Mastercard's stablecoin infrastructure for cheaper international transfers",
+    content: `<p>On March 17, 2026, <a href="https://www.mastercard.com/us/en/news-and-trends/press/2026/march/Mastercard-to-acquire-BVNK-to-connect-on-chain-payments-and-fiat-rails.html" target="_blank" rel="noopener noreferrer nofollow">Mastercard announced</a> a definitive agreement to acquire <strong>BVNK</strong> — a UK-based stablecoin infrastructure company — for up to <strong>$1.8 billion</strong> ($1.5B upfront plus $300M contingent on performance). It's the largest stablecoin infrastructure deal in history, surpassing Stripe's $1.1B acquisition of Bridge.</p>
+<p>For anyone sending money internationally, this matters. Here's why.</p>
+
+<h2>What are stablecoins and why do they matter for remittances?</h2>
+<p>Stablecoins are digital tokens pegged to a real currency (usually USD). Unlike Bitcoin, their value doesn't swing wildly — 1 USDC is always worth approximately $1. The innovation isn't the token itself, but the <strong>payment rails underneath</strong>.</p>
+<p>Traditional international transfers pass through 2-4 correspondent banks via SWIFT, each adding fees and time. Stablecoin rails can settle in seconds with minimal intermediary costs. The potential impact:</p>
+<table>
+<thead><tr><th>Corridor Type</th><th>Current Avg Cost</th><th>Potential Stablecoin Cost</th><th>Savings</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>USA → India</strong></td><td>~2.5%</td><td>~1%</td><td>60% cheaper</td></tr>
+<tr><td><strong>USA → Philippines</strong></td><td>~4%</td><td>~1-2%</td><td>50-75% cheaper</td></tr>
+<tr class="blog-row-danger"><td><strong>Sub-Saharan Africa</strong></td><td>~8-12%</td><td>~1-2%</td><td>80-90% cheaper</td></tr>
+<tr class="blog-row-danger"><td><strong>South Africa → Mozambique</strong></td><td>~15%</td><td>~2-3%</td><td>80% cheaper</td></tr>
+</tbody>
+</table>
+
+<h2>Why Mastercard paid $1.8 billion</h2>
+<p>BVNK operates stablecoin payment infrastructure across <strong>130+ countries</strong>. The acquisition gives Mastercard:</p>
+<ul>
+<li><strong>Stablecoin-to-fiat conversion rails</strong> — convert USDC to local currency at the point of delivery</li>
+<li><strong>Enterprise-grade compliance</strong> — BVNK handles KYC/AML across jurisdictions</li>
+<li><strong>Integration with Mastercard Move</strong> — Mastercard's remittance platform that posted 35%+ transaction growth in Q4 2025</li>
+</ul>
+<p>Mastercard isn't alone. PayPal already offers <strong>zero-fee Xoom transfers funded with PYUSD</strong> (their stablecoin). Visa supports USDC settlement on-chain. Wells Fargo has filed for a WFUSD stablecoin trademark. The <a href="https://www.congress.gov/bill/119th-congress/senate-bill/394" target="_blank" rel="noopener noreferrer nofollow">US GENIUS Act</a> and Europe's MiCA framework are providing regulatory clarity.</p>
+
+<h2>What this means for you (the sender)</h2>
+<p>The key thing: <strong>you won't need to understand crypto.</strong> Mastercard will abstract the blockchain layer entirely. From your perspective, you'll send money through a normal app — the stablecoin settlement happens invisibly in the background, resulting in lower fees and faster delivery.</p>
+<p>Realistically, consumer-facing products from this acquisition won't launch until <strong>late 2026 or 2027</strong>. But the competitive pressure is already being felt. Providers like <a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a> will need to match lower fees or lose market share.</p>
+
+<h2>Who benefits most?</h2>
+<ul>
+<li><strong>Senders to Africa</strong> — Currently paying 8-15% in fees. Stablecoin rails could cut this to 1-2%, saving $40-$75 on every $500 transfer.</li>
+<li><strong>Senders to Southeast Asia</strong> — Philippines, Vietnam, Cambodia corridors currently at 3-5% could drop to 1%.</li>
+<li><strong>Unbanked recipients</strong> — BVNK's infrastructure supports mobile wallet delivery without requiring a bank account. Could benefit 1.3 billion unbanked adults globally.</li>
+</ul>
+
+<h2>What to do now</h2>
+<p>Stablecoin-powered transfers are coming but aren't mainstream yet. In the meantime:</p>
+<ol>
+<li><strong>Use specialist providers today.</strong> <a href="/companies/wise">Wise</a> (0% markup) and <a href="/companies/remitly">Remitly</a> (minutes delivery) already achieve 80-95% of the savings that stablecoins promise — without any crypto complexity.</li>
+<li><strong>Watch for PayPal/Xoom PYUSD offers.</strong> <a href="/companies/xoom">Xoom</a> already offers zero transfer fees when funded with PYUSD. If your corridor is supported, this is the closest thing to stablecoin remittances available today.</li>
+<li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows real-time costs from 35+ providers. As stablecoin competition heats up, fees are falling across the board.</li>
+</ol>
+<p>For more on how payment technology is evolving, read our <a href="/guides/wire-transfer-guide">wire transfer guide</a> (SWIFT vs SEPA vs local rails), <a href="/guides/business-international-payments-guide">business payments guide</a>, and <a href="/compare/remitly-vs-xoom">Remitly vs Xoom comparison</a> (covers PYUSD).</p>`,
+    category: "Industry News",
+    publishedAt: "2026-04-07",
+    source: "Mastercard / CoinDesk / CNBC",
+    sourceUrl: "https://www.mastercard.com/us/en/news-and-trends/press/2026/march/Mastercard-to-acquire-BVNK-to-connect-on-chain-payments-and-fiat-rails.html",
+    providerSlugs: ["wise", "remitly", "western-union", "xoom", "moneygram"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {
