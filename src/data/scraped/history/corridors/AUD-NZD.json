@@ -768,5 +768,40 @@
         "receiveAmount": 120.31
       }
     }
+  },
+  {
+    "date": "2026-04-07",
+    "providers": {
+      "westpac": {
+        "rate": 1.1644,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 116.44
+      },
+      "paypal": {
+        "rate": 1.1594,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 110.14
+      },
+      "instarem": {
+        "rate": 1.2111,
+        "fee": 0.6,
+        "markup": null,
+        "receiveAmount": 120.38
+      },
+      "nab": {
+        "rate": 1.1812,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 118.12
+      },
+      "hsbc": {
+        "rate": 1.187,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 118.7
+      }
+    }
   }
 ]
