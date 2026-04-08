@@ -29,6 +29,8 @@ export const COUNTRY_TO_CURRENCY: Record<string, string> = {
   SG: "SGD",
   // CHF
   CH: "CHF",
+  // INR
+  IN: "INR",
   // Additional send currencies
   JP: "JPY",
   KR: "KRW",
@@ -182,6 +184,50 @@ export const GEO_CORRIDORS: Record<string, GeoCurrencyConfig> = {
       { toCurrency: "GBP", label: "United Kingdom", corridorSlug: "chf-to-gbp", flag: "🇬🇧", symbol: "£" },
       { toCurrency: "USD", label: "United States", corridorSlug: "chf-to-usd", flag: "🇺🇸", symbol: "$" },
       { toCurrency: "PHP", label: "Philippines", corridorSlug: "chf-to-php", flag: "🇵🇭", symbol: "₱" },
+    ],
+  },
+  JPY: {
+    defaultTo: "PHP",
+    defaultAmount: 100000,
+    popularCorridors: [
+      { toCurrency: "PHP", label: "Philippines", corridorSlug: "japan-to-philippines", flag: "🇵🇭", symbol: "₱" },
+      { toCurrency: "INR", label: "India", corridorSlug: "japan-to-india", flag: "🇮🇳", symbol: "₹" },
+      { toCurrency: "USD", label: "United States", corridorSlug: "japan-to-usa", flag: "🇺🇸", symbol: "$" },
+      { toCurrency: "BRL", label: "Brazil", corridorSlug: "jpy-to-brl", flag: "🇧🇷", symbol: "R$" },
+      { toCurrency: "VND", label: "Vietnam", corridorSlug: "jpy-to-vnd", flag: "🇻🇳", symbol: "₫" },
+    ],
+  },
+  HKD: {
+    defaultTo: "PHP",
+    defaultAmount: 5000,
+    popularCorridors: [
+      { toCurrency: "PHP", label: "Philippines", corridorSlug: "hong-kong-to-philippines", flag: "🇵🇭", symbol: "₱" },
+      { toCurrency: "INR", label: "India", corridorSlug: "hong-kong-to-india", flag: "🇮🇳", symbol: "₹" },
+      { toCurrency: "IDR", label: "Indonesia", corridorSlug: "hkd-to-idr", flag: "🇮🇩", symbol: "Rp" },
+      { toCurrency: "USD", label: "United States", corridorSlug: "hkd-to-usd", flag: "🇺🇸", symbol: "$" },
+      { toCurrency: "GBP", label: "United Kingdom", corridorSlug: "hkd-to-gbp", flag: "🇬🇧", symbol: "£" },
+    ],
+  },
+  KRW: {
+    defaultTo: "PHP",
+    defaultAmount: 1000000,
+    popularCorridors: [
+      { toCurrency: "PHP", label: "Philippines", corridorSlug: "south-korea-to-philippines", flag: "🇵🇭", symbol: "₱" },
+      { toCurrency: "VND", label: "Vietnam", corridorSlug: "south-korea-to-vietnam", flag: "🇻🇳", symbol: "₫" },
+      { toCurrency: "USD", label: "United States", corridorSlug: "krw-to-usd", flag: "🇺🇸", symbol: "$" },
+      { toCurrency: "INR", label: "India", corridorSlug: "krw-to-inr", flag: "🇮🇳", symbol: "₹" },
+      { toCurrency: "IDR", label: "Indonesia", corridorSlug: "krw-to-idr", flag: "🇮🇩", symbol: "Rp" },
+    ],
+  },
+  INR: {
+    defaultTo: "USD",
+    defaultAmount: 50000,
+    popularCorridors: [
+      { toCurrency: "USD", label: "United States", corridorSlug: "india-to-usa", flag: "🇺🇸", symbol: "$" },
+      { toCurrency: "GBP", label: "United Kingdom", corridorSlug: "india-to-uk", flag: "🇬🇧", symbol: "£" },
+      { toCurrency: "CAD", label: "Canada", corridorSlug: "india-to-canada", flag: "🇨🇦", symbol: "C$" },
+      { toCurrency: "AUD", label: "Australia", corridorSlug: "india-to-australia", flag: "🇦🇺", symbol: "A$" },
+      { toCurrency: "EUR", label: "Europe", corridorSlug: "inr-to-eur", flag: "🇪🇺", symbol: "€" },
     ],
   },
 };

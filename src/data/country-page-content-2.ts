@@ -1352,4 +1352,112 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       },
     ],
   },
+
+  haiti: {
+    slug: "haiti",
+    countryName: "Haiti",
+    currency: "HTG",
+    intro:
+      "Haiti received over $4 billion in remittances in 2023, representing nearly 20% of the country's GDP — one of the highest remittance-to-GDP ratios in the Western Hemisphere. The Haitian diaspora, concentrated in the US (particularly Florida, New York, and Massachusetts) and Canada, keeps the USD-to-HTG corridor among the busiest in the Caribbean. With banking penetration around 20%, cash pickup and mobile money remain the most practical delivery methods for many recipients.",
+    highlights: [
+      "Cash pickup dominates remittance delivery in Haiti. Western Union and MoneyGram have extensive agent networks across Port-au-Prince and secondary cities, making cash collection accessible even in areas with no bank branches.",
+      "Digicel Mon Cash and Natcom mobile money are growing delivery options that let recipients receive funds directly to their phone. Several international providers now support Mon Cash as a payout method.",
+      "CAM Transfer (Caisse d'Épargne et de Crédit) and Unitransfer are major domestic payout networks with deep reach across Haiti, often partnered with international transfer services for last-mile delivery.",
+      "The Haitian gourde (HTG) has experienced significant depreciation against the US dollar in recent years, meaning exchange rate markups can vary widely between providers — comparing rates before each transfer is essential.",
+      "The Banque de la République d'Haïti (BRH) regulates foreign exchange. There is no income tax on personal inbound remittances, so recipients keep the full amount they receive.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Haiti?",
+        answer:
+          "Digital-first providers like Remitly and WorldRemit typically offer lower total costs than traditional operators for transfers to Haiti. Funding via bank transfer or debit card keeps fees down. Because HTG exchange rates vary significantly between providers, always compare the total gourdes received — not just the advertised fee. SendMoneyCompare shows the final HTG amount after all costs so you can spot the best deal instantly.",
+      },
+      {
+        question: "How long does a money transfer to Haiti take?",
+        answer:
+          "Cash pickup through Western Union or MoneyGram agents is usually available within minutes of the sender completing payment. Digicel Mon Cash mobile money transfers also arrive within minutes. Bank deposits to Sogebank, BNC (Banque Nationale de Crédit), or Unibank typically take 1–2 business days depending on the provider and time of day.",
+      },
+      {
+        question: "Can I send money to a mobile wallet in Haiti?",
+        answer:
+          "Yes. Digicel Mon Cash is the most widely supported mobile money option for international transfers to Haiti. Providers like WorldRemit and Remitly offer Mon Cash as a delivery method — you just need the recipient's Digicel phone number. Natcom mobile money is also growing but has less international provider support so far.",
+      },
+      {
+        question: "Do I need a bank account to receive money in Haiti?",
+        answer:
+          "No. With only about 20% of Haitians holding a bank account, most remittance recipients rely on cash pickup or mobile money. Western Union, MoneyGram, CAM Transfer, and Unitransfer all offer cash collection at agent locations across Haiti. Your recipient just needs a valid ID and the transaction reference number to collect funds.",
+      },
+      {
+        question: "Are there taxes on receiving money in Haiti?",
+        answer:
+          "Haiti does not impose income tax on personal inbound remittances. Recipients keep the full amount delivered, whether collected as cash, deposited to a bank account, or received via mobile money. The Banque de la République d'Haïti (BRH) regulates foreign exchange transactions, but there are no caps on incoming personal transfers.",
+      },
+    ],
+  },
+  ukraine: {
+    slug: "ukraine",
+    countryName: "Ukraine",
+    currency: "UAH",
+    intro:
+      "Ukraine received over $18 billion in remittances in 2023, representing nearly 30% of GDP and making it one of Europe's largest inbound corridors. Since 2022 the Ukrainian diaspora has expanded rapidly across Europe — particularly Poland, Germany, and the Czech Republic — as well as the US, Canada, and UK, driving a surge in remittance volumes and fierce competition among transfer providers on the UAH corridor.",
+    highlights: [
+      "PrivatBank is Ukraine's largest bank and handles the majority of incoming international remittances. Transfers to a PrivatBank card (Visa/Mastercard) are the fastest and most popular delivery method.",
+      "monobank is a widely used digital bank among younger Ukrainians. Many providers now support direct transfers to monobank cards alongside PrivatBank.",
+      "Western Union and MoneyGram maintain extensive agent networks across Ukraine for cash pickup, which remains important in smaller cities and rural areas where card ownership is lower.",
+      "Wise, TransferGo, and WorldRemit are popular digital options offering competitive UAH exchange rates, especially from Poland (PLN), the UK (GBP), and the US (USD).",
+      "The National Bank of Ukraine (NBU) has imposed capital controls since 2022, but incoming personal remittances are unrestricted — recipients can receive and use transferred funds freely.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Ukraine?",
+        answer:
+          "Digital-first providers like Wise, TransferGo, and Remitly typically offer the lowest total cost on transfers to Ukraine. TransferGo is especially competitive on European corridors (PLN, EUR, GBP to UAH) due to its strong Eastern European focus. Always compare the total UAH received — not just the advertised fee — since exchange rate markups make up the largest share of the cost. SendMoneyCompare shows the final hryvnia amount after all fees and margins.",
+      },
+      {
+        question: "How long does a money transfer to Ukraine take?",
+        answer:
+          "Card-to-card transfers to PrivatBank or monobank typically arrive within minutes to a few hours. Bank account deposits via SWIFT can take 1–3 business days. Cash pickup through Western Union or MoneyGram is usually available within minutes of the sender completing payment.",
+      },
+      {
+        question: "Can I send money to a PrivatBank card in Ukraine?",
+        answer:
+          "Yes. PrivatBank card delivery is the most popular method for receiving international transfers in Ukraine. Providers like TransferGo, Wise, WorldRemit, and Remitly support transfers directly to a PrivatBank Visa or Mastercard number. The recipient just needs to share their 16-digit card number — no IBAN or SWIFT code required for card-to-card transfers.",
+      },
+      {
+        question: "Is it safe to send money to Ukraine right now?",
+        answer:
+          "Yes, international money transfers to Ukraine continue to operate normally despite the ongoing conflict. All major transfer providers maintain active services to Ukraine, and the National Bank of Ukraine ensures the banking system remains functional. PrivatBank, monobank, and other Ukrainian banks process incoming remittances without interruption. Cash pickup networks from Western Union and MoneyGram also remain operational across most of the country.",
+      },
+      {
+        question: "Do I need a bank account to receive money in Ukraine?",
+        answer:
+          "No. Cash pickup is available through extensive Western Union and MoneyGram agent networks across Ukraine — your recipient just needs a valid ID and the transaction reference number. However, card-to-card transfers to PrivatBank or monobank are increasingly preferred because they are faster, more convenient, and avoid the need to visit a physical location.",
+      },
+      {
+        question: "What is the best way to send money from Poland to Ukraine?",
+        answer:
+          "Poland is the single largest remittance-sending country to Ukraine. TransferGo specialises in PLN-to-UAH transfers and consistently offers competitive rates. Wise and WorldRemit are also strong options. Funding via Polish bank transfer (Przelewy24 or direct bank) keeps fees lowest. Compare the total UAH received on SendMoneyCompare to find the best deal on any given day.",
+      },
+      {
+        question: "Are there taxes on receiving money in Ukraine?",
+        answer:
+          "Ukraine does not impose income tax on personal inbound remittances. Recipients keep the full amount delivered, whether received to a bank card, bank account, or collected as cash. The NBU regulates foreign exchange transactions but places no caps or levies on incoming personal transfers.",
+      },
+      {
+        question: "What exchange rate will I get for UAH transfers?",
+        answer:
+          "The hryvnia (UAH) operates under a managed exchange rate regime set by the National Bank of Ukraine. Since 2022 the NBU has devalued the official rate and maintains controls on currency markets. Transfer providers each set their own UAH rate with varying markups above the mid-market rate. The difference between the best and worst provider can exceed 3–5% on a single transfer, so comparing rates is essential.",
+      },
+      {
+        question: "Can I send money to monobank in Ukraine?",
+        answer:
+          "Yes. monobank is one of Ukraine's most popular digital banks, especially among younger recipients. Providers including Wise, TransferGo, and WorldRemit support transfers to monobank card numbers. As with PrivatBank, you just need the recipient's 16-digit Visa or Mastercard number to send directly to their monobank account.",
+      },
+      {
+        question: "Are there limits on how much money I can send to Ukraine?",
+        answer:
+          "There are no Ukrainian government caps on incoming personal remittances — recipients can receive unlimited amounts for personal use. However, individual transfer providers impose their own per-transaction and daily limits, which vary by provider, funding method, and your verification level. For large transfers above $10,000, expect additional identity verification from both your provider and the receiving bank in Ukraine.",
+      },
+    ],
+  },
 };

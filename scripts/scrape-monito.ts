@@ -97,6 +97,36 @@ const CORRIDORS = [
   { fromCountry: "qa", toCountry: "bd", from: "QAR", to: "BDT" },
   { fromCountry: "nz", toCountry: "in", from: "NZD", to: "INR" },
   { fromCountry: "nz", toCountry: "ph", from: "NZD", to: "PHP" },
+  // Phase 1: Caribbean corridors
+  { fromCountry: "us", toCountry: "do", from: "USD", to: "DOP" },
+  { fromCountry: "us", toCountry: "jm", from: "USD", to: "JMD" },
+  { fromCountry: "us", toCountry: "ht", from: "USD", to: "HTG" },
+  { fromCountry: "gb", toCountry: "jm", from: "GBP", to: "JMD" },
+  // Phase 1: India outbound
+  { fromCountry: "in", toCountry: "us", from: "INR", to: "USD" },
+  { fromCountry: "in", toCountry: "gb", from: "INR", to: "GBP" },
+  { fromCountry: "in", toCountry: "ca", from: "INR", to: "CAD" },
+  { fromCountry: "in", toCountry: "au", from: "INR", to: "AUD" },
+  { fromCountry: "in", toCountry: "ae", from: "INR", to: "AED" },
+  { fromCountry: "in", toCountry: "sg", from: "INR", to: "SGD" },
+  { fromCountry: "in", toCountry: "de", from: "INR", to: "EUR" },
+  // Phase 2: Ukraine corridors
+  { fromCountry: "us", toCountry: "ua", from: "USD", to: "UAH" },
+  { fromCountry: "gb", toCountry: "ua", from: "GBP", to: "UAH" },
+  { fromCountry: "de", toCountry: "ua", from: "EUR", to: "UAH" },
+  // Phase 2: Ethiopia & Guatemala
+  { fromCountry: "us", toCountry: "et", from: "USD", to: "ETB" },
+  { fromCountry: "us", toCountry: "gt", from: "USD", to: "GTQ" },
+  // Phase 2: Japan outbound
+  { fromCountry: "jp", toCountry: "ph", from: "JPY", to: "PHP" },
+  { fromCountry: "jp", toCountry: "in", from: "JPY", to: "INR" },
+  { fromCountry: "jp", toCountry: "us", from: "JPY", to: "USD" },
+  // Phase 2: Hong Kong outbound
+  { fromCountry: "hk", toCountry: "ph", from: "HKD", to: "PHP" },
+  { fromCountry: "hk", toCountry: "in", from: "HKD", to: "INR" },
+  // Phase 2: South Korea outbound
+  { fromCountry: "kr", toCountry: "ph", from: "KRW", to: "PHP" },
+  { fromCountry: "kr", toCountry: "vn", from: "KRW", to: "VND" },
 ];
 
 const SEND_AMOUNTS = [100, 1000];

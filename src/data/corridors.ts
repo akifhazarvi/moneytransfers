@@ -2011,6 +2011,814 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+  // ── Caribbean corridors ──
+  {
+    slug: "usa-to-dominican-republic",
+    fromCountry: "United States",
+    toCountry: "Dominican Republic",
+    fromCurrency: "USD",
+    toCurrency: "DOP",
+    fromFlag: "🇺🇸",
+    toFlag: "🇩🇴",
+    sampleAmount: 500,
+    intro:
+      "The Dominican Republic receives over $9 billion in remittances annually, making it one of the largest remittance destinations in Latin America. The vast majority of these transfers originate from the United States, where over 2 million Dominican-Americans are concentrated in New York, New Jersey, and Florida.",
+    context:
+      "The USD to DOP corridor is well served by both traditional and digital providers. Caribe Express and Vimenca are deeply established local networks that partner with US-based services for cash pickup delivery. Major Dominican banks including Banco Popular Dominicano, Banreservas, and BHD Leon accept international deposits. Digital providers like Remitly, Wise, and WorldRemit typically offer exchange rates 1–3% better than traditional operators, which on a $500 transfer can mean DOP 800–1,500 more for your recipient.",
+    feesNote:
+      "Transfer fees on the USD to DOP route range from $0 with promotional first transfers on Remitly and WorldRemit to $5–$10 for standard sends. Western Union and MoneyGram charge $5–$8 for online transfers but significantly more for agent-assisted sends. The exchange rate markup is where the real cost difference lies — traditional operators may mark up the rate by 2–4%, while digital providers stay within 0.5–1.5% of the mid-market rate.",
+    deliveryNote:
+      "Cash pickup is available within minutes through Western Union, MoneyGram, Caribe Express, and Vimenca agent locations across the Dominican Republic. Bank deposits to Banco Popular, Banreservas, and BHD Leon typically arrive within 1–2 business days. Some providers offer same-day delivery for debit card-funded transfers.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to the Dominican Republic?",
+        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Dominican pesos per dollar on this corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.8%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent promotional zero-fee first transfers for new users. For a $500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed DOP 800–1,500. WorldRemit and Xoom (PayPal) also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as rates fluctuate throughout the day.",
+      },
+      {
+        q: "How long does a money transfer from the USA to the Dominican Republic take?",
+        a: "Transfer speed depends on the delivery method. Cash pickup through Western Union, MoneyGram, Caribe Express, and Vimenca agent locations is typically available within minutes of sending — the Dominican Republic has thousands of pickup points even in smaller towns. Bank deposits to major Dominican banks like Banco Popular Dominicano, Banreservas, and BHD Leon take 1–2 business days with standard service. Remitly and WorldRemit offer express options that can deliver to bank accounts within hours for card-funded transfers. Funding with a debit card rather than ACH bank transfer can reduce the overall timeline by 1–2 days.",
+      },
+      {
+        q: "Can I send money to a Dominican bank account from the US?",
+        a: "Yes, most major transfer providers support direct bank deposits to Dominican accounts. Banco Popular Dominicano, Banreservas, BHD Leon, Scotiabank Dominican Republic, and Banco Santa Cruz are all supported by providers like Wise, Remitly, and WorldRemit. You will need your recipient's bank account number and the bank's routing information. Bank deposits typically arrive within 1–2 business days and are a good option for recipients who prefer to receive funds directly into their account. For recipients without a bank account, cash pickup through Caribe Express or Vimenca networks provides broad coverage across the country.",
+      },
+      {
+        q: "What are the transfer limits for sending money to the Dominican Republic?",
+        a: "Transfer limits vary by provider. Most digital services allow $2,500–$10,000 per single transaction, with higher limits after full identity verification. Western Union allows up to $50,000 per transaction for verified online customers. Wise supports transfers up to $1,000,000 for fully verified accounts. On the Dominican side, the Central Bank (Banco Central de la Republica Dominicana) does not cap incoming remittances. Under US regulations, transfers exceeding $10,000 require the provider to file a Currency Transaction Report, but this does not prevent or delay the transfer. For large transfers ($10,000+), providers like OFX and XE may offer better exchange rates and dedicated support.",
+      },
+      {
+        q: "Is cash pickup or bank deposit better for the Dominican Republic?",
+        a: "It depends on your recipient's situation. Cash pickup is faster — funds are available within minutes at thousands of agent locations through Caribe Express, Vimenca, Western Union, and MoneyGram, with coverage in both major cities and rural areas. This is ideal for recipients without bank accounts or those who need money urgently. Bank deposit is more cost-effective for regular transfers, as digital providers like Wise and Remitly offer better exchange rates for bank delivery. Bank deposit is also more secure for larger amounts and avoids the need for your recipient to travel to a pickup location. Many Dominican recipients use a combination of both methods depending on urgency and amount.",
+      },
+    ],
+  },
+  {
+    slug: "usa-to-jamaica",
+    fromCountry: "United States",
+    toCountry: "Jamaica",
+    fromCurrency: "USD",
+    toCurrency: "JMD",
+    fromFlag: "🇺🇸",
+    toFlag: "🇯🇲",
+    sampleAmount: 500,
+    intro:
+      "Jamaica receives approximately $3.5 billion in remittances annually, representing nearly 20% of the country's GDP. The United States is the largest source, with over 1 million Jamaican-Americans concentrated in New York, Florida, and Connecticut sending money home regularly.",
+    context:
+      "The USD to JMD corridor is dominated by traditional operators like Western Union and MoneyGram, which have extensive agent networks across Jamaica. However, digital providers are gaining ground with significantly better exchange rates. Specialist services like Wise, Remitly, and WorldRemit typically offer rates 1.5–3% closer to the mid-market rate compared to traditional operators. For a $500 transfer, that difference can mean JMD 1,000–2,500 more for your recipient. Major Jamaican banks including National Commercial Bank (NCB), Scotiabank Jamaica, and CIBC FirstCaribbean accept international deposits.",
+    feesNote:
+      "Fees on the USD to JMD route range from $0 (promotional first transfers on Remitly and WorldRemit) to $5–$10 for standard online sends. Western Union charges $5–$8 for online transfers but higher fees for agent-assisted sends or credit card funding. The exchange rate markup is the larger cost factor — traditional operators may mark up the rate by 2–4%, while digital providers stay within 0.5–1.5% of the mid-market rate. Always compare the total JMD amount your recipient will receive.",
+    deliveryNote:
+      "Cash pickup is available within minutes at Western Union and MoneyGram agent locations across Jamaica, including in rural parishes. Bank deposits to NCB, Scotiabank Jamaica, and other major banks take 1–2 business days. Some providers offer same-day express delivery for debit card-funded transfers to major banks.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Jamaica?",
+        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Jamaican dollars per US dollar. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.9%, so the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently provides promotional zero-fee first transfers. For a $500 transfer, the difference between the cheapest and most expensive provider can exceed JMD 2,000. WorldRemit and Xoom also serve this corridor well. Traditional operators like Western Union remain popular for cash pickup convenience but typically offer less favourable exchange rates.",
+      },
+      {
+        q: "How long does a money transfer from the USA to Jamaica take?",
+        a: "Transfer speed depends on your chosen delivery method. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across all 14 parishes in Jamaica. Bank deposits to National Commercial Bank (NCB), Scotiabank Jamaica, and CIBC FirstCaribbean typically take 1–2 business days with standard service. Remitly and WorldRemit offer express options that can deliver within hours for card-funded transfers. Traditional bank wire transfers from US banks are the slowest at 3–5 business days due to correspondent banking intermediaries. Funding with a debit card rather than ACH bank transfer can reduce the overall timeline by 1–2 days.",
+      },
+      {
+        q: "Can I send money to a Jamaican bank account?",
+        a: "Yes, most major transfer providers support direct bank deposits to Jamaican accounts. National Commercial Bank (NCB), Scotiabank Jamaica, CIBC FirstCaribbean, JMMB Bank, and Sagicor Bank are commonly supported. You will need your recipient's account number and the bank's branch information. Wise, Remitly, and WorldRemit all offer bank deposit delivery to Jamaica. Bank deposits are typically the most cost-effective delivery method because digital providers offer their best exchange rates for this option. For recipients without a bank account, cash pickup remains widely available through Western Union, MoneyGram, and local agent networks.",
+      },
+      {
+        q: "Do I need to pay tax on remittances to Jamaica?",
+        a: "In the United States, sending money to family abroad is not a taxable event for the sender. The IRS does not tax outbound personal remittances. However, if you send more than $18,000 to a single recipient in a calendar year (2024 threshold), you may need to file IRS Form 709, though this rarely results in actual tax owed. On the Jamaican side, incoming remittances are not subject to income tax — the Jamaican government actively encourages formal remittance channels. The Bank of Jamaica does not impose restrictions or taxes on incoming personal transfers. For frequent large transfers, consulting a tax advisor familiar with both US and Jamaican regulations is advisable.",
+      },
+      {
+        q: "Which provider has the best cash pickup network in Jamaica?",
+        a: "Western Union has the largest cash pickup network in Jamaica, with agent locations in every parish including rural areas. MoneyGram is the second largest, with extensive coverage through partner banks and retail locations. Both services make funds available within minutes of sending. Western Union's My WU loyalty programme offers reduced fees for frequent senders. Cash pickup requires the recipient to present valid government-issued ID and the transaction reference number (MTCN for Western Union). No bank account is needed, making this ideal for unbanked recipients. For the best combination of speed and value, compare cash pickup rates across both networks — MoneyGram sometimes offers better exchange rates than Western Union on this corridor.",
+      },
+    ],
+  },
+  {
+    slug: "uk-to-jamaica",
+    fromCountry: "United Kingdom",
+    toCountry: "Jamaica",
+    fromCurrency: "GBP",
+    toCurrency: "JMD",
+    fromFlag: "🇬🇧",
+    toFlag: "🇯🇲",
+    sampleAmount: 500,
+    intro:
+      "The United Kingdom is the second-largest source of remittances to Jamaica after the United States. The Jamaican-British community, concentrated in London, Birmingham, and Manchester, sends hundreds of millions of pounds annually to family and friends on the island.",
+    context:
+      "The GBP to JMD corridor is served by both UK-based digital providers and traditional operators. Wise, WorldRemit (headquartered in London), and Remitly offer competitive exchange rates typically within 0.5–1.5% of the mid-market rate. Traditional operators like Western Union and MoneyGram have extensive cash pickup networks across Jamaica but tend to apply higher exchange rate markups of 2–4%. For a £500 transfer, choosing a digital provider over a traditional operator can mean JMD 3,000–6,000 more for your recipient. Jamaica's banking infrastructure, including NCB and Scotiabank Jamaica, supports incoming international deposits from UK providers.",
+    feesNote:
+      "Transfer fees from the UK to Jamaica range from £0 (Wise for bank transfer funding; WorldRemit promotional first transfers) to £3–£8 for standard sends. Western Union charges £5–£10 for online transfers and more for agent-assisted sends. Credit card and debit card funding typically costs £1–£3 more than bank transfer funding. The exchange rate markup is the larger cost factor — always compare the total JMD amount received rather than the transfer fee alone.",
+    deliveryNote:
+      "Cash pickup is available within minutes at Western Union and MoneyGram agent locations across Jamaica. Bank deposits to NCB, Scotiabank Jamaica, and CIBC FirstCaribbean typically arrive within 1–2 business days. WorldRemit and Remitly offer express delivery options for card-funded transfers. Transfers initiated on UK bank holidays or Jamaican public holidays may experience delays.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the UK to Jamaica?",
+        a: "Based on our comparison data, Wise and WorldRemit consistently deliver the most Jamaican dollars per pound on the GBP to JMD corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.4–0.8%, meaning no hidden markup on the exchange rate. WorldRemit, a London-headquartered company, offers competitive rates with frequent promotional offers for new users. For a £500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed JMD 4,000. Remitly and Xoom also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as the GBP to JMD rate fluctuates throughout the day.",
+      },
+      {
+        q: "How long does a money transfer from the UK to Jamaica take?",
+        a: "Transfer speed depends on your delivery method. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across all 14 parishes in Jamaica. Bank deposits to National Commercial Bank (NCB), Scotiabank Jamaica, and CIBC FirstCaribbean typically take 1–2 business days. WorldRemit and Remitly offer express bank delivery options that can arrive within hours for card-funded transfers. Traditional SWIFT bank wire transfers from UK banks are the slowest option at 3–5 business days and often incur intermediary bank fees. Faster Payments-funded transfers with digital providers typically begin processing immediately.",
+      },
+      {
+        q: "Is it cheaper to send from the UK or the US to Jamaica?",
+        a: "Generally, the UK-to-Jamaica corridor has slightly higher fees and slightly wider exchange rate markups compared to the US-to-Jamaica route, because the US corridor handles much higher volumes and has more provider competition. However, top digital providers like Wise offer similarly tight spreads on both corridors. The GBP to JMD rate is more volatile than USD to JMD because it involves two exchange rate conversions (GBP to USD, then USD to JMD). For UK senders, using a specialist provider like Wise or WorldRemit rather than a bank can save £15–£30 on a typical £500 transfer when you factor in both fees and exchange rate markup.",
+      },
+      {
+        q: "Can I send money to Jamaica using my UK bank app?",
+        a: "Most UK banks offer international wire transfers to Jamaica via SWIFT, but this is typically the most expensive option — banks apply exchange rate markups of 3–5% plus flat fees of £15–£30 per transfer. Instead, use a specialist provider like Wise, WorldRemit, or Remitly, which you can fund via Faster Payments from your UK bank app. The process is simple: set up the transfer on the provider's website or app, then send the GBP amount to their UK bank details via your banking app. The transfer is typically processed within minutes of receiving your funds. This approach saves significantly compared to using your bank's own international transfer service.",
+      },
+      {
+        q: "What documents do I need to send money from the UK to Jamaica?",
+        a: "All FCA-regulated money transfer providers require identity verification under UK anti-money laundering regulations. For your first transfer, you will typically need a valid government-issued photo ID — a UK passport, driving licence, or biometric residence permit. Most providers also require proof of address such as a recent utility bill or bank statement. Some providers use Open Banking to verify your identity electronically, speeding up the process. Subsequent transfers to the same recipient are usually much faster as your identity is already verified. For larger transfers (typically above £5,000), providers may request additional documentation showing the source of funds or purpose of the transfer.",
+      },
+    ],
+  },
+  {
+    slug: "usa-to-haiti",
+    fromCountry: "United States",
+    toCountry: "Haiti",
+    fromCurrency: "USD",
+    toCurrency: "HTG",
+    fromFlag: "🇺🇸",
+    toFlag: "🇭🇹",
+    sampleAmount: 500,
+    intro:
+      "Haiti receives over $4 billion in remittances annually, accounting for roughly 20% of the country's GDP and making it one of the most remittance-dependent nations in the Western Hemisphere. The vast majority originates from the United States, where over 1 million Haitian-Americans reside in Florida, New York, and Massachusetts.",
+    context:
+      "The USD to HTG corridor is unique because cash pickup dominates due to Haiti's low banking penetration — fewer than 20% of Haitians have a formal bank account. Western Union, MoneyGram, CAM Transfer, and Unitransfer operate extensive agent networks across the country. Sogebank, BNC (Banque Nationale de Credit), and Unibank are the main banking institutions that accept international deposits. Mon Cash, Digicel's mobile money platform, is growing rapidly as an alternative delivery method. Digital providers like Remitly and WorldRemit are expanding on this corridor but cash pickup remains the most practical option for most recipients.",
+    feesNote:
+      "Transfer fees on the USD to HTG route range from $0 (promotional first transfers) to $5–$12 for standard sends. CAM Transfer and Unitransfer, which specialize in Haiti, often offer competitive flat fees of $3–$6. Western Union and MoneyGram charge $5–$10 for online transfers. The exchange rate markup is significant on this corridor — traditional operators may mark up the rate by 2–5%, while specialist services stay within 1–2% of the mid-market rate. Always compare the total HTG amount your recipient will receive.",
+    deliveryNote:
+      "Cash pickup is available within minutes at Western Union, MoneyGram, CAM Transfer, and Unitransfer agent locations across Haiti, including in Cap-Haitien, Gonaives, Les Cayes, and Port-au-Prince. Mon Cash mobile money transfers arrive within minutes. Bank deposits to Sogebank, BNC, and Unibank take 1–3 business days. Cash pickup remains the fastest and most widely accessible delivery method due to Haiti's limited banking infrastructure.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Haiti?",
+        a: "For the Haiti corridor, the cheapest option depends on the delivery method you need. If your recipient can access a bank account, Wise and Remitly offer the best exchange rates with fees of $0–$5, typically delivering 1–3% more gourdes per dollar than traditional operators. For cash pickup, which most Haitian recipients prefer, CAM Transfer and Unitransfer specialize in the Haiti corridor and offer competitive flat fees of $3–$6 with reasonable exchange rates. Western Union has the widest agent network but typically applies higher exchange rate markups of 2–4%. For a $500 transfer, the difference between providers can exceed HTG 2,000–4,000. WorldRemit also serves this corridor with competitive rates for both bank deposit and cash pickup.",
+      },
+      {
+        q: "How long does a money transfer from the USA to Haiti take?",
+        a: "Cash pickup is the fastest option — funds are available within minutes at thousands of agent locations across Haiti through Western Union, MoneyGram, CAM Transfer, and Unitransfer. Mon Cash mobile money transfers also arrive within minutes and can be accessed from any Digicel mobile phone. Bank deposits to Sogebank, BNC, and Unibank typically take 1–3 business days. Haiti's banking infrastructure can cause occasional delays, particularly outside Port-au-Prince. Funding with a debit card rather than ACH bank transfer reduces the overall timeline by 1–2 days on the sending side.",
+      },
+      {
+        q: "Can I send money to Mon Cash in Haiti?",
+        a: "Yes, Mon Cash (operated by Digicel Haiti) is increasingly supported by international transfer providers as a delivery method. Western Union and MoneyGram both offer Mon Cash delivery on the Haiti corridor. Mon Cash has become Haiti's leading mobile money platform, allowing recipients to receive funds directly on their Digicel mobile phone without needing a bank account. Recipients can use Mon Cash funds for purchases at participating merchants, bill payments, or cash withdrawals at Mon Cash agent locations across the country. This delivery method is particularly valuable in areas with limited banking infrastructure and where physical agent locations for cash pickup may be far away.",
+      },
+      {
+        q: "Which provider has the best cash pickup network in Haiti?",
+        a: "Western Union has the largest international cash pickup network in Haiti, with agent locations in all major cities and many smaller towns. CAM Transfer and Unitransfer specialize exclusively in the Haiti corridor and maintain extensive agent networks, particularly in areas where Western Union coverage is thin. MoneyGram is the other major international option with broad coverage through partner banks and retail locations. For recipients outside Port-au-Prince, CAM Transfer and Unitransfer often have better coverage in rural departments like Grand'Anse, Nord-Ouest, and Sud-Est. Cash pickup requires the recipient to present valid Haitian government-issued ID and the transaction reference number. No bank account is needed.",
+      },
+      {
+        q: "Are there limits on sending money to Haiti?",
+        a: "Transfer limits vary by provider. Most digital services allow $2,500–$10,000 per single transaction, with higher limits available after full identity verification. CAM Transfer and Unitransfer may have different limits based on delivery method and recipient location. Under US regulations, transfers exceeding $10,000 require the provider to file a Currency Transaction Report (CTR), but this does not prevent or delay the transfer. On the Haitian side, the Banque de la Republique d'Haiti (BRH) does not cap incoming remittances — Haiti actively encourages formal remittance channels given their critical importance to the economy. For very large transfers, traditional bank wire via SWIFT to Sogebank or Unibank may be more appropriate.",
+      },
+    ],
+  },
+  // ── India outbound corridors ──
+  {
+    slug: "india-to-usa",
+    fromCountry: "India",
+    toCountry: "United States",
+    fromCurrency: "INR",
+    toCurrency: "USD",
+    fromFlag: "🇮🇳",
+    toFlag: "🇺🇸",
+    sampleAmount: 50000,
+    intro:
+      "India's outbound remittance market is growing rapidly, driven by students, professionals, and families supporting relatives abroad. Under the Reserve Bank of India's Liberalised Remittance Scheme (LRS), Indian residents can send up to $250,000 per financial year for permitted purposes including education, travel, and family maintenance.",
+    context:
+      "The INR to USD corridor is governed by RBI's LRS framework, which adds a layer of compliance that senders must navigate. Tax Collected at Source (TCS) of 5% applies on remittances exceeding INR 7 lakh per financial year for non-education purposes (education remittances funded by loan are exempt up to INR 7 lakh). Traditional Indian banks like SBI, HDFC Bank, and ICICI Bank offer SWIFT transfers but apply exchange rate markups of 1.5–3.5% plus flat fees of INR 500–1,500. Digital providers like Wise, BookMyForex, and Instarem offer rates within 0.5–1% of the mid-market rate, saving INR 1,000–3,000 on a typical INR 50,000 transfer.",
+    feesNote:
+      "Fees on the INR to USD route vary significantly. Indian banks charge INR 500–1,500 as a flat SWIFT transfer fee plus an exchange rate markup of 1.5–3.5%. Wise charges around 0.6–1% of the transfer amount with the mid-market exchange rate. BookMyForex and Instarem offer competitive rates with fees of INR 100–500. Beyond transfer fees, senders must account for TCS of 5% on amounts above INR 7 lakh per year (refundable when filing income tax returns). GST of 18% is also charged on the forex conversion margin by banks and authorized dealers.",
+    deliveryNote:
+      "SWIFT transfers from Indian banks to US bank accounts typically take 2–4 business days due to correspondent banking intermediaries. Wise and Instarem can deliver within 1–2 business days using faster payment rails. Transfers initiated after Indian banking hours or on holidays will be processed the next business day. All outbound remittances require Form A2 (purpose of remittance declaration) and a PAN card.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from India to the USA?",
+        a: "Based on our comparison data, Wise and BookMyForex consistently offer the best INR to USD exchange rates. Wise uses the real mid-market rate with a transparent fee of around 0.6–1%, making it significantly cheaper than banks which mark up the rate by 1.5–3.5%. BookMyForex offers competitive interbank rates with low fees and is popular for larger education-related transfers. For an INR 50,000 transfer, choosing Wise over a bank can save INR 1,000–2,500 in exchange rate markup alone. Instarem is another strong option, particularly for recurring transfers. Traditional banks like SBI and HDFC are the most expensive option due to high SWIFT fees and wide exchange rate spreads.",
+      },
+      {
+        q: "What is the LRS limit for sending money from India?",
+        a: "Under the Reserve Bank of India's Liberalised Remittance Scheme (LRS), Indian residents can remit up to $250,000 (approximately INR 2.1 crore) per financial year for permitted purposes. These include education abroad, medical treatment, family maintenance, gifts, travel, and investment in foreign shares or property. The $250,000 limit is cumulative across all purposes and all authorized dealers during the financial year (April to March). You must obtain a Permanent Account Number (PAN) and submit Form A2 declaring the purpose of remittance. Banks and authorized dealers report all LRS transactions to the RBI. If you need to remit more than $250,000, you must obtain special RBI approval, which is granted only in exceptional circumstances.",
+      },
+      {
+        q: "What is TCS on foreign remittances from India?",
+        a: "Tax Collected at Source (TCS) is a tax collected by banks and authorized dealers at the time of processing outbound remittances under LRS. For non-education remittances, TCS of 5% applies on amounts exceeding INR 7 lakh per financial year. For education remittances funded by an education loan, TCS is 0.5% above INR 7 lakh. For education remittances from own funds, TCS is 5% above INR 7 lakh. The first INR 7 lakh is exempt from TCS regardless of purpose. TCS is not an additional tax — it is an advance tax that can be claimed as a credit when filing your income tax return (ITR). If your total tax liability is less than the TCS collected, you will receive a refund.",
+      },
+      {
+        q: "Can I use Wise to send money from India to the USA?",
+        a: "Yes, Wise operates in India as an authorized dealer and supports outbound transfers from India to the USA under the LRS framework. Wise offers the real mid-market INR to USD exchange rate with a transparent fee, making it one of the cheapest options for this corridor. You can fund your transfer via NEFT, RTGS, or IMPS from any Indian bank account. Wise handles the Form A2 declaration and RBI compliance requirements digitally, simplifying the process compared to visiting a bank branch. Transfer limits on Wise from India align with LRS regulations. Delivery to US bank accounts typically takes 1–2 business days. For first-time users, identity verification requires PAN card and Aadhaar details.",
+      },
+      {
+        q: "What documents do I need to send money from India abroad?",
+        a: "All outbound remittances from India require specific documentation under RBI regulations. You must have a valid Permanent Account Number (PAN card) — this is mandatory for any LRS transaction. You will need to fill out Form A2, which declares the purpose of remittance and confirms compliance with FEMA (Foreign Exchange Management Act) regulations. For education payments, an admission letter or fee invoice from the foreign institution is required. For family maintenance, a declaration of relationship with the recipient is needed. Banks may also require Form 15CA/15CB for tax compliance if the remittance is potentially subject to TCS. Digital providers like Wise and Instarem have streamlined much of this documentation process through their apps, but the underlying regulatory requirements remain the same.",
+      },
+    ],
+  },
+  {
+    slug: "india-to-uk",
+    fromCountry: "India",
+    toCountry: "United Kingdom",
+    fromCurrency: "INR",
+    toCurrency: "GBP",
+    fromFlag: "🇮🇳",
+    toFlag: "🇬🇧",
+    sampleAmount: 50000,
+    intro:
+      "The United Kingdom is one of the top study destinations for Indian students, with over 120,000 Indian students enrolled in UK universities annually. This has made the INR to GBP corridor one of India's most active outbound remittance routes, driven by tuition payments, living expenses, and family support.",
+    context:
+      "The INR to GBP corridor operates under the same RBI Liberalised Remittance Scheme (LRS) framework as all outbound remittances from India, with the $250,000 annual limit and TCS rules applying. Traditional Indian banks like SBI, HDFC Bank, and ICICI Bank process SWIFT transfers to UK banks but apply exchange rate markups of 2–4% plus flat fees of INR 500–1,500. Digital providers like Wise, BookMyForex, and Instarem offer rates within 0.5–1.5% of the mid-market rate. For an INR 50,000 transfer, using a digital provider over a bank can save INR 1,500–3,500 in total costs.",
+    feesNote:
+      "Indian banks charge INR 500–1,500 as a flat SWIFT fee plus exchange rate markups of 2–4% on the INR to GBP rate. Wise charges around 0.6–1.2% of the transfer amount with the mid-market exchange rate and no hidden markup. BookMyForex offers competitive interbank rates with fees of INR 100–500, popular for large education payments. TCS of 5% applies on total LRS remittances exceeding INR 7 lakh per financial year for non-education purposes. Education remittances from loan funds attract a lower TCS of 0.5% above the threshold. GST of 18% on forex conversion margin adds a small additional cost.",
+    deliveryNote:
+      "SWIFT transfers from Indian banks to UK bank accounts typically take 2–4 business days. Wise can deliver to UK accounts within 1–2 business days, often faster via Faster Payments on the UK side. Transfers initiated after Indian banking hours or on Indian public holidays will be processed the next business day. UK bank holidays (particularly August and December) may cause minor delays on the receiving end.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from India to the UK?",
+        a: "Based on our comparison data, Wise and BookMyForex consistently deliver the most pounds per rupee on the INR to GBP corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%, making it significantly cheaper than banks. BookMyForex is popular for large education payments, offering near-interbank rates with low processing fees. For an INR 50,000 transfer, the difference between Wise and a bank can be INR 1,500–3,500 in total savings. Instarem is another strong option for regular transfers. Traditional banks are the most expensive due to wide exchange rate markups and high SWIFT fees.",
+      },
+      {
+        q: "How do I pay UK university tuition fees from India?",
+        a: "Most Indian students and parents use the LRS framework to pay UK university tuition. You can make the payment through your bank's SWIFT transfer service or through a digital provider like Wise, BookMyForex, or Instarem. You will need the university's UK bank account details (sort code and account number) and your admission or fee invoice. Many Indian banks have dedicated forex desks for education payments — SBI, HDFC, and ICICI all offer student forex services. BookMyForex and Wise are typically cheaper than banks by 1.5–3% on the exchange rate. Education remittances funded by an education loan attract a lower TCS rate of 0.5% (vs 5% for non-education) above the INR 7 lakh threshold. Keep all documentation as you will need it for tax filing.",
+      },
+      {
+        q: "Does TCS apply to education payments to the UK?",
+        a: "Yes, TCS applies to education remittances from India, but at a potentially lower rate. For education payments funded from your own savings, TCS of 5% applies on the amount exceeding INR 7 lakh per financial year. For education payments funded by an education loan from a recognized financial institution, TCS is just 0.5% above INR 7 lakh. The first INR 7 lakh of total LRS remittances is exempt from TCS regardless of purpose. TCS is not an additional tax — it is an advance tax payment that is fully adjustable against your income tax liability when filing your ITR. If your total income tax owed is less than TCS collected, you will receive a refund from the Income Tax Department.",
+      },
+      {
+        q: "How long does a transfer from India to the UK take?",
+        a: "Transfer timing depends on the provider and funding method. SWIFT transfers from Indian banks typically take 2–4 business days, including time for the Indian bank to process the LRS documentation and for correspondent banks to route the payment. Wise can deliver to UK bank accounts within 1–2 business days — often within 24 hours — because it uses local payment rails on the UK side (Faster Payments). BookMyForex and Instarem typically deliver within 1–3 business days. All providers require the sender to complete Form A2 and PAN verification before processing, which can add time for first-time transfers. Transfers initiated on Indian or UK bank holidays will be delayed.",
+      },
+      {
+        q: "Can I send money from India to the UK using UPI?",
+        a: "UPI cannot be used directly for international transfers. However, you can fund an international transfer through providers like Wise and Instarem using NEFT, RTGS, or IMPS from your UPI-linked bank account. The process involves initiating the transfer on the provider's platform, then making a domestic bank transfer to the provider's Indian bank account. Wise accepts NEFT/IMPS funding from any Indian bank account. Some providers are integrating UPI-based payment collection, which would allow direct funding via UPI QR codes, but this is still limited. Traditional banks require you to visit a branch or use net banking to initiate an LRS transfer — UPI is not currently supported for bank forex transactions.",
+      },
+    ],
+  },
+  {
+    slug: "india-to-canada",
+    fromCountry: "India",
+    toCountry: "Canada",
+    fromCurrency: "INR",
+    toCurrency: "CAD",
+    fromFlag: "🇮🇳",
+    toFlag: "🇨🇦",
+    sampleAmount: 50000,
+    intro:
+      "Canada has become the top destination for Indian students abroad, with over 320,000 Indian students enrolled in Canadian institutions. This has made the INR to CAD corridor one of India's fastest-growing outbound remittance routes, driven by tuition fees, living expenses, and immigration-related transfers.",
+    context:
+      "The INR to CAD corridor is governed by RBI's Liberalised Remittance Scheme (LRS) with the $250,000 annual limit and TCS rules. India-to-Canada transfers have surged in recent years as Indian student enrollment in Canada has more than tripled since 2018. Traditional Indian banks charge exchange rate markups of 2–4% plus SWIFT fees of INR 500–1,500, while digital providers like Wise, BookMyForex, and Instarem offer rates within 0.5–1.5% of the mid-market rate. For an INR 50,000 transfer, switching from a bank to a digital provider can save INR 1,200–3,000.",
+    feesNote:
+      "Indian bank SWIFT transfer fees range from INR 500–1,500 with exchange rate markups of 2–4% on the INR to CAD rate. Wise charges around 0.6–1.1% of the transfer amount with the real mid-market rate. BookMyForex offers competitive rates popular for large tuition payments. Instarem charges a transparent percentage fee of around 0.5–1%. TCS of 5% applies on total LRS remittances exceeding INR 7 lakh per year for non-education purposes, while education remittances from loan funds attract a lower TCS of 0.5% above the threshold.",
+    deliveryNote:
+      "SWIFT transfers from Indian banks to Canadian bank accounts typically take 2–4 business days. Wise and Instarem can deliver within 1–2 business days using Interac or direct deposit rails on the Canadian side. Form A2 and PAN verification are required for all outbound LRS remittances. Canadian banking hours and holidays (including provincial holidays) may affect deposit timing.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from India to Canada?",
+        a: "Based on our comparison data, Wise and BookMyForex consistently deliver the most Canadian dollars per rupee. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.1%, making it significantly cheaper than Indian banks. BookMyForex is especially popular for large education payments to Canadian universities, offering near-interbank rates. For an INR 50,000 transfer, using a digital provider over a bank can save INR 1,200–3,000 in total costs. Instarem is another strong option, particularly for recurring monthly transfers for living expenses. Always compare the total CAD amount your recipient will receive rather than just the fee.",
+      },
+      {
+        q: "How do I pay Canadian university tuition from India?",
+        a: "Most Indian students and parents use the LRS framework to pay Canadian tuition fees. You can make the payment through a bank SWIFT transfer or a digital provider like Wise, BookMyForex, or Instarem. You will need the university's Canadian bank account details (institution number, transit number, and account number) or a Flywire/PayMyTuition reference if the university uses a payment aggregator. Many Canadian universities partner with Flywire or PayMyTuition, which accept payments in INR and handle the forex conversion — compare their rates against direct transfers via Wise or BookMyForex. Education remittances funded by loan attract a lower TCS of 0.5% above INR 7 lakh.",
+      },
+      {
+        q: "What is the LRS limit and TCS for Canada transfers?",
+        a: "Under the RBI's Liberalised Remittance Scheme, Indian residents can remit up to $250,000 per financial year (April to March) for permitted purposes including education, family maintenance, and investment. TCS of 5% applies on total LRS remittances exceeding INR 7 lakh per year for non-education purposes. For education remittances funded by an education loan, TCS is just 0.5% above INR 7 lakh. The first INR 7 lakh is exempt regardless of purpose. TCS is refundable — it is an advance tax that can be claimed as a credit when filing your income tax return. You must have a valid PAN card and submit Form A2 for each LRS transaction.",
+      },
+      {
+        q: "How long does a transfer from India to Canada take?",
+        a: "SWIFT transfers from Indian banks typically take 2–4 business days, including time for LRS documentation processing and correspondent banking. Wise can deliver to Canadian bank accounts within 1–2 business days, often within 24 hours, using direct deposit or Interac rails on the Canadian side. BookMyForex and Instarem typically deliver within 1–3 business days. First-time transfers may take longer due to PAN verification and Form A2 processing. Transfers initiated after Indian banking hours (typically 2pm IST for same-day processing) or on Indian/Canadian holidays will be processed the next business day. For urgent payments like tuition deadlines, plan at least 3–4 business days buffer.",
+      },
+      {
+        q: "Can I send money to a Canadian student's bank account directly?",
+        a: "Yes, you can send money directly to any Canadian bank account through both banks and digital providers. You will need the recipient's institution number (3 digits), transit/branch number (5 digits), and account number — these are available in their Canadian banking app or on a void cheque. Major Canadian banks including RBC, TD, Scotiabank, BMO, and CIBC all receive international deposits. Wise and Instarem support direct bank deposits to any Canadian bank. For students, opening a Canadian bank account upon arrival is straightforward — most banks offer student accounts with no monthly fees. Once they have an account, you can set up recurring monthly transfers for living expenses through providers like Wise, which offer scheduled transfer features.",
+      },
+    ],
+  },
+  {
+    slug: "india-to-australia",
+    fromCountry: "India",
+    toCountry: "Australia",
+    fromCurrency: "INR",
+    toCurrency: "AUD",
+    fromFlag: "🇮🇳",
+    toFlag: "🇦🇺",
+    sampleAmount: 50000,
+    intro:
+      "Australia is one of the top study destinations for Indian students, with over 100,000 Indian students enrolled in Australian universities. The INR to AUD corridor is driven primarily by education payments, living expense transfers, and family support, making it one of India's key outbound remittance routes.",
+    context:
+      "The INR to AUD corridor operates under RBI's Liberalised Remittance Scheme (LRS) framework. Indian banks like SBI, HDFC Bank, and ICICI Bank process SWIFT transfers to Australia but apply exchange rate markups of 2–3.5% plus flat fees of INR 500–1,500. Digital providers like Wise, Instarem (a Singapore-based company with strong presence in both India and Australia), and BookMyForex offer rates within 0.5–1.5% of the mid-market rate. For an INR 50,000 transfer, using a digital provider over a bank can save INR 1,000–2,800 in total costs.",
+    feesNote:
+      "Indian bank SWIFT fees range from INR 500–1,500 with exchange rate markups of 2–3.5% on the INR to AUD rate. Wise charges around 0.6–1.2% of the transfer amount with the real mid-market rate. Instarem is particularly competitive on this corridor, charging 0.5–1% with fast delivery to Australian accounts. TCS of 5% applies on total LRS remittances exceeding INR 7 lakh per year for non-education purposes. Education remittances funded by loan attract TCS of just 0.5% above the threshold.",
+    deliveryNote:
+      "SWIFT transfers from Indian banks to Australian bank accounts typically take 2–4 business days. Wise and Instarem can deliver within 1–2 business days using NPP (New Payments Platform) or direct deposit on the Australian side. Form A2 and PAN verification are required for all outbound LRS remittances. Australian banking hours and holidays may affect deposit timing — note that Australia is 4.5–5.5 hours ahead of India.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from India to Australia?",
+        a: "Based on our comparison data, Wise and Instarem consistently deliver the most Australian dollars per rupee on the INR to AUD corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%. Instarem, which has a strong presence in both the Indian and Australian markets, offers competitive rates with fees of 0.5–1%. For an INR 50,000 transfer, using a digital provider over a bank saves INR 1,000–2,800. BookMyForex is popular for larger education-related transfers. Traditional banks are the most expensive option due to high SWIFT fees and wide exchange rate spreads of 2–3.5%.",
+      },
+      {
+        q: "How do I pay Australian university tuition from India?",
+        a: "You can pay Australian university tuition through a bank SWIFT transfer or a digital provider like Wise, BookMyForex, or Instarem. Many Australian universities also accept payments through aggregators like Flywire or Western Union Business Solutions — compare their rates against direct transfers. You will need the university's Australian bank account details (BSB number and account number) or a payment reference from the university's fee portal. Education remittances under LRS attract a lower TCS rate of 0.5% (for loan-funded payments) above INR 7 lakh, compared to 5% for non-education purposes. Keep all fee receipts and Form A2 copies for tax filing purposes.",
+      },
+      {
+        q: "What documents do I need for an LRS transfer to Australia?",
+        a: "All outbound remittances from India under LRS require specific documentation. You must have a valid PAN card — this is mandatory for any LRS transaction. Form A2 (purpose of remittance declaration) must be submitted to your bank or authorized dealer for each transfer. For education payments, an offer letter or fee invoice from the Australian institution is required. For family maintenance transfers, a declaration of relationship with the recipient is needed. Banks may require Form 15CA/15CB for tax compliance. Digital providers like Wise and Instarem have streamlined much of this paperwork through their apps, but the underlying RBI regulatory requirements remain the same. First-time transfers require identity verification with PAN and Aadhaar.",
+      },
+      {
+        q: "How long does a transfer from India to Australia take?",
+        a: "SWIFT transfers from Indian banks typically take 2–4 business days, including LRS documentation processing time. Wise can deliver to Australian bank accounts within 1–2 business days, often within 24 hours, using Australia's New Payments Platform (NPP) for faster settlement. Instarem typically delivers within 1–2 business days. BookMyForex takes 1–3 business days. First-time transfers may take longer due to PAN verification and compliance checks. Australia's time zone advantage (4.5–5.5 hours ahead of India) means transfers sent in the morning IST can be processed the same Australian business day. Australian bank holidays, including state-specific holidays, may cause minor delays.",
+      },
+      {
+        q: "Is Instarem good for India to Australia transfers?",
+        a: "Yes, Instarem is one of the strongest providers for the INR to AUD corridor. As a Singapore-headquartered company with operations in both India and Australia, Instarem has optimized this specific route with competitive exchange rates typically within 0.5–1% of the mid-market rate and low fees. Instarem is RBI-authorized for outbound remittances from India and supports direct bank deposits to any Australian bank account. The platform handles LRS documentation digitally, including Form A2 generation. Delivery to Australian accounts is typically within 1–2 business days. Instarem also offers a rewards programme (InstaPoints) for frequent senders. For students making monthly living expense transfers, Instarem's recurring transfer feature and competitive rates make it a strong choice alongside Wise.",
+      },
+    ],
+  },
+  // ── Ukraine corridors ──
+  {
+    slug: "usa-to-ukraine",
+    fromCountry: "United States",
+    toCountry: "Ukraine",
+    fromCurrency: "USD",
+    toCurrency: "UAH",
+    fromFlag: "🇺🇸",
+    toFlag: "🇺🇦",
+    sampleAmount: 500,
+    intro:
+      "Ukraine received over $18 billion in remittances in 2023, accounting for nearly 30% of GDP — one of the highest remittance-to-GDP ratios in the world. Demand for reliable USD to UAH transfers has surged since 2022, making provider comparison more important than ever.",
+    context:
+      "The USD to UAH corridor is dominated by a mix of traditional operators and digital-first providers. Western Union and MoneyGram maintain the widest cash pickup networks across Ukraine, including in smaller cities and rural areas. Wise, Remitly, and WorldRemit offer competitive digital transfers to Ukrainian bank accounts, with PrivatBank and monobank being the most common receiving institutions. PrivatBank alone serves over 20 million clients and processes the majority of incoming international transfers. The National Bank of Ukraine (NBU) manages the hryvnia exchange rate, and the official rate can differ from parallel market rates during periods of heightened volatility.",
+    feesNote:
+      "Transfer fees from the US to Ukraine vary widely. Wise charges a transparent fee of around 0.5–1.2% with the real mid-market rate and no hidden markup. Western Union and MoneyGram charge $5–$10 for online transfers but offer promotional zero-fee periods. Remitly often waives fees on the first transfer. The biggest cost difference is in exchange rate markups — banks typically add 2–4% on top of the mid-market rate, while digital providers stay within 0.3–1%.",
+    deliveryNote:
+      "Bank deposits to PrivatBank and monobank accounts in Ukraine typically arrive within 1–2 business days via digital providers like Wise and Remitly. Cash pickup through Western Union and MoneyGram agent locations is available within minutes at thousands of points across Ukraine. Mobile wallet top-ups and card transfers are growing in popularity, particularly through monobank's integration with international transfer services.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Ukraine?",
+        a: "Based on our latest comparison data, Wise consistently delivers the most hryvnias per dollar on the USD to UAH corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.2%, meaning the quoted cost is the total cost with no hidden markup. Remitly and WorldRemit are also competitive, especially for first-time users who benefit from promotional rates. Western Union offers the widest cash pickup network in Ukraine but typically has a higher total cost due to exchange rate markups of 1.5–3%. For a $500 transfer, using Wise or Remitly over a traditional bank can deliver UAH 400–1,000 more to your recipient.",
+      },
+      {
+        q: "How long does a money transfer from the USA to Ukraine take?",
+        a: "Transfer speed depends on the provider and delivery method. Wise delivers to Ukrainian bank accounts (PrivatBank, monobank, Ukrsibbank) within 1–2 business days. Remitly offers express options that can arrive within hours. Cash pickup through Western Union and MoneyGram is typically available within minutes at agent locations across Ukraine, including in Kyiv, Lviv, Odesa, Dnipro, and Kharkiv. Traditional SWIFT bank transfers take 3–5 business days and incur additional correspondent banking fees. Funding with a debit card rather than ACH bank transfer speeds up the sending process by 1–2 days.",
+      },
+      {
+        q: "Can I send money to PrivatBank in Ukraine from the US?",
+        a: "Yes, PrivatBank is the most widely used receiving bank for international transfers to Ukraine, serving over 20 million customers. Wise, Remitly, and WorldRemit all support direct bank deposits to PrivatBank accounts using the recipient's IBAN (UA-format) or card number. Western Union and MoneyGram also partner with PrivatBank for cash pickup at its branches. When sending to PrivatBank, you will need the recipient's full name (matching their bank records), their UAH account IBAN, and the bank's SWIFT code (PABORUA). PrivatBank's Privat24 app notifies recipients instantly when funds arrive.",
+      },
+      {
+        q: "Is it safe to send money to Ukraine right now?",
+        a: "Yes, international money transfer services continue to operate on the USD to UAH corridor. Wise, Remitly, Western Union, MoneyGram, and WorldRemit all actively process transfers to Ukraine. The National Bank of Ukraine has maintained banking infrastructure and the hryvnia exchange rate has stabilized since mid-2023. PrivatBank and monobank continue to process incoming international transfers without interruption. Some providers may have temporary restrictions on certain delivery areas, so check with your chosen provider for the most current coverage. Digital bank transfers and cash pickup in major cities remain fully operational.",
+      },
+      {
+        q: "What are the transfer limits for sending money to Ukraine?",
+        a: "Transfer limits vary by provider and verification level. Wise allows up to $1,000,000 per transfer for fully verified accounts, with most standard users able to send $10,000–$50,000. Western Union limits online transfers to $5,000–$7,999 per transaction depending on verification. Remitly has tiered limits starting at $2,999 per day for standard accounts. On the Ukrainian receiving side, the NBU has periodically adjusted regulations on foreign currency transactions — recipients can receive UAH deposits without restriction, but converting large USD amounts may be subject to NBU guidelines. US reporting requirements apply for transfers over $10,000 (CTR filing under the Bank Secrecy Act).",
+      },
+    ],
+  },
+  {
+    slug: "uk-to-ukraine",
+    fromCountry: "United Kingdom",
+    toCountry: "Ukraine",
+    fromCurrency: "GBP",
+    toCurrency: "UAH",
+    fromFlag: "🇬🇧",
+    toFlag: "🇺🇦",
+    sampleAmount: 500,
+    intro:
+      "The United Kingdom hosts one of Europe's largest Ukrainian diaspora communities, with over 200,000 Ukrainians granted visa schemes since 2022. GBP to UAH transfers have become a critical financial lifeline, and choosing the right provider can save hundreds of hryvnias on every transfer.",
+    context:
+      "The GBP to UAH corridor benefits from strong competition among digital transfer providers. Wise is particularly competitive on this route, leveraging its UK headquarters and established Ukrainian banking partnerships to offer rates very close to the mid-market rate. TransferGo, which specializes in transfers to Eastern Europe, is another strong option with fast delivery times. Western Union and MoneyGram maintain cash pickup networks across Ukraine for recipients without bank accounts. PrivatBank and monobank are the dominant receiving institutions, and both support instant notifications when funds arrive.",
+    feesNote:
+      "Wise charges a transparent fee of around 0.4–0.9% on GBP to UAH transfers with the real mid-market exchange rate — making it one of the cheapest options on this corridor. TransferGo charges £1–£3 depending on speed, with competitive exchange rates. Western Union and MoneyGram typically charge £3–£8 for online transfers but apply wider exchange rate markups of 1.5–3%. Funding via Faster Payments (UK bank transfer) is free and instant with most providers, while debit card funding adds a small surcharge.",
+    deliveryNote:
+      "Bank deposits to Ukrainian accounts via Wise typically arrive within 1–2 business days, with some transfers completing same-day. TransferGo offers express delivery within hours to PrivatBank and monobank accounts. Cash pickup through Western Union and MoneyGram is available within minutes at thousands of locations across Ukraine. Faster Payments funding from UK bank accounts means your money leaves almost instantly — the main variable is processing time on the Ukrainian receiving side.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the UK to Ukraine?",
+        a: "Wise is consistently the cheapest provider for GBP to UAH transfers, using the real mid-market exchange rate with a transparent fee of around 0.4–0.9%. For a £500 transfer, Wise typically delivers UAH 1,000–3,000 more than banks or high-street money transfer shops. TransferGo is the second most competitive option, specializing in UK-to-Eastern-Europe transfers with fees of £1–£3 and rates within 0.5–1% of mid-market. Western Union offers convenience through widespread cash pickup in Ukraine but charges more in total due to exchange rate markups. We recommend comparing all providers on the day you send, as the GBP/UAH rate fluctuates throughout the day.",
+      },
+      {
+        q: "How long does a transfer from the UK to Ukraine take?",
+        a: "Wise delivers to Ukrainian bank accounts within 1–2 business days, with many transfers arriving same-day when sent early in the morning. TransferGo offers express delivery within 1–4 hours to PrivatBank and monobank accounts for a small premium. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Ukraine. UK bank SWIFT transfers are the slowest option at 3–5 business days and incur correspondent banking fees of £15–£30. Funding via Faster Payments is instant from your UK bank, so there is no delay on the sending side.",
+      },
+      {
+        q: "Can I send money to monobank in Ukraine from the UK?",
+        a: "Yes, monobank is fully supported for incoming international transfers from the UK. Wise, TransferGo, and Remitly all deliver directly to monobank UAH accounts using the recipient's IBAN. monobank is Ukraine's fastest-growing digital bank with over 8 million users, particularly popular among younger Ukrainians. The monobank app provides instant push notifications when funds arrive. You will need the recipient's full name, their UA-format IBAN, and monobank's SWIFT/BIC code. Card-to-card transfers using the monobank Mastercard number are also supported by some providers.",
+      },
+      {
+        q: "Do I need to pay tax on money sent from the UK to Ukraine?",
+        a: "Sending money from the UK to Ukraine is not a taxable event for the sender in most cases. HMRC does not tax outbound personal remittances or gifts. However, if you are sending large sums, inheritance tax gift rules may apply — you can give up to £3,000 per tax year without it counting toward your estate for inheritance tax purposes, plus unlimited small gifts of up to £250 per recipient. Regular payments from surplus income are also exempt. On the Ukrainian side, incoming remittances from abroad are generally not subject to income tax for the recipient. For amounts exceeding £10,000 equivalent, UK banks may request source-of-funds documentation under anti-money laundering regulations.",
+      },
+      {
+        q: "Is TransferGo good for UK to Ukraine transfers?",
+        a: "Yes, TransferGo is one of the strongest providers for the GBP to UAH corridor. Founded in 2012 and headquartered in London, TransferGo specializes in transfers from Western Europe to Eastern Europe and has built optimized payment rails for this specific route. TransferGo offers three speed tiers: standard (1–2 business days, cheapest), fast (within hours), and instant (within minutes, for supported banks). Exchange rates are typically within 0.5–1% of the mid-market rate with fees of £1–£3 depending on the speed tier. TransferGo has a Trustpilot rating of 4.5+ stars and is regulated by the FCA. For regular senders, their recurring transfer feature and loyalty pricing make them particularly cost-effective.",
+      },
+    ],
+  },
+  {
+    slug: "europe-to-ukraine",
+    fromCountry: "Europe",
+    toCountry: "Ukraine",
+    fromCurrency: "EUR",
+    toCurrency: "UAH",
+    fromFlag: "🇪🇺",
+    toFlag: "🇺🇦",
+    sampleAmount: 500,
+    intro:
+      "Poland, Germany, Czech Republic, and other EU nations host millions of Ukrainians, making EUR to UAH one of Europe's most important remittance corridors. SEPA funding keeps sending costs low, and digital providers offer rates far better than traditional banks.",
+    context:
+      "The EUR to UAH corridor benefits from SEPA (Single Euro Payments Area) infrastructure, which allows free or near-free euro transfers from any EU bank account to provider platforms. Wise and TransferGo are the dominant digital providers on this route, both offering rates close to the mid-market rate. Western Union and MoneyGram maintain extensive cash pickup networks across Ukraine, which remain essential for recipients in rural areas. Poland's proximity and large Ukrainian community has made PLN-to-UAH transfers equally common, but EUR-denominated transfers are standard from Germany, France, Italy, and other eurozone countries. PrivatBank processes the majority of incoming remittances on the Ukrainian side.",
+    feesNote:
+      "SEPA funding is free or costs just €0.20 from most EU banks, making the sending side virtually cost-free. Wise charges a transparent fee of around 0.4–1% on EUR to UAH transfers with the real mid-market exchange rate. TransferGo charges €1–€3 depending on delivery speed. Western Union charges €3–€8 online but applies exchange rate markups of 1.5–3%. For a €500 transfer, digital providers like Wise and TransferGo deliver UAH 500–2,000 more than banks or traditional operators due to tighter exchange rate spreads.",
+    deliveryNote:
+      "Bank deposits to Ukrainian accounts via Wise arrive within 1–2 business days. TransferGo offers express delivery within hours to PrivatBank and monobank. Cash pickup through Western Union and MoneyGram is available within minutes across Ukraine. SEPA transfers to provider accounts clear within hours (SEPA Instant) or by the next business day (standard SEPA), so the main delay is on the Ukrainian receiving side. Sending from non-eurozone EU countries (Poland, Czech Republic) via local bank transfer is equally fast.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Europe to Ukraine?",
+        a: "Wise is consistently the cheapest option for EUR to UAH transfers, using the real mid-market exchange rate with fees of around 0.4–1%. TransferGo is a close second, specializing in European-to-Ukrainian transfers with fees of €1–€3 and competitive exchange rates. Both providers accept SEPA bank transfers for free funding, eliminating any cost on the sending side. For a €500 transfer, Wise or TransferGo typically deliver UAH 500–2,000 more than Western Union or traditional banks. Paysend offers flat €1 card-to-card transfers that can also be cost-effective for smaller amounts.",
+      },
+      {
+        q: "How do I send money from Poland to Ukraine?",
+        a: "Poland hosts the largest Ukrainian diaspora in Europe, and several providers are optimized for this corridor. While this page covers EUR to UAH, many providers also support PLN to UAH directly. Wise, TransferGo, and Western Union all accept Polish bank transfers (including Blik for instant funding). TransferGo was originally built for the Polish-Ukrainian corridor and offers some of its best rates here. PrivatBank has partnerships with Polish banks for streamlined transfers. For cash pickup, Western Union and MoneyGram have thousands of locations on both sides of the border. SEPA funding from Polish banks is free, keeping sending costs minimal.",
+      },
+      {
+        q: "Can I use SEPA to send money to Ukraine?",
+        a: "SEPA is the funding method, not the delivery method — you use SEPA to send euros from your EU bank account to the transfer provider (Wise, TransferGo, etc.), which then converts and delivers UAH to Ukraine. SEPA bank transfers are free or cost €0.20 from most EU banks, and SEPA Instant transfers clear within seconds. This makes funding your transfer essentially cost-free and near-instant. You cannot send SEPA directly to a Ukrainian bank account because Ukraine is not part of the SEPA zone. The provider handles the EUR to UAH conversion and routes the funds through Ukrainian banking infrastructure to the recipient's PrivatBank, monobank, or other account.",
+      },
+      {
+        q: "How long does a transfer from Europe to Ukraine take?",
+        a: "Total transfer time from funding to delivery is typically 1–2 business days via digital providers. SEPA Instant funding clears in seconds, so the main variable is provider processing and Ukrainian banking settlement. Wise delivers to Ukrainian bank accounts within 1–2 business days. TransferGo offers express options arriving within 1–4 hours. Cash pickup through Western Union and MoneyGram is available within minutes once the transfer is processed. Standard SEPA funding takes up to one business day to clear, adding slight delay compared to SEPA Instant or debit card funding.",
+      },
+      {
+        q: "Is TransferGo available across all EU countries for Ukraine transfers?",
+        a: "Yes, TransferGo operates across the European Economic Area and supports EUR to UAH transfers from all eurozone countries plus Poland (PLN), Czech Republic (CZK), Romania (RON), Hungary (HUF), Sweden (SEK), Denmark (DKK), Norway (NOK), and the UK (GBP). TransferGo was founded specifically to serve the Eastern European remittance market and has optimized its payment rails for Ukraine. The platform is regulated in the UK (FCA) and Lithuania (Bank of Lithuania) and holds e-money licences across the EU. TransferGo offers three speed tiers — standard, fast, and instant — with pricing that varies by corridor and speed. For regular senders, TransferGo's subscription and loyalty features reduce per-transfer costs over time.",
+      },
+    ],
+  },
+  // ── Ethiopia corridor ──
+  {
+    slug: "usa-to-ethiopia",
+    fromCountry: "United States",
+    toCountry: "Ethiopia",
+    fromCurrency: "USD",
+    toCurrency: "ETB",
+    fromFlag: "🇺🇸",
+    toFlag: "🇪🇹",
+    sampleAmount: 500,
+    intro:
+      "Ethiopia receives over $5 billion in remittances annually, making it one of Africa's top remittance destinations. The Ethiopian birr is not freely traded — the National Bank of Ethiopia (NBE) controls the exchange rate — so choosing a provider with a competitive ETB rate is crucial.",
+    context:
+      "The USD to ETB corridor presents unique challenges due to Ethiopia's managed exchange rate regime. The NBE sets an official rate, but a parallel market rate has historically been significantly higher. In 2024, Ethiopia implemented currency reforms to narrow this gap, but exchange rate differences between providers remain larger than on freely-traded currency corridors. The Commercial Bank of Ethiopia (CBE) handles over 60% of banking transactions in the country. Only about 35% of Ethiopian adults have a formal bank account, making mobile money and cash pickup essential delivery methods. Telebirr, Ethiopia's mobile money platform launched by Ethio Telecom, has over 40 million registered users and is increasingly supported for international remittance delivery.",
+    feesNote:
+      "Transfer fees from the US to Ethiopia range from $0 (Remitly and WorldRemit frequently waive fees for certain payment methods) to $5–$10 for bank transfers and credit card funding. The critical cost difference is in the exchange rate — because the birr is not freely traded, providers apply varying markups to the NBE official rate, ranging from 0.5% to 5%. For a $500 transfer, a 2% difference in exchange rate means ETB 500–600 less for your recipient. Always compare the total ETB received rather than the fee alone.",
+    deliveryNote:
+      "Bank deposits to CBE and other Ethiopian bank accounts typically take 1–3 business days. Cash pickup through Western Union, MoneyGram, and WorldRemit partner locations is available within minutes at hundreds of agent points across Addis Ababa and major cities. Mobile money delivery via Telebirr is growing rapidly and supported by Remitly and WorldRemit, offering near-instant receipt for recipients in both urban and rural areas. Door-to-door cash delivery is also available in some areas through select providers.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Ethiopia?",
+        a: "Based on our comparison data, Remitly and WorldRemit consistently deliver the most birr per dollar on the USD to ETB corridor. Remitly offers competitive exchange rates with frequently waived fees for first-time users and debit card funding. WorldRemit provides strong rates with delivery to bank accounts, cash pickup, and Telebirr mobile wallets. Western Union and MoneyGram offer the widest cash pickup networks but typically have higher exchange rate markups of 2–4%. For a $500 transfer, using Remitly or WorldRemit over a traditional bank or money transfer operator can deliver ETB 1,000–3,000 more to your recipient.",
+      },
+      {
+        q: "Can I send money to Telebirr in Ethiopia?",
+        a: "Yes, Telebirr is increasingly supported as a delivery method for international remittances to Ethiopia. Remitly and WorldRemit both offer Telebirr delivery on the USD to ETB corridor, allowing near-instant receipt by the recipient on their mobile phone. Telebirr, launched by Ethio Telecom in 2021, has over 40 million registered users — more than any bank in Ethiopia. The recipient simply needs a Telebirr-registered phone number. This is particularly valuable for recipients in rural areas without easy access to bank branches or cash pickup agents. Telebirr funds can be withdrawn at agent locations, used to pay bills, or transferred to bank accounts.",
+      },
+      {
+        q: "Why is the Ethiopian birr exchange rate different across providers?",
+        a: "Ethiopia operates a managed exchange rate regime where the National Bank of Ethiopia (NBE) sets an official rate. Unlike freely traded currencies where all providers access the same interbank rate, ETB rates vary because providers negotiate different wholesale rates with Ethiopian partner banks and may apply different markups. In 2024, Ethiopia implemented significant currency reforms to liberalize the birr, but the transition is ongoing. Some providers still offer rates closer to the parallel market rate while others stick closer to the official NBE rate. This means exchange rate comparison is even more important on the USD to ETB corridor than on corridors with freely-traded currencies — differences of 3–5% between providers are common.",
+      },
+      {
+        q: "How long does a money transfer to Ethiopia take?",
+        a: "Cash pickup through Western Union, MoneyGram, and WorldRemit partner locations in Ethiopia is available within minutes of sending. Telebirr mobile money delivery via Remitly and WorldRemit is also near-instant once the transfer is processed. Bank deposits to the Commercial Bank of Ethiopia (CBE), Awash Bank, Dashen Bank, and other institutions typically take 1–3 business days. Processing times can be longer during Ethiopian public holidays, which follow the Ethiopian calendar (13 months). Funding with a debit card rather than ACH bank transfer speeds up the sending process by 1–2 days on the US side.",
+      },
+      {
+        q: "Is there a limit on how much money I can send to Ethiopia?",
+        a: "Transfer limits vary by provider. Remitly allows up to $2,999 per day for standard accounts, with higher limits after enhanced verification. WorldRemit limits vary by delivery method — bank transfer limits are typically higher than cash pickup or mobile money limits. Western Union allows up to $7,999 per online transaction. On the Ethiopian receiving side, the NBE has regulations on foreign currency holdings — individuals can hold up to $5,000 in foreign currency. Larger amounts must be converted to birr through authorized banks. US reporting requirements apply for transfers over $10,000 (CTR filing). For very large transfers, contacting the provider directly for enhanced limits and compliance guidance is recommended.",
+      },
+    ],
+  },
+  // ── Guatemala corridor ──
+  {
+    slug: "usa-to-guatemala",
+    fromCountry: "United States",
+    toCountry: "Guatemala",
+    fromCurrency: "USD",
+    toCurrency: "GTQ",
+    fromFlag: "🇺🇸",
+    toFlag: "🇬🇹",
+    sampleAmount: 500,
+    intro:
+      "Guatemala received over $21 billion in remittances in 2024, representing more than 20% of GDP — one of the highest ratios in the Western Hemisphere. Nearly all of this comes from the United States, making USD to GTQ the defining corridor for Guatemalan families.",
+    context:
+      "The USD to GTQ corridor is characterized by enormous volume and strong competition among providers. The Guatemalan quetzal operates as a managed float, trading in a relatively stable range of Q7.5–8.0 per USD. Banco Industrial, Guatemala's largest private bank, and state-owned Banrural serve as primary receiving institutions. Bantrab (Banco de los Trabajadores) is also widely used. Cash pickup remains the dominant delivery method because over 50% of Guatemalan adults lack formal bank accounts. Western Union, MoneyGram, Remitly, and WorldRemit all maintain extensive agent networks across Guatemala, including rural and indigenous communities where banking infrastructure is limited.",
+    feesNote:
+      "Transfer fees from the US to Guatemala are highly competitive due to corridor volume. Remitly frequently offers zero-fee transfers with debit card funding and competitive exchange rates within 0.3–0.8% of mid-market. Western Union and MoneyGram charge $0–$8 depending on send amount and payment method, with exchange rate markups of 1–3%. Wise charges a transparent fee of around 0.5–1.2% with the mid-market rate. For a $500 transfer, the total cost difference between providers can mean Q100–Q300 more or less for your recipient.",
+    deliveryNote:
+      "Cash pickup in Guatemala is available within minutes through Western Union (3,000+ locations), MoneyGram, Remitly partners, and WorldRemit agents — coverage extends to Guatemala City, Quetzaltenango, Huehuetenango, and rural departments. Bank deposits to Banco Industrial, Banrural, and Bantrab typically arrive within 1–2 business days. Mobile wallet delivery is emerging but not yet widespread. Home delivery is available through select providers in major urban areas.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Guatemala?",
+        a: "Remitly is consistently one of the cheapest options for USD to GTQ transfers, frequently offering zero-fee transfers with debit card funding and exchange rates within 0.3–0.8% of the mid-market rate. Wise is also highly competitive, using the real mid-market rate with a transparent fee of 0.5–1.2%. For cash pickup, which many Guatemalan recipients prefer, Remitly and WorldRemit offer better total value than Western Union or MoneyGram due to tighter exchange rate spreads. For a $500 transfer, using a digital provider can deliver Q100–Q300 more than traditional operators. We recommend comparing on the day you send, as promotional rates and offers change frequently.",
+      },
+      {
+        q: "How long does a transfer from the USA to Guatemala take?",
+        a: "Cash pickup is the fastest option — Western Union, MoneyGram, Remitly, and WorldRemit all offer cash pickup within minutes at agent locations across Guatemala. This is the most popular delivery method due to limited banking penetration. Bank deposits to Guatemalan banks (Banco Industrial, Banrural, Bantrab) typically take 1–2 business days via digital providers. Traditional SWIFT bank transfers from US banks take 3–5 business days and incur additional intermediary fees. Funding with a debit card rather than ACH bank transfer saves 1–2 days on the sending side. Express options from Remitly can deliver within hours for bank deposits.",
+      },
+      {
+        q: "Can I send money to a rural area in Guatemala?",
+        a: "Yes, Guatemala has extensive cash pickup networks that reach rural and indigenous communities. Western Union operates over 3,000 agent locations across all 22 departments of Guatemala, including remote areas in Huehuetenango, Quiché, and Alta Verapaz. MoneyGram, Remitly, and WorldRemit also have rural coverage through partnerships with local banks (Banrural has the strongest rural branch network) and retail agents. Cash pickup is the recommended delivery method for rural recipients because bank accounts are less common outside major cities. Some providers also offer home delivery in select areas, where an agent physically brings cash to the recipient's location.",
+      },
+      {
+        q: "Is the Guatemalan quetzal exchange rate stable?",
+        a: "The Guatemalan quetzal (GTQ) is one of the most stable currencies in Central America. The Bank of Guatemala manages a dirty float, intervening to prevent sharp fluctuations. The quetzal has traded in a relatively tight range of Q7.5–Q8.0 per USD over recent years, with annual depreciation typically under 2%. This stability means the exchange rate you see when comparing providers is likely to be similar when you actually send. Unlike volatile currencies, where timing your transfer matters significantly, the GTQ rate is relatively predictable. The main cost variable is the provider's markup over the mid-market rate, not currency timing.",
+      },
+      {
+        q: "Do I need to report money transfers to Guatemala to the IRS?",
+        a: "Sending money to Guatemala is not a taxable event for the sender in the United States. The IRS does not tax outbound personal remittances. However, US regulations require financial institutions to file a Currency Transaction Report (CTR) for transactions over $10,000 under the Bank Secrecy Act — this is automatic and does not affect your transfer. If you gift more than $18,000 to a single recipient in a calendar year (2024 threshold), you may need to file IRS Form 709, though this rarely results in actual tax owed. Structuring multiple transfers to avoid the $10,000 reporting threshold is illegal and may trigger suspicious activity reports. For regular family support remittances, no special tax reporting is required.",
+      },
+    ],
+  },
+  // ── Japan corridors ──
+  {
+    slug: "japan-to-philippines",
+    fromCountry: "Japan",
+    toCountry: "Philippines",
+    fromCurrency: "JPY",
+    toCurrency: "PHP",
+    fromFlag: "🇯🇵",
+    toFlag: "🇵🇭",
+    sampleAmount: 100000,
+    intro:
+      "The Philippines is the number one destination for remittances from Japan, with approximately 350,000 Filipino workers living and working across the country. JPY to PHP transfers are a financial lifeline for Filipino families, and comparing providers can save thousands of pesos per transfer.",
+    context:
+      "The JPY to PHP corridor is one of the most important remittance routes in Asia. Filipino workers in Japan span industries from manufacturing and food service to healthcare and entertainment. Japan's remittance market has traditionally been dominated by banks and legacy operators like Western Union, but digital providers like Wise and SBI Remit have disrupted the space with significantly lower costs. SBI Remit, a subsidiary of Japan's SBI Holdings, is particularly strong on Asian corridors and has partnerships with Philippine banks and GCash. On the receiving side, GCash (by Globe Telecom) is the most popular mobile wallet with over 90 million registered users, making it a preferred delivery method alongside traditional bank deposits to BDO, BPI, and Metrobank.",
+    feesNote:
+      "Transfer fees from Japan to the Philippines vary significantly. Traditional Japanese banks charge ¥4,000–¥7,000 per international SWIFT transfer plus a 1.5–3% exchange rate markup — making them by far the most expensive option. Wise charges a transparent fee of around 0.6–1% with the real mid-market rate. SBI Remit is highly competitive with low fees and rates negotiated specifically for Asian corridors. Western Union charges ¥1,000–¥3,000 online with exchange rate markups of 1.5–2.5%. For a ¥100,000 transfer, using Wise or SBI Remit over a Japanese bank can deliver PHP 1,500–4,000 more.",
+    deliveryNote:
+      "GCash delivery is near-instant once the transfer is processed, making it the fastest option for recipients with a GCash wallet. Bank deposits to BDO, BPI, Metrobank, and other Philippine banks typically arrive within 1–2 business days via digital providers. Cash pickup through Western Union, MoneyGram, and Cebuana Lhuillier locations is available within minutes at thousands of points across the Philippines. SBI Remit offers same-day delivery to select Philippine banks and GCash. SWIFT transfers from Japanese banks take 2–4 business days.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Japan to the Philippines?",
+        a: "Based on our comparison data, Wise and SBI Remit consistently deliver the most pesos per yen on the JPY to PHP corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1%, with no hidden markup. SBI Remit, which is optimized for Japan-to-Asia transfers, offers competitive rates with low flat fees. For a ¥100,000 transfer, using Wise or SBI Remit instead of a Japanese bank (MUFG, Mizuho, SMBC) saves PHP 1,500–4,000 in total cost. Western Union and MoneyGram are more expensive but offer the widest cash pickup networks. Remitly is also competitive on this corridor with promotional offers for new users.",
+      },
+      {
+        q: "Can I send money to GCash in the Philippines from Japan?",
+        a: "Yes, GCash is supported as a delivery method by several providers serving the JPY to PHP corridor. SBI Remit, Remitly, and WorldRemit all offer direct GCash delivery, allowing near-instant receipt on the recipient's GCash mobile wallet. GCash has over 90 million registered users in the Philippines, making it the most widely adopted mobile wallet in the country. The recipient simply needs a GCash-registered mobile number. GCash funds can be withdrawn at over 60,000 partner locations, used to pay bills, shop online, or transferred to any Philippine bank account. This makes GCash delivery ideal for recipients who may not have a traditional bank account.",
+      },
+      {
+        q: "How do I send money from a Japanese bank to the Philippines?",
+        a: "You have two options: send directly through your Japanese bank via SWIFT, or fund a digital transfer provider. Direct SWIFT transfers from Japanese banks (MUFG, Mizuho, SMBC, Resona) cost ¥4,000–¥7,000 in fees plus 1.5–3% exchange rate markup, and take 2–4 business days. The far cheaper option is to use a digital provider — fund your Wise, SBI Remit, or Remitly account via Japanese bank transfer (furikomi), which costs ¥0–¥500. The provider then converts at a competitive rate and delivers to the recipient's Philippine bank account, GCash, or cash pickup location. Most providers accept furikomi from any Japanese bank account and some accept credit card or convenience store payment.",
+      },
+      {
+        q: "How long does a transfer from Japan to the Philippines take?",
+        a: "Speed varies significantly by provider and delivery method. GCash mobile wallet delivery is near-instant once the provider processes the transfer. Cash pickup through Western Union, MoneyGram, and local partners like Cebuana Lhuillier is available within minutes. Bank deposits to Philippine banks (BDO, BPI, Metrobank, UnionBank) typically arrive within 1–2 business days via Wise or SBI Remit. Direct SWIFT transfers from Japanese banks are the slowest at 2–4 business days. Funding via furikomi (Japanese bank transfer) typically clears within the same business day if sent before the cutoff time, while convenience store payments may take 1–2 days to clear.",
+      },
+      {
+        q: "What is SBI Remit and is it good for Japan to Philippines transfers?",
+        a: "SBI Remit is a remittance subsidiary of SBI Holdings, one of Japan's largest financial groups. It is specifically designed for international money transfers from Japan and has built optimized payment rails for Asian corridors, particularly Japan to Philippines. SBI Remit offers competitive exchange rates, low fees, and direct partnerships with Philippine banks and GCash for fast delivery. The service is available in English, Filipino, and Japanese, making it accessible for Filipino workers in Japan. SBI Remit is regulated by Japan's Financial Services Agency (JFSA) and supports funding via Japanese bank transfer, convenience store payment, and ATM. For the JPY to PHP corridor specifically, SBI Remit is often the most cost-effective option alongside Wise.",
+      },
+    ],
+  },
+  {
+    slug: "japan-to-india",
+    fromCountry: "Japan",
+    toCountry: "India",
+    fromCurrency: "JPY",
+    toCurrency: "INR",
+    fromFlag: "🇯🇵",
+    toFlag: "🇮🇳",
+    sampleAmount: 100000,
+    intro:
+      "Japan's growing Indian community of approximately 40,000 professionals and students drives steady demand for JPY to INR transfers. IT professionals, researchers, and students regularly send money home, and the cost difference between providers on this corridor is substantial.",
+    context:
+      "The JPY to INR corridor serves a professional diaspora concentrated in Tokyo, Osaka, and other major cities. Indian IT professionals working for Japanese companies and multinationals form the largest segment, alongside university students and researchers. Japanese banks charge some of the highest international transfer fees in the developed world — ¥4,000–¥6,000 per SWIFT transfer plus wide exchange rate markups. Digital providers like Wise and Instarem have made significant inroads by offering transparent pricing at a fraction of the cost. On the Indian receiving side, IMPS and UPI infrastructure enable near-instant bank deposits, which is a major advantage over slower SWIFT settlement. Instarem, headquartered in Singapore, is particularly well-positioned on Asian corridors with competitive rates.",
+    feesNote:
+      "Japanese bank SWIFT transfers to India cost ¥4,000–¥6,000 in flat fees plus exchange rate markups of 2–4%, making them extremely expensive — on a ¥100,000 transfer, the total cost can exceed ¥5,000–¥8,000. Wise charges around 0.6–1.2% with the real mid-market rate and no hidden markup. Instarem charges 0.5–1% with competitive exchange rates on Asian corridors. For a ¥100,000 transfer (approximately $750), using Wise or Instarem over a Japanese bank typically delivers INR 1,000–3,500 more to your recipient in India.",
+    deliveryNote:
+      "Wise and Instarem deliver to Indian bank accounts within 1–2 business days, with many transfers arriving same-day via IMPS (Immediate Payment Service) or NEFT. UPI-linked delivery is also available through select providers, enabling near-instant receipt. SWIFT transfers from Japanese banks take 3–5 business days and may incur additional correspondent bank deductions. Funding via furikomi (Japanese bank transfer) typically clears same-day if sent before the bank's cutoff time. Credit card and convenience store payment options are also available with some providers.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Japan to India?",
+        a: "Wise and Instarem are consistently the cheapest providers for JPY to INR transfers. Wise uses the real mid-market exchange rate — the same rate shown on Google — with a transparent fee of 0.6–1.2%. Instarem offers competitive rates within 0.5–1% of mid-market, with particular strength on Asian corridors. For a ¥100,000 transfer, using either provider over a Japanese bank (MUFG, Mizuho, SMBC) saves INR 1,000–3,500 in total cost. Western Union and MoneyGram are available but charge more due to exchange rate markups. SBI Remit also covers the JPY to INR corridor with competitive pricing. Always compare the total INR received rather than fees alone.",
+      },
+      {
+        q: "How long does a transfer from Japan to India take?",
+        a: "Wise delivers to Indian bank accounts within 1–2 business days, with many transfers arriving same-day via IMPS when sent early. Instarem typically delivers within 1–2 business days. India's advanced domestic payment infrastructure — IMPS processes 24/7 including weekends and holidays — means there is minimal delay on the receiving side once the provider releases funds. SWIFT transfers from Japanese banks take 3–5 business days and may have amounts deducted by correspondent banks in transit. Funding your Wise or Instarem account via furikomi (Japanese domestic bank transfer) clears same-day if initiated before the cutoff time, usually 2:00–3:00 PM JST.",
+      },
+      {
+        q: "Can I send money from Japan to an Indian UPI account?",
+        a: "UPI (Unified Payments Interface) is increasingly supported as a delivery method for international transfers to India. While direct UPI ID delivery from Japan is still limited, several providers deliver to UPI-linked bank accounts, which means the funds arrive in the recipient's bank account that is connected to their UPI apps like Google Pay, PhonePe, or Paytm. Wise delivers to Indian bank accounts via IMPS, which settles into the same account the recipient uses for UPI. The recipient receives the funds in their bank balance and can use them immediately through any UPI app. As UPI international integration expands, direct UPI delivery from Japanese providers is expected to grow.",
+      },
+      {
+        q: "What documents do I need to send money from Japan to India?",
+        a: "To send money from Japan using a digital provider like Wise or Instarem, you need a valid ID (residence card/zairyu card, passport, or My Number card) and a Japanese bank account or payment method. First-time users must complete identity verification, which typically takes 1–2 business days. For the recipient in India, you need their full name, bank account number, and IFSC code (Indian Financial System Code) — this is an 11-character code identifying the bank branch. Some providers also accept the recipient's UPI ID or mobile number for delivery. Japanese banks may require additional documentation for SWIFT transfers, including the purpose of remittance declaration.",
+      },
+      {
+        q: "Is Instarem good for Japan to India transfers?",
+        a: "Yes, Instarem is one of the most competitive providers for the JPY to INR corridor. Headquartered in Singapore with licences across Asia, Instarem has built optimized payment rails for intra-Asian transfers. Exchange rates are typically within 0.5–1% of the mid-market rate, with transparent fees that are significantly lower than Japanese bank SWIFT charges. Instarem delivers to any Indian bank account via IMPS or NEFT, with most transfers arriving within 1–2 business days. The platform supports funding via Japanese bank transfer and is available in English. For IT professionals and students making regular monthly transfers, Instarem's competitive rates and fast delivery make it a strong alternative to Wise on this specific corridor.",
+      },
+    ],
+  },
+  {
+    slug: "japan-to-usa",
+    fromCountry: "Japan",
+    toCountry: "United States",
+    fromCurrency: "JPY",
+    toCurrency: "USD",
+    fromFlag: "🇯🇵",
+    toFlag: "🇺🇸",
+    sampleAmount: 100000,
+    intro:
+      "Japanese expats, students, and businesses regularly transfer money from Japan to the United States. SWIFT transfers from Japanese banks are notoriously expensive at ¥4,000–¥6,000 per transaction, making digital alternatives essential for cost-conscious senders.",
+    context:
+      "The JPY to USD corridor serves a diverse sender base — Japanese nationals living in the US who maintain Japanese accounts, students paying tuition or receiving family support, and businesses making cross-Pacific payments. Japan has historically had one of the most expensive domestic banking systems for international transfers. Major banks like MUFG, Mizuho, and SMBC charge ¥4,000–¥6,000 in flat SWIFT fees plus exchange rate markups of 1.5–3%. Digital disruptors like Wise, OFX, and XE have transformed this corridor by offering mid-market rates with transparent fees. The JPY/USD exchange rate is one of the most actively traded currency pairs in the world, meaning interbank rates are extremely tight and any markup is pure provider margin.",
+    feesNote:
+      "Japanese bank SWIFT transfers to the US cost ¥4,000–¥6,000 (approximately $27–$40) in flat fees plus 1.5–3% exchange rate markup — totaling ¥5,500–¥9,000 in effective cost on a ¥100,000 transfer. Wise charges around 0.5–0.9% with the real mid-market rate. OFX offers competitive rates for transfers above ¥500,000 with no flat fee, making it the best option for large amounts. XE charges a margin of 0.4–1% with no upfront fee. For a ¥100,000 transfer, using Wise over a Japanese bank saves approximately $15–$30 in total cost.",
+    deliveryNote:
+      "Wise delivers to US bank accounts within 1–2 business days, with many transfers arriving same-day via ACH. OFX and XE typically deliver within 1–2 business days. SWIFT transfers from Japanese banks take 2–4 business days and may incur correspondent bank deductions of $15–$25 by intermediary banks. Same-day ACH is available through select providers for US recipients with verified accounts. Funding via furikomi from a Japanese bank clears same-day if sent before the cutoff time.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Japan to the USA?",
+        a: "Wise is the most cost-effective option for most JPY to USD transfer amounts, using the real mid-market exchange rate with a transparent fee of 0.5–0.9%. For a ¥100,000 transfer (approximately $670), Wise charges about ¥500–¥900 in total. OFX is the best option for large transfers (¥500,000+) because it charges no flat fee and offers tighter exchange rate spreads on higher volumes — contact their dealing desk for amounts over ¥1,000,000. XE offers competitive rates with a margin of 0.4–1% and no upfront fee. Japanese banks are the most expensive option by a wide margin, costing ¥5,500–¥9,000 in fees and markup on the same ¥100,000 transfer.",
+      },
+      {
+        q: "How do I avoid high Japanese bank SWIFT fees?",
+        a: "The simplest way to avoid expensive SWIFT fees is to use a digital transfer provider instead of your Japanese bank. With Wise, you fund your transfer via furikomi (Japanese domestic bank transfer) to Wise's Japanese bank account — furikomi costs ¥0–¥500 depending on your bank. Wise then converts your yen at the mid-market rate and deposits USD into the recipient's US bank account via ACH, bypassing the SWIFT network entirely. This eliminates the ¥4,000–¥6,000 SWIFT fee, the 1.5–3% exchange rate markup, and any correspondent bank deductions. OFX and XE work similarly. Some Japanese banks offer reduced SWIFT fees for internet banking customers, but even discounted bank fees are typically 2–3x the total cost of a digital provider.",
+      },
+      {
+        q: "How long does a transfer from Japan to the USA take?",
+        a: "Wise delivers to US bank accounts within 1–2 business days via ACH, with many same-day arrivals when funded early in the day. OFX and XE deliver within 1–2 business days. SWIFT transfers from Japanese banks take 2–4 business days and may be delayed further if correspondent banks are involved — JPY SWIFT transfers typically route through Tokyo or New York correspondents, each adding processing time. Funding via furikomi clears same-day if sent before your Japanese bank's cutoff time (usually 2:00–3:00 PM JST). Weekend and Japanese holiday transfers are queued for the next business day.",
+      },
+      {
+        q: "Can I send large amounts from Japan to the US?",
+        a: "Yes, several providers support large JPY to USD transfers. OFX specializes in high-value transfers with no maximum limit and offers better exchange rates for amounts above ¥500,000 — their dealing desk can negotiate custom rates for transfers over ¥1,000,000. Wise allows up to ¥1,000,000 per transfer for standard verified accounts, with higher limits available. XE supports large transfers with competitive rates. For amounts over ¥1,000,000 from a Japanese bank, you may need to provide additional documentation including the purpose of remittance. Japan's Foreign Exchange and Foreign Trade Act requires reporting for transfers exceeding ¥30,000,000. US FBAR reporting applies if you hold Japanese financial accounts exceeding $10,000 in aggregate.",
+      },
+      {
+        q: "What exchange rate should I expect for JPY to USD?",
+        a: "The JPY/USD rate is one of the most liquid currency pairs in the world, trading approximately ¥140–¥160 per dollar in recent years (though this fluctuates). The mid-market rate — the midpoint between buy and sell prices on global currency markets — is the fairest benchmark. Wise uses this exact rate with no markup. Banks and other providers add a spread of 0.5–3% on top of the mid-market rate. You can check the current mid-market rate on Google, Reuters, or XE.com and use it as your benchmark when comparing providers. Because JPY/USD is so liquid, the interbank spread is extremely tight (under 0.01%), meaning any spread a provider charges above mid-market is their profit margin.",
+      },
+    ],
+  },
+  // ── Hong Kong corridors ──
+  {
+    slug: "hong-kong-to-philippines",
+    fromCountry: "Hong Kong",
+    toCountry: "Philippines",
+    fromCurrency: "HKD",
+    toCurrency: "PHP",
+    fromFlag: "🇭🇰",
+    toFlag: "🇵🇭",
+    sampleAmount: 5000,
+    intro:
+      "Hong Kong is home to approximately 200,000 Filipino domestic workers, making HKD to PHP one of the largest remittance corridors in Asia. Comparing providers can save hundreds of pesos on every transfer — critical for workers sending regular support to family in the Philippines.",
+    context:
+      "The HKD to PHP corridor is driven primarily by Filipino domestic helpers, who represent one of Hong Kong's largest migrant worker communities. Many send money weekly or biweekly, so even small per-transfer savings compound into significant annual differences. The market has historically been dominated by high-street money changers and traditional operators like Western Union, but digital providers like Wise, WorldRemit, and Remitly are gaining market share. On the Philippine receiving side, GCash is the dominant mobile wallet with over 90 million users, and major banks like BDO, BPI, and Metrobank handle most bank deposit deliveries. Hong Kong's remittance market is regulated by the Customs and Excise Department under the Money Service Operators Ordinance.",
+    feesNote:
+      "Transfer fees from Hong Kong to the Philippines are generally low due to intense competition on this high-volume corridor. Wise charges around 0.5–1% with the real mid-market exchange rate. WorldRemit and Remitly offer competitive rates with frequent zero-fee promotions. Traditional money changers in Central, Causeway Bay, and Mong Kok charge HKD 20–50 per transfer but may offer slightly worse exchange rates. For a HKD 5,000 transfer, using a digital provider over a high-street money changer typically delivers PHP 200–800 more to the recipient.",
+    deliveryNote:
+      "GCash delivery is near-instant and is the most popular method for Filipino recipients. Bank deposits to BDO, BPI, Metrobank, and other Philippine banks arrive within 1–2 business days via Wise and Remitly. Cash pickup through Western Union, MoneyGram, Cebuana Lhuillier, and M Lhuillier locations is available within minutes at tens of thousands of points across the Philippines. Many Filipino workers in Hong Kong send money on Sundays (their day off), so providers with weekend processing offer a significant advantage.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Hong Kong to the Philippines?",
+        a: "Wise is consistently one of the cheapest options for HKD to PHP transfers, using the real mid-market exchange rate with a transparent fee of around 0.5–1%. Remitly and WorldRemit are also highly competitive, especially for first-time users who benefit from promotional exchange rates and zero-fee offers. For a HKD 5,000 transfer, using a digital provider over a traditional money changer saves PHP 200–800. High-street money changers in Central or Mong Kok may seem convenient but typically apply wider exchange rate spreads. For workers sending weekly, the cumulative annual savings from using Wise or Remitly can exceed PHP 10,000–20,000.",
+      },
+      {
+        q: "Can I send money to GCash from Hong Kong?",
+        a: "Yes, GCash is widely supported for remittance delivery from Hong Kong. Remitly, WorldRemit, and several other providers offer direct GCash delivery on the HKD to PHP corridor. The recipient needs a GCash-registered Philippine mobile number. Delivery is near-instant once the provider processes the transfer. GCash has over 90 million registered users in the Philippines and offers cash-out at over 60,000 partner locations, bill payment, online shopping, and bank transfers. For Filipino domestic workers in Hong Kong, GCash delivery is the most popular option because family members can access funds immediately without visiting a bank or cash pickup point.",
+      },
+      {
+        q: "Can I send money on Sundays from Hong Kong to the Philippines?",
+        a: "Yes, most digital providers process transfers on Sundays, which is the designated rest day for domestic workers in Hong Kong. Wise, Remitly, and WorldRemit all accept transfers seven days a week through their apps. GCash delivery is near-instant regardless of the day. Cash pickup is also available on Sundays at most Philippine agent locations. However, bank deposits initiated on Sunday may not settle until Monday (Philippine banking hours). Funding via FPS (Faster Payment System) from your Hong Kong bank account is available 24/7 for instant funding. This Sunday accessibility is a key advantage of digital providers over high-street money changers, some of which close on Sundays.",
+      },
+      {
+        q: "How much does it cost to send HKD 5,000 to the Philippines?",
+        a: "For a HKD 5,000 transfer (approximately PHP 36,000–38,000), costs vary significantly by provider. Wise charges around HKD 25–50 with the real mid-market exchange rate. Remitly frequently offers zero-fee first transfers with a promotional exchange rate. WorldRemit charges HKD 10–30 with competitive rates. Western Union charges HKD 0–80 depending on the delivery method, plus an exchange rate markup of 1–2.5%. Traditional money changers charge HKD 20–50 plus a wider spread. The total difference between the cheapest and most expensive option can be PHP 400–1,200 — which matters significantly when sending every week or fortnight.",
+      },
+      {
+        q: "Is it safe to use money transfer apps in Hong Kong?",
+        a: "Yes, licensed money transfer providers in Hong Kong are regulated by the Customs and Excise Department under the Money Service Operators (MSO) Ordinance. Wise, Remitly, WorldRemit, and Western Union are all licensed MSOs or partner with licensed entities in Hong Kong. You can verify a provider's licence on the government's MSO register. These providers use bank-level encryption, two-factor authentication, and are required to maintain segregated client funds. They are significantly safer than informal channels (which are illegal under Hong Kong law). Always use licensed providers and keep transfer receipts for your records.",
+      },
+    ],
+  },
+  {
+    slug: "hong-kong-to-india",
+    fromCountry: "Hong Kong",
+    toCountry: "India",
+    fromCurrency: "HKD",
+    toCurrency: "INR",
+    fromFlag: "🇭🇰",
+    toFlag: "🇮🇳",
+    sampleAmount: 5000,
+    intro:
+      "Hong Kong's significant Indian community — spanning finance professionals, traders, and long-established families — drives consistent demand for HKD to INR transfers. Whether sending family support or managing cross-border finances, comparing providers can save thousands of rupees annually.",
+    context:
+      "The HKD to INR corridor serves Hong Kong's diverse Indian diaspora, which includes finance and trading professionals in Central, small business owners, and multi-generational families with roots in Hong Kong dating back over a century. The Hong Kong dollar is pegged to the USD (HKD 7.75–7.85 per USD), which means HKD to INR rates closely track USD to INR movements. This peg makes exchange rate comparison straightforward — any significant difference between providers is due to their markup, not market conditions. Wise, Instarem, and Remitly are the leading digital providers on this corridor. India's IMPS and UPI infrastructure enables near-instant bank deposits, a major advantage over traditional SWIFT transfers.",
+    feesNote:
+      "Wise charges a transparent fee of around 0.5–1% on HKD to INR transfers with the real mid-market exchange rate. Instarem is particularly competitive on Asian corridors, charging 0.5–1% with fast delivery to Indian banks. Remitly offers zero-fee promotions for first-time users. Traditional Hong Kong bank SWIFT transfers cost HKD 150–250 in fees plus 1.5–3% exchange rate markup. For a HKD 5,000 transfer (approximately INR 55,000–58,000), using a digital provider over a bank saves INR 1,000–2,500 in total cost.",
+    deliveryNote:
+      "Wise and Instarem deliver to Indian bank accounts within 1–2 business days, with many transfers arriving same-day via IMPS (Immediate Payment Service). India's 24/7 IMPS system means there is no delay for weekends or bank holidays on the receiving side. Remitly offers express delivery within hours. Traditional SWIFT transfers from Hong Kong banks take 2–4 business days and may incur correspondent bank deductions. Funding via FPS (Faster Payment System) from Hong Kong bank accounts is instant and free, so the main delay is provider processing time.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Hong Kong to India?",
+        a: "Wise and Instarem are consistently the cheapest providers for HKD to INR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. Instarem, which has strong Asian corridor optimization, charges 0.5–1% with competitive rates. For a HKD 5,000 transfer, using Wise or Instarem over a Hong Kong bank (HSBC, Standard Chartered, Bank of China HK) saves INR 1,000–2,500. Remitly is competitive for smaller amounts with frequent promotional offers. Because the HKD is pegged to the USD, the mid-market HKD/INR rate is very stable, making exchange rate markup the primary cost variable to compare.",
+      },
+      {
+        q: "How long does a transfer from Hong Kong to India take?",
+        a: "Wise delivers to Indian bank accounts within 1–2 business days, with same-day delivery common via IMPS when transfers are processed before India's banking cutoff. Instarem typically delivers within 1–2 business days. India's IMPS system operates 24/7, including weekends and holidays, so there is no receiving-side delay. Remitly offers express options arriving within hours. SWIFT transfers from Hong Kong banks take 2–4 business days. Funding via FPS (Hong Kong's Faster Payment System) is instant and free from any Hong Kong bank account, so the main time variable is provider processing on the HKD to INR conversion.",
+      },
+      {
+        q: "Can I send money to a UPI account in India from Hong Kong?",
+        a: "While direct UPI ID delivery is limited, most digital providers deliver to the Indian bank account linked to the recipient's UPI apps (Google Pay, PhonePe, Paytm). Wise and Instarem deliver via IMPS to any Indian bank account, and the funds are immediately available through the recipient's UPI-connected apps. The recipient can then use UPI for payments, transfers, and withdrawals as normal. As UPI international integration expands, direct UPI delivery from Hong Kong providers is expected to become available. For now, bank deposit via IMPS is functionally equivalent since it settles into the same account.",
+      },
+      {
+        q: "Do Hong Kong banks offer competitive rates for India transfers?",
+        a: "No, Hong Kong banks are significantly more expensive than digital providers for HKD to INR transfers. HSBC, Standard Chartered, and Bank of China Hong Kong charge HKD 150–250 per outbound SWIFT transfer plus exchange rate markups of 1.5–3%. On a HKD 5,000 transfer, that translates to HKD 225–400 in total cost — compared to HKD 25–50 with Wise. Banks also route through correspondent banks, which may deduct additional fees (INR 250–500) from the transferred amount before it reaches the recipient. The only scenario where a bank might be competitive is for very large transfers (HKD 100,000+) where negotiated rates may apply, but even then, OFX and XE typically offer better value.",
+      },
+      {
+        q: "Is Instarem available in Hong Kong for India transfers?",
+        a: "Yes, Instarem operates in Hong Kong and is licensed as a money service operator. Instarem, headquartered in Singapore, has built strong payment infrastructure across Asia and is particularly competitive on intra-Asian corridors like HKD to INR. The platform charges 0.5–1% with exchange rates close to the mid-market rate. Instarem delivers to any Indian bank account via IMPS or NEFT, with most transfers arriving within 1–2 business days. Funding from Hong Kong bank accounts via FPS is instant and free. Instarem's rewards programme (InstaPoints) offers credits for frequent senders, which can offset future transfer costs. The app is available in English and supports 24/7 customer service for the Hong Kong market.",
+      },
+    ],
+  },
+  // ── South Korea corridors ──
+  {
+    slug: "south-korea-to-philippines",
+    fromCountry: "South Korea",
+    toCountry: "Philippines",
+    fromCurrency: "KRW",
+    toCurrency: "PHP",
+    fromFlag: "🇰🇷",
+    toFlag: "🇵🇭",
+    sampleAmount: 1000000,
+    intro:
+      "South Korea is home to approximately 60,000 Filipino migrant workers, making KRW to PHP a major Asian remittance corridor. With a typical transfer of ₩1,000,000 (roughly $750 USD), choosing the right provider can save thousands of pesos for Philippine families.",
+    context:
+      "The KRW to PHP corridor serves Filipino workers across South Korean manufacturing, agriculture, fisheries, and service industries. Many enter through Korea's Employment Permit System (EPS) and send money home regularly. The remittance market from South Korea has been disrupted by fintech providers like SentBe and Hanpass, which are regulated by the Financial Services Commission (FSC) and offer significantly lower costs than traditional Korean banks. Wise also covers this corridor with competitive rates. On the receiving side, GCash and bank deposits to BDO, BPI, and Metrobank are the most popular delivery methods. Korean banks (KB Kookmin, Shinhan, Hana, Woori) charge high SWIFT fees of ₩10,000–₩20,000 plus wide exchange rate spreads, making them the least cost-effective option.",
+    feesNote:
+      "Korean bank SWIFT transfers cost ₩10,000–₩20,000 in fees plus exchange rate markups of 2–4%, making them extremely expensive on this corridor. SentBe, a Korean fintech specializing in remittances, charges around 0.5–1% with competitive exchange rates. Hanpass offers similar pricing with additional support in Filipino and Korean. Wise charges approximately 0.6–1.2% with the real mid-market rate. For a ₩1,000,000 transfer, using a digital provider over a Korean bank saves PHP 2,000–5,000 in total cost — a significant amount for Filipino families relying on regular remittances.",
+    deliveryNote:
+      "GCash delivery is near-instant and is the preferred method for many Filipino recipients. Bank deposits to BDO, BPI, Metrobank, and UnionBank typically arrive within 1–2 business days via SentBe, Hanpass, or Wise. Cash pickup through Western Union and Cebuana Lhuillier is available within minutes at thousands of locations across the Philippines. Korean bank SWIFT transfers take 3–5 business days. Most Korean fintech providers accept funding via Korean bank transfer, which clears same-day when initiated before the cutoff time.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from South Korea to the Philippines?",
+        a: "SentBe and Wise are consistently the cheapest options for KRW to PHP transfers. SentBe, a Korean fintech company, charges around 0.5–1% with competitive exchange rates optimized for the Korean remittance market. Wise uses the real mid-market exchange rate with a transparent fee of 0.6–1.2%. Hanpass is another strong option, particularly popular among Filipino workers due to multilingual support (Korean, Filipino, English). For a ₩1,000,000 transfer, using any of these digital providers over a Korean bank (KB Kookmin, Shinhan, Hana) saves PHP 2,000–5,000. Always compare the total PHP received, as fee structures differ between providers.",
+      },
+      {
+        q: "What is SentBe and is it reliable for Philippines transfers?",
+        a: "SentBe is a South Korean fintech company specializing in international money transfers, founded in 2015 and regulated by Korea's Financial Services Commission (FSC). SentBe was one of the first Korean startups to challenge traditional bank remittance pricing, offering exchange rates close to the mid-market rate with fees of around 0.5–1%. The platform supports KRW to PHP transfers with delivery to Philippine bank accounts, GCash, and cash pickup locations. SentBe has processed millions of transfers and is widely used by migrant workers in Korea. The app is available in Korean, English, and Filipino. SentBe is considered reliable and is one of the most popular alternatives to bank transfers for Korean remittances to the Philippines.",
+      },
+      {
+        q: "Can I send money to GCash from South Korea?",
+        a: "Yes, GCash delivery is supported by several providers on the KRW to PHP corridor. SentBe, Hanpass, and WorldRemit all offer direct GCash delivery from South Korea. The recipient needs a GCash-registered Philippine mobile number, and funds arrive near-instantly once the provider processes the transfer. GCash has over 90 million registered users in the Philippines, and funds can be withdrawn at over 60,000 partner locations, used for bills, shopping, or transferred to bank accounts. For Filipino workers in Korea, GCash delivery is often the most convenient option because family members can access funds immediately without visiting a bank or cash pickup point.",
+      },
+      {
+        q: "How long does a transfer from South Korea to the Philippines take?",
+        a: "GCash and cash pickup delivery is available within minutes once the provider processes the transfer. Bank deposits to Philippine banks (BDO, BPI, Metrobank) arrive within 1–2 business days via SentBe, Hanpass, or Wise. Korean bank SWIFT transfers are the slowest option at 3–5 business days, with potential correspondent bank delays. Funding from a Korean bank account typically clears same-day if sent before the cutoff time. SentBe and Hanpass offer express processing options for faster delivery. Weekend transfers may be queued for Monday processing by some providers, so initiating transfers on weekday mornings is recommended for the fastest delivery.",
+      },
+      {
+        q: "What are the transfer limits from South Korea to the Philippines?",
+        a: "Korean regulations allow individuals to remit up to $50,000 per year without additional documentation under the Foreign Exchange Transactions Act. Transfers exceeding this annual limit require reporting to the Bank of Korea. Per-transaction limits vary by provider — SentBe allows up to ₩5,000,000 per transfer for verified accounts, Wise allows higher amounts, and Korean banks have varying limits based on account type. For Filipino workers on EPS visas, special remittance allowances may apply through designated banks. Hanpass and SentBe have streamlined the verification process for migrant workers with Korean residence cards (ARC). Always keep transfer receipts for tax filing purposes in both Korea and the Philippines.",
+      },
+    ],
+  },
+  {
+    slug: "south-korea-to-vietnam",
+    fromCountry: "South Korea",
+    toCountry: "Vietnam",
+    fromCurrency: "KRW",
+    toCurrency: "VND",
+    fromFlag: "🇰🇷",
+    toFlag: "🇻🇳",
+    sampleAmount: 1000000,
+    intro:
+      "Vietnam is the top destination for remittances from South Korea, driven by approximately 200,000 Vietnamese workers and a deep economic relationship anchored by Samsung, LG, and other Korean manufacturers operating in Vietnam. A ₩1,000,000 transfer (roughly $750 USD) is typical for monthly remittances.",
+    context:
+      "The KRW to VND corridor is fueled by one of Asia's strongest bilateral economic relationships. Vietnamese workers in South Korea span manufacturing, agriculture, and fisheries, many entering through the EPS (Employment Permit System). Beyond migrant workers, the corridor also serves Korean-Vietnamese families (international marriages between Korean and Vietnamese nationals are among the most common in Korea), students, and business payments tied to Korean companies with Vietnamese operations. SentBe and Hanpass are the dominant Korean fintech providers, offering significantly better rates than Korean banks. The Vietnamese dong is managed by the State Bank of Vietnam (SBV), with a controlled floating exchange rate. On the receiving side, Vietnamese bank accounts (Vietcombank, BIDV, Agribank, Techcombank) and mobile wallets like MoMo handle incoming remittances.",
+    feesNote:
+      "Korean bank SWIFT transfers to Vietnam cost ₩10,000–₩20,000 in fees with exchange rate markups of 2–4%, making total costs on a ₩1,000,000 transfer around ₩30,000–₩50,000. SentBe charges approximately 0.5–1% with competitive KRW/VND exchange rates. Hanpass offers similar pricing and is popular among Vietnamese workers for its Vietnamese-language support. Wise charges around 0.6–1.2% with the mid-market rate. For a ₩1,000,000 transfer, digital providers deliver VND 300,000–800,000 more than Korean banks — a meaningful difference for recipients in Vietnam.",
+    deliveryNote:
+      "Bank deposits to Vietnamese bank accounts (Vietcombank, BIDV, Agribank, Techcombank, VPBank) typically arrive within 1–2 business days via SentBe, Hanpass, or Wise. Cash pickup through Western Union and MoneyGram partner locations is available within minutes across Vietnam. MoMo mobile wallet delivery is supported by select providers for near-instant receipt. Korean bank SWIFT transfers take 3–5 business days. Vietnamese banks operate Monday through Saturday (half-day Saturday), so transfers sent Friday or Saturday may settle faster than those sent on Sunday.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from South Korea to Vietnam?",
+        a: "SentBe and Wise are consistently the cheapest options for KRW to VND transfers. SentBe, built for the Korean remittance market, charges around 0.5–1% with competitive exchange rates. Wise uses the real mid-market exchange rate with a transparent fee of 0.6–1.2%. Hanpass is another strong option, particularly popular among Vietnamese workers for its Vietnamese-language app and customer support. For a ₩1,000,000 transfer, using a digital provider instead of a Korean bank saves VND 300,000–800,000 in total cost. Western Union and MoneyGram offer wide cash pickup networks in Vietnam but charge more in exchange rate markup.",
+      },
+      {
+        q: "How long does a transfer from South Korea to Vietnam take?",
+        a: "Bank deposits to Vietnamese accounts via SentBe, Hanpass, or Wise arrive within 1–2 business days. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Vietnam, including Ho Chi Minh City, Hanoi, Da Nang, and rural provinces. MoMo wallet delivery is near-instant where supported. Korean bank SWIFT transfers take 3–5 business days with potential correspondent bank delays and deductions. Vietnamese banks operate Monday to Saturday (half-day Saturday), so weekend timing affects bank deposit speed. Funding from a Korean bank account clears same-day if initiated before the cutoff time.",
+      },
+      {
+        q: "Can I send money to a Vietnamese bank account from Korea?",
+        a: "Yes, all major digital providers support bank deposit delivery to Vietnamese accounts. You will need the recipient's full name (matching their bank records), bank name, and account number. Major receiving banks include Vietcombank (Vietnam's largest bank by assets), BIDV, Agribank, Techcombank, VPBank, and ACB. SentBe, Hanpass, and Wise all support direct deposits to these banks. The Vietnamese banking system uses a domestic account numbering system — there is no IBAN format. Some providers may also ask for the branch name or branch code. First-time transfers may require additional verification on both the sending and receiving sides.",
+      },
+      {
+        q: "What is Hanpass and is it good for Vietnam transfers?",
+        a: "Hanpass is a South Korean fintech company specializing in remittances from Korea to Southeast Asian countries, with Vietnam being one of its strongest corridors. Founded in Seoul, Hanpass is regulated by Korea's Financial Services Commission (FSC) and has built payment partnerships with Vietnamese banks. The app is available in Korean, Vietnamese, and English, making it particularly accessible for Vietnamese workers in Korea. Hanpass offers competitive exchange rates with fees typically around 0.5–1%, and supports delivery to Vietnamese bank accounts and partner cash pickup locations. Hanpass has been endorsed by the Korean government as part of financial inclusion initiatives for migrant workers and has processed hundreds of thousands of Vietnam-bound transfers.",
+      },
+      {
+        q: "Are there limits on sending money from South Korea to Vietnam?",
+        a: "Korean regulations under the Foreign Exchange Transactions Act allow individuals to remit up to $50,000 per year without additional documentation. Transfers exceeding this annual limit require Bank of Korea reporting. Per-transaction limits vary by provider — SentBe allows up to ₩5,000,000, Hanpass has similar limits for verified users, and Wise supports higher individual transfer amounts. On the Vietnamese receiving side, the State Bank of Vietnam requires banks to report large incoming foreign currency transfers, but there is no cap on how much an individual can receive. Vietnamese workers in Korea with valid ARC (Alien Registration Card) can verify their identity with Korean fintech providers for full transfer limits. Keep all transfer receipts for both Korean and Vietnamese tax compliance.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──
