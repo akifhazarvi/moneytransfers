@@ -503,5 +503,22 @@
         "receiveAmount": 461.55
       }
     }
+  },
+  {
+    "date": "2026-04-08",
+    "providers": {
+      "nab": {
+        "rate": 4.7015,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 470.15
+      },
+      "instarem": {
+        "rate": 4.8422,
+        "fee": 0.37,
+        "markup": null,
+        "receiveAmount": 482.42
+      }
+    }
   }
 ]
