@@ -127,6 +127,23 @@ const CORRIDORS = [
   // Phase 2: South Korea outbound
   { fromCountry: "kr", toCountry: "ph", from: "KRW", to: "PHP" },
   { fromCountry: "kr", toCountry: "vn", from: "KRW", to: "VND" },
+  // Phase 3: Honduras, Nepal expanded, Sri Lanka expanded
+  { fromCountry: "us", toCountry: "hn", from: "USD", to: "HNL" },
+  { fromCountry: "us", toCountry: "np", from: "USD", to: "NPR" },
+  { fromCountry: "gb", toCountry: "np", from: "GBP", to: "NPR" },
+  { fromCountry: "us", toCountry: "lk", from: "USD", to: "LKR" },
+  { fromCountry: "gb", toCountry: "lk", from: "GBP", to: "LKR" },
+  // Phase 3: Malaysia outbound
+  { fromCountry: "my", toCountry: "in", from: "MYR", to: "INR" },
+  { fromCountry: "my", toCountry: "id", from: "MYR", to: "IDR" },
+  { fromCountry: "my", toCountry: "ph", from: "MYR", to: "PHP" },
+  // Phase 3: Switzerland outbound
+  { fromCountry: "ch", toCountry: "in", from: "CHF", to: "INR" },
+  { fromCountry: "ch", toCountry: "ph", from: "CHF", to: "PHP" },
+  // Phase 3: South Africa outbound
+  { fromCountry: "za", toCountry: "ng", from: "ZAR", to: "NGN" },
+  { fromCountry: "za", toCountry: "gb", from: "ZAR", to: "GBP" },
+  { fromCountry: "za", toCountry: "ke", from: "ZAR", to: "KES" },
 ];
 
 const SEND_AMOUNTS = [100, 1000];

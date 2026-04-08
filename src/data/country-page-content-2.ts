@@ -1460,4 +1460,70 @@ export const countryPageContents2: Record<string, CountryPageContent> = {
       },
     ],
   },
+  honduras: {
+    slug: "honduras",
+    countryName: "Honduras",
+    currency: "HNL",
+    intro:
+      "Honduras received over $8 billion in remittances in 2023, representing approximately 25% of GDP — one of the highest remittance-to-GDP ratios in the world. The vast majority of transfers originate from the United States, particularly from Honduran communities in Texas, Florida, New York, and California, making the USD-to-HNL corridor by far the most important for senders.",
+    highlights: [
+      "Cash pickup dominates delivery in Honduras. Western Union, MoneyGram, and Ria operate extensive agent networks across major cities and smaller towns, making cash collection the most accessible option for recipients.",
+      "Tigo Money is the leading mobile wallet and is growing rapidly as a delivery option for international remittances, especially in areas with limited bank branch access.",
+      "Banking penetration is low — roughly 30% of Honduran adults hold a bank account — so cash pickup and mobile money are critical channels for reaching most recipients.",
+      "Banco Atlantida, BAC Honduras (Credomatic), and Ficohsa are the largest banks and the most commonly used for direct bank deposit delivery.",
+      "The lempira (HNL) is a managed float currency regulated by the Banco Central de Honduras (BCH), and it has remained relatively stable against the US dollar in recent years.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Honduras?",
+        answer:
+          "Digital-first providers like Remitly, Wise, and Xoom typically offer the lowest total cost for transfers to Honduras. Funding via bank transfer (ACH) rather than debit or credit card avoids additional card processing fees. Always compare the total HNL your recipient will receive — exchange rate markups often cost more than the advertised transfer fee.",
+      },
+      {
+        question: "How long does a money transfer to Honduras take?",
+        answer:
+          "Cash pickup transfers through Western Union, MoneyGram, or Ria are usually available within minutes to an hour. Bank deposits to Honduran accounts typically settle in 1–2 business days. Tigo Money wallet deliveries can arrive within minutes once the provider processes the transfer.",
+      },
+      {
+        question: "Can I send money to a Tigo Money wallet in Honduras?",
+        answer:
+          "Yes. Tigo Money is Honduras's most popular mobile wallet and is supported by several international transfer providers including Remitly and WorldRemit. Your recipient just needs an active Tigo Money account linked to their Honduran phone number. Wallet deliveries often arrive within minutes.",
+      },
+      {
+        question: "Is cash pickup available for money transfers to Honduras?",
+        answer:
+          "Yes, and it is the most widely used delivery method in Honduras due to low banking penetration. Western Union, MoneyGram, and Ria all have extensive agent networks covering major cities like Tegucigalpa and San Pedro Sula as well as smaller towns. Recipients bring a valid ID and the transfer reference number to collect their funds in lempiras.",
+      },
+      {
+        question: "What banks can I send money to in Honduras?",
+        answer:
+          "The largest receiving banks are Banco Atlantida, BAC Honduras (Credomatic), and Ficohsa. Other options include Banco de Occidente, Banpais, and Banco Ficensa. Most international transfer providers support deposits to these banks using the recipient's account number.",
+      },
+      {
+        question: "Are there taxes on receiving remittances in Honduras?",
+        answer:
+          "No. Honduras does not impose income tax on personal inbound remittances. Recipients keep the full amount delivered whether collected as cash, deposited to a bank account, or received via Tigo Money. The Banco Central de Honduras regulates all foreign exchange transactions but places no levies on incoming personal transfers.",
+      },
+      {
+        question: "What exchange rate will I get for HNL transfers?",
+        answer:
+          "The Honduran lempira (HNL) operates under a managed float regime overseen by the Banco Central de Honduras. The lempira has been relatively stable against the US dollar, but each transfer provider sets its own HNL rate with varying markups above the mid-market rate. The difference between the best and worst provider can exceed 2–4% on a single transfer, so comparing rates is essential.",
+      },
+      {
+        question: "How much money can I send to Honduras?",
+        answer:
+          "Honduras places no government caps on incoming personal remittances — recipients can receive unlimited amounts for personal use. However, individual transfer providers impose their own per-transaction and daily limits, which vary by provider, funding method, and your verification level. For large transfers above $10,000, expect additional identity verification from both your provider and the receiving institution.",
+      },
+      {
+        question: "What is the best way to send money from the US to Honduras?",
+        answer:
+          "From the US, the cheapest option is usually a digital provider like Remitly, Wise, or Xoom funded via ACH bank transfer. If your recipient needs cash, Remitly and Xoom offer cash pickup at thousands of agent locations across Honduras. For bank deposits, Wise and OFX typically provide the best exchange rates on larger transfers. Compare total HNL received across providers before sending.",
+      },
+      {
+        question: "Is it safe to send money to Honduras online?",
+        answer:
+          "Yes. Licensed transfer providers like Wise, Remitly, Western Union, and Xoom are regulated by financial authorities in both the sending and receiving countries. The Banco Central de Honduras oversees all inbound foreign exchange. Choose a provider that is licensed in your country, uses encryption, and has positive user reviews. Avoid informal or unlicensed transfer channels.",
+      },
+    ],
+  },
 };

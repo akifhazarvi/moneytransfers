@@ -2819,6 +2819,572 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+  // ── Central America corridors ──
+  {
+    slug: "usa-to-honduras",
+    fromCountry: "United States",
+    toCountry: "Honduras",
+    fromCurrency: "USD",
+    toCurrency: "HNL",
+    fromFlag: "🇺🇸",
+    toFlag: "🇭🇳",
+    sampleAmount: 500,
+    intro:
+      "Honduras received over $8 billion in remittances in 2023, representing roughly 25% of the country's GDP. The vast majority of these transfers originate from the United States, making USD to HNL one of the most important corridors in Central America.",
+    context:
+      "The USD to HNL corridor is driven by a large Honduran diaspora in the US, estimated at over 1 million people concentrated in cities like Houston, Miami, New York, and Los Angeles. Remittances are a lifeline for Honduran families, funding education, healthcare, and daily living expenses. Cash pickup remains the dominant delivery method, with Western Union, MoneyGram, and Remitly operating extensive agent networks across Honduras. On the banking side, Banco Atlántida, BAC Honduras, and Ficohsa are the largest receiving institutions. Tigo Money, a mobile wallet from Millicom, is gaining traction for digital delivery, particularly in rural areas where bank access is limited.",
+    feesNote:
+      "Fees on the USD to HNL corridor range from $0 (promotional offers from Remitly and WorldRemit) to $5–$10 for standard transfers. Wise charges around 0.5–1% with the mid-market exchange rate. Western Union and MoneyGram charge $5–$15 per transaction plus exchange rate markups of 1.5–3%. For a $500 transfer, using a digital provider over a traditional operator typically delivers HNL 100–400 more to the recipient.",
+    deliveryNote:
+      "Cash pickup is available within minutes through Western Union and MoneyGram at thousands of agent locations across Honduras, including Tegucigalpa, San Pedro Sula, La Ceiba, and rural towns. Bank deposits to Banco Atlántida, BAC Honduras, and Ficohsa arrive within 1–2 business days. Tigo Money wallet delivery is near-instant where supported. Remitly and WorldRemit offer express delivery options for both cash pickup and bank deposit.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Honduras?",
+        a: "Wise and Remitly are consistently the most cost-effective options for USD to HNL transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent zero-fee promotions for new and returning users. For a $500 transfer, using a digital provider over Western Union or a bank wire saves HNL 100–400 in total value received. Xoom (PayPal) is another popular option with fast delivery to Honduran banks and cash pickup locations, though its exchange rate markup is slightly higher than Wise.",
+      },
+      {
+        q: "How long does a money transfer from the USA to Honduras take?",
+        a: "Cash pickup through Western Union, MoneyGram, and Remitly is available within minutes at agent locations across Honduras. Bank deposits to Banco Atlántida, BAC Honduras, Ficohsa, and Banco de Occidente typically arrive within 1–2 business days via Wise, Remitly, or Xoom. Tigo Money wallet delivery is near-instant once the provider processes the transfer. Traditional bank SWIFT transfers take 3–5 business days and may incur correspondent bank deductions. Funding with a US debit card speeds up provider processing compared to ACH bank transfers, which take 1–3 days to clear.",
+      },
+      {
+        q: "Can I send money to a Tigo Money wallet in Honduras?",
+        a: "Yes, Tigo Money is supported as a delivery method by select providers on the USD to HNL corridor. Tigo Money, operated by Millicom, is Honduras's leading mobile wallet and allows recipients to receive funds, pay bills, buy airtime, and cash out at Tigo agent locations. Delivery is near-instant once the sending provider processes the transfer. WorldRemit and Remitly support mobile wallet delivery to Honduras. The recipient needs a Tigo Money-registered Honduran mobile number. This is particularly useful for recipients in rural areas where bank branches are scarce but Tigo agents are present.",
+      },
+      {
+        q: "What banks can I send money to in Honduras?",
+        a: "All major digital providers support bank deposits to Honduras's largest banks. Banco Atlántida is the largest private bank in Honduras and is widely supported by Wise, Remitly, Xoom, and WorldRemit. BAC Honduras (part of BAC Credomatic, Central America's largest banking group), Ficohsa, Banco de Occidente, and Banpaís are also commonly supported receiving banks. You will need the recipient's full name (matching their bank records), bank name, and account number. Honduras uses a domestic account numbering system — there is no IBAN format. Some providers may also require the branch name or location.",
+      },
+      {
+        q: "Are there limits on sending money from the US to Honduras?",
+        a: "Transfer limits vary by provider. Wise allows up to $1,000,000 per transfer for fully verified accounts. Remitly limits vary by delivery method, typically $2,999–$10,000 per transaction. Western Union and MoneyGram have per-transaction limits of $5,000–$7,500 for online transfers. US regulations require financial institutions to file a Currency Transaction Report (CTR) for transfers over $10,000 under the Bank Secrecy Act — this is a reporting requirement, not a prohibition. On the Honduran side, the Central Bank of Honduras (BCH) monitors incoming remittances but does not restrict how much an individual can receive. For very large transfers, OFX and XE offer better rates and dedicated support.",
+      },
+    ],
+  },
+  // ── Nepal corridors ──
+  {
+    slug: "usa-to-nepal",
+    fromCountry: "United States",
+    toCountry: "Nepal",
+    fromCurrency: "USD",
+    toCurrency: "NPR",
+    fromFlag: "🇺🇸",
+    toFlag: "🇳🇵",
+    sampleAmount: 500,
+    intro:
+      "Nepal receives over $9 billion in remittances annually, representing approximately 25% of the country's GDP. The United States is a major source of these transfers, with a growing Nepali diaspora sending regular support to families back home.",
+    context:
+      "The USD to NPR corridor serves a rapidly growing Nepali community in the US, concentrated in cities like New York, Dallas, and the Washington DC metro area. Remittances are critical to Nepal's economy, funding household consumption, education, and healthcare. Nepal Rastra Bank (the central bank) regulates incoming remittances and encourages the use of formal channels over informal hawala networks. On the receiving side, eSewa and Khalti are Nepal's leading mobile wallets, offering digital delivery in both urban and rural areas. IME and Prabhu are the two largest domestic remittance networks, operating thousands of agent locations across Nepal's 77 districts. ConnectIPS facilitates interbank transfers domestically.",
+    feesNote:
+      "Wise charges around 0.5–1% with the real mid-market exchange rate for USD to NPR transfers. Remitly offers competitive rates with zero-fee promotions for first-time users. Western Union and MoneyGram charge $5–$15 per transaction plus exchange rate markups of 1.5–3%. For a $500 transfer, using a digital provider over a traditional operator delivers NPR 500–1,500 more to the recipient. IME Pay and Prabhu Money Transfer also offer direct corridors from the US with competitive pricing.",
+    deliveryNote:
+      "Cash pickup is available within minutes through IME, Prabhu, Western Union, and MoneyGram at thousands of agent locations across Nepal, including Kathmandu, Pokhara, Biratnagar, and remote hill districts. Bank deposits to Nepal's major banks (Nepal Bank, Rastriya Banijya Bank, Nabil Bank, NIC Asia) arrive within 1–2 business days. eSewa and Khalti wallet delivery is near-instant where supported. Traditional bank SWIFT transfers take 3–5 business days with potential delays due to Nepal's banking infrastructure.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Nepal?",
+        a: "Wise and Remitly are consistently the most cost-effective options for USD to NPR transfers. Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5–1%. Remitly offers competitive rates with frequent promotional offers, including zero-fee first transfers. IME Pay, operated by Nepal's largest domestic remittance network IME Group, also offers direct US-to-Nepal transfers at competitive rates. For a $500 transfer, using a digital provider over a traditional operator saves NPR 500–1,500. Western Union and MoneyGram have the widest cash pickup networks in Nepal but charge more in exchange rate markup.",
+      },
+      {
+        q: "How long does a money transfer from the USA to Nepal take?",
+        a: "Cash pickup through IME, Prabhu, Western Union, and MoneyGram is available within minutes at agent locations across Nepal. Bank deposits to Nepali accounts typically arrive within 1–2 business days via Wise, Remitly, or WorldRemit. eSewa and Khalti wallet delivery is near-instant once the provider processes the transfer. Traditional bank SWIFT transfers take 3–5 business days and may incur correspondent bank deductions. Nepal's banking hours are Sunday through Thursday (Friday is a half-day, Saturday is a holiday), so transfer timing affects bank deposit speed.",
+      },
+      {
+        q: "Can I send money to eSewa or Khalti from the US?",
+        a: "Yes, eSewa and Khalti are increasingly supported as delivery methods for international transfers to Nepal. WorldRemit and select providers offer direct eSewa wallet delivery. eSewa is Nepal's largest mobile wallet with over 10 million users, allowing recipients to pay bills, shop online, and cash out at thousands of agent locations. Khalti is the second-largest digital wallet and is growing rapidly. Both wallets are regulated by Nepal Rastra Bank. For recipients in rural Nepal where bank branches are scarce, mobile wallet delivery is often the most convenient option because eSewa and Khalti agents are present even in remote hill districts.",
+      },
+      {
+        q: "What is the IME remittance network in Nepal?",
+        a: "IME (International Money Express) is Nepal's largest domestic remittance company, operating over 25,000 agent locations across all 77 districts. IME has partnerships with international providers including Western Union and Remitly, enabling cash pickup delivery across its vast network. IME Pay, the group's digital wallet, allows recipients to receive remittances directly to their phone. IME also offers its own international transfer service from several countries including the US, enabling direct transfers without third-party intermediaries. The company is regulated by Nepal Rastra Bank and is considered the most trusted remittance brand in Nepal.",
+      },
+      {
+        q: "Are there limits on sending money to Nepal from the US?",
+        a: "US-side limits vary by provider. Wise allows up to $1,000,000 per transfer for verified accounts. Remitly has per-transaction limits of $2,999–$10,000 depending on the delivery method. Western Union online limits range from $5,000–$7,500 per transaction. US regulations require CTR filing for transfers over $10,000 under the Bank Secrecy Act. On the Nepali side, Nepal Rastra Bank does not restrict incoming remittance amounts for individuals, but banks must report large receipts. The Nepali rupee is pegged to the Indian rupee at a fixed rate of NPR 1.60 per INR 1, meaning NPR/USD movements track INR/USD closely. Keep all transfer receipts for US tax documentation purposes.",
+      },
+    ],
+  },
+  {
+    slug: "uk-to-nepal",
+    fromCountry: "United Kingdom",
+    toCountry: "Nepal",
+    fromCurrency: "GBP",
+    toCurrency: "NPR",
+    fromFlag: "🇬🇧",
+    toFlag: "🇳🇵",
+    sampleAmount: 500,
+    intro:
+      "The UK is home to a significant Nepali community, with deep historical ties rooted in the British Gurkha military tradition. Thousands of Gurkha veterans and their families, along with students and professionals, send money from the UK to Nepal regularly.",
+    context:
+      "The GBP to NPR corridor is shaped by the UK's unique relationship with Nepal, primarily through the Brigade of Gurkhas. Since the Gurkha settlement rights granted in 2009, tens of thousands of Gurkha veterans and their families have settled across the UK, particularly in Aldershot, Folkestone, and Reading. Beyond the military community, Nepali students and healthcare workers also contribute to remittance flows. WorldRemit and Wise are the most popular digital providers for this corridor. On the receiving side, IME and Prabhu operate extensive agent networks across Nepal, while eSewa and Khalti mobile wallets offer digital delivery. Nepal Rastra Bank regulates incoming remittances and actively promotes formal channel usage.",
+    feesNote:
+      "Wise charges around 0.5–1% with the real mid-market exchange rate for GBP to NPR transfers. WorldRemit offers competitive rates with frequent zero-fee promotions and strong coverage of Nepali delivery options. Remitly is also competitive on this corridor. UK bank SWIFT transfers cost £20–£40 in fees plus exchange rate markups of 2–4%. For a £500 transfer, using a digital provider over a UK bank saves NPR 1,500–4,000 in total value received.",
+    deliveryNote:
+      "Cash pickup through IME, Prabhu, Western Union, and MoneyGram is available within minutes across Nepal's 77 districts. Bank deposits to Nabil Bank, NIC Asia, Nepal Bank, and other Nepali banks arrive within 1–2 business days via Wise or WorldRemit. eSewa and Khalti wallet delivery is near-instant where supported. UK bank SWIFT transfers take 3–5 business days. Funding via UK Faster Payments from a UK bank account is instant and free, so the main delay is provider processing time.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the UK to Nepal?",
+        a: "Wise and WorldRemit are consistently the cheapest options for GBP to NPR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, making the total cost fully visible upfront. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and wide delivery options in Nepal. For a £500 transfer, using a digital provider over a UK bank (Barclays, HSBC, NatWest) saves NPR 1,500–4,000 in total cost. Remitly is also competitive, particularly for cash pickup delivery. Always compare the total NPR received rather than just the advertised fee.",
+      },
+      {
+        q: "How long does a transfer from the UK to Nepal take?",
+        a: "Cash pickup through IME and Prabhu networks is available within minutes at thousands of locations across Nepal. Bank deposits to Nepali bank accounts arrive within 1–2 business days via Wise, WorldRemit, or Remitly. eSewa wallet delivery is near-instant once processed. UK bank SWIFT transfers take 3–5 business days with potential correspondent bank delays. Nepal's banking week runs Sunday to Thursday (Friday half-day, Saturday closed), so timing affects bank deposit delivery. Funding via UK Faster Payments is instant, so provider processing time is the main variable.",
+      },
+      {
+        q: "Can I send money to Nepal from the UK for a Gurkha pension recipient?",
+        a: "Yes, many Gurkha veterans and their families in the UK regularly send money to relatives in Nepal. Wise and WorldRemit are popular choices in the Gurkha community due to their low costs and reliable delivery. Cash pickup is often preferred by older recipients in Nepal who may not have bank accounts — IME and Prabhu have agents in Gurkha-heavy districts like Gorkha, Lamjung, Kaski, and Syangja. For regular monthly transfers, setting up a recurring transfer on Wise can save time. The Gurkha Welfare Trust also provides financial guidance for veterans navigating remittance options.",
+      },
+      {
+        q: "What delivery options are available for Nepal transfers from the UK?",
+        a: "The UK to Nepal corridor supports multiple delivery methods. Cash pickup is available within minutes at over 25,000 IME and Prabhu agent locations, plus Western Union and MoneyGram points. Bank deposits reach Nabil Bank, NIC Asia, Nepal Bank, Himalayan Bank, and others within 1–2 business days. eSewa wallet delivery is near-instant and is ideal for tech-savvy recipients. Khalti wallet is also gaining support. For rural recipients, cash pickup through IME or Prabhu is the most accessible option, as agents operate even in remote hill and mountain districts.",
+      },
+      {
+        q: "Is it safe to send money to Nepal online from the UK?",
+        a: "Yes, licensed money transfer providers operating in the UK are regulated by the Financial Conduct Authority (FCA). Wise, WorldRemit, Remitly, and Western Union are all FCA-authorised and must adhere to strict consumer protection, anti-money-laundering, and data security standards. You can verify a provider's licence on the FCA register. These providers use bank-level encryption and two-factor authentication. On the receiving side, Nepal Rastra Bank regulates all incoming remittance channels. Always use FCA-licensed providers and avoid informal transfer methods, which are illegal and offer no consumer protection.",
+      },
+    ],
+  },
+  {
+    slug: "uae-to-nepal",
+    fromCountry: "United Arab Emirates",
+    toCountry: "Nepal",
+    fromCurrency: "AED",
+    toCurrency: "NPR",
+    fromFlag: "🇦🇪",
+    toFlag: "🇳🇵",
+    sampleAmount: 1000,
+    intro:
+      "The UAE hosts a large Nepali worker population, estimated at over 200,000, making AED to NPR one of the most important Gulf remittance corridors for Nepal. Workers in construction, hospitality, and services send regular remittances to support families back home.",
+    context:
+      "The AED to NPR corridor is driven by Nepali migrant workers across the UAE, concentrated in Dubai, Abu Dhabi, and Sharjah. Many work in construction, hospitality, retail, and domestic services under the kafala sponsorship system. Exchange houses like Al Ansari Exchange, UAE Exchange (now Unimoni), and Al Rostamani are the traditional transfer channels, with branches near labour camps and worker-heavy areas. IME and Prabhu, Nepal's two largest domestic remittance networks, have established offices and partnerships in the UAE to serve this corridor directly. Wise and WorldRemit are gaining traction among digitally savvy senders. The UAE Central Bank regulates all money transfer operators under the Stored Value Facilities Regulation.",
+    feesNote:
+      "UAE exchange houses charge AED 10–25 per transfer with exchange rate markups of 1–2.5%. Wise charges around 0.5–1% with the real mid-market exchange rate. IME and Prabhu offices in the UAE offer competitive rates specifically for the Nepal corridor, typically 0.5–1.5% total cost. For an AED 1,000 transfer (approximately NPR 35,000–37,000), using a digital provider or Nepal-specialist exchange house over a UAE bank saves NPR 500–1,500 in total value received.",
+    deliveryNote:
+      "Cash pickup through IME and Prabhu is available within minutes at over 25,000 agent locations across Nepal. Bank deposits to Nepali banks (Nabil Bank, NIC Asia, Nepal Bank, Himalayan Bank) arrive within 1–2 business days. eSewa and Khalti wallet delivery is near-instant where supported. UAE exchange house transfers typically complete within same-day to 1 business day for cash pickup. Traditional bank SWIFT transfers take 3–5 business days. Many Nepali workers send money on Fridays (the UAE weekend), and providers with weekend processing offer an advantage.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the UAE to Nepal?",
+        a: "IME and Prabhu offices in the UAE offer some of the most competitive rates for AED to NPR transfers, with fees of AED 10–15 and exchange rates close to the mid-market rate. Wise is also highly competitive, charging around 0.5–1% with the real mid-market rate and no hidden markup. Al Ansari Exchange and Unimoni (formerly UAE Exchange) are widely used but tend to have slightly wider exchange rate spreads. For an AED 1,000 transfer, comparing all providers on the day you send can mean a difference of NPR 300–1,000 received. Digital providers are increasingly offering better value than high-street exchange houses.",
+      },
+      {
+        q: "How long does a transfer from the UAE to Nepal take?",
+        a: "Cash pickup through IME and Prabhu networks is available within minutes at thousands of agent locations across Nepal. Al Ansari Exchange and Unimoni also offer same-day cash pickup. Bank deposits to Nepali bank accounts arrive within 1–2 business days via Wise, IME, or Prabhu. eSewa wallet delivery is near-instant once processed. UAE bank SWIFT transfers take 3–5 business days with potential correspondent bank delays. Nepal's banking week is Sunday to Thursday (Friday half-day, Saturday closed), so transfers initiated on UAE weekdays may align better with Nepali banking hours.",
+      },
+      {
+        q: "Can I use exchange houses in the UAE to send money to Nepal?",
+        a: "Yes, UAE exchange houses are the most traditional and widely used channel for AED to NPR transfers. Al Ansari Exchange (the UAE's largest exchange house with 200+ branches), Unimoni, Al Rostamani, and Lulu Exchange all offer Nepal remittance services. Many exchange houses have branches near labour accommodations in Dubai, Abu Dhabi, and Sharjah for easy access. IME and Prabhu have their own offices in the UAE specifically serving the Nepali community. All exchange houses are licensed and regulated by the UAE Central Bank. Walk-in service requires a valid Emirates ID, and rates are posted at the counter — always compare the total NPR you will receive.",
+      },
+      {
+        q: "Do IME and Prabhu have offices in the UAE?",
+        a: "Yes, both IME and Prabhu have established physical offices and partnerships in the UAE to serve the large Nepali worker community. IME operates through IME Remit with offices in Dubai and Abu Dhabi, offering direct transfers to its 25,000+ agent network across Nepal. Prabhu Money Transfer also has UAE offices and partners with local exchange houses. These Nepal-specialist operators often provide the most competitive exchange rates for AED to NPR because they specialize in this corridor. They accept walk-in customers with Emirates ID and also offer online and app-based transfers for convenience.",
+      },
+      {
+        q: "Are there limits on sending money from the UAE to Nepal?",
+        a: "UAE regulations require identity verification for all remittance transactions. Exchange houses typically allow up to AED 5,000 per transaction without additional documentation, with higher limits available for verified customers. The UAE Central Bank requires enhanced due diligence for transfers exceeding AED 35,000. Wise has higher per-transaction limits for verified accounts. On the Nepali side, Nepal Rastra Bank does not restrict incoming remittance amounts for individuals. Nepali workers in the UAE need a valid Emirates ID to send money through licensed channels. Keep all transfer receipts, as Nepal customs may request proof of formal remittance for tax-free import of goods.",
+      },
+    ],
+  },
+  // ── Sri Lanka corridors ──
+  {
+    slug: "usa-to-sri-lanka",
+    fromCountry: "United States",
+    toCountry: "Sri Lanka",
+    fromCurrency: "USD",
+    toCurrency: "LKR",
+    fromFlag: "🇺🇸",
+    toFlag: "🇱🇰",
+    sampleAmount: 500,
+    intro:
+      "Sri Lanka received over $6 billion in remittances in recent years, with transfers becoming even more critical following the 2022 economic crisis. The United States is a major source of diaspora remittances, and the cost difference between providers can be significant on the USD to LKR corridor.",
+    context:
+      "The USD to LKR corridor serves a growing Sri Lankan diaspora in the US, estimated at over 100,000 people concentrated in the New York/New Jersey area, Los Angeles, and the Washington DC metro. Following Sri Lanka's economic crisis in 2022, the Central Bank of Sri Lanka (CBSL) has actively encouraged formal remittance channels, as foreign currency inflows are critical to the country's recovery and debt restructuring. The Sri Lankan rupee experienced significant depreciation, making exchange rate comparison even more important. Bank of Ceylon (BOC), People's Bank, Commercial Bank of Ceylon, and Hatton National Bank are the main receiving institutions. Lanka Money Transfer (LMT) is a domestic network processing international remittances.",
+    feesNote:
+      "Wise charges around 0.5–1% with the real mid-market exchange rate for USD to LKR transfers. Remitly offers competitive rates with zero-fee promotions for first-time users. Western Union and MoneyGram charge $5–$15 per transaction plus exchange rate markups of 1.5–3%. For a $500 transfer, using a digital provider over a traditional operator delivers LKR 2,000–6,000 more to the recipient. Since the LKR depreciation in 2022, even small percentage differences in exchange rate markup translate to larger absolute differences in rupees received.",
+    deliveryNote:
+      "Bank deposits to Bank of Ceylon, People's Bank, Commercial Bank, and Hatton National Bank arrive within 1–2 business days via Wise, Remitly, or WorldRemit. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Sri Lanka, including Colombo, Kandy, Galle, and Jaffna. Traditional bank SWIFT transfers take 3–5 business days. Sri Lankan banks operate Monday through Friday, so weekend transfers are queued for Monday processing.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the USA to Sri Lanka?",
+        a: "Wise and Remitly are consistently the most cost-effective options for USD to LKR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, ensuring no hidden exchange rate markup. Remitly offers competitive rates with frequent promotional offers for new users. WorldRemit is also competitive with wide delivery options in Sri Lanka. For a $500 transfer, using a digital provider over a traditional operator saves LKR 2,000–6,000 in total value. Since the LKR depreciation, getting the best possible exchange rate has become even more impactful for recipients.",
+      },
+      {
+        q: "How long does a money transfer from the USA to Sri Lanka take?",
+        a: "Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Sri Lanka. Bank deposits to Sri Lankan accounts typically arrive within 1–2 business days via Wise, Remitly, or WorldRemit. Traditional bank SWIFT transfers take 3–5 business days with potential correspondent bank deductions. Sri Lankan banks operate Monday through Friday (closed on Poya full-moon days, which are public holidays), so timing around these holidays affects deposit speed. Funding with a US debit card speeds up provider processing compared to ACH bank transfers, which take 1–3 days to clear.",
+      },
+      {
+        q: "Has the Sri Lanka economic crisis affected money transfers?",
+        a: "The 2022 economic crisis led to significant LKR depreciation and a temporary dual exchange rate system. The Central Bank of Sri Lanka has since unified the exchange rate and actively encourages formal remittance channels to boost foreign currency inflows. Licensed providers like Wise, Remitly, and WorldRemit now offer exchange rates that are much closer to the open market rate. The crisis has made remittances even more critical for Sri Lankan families, as the purchasing power of local salaries has declined. Using a provider with the real mid-market rate ensures your recipient gets the maximum LKR value from each dollar sent.",
+      },
+      {
+        q: "What banks can I send money to in Sri Lanka?",
+        a: "All major digital providers support bank deposits to Sri Lanka's main commercial banks. Bank of Ceylon (BOC) and People's Bank are the two largest state-owned banks with the widest branch networks. Commercial Bank of Ceylon, Hatton National Bank (HNB), Sampath Bank, and National Savings Bank are also widely supported. You will need the recipient's full name, bank name, branch name, and account number. Sri Lanka does not use the IBAN system — domestic account numbers are used. For recipients in the Northern and Eastern provinces, Bank of Ceylon and People's Bank have the most extensive branch coverage.",
+      },
+      {
+        q: "Are there limits on sending money to Sri Lanka from the US?",
+        a: "US-side transfer limits vary by provider. Wise allows up to $1,000,000 per transfer for verified accounts. Remitly has per-transaction limits of $2,999–$10,000. Western Union online limits are $5,000–$7,500 per transaction. US CTR reporting applies for transfers over $10,000. On the Sri Lankan side, the Central Bank of Sri Lanka does not restrict incoming remittance amounts for individuals, and in fact encourages large formal transfers as part of its foreign exchange recovery strategy. Recipients receiving large amounts may need to provide documentation to their bank regarding the source and purpose of funds. Keep all transfer receipts for US tax compliance.",
+      },
+    ],
+  },
+  {
+    slug: "uk-to-sri-lanka",
+    fromCountry: "United Kingdom",
+    toCountry: "Sri Lanka",
+    fromCurrency: "GBP",
+    toCurrency: "LKR",
+    fromFlag: "🇬🇧",
+    toFlag: "🇱🇰",
+    sampleAmount: 500,
+    intro:
+      "The UK is home to a large Sri Lankan diaspora, including both Tamil and Sinhalese communities, making GBP to LKR an important South Asian remittance corridor. With remittances playing a vital role in Sri Lanka's economic recovery, choosing the right provider ensures maximum value for recipients.",
+    context:
+      "The GBP to LKR corridor serves an estimated 200,000-strong Sri Lankan community in the UK, concentrated in London (particularly Tooting, Harrow, and East Ham), as well as Manchester, Birmingham, and other major cities. The community includes both Sinhalese and Tamil populations, with the Tamil diaspora having grown significantly following the civil conflict. Wise and WorldRemit are the most popular digital providers for this corridor. Traditional channels include SWIFT transfers through UK banks and high-street money transfer shops. The Central Bank of Sri Lanka actively promotes formal remittance channels following the 2022 economic crisis. On the receiving side, Bank of Ceylon, Commercial Bank, and Hatton National Bank are the main institutions.",
+    feesNote:
+      "Wise charges around 0.5–1% with the real mid-market exchange rate for GBP to LKR transfers. WorldRemit offers competitive rates with frequent zero-fee promotions. UK bank SWIFT transfers cost £20–£40 in fees plus exchange rate markups of 2–4%. For a £500 transfer, using a digital provider over a UK bank saves LKR 5,000–15,000 in total value received. Remitly is also competitive with promotional offers for new users.",
+    deliveryNote:
+      "Bank deposits to Bank of Ceylon, Commercial Bank, Hatton National Bank, and Sampath Bank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and MoneyGram is available within minutes across Sri Lanka. UK bank SWIFT transfers take 3–5 business days. Funding via UK Faster Payments is instant and free, so the main delay is provider processing. Sri Lankan banks are closed on Poya (full-moon) days, which are national holidays, affecting deposit timing.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the UK to Sri Lanka?",
+        a: "Wise and WorldRemit are consistently the cheapest options for GBP to LKR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions. For a £500 transfer, using a digital provider over a UK bank saves LKR 5,000–15,000 in total cost. Remitly is also competitive, especially for first-time users. Traditional high-street money transfer shops in areas like Tooting and East Ham may offer competitive cash rates but lack the convenience and transparency of digital providers.",
+      },
+      {
+        q: "How long does a transfer from the UK to Sri Lanka take?",
+        a: "Bank deposits to Sri Lankan bank accounts arrive within 1–2 business days via Wise, WorldRemit, or Remitly. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Sri Lanka. UK bank SWIFT transfers take 3–5 business days with potential correspondent bank deductions. Funding via UK Faster Payments is instant and free, so provider processing time is the main variable. Sri Lankan banks operate Monday through Friday, closed on weekends and Poya days, which can affect deposit timing if your transfer arrives outside banking hours.",
+      },
+      {
+        q: "Can I send money to Jaffna and the Northern Province from the UK?",
+        a: "Yes, all major providers support delivery to Sri Lanka's Northern and Eastern provinces. Bank deposits reach Bank of Ceylon, People's Bank, and Commercial Bank branches in Jaffna, Kilinochchi, Mullaitivu, and Batticaloa. Cash pickup through Western Union and MoneyGram is also available in these areas. The Tamil diaspora in the UK regularly sends money to these regions. Wise and WorldRemit both support transfers to any Sri Lankan bank account regardless of location. Bank of Ceylon and People's Bank have the widest branch coverage in the north and east.",
+      },
+      {
+        q: "Are UK money transfer providers regulated for Sri Lanka transfers?",
+        a: "Yes, all money transfer providers operating in the UK are regulated by the Financial Conduct Authority (FCA). Wise, WorldRemit, Remitly, and Western Union are all FCA-authorised and must adhere to strict consumer protection, anti-money-laundering, and data security standards. You can verify any provider's licence on the FCA register. These providers use bank-level encryption and two-factor authentication. On the receiving side, the Central Bank of Sri Lanka regulates incoming remittance channels. Always use FCA-licensed providers to ensure your transfer is protected.",
+      },
+      {
+        q: "How has the LKR exchange rate affected UK to Sri Lanka transfers?",
+        a: "The Sri Lankan rupee depreciated significantly during the 2022 economic crisis, moving from approximately LKR 270 per GBP to over LKR 400 per GBP. This means each pound now converts to substantially more rupees, increasing the purchasing power of UK remittances. However, this also means that exchange rate markups by providers represent a larger absolute LKR loss. A 2% markup on a £500 transfer now costs LKR 4,000+ in lost value, compared to LKR 2,700 before the depreciation. Using a provider like Wise that offers the real mid-market rate with no markup is more important than ever to maximize the value received.",
+      },
+    ],
+  },
+  // ── Malaysia corridors ──
+  {
+    slug: "malaysia-to-india",
+    fromCountry: "Malaysia",
+    toCountry: "India",
+    fromCurrency: "MYR",
+    toCurrency: "INR",
+    fromFlag: "🇲🇾",
+    toFlag: "🇮🇳",
+    sampleAmount: 2000,
+    intro:
+      "Malaysia is home to approximately 2 million ethnic Indians and a significant Indian expatriate community, making MYR to INR a major remittance corridor in Southeast Asia. Comparing providers can save hundreds of rupees on every transfer.",
+    context:
+      "The MYR to INR corridor serves Malaysia's diverse Indian community, which includes multi-generational Malaysian Indians (primarily Tamil), IT professionals, construction workers, and plantation workers. Malaysia's Indian population is one of the largest outside India. The corridor is well-served by both regional fintech players and global providers. Instarem, headquartered in Singapore, is particularly strong on APAC corridors and offers competitive MYR to INR rates. Wise is also widely used. On the receiving side, India's IMPS and UPI infrastructure enables near-instant bank deposits. Bank Negara Malaysia (the central bank) regulates all money transfer operators under the Money Services Business Act 2011.",
+    feesNote:
+      "Instarem charges around 0.5–1% with competitive exchange rates on the MYR to INR corridor, making it one of the best options for APAC transfers. Wise charges approximately 0.5–1% with the real mid-market exchange rate. Malaysian bank SWIFT transfers cost MYR 20–50 in fees plus exchange rate markups of 2–4%. Western Union charges MYR 5–15 per transaction plus a wider spread. For an MYR 2,000 transfer (approximately INR 37,000–40,000), using a digital provider over a Malaysian bank saves INR 800–2,500 in total cost.",
+    deliveryNote:
+      "Wise and Instarem deliver to Indian bank accounts within 1–2 business days, with many transfers arriving same-day via IMPS. India's 24/7 IMPS system means there is no delay for weekends or bank holidays on the receiving side. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across India. Malaysian bank SWIFT transfers take 3–5 business days. Funding from a Malaysian bank account via DuitNow or FPX is fast and convenient.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Malaysia to India?",
+        a: "Instarem and Wise are consistently the cheapest options for MYR to INR transfers. Instarem, an APAC-focused fintech headquartered in Singapore, charges around 0.5–1% with competitive exchange rates optimized for Asian corridors. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. For an MYR 2,000 transfer, using a digital provider over a Malaysian bank (Maybank, CIMB, Public Bank) saves INR 800–2,500. DeeMoney is another option gaining traction in Southeast Asian corridors. Always compare the total INR received rather than just the advertised fee.",
+      },
+      {
+        q: "How long does a transfer from Malaysia to India take?",
+        a: "Wise and Instarem deliver to Indian bank accounts within 1–2 business days, with same-day delivery common via India's IMPS (Immediate Payment Service) system. IMPS operates 24/7, including weekends and holidays, so there is no receiving-side delay. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across India. Malaysian bank SWIFT transfers take 3–5 business days with potential correspondent bank deductions. Funding via FPX or DuitNow from a Malaysian bank account is processed quickly, so the main delay is provider processing time on the MYR to INR conversion.",
+      },
+      {
+        q: "Is Instarem available in Malaysia for India transfers?",
+        a: "Yes, Instarem operates in Malaysia and is licensed by Bank Negara Malaysia under the Money Services Business Act. Instarem, headquartered in Singapore, has built strong payment infrastructure across the Asia-Pacific region and is particularly competitive on intra-Asian corridors like MYR to INR. The platform charges 0.5–1% with exchange rates close to the mid-market rate. Instarem delivers to any Indian bank account via IMPS or NEFT, with most transfers arriving within 1–2 business days. The InstaRewards programme offers credits for frequent senders. The app is available in English and Malay and supports customer service for the Malaysian market.",
+      },
+      {
+        q: "Can I send money to a UPI account in India from Malaysia?",
+        a: "While direct UPI ID delivery from Malaysia is limited, most digital providers deliver to the Indian bank account linked to the recipient's UPI apps (Google Pay, PhonePe, Paytm). Wise and Instarem deliver via IMPS to any Indian bank account, and funds are immediately available through the recipient's UPI-connected apps. The recipient can then use UPI for payments, transfers, and withdrawals as normal. India's National Payments Corporation (NPCI) is expanding UPI international integration, and direct UPI delivery from Malaysian providers is expected to become available in the future.",
+      },
+      {
+        q: "Are there limits on sending money from Malaysia to India?",
+        a: "Bank Negara Malaysia allows residents to transfer up to MYR 1,000,000 per calendar year for personal purposes without additional approval. Individual transaction limits vary by provider — Wise allows high-value transfers for verified accounts, while Instarem has tiered limits based on verification level. Malaysian banks may have lower per-transaction limits for online transfers. On the Indian side, the Reserve Bank of India does not restrict incoming remittances. For transfers exceeding MYR 50,000, providers may require additional documentation such as proof of the purpose of transfer. Keep all transfer receipts for Malaysian tax documentation purposes.",
+      },
+    ],
+  },
+  {
+    slug: "malaysia-to-indonesia",
+    fromCountry: "Malaysia",
+    toCountry: "Indonesia",
+    fromCurrency: "MYR",
+    toCurrency: "IDR",
+    fromFlag: "🇲🇾",
+    toFlag: "🇮🇩",
+    sampleAmount: 2000,
+    intro:
+      "Malaysia is the single largest source of remittances to Indonesia, with an estimated 1.5 million Indonesian workers in Malaysia. MYR to IDR is the highest-volume outbound corridor from Malaysia, and comparing providers can save tens of thousands of rupiah on every transfer.",
+    context:
+      "The MYR to IDR corridor is the largest outbound remittance route from Malaysia, driven primarily by Indonesian migrant workers in construction, palm oil plantations, domestic services, and manufacturing. Many workers send money home weekly or biweekly, so even small per-transfer savings compound significantly over a year. The corridor has historically been served by traditional money changers and exchange houses, but digital providers like Wise and Instarem are rapidly gaining market share. Western Union and MoneyGram maintain wide cash pickup networks across Indonesia's archipelago. On the receiving side, Bank Central Asia (BCA), Bank Mandiri, Bank Rakyat Indonesia (BRI), and Bank Negara Indonesia (BNI) are the main receiving banks. Bank Negara Malaysia regulates all outbound remittance providers.",
+    feesNote:
+      "Wise charges around 0.5–1% with the real mid-market exchange rate for MYR to IDR transfers. Instarem is competitive on this APAC corridor with fees of 0.5–1%. Western Union charges MYR 5–15 per transaction plus exchange rate markups of 1.5–3%. Malaysian money changers charge MYR 5–10 per transfer but may offer slightly worse exchange rates. For an MYR 2,000 transfer (approximately IDR 7,000,000–7,500,000), using a digital provider over a traditional money changer saves IDR 100,000–350,000 in total value received.",
+    deliveryNote:
+      "Bank deposits to BCA, Bank Mandiri, BRI, and BNI arrive within 1–2 business days via Wise or Instarem. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Indonesia, including Jakarta, Surabaya, Medan, and rural areas. Indonesian bank transfers via the domestic BI-FAST system are increasingly fast for same-day settlement. Malaysian bank SWIFT transfers take 3–5 business days. Many Indonesian workers send money on weekends, and providers with weekend processing offer an advantage.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Malaysia to Indonesia?",
+        a: "Wise and Instarem are consistently the cheapest options for MYR to IDR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. Instarem charges 0.5–1% with competitive rates optimized for Southeast Asian corridors. For an MYR 2,000 transfer, using a digital provider over a traditional money changer or Malaysian bank saves IDR 100,000–350,000. Western Union and MoneyGram offer wide cash pickup networks across Indonesia's islands but charge more in exchange rate markup. For frequent senders, the cumulative annual savings from using a digital provider can be substantial.",
+      },
+      {
+        q: "How long does a transfer from Malaysia to Indonesia take?",
+        a: "Bank deposits to Indonesian bank accounts (BCA, Bank Mandiri, BRI, BNI) arrive within 1–2 business days via Wise or Instarem. Cash pickup through Western Union and MoneyGram is available within minutes at thousands of agent locations across Indonesia. Indonesia's BI-FAST real-time payment system is enabling faster domestic bank settlements. Malaysian bank SWIFT transfers take 3–5 business days. Funding from a Malaysian bank account via FPX or DuitNow is processed quickly. Indonesian banks operate Monday through Friday, so weekend transfers may be queued for Monday processing.",
+      },
+      {
+        q: "Can I send money to remote islands in Indonesia from Malaysia?",
+        a: "Yes, but delivery options vary by location. Cash pickup through Western Union and MoneyGram is available at agent locations across major Indonesian cities and many smaller towns. Bank deposits reach any BCA, Bank Mandiri, BRI, or BNI branch — BRI (Bank Rakyat Indonesia) has the widest rural network with branches and agents across Indonesia's 17,000 islands. For very remote areas, cash pickup at the nearest town may be the most practical option. Mobile banking in Indonesia is growing rapidly, so recipients with bank accounts can access transferred funds through their banking apps even in areas without nearby branches.",
+      },
+      {
+        q: "What documents do Indonesian workers need to send money from Malaysia?",
+        a: "Indonesian workers in Malaysia need a valid passport or i-Kad (work permit card) to use licensed money transfer services. Bank Negara Malaysia requires identity verification for all remittance transactions. For digital providers like Wise and Instarem, you will also need a Malaysian bank account or debit card for funding. If you are sending through a physical exchange house or money changer, your passport is typically sufficient. Undocumented workers face limited options through formal channels, but Malaysian authorities and NGOs encourage the use of licensed providers. All licensed operators display their Bank Negara Malaysia licence number.",
+      },
+      {
+        q: "Are there limits on sending money from Malaysia to Indonesia?",
+        a: "Bank Negara Malaysia allows residents to transfer up to MYR 1,000,000 per calendar year for personal purposes. Foreign workers may have lower annual limits depending on their visa status. Per-transaction limits vary by provider — Wise allows high-value transfers for verified accounts, while money changers may limit individual transactions to MYR 5,000–10,000. Western Union has per-transaction limits of MYR 5,000–10,000 for online transfers. On the Indonesian side, Bank Indonesia monitors incoming remittances but does not restrict how much an individual can receive. Keep all transfer receipts for potential tax and immigration documentation purposes in both countries.",
+      },
+    ],
+  },
+  {
+    slug: "malaysia-to-philippines",
+    fromCountry: "Malaysia",
+    toCountry: "Philippines",
+    fromCurrency: "MYR",
+    toCurrency: "PHP",
+    fromFlag: "🇲🇾",
+    toFlag: "🇵🇭",
+    sampleAmount: 2000,
+    intro:
+      "Malaysia hosts approximately 400,000 Filipino workers, making MYR to PHP a significant Southeast Asian remittance corridor. With regular transfers supporting families in the Philippines, choosing the cheapest provider can save thousands of pesos annually.",
+    context:
+      "The MYR to PHP corridor serves a large Filipino migrant worker community in Malaysia, employed across manufacturing, construction, domestic services, and hospitality. Many Filipino workers send money home biweekly or monthly to support families, fund education, and cover healthcare costs. GCash delivery is particularly popular among Filipino recipients for its instant access and wide usability. Wise and WorldRemit are the leading digital providers on this corridor, while Western Union and MoneyGram maintain traditional cash pickup networks. On the Philippine receiving side, BDO, BPI, Metrobank, and UnionBank are the most common bank deposit destinations. Bank Negara Malaysia regulates all outbound remittance operators.",
+    feesNote:
+      "Wise charges around 0.5–1% with the real mid-market exchange rate for MYR to PHP transfers. WorldRemit offers competitive rates with frequent zero-fee promotions. Western Union charges MYR 5–15 per transaction plus exchange rate markups of 1.5–3%. For an MYR 2,000 transfer (approximately PHP 24,000–26,000), using a digital provider over a traditional operator saves PHP 400–1,200 in total value received. Remitly is also competitive on this corridor with promotional offers for new users.",
+    deliveryNote:
+      "GCash delivery is near-instant and is the most popular method for Filipino recipients receiving money from Malaysia. Bank deposits to BDO, BPI, Metrobank, and UnionBank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union, MoneyGram, Cebuana Lhuillier, and M Lhuillier is available within minutes at tens of thousands of locations across the Philippines. Funding from a Malaysian bank account via FPX is fast and convenient. Many Filipino workers in Malaysia send on weekends, and providers with weekend processing offer an advantage.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Malaysia to the Philippines?",
+        a: "Wise and WorldRemit are consistently the cheapest options for MYR to PHP transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and supports GCash delivery. For an MYR 2,000 transfer, using a digital provider over Western Union or a money changer saves PHP 400–1,200. Remitly is also competitive with promotional offers. For workers sending biweekly, the cumulative annual savings from using a digital provider can exceed PHP 10,000–25,000.",
+      },
+      {
+        q: "Can I send money to GCash from Malaysia?",
+        a: "Yes, GCash is widely supported for remittance delivery from Malaysia. WorldRemit and Remitly both offer direct GCash delivery on the MYR to PHP corridor. The recipient needs a GCash-registered Philippine mobile number. Delivery is near-instant once the provider processes the transfer. GCash has over 90 million registered users in the Philippines and offers cash-out at over 60,000 partner locations, bill payment, online shopping, and bank transfers. For Filipino workers in Malaysia, GCash delivery is the most popular option because family members can access funds immediately without visiting a bank or pickup point.",
+      },
+      {
+        q: "How long does a transfer from Malaysia to the Philippines take?",
+        a: "GCash wallet delivery is near-instant once the provider processes the transfer. Bank deposits to BDO, BPI, Metrobank, and UnionBank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union, Cebuana Lhuillier, and M Lhuillier is available within minutes at thousands of locations. Malaysian bank SWIFT transfers take 3–5 business days. Funding from a Malaysian bank account via FPX is fast, so the main delay is provider processing time. Philippine banks operate Monday through Friday, so weekend transfers may queue for Monday settlement on bank deposits.",
+      },
+      {
+        q: "What delivery options are available for Philippines transfers from Malaysia?",
+        a: "The MYR to PHP corridor supports multiple delivery methods. GCash wallet delivery is near-instant and is the most popular option among Filipino recipients. Bank deposits reach BDO, BPI, Metrobank, UnionBank, and other Philippine banks within 1–2 business days. Cash pickup is available at Western Union, MoneyGram, Cebuana Lhuillier, M Lhuillier, and Palawan Pawnshop locations — collectively covering tens of thousands of points across the Philippines. Door-to-door delivery is offered by select providers for an additional fee. For provincial recipients, cash pickup at Cebuana or M Lhuillier branches is often the most accessible option.",
+      },
+      {
+        q: "Are there limits on sending money from Malaysia to the Philippines?",
+        a: "Bank Negara Malaysia allows residents to transfer up to MYR 1,000,000 per calendar year for personal purposes. Foreign workers may have lower limits depending on visa status. Per-transaction limits vary — Wise allows high-value transfers for verified accounts, WorldRemit has per-transaction limits typically around MYR 5,000–10,000, and Western Union has similar per-transaction caps for online transfers. On the Philippine side, the Bangko Sentral ng Pilipinas (BSP) does not restrict incoming remittance amounts. For Filipino workers in Malaysia, having a valid passport or work permit is required for identity verification with all licensed providers.",
+      },
+    ],
+  },
+  // ── Switzerland corridors ──
+  {
+    slug: "switzerland-to-india",
+    fromCountry: "Switzerland",
+    toCountry: "India",
+    fromCurrency: "CHF",
+    toCurrency: "INR",
+    fromFlag: "🇨🇭",
+    toFlag: "🇮🇳",
+    sampleAmount: 1000,
+    intro:
+      "The Swiss-Indian remittance corridor is growing rapidly, driven by India's expanding IT and pharmaceutical workforce in Switzerland. With Swiss banks charging 20–40 CHF for international SWIFT transfers, digital providers offer significantly better value on the CHF to INR route.",
+    context:
+      "The CHF to INR corridor serves a growing Indian professional community in Switzerland, concentrated in Zurich, Geneva, Basel, and Bern. Many work in IT, pharmaceuticals, financial services, and academia — sectors where India-Switzerland ties are deepening. Swiss banks (UBS, Credit Suisse/UBS, PostFinance, cantonal banks) are notoriously expensive for international transfers, charging 20–40 CHF per SWIFT transfer plus exchange rate markups of 2–4%. Switzerland is not in the EU or EEA, so SEPA credit transfers are not available for outbound payments to India. This makes digital providers like Wise particularly valuable, as they bypass the expensive SWIFT network entirely. India's IMPS and UPI systems enable near-instant bank deposits on the receiving side.",
+    feesNote:
+      "Swiss bank SWIFT transfers cost 20–40 CHF in fees plus exchange rate markups of 2–4%, making them extremely expensive for India transfers. Wise charges around 0.5–1% with the real mid-market exchange rate and no SWIFT fees. For a CHF 1,000 transfer (approximately INR 95,000–100,000), using Wise instead of a Swiss bank saves INR 3,000–6,000 in total cost. PostFinance charges CHF 20 per outbound transfer with a 1.5–2.5% exchange rate markup. Remitly is also competitive on this corridor with promotional offers.",
+    deliveryNote:
+      "Wise delivers to Indian bank accounts within 1–2 business days, with same-day delivery common via IMPS. India's 24/7 IMPS system means there is no receiving-side delay for weekends or holidays. Remitly offers express delivery within hours. Swiss bank SWIFT transfers take 3–5 business days with potential correspondent bank deductions of INR 250–500. Funding from a Swiss bank account is typically processed within 1 business day, as Switzerland does not support instant SEPA-style payments for international transfers.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Switzerland to India?",
+        a: "Wise is the clear winner for CHF to INR transfers, using the real mid-market exchange rate with a transparent fee of around 0.5–1%. Swiss banks like UBS, PostFinance, and cantonal banks charge 20–40 CHF per SWIFT transfer plus exchange rate markups of 2–4% — making them among the most expensive options globally. For a CHF 1,000 transfer, Wise delivers INR 3,000–6,000 more than a Swiss bank transfer. Remitly is also competitive with promotional offers. Because Switzerland is outside the SEPA zone for credit transfers, there is no cheap bank-to-bank alternative — digital providers like Wise are the most cost-effective solution.",
+      },
+      {
+        q: "How long does a transfer from Switzerland to India take?",
+        a: "Wise delivers to Indian bank accounts within 1–2 business days, with same-day delivery common via India's IMPS (Immediate Payment Service). IMPS operates 24/7, including weekends and holidays. Remitly offers express delivery within hours for certain payment methods. Swiss bank SWIFT transfers take 3–5 business days, often passing through correspondent banks that may deduct INR 250–500 from the transferred amount. Funding from a Swiss bank account typically takes 1 business day to reach the provider. PostFinance payments may take slightly longer due to processing times.",
+      },
+      {
+        q: "Can I use SEPA to send money from Switzerland to India?",
+        a: "No, SEPA credit transfers from Switzerland to India are not available. While Switzerland participates in SEPA direct debits, it is not part of the EU/EEA SEPA credit transfer scheme. This means Swiss banks can only send international transfers via SWIFT, which costs 20–40 CHF. However, Wise accepts funding from Swiss bank accounts (SIC payment) and converts to INR using the mid-market rate, effectively bypassing the expensive SWIFT network. This is one reason digital providers offer such significant savings over Swiss banks for India transfers. Some Swiss neobanks like Neon or Yuh may offer lower-cost transfer options as well.",
+      },
+      {
+        q: "What exchange rate should I expect for CHF to INR?",
+        a: "The CHF/INR exchange rate typically ranges around INR 93–100 per CHF, though this fluctuates. The mid-market rate — the midpoint between buy and sell prices on global currency markets — is the fairest benchmark. Wise uses this exact rate with no markup. Swiss banks add a spread of 2–4% on top of the mid-market rate, meaning for every CHF 1,000 sent, INR 2,000–4,000 is lost to the bank's exchange rate margin alone. You can check the real mid-market rate on Google, Reuters, or XE.com. Because the CHF is a safe-haven currency, it tends to strengthen during global uncertainty, affecting the rate Indian recipients receive.",
+      },
+      {
+        q: "Are there limits on sending money from Switzerland to India?",
+        a: "Switzerland does not impose strict per-transaction limits on outbound remittances for residents. Swiss banks and digital providers set their own limits — Wise allows high-value transfers for verified accounts, while Swiss banks generally process any amount with proper documentation. For transfers exceeding CHF 15,000, Swiss anti-money-laundering regulations (AMLA) require enhanced due diligence and documentation of the funds' origin. On the Indian side, the Reserve Bank of India does not restrict incoming remittances. Swiss residents transferring large amounts should keep documentation of the source of funds for both Swiss and Indian tax compliance.",
+      },
+    ],
+  },
+  {
+    slug: "switzerland-to-philippines",
+    fromCountry: "Switzerland",
+    toCountry: "Philippines",
+    fromCurrency: "CHF",
+    toCurrency: "PHP",
+    fromFlag: "🇨🇭",
+    toFlag: "🇵🇭",
+    sampleAmount: 1000,
+    intro:
+      "Switzerland is home to a significant Filipino community, primarily working in healthcare, hospitality, and domestic services. With Swiss banks charging 20–40 CHF per international transfer, digital providers offer dramatically better value on the CHF to PHP corridor.",
+    context:
+      "The CHF to PHP corridor serves an estimated 30,000–40,000 Filipino workers and residents in Switzerland, concentrated in Zurich, Geneva, Basel, and Lausanne. Many work as nurses, caregivers, hotel staff, and domestic helpers — sectors where Filipino workers are well-represented across Europe. Swiss bank SWIFT transfers are among the most expensive in the world at 20–40 CHF per transaction plus 2–4% exchange rate markup. Wise and WorldRemit are the leading digital alternatives, offering significantly lower costs. GCash delivery is the most popular method for Filipino recipients. On the receiving side, BDO, BPI, and Metrobank handle most bank deposit deliveries. Switzerland's FINMA oversees financial service providers, while Bank Negara Philippines (BSP) regulates incoming remittances.",
+    feesNote:
+      "Swiss bank SWIFT transfers cost 20–40 CHF in fees plus exchange rate markups of 2–4%, making them extremely expensive for Philippines transfers. Wise charges around 0.5–1% with the real mid-market exchange rate. WorldRemit offers competitive rates with frequent zero-fee promotions. For a CHF 1,000 transfer (approximately PHP 63,000–67,000), using Wise instead of a Swiss bank saves PHP 2,000–5,000 in total value received. PostFinance charges CHF 20 per outbound transfer with additional exchange rate markup.",
+    deliveryNote:
+      "GCash delivery is near-instant and is the most popular method for Filipino recipients in the Philippines. Bank deposits to BDO, BPI, Metrobank, and UnionBank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union, Cebuana Lhuillier, and M Lhuillier is available within minutes across the Philippines. Swiss bank SWIFT transfers take 3–5 business days with potential correspondent bank deductions. Funding from a Swiss bank account typically takes 1 business day to reach the provider.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Switzerland to the Philippines?",
+        a: "Wise is consistently the cheapest option for CHF to PHP transfers, using the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit is also competitive, especially with frequent zero-fee promotions and direct GCash delivery. Swiss banks charge 20–40 CHF per SWIFT transfer plus a 2–4% exchange rate markup, making them the most expensive option. For a CHF 1,000 transfer, Wise delivers PHP 2,000–5,000 more than a Swiss bank transfer. Remitly offers competitive rates for first-time users. Because SEPA credit transfers are not available from Switzerland, digital providers offer the best alternative to expensive SWIFT transfers.",
+      },
+      {
+        q: "Can I send money to GCash from Switzerland?",
+        a: "Yes, GCash is supported for remittance delivery from Switzerland through WorldRemit and Remitly. The recipient needs a GCash-registered Philippine mobile number. Delivery is near-instant once the provider processes the transfer. GCash has over 90 million registered users in the Philippines and offers cash-out at over 60,000 partner locations, bill payment, online shopping, and bank transfers. For Filipino workers in Switzerland, GCash delivery is the most popular option because family members can access funds immediately. Wise does not currently offer direct GCash delivery but supports bank deposit to any Philippine bank account.",
+      },
+      {
+        q: "How long does a transfer from Switzerland to the Philippines take?",
+        a: "GCash wallet delivery is near-instant once the provider processes the transfer. Bank deposits to Philippine banks arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and Cebuana Lhuillier is available within minutes. Swiss bank SWIFT transfers take 3–5 business days, often passing through correspondent banks that may deduct fees. Funding from a Swiss bank account takes approximately 1 business day. Philippine banks operate Monday through Friday, so weekend transfers may be queued for Monday processing on bank deposits.",
+      },
+      {
+        q: "Are Swiss money transfer providers regulated?",
+        a: "Yes, money transfer providers operating in Switzerland are regulated by FINMA (Swiss Financial Market Supervisory Authority) or operate under partnerships with FINMA-licensed institutions. Wise is authorised in the EU and operates in Switzerland through its European licence. WorldRemit is licensed in the UK (FCA) and EU. Western Union is licensed globally. Swiss banks are directly regulated by FINMA. All providers must comply with Swiss anti-money-laundering (AMLA) requirements. You can verify a provider's regulatory status on the FINMA register or the provider's own website. Always use regulated providers for consumer protection.",
+      },
+      {
+        q: "Are there limits on sending money from Switzerland to the Philippines?",
+        a: "Switzerland does not impose strict per-transaction limits on outbound remittances. Providers set their own limits — Wise allows high-value transfers for verified accounts, WorldRemit has per-transaction limits typically around CHF 5,000–8,000, and Western Union has similar caps for online transfers. Swiss AMLA regulations require enhanced due diligence for transfers exceeding CHF 15,000, which may include documentation of the source of funds. On the Philippine side, the Bangko Sentral ng Pilipinas does not restrict incoming remittance amounts. Keep all transfer receipts for Swiss tax documentation, as regular transfers abroad may be reviewed during tax assessments.",
+      },
+    ],
+  },
+  // ── South Africa corridors ──
+  {
+    slug: "south-africa-to-nigeria",
+    fromCountry: "South Africa",
+    toCountry: "Nigeria",
+    fromCurrency: "ZAR",
+    toCurrency: "NGN",
+    fromFlag: "🇿🇦",
+    toFlag: "🇳🇬",
+    sampleAmount: 5000,
+    intro:
+      "South Africa hosts a large Nigerian community estimated at around 1 million people, making ZAR to NGN one of the most significant intra-African remittance corridors. With South African banks charging high fees for Africa transfers, digital providers offer substantially better value.",
+    context:
+      "The ZAR to NGN corridor serves a diverse Nigerian community in South Africa, including business owners, professionals, students, and workers concentrated in Johannesburg, Cape Town, Pretoria, and Durban. Nigeria is the largest economy in Africa and receives over $20 billion in remittances annually. South African banks (Standard Bank, FNB, Absa, Nedbank) charge high fees for outbound Africa transfers, typically R150–R400 per SWIFT transaction plus exchange rate markups of 3–5%. Wise and WorldRemit are the leading digital alternatives offering significantly better value. On the receiving side, Guaranty Trust Bank (GTBank), First Bank, Access Bank, and Zenith Bank are Nigeria's largest banks. The South African Reserve Bank (SARB) regulates all outbound transfers under exchange control regulations.",
+    feesNote:
+      "South African bank SWIFT transfers cost R150–R400 in fees plus exchange rate markups of 3–5%, making them the most expensive option for Nigeria transfers. Wise charges around 0.5–1.5% with the real mid-market exchange rate. WorldRemit offers competitive rates with frequent zero-fee promotions. For an R5,000 transfer (approximately NGN 150,000–170,000), using a digital provider over a South African bank saves NGN 5,000–15,000 in total value received.",
+    deliveryNote:
+      "Bank deposits to GTBank, First Bank, Access Bank, and Zenith Bank arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Nigeria. Mobile money delivery is growing in Nigeria but is less established than in East Africa. South African bank SWIFT transfers take 3–5 business days with potential correspondent bank delays. Nigerian banks operate Monday through Friday, so weekend timing affects bank deposit speed.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from South Africa to Nigeria?",
+        a: "Wise and WorldRemit are consistently the cheapest options for ZAR to NGN transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. WorldRemit offers competitive rates with frequent zero-fee promotions and multiple delivery options in Nigeria. For an R5,000 transfer, using a digital provider over a South African bank (Standard Bank, FNB, Absa) saves NGN 5,000–15,000. South African banks are particularly expensive for intra-Africa SWIFT transfers, charging R150–R400 plus wide exchange rate spreads. Always compare the total NGN received rather than just the advertised fee.",
+      },
+      {
+        q: "How long does a transfer from South Africa to Nigeria take?",
+        a: "Bank deposits to Nigerian bank accounts (GTBank, First Bank, Access Bank, Zenith Bank, UBA) arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and MoneyGram is available within minutes at agent locations across Nigeria, including Lagos, Abuja, Port Harcourt, and Kano. South African bank SWIFT transfers take 3–5 business days with potential correspondent bank delays and deductions. Nigerian banks operate Monday through Friday, so weekend transfers are queued for Monday processing. Funding from a South African bank account via EFT typically takes 1–2 business days.",
+      },
+      {
+        q: "What are SARB exchange control rules for Nigeria transfers?",
+        a: "The South African Reserve Bank (SARB) imposes exchange controls on outbound transfers. Individuals have a Single Discretionary Allowance of R1 million per calendar year, which does not require a tax clearance certificate. For amounts exceeding R1 million (up to R10 million per year), a Foreign Investment Allowance requires a SARS tax clearance certificate. All transfers must be processed through an Authorised Dealer (bank or licensed provider). SARB requires documentation of the purpose of transfer for amounts over R10,000. These rules apply to all outbound transfers from South Africa, not just Nigeria-bound transfers. Digital providers like Wise handle the SARB compliance documentation automatically.",
+      },
+      {
+        q: "Can I send money to a Nigerian bank account from South Africa?",
+        a: "Yes, all major digital providers support bank deposit delivery to Nigerian accounts. You will need the recipient's full name (matching their bank records), bank name, and 10-digit NUBAN (Nigeria Uniform Bank Account Number). Major receiving banks include GTBank, First Bank of Nigeria, Access Bank, Zenith Bank, and United Bank for Africa (UBA). Wise, WorldRemit, and Western Union all support direct deposits to these banks. Nigeria does not use the IBAN system — the NUBAN format is standard. Some providers may also ask for the branch name or sort code.",
+      },
+      {
+        q: "Is the NGN exchange rate stable for South Africa transfers?",
+        a: "The Nigerian naira has experienced significant volatility in recent years, particularly following the Central Bank of Nigeria's (CBN) decision to unify the official and parallel market exchange rates in 2023. The NGN/ZAR rate can fluctuate substantially week to week. This volatility means that timing your transfer and choosing a provider with the real mid-market rate (like Wise) is especially important. Providers that set their own exchange rates may not adjust as quickly to market movements, resulting in rates that lag the current market. For large transfers, checking the rate on multiple days and using rate alerts can help you lock in a better rate.",
+      },
+    ],
+  },
+  {
+    slug: "south-africa-to-uk",
+    fromCountry: "South Africa",
+    toCountry: "United Kingdom",
+    fromCurrency: "ZAR",
+    toCurrency: "GBP",
+    fromFlag: "🇿🇦",
+    toFlag: "🇬🇧",
+    sampleAmount: 10000,
+    intro:
+      "The United Kingdom is home to a massive South African diaspora, estimated at 500,000 or more. ZAR to GBP is one of the largest outbound corridors from South Africa, with significant flows for family support, property payments, and emigration-related transfers.",
+    context:
+      "The ZAR to GBP corridor serves one of the largest diaspora relationships in the Southern Hemisphere. South Africans in the UK span professionals in finance, healthcare, IT, and engineering, as well as families who have emigrated. Many also maintain financial ties to South Africa — supporting family, paying off property bonds, or managing investments. This corridor handles both regular small remittances and large one-off transfers for emigration or property. OFX, Wise, and CurrencyFair are popular for high-value transfers due to their competitive rates and dedicated support. The South African Reserve Bank (SARB) imposes exchange controls that affect how much can be transferred annually, making it important to plan transfers carefully.",
+    feesNote:
+      "South African bank SWIFT transfers cost R150–R500 in fees plus exchange rate markups of 2–4%. Wise charges around 0.5–1.5% with the real mid-market exchange rate. OFX offers competitive rates for high-value transfers (R50,000+) with no fixed fees and a dedicated dealer. CurrencyFair provides peer-to-peer matching with rates close to mid-market. For an R10,000 transfer (approximately £400–£450), using a digital provider over a South African bank saves £10–£30 in total value received. For larger transfers, the savings scale significantly.",
+    deliveryNote:
+      "Wise delivers to UK bank accounts within 1–2 business days, with many transfers arriving same-day via UK Faster Payments. OFX typically delivers within 1–2 business days for standard transfers. South African bank SWIFT transfers take 2–4 business days. UK banks receive GBP via Faster Payments almost instantly once the provider releases the funds. Funding from a South African bank account via EFT takes 1–2 business days, and immediate payment options through some providers can speed up the process.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from South Africa to the UK?",
+        a: "Wise, OFX, and CurrencyFair are consistently the most cost-effective options for ZAR to GBP transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. OFX is particularly competitive for large transfers (R50,000+), offering negotiated rates with no fixed fees. CurrencyFair allows you to set your own exchange rate and match with other users for rates close to mid-market. For an R10,000 transfer, using a digital provider over a South African bank (Standard Bank, FNB, Absa, Nedbank) saves £10–£30. For emigration-sized transfers of R1,000,000+, the savings can exceed £1,000.",
+      },
+      {
+        q: "What are SARB exchange control limits for UK transfers?",
+        a: "The South African Reserve Bank (SARB) imposes exchange controls on all outbound transfers. Individuals have a Single Discretionary Allowance (SDA) of R1 million per calendar year, which does not require a tax clearance certificate — only a valid passport and South African ID. For amounts exceeding R1 million (up to R10 million per year), a Foreign Investment Allowance (FIA) requires a SARS tax clearance certificate (TCS PIN). Emigration-related transfers may qualify for different allowances. All transfers must go through an Authorised Dealer. Digital providers like Wise and OFX handle the SARB compliance process, but you must provide the required documentation.",
+      },
+      {
+        q: "How long does a transfer from South Africa to the UK take?",
+        a: "Wise delivers to UK bank accounts within 1–2 business days, with many transfers arriving same-day once the ZAR funding clears. OFX typically delivers within 1–2 business days. CurrencyFair delivers within 1–3 business days depending on the matching process. South African bank SWIFT transfers take 2–4 business days. UK banks process incoming GBP via Faster Payments almost instantly. The main delay is on the South African side — EFT funding takes 1–2 business days, and SARB compliance checks may add time for large transfers requiring FIA documentation.",
+      },
+      {
+        q: "Can I send large amounts from South Africa to the UK for emigration?",
+        a: "Yes, but large transfers from South Africa are subject to SARB exchange controls. For amounts within R1 million per year (SDA), no tax clearance is needed. For amounts between R1–10 million per year (FIA), you need a SARS tax clearance certificate. For emigration-related transfers, the process may involve formalising your emigration status with SARB through an Authorised Dealer. OFX and Wise both support high-value transfers and can guide you through the compliance process. OFX is particularly well-suited for large transfers, offering dedicated dealers who negotiate custom exchange rates for amounts over R50,000.",
+      },
+      {
+        q: "Is OFX good for large ZAR to GBP transfers?",
+        a: "Yes, OFX is one of the best options for large ZAR to GBP transfers. OFX specialises in high-value international transfers and offers several advantages: no fixed transfer fees (their cost is built into the exchange rate spread, which narrows for larger amounts), dedicated dealing desk support for transfers over R50,000, the ability to lock in exchange rates with forward contracts, and limit orders that execute automatically when your target rate is reached. For transfers above R100,000, OFX's negotiated rates can save thousands of rand compared to banks. OFX is regulated in Australia (ASIC) and operates through licensed partners in South Africa.",
+      },
+    ],
+  },
+  {
+    slug: "south-africa-to-kenya",
+    fromCountry: "South Africa",
+    toCountry: "Kenya",
+    fromCurrency: "ZAR",
+    toCurrency: "KES",
+    fromFlag: "🇿🇦",
+    toFlag: "🇰🇪",
+    sampleAmount: 5000,
+    intro:
+      "The South Africa to Kenya corridor serves growing intra-African trade and business relationships, as well as personal remittances between the continent's two largest English-speaking economies. M-Pesa delivery in Kenya makes receiving transfers fast and convenient.",
+    context:
+      "The ZAR to KES corridor reflects the deepening economic ties between South Africa and Kenya, Africa's two most developed economies. Transfers on this corridor include business payments, personal remittances from Kenyan workers and students in South Africa, and trade-related flows. Kenya's M-Pesa mobile money system — the world's most successful — makes delivery exceptionally convenient, as over 30 million Kenyans use M-Pesa for daily transactions. Wise and WorldRemit are the leading digital providers for this corridor. South African banks are particularly expensive for intra-Africa transfers, often routing through European correspondent banks even for Africa-to-Africa payments. The South African Reserve Bank (SARB) exchange controls apply to all outbound transfers.",
+    feesNote:
+      "South African bank SWIFT transfers to Kenya cost R150–R400 in fees plus exchange rate markups of 3–5%, and often route through European correspondent banks, adding delays and additional fees. Wise charges around 0.5–1.5% with the real mid-market exchange rate. WorldRemit offers competitive rates with frequent zero-fee promotions. For an R5,000 transfer (approximately KES 35,000–40,000), using a digital provider over a South African bank saves KES 2,000–6,000 in total value received.",
+    deliveryNote:
+      "M-Pesa delivery is near-instant and is the most popular receiving method in Kenya. Bank deposits to Equity Bank, KCB, Co-operative Bank, and other Kenyan banks arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union and MoneyGram is available at agent locations across Kenya. South African bank SWIFT transfers take 3–5 business days, often longer due to correspondent bank routing through Europe. Funding from a South African bank account via EFT typically takes 1–2 business days.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from South Africa to Kenya?",
+        a: "Wise and WorldRemit are consistently the cheapest options for ZAR to KES transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and supports direct M-Pesa delivery. For an R5,000 transfer, using a digital provider over a South African bank saves KES 2,000–6,000. South African banks are particularly expensive for intra-Africa transfers because they often route through European correspondent banks, adding unnecessary fees and delays. Always compare the total KES received.",
+      },
+      {
+        q: "Can I send money to M-Pesa in Kenya from South Africa?",
+        a: "Yes, M-Pesa is widely supported for remittance delivery from South Africa. WorldRemit offers direct M-Pesa delivery on the ZAR to KES corridor — the recipient needs a Safaricom M-Pesa-registered Kenyan mobile number. Delivery is near-instant once the provider processes the transfer. M-Pesa is Kenya's dominant payment system with over 30 million active users, used for everything from grocery shopping to bill payment to savings. Recipients can cash out at any of the 200,000+ M-Pesa agent locations across Kenya. Wise supports bank deposit delivery, and recipients can then transfer funds from their bank to M-Pesa instantly.",
+      },
+      {
+        q: "How long does a transfer from South Africa to Kenya take?",
+        a: "M-Pesa delivery is near-instant once the provider processes the transfer. Bank deposits to Equity Bank, KCB, Co-operative Bank, and Stanbic Bank Kenya arrive within 1–2 business days via Wise or WorldRemit. Cash pickup through Western Union is available within minutes at agent locations across Kenya. South African bank SWIFT transfers take 3–5 business days, often longer because they route through European correspondent banks (London or Frankfurt) rather than directly to Kenya. Funding from a South African bank via EFT takes 1–2 business days, so the total time for a bank-to-M-Pesa transfer via WorldRemit is typically 2–3 days.",
+      },
+      {
+        q: "What are SARB exchange control rules for Kenya transfers?",
+        a: "The same SARB exchange controls apply to Kenya transfers as to all outbound transfers from South Africa. Individuals have a Single Discretionary Allowance (SDA) of R1 million per calendar year without a tax clearance certificate. Amounts between R1–10 million require a SARS tax clearance certificate under the Foreign Investment Allowance (FIA). All transfers must be processed through an Authorised Dealer. For business payments to Kenya, additional documentation such as invoices or contracts may be required. Digital providers like Wise and WorldRemit handle the SARB compliance process automatically for personal transfers under the SDA limit.",
+      },
+      {
+        q: "Why are South African banks expensive for Kenya transfers?",
+        a: "South African banks route most intra-Africa SWIFT transfers through European correspondent banks, typically in London or Frankfurt, rather than directly to Kenyan banks. This adds an extra hop that increases both cost and time. The correspondent bank charges an intermediary fee of $10–$25, on top of the South African bank's own fee of R150–R400 and a 3–5% exchange rate markup. The Kenyan receiving bank may also charge an incoming SWIFT fee. Digital providers like Wise bypass this correspondent banking network entirely, transferring directly to Kenyan bank accounts or M-Pesa wallets. This is why digital providers are significantly cheaper and faster for South Africa to Kenya transfers.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──

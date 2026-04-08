@@ -31,6 +31,10 @@ export const COUNTRY_TO_CURRENCY: Record<string, string> = {
   CH: "CHF",
   // INR
   IN: "INR",
+  // MYR
+  MY: "MYR",
+  // ZAR
+  ZA: "ZAR",
   // Additional send currencies
   JP: "JPY",
   KR: "KRW",
@@ -217,6 +221,28 @@ export const GEO_CORRIDORS: Record<string, GeoCurrencyConfig> = {
       { toCurrency: "USD", label: "United States", corridorSlug: "krw-to-usd", flag: "🇺🇸", symbol: "$" },
       { toCurrency: "INR", label: "India", corridorSlug: "krw-to-inr", flag: "🇮🇳", symbol: "₹" },
       { toCurrency: "IDR", label: "Indonesia", corridorSlug: "krw-to-idr", flag: "🇮🇩", symbol: "Rp" },
+    ],
+  },
+  MYR: {
+    defaultTo: "INR",
+    defaultAmount: 2000,
+    popularCorridors: [
+      { toCurrency: "INR", label: "India", corridorSlug: "malaysia-to-india", flag: "🇮🇳", symbol: "₹" },
+      { toCurrency: "IDR", label: "Indonesia", corridorSlug: "malaysia-to-indonesia", flag: "🇮🇩", symbol: "Rp" },
+      { toCurrency: "PHP", label: "Philippines", corridorSlug: "malaysia-to-philippines", flag: "🇵🇭", symbol: "₱" },
+      { toCurrency: "BDT", label: "Bangladesh", corridorSlug: "myr-to-bdt", flag: "🇧🇩", symbol: "৳" },
+      { toCurrency: "NPR", label: "Nepal", corridorSlug: "myr-to-npr", flag: "🇳🇵", symbol: "Rs" },
+    ],
+  },
+  ZAR: {
+    defaultTo: "NGN",
+    defaultAmount: 5000,
+    popularCorridors: [
+      { toCurrency: "NGN", label: "Nigeria", corridorSlug: "south-africa-to-nigeria", flag: "🇳🇬", symbol: "₦" },
+      { toCurrency: "GBP", label: "United Kingdom", corridorSlug: "south-africa-to-uk", flag: "🇬🇧", symbol: "£" },
+      { toCurrency: "KES", label: "Kenya", corridorSlug: "south-africa-to-kenya", flag: "🇰🇪", symbol: "KSh" },
+      { toCurrency: "USD", label: "United States", corridorSlug: "zar-to-usd", flag: "🇺🇸", symbol: "$" },
+      { toCurrency: "ZMW", label: "Zambia", corridorSlug: "zar-to-zmw", flag: "🇿🇲", symbol: "ZK" },
     ],
   },
   INR: {
