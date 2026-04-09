@@ -622,5 +622,28 @@
         "receiveAmount": 15452
       }
     }
+  },
+  {
+    "date": "2026-04-09",
+    "providers": {
+      "wells-fargo": {
+        "rate": 153.6723,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 15367
+      },
+      "xoom": {
+        "rate": 152.3235,
+        "fee": 9.99,
+        "markup": null,
+        "receiveAmount": 13711
+      },
+      "wise": {
+        "rate": 158.845,
+        "fee": 2.52,
+        "markup": null,
+        "receiveAmount": 15484
+      }
+    }
   }
 ]
