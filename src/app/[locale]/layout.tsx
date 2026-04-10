@@ -158,7 +158,15 @@ export default async function LocaleLayout({ children, params }: Props) {
   var isEU=EU.indexOf(cc)!==-1;
   var stored=localStorage.getItem('cookie_consent');
   var consent=stored==='accepted'?'granted':stored==='declined'?'denied':isEU?'denied':'granted';
-  gtag('consent','default',{'analytics_storage':consent});
+  gtag('consent','default',{
+    'analytics_storage':consent,
+    'ad_storage':'denied',
+    'ad_user_data':'denied',
+    'ad_personalization':'denied',
+    'wait_for_update':500
+  });
+  gtag('set','url_passthrough',true);
+  gtag('set','ads_data_redaction',true);
   gtag('js',new Date());gtag('config','G-HJH07QEJ30');
 })();`,
         }}

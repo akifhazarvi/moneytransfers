@@ -11679,6 +11679,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Kenya: Africa's Mobile Money Leader",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Kenya in 2026 depends on your source country. From the US, <a href="/companies/wise">Wise</a> offers the mid-market rate with 0% markup. <a href="/companies/remitly">Remitly</a> is the fastest option with direct M-Pesa delivery in seconds. Kenya's unique advantage is <strong>M-Pesa</strong> — the world's most successful mobile money platform with 35+ million active users, reaching every corner of the country. On a $1,000 transfer, specialist providers deliver KES 5,000–15,000 more than traditional banks. <a href="/send-money/usa-to-kenya">Compare live rates</a> from 10+ providers.</p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> According to SendMoneyCompare's analysis of 10+ providers, specialist services deliver KES 5,000–15,000 more than bank wires on a $1,000 transfer to Kenya. M-Pesa reaches 35+ million Kenyans (65% of the population) with instant delivery, making it the most accessible delivery method.</p></div>
 <p>Kenya received over <strong>$4.2 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya (CBK)</a>, making it East Africa's largest remittance recipient. The US, UK, Canada, and Gulf states are the primary source countries.</p>
 <p>What makes the Kenya corridor unique is <strong>M-Pesa</strong>. Launched by Safaricom in 2007, M-Pesa has become the default financial infrastructure for most Kenyans — used for everything from receiving remittances to paying school fees, rent, and utility bills. Over 35 million Kenyans (out of 55 million) have an active M-Pesa account, making mobile money the most accessible delivery method by far.</p>`,
       },
@@ -12049,6 +12050,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "South Africa: Sub-Saharan Africa's Largest Economy",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to South Africa in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market exchange rate with 0% markup and a fee of ~$7 on $1,000. <a href="/companies/worldremit">WorldRemit</a> is excellent for FNB eWallet and cash pickup at Shoprite. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. On a typical $1,000 transfer, specialist providers deliver <strong>R500–R1,500 more</strong> than bank wires. South Africa's Big 5 banks (FNB, Standard Bank, Absa, Nedbank, Capitec) all accept international transfers. <a href="/send-money/usa-to-south-africa">Compare live USD to ZAR rates</a> from 10+ providers.</p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> SendMoneyCompare data shows specialist providers deliver R500–R1,500 more than bank wires on a $1,000 transfer to South Africa. FNB eWallet enables instant delivery to any South African mobile phone without a bank account, accessible via 300,000+ FNB ATMs.</p></div>
 <p>South Africa is sub-Saharan Africa's most developed financial market, with a well-regulated banking system and growing digital payment infrastructure. The country receives remittances primarily from the <strong>USA, UK, Australia, Canada, and other African countries</strong>.</p>
 <p>What makes the South Africa corridor unique: the South African Rand (ZAR) is one of the most traded emerging market currencies, with deep liquidity and tight spreads. This means specialist providers can offer much better rates than banks — but the ZAR is also volatile, with 5–10% swings in a quarter being common. Timing your transfer and comparing providers on the day you send matters more here than on stable corridors.</p>`,
       },
@@ -12256,6 +12258,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Is the Cheapest Way to Send Money from UAE to India?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from UAE to India in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market AED to INR exchange rate with 0% markup and a fee of approximately AED 20 on AED 3,500 (~$1,000). <a href="/companies/remitly">Remitly</a> is the fastest option, delivering money in minutes via UPI or IMPS to any Indian bank account. For cash pickup, <a href="/companies/western-union">Western Union</a> and local exchange houses have the widest networks. On a typical AED 3,500 transfer, specialist providers deliver <strong>₹2,000–₹5,000 more</strong> than UAE bank wires, which charge AED 50–100 plus a 1.5–3% exchange rate markup. The UAE–India corridor is one of the world's cheapest at ~2.8% average cost. <a href="/send-money/uae-to-india">Compare live AED to INR rates</a> from 10+ providers.</p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> The World Bank rates the UAE-to-India corridor at approximately 2.8% average cost — well below the global average of 6%. SendMoneyCompare data shows specialist providers deliver ₹2,000–₹5,000 more than UAE bank wires on an AED 3,500 transfer. UPI enables instant delivery 24/7.</p></div>
 <p>The UAE is India's <strong>second-largest remittance source</strong> after the United States, with over <strong>3.5 million Indian expats</strong> — the largest expatriate community in the UAE. In 2025, UAE-to-India remittances exceeded <strong>$15 billion</strong>, driven by workers in Dubai, Abu Dhabi, and Sharjah sending money to families across India.</p>
 <p>The AED-INR corridor benefits from intense competition: 10+ digital providers compete alongside hundreds of physical exchange houses. This competition keeps costs low — the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a> rates the UAE-to-India corridor at approximately 2.8% average cost, well below the global average of 6%.</p>`,
       },
@@ -12446,6 +12449,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Is the Cheapest Way to Send Money to China from the USA?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to China in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market USD to CNY exchange rate with 0% markup and a fee of ~$7 on $1,000. <a href="/companies/remitly">Remitly</a> offers delivery to Alipay and WeChat Pay wallets in minutes. For large transfers ($10,000+), <a href="/companies/ofx">OFX</a> offers zero fees with dedicated FX dealers. China's <strong>SAFE capital controls</strong> limit individual recipients to the equivalent of $50,000/year in foreign exchange — you can send more, but your recipient may need documentation. <a href="/send-money/usa-to-china">Compare live USD to CNY rates</a> from 8+ providers.</p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> China's SAFE capital controls limit individual recipients to $50,000/year in foreign exchange conversion. SendMoneyCompare data shows using Wise instead of a US bank wire saves approximately ¥300–¥350 on a $1,000 transfer. Alipay delivery arrives in minutes to over 1 billion registered accounts.</p></div>
 <p>China is the world's <strong>second-largest remittance recipient</strong>, with ~5.4 million Chinese diaspora in the US alone. But sending money to China is more complex than most corridors due to capital controls, the dual exchange rate system (CNY vs CNH), and China's unique payment infrastructure (Alipay, WeChat Pay, UnionPay).</p>
 <p>This guide covers the cheapest providers, Alipay/WeChat delivery, SAFE regulations, CIPS vs SWIFT, and common mistakes that delay transfers.</p>`,
       },
@@ -12649,6 +12653,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Is the Best Way to Send Large Amounts of Money Internationally?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For transfers of $10,000–$50,000, <a href="/companies/wise">Wise</a> offers the best value with 0% exchange rate markup and transparent fees. For $50,000+, <a href="/companies/ofx">OFX</a> is typically cheapest — zero transfer fees, dedicated FX dealers who negotiate rates, and forward contracts to lock rates for up to 12 months. For UK property purchases, TorFX offers rate-matching guarantees. On a $100,000 transfer, the difference between a bank wire and a specialist provider is <strong>$2,000–$5,000</strong> — purely from the exchange rate markup. <a href="/send-money">Compare rates for your exact amount</a>.</p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> SendMoneyCompare analysis shows that on a $100,000 international transfer, OFX charges approximately $250 total while a typical bank wire costs $3,500 — a saving of $3,250. Forward contracts from OFX, TorFX, and XE let you lock today's rate for up to 12 months, eliminating exchange rate risk on large property and tuition payments.</p></div>
 <p>If you're sending $10,000 or more abroad — for a property purchase, inheritance distribution, university tuition, emigration, or business payment — the stakes are much higher than a regular $500 remittance. A 1% cost difference on $100,000 is $1,000. A 3% bank markup costs you $3,000.</p>
 <p>This guide shows you exactly how costs scale with amount, which providers specialise in large transfers, how forward contracts protect you, and what compliance rules apply in the US, UK, EU, and Australia.</p>`,
       },
@@ -12830,6 +12835,237 @@ export const blogPosts: BlogPost[] = [
       "exchange-rate-markup-explained",
       "business-international-payments-guide",
     ],
+  },
+  // ============================
+  // Send Money to Vietnam Guide
+  // ============================
+  {
+    slug: "send-money-to-vietnam-guide",
+    title: "Send Money to Vietnam: Cheapest Ways in 2026 (USD/AUD/GBP to VND)",
+    metaDescription:
+      "Compare the cheapest ways to send money to Vietnam. Real USD/AUD to VND rates from 8+ providers — bank deposit, ZaloPay, cash pickup options compared.",
+    excerpt:
+      "Vietnam receives $18+ billion in annual remittances. We compared 8+ providers to find the cheapest USD, AUD, and GBP to VND transfers.",
+    category: "Corridors",
+    readTime: "11 min read",
+    publishedAt: "2026-04-08",
+    updatedAt: "2026-04-08",
+    author: "Daniel Rowe",
+    tags: ["Vietnam", "VND", "remittance", "USD to VND", "AUD to VND", "corridor guide", "send money to Vietnam"],
+    featuredImage: "/images/blog/send-money-to-vietnam.jpg",
+    sections: [
+      {
+        heading: "What Is the Cheapest Way to Send Money to Vietnam?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Vietnam in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market USD to VND rate with 0% markup and a fee of ~$7 on $1,000. <a href="/companies/remitly">Remitly</a> offers fast delivery to Vietnamese bank accounts. For cash pickup, <a href="/companies/western-union">Western Union</a> has agent locations across Vietnam. On a typical $1,000 transfer, specialist providers deliver <strong>₫500,000–₫1,500,000 more</strong> than bank wires. <a href="/send-money/usa-to-vietnam">Compare live USD to VND rates</a>.</p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> Vietnam received over $18 billion in remittances in 2025 (World Bank), primarily from the US, Australia, South Korea, Japan, and Canada. SendMoneyCompare data shows specialist providers deliver ₫500,000–₫1,500,000 more per $1,000 than bank wires.</p></div>
+<p>Vietnam is one of Asia's top remittance destinations, with a large diaspora in the US (~2.2 million Vietnamese-Americans), Australia (~300,000), South Korea, Japan, and Canada. The VND is a managed currency with limited convertibility, which means not all providers can deliver to Vietnam.</p>`,
+      },
+      {
+        heading: "Which Providers Are Best for Sending Money to Vietnam?",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Transfers to Vietnam</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — consistently cheapest</td></tr>
+<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Bank deposit in minutes to major Vietnamese banks</td></tr>
+<tr><td><strong>Best from Australia</strong></td><td><a href="/companies/wise">Wise</a></td><td>Strong AUD-VND corridor, POLi/PayID funding</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations in Ho Chi Minh City, Hanoi, Da Nang</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote"><a href="/send-money/usa-to-vietnam">Compare live rates →</a></p>
+</div>
+
+<p>For a $1,000 transfer to Vietnam:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~$7 fee, 0% markup — best value for most transfers</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rate, fast bank deposit to Vietcombank, BIDV, Agribank</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Bank deposit and cash pickup options</li>
+<li><strong><a href="/companies/xe">XE</a></strong>: No fees, competitive rates for larger amounts</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but wide cash pickup network</li>
+</ul>`,
+      },
+      {
+        heading: "What Do You Need to Send Money to Vietnam?",
+        content: `<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with bank — Vietnamese names)</li>
+<li><strong>Bank name</strong> — Vietcombank, BIDV, Agribank, VietinBank, Techcombank, MB Bank</li>
+<li><strong>Account number</strong> — typically 10-14 digits</li>
+<li><strong>Branch name</strong> (sometimes required)</li>
+</ul>
+<p>Vietnam does not use <a href="/guides/iban-numbers-explained">IBANs</a>. For SWIFT wires, you need the bank's <a href="/guides/swift-codes-explained">SWIFT/BIC code</a>.</p>
+
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (matching their national ID or passport)</li>
+<li><strong>City</strong> — Ho Chi Minh City, Hanoi, Da Nang, etc.</li>
+</ul>`,
+      },
+      {
+        heading: "What Are the Top Banks in Vietnam?",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Vietcombank (VCB)</strong></td><td>BFTVVNVX</td><td>Largest state-owned. Most popular for receiving international transfers.</td></tr>
+<tr><td><strong>BIDV</strong></td><td>BIDVVNVX</td><td>Second-largest. Good coverage across all provinces.</td></tr>
+<tr><td><strong>Agribank</strong></td><td>VBAAVNVX</td><td>Largest by branch count. Best rural coverage (2,200+ branches).</td></tr>
+<tr><td><strong>VietinBank</strong></td><td>ICBVVNVX</td><td>Third-largest state bank. Strong in northern Vietnam.</td></tr>
+<tr><td><strong>Techcombank</strong></td><td>VTCBVNVX</td><td>Largest private bank. Best digital banking experience.</td></tr>
+<tr><td><strong>MB Bank</strong></td><td>MSCBVNVX</td><td>Fast-growing. Strong mobile app.</td></tr>
+</tbody>
+</table>
+<p>Transfers to Vietcombank and BIDV process fastest. For the full list, see our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>.</p>`,
+      },
+      {
+        heading: "How Much Does It Cost to Send $1,000 to Vietnam?",
+        content: `<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ₫ Received</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~$7</td><td>0%</td><td>₫25,500,000 (example)</td></tr>
+<tr><td><strong>Remitly</strong></td><td>~$4</td><td>0.5–1%</td><td>₫25,300,000 (example)</td></tr>
+<tr><td><strong>Bank wire</strong></td><td>$25–$50</td><td>2–4%</td><td>₫24,200,000 (example)</td></tr>
+</tbody>
+</table>
+<p><em>Rates are illustrative — <a href="/send-money/usa-to-vietnam">check live rates here</a>.</em></p>
+<p>On $1,000, using Wise instead of a bank saves approximately <strong>₫1,300,000</strong> (~$50). Over 12 monthly transfers, that's ₫15,600,000 (~$600).</p>`,
+      },
+      {
+        heading: "What Are the Tax and Regulatory Rules?",
+        content: `<ul>
+<li><strong>For US senders:</strong> No tax on personal remittances. Transfers over $10,000 reported to FinCEN.</li>
+<li><strong>For Australian senders:</strong> No tax on outbound personal transfers. AUSTRAC reports transfers over AUD 10,000.</li>
+<li><strong>For recipients in Vietnam:</strong> Personal remittances from abroad are <strong>not subject to income tax</strong>. The <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Vietnam (SBV)</a> encourages formal remittance channels.</li>
+<li><strong>VND is a managed currency.</strong> The SBV manages the dong within a trading band. This means VND rates are relatively stable but the currency is not freely convertible — not all providers offer VND delivery.</li>
+</ul>
+<p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfer guide</a> and <a href="/guides/money-transfer-safety-guide">safety guide</a>.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Vietnam</a>.</p>`,
+      },
+    ],
+    faqs: [
+      { question: "What is the cheapest way to send money to Vietnam?", answer: "Wise offers the best value with 0% exchange rate markup. Remitly is competitive for fast bank deposits. Always compare total VND received on our comparison tool." },
+      { question: "How long does a transfer to Vietnam take?", answer: "Bank deposits via specialist providers take 1-2 business days. Remitly can deliver in minutes to some banks. SWIFT bank wires take 3-5 days. Cash pickup is available within hours." },
+      { question: "Do I need an IBAN for Vietnam?", answer: "No. Vietnam does not use IBANs. You need the recipient's account number, bank name, and the bank's SWIFT code for international wire transfers." },
+      { question: "Can I send money to Vietnam from Australia?", answer: "Yes. Wise and WorldRemit both support AUD to VND with competitive rates. POLi and PayID funding available for Australian senders." },
+      { question: "Is money received in Vietnam from abroad taxable?", answer: "No. Personal remittances from abroad are not subject to Vietnamese income tax. The State Bank of Vietnam encourages formal remittance channels." },
+    ],
+    relatedSlugs: ["cheapest-way-to-send-money-internationally", "best-money-transfer-apps", "swift-codes-explained"],
+  },
+  // ============================
+  // Send Money to Turkey Guide
+  // ============================
+  {
+    slug: "send-money-to-turkey-guide",
+    title: "Send Money to Turkey: Cheapest Ways in 2026 (EUR/USD/GBP to TRY)",
+    metaDescription:
+      "Compare the cheapest ways to send money to Turkey. Real EUR/USD/GBP to TRY rates from 8+ providers — bank deposit, cash pickup options + how to navigate TRY volatility.",
+    excerpt:
+      "Turkey's lira has been one of the most volatile major currencies. We compared 8+ providers to find the cheapest EUR, USD, and GBP to TRY transfers.",
+    category: "Corridors",
+    readTime: "11 min read",
+    publishedAt: "2026-04-08",
+    updatedAt: "2026-04-08",
+    author: "Daniel Rowe",
+    tags: ["Turkey", "TRY", "Turkish Lira", "EUR to TRY", "USD to TRY", "corridor guide", "volatility"],
+    featuredImage: "/images/blog/send-money-to-turkey.jpg",
+    sections: [
+      {
+        heading: "What Is the Cheapest Way to Send Money to Turkey?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Turkey in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market exchange rate with 0% markup. <a href="/companies/remitly">Remitly</a> offers fast delivery to Turkish bank accounts. The Turkish Lira (TRY) is one of the most volatile major currencies — it lost over 50% of its value against the euro between 2023 and 2025. This makes <strong>timing and provider choice critical</strong>. On a €1,000 transfer, the difference between the best and worst provider can be ₺500–₺2,000. <a href="/send-money/eur-to-try">Compare live EUR to TRY rates</a>.</p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> Turkey received over $5 billion in remittances in 2025. The Turkish lira lost 50%+ against EUR/USD between 2023-2025, making provider exchange rate markup differences even more impactful. SendMoneyCompare data shows specialist providers deliver ₺500–₺2,000 more than bank wires per €1,000.</p></div>
+<p>Turkey sits at the crossroads of Europe and Asia, with a large diaspora across Germany (~3 million), France, the Netherlands, Austria, and the UK. The EUR-to-TRY corridor is the highest-volume, but USD and GBP transfers are also common.</p>`,
+      },
+      {
+        heading: "Which Providers Are Best for Transfers to Turkey?",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: Best Providers for Transfers to Turkey</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate — most transparent</td></tr>
+<tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Bank deposit to Turkish banks in minutes</td></tr>
+<tr><td><strong>Best from Europe</strong></td><td><a href="/companies/wise">Wise</a> / <a href="/companies/revolut">Revolut</a></td><td>SEPA funding (free) + competitive TRY rates</td></tr>
+<tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Wide agent network across Turkey</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote"><a href="/send-money/eur-to-try">Compare live EUR to TRY rates →</a></p>
+</div>
+
+<p>For a €1,000 transfer to Turkey:</p>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: ~€5 fee, 0% markup — best value</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rate, fast delivery</li>
+<li><strong><a href="/companies/revolut">Revolut</a></strong>: Free SEPA funding, interbank rate (weekday) — good for European senders</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Bank deposit and cash pickup</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but cash pickup in all Turkish cities</li>
+</ul>`,
+      },
+      {
+        heading: "How Do You Navigate TRY Volatility?",
+        content: `<p>The Turkish Lira has been one of the world's most volatile currencies since 2021. The central bank's unconventional monetary policy (cutting rates while inflation was rising) caused TRY to lose over 50% against the euro. In 2026, the lira has stabilized somewhat after rate hikes, but remains volatile.</p>
+<h3>What this means for senders</h3>
+<ul>
+<li><strong>Timing matters more here than on any other corridor.</strong> TRY can move 2-5% in a single week. Setting a rate alert with <a href="/companies/wise">Wise</a> or <a href="/companies/xe">XE</a> can save you hundreds of lira.</li>
+<li><strong>Provider markup differences are amplified.</strong> A 2% markup on €1,000 when EUR/TRY is 35 costs ₺700. At EUR/TRY 40, it costs ₺800. Volatile currencies make markups more expensive.</li>
+<li><strong>Consider sending EUR directly.</strong> If your recipient has a EUR account at a Turkish bank (İş Bankası, Garanti BBVA, and others offer EUR accounts), send EUR and let them convert locally when the rate is favorable.</li>
+</ul>
+<p>For more on how markups work, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>. For central bank impact on TRY, see our <a href="/news/central-bank-super-week-march-2026">central bank decisions guide</a>.</p>`,
+      },
+      {
+        heading: "What Are the Top Banks in Turkey?",
+        content: `<table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Ziraat Bankası</strong></td><td>TCZBTR2A</td><td>Largest state bank. Widest branch network.</td></tr>
+<tr><td><strong>İş Bankası</strong></td><td>ISBKTRIS</td><td>Largest private bank. Excellent digital banking.</td></tr>
+<tr><td><strong>Garanti BBVA</strong></td><td>TGBATRIS</td><td>Part of BBVA group. Good for European transfers.</td></tr>
+<tr><td><strong>Yapı Kredi</strong></td><td>YAPITRIS</td><td>Strong retail banking. Koç Group subsidiary.</td></tr>
+<tr><td><strong>Akbank</strong></td><td>AKBKTRIS</td><td>Major private bank. Fast international processing.</td></tr>
+<tr><td><strong>Halkbank</strong></td><td>TRHBTR2A</td><td>State-owned. Good coverage in smaller cities.</td></tr>
+</tbody>
+</table>
+<p>Turkey uses <a href="/iban/turkey">IBANs</a> — 26 characters starting with TR. Your recipient can find their IBAN in their banking app.</p>`,
+      },
+      {
+        heading: "How Much Does It Cost to Send €1,000 to Turkey?",
+        content: `<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Approx. ₺ Received</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~€5</td><td>0%</td><td>₺38,200 (example)</td></tr>
+<tr><td><strong>Remitly</strong></td><td>~€3</td><td>0.5–1%</td><td>₺37,800 (example)</td></tr>
+<tr><td><strong>Revolut (weekday)</strong></td><td>€0</td><td>0%</td><td>₺38,300 (example)</td></tr>
+<tr><td><strong>German bank wire</strong></td><td>€15–€30</td><td>2–4%</td><td>₺36,500 (example)</td></tr>
+</tbody>
+</table>
+<p><em>Rates are illustrative — <a href="/send-money/eur-to-try">check live rates here</a>.</em></p>
+<p>Over 12 monthly transfers of €1,000, using Wise instead of a bank saves approximately <strong>₺20,000+</strong> (~€530).</p>`,
+      },
+      {
+        heading: "What Are the Tax and Regulatory Rules?",
+        content: `<ul>
+<li><strong>For European senders:</strong> No tax on personal transfers from EU/UK. SEPA transfers to Turkey are not supported (Turkey is not a SEPA member) — transfers go via SWIFT or provider networks.</li>
+<li><strong>For recipients in Turkey:</strong> Personal remittances from abroad are <strong>not subject to income tax</strong>. Turkey does not tax inbound gifts or family support.</li>
+<li><strong>Turkish IBAN required:</strong> All domestic bank accounts use <a href="/iban/turkey">Turkish IBANs</a> (26 characters, TR prefix).</li>
+<li><strong>BRSA regulation:</strong> The Banking Regulation and Supervision Agency (BRSA) oversees Turkish banking. All licensed providers can deliver to regulated Turkish banks.</li>
+</ul>
+<p>For more, read our <a href="/guides/money-transfer-safety-guide">safety guide</a> and <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfer guide</a>.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.tcmb.gov.tr/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Turkey (TCMB)</a>.</p>`,
+      },
+    ],
+    faqs: [
+      { question: "What is the cheapest way to send money to Turkey?", answer: "Wise offers the best value with 0% exchange rate markup. Revolut is competitive for European senders on weekdays (free SEPA funding + interbank rate). Always compare total TRY received." },
+      { question: "Why is the Turkish Lira so volatile?", answer: "The lira lost 50%+ against EUR/USD between 2023-2025 due to unconventional monetary policy (rate cuts during high inflation). It has stabilized somewhat in 2026 after rate hikes, but remains volatile. Set rate alerts before sending." },
+      { question: "Can I send EUR to Turkey via SEPA?", answer: "No. Turkey is not a SEPA member. EUR transfers go via SWIFT or provider networks. However, if your recipient has a EUR account at a Turkish bank, sending EUR avoids TRY conversion risk." },
+      { question: "Do I need a Turkish IBAN?", answer: "Yes. Turkey uses 26-character IBANs starting with TR. Your recipient can find their IBAN in their banking app or on their bank statement." },
+      { question: "Is money received in Turkey from abroad taxable?", answer: "No. Personal remittances from abroad are not subject to Turkish income tax. Family support and gifts are tax-free for the recipient." },
+    ],
+    relatedSlugs: ["cheapest-way-to-send-money-internationally", "best-money-transfer-apps", "exchange-rate-markup-explained"],
   },
 ];
 
