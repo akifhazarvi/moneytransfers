@@ -405,5 +405,34 @@
         "receiveAmount": 1187440.66
       }
     }
+  },
+  {
+    "date": "2026-04-10",
+    "providers": {
+      "instarem": {
+        "rate": 12076.0839,
+        "fee": 0.7,
+        "markup": null,
+        "receiveAmount": 1199155.13
+      },
+      "nab": {
+        "rate": 11759.9797,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1175997.97
+      },
+      "paypal": {
+        "rate": 11580.1617,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1100115.36
+      },
+      "commonwealth-bank": {
+        "rate": 11359.8548,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1135985.48
+      }
+    }
   }
 ]
