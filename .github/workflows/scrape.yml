@@ -86,8 +86,13 @@ jobs:
           git push
 
       - name: Trigger Vercel deploy
-        if: ${{ secrets.VERCEL_DEPLOY_HOOK != '' }}
-        run: curl -s -X POST "$VERCEL_DEPLOY_HOOK"
+        run: |
+          if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
+            curl -s -X POST "$VERCEL_DEPLOY_HOOK"
+            echo "→ Deploy hook triggered"
+          else
+            echo "→ No deploy hook configured, skipping"
+          fi
         env:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         continue-on-error: true
