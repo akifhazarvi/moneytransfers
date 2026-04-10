@@ -1308,6 +1308,218 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
     keywords:
       "send money to Morocco, cheapest way to send money to Morocco, money transfer Morocco, MAD exchange rate, cash pickup Morocco, Western Union Morocco, Remitly Morocco, bank transfer Morocco",
   },
+  // --- Country page overrides targeting generic "send money to X" queries ---
+  "send-money-to-pakistan": {
+    title: "Cheapest Way to Send Money to Pakistan (2026) — Compare 15+ Providers",
+    description:
+      "Compare the cheapest ways to send money to Pakistan. Live PKR rates from Wise, ACE, Remitly & WorldRemit — JazzCash and Easypaisa delivery. Updated every 6 hrs.",
+    ogTitle: "Send Money to Pakistan — Who Gives the Most PKR?",
+    ogDescription:
+      "Live PKR rates from 15+ providers. JazzCash, Easypaisa, and bank deposit options compared. Find the cheapest way to send money to Pakistan.",
+    keywords:
+      "send money to Pakistan, cheapest way to send money to Pakistan, cheap money transfer to Pakistan, best way to send money to Pakistan, money transfer Pakistan, PKR exchange rate, JazzCash transfer, Easypaisa transfer",
+  },
+  "send-money-to-india": {
+    title: "Cheapest Way to Send Money to India (2026) — Compare INR Rates",
+    description:
+      "Compare the cheapest and fastest ways to send money to India. Live INR rates from 15+ providers — UPI, IMPS, bank deposit. Updated every 6 hrs.",
+    ogTitle: "Send Money to India — Who Gives the Most INR?",
+    ogDescription:
+      "Live INR rates from 15+ providers. UPI and IMPS instant delivery. Find the cheapest way to send money to India today.",
+    keywords:
+      "send money to India, cheapest way to send money to India, fastest way to send money to India, best way to send money to India, money transfer India, INR exchange rate, UPI transfer, IMPS delivery",
+  },
+  "send-money-to-philippines": {
+    title: "Cheapest Way to Send Money to the Philippines (2026) — GCash & Bank",
+    description:
+      "Compare the cheapest ways to send money to the Philippines with no fees. Live PHP rates from 10+ providers — GCash, bank deposit, cash pickup. Updated every 6 hrs.",
+    ogTitle: "Send Money to Philippines — Who's Cheapest Right Now?",
+    ogDescription:
+      "Live PHP rates from 10+ providers. GCash delivery in minutes. Find the cheapest way to send money to the Philippines.",
+    keywords:
+      "send money to Philippines, cheapest way to send money to Philippines, best ways to send money to Philippines, money transfer Philippines, PHP exchange rate, GCash transfer, cash pickup Philippines",
+  },
+  "send-money-to-nigeria": {
+    title: "Cheapest Way to Send Money to Nigeria (2026) — NGN Rates Compared",
+    description:
+      "Compare the cheapest ways to send money to Nigeria. Live NGN rates vary 10%+ between providers — Lemfi, Wise, WorldRemit, Remitly compared. Updated every 6 hrs.",
+    ogTitle: "Send Money to Nigeria — Who Gives the Most Naira?",
+    ogDescription:
+      "NGN rates vary 10%+ between providers. Compare live rates from 10+ providers. Find the cheapest way to send money to Nigeria.",
+    keywords:
+      "send money to Nigeria, cheapest way to send money to Nigeria, best money transfer to Nigeria, money transfer Nigeria, NGN exchange rate, naira rate, Lemfi Nigeria",
+  },
+  "send-money-to-mexico": {
+    title: "Cheapest Way to Send Money to Mexico (2026) — SPEI & Cash Pickup",
+    description:
+      "Compare the cheapest online money transfers to Mexico. Live MXN rates from 15+ providers — SPEI instant delivery, OXXO cash pickup. Updated every 6 hrs.",
+    ogTitle: "Send Money to Mexico — Who's Cheapest Right Now?",
+    ogDescription:
+      "Live MXN rates from 15+ providers. SPEI instant deposits and OXXO cash pickup. Find the cheapest way to send money to Mexico.",
+    keywords:
+      "cheapest online money transfer to Mexico, cheapest way to send money to Mexico, best way to send money to Mexico, send money to Mexico, money transfer Mexico, MXN exchange rate, SPEI transfer, OXXO cash pickup",
+  },
+  "send-money-to-kenya": {
+    title: "Cheapest Way to Send Money to Kenya (2026) — M-Pesa & Bank",
+    description:
+      "Compare the cheapest ways to send money to Kenya. Live KES rates from 10+ providers — direct M-Pesa delivery in minutes. Sendwave offers zero fees.",
+    ogTitle: "Send Money to Kenya — Who Gives the Best KES Rate?",
+    ogDescription:
+      "Live KES rates from 10+ providers. M-Pesa delivery in minutes. Find the cheapest way to send money to Kenya.",
+    keywords:
+      "send money to Kenya, cheapest way to send money to Kenya, how to send money to Kenya, best way to send money to Kenya, money transfer Kenya, KES exchange rate, M-Pesa transfer, Sendwave Kenya",
+  },
+  "send-money-to-romania": {
+    title: "Cheapest Way to Send Money to Romania (2026) — SEPA, EUR & RON Rates",
+    description:
+      "Compare the cheapest ways to send money to Romania. SEPA instant transfers available. EUR and RON rates from 10+ providers — updated every 6 hrs.",
+    ogTitle: "Send Money to Romania — SEPA Instant Available",
+    ogDescription:
+      "SEPA instant transfers to Romania. Compare EUR and RON rates from 10+ providers. Find the cheapest and fastest way to send.",
+    keywords:
+      "send money to Romania, cheapest way to send money to Romania, best way to send money to Romania, fastest way to send money to Romania, money transfer Romania, RON exchange rate, SEPA transfer Romania",
+  },
+  "send-money-to-colombia": {
+    title: "Cheapest Way to Send Money to Colombia (2026) — COP Rates Compared",
+    description:
+      "Compare the cheapest ways to send money to Colombia. Live COP rates from 10+ providers — bank deposit, Nequi, and cash pickup options. Updated every 6 hrs.",
+    ogTitle: "Send Money to Colombia — Who Gives the Most COP?",
+    ogDescription:
+      "Live COP rates from 10+ providers. Bank deposit and cash pickup. Find the cheapest way to send money to Colombia.",
+    keywords:
+      "send money to Colombia, cheapest way to send money to Colombia, best way to send money to Colombia, best company to send money to Colombia, money transfer Colombia, COP exchange rate",
+  },
+  "send-money-to-poland": {
+    title: "Cheapest Way to Send Money to Poland (2026) — SEPA & PLN Rates",
+    description:
+      "Compare the cheapest ways to send money to Poland. SEPA instant transfers, PLN rates from 10+ providers. Save 80% vs bank wire. Updated every 6 hrs.",
+    ogTitle: "Send Money to Poland — SEPA Instant Available",
+    ogDescription:
+      "SEPA instant transfers to Poland. Compare PLN rates from 10+ providers. Find the cheapest way to send money to Poland.",
+    keywords:
+      "send money to Poland, cheap money transfer to Poland, cheapest way to send money to Poland, best way to send money to Poland, money transfer Poland, PLN exchange rate, SEPA transfer Poland",
+  },
+  "send-money-to-south-africa": {
+    title: "Cheapest Way to Send Money to South Africa (2026) — ZAR Rates Compared",
+    description:
+      "Compare the cheapest ways to send money to South Africa. Live ZAR rates from 10+ providers — FNB, Capitec, Standard Bank deposit & eWallet options.",
+    ogTitle: "Send Money to South Africa — Who Gives the Best ZAR Rate?",
+    ogDescription:
+      "Live ZAR rates from 10+ providers. FNB eWallet and bank deposit options. Find the cheapest way to send money to South Africa.",
+    keywords:
+      "send money to South Africa, cheapest way to send money to South Africa, best way to transfer money to South Africa, money transfer South Africa, ZAR exchange rate, FNB eWallet",
+  },
+  "send-money-to-peru": {
+    title: "Cheapest Way to Send Money to Peru (2026) — PEN Rates Compared",
+    description:
+      "Compare the cheapest ways to send money to Peru. Live PEN rates from 10+ providers — bank deposit to BCP, Interbank, BBVA. Updated every 6 hrs.",
+    ogTitle: "Send Money to Peru — Who Gives the Most Soles?",
+    ogDescription:
+      "Live PEN rates from 10+ providers. Bank deposit to Peruvian banks. Find the cheapest way to send money to Peru.",
+    keywords:
+      "send money to Peru, cheapest way to send money to Peru, best way to send money to Peru, best money transfer services to Peru, money transfer Peru, PEN exchange rate",
+  },
+  "send-money-to-vietnam": {
+    title: "Cheapest Way to Send Money to Vietnam (2026) — VND Rates Compared",
+    description:
+      "Compare the cheapest ways to send money to Vietnam. Live VND rates from 10+ providers — Vietcombank, BIDV, Agribank delivery. Updated every 6 hrs.",
+    ogTitle: "Send Money to Vietnam — Who Gives the Best VND Rate?",
+    ogDescription:
+      "Live VND rates from 10+ providers. Bank deposit to Vietcombank, BIDV. Find the cheapest way to send money to Vietnam.",
+    keywords:
+      "send money to Vietnam, best way to send money to Vietnam, cheapest way to send money to Vietnam, money transfer Vietnam, VND exchange rate, Vietcombank transfer",
+  },
+  "send-money-to-bangladesh": {
+    title: "Cheapest Way to Send Money to Bangladesh (2026) — bKash & Bank",
+    description:
+      "Compare the cheapest ways to send money to Bangladesh. Live BDT rates — direct bKash delivery in minutes. Recipients get 2.5% government bonus.",
+    ogTitle: "Send Money to Bangladesh — bKash in Minutes",
+    ogDescription:
+      "Live BDT rates from 10+ providers. bKash delivery in minutes. Recipients earn Bangladesh's 2.5% remittance incentive.",
+    keywords:
+      "send money to Bangladesh, cheapest way to send money to Bangladesh, cheap money transfer to Bangladesh, best rate to send money to Bangladesh, money transfer Bangladesh, BDT exchange rate, bKash transfer",
+  },
+  // --- Specific corridor overrides for pages ranking on page 1-2 ---
+  "italy-to-peru": {
+    title: "Best Money Transfer Italy to Peru (2026) — EUR→PEN Rates Compared",
+    description:
+      "Compare the best money transfer services from Italy to Peru. Live EUR to PEN rates from 10+ providers — bank deposit to BCP, Interbank, BBVA. Updated every 6 hrs.",
+    ogTitle: "Italy→Peru: Who Gives the Best EUR→PEN Rate?",
+    ogDescription:
+      "Compare EUR to PEN rates from 10+ providers. Find the cheapest way to send money from Italy to Peru.",
+    keywords:
+      "best money transfer Italy to Peru, send money Italy to Peru, best way to send money from Italy to Peru, EUR to PEN, money transfer Italy Peru, cheapest way to send money to Peru from Italy",
+  },
+  "spain-to-brazil": {
+    title: "Cheapest Way to Send Money Spain to Brazil (2026) — EUR→BRL via PIX",
+    description:
+      "Compare the cheapest ways to send money from Spain to Brazil. EUR to BRL rates from 10+ providers — PIX instant delivery. Updated every 6 hrs.",
+    ogTitle: "Spain→Brazil: Who Gives the Best EUR→BRL Rate?",
+    ogDescription:
+      "Compare EUR to BRL rates. PIX instant delivery to Brazilian banks. Find the cheapest way to send money from Spain to Brazil.",
+    keywords:
+      "cheapest way to send money from Spain to Brazil, send money Spain to Brazil, EUR to BRL, money transfer Spain Brazil, PIX transfer from Spain",
+  },
+  "sweden-to-romania": {
+    title: "Cheapest Way to Send Money Sweden to Romania (2026) — SEK→RON Rates",
+    description:
+      "Compare the cheapest ways to send money from Sweden to Romania. SEK to RON rates from 10+ providers — SEPA instant delivery available. Updated every 6 hrs.",
+    ogTitle: "Sweden→Romania: Who Gives the Best SEK→RON Rate?",
+    ogDescription:
+      "Compare SEK to RON rates from 10+ providers. SEPA instant delivery. Find the cheapest way to send money from Sweden to Romania.",
+    keywords:
+      "send money Sweden to Romania, bästa sättet att skicka pengar till rumänien, SEK to RON, cheapest way to send money Sweden Romania, SEPA transfer Romania",
+  },
+  "sweden-to-morocco": {
+    title: "Cheapest Way to Send Money Sweden to Morocco (2026) — SEK→MAD Rates",
+    description:
+      "Compare the cheapest ways to send money from Sweden to Morocco. SEK to MAD rates from 10+ providers — bank deposit and cash pickup. Updated every 6 hrs.",
+    ogTitle: "Sweden→Morocco: Who Gives the Best SEK→MAD Rate?",
+    ogDescription:
+      "Compare SEK to MAD rates. Find the cheapest way to send money from Sweden to Morocco with bank or cash pickup delivery.",
+    keywords:
+      "send money Sweden to Morocco, bästa sättet att skicka pengar till marocko, SEK to MAD, cheapest way to send money Sweden Morocco",
+  },
+  "usa-to-poland": {
+    title: "Cheapest Way to Send Money USA to Poland (2026) — USD→PLN Rates",
+    description:
+      "Compare the cheapest ways to send money from USA to Poland. USD to PLN rates from 10+ providers — SEPA delivery in 1 day. Updated every 6 hrs.",
+    ogTitle: "USA→Poland: Who Gives the Best USD→PLN Rate?",
+    ogDescription:
+      "Compare USD to PLN rates from 10+ providers. SEPA delivery. Find the cheapest way to send money from USA to Poland.",
+    keywords:
+      "send money USA to Poland, cheap money transfer to Poland, USD to PLN, cheapest way to send money to Poland from USA, money transfer Poland",
+  },
+  "usa-to-romania": {
+    title: "Cheapest Way to Send Money USA to Romania (2026) — USD→RON Rates",
+    description:
+      "Compare the cheapest ways to send money from USA to Romania. USD to RON rates — SEPA delivery, EUR or RON options. Updated every 6 hrs.",
+    ogTitle: "USA→Romania: Who Gives the Best USD→RON Rate?",
+    ogDescription:
+      "Compare USD to RON rates. SEPA delivery to Romanian banks. Find the cheapest and fastest way to send money from USA to Romania.",
+    keywords:
+      "send money USA to Romania, fastest way to send money to Romania, USD to RON, cheapest way to send money to Romania from USA, SEPA transfer Romania",
+  },
+  "sweden-to-colombia": {
+    title: "Cheapest Way to Send Money Sweden to Colombia (2026) — SEK→COP Rates",
+    description:
+      "Compare the cheapest ways to send money from Sweden to Colombia. SEK to COP rates from 10+ providers — bank deposit and cash pickup. Updated every 6 hrs.",
+    ogTitle: "Sweden→Colombia: Who Gives the Best SEK→COP Rate?",
+    ogDescription:
+      "Compare SEK to COP rates. Find the cheapest way to send money from Sweden to Colombia.",
+    keywords:
+      "send money Sweden to Colombia, bästa sättet att skicka pengar till colombia, SEK to COP, cheapest way to send money Sweden Colombia",
+  },
+  "sweden-to-brazil": {
+    title: "Cheapest Way to Send Money Sweden to Brazil (2026) — SEK→BRL Rates",
+    description:
+      "Compare the cheapest ways to send money from Sweden to Brazil. SEK to BRL rates from 10+ providers — PIX instant delivery. Updated every 6 hrs.",
+    ogTitle: "Sweden→Brazil: Who Gives the Best SEK→BRL Rate?",
+    ogDescription:
+      "Compare SEK to BRL rates. PIX instant delivery. Find the cheapest way to send money from Sweden to Brazil.",
+    keywords:
+      "send money Sweden to Brazil, bästa sättet att skicka pengar till brasilien, SEK to BRL, cheapest way to send money Sweden Brazil, PIX transfer",
+  },
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -2670,7 +2882,17 @@ export default async function CorridorPage({ params }: Props) {
         background="white"
         sections={[
           {
-            title: "Related corridors",
+            title: `Other routes to ${corridor.toCountry}`,
+            links: allCorridors
+              .filter((c) => c.toCurrency === toCurrency && c.fromCurrency !== fromCurrency && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
+              .slice(0, 5)
+              .map((c) => ({
+                href: `/send-money/${c.slug}`,
+                label: `${c.fromCountry} to ${c.toCountry}`,
+              })),
+          },
+          {
+            title: "Popular corridors",
             links: popularCorridors
               .filter((c) => c.from !== fromCurrency || c.to !== toCurrency)
               .slice(0, 5)

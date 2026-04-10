@@ -1016,9 +1016,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-india-guide",
-    title: "Best Ways to Send Money to India in 2026",
+    title: "Best Ways to Send Money to India (2026) — Cheapest & Fastest Providers",
     metaDescription:
-      "Compare the cheapest and fastest ways to send money to India. We analyzed 8 providers for USD, GBP, EUR, CAD, and AUD to INR transfers.",
+      "Compare the cheapest and fastest ways to send money to India in 2026. Real INR rates from 10+ providers — UPI, IMPS, bank deposit. USD, GBP, EUR, CAD and AUD corridors analyzed.",
     excerpt:
       "India receives more remittances than any other country. We compared 8 providers across 5 source currencies to find the best way to send money to India.",
     category: "Corridors",
@@ -1129,11 +1129,12 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "cheapest-way-to-send-money-internationally",
-      "best-money-transfer-apps",
+      "send-money-to-pakistan-guide",
+      "send-money-to-philippines-guide",
+      "send-money-to-mexico-guide",
       "send-money-uk-to-india-guide",
       "send-money-canada-to-india-guide",
-      "send-money-to-pakistan-guide",
+      "cheapest-way-to-send-money-internationally",
     ],
   },
 
@@ -2942,10 +2943,11 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
-      "cheapest-way-to-send-money-internationally",
-      "best-money-transfer-apps",
       "send-money-to-india-guide",
       "send-money-to-bangladesh-guide",
+      "send-money-to-philippines-guide",
+      "send-money-to-nigeria-guide",
+      "cheapest-way-to-send-money-internationally",
     ],
   },
   // ============================
@@ -3150,9 +3152,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-philippines-guide",
-    title: "Send Money to Philippines: Cheapest Ways in 2026",
+    title: "Best Ways to Send Money to the Philippines (2026) — Cheapest Providers",
     metaDescription:
-      "Compare the cheapest ways to send money to the Philippines from the US. Real rates from 10+ providers for USD to PHP — bank, GCash, cash pickup options.",
+      "Compare the cheapest ways to send money to the Philippines with no fees. Real PHP rates from 10+ providers — GCash, bank deposit, cash pickup. Updated April 2026.",
     excerpt:
       "Over 4 million Filipino-Americans send money home regularly. We compared 10+ providers to find the cheapest USD to PHP transfer options including GCash and cash pickup.",
     category: "Corridors",
@@ -3306,10 +3308,11 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
+      "send-money-to-india-guide",
+      "send-money-to-pakistan-guide",
+      "send-money-to-mexico-guide",
       "cheapest-way-to-send-money-internationally",
       "best-money-transfer-apps",
-      "swift-codes-explained",
-      "send-money-to-india-guide",
     ],
   },
   // ============================
@@ -3317,9 +3320,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-mexico-guide",
-    title: "Send Money to Mexico: 7 Cheapest Options in 2026",
+    title: "Cheapest Way to Send Money to Mexico (2026) — 7 Providers Compared",
     metaDescription:
-      "Find the cheapest way to send money to Mexico from the US. We compared 10+ providers for USD to MXN — bank deposit, OXXO cash pickup, and SPEI options.",
+      "Find the cheapest online money transfer to Mexico. Real MXN rates from 10+ providers — SPEI instant deposits, OXXO cash pickup, bank transfer. Updated April 2026.",
     excerpt:
       "Mexico receives over $63 billion in remittances annually, mostly from the US. We compared providers to find the cheapest USD to MXN transfers with SPEI, OXXO, and bank options.",
     category: "Corridors",
@@ -3472,10 +3475,11 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
+      "send-money-to-india-guide",
+      "send-money-to-philippines-guide",
+      "send-money-to-nigeria-guide",
       "cheapest-way-to-send-money-internationally",
       "best-money-transfer-apps",
-      "swift-codes-explained",
-      "iban-numbers-explained",
     ],
   },
   // ============================
@@ -3483,9 +3487,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-nigeria-guide",
-    title: "Send Money to Nigeria: Cheapest Ways in 2026",
+    title: "Cheapest Way to Send Money to Nigeria (2026) — NGN Rates Vary 10%+",
     metaDescription:
-      "Compare the cheapest ways to send money to Nigeria from the US. Real USD to NGN rates from 10+ providers — bank deposit, cash pickup, and mobile options.",
+      "Compare the cheapest ways to send money to Nigeria. NGN rates vary 10%+ between providers — real USD to NGN rates from 10+ providers. Bank deposit, cash pickup, mobile options.",
     excerpt:
       "Nigeria is Africa's largest remittance market. We compared 10+ providers to find the cheapest USD to NGN options, with tips on navigating naira exchange rate differences.",
     category: "Corridors",
@@ -3632,10 +3636,11 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
+      "send-money-to-kenya-guide",
+      "send-money-to-south-africa-guide",
+      "send-money-to-india-guide",
       "cheapest-way-to-send-money-internationally",
       "exchange-rate-markup-explained",
-      "swift-codes-explained",
-      "best-money-transfer-apps",
     ],
   },
   // ============================
@@ -10952,9 +10957,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-morocco-guide",
-    title: "Best Way to Send Money to Morocco (2026) — MAD Rates, Fees & Cash Pickup",
+    title: "Cheapest Way to Send Money to Morocco (2026) — MAD Rates & Cash Pickup",
     metaDescription:
-      "Compare the cheapest ways to send money to Morocco in 2026. Live MAD exchange rates, bank deposit vs CashPlus pickup, provider fees, and step-by-step instructions from Europe, US and Canada.",
+      "Compare the cheapest ways to send money to Morocco. Live MAD rates from 10+ providers — bank deposit vs CashPlus pickup. Europe, US, Canada and Gulf corridors compared.",
     excerpt:
       "Morocco received $12 billion in remittances in 2025, primarily from France, Spain, Italy and the Gulf. Here's how to get the best MAD rate and avoid overpaying.",
     category: "Corridors",
@@ -11183,9 +11188,10 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
+      "send-money-to-nigeria-guide",
       "send-money-to-pakistan-guide",
+      "send-money-to-kenya-guide",
       "cheapest-way-to-send-money-internationally",
-      "best-money-transfer-apps",
       "send-money-home-ramadan-eid-2026",
     ],
   },
@@ -11195,9 +11201,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-romania-guide",
-    title: "Best Way to Send Money to Romania (2026) — EUR & RON Rates, SEPA & Fees",
+    title: "Cheapest Way to Send Money to Romania (2026) — SEPA, EUR & RON Rates",
     metaDescription:
-      "Compare the cheapest ways to send money to Romania in 2026. SEPA instant transfers, EUR vs RON delivery, provider fees, and step-by-step instructions from UK, EU, US and Canada.",
+      "Compare the cheapest and fastest ways to send money to Romania. SEPA instant transfers available. EUR vs RON delivery, real rates from 10+ providers. UK, EU, US & Canada corridors.",
     excerpt:
       "Romania received $9 billion in remittances in 2025, mostly from Italy, Spain, UK and Germany. SEPA makes EUR transfers near-instant — here's how to get the best deal.",
     category: "Corridors",
@@ -11440,9 +11446,10 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
+      "send-money-to-morocco-guide",
+      "send-money-to-india-guide",
       "cheapest-way-to-send-money-internationally",
       "how-euribor-affects-euro-transfers",
-      "multi-currency-accounts-exchange-rates",
       "best-money-transfer-apps",
     ],
   },
@@ -11663,9 +11670,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-kenya-guide",
-    title: "Send Money to Kenya: Cheapest Ways in 2026",
+    title: "Cheapest Way to Send Money to Kenya (2026) — M-Pesa & Bank Compared",
     metaDescription:
-      "Compare the cheapest ways to send money to Kenya. Real USD/GBP/EUR to KES rates from 10+ providers — M-Pesa, bank deposit & cash pickup options compared.",
+      "Compare the cheapest ways to send money to Kenya. Real KES rates from 10+ providers — direct M-Pesa delivery in minutes, bank deposit, cash pickup. Sendwave offers zero fees.",
     excerpt:
       "Kenya is Africa's M-Pesa powerhouse. We compared 10+ providers to find the cheapest ways to send money to Kenya, including direct M-Pesa delivery and the unique mobile money ecosystem.",
     category: "Corridors",
@@ -11848,10 +11855,11 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
+      "send-money-to-nigeria-guide",
+      "send-money-to-south-africa-guide",
+      "send-money-to-india-guide",
       "cheapest-way-to-send-money-internationally",
       "best-money-transfer-apps",
-      "exchange-rate-markup-explained",
-      "swift-codes-explained",
     ],
   },
   // ============================
@@ -12024,9 +12032,10 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedSlugs: [
       "send-money-to-nigeria-guide",
+      "send-money-to-kenya-guide",
+      "send-money-to-south-africa-guide",
       "cheapest-way-to-send-money-internationally",
       "exchange-rate-markup-explained",
-      "swift-codes-explained",
     ],
   },
   // ============================
@@ -12034,9 +12043,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-south-africa-guide",
-    title: "Best Way to Send Money to South Africa (2026) — USD, GBP & AUD to ZAR",
+    title: "Cheapest Way to Send Money to South Africa (2026) — ZAR Rates Compared",
     metaDescription:
-      "Compare the cheapest ways to send money to South Africa. Real USD/GBP/AUD to ZAR rates from 10+ providers — FNB, Standard Bank, Capitec, cash pickup & eWallet options.",
+      "Compare the cheapest ways to send money to South Africa. Real ZAR rates from 10+ providers — FNB eWallet, Capitec, Standard Bank deposit, Shoprite cash pickup. USD, GBP & AUD corridors.",
     excerpt:
       "South Africa is sub-Saharan Africa's largest remittance market. We compared 10+ providers to find the cheapest USD, GBP, and AUD to ZAR transfers, including FNB eWallet and Shoprite cash collection.",
     category: "Corridors",
@@ -12231,10 +12240,328 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedSlugs: [
+      "send-money-to-nigeria-guide",
+      "send-money-to-kenya-guide",
+      "send-money-to-india-guide",
       "cheapest-way-to-send-money-internationally",
       "best-money-transfer-apps",
-      "exchange-rate-markup-explained",
-      "swift-codes-explained",
+    ],
+  },
+  // ============================
+  // Send Money to Colombia — Corridor Guide
+  // ============================
+  {
+    slug: "send-money-to-colombia-guide",
+    title: "Cheapest Way to Send Money to Colombia (2026) — COP Rates & Nequi Delivery",
+    metaDescription:
+      "Compare the cheapest ways to send money to Colombia. Real COP rates from 10+ providers — Nequi, Daviplata, Bancolombia deposit, Efecty cash pickup. Updated April 2026.",
+    excerpt:
+      "Colombia received $10.5 billion in remittances in 2023. We compared 10+ providers to find the cheapest USD, EUR, and GBP to COP transfers, including Nequi instant delivery.",
+    category: "Corridors",
+    readTime: "11 min read",
+    publishedAt: "2026-04-10",
+    updatedAt: "2026-04-10",
+    author: "Akif Hazarvi",
+    tags: ["Colombia", "COP", "USD to COP", "remittance", "Nequi", "corridor guide", "send money to Colombia", "Daviplata"],
+    featuredImage: "/images/blog/send-money-to-colombia.jpg",
+    sections: [
+      {
+        heading: "Colombia's Remittance Market: Digital Wallets Leading the Way",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Colombia in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market USD to COP exchange rate with 0% markup and fees of $4–7 on a $1,000 transfer. <a href="/companies/remitly">Remitly</a> is a close competitor with fees as low as $0–4 and direct Nequi delivery. For cash pickup, <a href="/companies/western-union">Western Union</a> has 10,000+ Efecty locations across Colombia. On a typical $1,000 transfer, specialist providers deliver <strong>COP 50,000–200,000 more</strong> than traditional banks. <a href="/send-money/send-money-to-colombia">Compare live COP rates</a> from 10+ providers.</p></div>
+<p>Colombia received over <strong>$10.5 billion in remittances</strong> in 2023, according to <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer nofollow">Banco de la República</a>, with the United States accounting for roughly half. Spain, Chile, and Ecuador are the other major source countries, reflecting Colombia's diverse diaspora of over 5 million abroad.</p>
+<p>What makes Colombia unique among Latin American remittance destinations is the <strong>rapid adoption of digital wallets</strong>. Nequi (owned by Bancolombia) and Daviplata (owned by Davivienda) now have <strong>over 30 million combined users</strong> — in a country of 52 million. Combined with the Transfiya instant interbank network and the PSE online payment system, Colombia's financial infrastructure means transfers can arrive in minutes rather than days.</p>
+<p>The Colombian peso (COP) is a managed-float currency that has shown <strong>5–15% annual fluctuation</strong> against the USD, ranging from COP 3,700 to COP 4,800 per dollar between 2022–2025. This volatility means the difference between providers can be significant — comparing at the time of sending is essential.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Colombia",
+        content: `<p>We compared 10+ providers on the USD to COP corridor. Here's who stands out:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, 0% markup, $4–7 fee. 1–2 day delivery to Bancolombia, Davivienda, BBVA Colombia</td></tr>
+<tr><td><strong>Best for Nequi</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct Nequi delivery within minutes. Express fee $2–4, economy $0–2. Competitive COP rates</td></tr>
+<tr><td><strong>Best for cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>10,000+ Efecty locations plus Gana and Super Giros networks. Available within minutes</td></tr>
+<tr><td><strong>Best from Spain</strong></td><td><a href="/companies/ria">Ria</a></td><td>Strong EUR→COP rates. Cash pickup at Efecty and Su Red networks. Popular with Colombian community in Spain</td></tr>
+<tr><td><strong>Best for large amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No transfer fees, dedicated FX dealers. Strong for amounts over $5,000 and business payments</td></tr>
+</tbody></table></div>
+<p><strong>From the US</strong> (largest corridor): Wise and Remitly dominate. Fund via ACH (free) or debit card. Remitly offers Nequi delivery; Wise deposits to any Colombian bank.</p>
+<p><strong>From Spain</strong> (second-largest corridor): Ria and Western Union have the strongest local infrastructure. Wise also supports EUR→COP with competitive rates and SEPA funding.</p>
+<p><strong>From Chile/Ecuador</strong>: Options are more limited. Western Union and MoneyGram offer cash-to-cash services. Wise supports CLP→COP from Chile.</p>`,
+      },
+      {
+        heading: "What You Need for a Colombia Transfer",
+        content: `<p>Requirements depend on the delivery method:</p>
+<h3>Bank Deposit</h3>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with the bank)</li>
+<li><strong>Bank name</strong> and account number</li>
+<li><strong>Account type</strong>: Cuenta corriente (checking) or cuenta de ahorros (savings)</li>
+<li><strong>Cédula de Ciudadanía</strong> (Colombian national ID number) — required by most providers</li>
+</ul>
+<h3>Nequi / Daviplata</h3>
+<ul>
+<li><strong>Recipient's mobile number</strong> registered with Nequi or Daviplata (+57 XXXXXXXXXX)</li>
+<li>The recipient must have already set up and verified their Nequi or Daviplata account</li>
+</ul>
+<h3>Cash Pickup</h3>
+<ul>
+<li><strong>Recipient's full name</strong> and <strong>Cédula number</strong></li>
+<li>The recipient will need to show their Cédula at the pickup location</li>
+</ul>
+<p><strong>Important:</strong> Colombia does not use IBANs. Bank transfers use domestic account numbers. For SWIFT wire transfers, you'll need the bank's SWIFT/BIC code.</p>`,
+      },
+      {
+        heading: "Major Colombian Banks and SWIFT Codes",
+        content: `<p>These are the major banks that receive international transfers in Colombia:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>Bancolombia</strong></td><td>COLOCOBJXXX</td><td>Largest private bank. Owns Nequi. 18M+ clients</td></tr>
+<tr><td><strong>Davivienda</strong></td><td>DAABORBBXXX</td><td>2nd largest. Owns Daviplata (16M+ users)</td></tr>
+<tr><td><strong>BBVA Colombia</strong></td><td>BBABORBBXXX</td><td>Spanish-owned. Strong for EUR transfers from Spain</td></tr>
+<tr><td><strong>Banco de Bogotá</strong></td><td>BABORBBKXXX</td><td>Oldest bank in Colombia (founded 1870)</td></tr>
+<tr><td><strong>Banco Popular</strong></td><td>BABORBBPXXX</td><td>Government-owned. 4M+ clients</td></tr>
+<tr><td><strong>Scotiabank Colpatria</strong></td><td>COLPCOBJXXX</td><td>Canadian-owned. Good for CAD transfers</td></tr>
+</tbody></table></div>
+<p><strong>Bank codes</strong> (used in domestic transfers): Bancolombia (007), Davivienda (051), BBVA Colombia (013), Banco de Bogotá (001).</p>`,
+      },
+      {
+        heading: "Delivery Methods and Speed",
+        content: `<p>Colombia offers more delivery options than most Latin American destinations:</p>
+<h3>Nequi / Daviplata (Instant)</h3>
+<p>The fastest option. Over 30 million Colombians use these digital wallets. Remitly, WorldRemit, and select other providers deliver directly to Nequi. Daviplata receives transfers through linked Davivienda accounts. Funds are available instantly 24/7.</p>
+<h3>Bank Deposit (1–24 hours)</h3>
+<p>The Transfiya real-time interbank network enables same-day settlement between Colombian banks. Deposits to Bancolombia, Davivienda, and BBVA Colombia typically arrive within hours. Standard bank deposits via SWIFT take 1–2 business days.</p>
+<h3>Cash Pickup (Minutes)</h3>
+<p>Available at 10,000+ <strong>Efecty</strong> locations (the largest bill payment network in Colombia), plus <strong>Gana</strong>, <strong>Super Giros</strong>, and Western Union/MoneyGram agent locations. Cash pickup is available within minutes of sending and is popular in rural areas with lower banking penetration.</p>
+<h3>PSE Online Banking</h3>
+<p>PSE (Pagos Seguros en Línea) enables instant online bank transfers within Colombia. Some providers leverage PSE for final-mile delivery, settling transfers faster than traditional SWIFT wires.</p>`,
+      },
+      {
+        heading: "Fees, Exchange Rates, and How to Save",
+        content: `<p>The COP exchange rate varies significantly between providers. Here's how to minimize costs:</p>
+<ol>
+<li><strong>Compare total COP received, not just the exchange rate</strong> — A provider with a slightly worse rate but zero fee may deliver more COP than one with a better rate but $10 fee.</li>
+<li><strong>Fund via ACH or bank transfer</strong> — Card payments add 1–3% in fees. ACH funding (US) or SEPA (Europe) is free or near-free with most providers.</li>
+<li><strong>Avoid cash-based services for regular transfers</strong> — Western Union and MoneyGram charge $5–15+ per cash transfer. Digital alternatives save $10–20 per transfer.</li>
+<li><strong>Watch the COP rate</strong> — The peso swings 5–15% annually. If you're sending regularly, consider using <a href="/guides/exchange-rate-markup-explained">rate alerts</a> to lock in favorable rates.</li>
+<li><strong>Be aware of the GMF tax</strong> — Colombia charges a 4×1,000 financial transaction tax (Gravamen a los Movimientos Financieros) on bank withdrawals. This is COP 4 per COP 1,000 deposited. One account per person is exempt up to COP 11.8 million/month — your recipient should designate their receiving account for the exemption.</li>
+</ol>
+<p>On a typical $1,000 USD transfer, the difference between the best and worst provider can be <strong>COP 50,000–200,000</strong> ($12–$50). <a href="/send-money/usa-to-colombia">Check live rates</a> before every transfer.</p>`,
+      },
+      {
+        heading: "Colombian Regulations and Tax",
+        content: `<p>Colombia has straightforward rules for receiving personal remittances:</p>
+<ul>
+<li><strong>No income tax on family remittances</strong> — The Dirección de Impuestos y Aduanas Nacionales (DIAN) does not treat personal remittances from abroad as taxable income.</li>
+<li><strong>Simplified reporting</strong> — Transfers under USD 10,000/month require no special declarations or documentation beyond standard KYC.</li>
+<li><strong>No receiving limits</strong> — There is no cap on how much money a Colombian resident can receive from abroad through formal banking channels.</li>
+<li><strong>Anti-money laundering</strong> — The Unidad de Información y Análisis Financiero (UIAF) monitors large or unusual transactions. Banks may request source-of-funds documentation for transfers above USD 10,000.</li>
+<li><strong>For US senders</strong> — CFPB regulations require providers to disclose total costs including exchange rate, fees, and taxes upfront. Transfers over $10,000 must be reported to FinCEN.</li>
+</ul>
+<p>The Financial Superintendence of Colombia (SFC) regulates all inbound remittance services. All providers listed in this guide are licensed in their home countries and compliant with Colombian receiving regulations.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/send-money-to-colombia">Colombia comparison tool</a> for the latest rates.</p>
+<p>External sources include <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer nofollow">Banco de la República</a> remittance statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a> and <a href="https://www.superfinanciera.gov.co/" target="_blank" rel="noopener noreferrer nofollow">SFC</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Colombia?",
+        answer:
+          "Wise is typically the cheapest for bank deposits, using the mid-market USD to COP rate with fees of $4–7 on $1,000. Remitly is competitive with express fees of $2–4 and offers Nequi delivery. For cash pickup, Xoom occasionally offers zero-fee promotions. Always compare total COP received — the difference between best and worst provider can be COP 50,000–200,000 on $1,000.",
+      },
+      {
+        question: "Can I send money directly to Nequi from abroad?",
+        answer:
+          "Yes. Remitly and WorldRemit support direct Nequi delivery from the US, UK, and several European countries. You need the recipient's registered Nequi mobile number (+57 format). Funds arrive instantly. Daviplata receives international transfers through linked Davivienda bank accounts rather than direct wallet delivery.",
+      },
+      {
+        question: "How long does it take to send money to Colombia?",
+        answer:
+          "Nequi and Daviplata delivery is instant (minutes). Bank deposits via Transfiya or PSE arrive within hours. Standard bank transfers take 1–2 business days. Cash pickup at Efecty, Gana, or Super Giros locations is available within minutes of sending.",
+      },
+      {
+        question: "Is money received in Colombia from abroad taxable?",
+        answer:
+          "No. Personal remittances from abroad are not subject to Colombian income tax. The DIAN does not treat family support payments as taxable income. Transfers under $10,000/month require no special declarations. However, recipients should be aware of the GMF (4×1,000 financial transaction tax) on bank withdrawals — one account per person is exempt up to COP 11.8 million/month.",
+      },
+      {
+        question: "What bank details do I need to send money to Colombia?",
+        answer:
+          "For bank deposits: recipient's full name, bank name, account number, account type (corriente/savings), and Cédula de Ciudadanía number. Colombia does not use IBANs. For Nequi: just the recipient's registered mobile number. For cash pickup: recipient's name and Cédula number.",
+      },
+      {
+        question: "Why is the COP exchange rate different between providers?",
+        answer:
+          "Each provider adds their own markup to the mid-market rate. Wise uses 0% markup and charges a separate fee. Others build the margin into the rate — a rate of COP 4,100/USD vs COP 4,200/USD on $1,000 means COP 100,000 less received. The COP also fluctuates 5–15% annually, so rates change throughout the day. Always compare at the time of sending.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-mexico-guide",
+      "send-money-to-peru-guide",
+      "send-money-to-india-guide",
+      "cheapest-way-to-send-money-internationally",
+      "best-money-transfer-apps",
+    ],
+  },
+  // ============================
+  // Send Money to Poland — Corridor Guide
+  // ============================
+  {
+    slug: "send-money-to-poland-guide",
+    title: "Cheapest Way to Send Money to Poland (2026) — SEPA, PLN Rates & Fees",
+    metaDescription:
+      "Compare the cheapest ways to send money to Poland. SEPA transfers from EU, real PLN rates from 10+ providers. UK-to-Poland, US-to-Poland corridors compared. Updated April 2026.",
+    excerpt:
+      "Poland is Central Europe's largest economy with 800,000+ Poles in the UK alone. We compared 10+ providers to find the cheapest GBP, EUR, and USD to PLN transfers including SEPA instant.",
+    category: "Corridors",
+    readTime: "11 min read",
+    publishedAt: "2026-04-10",
+    updatedAt: "2026-04-10",
+    author: "Akif Hazarvi",
+    tags: ["Poland", "PLN", "GBP to PLN", "EUR to PLN", "remittance", "corridor guide", "send money to Poland", "SEPA"],
+    featuredImage: "/images/blog/send-money-to-poland.jpg",
+    sections: [
+      {
+        heading: "Poland: Central Europe's Largest Remittance Destination",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Poland in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market exchange rate with 0% markup. From the UK, Wise charges approximately £4–5 on a £1,000 GBP to PLN transfer. <a href="/companies/revolut">Revolut</a> offers free transfers between Revolut accounts and competitive rates for SEPA bank transfers. From the EU, any SEPA transfer is near-free — just watch the EUR→PLN conversion margin. On a typical £1,000 transfer, specialist providers deliver <strong>PLN 100–300 more</strong> than UK high-street banks. <a href="/send-money/send-money-to-poland">Compare live PLN rates</a> from 10+ providers.</p></div>
+<p>Poland is <strong>Central Europe's largest economy</strong> and a major remittance destination, receiving billions annually from its large diaspora across Western Europe and North America. The UK is the single largest source, with <strong>over 800,000 Polish-born residents</strong> in Britain — the largest non-British nationality group. Germany, Ireland, and the Netherlands are other major sending countries.</p>
+<p>As an EU member since 2004, Poland benefits from <strong>SEPA (Single Euro Payments Area)</strong> for EUR transfers — making euro payments from any EU/EEA country fast and cheap. However, Poland uses the <strong>złoty (PLN)</strong> as its domestic currency, not the euro. This means most transfers involve a currency conversion from EUR, GBP, or USD to PLN, and the conversion rate is where providers differ most.</p>
+<p>The PLN has been relatively stable against the EUR (ranging PLN 4.25–4.75 per EUR in 2024–2025) but more volatile against GBP and USD. The difference between the best and worst provider on GBP→PLN can be <strong>PLN 100–300 on a £1,000 transfer</strong>.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Poland",
+        content: `<p>We compared 10+ providers across GBP, EUR, and USD to PLN corridors:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, 0% markup. GBP→PLN fee ~£4–5 on £1,000. SEPA delivery 1 day. Trusted by 16M+ users</td></tr>
+<tr><td><strong>Best free transfers</strong></td><td><a href="/companies/revolut">Revolut</a></td><td>Free Revolut-to-Revolut. Competitive EUR→PLN on weekdays (free up to €1,000/month). SEPA to any Polish IBAN</td></tr>
+<tr><td><strong>Best from EU</strong></td><td>SEPA bank transfer</td><td>Any EU bank → Polish IBAN in PLN or EUR. Fee: usually €0–1. Conversion depends on your bank</td></tr>
+<tr><td><strong>Best for large amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No transfer fees, competitive margins on amounts over £5,000. Dedicated dealer for regular transfers</td></tr>
+<tr><td><strong>Best for cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Pickup at Bank Pekao, Euronet, and partner locations across Poland</td></tr>
+</tbody></table></div>
+<h3>From the UK (Largest Corridor)</h3>
+<p>Post-Brexit, UK banks lost direct SEPA access, making digital providers essential. Wise offers the best GBP→PLN rate. Revolut is excellent if your recipient also has Revolut (instant, free). <a href="/companies/remitly">Remitly</a> offers competitive rates with GBP debit card funding. Avoid UK bank wire transfers — they charge £25–40 plus a 2–4% exchange rate markup.</p>
+<h3>From Germany, Ireland, Netherlands (EU)</h3>
+<p>Send EUR via SEPA to a Polish EUR account (zero conversion cost) or to a PLN account (bank converts at their rate). For the best EUR→PLN conversion, use Wise or Revolut rather than letting the Polish bank convert. SEPA Instant arrives in under 10 seconds.</p>
+<h3>From the US and Canada</h3>
+<p>Wise (fund via ACH, fee ~$5–7) and Remitly are the strongest options. Western Union and MoneyGram offer cash pickup for recipients without bank accounts. OFX is best for large transfers ($5,000+).</p>`,
+      },
+      {
+        heading: "What You Need for a Poland Transfer",
+        content: `<p>For all bank transfers to Poland, you need:</p>
+<ul>
+<li><strong>Recipient's full name</strong> (as registered with their Polish bank)</li>
+<li><strong>Polish IBAN</strong> — 28 characters starting with PL (e.g., PL61 1090 1014 0000 0712 1981 2874)</li>
+<li><strong>SWIFT/BIC code</strong> — Required for non-SEPA transfers (e.g., from US/Canada/UK)</li>
+</ul>
+<p><strong>IBAN structure:</strong> PL + 2 check digits + 8-digit bank sort code + 16-digit account number. Your recipient can find their IBAN in their banking app, on their bank statement, or by asking their branch. See our <a href="/iban/poland">Poland IBAN guide</a> for validation details.</p>
+<h3>For Cash Pickup</h3>
+<ul>
+<li>Recipient's full name and valid photo ID (dowód osobisty or passport)</li>
+<li>Some services require the recipient's PESEL number (Polish national ID number)</li>
+</ul>
+<p><strong>Note:</strong> Poland has high banking penetration (87%+ of adults), so bank deposit is the most common delivery method. Cash pickup is mainly used by recipients without Polish bank accounts.</p>`,
+      },
+      {
+        heading: "Major Polish Banks and SWIFT Codes",
+        content: `<p>These are Poland's largest banks for receiving international transfers:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Bank</th><th>SWIFT Code</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><strong>PKO Bank Polski</strong></td><td>BPKOPLPW</td><td>Largest bank, 11M+ clients. State-owned. iPKO online banking</td></tr>
+<tr><td><strong>Bank Pekao</strong></td><td>PKOPPLPW</td><td>2nd largest. UniCredit Group. Strong international receiving</td></tr>
+<tr><td><strong>mBank</strong></td><td>BREXPLPW</td><td>Digital-first bank. Popular with younger Poles. Commerzbank Group</td></tr>
+<tr><td><strong>ING Bank Śląski</strong></td><td>INGBPLPW</td><td>ING Group. Popular mobile banking app</td></tr>
+<tr><td><strong>Santander Bank Polska</strong></td><td>WBKPPLPP</td><td>Formerly Bank Zachodni WBK. Strong branch network</td></tr>
+<tr><td><strong>Bank Millennium</strong></td><td>BIGBPLPW</td><td>Portuguese-owned. Digital banking focus</td></tr>
+</tbody></table></div>
+<p>All major Polish banks support SEPA receiving in both EUR and PLN. For SWIFT transfers (from UK, US, Canada), some banks charge a receiving fee of PLN 20–50. Ask your recipient to check with their bank.</p>`,
+      },
+      {
+        heading: "SEPA Transfers: Why They Matter for Poland",
+        content: `<p>Poland is a full SEPA member, which makes EUR transfers from EU/EEA countries fast and cheap:</p>
+<h3>SEPA Credit Transfer (Standard)</h3>
+<p>Settles within 1 business day. Fee: typically €0–1 from any EU bank. Available 24/7 for submission, but processing only on business days.</p>
+<h3>SEPA Instant Credit Transfer</h3>
+<p>Settles in <strong>under 10 seconds, 24/7/365</strong>. Most major Polish banks now support SEPA Instant receiving. Maximum €100,000 per transfer. Check if your sending bank supports SEPA Instant — if so, this is the fastest way to get EUR into Poland.</p>
+<h3>UK Post-Brexit Access</h3>
+<p>UK banks lost direct SEPA access after Brexit. This means GBP→PLN transfers from UK banks now go via SWIFT (slower, more expensive). To get SEPA-level pricing from the UK, use <a href="/companies/wise">Wise</a> or <a href="/companies/revolut">Revolut</a> — they route through their EU entities to deliver via SEPA, giving you fast delivery and low fees despite Brexit.</p>
+<h3>EUR Account vs PLN Account</h3>
+<p>If your recipient has a EUR account at their Polish bank (most banks offer multi-currency accounts), send EUR directly via SEPA — zero conversion cost. If they only have a PLN account, the bank will convert at their rate. For better rates, send via Wise or Revolut which convert to PLN before depositing.</p>`,
+      },
+      {
+        heading: "Fees, Exchange Rates, and Tips for Regular Senders",
+        content: `<p>Here are practical tips for getting the most PLN per pound, euro, or dollar:</p>
+<ol>
+<li><strong>Send to a EUR account when possible</strong> — If your recipient has a EUR account at PKO, mBank, or ING, send EUR via SEPA and let them convert locally. Polish banks often offer better EUR→PLN rates than transfer providers.</li>
+<li><strong>Use Wise or Revolut from the UK</strong> — UK bank wires to Poland cost £25–40 in fees plus 2–4% on the exchange rate. Wise costs £4–5 total. You save £40–70 per £1,000.</li>
+<li><strong>Avoid weekend conversions on Revolut</strong> — Revolut adds a 0.5–1% weekend markup on currency exchange. Send on weekdays for the best rate.</li>
+<li><strong>Set up rate alerts for large transfers</strong> — GBP/PLN and USD/PLN can move 3–5% in a month. If you're sending a large amount, use rate alert tools to lock in a good rate.</li>
+<li><strong>Consider a multi-currency account</strong> — If you send regularly, a <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency account</a> with Wise or Revolut lets you convert when rates are favorable and hold PLN until ready to send.</li>
+<li><strong>BLIK is domestic only</strong> — Poland's popular BLIK instant payment system (15M+ users) does not support international incoming transfers. Your recipient can receive via bank deposit and then use BLIK domestically.</li>
+</ol>`,
+      },
+      {
+        heading: "Polish Tax and Regulatory Considerations",
+        content: `<p>Poland has clear rules for receiving money from abroad:</p>
+<ul>
+<li><strong>Personal remittances are not taxed</strong> — Family support payments from abroad are not subject to Polish income tax (PIT).</li>
+<li><strong>Gift tax thresholds apply</strong> — Gifts from close family (Group I: parents, children, siblings, spouse) are tax-free with no limit if reported to the tax office within 6 months. Gifts from non-family above PLN 36,120 may be subject to gift tax.</li>
+<li><strong>Reporting requirements</strong> — Transfers exceeding EUR 15,000 must be reported by the receiving bank to Polish authorities. This is automatic and does not require action from the recipient.</li>
+<li><strong>For UK senders</strong> — HMRC does not tax outgoing personal transfers. There is no UK exit tax on remittances to Poland.</li>
+<li><strong>Business payments</strong> — Payments for services or business purposes may be subject to Polish income tax and social security contributions. A tax identification number (NIP) is required for business recipients.</li>
+</ul>
+<p>The <a href="https://www.knf.gov.pl/" target="_blank" rel="noopener noreferrer nofollow">Polish Financial Supervision Authority (KNF)</a> oversees financial services in Poland. All providers in this guide are regulated in their home jurisdictions.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/send-money-to-poland">Poland comparison tool</a> for the latest rates.</p>
+<p>External sources include <a href="https://www.nbp.pl/" target="_blank" rel="noopener noreferrer nofollow">National Bank of Poland (NBP)</a> statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Poland?",
+        answer:
+          "Wise is typically cheapest for GBP and USD to PLN, using the mid-market rate with fees of £4–5 on £1,000. From the EU, a standard SEPA transfer to a EUR account is near-free (€0–1). Revolut offers free transfers to other Revolut users and competitive EUR→PLN weekday rates. Avoid UK bank wires — they charge £25–40 plus 2–4% on the rate.",
+      },
+      {
+        question: "How long does a SEPA transfer to Poland take?",
+        answer:
+          "SEPA Instant settles in under 10 seconds, 24/7/365 — most major Polish banks support it. Standard SEPA Credit Transfer takes up to 1 business day. From the UK (non-SEPA), Wise delivers in 1–2 business days via their EU entity.",
+      },
+      {
+        question: "What is the Polish IBAN format?",
+        answer:
+          "Polish IBANs are 28 characters: PL + 2 check digits + 8-digit bank sort code + 16-digit account number. Example: PL61 1090 1014 0000 0712 1981 2874. Your recipient can find their IBAN in their banking app, on their bank statement, or by asking their bank.",
+      },
+      {
+        question: "Does Poland use the euro?",
+        answer:
+          "No. Poland uses the złoty (PLN) as its domestic currency. While Poland is an EU member, it has not adopted the euro and has no set date to do so. However, many Polish bank accounts can hold EUR, and SEPA transfers in EUR are supported. For daily expenses, your recipient needs PLN.",
+      },
+      {
+        question: "Is money received in Poland from abroad taxable?",
+        answer:
+          "Personal remittances (family support) are not subject to Polish income tax. Gifts from close family (parents, children, siblings, spouse) are tax-free regardless of amount if reported within 6 months. Gifts from non-family above PLN 36,120 may incur gift tax. Business payments may be subject to income tax.",
+      },
+      {
+        question: "Can I use BLIK to send money to Poland from abroad?",
+        answer:
+          "No. BLIK is Poland's domestic instant payment system (15M+ users) and does not support international incoming transfers. To send money to Poland, use bank deposit (SEPA or SWIFT), Revolut-to-Revolut, or cash pickup. Your recipient can then use BLIK domestically once the funds arrive in their Polish bank account.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-romania-guide",
+      "send-money-to-india-guide",
+      "cheapest-way-to-send-money-internationally",
+      "how-euribor-affects-euro-transfers",
+      "best-money-transfer-apps",
     ],
   },
   // ============================
