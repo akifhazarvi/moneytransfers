@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import LazyForexTicker from "@/components/LazyForexTicker";
 import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import { Analytics } from "@vercel/analytics/react";
+import LazyAnalytics from "@/components/LazyAnalytics";
 import LazyCookieConsent from "@/components/LazyCookieConsent";
 import Script from "next/script";
 
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     other: {
       "citation_title": "SendMoneyCompare — International Money Transfer Comparison",
       "citation_author": "Akif Hazarvi",
-      "citation_date": new Date().toISOString().split("T")[0],
+      "citation_date": "2026-04-10",
       "citation_journal_title": "SendMoneyCompare",
       "ai-content-declaration": "human-written, data-verified",
     },
@@ -112,7 +112,7 @@ const websiteSchema = {
   name: "SendMoneyCompare",
   url: SITE_URL,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  dateModified: new Date().toISOString().split("T")[0],
+  dateModified: "2026-04-10",
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -205,7 +205,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </main>
           <Footer />
           <LazyForexTicker />
-          <Analytics />
+          <LazyAnalytics />
           <LazyCookieConsent />
         </ThemeProvider>
       </NextIntlClientProvider>

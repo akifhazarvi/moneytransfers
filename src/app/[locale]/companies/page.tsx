@@ -36,8 +36,26 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
     return b.rating - a.rating;
   });
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Money Transfer Providers",
+    description: "Compare the best international money transfer providers ranked by customer ratings and fees.",
+    numberOfItems: sorted.length,
+    itemListElement: sorted.slice(0, 10).map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.name,
+      url: `https://sendmoneycompare.com/companies/${p.slug}`,
+    })),
+  };
+
   return (
     <Container className="py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
         {" / "}

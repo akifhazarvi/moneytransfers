@@ -82,7 +82,14 @@
       "Bash(npx @composio/mcp@latest setup \"https://backend.composio.dev/v3/mcp/32cbc144-6996-4203-990a-f89a56725fd4/mcp?user_id=pg-test-f38494df-a052-4e5f-9198-10c1545451de\" \"mcp-config-zkmc3k\" --client claude)",
       "WebFetch(domain:backend.composio.dev)",
       "Bash(ls /tmp/claude*)",
-      "Bash(ls ~/.config/claude*)"
+      "Bash(ls ~/.config/claude*)",
+      "Bash(pip3 list:*)",
+      "Bash(npx --yes sharp-cli --version)",
+      "Bash(sips -z 48 48 /Users/akif.hazarvi/moneytransfers/public/icon-192x192.png --out /tmp/favicon-48.png)",
+      "Bash(sips -g all /tmp/favicon-48.png)",
+      "Bash(node -e \":*)",
+      "Bash(wc -l /Users/akif.hazarvi/moneytransfers/src/app/[locale]/exchange-rates/page.tsx)",
+      "Bash(curl -sI -L --max-redirs 5 https://xe.com)"
     ],
     "additionalDirectories": [
       "/Users/akif.hazarvi/moneytransfers/.claude",

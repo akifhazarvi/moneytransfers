@@ -106,7 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("guides", STATIC_HUB_DATE),
     entry("iban", STATIC_HUB_DATE),
     entry("swift-codes", STATIC_HUB_DATE),
-    entry("about", STATIC_HUB_DATE),
+    entry("about", STATIC_HUB_DATE),  // No live data — static content
     entry("contact", STATIC_HUB_DATE),
     // Issue 5 fix: Legal/policy pages use stable date — content rarely changes
     entry("editorial-policy", STATIC_CONTENT_DATE),
@@ -162,12 +162,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       return [entry(`companies/${p.slug}`, lastmod), ...withLocales(`companies/${p.slug}`, lastmod)];
     });
 
+  // Only include comparison pages where both providers have editorial reviews.
+  // Combinations involving unreviewed providers lack editorial depth (thin content).
+  // Locale variants of comparison pages are noindexed, so exclude from sitemap.
+  const reviewedProviders = providers.filter((p) => reviewedSlugs.has(p.slug));
   const comparisonPages: MetadataRoute.Sitemap = [];
-  for (let i = 0; i < providers.length; i++) {
-    for (let j = i + 1; j < providers.length; j++) {
-      const slug = `compare/${providers[i].slug}-vs-${providers[j].slug}`;
+  for (let i = 0; i < reviewedProviders.length; i++) {
+    for (let j = i + 1; j < reviewedProviders.length; j++) {
+      const slug = `compare/${reviewedProviders[i].slug}-vs-${reviewedProviders[j].slug}`;
       comparisonPages.push(entry(slug, DATA_UPDATED));
-      comparisonPages.push(...withLocales(slug, DATA_UPDATED));
     }
   }
 

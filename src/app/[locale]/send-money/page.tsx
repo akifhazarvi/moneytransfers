@@ -133,8 +133,28 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
   const usdInfo = currencies.find((c) => c.code === "USD")!;
   const inrInfo = currencies.find((c) => c.code === "INR")!;
 
+  // Flatten all destinations for ItemList schema
+  const allDestinations = DESTINATION_REGIONS.flatMap((r) => r.destinations);
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Send Money Abroad — Destination Countries",
+    description: "Compare the cheapest way to send money internationally across 40+ destination countries.",
+    numberOfItems: allDestinations.length,
+    itemListElement: allDestinations.slice(0, 15).map((d, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `Send money to ${d.name}`,
+      url: `https://sendmoneycompare.com/send-money/usa-to-${d.slug}`,
+    })),
+  };
+
   return (
     <div className="bg-[var(--color-surface-dim)] min-h-screen pt-2">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       {/* Server-rendered SEO content — visible to crawlers */}
       <Container>
         <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] pt-6 mb-2">

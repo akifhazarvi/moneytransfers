@@ -49,8 +49,26 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
   const t = await getTranslations("compare");
   const comparisons = generateComparisons();
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Money Transfer Provider Comparisons",
+    description: "Head-to-head comparisons of international money transfer providers. See fees, exchange rates, and features side by side.",
+    numberOfItems: comparisons.length,
+    itemListElement: comparisons.slice(0, 10).map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${c.nameA} vs ${c.nameB}`,
+      url: `https://sendmoneycompare.com/compare/${c.slugA}-vs-${c.slugB}`,
+    })),
+  };
+
   return (
     <Container className="py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
         {" / "}

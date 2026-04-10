@@ -41,6 +41,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },
+      // Allow Apple Intelligence / Siri search
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
       // Block training-only crawlers
       {
         userAgent: "CCBot",

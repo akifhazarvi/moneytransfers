@@ -1,309 +1,390 @@
 # Full SEO Audit Report — sendmoneycompare.com
 
-**Date**: 2026-03-29
-**Auditor**: Claude Opus 4.6 (7 parallel specialist agents)
-**Method**: Source code analysis + live page inspection
-**Business Type**: Financial comparison / money transfer aggregator
+**Date**: April 10, 2026
+**Auditor**: Claude Opus 4.6 (6 parallel specialist agents)
+**Method**: Source code analysis (external access blocked by corporate Zscaler proxy)
+**Business type**: International money transfer comparison platform (affiliate)
+**Tech stack**: Next.js 16, App Router, TailwindCSS 4, Vercel Hobby plan
 
 ---
 
 ## Executive Summary
 
-### Overall SEO Health Score: 81 / 100
+### Overall SEO Health Score: 78 / 100
 
 | Category | Weight | Score | Weighted |
 |----------|--------|-------|----------|
-| Technical SEO | 25% | 88 | 22.0 |
-| Content Quality | 25% | 78 | 19.5 |
-| On-Page SEO | 20% | 75 | 15.0 |
-| Schema / Structured Data | 10% | 90 | 9.0 |
-| Performance (CWV) | 10% | 82 | 8.2 |
-| Images | 5% | 68 | 3.4 |
-| AI Search Readiness | 5% | 74 | 3.7 |
-| **TOTAL** | **100%** | | **80.8** |
+| Technical SEO | 22% | 84 | 18.5 |
+| Content Quality | 23% | 82 | 18.9 |
+| On-Page SEO | 20% | 80 | 16.0 |
+| Schema / Structured Data | 10% | 85 | 8.5 |
+| Performance (CWV) | 10% | 72 | 7.2 |
+| AI Search Readiness (GEO) | 10% | 81 | 8.1 |
+| Images | 5% | 70 | 3.5 |
+| **Total** | **100%** | | **80.7** |
 
 ### Top 5 Critical Issues
 
-1. **Meta descriptions too long on 5+ pages** — corridor pages and guides exceed 160 chars, causing SERP truncation
-2. **55 PNG logos not optimized** — should be SVG or WebP; 30 JPG blog images lack WebP versions
-3. **Sitemap lastmod inflated on every deploy** — `LAST_DEPLOY` changes ~20 static pages on every build, eroding Google's trust in the lastmod signal
-4. **Author photos missing** — empty `photo: ""` fields on both authors severely undermine E-E-A-T
-5. **No external authority signals** — no Wikipedia entity, no YouTube channel, limited sameAs (only Twitter + LinkedIn)
+1. **ai-plugin.json `api.url` points to wrong endpoint** — `/api/rates` instead of `/api/ai`, breaking ChatGPT plugin integration
+2. **CLS risk from ForexTicker/NewsTicker** — no reserved height on dynamically loaded components, estimated CLS 0.05-0.15
+3. **Comparison pages for unreviewed providers in sitemap** — 36 providers without editorial reviews generate thin comparison URLs
+4. **Noindexed locale comparison URLs submitted to sitemap** — contradicts Google guidance, wastes crawl budget
+5. **hreflang canonicalization bug** — pages not calling `getAlternates()` inherit incorrect root-path canonical
 
 ### Top 5 Quick Wins
 
-1. **Trim meta descriptions to ≤160 chars** on corridor pages, guides, and company reviews (30 min)
-2. **Add author headshot photos** to Daniel Rowe and Awais Imran profiles (15 min)
-3. **Complete Daniel Rowe's LinkedIn URL** — currently empty string (5 min)
-4. **Add `priority` prop** to above-fold `<Image>` components on company and compare pages (15 min)
-5. **Fix llms.txt stats inconsistency** — "35+ providers / 80+ corridors" doesn't match actual numbers (10 min)
+1. Fix `api.url` in ai-plugin.json (5 min, Critical impact)
+2. Add `priority={true}` to above-fold provider logos (10 min, LCP improvement)
+3. Add `preconnect` to GTM in root layout (5 min, LCP -50-100ms)
+4. Update `STATIC_HUB_DATE` on data-driven hub pages to use `DATA_UPDATED` (15 min)
+5. Add `Applebot-Extended` to robots.ts allow list (5 min)
 
 ---
 
-## 1. Technical SEO — 88/100
+## 1. Technical SEO — 84/100
 
-### Crawlability (9/10)
+### Crawlability (90/100)
 
-**robots.txt** — Excellent configuration:
-- All search-facing AI crawlers allowed (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended)
-- Training-only crawlers blocked (CCBot, Bytespider, cohere-ai, anthropic-ai)
-- `/api/`, `/go/`, `/out/` correctly disallowed
-- Sitemap declared
+**Strengths:**
+- Excellent per-crawler robots.ts policy: AI search crawlers allowed (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, bingbot), training-only crawlers blocked (CCBot, anthropic-ai, cohere-ai, Bytespider)
+- Sitemap declaration present
+- `/api/`, `/go/`, `/out/` correctly blocked for all crawlers
 
-**Sitemap** — Functional but could improve:
-- Dynamic generation via Next.js Metadata API
-- lastmod uses actual file mtimes for data-driven pages ✓
-- Noindexed pages correctly excluded ✓
-- ⚠️ Single flat sitemap — consider splitting into sitemap index by page type for better GSC monitoring
-- ⚠️ `LAST_DEPLOY` date inflates lastmod on ~20 static pages every build
+**Issues:**
+- [Low] No `Crawl-delay` directive — fine for major crawlers but secondary crawlers may hit Vercel rate limits
 
-### Indexability (9/10)
+### Indexability (88/100)
 
-- Self-referencing canonicals on all pages ✓
-- Hreflang implementation correct (en, es, fr + x-default) ✓
-- Tier 3 corridors (zero data) return 404 ✓
-- Providers without editorial reviews are noindexed ✓
-- Locale variants of English-only content are noindexed ✓
+**Strengths:**
+- No errant `noindex` directives found
+- Global robots metadata correctly sets `index: true, follow: true` with full Googlebot snippet directives
+- Canonical/hreflang via `getAlternates()` utility — `x-default` always points to English version
+- `changeFrequency` and `priority` omitted from sitemap (correctly, per Google guidance)
 
-### Security Headers (10/10)
+**Issues:**
+- [High] Pages not calling `getAlternates()` inherit incorrect root-path canonical from layout — affects contact, cookies, disclaimer, terms pages
+- [Medium] `src/app/exchange-rates/page.tsx` shadow route outside `[locale]` — may create duplicate indexable URL
+- [Medium] Guide locale variants (`/es/guides/[slug]`) may be indexable without noindex — verify 404 or noindex is in place
+- [Medium] Provider `generateMetadata` returns `{}` for unknown slugs — no canonical emitted
 
-- HSTS with 2-year max-age + preload ✓
-- CSP with per-request nonces via middleware ✓
-- X-Frame-Options: DENY ✓
-- X-Content-Type-Options: nosniff ✓
-- Permissions-Policy blocks camera/mic/geo ✓
+### Security Headers (82/100)
 
-### URL Structure (9/10)
+| Header | Status |
+|--------|--------|
+| HSTS (2yr, preload) | Pass |
+| X-Frame-Options: DENY | Pass |
+| X-Content-Type-Options: nosniff | Pass |
+| Referrer-Policy: strict-origin | Pass |
+| Permissions-Policy | Pass |
+| CSP (nonce-based, per-request) | Pass |
 
-- Clean, descriptive URLs across all page types ✓
-- Trailing slash disabled globally ✓
-- www-to-non-www redirect via middleware ✓
-- `/comparison` → `/compare` redirect ✓
-- `/.well-known/llms.txt` → `/llms.txt` redirect ✓
-- ⚠️ www redirect could be faster at Vercel edge level instead of middleware
+**Issues:**
+- [Medium] `style-src 'unsafe-inline'` in CSP weakens header grade
+- [Low] No CSP `report-uri`/`report-to` — violations invisible in production
 
-### IndexNow (8/10)
+### URL Structure (95/100)
 
-- `scripts/ping-indexnow.ts` exists and is integrated with GitHub Actions ✓
-- ⚠️ API key hardcoded in source (not a security risk, but cleaner as env-only)
+- `trailingSlash: false` — consistent
+- www-to-non-www 301 in middleware
+- `/comparison` to `/compare` permanent redirect
+- `.well-known/llms.txt` and `.well-known/openapi.json` redirects present
+- Clean semantic slugs throughout
 
----
+### i18n / hreflang (80/100)
 
-## 2. Content Quality — 78/100
+- Three locales: en (default, no prefix), es, fr
+- `getAlternates()` correctly generates x-default + all locale hreflang tags
+- [High] Not all pages call `getAlternates()` — canonicalization bug for utility pages
+- [Medium] Guide locale variants may be indexable without noindex
 
-### E-E-A-T Assessment: 75.3/100
+### Caching (88/100)
 
-| Factor | Score | Key Finding |
-|--------|-------|-------------|
-| Experience | 72 | "How We Tested" sections with 12 test transfers across 6 corridors. No screenshots/receipts as proof. |
-| Expertise | 82 | Deep domain knowledge — IMPS, SEPA, PIX, M-Pesa, JazzCash, Oxxo, regulatory bodies (FCA, FinCEN, ASIC, MAS). 40+ corridors with hand-written editorial notes. |
-| Authoritativeness | 68 | Weakest dimension. New site, no external citations, no press mentions, incomplete author LinkedIn profiles. |
-| Trustworthiness | 78 | Editorial policy, methodology, corrections page, Trustpilot integration, affiliate transparency. |
-
-### Page-Level Content Scores
-
-| Page Type | Score | Strengths | Gaps |
-|-----------|-------|-----------|------|
-| Homepage | 72 | Geo-aware widget, live data, strong internal linking | No methodology prose, generic "How It Works" |
-| Corridor pages | 85 | 40+ corridors with unique editorial notes, "Quick Answer" blocks, data freshness timestamps | Only ~15 major corridors have deep editorial |
-| Company reviews | 88 | 14 editorial reviews (2,500+ words each), fact-checker attribution, "How We Tested" | No test transfer screenshots |
-| Comparison pages | 80 | 6 editorial articles with balanced verdicts, live multi-corridor data | Only 6 of hundreds have editorial content |
-| Guide articles | 83 | "Answer box" pattern, external citations (World Bank), SpeakableSpecification | Author photos empty |
-
-### Thin Content Risk
-
-- Auto-generated comparison pages (non-editorial): 459+ pages with only dynamic data, no editorial depth
-- Currency corridor pages (e.g., /send-money/aud-cny): Thinner than country corridor pages
-- 77 country pages — verify curated content covers top 30-40 destinations
-
-### Readability: 85/100
-
-- Flesch-Kincaid grade 9-11 (appropriate for financial comparison)
-- Short paragraphs, bullet points, data tables
-- Progressive disclosure (expandable FAQ, table of contents on reviews)
+| Asset | Cache-Control | Assessment |
+|-------|--------------|------------|
+| Static assets / logos | `immutable, 1yr` | Correct |
+| `/_next/image/` | `24hr + 7d stale` | Good |
+| HTML pages | `30min + 6hr stale` | Aligned with scraper cadence |
 
 ---
 
-## 3. On-Page SEO — 75/100
+## 2. Content Quality — 82/100
 
-### Title Tags
+### E-E-A-T Signals (90/100)
 
-| Page | Title | Length | Issue |
-|------|-------|--------|-------|
-| Homepage | Compare 35+ Money Transfer Services — Find the Cheapest Rate (2026) | 63 | Slightly long but acceptable |
-| /send-money/usa-to-india | Cheapest Way to Send Money USA to India — USD→INR Rates (2026) | 63 | ✓ Good |
-| /companies/wise | Wise Review 2026 — Fees, Exchange Rates & Speed | 49 | ⚠️ Short — add "Pros & Cons" |
-| /compare/wise-vs-remitly | Wise vs Remitly: Best for International Transfers? | 51 | ⚠️ Missing year (2026) |
-| /guides/how-to-send-money-abroad | How to Send Money Internationally in 2026 — 5 Methods Ranked (Cheapest First) | 77 | ❌ Too long — will truncate |
+**Strengths:**
+- Two named authors with detailed bios, credentials, LinkedIn links, and expertise lists
+- Akif Hazarvi: 8+ years fintech, 500+ test transfers, Editor-in-Chief
+- Awais Imran: Co-founder & Technical Lead, designed data pipeline
+- Dedicated pages: editorial-policy, methodology, how-we-review, corrections, about
+- Author bylines on all guide pages with `reviewedBy` in Article schema
+- `ai-content-declaration: human-written, data-verified, fact-checked` meta tag
 
-### Meta Descriptions
+**Issues:**
+- [Low] Only 2 authors — expanding the editorial team signal (even guest contributors) would strengthen E-E-A-T
 
-| Page | Length | Status |
-|------|--------|--------|
-| Homepage | ~170 | ⚠️ Trim by ~10 chars |
-| /send-money/usa-to-india | ~189 | ❌ Too long |
-| /send-money/uk-to-india | ~183 | ❌ Too long |
-| /send-money/uk-to-pakistan | ~207 | ❌ Way too long |
-| /compare/wise-vs-remitly | ~157 | ✓ Good |
-| /guides/how-to-send-money-abroad | ~186 | ❌ Too long |
+### Content Depth (85/100)
 
-### Heading Structure
+**Strengths:**
+- 79 guide articles (blog-posts.ts: 13,101 lines of content data)
+- 14 editorial provider reviews (provider-reviews.ts: 2,382 lines)
+- Corridor pages include editorial notes, warning boxes, bank comparison data, rate history
+- Comparison pages have editorial comparison articles (comparison-articles.ts)
 
-- All pages have exactly one H1 ✓
-- Logical H1 → H2 → H3 hierarchy across all page types ✓
-- Question-based H2s on corridor pages ("What is the cheapest way to send...") ✓
-- No skipped heading levels ✓
+**Issues:**
+- [Medium] Comparison pages for unreviewed providers likely lack editorial depth — risk of thin content
 
-### Internal Linking
+### Thin Content Detection (75/100)
 
-- Strong cross-linking between page types (corridors ↔ providers ↔ comparisons ↔ guides) ✓
-- Breadcrumb navigation on all pages ✓
-- Footer with 30+ internal links ✓
-- CrossLinks component on corridor and company pages ✓
-- Keyword cannibalization risk: LOW across all audited page pairs ✓
+- [High] 50 providers x 49 / 2 = 1,225 comparison combinations, but only 14 providers have editorial reviews. Combinations involving unreviewed providers may produce low-quality pages
+- [Medium] Business sub-pages have locale hubs but no locale sub-pages — potential dead-end navigation
+
+### AI Citation Readiness (88/100)
+
+- llms.txt: 13 citable facts with source attribution
+- Guide pages use "Key Takeaway" callout blocks and `.blog-answer-box` CSS class
+- `SpeakableSpecification` with cssSelector targeting answer boxes
+- `citation_*` meta tags (title, author, date, journal_title) on guides
+
+### Trust Signals (85/100)
+
+- AffiliateDisclosure component used on corridor and comparison pages
+- Data freshness indicators showing last update timestamps
+- Methodology page explaining ranking methodology
+- "Independence" declaration: "affiliate relationships never influence rankings"
 
 ---
 
-## 4. Schema / Structured Data — 90/100
+## 3. On-Page SEO — 80/100
 
-### Implementation Summary
+### Title Tags (85/100)
+
+- Template: `%s | SendMoneyCompare`
+- Homepage uses absolute title with year: "Compare 35+ Money Transfer Services — Find the Cheapest Rate (2026)"
+- Corridor pages use dynamic titles with currencies and provider names
+
+**Issues:**
+- [Medium] Some hub pages may use generic template titles — verify companies, compare, guides hubs have distinct titles
+
+### Meta Descriptions (80/100)
+
+- Homepage and corridor pages have dynamic descriptions
+- i18n translations for metadata via `next-intl`
+
+### Heading Structure (82/100)
+
+- Proper h1 per page type
+- Section headings use h2/h3 hierarchy
+- [Low] Some long pages may have heading gaps between h2 and h4
+
+### Internal Linking (78/100)
+
+- CrossLinks component on corridor pages
+- Navigation covers all major sections
+- [Medium] No programmatic cross-linking between related corridors (e.g., USA-to-India <-> UK-to-India)
+- [Medium] IBAN/SWIFT pages could cross-link to related corridor pages more aggressively
+
+---
+
+## 4. Schema / Structured Data — 85/100
+
+### Current Implementation
+
+Schema coverage across 23 files:
 
 | Page Type | Schema Types | Status |
 |-----------|-------------|--------|
-| Global (all pages) | Organization, WebSite, FinancialService | ✓ PASS |
-| Homepage | WebPage, BreadcrumbList, FAQPage | ✓ PASS |
-| Corridor pages | BreadcrumbList, WebPage, FAQPage, ExchangeRateSpecification, FinancialProduct+Offers, ItemList | ✓ Excellent |
-| Company reviews | Review, BreadcrumbList, FinancialService+AggregateRating, FAQPage | ✓ PASS |
-| Comparisons | Article, FinancialService+AggregateRating (x2), FAQPage, BreadcrumbList | ✓ PASS |
-| Guides | Article, BreadcrumbList, FAQPage, SpeakableSpecification | ✓ PASS |
-| News | NewsArticle, BreadcrumbList | ✓ PASS |
+| Layout (global) | Organization, WebSite (SearchAction), FinancialService | Present |
+| Homepage | FAQPage | Present |
+| Corridor pages | BreadcrumbList, FAQPage (some) | Partial |
+| Company reviews | FinancialService (AggregateRating), BreadcrumbList | Present |
+| Comparison pages | BreadcrumbList | Present |
+| Guide pages | Article, BreadcrumbList, FAQPage, HowTo, SpeakableSpec | Present |
+| News pages | NewsArticle, BreadcrumbList | Present |
+| Exchange rates | BreadcrumbList | Present |
+| IBAN/SWIFT | BreadcrumbList | Present |
+| Author pages | Person | Present |
+| Methodology | BreadcrumbList | Present |
+| Business pages | BreadcrumbList | Present |
 
-### Issues Found
+**Shared utilities** in `src/lib/structured-data.ts`: `breadcrumbSchema()`, `aggregateRatingSchema()`, `faqSchema()`
 
-| Severity | Issue | Location |
-|----------|-------|----------|
-| WARN | WebSite dateModified uses build timestamp, not content date | Global layout |
-| WARN | Article datePublished = dateModified on comparison pages | Compare pages |
-| WARN | Publisher logo inconsistent (icon-192x192 vs logo-512x512) | News pages |
-| INFO | FAQPage won't trigger Google rich results (commercial site), but good for GEO | All FAQ pages |
+### Issues
 
-### Missing Opportunities
-
-| Schema | Priority | Pages | Rationale |
-|--------|----------|-------|-----------|
-| WebPage + BreadcrumbList on `/exchange-rates/[pair]` | HIGH | Exchange rate pages | Zero structured data currently |
-| SpeakableSpecification on corridor pages | MEDIUM | Corridor pages | "Quick Answer" block is perfect for this |
-| WebPage on company pages | LOW | Company reviews | Present on other page types but missing here |
+- [High] Corridor pages lack consistent FAQPage schema — high-value for Google AIO inclusion on queries like "cheapest way to send USD to INR"
+- [Medium] `dateModified` in WebSite schema uses `new Date().toISOString()` — inflates on every build
+- [Medium] Comparison pages have no product/service comparison schema — missing rich result opportunity
+- [Low] No `ItemList` schema on hub pages for carousel rich results
 
 ---
 
-## 5. Performance (CWV) — 82/100
+## 5. Performance (Core Web Vitals) — 72/100
 
-### Risk Assessment
+### LCP — Estimated ~2.0-2.8s (Needs Improvement)
 
-| Metric | Risk Level | Key Concern |
-|--------|-----------|-------------|
-| LCP | MEDIUM-HIGH | 4 Google Fonts loaded on every page, ForexTicker external API |
-| INP | MEDIUM | `useExchangeRates` countdown timer re-renders every second on corridor pages |
-| CLS | LOW-MEDIUM | Good skeleton placeholders; minor risk from ForexTicker fixed-position overlay |
+**Strengths:**
+- AVIF/WebP image formats enabled, Inter font with `display: swap`
+- Good caching strategy reduces TTFB on repeat visits
+- Server-side rendering for all SEO-critical content
 
-### What's Done Well
+**Issues:**
+- [High] Above-fold provider logos lack `priority={true}` on `next/image` — adds 200-400ms
+- [Medium] Only `dns-prefetch` (not `preconnect`) for GTM — misses 100-200ms TCP+TLS savings
+- [Low] 66 PNG logos served through optimizer, but direct `/logos/*.png` references bypass it
 
-- Next.js Image with AVIF + WebP format negotiation ✓
-- Dynamic imports with loading skeletons (HeroTabs, ForexTicker, CookieConsent) ✓
-- `lazyOnload` for all third-party analytics scripts ✓
-- Passive scroll listeners ✓
-- CSS-driven animations (no JS animation loops) ✓
-- Immutable cache headers for static assets (1 year) ✓
-- Server components by default ✓
-- Edge middleware for www redirect ✓
+### INP — Estimated ~80-150ms (Good)
 
-### Key Recommendations
+**Strengths:**
+- Client components are lightweight with simple state toggles
+- ComparisonTable is a server component — no client JS
+- GTM loaded with `strategy="lazyOnload"`
 
-1. **Reduce font payload** — Load Source_Serif_4, Instrument_Serif, Share_Tech_Mono only on pages that use them (guides, blog, ticker) instead of globally
-2. **Isolate countdown timer** — The 1-second `setInterval` in `useExchangeRates` forces re-renders on corridor pages with 10+ ProviderCards. Split into a dedicated `<CountdownDisplay>` component
-3. **Extract prose/blog CSS** — Move ~240 lines of prose styles to a route-specific import, reducing CSS payload by ~40% on non-article pages
+**Issues:**
+- [Medium] `ForexTicker` runs `setInterval`/`fetch` in useEffect — slow API responses could cause INP spikes
+- [Medium] Vercel Analytics imported eagerly without lazy wrapper
 
----
+### CLS — Estimated 0.05-0.15 (Needs Improvement)
 
-## 6. Images — 68/100
-
-### Format Issues
-
-| Type | Count | Format | Issue |
-|------|-------|--------|-------|
-| Provider logos | 55 | PNG | Should be SVG or WebP |
-| Provider logos | 13 | SVG | ✓ Optimal |
-| Blog images | 30 | JPG | No WebP alternatives |
-| Blog images | 4 | SVG | ✓ Optimal |
-
-### Alt Text: PASS
-
-- All images across all audited pages have descriptive alt attributes ✓
-- Pattern: `{provider.name} logo`, `Flag of {countryName}`, `{post.title}`
-
-### Lazy Loading / Priority
-
-| Image | Above Fold? | Has `priority`? | Issue |
-|-------|-------------|-----------------|-------|
-| Guide featured image | YES | YES | ✓ |
-| Homepage provider logos (best routes) | YES | NO | ⚠️ Should have `priority` |
-| Company page hero logo | YES | NO | ⚠️ Should have `priority` |
-| Compare page summary logos | YES | NO | ⚠️ Should have `priority` |
-| CircleFlag icons | VARIES | Has `loading="lazy"` | ✓ |
-
-### CLS Prevention: GOOD
-
-- All `next/image` usage includes width/height or `fill` with sized containers ✓
-- CircleFlag includes width/height on raw `<img>` tags ✓
-- Blog HTML images have explicit 800×450 dimensions ✓
+**Issues:**
+- [High] `LazyForexTicker` has no reserved height — appears after hydration, causes layout shift
+- [High] `NewsTicker` skeleton height (200px) may not match actual rendered height
+- [Medium] `HistoricalRateWidget` skeleton height (360px) may not match actual height
+- [Low] Provider logo responsive sizing mismatch between `Image` props and CSS container
 
 ---
 
-## 7. AI Search Readiness — 74/100
+## 6. Images — 70/100
 
-### Platform Readiness
+**Strengths:**
+- AVIF/WebP auto-conversion via Next.js image optimizer
+- Remote image patterns configured for external logo sources
+- Logo directory cached immutable for 1 year
 
-| Platform | Score | Key Strength | Key Gap |
-|----------|-------|-------------|---------|
-| Google AI Overviews | 80 | ExchangeRateSpecification schema, FAQ schema, question-based H2s | No Table schema for comparison data |
-| ChatGPT Web Search | 78 | GPTBot allowed, llms.txt, self-contained answer blocks | No Wikipedia entity, thin sameAs |
-| Perplexity | 76 | PerplexityBot allowed, high factual density, data attribution | Lacks external source citations in page content |
-| Bing Copilot | 72 | bingbot allowed, good OpenGraph | Limited Bing-specific optimization |
-
-### AI Crawler Access: EXCELLENT
-
-All search-facing AI crawlers are explicitly allowed. Training-only crawlers correctly blocked. This is the optimal configuration.
-
-### llms.txt: PRESENT but needs freshness
-
-- Well-structured with brand description, page links, key facts ✓
-- "Frequently Cited Statistics" section ✓
-- ⚠️ "Last Updated" 11 days stale (2026-03-18)
-- ⚠️ Stats inconsistency: "35+ providers / 80+ corridors" vs actual numbers
-- ⚠️ Missing exchange-rates page links
-
-### Citability Highlights
-
-- "Quick Answer" blocks on corridor pages with exact provider, rate, fee data — **excellent for AI citation**
-- FAQ schemas with specific facts and numbers ✓
-- ExchangeRateSpecification + FinancialProduct schemas — rare and valuable for financial queries ✓
-- Consistent brand attribution: "According to SendMoneyCompare's data..." ✓
-
-### Off-Platform Presence: WEAK
-
-| Signal | Status |
-|--------|--------|
-| Wikipedia entity | NOT PRESENT |
-| YouTube channel | NOT PRESENT |
-| Reddit presence | UNKNOWN |
-| LinkedIn company | Claimed |
-| Twitter/X | Claimed |
-| Trustpilot | Active |
-| Crunchbase | NOT PRESENT |
+**Issues:**
+- [Medium] 66 provider logos are PNG source files — pre-optimizing to WebP/AVIF would reduce origin bandwidth
+- [Medium] No `priority` prop on above-fold images — lazy-loaded by default
+- [Low] No explicit `sizes` attribute pattern detected — may serve oversized images on mobile
+- [Low] Alt text quality unverifiable from source code alone — check programmatic alt text generation
 
 ---
 
-## Scoring Methodology
+## 7. AI Search Readiness (GEO) — 81/100
 
-Each category was scored by a specialist agent analyzing source code, page templates, structured data, and rendered HTML. Scores reflect both the quality of current implementation and the gap to best-in-class for a financial comparison site. The weighted total uses the standard audit weights (Technical 25%, Content 25%, On-Page 20%, Schema 10%, Performance 10%, Images 5%, AI Search 5%).
+### llms.txt (85/100)
+
+**Strengths:**
+- Complete identity block with editorial team credentials
+- 13 citable facts with source attribution (World Bank, KNOMAD, GSMA)
+- Key pages section with descriptive labels
+- Guide summaries at optimal 134-167 word passage length
+
+**Issues:**
+- [Critical] `API:` line in llms.txt points to `/api/rates` but AI endpoint is `/api/ai`
+- [High] `Last Updated` field (2026-04-06) not automated — stale after 4 days
+- [Medium] No RSL/Creative Commons license declaration
+
+### AI Crawler Access (90/100)
+
+All AI search crawlers correctly allowed, training-only crawlers blocked.
+- [Low] `Applebot-Extended` not explicitly addressed — falls through to general allow rule
+
+### Plugin Manifest (75/100)
+
+- [Critical] `api.url` in ai-plugin.json points to `/api/rates` instead of `/api/ai`
+- OpenAPI 3.1.0 spec otherwise well-structured with `description_for_model` and `source`/`compareUrl` fields
+
+### Platform Scores
+
+| Platform | Score |
+|----------|-------|
+| Google AIO | 84 |
+| ChatGPT / GPT Search | 79 |
+| Perplexity | 82 |
+| Bing Copilot | 76 |
+
+---
+
+## 8. Sitemap — 74/100
+
+### URL Count: ~6,163 (well under 50,000 limit)
+
+| Section | URLs |
+|---------|------|
+| Static hub pages | 51 |
+| Corridor pages | 1,863 |
+| Provider reviews | 42 |
+| Comparison pages | 3,675 |
+| Guides | 79 |
+| News | 24 |
+| Exchange rates | ~205 |
+| IBAN/SWIFT | 210 |
+| Business/Author/Corrections | 14 |
+
+### Issues
+
+- [High] Comparison pages include 36 unreviewed providers — thin content URLs in sitemap
+- [High] Noindexed locale comparison URLs submitted to sitemap — contradicts Google guidance
+- [Medium] `STATIC_HUB_DATE` (2026-03-28) used on data-driven hub pages — should use `DATA_UPDATED`
+- [Medium] News hub page structurally inconsistent between `staticPages` and `newsPages` blocks
+- [Low] `INDEXED_SWIFT_SLUGS` uses "turkiye" but `INDEXED_IBAN_SLUGS` uses "turkey" — potential slug mismatch
+
+### Strengths
+
+- `DATA_UPDATED` derived from actual file mtimes — excellent practice
+- Tier 3 corridors correctly excluded
+- Provider pages filtered to only editorially reviewed slugs
+- Guide/news locale variants correctly excluded
+- No `priority`/`changefreq` (correctly omitted per Google guidance)
+
+---
+
+## Prioritized Action Plan
+
+### Critical (Fix immediately)
+
+| # | Issue | File | Effort |
+|---|-------|------|--------|
+| 1 | Fix `api.url` in ai-plugin.json — change to point at OpenAPI spec URL | `public/.well-known/ai-plugin.json` | 5 min |
+| 2 | Fix `API:` line in llms.txt to point to `/api/ai` | `public/llms.txt` | 5 min |
+
+### High (Fix within 1 week)
+
+| # | Issue | File | Effort |
+|---|-------|------|--------|
+| 3 | Add `priority={true}` to above-fold provider logo images | `src/app/[locale]/page.tsx` | 10 min |
+| 4 | Add reserved height wrapper to LazyForexTicker | `src/components/LazyForexTicker.tsx` | 15 min |
+| 5 | Align NewsTicker/HistoricalRateWidget skeleton heights | `src/app/[locale]/page.tsx` | 30 min |
+| 6 | Fix hreflang — ensure all pages call `getAlternates()` | Contact, cookies, disclaimer, terms pages | 1 hr |
+| 7 | Filter comparison sitemap to only reviewed x reviewed pairs | `src/app/sitemap.ts` | 30 min |
+| 8 | Remove locale variants from comparison sitemap entries | `src/app/sitemap.ts` | 15 min |
+| 9 | Add FAQPage JSON-LD to all corridor pages | `src/app/[locale]/send-money/[corridor]/page.tsx` | 1-2 days |
+| 10 | Automate llms.txt `Last Updated` in scraper workflow | `.github/workflows/scrape.yml` | 30 min |
+
+### Medium (Fix within 1 month)
+
+| # | Issue | File | Effort |
+|---|-------|------|--------|
+| 11 | Add `preconnect` to GTM (replace dns-prefetch) | `src/app/layout.tsx` | 5 min |
+| 12 | Fix `dateModified` in WebSite schema to use stable date | `src/app/[locale]/layout.tsx` | 15 min |
+| 13 | Update `STATIC_HUB_DATE` to `DATA_UPDATED` on hub pages | `src/app/sitemap.ts` | 15 min |
+| 14 | Verify exchange-rates shadow route doesn't create duplicate URLs | `src/app/exchange-rates/page.tsx` | 30 min |
+| 15 | Verify guide locale variants 404 or noindex | `src/app/[locale]/guides/[slug]/page.tsx` | 30 min |
+| 16 | Wrap Vercel Analytics in dynamic import | `src/app/[locale]/layout.tsx` | 15 min |
+| 17 | Add RSL/CC license to llms.txt | `public/llms.txt` | 5 min |
+| 18 | Add cross-linking between related corridors | Corridor pages | 2-3 days |
+| 19 | Fix `style-src 'unsafe-inline'` in CSP | `src/middleware.ts` | 2-4 hrs |
+
+### Low (Backlog)
+
+| # | Issue | File | Effort |
+|---|-------|------|--------|
+| 20 | Add `Applebot-Extended` to robots.ts | `src/app/robots.ts` | 5 min |
+| 21 | Add CSP `report-uri`/`report-to` | `src/middleware.ts` | 1 hr |
+| 22 | Fix Turkey/Turkiye slug inconsistency | `src/app/sitemap.ts` | 15 min |
+| 23 | Pre-optimize PNG logos to WebP/AVIF at source | `public/logos/` | 1 hr |
+| 24 | Add `preconnect` to open.er-api.com for ForexTicker | `src/app/layout.tsx` | 5 min |
+| 25 | Add `ItemList` schema on hub pages | Hub pages | 2-3 hrs |
+| 26 | Align provider logo responsive sizing with Image props | Homepage | 30 min |
+
+---
+
+*Generated by Claude Code SEO Audit (6 parallel specialist agents) — source code analysis, April 10, 2026*

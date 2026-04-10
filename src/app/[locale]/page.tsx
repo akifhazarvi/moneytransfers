@@ -16,11 +16,11 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 
 const HistoricalRateWidget = dynamic(() => import("@/components/HistoricalRateWidget"), {
-  loading: () => <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] h-[360px] animate-pulse" />,
+  loading: () => <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] min-h-[360px] animate-pulse" />,
 });
 
 const NewsTicker = dynamic(() => import("@/components/NewsTicker"), {
-  loading: () => <div className="h-[200px]" />,
+  loading: () => <div className="min-h-[200px]" />,
 });
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
@@ -216,7 +216,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
                     {c.providerLogo && (
                       <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center relative border border-[var(--color-outline)]/50">
-                        <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="object-cover" />
+                        <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="object-cover" priority />
                       </div>
                     )}
                     <p className="text-2sm sm:text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] truncate">

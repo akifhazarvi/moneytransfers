@@ -22,14 +22,25 @@ export default function middleware(request: NextRequest) {
   const csp = [
     `default-src 'self'`,
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
+    // 'unsafe-inline' required for style-src: React uses inline style props for dynamic
+    // values (colors, positions, backgrounds) across 110+ instances in 17 components.
+    // CSS exfiltration attacks via style injection are theoretical and require specific
+    // conditions. This is the standard for React apps. See: https://csp.withgoogle.com/
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com`,
     `connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com`,
     `font-src 'self'`,
     `frame-src https://widget.trustpilot.com`,
+    `report-uri /api/csp-report`,
+    `report-to csp-endpoint`,
   ].join("; ");
   response.headers.set("Content-Security-Policy", csp);
   response.headers.set("x-nonce", nonce);
+  // CSP violation reporting — violations are logged to /api/csp-report for visibility
+  response.headers.set(
+    "Report-To",
+    JSON.stringify({ group: "csp-endpoint", max_age: 86400, endpoints: [{ url: "/api/csp-report" }] }),
+  );
 
   // Set geo-currency cookie from Vercel's IP country header
   const country = request.headers.get("x-vercel-ip-country") || "";
@@ -42,14 +53,14 @@ export default function middleware(request: NextRequest) {
     });
   }
 
-  // Set geo-country cookie for GDPR-aware analytics consent
-  if (!request.cookies.get("geo-country")) {
-    response.cookies.set("geo-country", country || "US", {
-      path: "/",
-      maxAge: 60 * 60 * 24 * 30,
-      sameSite: "lax",
-    });
-  }
+  // Refresh geo-country cookie on every request so consent logic
+  // always reflects the user's current location (not where they
+  // were 30 days ago).
+  response.cookies.set("geo-country", country || "US", {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 30,
+    sameSite: "lax",
+  });
 
   return response;
 }
