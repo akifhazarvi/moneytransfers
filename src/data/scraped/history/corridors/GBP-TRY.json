@@ -1058,5 +1058,76 @@
         "receiveAmount": 5858.29
       }
     }
+  },
+  {
+    "date": "2026-04-11",
+    "providers": {
+      "ace-money-transfer": {
+        "rate": 58.6,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5860
+      },
+      "santander": {
+        "rate": 58.1145,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 4358.58
+      },
+      "western-union": {
+        "rate": 58.7962,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 5762.61
+      },
+      "starling": {
+        "rate": 60.0894,
+        "fee": 5.9,
+        "markup": null,
+        "receiveAmount": 5654.41
+      },
+      "hsbc": {
+        "rate": 59.1137,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5911.37
+      },
+      "rbs": {
+        "rate": 58.8666,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5886.66
+      },
+      "instarem": {
+        "rate": 59.6992,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5969.92
+      },
+      "barclays": {
+        "rate": 58.9373,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5893.73
+      },
+      "natwest": {
+        "rate": 58.8666,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5886.66
+      },
+      "nationwide": {
+        "rate": 58.9582,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 5011.45
+      },
+      "lloyds": {
+        "rate": 57.8781,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 5237.97
+      }
+    }
   }
 ]

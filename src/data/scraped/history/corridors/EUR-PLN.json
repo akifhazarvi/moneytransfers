@@ -638,5 +638,46 @@
         "receiveAmount": 408.06
       }
     }
+  },
+  {
+    "date": "2026-04-11",
+    "providers": {
+      "paypal": {
+        "rate": 4.0631,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 390.1
+      },
+      "skrill": {
+        "rate": 4.2117,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 421.17
+      },
+      "monese": {
+        "rate": 4.2375,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 406.8
+      },
+      "deutsche-bank": {
+        "rate": 4.1873,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 265.68
+      },
+      "xoom": {
+        "rate": 4.1665,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 408.36
+      },
+      "commerzbank": {
+        "rate": 4.1797,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 365.73
+      }
+    }
   }
 ]
