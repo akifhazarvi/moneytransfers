@@ -5,6 +5,49 @@ import { COUNTRY_TO_CURRENCY } from "./data/geo-corridors";
 
 const intlMiddleware = createMiddleware(routing);
 
+// Known spam bot user-agent fragments (NOT legitimate crawlers)
+const SPAM_UA_PATTERNS = [
+  "semrushbot", "ahrefsbot", "dotbot", "mj12bot", "blexbot",
+  "megaindex", "serpstatbot", "zoominfobot", "dataforseo",
+  "bomborabot", "clickagy", "neevabot",
+  "headlesschrome", "phantomjs", "selenium", "puppeteer", "playwright",
+  "python-requests", "python-urllib", "go-http-client", "java/",
+  "wget/", "curl/", "libwww-perl",
+];
+
+// Legitimate bots to ALLOW (search engines + AI crawlers)
+const ALLOWED_BOTS = [
+  "googlebot", "bingbot", "yandexbot", "duckduckbot", "baiduspider",
+  "applebot", "chatgpt-user", "gptbot", "oai-searchbot",
+  "perplexitybot", "claudebot", "anthropic-ai",
+  "bytespider", "facebookexternalhit", "twitterbot", "linkedinbot",
+  "slurp", "ia_archiver", "archive.org_bot",
+  "vercel-edge-functions", "vercel",
+];
+
+function isSpamBot(request: NextRequest): boolean {
+  const ua = (request.headers.get("user-agent") || "").toLowerCase();
+
+  // Empty user agent = bot
+  if (!ua || ua.length < 10) return true;
+
+  // Allow known legitimate bots
+  if (ALLOWED_BOTS.some((bot) => ua.includes(bot))) return false;
+
+  // Block known spam bots
+  if (SPAM_UA_PATTERNS.some((pattern) => ua.includes(pattern))) return true;
+
+  // Block requests with no Accept-Language header (real browsers always send it)
+  const acceptLang = request.headers.get("accept-language");
+  if (!acceptLang && !ua.includes("bot")) {
+    // Headless browsers often omit Accept-Language
+    const acceptHeader = request.headers.get("accept") || "";
+    if (!acceptHeader.includes("text/html")) return true;
+  }
+
+  return false;
+}
+
 export default function middleware(request: NextRequest) {
   // Redirect www to non-www (canonical domain)
   const host = request.headers.get("host") || "";
@@ -13,6 +56,11 @@ export default function middleware(request: NextRequest) {
     url.host = host.replace(/^www\./, "");
     url.port = "";
     return NextResponse.redirect(url, 301);
+  }
+
+  // Block spam bots at the edge — return 403 before any processing
+  if (isSpamBot(request)) {
+    return new NextResponse("Forbidden", { status: 403 });
   }
 
   const response = intlMiddleware(request);

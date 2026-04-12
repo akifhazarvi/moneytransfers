@@ -167,6 +167,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   });
   gtag('set','url_passthrough',true);
   gtag('set','ads_data_redaction',true);
+  var dominated=navigator.webdriver||!navigator.languages||navigator.languages.length===0;
+  if(dominated){window['ga-disable-G-HJH07QEJ30']=true;return;}
   gtag('js',new Date());gtag('config','G-HJH07QEJ30');
 })();`,
         }}
