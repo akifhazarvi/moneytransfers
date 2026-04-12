@@ -1,74 +1,74 @@
 # SEO Strategy 2026 — SendMoneyCompare.com
-## Updated April 2026 (Based on 30 Days of GSC Data)
+## Updated April 11, 2026 (Based on GSC Data Mar 13 – Apr 9)
 
 ---
 
 ## Executive Summary
 
-**Site age:** ~3 weeks live (indexed mid-March 2026)
-**Current state (March 1–31, 2026):**
-- **34 clicks, 13,711 impressions, 0.25% CTR**
-- 500+ pages indexed, 974 unique queries
-- **Breakout trend:** March 27–29 show 540+ impr/day at avg position 24 (up from 360/day at pos 59 in week 2)
-- Top markets: USA (6,158 impr), UK (3,872), Australia (1,336), Canada (1,210)
+**Site age:** ~4 weeks live (indexed mid-March 2026)
+**Current state (Mar 13 – Apr 9, 2026):**
+- **45 clicks, 28,529 impressions, 0.16% CTR, avg position 38.2**
+- 500+ pages indexed, 500+ unique queries
+- **Post-honeymoon trough confirmed:** Week 1 spike (19K impr) → Week 2 crash (2.5K) → partial recovery Week 3 (4.9K) → settling Week 4 (1.8K)
+- Top markets: USA (7,322 impr), UK (4,632), Australia (1,742), Canada (1,547), Germany (1,019), Brazil (979)
 
-**What worked:** Internal linking (+40 positions on IBAN pages), title rewrites on page-1 content (promo codes 0→3 clicks), programmatic corridor pages (240 pages, 8 clicks)
-**What didn't:** News content (1,465 impr, 0 clicks), company pages (460 impr, 0 clicks), title fixes on page 3+ content (no effect)
+**What worked:** Internal linking (+40 positions on IBAN pages), title rewrites on page 1 content, programmatic corridor pages (long-tail accumulating), ChatGPT referrals (23% of GA4 sessions)
+**What didn't:** Exchange rate pages (651 impr, 0 clicks — Google widget wins), company pages (0 clicks), title fixes on pos 20+ content
+
+**The #1 bottleneck is now domain authority / backlinks.** Core commercial queries ("compare money transfer", "best online money transfer") are at pos 80-100. No amount of on-page SEO moves them without backlinks.
 
 **Strategic thesis (unchanged):** Neutral comparison with real-time data from 35+ providers. Our edge over Monito/CompareRemit: data freshness (6hr updates) and editorial depth.
 
-**Revised 6-month target (by Sept 2026):** 100+ clicks/day, 100K+ monthly impressions, 50+ page-1 keywords
+**Revised target (by Sept 2026):** 50+ clicks/day, 80K+ monthly impressions, 30+ page-1 keywords (revised down from original — backlink building takes time)
 
 ---
 
-## 1. What We Know After 30 Days of Data
+## 1. What We Know After 4 Weeks of Data
 
-### Position Distribution (500 pages)
-| Tier | Pages | Impressions | Clicks | % of Clicks |
-|------|-------|-------------|--------|-------------|
-| Page 1 (pos 1–10) | 159 | 4,234 | 14 | 41% |
-| Page 2 (pos 11–20) | 68 | 2,387 | 5 | 15% |
-| Page 3 (pos 21–30) | 40 | 670 | 1 | 3% |
-| Page 4–5 (pos 31–50) | 78 | 2,658 | 7 | 21% |
-| Deep (pos 50+) | 155 | 3,762 | 7 | 21% |
+### Weekly Trend (Honeymoon → Trough → Settling)
+| Period | Clicks | Impressions | Avg Impr/Day | Avg Position |
+|--------|--------|-------------|-------------|-------------|
+| Week 1 (Mar 14–20) | 29 | 19,341 | 2,763 | 31.8 |
+| Week 2 (Mar 21–27) | 3 | 2,534 | 362 | 59.4 |
+| Week 3 (Mar 28–Apr 3) | 10 | 4,866 | 695 | 25.2 |
+| Week 4 (Apr 4–9) | 3 | 1,788 | 358 | 35.4 |
 
-**Key insight:** 41% of clicks come from 159 pages already on page 1. The fastest path to more traffic is pushing pages from pos 11–20 to page 1 (68 pages with 2,387 impressions getting only 5 clicks).
+Week 1 was the Google honeymoon. Week 3 recovery was real but temporary. Position is now oscillating 25-55 daily — Google hasn't settled on where to rank the site.
 
-### Query Clusters (974 queries, by impression volume)
-| Cluster | Queries | Impressions | Clicks | Avg Position |
-|---------|---------|-------------|--------|-------------|
-| Send money to [country] | 166 | 653 | 0 | 44.7 |
-| IBAN/SWIFT/bank codes | 247 | 541 | 0 | 57.4 |
-| Other/misc | 258 | 629 | 1 | 53.0 |
-| Exchange rates | 175 | 314 | 0 | 55.8 |
-| B2B/business payments | 25 | 196 | 0 | 78.6 |
-| Comparison (vs/compare) | 33 | 159 | 1 | 74.2 |
-| Best way to send | 35 | 85 | 1 | 38.8 |
-| Provider branded | 22 | 81 | 1 | 28.3 |
-| Safety/trust | 6 | 38 | 0 | 60.1 |
-| Remittance stats | 1 | 33 | 1 | 5.9 |
-| Promo/deals | 4 | 14 | 0 | 4.5 |
+### Position Tier Breakdown (Apr data, 500 queries)
+| Tier | Queries | Clicks | Impressions | Avg Position |
+|------|---------|--------|-------------|-------------|
+| Page 1 (pos 1–10) | 90 | 0 | 209 | 5.2 |
+| Page 2 (pos 11–20) | 23 | 0 | 50 | 13.2 |
+| Page 3 (pos 21–30) | 15 | 0 | 16 | 25.4 |
+| Deep (pos 30+) | 372 | 1 | 626 | 71.8 |
 
-### Page Type Performance
-| Type | Impressions | Clicks | Pages | CTR | Best Action |
-|------|-------------|--------|-------|-----|-------------|
-| Guides | 3,402 | 7 | 52 | 0.21% | Depth + internal links on Pakistan, Philippines |
-| IBAN | 2,763 | 4 | 59 | 0.14% | Push 15 pages from pos 11–20 to page 1 |
-| Send Money | 2,046 | 8 | 231 | 0.39% | Long-tail compound effect — keep expanding |
-| Compare | 1,500 | 5 | 73 | 0.33% | wise-vs-paypal (pos 11.7) close to page 1 |
-| News | 1,468 | 0 | 11 | 0.00% | Evergreen rewrite done — monitor |
-| Exchange Rates | 1,051 | 0 | 18 | 0.00% | Low priority — Google widget kills CTR |
-| Companies | 460 | 0 | 19 | 0.00% | Deprioritize until DR grows |
-| SWIFT | 58 | 3 | 14 | 5.17% | Best CTR — expand coverage |
+**Key insight:** 90 queries on page 1 with 0 clicks — these are almost entirely exchange rate queries where Google's own currency widget steals 100% of clicks. Real commercial queries ("compare money transfer", "best online money transfer") are at pos 80-100.
 
-### Daily Trend (Shows Breakout)
-| Period | Avg Impr/Day | Avg Clicks/Day | Avg Position |
-|--------|-------------|---------------|-------------|
-| Week 1 (Mar 14–20) | 2,763 | 4.1 | 31.8 |
-| Week 2 (Mar 21–27) | 362 | 0.4 | 59.4 |
-| Week 3 (Mar 28–29) | **538** | **1.0** | **24.4** |
+### Top Corridor Query Clusters (by search demand)
+| Destination | Queries | Impressions | Best Position | Guide? |
+|-------------|---------|-------------|--------------|--------|
+| Pakistan | 40 | 187 | 3.0 | Yes (12 min) |
+| India | 53 | 166 | 3.0 | Yes (9 min) |
+| Philippines | 32 | 98 | 5.0 | Yes (11 min) |
+| Nigeria | 28 | 96 | 10.0 | Yes (2 guides) |
+| Kenya | 20 | 70 | 9.0 | Yes |
+| South Africa | 6 | 52 | 22.4 | Yes |
+| Romania | 4 | 36 | 15.2 | Yes |
+| Mexico | 11 | 31 | 6.0 | Yes |
+| Colombia | 8 | 25 | 18.2 | Yes (NEW Apr 11) |
+| Peru | 10 | 23 | 6.0 | No guide |
+| Poland | 8 | 23 | 15.0 | Yes (NEW Apr 11) |
 
-Week 1 was the "honeymoon" spike. Week 2 was the normal drop. **Week 3 shows a genuine recovery** — impressions rebuilding and position improving dramatically. This is the inflection point.
+### GA4 Traffic Analysis (last 14 days, 238 sessions)
+| Channel | Sessions | % | Quality |
+|---------|----------|---|---------|
+| Direct | 152 | 64% | Mix of real + bot (~40% estimated bot) |
+| ChatGPT referrals | 55 | 23% | HIGH quality — real users from AI search |
+| Google organic | 10 | 4% | Highest engagement (435s avg duration) |
+| Other (Bing, Yahoo, social) | 21 | 9% | Mixed |
+
+**Bot traffic:** ~42% of sessions are bots (Singapore farm, data center IPs). Bot blocking deployed Apr 11.
 
 ---
 
@@ -95,57 +95,34 @@ These tactics have measurable impact from the first 30 days:
 
 ---
 
-## 3. April–May 2026 Action Plan
+## 3. Completed Work (March–April 2026)
 
-### Phase 3: Push "Almost Page 1" Pages (April 1–14)
+### On-Page Optimization (DONE — diminishing returns reached)
+- ✅ 22 corridorSeoOverrides (14 country pages + 8 specific corridors) matching exact GSC queries
+- ✅ 9 guide title/meta rewrites aligned with "cheapest way to send money to X" query pattern
+- ✅ Internal linking web: India↔Pakistan↔Philippines↔Mexico, Nigeria↔Kenya↔South Africa triangle
+- ✅ New corridor guides: Vietnam, Turkey, Colombia, Poland, Morocco, Romania, Kenya, South Africa, UK-Nigeria, UK-Bangladesh, UAE-India
+- ✅ FAQPage JSON-LD on all corridor pages + guides
+- ✅ ItemList schema on hub pages (companies, compare, send-money)
+- ✅ Hreflang on all utility pages
+- ✅ Schema fixes: BreadcrumbList, NewsArticle, Dataset, Person, ExchangeRateSpecification
+- ✅ Performance: lazy analytics, CLS fixes, font optimization, preconnect, immutable cache
+- ✅ AI/GEO: llms.txt, AI citation blocks, question-format H2s, CC BY 4.0 license
+- ✅ Bot blocking: middleware edge filter + GA4 client-side guard
+- ✅ Google Consent Mode v2 for UK/EU analytics
+- ✅ Sitemap cleanup: reviewed-only comparisons, no noindexed locale variants
+- ✅ 14 provider reviews (all editorial, no thin pages)
+- ✅ Comparison articles: Wise vs Revolut, Remitly vs Xoom/TapTap/Revolut/MoneyGram
 
-**18 pages at position 8–15 with 50+ impressions** — the highest-ROI targets:
+### What Still Needs Doing (Priority Order)
 
-| Priority | Page | Impr | Position | Action |
-|----------|------|------|----------|--------|
-| P0 | `/iban/switzerland` | 302 | 9.4 | Add more content, cross-link from SWIFT/corridor pages |
-| P0 | `/compare/wise-vs-paypal` | 290 | 11.7 | Add FAQ schema, deepen comparison data |
-| P0 | `/iban/romania` | 142 | 10.4 | Expand SEPA section, add FAQs |
-| P0 | `/guides/best-money-transfer-apps` | 134 | 12.4 | Update with 2026 data, add comparison table |
-| P1 | `/iban/germany` | 131 | 13.3 | Already getting clicks — add more content |
-| P1 | `/compare/wise-vs-revolut` | 98 | 13.6 | Major comparison query — deepen content |
-| P1 | `/iban/ukraine` | 80 | 11.5 | Expand content, add corridor links |
-| P1 | `/compare/remitly-vs-moneygram` | 81 | 8.1 | On page 1, needs CTR optimization |
-| P1 | `/iban/brazil` | 77 | 8.1 | On page 1, needs CTR optimization |
-| P2 | `/iban/austria` | 77 | 8.8 | Minor content expansion |
-| P2 | `/iban/pakistan` | 71 | 9.5 | Cross-link to Pakistan guide |
-| P2 | `/compare/wise-vs-taptap-send` | 70 | 8.7 | Already clicking — maintain |
-| P2 | `/remittance-cost-index` | 61 | 14.2 | Linkable data asset — promote |
-| P2 | `/compare/remitly-vs-revolut` | 60 | 8.1 | On page 1, add CTR hook |
-| P2 | `/iban/croatia` | 59 | 9.6 | Minor expansion |
-
-**Expected outcome:** If we push 10 of these to position 1–5, at a conservative 3% CTR, that's ~30-50 additional clicks/month.
-
-### Phase 4: Content Depth for Page 3–5 Pages (April 15–30)
-
-Pages with high impressions stuck at position 30–50 need **content depth** (not title fixes):
-
-| Page | Impr | Position | What's Needed |
-|------|------|----------|--------------|
-| `/guides/send-money-to-pakistan-guide` | 492 | 31.6 | ✅ Done (answer box + banks table added) |
-| `/companies/xoom` | 231 | 34.5 | Deprioritize (branded navigational) |
-| `/guides/send-money-to-philippines-guide` | 214 | 33.0 | Add answer box, banks table, step-by-step |
-| `/send-money/australia-to-nepal` | 118 | 38.9 | Add editorial content to corridor page |
-| `/send-money/australia-to-pakistan` | 113 | 63.0 | Add editorial content |
-| `/guides/how-to-pay-international-suppliers` | 110 | 35.1 | Cross-link to business guide |
-
-### Phase 5: New Content Based on Query Gaps (May)
-
-**Content Google wants but we don't have a strong page for:**
-
-| Query Cluster | Volume | Current Best Page | Gap |
-|---------------|--------|-------------------|-----|
-| "compare money transfer rates" | 35 impr, pos 79 | Homepage | Need dedicated comparison landing page |
-| "are money transfers safe" | 38 impr, pos 60 | /guides/money-transfer-safety-guide | Guide at pos 55 — needs major depth rewrite |
-| "best way to send money to vietnam" | 15 impr, pos 33 | Corridor page only | Write Vietnam corridor guide |
-| "cheapest way to send money to philippines" | 17 impr, pos 30 | Philippines guide at pos 33 | Strengthen existing guide |
-| "ach payment from us to uk" | 9 impr, pos 60 | No targeted content | Write ACH/wire comparison guide |
-| "best way to send money to colombia" | 9 impr, pos 50 | Corridor page only | Write Colombia corridor guide |
+| # | Action | Why | Status |
+|---|--------|-----|--------|
+| **1** | **Backlink building** | #1 bottleneck. Core queries at pos 80-100 won't move without DR | NOT STARTED |
+| **2** | **IBAN content expansion** (Switzerland, Germany, Romania) | Pos 3-10 with 0 clicks — need depth | NOT STARTED |
+| **3** | **"Compare money transfer rates" landing page** | Core commercial query, no dedicated page | NOT STARTED |
+| **4** | **Portuguese locale (PT-BR)** | 979 impr from Brazil at pos 8.6 | PLANNED (May) |
+| **5** | **Australia-specific corridor guides** | 1,742 impr, growing market | NOT STARTED |
 
 ---
 
@@ -205,45 +182,47 @@ Pages with high impressions stuck at position 30–50 need **content depth** (no
 
 ## 6. Content Calendar (April–June 2026)
 
-### April 2026
-| Week | Content | Targeting |
-|------|---------|-----------|
-| Apr 1–7 | Strengthen 5 IBAN pages (Switzerland, Romania, Germany, Belgium, Poland) | pos 9-18 → pos 1-5 |
-| Apr 1–7 | Deepen wise-vs-paypal + wise-vs-revolut comparisons | pos 11-14 → pos 1-5 |
-| Apr 8–14 | Philippines guide rewrite (add answer box, banks, step-by-step) | pos 33 → pos 15-20 |
-| Apr 8–14 | Safety guide major rewrite | pos 55 → pos 20-30 |
-| Apr 15–21 | Vietnam corridor guide (new) | New query capture |
-| Apr 15–21 | Colombia corridor guide (new) | New query capture |
-| Apr 22–28 | Australia-to-India corridor guide (new) | AUS market (1,336 impr) |
-| Apr 22–28 | UK-to-Pakistan corridor guide (new) | UK market gap |
+### April 2026 (mostly completed)
+| Item | Status |
+|------|--------|
+| Vietnam corridor guide | ✅ Done |
+| Turkey corridor guide | ✅ Done |
+| Colombia corridor guide | ✅ Done |
+| Poland corridor guide | ✅ Done |
+| 4 editorial comparisons (Xoom, TapTap, Revolut, MoneyGram) | ✅ Done |
+| Philippines/Mexico/Nigeria/Kenya guide title rewrites | ✅ Done |
+| 22 corridor SEO overrides | ✅ Done |
+| IBAN content expansion (Switzerland, Germany, Romania) | ❌ TODO |
+| "Compare money transfer rates" landing page | ❌ TODO |
 
 ### May 2026
-| Week | Content | Targeting |
-|------|---------|-----------|
-| May 1–7 | Canada-to-Philippines corridor guide | CAD market |
-| May 1–7 | UAE-to-India corridor guide | AED market (573 impr) |
-| May 8–14 | "Compare money transfer rates" dedicated landing page | 159 impr comparison queries |
-| May 8–14 | ACH vs wire transfer explainer | "ach payment from us to uk" gap |
-| May 15–21 | 5 new SWIFT code country pages (most-searched) | 5.17% CTR page type |
-| May 22–31 | Quarterly content refresh — update all dates, rates, provider data | Freshness signal |
+| Week | Content | Priority |
+|------|---------|----------|
+| May 1–7 | IBAN page expansion (Switzerland, Germany, Romania, Austria) | HIGH |
+| May 1–7 | Start backlink outreach (fintech blogs, HARO, data citations) | CRITICAL |
+| May 8–14 | "Compare money transfer rates" dedicated landing page | HIGH |
+| May 8–14 | Australia-to-India + Australia-to-Philippines guides | MEDIUM |
+| May 15–21 | Portuguese locale (PT-BR) — 979 impr from Brazil | MEDIUM |
+| May 22–31 | Quarterly content refresh — update dates, rates, provider data | MEDIUM |
 
 ### June 2026
-- Portuguese locale launch (PT-BR) — targets 575+ impressions from Brazil
+- Continue backlink building (target 10+ referring domains by end of June)
 - Business guide series: industry-specific (e-commerce, SaaS, freelancers)
-- Link building: guest posts on fintech blogs, HARO responses
+- Canada-to-Philippines corridor guide
+- Evaluate performance of bot blocking (compare GA4 before/after)
 
 ---
 
 ## 7. KPIs and Tracking
 
-### Monthly Targets
-| Month | Clicks | Impressions | Pages on P1 | CTR |
-|-------|--------|-------------|-------------|-----|
-| March 2026 (actual) | 34 | 13,711 | 159 | 0.25% |
-| April 2026 (target) | 100+ | 25,000+ | 180+ | 0.4%+ |
-| May 2026 | 200+ | 40,000+ | 200+ | 0.5%+ |
-| June 2026 | 400+ | 60,000+ | 220+ | 0.7%+ |
-| September 2026 | 3,000+ | 100,000+ | 300+ | 3%+ |
+### Monthly Targets (revised — backlink building is the constraint)
+| Month | Clicks | Impressions | Note |
+|-------|--------|-------------|------|
+| March 2026 (actual) | 34 | 13,711 | Honeymoon spike inflated |
+| April 2026 (projected) | 15-25 | 5,000-8,000 | Post-honeymoon trough |
+| May 2026 (target) | 50+ | 15,000+ | If backlinks start building |
+| June 2026 | 100+ | 25,000+ | Requires 5+ referring domains |
+| September 2026 | 500+ | 80,000+ | Requires 20+ referring domains |
 
 ### Key Metrics to Track
 1. **Page 1 count** — target 200+ pages by June (currently 159)
@@ -272,5 +251,5 @@ Pages with high impressions stuck at position 30–50 need **content depth** (no
 
 ---
 
-*Last updated: March 31, 2026. Based on GSC data March 1–31, 2026.*
-*Next review: April 15, 2026 (two-week check-in after Phase 3 implementation).*
+*Last updated: April 11, 2026. Based on GSC data Mar 13–Apr 9 + GA4 data Mar 28–Apr 11.*
+*Next review: May 1, 2026 (assess backlink strategy + bot blocking impact).*
