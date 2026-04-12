@@ -1056,6 +1056,238 @@ export const newsItems: NewsItem[] = [
     sourceUrl: "https://www.mastercard.com/us/en/news-and-trends/press/2026/march/Mastercard-to-acquire-BVNK-to-connect-on-chain-payments-and-fiat-rails.html",
     providerSlugs: ["wise", "remitly", "western-union", "xoom", "moneygram"],
   },
+  // ========================================
+  // FedNow Cross-Border Payments
+  // ========================================
+  {
+    slug: "fednow-cross-border-payments-2026",
+    title: "FedNow Opens to Cross-Border Payments: What It Means for International Transfers",
+    excerpt:
+      "The Federal Reserve unanimously voted to allow intermediaries on FedNow for international payments — the first time the instant payment system can be used for cross-border transfers. Here's what changes for senders.",
+    content: `<h2>What did the Fed propose?</h2>
+<p>On <strong>April 8, 2026</strong>, the Federal Reserve Board unanimously voted to propose allowing U.S. banks and credit unions to use intermediaries to transfer funds through the FedNow Service. The proposal was published in the Federal Register on April 10, 2026, with a <strong>60-day comment period</strong> closing approximately June 9, 2026.</p>
+<p>Currently, FedNow can only process domestic transfers between two U.S. banks. Under the proposal, either the sending or receiving U.S. bank could act as a correspondent bank for non-U.S. institutions — enabling the domestic leg of a cross-border payment to settle in seconds on FedNow.</p>
+
+<h2>How would cross-border FedNow payments work?</h2>
+<p>The proposed model uses a hybrid approach with separate legs:</p>
+<ol>
+<li><strong>International leg:</strong> Handled by intermediaries (including non-U.S. correspondent banks) outside of FedNow — similar to how SWIFT operates today</li>
+<li><strong>Domestic leg:</strong> Settles in <strong>under 10 seconds</strong> on FedNow between eligible U.S. participants, 24/7/365</li>
+</ol>
+<p>This mirrors how the existing Fedwire Funds Service has operated for decades — FedNow is simply catching up. The key difference: FedNow settles instantly while Fedwire is limited to business hours.</p>
+
+<h2>FedNow vs SWIFT vs Fedwire</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>Feature</th><th>FedNow (Proposed)</th><th>SWIFT</th><th>Fedwire</th></tr></thead>
+<tbody>
+<tr><td><strong>Settlement speed</strong></td><td>Under 10 seconds</td><td>1–5 business days</td><td>Same day (business hours)</td></tr>
+<tr><td><strong>Availability</strong></td><td>24/7/365</td><td>Limited hours</td><td>Business hours only</td></tr>
+<tr><td><strong>Per-transfer cost</strong></td><td>$0.045</td><td>$15–50+</td><td>$0.50–1.00</td></tr>
+<tr><td><strong>Cross-border</strong></td><td>Proposed via intermediaries</td><td>Native</td><td>Via intermediaries</td></tr>
+<tr><td><strong>Participants</strong></td><td>1,700+ institutions</td><td>11,000+ institutions</td><td>~5,000 institutions</td></tr>
+</tbody></table></div>
+
+<h2>What this means for remittance senders</h2>
+<p>If adopted, FedNow cross-border capability could significantly reduce the cost of the <strong>domestic settlement leg</strong> of international transfers. Currently, the average cost of sending a $200 remittance is <strong>6.4%</strong> globally. Much of this cost sits in correspondent banking fees and slow settlement — exactly what FedNow addresses.</p>
+<p>For providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/western-union">Western Union</a> that already use U.S. bank partners, FedNow integration could mean:</p>
+<ul>
+<li><strong>Faster funding:</strong> Sender's money reaches the provider's account in seconds rather than hours</li>
+<li><strong>Lower processing costs:</strong> $0.045 per transfer vs $0.50–1.00 on Fedwire</li>
+<li><strong>24/7 settlement:</strong> No more waiting for business hours to process the U.S. leg</li>
+</ul>
+<p>The international leg (the part that crosses borders) would still use existing rails — SWIFT, local payment systems, or direct integrations. But removing the domestic bottleneck is significant.</p>
+
+<h2>Timeline and what happens next</h2>
+<ul>
+<li><strong>Now – June 9, 2026:</strong> 60-day public comment period</li>
+<li><strong>H2 2026 (estimated):</strong> Final rule published after reviewing comments</li>
+<li><strong>2027 (estimated):</strong> First cross-border FedNow transactions go live</li>
+</ul>
+<p>The G20 has set targets of <strong>1% cost for retail payments and 3% for remittances</strong> — both still exceeded. FedNow's entry into cross-border payments brings the U.S. closer to these targets, joining the <a href="/news/eu-instant-payments-mandatory-2026">EU's instant payments mandate</a> and India's UPI international expansion as part of a global push toward faster, cheaper cross-border settlement.</p>
+<p>For the latest rates from providers already offering instant transfers, <a href="/send-money">compare live quotes</a> from 35+ providers.</p>`,
+    category: "Regulatory",
+    publishedAt: "2026-04-11",
+    source: "Federal Reserve Board / PYMNTS / ABA Banking Journal",
+    sourceUrl: "https://www.federalreserve.gov/newsevents/pressreleases/other20260408a.htm",
+    providerSlugs: ["wise", "remitly", "western-union", "moneygram", "ofx"],
+  },
+  // ========================================
+  // IRS Remittance Tax Proposed Regulations
+  // ========================================
+  {
+    slug: "irs-remittance-tax-proposed-regulations-2026",
+    title: "IRS Publishes Remittance Tax Rules: What Senders Need to Know (April 2026)",
+    excerpt:
+      "The IRS published proposed regulations for the 1% remittance transfer tax on April 10, 2026. Key clarification: digital transfers are exempt — the tax only applies to cash, money orders, and cashier's checks. Here's the full breakdown.",
+    content: `<h2>What did the IRS publish?</h2>
+<p>On <strong>April 10, 2026</strong>, the Treasury Department and IRS issued proposed regulations for the <strong>1% excise tax on certain remittance transfers</strong>, established under the One, Big, Beautiful Bill Act (signed July 4, 2025). The regulations clarify which transfers are taxed, which are exempt, and how providers must collect and report the tax.</p>
+<p>The comment period closes <strong>June 12, 2026</strong>. The tax has been in effect since January 1, 2026.</p>
+
+<h2>Which transfers are taxed?</h2>
+<p>The 1% tax applies <strong>only</strong> to remittance transfers where the sender provides a <strong>physical instrument</strong> to the provider:</p>
+<ul>
+<li><strong>Cash</strong> (paying at an agent location like Western Union or MoneyGram)</li>
+<li><strong>Money orders</strong></li>
+<li><strong>Cashier's checks</strong></li>
+<li><strong>Other similar physical instruments</strong> (as determined by the Secretary)</li>
+</ul>
+<p>On a $1,000 cash transfer, the tax is <strong>$10</strong>.</p>
+
+<h2>Which transfers are exempt?</h2>
+<p>The following are <strong>not subject</strong> to the 1% tax:</p>
+<ul>
+<li>✅ <strong>Bank account transfers</strong> (ACH, wire transfers from checking/savings accounts)</li>
+<li>✅ <strong>U.S.-issued debit card</strong> payments</li>
+<li>✅ <strong>U.S.-issued credit card</strong> payments</li>
+<li>✅ <strong>SWIFT bank-to-bank</strong> transfers</li>
+<li>✅ <strong>Digital/online transfers</strong> from any regulated provider</li>
+<li>✅ <strong>Cryptocurrency and stablecoin</strong> transfers</li>
+</ul>
+<p><strong>Bottom line:</strong> If you send money online through <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/revolut">Revolut</a>, or any digital provider funded from your bank account or card — <strong>you pay zero tax</strong>. The tax specifically targets cash-based agent transfers.</p>
+
+<h2>Who collects the tax?</h2>
+<ul>
+<li>The <strong>sender is liable</strong> for the tax</li>
+<li><strong>Remittance transfer providers must collect</strong> it at the time of the transaction</li>
+<li>If providers fail to collect, they become <strong>secondarily liable</strong></li>
+<li>Providers report quarterly on <strong>Form 720</strong> with semimonthly deposits required</li>
+<li>The IRS has granted <strong>penalty relief</strong> (Notice 2025-55) for deposit errors during the first three quarters of 2026</li>
+</ul>
+
+<h2>Revenue and economic impact</h2>
+<p>The Joint Committee on Taxation estimates the tax will generate approximately <strong>$10 billion over 10 years</strong>. The tax applies regardless of citizenship, immigration status, or income level.</p>
+<p>Key impact projections:</p>
+<ul>
+<li><strong>Mexico</strong> (largest remittance recipient from the US) projected to lose exceeding <strong>$1.5 billion annually</strong></li>
+<li><strong>El Salvador</strong> projected to lose <strong>0.6% of gross national income</strong></li>
+<li>Central American countries face the greatest relative impact</li>
+</ul>
+
+<h2>What should you do?</h2>
+<ol>
+<li><strong>Switch from cash to digital:</strong> If you're still paying cash at an agent location, switching to a digital provider eliminates the tax <em>and</em> saves you $20–$80 per $1,000 in fees and exchange rate markup. See our <a href="/send-money">comparison tool</a> for the cheapest digital option.</li>
+<li><strong>Fund via bank account or debit card:</strong> ACH-funded transfers through Wise, Remitly, or WorldRemit are tax-exempt and typically cheapest.</li>
+<li><strong>Keep receipts:</strong> If you do send cash, the provider must give you a receipt showing the tax amount. You can reclaim taxes if the transfer is canceled or refunded.</li>
+</ol>
+<p>For corridor-specific advice, see our <a href="/guides/send-money-to-mexico-guide">Mexico guide</a>, <a href="/guides/send-money-to-india-guide">India guide</a>, and <a href="/guides/send-money-to-philippines-guide">Philippines guide</a>.</p>`,
+    category: "Regulatory",
+    publishedAt: "2026-04-11",
+    source: "IRS / Treasury Department",
+    sourceUrl: "https://www.irs.gov/newsroom/treasury-irs-issue-proposed-regulations-on-the-new-remittance-transfer-tax-established-under-the-one-big-beautiful-bill",
+    providerSlugs: ["western-union", "moneygram", "ria", "wise", "remitly"],
+  },
+  // ========================================
+  // UK FCA Safeguarding Rules
+  // ========================================
+  {
+    slug: "fca-safeguarding-rules-money-transfer-2026",
+    title: "Is Your Money Safe with Wise and Revolut? New FCA Safeguarding Rules Explained (May 2026)",
+    excerpt:
+      "New FCA rules taking effect May 7, 2026 require Wise, Revolut, and all UK payment firms to ring-fence customer money with daily reconciliation, annual audits, and wind-down plans. Here's what it means for your transfers.",
+    content: `<h2>What's changing on May 7, 2026?</h2>
+<p>The UK Financial Conduct Authority (FCA) published <strong>Policy Statement PS25/12</strong> on August 7, 2025, introducing the most significant overhaul of safeguarding rules for payment institutions and e-money institutions since their inception. The new rules take effect on <strong>May 7, 2026</strong>.</p>
+<p>These rules affect every FCA-regulated money transfer company, including <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/worldremit">WorldRemit</a>, and dozens of smaller providers.</p>
+
+<h2>What the new rules require</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>Requirement</th><th>Before May 2026</th><th>After May 2026</th></tr></thead>
+<tbody>
+<tr><td><strong>Fund reconciliation</strong></td><td>No specific frequency required</td><td>Daily reconciliation of safeguarded funds</td></tr>
+<tr><td><strong>Audits</strong></td><td>No mandatory safeguarding audits</td><td>Annual reasonable-assurance audits by qualified auditors</td></tr>
+<tr><td><strong>Reporting</strong></td><td>Annual reporting only</td><td>Monthly regulatory returns to the FCA</td></tr>
+<tr><td><strong>Wind-down planning</strong></td><td>No requirement</td><td>Mandatory resolution pack enabling timely fund recovery</td></tr>
+<tr><td><strong>Third-party review</strong></td><td>No specific requirement</td><td>Review all third-party safeguarding arrangements within 3 months</td></tr>
+</tbody></table></div>
+
+<h2>Why this matters: the insolvency problem</h2>
+<p>Unlike banks, payment firms like Wise and Revolut are <strong>not covered by the Financial Services Compensation Scheme (FSCS)</strong>. If a payment firm fails, your money is not automatically protected up to £85,000 like it would be with a bank.</p>
+<p>The FCA found alarming data from <strong>12 payment firms that became insolvent between 2018 and 2023</strong>:</p>
+<ul>
+<li>Average shortfall was <strong>65%</strong> between funds owed to customers and funds actually safeguarded</li>
+<li>For e-money institutions alone, the shortfall averaged <strong>80%</strong></li>
+<li>In 8 of 12 cases, shortfalls exceeded <strong>£1 million</strong></li>
+<li>Where funds were returned, it took an average of <strong>2.3 years</strong></li>
+</ul>
+<p>The new rules aim to prevent this by requiring daily checks, annual audits, and pre-built wind-down plans.</p>
+
+<h2>Which providers are affected?</h2>
+<p>All FCA-regulated payment institutions (PIs) and e-money institutions (EMIs). This includes:</p>
+<ul>
+<li><strong>Wise</strong> (EMI, authorized by FCA)</li>
+<li><strong>Revolut</strong> (EMI, authorized by FCA — also pursuing UK banking license)</li>
+<li><strong>Remitly</strong> (regulated as a payment institution in the UK)</li>
+<li><strong>WorldRemit</strong> (EMI, authorized by FCA)</li>
+<li><strong>PayPal/Xoom</strong> (Luxembourg-licensed, passported into UK)</li>
+</ul>
+<p>Firms safeguarding less than <strong>£100,000</strong> over a 53-week period are exempt from the audit requirement — but this covers only ~23% of firms and just £3.2 million of the £27 billion+ in customer funds held sector-wide.</p>
+
+<h2>Is your money safe right now?</h2>
+<p>Yes — with reputable, FCA-regulated providers. The key protections:</p>
+<ol>
+<li><strong>Safeguarding:</strong> All regulated providers already ring-fence customer funds in separate accounts. The new rules strengthen <em>how</em> this is done, not whether it's done.</li>
+<li><strong>Regulation:</strong> Wise, Revolut, and Remitly are all authorized by the FCA, which can intervene if rules are breached.</li>
+<li><strong>Speed:</strong> Money transfer transactions typically complete within minutes to days — your funds aren't held for long periods.</li>
+</ol>
+<p>For a full guide on verifying any provider, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>. To compare regulated providers, use our <a href="/send-money">live comparison tool</a>.</p>`,
+    category: "Regulatory",
+    publishedAt: "2026-04-11",
+    source: "FCA / Norton Rose Fulbright",
+    sourceUrl: "https://www.fca.org.uk/news/press-releases/payment-safeguarding-rules-changes",
+    providerSlugs: ["wise", "revolut", "remitly", "worldremit", "paypal"],
+  },
+  // ========================================
+  // EU Instant Payments Mandatory
+  // ========================================
+  {
+    slug: "eu-instant-payments-mandatory-2026",
+    title: "EU Instant Payments Now Mandatory: Every Euro Transfer Must Settle in 10 Seconds",
+    excerpt:
+      "The EU Instant Payments Regulation (EU 2024/886) is now in full force for eurozone banks. Every euro transfer must settle within 10 seconds, 24/7, at no extra charge. Here's what it means for sending money to Europe.",
+    content: `<h2>What's the EU Instant Payments Regulation?</h2>
+<p><strong>Regulation (EU) 2024/886</strong>, adopted March 13, 2024 and in force since April 8, 2024, mandates that all payment service providers in the eurozone must offer instant euro transfers. The regulation amends the original SEPA Regulation (260/2012).</p>
+<p>Key requirements:</p>
+<ul>
+<li><strong>10-second settlement:</strong> The recipient's account must be credited within 10 seconds. If confirmation isn't received in time, the transaction automatically reverses.</li>
+<li><strong>24/7/365 availability:</strong> Instant payments must be available at all times — no business-hours restrictions.</li>
+<li><strong>No premium pricing:</strong> Charges for instant transfers <strong>cannot exceed</strong> charges for standard SEPA transfers. Banks can no longer charge extra for speed.</li>
+<li><strong>Mandatory offering:</strong> Any bank that offers standard SEPA transfers must also offer instant.</li>
+<li><strong>Verification of Payee (VoP):</strong> Free service confirming the recipient's name matches the account before execution.</li>
+</ul>
+
+<h2>Implementation timeline</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>Requirement</th><th>Eurozone banks</th><th>Non-eurozone EU banks</th></tr></thead>
+<tbody>
+<tr><td><strong>Receive instant (EUR)</strong></td><td>January 9, 2025 ✅</td><td>January 9, 2027</td></tr>
+<tr><td><strong>Send instant (EUR)</strong></td><td>October 9, 2025 ✅</td><td>July 9, 2027</td></tr>
+<tr><td><strong>Equal charges</strong></td><td>January 9, 2025 ✅</td><td>January 9, 2027</td></tr>
+<tr><td><strong>Verification of Payee</strong></td><td>October 9, 2025 ✅</td><td>July 9, 2027</td></tr>
+</tbody></table></div>
+<p>Eurozone banks are now fully compliant. Non-eurozone EU members (Romania, Poland, Sweden, Hungary, Czech Republic, Bulgaria) have until 2027 for euro payments.</p>
+
+<h2>What this means for sending money to Europe</h2>
+<p><strong>If you're sending EUR to a eurozone country</strong> (Germany, France, Spain, Italy, Netherlands, Austria, etc.), your transfer should now arrive within 10 seconds via SEPA Instant — at no extra charge over standard SEPA.</p>
+<p>Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/revolut">Revolut</a> already route through SEPA Instant when available. The regulation ensures <strong>every eurozone bank</strong> now supports it.</p>
+<p><strong>Maximum per transaction:</strong> EUR 100,000. Non-eurozone countries can set a minimum cap of EUR 25,000 during off-hours.</p>
+
+<h2>Non-eurozone EU countries: Romania, Poland, Sweden</h2>
+<p>These countries use their own currencies (RON, PLN, SEK) but are SEPA members for euro payments. The regulation only applies to <strong>euro-denominated payments</strong>:</p>
+<ul>
+<li>Euro transfers to/from Romanian, Polish, or Swedish EUR accounts will be instant by 2027</li>
+<li>Local currency transfers (RON, PLN, SEK) continue using national payment systems and are not covered by this regulation</li>
+<li>For the cheapest way to send to these countries, see our <a href="/guides/send-money-to-romania-guide">Romania guide</a> and <a href="/guides/send-money-to-poland-guide">Poland guide</a></li>
+</ul>
+
+<h2>UK senders: what changes?</h2>
+<p>The UK remains in the SEPA geographic scope (grandfathered post-Brexit) but is <strong>not bound by this regulation</strong>. UK banks can choose to adopt SEPA Instant voluntarily, but there is no legal deadline.</p>
+<p>However, UK-based providers like Wise and Revolut route transfers through their EU entities, meaning <strong>UK senders to Europe already benefit</strong> from SEPA Instant pricing and speed.</p>
+<p>For live rates from the UK to Europe, <a href="/send-money/uk-to-europe">compare GBP to EUR providers</a>.</p>`,
+    category: "Regulatory",
+    publishedAt: "2026-04-11",
+    source: "European Central Bank / European Commission",
+    sourceUrl: "https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html",
+    providerSlugs: ["wise", "revolut", "remitly", "ofx"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {
