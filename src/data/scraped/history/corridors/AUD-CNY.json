@@ -577,5 +577,28 @@
         "receiveAmount": 479.78
       }
     }
+  },
+  {
+    "date": "2026-04-12",
+    "providers": {
+      "instarem": {
+        "rate": 4.8156,
+        "fee": 0.37,
+        "markup": null,
+        "receiveAmount": 479.78
+      },
+      "nab": {
+        "rate": 4.6366,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 463.66
+      },
+      "western-union": {
+        "rate": 4.8287,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 482.87
+      }
+    }
   }
 ]
