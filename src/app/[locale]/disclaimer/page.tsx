@@ -202,17 +202,17 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
                 If you have questions about this disclaimer or spot any inaccurate
                 information on our website, please contact us at{" "}
                 <a
-                  href="mailto:hello@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  hello@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>{" "}
                 or{" "}
                 <a
-                  href="mailto:corrections@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  corrections@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>
                 .
               </p>

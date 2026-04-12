@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
+import LazyTrustpilot from "@/components/LazyTrustpilot";
 
 type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean };
 type StaticLink = { href: string; label: string; noFollow?: boolean };
@@ -197,7 +198,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[var(--color-outline)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Trustpilot — shows dynamic widget when reviews exist, static link as fallback */}
+          {/* Trustpilot — loads script via IntersectionObserver when footer nears viewport */}
+          <LazyTrustpilot />
           <div className="flex items-center gap-3 min-h-[52px]">
             <div
               className="trustpilot-widget"

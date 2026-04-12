@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
-  const localeMap: Record<string, string> = { en: "en_US", es: "es_ES", fr: "fr_FR" };
+  const localeMap: Record<string, string> = { en: "en_US", es: "es_ES", fr: "fr_FR", pt: "pt_BR" };
 
   return {
     description: t("description"),
@@ -60,6 +60,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         en: SITE_URL,
         es: `${SITE_URL}/es`,
         fr: `${SITE_URL}/fr`,
+        pt: `${SITE_URL}/pt`,
       },
     },
   };
@@ -82,7 +83,7 @@ const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    email: "hello@sendmoneycompare.com",
+    email: "akif@sendmoneycompare.com",
     contactType: "customer service",
   },
   address: {
@@ -141,6 +142,22 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages();
 
+  // Only ship namespaces used by client components to reduce JS payload.
+  // Server components use getTranslations() directly and don't need these.
+  const clientMessages: Record<string, unknown> = {};
+  const clientNamespaces = [
+    "nav", "cookieConsent", "error", "languageSwitcher",  // layout-level
+    "comparisonWidget", "providerCard",                    // shared across pages
+    "heroTabs", "homepageConverter", "newsTicker",         // homepage
+    "sendMoneyClient",                                     // send-money
+    "currencyConverterClient",                             // currency-converter
+  ];
+  for (const ns of clientNamespaces) {
+    if ((messages as Record<string, unknown>)[ns]) {
+      clientMessages[ns] = (messages as Record<string, unknown>)[ns];
+    }
+  }
+
   return (
     <>
       <Script
@@ -174,10 +191,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         }}
       />
       <Script
-        src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-        strategy="lazyOnload"
-      />
-      <Script
         id="theme-init"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
@@ -196,7 +209,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(financialServiceSchema) }}
       />
-      <NextIntlClientProvider locale={locale} messages={messages}>
+      <NextIntlClientProvider locale={locale} messages={clientMessages}>
         <ThemeProvider>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium focus:shadow-lg">
             Skip to main content

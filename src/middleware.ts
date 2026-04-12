@@ -70,15 +70,20 @@ export default function middleware(request: NextRequest) {
   const csp = [
     `default-src 'self'`,
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
-    // 'unsafe-inline' required for style-src: React uses inline style props for dynamic
-    // values (colors, positions, backgrounds) across 110+ instances in 17 components.
-    // CSS exfiltration attacks via style injection are theoretical and require specific
-    // conditions. This is the standard for React apps. See: https://csp.withgoogle.com/
+    // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
+    // for dynamic values (colors, positions, backgrounds). This is the standard for
+    // React apps — Next.js App Router does not support nonce-based inline styles.
+    // See: https://csp.withgoogle.com/ and https://nextjs.org/docs/app/api-reference/config/next-config-js/headers#content-security-policy
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com`,
     `connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com`,
     `font-src 'self'`,
     `frame-src https://widget.trustpilot.com`,
+    `object-src 'none'`,
+    `base-uri 'self'`,
+    `form-action 'self'`,
+    `frame-ancestors 'none'`,
+    `upgrade-insecure-requests`,
     `report-uri /api/csp-report`,
     `report-to csp-endpoint`,
   ].join("; ");

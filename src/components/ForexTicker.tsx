@@ -57,7 +57,7 @@ export default function ForexTicker() {
     }
 
     fetchLiveRates();
-    const interval = setInterval(fetchLiveRates, 60_000);
+    const interval = setInterval(fetchLiveRates, 300_000); // 5 min — rates don't change fast enough to justify 60s
     return () => {
       controller.abort();
       clearInterval(interval);

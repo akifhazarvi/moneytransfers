@@ -55,10 +55,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   Questions about our comparison tools, data, or content.
                 </p>
                 <a
-                  href="mailto:hello@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  hello@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>
               </div>
 
@@ -75,10 +75,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   Found an inaccuracy in our rates, fees, or provider details?
                 </p>
                 <a
-                  href="mailto:corrections@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  corrections@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>
               </div>
 
@@ -96,10 +96,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   update your information?
                 </p>
                 <a
-                  href="mailto:partners@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  partners@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>
               </div>
 
@@ -116,10 +116,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   Journalist or researcher looking for data or expert comment?
                 </p>
                 <a
-                  href="mailto:press@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
-                  press@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>
               </div>
             </div>

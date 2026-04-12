@@ -50,7 +50,7 @@ function getDataUpdatedDate(): string {
 
 const DATA_UPDATED = getDataUpdatedDate();
 
-const LOCALES = ["es", "fr"] as const;
+const LOCALES = ["es", "fr", "pt"] as const;
 
 const INDEXED_IBAN_SLUGS = new Set([
   "united-kingdom", "germany", "france", "netherlands", "spain",

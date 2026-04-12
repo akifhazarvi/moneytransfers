@@ -268,10 +268,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                 <p>
                   To exercise any of these rights, please contact us at{" "}
                   <a
-                    href="mailto:hello@sendmoneycompare.com"
+                    href="mailto:akif@sendmoneycompare.com"
                     className="text-[var(--color-primary)] hover:underline"
                   >
-                    hello@sendmoneycompare.com
+                    akif@sendmoneycompare.com
                   </a>
                   . We will respond to your request within 30 days.
                 </p>
@@ -396,10 +396,10 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
                 If you have any questions about this Privacy Policy, please contact us
                 at{" "}
                 <a
-                  href="mailto:hello@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  hello@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>
                 {" "}or visit our{" "}
                 <Link

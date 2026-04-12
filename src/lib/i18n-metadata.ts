@@ -9,7 +9,7 @@
  */
 
 const SITE_URL = "https://sendmoneycompare.com";
-const LOCALES = ["en", "es", "fr"] as const;
+const LOCALES = ["en", "es", "fr", "pt"] as const;
 
 /**
  * Generate alternates object for Next.js Metadata API.

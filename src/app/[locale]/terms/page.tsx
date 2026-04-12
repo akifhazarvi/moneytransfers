@@ -126,10 +126,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
                   Always verify the final rate and fees directly with the provider before
                   completing a transfer. If you spot an error, please report it to{" "}
                   <a
-                    href="mailto:corrections@sendmoneycompare.com"
+                    href="mailto:akif@sendmoneycompare.com"
                     className="text-[var(--color-primary)] hover:underline"
                   >
-                    corrections@sendmoneycompare.com
+                    akif@sendmoneycompare.com
                   </a>
                   .
                 </p>
@@ -339,10 +339,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
               <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 If you have any questions about these Terms, please contact us at{" "}
                 <a
-                  href="mailto:hello@sendmoneycompare.com"
+                  href="mailto:akif@sendmoneycompare.com"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  hello@sendmoneycompare.com
+                  akif@sendmoneycompare.com
                 </a>
                 {" "}or visit our{" "}
                 <Link

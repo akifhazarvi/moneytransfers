@@ -73,8 +73,8 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
               We are committed to accuracy and transparency. This page documents corrections, data updates,
               and significant editorial changes made to our content. If you spot an error, please email{" "}
-              <a href="mailto:corrections@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
-                corrections@sendmoneycompare.com
+              <a href="mailto:akif@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
+                akif@sendmoneycompare.com
               </a>.
             </p>
           </div>
@@ -125,8 +125,8 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
                 </p>
                 <p>
                   To report an error or suggest a correction, email{" "}
-                  <a href="mailto:corrections@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
-                    corrections@sendmoneycompare.com
+                  <a href="mailto:akif@sendmoneycompare.com" className="text-[var(--color-primary)] hover:underline">
+                    akif@sendmoneycompare.com
                   </a>{" "}
                   with the page URL and details of the issue.
                 </p>
@@ -136,7 +136,7 @@ export default async function CorrectionsPage({ params }: { params: Promise<{ lo
             <div className="mt-8 pt-6 border-t border-[var(--color-outline)]">
               <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-3">Corrections Log</h2>
               <p className="text-sm text-[var(--color-on-surface-variant)]">
-                We have not needed to issue formal corrections to date. All data is verified every 6 hours via automated scraping, and editorial content is reviewed before publication. If you find an error, please contact us at corrections@sendmoneycompare.com.
+                We have not needed to issue formal corrections to date. All data is verified every 6 hours via automated scraping, and editorial content is reviewed before publication. If you find an error, please contact us at akif@sendmoneycompare.com.
               </p>
             </div>
           </div>

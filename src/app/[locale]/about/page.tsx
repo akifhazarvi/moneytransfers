@@ -207,11 +207,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     </div>
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Contact</dt>
-                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">hello@sendmoneycompare.com</dd>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">akif@sendmoneycompare.com</dd>
                     </div>
                     <div>
                       <dt className="text-[var(--color-on-surface-variant)]">Corrections</dt>
-                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">corrections@sendmoneycompare.com</dd>
+                      <dd className="text-[var(--color-on-surface)] font-medium mt-0.5">akif@sendmoneycompare.com</dd>
                     </div>
                   </dl>
                 </div>
