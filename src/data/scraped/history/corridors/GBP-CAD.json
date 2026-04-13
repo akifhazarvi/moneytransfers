@@ -1566,5 +1566,100 @@
         "receiveAmount": 181.22
       }
     }
+  },
+  {
+    "date": "2026-04-13",
+    "providers": {
+      "lloyds": {
+        "rate": 1.7903,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 162.02
+      },
+      "worldremit": {
+        "rate": 1.8214,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 180.34
+      },
+      "monese": {
+        "rate": 1.8581,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 178.38
+      },
+      "xoom": {
+        "rate": 1.7817,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 172.84
+      },
+      "hsbc": {
+        "rate": 1.8387,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 183.87
+      },
+      "halifax": {
+        "rate": 1.7895,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 161.95
+      },
+      "natwest": {
+        "rate": 1.8148,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 181.48
+      },
+      "western-union": {
+        "rate": 1.814,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 175.98
+      },
+      "rbs": {
+        "rate": 1.8148,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 181.48
+      },
+      "starling": {
+        "rate": 1.8583,
+        "fee": 5.9,
+        "markup": null,
+        "receiveAmount": 174.87
+      },
+      "instarem": {
+        "rate": 1.8477,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 184.77
+      },
+      "santander": {
+        "rate": 1.7968,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 134.76
+      },
+      "paypal": {
+        "rate": 1.7762,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 172.31
+      },
+      "barclays": {
+        "rate": 1.807,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 180.7
+      },
+      "nationwide": {
+        "rate": 1.8217,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 154.84
+      }
+    }
   }
 ]
