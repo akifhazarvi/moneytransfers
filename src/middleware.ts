@@ -25,6 +25,13 @@ const ALLOWED_BOTS = [
   "vercel-edge-functions", "vercel",
 ];
 
+// Countries where we have 0 real users (GSC: 0-1 clicks) but heavy bot traffic.
+// Blocking at edge saves compute and cleans GA4 data.
+// If a real user from these countries ever appears in GSC, remove the block.
+const BOT_HEAVY_COUNTRIES = new Set([
+  "SG", // Singapore: 88 GA4 sessions, 97.7% bounce, 4.2s avg — bot farm
+]);
+
 function isSpamBot(request: NextRequest): boolean {
   const ua = (request.headers.get("user-agent") || "").toLowerCase();
 
@@ -36,6 +43,11 @@ function isSpamBot(request: NextRequest): boolean {
 
   // Block known spam bots
   if (SPAM_UA_PATTERNS.some((pattern) => ua.includes(pattern))) return true;
+
+  // Block traffic from countries with confirmed bot farm activity
+  // Uses Vercel's x-vercel-ip-country header (available on all plans)
+  const country = request.headers.get("x-vercel-ip-country") || "";
+  if (country && BOT_HEAVY_COUNTRIES.has(country)) return true;
 
   // Block requests with no Accept-Language header (real browsers always send it)
   const acceptLang = request.headers.get("accept-language");
