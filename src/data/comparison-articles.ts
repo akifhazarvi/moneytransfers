@@ -1067,10 +1067,10 @@ export const comparisonArticles: ComparisonArticle[] = [
     slug: "wise-vs-paypal",
     providerA: "wise",
     providerB: "paypal",
-    title: "Wise vs PayPal 2026 — PayPal Charges 3–4% Hidden Markup. Here's the Proof",
+    title: "Wise vs PayPal for International Transfers (2026) — Fees, Rates & Speed Compared",
     metaDescription:
-      "We sent $1,000 through Wise and PayPal to 6 countries. PayPal's 'no fee' transfers hide a 3–4% exchange rate markup. Wise uses the real mid-market rate. See exactly how much more your recipient gets.",
-    updatedAt: "2026-03-31",
+      "Wise vs PayPal compared: we sent $1,000 to 6 countries. PayPal hides a 3–4% exchange rate markup in 'no fee' transfers. Wise uses the real mid-market rate. See who delivers more money.",
+    updatedAt: "2026-04-14",
     readTime: "9 min read",
     intro:
       "PayPal is the world's most recognized online payment brand, but is it the best way to send money internationally? Wise was built specifically to disrupt expensive providers like PayPal, offering the mid-market exchange rate and transparent fees. This comparison reveals the true cost gap between the two — and it's larger than most people realize.",
@@ -1471,9 +1471,9 @@ export const comparisonArticles: ComparisonArticle[] = [
     slug: "wise-vs-revolut",
     providerA: "wise",
     providerB: "revolut",
-    title: "Wise vs Revolut 2026 — Which Is Cheaper for International Transfers?",
+    title: "Wise vs Revolut for Sending Money Abroad (2026) — Which Is Actually Cheaper?",
     metaDescription:
-      "Wise vs Revolut compared for international money transfers in 2026. Mid-market rate vs interbank rate, fee structures, multi-currency accounts, and which saves you more.",
+      "Wise vs Revolut compared with real data: fees, exchange rates, multi-currency accounts, and transfer speed. We tested both on 5 corridors to find which delivers more money in 2026.",
     updatedAt: "2026-03-31",
     readTime: "10 min read",
     intro:
@@ -1641,9 +1641,9 @@ export const comparisonArticles: ComparisonArticle[] = [
     slug: "remitly-vs-xoom",
     providerA: "remitly",
     providerB: "xoom",
-    title: "Remitly vs Xoom 2026 — We Compared Fees, Rates & Speed Across 6 Corridors",
+    title: "Remitly vs Xoom (2026) — Which Is Cheaper for India, Philippines & Mexico?",
     metaDescription:
-      "Remitly vs Xoom compared on real data: Remitly's exchange rate markup is 0.4–3% while Xoom's averages 4.5%. See who delivers more to India, Philippines, Mexico — and when Xoom wins.",
+      "Remitly vs Xoom compared with real data: Remitly's markup is 0.4–3% while Xoom averages 4.5%. We tested 6 corridors — see who delivers more to India, Philippines, Mexico and when Xoom wins.",
     updatedAt: "2026-03-31",
     readTime: "12 min read",
     intro:

@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const year = new Date().getFullYear();
   return {
     title:
-      `International Business Payments — Compare the 4 Cheapest Providers (${year})`,
+      `B2B International Payments — Compare Business Money Transfer Providers (${year})`,
     description:
-      `Compare the cheapest ways to make international business payments in ${year}. Wise Business, OFX, Revolut & XE save 80–95% vs bank wires. Compare fees, FX rates & speeds for SME payments, bulk transfers, vendor payouts & B2B transfers.`,
+      `Compare the cheapest B2B international payment providers in ${year}. Wise Business, OFX, Revolut Business & Airwallex save 80–95% vs bank wires. Fees, FX rates, bulk payments & API access compared.`,
     keywords:
-      `international business payments ${year}, small business international payments, business money transfer, business fx payments, bulk international payments, international vendor payments, B2B international money transfer, business bank transfer abroad`,
+      `b2b international payments, business international payments, business money transfer international, business fx payments, bulk international payments, international business payments ${year}, b2b money transfer, business bank transfer abroad`,
     alternates: getAlternates("business", locale),
     openGraph: {
       title:

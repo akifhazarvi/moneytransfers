@@ -892,7 +892,10 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedSlugs: [
       "cheapest-way-to-send-money-internationally",
-      "wise-vs-remitly-comparison",
+      "best-money-transfer-apps-expats-2026",
+      "send-money-to-india-guide",
+      "send-money-to-philippines-guide",
+      "stablecoin-vs-wire-transfer-comparison",
     ],
   },
 
