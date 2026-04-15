@@ -640,5 +640,28 @@
         "receiveAmount": 1863831
       }
     }
+  },
+  {
+    "date": "2026-04-15",
+    "providers": {
+      "western-union": {
+        "rate": 18741.7666,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1874177
+      },
+      "commonwealth-bank": {
+        "rate": 17637.2479,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1763725
+      },
+      "instarem": {
+        "rate": 18773.9205,
+        "fee": 0.5,
+        "markup": null,
+        "receiveAmount": 1868005
+      }
+    }
   }
 ]
