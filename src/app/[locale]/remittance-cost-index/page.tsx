@@ -38,9 +38,9 @@ interface ProviderSummary {
 interface TrustpilotRating {
   slug: string;
   name: string;
-  score: number;
-  totalReviews: number;
-  ratingLabel: string;
+  score: number | null;
+  totalReviews: number | null;
+  ratingLabel: string | null;
 }
 
 interface CorridorCost {
