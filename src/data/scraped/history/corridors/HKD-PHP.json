@@ -636,5 +636,34 @@
         "receiveAmount": 705.63
       }
     }
+  },
+  {
+    "date": "2026-04-17",
+    "providers": {
+      "instarem": {
+        "rate": 7.6728,
+        "fee": 0.65,
+        "markup": null,
+        "receiveAmount": 762.3
+      },
+      "hsbc-hk": {
+        "rate": 7.5568,
+        "fee": 70,
+        "markup": null,
+        "receiveAmount": 226.7
+      },
+      "paypal": {
+        "rate": 7.3359,
+        "fee": 38.99,
+        "markup": null,
+        "receiveAmount": 447.56
+      },
+      "wise": {
+        "rate": 7.6774,
+        "fee": 7.94,
+        "markup": null,
+        "receiveAmount": 706.78
+      }
+    }
   }
 ]

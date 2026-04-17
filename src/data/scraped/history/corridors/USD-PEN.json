@@ -475,5 +475,28 @@
         "receiveAmount": 315.73
       }
     }
+  },
+  {
+    "date": "2026-04-17",
+    "providers": {
+      "ria": {
+        "rate": 3.42,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 345.15
+      },
+      "instarem": {
+        "rate": 3.4175,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 341.75
+      },
+      "wise": {
+        "rate": 3.4405,
+        "fee": 8.23,
+        "markup": null,
+        "receiveAmount": 315.73
+      }
+    }
   }
 ]
