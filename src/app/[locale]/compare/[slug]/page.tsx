@@ -137,6 +137,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Wise vs Western Union ${year} — How Much More Does Your Family Get?`,
       desc: `Western Union has 550,000+ agent locations. Wise has the mid-market rate. On a $1,000 transfer, the difference can be $30–$60. See the real comparison.`,
     },
+    "wise-vs-westpac": {
+      title: `Wise vs Westpac ${year} — We Sent AU$1,000. Your Recipient Gets AU$35 More`,
+      desc: `Westpac charges AU$10–$32 plus a 3.5–6% hidden FX markup. Wise uses the mid-market rate with a ~0.5% fee. On AU$1,000 to USD, GBP, INR or PHP, Wise delivers ~AU$30–$35 more.`,
+    },
   };
 
   const custom = customMeta[slug];

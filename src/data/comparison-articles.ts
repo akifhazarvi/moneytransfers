@@ -2445,6 +2445,361 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
     ],
   },
+  // ============================
+  // Wise vs Westpac
+  // ============================
+  {
+    slug: "wise-vs-westpac",
+    providerA: "wise",
+    providerB: "westpac",
+    title: "Wise vs Westpac 2026: We Sent AU$1,000 — Your Recipient Gets AU$35 More",
+    metaDescription:
+      "Westpac charges AU$10–$32 plus a 3.5–6% hidden exchange rate markup. Wise uses the mid-market rate with a ~0.5% fee. On AU$1,000 transfers, Wise delivers ~AU$30–$35 more to the recipient across USD, GBP, EUR, INR and PHP corridors.",
+    updatedAt: "2026-04-16",
+    readTime: "11 min read",
+    intro:
+      "Westpac is one of Australia's \"Big Four\" banks — a 200-year-old ADI that most Australians already have an account with. Wise is a London-listed fintech (formerly TransferWise) that built its brand on one idea: use the mid-market exchange rate and charge a small, visible fee instead of hiding a markup in the rate. The difference for a typical AU$1,000 international transfer, measured across USD, GBP, EUR, INR and PHP corridors, is about 3.2%–3.8% more money in the recipient's account when you send with Wise. This guide breaks down exactly why — and when Westpac is still the right choice.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview: Wise vs Westpac at a glance",
+        content: `<p>Before the details, here's a side-by-side snapshot of what each provider offers for international transfers from Australia.</p>
+
+<table>
+<tr><th>Feature</th><th>Wise</th><th>Westpac</th></tr>
+<tr><td>Type</td><td>Digital money transfer fintech</td><td>Big Four Australian bank</td></tr>
+<tr><td>Founded</td><td>2011 (London, UK)</td><td>1817 (Sydney, Australia)</td></tr>
+<tr><td>Best for</td><td>Transparent pricing, small-to-medium transfers, multi-currency needs</td><td>Existing Westpac customers, large business transfers via FX desk</td></tr>
+<tr><td>Fee model</td><td>Variable % (0.45%–0.7% on AUD outbound)</td><td>AU$0/$10/$20/$32 depending on method + hidden FX margin</td></tr>
+<tr><td>Exchange rate</td><td>Mid-market (no markup)</td><td>Marked up 3.5%–6% on typical corridors</td></tr>
+<tr><td>Transfer speed</td><td>Hours to same business day on most routes</td><td>1–3 business days (up to 10 for exotic routes)</td></tr>
+<tr><td>Online daily limit</td><td>~AU$1.8m equivalent</td><td>AU$750 default (can be raised on request)</td></tr>
+<tr><td>Currencies</td><td>40+</td><td>27–40+ currencies, 200+ countries</td></tr>
+<tr><td>Cash pickup</td><td>No</td><td>No</td></tr>
+<tr><td>Multi-currency account</td><td>Yes — 40+ currencies, AUD debit card</td><td>No (separate Foreign Currency Account product for business)</td></tr>
+<tr><td>Regulated by</td><td>AFSL 513764 (Wise Australia), AUSTRAC, APRA PPF licence</td><td>APRA (ADI), ASIC, AUSTRAC</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> Westpac wins on brand trust, branch presence, and business FX relationships. Wise wins on price, speed and transparency on almost every retail transfer. The gap on a typical AU$1,000 transfer is roughly <strong>3.3%</strong> — about AU$30–$35 more in the recipient's hands with Wise.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Fees comparison — the visible cost",
+        content: `<p>This is where the Wise vs Westpac story diverges most sharply. The two providers use fundamentally different fee models, and comparing them on the visible fee alone will mislead you.</p>
+
+<p><strong>Westpac's visible fees</strong> (from Westpac's official International Service Fees schedule, effective 2025–2026):</p>
+<ul>
+<li><strong>Online banking / Westpac app, foreign currency out:</strong> AU$0–$10 (depending on currency — Westpac's FAQ lists $0 for some major currencies, third-party guides list AU$10 for most)</li>
+<li><strong>Online banking / Westpac app, AUD to a foreign account:</strong> AU$20</li>
+<li><strong>In-branch transfers:</strong> AU$32</li>
+<li><strong>Receiving an international transfer:</strong> AU$12 (waived if ≤ AU$100 equivalent)</li>
+<li><strong>Correspondent bank fees:</strong> Westpac waives its own correspondent fee on 10+ major currencies (USD, EUR, GBP, NZD, INR and others), but intermediary banks in the SWIFT chain can still deduct AU$15–$50 — usually from the recipient.</li>
+</ul>
+
+<p><strong>Wise's fees from AUD</strong> (pricing page, April 2026): a visible, upfront percentage of the amount you send. On a typical AU$1,000 transfer:</p>
+<ul>
+<li><strong>AUD → USD:</strong> ~AU$5–7 (~0.5%–0.65%)</li>
+<li><strong>AUD → GBP:</strong> ~AU$4–6 (~0.45%–0.55%)</li>
+<li><strong>AUD → EUR:</strong> AU$3.60 (observed on Wise's compare page, April 2026)</li>
+<li><strong>AUD → INR:</strong> AU$6.20</li>
+<li><strong>AUD → PHP:</strong> AU$7.09</li>
+</ul>
+
+<p>Funding method matters for Wise: bank transfer (PayID / POLi) is cheapest; debit card adds about 1%–2%; credit card adds more. Westpac doesn't offer card funding because the transfer comes directly from your Westpac account.</p>
+
+<table>
+<tr><th>Fee component</th><th>Wise</th><th>Westpac</th></tr>
+<tr><td>Transfer fee (online)</td><td>~0.45%–0.7%</td><td>AU$0–$20 flat</td></tr>
+<tr><td>Exchange rate markup</td><td>0% (mid-market)</td><td>3.5%–6% (hidden in rate)</td></tr>
+<tr><td>Branch fee</td><td>N/A (digital only)</td><td>AU$32</td></tr>
+<tr><td>SWIFT intermediary</td><td>Absorbed by Wise's local-payout network</td><td>AU$15–$50 typically borne by recipient</td></tr>
+<tr><td>Receiving fee (into Westpac)</td><td>N/A</td><td>AU$12 (waived ≤ AU$100)</td></tr>
+</table>
+
+<p><strong>Bottom line on fees:</strong> the transfer fee is a distraction. Westpac's AU$10 or even AU$0 online fee looks cheaper than Wise's AU$6, but the 3.5%–6% FX margin — which almost no Westpac customer checks — adds AU$35–$60 of cost on an AU$1,000 transfer. Wise's fee and margin together usually total under AU$10.</p>`,
+      },
+      {
+        id: "exchange-rates",
+        heading: "Exchange rates — the hidden cost that matters more",
+        content: `<p>The exchange rate is where Westpac actually makes money on retail international transfers — and where Wise's core value proposition lives.</p>
+
+<p><strong>Wise</strong> uses the real <strong>mid-market exchange rate</strong> — the rate banks use to trade with each other, which you'll see on Google or XE.com. No markup, no spread, no weekend surcharge. The rate you see is the rate you get.</p>
+
+<p><strong>Westpac</strong> sets its retail exchange rate by applying a margin above the wholesale rate. Based on Wise's own compare-page snapshots, Finder.com.au, Mozo, Canstar and Revolut's January 2026 Big Four FX study, Westpac's typical markup is:</p>
+<ul>
+<li><strong>AUD → USD:</strong> around 3.3%–3.5%</li>
+<li><strong>AUD → GBP:</strong> around 3.5%–4.1%</li>
+<li><strong>AUD → EUR:</strong> around 3.5%–3.8%</li>
+<li><strong>AUD → INR:</strong> around 3.3%–3.8%</li>
+<li><strong>AUD → PHP:</strong> around 3.2%</li>
+<li><strong>Exotic currencies:</strong> can rise to 6–8%</li>
+</ul>
+
+<p>Mozo's 2026 study on Australia's "Big Four" banks found average FX markups of <strong>3.8% to 7%</strong>, with Westpac specifically flagged for some of the widest spreads in the market on less-travelled corridors. MoneyTransfer.com.au lists Westpac's headline FX margin as <strong>3.71%</strong>.</p>
+
+<p><strong>What this looks like in dollar terms on an AU$1,000 transfer:</strong></p>
+<ul>
+<li>Wise: the recipient receives the AU$1,000 equivalent minus ~AU$6 in fees = about <strong>AU$994 worth</strong> of the destination currency at the real rate.</li>
+<li>Westpac: the recipient receives the AU$1,000 equivalent minus the visible fee <em>and</em> 3.5%–4% silently removed via the rate = about <strong>AU$960–$965 worth</strong> at the real rate.</li>
+</ul>
+
+<p>The difference — roughly <strong>AU$30–$35 per AU$1,000</strong> — compounds fast if you send regularly. On AU$10,000 it's AU$300+; on AU$100,000 it's AU$3,000+.</p>
+
+<p><strong>A small caveat:</strong> if you're a Westpac business customer with an FX dealer relationship, the rate you're quoted by the FX desk can be materially better than the retail online-banking rate. For AU$100,000+ transactions, always ask for a dealer-negotiated rate before using the app.</p>`,
+      },
+      {
+        id: "transfer-speed",
+        heading: "Transfer speed",
+        content: `<p>Wise wins comfortably on speed for almost every retail corridor.</p>
+
+<p><strong>Wise</strong> publishes per-route ETAs at the quote stage. In practice, for AUD outbound:</p>
+<ul>
+<li><strong>AUD → USD, GBP, EUR:</strong> same business day, often within a few hours</li>
+<li><strong>AUD → INR, PHP:</strong> commonly under 1 hour once funded</li>
+<li><strong>AUD → exotic currencies:</strong> 1–2 business days</li>
+</ul>
+
+<p><strong>Westpac</strong> relies on the SWIFT correspondent banking network. Typical timings:</p>
+<ul>
+<li><strong>Major currencies, straight-through processing:</strong> 1–3 business days</li>
+<li><strong>Exotic currencies or multiple intermediaries:</strong> up to 10 business days</li>
+<li><strong>Cut-off times matter</strong> — transfers submitted after the currency cut-off roll over to the next business day</li>
+</ul>
+
+<table>
+<tr><th>Speed</th><th>Wise</th><th>Westpac</th></tr>
+<tr><td>Seconds to minutes</td><td>Yes — many AUD routes</td><td>No</td></tr>
+<tr><td>Same business day</td><td>Majority of major-currency routes</td><td>Rare — SWIFT same-day only for specific currencies with cut-off met</td></tr>
+<tr><td>1–2 business days</td><td>Exotic currencies</td><td>Major currencies, straight-through</td></tr>
+<tr><td>3+ business days</td><td>Rare</td><td>Common on exotic routes or branch-initiated transfers</td></tr>
+</table>
+
+<p>If your recipient is waiting on school fees, rent or a medical bill, Wise's near-real-time delivery on major corridors is a real, tangible advantage over Westpac's SWIFT-dependent timeline.</p>`,
+      },
+      {
+        id: "delivery-methods",
+        heading: "Delivery methods and recipient experience",
+        content: `<p>This is the area where both providers are surprisingly similar — and equally limited.</p>
+
+<p><strong>Both Wise and Westpac only deliver to bank accounts.</strong> Neither offers:</p>
+<ul>
+<li>Cash pickup (use Western Union, MoneyGram or Remitly if your recipient needs cash)</li>
+<li>Mobile money — M-Pesa, GCash, bKash (use Remitly or WorldRemit)</li>
+<li>Home delivery</li>
+</ul>
+
+<p>Where they differ is on the recipient side of a bank deposit:</p>
+<ul>
+<li><strong>Wise</strong> pays out using <strong>local payment rails</strong> in the destination country wherever possible — ACH in the US, Faster Payments in the UK, SEPA in the EU, IMPS in India. This usually means no SWIFT intermediary deductions and the recipient sees the full advertised amount.</li>
+<li><strong>Westpac</strong> routes through SWIFT. If the correspondent bank or beneficiary bank is not in Westpac's preferred-currency waiver list, intermediary banks can deduct <strong>AU$15–$50</strong> from the transfer before it lands — and it's usually the recipient who absorbs this, not the sender.</li>
+</ul>
+
+<p>If you've ever sent money via an Australian bank and had the recipient say "I only received X, where did the rest go?" — this is almost certainly what happened. Wise's local-rails payout effectively sidesteps the problem on most major corridors.</p>`,
+      },
+      {
+        id: "which-is-cheaper",
+        heading: "Which is cheaper? Real AU$1,000 transfer examples",
+        content: `<p>All figures below use Wise's public compare-page data snapshotted in April 2026 for AU$1,000 sent from Australia via online banking. Westpac's figures assume the Online/App path (best case); an in-branch transfer would be AU$22 more expensive. Exchange rates change daily — check both before you send.</p>
+
+<h3>AU$1,000 → USA (USD)</h3>
+<table>
+<tr><th>Component</th><th>Wise</th><th>Westpac</th></tr>
+<tr><td>Transfer fee</td><td>~AU$6</td><td>AU$0–$10</td></tr>
+<tr><td>Exchange rate markup</td><td>0% (mid-market)</td><td>~3.4%</td></tr>
+<tr><td><strong>Recipient receives</strong></td><td><strong>~USD 712</strong></td><td><strong>~USD 689</strong></td></tr>
+<tr><td>Wise advantage</td><td colspan="2"><strong>+USD 23 (~3.4% more)</strong></td></tr>
+</table>
+
+<h3>AU$1,000 → UK (GBP)</h3>
+<table>
+<tr><th>Component</th><th>Wise</th><th>Westpac</th></tr>
+<tr><td>Transfer fee</td><td>~AU$5</td><td>AU$0–$10</td></tr>
+<tr><td>Exchange rate markup</td><td>0%</td><td>~4.1%</td></tr>
+<tr><td><strong>Recipient receives</strong></td><td><strong>~GBP 527</strong></td><td><strong>~GBP 510</strong></td></tr>
+<tr><td>Wise advantage</td><td colspan="2"><strong>+GBP 17 (~3.4% more)</strong></td></tr>
+</table>
+
+<h3>AU$1,000 → India (INR)</h3>
+<table>
+<tr><th>Component</th><th>Wise</th><th>Westpac</th></tr>
+<tr><td>Transfer fee</td><td>AU$6.20</td><td>AU$0–$10</td></tr>
+<tr><td>Exchange rate markup</td><td>0%</td><td>~3.3%</td></tr>
+<tr><td><strong>Recipient receives</strong></td><td><strong>~₹66,197</strong></td><td><strong>~₹64,102</strong></td></tr>
+<tr><td>Wise advantage</td><td colspan="2"><strong>+₹2,094 (~3.3% more)</strong></td></tr>
+</table>
+
+<h3>AU$1,000 → Philippines (PHP)</h3>
+<table>
+<tr><th>Component</th><th>Wise</th><th>Westpac</th></tr>
+<tr><td>Transfer fee</td><td>AU$7.09</td><td>AU$0–$10</td></tr>
+<tr><td>Exchange rate markup</td><td>0%</td><td>~3.2%</td></tr>
+<tr><td><strong>Recipient receives</strong></td><td><strong>~₱42,747</strong></td><td><strong>~₱41,404</strong></td></tr>
+<tr><td>Wise advantage</td><td colspan="2"><strong>+₱1,343 (~3.2% more)</strong></td></tr>
+</table>
+
+<p><strong>Pattern:</strong> Wise beats Westpac by roughly <strong>3.2%–4.1%</strong> on every mainstream corridor we tested. The gap is widest on GBP and EUR, slightly narrower on PHP, and highly variable on exotic currencies where Westpac's markup can climb to 6%+.</p>
+
+<p><em>Figures above are indicative and drawn from Wise's April 2026 compare pages. Rates are not guaranteed — always generate a live quote on both platforms before sending.</em></p>`,
+      },
+      {
+        id: "safety-and-trust",
+        heading: "Safety, trust and regulation",
+        content: `<p>Both providers are safe in the sense that your money is not going to vanish. But the regulatory framework differs in ways worth understanding.</p>
+
+<p><strong>Westpac</strong> is an Authorised Deposit-taking Institution (ADI) regulated by APRA and ASIC, with a banking licence that dates to 1817. Deposits up to AU$250,000 are covered by the Australian Government's Financial Claims Scheme. Westpac has a long brand track record and is about as conservative as Australian banks get.</p>
+
+<p>That said, Westpac has a number of recent regulatory issues relevant to this comparison:</p>
+<ul>
+<li><strong>2020:</strong> AU$1.3 billion AUSTRAC settlement for 23 million anti-money-laundering breaches (the largest in Australian corporate history)</li>
+<li><strong>2016:</strong> AU$20 million refund for misleading credit-card foreign transaction fees after ASIC intervention</li>
+<li><strong>2023:</strong> ASIC lawsuit for failing to respond to 229 hardship notices within the legally required timeframe</li>
+<li><strong>2024:</strong> AU$1.8 million penalty for unconscionable conduct in an interest-rate swap case</li>
+</ul>
+
+<p>None of these affect the safety of an international transfer day-to-day, but they are context when the Big Four's FX margins are routinely flagged as some of the highest in the market.</p>
+
+<p><strong>Wise</strong> operates in Australia under <strong>Wise Australia Pty Ltd</strong> (AFSL 513764), is an AUSTRAC reporting entity, and holds a limited APRA Purchased Payment Facility licence. Customer funds in Australia are held in segregated accounts with Australian ADIs, not on Wise's balance sheet. Wise is publicly listed on the London Stock Exchange (LSE: WISE) with full financial disclosure. Its Trustpilot score is <strong>4.3/5 across 280,000+ reviews</strong>.</p>
+
+<p><strong>Bottom line on safety:</strong> Westpac offers the familiarity of an ADI with deposit insurance on money held in your account. Wise offers segregated-account protection plus public-company transparency. For a transfer that happens in hours or days, both are safe — the substantive difference is cost, not risk.</p>`,
+      },
+      {
+        id: "pros-and-cons",
+        heading: "Pros and cons",
+        content: `<h3>Wise — Pros</h3>
+<ul>
+<li><strong>Mid-market exchange rate</strong> with zero markup — typically 3%–4% cheaper than Westpac</li>
+<li><strong>Transparent fee</strong> shown upfront, no hidden margin</li>
+<li><strong>Fast delivery</strong> — hours on most major corridors, often under an hour to India and the Philippines</li>
+<li><strong>Multi-currency account</strong> holding 40+ currencies with local account details and an AUD debit card</li>
+<li><strong>Local-rails payout</strong> avoids SWIFT intermediary deductions</li>
+<li><strong>No branch visits</strong> — fully digital</li>
+</ul>
+
+<h3>Wise — Cons</h3>
+<ul>
+<li><strong>No cash pickup or mobile money delivery</strong> — bank accounts only</li>
+<li><strong>No physical branch support</strong> — app and web chat only</li>
+<li><strong>Card funding adds 1%–2%</strong> — use bank transfer for the best price</li>
+<li><strong>Not an ADI</strong> — segregated funds protection rather than deposit insurance</li>
+<li><strong>Occasional account freezes</strong> for KYC checks on unusual activity</li>
+</ul>
+
+<h3>Westpac — Pros</h3>
+<ul>
+<li><strong>Trusted Australian ADI</strong> with 200+ years of history and government deposit insurance on balances</li>
+<li><strong>Branch network</strong> for customers who prefer face-to-face service</li>
+<li><strong>Existing customer convenience</strong> — no new account, no new KYC, just transfer from your existing Westpac account</li>
+<li><strong>Business FX desk</strong> for AU$100,000+ transactions where dealer-negotiated rates improve on retail</li>
+<li><strong>Broad currency and country coverage</strong> (200+ countries via SWIFT)</li>
+<li><strong>Regulated by APRA</strong> with full ADI oversight</li>
+</ul>
+
+<h3>Westpac — Cons</h3>
+<ul>
+<li><strong>Hidden 3.5%–6% FX margin</strong> — typically the largest real cost, invisible to most customers</li>
+<li><strong>Slower delivery</strong> — 1–3 business days is standard, up to 10 for exotic routes</li>
+<li><strong>Branch fee of AU$32</strong> — and in-branch rates are often worse than online</li>
+<li><strong>SWIFT intermediary deductions</strong> on non-preferred-currency corridors erode the recipient amount</li>
+<li><strong>Default AU$750 online daily limit</strong> — needs manual increase for larger transfers</li>
+<li><strong>AU$12 receiving fee</strong> on incoming transfers over AU$100</li>
+<li><strong>Poor retail reviews</strong> on Trustpilot and ProductReview.com.au citing blocked transfers and slow support</li>
+</ul>`,
+      },
+      {
+        id: "when-to-use-each",
+        heading: "When should you actually use Westpac over Wise?",
+        content: `<p>For most retail senders, Wise is cheaper and faster than Westpac. But Westpac still wins in a handful of specific situations — worth naming so you can make an informed choice.</p>
+
+<p><strong>Use Westpac if:</strong></p>
+<ul>
+<li><strong>You're sending AU$100,000 or more</strong> and can access Westpac's Foreign Exchange Online (FXO) dealer desk. Dealer-negotiated rates on six-figure transactions often match or beat Wise.</li>
+<li><strong>You're an existing Westpac business customer</strong> with a Foreign Currency Account, scheduled payroll to overseas subsidiaries, or hedging requirements. The operational integration is worth more than a few basis points.</li>
+<li><strong>You need to send to a destination Wise doesn't support</strong> — Wise doesn't send to every currency (e.g. outbound PKR is restricted). Westpac's SWIFT reach is broader.</li>
+<li><strong>You need the ADI trail or deposit insurance</strong> for regulatory reasons — Wise's segregated-account model is safe, but certain enterprise workflows specifically require an ADI counterparty.</li>
+<li><strong>You genuinely trust a bank more than a fintech</strong> and the 3%–4% cost is worth the peace of mind. That's a legitimate reason — just know you're paying for it.</li>
+</ul>
+
+<p><strong>Use Wise if:</strong></p>
+<ul>
+<li>You're sending AU$100 to AU$50,000 to a bank account in a major corridor (USD, GBP, EUR, INR, PHP, EUR, CAD, NZD)</li>
+<li>You want the money to arrive today, not in three business days</li>
+<li>You want to hold balances in USD, GBP or EUR and spend from them with a debit card</li>
+<li>You send regularly and the 3%–4% saving compounds meaningfully over a year</li>
+<li>You want the exact amount quoted to land in the recipient's account — no SWIFT surprises</li>
+</ul>
+
+<p><strong>Not suitable for either:</strong> if your recipient needs <strong>cash pickup</strong> or <strong>mobile money</strong>, neither Wise nor Westpac can help. Consider <a href="/companies/remitly">Remitly</a>, <a href="/companies/western-union">Western Union</a>, or <a href="/companies/worldremit">WorldRemit</a> instead.</p>`,
+      },
+      {
+        id: "verdict",
+        heading: "Final verdict",
+        content: `<p><strong>Wise beats Westpac on price by roughly 3.2%–4.1% on every mainstream AUD corridor we tested.</strong> On an AU$1,000 transfer, that's about AU$30–$35 more in your recipient's account. On an AU$10,000 transfer, it's AU$300+. Wise is also faster on most routes, more transparent about cost, and doesn't leave SWIFT intermediary deductions for the recipient to absorb.</p>
+
+<p>Westpac's visible AU$0–$10 online fee is not the real cost — the 3.5%–6% exchange rate margin is. This is the core insight. Most Australians never notice the margin because it's baked into a rate that "looks about right" until you compare it to Google's mid-market rate side by side.</p>
+
+<p><strong>Where Westpac still wins:</strong> six-figure transfers through a dealer-negotiated rate, business FX workflows that need ADI integration, destinations Wise doesn't support, and customers who value the psychological comfort of a 200-year-old bank over a listed fintech.</p>
+
+<p><strong>Where Wise wins — which is almost everywhere else:</strong> retail senders moving AU$100 to AU$50,000 to a bank account in a major currency. Cheaper, faster, more transparent, and competitive on every metric that matters for a typical international transfer.</p>
+
+<p>For most Australians sending money abroad in 2026, Wise is the better choice. Keep your Westpac account for deposits and day-to-day banking; use Wise for international transfers.</p>`,
+      },
+    ],
+
+    verdict: {
+      largeTransfers: {
+        winner: "wise",
+        explanation:
+          "For retail large transfers (AU$10,000–AU$50,000), Wise's mid-market rate saves AU$300–$1,500+ over Westpac's 3.5%–6% margin. Westpac only competes at AU$100k+ via a dealer-negotiated FX desk rate — which most customers never get.",
+      },
+      smallTransfers: {
+        winner: "wise",
+        explanation:
+          "On small transfers (AU$100–AU$2,000), Westpac's hidden FX markup dominates the total cost. Wise's transparent ~0.5% fee with the mid-market rate delivers roughly 3.2%–3.8% more to the recipient on every mainstream corridor.",
+      },
+      overall:
+        "Wise is cheaper, faster and more transparent than Westpac for almost every retail international transfer from Australia. The 3.5%–6% exchange rate markup Westpac builds into its rate is the real cost — not the visible AU$0–$10 online fee. Westpac remains a reasonable choice for six-figure business transfers via its FX desk or destinations Wise doesn't support; for everything else, Wise wins.",
+    },
+
+    faqs: [
+      {
+        q: "How much does Westpac charge for an international transfer?",
+        a: "Westpac charges AU$0–$10 for online/app foreign-currency transfers, AU$20 for AUD sent to a foreign account, and AU$32 for in-branch transfers. The bigger cost most customers don't see is the exchange rate markup, which is typically 3.5%–6% above the mid-market rate — around AU$35–$60 on an AU$1,000 transfer. Wise, by contrast, charges around AU$5–$7 on AU$1,000 with zero rate markup.",
+      },
+      {
+        q: "Is Wise cheaper than Westpac?",
+        a: "Yes, on every mainstream retail corridor we tested. Wise beats Westpac by roughly 3.2%–4.1% because it uses the real mid-market exchange rate and charges a small visible fee, whereas Westpac embeds a 3.5%–6% margin in the rate itself. On AU$1,000 sent to USD, GBP, EUR, INR or PHP, Wise delivers about AU$30–$35 more to the recipient.",
+      },
+      {
+        q: "Is Wise safer than Westpac?",
+        a: "Both are safe but regulated differently. Westpac is an ADI supervised by APRA, with government deposit insurance up to AU$250,000. Wise Australia (AFSL 513764) holds customer funds in segregated accounts with Australian ADIs, is AUSTRAC-registered, and is publicly listed on the London Stock Exchange. Neither is likely to fail. The substantive difference is cost, not risk.",
+      },
+      {
+        q: "How fast is a Westpac international transfer?",
+        a: "Westpac international transfers typically take 1–3 business days for major currencies and can take up to 10 business days for exotic currencies or routes requiring multiple intermediary banks. Wise completes most major AUD corridors (AUD→USD, GBP, EUR, INR, PHP) within hours, often on the same business day.",
+      },
+      {
+        q: "Does Westpac charge a fee to receive international transfers?",
+        a: "Yes. Westpac charges AU$12 to receive an incoming international transfer, waived if the amount is AU$100 or less equivalent. Intermediary banks in the SWIFT chain may also deduct AU$15–$50 from the amount before it reaches your Westpac account. Wise's inbound transfers to Westpac usually use local rails where possible to avoid intermediary deductions.",
+      },
+      {
+        q: "What is Westpac's exchange rate markup?",
+        a: "Industry studies from Mozo, Finder, Canstar, Revolut and MoneyTransfer.com.au put Westpac's typical exchange rate markup at 3.5%–6% above the mid-market rate on mainstream corridors, rising to 6%–8% on exotic currencies. Wise's own compare page benchmarks Westpac at around 3.4% on AUD→USD, 4.1% on AUD→GBP, 3.3% on AUD→INR, and 3.2% on AUD→PHP.",
+      },
+      {
+        q: "Can I use Wise if I bank with Westpac?",
+        a: "Yes. Wise is independent of Westpac. You create a Wise account, link your Westpac account as a funding source via bank transfer or PayID, and send money at the mid-market rate. Your Westpac account is unaffected. Many Australians keep their Westpac account for domestic banking and use Wise specifically for international transfers to save on FX margin.",
+      },
+      {
+        q: "Does Wise or Westpac offer cash pickup?",
+        a: "Neither does. Both deliver only to bank accounts. If your recipient needs cash pickup, mobile money (M-Pesa, GCash, bKash) or home delivery, use Remitly, Western Union, or WorldRemit instead.",
+      },
+      {
+        q: "Is there a limit on Wise or Westpac transfers?",
+        a: "Wise allows up to about AU$1.8 million equivalent per transfer on most corridors. Westpac's default online daily limit is AU$750, which can be raised on request up to AU$2 million equivalent per day. For six-figure transfers through Westpac, you typically work with the FX dealer desk rather than the online app.",
+      },
+    ],
+  },
 ];
 
 export function getComparisonArticle(slug: string): ComparisonArticle | undefined {
