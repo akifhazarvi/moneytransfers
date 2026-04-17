@@ -2301,6 +2301,150 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
     ],
   },
+  // ============================
+  // Chase vs Revolut
+  // ============================
+  {
+    slug: "chase-vs-revolut",
+    providerA: "chase",
+    providerB: "revolut",
+    title: "Chase vs Revolut (2026) — Traditional Bank vs Fintech for International Transfers",
+    metaDescription:
+      "Chase vs Revolut compared for international transfers in 2026. Chase wire fees run $40-50 with 3-5% FX markup. Revolut offers 0% weekday markup under £1,000/month. See real costs.",
+    updatedAt: "2026-04-16",
+    readTime: "9 min read",
+    intro:
+      "Chase is America's largest bank with 4,700+ branches and traditional wire transfer services. Revolut is a British fintech with 45 million users and a multi-currency app-first model. They're not really the same product — but for sending money abroad, they compete directly. On a typical $1,000 international transfer, Chase costs $75-90 in total fees and markup. Revolut costs $0-10. Here's exactly why, and when each makes sense.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Chase vs Revolut at a glance",
+        content: `<table>
+<tr><th>Feature</th><th>Chase</th><th>Revolut</th></tr>
+<tr><td>Founded</td><td>1799 (JPMorgan Chase & Co.)</td><td>2015 (London, UK)</td></tr>
+<tr><td>Best for</td><td>Full-service US banking</td><td>International spending, multi-currency wallet</td></tr>
+<tr><td>Physical branches</td><td>4,700+ (US only)</td><td>None (digital only)</td></tr>
+<tr><td>International wire fee</td><td>$40-50 outgoing</td><td>N/A (uses SEPA/local rails)</td></tr>
+<tr><td>Exchange rate markup</td><td>3-5% above mid-market</td><td>0% weekday / 1% weekend</td></tr>
+<tr><td>Transfer speed</td><td>1-5 business days (SWIFT)</td><td>Instant (Revolut-to-Revolut), 1-3 days (external)</td></tr>
+<tr><td>Free monthly FX</td><td>None</td><td>£1,000 (Standard) to unlimited (Metal)</td></tr>
+<tr><td>Deposit insurance</td><td>FDIC up to $250,000</td><td>No FDIC; UK FSCS up to £85,000 (UK residents)</td></tr>
+<tr><td>Currencies held</td><td>USD only</td><td>36+ currencies</td></tr>
+<tr><td>Regulated by</td><td>OCC, Fed, FDIC</td><td>FCA, ECB (Revolut Bank in EU)</td></tr>
+</table>
+<p><strong>Key takeaway:</strong> Chase is a full US bank; Revolut is a money app with a bank license in the EU. For daily US banking, Chase wins easily. For any international transaction — transfers, card spending abroad, multi-currency holding — Revolut beats Chase by 3-8% in total cost.</p>`,
+      },
+      {
+        id: "international-transfer-cost",
+        heading: "Real cost: Sending $1,000 abroad",
+        content: `<p>Here's what a $1,000 international transfer actually costs on each platform:</p>
+<h3>Chase international wire (USD → EUR to Germany)</h3>
+<ul>
+<li>Wire fee: <strong>$40 online</strong> ($50 at branch)</li>
+<li>Exchange rate markup: <strong>3-5% below mid-market</strong></li>
+<li>On $1,000 to EUR at mid-market 0.92, Chase typically converts at 0.88-0.89</li>
+<li>Total effective cost: <strong>$70-90</strong> ($1,000 becomes ~€870-885 when it should be ~€920)</li>
+<li>Delivery: <strong>1-3 business days</strong> via SWIFT</li>
+<li>Beneficiary bank may charge additional $15-25 receiving fee</li>
+</ul>
+<h3>Revolut (USD → EUR)</h3>
+<ul>
+<li>Transfer fee: <strong>$0</strong> (Revolut-to-Revolut)</li>
+<li>Transfer fee to external EUR account: $0 via SEPA</li>
+<li>Exchange rate markup: <strong>0% weekday</strong>, 1% weekend</li>
+<li>$1,000 becomes ~€920 at mid-market (€914 on weekends)</li>
+<li>Delivery: <strong>Instant</strong> (Revolut-to-Revolut), 1 day via SEPA</li>
+<li>Total effective cost: <strong>$0-10</strong></li>
+</ul>
+<p><strong>Savings with Revolut:</strong> $60-80 per $1,000. On a $10,000 transfer for a home purchase or large expense, that's $600-800 saved.</p>`,
+      },
+      {
+        id: "where-chase-wins",
+        heading: "Where Chase actually wins",
+        content: `<p>Chase isn't just "the expensive option" — it has real advantages that matter for some users:</p>
+<ul>
+<li><strong>FDIC insurance up to $250,000.</strong> Revolut is not FDIC-insured. If you hold more than £85,000 (the UK FSCS limit), Chase is safer in absolute terms.</li>
+<li><strong>4,700+ physical branches.</strong> If you need to deposit cash, get a notarized document, or speak to someone in person, Chase is unbeatable.</li>
+<li><strong>Full US banking relationship.</strong> Mortgages, credit cards, auto loans, business lending, investment accounts, and wire-based payments — all under one roof.</li>
+<li><strong>Chase Sapphire card ecosystem.</strong> Travel rewards, airport lounge access, trip insurance. Revolut's rewards are weaker.</li>
+<li><strong>Domestic US transfers.</strong> Zelle, ACH, and Fedwire inside the US are free or cheap with Chase.</li>
+<li><strong>Business banking.</strong> Chase Business Complete Banking has comprehensive features Revolut Business doesn't match in the US.</li>
+</ul>`,
+      },
+      {
+        id: "where-revolut-wins",
+        heading: "Where Revolut dominates",
+        content: `<ul>
+<li><strong>Cost of international transfers:</strong> 80-95% cheaper than Chase wires</li>
+<li><strong>Multi-currency wallet:</strong> Hold USD, EUR, GBP, CHF, JPY, and 30+ more in one account</li>
+<li><strong>Card spending abroad:</strong> 0% FX markup on weekdays (under £1,000/month on free tier)</li>
+<li><strong>Instant transfers:</strong> Revolut-to-Revolut is instant, 24/7</li>
+<li><strong>No monthly fee on Standard plan</strong> (Chase Total Checking: $12/month unless you meet conditions)</li>
+<li><strong>Crypto and stock trading built in</strong></li>
+<li><strong>Better mobile app</strong> — Revolut is consistently rated #1 in fintech UX surveys</li>
+<li><strong>Spending analytics</strong> by category, merchant, country</li>
+</ul>
+<p>For complete Revolut fee details (including weekend markup and FX limits), see our <a href="/guides/revolut-foreign-transaction-fees-2026">Revolut foreign transaction fees guide</a>.</p>`,
+      },
+      {
+        id: "how-to-choose",
+        heading: "How to choose: Three scenarios",
+        content: `<h3>Scenario 1: You send money abroad occasionally ($500-$2,000 transfers)</h3>
+<p><strong>Winner: Revolut</strong>. Chase's $40-50 wire fee plus 3-5% FX markup is brutal on smaller transfers. Revolut Standard is free on weekdays under £1,000/month. For amounts above that, upgrade to Plus (£3.99/month for £3,000 FX allowance).</p>
+<h3>Scenario 2: You need full US banking</h3>
+<p><strong>Winner: Chase</strong>. Use Chase for paychecks, bills, domestic payments, mortgage, credit cards. Use Revolut alongside for international transfers and foreign card spending. They complement rather than replace each other.</p>
+<h3>Scenario 3: You're sending $10,000+ for property, investment, or large payments</h3>
+<p><strong>Winner: Neither — use <a href="/companies/wise">Wise</a> or <a href="/companies/ofx">OFX</a></strong>. Both offer 0% markup and zero-fee large transfers. <a href="/companies/ofx">OFX</a> has dedicated FX dealers for amounts over $10,000. Don't use Chase (you'll lose $300-500) or Revolut (free FX limit tops out, and 0.5-1% markup applies to the overage).</p>`,
+      },
+      {
+        id: "the-verdict",
+        heading: "The verdict",
+        content: `<p>Chase and Revolut serve different purposes. Most people don't have to choose — they use both.</p>
+<p><strong>Use Chase for:</strong> Daily US banking, direct deposits, domestic bills, credit cards, mortgages, investment accounts, FDIC-insured deposits above £85,000.</p>
+<p><strong>Use Revolut for:</strong> All international transfers, foreign card spending, multi-currency wallet, crypto/stocks, travel.</p>
+<p><strong>Never use Chase for:</strong> Sending money abroad. The $40-50 wire fee plus 3-5% FX markup makes it 10-20x more expensive than fintech alternatives.</p>
+<p>If you're comparing other options, see our <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> comparison (Wise is better for large transfers) or <a href="/guides/best-money-transfer-apps">best money transfer apps 2026</a>.</p>`,
+      },
+    ],
+    verdict: {
+      largeTransfers: {
+        winner: "Neither — use Wise or OFX",
+        explanation: "For amounts over $5,000, Chase's 3-5% FX markup costs you $150-250. Revolut's free FX allowance caps at £1,000-10,000 depending on plan. Wise offers 0% markup and handles up to $1M. OFX has zero fees for amounts over $10,000 with dedicated FX dealers.",
+      },
+      smallTransfers: {
+        winner: "Revolut",
+        explanation: "On transfers under $2,000, Revolut Standard is free for weekday FX under £1,000/month. Chase's $40-50 wire fee alone is 2-5% of the transfer amount — before the 3-5% exchange rate markup. Revolut saves $60-90 on a typical $1,000 transfer.",
+      },
+      overall: "Chase is a traditional US bank. Revolut is a money app with a UK/EU bank licence. For domestic US banking, Chase wins. For any international transaction, Revolut is dramatically cheaper. Most sophisticated users have both: Chase for US banking, Revolut for international transfers and travel. For very large international transfers, use Wise or OFX instead of either.",
+    },
+    faqs: [
+      {
+        q: "Is Chase or Revolut cheaper for international transfers?",
+        a: "Revolut is dramatically cheaper. Chase charges $40-50 per wire plus 3-5% exchange rate markup. Revolut Standard charges 0% on weekday FX under £1,000/month. On a $1,000 transfer, Chase costs $70-90 total; Revolut costs $0-10. For large transfers ($10,000+), neither is optimal — use Wise or OFX.",
+      },
+      {
+        q: "Is Revolut as safe as Chase for holding money?",
+        a: "It depends. Chase is FDIC-insured up to $250,000. Revolut is not FDIC-insured. In the UK, Revolut Bank (acquired UK banking license) provides FSCS protection up to £85,000. In the US, Revolut partners with Metropolitan Commercial Bank which provides FDIC coverage. For large deposits, Chase's single-provider FDIC coverage is simpler.",
+      },
+      {
+        q: "Can I replace my Chase account with Revolut?",
+        a: "Not completely. Revolut lacks mortgages, major US loans, physical branches, Zelle, and notary services. Most users keep Chase for US banking and add Revolut for international/travel needs. Revolut handles ~20-30% of a traditional bank's use cases, but the ones it covers are dramatically cheaper and faster.",
+      },
+      {
+        q: "Does Chase offer any no-fee international transfers?",
+        a: "No. All Chase international wires cost $40-50 outgoing, plus the exchange rate markup. Chase's Zelle works domestically only. Chase does offer 'free' international transfers between Chase personal accounts — but only Chase accounts, not to external banks abroad.",
+      },
+      {
+        q: "Is Revolut available in the US?",
+        a: "Yes. Revolut USA launched in 2020 and has over 1 million US users as of 2026. Revolut has applied for a US banking charter (March 2026) which would add FDIC insurance and more product features. Currently, US Revolut accounts are held with Metropolitan Commercial Bank (FDIC-insured).",
+      },
+      {
+        q: "What's better — Chase Sapphire or Revolut Metal for travel?",
+        a: "They serve different needs. Chase Sapphire Reserve ($550/year) offers premium travel rewards, airport lounge access, trip insurance, and travel credits. Revolut Metal (£13.99/month) offers unlimited free FX, 1% cashback on spending abroad, and travel insurance. For pure travel rewards, Sapphire wins. For raw FX savings, Metal wins. Many travelers use both: Sapphire for booking, Revolut Metal card for spending abroad.",
+      },
+    ],
+  },
 ];
 
 export function getComparisonArticle(slug: string): ComparisonArticle | undefined {

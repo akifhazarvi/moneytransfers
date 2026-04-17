@@ -29,7 +29,20 @@ const ALLOWED_BOTS = [
 // Blocking at edge saves compute and cleans GA4 data.
 // If a real user from these countries ever appears in GSC, remove the block.
 const BOT_HEAVY_COUNTRIES = new Set([
-  "SG", // Singapore: 88 GA4 sessions, 97.7% bounce, 4.2s avg — bot farm
+  "SG", // Singapore: 88+ GA4 sessions, 97.7% bounce, 4.2s avg — bot farm (GSC: 1 click lifetime)
+]);
+
+// Known data center / cloud IP ranges that host bots.
+// These are the cities Vercel's geo header reports for major cloud regions.
+// Block bot traffic from cloud data centers (not real users).
+const DATA_CENTER_CITIES = new Set([
+  "The Dalles",      // Google Cloud us-west1
+  "Boardman",        // AWS us-west-2
+  "Ashburn",         // AWS us-east-1 / Azure East US
+  "Council Bluffs",  // Google Cloud us-central1
+  "Hangzhou",        // Alibaba Cloud (confirmed bots in GA4)
+  "Hefei",           // Confirmed bots
+  "Zhuhai",          // Confirmed bots
 ]);
 
 function isSpamBot(request: NextRequest): boolean {
@@ -38,16 +51,29 @@ function isSpamBot(request: NextRequest): boolean {
   // Empty user agent = bot
   if (!ua || ua.length < 10) return true;
 
-  // Allow known legitimate bots
+  // Allow known legitimate bots FIRST (before any other check)
   if (ALLOWED_BOTS.some((bot) => ua.includes(bot))) return false;
 
   // Block known spam bots
   if (SPAM_UA_PATTERNS.some((pattern) => ua.includes(pattern))) return true;
 
   // Block traffic from countries with confirmed bot farm activity
-  // Uses Vercel's x-vercel-ip-country header (available on all plans)
   const country = request.headers.get("x-vercel-ip-country") || "";
   if (country && BOT_HEAVY_COUNTRIES.has(country)) return true;
+
+  // Block known data center cities (cloud-hosted bots)
+  const city = request.headers.get("x-vercel-ip-city") || "";
+  if (city && DATA_CENTER_CITIES.has(city)) return true;
+
+  // Block suspiciously generic user agents that pass earlier checks but
+  // lack typical browser fingerprints (sec-ch-ua headers).
+  // Real Chrome/Edge/Firefox always send sec-ch-ua on modern versions.
+  const secChUa = request.headers.get("sec-ch-ua");
+  const isDesktopChrome = ua.includes("chrome/") && !ua.includes("mobile");
+  if (isDesktopChrome && !secChUa) {
+    // Chrome desktop without sec-ch-ua = likely headless/spoofed
+    return true;
+  }
 
   // Block requests with no Accept-Language header (real browsers always send it)
   const acceptLang = request.headers.get("accept-language");
