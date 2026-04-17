@@ -14360,6 +14360,245 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedSlugs: ["wise-vs-remitly-comparison", "best-money-transfer-apps", "best-money-transfer-apps-expats-2026", "multi-currency-accounts-exchange-rates", "exchange-rate-markup-explained"],
   },
+  // ============================
+  // XE for Tax Season — Cross-Border Money Movement
+  // ============================
+  {
+    slug: "xe-tax-season-cross-border-money-2026",
+    title: "Moving Money for Tax Season 2026: Why XE Works for US, UK, EU, AU, CA & NZ Expats",
+    metaDescription:
+      "Tax season 2026 cross-border guide: how to use XE for same-currency transfers, forward contracts, and large payments across US, UK, EU, Australia, Canada, New Zealand. Fees, speed, limits explained.",
+    excerpt:
+      "Tax deadlines are stacking up: US April 15, UK Jan 31, Canada April 30, Australia Oct 31, NZ July 7. Here's how expats use XE's multi-currency account, same-currency transfers, and forward contracts to move money across borders fast — plus how to avoid the new 1% US remittance tax.",
+    category: "Guides",
+    readTime: "14 min read",
+    publishedAt: "2026-04-16",
+    updatedAt: "2026-04-16",
+    author: "Akif Hazarvi",
+    tags: ["XE", "tax season", "expat", "multi-currency account", "forward contract", "large transfer", "same currency", "FBAR", "FATCA"],
+    featuredImage: "/images/blog/xe-tax-season-2026.jpg",
+    sections: [
+      {
+        heading: "Tax Season Creates a Money-Movement Problem",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For expats moving money across US, UK, EU, Australia, Canada, or New Zealand during tax season 2026, <a href="/companies/xe">XE</a> is the strongest option for <strong>transfers above $25,000</strong>, <strong>same-currency cross-border payments</strong> (e.g., USD in the US to a USD account abroad), and <strong>forward contracts</strong> that lock an exchange rate up to 24 months ahead. For transfers under $10,000, <a href="/companies/wise">Wise</a> is typically cheaper. XE has 30+ years of history (founded 1993), a Trustpilot rating of 4.4/5 from 84,000 reviews, and now offers a <strong>personal Multi-Currency Account</strong> in the US, UK, EU, and New Zealand. Thanks to XE's bank-funded transfer model, XE users are also <strong>exempt from the new 1% US remittance tax</strong> that took effect January 1, 2026.</p></div>
+<p>If you're an American citizen living in London, a Canadian entrepreneur with an Australian subsidiary, a British expat in Spain with rental income in the UK, or any other combination of cross-border tax resident — <strong>tax season is when your money problems actually become money movement problems.</strong></p>
+<p>You need to pay the IRS in USD while your paycheck arrives in GBP. HMRC owes you a refund in pounds but you now live in Germany. You have to pay a New York CPA from a Dubai bank account. Australian rental income needs to settle estimated tax to the ATO before October 31.</p>
+<p>This guide walks through how international workers and expats use <a href="/companies/xe">XE Money Transfer</a> and its Multi-Currency Account to solve these problems fast — often within hours — across the six major expat markets.</p>`,
+      },
+      {
+        heading: "The 2026 Tax Deadline Calendar You Need to Move Money Around",
+        content: `<div class="table-wrapper"><table>
+<thead><tr><th>Country</th><th>Tax year</th><th>Filing deadline</th><th>Payment deadline</th></tr></thead>
+<tbody>
+<tr><td><strong>🇺🇸 United States (IRS)</strong></td><td>Jan 1 – Dec 31</td><td>April 15, 2026 (auto 2-month ext. for expats; Oct 15 on Form 4868)</td><td><strong>April 15, 2026</strong></td></tr>
+<tr><td><strong>🇺🇸 FBAR (FinCEN 114)</strong></td><td>Jan 1 – Dec 31</td><td>April 15, 2026 (auto ext. to Oct 15)</td><td>Reporting only</td></tr>
+<tr><td><strong>🇬🇧 United Kingdom (HMRC)</strong></td><td>April 6 – April 5</td><td>January 31, 2026 (online)</td><td><strong>January 31, 2026</strong></td></tr>
+<tr><td><strong>🇨🇦 Canada (CRA)</strong></td><td>Jan 1 – Dec 31</td><td>April 30, 2026 (expats: June 15, 2026)</td><td><strong>April 30, 2026</strong></td></tr>
+<tr><td><strong>🇦🇺 Australia (ATO)</strong></td><td>July 1 – June 30</td><td>October 31, 2026</td><td>With filing</td></tr>
+<tr><td><strong>🇳🇿 New Zealand (IRD)</strong></td><td>April 1 – March 31</td><td>July 7, 2026 (or March 31 next year via tax agent)</td><td>With filing</td></tr>
+</tbody></table></div>
+<p>If you have obligations in multiple countries, money may need to flow in both directions — often across currencies. That's where XE's cross-border infrastructure becomes valuable.</p>`,
+      },
+      {
+        heading: "The Same-Currency Problem Most Providers Can't Solve",
+        content: `<p>Here's a scenario almost every expat runs into:</p>
+<p>You're a US citizen living in Berlin. You earn in EUR, but your US tax bill must be paid in USD from a US bank account. You also have a USD savings account in the US that you want to <em>top up</em> from your Euro earnings — but <strong>without converting back and forth</strong>.</p>
+<p><strong>The twist:</strong> You might need to move <strong>USD from your Euro-denominated account</strong> (where a freelance client paid you in USD) <strong>to your US USD account</strong> — same currency, different country, different legal entity. Your European bank will convert it to EUR and back, costing you 4–6% in spread. Your US bank will charge $25–50 for the incoming wire plus correspondent fees.</p>
+<p><strong>Most money transfer services can't do this</strong> because they're built for currency <em>conversion</em>, not currency <em>preservation across borders</em>.</p>
+<h3>XE's Solution: Multi-Currency Account + Same-Currency Payouts</h3>
+<p>The <strong>Xe Multi-Currency Account (MCA)</strong>, available for personal users in the US, UK, EU, and New Zealand, holds:</p>
+<ul>
+<li>US Dollars (USD)</li>
+<li>Euros (EUR)</li>
+<li>British Pounds (GBP)</li>
+<li>Australian Dollars (AUD)</li>
+<li>Canadian Dollars (CAD)</li>
+<li>New Zealand Dollars (NZD)</li>
+</ul>
+<p>— plus additional currencies depending on your region (up to 18 total for business users).</p>
+<p><strong>Same-currency cross-border transfers</strong> are confirmed available:</p>
+<ul>
+<li>Personal account holders with a currency sub-account enabled can send same-currency payments internationally</li>
+<li>Business accounts in AU, CA, EU, NZ, UK, and US can send same-currency in AUD, CAD, EUR, GBP, NZD, and USD</li>
+<li>A send fee applies (transparent, shown before confirming) — unlike standard FX-based transfers which are "no fee"</li>
+</ul>
+<p><strong>What this unlocks for tax season:</strong></p>
+<ol>
+<li>Pay your US CPA from your London USD earnings — USD → USD, no FX loss</li>
+<li>Move inherited GBP from a UK account to a UK-based GBP sub-account that you access from abroad</li>
+<li>Transfer EUR between French and German tax advisors without losing 2-3% in spread twice</li>
+<li>Pay US estimated taxes from USD earnings held abroad — no conversion needed</li>
+</ol>`,
+      },
+      {
+        heading: "How Fast Can XE Actually Move Your Money?",
+        content: `<p>XE's marketing says "90% of transfers arrive in minutes." The FAQ says <strong>1-4 business days</strong>. The reality for tax-season users:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Scenario</th><th>Typical speed</th></tr></thead>
+<tbody>
+<tr><td>MCA → MCA (same currency, internal)</td><td>Instant</td></tr>
+<tr><td>Bank-funded USD → EUR, major corridor</td><td>Same day to 1 business day</td></tr>
+<tr><td>Wire-funded large transfer ($10,000+)</td><td>~24 hours once funds clear</td></tr>
+<tr><td>Card-funded transfer</td><td>Within 24 hours</td></tr>
+<tr><td>First-time user (including KYC)</td><td>2-3 business days (add 1-2 for manual doc review)</td></tr>
+<tr><td>Exotic corridors or compliance review</td><td>3-5 business days</td></tr>
+</tbody></table></div>
+<p><strong>Tax-season practical advice:</strong> If you're a first-time XE user and need money to land before a deadline, <strong>start at least 5 business days before the deadline</strong>. If you're an existing verified user, 1-2 business days is usually enough.</p>
+<h3>The Forward Contract Advantage</h3>
+<p>Here's where XE shines for planners: <strong>forward contracts</strong>.</p>
+<p>A forward contract lets you <strong>lock today's exchange rate for a future transfer</strong>, up to 24 months ahead. You don't need to have the money in hand — you just commit to the rate and the settlement date.</p>
+<p><strong>Tax-season use case:</strong></p>
+<ol>
+<li>In January, you know you'll owe the IRS roughly $30,000 USD by April 15</li>
+<li>GBP/USD is currently 1.35 — favorable for you</li>
+<li>You book a forward contract with XE: convert £22,222 to $30,000 USD on April 10</li>
+<li>Even if the pound crashes to 1.20 by April, you still get your $30,000 at the locked rate</li>
+</ol>
+<p>Without a forward, if GBP/USD drops from 1.35 to 1.20, your £22,222 only converts to $26,666 — a $3,334 shortfall you'd have to cover from savings. Forward contracts are the <strong>single most powerful tax-season tool</strong> XE offers.</p>`,
+      },
+      {
+        heading: "XE vs Wise vs OFX for Tax-Season Transfers",
+        content: `<p>The three providers most likely to handle your tax-season needs are <a href="/companies/xe">XE</a>, <a href="/companies/wise">Wise</a>, and <a href="/companies/ofx">OFX</a>. Here's when each wins:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Scenario</th><th>Best Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><strong>$1,000–$10,000 simple FX</strong></td><td><a href="/companies/wise">Wise</a></td><td>Transparent % fee, mid-market rate, fastest for standard corridors</td></tr>
+<tr><td><strong>$10,000–$25,000 FX</strong></td><td>Wise or XE/OFX (compare)</td><td>Close call. Wise's percentage fee grows; XE/OFX flatten cost</td></tr>
+<tr><td><strong>$25,000+ large transfer</strong></td><td><a href="/companies/xe">XE</a> or <a href="/companies/ofx">OFX</a></td><td>No % fee, markup doesn't scale linearly. OFX zero fee above $10K</td></tr>
+<tr><td><strong>Forward contracts</strong></td><td><a href="/companies/xe">XE</a></td><td>Up to 24 months. OFX also offers, Wise does not</td></tr>
+<tr><td><strong>Same-currency cross-border</strong></td><td>XE or Wise</td><td>Both support. Wise has more local account details; XE has more sending countries</td></tr>
+<tr><td><strong>Limit orders (auto-trigger)</strong></td><td><a href="/companies/xe">XE</a></td><td>Set target rate; transfer executes automatically when hit</td></tr>
+<tr><td><strong>Dedicated human support</strong></td><td><a href="/companies/xe">XE</a> ($50K+/year) or OFX</td><td>Both assign relationship managers. XE US-based; OFX 24/7 global</td></tr>
+<tr><td><strong>Multi-currency wallet for daily use</strong></td><td><a href="/companies/wise">Wise</a></td><td>More currencies (40+), local account details in 10+ currencies, debit card</td></tr>
+</tbody></table></div>
+<p><strong>Break-even math:</strong> On a typical major corridor (USD ↔ EUR/GBP/AUD), the cost crossover point where XE becomes cheaper than Wise is around $25,000. Below that, Wise's transparent 0.43-0.7% fee wins. Above that, XE's rate-based markup (0.5-2%) doesn't grow with transaction size the same way.</p>
+<p>For a detailed side-by-side, see our <a href="/compare/wise-vs-remitly-comparison">Wise comparison pages</a>.</p>`,
+      },
+      {
+        heading: "2026 US Remittance Tax: Why XE Users Are Exempt",
+        content: `<p>A major tax-season development: the US now charges a <strong>1% excise tax on outbound remittances</strong>, effective January 1, 2026 (enacted July 4, 2025 as part of the "One, Big, Beautiful Bill Act"). The IRS published proposed regulations on April 10, 2026.</p>
+<p>But here's the critical detail: the tax applies <strong>only to transfers funded by cash, money orders, or cashier's checks</strong>. The following are <strong>exempt</strong>:</p>
+<ul>
+<li>✅ Bank account transfers (ACH, wire from checking/savings)</li>
+<li>✅ US-issued debit card payments</li>
+<li>✅ US-issued credit card payments</li>
+<li>✅ SWIFT bank-to-bank transfers</li>
+<li>✅ Any digital/online transfer from a regulated provider</li>
+</ul>
+<p><strong>XE's funding methods — ACH, wire, card — are all exempt.</strong> Unlike cash-to-cash services like Western Union and MoneyGram, XE users pay <strong>0% on the 1% tax</strong> because the tax simply doesn't apply to how XE is funded.</p>
+<p>On a $10,000 transfer to Mexico for a property tax payment:</p>
+<ul>
+<li><strong>Western Union cash:</strong> $100 remittance tax + ~$50 fee + 2-4% FX markup = $350-550 total cost</li>
+<li><strong>XE:</strong> $0 remittance tax + $0 fee + 0.5-1.5% FX markup = $50-150 total cost</li>
+</ul>
+<p>That's a <strong>$300-400 saving per $10,000</strong> just from the tax structure — before you even factor in XE's better exchange rate. See our <a href="/news/irs-remittance-tax-proposed-regulations-2026">full analysis of the IRS remittance tax rules</a>.</p>`,
+      },
+      {
+        heading: "Seven Tax-Season Scenarios Where XE Makes Sense",
+        content: `<h3>1. Paying US Taxes While Living Abroad</h3>
+<p>An American in London with £30,000 to owe the IRS by April 15. Book a forward contract in January (locks rate). Fund the transfer via your UK bank on April 10. Money lands in your US bank before the 15th. Avoids last-minute rate risk.</p>
+<h3>2. Receiving a Foreign Tax Refund</h3>
+<p>HMRC refunds £2,000 to your UK account in March. You've since moved to Germany. Use XE to move GBP → EUR or hold in MCA for later. Alternative: use same-currency transfer to a GBP account you control in Germany.</p>
+<h3>3. Paying a Foreign Tax Advisor</h3>
+<p>A US CPA charges $500 for your expat tax return. You're living in Dubai. Use XE same-currency USD → USD to pay the CPA's US account. No FX loss, no double conversion.</p>
+<h3>4. Paying Foreign Property Taxes</h3>
+<p>Own an apartment in France? Autumn <em>taxe foncière</em> and <em>taxe d'habitation</em> bills arrive in EUR. If you're a US owner, book a USD → EUR forward contract in spring when the rate is favorable. Lock it in, pay the bills in autumn at your preferred rate.</p>
+<h3>5. Estimated Quarterly Tax Payments</h3>
+<p>US expats paying quarterly estimated taxes (April 15, June 15, September 15, January 15) can use XE's <strong>Recurring Payment Agreement (RPA)</strong> to automate monthly/quarterly transfers at a fixed rate. Setup requires a phone call but removes ongoing hassle.</p>
+<h3>6. FBAR-Aware Consolidation</h3>
+<p>If you hold over <strong>$10,000 aggregate in foreign accounts</strong> at any point in the year, you must file FBAR (FinCEN 114). Some expats intentionally consolidate — or avoid accumulating — foreign balances to stay under the threshold. XE's MCA, since it's tied to XE's licensed entity in each region, may or may not count as a "foreign account" depending on your situation. <strong>Always consult a tax advisor</strong> — this article isn't tax advice.</p>
+<h3>7. Repatriating Investment Income</h3>
+<p>Australian expat in New York with rental income hitting an AUD account. Use XE limit orders: set target rate at 0.68 AUD/USD. When hit, transfer triggers automatically. Gets the money across without watching rates daily.</p>`,
+      },
+      {
+        heading: "How to Set Up XE for Tax Season (Step by Step)",
+        content: `<ol>
+<li><strong>Sign up at <a href="https://www.xe.com/" target="_blank" rel="noopener noreferrer nofollow">xe.com</a></strong> — takes about 5 minutes. Available in US, UK, EU, AU, CA, NZ.</li>
+<li><strong>Complete KYC before your first transfer.</strong> Upload: passport or driver's license, proof of address (utility bill/bank statement), selfie matching ID. Electronic verification is often instant; manual review takes 1-2 business days.</li>
+<li><strong>Activate your Multi-Currency Account (MCA)</strong> if you're in US, UK, EU, or NZ. No setup or monthly fee.</li>
+<li><strong>Fund your account</strong> via bank transfer (ACH/SEPA/Faster Payments/PayID — fee-free in most regions) or debit/credit card (faster, may have fees).</li>
+<li><strong>For transfers under $25,000:</strong> Use the standard online transfer flow. Most corridors settle within 24 hours.</li>
+<li><strong>For transfers over $25,000:</strong> You'll get phone support from a dedicated XE relationship manager (automatic at $50K+/year of volume).</li>
+<li><strong>To lock a future rate:</strong> Request a forward contract — typically requires a phone call for personal accounts. Available up to 24 months ahead.</li>
+<li><strong>Set rate alerts</strong> in the app so you can strike when your target rate appears.</li>
+</ol>
+<p><strong>Start at least 5 business days before any tax deadline</strong> if you're a first-time XE user. 1-2 business days is usually enough for verified users.</p>`,
+      },
+      {
+        heading: "The Limits You Should Know About",
+        content: `<p>XE's per-transfer limits (after full KYC):</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Region</th><th>Max online transfer</th><th>Min transfer</th></tr></thead>
+<tbody>
+<tr><td>🇺🇸 US</td><td>$500,000–$535,000 USD</td><td>$3,000 USD (for wire)</td></tr>
+<tr><td>🇬🇧 UK</td><td>£350,000–£375,000 GBP</td><td>—</td></tr>
+<tr><td>🇪🇺 EU</td><td>€375,000 EUR</td><td>—</td></tr>
+<tr><td>🇨🇦 Canada</td><td>$560,000–$600,000 CAD</td><td>$3,000 CAD</td></tr>
+<tr><td>🇦🇺 Australia</td><td>$750,000 AUD</td><td>—</td></tr>
+<tr><td>🇳🇿 New Zealand</td><td>$750,000 NZD</td><td>—</td></tr>
+</tbody></table></div>
+<p>Card payments have tighter limits (~$3,000/day and 5 transfers/day). For truly large sums (over $500K), XE can split transfers sequentially under the same reference, or route via their institutional desk.</p>
+<p>Also worth knowing: your sending bank may have its own outgoing limits. Many US banks cap online wires at $25,000-$100,000 per day unless you request a higher limit. <strong>Check with your bank first</strong> if you're planning a large tax-season transfer.</p>`,
+      },
+      {
+        heading: "When XE Is NOT the Right Choice",
+        content: `<p>This guide makes XE look great for expats, but it's not universal:</p>
+<ul>
+<li><strong>Transfers under $1,000:</strong> XE's minimum and the fixed spread work against small amounts. Use Wise or Revolut.</li>
+<li><strong>Cash pickup:</strong> XE only does bank transfers. For sending to family members without bank accounts, use <a href="/companies/western-union">Western Union</a>, <a href="/companies/remitly">Remitly</a>, or <a href="/companies/moneygram">MoneyGram</a>.</li>
+<li><strong>Daily multi-currency spending:</strong> XE's MCA is newer. For travel card spending and daily multi-currency use, <a href="/companies/wise">Wise</a> and <a href="/companies/revolut">Revolut</a> are more mature products.</li>
+<li><strong>Instant app-to-app transfers within the fintech ecosystem:</strong> Wise-to-Wise and Revolut-to-Revolut are instant. XE's equivalent depends on both parties having MCAs.</li>
+<li><strong>Crypto or stablecoin transfers:</strong> XE doesn't support crypto. For high-value corridor-specific crypto transfers, see our <a href="/guides/stablecoin-vs-wire-transfer-comparison">stablecoin vs wire comparison</a>.</li>
+</ul>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Data sourced from XE's official help center and product pages (checked April 2026), provider API comparisons updated every 6 hours, and published tax deadlines from government sources: <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a>, <a href="https://www.gov.uk/hmrc" target="_blank" rel="noopener noreferrer nofollow">HMRC</a>, <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener noreferrer nofollow">CRA</a>, <a href="https://www.ato.gov.au/" target="_blank" rel="noopener noreferrer nofollow">ATO</a>, <a href="https://www.ird.govt.nz/" target="_blank" rel="noopener noreferrer nofollow">IRD New Zealand</a>. Trustpilot rating from <a href="https://www.trustpilot.com/review/www.xe.com" target="_blank" rel="noopener noreferrer nofollow">XE Trustpilot page</a> (4.4/5, 84,000+ reviews, April 2026). <a href="/send-money">Compare live rates</a> from 35+ providers including XE.</p>
+<p><strong>This article is not tax advice.</strong> Tax situations vary by individual, residency, citizenship, and income sources. For personalized guidance on FBAR, FATCA, foreign income exclusions, or multi-jurisdiction tax planning, consult a qualified tax professional specializing in expat taxes.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I use XE to send USD from a US account to a USD account in Europe without converting?",
+        answer: "Yes. XE offers same-currency international transfers through the Multi-Currency Account (MCA). Personal account holders with a USD sub-account enabled can send USD to a USD account held abroad. A send fee applies (transparent, shown before confirming), but there's no FX spread loss since no currency conversion occurs. This is valuable for paying US-based advisors, moving between USD accounts in different countries, or topping up a US expat account from earnings abroad.",
+      },
+      {
+        question: "Is XE cheaper than my bank for large transfers during tax season?",
+        answer: "Almost always yes. On a $50,000 transfer, a typical bank charges $25-50 outgoing wire plus 2-4% exchange rate markup — totaling $1,025-2,050. XE's cost on the same transfer is typically $250-750 (0.5-1.5% markup, no flat fee). That's a savings of $700-1,500+ per large transfer. For amounts under $10,000, Wise is usually cheaper than both XE and banks.",
+      },
+      {
+        question: "How long does a first-time XE transfer take?",
+        answer: "First-time users should budget 2-3 business days total. Account creation takes minutes. KYC verification is often instant via electronic checks, but manual document review takes 1-2 business days. Once verified, the transfer itself takes 1-4 business days depending on corridor and funding method. For tax deadline transfers, start at least 5 business days before the deadline to allow buffer time.",
+      },
+      {
+        question: "Does the 2026 US remittance tax apply to XE transfers?",
+        answer: "No. The 1% US remittance excise tax effective January 1, 2026 applies only to transfers funded by cash, money orders, or cashier's checks. XE's funding methods — ACH bank transfer, wire transfer, debit/credit card — are all exempt under IRS proposed regulations published April 10, 2026. XE users pay $0 on the 1% remittance tax.",
+      },
+      {
+        question: "What is a forward contract and why use it for tax payments?",
+        answer: "A forward contract locks today's exchange rate for a future transfer, up to 24 months ahead. For tax season: if you know you owe the IRS $30,000 by April 15 but your income is in GBP, you can book a forward contract in January locking today's GBP/USD rate. Even if the pound drops by 5% before April, you still get $30,000 at the original rate. This eliminates tax-payment rate risk. XE and OFX both offer forward contracts; Wise does not.",
+      },
+      {
+        question: "Can XE handle transfers over $500,000?",
+        answer: "Yes, but the process differs. Standard online transfers cap at $500,000-$750,000 depending on region. For larger sums, XE's institutional desk can handle them via phone, sequentially split them under the same reference, or route through bank wire. Customers sending $50,000+ per year are automatically assigned a dedicated relationship manager with US-based phone support.",
+      },
+      {
+        question: "Is XE safe for large money transfers?",
+        answer: "Yes. XE has been operating since 1993 — over 30 years. It's regulated by FinCEN (US), FCA (UK), ASIC (Australia), and equivalent authorities in other jurisdictions. XE's Trustpilot rating is 4.4/5 from over 84,000 reviews (80% five-star). XE is owned by Euronet Worldwide (NASDAQ: EEFT), a Fortune 1000 company. Customer funds are safeguarded in segregated accounts per regulatory requirements.",
+      },
+      {
+        question: "Does XE count as a 'foreign account' for FBAR purposes?",
+        answer: "It depends. The Xe Multi-Currency Account is issued through XE's licensed entity in each region, which may or may not qualify as a 'foreign financial account' under FinCEN 114 (FBAR) rules. The threshold is $10,000 aggregate in foreign accounts at any point in the year. This is a complex area that varies by individual situation. Always consult a qualified tax professional familiar with FBAR/FATCA — not a money transfer blog — for personalized advice on reporting obligations.",
+      },
+    ],
+    relatedSlugs: [
+      "best-money-transfer-apps-expats-2026",
+      "money-transfer-limits-by-provider-country",
+      "gbp-forecast-2026",
+      "euro-forecast-2026",
+      "us-dollar-forecast-2026",
+    ],
+  },
 ];
 
 // Helper to get a blog post by slug
