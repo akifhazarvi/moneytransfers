@@ -479,10 +479,10 @@ function DetailedReview({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "FinancialService",
         name: provider.name, description: provider.description, url: provider.website,
-        ...(trustpilotIndex[slug]?.totalReviews && {
+        ...(trustpilotIndex[slug]?.totalReviews && trustpilotIndex[slug]?.score && {
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: Number(trustpilotIndex[slug].score.toFixed(1)),
+            ratingValue: Number(trustpilotIndex[slug].score!.toFixed(1)),
             bestRating: 5, worstRating: 1,
             ratingCount: trustpilotIndex[slug].totalReviews,
           },
@@ -646,10 +646,10 @@ function DefaultReview({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "FinancialService",
         name: provider.name, description: provider.description, url: provider.website,
-        ...(trustpilotIndex[slug]?.totalReviews && {
+        ...(trustpilotIndex[slug]?.totalReviews && trustpilotIndex[slug]?.score && {
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: Number(trustpilotIndex[slug].score.toFixed(1)),
+            ratingValue: Number(trustpilotIndex[slug].score!.toFixed(1)),
             bestRating: 5, worstRating: 1,
             ratingCount: trustpilotIndex[slug].totalReviews,
           },

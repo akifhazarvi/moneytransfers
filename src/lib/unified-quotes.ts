@@ -44,14 +44,16 @@ export interface NormalizedQuote {
 }
 
 // --- Trustpilot ratings ---
+// Note: score/stars/totalReviews/ratingLabel can be null for providers where
+// the scrape failed or the provider has no reviews yet. Consumers must handle nulls.
 export interface TrustpilotRating {
   slug: string;
   name: string;
   trustpilotDomain: string;
-  score: number;
-  totalReviews: number;
-  ratingLabel: string;
-  stars: number;
+  score: number | null;
+  totalReviews: number | null;
+  ratingLabel: string | null;
+  stars: number | null;
   dateCollected: string;
 }
 

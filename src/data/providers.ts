@@ -1837,9 +1837,10 @@ function toRatingLabel(score: number): Provider["ratingLabel"] {
 }
 
 // Overlay Trustpilot ratings onto hardcoded providers
+// Skip providers where the scrape returned null (no reviews yet or failed fetch)
 for (const provider of providers) {
   const tp = trustpilotIndex[provider.slug];
-  if (tp) {
+  if (tp && tp.score !== null) {
     provider.rating = tp.score;
     provider.ratingLabel = toRatingLabel(tp.score);
   }
