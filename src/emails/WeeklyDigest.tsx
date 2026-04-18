@@ -29,14 +29,8 @@ const CURRENCY_SYMBOLS: Record<string, string> = {
   CAD: "$", AUD: "$", NZD: "$", JPY: "¥", CNY: "¥", BRL: "R$",
   MXN: "$", AED: "د.إ", SAR: "﷼", NGN: "₦", KES: "KSh",
 };
-
-function sym(code: string) {
-  return CURRENCY_SYMBOLS[code] ?? "";
-}
-
-function fmt(n: number, decimals = 2) {
-  return n.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-}
+const sym = (c: string) => CURRENCY_SYMBOLS[c] ?? "";
+const fmt = (n: number, d = 2) => n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
 
 function providerName(slug: string) {
   return providers.find((p) => p.slug === slug)?.name
@@ -47,23 +41,19 @@ function hasReviewPage(slug: string) {
   return providers.some((p) => p.slug === slug);
 }
 
-// Use Clearbit Logo API (PNG, renders in Gmail/Yahoo/Outlook).
-// Falls back to colored initial badge if the provider isn't in our data.
+// Use Google's favicon service — universally reliable, returns 64x64 PNG, never goes down.
+// Renders cleanly in iPhone Mail, Gmail, Yahoo, Outlook.
 function logoUrl(slug: string): string | null {
   const provider = providers.find((p) => p.slug === slug);
   if (!provider?.website) return null;
   try {
     const host = new URL(provider.website).hostname.replace(/^www\./, "");
-    return `https://logo.clearbit.com/${host}`;
+    return `https://www.google.com/s2/favicons?domain=${host}&sz=64`;
   } catch {
     return null;
   }
 }
 
-// All "Send with X" buttons route to the corridor page (our site) so users
-// land on live results, not the affiliate redirect. This drives traffic to
-// sendmoneycompare.com and keeps engagement, instead of bouncing them to
-// the provider on the first click.
 function corridorLink(corridor: Corridor, opts: { anchor?: string; provider?: string } = {}) {
   const anchor = opts.anchor ?? "";
   const providerParam = opts.provider ? `&utm_content=${opts.provider}` : "";
@@ -78,12 +68,98 @@ function isFast(speed: string) {
   return /minute|instant/i.test(speed);
 }
 
+interface ProviderCardProps {
+  quote: TransferQuote;
+  rank: number;
+  isBest: boolean;
+  corridor: Corridor;
+}
+
+// Single-column card — stacks naturally on every email client and screen size.
+// No nested tables with fixed widths, no media queries needed.
+function ProviderRowCard({ quote, rank, isBest, corridor }: ProviderCardProps) {
+  const name = providerName(quote.providerSlug);
+  const logo = logoUrl(quote.providerSlug);
+  const fast = isFast(quote.transferSpeed);
+  const showReview = hasReviewPage(quote.providerSlug);
+
+  return (
+    <Section style={isBest ? cardBest : cardDefault}>
+      {isBest && (
+        <Text style={bestBadge}>★ BEST DEAL</Text>
+      )}
+
+      {/* Top row — logo + rank + name + rating */}
+      <table cellPadding="0" cellSpacing="0" border={0} width="100%" role="presentation">
+        <tr>
+          <td width="56" style={{ verticalAlign: "middle" }}>
+            {logo ? (
+              <Img src={logo} width="44" height="44" alt={name} style={logoImg} />
+            ) : (
+              <div style={logoFallback}>{name.charAt(0).toUpperCase()}</div>
+            )}
+          </td>
+          <td style={{ verticalAlign: "middle", paddingLeft: "12px" }}>
+            <Text style={rankLabel}>
+              #{rank}{isBest && " · This week's pick"}
+            </Text>
+            <Text style={isBest ? providerNameHidden : providerNameText}>
+              {isBest ? "🔒 Hidden" : name}
+            </Text>
+            {!isBest && (
+              <Text style={ratingLine}>
+                <span style={ratingStar}>★ {quote.rating.toFixed(1)}</span>
+                {fast && <span style={fastPill}>FAST</span>}
+                {quote.fee === 0 && <span style={freePill}>FREE</span>}
+              </Text>
+            )}
+          </td>
+        </tr>
+      </table>
+
+      {/* Stats — full-width single line */}
+      {!isBest && (
+        <Text style={statsLine}>
+          Recipient gets · <strong style={{ color: "#202124", fontSize: "16px" }}>{sym(corridor.toCurrency)}{fmt(quote.receiveAmount)}</strong>
+          <br />
+          Fee {quote.fee === 0 ? "Free" : `${sym(corridor.fromCurrency)}${fmt(quote.fee)}`} · Rate {fmt(quote.exchangeRate, 4)} · {quote.transferSpeed}
+        </Text>
+      )}
+
+      {isBest && (
+        <Text style={hiddenLine}>
+          We&apos;ve ranked this provider #1 for {corridor.fromCurrency} → {corridor.toCurrency} this week. Click to see who they are and the live receive amount.
+        </Text>
+      )}
+
+      {/* Single CTA per row */}
+      <Section style={{ textAlign: "center", marginTop: "12px" }}>
+        <Link
+          href={corridorLink(corridor, { provider: quote.providerSlug })}
+          style={isBest ? ctaBest : ctaPrimary}
+        >
+          {isBest ? "Reveal best rate →" : `Compare ${name} →`}
+        </Link>
+        {showReview && !isBest && (
+          <>
+            <br />
+            <Link href={reviewLink(quote.providerSlug)} style={reviewLinkStyle}>
+              Read full review
+            </Link>
+          </>
+        )}
+      </Section>
+    </Section>
+  );
+}
+
 export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: WeeklyDigestProps) {
   const top = quotes.slice(0, 5);
   const best = top[0];
   const worst = top[top.length - 1];
+  const median = top[Math.floor(top.length / 2)];
   const savings = best && worst ? best.receiveAmount - worst.receiveAmount : 0;
-  // Preview hints at the deal without revealing the rate — drives the click.
+
   const previewText = best
     ? `This week's cheapest ${corridor.fromCurrency} → ${corridor.toCurrency} provider — open to see the rate`
     : `Weekly ${corridor.fromCountry} → ${corridor.toCountry} digest`;
@@ -94,10 +170,10 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
       <Preview>{previewText}</Preview>
       <Body style={body}>
         <Container style={container}>
-          {/* Header — pure HTML/CSS brand mark, no external image */}
+          {/* Header */}
           <Section style={header}>
             <Link href={`${SITE}/?${UTM}`} style={brandLink}>
-              <table cellPadding="0" cellSpacing="0" border={0}>
+              <table cellPadding="0" cellSpacing="0" border={0} role="presentation">
                 <tr>
                   <td style={{ verticalAlign: "middle", paddingRight: "12px" }}>
                     <div style={brandMark}>S</div>
@@ -118,141 +194,54 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
           <Section style={titleSection}>
             <Text style={kicker}>Weekly digest · {corridor.fromCountry} → {corridor.toCountry}</Text>
             <Heading style={h1}>
-              {corridor.fromFlag} → {corridor.toFlag} the cheapest way to send {sym(corridor.fromCurrency)}{fmt(corridor.sampleAmount, 0)} this week
+              {corridor.fromFlag} → {corridor.toFlag} The cheapest way to send {sym(corridor.fromCurrency)}{fmt(corridor.sampleAmount, 0)} this week
             </Heading>
             <Text style={subhead}>
-              We compared 60+ providers on the {corridor.fromCurrency} → {corridor.toCurrency} corridor. Here&apos;s the live ranking right now.
+              We compared 60+ providers on the {corridor.fromCurrency} → {corridor.toCurrency} corridor. Here&apos;s what the data says right now.
             </Text>
           </Section>
 
-          {/* Top providers — styled like ProviderCard rows */}
-          <Section style={tableWrap}>
-            {top.map((q, i) => {
-              const rank = i + 1;
-              const isBest = rank === 1;
-              const fast = isFast(q.transferSpeed);
-              const logo = logoUrl(q.providerSlug);
-              const showReview = hasReviewPage(q.providerSlug);
-
-              return (
-                <table
-                  key={q.providerSlug}
-                  cellPadding="0"
-                  cellSpacing="0"
-                  border={0}
-                  width="100%"
-                  style={isBest ? rowBest : rowDefault}
-                >
-                  {isBest && (
-                    <tr>
-                      <td colSpan={4} style={bestBadgeCell}>
-                        <span style={bestBadge}>★ BEST DEAL</span>
-                      </td>
-                    </tr>
-                  )}
-                  <tr>
-                    {/* Rank */}
-                    <td style={{ ...rankCell, color: isBest ? "#188038" : "#9aa0a6" }}>
-                      {rank}
-                    </td>
-
-                    {/* Logo */}
-                    <td style={logoCell}>
-                      {logo ? (
-                        <Img
-                          src={logo}
-                          width="44"
-                          height="44"
-                          alt={providerName(q.providerSlug)}
-                          style={logoImg}
-                        />
-                      ) : (
-                        <div style={logoFallback}>
-                          {providerName(q.providerSlug).charAt(0).toUpperCase()}
-                        </div>
-                      )}
-                    </td>
-
-                    {/* Name + meta — hide rate/fee for best to drive curiosity click */}
-                    <td style={nameCell}>
-                      {isBest ? (
-                        <Text style={providerNameTextHidden}>🔒 Hidden — see this week&apos;s pick on the site</Text>
-                      ) : (
-                        <Text style={providerNameText}>{providerName(q.providerSlug)}</Text>
-                      )}
-                      {!isBest && (
-                        <>
-                          <table cellPadding="0" cellSpacing="0" border={0}>
-                            <tr>
-                              <td style={{ paddingRight: "8px" }}>
-                                <span style={metaPill}>★ {q.rating.toFixed(1)}</span>
-                              </td>
-                              {fast && (
-                                <td style={{ paddingRight: "8px" }}>
-                                  <span style={fastPill}>FAST</span>
-                                </td>
-                              )}
-                              {q.fee === 0 && (
-                                <td>
-                                  <span style={freePill}>FREE</span>
-                                </td>
-                              )}
-                            </tr>
-                          </table>
-                          <Text style={metaText}>
-                            {q.transferSpeed} · Fee {q.fee === 0 ? "Free" : `${sym(corridor.fromCurrency)}${fmt(q.fee)}`} · Rate {fmt(q.exchangeRate, 4)}
-                          </Text>
-                        </>
-                      )}
-                      {isBest && (
-                        <Text style={metaText}>
-                          We&apos;ve ranked it #1 for the {corridor.fromCurrency} → {corridor.toCurrency} corridor this week. Reveal the provider, fee, and live receive amount with one click.
-                        </Text>
-                      )}
-                    </td>
-
-                    {/* Receive amount + CTA — hidden for best, all CTAs go to our site */}
-                    <td style={amountCell}>
-                      {isBest ? (
-                        <>
-                          <Text style={hiddenAmount}>•••••</Text>
-                          <Text style={amountLabel}>recipient gets</Text>
-                        </>
-                      ) : (
-                        <>
-                          <Text style={{ ...amountText, color: "#202124" }}>
-                            {sym(corridor.toCurrency)}{fmt(q.receiveAmount)}
-                          </Text>
-                          <Text style={amountLabel}>recipient gets</Text>
-                        </>
-                      )}
-                      <Link
-                        href={corridorLink(corridor, { provider: q.providerSlug })}
-                        style={isBest ? ctaBest : ctaPrimary}
-                      >
-                        {isBest ? "Reveal best rate →" : `Compare ${providerName(q.providerSlug)} →`}
-                      </Link>
-                      {showReview && !isBest && (
-                        <Text style={{ margin: "8px 0 0", fontSize: "12px" }}>
-                          <Link href={reviewLink(q.providerSlug)} style={reviewLinkStyle}>
-                            Read full review
-                          </Link>
-                        </Text>
-                      )}
-                    </td>
-                  </tr>
-                </table>
-              );
-            })}
-          </Section>
-
-          {savings > 0 && (
-            <Section style={savingsBox}>
-              <Text style={savingsText}>
-                💰 Picking the right provider this week could mean up to {sym(corridor.toCurrency)}{fmt(savings)} more for your recipient. See who tops the list →
-              </Text>
+          {/* At-a-glance summary — the actual digest insights */}
+          {best && worst && median && (
+            <Section style={summaryBox}>
+              <Text style={summaryHeading}>📊 This week&apos;s rate range</Text>
+              <table cellPadding="0" cellSpacing="0" border={0} width="100%" role="presentation">
+                <tr>
+                  <td style={summaryCell}>
+                    <Text style={summaryLabel}>🟢 Cheapest</Text>
+                    <Text style={summaryValueGreen}>🔒 Hidden</Text>
+                  </td>
+                  <td style={summaryCell}>
+                    <Text style={summaryLabel}>🟡 Median</Text>
+                    <Text style={summaryValue}>{sym(corridor.toCurrency)}{fmt(median.receiveAmount, 0)}</Text>
+                  </td>
+                  <td style={summaryCell}>
+                    <Text style={summaryLabel}>🔴 Lowest</Text>
+                    <Text style={summaryValueRed}>{sym(corridor.toCurrency)}{fmt(worst.receiveAmount, 0)}</Text>
+                  </td>
+                </tr>
+              </table>
+              {savings > 0 && (
+                <Text style={savingsCalloutText}>
+                  💰 Picking the right provider this week could mean up to <strong>{sym(corridor.toCurrency)}{fmt(savings, 0)} more</strong> for your recipient.
+                </Text>
+              )}
             </Section>
           )}
+
+          {/* Top providers */}
+          <Section style={{ marginTop: "24px" }}>
+            <Heading as="h2" style={h2}>This week&apos;s top 5 providers</Heading>
+            {top.map((q, i) => (
+              <ProviderRowCard
+                key={q.providerSlug}
+                quote={q}
+                rank={i + 1}
+                isBest={i === 0}
+                corridor={corridor}
+              />
+            ))}
+          </Section>
 
           {/* Main CTA */}
           <Section style={ctaWrap}>
@@ -266,26 +255,22 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
           {/* Cross-sell */}
           <Section>
             <Text style={crossSellHeading}>You might also want</Text>
-            <table cellPadding="0" cellSpacing="0" border={0} width="100%">
-              <tr>
-                <td style={crossSellCol}>
-                  <Link href={corridorLink(corridor, { anchor: "#rate-alert" })} style={crossSellLink}>
-                    📈 Set a rate alert
-                  </Link>
-                  <Text style={crossSellMeta}>
-                    Get notified when {corridor.fromCurrency} → {corridor.toCurrency} hits your target.
-                  </Text>
-                </td>
-                <td style={crossSellCol}>
-                  <Link href={`${SITE}/guides/how-to-send-money-abroad?${UTM}`} style={crossSellLink}>
-                    📘 How to send money abroad
-                  </Link>
-                  <Text style={crossSellMeta}>
-                    Our complete guide to international transfers.
-                  </Text>
-                </td>
-              </tr>
-            </table>
+            <Section style={crossSellItem}>
+              <Link href={corridorLink(corridor, { anchor: "#rate-alert" })} style={crossSellLink}>
+                📈 Set a rate alert
+              </Link>
+              <Text style={crossSellMeta}>
+                Get notified when {corridor.fromCurrency} → {corridor.toCurrency} hits your target.
+              </Text>
+            </Section>
+            <Section style={crossSellItem}>
+              <Link href={`${SITE}/guides/how-to-send-money-abroad?${UTM}`} style={crossSellLink}>
+                📘 How to send money abroad
+              </Link>
+              <Text style={crossSellMeta}>
+                Our complete guide to international transfers.
+              </Text>
+            </Section>
           </Section>
 
           <Hr style={hr} />
@@ -298,7 +283,7 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
               <Link href={`${SITE}?${UTM}`} style={footerLink}>sendmoneycompare.com</Link>.
             </Text>
             <Text style={footer}>
-              Some links are affiliate links — we may earn a commission when you sign up, at no extra cost to you. This is how we keep the comparison free.
+              Some links are affiliate links — we may earn a commission when you sign up, at no extra cost to you.
             </Text>
             <Text style={footer}>
               <Link href={unsubscribeUrl} style={footerLink}>Unsubscribe</Link>{" · "}
@@ -312,7 +297,7 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
   );
 }
 
-// ───── Styles ─────
+// ───── Styles — mobile-first, no fixed widths on text-bearing cells ─────
 const body: React.CSSProperties = {
   backgroundColor: "#f8f9fa",
   fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
@@ -322,8 +307,8 @@ const body: React.CSSProperties = {
 const container: React.CSSProperties = {
   backgroundColor: "#ffffff",
   margin: "0 auto",
-  padding: "32px 24px",
-  maxWidth: "640px",
+  padding: "24px 16px",
+  maxWidth: "560px",
   borderRadius: "16px",
 };
 const header: React.CSSProperties = { paddingBottom: "8px" };
@@ -338,7 +323,6 @@ const brandMark: React.CSSProperties = {
   fontSize: "22px",
   textAlign: "center",
   lineHeight: "40px",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
 };
 const brandWordmark: React.CSSProperties = {
   fontSize: "20px",
@@ -351,13 +335,11 @@ const brandTagline: React.CSSProperties = {
   margin: "2px 0 0",
   lineHeight: "1.2",
 };
-const titleSection: React.CSSProperties = {
-  paddingTop: "20px",
-  paddingBottom: "16px",
-};
+
+const titleSection: React.CSSProperties = { paddingTop: "20px", paddingBottom: "8px" };
 const kicker: React.CSSProperties = {
   color: "#1a73e8",
-  fontSize: "12px",
+  fontSize: "11px",
   fontWeight: 700,
   textTransform: "uppercase",
   letterSpacing: "0.6px",
@@ -365,10 +347,16 @@ const kicker: React.CSSProperties = {
 };
 const h1: React.CSSProperties = {
   color: "#202124",
-  fontSize: "24px",
+  fontSize: "22px",
   fontWeight: 700,
-  lineHeight: "1.25",
+  lineHeight: "1.3",
   margin: "0 0 8px",
+};
+const h2: React.CSSProperties = {
+  color: "#202124",
+  fontSize: "16px",
+  fontWeight: 700,
+  margin: "0 0 16px",
 };
 const subhead: React.CSSProperties = {
   color: "#5f6368",
@@ -376,23 +364,79 @@ const subhead: React.CSSProperties = {
   lineHeight: "1.5",
   margin: 0,
 };
-const tableWrap: React.CSSProperties = {
-  marginTop: "8px",
+
+// ── Summary box (digest insights) ──
+const summaryBox: React.CSSProperties = {
+  backgroundColor: "#f8f9fa",
+  borderRadius: "12px",
+  padding: "16px",
+  marginTop: "20px",
 };
-const rowDefault: React.CSSProperties = {
-  borderBottom: "1px solid #f1f3f4",
-  padding: "16px 0",
+const summaryHeading: React.CSSProperties = {
+  color: "#202124",
+  fontSize: "13px",
+  fontWeight: 700,
+  margin: "0 0 12px",
 };
-const rowBest: React.CSSProperties = {
+const summaryCell: React.CSSProperties = {
+  width: "33.33%",
+  textAlign: "center",
+  verticalAlign: "top",
+  padding: "0 4px",
+};
+const summaryLabel: React.CSSProperties = {
+  color: "#5f6368",
+  fontSize: "11px",
+  fontWeight: 600,
+  margin: "0 0 4px",
+  textTransform: "uppercase",
+  letterSpacing: "0.4px",
+};
+const summaryValue: React.CSSProperties = {
+  color: "#202124",
+  fontSize: "15px",
+  fontWeight: 700,
+  margin: 0,
+  lineHeight: "1.2",
+};
+const summaryValueGreen: React.CSSProperties = {
+  color: "#188038",
+  fontSize: "15px",
+  fontWeight: 700,
+  margin: 0,
+  lineHeight: "1.2",
+};
+const summaryValueRed: React.CSSProperties = {
+  color: "#c5221f",
+  fontSize: "15px",
+  fontWeight: 700,
+  margin: 0,
+  lineHeight: "1.2",
+};
+const savingsCalloutText: React.CSSProperties = {
+  color: "#5f4500",
+  fontSize: "13px",
+  lineHeight: "1.5",
+  margin: "12px 0 0",
+  padding: "10px 12px",
+  backgroundColor: "#fef7e0",
+  borderRadius: "8px",
+};
+
+// ── Provider cards ──
+const cardDefault: React.CSSProperties = {
+  backgroundColor: "#ffffff",
+  border: "1px solid #dadce0",
+  borderRadius: "12px",
+  padding: "16px",
+  marginBottom: "12px",
+};
+const cardBest: React.CSSProperties = {
   backgroundColor: "#e6f4ea",
   border: "2px solid #188038",
   borderRadius: "12px",
-  padding: "8px 0",
+  padding: "16px",
   marginBottom: "12px",
-};
-const bestBadgeCell: React.CSSProperties = {
-  paddingTop: "8px",
-  paddingLeft: "16px",
 };
 const bestBadge: React.CSSProperties = {
   backgroundColor: "#188038",
@@ -400,27 +444,16 @@ const bestBadge: React.CSSProperties = {
   fontSize: "10px",
   fontWeight: 700,
   letterSpacing: "0.8px",
-  padding: "3px 10px",
+  padding: "4px 10px",
   borderRadius: "4px",
   display: "inline-block",
-};
-const rankCell: React.CSSProperties = {
-  width: "32px",
-  textAlign: "center",
-  fontSize: "14px",
-  fontWeight: 700,
-  verticalAlign: "top",
-  padding: "16px 0 16px 12px",
-};
-const logoCell: React.CSSProperties = {
-  width: "60px",
-  verticalAlign: "top",
-  padding: "16px 0 16px 8px",
+  margin: "0 0 12px",
 };
 const logoImg: React.CSSProperties = {
   borderRadius: "10px",
   display: "block",
   border: "1px solid #f1f3f4",
+  backgroundColor: "#ffffff",
 };
 const logoFallback: React.CSSProperties = {
   width: "44px",
@@ -433,94 +466,78 @@ const logoFallback: React.CSSProperties = {
   textAlign: "center",
   lineHeight: "44px",
 };
-const nameCell: React.CSSProperties = {
-  verticalAlign: "top",
-  padding: "16px 12px",
+const rankLabel: React.CSSProperties = {
+  color: "#5f6368",
+  fontSize: "11px",
+  fontWeight: 600,
+  margin: "0 0 2px",
+  textTransform: "uppercase",
+  letterSpacing: "0.4px",
 };
 const providerNameText: React.CSSProperties = {
   color: "#202124",
-  fontSize: "16px",
-  fontWeight: 600,
-  margin: "0 0 6px",
-  lineHeight: "1.2",
-};
-const providerNameTextHidden: React.CSSProperties = {
-  color: "#188038",
-  fontSize: "16px",
+  fontSize: "17px",
   fontWeight: 700,
-  margin: "0 0 6px",
+  margin: "0 0 4px",
   lineHeight: "1.2",
 };
-const hiddenAmount: React.CSSProperties = {
+const providerNameHidden: React.CSSProperties = {
   color: "#188038",
-  fontSize: "26px",
+  fontSize: "17px",
   fontWeight: 700,
-  letterSpacing: "4px",
-  margin: 0,
+  margin: "0 0 4px",
   lineHeight: "1.2",
 };
-const metaPill: React.CSSProperties = {
+const ratingLine: React.CSSProperties = {
+  margin: "0",
   fontSize: "11px",
-  fontWeight: 600,
+  lineHeight: "20px",
+};
+const ratingStar: React.CSSProperties = {
   color: "#202124",
   backgroundColor: "#fef7e0",
   padding: "2px 8px",
   borderRadius: "4px",
-  display: "inline-block",
+  fontWeight: 700,
+  marginRight: "6px",
 };
 const fastPill: React.CSSProperties = {
-  fontSize: "10px",
-  fontWeight: 700,
   color: "#1e8e3e",
   backgroundColor: "#e6f4ea",
   padding: "2px 8px",
   borderRadius: "4px",
+  fontWeight: 700,
   letterSpacing: "0.5px",
-  display: "inline-block",
+  marginRight: "6px",
 };
 const freePill: React.CSSProperties = {
-  fontSize: "10px",
-  fontWeight: 700,
   color: "#1a73e8",
   backgroundColor: "#e8f0fe",
   padding: "2px 8px",
   borderRadius: "4px",
-  letterSpacing: "0.5px",
-  display: "inline-block",
-};
-const metaText: React.CSSProperties = {
-  color: "#5f6368",
-  fontSize: "12px",
-  margin: "8px 0 0",
-  lineHeight: "1.4",
-};
-const amountCell: React.CSSProperties = {
-  verticalAlign: "top",
-  textAlign: "right",
-  padding: "16px 16px 16px 0",
-  width: "200px",
-};
-const amountText: React.CSSProperties = {
-  fontSize: "20px",
   fontWeight: 700,
-  margin: 0,
-  lineHeight: "1.2",
-};
-const amountLabel: React.CSSProperties = {
-  color: "#9aa0a6",
-  fontSize: "10px",
-  textTransform: "uppercase",
   letterSpacing: "0.5px",
-  margin: "2px 0 10px",
+};
+const statsLine: React.CSSProperties = {
+  color: "#5f6368",
+  fontSize: "13px",
+  lineHeight: "1.6",
+  margin: "12px 0 0",
+};
+const hiddenLine: React.CSSProperties = {
+  color: "#188038",
+  fontSize: "13px",
+  lineHeight: "1.5",
+  margin: "12px 0 0",
 };
 const ctaPrimary: React.CSSProperties = {
   backgroundColor: "#1a73e8",
   borderRadius: "999px",
   color: "#ffffff",
   display: "inline-block",
-  fontSize: "13px",
+  fontSize: "14px",
   fontWeight: 600,
-  padding: "10px 18px",
+  padding: "12px 24px",
   textDecoration: "none",
 };
 const ctaBest: React.CSSProperties = {
@@ -528,33 +545,20 @@ const ctaBest: React.CSSProperties = {
   borderRadius: "999px",
   color: "#ffffff",
   display: "inline-block",
-  fontSize: "13px",
+  fontSize: "14px",
   fontWeight: 600,
-  padding: "10px 18px",
+  padding: "12px 24px",
   textDecoration: "none",
 };
 const reviewLinkStyle: React.CSSProperties = {
   color: "#1a73e8",
   fontSize: "12px",
   textDecoration: "underline",
+  display: "inline-block",
+  marginTop: "8px",
 };
-const savingsBox: React.CSSProperties = {
-  backgroundColor: "#fef7e0",
-  borderRadius: "12px",
-  padding: "16px 20px",
-  marginTop: "16px",
-};
-const savingsText: React.CSSProperties = {
-  color: "#5f4500",
-  fontSize: "14px",
-  fontWeight: 600,
-  margin: 0,
-  lineHeight: "1.4",
-};
-const ctaWrap: React.CSSProperties = {
-  textAlign: "center",
-  margin: "24px 0 8px",
-};
+
+const ctaWrap: React.CSSProperties = { textAlign: "center", margin: "24px 0 8px" };
 const ctaSecondary: React.CSSProperties = {
   backgroundColor: "#ffffff",
   border: "1px solid #1a73e8",
@@ -566,22 +570,18 @@ const ctaSecondary: React.CSSProperties = {
   padding: "12px 24px",
   textDecoration: "none",
 };
-const hr: React.CSSProperties = {
-  borderColor: "#dadce0",
-  margin: "24px 0",
-};
+const hr: React.CSSProperties = { borderColor: "#dadce0", margin: "24px 0" };
+
 const crossSellHeading: React.CSSProperties = {
   color: "#5f6368",
-  fontSize: "12px",
+  fontSize: "11px",
   fontWeight: 700,
   textTransform: "uppercase",
   letterSpacing: "0.5px",
   margin: "0 0 12px",
 };
-const crossSellCol: React.CSSProperties = {
-  paddingRight: "12px",
-  verticalAlign: "top",
-  width: "50%",
+const crossSellItem: React.CSSProperties = {
+  marginBottom: "12px",
 };
 const crossSellLink: React.CSSProperties = {
   color: "#1a73e8",
@@ -598,7 +598,7 @@ const crossSellMeta: React.CSSProperties = {
 };
 const footer: React.CSSProperties = {
   color: "#5f6368",
-  fontSize: "12px",
+  fontSize: "11px",
   lineHeight: "1.5",
   margin: "8px 0",
 };
