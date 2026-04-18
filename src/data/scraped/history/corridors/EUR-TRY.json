@@ -1255,5 +1255,58 @@
         "receiveAmount": 4881.91
       }
     }
+  },
+  {
+    "date": "2026-04-18",
+    "providers": {
+      "ria": {
+        "rate": 50.1952,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5200.79
+      },
+      "taptap-send": {
+        "rate": 52.85,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5285
+      },
+      "moneygram": {
+        "rate": 52.4437,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5166.22
+      },
+      "remitly": {
+        "rate": 52.6,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5181.63
+      },
+      "commerzbank": {
+        "rate": 51.9195,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4542.96
+      },
+      "deutsche-bank": {
+        "rate": 52.6406,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3340.04
+      },
+      "instarem": {
+        "rate": 52.4349,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5243.49
+      },
+      "wise": {
+        "rate": 52.7681,
+        "fee": 7.58,
+        "markup": null,
+        "receiveAmount": 4876.83
+      }
+    }
   }
 ]
