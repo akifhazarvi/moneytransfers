@@ -378,16 +378,16 @@ export default async function ExchangeRatePairPage({ params }: Props) {
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Exchange Rates", href: "/exchange-rates" }, { label: `${p.from} to ${p.to}` }]} />
 
           {/* Hero rate card */}
-          <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-10 mb-8">
+          <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-5 sm:p-6 md:p-10 mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <CircleFlag code={p.from} size={36} />
+              <CircleFlag code={p.from} size={32} />
               <svg className="w-5 h-5 text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-              <CircleFlag code={p.to} size={36} />
+              <CircleFlag code={p.to} size={32} />
             </div>
 
-            <h1 className="text-h3 md:text-h1-plus font-normal text-[var(--color-on-surface)] mb-2 leading-tight">
+            <h1 className="text-[clamp(1.5rem,5vw,2.75rem)] font-normal text-[var(--color-on-surface)] mb-2 leading-tight tracking-[-0.01em]">
               {p.fromName} to {p.toName} Exchange Rate
             </h1>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
@@ -396,11 +396,11 @@ export default async function ExchangeRatePairPage({ params }: Props) {
 
             {midRate ? (
               <div className="space-y-2">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-4xl md:text-5xl font-light text-[var(--color-primary)] tabular-nums leading-none">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span className="text-[clamp(2rem,9vw,3rem)] font-light text-[var(--color-primary)] tabular-nums leading-none">
                     {fmtRate(midRate)}
                   </span>
-                  <span className="text-lg text-[var(--color-on-surface-variant)]">{p.to}</span>
+                  <span className="text-base sm:text-lg text-[var(--color-on-surface-variant)]">{p.to}</span>
                 </div>
                 <p className="text-sm text-[var(--color-on-surface-variant)]">
                   1 {p.from} = {fmtRate(midRate)} {p.to}
@@ -443,14 +443,41 @@ export default async function ExchangeRatePairPage({ params }: Props) {
 
           {/* Provider comparison */}
           {quotes.length > 0 && (
-            <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
+            <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-5 sm:p-6 md:p-8 mb-8">
               <h2 className="text-xl font-medium text-[var(--color-on-surface)] mb-2">
                 Compare {p.from} to {p.to} Transfer Rates
               </h2>
               <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
                 What you&apos;d actually receive sending 1,000 {p.from} via each provider today.
               </p>
-              <div className="overflow-x-auto">
+
+              {/* Mobile — stacked card per provider */}
+              <div className="sm:hidden divide-y divide-[var(--color-outline)] border-y border-[var(--color-outline)]">
+                {quotes.map((q, i) => (
+                  <div key={q.providerSlug} className={`py-3 ${i === 0 ? "bg-[var(--color-primary-surface)] -mx-5 px-5" : ""}`}>
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <Link href={`/companies/${q.providerSlug}`} className="text-sm font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">
+                          {getProviderName(q.providerSlug)}
+                        </Link>
+                        {i === 0 && <span className="ml-2 text-2xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">Best rate</span>}
+                        <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 tabular-nums">
+                          Rate {q.exchangeRate.toFixed(4)} · {q.fee === 0 ? "No fee" : `${q.fee.toFixed(2)} ${p.from} fee`} · {q.transferSpeed}
+                        </p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p className="text-sm font-semibold text-[var(--color-primary)] tabular-nums">
+                          {q.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+                        </p>
+                        <p className="text-2xs text-[var(--color-on-surface-variant)]">{p.to} received</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop — full 5-col table */}
+              <div className="hidden sm:block overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-[var(--color-outline)]">
@@ -517,8 +544,8 @@ export default async function ExchangeRatePairPage({ params }: Props) {
 
           {/* Rate history link */}
           {getRateInsight(p.from, p.to) && (
-            <div className="bg-[var(--color-primary-surface)] rounded-2xl border border-[var(--color-primary)] border-opacity-20 p-6 md:p-8 mb-8">
-              <div className="flex items-center justify-between">
+            <div className="bg-[var(--color-primary-surface)] rounded-2xl border border-[var(--color-primary)] border-opacity-20 p-5 sm:p-6 md:p-8 mb-8">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
                     {p.from}/{p.to} Rate History
@@ -529,7 +556,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 </div>
                 <Link
                   href={`/exchange-rates/history/${corridorToSlug(`${p.from}-${p.to}`)}`}
-                  className="shrink-0 inline-flex items-center gap-2 bg-[var(--color-primary)] text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+                  className="self-start sm:self-auto shrink-0 inline-flex items-center gap-2 bg-[var(--color-primary)] text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
                 >
                   View history
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

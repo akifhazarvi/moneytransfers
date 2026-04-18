@@ -141,17 +141,17 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
             <span className="text-[var(--color-on-surface)]">{from} to {to}</span>
           </div>
 
-          <div className="flex items-center gap-3 mb-3">
-            <div className="flex items-center gap-1">
-              <CircleFlag code={from} size={32} />
-              <span className="text-lg text-[var(--color-on-surface-muted)]">→</span>
-              <CircleFlag code={to} size={32} />
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
+            <div className="flex items-center gap-1 shrink-0">
+              <CircleFlag code={from} size={28} />
+              <span className="text-base text-[var(--color-on-surface-muted)]">→</span>
+              <CircleFlag code={to} size={28} />
             </div>
-            <div>
-              <h1 className="text-h3 md:text-h2 font-normal text-[var(--color-on-surface)] leading-tight">
+            <div className="min-w-0">
+              <h1 className="text-[clamp(1.5rem,5vw,2.25rem)] font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.01em]">
                 {fromInfo?.name || from} to {toInfo?.name || to} Rate History
               </h1>
-              <p className="text-sm text-[var(--color-on-surface-variant)]">
+              <p className="text-sm text-[var(--color-on-surface-variant)] mt-1">
                 {from} → {to} · {insight.totalDays} days of data · {Object.keys(insight.sparklines).length} providers tracked
               </p>
             </div>
