@@ -204,8 +204,8 @@ function DetailedReview({
             </div>
           </div>
 
-          {/* Stats grid — wraps instead of scrolling */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden">
+          {/* Stats grid — 2 cols on mobile for breathing room, 3 on sm, 6 on md */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden">
             {[
               { label: "Countries", value: `${provider.supportedCountries}+` },
               { label: "Currencies", value: `${provider.supportedCurrencies}+` },
@@ -216,7 +216,7 @@ function DetailedReview({
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="flex flex-col items-center justify-center px-3 py-3 bg-[var(--color-surface)] text-center"
+                className="flex flex-col items-center justify-center px-3 py-3 bg-[var(--color-surface)] text-center min-h-[72px]"
               >
                 <span className="text-overline text-[var(--color-on-surface-muted)] mb-1">{stat.label}</span>
                 <span className="text-2sm font-semibold text-[var(--color-on-surface)] leading-snug">{stat.value}</span>
@@ -605,9 +605,9 @@ function DefaultReview({
                   { label: "Delivery Methods", value: provider.deliveryMethods.join(", ") },
                   { label: "Exchange Rate Markup", value: provider.exchangeRateMarkup },
                 ].map((row) => (
-                  <div key={row.label} className="flex justify-between py-3 text-sm">
-                    <span className="text-[var(--color-on-surface-variant)]">{row.label}</span>
-                    <span className="font-medium text-[var(--color-on-surface)] text-right max-w-[60%]">{row.value}</span>
+                  <div key={row.label} className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4 py-3 text-sm">
+                    <span className="text-[var(--color-on-surface-variant)] shrink-0">{row.label}</span>
+                    <span className="font-medium text-[var(--color-on-surface)] sm:text-right sm:max-w-[60%] break-words">{row.value}</span>
                   </div>
                 ))}
               </div>

@@ -1751,7 +1751,7 @@ export default async function CorridorPage({ params }: Props) {
             </h1>
           </div>
 
-          <div className="flex items-center gap-6 mt-4 text-2sm text-[var(--color-on-surface-variant)]">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-6 mt-4 text-2sm text-[var(--color-on-surface-variant)]">
             <span className="flex items-center gap-1.5">
               <CircleFlag code={corridor.fromCurrency} size={20} />
               {fromCurrency}
@@ -1766,6 +1766,9 @@ export default async function CorridorPage({ params }: Props) {
             <span className="hidden sm:inline text-[var(--color-outline)]">|</span>
             <span className="hidden sm:inline">
               Mid-market rate: <strong className="text-[var(--color-on-surface)]">{midRate.toFixed(4)}</strong>
+            </span>
+            <span className="sm:hidden w-full text-2xs">
+              Mid-market rate: <strong className="text-[var(--color-on-surface)] tabular-nums">{midRate.toFixed(4)}</strong>
             </span>
           </div>
         </Container>
@@ -1866,8 +1869,8 @@ export default async function CorridorPage({ params }: Props) {
 
           {quotes.length > 0 ? (
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
-              {/* Header */}
-              <div className="grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+              {/* Desktop header — hidden on mobile */}
+              <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 px-6 py-3 bg-[var(--color-surface-container)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 <span>#</span>
                 <span>Provider</span>
                 <span className="text-right">Rate</span>
@@ -1881,76 +1884,122 @@ export default async function CorridorPage({ params }: Props) {
                 const provider = providers.find((p) => p.slug === q.providerSlug);
                 const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
                 const isBest = i === 0;
-
-                // Calculate markup vs mid-market
                 const markup = midRate > 0 ? ((midRate - q.exchangeRate) / midRate) * 100 : 0;
 
-                return (
-                  <div
-                    key={q.providerSlug}
-                    className={`grid grid-cols-[32px_1fr_90px_80px_110px] sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface-dim)]" : ""}`}
-                  >
-                    {/* Rank */}
-                    <span className={`text-2sm font-medium ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
-                      {i + 1}
-                    </span>
+                const rowBg = isBest ? "bg-[var(--color-success-surface-dim)]" : "";
+                const borderTop = i === 0 ? "" : "border-t border-[var(--color-outline)]";
 
-                    {/* Provider */}
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)] relative">
-                        <Image src={logo} alt={`${name} logo`} width={32} height={32} className="object-cover" />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-2sm sm:text-sm font-medium text-[var(--color-on-surface)] truncate">
-                          <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)] hover:underline">{name}</Link>
+                return (
+                  <div key={q.providerSlug} className={`${rowBg} ${borderTop} sm:border-t sm:border-[var(--color-outline)] ${isBest ? "sm:border-t-0" : ""}`}>
+                    {/* Mobile layout — two rows */}
+                    <div className="sm:hidden px-4 py-3">
+                      <div className="flex items-start gap-3">
+                        <span className={`text-2sm font-medium tabular-nums shrink-0 w-5 text-center mt-1.5 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                          {i + 1}
+                        </span>
+                        <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40">
+                          <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">
+                            <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)]">{name}</Link>
+                          </p>
+                          <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 truncate">{q.transferSpeed}</p>
                           {isBest && (
-                            <span className="ml-1.5 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
+                            <span className="inline-block mt-1 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
                               Best value
                             </span>
                           )}
-                        </p>
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</span>
-                          {markup > 0 && markup < 10 && (
-                            <span className="text-2xs text-[var(--color-on-surface-variant)]">
-                              {markup.toFixed(2)}% markup
-                            </span>
-                          )}
                         </div>
-                        {badgeByProvider[q.providerSlug] && (
-                          <div className="mt-0.5">
-                            <ProviderBadgeTag badge={badgeByProvider[q.providerSlug]} />
-                          </div>
-                        )}
-                        {(() => {
-                          const pi = getProviderInsight(fromCurrency, toCurrency, q.providerSlug);
-                          const sp = rateInsight?.sparklines[q.providerSlug];
-                          return pi && sp ? (
-                            <ProviderRateInsightLine insight={pi} sparklineData={sp} toCurrency={toCurrency} />
-                          ) : null;
-                        })()}
+                        <div className="text-right shrink-0">
+                          <p className={`text-sm font-semibold tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                            {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                          </p>
+                          <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">recipient gets</p>
+                        </div>
                       </div>
-                    </div>
-
-                    {/* Rate */}
-                    <div className="text-right">
-                      <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] tabular-nums">
-                        {q.exchangeRate.toFixed(4)}
-                      </p>
-                      {rateInsight?.sparklines[q.providerSlug] && rateInsight.sparklines[q.providerSlug].length >= 2 && (
-                        <Sparkline data={rateInsight.sparklines[q.providerSlug]} width={64} height={18} />
+                      <div className="flex items-center gap-3 mt-2 pl-[68px] text-2xs text-[var(--color-on-surface-variant)] tabular-nums">
+                        <span>Rate <span className="text-[var(--color-on-surface)]">{q.exchangeRate.toFixed(4)}</span></span>
+                        <span className="text-[var(--color-outline)]">·</span>
+                        <span>Fee <span className="text-[var(--color-on-surface)]">{q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}</span></span>
+                        {markup > 0 && markup < 10 && (
+                          <>
+                            <span className="text-[var(--color-outline)]">·</span>
+                            <span>{markup.toFixed(2)}% markup</span>
+                          </>
+                        )}
+                      </div>
+                      {badgeByProvider[q.providerSlug] && (
+                        <div className="mt-1.5 pl-[68px]">
+                          <ProviderBadgeTag badge={badgeByProvider[q.providerSlug]} />
+                        </div>
                       )}
+                      {(() => {
+                        const pi = getProviderInsight(fromCurrency, toCurrency, q.providerSlug);
+                        const sp = rateInsight?.sparklines[q.providerSlug];
+                        return pi && sp ? (
+                          <div className="pl-[68px] mt-1">
+                            <ProviderRateInsightLine insight={pi} sparklineData={sp} toCurrency={toCurrency} />
+                          </div>
+                        ) : null;
+                      })()}
                     </div>
 
-                    {/* Fee */}
-                    <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
-                      {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
-                    </p>
-
-                    {/* Amount received */}
-                    <p className={`text-2sm sm:text-sm font-medium text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                      {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                    </p>
+                    {/* Desktop layout */}
+                    <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 items-center px-6 py-3">
+                      <span className={`text-2sm font-medium ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                        {i + 1}
+                      </span>
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)] relative">
+                          <Image src={logo} alt={`${name} logo`} width={32} height={32} className="object-cover" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">
+                            <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)] hover:underline">{name}</Link>
+                            {isBest && (
+                              <span className="ml-1.5 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
+                                Best value
+                              </span>
+                            )}
+                          </p>
+                          <div className="flex items-center gap-2">
+                            <span className="text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</span>
+                            {markup > 0 && markup < 10 && (
+                              <span className="text-2xs text-[var(--color-on-surface-variant)]">
+                                {markup.toFixed(2)}% markup
+                              </span>
+                            )}
+                          </div>
+                          {badgeByProvider[q.providerSlug] && (
+                            <div className="mt-0.5">
+                              <ProviderBadgeTag badge={badgeByProvider[q.providerSlug]} />
+                            </div>
+                          )}
+                          {(() => {
+                            const pi = getProviderInsight(fromCurrency, toCurrency, q.providerSlug);
+                            const sp = rateInsight?.sparklines[q.providerSlug];
+                            return pi && sp ? (
+                              <ProviderRateInsightLine insight={pi} sparklineData={sp} toCurrency={toCurrency} />
+                            ) : null;
+                          })()}
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-[var(--color-on-surface)] tabular-nums">
+                          {q.exchangeRate.toFixed(4)}
+                        </p>
+                        {rateInsight?.sparklines[q.providerSlug] && rateInsight.sparklines[q.providerSlug].length >= 2 && (
+                          <Sparkline data={rateInsight.sparklines[q.providerSlug]} width={64} height={18} />
+                        )}
+                      </div>
+                      <p className="text-sm text-[var(--color-on-surface)] text-right tabular-nums">
+                        {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
+                      </p>
+                      <p className={`text-sm font-medium text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                        {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                      </p>
+                    </div>
                   </div>
                 );
               })}
@@ -2256,35 +2305,68 @@ export default async function CorridorPage({ params }: Props) {
                     </h3>
                     {exQuotes.length > 0 ? (
                       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
-                        <div className="grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 px-4 sm:px-5 py-2.5 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-                          <span>Provider</span>
-                          <span className="text-right">Fee</span>
-                          <span className="text-right">Rate</span>
-                          <span className="text-right">Receives</span>
-                          <span className="text-right">Speed</span>
-                        </div>
-                        {exQuotes.map((q, i) => (
-                          <div
-                            key={q.providerSlug}
-                            className={`grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 items-center px-4 sm:px-5 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
-                          >
-                            <span className={`text-2sm font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                              {getProviderName(q.providerSlug)}
-                            </span>
-                            <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
-                              {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
-                            </span>
-                            <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
-                              {q.exchangeRate.toFixed(2)}
-                            </span>
-                            <span className={`text-2sm font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                              {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
-                            </span>
-                            <span className="text-2xs text-[var(--color-on-surface-variant)] text-right">
-                              {q.transferSpeed}
-                            </span>
+                        {/* Mobile — 3-col condensed (Provider / Fee / Receives) */}
+                        <div className="sm:hidden">
+                          <div className="grid grid-cols-[1fr_70px_100px] gap-2 px-4 py-2.5 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                            <span>Provider</span>
+                            <span className="text-right">Fee</span>
+                            <span className="text-right">Receives</span>
                           </div>
-                        ))}
+                          {exQuotes.map((q, i) => (
+                            <div
+                              key={q.providerSlug}
+                              className={`grid grid-cols-[1fr_70px_100px] gap-2 items-center px-4 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
+                            >
+                              <div className="min-w-0">
+                                <p className={`text-2sm font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                                  {getProviderName(q.providerSlug)}
+                                </p>
+                                <p className="text-2xs text-[var(--color-on-surface-variant)] truncate">
+                                  {q.exchangeRate.toFixed(2)} · {q.transferSpeed}
+                                </p>
+                              </div>
+                              <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
+                                {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
+                              </span>
+                              <span className={`text-2sm font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                                {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Desktop — full 5-col */}
+                        <div className="hidden sm:block">
+                          <div className="grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 px-5 py-2.5 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                            <span>Provider</span>
+                            <span className="text-right">Fee</span>
+                            <span className="text-right">Rate</span>
+                            <span className="text-right">Receives</span>
+                            <span className="text-right">Speed</span>
+                          </div>
+                          {exQuotes.map((q, i) => (
+                            <div
+                              key={q.providerSlug}
+                              className={`grid grid-cols-[1fr_80px_80px_100px_100px] gap-2 items-center px-5 py-2.5 border-t border-[var(--color-outline)] ${i === 0 ? "bg-[var(--color-success-surface-dim)]" : ""}`}
+                            >
+                              <span className={`text-2sm font-medium truncate ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                                {getProviderName(q.providerSlug)}
+                              </span>
+                              <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
+                                {q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`}
+                              </span>
+                              <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
+                                {q.exchangeRate.toFixed(2)}
+                              </span>
+                              <span className={`text-2sm font-medium text-right tabular-nums ${i === 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                                {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                              </span>
+                              <span className="text-2xs text-[var(--color-on-surface-variant)] text-right">
+                                {q.transferSpeed}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     ) : (
                       <p className="text-2sm text-[var(--color-on-surface-variant)]">No quotes available.</p>

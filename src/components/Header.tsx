@@ -103,7 +103,7 @@ export default function Header() {
 
   return (
     <header className="bg-[var(--color-surface)] sticky top-0 z-50 border-b border-[var(--color-outline)]">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
           <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-3 shrink-0 group">
