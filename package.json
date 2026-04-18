@@ -34,6 +34,8 @@
     "social:post": "npx tsx scripts/social/post-daily.ts"
   },
   "dependencies": {
+    "@react-email/components": "^1.0.12",
+    "@react-email/render": "^2.0.7",
     "@swc/helpers": "0.5.19",
     "@vercel/analytics": "^2.0.1",
     "next": "16.1.6",
