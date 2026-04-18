@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
+import RateAlertForm from "@/components/RateAlertForm";
 
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
@@ -552,6 +553,16 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                 When a money transfer provider quotes you a rate, compare it against the mid-market rate shown on this page. The difference is the provider&apos;s markup — their profit on the currency conversion. On the {p.from}/{p.to} pair, the best providers typically mark up by {midRate && midRate > 100 ? "0.3–1.5%" : "0.2–0.8%"}, while banks can mark up by 2–5%.
               </p>
             </div>
+          </div>
+
+          {/* Rate alert signup */}
+          <div className="mb-8 max-w-xl">
+            <RateAlertForm
+              defaultFrom={p.from}
+              defaultTo={p.to}
+              currentRate={midRate ?? undefined}
+              source={`exchange-rate-${pair}`}
+            />
           </div>
 
           {/* Related pairs */}

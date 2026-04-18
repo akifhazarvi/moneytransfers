@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
+import RateAlertForm from "@/components/RateAlertForm";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
@@ -2955,6 +2956,16 @@ export default async function CorridorPage({ params }: Props) {
           <PrimaryButton href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${sampleAmount}`} size="lg">
             Compare providers now
           </PrimaryButton>
+
+          {/* Rate alert signup */}
+          <div className="mt-8 text-left">
+            <RateAlertForm
+              defaultFrom={fromCurrency}
+              defaultTo={toCurrency}
+              currentRate={midRate ?? undefined}
+              source={`corridor-${slug}`}
+            />
+          </div>
         </div>
       </section>
 

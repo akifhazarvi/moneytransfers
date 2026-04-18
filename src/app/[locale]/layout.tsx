@@ -9,6 +9,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
 import LazyCookieConsent from "@/components/LazyCookieConsent";
+import LazySendMoneyBot from "@/components/LazySendMoneyBot";
 import Script from "next/script";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -222,6 +223,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LazyForexTicker />
           <LazyAnalytics />
           <LazyCookieConsent />
+          <LazySendMoneyBot />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>

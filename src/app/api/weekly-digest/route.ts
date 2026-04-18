@@ -3,11 +3,12 @@ import { Resend } from "resend";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Resend integration — only saves contacts if env vars are set.
-// Free tier: 3,000 emails/month, 100/day. Audience storage is free.
-// Add to .env.local and Vercel env vars:
+// Weekly digest signup — stores email + corridor preference.
+// Cron job (future) will send weekly summary of cheapest providers for that corridor.
+//
+// Env vars:
 //   RESEND_API_KEY=re_xxx
-//   RESEND_AUDIENCE_ID=xxx
+//   RESEND_DIGEST_AUDIENCE_ID=xxx  (falls back to RESEND_AUDIENCE_ID)
 export async function POST(request: Request) {
   let body: unknown;
   try {
@@ -18,32 +19,41 @@ export async function POST(request: Request) {
 
   const obj = (body && typeof body === "object" ? body : {}) as Record<string, unknown>;
   const email = String(obj.email ?? "").trim().toLowerCase();
-  const source = typeof obj.source === "string" ? obj.source.slice(0, 60) : "newsletter";
+  const corridor = String(obj.corridor ?? "").trim().toLowerCase();
+  const source = typeof obj.source === "string" ? obj.source.slice(0, 60) : "weekly-digest";
 
   if (!email || !EMAIL_RE.test(email)) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 422 });
   }
+  if (!corridor || corridor.length > 80) {
+    return NextResponse.json({ error: "Please choose a corridor." }, { status: 422 });
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  const audienceId = process.env.RESEND_DIGEST_AUDIENCE_ID || process.env.RESEND_AUDIENCE_ID;
 
-  // Resend not configured yet — log and return success so UX keeps working
+  const payload = { email, corridor, source, timestamp: new Date().toISOString() };
+
   if (!apiKey || !audienceId) {
-    console.log(`[newsletter] Signup (Resend not configured): ${email} (source: ${source})`);
+    console.log("[weekly-digest] Signup (Resend not configured):", JSON.stringify(payload));
     return NextResponse.json({ ok: true, stored: false }, { status: 200 });
   }
 
   try {
     const resend = new Resend(apiKey);
-    await resend.contacts.create({ email, audienceId, unsubscribed: false });
+    await resend.contacts.create({
+      email,
+      audienceId,
+      firstName: `digest-${corridor}`,
+      unsubscribed: false,
+    });
     return NextResponse.json({ ok: true, stored: true }, { status: 200 });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Unknown error";
-    // Already-subscribed is fine — idempotent
     if (/already exists|duplicate/i.test(msg)) {
       return NextResponse.json({ ok: true, stored: true, existing: true }, { status: 200 });
     }
-    console.error("[newsletter] Resend error:", msg);
+    console.error("[weekly-digest] Resend error:", msg);
     return NextResponse.json({ error: "Could not subscribe. Please try again." }, { status: 500 });
   }
 }
