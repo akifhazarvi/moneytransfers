@@ -132,7 +132,14 @@ function normalizeQuote(
   const fee = (raw.fee as number) || 0;
   const exchangeRate = (raw.exchangeRate as number) || 0;
   const receiveAmount = (raw.receiveAmount as number) || 0;
-  const midMarket = (raw.midMarketRate as number) || 0;
+  const fromCcy = (raw.sendCurrency as string) || "";
+  const toCcy = (raw.receiveCurrency as string) || "";
+
+  // Mid-market: use the value scraped alongside this quote when available;
+  // otherwise fall back to the global mid-market table so markup can still
+  // be computed for sources that don't include it (TapTap, Remitly, Wise direct).
+  const midMarket = (raw.midMarketRate as number)
+    || (fromCcy && toCcy ? getMidMarketRate(fromCcy, toCcy) : 0);
 
   // Calculate markup if we have mid-market rate
   let markup = (raw.markup as number) || 0;
