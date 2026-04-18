@@ -2,15 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { render } from "@react-email/render";
 import { corridors, type Corridor } from "@/data/corridors";
-import { generateQuotes, providers } from "@/data/providers";
+import { generateQuotes } from "@/data/providers";
 import WeeklyDigest from "@/emails/WeeklyDigest";
-
-const CURRENCY_SYMBOLS: Record<string, string> = {
-  USD: "$", EUR: "€", GBP: "£", INR: "₹", PKR: "₨", PHP: "₱",
-  CAD: "$", AUD: "$", NZD: "$", JPY: "¥", CNY: "¥", BRL: "R$",
-  MXN: "$", AED: "د.إ", SAR: "﷼", NGN: "₦", KES: "KSh",
-};
-const currencySymbol = (code: string) => CURRENCY_SYMBOLS[code] ?? "";
 
 // Vercel cron — runs weekly. Triggered by vercel.json crons schedule.
 // Auth: Vercel sends `Authorization: Bearer ${CRON_SECRET}` automatically when CRON_SECRET is set.
@@ -69,19 +62,15 @@ export async function GET(request: Request) {
     let sent = 0;
     let failed = 0;
 
-    const best = quotes[0];
-    const bestProvider = providers.find((p) => p.slug === best.providerSlug)?.name ?? best.providerSlug;
-    const fmt = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
-
     for (const recipient of recipients) {
       const unsubscribeUrl = `https://sendmoneycompare.com/api/unsubscribe?id=${recipient.id}&audience=${audienceId}`;
       const html = await render(
         WeeklyDigest({ corridor, quotes, unsubscribeUrl })
       );
 
-      // Subject: human, scannable in inbox preview, includes specifics for CTR.
-      // Example: "USA → India: Wise gives you ₹83,420 this week"
-      const subject = `${corridor.fromCountry} → ${corridor.toCountry}: ${bestProvider} gives you ${currencySymbol(corridor.toCurrency)}${fmt.format(best.receiveAmount)} this week`;
+      // Subject: curiosity-driven — hint at the deal, drive the click to our site.
+      // Example: "USA → India: this week's cheapest provider is..."
+      const subject = `${corridor.fromCountry} → ${corridor.toCountry}: this week's cheapest provider is…`;
 
       try {
         await resend.emails.send({

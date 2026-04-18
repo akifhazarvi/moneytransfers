@@ -1,6 +1,5 @@
 import {
   Body,
-  Column,
   Container,
   Head,
   Heading,
@@ -9,7 +8,6 @@ import {
   Img,
   Link,
   Preview,
-  Row,
   Section,
   Text,
 } from "@react-email/components";
@@ -62,12 +60,14 @@ function logoUrl(slug: string): string | null {
   }
 }
 
-function goLink(slug: string, corridor: Corridor) {
-  return `${SITE}/go/${slug}?from=${corridor.fromCurrency}&to=${corridor.toCurrency}&amount=${corridor.sampleAmount}&${UTM}&utm_content=${slug}`;
-}
-
-function corridorLink(corridor: Corridor, anchor = "") {
-  return `${SITE}/send-money/${corridor.slug}${anchor}?${UTM}`;
+// All "Send with X" buttons route to the corridor page (our site) so users
+// land on live results, not the affiliate redirect. This drives traffic to
+// sendmoneycompare.com and keeps engagement, instead of bouncing them to
+// the provider on the first click.
+function corridorLink(corridor: Corridor, opts: { anchor?: string; provider?: string } = {}) {
+  const anchor = opts.anchor ?? "";
+  const providerParam = opts.provider ? `&utm_content=${opts.provider}` : "";
+  return `${SITE}/send-money/${corridor.slug}${anchor}?${UTM}${providerParam}`;
 }
 
 function reviewLink(slug: string) {
@@ -83,8 +83,9 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
   const best = top[0];
   const worst = top[top.length - 1];
   const savings = best && worst ? best.receiveAmount - worst.receiveAmount : 0;
+  // Preview hints at the deal without revealing the rate — drives the click.
   const previewText = best
-    ? `${providerName(best.providerSlug)} tops this week at ${sym(corridor.toCurrency)}${fmt(best.receiveAmount)}`
+    ? `This week's cheapest ${corridor.fromCurrency} → ${corridor.toCurrency} provider — open to see the rate`
     : `Weekly ${corridor.fromCountry} → ${corridor.toCountry} digest`;
 
   return (
@@ -120,7 +121,7 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
               {corridor.fromFlag} → {corridor.toFlag} the cheapest way to send {sym(corridor.fromCurrency)}{fmt(corridor.sampleAmount, 0)} this week
             </Heading>
             <Text style={subhead}>
-              We compared 60+ providers on the {corridor.fromCurrency} → {corridor.toCurrency} corridor. Here's the live ranking right now.
+              We compared 60+ providers on the {corridor.fromCurrency} → {corridor.toCurrency} corridor. Here&apos;s the live ranking right now.
             </Text>
           </Section>
 
@@ -172,44 +173,66 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
                       )}
                     </td>
 
-                    {/* Name + meta */}
+                    {/* Name + meta — hide rate/fee for best to drive curiosity click */}
                     <td style={nameCell}>
-                      <Text style={providerNameText}>{providerName(q.providerSlug)}</Text>
-                      <table cellPadding="0" cellSpacing="0" border={0}>
-                        <tr>
-                          <td style={{ paddingRight: "8px" }}>
-                            <span style={metaPill}>★ {q.rating.toFixed(1)}</span>
-                          </td>
-                          {fast && (
-                            <td style={{ paddingRight: "8px" }}>
-                              <span style={fastPill}>FAST</span>
-                            </td>
-                          )}
-                          {q.fee === 0 && (
-                            <td>
-                              <span style={freePill}>FREE</span>
-                            </td>
-                          )}
-                        </tr>
-                      </table>
-                      <Text style={metaText}>
-                        {q.transferSpeed} · Fee {q.fee === 0 ? "Free" : `${sym(corridor.fromCurrency)}${fmt(q.fee)}`} · Rate {fmt(q.exchangeRate, 4)}
-                      </Text>
+                      {isBest ? (
+                        <Text style={providerNameTextHidden}>🔒 Hidden — see this week&apos;s pick on the site</Text>
+                      ) : (
+                        <Text style={providerNameText}>{providerName(q.providerSlug)}</Text>
+                      )}
+                      {!isBest && (
+                        <>
+                          <table cellPadding="0" cellSpacing="0" border={0}>
+                            <tr>
+                              <td style={{ paddingRight: "8px" }}>
+                                <span style={metaPill}>★ {q.rating.toFixed(1)}</span>
+                              </td>
+                              {fast && (
+                                <td style={{ paddingRight: "8px" }}>
+                                  <span style={fastPill}>FAST</span>
+                                </td>
+                              )}
+                              {q.fee === 0 && (
+                                <td>
+                                  <span style={freePill}>FREE</span>
+                                </td>
+                              )}
+                            </tr>
+                          </table>
+                          <Text style={metaText}>
+                            {q.transferSpeed} · Fee {q.fee === 0 ? "Free" : `${sym(corridor.fromCurrency)}${fmt(q.fee)}`} · Rate {fmt(q.exchangeRate, 4)}
+                          </Text>
+                        </>
+                      )}
+                      {isBest && (
+                        <Text style={metaText}>
+                          We&apos;ve ranked it #1 for the {corridor.fromCurrency} → {corridor.toCurrency} corridor this week. Reveal the provider, fee, and live receive amount with one click.
+                        </Text>
+                      )}
                     </td>
 
-                    {/* Receive amount + CTA */}
+                    {/* Receive amount + CTA — hidden for best, all CTAs go to our site */}
                     <td style={amountCell}>
-                      <Text style={{ ...amountText, color: isBest ? "#188038" : "#202124" }}>
-                        {sym(corridor.toCurrency)}{fmt(q.receiveAmount)}
-                      </Text>
-                      <Text style={amountLabel}>recipient gets</Text>
+                      {isBest ? (
+                        <>
+                          <Text style={hiddenAmount}>•••••</Text>
+                          <Text style={amountLabel}>recipient gets</Text>
+                        </>
+                      ) : (
+                        <>
+                          <Text style={{ ...amountText, color: "#202124" }}>
+                            {sym(corridor.toCurrency)}{fmt(q.receiveAmount)}
+                          </Text>
+                          <Text style={amountLabel}>recipient gets</Text>
+                        </>
+                      )}
                       <Link
-                        href={goLink(q.providerSlug, corridor)}
+                        href={corridorLink(corridor, { provider: q.providerSlug })}
                         style={isBest ? ctaBest : ctaPrimary}
                       >
-                        Send with {providerName(q.providerSlug)} →
+                        {isBest ? "Reveal best rate →" : `Compare ${providerName(q.providerSlug)} →`}
                       </Link>
-                      {showReview && (
+                      {showReview && !isBest && (
                         <Text style={{ margin: "8px 0 0", fontSize: "12px" }}>
                           <Link href={reviewLink(q.providerSlug)} style={reviewLinkStyle}>
                             Read full review
@@ -226,7 +249,7 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
           {savings > 0 && (
             <Section style={savingsBox}>
               <Text style={savingsText}>
-                💰 Choosing {providerName(best.providerSlug)} over the worst option in our top 5 means {sym(corridor.toCurrency)}{fmt(savings)} more in your recipient's pocket.
+                💰 Picking the right provider this week could mean up to {sym(corridor.toCurrency)}{fmt(savings)} more for your recipient. See who tops the list →
               </Text>
             </Section>
           )}
@@ -246,7 +269,7 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
             <table cellPadding="0" cellSpacing="0" border={0} width="100%">
               <tr>
                 <td style={crossSellCol}>
-                  <Link href={`${SITE}/send-money/${corridor.slug}#rate-alert?${UTM}`} style={crossSellLink}>
+                  <Link href={corridorLink(corridor, { anchor: "#rate-alert" })} style={crossSellLink}>
                     📈 Set a rate alert
                   </Link>
                   <Text style={crossSellMeta}>
@@ -270,7 +293,7 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
           {/* Footer */}
           <Section>
             <Text style={footer}>
-              You're getting this because you signed up for weekly{" "}
+              You&apos;re getting this because you signed up for weekly{" "}
               <strong>{corridor.fromCurrency} → {corridor.toCurrency}</strong> updates on{" "}
               <Link href={`${SITE}?${UTM}`} style={footerLink}>sendmoneycompare.com</Link>.
             </Text>
@@ -419,6 +442,21 @@ const providerNameText: React.CSSProperties = {
   fontSize: "16px",
   fontWeight: 600,
   margin: "0 0 6px",
+  lineHeight: "1.2",
+};
+const providerNameTextHidden: React.CSSProperties = {
+  color: "#188038",
+  fontSize: "16px",
+  fontWeight: 700,
+  margin: "0 0 6px",
+  lineHeight: "1.2",
+};
+const hiddenAmount: React.CSSProperties = {
+  color: "#188038",
+  fontSize: "26px",
+  fontWeight: 700,
+  letterSpacing: "4px",
+  margin: 0,
   lineHeight: "1.2",
 };
 const metaPill: React.CSSProperties = {
