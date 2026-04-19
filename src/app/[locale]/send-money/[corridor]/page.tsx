@@ -33,6 +33,8 @@ import { join } from "path";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
 import { RateInsightBanner, ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
+import StickyBestCTA from "@/components/StickyBestCTA";
+import LiveTimestamp from "@/components/LiveTimestamp";
 
 interface Props {
   params: Promise<{ corridor: string; locale: string }>;
@@ -40,6 +42,11 @@ interface Props {
 
 /** Returns the most recent mtime of scraped quote files as an ISO date string. */
 function getDataFreshnessDate(): string {
+  return getDataFreshnessISO().split("T")[0];
+}
+
+/** Full ISO timestamp of most recent scrape — used by <LiveTimestamp /> for relative "X mins ago" rendering. */
+function getDataFreshnessISO(): string {
   const scrapedDir = join(process.cwd(), "src/data/scraped");
   const quoteFiles = ["provider-quotes.json", "mid-market-rates.json", "exchange-rates.json"];
   let latest = new Date(0);
@@ -49,7 +56,7 @@ function getDataFreshnessDate(): string {
       if (mtime > latest) latest = mtime;
     } catch { /* file may not exist */ }
   }
-  return latest.getTime() > 0 ? latest.toISOString().split("T")[0] : new Date().toISOString().split("T")[0];
+  return latest.getTime() > 0 ? latest.toISOString() : new Date().toISOString();
 }
 
 const corridorEditorialNotes: Record<
@@ -1695,6 +1702,7 @@ export default async function CorridorPage({ params }: Props) {
     ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency}).`;
   const dataUpdatedDate = getDataFreshnessDate();
+  const dataUpdatedISO = getDataFreshnessISO();
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -1778,10 +1786,18 @@ export default async function CorridorPage({ params }: Props) {
       <section className="bg-[var(--color-surface)] pb-8">
         <Container>
           <div className="max-w-3xl">
-            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
-              By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">Akif Hazarvi</Link>
-              {" · "}Data updated <time dateTime={dataUpdatedDate}>{new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time>
-              {" · "}Refreshed every 6 hours
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+              <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">Akif Hazarvi</Link></span>
+              <span className="text-[var(--color-outline)]">·</span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="relative flex h-1.5 w-1.5 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-70" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+                </span>
+                <LiveTimestamp iso={dataUpdatedISO} prefix="Rates updated" />
+              </span>
+              <span className="text-[var(--color-outline)]">·</span>
+              <span>Refreshed every 6 hours</span>
             </p>
           </div>
           <div className="max-w-3xl mb-4">
@@ -3149,6 +3165,24 @@ export default async function CorridorPage({ params }: Props) {
               })),
             }),
           }}
+        />
+      )}
+
+      {/* Sticky best-provider CTA — appears on scroll. Floating chat bot sits at bottom-right;
+          this bar sits above it so the two don't overlap on mobile. */}
+      {best && (
+        <StickyBestCTA
+          providerSlug={best.providerSlug}
+          providerName={getProviderName(best.providerSlug)}
+          providerLogo={providers.find((p) => p.slug === best.providerSlug)?.logo || `/logos/${best.providerSlug}.png`}
+          providerUrl={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount })}
+          receiveAmount={best.receiveAmount}
+          receiveSymbol={receiveSymbol}
+          fee={best.fee}
+          sendSymbol={sendSymbol}
+          savingsVsWorst={savings > 0 ? savings : undefined}
+          fromCurrency={fromCurrency}
+          toCurrency={toCurrency}
         />
       )}
     </>
