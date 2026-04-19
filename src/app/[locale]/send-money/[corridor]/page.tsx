@@ -1539,32 +1539,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // No metadata needed for Tier 3 corridors — they'll 404
   if (getCorridorTier(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) === 3) return {};
 
-  const override = corridorSeoOverrides[slug];
+  const override = locale === "en" ? corridorSeoOverrides[slug] : undefined;
   const isCurr = corridor.isCurrencyCorridor;
 
   const isCountryPg = corridor.isCountryPage;
   const year = new Date().getFullYear();
-  const title = override?.title ?? (isCurr
-    ? `Cheapest ${corridor.fromCurrency} to ${corridor.toCurrency} Rates — Compare 15+ Providers (${year})`
-    : isCountryPg
-    ? `Cheapest Way to Send Money to ${corridor.toCountry} — Compare ${corridor.toCurrency} Rates (${year})`
-    : `Cheapest Way to Send Money ${corridor.fromCountry} to ${corridor.toCountry} — ${corridor.fromCurrency}→${corridor.toCurrency} (${year})`);
-  const description = override?.description ?? (isCurr
-    ? `Live ${corridor.fromCurrency} to ${corridor.toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees and see who gives you the most ${corridor.toCurrency}.`
-    : isCountryPg
-    ? `${corridor.toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees, speed & delivery options for sending money to ${corridor.toCountry}.`
-    : `${corridor.fromCurrency} to ${corridor.toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees and see who delivers the most to ${corridor.toCountry}.`);
-  const ogTitle = override?.ogTitle ?? (isCurr
-    ? `${corridor.fromCurrency}→${corridor.toCurrency}: Who Gives the Best Rate?`
-    : isCountryPg
-    ? `Send Money to ${corridor.toCountry} — Who's Cheapest Right Now?`
-    : `${corridor.fromCountry}→${corridor.toCountry}: Which Provider Gives You the Most?`);
+  const tplParams = {
+    from: corridor.fromCurrency,
+    to: corridor.toCurrency,
+    fromCountry: corridor.fromCountry,
+    toCountry: corridor.toCountry,
+    toCurrency: corridor.toCurrency,
+    year,
+  };
+  const variant = isCurr ? "Currency" : isCountryPg ? "Country" : "Corridor";
+
+  const title = override?.title ?? t(`fallbackTitle${variant}`, tplParams);
+  const description = override?.description ?? t(`fallbackDescription${variant}`, tplParams);
+  const ogTitle = override?.ogTitle ?? t(`fallbackOgTitle${variant}`, tplParams);
   const ogDescription = override?.ogDescription ?? description;
-  const keywords = override?.keywords ?? (isCurr
-    ? `${corridor.fromCurrency} to ${corridor.toCurrency}, ${corridor.fromCurrency} ${corridor.toCurrency} exchange rate, convert ${corridor.fromCurrency} to ${corridor.toCurrency}, best ${corridor.fromCurrency} to ${corridor.toCurrency} rate, ${corridor.fromCurrency} ${corridor.toCurrency} today`
-    : isCountryPg
-    ? `send money to ${corridor.toCountry}, cheapest way to send money to ${corridor.toCountry}, how to send money to ${corridor.toCountry}, best way to send money to ${corridor.toCountry}, ${corridor.toCurrency} exchange rate, money transfer to ${corridor.toCountry}, transfer money to ${corridor.toCountry}, ${corridor.toCountry} remittance, ${corridor.toCurrency} rate today`
-    : `send money ${corridor.fromCountry} to ${corridor.toCountry}, ${corridor.fromCurrency} to ${corridor.toCurrency}, cheapest way to send money to ${corridor.toCountry}, best way to send money from ${corridor.fromCountry} to ${corridor.toCountry}, money transfer ${corridor.toCountry}, ${corridor.toCurrency} exchange rate, transfer money to ${corridor.toCountry}`);
+  const keywords = override?.keywords ?? t(`fallbackKeywords${variant}`, tplParams);
 
   return {
     title,

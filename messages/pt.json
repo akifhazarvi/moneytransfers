@@ -439,7 +439,19 @@
     "speed": "Speed",
     "sendWith": "Send with {providerName}",
     "savings": "You save {amount} vs the most expensive provider",
-    "viewAllProviders": "View all providers for this corridor"
+    "viewAllProviders": "View all providers for this corridor",
+    "fallbackTitleCurrency": "Cheapest {from} to {to} Rates — Compare 15+ Providers ({year})",
+    "fallbackTitleCountry": "Cheapest Way to Send Money to {toCountry} — Compare {toCurrency} Rates ({year})",
+    "fallbackTitleCorridor": "Cheapest Way to Send Money {fromCountry} to {toCountry} — {from}→{to} ({year})",
+    "fallbackDescriptionCurrency": "Live {from} to {to} rates from 15+ providers — updated every 6 hrs. Compare fees and see who gives you the most {to}.",
+    "fallbackDescriptionCountry": "{toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees, speed & delivery options for sending money to {toCountry}.",
+    "fallbackDescriptionCorridor": "{from} to {to} rates from 15+ providers — updated every 6 hrs. Compare fees and see who delivers the most to {toCountry}.",
+    "fallbackOgTitleCurrency": "{from}→{to}: Who Gives the Best Rate?",
+    "fallbackOgTitleCountry": "Send Money to {toCountry} — Who's Cheapest Right Now?",
+    "fallbackOgTitleCorridor": "{fromCountry}→{toCountry}: Which Provider Gives You the Most?",
+    "fallbackKeywordsCurrency": "{from} to {to}, {from} {to} exchange rate, convert {from} to {to}, best {from} to {to} rate, {from} {to} today",
+    "fallbackKeywordsCountry": "send money to {toCountry}, cheapest way to send money to {toCountry}, how to send money to {toCountry}, best way to send money to {toCountry}, {toCurrency} exchange rate, money transfer to {toCountry}, {toCountry} remittance",
+    "fallbackKeywordsCorridor": "send money {fromCountry} to {toCountry}, {from} to {to}, cheapest way to send money to {toCountry}, best way to send money from {fromCountry} to {toCountry}, money transfer {toCountry}, {toCurrency} exchange rate"
   },
   "currencyConverter": {
     "metaTitle": "Free Currency Converter — Live Mid-Market Rates, Not Bank Rates (2026)",
@@ -483,6 +495,7 @@
     "metaDescription": "Free IBAN lookup for 89+ countries. Enter any IBAN to validate format, decode bank & branch, and see structure examples. Covers all SEPA countries + Middle East, Asia, and Latin America.",
     "metaKeywords": "IBAN, IBAN number, international bank account number, IBAN format, IBAN structure, SEPA, BBAN, bank codes, IBAN by country, IBAN example, IBAN length",
     "title": "IBAN codes by country",
+    "heading": "Pesquisa <highlight>IBAN</highlight> por país",
     "countries": "countries",
     "sepaMembers": "SEPA members",
     "banksListed": "banks listed",
@@ -520,7 +533,16 @@
     "bankCode": "Bank code",
     "accountNumber": "Account number",
     "sepaCountry": "SEPA country",
-    "characters": "characters"
+    "characters": "characters",
+    "fallbackTitle": "{name} IBAN: {length}-Character Format, Example & Bank Code",
+    "fallbackDescriptionWithBanksSepa": "{name} IBANs are {length} characters and start with {code}. See the {name} IBAN format, example, BBAN structure, and codes for {bankCount}+ banks. SEPA member — fast EUR transfers.",
+    "fallbackDescriptionWithBanksNonSepa": "{name} IBANs are {length} characters and start with {code}. See the {name} IBAN format, example, BBAN structure, and codes for {bankCount}+ banks. Used for {currency} transfers.",
+    "fallbackDescriptionNoBanksSepa": "{name} IBANs are {length} characters and start with {code}. See the {name} IBAN format, example, and BBAN structure. SEPA member — fast EUR transfers.",
+    "fallbackDescriptionNoBanksNonSepa": "{name} IBANs are {length} characters and start with {code}. See the {name} IBAN format, example, and BBAN structure. Used for {currency} transfers.",
+    "fallbackOgTitle": "{name} IBAN: {length}-Character Format & Example ({year})",
+    "fallbackOgDescSepa": "{name} IBAN: {length} characters, {code} prefix, SEPA member. Real examples, structure breakdown, and bank codes.",
+    "fallbackOgDescNonSepa": "{name} IBAN: {length} characters, {code} prefix. Real examples, structure breakdown, and bank codes.",
+    "fallbackKeywords": "{name} IBAN, IBAN {name}, {code} IBAN format, {name} IBAN number, IBAN {code}, {name} IBAN example, {name} bank code, {name} BBAN, {currency} IBAN"
   },
   "swiftCodes": {
     "metaTitle": "SWIFT/BIC Code Lookup — 11,000+ Banks in 100+ Countries (2026)",
@@ -574,7 +596,12 @@
     "compareDescription": "Compare exchange rates and fees to find the cheapest way to transfer.",
     "compareProviders": "Compare providers",
     "home": "Home",
-    "swiftCodesLabel": "SWIFT Codes"
+    "swiftCodesLabel": "SWIFT Codes",
+    "fallbackTitle": "{name} SWIFT/BIC Codes — All {bankCount} Banks ({year})",
+    "fallbackDescription": "Find SWIFT/BIC codes for all {bankCount} banks in {name}. Free lookup with branch codes, city, and address — verified for international wire transfers to {name}.",
+    "fallbackKeywords": "{name} SWIFT code, {name} BIC code, {code} SWIFT, banks in {name}, wire transfer {name}, bank swift code {name}, swift code for {name} banks",
+    "fallbackOgTitle": "{name} SWIFT/BIC Codes — All {bankCount} Banks",
+    "fallbackOgDescription": "Free SWIFT/BIC code lookup for {bankCount} banks in {name}. Verified codes with branch details for wire transfers."
   },
   "remittanceCostIndex": {
     "metaTitle": "2026 Remittance Cost Index — Which Provider Is Actually Cheapest?",
@@ -878,5 +905,14 @@
     "convert": "Convert",
     "fromCurrency": "From currency",
     "toCurrency": "To currency"
+  },
+  "rateHistorySlug": {
+    "fallbackTitle": "{from} to {to} Exchange Rate History — Provider Rate Trends ({month} {year})",
+    "fallbackDescription": "Track {fromName} to {toName} exchange rate history. Compare daily rates from {providerCount}+ providers over {totalDays} days. Find the best time to send {from} to {to}.",
+    "fallbackKeywords": "{from} to {to} rate history, {from} {to} exchange rate, {fromName} to {toName} rate trend, best time to send {from} to {to}, {from} {to} chart"
+  },
+  "authorSlug": {
+    "fallbackTitle": "{name} — {role} at SendMoneyCompare",
+    "fallbackOgTitle": "{name} — {role}"
   }
 }

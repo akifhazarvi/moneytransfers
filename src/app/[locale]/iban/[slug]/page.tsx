@@ -78,15 +78,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const formattedExample = exampleIban.replace(/(.{4})/g, "$1 ").trim();
 
   const override = locale === "en" ? ibanMetaOverrides[slug] : undefined;
-  const title = override?.title ?? `${name} IBAN: ${country.ibanLength}-Character Format, Example & Bank Code`;
-  const description = override?.description ?? `${name} IBANs are ${country.ibanLength} characters and start with ${country.countryCode}. See the ${name} IBAN format, example, BBAN structure${country.banks.length > 0 ? `, and codes for ${country.banks.length}+ banks` : ""}${country.sepa ? ". SEPA member — fast EUR transfers." : `. Used for ${country.currency} transfers.`} How ${name.includes("Swiss") ? "Swiss" : name} account numbers differ from IBANs.`;
-  const ogTitle = override?.ogTitle ?? `${name} IBAN: ${country.ibanLength}-Character Format & Example (${year})`;
-  const ogDesc = override?.ogDesc ?? `${name} IBAN: ${country.ibanLength} characters, ${country.countryCode} prefix${country.sepa ? ", SEPA member" : ""}. Real examples, structure breakdown, and bank codes.`;
+  const hasBanks = country.banks.length > 0;
+  const descKey = country.sepa
+    ? (hasBanks ? "fallbackDescriptionWithBanksSepa" : "fallbackDescriptionNoBanksSepa")
+    : (hasBanks ? "fallbackDescriptionWithBanksNonSepa" : "fallbackDescriptionNoBanksNonSepa");
+  const ogDescKey = country.sepa ? "fallbackOgDescSepa" : "fallbackOgDescNonSepa";
+  const tplParams = {
+    name,
+    length: country.ibanLength,
+    code: country.countryCode,
+    bankCount: country.banks.length,
+    currency: country.currency,
+    year,
+  };
+
+  const title = override?.title ?? t("fallbackTitle", tplParams);
+  const description = override?.description ?? t(descKey, tplParams);
+  const ogTitle = override?.ogTitle ?? t("fallbackOgTitle", tplParams);
+  const ogDesc = override?.ogDesc ?? t(ogDescKey, tplParams);
+  const keywords = t("fallbackKeywords", tplParams);
 
   return {
     title,
     description,
-    keywords: `${name} IBAN, IBAN ${name}, ${country.countryCode} IBAN format, ${name} IBAN number, IBAN ${country.countryCode}, ${name} IBAN example, ${name} bank code, ${name} BBAN, ${country.currency} IBAN`,
+    keywords,
     alternates: getAlternates(`iban/${slug}`, locale),
     openGraph: {
       title: ogTitle,

@@ -187,14 +187,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "swiftCodesSlug" });
   const country = getSwiftCountryBySlug(slug);
   if (!country) return {};
+  const tplParams = {
+    name: country.name,
+    bankCount: country.bankCount,
+    code: country.countryCode,
+    year: new Date().getFullYear(),
+  };
   return {
-    title: `${country.name} SWIFT/BIC Codes — All ${country.bankCount} Banks (${new Date().getFullYear()})`,
-    description: `Find SWIFT/BIC codes for all ${country.bankCount} banks in ${country.name}. Free lookup with branch codes, city, and address — verified for international wire transfers to ${country.name}.`,
-    keywords: `${country.name} SWIFT code, ${country.name} BIC code, ${country.countryCode} SWIFT, banks in ${country.name}, wire transfer ${country.name}, bank swift code ${country.name}, swift code for ${country.name} banks`,
+    title: t("fallbackTitle", tplParams),
+    description: t("fallbackDescription", tplParams),
+    keywords: t("fallbackKeywords", tplParams),
     alternates: getAlternates(`swift-codes/${slug}`, locale),
     openGraph: {
-      title: `${country.name} SWIFT/BIC Codes — All ${country.bankCount} Banks`,
-      description: `Free SWIFT/BIC code lookup for ${country.bankCount} banks in ${country.name}. Verified codes with branch details for wire transfers.`,
+      title: t("fallbackOgTitle", tplParams),
+      description: t("fallbackOgDescription", tplParams),
       url: `https://sendmoneycompare.com/swift-codes/${slug}`,
     },
     robots: indexedSwiftCountries.has(slug) ? undefined : { index: false, follow: true },

@@ -439,7 +439,19 @@
     "speed": "Rapidité",
     "sendWith": "Envoyer avec {providerName}",
     "savings": "Vous économisez {amount} par rapport au prestataire le plus cher",
-    "viewAllProviders": "Voir tous les prestataires pour ce corridor"
+    "viewAllProviders": "Voir tous les prestataires pour ce corridor",
+    "fallbackTitleCurrency": "Meilleurs taux {from} vers {to} — Comparez 15+ prestataires ({year})",
+    "fallbackTitleCountry": "Moyen le moins cher d'envoyer de l'argent vers {toCountry} — Comparez les taux en {toCurrency} ({year})",
+    "fallbackTitleCorridor": "Moyen le moins cher d'envoyer de l'argent de {fromCountry} vers {toCountry} — {from}→{to} ({year})",
+    "fallbackDescriptionCurrency": "Taux en direct {from} vers {to} de 15+ prestataires — mis à jour toutes les 6h. Comparez les frais et voyez qui vous donne le plus de {to}.",
+    "fallbackDescriptionCountry": "Taux en {toCurrency} de 15+ prestataires — mis à jour toutes les 6h. Comparez frais, rapidité et options de livraison pour envoyer de l'argent vers {toCountry}.",
+    "fallbackDescriptionCorridor": "Taux {from} vers {to} de 15+ prestataires — mis à jour toutes les 6h. Comparez les frais et voyez qui livre le plus à {toCountry}.",
+    "fallbackOgTitleCurrency": "{from}→{to} : qui offre le meilleur taux ?",
+    "fallbackOgTitleCountry": "Envoyer de l'argent vers {toCountry} — qui est le moins cher en ce moment ?",
+    "fallbackOgTitleCorridor": "{fromCountry}→{toCountry} : quel prestataire vous donne le plus ?",
+    "fallbackKeywordsCurrency": "{from} vers {to}, taux de change {from} {to}, convertir {from} en {to}, meilleur taux {from} vers {to}, {from} {to} aujourd'hui",
+    "fallbackKeywordsCountry": "envoyer de l'argent vers {toCountry}, moyen le moins cher d'envoyer de l'argent vers {toCountry}, comment envoyer de l'argent vers {toCountry}, meilleur moyen d'envoyer de l'argent vers {toCountry}, taux de change {toCurrency}, transfert vers {toCountry}, envois de fonds {toCountry}",
+    "fallbackKeywordsCorridor": "envoyer de l'argent de {fromCountry} vers {toCountry}, {from} vers {to}, moyen le moins cher d'envoyer de l'argent vers {toCountry}, meilleur moyen d'envoyer de l'argent de {fromCountry} vers {toCountry}, transfert {toCountry}, taux de change {toCurrency}"
   },
   "currencyConverter": {
     "metaTitle": "Convertisseur de Devises Gratuit — Taux Interbancaires Réels, Pas Ceux des Banques (2026)",
@@ -483,6 +495,7 @@
     "metaDescription": "Recherche IBAN gratuite pour 89+ pays. Entrez n'importe quel IBAN pour valider le format, décoder banque et agence, et voir des exemples de structure. Couvre tous les pays SEPA + Moyen-Orient, Asie et Amérique latine.",
     "metaKeywords": "IBAN, numéro de compte bancaire international, format IBAN, structure IBAN, SEPA, BBAN, codes bancaires, IBAN par pays",
     "title": "Codes IBAN par pays",
+    "heading": "Recherche <highlight>IBAN</highlight> par pays",
     "countries": "pays",
     "sepaMembers": "membres SEPA",
     "banksListed": "banques répertoriées",
@@ -520,7 +533,16 @@
     "bankCode": "Code banque",
     "accountNumber": "Numéro de compte",
     "sepaCountry": "Pays SEPA",
-    "characters": "caractères"
+    "characters": "caractères",
+    "fallbackTitle": "IBAN {name} : format à {length} caractères, exemple et code bancaire",
+    "fallbackDescriptionWithBanksSepa": "Les IBAN {name} comptent {length} caractères et commencent par {code}. Consultez le format IBAN {name}, un exemple, la structure BBAN et les codes de {bankCount}+ banques. Pays SEPA — virements rapides en EUR.",
+    "fallbackDescriptionWithBanksNonSepa": "Les IBAN {name} comptent {length} caractères et commencent par {code}. Consultez le format IBAN {name}, un exemple, la structure BBAN et les codes de {bankCount}+ banques. Utilisé pour les virements en {currency}.",
+    "fallbackDescriptionNoBanksSepa": "Les IBAN {name} comptent {length} caractères et commencent par {code}. Consultez le format IBAN {name}, un exemple et la structure BBAN. Pays SEPA — virements rapides en EUR.",
+    "fallbackDescriptionNoBanksNonSepa": "Les IBAN {name} comptent {length} caractères et commencent par {code}. Consultez le format IBAN {name}, un exemple et la structure BBAN. Utilisé pour les virements en {currency}.",
+    "fallbackOgTitle": "IBAN {name} : format à {length} caractères et exemple ({year})",
+    "fallbackOgDescSepa": "IBAN {name} : {length} caractères, préfixe {code}, pays SEPA. Exemples réels, décomposition de la structure et codes bancaires.",
+    "fallbackOgDescNonSepa": "IBAN {name} : {length} caractères, préfixe {code}. Exemples réels, décomposition de la structure et codes bancaires.",
+    "fallbackKeywords": "IBAN {name}, IBAN de {name}, format IBAN {code}, numéro IBAN {name}, IBAN {code}, exemple IBAN {name}, code banque {name}, BBAN {name}, IBAN {currency}"
   },
   "swiftCodes": {
     "metaTitle": "Codes SWIFT/BIC — 11 000+ Banques dans 100+ Pays (2026)",
@@ -574,7 +596,12 @@
     "compareDescription": "Comparez les taux de change et les frais pour trouver le moyen le moins cher de transférer.",
     "compareProviders": "Comparer les prestataires",
     "home": "Accueil",
-    "swiftCodesLabel": "Codes SWIFT"
+    "swiftCodesLabel": "Codes SWIFT",
+    "fallbackTitle": "Codes SWIFT/BIC de {name} — Toutes les {bankCount} banques ({year})",
+    "fallbackDescription": "Trouvez les codes SWIFT/BIC pour les {bankCount} banques en {name}. Recherche gratuite avec codes d'agence, ville et adresse — vérifiés pour les virements internationaux vers {name}.",
+    "fallbackKeywords": "code SWIFT {name}, code BIC {name}, {code} SWIFT, banques en {name}, virement bancaire {name}, code swift banque {name}, code swift pour banques {name}",
+    "fallbackOgTitle": "Codes SWIFT/BIC de {name} — Toutes les {bankCount} banques",
+    "fallbackOgDescription": "Recherche gratuite de codes SWIFT/BIC pour {bankCount} banques en {name}. Codes vérifiés avec détails d'agence pour les virements."
   },
   "remittanceCostIndex": {
     "metaTitle": "Indice du Coût des Transferts 2026 — Quel Prestataire Est Vraiment le Moins Cher ?",
@@ -878,5 +905,14 @@
     "convert": "Convertir",
     "fromCurrency": "Devise d'origine",
     "toCurrency": "Devise de destination"
+  },
+  "rateHistorySlug": {
+    "fallbackTitle": "Historique du taux {from} vers {to} — Tendances des taux ({month} {year})",
+    "fallbackDescription": "Suivez l'historique du taux de change {fromName} vers {toName}. Comparez les taux quotidiens de {providerCount}+ prestataires sur {totalDays} jours. Trouvez le meilleur moment pour envoyer {from} vers {to}.",
+    "fallbackKeywords": "historique taux {from} vers {to}, taux de change {from} {to}, tendance {fromName} vers {toName}, meilleur moment pour envoyer {from} vers {to}, graphique {from} {to}"
+  },
+  "authorSlug": {
+    "fallbackTitle": "{name} — {role} chez SendMoneyCompare",
+    "fallbackOgTitle": "{name} — {role}"
   }
 }

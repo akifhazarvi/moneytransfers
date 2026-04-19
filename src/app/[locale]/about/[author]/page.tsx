@@ -7,7 +7,7 @@ import { authors, getAuthor } from "@/data/authors";
 import { blogPosts } from "@/data/blog-posts";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface Props {
   params: Promise<{ author: string; locale: string }>;
@@ -19,14 +19,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { author: slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "authorSlug" });
   const author = getAuthor(slug);
   if (!author) return { title: "Not Found" };
 
+  const tplParams = { name: author.name, role: author.role };
   return {
-    title: `${author.name} — ${author.role} at SendMoneyCompare`,
+    title: t("fallbackTitle", tplParams),
     description: author.byline,
     openGraph: {
-      title: `${author.name} — ${author.role}`,
+      title: t("fallbackOgTitle", tplParams),
       description: author.byline,
       type: "profile",
     },

@@ -18,7 +18,7 @@ import {
 import { currencies, getProviderName } from "@/data/providers";
 import { getGoUrl } from "@/lib/affiliate";
 import { getAlternates } from "@/lib/i18n-metadata";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 function getCurrencyInfo(code: string) {
   return currencies.find((c) => c.code === code);
@@ -32,6 +32,7 @@ export function generateStaticParams() {
 // ── Metadata ──────────────────────────────────────────────────
 export async function generateMetadata({ params }: { params: Promise<{ pair: string; locale: string }> }): Promise<Metadata> {
   const { pair, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "rateHistorySlug" });
   const insight = getInsightBySlug(pair);
   if (!insight) return {};
 
@@ -39,17 +40,27 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
   const fromInfo = getCurrencyInfo(from);
   const toInfo = getCurrencyInfo(to);
   const year = new Date().getFullYear();
-  const month = new Date().toLocaleDateString("en-US", { month: "long" });
+  const month = new Date().toLocaleDateString(locale === "en" ? "en-US" : locale, { month: "long" });
 
-  const title = `${from} to ${to} Exchange Rate History — Provider Rate Trends (${month} ${year})`;
-  const description = `Track ${fromInfo?.name || from} to ${toInfo?.name || to} exchange rate history. Compare daily rates from ${Object.keys(insight.sparklines).length}+ providers over ${insight.totalDays} days. Find the best time to send ${from} to ${to}.`;
+  const tplParams = {
+    from,
+    to,
+    fromName: fromInfo?.name || from,
+    toName: toInfo?.name || to,
+    providerCount: Object.keys(insight.sparklines).length,
+    totalDays: insight.totalDays,
+    year,
+    month,
+  };
+  const title = t("fallbackTitle", tplParams);
+  const description = t("fallbackDescription", tplParams);
 
   return {
     title,
     description,
     alternates: getAlternates(`exchange-rates/history/${pair}`, locale),
     openGraph: { title, description, url: `https://sendmoneycompare.com/exchange-rates/history/${pair}` },
-    keywords: `${from} to ${to} rate history, ${from} ${to} exchange rate, ${fromInfo?.name} to ${toInfo?.name} rate trend, best time to send ${from} to ${to}, ${from} ${to} chart`,
+    keywords: t("fallbackKeywords", tplParams),
   };
 }
 
