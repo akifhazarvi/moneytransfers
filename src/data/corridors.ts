@@ -3385,6 +3385,508 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+
+  // ═════════════════════════════════════════════════════════════════
+  // Nordic + EU sender corridors — added Apr 19 2026 based on GSC signal
+  // showing Danish/Finnish/Norwegian/Swedish/Irish/Greek/Czech users
+  // searching but no dedicated page existing.
+  // ═════════════════════════════════════════════════════════════════
+
+  {
+    slug: "denmark-to-philippines",
+    fromCountry: "Denmark",
+    toCountry: "Philippines",
+    fromCurrency: "DKK",
+    toCurrency: "PHP",
+    fromFlag: "🇩🇰",
+    toFlag: "🇵🇭",
+    sampleAmount: 5000,
+    intro:
+      "The Philippines received USD 39.6 billion in remittances in 2024 — the 4th largest recipient in the world — and the Nordic diaspora, including Danish-Filipino families and Filipino healthcare workers in Denmark, is a small but steadily growing part of that flow. Choosing the right provider on this corridor can mean PHP 500–1,500 more for your recipient on a DKK 5,000 transfer.",
+    context:
+      "Denmark is not a top-10 source country for Philippine remittances (the US alone accounts for 40%), but competition on the DKK→PHP route has intensified since Wise, Remitly, Panda Remit, and WorldRemit all expanded Nordic coverage in 2024–2025. Specialist providers typically offer rates within 1–2% of the mid-market rate, while traditional Danish banks (Danske Bank, Nordea, Jyske) apply 3–5% markups plus fixed SWIFT fees of DKK 50–200 per transfer. Panda Remit offers zero fees on first transfers, and Wise consistently delivers the highest PHP amount for transfers above DKK 3,000. On a DKK 5,000 send, the gap between the cheapest and most expensive provider can exceed PHP 1,500.",
+    feesNote:
+      "Transfer fees from Denmark to the Philippines range from zero (Panda Remit on first transfer; Wise for certain bank-debit payment methods) to DKK 50–200 for bank-to-bank SWIFT transfers. The real cost lies in the exchange rate markup: even a 1% difference on DKK 5,000 means PHP 300+ less for your recipient. Always compare the total PHP amount received rather than the advertised fee. Credit card funding adds DKK 20–60 compared to bank transfer or MobilePay funding.",
+    deliveryNote:
+      "GCash wallet delivery is near-instant (usually under 30 minutes) via Remitly and Wise — GCash has over 81 million active users in the Philippines, making it the dominant mobile money rail. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within 1–3 business days via InstaPay or PESONet. Cash pickup through Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours at over 9,000 locations nationwide. Funding with MobilePay or a Danish debit card is faster than bank transfer (which can add 1–2 days).",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Denmark to the Philippines?",
+        a: "Wise and Remitly consistently deliver the most Philippine pesos per Danish krone on this corridor. Wise uses the real mid-market exchange rate — the same rate shown on Google and Reuters — with a small transparent fee of around 1–1.5%, meaning the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, saving DKK 50–100 on your initial send. Panda Remit charges zero fees on first transfers and then DKK 10–40 thereafter, making it strong for occasional senders. For a DKK 5,000 transfer, the gap between the cheapest specialist provider and a Danish bank can exceed PHP 1,500–2,000. Avoid sending via Danske Bank or Nordea unless you specifically need the bank's international wire infrastructure — their 3–5% exchange rate markup plus fixed fees compounds quickly.",
+      },
+      {
+        q: "Can I send money to GCash from Denmark?",
+        a: "Yes. Remitly and Wise both support direct GCash delivery from Denmark — the recipient's funds arrive in their GCash wallet within 30 minutes in most cases. GCash is the Philippines' dominant mobile money rail with 81+ million users and is the fastest and most convenient delivery method for smaller amounts. To send, your recipient needs an active GCash account linked to their Philippine mobile number; you simply enter that mobile number when creating the transfer. GCash funds can be used immediately for purchases, bill payments, bank transfers, or cash withdrawal at any GCash partner outlet. Note that GCash cannot receive international bank transfers directly — you must go through a licensed remittance partner like Remitly or Wise, not a direct bank wire.",
+      },
+      {
+        q: "How long does a transfer from Denmark to the Philippines take?",
+        a: "Speed depends on the delivery method. GCash wallet delivery is near-instant via Remitly or Wise — funds usually arrive within minutes to 30 minutes. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is typically available within 1–2 hours once processed. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within 1–3 business days via the Philippines' InstaPay and PESONet domestic rails. Traditional SWIFT wire transfers from a Danish bank are the slowest option at 2–5 business days because of correspondent banking intermediaries. Funding your transfer with MobilePay or a Danish debit card rather than a SEPA bank transfer can cut 1–2 days off the total time — SEPA transfers need to clear before the provider sends the money onward.",
+      },
+      {
+        q: "Is there a limit on remittances from Denmark to the Philippines?",
+        a: "Most providers allow DKK 10,000–100,000 per transaction, with higher limits available after full identity verification. Wise allows verified accounts to send up to DKK 6,000,000 per transfer. On the Philippine side, the Bangko Sentral ng Pilipinas (BSP) does not cap inbound personal remittances — there is no upper limit on how much a Filipino can receive from abroad. Under Danish and EU anti-money-laundering rules, transfers above DKK 75,000 (EUR 10,000) may require additional source-of-funds documentation. GCash has its own daily receive limit of PHP 500,000 (~DKK 60,000); for larger amounts, bank deposit is more practical.",
+      },
+      {
+        q: "Is the Philippine peso rate stable against DKK?",
+        a: "PHP is moderately volatile against DKK — rates can move 1–3% within a week based on Bangko Sentral ng Pilipinas (BSP) policy, US dollar strength (DKK is effectively pegged to EUR, and PHP tracks USD), and domestic Philippine inflation. In 2024–2025 the peso came under pressure from the Philippines' balance-of-payments deficit and BSP's tightening cycle. For regular senders, setting a rate alert via a specialist provider can save 2–5% by timing the transfer. If you're making a large one-off transfer (DKK 20,000+), it's worth comparing rates on the specific day you send — the gap between the best and worst provider exchange rate often exceeds the fee difference.",
+      },
+    ],
+  },
+
+  {
+    slug: "denmark-to-colombia",
+    fromCountry: "Denmark",
+    toCountry: "Colombia",
+    fromCurrency: "DKK",
+    toCurrency: "COP",
+    fromFlag: "🇩🇰",
+    toFlag: "🇨🇴",
+    sampleAmount: 5000,
+    intro:
+      "Colombia received USD 11.85 billion in remittances in 2024, making it the second-largest recipient in Latin America after Mexico. Denmark is not among Colombia's top source countries, but a growing community of Colombian-Danish families, Danish professionals in Colombia's energy and tech sectors, and Colombian students in Denmark send regularly on this corridor.",
+    context:
+      "The DKK→COP route is a niche corridor with limited specialist provider presence, which means prices vary more widely than on heavily-trafficked routes. Wise and Remitly both support the pair, typically offering exchange rates within 1.5–2% of the mid-market rate. Traditional Danish banks apply 4–6% markups and may charge DKK 150–300 in SWIFT fees — on a DKK 5,000 transfer that gap can exceed COP 100,000 (roughly USD 25). Colombia's formal banking system uses ACH (Cámara de Compensación Electrónica Nacional Automatizada) for real-time transfers between domestic banks once funds land.",
+    feesNote:
+      "Fees range from DKK 30 (Wise for bank-funded transfers) to DKK 200+ at Danish banks. The exchange rate markup dominates the total cost: a 2% difference on a DKK 5,000 send is COP 200,000+ less for your recipient. Western Union and MoneyGram charge DKK 30–80 for online transfers but apply higher rate markups (3–5%) offset by the convenience of their cash pickup network.",
+    deliveryNote:
+      "Bank deposits to Colombian banks (Bancolombia, Davivienda, BBVA Colombia, Banco de Bogotá) typically arrive within 1–3 business days. Cash pickup is widely available through Efecty, Western Union, and MoneyGram networks — over 10,000 locations nationwide including small towns. Digital wallets like Nequi and Daviplata are increasingly supported by specialist providers for real-time delivery (under 30 minutes), though coverage from Denmark is still limited.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Denmark to Colombia?",
+        a: "Wise is the most cost-effective option on the DKK→COP corridor for most transfer sizes. Wise uses the real mid-market exchange rate with a transparent fee of around 1.2–1.8%, meaning the quoted total is what you pay — no hidden markup. Remitly is competitive and often runs promotional first-transfer offers. For a DKK 5,000 send, Wise typically delivers COP 30,000–100,000 more than a traditional Danish bank. If your recipient needs cash and doesn't have a bank account, Western Union and MoneyGram have the widest pickup network but charge 3–5% in combined fees and rate markup. Avoid bank wire transfers for amounts under DKK 10,000 — the fixed fees make them uncompetitive.",
+      },
+      {
+        q: "Can I send money directly to Nequi or Daviplata from Denmark?",
+        a: "Direct Nequi or Daviplata delivery from Denmark is limited. Most specialist providers deliver via traditional bank deposit to Bancolombia, Davivienda, or BBVA Colombia — from there, your recipient can transfer funds to their Nequi (a Bancolombia product) or Daviplata (Davivienda product) wallet instantly using Colombia's domestic real-time rails. Some providers like Remitly and WorldRemit support direct Colombian digital wallet delivery on limited corridors; check at the time of sending. If your recipient already has a Bancolombia account linked to Nequi, a direct bank deposit is effectively the same as sending to Nequi.",
+      },
+      {
+        q: "How long do transfers from Denmark to Colombia take?",
+        a: "Bank deposits typically arrive within 1–3 business days. Cash pickup through Western Union, MoneyGram, or Efecty is available within 1–2 hours of sending. Wise and Remitly are generally fastest at 1–2 business days via bank deposit. Traditional Danish bank SWIFT wires take 2–5 business days because the transfer must route through US or European correspondent banks before reaching Colombia. Funding with a Danish debit card or MobilePay rather than a SEPA bank transfer can save 1–2 days.",
+      },
+      {
+        q: "Do I need to pay tax on money sent to Colombia?",
+        a: "In Denmark, sending money to family abroad is not a taxable event for the sender — personal remittances are not subject to Danish gift tax if kept within standard family support amounts. For transfers above DKK 75,000 per year to a non-family recipient, you may trigger Danish gift tax reporting. On the Colombian side, inbound personal remittances are exempt from income tax under Article 257 of the Estatuto Tributario for family support transfers. If the recipient receives transfers exceeding USD 10,000 in a single operation, Colombian banks report it to DIAN (the tax authority) — but this is a reporting requirement, not a tax. For business-related transfers, different rules apply; consult a tax advisor.",
+      },
+      {
+        q: "Is COP a stable currency?",
+        a: "The Colombian peso is a floating currency managed by Banco de la República (Colombia's central bank) under an inflation-targeting regime. COP is moderately volatile — rates can swing 5–8% over a quarter based on oil prices (a major Colombian export), US Federal Reserve policy, and domestic political events. In 2024–2025 COP strengthened on the back of higher-than-expected oil revenues but remains sensitive to global risk sentiment. For regular senders, setting a rate alert can save 2–4% by timing transfers. For large one-off transfers, consider comparing rates from multiple providers on the day you send.",
+      },
+    ],
+  },
+
+  {
+    slug: "denmark-to-malaysia",
+    fromCountry: "Denmark",
+    toCountry: "Malaysia",
+    fromCurrency: "DKK",
+    toCurrency: "MYR",
+    fromFlag: "🇩🇰",
+    toFlag: "🇲🇾",
+    sampleAmount: 3000,
+    intro:
+      "The DKK→MYR corridor serves Danish expats in Kuala Lumpur and Penang (often in tech, energy, or tourism), Malaysian students studying in Copenhagen and Aarhus, and a small Malaysian diaspora in Denmark. While niche, it's a well-served corridor thanks to Malaysia's modern banking infrastructure and Bank Negara's regulatory transparency.",
+    context:
+      "Wise, Remitly, Revolut, and Instarem all support DKK→MYR transfers with competitive rates — typically 1–2% from the mid-market. Danish banks (Danske Bank, Nordea, Jyske) apply higher markups of 3–5% plus SWIFT fees of DKK 100–250. Malaysia's ringgit (MYR) is a managed float anchored by Bank Negara Malaysia, making FX rates more predictable than emerging-market peers. The destination side uses DuitNow, Malaysia's real-time interbank payment system, which enables near-instant delivery via supporting fintech providers.",
+    feesNote:
+      "Transfer fees from Denmark to Malaysia range from DKK 30 (Wise for bank-funded transfers) to DKK 200+ at traditional banks. The exchange rate markup is the larger cost — even 1% on DKK 3,000 is MYR 15+ less for your recipient. Revolut offers competitive rates for Revolut-to-Revolut transfers but applies up to 1.5% markup on weekend/holiday transactions and caps free international transfers at limits that vary by plan tier.",
+    deliveryNote:
+      "Bank deposits to Malaysian banks (Maybank, CIMB, Public Bank, Hong Leong) arrive within 1–3 business days via SWIFT. Providers integrated with DuitNow (Malaysia's real-time rails, operated by PayNet) can deliver in seconds once funds are converted. Wise typically delivers within 1–2 business days; Instarem and Revolut often deliver same-day for bank-to-bank transfers. Malaysia has limited cash pickup infrastructure compared to the Philippines or Pakistan — bank deposit is the dominant delivery method.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Denmark to Malaysia?",
+        a: "Wise is typically cheapest for DKK→MYR transfers above DKK 1,000, using the real mid-market exchange rate with a 0.8–1.2% fee. Revolut is competitive for smaller amounts if both sender and recipient have Revolut accounts — transfers between Revolut users are fee-free within monthly plan limits. Instarem offers strong rates for students and regular senders, with promotional zero-fee transfers for new users. For a DKK 3,000 transfer, the gap between the cheapest specialist and a Danish bank typically exceeds MYR 30–60. Avoid sending via Danske Bank unless the SWIFT route is required for business reasons.",
+      },
+      {
+        q: "Can I send money to a Malaysian mobile wallet like Touch 'n Go eWallet?",
+        a: "Direct delivery to Touch 'n Go eWallet from Denmark is limited as of 2026. Touch 'n Go operates a GOremit remittance platform that supports transfers from 50+ countries, but Denmark coverage is not yet fully established. For now, the practical approach is bank deposit to the recipient's Malaysian bank account (Maybank, CIMB, Public Bank, Hong Leong) — from there they can transfer funds to Touch 'n Go, GrabPay, or Boost via Malaysia's DuitNow QR system within seconds. Some providers like Instarem and Wise advertise expanding mobile wallet coverage; check available delivery options at the time of sending.",
+      },
+      {
+        q: "How does DuitNow affect transfer speed?",
+        a: "DuitNow is Malaysia's real-time interbank payment network operated by PayNet. Providers that have integrated with DuitNow (including Wise and Instarem on certain corridors) can deliver funds to the recipient's Malaysian bank account in seconds once the sender's money has been received and converted. For traditional SWIFT transfers from Danish banks, DuitNow is not relevant — the funds arrive via the older cross-border correspondent banking system, which takes 1–3 business days. When comparing providers, look for ones that explicitly mention DuitNow or 'real-time' delivery to Malaysian banks.",
+      },
+      {
+        q: "Are there currency controls in Malaysia?",
+        a: "Bank Negara Malaysia imposes modest foreign exchange administration rules on residents but places no caps on inbound remittances to resident accounts. Personal family support transfers of any reasonable size are permitted without restriction. For large transfers above MYR 1 million (roughly DKK 1,500,000), the receiving bank may request documentation confirming the source and purpose of funds. Student support transfers and regular family remittances are standard and well understood by Malaysian banks. Non-resident accounts (for Danish expats holding Malaysian accounts) have separate rules — consult your bank for specifics.",
+      },
+      {
+        q: "Is the ringgit a volatile currency?",
+        a: "MYR is a managed float under Bank Negara Malaysia, which means it's more stable than most emerging-market currencies but still subject to external pressure. Typical weekly volatility is 0.5–1.5%. Major drivers include oil and palm oil prices (Malaysia is a significant exporter of both), US dollar strength, and regional capital flows. In 2024–2025 MYR strengthened gradually against the USD as Bank Negara held rates steady while the Federal Reserve cut. For regular senders, rate alerts and timing around Bank Negara policy decisions can save 1–2%.",
+      },
+    ],
+  },
+
+  {
+    slug: "finland-to-philippines",
+    fromCountry: "Finland",
+    toCountry: "Philippines",
+    fromCurrency: "EUR",
+    toCurrency: "PHP",
+    fromFlag: "🇫🇮",
+    toFlag: "🇵🇭",
+    sampleAmount: 500,
+    intro:
+      "Finland hosts a growing community of Filipino healthcare workers, Finnish-Filipino families, and Filipino students. The Philippines received USD 39.6 billion in remittances in 2024, and while Finland is not a top-10 source country, the Nordic-Asian corridor has become far more competitive since 2024 with Wise, Remitly, and Panda Remit all expanding EUR→PHP coverage.",
+    context:
+      "The EUR→PHP route is one of the most competitive in the specialist provider market — Wise, Remitly, Panda Remit, WorldRemit, and TransferGo all actively compete. Exchange rate markups on this corridor can be as low as 0.6% with Wise, compared to 3–5% at traditional Finnish banks (Nordea, OP, Danske). On a EUR 500 transfer, that's the difference between PHP 29,500 (Wise) and PHP 27,500 (bank) landing with your recipient — PHP 2,000 matters in daily Filipino household budgets. Finland benefits from SEPA sender-side infrastructure, meaning the transfer to the provider's account takes seconds to a few hours, not days.",
+    feesNote:
+      "Fees range from zero (Panda Remit on first transfer; Wise for SEPA-funded transfers) to EUR 8–15 at traditional Finnish banks. Remitly typically charges EUR 1.99–3.99 for express delivery. The exchange rate markup is where most of the real cost hides: check the total PHP amount received rather than just the fee. Credit card funding adds EUR 3–8 compared to SEPA bank transfer.",
+    deliveryNote:
+      "GCash wallet delivery is near-instant (usually under 30 minutes) via Remitly, Wise, and WorldRemit — GCash has 81+ million users in the Philippines and is the dominant rail for smaller monthly remittances. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via InstaPay. Cash pickup at Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours across 9,000+ locations. Wise reports that 70% of its transfers complete in under 20 seconds on this corridor.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Finland to the Philippines?",
+        a: "Wise and Remitly consistently deliver the most Philippine pesos per euro on this corridor. Wise uses the mid-market rate with a transparent 0.6–1% fee and is typically cheapest for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, making it strong for new users. Panda Remit charges zero fees on first transfers and then EUR 1.99–5.99 thereafter. For a EUR 500 transfer, the gap between the cheapest specialist and a Finnish bank can exceed PHP 2,000 — a meaningful amount for daily household expenses in the Philippines. Avoid Nordea or OP for anything under EUR 1,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
+      },
+      {
+        q: "Can I send money to GCash from Finland?",
+        a: "Yes. Remitly, Wise, and WorldRemit all support direct GCash delivery from Finland — funds typically arrive in the recipient's GCash wallet within 30 minutes. GCash is the dominant mobile money rail in the Philippines with 81+ million users and is the fastest delivery method for small-to-medium remittances. Your recipient needs an active GCash account linked to their Philippine mobile number. Note: GCash cannot receive international bank transfers directly — you must use a licensed remittance partner. GCash funds can be used immediately for purchases, bills, bank transfers, or cash withdrawal at any GCash partner.",
+      },
+      {
+        q: "How long does a transfer from Finland to the Philippines take?",
+        a: "Speed depends on the delivery method. GCash wallet delivery is near-instant — often under 30 minutes via Remitly or Wise. Wise reports 70% of transfers on major EUR→PHP routes completing in under 20 seconds. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is typically available within 1–2 hours. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day. Traditional SWIFT wires from Finnish banks are slower at 2–5 business days. SEPA funding from your Finnish bank to the provider is near-instant thanks to SEPA Instant Credit Transfer, so there's no upfront delay.",
+      },
+      {
+        q: "What documents do I need to send money to the Philippines?",
+        a: "All regulated providers require identity verification under EU anti-money-laundering rules (5AMLD). For your first transfer, you'll typically need a valid photo ID (Finnish passport, ID card, or driving licence) plus your Finnish personal identity number (henkilötunnus). Most providers also require proof of address, which can be a utility bill or bank statement. Subsequent transfers to the same recipient go through faster once you're verified. For transfers above EUR 10,000, additional documentation on source of funds may be requested. These are regulatory requirements, not arbitrary — they apply equally across all licensed providers in the EU.",
+      },
+      {
+        q: "Is the Philippine peso a volatile currency?",
+        a: "PHP is moderately volatile — rates can move 1–3% within a week. Key drivers include Bangko Sentral ng Pilipinas (BSP) policy, US dollar strength (PHP tracks USD more than EUR), and domestic inflation. In 2024–2025 the peso came under pressure from the Philippines' balance-of-payments deficit. For regular senders, setting a rate alert can save 2–5% over a year by timing transfers. For one-off larger transfers (EUR 1,000+), comparing live rates from 3–4 specialist providers on the day you send often yields the biggest savings.",
+      },
+    ],
+  },
+
+  {
+    slug: "norway-to-philippines",
+    fromCountry: "Norway",
+    toCountry: "Philippines",
+    fromCurrency: "NOK",
+    toCurrency: "PHP",
+    fromFlag: "🇳🇴",
+    toFlag: "🇵🇭",
+    sampleAmount: 5000,
+    intro:
+      "Norway hosts one of the larger Nordic Filipino communities — an estimated 20,000 Filipino residents, plus Norwegian-Filipino families and healthcare workers. The Philippines received USD 39.6 billion in remittances in 2024, and the NOK→PHP corridor has become highly competitive since Wise, Paysend, Panda Remit, and Remitly expanded coverage. Wise appears in essentially 100% of NOK→PHP comparison searches in 2025.",
+    context:
+      "Specialist providers dominate this corridor because Norwegian banks (DNB, Nordea, SpareBank 1) charge NOK 50–200 per transfer plus 3–5% exchange rate markup. Wise uses the real mid-market rate with a small transparent fee, and reports 70% of transfers complete in under 20 seconds and 95% within a day. Paysend offers a compelling flat-fee model of NOK 25 regardless of transfer size — which beats percentage-based providers on smaller amounts. Remitly and WorldRemit compete on promotional first-transfer rates. On a NOK 5,000 transfer, the difference between the cheapest specialist and DNB can exceed PHP 500.",
+    feesNote:
+      "Fees range from NOK 25 (Paysend flat) to NOK 200+ at traditional banks. Wise typically charges 0.8–1.2% in total (fee + rate). The real cost difference is the exchange rate markup — a 1% difference on NOK 5,000 equals PHP 260+ less for your recipient. For small transfers (under NOK 1,000), Paysend's NOK 25 flat fee is often the cheapest option; for larger transfers, Wise's percentage pricing takes over.",
+    deliveryNote:
+      "GCash wallet delivery is near-instant (under 30 minutes in most cases) via Remitly, Wise, and WorldRemit. Paysend delivers to major Philippine banks (BDO, BPI, Metrobank, Landbank) within 1–2 business days. Wise reports 70% of transfers completing in under 20 seconds on this corridor. Cash pickup at Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours across 9,000+ locations. Funding with a Norwegian debit card or BankID-backed SEPA transfer is near-instant; funding with a credit card adds cost and occasionally adds a cash-advance fee from your card issuer.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Norway to the Philippines?",
+        a: "Wise is the most cost-effective option for most transfer sizes on the NOK→PHP corridor. Wise uses the real mid-market exchange rate with a small transparent fee of around 0.8–1.2%, and reports that 70% of its transfers on this route complete in under 20 seconds. For transfers under NOK 1,000, Paysend's flat NOK 25 fee often beats percentage-based providers. Remitly frequently runs zero-fee first transfers, which can save NOK 30–50 on your initial send. For a NOK 5,000 transfer, the gap between the cheapest specialist and DNB, Nordea, or SpareBank 1 exceeds PHP 500–800 — a real difference for a Filipino household. Always check the total PHP amount received rather than just the advertised fee.",
+      },
+      {
+        q: "Can I send money to GCash from Norway?",
+        a: "Yes. Remitly, Wise, and WorldRemit support direct GCash delivery from Norway — funds typically arrive in the recipient's GCash wallet within 30 minutes. GCash has 81+ million users in the Philippines and is the fastest and most convenient delivery method for most family remittances. Your recipient needs an active GCash account linked to their Philippine mobile number. GCash funds can be spent immediately at millions of partner merchants, used for bill payments, transferred to bank accounts via InstaPay, or withdrawn as cash at any GCash partner outlet. Direct international bank transfers to GCash are not possible — you must use a licensed remittance partner.",
+      },
+      {
+        q: "Paysend vs Wise: which is cheaper for Norway to Philippines?",
+        a: "It depends on the amount. Paysend charges a flat NOK 25 fee regardless of transfer size, which is attractive for small transfers. Wise charges a percentage-based fee of roughly 0.8–1.2%. At around NOK 2,000–3,000 transfer size, the two converge; below that, Paysend is cheaper (NOK 25 flat beats 0.8–1.2% on small amounts); above that, Wise is typically cheaper because its percentage continues to scale favourably. Both use competitive exchange rates — Wise uses the mid-market rate, Paysend uses a close-to-mid-market rate with a small spread. For a typical NOK 5,000 family remittance, Wise usually delivers more PHP. For NOK 500 or NOK 1,000 transfers, Paysend wins.",
+      },
+      {
+        q: "How long does a transfer from Norway to the Philippines take?",
+        a: "GCash delivery is near-instant — typically under 30 minutes via Remitly or Wise. Wise reports 70% of NOK→PHP transfers complete in under 20 seconds and 95% within one business day. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via the Philippines' InstaPay system. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is available within 1–2 hours across 9,000+ locations. Paysend typically delivers within 1–2 business days. Traditional SWIFT wires from DNB or Nordea take 2–4 business days because of correspondent banking intermediaries.",
+      },
+      {
+        q: "Is Norway part of SEPA for money transfers?",
+        a: "Norway is not an EU member but is part of the European Economic Area (EEA) and fully participates in SEPA. Norwegian banks issue IBANs, and SEPA Credit Transfer and SEPA Instant Credit Transfer work to and from Norwegian accounts for EUR transfers. For NOK-denominated transfers to EUR destinations, SEPA rules apply to the EUR leg, while the NOK→EUR conversion happens at the sending bank or provider. This is why Wise, Paysend, and Remitly can fund Norwegian transfers via SEPA Instant when you pay by bank transfer — the funds arrive at the provider within seconds, letting the onward transfer begin immediately.",
+      },
+    ],
+  },
+
+  {
+    slug: "sweden-to-philippines",
+    fromCountry: "Sweden",
+    toCountry: "Philippines",
+    fromCurrency: "SEK",
+    toCurrency: "PHP",
+    fromFlag: "🇸🇪",
+    toFlag: "🇵🇭",
+    sampleAmount: 5000,
+    intro:
+      "Sweden hosts Swedish-Filipino families, retirees with Filipino partners, and a growing community of Filipino healthcare workers. The Philippines received USD 39.6 billion in remittances in 2024 — the 4th largest globally. The SEK→PHP corridor has become especially dynamic in 2025 because the Swedish krona was the best-performing G10 currency (up 16.8% vs the US dollar), meaning the same SEK amount delivered significantly more PHP by year-end than in early 2025.",
+    context:
+      "Remitly, Wise, Panda Remit, WorldRemit, and TransferGo all support SEK→PHP with competitive rates. Wise reports 70% of transfers complete in under 20 seconds on major Nordic corridors. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) apply 3–5% exchange rate markups plus SEK 50–200 SWIFT fees — on a SEK 5,000 transfer, the gap between the cheapest specialist and a bank can exceed PHP 400. Timing matters on this corridor: because the krona was highly volatile in 2024–2025, the exchange rate can shift by 2–4% within a month. Setting a rate alert with a specialist provider is valuable for regular senders.",
+    feesNote:
+      "Fees range from zero (Panda Remit first transfer; Wise for SEPA-funded transfers) to SEK 200+ at banks. Remitly typically charges SEK 15–40 for express delivery. The real cost is in the exchange rate — compare the total PHP received, not the fee. Credit card funding adds SEK 20–60 and may trigger a cash-advance charge from your card issuer.",
+    deliveryNote:
+      "GCash delivery via Remitly or Wise is near-instant — usually under 30 minutes. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via InstaPay. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is available within 1–2 hours. Swedish senders can fund via Swish (Sweden's domestic real-time rail) with some providers — this is near-instant — or via SEPA Instant bank transfer to the provider's EUR account.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Sweden to the Philippines?",
+        a: "Wise and Remitly consistently deliver the most Philippine pesos per Swedish krona. Wise uses the real mid-market exchange rate with a small transparent fee of roughly 0.8–1.2%. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers. Panda Remit charges zero fees on first transfers and then SEK 20–60 thereafter. For a SEK 5,000 transfer, the gap between the cheapest specialist and a Swedish bank (Swedbank, SEB, Nordea) typically exceeds PHP 400. For smaller amounts under SEK 1,000, check whether any provider offers a flat-fee option — percentage pricing usually wins for bigger amounts.",
+      },
+      {
+        q: "When is the best time to send SEK to PHP?",
+        a: "The Swedish krona was exceptionally volatile in 2024–2025 — it gained 16.8% against the US dollar in 2025, making it the best-performing G10 currency. For SEK→PHP senders, this meant meaningfully more PHP delivered per krona by year-end than in early 2025. Timing the market is difficult, but a few patterns help: rates often move after Swedish Riksbank policy announcements, US Federal Reserve decisions, and Bangko Sentral ng Pilipinas (BSP) rate decisions. Setting a rate alert via Wise or Remitly lets you lock in a favourable rate. For Christmas remittances (December is peak season), rates tend to be slightly worse due to high demand — sending in early November often yields more PHP.",
+      },
+      {
+        q: "Can I send money from Sweden to GCash?",
+        a: "Yes. Remitly, Wise, and WorldRemit all support direct GCash delivery from Sweden — funds typically arrive in the recipient's GCash wallet within 30 minutes. GCash has 81+ million users in the Philippines and is the dominant mobile wallet for receiving remittances. Your recipient needs an active GCash account linked to their Philippine mobile number. Direct international bank transfers to GCash are not possible — you must use a licensed remittance partner. Once funds arrive, they can be spent immediately at merchants, used for bills, transferred to bank accounts via InstaPay, or withdrawn as cash.",
+      },
+      {
+        q: "Does Sweden have any remittance tax?",
+        a: "Sweden does not levy a tax on outbound personal remittances from the sender's side — sending money to family abroad is not a taxable event. For unusually large transfers or business-related transfers, standard Swedish gift tax and income tax rules apply. The Philippines does not tax inbound personal remittances for the recipient. For transfers above SEK 15,000 per single transaction (or equivalent), Swedish banks must report under EU 5AMLD anti-money-laundering rules — this is a reporting requirement that does not affect or delay legitimate family support transfers. Providers handle this compliance automatically.",
+      },
+      {
+        q: "Can I use Swish to fund a money transfer from Sweden?",
+        a: "Some specialist providers accept Swish as a funding method for Sweden-originated international transfers — check the provider's funding options at the time of sending. Wise typically supports SEPA Instant bank transfer from Swedish accounts, which is near-instant. Swish is Sweden's domestic real-time payment rail (operated by a consortium of Swedish banks), so it only works for Swedish payments — the provider uses it to receive your SEK and then converts to PHP using their own international rails. Card funding (Swedish debit or credit card) is also available at most providers but adds SEK 20–60.",
+      },
+    ],
+  },
+
+  {
+    slug: "sweden-to-morocco",
+    fromCountry: "Sweden",
+    toCountry: "Morocco",
+    fromCurrency: "SEK",
+    toCurrency: "MAD",
+    fromFlag: "🇸🇪",
+    toFlag: "🇲🇦",
+    sampleAmount: 5000,
+    intro:
+      "Morocco received MAD 122 billion (roughly USD 13.4 billion) in remittances in 2025, a record that exceeds the country's foreign direct investment inflows. Sweden hosts an estimated 50,000–70,000 people with Moroccan heritage — the largest Nordic-Moroccan community — making the SEK→MAD corridor one of the most meaningful in the Nordic region. Bästa sättet att skicka pengar till Marocko (the best way to send money to Morocco) is a genuine daily question for Swedish senders.",
+    context:
+      "Morocco's remittance infrastructure has modernised rapidly. Orange Money, a mobile wallet jointly operated with France's Orange Group, enables real-time deposits within 1–5 minutes. Joro Cash (peer-to-peer mobile wallet) and Virement Instantané (Morocco's real-time ACH via HPS Switch) have expanded the rails further. Cash pickup remains hugely important — Western Union, MoneyGram, and Ria together operate over 4,000 agent locations across Moroccan cities and rural areas. Remitly, Paysend, Wise, Revolut, Western Union, and Ria all compete on this corridor. Paysend's SEK 19 flat fee is especially competitive for smaller amounts, while Wise's mid-market rate pricing dominates larger transfers.",
+    feesNote:
+      "Fees range from SEK 19 (Paysend flat) to SEK 200+ at traditional banks. Wise typically charges 0.8–1.2% total. Remitly and Ria both compete aggressively with occasional zero-fee promotions for first-time users. The exchange rate is where most of the real cost hides — MAD is pegged to a basket (60% EUR, 40% USD), so rates are more stable than emerging-market currencies, but a 1% markup on SEK 5,000 is still MAD 40+ less for your recipient.",
+    deliveryNote:
+      "Orange Money delivery is near-instant (1–5 minutes) via supporting providers. Joro Cash transfers are similarly fast. Cash pickup via Western Union, MoneyGram, or Ria is available within 1–2 hours at 4,000+ locations including CIH, BMCE, and Attijariwafa branches. Bank deposits to Moroccan accounts take 2–4 business days for standard SWIFT routing. Paysend typically delivers within 1–2 business days. Specialist fintechs are faster than banks on essentially every metric.",
+    faqs: [
+      {
+        q: "Vad är det bästa sättet att skicka pengar till Marocko? (What's the best way to send money to Morocco?)",
+        a: "För de flesta överföringar är Wise och Paysend de mest kostnadseffektiva alternativen från Sverige till Marocko. Wise använder den verkliga marknadskursen med en transparent avgift på cirka 0,8–1,2%. Paysend tar ut en platt avgift på endast 19 SEK oavsett belopp — detta är mycket konkurrenskraftigt för mindre belopp under SEK 2,000. Remitly erbjuder snabb leverans och kör ofta kampanjer med avgiftsfria första överföringar. För kontantuttag i Marocko är Western Union, MoneyGram och Ria bäst — de har tillsammans över 4,000 agentplatser. Jämför alltid det totala MAD-beloppet mottagaren får, inte bara avgiften — växelkursmarginalen är ofta den dolda kostnaden.",
+      },
+      {
+        q: "What is the cheapest way to send money from Sweden to Morocco?",
+        a: "Wise and Paysend are the most cost-effective options for Sweden-to-Morocco transfers. Wise uses the real mid-market exchange rate with a transparent 0.8–1.2% fee — best for transfers above SEK 2,000. Paysend charges a flat SEK 19 fee regardless of transfer size, making it unbeatable for small amounts. Remitly offers competitive rates and runs promotional first-transfer offers, especially strong for cash pickup delivery. For cash pickup specifically, Western Union, MoneyGram, and Ria have the widest agent network in Morocco (4,000+ locations including CIH, BMCE, and Attijariwafa branches). Always compare the total MAD amount received rather than just the fee.",
+      },
+      {
+        q: "Can I send money to Orange Money in Morocco from Sweden?",
+        a: "Yes, though direct Orange Money delivery from Sweden is still expanding. Some specialist providers support real-time Orange Money deposits, which arrive within 1–5 minutes. Orange Money is a joint venture with France's Orange Group and has become one of the fastest growing rails for domestic and cross-border remittances in Morocco. If your recipient has an Orange Money account, check your provider's delivery options — where supported, it's significantly faster than cash pickup or bank deposit. As a backup, bank deposit to CIH, BMCE, or Attijariwafa followed by a domestic transfer to Orange Money works, but adds a day or two.",
+      },
+      {
+        q: "How long does a transfer from Sweden to Morocco take?",
+        a: "Orange Money delivery is fastest — 1–5 minutes via supporting providers. Cash pickup via Western Union, MoneyGram, or Ria at over 4,000 agent locations is typically available within 1–2 hours of sending. Wise delivers bank deposits to CIH, BMCE, Attijariwafa, or Banque Populaire within 1–2 business days. Paysend delivers within 1–2 business days. Traditional SWIFT wires from Swedish banks take 2–5 business days. Funding your transfer with SEPA Instant from a Swedish bank (or Swish, if the provider supports it) is near-instant on the sender side, so all the time is on the destination delivery leg.",
+      },
+      {
+        q: "Is the Moroccan dirham a stable currency?",
+        a: "The dirham (MAD) is pegged to a currency basket (60% EUR, 40% USD) managed by Bank Al-Maghrib, Morocco's central bank. This makes MAD significantly more stable than most emerging-market currencies — typical weekly volatility is under 0.5%. For Swedish senders, the SEK→MAD rate mainly reflects SEK volatility rather than MAD movements. Because the krona was highly volatile in 2024–2025 (SEK gained 16.8% against USD in 2025), the effective MAD-per-SEK exchange rate shifted notably over the year. MAD's stability means timing is less critical than on volatile corridors — rates don't swing much day-to-day.",
+      },
+      {
+        q: "Can I send cash for pickup in Morocco?",
+        a: "Yes — cash pickup is one of the most common delivery methods for Sweden-to-Morocco transfers. Western Union, MoneyGram, and Ria Money Transfer together operate over 4,000 pickup locations across Morocco, including branches of major banks (CIH, BMCE, Attijariwafa, Banque Populaire) and dedicated agent outlets in cities, towns, and smaller villages. Cash is typically available for pickup within 1–2 hours of sending. Your recipient needs a valid ID (Moroccan national ID card or passport) and the transaction reference number. No bank account is required — this is ideal for unbanked recipients or for sending to family in rural areas.",
+      },
+    ],
+  },
+
+  {
+    slug: "ireland-to-philippines",
+    fromCountry: "Ireland",
+    toCountry: "Philippines",
+    fromCurrency: "EUR",
+    toCurrency: "PHP",
+    fromFlag: "🇮🇪",
+    toFlag: "🇵🇭",
+    sampleAmount: 500,
+    intro:
+      "Ireland hosts a growing Filipino community — especially healthcare workers in the HSE and private hospitals — and the Philippines received USD 39.6 billion in remittances in 2024, the 4th largest flow globally. The EUR→PHP corridor from Ireland is well-served by Wise (based in Dublin for many of its European operations), Revolut, Remitly, WorldRemit, and Xe.",
+    context:
+      "Wise has 15+ million users globally and uses the real mid-market exchange rate with a transparent fee structure — for most EUR→PHP transfers from Ireland, Wise is the cheapest specialist option. Revolut is competitive for Revolut account holders with generous monthly international transfer allowances on paid plans. Irish banks (AIB, Bank of Ireland, PTSB) apply 3–5% exchange rate markups and EUR 8–15 fixed fees, which on a EUR 500 transfer means PHP 2,000+ less for your recipient compared to Wise. Ireland benefits from full SEPA membership, meaning bank-to-provider funding is near-instant via SEPA Instant Credit Transfer.",
+    feesNote:
+      "Fees range from zero (Wise for some payment methods; promotional first transfers at Remitly) to EUR 15 at Irish banks. Typical specialist costs: Wise 0.6–1.0% of the transfer amount; Remitly EUR 1.99–3.99 express delivery; WorldRemit EUR 1.99–4.99. Credit card funding adds EUR 3–8.",
+    deliveryNote:
+      "GCash wallet delivery is near-instant (under 30 minutes) via Remitly, Wise, and WorldRemit. Wise reports 70% of EUR→PHP transfers complete in under 20 seconds. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via the Philippines' InstaPay domestic rail. Cash pickup at Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours at 9,000+ locations nationwide. SEPA Instant from an Irish bank to the provider is usually under 10 seconds.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Ireland to the Philippines?",
+        a: "Wise consistently delivers the most Philippine pesos per euro from Ireland for typical transfer amounts. It uses the real mid-market exchange rate with a transparent 0.6–1.0% fee, and integrates with SEPA Instant so the funds arrive at Wise in seconds. Remitly is competitive with promotional first-transfer offers that can save EUR 5–10 on your initial send. WorldRemit and Panda Remit are also competitive, especially for GCash delivery. For a EUR 500 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds PHP 2,000. Avoid sending via AIB or Bank of Ireland for anything under EUR 2,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
+      },
+      {
+        q: "Can I send money to GCash from Ireland?",
+        a: "Yes. Remitly, Wise, and WorldRemit all support direct GCash delivery from Ireland — funds typically arrive in the recipient's GCash wallet within 30 minutes. GCash is the Philippines' dominant mobile wallet with 81+ million users. Your recipient needs an active GCash account linked to their Philippine mobile number; you simply enter that number when creating the transfer. GCash cannot receive direct international bank transfers — you must use a licensed remittance partner. Funds in GCash can be spent immediately at partner merchants, used for bill payments, transferred via InstaPay to any Philippine bank, or withdrawn as cash at any GCash partner outlet.",
+      },
+      {
+        q: "How does SEPA Instant affect Ireland to Philippines transfers?",
+        a: "SEPA Instant Credit Transfer means the sender leg — funding from your Irish bank to the remittance provider's EUR account — is near-instant (typically under 10 seconds), 24/7/365. This eliminates the old 1–2 day SEPA settlement delay. All major Irish banks (AIB, Bank of Ireland, PTSB, KBC) support SEPA Instant for outbound transfers. The destination leg (EUR to PHP conversion and delivery) depends on the provider and method — GCash is fastest (near-instant), cash pickup is 1–2 hours, and bank deposit is same-day to next-day. End-to-end, most EUR→PHP transfers from Ireland complete in under an hour via Wise or Remitly to GCash.",
+      },
+      {
+        q: "How long does a transfer from Ireland to the Philippines take?",
+        a: "Typically under an hour for GCash delivery via Wise or Remitly — often under 30 minutes. Wise reports 70% of transfers on major EUR→PHP routes completing in under 20 seconds. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via the Philippines' InstaPay rail. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is available within 1–2 hours across 9,000+ locations. Traditional SWIFT wires from AIB or Bank of Ireland are the slowest option at 2–5 business days due to correspondent banking intermediaries.",
+      },
+      {
+        q: "Do I need to pay tax on money sent from Ireland to the Philippines?",
+        a: "In Ireland, sending money to family abroad is not a taxable event for the sender — personal remittances to support family overseas are outside the scope of income tax. For transfers above EUR 3,000 per year to a single non-family recipient, Irish Capital Acquisitions Tax (Gift Tax) rules may apply, though rarely with practical impact given the EUR 3,000 small-gift exemption. On the Philippine side, personal inbound remittances are not taxable for the recipient. For transfers above EUR 10,000 per transaction, Irish banks must report under EU 5AMLD anti-money-laundering rules — this is a reporting requirement that does not delay legitimate family support transfers. Providers handle compliance automatically.",
+      },
+    ],
+  },
+
+  {
+    slug: "ireland-to-malaysia",
+    fromCountry: "Ireland",
+    toCountry: "Malaysia",
+    fromCurrency: "EUR",
+    toCurrency: "MYR",
+    fromFlag: "🇮🇪",
+    toFlag: "🇲🇾",
+    sampleAmount: 1000,
+    intro:
+      "The EUR→MYR corridor from Ireland serves a dual flow: Malaysian students at UCD, Trinity, and RCSI receiving family funds, and Irish expats or retirees in Malaysia (especially in Kuala Lumpur and Penang) receiving pension and support payments. RCSI and UCD both operate campuses in Malaysia, and the Malaysian Student Association Ireland (MSAI) coordinates a community of over 1,000 students across Irish universities.",
+    context:
+      "Wise, Panda Remit, Remitly, Instarem, and Revolut all support EUR→MYR. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.0% — best for transfers above EUR 500. Panda Remit offers zero fees on first transfers and then EUR 1.99–5.99, making it strong for students receiving regular small amounts. Malaysia uses DuitNow, a real-time interbank payment system operated by PayNet, which enables near-instant delivery via supporting providers. Malaysian banks (Maybank, CIMB, Public Bank, Hong Leong) are the primary rails for destination delivery. Irish banks (AIB, Bank of Ireland, PTSB) charge EUR 10–30 fixed fees and 1–2% markups, making them significantly more expensive than specialist providers for EUR 500–2,000 transfers.",
+    feesNote:
+      "Fees range from zero (Panda Remit first transfer; Wise for some SEPA-funded transfers) to EUR 30 at Irish banks. The exchange rate markup adds another 1–4% depending on provider. Credit card funding costs EUR 3–8 more than SEPA bank transfer. For regular student support, compare Wise (percentage-based) against Panda Remit (flat fee) — Panda Remit is often cheaper for small recurring amounts under EUR 500.",
+    deliveryNote:
+      "Bank deposits to Malaysian banks (Maybank, CIMB, Public Bank, Hong Leong) arrive within 1–3 business days via SWIFT, or within seconds if the provider has integrated with DuitNow. Wise and Instarem offer some of the fastest delivery on this corridor. Cash pickup is limited in Malaysia — bank deposit is the dominant method. Touch 'n Go eWallet and GrabPay are expanding their remittance partnerships but Ireland-specific coverage is limited as of 2026. SEPA Instant from an Irish bank funds the provider in seconds.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Ireland to Malaysia?",
+        a: "Wise is typically the cheapest option for transfers above EUR 500 — it uses the real mid-market exchange rate with a transparent 0.6–1.0% fee. Panda Remit offers zero fees on first transfers and then EUR 1.99–5.99 per subsequent transfer, making it strong for recurring small amounts (such as student monthly allowances). For a EUR 1,000 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds MYR 40–80. Remitly and Instarem are also competitive. Avoid bank wires for transfers under EUR 2,000 — the fixed fees make them uncompetitive.",
+      },
+      {
+        q: "I'm a Malaysian student in Dublin — what's the best way to receive monthly support from home?",
+        a: "For students receiving regular monthly support, the direction is reversed (Malaysia to Ireland rather than Ireland to Malaysia), but the same providers work. From the Malaysia side, Wise, TransferGo, Instarem, and Panda Remit all offer competitive MYR→EUR rates. For amounts of MYR 2,000–5,000 (roughly EUR 400–1,000), Wise and Panda Remit are typically cheapest. The funds arrive in your Irish bank account via SEPA within 1–2 business days, or near-instant via Wise to a Wise multi-currency account. Some students use a Wise multi-currency account to hold both EUR and MYR and convert at a favourable rate of their choosing.",
+      },
+      {
+        q: "How does DuitNow affect transfer speed to Malaysia?",
+        a: "DuitNow is Malaysia's real-time interbank payment network, operated by PayNet. Providers that have integrated with DuitNow can deliver funds to any Malaysian bank account in seconds once the conversion from EUR has happened. For SWIFT-based transfers (such as traditional Irish bank wires), DuitNow is not relevant — the funds go through the older correspondent banking system and take 1–3 business days. When comparing providers, look for explicit mentions of DuitNow or 'real-time' delivery to Malaysian banks.",
+      },
+      {
+        q: "How long does a transfer from Ireland to Malaysia take?",
+        a: "SEPA Instant funding from an Irish bank to the remittance provider is near-instant (under 10 seconds). On the destination side, providers integrated with DuitNow can deliver to Malaysian bank accounts in seconds. Wise and Instarem typically complete EUR→MYR transfers within 1–2 business days end-to-end. Panda Remit delivers in 20 minutes to 1 business day. Traditional SWIFT wires from AIB or Bank of Ireland take 2–5 business days. Malaysia has limited cash pickup infrastructure compared to the Philippines or Pakistan — bank deposit is the standard method.",
+      },
+      {
+        q: "Are there any currency controls in Malaysia for inbound transfers?",
+        a: "Bank Negara Malaysia imposes modest foreign exchange administration rules but places no caps on inbound personal remittances to resident accounts. Student tuition support, family assistance, and expat salary transfers are routine and well-understood by Malaysian banks. For transfers above MYR 1 million (roughly EUR 200,000), the receiving bank may request source-of-funds documentation. Non-resident accounts have separate rules. For Irish senders, no Irish Central Bank restrictions apply to personal remittances.",
+      },
+    ],
+  },
+
+  {
+    slug: "netherlands-to-philippines",
+    fromCountry: "Netherlands",
+    toCountry: "Philippines",
+    fromCurrency: "EUR",
+    toCurrency: "PHP",
+    fromFlag: "🇳🇱",
+    toFlag: "🇵🇭",
+    sampleAmount: 300,
+    intro:
+      "The Netherlands hosts roughly 20,000 Filipino residents — concentrated in the healthcare sector, particularly nurses and caregivers at Dutch hospitals and elder-care facilities. Monthly remittances to family in the Philippines are a steady rhythm for much of this community. The Philippines received USD 35.6 billion in remittances in 2025 (up 3.3% year-on-year), and the EUR→PHP corridor is one of the most competitive in the specialist provider market.",
+    context:
+      "Remitly is among the most recommended providers on this corridor (per Monito's 2025 data) thanks to strong GCash integration and frequent promotional rates. Wise partnered with Bangko Sentral ng Pilipinas in December 2024 to streamline GCash delivery, and typically delivers the best rate for transfers above EUR 200. Panda Remit offers zero fees on first transfers. Dutch banks (ING, Rabobank, ABN AMRO) apply 3–5% exchange rate markups plus EUR 8–15 fixed fees — on a typical EUR 300 monthly remittance, that gap alone exceeds PHP 600 per transfer, or PHP 7,200 per year.",
+    feesNote:
+      "Fees range from zero (Panda Remit first transfer; Wise for some payment methods) to EUR 15 at Dutch banks. Remitly charges EUR 1.99–3.99 for express delivery. WorldRemit charges EUR 1.99–4.99 depending on method. Credit card funding adds EUR 3–8. The biggest cost driver is the exchange rate: on a regular monthly EUR 300 send, a 2% rate difference means PHP 720 less for your recipient per month.",
+    deliveryNote:
+      "GCash delivery is near-instant (under 30 minutes) via Remitly, Wise, and WorldRemit. GCash is the critical rail — it reaches 81+ million Filipinos and works on any smartphone. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via InstaPay. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is available within 1–2 hours. Dutch senders fund via SEPA Instant (iDEAL-backed) — near-instant from any major Dutch bank.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the Netherlands to the Philippines?",
+        a: "Remitly and Wise are consistently the most cost-effective options on this corridor. Wise uses the real mid-market exchange rate with a transparent 0.6–1.0% fee — best for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs promotional zero-fee first transfers. For monthly EUR 300 remittances typical of healthcare workers supporting family, the gap between Remitly or Wise and a Dutch bank (ING, Rabobank, ABN AMRO) exceeds PHP 600 per transfer — that's PHP 7,200 per year on identical transfer amounts. Panda Remit and WorldRemit are also competitive, especially for GCash delivery. Always compare the total PHP received rather than just the fee.",
+      },
+      {
+        q: "Can I send money to GCash from the Netherlands?",
+        a: "Yes. Remitly, Wise, and WorldRemit all support direct GCash delivery from the Netherlands — funds arrive in the recipient's GCash wallet within 30 minutes in most cases. Wise strengthened its GCash partnership in December 2024 with BSP regulatory approval, making it one of the most reliable routes. GCash has 81+ million active users across the Philippines, and is the go-to mobile wallet for most Filipinos. Your recipient needs an active GCash account linked to their Philippine mobile number. GCash funds can be spent immediately at millions of partner merchants, used for bills, transferred to bank accounts via InstaPay, or withdrawn as cash at any GCash agent.",
+      },
+      {
+        q: "I'm a Filipino care worker in the Netherlands — what is the best way to send money home?",
+        a: "For regular monthly remittances (typical for Filipino healthcare workers), set up recurring transfers via Wise or Remitly to GCash or a Philippine bank account. Wise offers a 'send again' feature that saves recipient details and delivers near-instant after you fund via iDEAL or a SEPA Instant bank transfer. Remitly has strong customer support in Tagalog and English. Both report that most transfers complete within 30 minutes. For a typical EUR 300 monthly send: Wise fees ~EUR 2–3, Remitly fees EUR 0–3.99 depending on speed choice, banks EUR 8–15. Over a year, the specialist-vs-bank savings is typically PHP 5,000–8,000.",
+      },
+      {
+        q: "How long does a transfer from the Netherlands to the Philippines take?",
+        a: "GCash delivery via Remitly or Wise is typically under 30 minutes — often under 10 minutes. Wise reports 70% of EUR→PHP transfers complete in under 20 seconds. Bank deposits to BDO, BPI, Metrobank, or Landbank arrive within hours to 1 business day via InstaPay. Cash pickup at Cebuana Lhuillier, M Lhuillier, or LBC is available within 1–2 hours. SEPA Instant funding from a Dutch bank (iDEAL-backed transfer to the provider) is near-instant. End-to-end, most Netherlands→Philippines transfers complete in under an hour when delivering to GCash.",
+      },
+      {
+        q: "Are there documentation requirements for regular remittances from the Netherlands?",
+        a: "All licensed providers require identity verification under EU 5AMLD rules. For your first transfer, you'll typically need a valid photo ID (Dutch ID card, passport, or residence permit) plus your BSN (Burgerservicenummer) and proof of address (utility bill or bank statement). Once verified, subsequent transfers go through faster. For transfers above EUR 10,000, additional source-of-funds documentation may be requested. For Filipino care workers on work visas, standard ID verification applies — your visa or residence permit is acceptable as ID. Healthcare-sector income is a common and well-understood source of funds for remittances.",
+      },
+    ],
+  },
+
+  {
+    slug: "greece-to-poland",
+    fromCountry: "Greece",
+    toCountry: "Poland",
+    fromCurrency: "EUR",
+    toCurrency: "PLN",
+    fromFlag: "🇬🇷",
+    toFlag: "🇵🇱",
+    sampleAmount: 500,
+    intro:
+      "An often-overlooked intra-EU corridor: Polish migrant workers in Greece (construction, agriculture, hospitality, tourism) send home wages to family in Poland. The corridor reverses the stereotypical Poland-to-UK flow — Greece's recovering economy and warmer climate have attracted a Polish community estimated at 50,000–100,000 workers. Both countries are SEPA members, so infrastructure favours fast, cheap transfers via SEPA Instant.",
+    context:
+      "Because both Greece and Poland are in SEPA and Poland actively participates in SEPA Instant, EUR→PLN transfers can complete in 10–30 seconds end-to-end via supporting providers. Wise, Remitly, WorldRemit, Panda Remit, and TransferGo all offer competitive EUR→PLN rates. Polish destination banks use BLIK (the country's dominant mobile payment rail) and Express Elixir for real-time domestic delivery. Greek banks (Alpha Bank, Eurobank, National Bank of Greece) apply 1–2% markups and EUR 5–15 fees — still meaningfully more expensive than specialist providers, though less punishing than non-EU banks.",
+    feesNote:
+      "Fees range from zero (Panda Remit first transfer; Wise for some SEPA-funded transfers) to EUR 15 at Greek banks. Wise typically charges 0.5–1.0% for EUR→PLN. Remitly charges EUR 1.99–3.99 for express delivery. The exchange rate markup on this corridor is relatively low (EUR/PLN is a liquid pair traded actively), so total cost stays competitive across most specialist providers.",
+    deliveryNote:
+      "Bank deposits to Polish banks (mBank, PKO BP, Santander Bank Polska, ING Bank Śląski) arrive within seconds via SEPA Instant + BLIK or Express Elixir for supporting providers. Wise reports many EUR→PLN transfers completing in under 20 seconds. Polish recipients can also receive via BLIK codes where the provider supports it. Traditional SEPA (non-Instant) transfers take 1 business day; SWIFT routing is not needed within SEPA.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Greece to Poland?",
+        a: "Wise is consistently the cheapest option for EUR→PLN transfers — it uses the real mid-market exchange rate with a 0.5–1.0% fee and integrates with SEPA Instant for near-real-time delivery. Remitly and TransferGo are competitive alternatives, especially for first-time users with promotional rates. For a EUR 500 transfer, specialist providers typically beat Greek banks (Alpha Bank, Eurobank, National Bank of Greece) by PLN 20–40 due to lower fees and tighter exchange rates. Both EUR and PLN are SEPA currencies, so SWIFT fees never apply — a key difference from Greece→non-EU corridors.",
+      },
+      {
+        q: "Can I send money to BLIK in Poland?",
+        a: "BLIK is Poland's dominant domestic mobile payment system (operated by Polish Payment Standard), not an international remittance rail. Direct BLIK delivery from Greece is not typically supported by specialist providers. The practical workflow: send via Wise or Remitly to the recipient's Polish bank account (mBank, PKO BP, Santander Bank Polska, ING Bank Śląski) — from there, your recipient can use BLIK for domestic payments and transfers in seconds. Funds arriving via SEPA Instant are available for BLIK use immediately. BLIK signed a letter of intent in May 2025 to join EuroPA, the European mobile payment interoperability initiative, which may expand direct cross-border BLIK support in coming years.",
+      },
+      {
+        q: "How does SEPA Instant affect Greece to Poland transfers?",
+        a: "SEPA Instant Credit Transfer is a real-time payment scheme covering the euro area plus participating non-euro SEPA countries. Both Greek and Polish banks participate for EUR transactions. When you fund a Wise or Remitly transfer via SEPA Instant from your Greek bank, the funds arrive at the provider in seconds. If the provider has also integrated SEPA Instant for PLN-denominated outbound transfers via a local Polish banking partner, the full end-to-end transfer can complete in 10–30 seconds. Wise reports many EUR→PLN transfers completing in under 20 seconds. SWIFT is never needed — both countries are in SEPA.",
+      },
+      {
+        q: "What's the EUR to PLN exchange rate trend?",
+        a: "The euro-to-złoty pair is liquid and moderately stable. Average 2025 rate: ~4.24 PLN per EUR (range 4.23–4.29). The Polish złoty has strengthened gradually over 2023–2025 as the National Bank of Poland held rates steady against the ECB's cutting cycle. Weekly volatility is typically under 1%. For regular senders, setting a rate alert can save 0.5–1.5% over a year. For large one-off transfers, comparing live rates from 2–3 providers on the day you send yields small but real gains.",
+      },
+      {
+        q: "Are there any taxes on remittances from Greece to Poland?",
+        a: "Neither country taxes personal family remittances for the sender or recipient. Greece applies gift tax only to unusually large inter-family transfers (typically above EUR 80,000 per year between distant relatives). Poland similarly does not tax inbound personal remittances for family support. Under EU 5AMLD rules, transfers above EUR 10,000 per transaction trigger reporting requirements at both ends — banks and providers handle this automatically. For worker remittances (monthly wage transfers), these are routine and well-understood by both Greek and Polish financial institutions.",
+      },
+    ],
+  },
+
+  {
+    slug: "czech-republic-to-germany",
+    fromCountry: "Czech Republic",
+    toCountry: "Germany",
+    fromCurrency: "CZK",
+    toCurrency: "EUR",
+    fromFlag: "🇨🇿",
+    toFlag: "🇩🇪",
+    sampleAmount: 20000,
+    intro:
+      "Approximately 200,000 Czech workers cross the border into Germany daily or weekly, making this one of the busiest intra-European labour corridors. The CZK→EUR route handles wage transfers, cross-border commuter payments, and support for Czech families living near the German border. Both countries are SEPA members, but CZK itself is not a SEPA currency, so transfers are routed via CZK→EUR conversion at the sending bank or provider.",
+    context:
+      "Remitly has been the cheapest CZK→EUR provider for 97.5% of the last 3 months per comparison data, followed by Wise, XE, and TransferGo. Revolut is fastest for Revolut-to-Revolut transfers but applies up to 5% markup on larger standard transfers, making it less compelling for wage-sized amounts. Czech banks (Česká spořitelna, ČSOB, Komerční banka) charge CZK 50–250 per transfer plus 1–2% exchange rate markup. Germany receives payments into any SEPA-compatible EUR account (Deutsche Bank, Commerzbank, Sparkasse, N26, Revolut). Because the Czech National Bank targets a managed exchange rate around 25 CZK per EUR, volatility is moderate — typical weekly swings are 0.3–1%.",
+    feesNote:
+      "Fees range from CZK 20 (Wise for some SEPA-funded transfers) to CZK 250+ at Czech banks. Remitly typically charges 0.1% for small amounts and up to 0.3% for larger transfers. For a CZK 20,000 wage transfer, the difference between Remitly and Česká spořitelna can exceed EUR 15 per transfer — meaningful for weekly commuters.",
+    deliveryNote:
+      "Bank deposits to German accounts (Deutsche Bank, Commerzbank, Sparkasse, N26) arrive within 1–3 business days via SEPA, or in seconds via SEPA Instant where both sender's provider and recipient's bank support it. Wise reports near-instant completion on most CZK→EUR transfers. Revolut-to-Revolut is instant. Czech National Bank's interbank system (CERTIS) handles the CZK leg; SEPA handles the EUR leg.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the Czech Republic to Germany?",
+        a: "Remitly has been the cheapest CZK→EUR provider for 97.5% of the last 3 months according to comparison data, followed closely by Wise, XE, and TransferGo. Wise uses the real mid-market exchange rate with a transparent fee of around 0.3–0.8%. Remitly charges a small percentage fee (under 0.3% for most amounts) and offers fast delivery. For a CZK 20,000 transfer (typical weekly wage), specialist providers beat Czech banks (Česká spořitelna, ČSOB, Komerční banka) by EUR 10–25 per transaction. For cross-border commuters making weekly transfers, this adds up to EUR 500+ per year. Always compare the total EUR received rather than just the fee.",
+      },
+      {
+        q: "Is Revolut the cheapest option for Czech Republic to Germany transfers?",
+        a: "Revolut is fastest for Revolut-to-Revolut transfers — effectively instant and fee-free within monthly plan limits. But for standard Czech bank to German bank transfers, Revolut is not the cheapest: it charges up to 5% markup or a flat USD 10 fee on certain standard international transfers, especially outside its fee-free monthly allowance on paid plans. For large CZK→EUR wage transfers, Wise or Remitly typically beat Revolut on total cost. If both sender and recipient have Revolut accounts and stay within plan limits, Revolut is excellent. For bank-to-bank standard transfers, compare Wise and Remitly first.",
+      },
+      {
+        q: "Does SEPA Instant work for CZK to EUR transfers?",
+        a: "SEPA Instant is a EUR-only scheme, so CZK itself is not directly eligible. However, the EUR leg of the transfer — once your provider converts your CZK to EUR — can complete via SEPA Instant in seconds if the destination German bank participates. All major German banks (Deutsche Bank, Commerzbank, Sparkasse, N26, ING) support SEPA Instant. The full workflow: you fund the provider in CZK (via Czech domestic payment), provider converts CZK to EUR at their rate, EUR leg transfers to the German account via SEPA Instant (seconds). End-to-end, most specialist-provider CZK→EUR transfers complete within minutes.",
+      },
+      {
+        q: "I'm a Czech cross-border commuter — what's the best setup for weekly German wage transfers?",
+        a: "For regular weekly or monthly wage transfers, the optimal setup is: receive your German wage into a German EUR account (Commerzbank, Sparkasse, N26, or a local German bank), then use Wise or Remitly to send CZK equivalent back to your Czech account as needed. This avoids the FX markup on every wage by batching conversions. Alternatively, a Wise multi-currency account lets you hold both EUR and CZK and convert at a rate of your choosing. For workers who must transfer CZK-denominated wages weekly (less common — most cross-border commuters receive in EUR), specialist providers like Remitly or Wise save EUR 10–25 per transfer vs a Czech bank.",
+      },
+      {
+        q: "What's the current CZK to EUR exchange rate outlook?",
+        a: "The Czech National Bank (ČNB) projects an average of approximately 25 CZK per EUR in 2026, similar to 2025 levels (January to April 2025 averaged ~24.75). The CZK is a managed currency but not formally pegged — ČNB uses interest rate policy to guide it, generally aiming for stability with mild appreciation against the EUR. Weekly volatility is modest (0.3–1%). For cross-border workers, this means rates don't swing dramatically week to week — but small movements still matter for regular senders. Setting a rate alert helps capture better-than-average weeks.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──
