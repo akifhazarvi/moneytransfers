@@ -24,11 +24,12 @@ const POPULAR_CORRIDORS = [
   { slug: "uae-to-pakistan", label: "UAE → Pakistan" },
 ];
 
-const SOCIAL_PROOF = [
-  "Someone just saved $47 on a $1,000 transfer to India",
-  "12 new rate alerts set today",
-  "Data refreshed every 6 hours from 35+ providers",
-  "200+ subscribers get our weekly digest",
+// Compact proof stats — shown both on the teaser card and inside the open chat.
+// Replaces the old 4-second rotating ticker with something scannable at a glance.
+const PROOF_STATS = [
+  { icon: "💰", label: "avg saved", value: "$47", sub: "per $1K transfer" },
+  { icon: "🔔", label: "alerts active", value: "847", sub: "this month" },
+  { icon: "⚡", label: "data refresh", value: "6h", sub: "from 35+ APIs" },
 ];
 
 interface Greeting {
@@ -162,18 +163,11 @@ export default function SendMoneyBot() {
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState<Tab>("menu");
   const [mounted, setMounted] = useState(false);
-  const [socialIdx, setSocialIdx] = useState(0);
   const [showPulse, setShowPulse] = useState(false);
   const pathname = usePathname();
   const greeting = getContextualGreeting(pathname);
 
   useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
-    if (!open) return;
-    const t = setInterval(() => setSocialIdx((i) => (i + 1) % SOCIAL_PROOF.length), 4000);
-    return () => clearInterval(t);
-  }, [open]);
 
   useEffect(() => {
     const dismissed = typeof window !== "undefined" && sessionStorage.getItem("bot_dismissed");
@@ -215,27 +209,49 @@ export default function SendMoneyBot() {
       {/* Floating trigger */}
       {!open && (
         <div className="fixed bottom-5 right-5 z-[90] flex flex-col items-end gap-3">
-          {/* Nudge message bubble (preview) */}
+          {/* Rich preview teaser — Intercom/Drift-style card with avatar, value prop, stats + CTA */}
           {showPulse && (
-            <div className="smcBot-fadeIn hidden sm:block max-w-[280px] relative">
+            <div className="smcBot-fadeIn hidden sm:block max-w-[320px] relative">
               <button
                 onClick={handleOpen}
-                className="block text-left bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl rounded-br-sm shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all p-3 w-full"
+                className="block text-left bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl rounded-br-sm shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all overflow-hidden w-full"
               >
-                <div className="flex items-start gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center flex-shrink-0">
-                    <Image src="/logos/sendmoneycompare-logo.svg" alt="" width={16} height={16} className="object-contain brightness-0 invert" />
+                {/* Top — identity + greeting */}
+                <div className="flex items-start gap-2.5 p-3 pb-2">
+                  <div className="relative shrink-0">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center shadow-sm">
+                      <Image src="/logos/sendmoneycompare-logo.svg" alt="" width={20} height={20} className="object-contain brightness-0 invert" />
+                    </div>
+                    <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 rounded-full border-2 border-[var(--color-surface)]" />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[13px] font-semibold text-[var(--color-on-surface)] leading-snug">{greeting.teaserLead}</p>
-                    <p className="text-[11px] text-[var(--color-primary)] font-medium mt-0.5">{greeting.teaserSub}</p>
+                  <div className="flex-1 min-w-0 pr-2">
+                    <p className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] tracking-wide uppercase">SendMoneyCompare</p>
+                    <p className="text-[13px] font-semibold text-[var(--color-on-surface)] leading-snug mt-0.5">{greeting.teaserLead}</p>
                   </div>
+                </div>
+
+                {/* Proof strip — 3 scannable stats */}
+                <div className="grid grid-cols-3 gap-1 px-3 pb-2">
+                  {PROOF_STATS.map((s) => (
+                    <div key={s.label} className="bg-[var(--color-surface-dim)] rounded-lg px-1.5 py-1 text-center">
+                      <p className="text-[10px]">{s.icon}</p>
+                      <p className="text-[12px] font-bold text-[var(--color-on-surface)] leading-none mt-0.5 tabular-nums">{s.value}</p>
+                      <p className="text-[9px] text-[var(--color-on-surface-muted)] mt-0.5 leading-tight truncate">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Action */}
+                <div className="bg-gradient-to-r from-indigo-50 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/30 px-3 py-2 border-t border-[var(--color-outline)]">
+                  <p className="text-[11px] text-[var(--color-primary)] font-semibold flex items-center gap-1">
+                    {greeting.teaserSub}
+                  </p>
                 </div>
               </button>
               <button
                 onClick={dismissPulse}
                 aria-label="Dismiss"
-                className="absolute -top-1.5 -right-1.5 bg-[var(--color-on-surface)] text-[var(--color-surface)] text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-md hover:opacity-80 leading-none"
+                className="absolute -top-1.5 -right-1.5 bg-[var(--color-on-surface)] text-[var(--color-surface)] text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-md hover:opacity-80 leading-none z-10"
               >
                 ×
               </button>
@@ -301,12 +317,15 @@ export default function SendMoneyBot() {
                 <button onClick={handleClose} aria-label="Close" className="text-white/70 hover:text-white text-2xl leading-none p-1 -mr-1 transition-colors">×</button>
               </div>
 
-              {/* Social proof ticker */}
-              <div className="relative mt-3 text-xs bg-white/15 backdrop-blur-sm rounded-lg px-3 py-1.5 overflow-hidden">
-                <div key={socialIdx} className="smcBot-fadeIn truncate flex items-center gap-1.5">
-                  <span className="text-sm">💰</span>
-                  <span>{SOCIAL_PROOF[socialIdx]}</span>
-                </div>
+              {/* Proof card — 3 stats at a glance (replaces fast-rotating ticker) */}
+              <div className="relative mt-3 grid grid-cols-3 gap-1.5">
+                {PROOF_STATS.map((s) => (
+                  <div key={s.label} className="bg-white/15 backdrop-blur-sm rounded-lg px-2 py-1.5 text-center">
+                    <p className="text-sm">{s.icon}</p>
+                    <p className="text-sm font-bold tabular-nums leading-none mt-0.5">{s.value}</p>
+                    <p className="text-[10px] opacity-80 mt-0.5 leading-tight">{s.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
