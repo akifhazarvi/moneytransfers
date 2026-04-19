@@ -480,8 +480,13 @@ function AlertView({ onBack }: { onBack: () => void }) {
       <ChatBubble><p className="font-medium mb-1">🔔 Let&apos;s set up an alert</p><p className="text-xs text-[var(--color-on-surface-variant)]">Pick your currencies and I&apos;ll email you when the rate is right.</p></ChatBubble>
 
       <form onSubmit={submit} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-4 flex flex-col gap-3 shadow-sm">
+        {/* Email first — lowest-friction commit. Once the email is in, completion rate of remaining fields jumps. */}
         <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Currency pair</label>
+          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Your email</label>
+          <input type="email" required autoFocus value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
+        </div>
+        <div>
+          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Which pair?</label>
           <div className="flex gap-2 mt-1.5">
             <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)} className="flex-1 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]">
               {CURRENCIES.map((c) => <option key={c}>{c}</option>)}
@@ -493,12 +498,8 @@ function AlertView({ onBack }: { onBack: () => void }) {
           </div>
         </div>
         <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Target rate (optional)</label>
+          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Target rate <span className="text-[var(--color-on-surface-muted)] normal-case font-normal">(optional — leave blank to get any improvement)</span></label>
           <input type="number" step="any" min="0" value={targetRate} onChange={(e) => setTargetRate(e.target.value)} placeholder="e.g. 85.50" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
-        </div>
-        <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Your email</label>
-          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
         </div>
         <button type="submit" disabled={status === "loading"} className="mt-1 bg-gradient-to-br from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white px-4 py-3 rounded-xl text-sm font-semibold transition-all disabled:opacity-60 shadow-md">
           {status === "loading" ? "Setting up…" : "🔔 Create free alert"}
@@ -540,15 +541,16 @@ function DigestView({ onBack }: { onBack: () => void }) {
       <ChatBubble><p className="font-medium mb-1">📧 Weekly corridor digest</p><p className="text-xs text-[var(--color-on-surface-variant)]">Every Monday — the 3 cheapest providers + rate movements.</p></ChatBubble>
 
       <form onSubmit={submit} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-4 flex flex-col gap-3 shadow-sm">
+        {/* Email first — lowest-friction commit. */}
         <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Your corridor</label>
+          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Your email</label>
+          <input type="email" required autoFocus value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
+        </div>
+        <div>
+          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Which corridor?</label>
           <select value={corridor} onChange={(e) => setCorridor(e.target.value)} className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]">
             {POPULAR_CORRIDORS.map((c) => <option key={c.slug} value={c.slug}>{c.label}</option>)}
           </select>
-        </div>
-        <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Your email</label>
-          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
         </div>
         <button type="submit" disabled={status === "loading"} className="mt-1 bg-gradient-to-br from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white px-4 py-3 rounded-xl text-sm font-semibold transition-all disabled:opacity-60 shadow-md">
           {status === "loading" ? "Subscribing…" : "📧 Subscribe — it's free"}
