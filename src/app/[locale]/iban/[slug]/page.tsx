@@ -55,6 +55,18 @@ export async function generateStaticParams() {
     .map((c) => ({ slug: c.slug }));
 }
 
+// Per-slug CTR-optimized metadata overrides for high-impression IBAN pages.
+// Adds: year freshness, front-loaded query, bank names as CTR magnets,
+// concrete format breakdown users see straight in the SERP.
+const ibanMetaOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDesc?: string }> = {
+  germany: {
+    title: "German IBAN Format (2026): DE + 20 Digits, Example & Free Check",
+    description: "A German IBAN is 22 characters: DE + 2 check digits + 8-digit BLZ + 10-digit account. See a real example, the full format breakdown, BLZ codes for Deutsche Bank, Commerzbank, Sparkasse & N26, and SEPA Instant transfer rules.",
+    ogTitle: "German IBAN: 22-Char Format, Example + BLZ Codes (2026)",
+    ogDesc: "DE IBAN explained in 30 seconds: structure, real example, BLZ lookup for Deutsche Bank / Commerzbank / Sparkasse / N26, and SEPA Instant rules.",
+  },
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "ibanSlug" });
@@ -64,14 +76,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const year = new Date().getFullYear();
   const exampleIban = country.exampleIban || `${country.countryCode}XX XXXX XXXX XXXX`;
   const formattedExample = exampleIban.replace(/(.{4})/g, "$1 ").trim();
+
+  const override = locale === "en" ? ibanMetaOverrides[slug] : undefined;
+  const title = override?.title ?? `${name} IBAN: ${country.ibanLength}-Character Format, Example & Bank Code`;
+  const description = override?.description ?? `${name} IBANs are ${country.ibanLength} characters and start with ${country.countryCode}. See the ${name} IBAN format, example, BBAN structure${country.banks.length > 0 ? `, and codes for ${country.banks.length}+ banks` : ""}${country.sepa ? ". SEPA member — fast EUR transfers." : `. Used for ${country.currency} transfers.`} How ${name.includes("Swiss") ? "Swiss" : name} account numbers differ from IBANs.`;
+  const ogTitle = override?.ogTitle ?? `${name} IBAN: ${country.ibanLength}-Character Format & Example (${year})`;
+  const ogDesc = override?.ogDesc ?? `${name} IBAN: ${country.ibanLength} characters, ${country.countryCode} prefix${country.sepa ? ", SEPA member" : ""}. Real examples, structure breakdown, and bank codes.`;
+
   return {
-    title: `${name} IBAN: ${country.ibanLength}-Character Format, Example & Bank Code`,
-    description: `${name} IBANs are ${country.ibanLength} characters and start with ${country.countryCode}. See the ${name} IBAN format, example, BBAN structure${country.banks.length > 0 ? `, and codes for ${country.banks.length}+ banks` : ""}${country.sepa ? ". SEPA member — fast EUR transfers." : `. Used for ${country.currency} transfers.`} How ${name.includes("Swiss") ? "Swiss" : name} account numbers differ from IBANs.`,
+    title,
+    description,
     keywords: `${name} IBAN, IBAN ${name}, ${country.countryCode} IBAN format, ${name} IBAN number, IBAN ${country.countryCode}, ${name} IBAN example, ${name} bank code, ${name} BBAN, ${country.currency} IBAN`,
     alternates: getAlternates(`iban/${slug}`, locale),
     openGraph: {
-      title: `${name} IBAN: ${country.ibanLength}-Character Format & Example (${year})`,
-      description: `${name} IBAN: ${country.ibanLength} characters, ${country.countryCode} prefix${country.sepa ? ", SEPA member" : ""}. Real examples, structure breakdown, and bank codes.`,
+      title: ogTitle,
+      description: ogDesc,
       url: `https://sendmoneycompare.com/iban/${slug}`,
     },
     robots: indexedIbanCountries.has(slug) ? undefined : { index: false, follow: true },
