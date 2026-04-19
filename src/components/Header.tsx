@@ -85,6 +85,14 @@ const localeLabels: Record<string, string> = {
   en: "EN",
   es: "ES",
   fr: "FR",
+  pt: "PT",
+};
+
+const localeNames: Record<string, string> = {
+  en: "English",
+  es: "Español",
+  fr: "Français",
+  pt: "Português",
 };
 
 export default function Header() {
@@ -162,14 +170,14 @@ export default function Header() {
                         key={loc}
                         onClick={() => switchLocale(loc)}
                         lang={loc}
-                        aria-label={`Switch to ${loc === "en" ? "English" : loc === "es" ? "Español" : "Français"}`}
+                        aria-label={`Switch to ${localeNames[loc] ?? loc.toUpperCase()}`}
                         className={`w-full text-left px-4 py-2 text-2sm transition-colors ${
                           loc === locale
                             ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)] font-medium"
                             : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
                         }`}
                       >
-                        {loc === "en" ? "English" : loc === "es" ? "Español" : "Français"}
+                        {localeNames[loc] ?? loc.toUpperCase()}
                       </button>
                     ))}
                   </div>
