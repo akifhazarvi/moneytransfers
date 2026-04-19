@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { track } from "@vercel/analytics";
-import { trackProviderClicked } from "@/lib/analytics";
+import {
+  trackStickyCtaShown,
+  trackStickyCtaClicked,
+  trackStickyCtaDismissed,
+} from "@/lib/analytics";
 
 interface Props {
   providerSlug: string;
@@ -34,6 +37,8 @@ export default function StickyBestCTA({
 }: Props) {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [hasFiredShown, setHasFiredShown] = useState(false);
+  const corridor = `${fromCurrency}-${toCurrency}`;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -51,16 +56,23 @@ export default function StickyBestCTA({
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  // Fire sticky_cta_shown once per session when it first becomes visible
+  useEffect(() => {
+    if (visible && !hasFiredShown) {
+      trackStickyCtaShown(providerSlug, corridor);
+      setHasFiredShown(true);
+    }
+  }, [visible, hasFiredShown, providerSlug, corridor]);
+
   if (dismissed) return null;
 
-  const corridor = `${fromCurrency}-${toCurrency}`;
   const onClick = () => {
-    track("sticky_cta_clicked", { provider: providerSlug, corridor });
-    trackProviderClicked(providerSlug, corridor, 1);
+    trackStickyCtaClicked(providerSlug, corridor, savingsVsWorst);
   };
 
   const onDismiss = (e: React.MouseEvent) => {
     e.stopPropagation();
+    trackStickyCtaDismissed(corridor);
     setDismissed(true);
     try { sessionStorage.setItem("sticky_cta_dismissed", "1"); } catch {}
   };

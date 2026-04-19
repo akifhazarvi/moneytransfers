@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackRateAlertSet } from "@/lib/analytics";
 
 interface Props {
   /** Pre-filled from currency (e.g. "USD") */
@@ -54,6 +55,7 @@ export default function RateAlertForm({
       });
 
       if (res.ok) {
+        trackRateAlertSet(`${fromCurrency}-${toCurrency}`, source, !!targetRate.trim());
         setStatus("success");
         setEmail("");
         setTargetRate("");

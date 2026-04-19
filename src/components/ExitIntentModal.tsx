@@ -2,9 +2,27 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
+import {
+  trackExitIntentShown,
+  trackExitIntentDismissed,
+  trackExitIntentConverted,
+} from "@/lib/analytics";
 
 const SESSION_KEY = "exit_intent_shown";
 const DISMISSED_KEY = "exit_intent_dismissed";
+
+function getPageType(pathname: string | null): string {
+  const p = (pathname || "/").toLowerCase();
+  if (p === "/" || p.match(/^\/[a-z]{2}\/?$/)) return "homepage";
+  if (p.includes("/send-money/")) return "corridor";
+  if (p.includes("/exchange-rates/")) return "exchange_rate";
+  if (p.includes("/companies/")) return "company_review";
+  if (p.includes("/compare/")) return "comparison";
+  if (p.includes("/guides/")) return "guide";
+  if (p.includes("/iban/")) return "iban";
+  if (p.includes("/business")) return "business";
+  return "other";
+}
 
 /** Extract likely fromCurrency/toCurrency from URL so the rate-alert signup is pre-filled. */
 function inferCorridorFromPath(pathname: string | null): { from: string; to: string } {
@@ -42,6 +60,8 @@ export default function ExitIntentModal() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const { from, to } = inferCorridorFromPath(pathname);
+  const pageType = getPageType(pathname);
+  const corridorStr = `${from}-${to}`;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -63,6 +83,7 @@ export default function ExitIntentModal() {
       if (e.clientY > 5) return;
       if (e.relatedTarget || (e as MouseEvent & { toElement?: unknown }).toElement) return;
       sessionStorage.setItem(SESSION_KEY, "1");
+      trackExitIntentShown(corridorStr, pageType);
       setOpen(true);
       document.removeEventListener("mouseout", handleMouseOut);
     };
@@ -83,6 +104,8 @@ export default function ExitIntentModal() {
   }, [open]);
 
   function dismiss() {
+    // Only fire the dismissed event if the user is leaving without converting
+    if (status !== "success") trackExitIntentDismissed(pageType);
     setOpen(false);
     try { sessionStorage.setItem(DISMISSED_KEY, "1"); } catch {}
   }
@@ -103,6 +126,7 @@ export default function ExitIntentModal() {
         }),
       });
       if (res.ok) {
+        trackExitIntentConverted(corridorStr, pageType);
         setStatus("success");
         setTimeout(() => dismiss(), 2400);
       } else {

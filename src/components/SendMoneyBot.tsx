@@ -3,9 +3,46 @@
 import { useState, useEffect, type FormEvent } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import {
+  trackBotPreviewShown,
+  trackBotPreviewDismissed,
+  trackBotPreviewClicked,
+  trackBotOpened,
+  trackBotClosed,
+  trackBotActionSelected,
+  trackBotRateAlertSubmitted,
+  trackBotDigestSubmitted,
+} from "@/lib/analytics";
 
 type Tab = "menu" | "alert" | "digest" | "question";
 type Status = "idle" | "loading" | "success" | "error";
+
+/** Classify pathname into a page_type for analytics slicing */
+function getPageType(pathname: string | null): string {
+  const p = (pathname || "/").toLowerCase();
+  if (p === "/" || p.match(/^\/[a-z]{2}\/?$/)) return "homepage";
+  if (p.includes("/send-money/")) return "corridor";
+  if (p.includes("/exchange-rates/history")) return "rate_history";
+  if (p.includes("/exchange-rates/")) return "exchange_rate";
+  if (p.includes("/companies/")) return "company_review";
+  if (p.includes("/compare/")) return "comparison";
+  if (p.includes("/guides/")) return "guide";
+  if (p.includes("/news/")) return "news";
+  if (p.includes("/iban/")) return "iban";
+  if (p.includes("/swift")) return "swift";
+  if (p.includes("/business")) return "business";
+  return "other";
+}
+
+/** Extract corridor-like string from URL for funnel segmentation */
+function getCorridorFromPath(pathname: string | null): string | undefined {
+  const p = (pathname || "").toLowerCase();
+  const m1 = p.match(/\/send-money\/([a-z-]+)/);
+  if (m1) return m1[1];
+  const m2 = p.match(/\/exchange-rates\/(?:history\/)?([a-z]{3}-to-[a-z]{3})/);
+  if (m2) return m2[1];
+  return undefined;
+}
 
 const CURRENCIES = ["USD", "EUR", "GBP", "INR", "PKR", "PHP", "MXN", "NGN", "BDT", "CAD", "AUD", "NZD", "JPY", "CNY", "BRL", "ZAR", "EGP", "AED", "SAR", "TRY"];
 
@@ -166,16 +203,21 @@ export default function SendMoneyBot() {
   const [showPulse, setShowPulse] = useState(false);
   const pathname = usePathname();
   const greeting = getContextualGreeting(pathname);
+  const pageType = getPageType(pathname);
+  const corridorStr = getCorridorFromPath(pathname);
 
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const dismissed = typeof window !== "undefined" && sessionStorage.getItem("bot_dismissed");
     if (dismissed) return;
-    const t = setTimeout(() => setShowPulse(true), greeting.delayMs);
+    const t = setTimeout(() => {
+      setShowPulse(true);
+      trackBotPreviewShown(pageType, corridorStr);
+    }, greeting.delayMs);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [greeting.delayMs]);
+  }, [greeting.delayMs, pageType, corridorStr]);
 
   useEffect(() => {
     if (!open) return;
@@ -187,19 +229,30 @@ export default function SendMoneyBot() {
 
   if (!mounted) return null;
 
-  function handleOpen() {
+  function handleOpen(source: "preview" | "trigger" = "trigger") {
+    if (source === "preview") trackBotPreviewClicked(pageType, corridorStr);
+    trackBotOpened(pageType, source, corridorStr);
     setOpen(true);
     setShowPulse(false);
   }
 
   function handleClose() {
+    trackBotClosed(pageType);
     setOpen(false);
     setTimeout(() => setTab("menu"), 300);
     try { sessionStorage.setItem("bot_dismissed", "1"); } catch {}
   }
 
+  function handlePickAction(nextTab: Tab) {
+    if (nextTab === "alert" || nextTab === "digest" || nextTab === "question") {
+      trackBotActionSelected(nextTab, pageType);
+    }
+    setTab(nextTab);
+  }
+
   function dismissPulse(e: React.MouseEvent) {
     e.stopPropagation();
+    trackBotPreviewDismissed(pageType);
     setShowPulse(false);
     try { sessionStorage.setItem("bot_dismissed", "1"); } catch {}
   }
@@ -213,7 +266,7 @@ export default function SendMoneyBot() {
           {showPulse && (
             <div className="smcBot-fadeIn hidden sm:block max-w-[320px] relative">
               <button
-                onClick={handleOpen}
+                onClick={() => handleOpen("preview")}
                 className="block text-left bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl rounded-br-sm shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all overflow-hidden w-full"
               >
                 {/* Top — identity + greeting */}
@@ -260,7 +313,7 @@ export default function SendMoneyBot() {
 
           {/* Main trigger button */}
           <button
-            onClick={handleOpen}
+            onClick={() => handleOpen("trigger")}
             aria-label="Open money transfer assistant"
             className="group relative"
           >
@@ -331,7 +384,7 @@ export default function SendMoneyBot() {
 
             {/* Body */}
             <div className="flex-1 overflow-y-auto bg-[var(--color-surface-dim)] p-4 flex flex-col gap-3">
-              {tab === "menu" && <MenuView setTab={setTab} greeting={greeting} />}
+              {tab === "menu" && <MenuView setTab={handlePickAction} greeting={greeting} />}
               {tab === "alert" && <AlertView onBack={() => setTab("menu")} />}
               {tab === "digest" && <DigestView onBack={() => setTab("menu")} />}
               {tab === "question" && <QuestionView onBack={() => setTab("menu")} />}
@@ -486,8 +539,14 @@ function AlertView({ onBack }: { onBack: () => void }) {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim(), fromCurrency, toCurrency, targetRate: targetRate.trim() || undefined, source: "bot-widget" }),
       });
-      if (res.ok) setStatus("success");
-      else { const d = await res.json().catch(() => ({})); setErrorMsg(d.error || "Something went wrong."); setStatus("error"); }
+      if (res.ok) {
+        trackBotRateAlertSubmitted(`${fromCurrency}-${toCurrency}`, !!targetRate.trim());
+        setStatus("success");
+      } else {
+        const d = await res.json().catch(() => ({}));
+        setErrorMsg(d.error || "Something went wrong.");
+        setStatus("error");
+      }
     } catch { setErrorMsg("Network error."); setStatus("error"); }
   }
 
@@ -544,8 +603,14 @@ function DigestView({ onBack }: { onBack: () => void }) {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim(), corridor, source: "bot-widget" }),
       });
-      if (res.ok) setStatus("success");
-      else { const d = await res.json().catch(() => ({})); setErrorMsg(d.error || "Something went wrong."); setStatus("error"); }
+      if (res.ok) {
+        trackBotDigestSubmitted(corridor);
+        setStatus("success");
+      } else {
+        const d = await res.json().catch(() => ({}));
+        setErrorMsg(d.error || "Something went wrong.");
+        setStatus("error");
+      }
     } catch { setErrorMsg("Network error."); setStatus("error"); }
   }
 
