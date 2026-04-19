@@ -277,11 +277,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const year = new Date().getFullYear();
 
-  // CTR-optimized overrides for high-impression pairs
-  const pairOverrides: Record<string, { title: string; description: string }> = {
+  // CTR-optimized overrides for high-impression pairs.
+  // usd-to-brl: 5-query cluster ranking pos 2.8–3.0 ("current usd to brl
+  // exchange rate today", "dollar to brl", "dollar to real today brazil")
+  // with 33 impressions and 0 clicks. Title now echoes all 3 query phrasings.
+  const month = new Date().toLocaleDateString("en-US", { month: "long" });
+  const pairOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDesc?: string }> = {
     "usd-to-brl": {
-      title: `USD to BRL Rate Today — Compare What Providers Actually Pay vs Mid-Market (2026)`,
-      description: `Live USD to BRL mid-market rate vs what Wise, Remitly & 10+ providers offer after hidden markup. See who gives the most reais per dollar — up to 4% difference between best and worst.`,
+      title: `USD to BRL Exchange Rate Today: Dollar to Real Live Rate (${month} ${year})`,
+      description: `Live USD to BRL rate today updated every 60 seconds. See how many Brazilian reais 1 dollar gets you, plus what Wise, Remitly & 10+ providers actually pay after markup — up to 4% difference per $1,000.`,
+      ogTitle: `USD to BRL Today — Live Dollar to Real Rate (${month} ${year})`,
+      ogDesc: `Live USD/BRL mid-market rate + what 10+ providers actually offer. Find who gives you the most reais per dollar today.`,
     },
   };
 
@@ -297,8 +303,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // Exchange rate content is English-only; noindex locale variants to avoid duplicate content
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: {
-      title: `${p.from}→${p.to}: Real Rate vs. What Providers Offer`,
-      description: `Live ${p.from}/${p.to} mid-market rate vs. what transfer providers charge. See the markup each provider adds.`,
+      title: override?.ogTitle ?? `${p.from}→${p.to}: Real Rate vs. What Providers Offer`,
+      description: override?.ogDesc ?? `Live ${p.from}/${p.to} mid-market rate vs. what transfer providers charge. See the markup each provider adds.`,
       url: `https://sendmoneycompare.com/exchange-rates/${pair}`,
     },
   };
@@ -418,6 +424,24 @@ export default async function ExchangeRatePairPage({ params }: Props) {
               <p className="text-[var(--color-on-surface-variant)]">Rate data temporarily unavailable.</p>
             )}
           </div>
+
+          {/* AI-citable Quick Answer — high-value pairs only */}
+          {midRate && (() => {
+            const monthYear = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
+            const bestQuote = quotes[0];
+            const quickAnswers: Record<string, string> = {
+              "usd-to-brl": `The USD to BRL exchange rate today is 1 US dollar = ${fmtRate(midRate)} Brazilian reais (mid-market rate, ${monthYear}).${bestQuote ? ` To actually send USD to Brazil, ${getProviderName(bestQuote.providerSlug)} offers the best provider rate right now at ${bestQuote.exchangeRate.toFixed(4)} — delivering ${bestQuote.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 0 })} BRL on a $1,000 transfer (fee ${bestQuote.fee === 0 ? "free" : "$" + bestQuote.fee.toFixed(2)}).` : ""} Providers add a 0.3–4% markup on top of the mid-market rate, so comparing rates before sending can save ${p.to === "BRL" ? "R$" : ""}10–40 per $1,000.`,
+            };
+            const answer = quickAnswers[pair];
+            if (!answer) return null;
+            return (
+              <div className="bg-[var(--color-primary-surface)] border-y border-[var(--color-primary-light)] -mx-4 sm:mx-0 sm:rounded-2xl px-4 sm:px-6 py-4 sm:py-5 mb-8">
+                <p className="text-sm text-[var(--color-on-surface)] leading-relaxed">
+                  <strong className="text-[var(--color-primary)]">Quick answer:</strong> {answer}
+                </p>
+              </div>
+            );
+          })()}
 
           {/* Quick conversion table */}
           {midRate && (
