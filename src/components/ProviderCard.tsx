@@ -22,9 +22,17 @@ interface Props {
   onCompareToggle?: (slug: string) => void;
   compareDisabled?: boolean;
   midMarketRate?: number;
+  /** Recipient-currency amount this provider delivers above the worst-ranked provider (only passed for rank 1). */
+  extraReceiveVsWorst?: number;
 }
 
-export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate }: Props) {
+function formatSavings(amount: number): string {
+  if (amount >= 1000) return Math.round(amount / 100) * 100 + "+";
+  if (amount >= 100) return String(Math.round(amount / 10) * 10);
+  return amount.toFixed(2).replace(/\.?0+$/, "");
+}
+
+export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, extraReceiveVsWorst }: Props) {
   const [expanded, setExpanded] = useState(false);
   const t = useTranslations("providerCard");
   const provider = providers.find((p) => p.slug === quote.providerSlug);
@@ -74,9 +82,15 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   return (
     <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
       {isBest && (
-        <div className="absolute -top-px left-6 z-10">
-          <div className="bg-[var(--color-success-dark)] text-white text-2xs font-semibold tracking-wide uppercase px-3 py-1 rounded-b-lg shadow-sm">
-            {t("bestDeal")}
+        <div className="absolute -top-px left-4 sm:left-6 z-10">
+          <div className="bg-[var(--color-success-dark)] text-white text-2xs font-semibold tracking-wide uppercase px-3 py-1 rounded-b-lg shadow-sm flex items-center gap-1.5">
+            <span>{t("bestDeal")}</span>
+            {extraReceiveVsWorst && extraReceiveVsWorst > 0 && (
+              <>
+                <span className="text-white/50">•</span>
+                <span className="normal-case tabular-nums">+{receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} more</span>
+              </>
+            )}
           </div>
         </div>
       )}
@@ -310,7 +324,16 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                       : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow"
                   }`}
                 >
-                  {t("sendWith", { provider: providerName })}
+                  {isBest && extraReceiveVsWorst && extraReceiveVsWorst > 0 ? (
+                    <>
+                      <span className="hidden sm:inline">{t("sendWith", { provider: providerName })}</span>
+                      <span className="sm:hidden">Send</span>
+                      <span className="text-white/75 text-xs font-normal">•</span>
+                      <span className="tabular-nums">+{receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} more</span>
+                    </>
+                  ) : (
+                    t("sendWith", { provider: providerName })
+                  )}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

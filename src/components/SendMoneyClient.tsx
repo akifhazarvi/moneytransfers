@@ -678,19 +678,23 @@ function SendMoneyContent() {
       <div className="mb-12">
         {filteredQuotes.length > 0 ? (
           <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
-            {filteredQuotes.map((quote, index) => (
-              <ProviderCard
-                key={quote.providerSlug}
-                quote={quote}
-                sendCurrencySymbol={sendCurrency?.symbol || "$"}
-                receiveCurrencySymbol={receiveCurrency?.symbol || ""}
-                rank={index + 1}
-                compareSelected={compareList.includes(quote.providerSlug)}
-                onCompareToggle={toggleCompare}
-                compareDisabled={compareList.length >= 2}
-                midMarketRate={midMarketRate ?? undefined}
-              />
-            ))}
+            {(() => {
+              const worstReceive = filteredQuotes[filteredQuotes.length - 1]?.receiveAmount ?? 0;
+              return filteredQuotes.map((quote, index) => (
+                <ProviderCard
+                  key={quote.providerSlug}
+                  quote={quote}
+                  sendCurrencySymbol={sendCurrency?.symbol || "$"}
+                  receiveCurrencySymbol={receiveCurrency?.symbol || ""}
+                  rank={index + 1}
+                  compareSelected={compareList.includes(quote.providerSlug)}
+                  onCompareToggle={toggleCompare}
+                  compareDisabled={compareList.length >= 2}
+                  midMarketRate={midMarketRate ?? undefined}
+                  extraReceiveVsWorst={index === 0 && filteredQuotes.length >= 2 ? quote.receiveAmount - worstReceive : undefined}
+                />
+              ));
+            })()}
           </div>
         ) : (
           <div className="py-16 text-center bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)]">

@@ -31,33 +31,130 @@ const SOCIAL_PROOF = [
   "200+ subscribers get our weekly digest",
 ];
 
-function getContextualGreeting(pathname: string | null): { title: string; subtitle: string; nudge: string } {
+interface Greeting {
+  title: string;
+  subtitle: string;
+  nudge: string;
+  triggerLabel: string;   // button text — concise value prop
+  teaserLead: string;     // preview card headline
+  teaserSub: string;      // preview card subtitle
+  delayMs: number;        // how long until preview teaser appears
+}
+
+function prettyCorridor(slug: string): string {
+  const s = slug.replace(/^\//, "").replace(/-/g, " ").replace(/\bto\b/gi, "→");
+  return s.split(" ").map((w) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w.toUpperCase()).join(" ");
+}
+
+function getContextualGreeting(pathname: string | null): Greeting {
   const p = (pathname || "/").toLowerCase();
-  if (p.includes("/send-money/") || p.includes("/exchange-rates/")) {
+
+  // Corridor page — highest intent. Fast trigger, corridor in the CTA.
+  const corridorMatch = p.match(/\/send-money\/([a-z-]+)/);
+  if (corridorMatch) {
+    const corridor = prettyCorridor(corridorMatch[1]);
     return {
-      title: "Want the best rate for this corridor?",
-      subtitle: "I can email you when the rate hits your target, or send a weekly digest.",
-      nudge: "Save up to 5% by timing your transfer",
+      title: `Going ${corridor}? Lock in today's rate.`,
+      subtitle: "I'll email you the second the rate beats your target. Free, no spam.",
+      nudge: "Most senders save $40–$80 per $1,000 by timing their transfer",
+      triggerLabel: `Track ${corridor} rates`,
+      teaserLead: `Sending to ${corridor.split("→")[1]?.trim() || "this corridor"}?`,
+      teaserSub: "Get a free alert when the rate is right →",
+      delayMs: 3000,
     };
   }
-  if (p.includes("/guides/") || p.includes("/news/")) {
+
+  // Exchange rate page — rate-tracker intent
+  const pairMatch = p.match(/\/exchange-rates\/([a-z]{3})-to-([a-z]{3})/);
+  if (pairMatch) {
+    const pair = `${pairMatch[1].toUpperCase()}→${pairMatch[2].toUpperCase()}`;
     return {
-      title: "Planning to send money soon?",
-      subtitle: "Get free rate alerts or a weekly roundup of the cheapest providers.",
-      nudge: "Most readers save $50+ on $1,000 transfers",
+      title: `Track the ${pair} rate for me?`,
+      subtitle: "I'll email you when it hits a rate you like. Set it and forget it.",
+      nudge: `${pair} can swing 1–3% in a week — timing matters`,
+      triggerLabel: `Track ${pair}`,
+      teaserLead: `${pair} — watch this rate?`,
+      teaserSub: "Free alerts sent to your inbox →",
+      delayMs: 3000,
     };
   }
+
+  // Company review — evaluating-provider intent
+  const companyMatch = p.match(/\/companies\/([a-z-]+)/);
+  if (companyMatch) {
+    const provider = prettyCorridor(companyMatch[1]);
+    return {
+      title: `Questions about ${provider}?`,
+      subtitle: `I can compare ${provider} side-by-side with any other provider for your exact corridor.`,
+      nudge: `The cheapest provider depends on where you're sending to`,
+      triggerLabel: `Compare ${provider} →`,
+      teaserLead: `Is ${provider} cheapest for you?`,
+      teaserSub: "Compare side-by-side in 10 seconds →",
+      delayMs: 5000,
+    };
+  }
+
+  // Compare page — head-to-head intent
   if (p.includes("/compare/")) {
     return {
       title: "Comparing providers?",
       subtitle: "Tell me your corridor and I'll track the cheapest one for you.",
       nudge: "The cheapest provider changes weekly",
+      triggerLabel: "Track the cheaper one",
+      teaserLead: "Want me to watch both providers?",
+      teaserSub: "Free weekly winner delivered →",
+      delayMs: 5000,
     };
   }
+
+  // Guides / news — researcher intent
+  if (p.includes("/guides/") || p.includes("/news/")) {
+    return {
+      title: "Planning to send money soon?",
+      subtitle: "Get free rate alerts or a weekly roundup of the cheapest providers.",
+      nudge: "Most readers save $50+ on $1,000 transfers",
+      triggerLabel: "Get rate alerts — free",
+      teaserLead: "Planning a transfer?",
+      teaserSub: "Free rate alerts when it's the right time →",
+      delayMs: 6000,
+    };
+  }
+
+  // IBAN / SWIFT — bank-info intent
+  if (p.includes("/iban") || p.includes("/swift")) {
+    return {
+      title: "Sending to this country soon?",
+      subtitle: "I can email you when the rate is right — free, no spam.",
+      nudge: "IBAN alone won't save you money — the provider you choose will",
+      triggerLabel: "Save on your transfer",
+      teaserLead: "Sending money to this country?",
+      teaserSub: "Free rate alerts + the cheapest provider →",
+      delayMs: 6000,
+    };
+  }
+
+  // Business pages
+  if (p.includes("/business")) {
+    return {
+      title: "Business transfers on your mind?",
+      subtitle: "I track the cheapest provider for B2B payments across 60+ corridors.",
+      nudge: "Businesses save 1–3% vs banks on FX",
+      triggerLabel: "Cut your FX costs",
+      teaserLead: "Paying international suppliers?",
+      teaserSub: "Get the cheapest provider for B2B →",
+      delayMs: 5000,
+    };
+  }
+
+  // Homepage + default — low-intent browsing
   return {
     title: "Hi! I'm your money transfer assistant.",
     subtitle: "I track rates from 35+ providers and can email you when it's the right time to send.",
     nudge: "Compare 35+ providers in one place",
+    triggerLabel: "Save on transfers",
+    teaserLead: "Save up to $80 per $1,000 transfer",
+    teaserSub: "Free rate alerts from 35+ providers →",
+    delayMs: 8000,
   };
 }
 
@@ -81,9 +178,10 @@ export default function SendMoneyBot() {
   useEffect(() => {
     const dismissed = typeof window !== "undefined" && sessionStorage.getItem("bot_dismissed");
     if (dismissed) return;
-    const t = setTimeout(() => setShowPulse(true), 6000);
+    const t = setTimeout(() => setShowPulse(true), greeting.delayMs);
     return () => clearTimeout(t);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [greeting.delayMs]);
 
   useEffect(() => {
     if (!open) return;
@@ -129,8 +227,8 @@ export default function SendMoneyBot() {
                     <Image src="/logos/sendmoneycompare-logo.svg" alt="" width={16} height={16} className="object-contain brightness-0 invert" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[13px] font-semibold text-[var(--color-on-surface)] leading-snug">{greeting.title}</p>
-                    <p className="text-[11px] text-[var(--color-on-surface-variant)] mt-0.5">Tap to chat →</p>
+                    <p className="text-[13px] font-semibold text-[var(--color-on-surface)] leading-snug">{greeting.teaserLead}</p>
+                    <p className="text-[11px] text-[var(--color-primary)] font-medium mt-0.5">{greeting.teaserSub}</p>
                   </div>
                 </div>
               </button>
@@ -163,7 +261,7 @@ export default function SendMoneyBot() {
                 </span>
               </div>
               <span className="hidden sm:block text-sm font-semibold whitespace-nowrap">
-                Chat with us
+                {greeting.triggerLabel}
               </span>
             </div>
 
