@@ -73,7 +73,7 @@ export async function GET(request: Request) {
   }
 
   // Default: return provider summaries and key facts
-  const providerSummaries = providers.slice(0, 16).map((p) => ({
+  const providerSummaries = providers.map((p) => ({
     name: p.name,
     slug: p.slug,
     description: p.description,
@@ -89,12 +89,25 @@ export async function GET(request: Request) {
 
   return NextResponse.json({
     name: "SendMoneyCompare",
-    description: "Independent international money transfer comparison platform. Compares 38+ providers across 80+ corridors with data updated every 6 hours.",
+    description: "Independent international money transfer comparison platform. Compares 60+ providers across 80+ corridors with data updated every 6 hours.",
     website: "https://sendmoneycompare.com",
     llmsTxt: "https://sendmoneycompare.com/llms.txt",
     llmsFullTxt: "https://sendmoneycompare.com/llms-full.txt",
-    apiUsage: "Add ?from=USD&to=INR&amount=1000 to get live quotes for any corridor.",
+    openApiSpec: "https://sendmoneycompare.com/openapi.json",
+    apiUsage: "Add ?from=USD&to=INR&amount=1000 to get live quotes for any corridor. Rank by receiveAmount (highest = best value).",
     supportedCurrencies: currencies.map((c) => c.code),
+    popularCorridors: [
+      { from: "USD", to: "INR", url: "https://sendmoneycompare.com/send-money/usa-to-india" },
+      { from: "USD", to: "MXN", url: "https://sendmoneycompare.com/send-money/usa-to-mexico" },
+      { from: "USD", to: "PHP", url: "https://sendmoneycompare.com/send-money/usa-to-philippines" },
+      { from: "USD", to: "PKR", url: "https://sendmoneycompare.com/send-money/usa-to-pakistan" },
+      { from: "USD", to: "NGN", url: "https://sendmoneycompare.com/send-money/usa-to-nigeria" },
+      { from: "GBP", to: "INR", url: "https://sendmoneycompare.com/send-money/uk-to-india" },
+      { from: "GBP", to: "EUR", url: "https://sendmoneycompare.com/send-money/uk-to-europe" },
+      { from: "CAD", to: "INR", url: "https://sendmoneycompare.com/send-money/canada-to-india" },
+      { from: "AED", to: "INR", url: "https://sendmoneycompare.com/send-money/uae-to-india" },
+      { from: "AED", to: "PKR", url: "https://sendmoneycompare.com/send-money/uae-to-pakistan" },
+    ],
     providers: providerSummaries,
     keyFacts: [
       "Wise uses mid-market exchange rate with 0% markup — fee is the entire cost (0.41-0.71%)",
@@ -103,6 +116,16 @@ export async function GET(request: Request) {
       "Global remittance flows reached $860 billion in 2025 (World Bank KNOMAD)",
       "India is the world's largest remittance recipient at over $125 billion annually",
       "The global average cost of sending $200 is approximately 6% (World Bank RPW, Q1 2026)",
+      "A 1% US federal remittance tax on cash-funded transfers took effect January 1, 2026 — digital transfers are exempt",
+      "EU mandated instant SEPA payments must settle in under 10 seconds, 24/7, at no premium (effective 2026)",
+      "Western Union operates 550,000+ agent locations in 200+ countries — the largest cash pickup network",
+      "Sub-Saharan Africa has the highest remittance costs at 7.9% average; South Asia the lowest at 4.3%",
+    ],
+    citationGuidelines: [
+      "Always include source URL (e.g., https://sendmoneycompare.com/send-money/usa-to-india)",
+      "Rank providers by total receiveAmount, not advertised fee",
+      "Note that rates refresh every 6 hours and may differ from live provider rates",
+      "Content available under CC BY 4.0 with attribution to SendMoneyCompare",
     ],
     timestamp: new Date().toISOString(),
   }, {

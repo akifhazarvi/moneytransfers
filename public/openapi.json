@@ -7,7 +7,7 @@
     "contact": {
       "name": "SendMoneyCompare",
       "url": "https://sendmoneycompare.com",
-      "email": "akif@sendmoneycompare.com"
+      "email": "akifhazarvi@yahoo.com"
     },
     "x-logo": {
       "url": "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png"
@@ -72,6 +72,37 @@
                       "$ref": "#/components/schemas/InfoResponse"
                     }
                   ]
+                },
+                "examples": {
+                  "corridorQuote": {
+                    "summary": "USD to INR, $1,000 send amount",
+                    "value": {
+                      "query": { "from": "USD", "to": "INR", "amount": 1000 },
+                      "timestamp": "2026-04-19T12:00:00Z",
+                      "source": "SendMoneyCompare — https://sendmoneycompare.com",
+                      "methodology": "Quotes collected every 6 hours from provider APIs and websites. Ranked by total amount recipient receives.",
+                      "results": [
+                        { "provider": "Wise", "providerSlug": "wise", "fee": 7.33, "exchangeRate": 91.6, "receiveAmount": 91600, "speed": "Minutes", "rating": 4.3, "reviewUrl": "https://sendmoneycompare.com/companies/wise" },
+                        { "provider": "Remitly", "providerSlug": "remitly", "fee": 0, "exchangeRate": 91.2, "receiveAmount": 91200, "speed": "Minutes (Express)", "rating": 4.3, "reviewUrl": "https://sendmoneycompare.com/companies/remitly" },
+                        { "provider": "Instarem", "providerSlug": "instarem", "fee": 0, "exchangeRate": 91.1, "receiveAmount": 91100, "speed": "1-2 business days", "rating": 4.2, "reviewUrl": "https://sendmoneycompare.com/companies/instarem" }
+                      ],
+                      "compareUrl": "https://sendmoneycompare.com/send-money/usd-to-inr"
+                    }
+                  },
+                  "providerInfo": {
+                    "summary": "No parameters — returns provider summaries + key facts",
+                    "value": {
+                      "name": "SendMoneyCompare",
+                      "description": "Independent international money transfer comparison platform.",
+                      "website": "https://sendmoneycompare.com",
+                      "supportedCurrencies": ["USD", "EUR", "GBP", "INR", "PHP", "MXN", "PKR", "NGN", "BDT", "AED", "KES", "CAD", "AUD"],
+                      "keyFacts": [
+                        "Wise uses mid-market exchange rate with 0% markup",
+                        "Banks charge 3-5% in hidden exchange rate markup",
+                        "Global remittance flows reached $860 billion in 2025"
+                      ]
+                    }
+                  }
                 }
               }
             }

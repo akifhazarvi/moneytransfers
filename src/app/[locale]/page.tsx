@@ -8,6 +8,7 @@ import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
 import HeroTabs from "@/components/HeroTabs";
 import MobileScrollNav from "@/components/MobileScrollNav";
+import YouTubeEmbed from "@/components/YouTubeEmbed";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
@@ -138,9 +139,33 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ],
   };
 
+  const homeVideoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "Wise vs Remitly vs WorldRemit: Which is Actually Cheapest?",
+    description: "Head-to-head comparison of Wise, Remitly, and WorldRemit on a $1,000 international transfer — real fees, exchange rates, and delivery times.",
+    thumbnailUrl: ["https://img.youtube.com/vi/AKRQH9xbR18/hqdefault.jpg"],
+    uploadDate: "2026-04-19",
+    contentUrl: "https://www.youtube.com/shorts/AKRQH9xbR18",
+    embedUrl: "https://www.youtube.com/embed/AKRQH9xbR18",
+    duration: "PT1M",
+    publisher: {
+      "@type": "Organization",
+      name: "SendMoneyCompare",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://sendmoneycompare.com/icon-512x512.png",
+      },
+    },
+  };
+
   const homeFaqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".faq-question", ".faq-answer"],
+    },
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.q,
@@ -161,6 +186,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeVideoSchema) }}
       />
       {/* ─── 1. HERO ─── */}
       <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-6 sm:pt-16 pb-6 sm:pb-14">
@@ -608,6 +637,27 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <PrimaryButton href={`/send-money?from=${sendCurrency}&to=${geoConfig.defaultTo}&amount=${geoConfig.defaultAmount}`}>
               {tExample("cta")}
             </PrimaryButton>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─── VIDEO ─── */}
+      <section id="video" className="py-8 sm:py-14 bg-[var(--color-surface)]">
+        <Container>
+          <div className="text-center mb-5 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+              Watch: Which is Cheapest?
+            </h2>
+            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
+              Wise vs Remitly vs WorldRemit — head-to-head on a $1,000 transfer.
+            </p>
+          </div>
+          <div className="max-w-[340px] sm:max-w-[380px] mx-auto">
+            <YouTubeEmbed
+              videoId="AKRQH9xbR18"
+              title="Wise vs Remitly vs WorldRemit: Which is Actually Cheapest?"
+              shorts
+            />
           </div>
         </Container>
       </section>

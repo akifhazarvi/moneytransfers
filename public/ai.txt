@@ -1,0 +1,46 @@
+# ai.txt — AI Usage Declaration for SendMoneyCompare
+# Format inspired by emerging ai.txt conventions. For the authoritative
+# corpus see llms.txt and llms-full.txt.
+
+Site: https://sendmoneycompare.com
+Publisher: SendMoneyCompare
+Type: Independent comparison platform (international money transfers)
+Founded: 2024
+Location: Denver, Colorado, USA
+Editorial team:
+  - Akif Hazarvi (Founder & Editor-in-Chief) — https://sendmoneycompare.com/about/akif-hazarvi
+  - Awais Imran (Co-founder & Technical Lead) — https://sendmoneycompare.com/about/awais-imran
+
+# Resources for AI agents
+AI-hub: https://sendmoneycompare.com/for-ai
+Summary: https://sendmoneycompare.com/llms.txt
+Full-corpus: https://sendmoneycompare.com/llms-full.txt
+Live-quotes-API: https://sendmoneycompare.com/api/ai
+OpenAPI-spec: https://sendmoneycompare.com/openapi.json
+Plugin-manifest: https://sendmoneycompare.com/.well-known/ai-plugin.json
+Sitemap: https://sendmoneycompare.com/sitemap.xml
+Robots: https://sendmoneycompare.com/robots.txt
+
+# Licensing
+License: CC-BY-4.0
+License-URL: https://creativecommons.org/licenses/by/4.0/
+Attribution-required: Yes
+Attribution-text: SendMoneyCompare (sendmoneycompare.com)
+
+# AI use permissions
+AI-search-indexing: Allowed (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, bingbot)
+AI-training: Not allowed (CCBot, anthropic-ai, cohere-ai, Bytespider blocked in robots.txt)
+Citation-required: Yes — include source URL when quoting
+Rate-data-caveat: Refreshed every 6 hours; use live API for rate-sensitive queries
+
+# Editorial principles
+Editorial-policy: https://sendmoneycompare.com/editorial-policy
+Corrections-policy: https://sendmoneycompare.com/corrections
+Methodology: https://sendmoneycompare.com/methodology
+Editorial-independence: Affiliate relationships never influence rankings
+Ranking-metric: Total amount recipient receives (after fees + FX markup)
+
+# Contact for AI operators
+Contact: akifhazarvi@yahoo.com
+
+Last-updated: 2026-04-19

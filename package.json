@@ -29,6 +29,7 @@
     "scrape:all-browser": "npx tsx scripts/scrape-monito.ts && npx tsx scripts/scrape-xoom.ts && npx tsx scripts/scrape-compareremit.ts && npx tsx scripts/scrape-ria.ts",
     "scrape:all": "npm run scrape:all-api && npm run scrape:all-browser && npx tsx scripts/scrape-reviews.ts",
     "ping:indexnow": "npx tsx scripts/ping-indexnow.ts",
+    "check:ai-citations": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts",
     "social:preview": "npx tsx scripts/social/generate-digest.ts",
     "social:dry-run": "npx tsx scripts/social/post-daily.ts --dry-run",
     "social:post": "npx tsx scripts/social/post-daily.ts"

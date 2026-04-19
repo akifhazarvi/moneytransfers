@@ -116,6 +116,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("terms", STATIC_CONTENT_DATE),
     entry("cookies", STATIC_CONTENT_DATE),
     entry("disclaimer", STATIC_CONTENT_DATE),
+    entry("for-ai", DATA_UPDATED),
   ];
 
   // ── Issue 1 fix: ALL static pages now have locale variants ──
