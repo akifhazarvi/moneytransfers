@@ -30,8 +30,9 @@ export default function CookieConsent() {
     const isEU = EU.includes(cc);
 
     if (isEU) {
-      // EU users: show consent banner (analytics stays denied until they accept)
-      const id = setTimeout(() => setVisible(true), 3000);
+      // EU users: show consent banner fast (analytics stays denied until they accept).
+      // Short delay (300ms) prevents FOUC on hydration but still lets bouncers see the banner.
+      const id = setTimeout(() => setVisible(true), 300);
       return () => clearTimeout(id);
     }
     // Non-EU users: analytics already granted by gtag init, no banner needed

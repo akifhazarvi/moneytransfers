@@ -73,21 +73,31 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
   name: "SendMoneyCompare",
+  alternateName: ["Send Money Compare", "SMC"],
   url: SITE_URL,
   logo: { "@type": "ImageObject", url: `${SITE_URL}/logos/sendmoneycompare-logo.png`, width: 512, height: 512 },
+  image: `${SITE_URL}/opengraph-image`,
   description:
-    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from leading providers.",
+    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from 60+ providers across 80+ currency corridors.",
   foundingDate: "2024",
-  founder: {
-    "@type": "Person",
-    name: "Akif Hazarvi",
-    jobTitle: "Founder",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "akif@sendmoneycompare.com",
-    contactType: "customer service",
-  },
+  founders: [
+    { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder & Editor-in-Chief", url: `${SITE_URL}/about/akif-hazarvi` },
+    { "@type": "Person", name: "Awais Imran", jobTitle: "Co-founder & Technical Lead", url: `${SITE_URL}/about/awais-imran` },
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      email: "akifhazarvi@yahoo.com",
+      contactType: "customer service",
+      availableLanguage: ["English"],
+    },
+    {
+      "@type": "ContactPoint",
+      email: "akifhazarvi@yahoo.com",
+      contactType: "editorial",
+      availableLanguage: ["English"],
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Denver",
@@ -101,11 +111,29 @@ const organizationSchema = {
     "Currency exchange rates",
     "Foreign exchange",
     "Cross-border payments",
+    "Wise (TransferWise)",
+    "Remitly",
+    "Western Union",
+    "OFX",
+    "SWIFT codes",
+    "IBAN validation",
+    "Mobile wallets",
+    "Stablecoins",
   ],
   sameAs: [
     "https://twitter.com/sendmoneycompare",
+    "https://x.com/sendmoneycompare",
     "https://www.linkedin.com/company/sendmoneycompare",
+    "https://www.youtube.com/@sendmoneycompare",
+    "https://www.facebook.com/sendmoneycompare",
+    "https://github.com/sendmoneycompare",
+    "https://www.crunchbase.com/organization/sendmoneycompare",
   ],
+  publishingPrinciples: `${SITE_URL}/editorial-policy`,
+  correctionsPolicy: `${SITE_URL}/corrections`,
+  actionableFeedbackPolicy: `${SITE_URL}/contact`,
+  diversityPolicy: `${SITE_URL}/editorial-policy`,
+  ethicsPolicy: `${SITE_URL}/editorial-policy`,
 };
 
 const websiteSchema = {
@@ -164,11 +192,11 @@ export default async function LocaleLayout({ children, params }: Props) {
     <>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
       <Script
         id="gtag-init"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 (function(){
@@ -186,9 +214,18 @@ export default async function LocaleLayout({ children, params }: Props) {
   });
   gtag('set','url_passthrough',true);
   gtag('set','ads_data_redaction',true);
-  var dominated=navigator.webdriver||!navigator.languages||navigator.languages.length===0||!window.screen||window.screen.width<100||navigator.hardwareConcurrency===0||!document.hasFocus();
-  if(dominated){window['ga-disable-G-HJH07QEJ30']=true;return;}
-  gtag('js',new Date());gtag('config','G-HJH07QEJ30');
+  // Disable GA4 only for CLEAR bot fingerprints. Avoid false positives:
+  // - !document.hasFocus() removed — background-tab opens (search results) are real users
+  // - navigator.webdriver alone is the strongest signal
+  // - multiple fingerprint failures together (language AND screen AND hardware) indicate a bot
+  var webdriverFlag=navigator.webdriver===true;
+  var multipleFailures=[
+    !navigator.languages||navigator.languages.length===0,
+    !window.screen||window.screen.width<100,
+    navigator.hardwareConcurrency===0,
+  ].filter(Boolean).length>=2;
+  if(webdriverFlag||multipleFailures){window['ga-disable-G-HJH07QEJ30']=true;return;}
+  gtag('js',new Date());gtag('config','G-HJH07QEJ30',{send_page_view:true});
 })();`,
         }}
       />

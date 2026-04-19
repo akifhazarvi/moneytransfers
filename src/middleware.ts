@@ -65,23 +65,25 @@ function isSpamBot(request: NextRequest): boolean {
   const city = request.headers.get("x-vercel-ip-city") || "";
   if (city && DATA_CENTER_CITIES.has(city)) return true;
 
-  // Block suspiciously generic user agents that pass earlier checks but
-  // lack typical browser fingerprints (sec-ch-ua headers).
-  // Real Chrome/Edge/Firefox always send sec-ch-ua on modern versions.
+  // Soft-signal bot detection: require AT LEAST 2 suspicious signals to block,
+  // rather than treating any single signal as conclusive.
+  // Rationale: privacy-focused users (Brave with strict shields, Firefox with
+  // resistFingerprinting, older mobile WebViews) legitimately omit sec-ch-ua
+  // and/or Accept-Language. We were false-positive-blocking real users.
   const secChUa = request.headers.get("sec-ch-ua");
-  const isDesktopChrome = ua.includes("chrome/") && !ua.includes("mobile");
-  if (isDesktopChrome && !secChUa) {
-    // Chrome desktop without sec-ch-ua = likely headless/spoofed
-    return true;
-  }
-
-  // Block requests with no Accept-Language header (real browsers always send it)
   const acceptLang = request.headers.get("accept-language");
-  if (!acceptLang && !ua.includes("bot")) {
-    // Headless browsers often omit Accept-Language
-    const acceptHeader = request.headers.get("accept") || "";
-    if (!acceptHeader.includes("text/html")) return true;
-  }
+  const acceptHeader = request.headers.get("accept") || "";
+  const isDesktopChrome = ua.includes("chrome/") && !ua.includes("mobile");
+
+  const suspiciousSignals = [
+    isDesktopChrome && !secChUa,           // desktop Chrome without client hints
+    !acceptLang,                            // no language preference at all
+    !acceptHeader.includes("text/html"),    // not asking for HTML content
+    ua.includes("chrome/") && !ua.includes("safari/"), // Chrome UA without Safari fragment = forged
+  ].filter(Boolean).length;
+
+  // 2+ suspicious signals = block. Any single one alone = allow (could be a real user).
+  if (suspiciousSignals >= 2) return true;
 
   return false;
 }

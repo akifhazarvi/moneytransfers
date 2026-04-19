@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAffiliateUrl } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
 
 export async function GET(
   request: Request,
@@ -15,11 +16,30 @@ export async function GET(
 
   const { provider } = await params;
   const { searchParams } = new URL(request.url);
+  const from = searchParams.get("from") || undefined;
+  const to = searchParams.get("to") || undefined;
+  const amount = searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined;
+  const referer = request.headers.get("referer") || "";
+
+  // Server-side GA4 event — always fires regardless of ad blockers / consent
+  const gaCookie = request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1];
+  const clientId = clientIdFromCookie(gaCookie);
+  void gaServerEvent(
+    "affiliate_redirect",
+    {
+      provider,
+      corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
+      amount: amount ?? 0,
+      referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
+      source: "out_route",
+    },
+    clientId,
+  );
 
   const url = getAffiliateUrl(provider, {
-    sourceCurrency: searchParams.get("from") || undefined,
-    targetCurrency: searchParams.get("to") || undefined,
-    sourceAmount: searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined,
+    sourceCurrency: from,
+    targetCurrency: to,
+    sourceAmount: amount,
   });
 
   return NextResponse.redirect(url, {
