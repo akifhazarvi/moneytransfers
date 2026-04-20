@@ -25,6 +25,11 @@ export async function GET(
   // declined cookies, so we never miss an affiliate conversion.
   const gaCookie = request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1];
   const clientId = clientIdFromCookie(gaCookie);
+  const geo = {
+    country: request.headers.get("x-vercel-ip-country") || undefined,
+    region: request.headers.get("x-vercel-ip-country-region") || undefined,
+    city: decodeURIComponent(request.headers.get("x-vercel-ip-city") || "") || undefined,
+  };
 
   // Fire-and-forget so we don't delay the redirect. `keepalive` flag in the
   // helper ensures the hit lands even though we return immediately.
@@ -38,6 +43,7 @@ export async function GET(
       source: "go_route",
     },
     clientId,
+    geo,
   );
 
   const url = getAffiliateUrl(provider, {

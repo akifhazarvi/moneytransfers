@@ -24,6 +24,11 @@ export async function GET(
   // Server-side GA4 event — always fires regardless of ad blockers / consent
   const gaCookie = request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1];
   const clientId = clientIdFromCookie(gaCookie);
+  const geo = {
+    country: request.headers.get("x-vercel-ip-country") || undefined,
+    region: request.headers.get("x-vercel-ip-country-region") || undefined,
+    city: decodeURIComponent(request.headers.get("x-vercel-ip-city") || "") || undefined,
+  };
   void gaServerEvent(
     "affiliate_redirect",
     {
@@ -34,6 +39,7 @@ export async function GET(
       source: "out_route",
     },
     clientId,
+    geo,
   );
 
   const url = getAffiliateUrl(provider, {

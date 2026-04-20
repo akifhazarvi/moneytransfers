@@ -23,13 +23,38 @@ const ENDPOINT = `https://www.google-analytics.com/mp/collect`;
  * server event correlates with client sessions in GA4 reports. Otherwise GA4
  * treats it as a separate anonymous user.
  */
+export type GeoHints = {
+  country?: string; // ISO 3166-1 alpha-2 (e.g. "US"), from x-vercel-ip-country
+  region?: string;  // ISO 3166-2 subdivision (e.g. "US-CA"), from x-vercel-ip-country-region
+  city?: string;    // from x-vercel-ip-city (URL-encoded by Vercel — decode before passing)
+};
+
 export async function gaServerEvent(
   eventName: string,
   params: Record<string, string | number | boolean> = {},
   clientId?: string,
+  geo?: GeoHints,
 ): Promise<void> {
   const apiSecret = process.env.GA4_API_SECRET;
   if (!apiSecret) return; // env not configured — skip silently
+
+  // Without a user_location block, GA4 geolocates from the POSTer's IP — i.e.
+  // Vercel's data center — and reports country as "(not set)". Passing Vercel's
+  // edge geo headers populates the native Country/City dimensions. The same
+  // values are also mirrored as event params so they survive as custom
+  // dimensions if Google ever stops honoring user_location.
+  const geoParams: Record<string, string> = {};
+  if (geo?.country) geoParams.country = geo.country;
+  if (geo?.city) geoParams.city = geo.city;
+
+  const userLocation =
+    geo?.country || geo?.region || geo?.city
+      ? {
+          country_id: geo.country,
+          region_id: geo.region,
+          city: geo.city,
+        }
+      : undefined;
 
   const url = `${ENDPOINT}?measurement_id=${MEASUREMENT_ID}&api_secret=${apiSecret}`;
   const body = {
@@ -37,7 +62,8 @@ export async function gaServerEvent(
     // user when we have one (e.g. from a cookie), else a random per-event id.
     client_id: clientId || `server.${Date.now()}.${Math.random().toString(36).slice(2, 10)}`,
     non_personalized_ads: true,
-    events: [{ name: eventName, params }],
+    ...(userLocation ? { user_location: userLocation } : {}),
+    events: [{ name: eventName, params: { ...params, ...geoParams } }],
   };
 
   try {

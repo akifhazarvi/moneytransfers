@@ -225,7 +225,13 @@ export default async function LocaleLayout({ children, params }: Props) {
     navigator.hardwareConcurrency===0,
   ].filter(Boolean).length>=2;
   if(webdriverFlag||multipleFailures){window['ga-disable-G-HJH07QEJ30']=true;return;}
-  gtag('js',new Date());gtag('config','G-HJH07QEJ30',{send_page_view:true});
+  gtag('js',new Date());
+  // Attach edge-detected country (from Vercel geo cookie) to every event on
+  // this config. Covers cases where GA4's IP geolocation returns "(not set)"
+  // — VPNs, IPv6, certain mobile carriers, corporate proxies. Also mirrors
+  // to user_properties so it's available for segment/audience definitions.
+  var cfg={send_page_view:true};if(cc){cfg.country=cc;gtag('set','user_properties',{geo_country:cc});}
+  gtag('config','G-HJH07QEJ30',cfg);
 })();`,
         }}
       />
