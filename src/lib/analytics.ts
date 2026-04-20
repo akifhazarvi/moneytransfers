@@ -13,8 +13,9 @@
  * - Corridor values are hyphen-joined "USD-INR" so GA4 regex filtering works.
  *
  * Respect cookie consent: analytics_storage starts "denied"; the gtag call
- * is a no-op until the user accepts cookies. Vercel Analytics uses its own
- * consent flow via the component.
+ * is a no-op until the user accepts cookies. Vercel Analytics is cookieless
+ * and fires for all users — so dual-sinked events are visible for EU/UK
+ * traffic too, not just for consent-granted users.
  */
 
 import { track as vercelTrack } from "@vercel/analytics";
@@ -56,17 +57,17 @@ const corridor = (from: string, to: string) => `${from}-${to}`.toUpperCase();
 
 /** User submits the comparison widget */
 export function trackCompareSearch(from: string, to: string, amount: number) {
-  gtagEvent("compare_search", { from, to, amount, corridor: corridor(from, to) });
+  dual("compare_search", { from, to, amount, corridor: corridor(from, to) });
 }
 
 /** Quote results rendered with N providers */
 export function trackQuotesViewed(from: string, to: string, providerCount: number) {
-  gtagEvent("quotes_viewed", { from, to, provider_count: providerCount, corridor: corridor(from, to) });
+  dual("quotes_viewed", { from, to, provider_count: providerCount, corridor: corridor(from, to) });
 }
 
 /** User expands a provider card */
 export function trackProviderExpanded(provider: string, rank: number, corridorStr: string) {
-  gtagEvent("provider_expanded", { provider, rank, corridor: corridorStr });
+  dual("provider_expanded", { provider, rank, corridor: corridorStr });
 }
 
 /** User clicks "Send with [Provider]" — PRIMARY CONVERSION */
@@ -218,7 +219,7 @@ export function trackRateAlertSet(corridorStr: string, source: string, hasTarget
 
 /** User visits a guide/review/news article */
 export function trackContentView(contentType: string, slug: string) {
-  gtagEvent("content_view", { content_type: contentType, slug });
+  dual("content_view", { content_type: contentType, slug });
 }
 
 /** User scrolls past depth threshold on content */

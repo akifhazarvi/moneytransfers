@@ -22,7 +22,16 @@ export default function CookieConsent() {
       enableAnalytics();
       return;
     }
-    if (consent === "declined") return;
+    // "declined:<unix_ms>" — re-prompt after 6 months (CNIL-recommended cadence).
+    // Legacy "declined" without timestamp is treated as indefinite decline until
+    // cleared (keeps existing users from being unexpectedly re-asked).
+    if (consent?.startsWith("declined:")) {
+      const ts = parseInt(consent.slice(9), 10);
+      const SIX_MONTHS_MS = 1000 * 60 * 60 * 24 * 180;
+      if (Number.isFinite(ts) && Date.now() - ts < SIX_MONTHS_MS) return;
+    } else if (consent === "declined") {
+      return;
+    }
 
     // No stored consent — check if EU user (needs explicit consent)
     const EU = "AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH";
@@ -45,7 +54,7 @@ export default function CookieConsent() {
   }
 
   function handleDecline() {
-    localStorage.setItem("cookie_consent", "declined");
+    localStorage.setItem("cookie_consent", `declined:${Date.now()}`);
     setVisible(false);
   }
 
@@ -66,16 +75,16 @@ export default function CookieConsent() {
               </Link>
             </p>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               onClick={handleDecline}
-              className="px-4 py-2 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] border border-[var(--color-outline)] rounded-full transition-colors cursor-pointer"
+              className="px-3 py-2 text-2sm font-normal text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] border border-[var(--color-outline)] rounded-full transition-colors cursor-pointer"
             >
               {t("decline")}
             </button>
             <button
               onClick={handleAccept}
-              className="px-4 py-2 text-2sm font-medium text-white bg-[var(--color-primary)] hover:bg-[#1557b0] rounded-full transition-colors cursor-pointer"
+              className="px-6 py-2.5 text-2sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[#1557b0] rounded-full shadow-sm transition-colors cursor-pointer"
             >
               {t("accept")}
             </button>

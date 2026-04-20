@@ -204,7 +204,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
   var isEU=EU.indexOf(cc)!==-1;
   var stored=localStorage.getItem('cookie_consent');
-  var consent=stored==='accepted'?'granted':stored==='declined'?'denied':isEU?'denied':'granted';
+  var isDeclined=stored==='declined'||(stored&&stored.indexOf('declined:')===0);
+  var consent=stored==='accepted'?'granted':isDeclined?'denied':isEU?'denied':'granted';
   gtag('consent','default',{
     'analytics_storage':consent,
     'ad_storage':'denied',
