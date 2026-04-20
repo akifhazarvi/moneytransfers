@@ -16,6 +16,17 @@ export default function CookieConsent() {
     }
   }
 
+  function denyAnalytics() {
+    // Redundant with the gtag-init default (which is already "denied" for EU),
+    // but sending an explicit update on click gives Google a clear consent
+    // state transition — helps Consent Mode signal detection.
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        analytics_storage: "denied",
+      });
+    }
+  }
+
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
     if (consent === "accepted") {
@@ -55,6 +66,7 @@ export default function CookieConsent() {
 
   function handleDecline() {
     localStorage.setItem("cookie_consent", `declined:${Date.now()}`);
+    denyAnalytics();
     setVisible(false);
   }
 
