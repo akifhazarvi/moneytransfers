@@ -1288,6 +1288,365 @@ export const newsItems: NewsItem[] = [
     sourceUrl: "https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html",
     providerSlugs: ["wise", "revolut", "remitly", "ofx"],
   },
+  // ========================================
+  // Wise Nasdaq dual-listing — May 11, 2026
+  // ========================================
+  {
+    slug: "wise-nasdaq-dual-listing-may-2026",
+    title:
+      "Wise Nasdaq Listing May 11, 2026: What the Dual-Listing Means for Your Transfers",
+    excerpt:
+      "Wise confirms primary listing switch to Nasdaq on May 11, 2026 after moving £181.7B in FY26 for 18.9M customers. What changes for senders, and how it reshapes the Wise vs Revolut race.",
+    image: "/images/news/wise-nasdaq-listing.svg",
+    imageAlt:
+      "Data card showing Wise's May 11, 2026 primary listing switch from LSE to Nasdaq with £181.7B FY26 volume, 18.9M customers, and £49.4B Q4 cross-border volume",
+    content: `<p><strong>TL;DR —</strong> <a href="/companies/wise">Wise</a> switches its primary listing from the London Stock Exchange to the Nasdaq on <strong>May 11, 2026</strong>, with the UK keeping a secondary listing. The move follows a year in which Wise moved <strong>£181.7 billion</strong> across borders for <strong>18.9 million active customers</strong> — cross-border volume up 26% year-on-year in Q4 FY26. Nothing changes for senders today: the same platform, the same <a href="/guides/us-remittance-tax-2026">tax-exempt digital funding</a>, the same <a href="/guides/exchange-rate-markup-explained">mid-market rate pricing</a>. But the US capital base is the clearest signal yet that Wise intends to win the American corridor market at scale.</p>
+
+<h2>The numbers behind the move</h2>
+<p>Wise disclosed its full-year FY26 trading update alongside the listing date. The Q4 highlights are striking for a company that only IPO'd in 2021:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Metric</th><th>Q4 FY26</th><th>YoY change</th></tr></thead>
+<tbody>
+<tr><td>Cross-border volume</td><td>£49.4 billion</td><td>+26%</td></tr>
+<tr><td>Active customers</td><td>11.3 million (quarter)</td><td>+22%</td></tr>
+<tr><td>Underlying income</td><td>£435.3 million</td><td>+24%</td></tr>
+<tr><td>FY26 total volume</td><td>£181.7 billion</td><td>+25%</td></tr>
+<tr><td>Customer balances</td><td>£22.6 billion</td><td>+33%</td></tr>
+</tbody>
+</table></div>
+
+<h2>Why list on the Nasdaq — and why now?</h2>
+<p>Three reasons dominate the case for Wise's move.</p>
+<p><strong>1. Valuation multiples.</strong> Fintech peers trading on the Nasdaq — including Nubank, SoFi, and PayPal — consistently command higher revenue multiples than UK-listed fintech. For a company growing cross-border volume at 25%+ a year, the re-rating alone could add several billion pounds of market capitalisation.</p>
+<p><strong>2. Dollar-denominated capital.</strong> Roughly 45% of Wise's customer base is in the Americas or sends to USD-denominated corridors. A US listing gives the company a deeper pool of dollar capital to fund US bank partnerships, compliance infrastructure, and FedNow / CHIPS integration — the plumbing that makes <a href="/send-money/usa-to-india">USA-to-India</a>, <a href="/send-money/usa-to-mexico">USA-to-Mexico</a>, and <a href="/send-money/usa-to-philippines">USA-to-Philippines</a> transfers settle in minutes rather than days.</p>
+<p><strong>3. Competitive pressure from Revolut.</strong> <a href="/companies/revolut">Revolut</a> reported <a href="/news/revolut-africa-14-corridors-airtel-mtn-orange-money-2026">record 2025 revenues of €5.2 billion</a> and a full UK banking licence, and analysts at Citi have cited Revolut's accelerating cross-border expansion as a direct threat to Wise's UK base — which still generates roughly 20–25% of revenue. A Nasdaq platform gives Wise the balance sheet to defend and extend.</p>
+
+<h2>What changes for you as a sender?</h2>
+<p>Short answer: <strong>nothing, immediately</strong>. The Wise app, rates, fees, and product surface are unaffected by where the holding company trades its shares.</p>
+<p>What changes over 12–24 months is where Wise invests. Three areas to watch:</p>
+<ul>
+<li><strong>USD rails</strong> — Expect deeper integration with FedNow and US bank-held accounts, which will tighten USD-funded corridor settlement from hours to seconds. See our coverage of <a href="/news/fednow-cross-border-payments-2026">FedNow's cross-border push</a>.</li>
+<li><strong>New currencies</strong> — Wise has historically added 4–6 currencies a year. Expect acceleration, particularly in Latin America and Africa where <a href="/send-money/uk-to-nigeria">GBP-to-NGN</a> and <a href="/send-money/uk-to-ghana">GBP-to-GHS</a> routes have high diaspora demand.</li>
+<li><strong>Business banking</strong> — Wise Business is the fastest-growing segment. A US listing signals a push to compete directly with <a href="/business/b2b-transfers">B2B platforms</a> such as Airwallex and Payoneer.</li>
+</ul>
+
+<h2>Wise vs Revolut: the Nasdaq race</h2>
+<p>With Wise on the Nasdaq and Revolut holding a full UK banking licence and reporting $2.3 billion profit on $6 billion revenue in 2025, the duopoly at the top of the retail FX market is tightening. For senders, this is good news — both firms compete almost entirely on price and speed.</p>
+<p>If you're deciding between them, our <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> head-to-head compares fees, rates, corridor coverage, and speed for the most common routes. For USD-heavy senders, <a href="/compare/wise-vs-paypal">Wise vs PayPal</a> and <a href="/compare/wise-vs-xoom">Wise vs Xoom</a> are the comparisons that typically matter more.</p>
+
+<h2>Is Wise safe? Regulatory protection holds either way</h2>
+<p>A listing switch does not change Wise's regulatory status. Wise remains authorised by the FCA in the UK as an Electronic Money Institution, by FinCEN in the US as a Money Services Business, and by the ASIC, MAS, and RBI equivalents in its other regions. Customer balances are <strong>safeguarded</strong> — held separately from Wise's corporate funds in partner banks and government bonds, not deposited with Wise itself.</p>
+<p>The UK's new <a href="/news/fca-safeguarding-rules-money-transfer-2026">FCA safeguarding rules taking effect May 7, 2026</a> strengthen this further: daily reconciliation, annual audits, and formal wind-down plans become mandatory for every FCA-regulated provider — including Wise and Revolut.</p>
+
+<h2>What to watch on and after May 11</h2>
+<ol>
+<li><strong>May 11, 2026</strong> — Primary listing moves to Nasdaq under ticker WISE. LSE keeps a secondary listing.</li>
+<li><strong>Q1 FY27 trading update (July 2026)</strong> — First quarterly disclosure as a Nasdaq-primary company; watch for US volume growth as the headline metric.</li>
+<li><strong>Full-year results (November 2026)</strong> — First post-listing earnings; expect a sharpened US corridor roadmap and likely new product announcements.</li>
+</ol>
+
+<h2>Frequently asked questions</h2>
+<h3>Is Wise safe after the Nasdaq listing in 2026?</h3>
+<p>Yes. Wise's safeguarding and regulatory status is unchanged by the listing switch. Customer funds remain ring-fenced from corporate funds under FCA and FinCEN rules. The Nasdaq move is a corporate-governance change, not an operational one. See our full <a href="/companies/wise">Wise review</a> for the latest safety breakdown.</p>
+
+<h3>Will Wise fees or exchange rates change after May 11, 2026?</h3>
+<p>No. Wise's pricing is driven by its cost base and competition, not by where its shares are listed. The company's stated long-term objective — pushing the average price of a cross-border transfer below 0.5% — is unchanged.</p>
+
+<h3>Can I buy Wise shares if I'm a customer?</h3>
+<p>Yes. Wise has announced that existing shareholders will receive equivalent Nasdaq-listed shares on the listing date, and retail investors will be able to buy through any broker with Nasdaq access. This article is not investment advice.</p>
+
+<h3>Does Wise still serve UK customers after the move?</h3>
+<p>Yes. Wise retains a secondary LSE listing and its UK entity (Wise Payments Limited) remains FCA-regulated. UK senders see no change. Compare UK corridors: <a href="/send-money/uk-to-india">UK to India</a>, <a href="/send-money/uk-to-pakistan">UK to Pakistan</a>, <a href="/send-money/uk-to-philippines">UK to Philippines</a>.</p>
+
+<p>For the broader competitive picture, see our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a> and the live <a href="/send-money">comparison tool</a> that shows exactly how Wise's rate stacks up against Remitly, Xoom, OFX and the rest on your specific corridor.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-04-20",
+    source: "Wise plc / Finance Magnates / FXC Intelligence",
+    sourceUrl:
+      "https://www.fxcintel.com/research/analysis/wise-q4-26-earnings",
+    providerSlugs: ["wise", "revolut", "remitly", "xoom"],
+  },
+  // ========================================
+  // Pakistan record $41B remittance year — April 2026
+  // ========================================
+  {
+    slug: "pakistan-record-41-billion-remittance-2026",
+    title:
+      "Pakistan Remittances Hit Record $41 Billion in 2026: Cheapest Way to Send GBP to PKR",
+    excerpt:
+      "Pakistan is on track for a record $41 billion remittance year in 2026, up from $38B last year. UK→Pakistan alone hit $532M in February. Here's how the top providers compare on GBP to PKR right now.",
+    image: "/images/news/pakistan-record-remittance-2026.svg",
+    imageAlt:
+      "Editorial chart showing Pakistan's projected $41B remittance year for 2026, with UK-to-Pakistan February inflow of $532M and GBP/PKR at 377",
+    content: `<p><strong>TL;DR —</strong> Pakistan is projected to receive a record <strong>$41 billion</strong> in remittances this year, up from $38 billion in 2025, with the UK alone contributing <strong>$532 million in February 2026</strong>. On <a href="/send-money/uk-to-pakistan">GBP to PKR</a>, rate differences between providers can move <strong>5,000–15,000 rupees on a £1,000 transfer</strong> — enough to justify comparing every time. Below: the data, the corridors driving the record, and the cheapest providers as of April 20, 2026.</p>
+
+<h2>Why 2026 is a record year</h2>
+<p>The surge has three underlying drivers, none of which look temporary:</p>
+<ol>
+<li><strong>A wider legal–parallel rate gap has narrowed.</strong> After the State Bank of Pakistan's 2023–24 exchange-rate reforms, formal channels now clear closer to market — meaning diaspora senders who previously used informal hawala routes are migrating back to regulated providers.</li>
+<li><strong>Mobile wallet adoption.</strong> JazzCash and Easypaisa together cover over 100 million registered accounts. Minute-level delivery from the UK, US, and Gulf is now the norm, not the exception.</li>
+<li><strong>Gulf demand is steady, Western demand is rising.</strong> Saudi Arabia and the UAE remain the largest sending markets, but <strong>UK remittances are up notably year-on-year</strong> despite a 7% February dip ($532M vs $575M in January) driven largely by base effects.</li>
+</ol>
+
+<h2>Top remittance sources into Pakistan (SBP data)</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>Source country</th><th>Feb 2026 inflow</th><th>Typical fastest rail</th></tr></thead>
+<tbody>
+<tr><td><strong>Saudi Arabia</strong></td><td>~$800M</td><td>SAR → PKR via specialist providers</td></tr>
+<tr><td><strong>United Arab Emirates</strong></td><td>~$700M</td><td>AED → PKR wallet delivery in minutes</td></tr>
+<tr><td><strong>United Kingdom</strong></td><td>$532M</td><td>GBP → PKR Faster Payments + wallet</td></tr>
+<tr><td><strong>United States</strong></td><td>~$330M</td><td><a href="/guides/us-remittance-tax-2026">Digital (tax-exempt)</a> to bank or wallet</td></tr>
+<tr><td><strong>EU (combined)</strong></td><td>~$280M</td><td>SEPA → PKR via Wise, Remitly, ACE</td></tr>
+</tbody>
+</table></div>
+
+<h2>UK to Pakistan: who's cheapest right now?</h2>
+<p>The GBP to PKR corridor is one of the most price-competitive in the world because diaspora demand is high and every specialist provider operates here. For a typical <strong>£1,000 transfer</strong> on April 20, 2026, the live rate landscape is:</p>
+<ul>
+<li><strong><a href="/companies/ace-money-transfer">ACE Money Transfer</a></strong> — Strong Pakistani banking partnerships, frequent zero-fee promos for new customers. Consistently among the top 2 for PKR delivered.</li>
+<li><strong><a href="/companies/wise">Wise</a></strong> — Mid-market rate with a transparent 0.5–0.8% fee. Not always the highest PKR delivered, but always the most predictable.</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong> — Express delivery in minutes to JazzCash, Easypaisa, HBL, UBL, Meezan. Economy tier is often the cheapest of the app-based providers.</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong> — Broadest wallet and bank coverage; competitive on occasional promotional rates.</li>
+<li><strong><a href="/companies/ria">Ria</a></strong> — Strongest cash-pickup network via the Omni channel; worth checking when the recipient is outside urban centres.</li>
+</ul>
+<p>For live provider-by-provider comparison on this corridor, see <a href="/send-money/uk-to-pakistan">UK to Pakistan live rates</a> or try the <a href="/send-money">full comparison tool</a> with your exact amount.</p>
+
+<h2>How much you're losing by using a UK high-street bank</h2>
+<p>UK high-street banks (Barclays, HSBC, Lloyds, NatWest, Santander) typically charge <strong>£15–£30 per transfer plus a 3–5% markup on the GBP/PKR rate</strong>. On a £1,000 transfer:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Route</th><th>Typical total cost</th><th>PKR delivered (vs specialist)</th></tr></thead>
+<tbody>
+<tr><td>UK high-street bank</td><td>£45–£75</td><td>~15,000–30,000 PKR less</td></tr>
+<tr><td>Specialist (Wise, ACE, Remitly)</td><td>£0–£7</td><td>Benchmark</td></tr>
+</tbody>
+</table></div>
+<p>Over 12 transfers a year, the difference is £500–£800 — money that stays with the bank instead of reaching your family. Our guide on <a href="/guides/exchange-rate-markup-explained">exchange rate markups</a> walks through exactly how this hidden cost works.</p>
+
+<h2>Watch the GBP/PKR rate</h2>
+<p>The pound has been trading in the <strong>£1 = 369–395 PKR</strong> band through April 2026, with April forecasts pointing to a month-end rate near <strong>385</strong>. On £1,000, a 2% rate swing is worth ~7,700 rupees — meaningful for any regular sender. Rate alerts from <a href="/companies/wise">Wise</a> or <a href="/companies/xe">Xe</a> let you lock in when the rate hits your target.</p>
+<p>For the broader macro picture, our <a href="/news/april-2026-central-bank-calendar">April 2026 central bank calendar</a> lists every rate decision likely to move GBP in the coming weeks. And for a historical view, the <a href="/exchange-rates/history">exchange rate history tool</a> shows how GBP/PKR has moved over the past year.</p>
+
+<h2>US senders to Pakistan: digital is tax-free</h2>
+<p>If you're sending to Pakistan from the US, fund your transfer <strong>digitally</strong> — bank account, debit card, or credit card — and the <a href="/guides/us-remittance-tax-2026">1% federal remittance excise tax</a> does not apply. The tax is triggered only by cash, money orders, or cashier's checks handed over in person. That makes <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> 100% tax-exempt on the <a href="/send-money/usa-to-pakistan">USA to Pakistan corridor</a>. See our dedicated <a href="/news/irs-remittance-tax-proposed-regulations-2026">IRS regulations analysis</a> for the full exemption list.</p>
+
+<h2>The corridor pages to bookmark</h2>
+<ul>
+<li><a href="/send-money/uk-to-pakistan">UK → Pakistan</a> — GBP to PKR live rates and provider matrix</li>
+<li><a href="/send-money/usa-to-pakistan">USA → Pakistan</a> — USD to PKR, tax-exempt digital options</li>
+<li><a href="/send-money/send-money-to-pakistan">Send money to Pakistan</a> — all sending countries, one page</li>
+<li><a href="/guides/send-money-to-pakistan-guide">Complete Pakistan guide</a> — banks, wallets, cash pickup, KYC, regulations</li>
+<li><a href="/iban/pakistan">Pakistan IBAN lookup</a> — verify recipient bank codes before sending</li>
+<li><a href="/swift-codes/pakistan">Pakistan SWIFT codes</a> — for bank-to-bank wires</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<h3>What is the cheapest way to send money from the UK to Pakistan in 2026?</h3>
+<p>As of April 2026, ACE Money Transfer, Wise, and Remitly consistently deliver the most rupees per pound on the GBP to PKR corridor. Differences of 5,000–15,000 PKR per £1,000 are common between the best and worst providers on any given day — compare before every transfer at our <a href="/send-money/uk-to-pakistan">UK to Pakistan comparison page</a>.</p>
+
+<h3>How much did Pakistan receive in remittances in February 2026?</h3>
+<p>Pakistan received <strong>$3.3 billion in remittances in February 2026</strong>, with the UK contributing $532 million (down 7% from January's $575M). Full-year inflows are projected to reach a record $41 billion, up from $38B in 2025.</p>
+
+<h3>Is JazzCash or Easypaisa better for receiving money from the UK?</h3>
+<p>Both are supported by every major UK-to-Pakistan provider. Choose JazzCash if your recipient uses Jazz mobile service; choose Easypaisa if they use Telenor. Both deliver in minutes and charge the recipient nothing to receive. See our <a href="/send-money/uk-to-pakistan">UK to Pakistan page</a> for provider-by-provider wallet support.</p>
+
+<h3>Do I pay tax on remittances to Pakistan?</h3>
+<p>In the UK, no — HMRC does not tax outgoing personal remittances. In the US, the <a href="/guides/us-remittance-tax-2026">1% federal excise tax</a> applies only to cash-funded transfers; digital transfers from bank account, debit card, or credit card are exempt. Pakistan does not tax inward personal remittances.</p>
+
+<p>For the macro view, read our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>. To compare providers live, use the <a href="/send-money">comparison tool</a>.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-04-20",
+    source: "State Bank of Pakistan / Business Recorder / TechJuice",
+    sourceUrl: "https://www.brecorder.com/news/40410967",
+    providerSlugs: ["wise", "remitly", "worldremit", "ria", "ace-money-transfer"],
+  },
+  // ========================================
+  // INR weakest in a year — decision framework
+  // ========================================
+  {
+    slug: "inr-weakest-year-send-money-india-april-2026",
+    title:
+      "INR at 92.98/USD (April 2026): Should You Send Money to India Now or Wait?",
+    excerpt:
+      "The rupee is 9.18% weaker than a year ago at ₹92.98/USD, with the RBI actively intervening in FX markets. Here's a decision framework for when to send USD/INR and GBP/INR transfers — and how much timing really matters.",
+    image: "/images/news/inr-weakest-usd-april-2026.svg",
+    imageAlt:
+      "Editorial card showing the Indian rupee at 92.98 per USD on April 20, 2026, down 9.18% year-on-year, with a downward trend line and GBP/INR at 126.04",
+    content: `<p><strong>TL;DR —</strong> The Indian rupee is trading at <strong>₹92.98 per USD</strong> on April 20, 2026 — its weakest level in a year and <strong>down 9.18% year-on-year</strong>. GBP/INR sits near <strong>126</strong>. The Reserve Bank of India (RBI) is actively intervening to cap volatility, and Western senders are arguably in the strongest position of 2026 so far. Below: whether to send now or wait, how big the provider spread is, and why "waiting for a better rate" usually costs more than it saves.</p>
+
+<h2>Where the rate is today</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>Pair</th><th>Rate (Apr 20, 2026)</th><th>1-month range</th><th>12-month change</th></tr></thead>
+<tbody>
+<tr><td><strong>USD / INR</strong></td><td>92.98</td><td>92.41 – 94.62</td><td>INR down 9.18%</td></tr>
+<tr><td><strong>GBP / INR</strong></td><td>126.04</td><td>123.60 – 130.24</td><td>GBP up ~8%</td></tr>
+<tr><td><strong>EUR / INR</strong></td><td>~101</td><td>~99 – 103</td><td>EUR up ~6%</td></tr>
+</tbody>
+</table></div>
+<p>In plain English: <strong>if you're sending USD, GBP, or EUR to India, your recipient is getting substantially more rupees than they would have a year ago</strong>. On a $1,000 transfer, that's roughly ₹7,800 more than April 2025 — enough to cover a month of groceries for a middle-class Indian household.</p>
+
+<h2>What's driving the weakness</h2>
+<p>Three forces are pushing the rupee down, each with different longevity:</p>
+<ul>
+<li><strong>Dollar strength</strong> — The Fed's <a href="/news/fed-holds-rates-march-2026-one-cut-dot-plot">hold at 3.5% with one cut projected for 2026</a> keeps real US yields elevated. Every emerging-market currency has felt this.</li>
+<li><strong>Oil imports</strong> — India imports ~85% of its crude. Every spike in Brent tightens INR further as state oil companies buy dollars. The RBI is now routing state-run oil importer demand through a <strong>special credit facility</strong> to reduce open-market pressure — a sign the weakness was getting structural.</li>
+<li><strong>Offshore hedging pressure</strong> — The RBI has tightened FX position limits for banks and restricted offshore-linked hedging activity. This has helped: foreign investors turned net buyers of Indian equities (~₹3.8 billion inflow) in April, and the rupee has stabilised from its 94.62 low on April 13 to 92.98 today.</li>
+</ul>
+<p>For the underlying macro calendar, see our <a href="/news/april-2026-central-bank-calendar">April 2026 central bank calendar</a> (Fed minutes April 9, ECB April 17 — both already priced in).</p>
+
+<h2>Send now or wait? The decision framework</h2>
+<p>There's a simple way to think about this. Your total transfer cost is:</p>
+<blockquote>
+<p><strong>Provider fee + provider FX markup + (timing risk × transfer size)</strong></p>
+</blockquote>
+<p>Fees and markup are knowable today. Timing risk is what you're guessing at.</p>
+
+<h3>Rule 1 — Pick the provider first, the timing second</h3>
+<p>The gap between the cheapest and most expensive provider on USD/INR is typically <strong>0.5% to 3%</strong> of your transfer amount. The gap between today's rate and next week's rate is typically <strong>0.3% to 1%</strong>. Switching from your bank to <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, or <a href="/companies/instarem">Instarem</a> saves you more on almost any given day than waiting would.</p>
+<p>See <a href="/send-money/usa-to-india">USA to India live rates</a> or <a href="/send-money/uk-to-india">UK to India live rates</a> for the provider-by-provider picture right now.</p>
+
+<h3>Rule 2 — If you <em>must</em> time it, watch the RBI</h3>
+<p>The RBI is clearly targeting stability, not direction. That means:</p>
+<ul>
+<li><strong>Spikes above 94</strong> have been met with intervention → likely to retrace toward 92–93 within days.</li>
+<li><strong>Dips below 92</strong> are possible but short-lived — the RBI's defensive posture is against weakness, not strength.</li>
+<li>Big-event days (Fed meetings, RBI meetings, Budget announcements) see wider intraday ranges — <strong>avoid transferring during the announcement, send 24–48 hours after</strong>.</li>
+</ul>
+
+<h3>Rule 3 — Use rate alerts instead of checking manually</h3>
+<p>Every major provider now offers rate alerts. Set a target that's 0.5–1% above today's rate, and you'll either hit it or learn that you overestimated the upside. <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, and <a href="/companies/revolut">Revolut</a> all have free alert features; <a href="/currency-converter">our currency converter</a> also shows the 30-day historical range so you can calibrate your target.</p>
+
+<h2>How much does a 1% rate move actually matter?</h2>
+<p>Put numbers on it. On a <strong>$5,000 transfer</strong> via Wise:</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Scenario</th><th>USD/INR rate</th><th>INR delivered</th><th>Difference</th></tr></thead>
+<tbody>
+<tr><td>Today (Apr 20)</td><td>92.98</td><td>₹464,900</td><td>—</td></tr>
+<tr><td>+1% rupee weakening</td><td>93.91</td><td>₹469,550</td><td>+₹4,650</td></tr>
+<tr><td>+1% rupee strengthening</td><td>92.05</td><td>₹460,250</td><td>−₹4,650</td></tr>
+</tbody>
+</table></div>
+<p>₹4,650 is meaningful, but it's also smaller than the typical <strong>₹8,000–15,000 gap</strong> between the cheapest and most expensive provider on the same day. Provider choice > timing.</p>
+
+<h2>When timing really does matter — large transfers</h2>
+<p>If you're sending <strong>more than £25,000 / $30,000</strong> — a down payment, NRI remittance, property purchase, or business payment — the calculus flips. A 1% rate move is $300+, and specialist FX brokers with forward contracts start to beat app-based providers.</p>
+<p>For transfers that size, see our guides on <a href="/business/b2b-transfers">B2B international payments</a> and <a href="/companies/ofx">OFX</a> / <a href="/companies/currencies-direct">Currencies Direct</a> — both offer <strong>forward contracts</strong> that let you lock today's rate for up to 12 months.</p>
+
+<h2>Live rates and tools</h2>
+<ul>
+<li><a href="/exchange-rates/usd-to-inr">USD to INR — live rate + history</a></li>
+<li><a href="/exchange-rates/gbp-to-inr">GBP to INR — live rate + history</a></li>
+<li><a href="/send-money/usa-to-india">USA → India provider comparison</a></li>
+<li><a href="/send-money/uk-to-india">UK → India provider comparison</a></li>
+<li><a href="/send-money/send-money-to-india">All corridors into India</a></li>
+<li><a href="/guides/send-money-to-india-guide">Complete India guide</a> — UPI, IMPS, NEFT, banks, KYC</li>
+<li><a href="/iban/india">India IBAN / IFSC lookup</a></li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<h3>Why is the Indian rupee so weak in April 2026?</h3>
+<p>Three forces: sustained US dollar strength after the Fed's March hold, persistent oil import demand, and offshore hedging pressure. The RBI is intervening to stabilise — not reverse — the move, which is why the rate has stayed in a 92.4–94.6 range through the month.</p>
+
+<h3>Should I send money to India now or wait for a better rate?</h3>
+<p>For most senders, now is fine. Provider choice saves more than timing: the cheapest USD/INR provider typically delivers 1–3% more rupees than the most expensive on the same day, versus a 0.3–1% typical weekly rate swing. If you're sending over $30,000, consider a forward contract via <a href="/companies/ofx">OFX</a> or <a href="/companies/currencies-direct">Currencies Direct</a>.</p>
+
+<h3>What's the best app to send USD to INR in 2026?</h3>
+<p>On the <a href="/send-money/usa-to-india">USA→India corridor</a>, Wise, Remitly, and Instarem consistently lead on total INR delivered. Wise uses the mid-market rate with a fee of ~0.4–0.6%. Remitly's Economy tier is often the cheapest; Express is fastest. Instarem offers competitive rates with zero fees for first transfers.</p>
+
+<h3>How much has the rupee fallen against the dollar in the past year?</h3>
+<p>INR is <strong>down 9.18%</strong> against USD in the 12 months to April 20, 2026, trading at ₹92.98 versus roughly ₹85 a year ago. For a $1,000 transfer, that's ~₹7,800 more rupees delivered than last April.</p>
+
+<p>For broader context on how currency moves interact with fees, see our guide on <a href="/guides/exchange-rate-markup-explained">exchange rate markups</a>. For the global picture, the <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a> has the long-term data.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-04-20",
+    source: "Trading Economics / Reserve Bank of India / Reuters",
+    sourceUrl: "https://tradingeconomics.com/india/currency",
+    providerSlugs: ["wise", "remitly", "instarem", "xe", "ofx"],
+  },
+  // ========================================
+  // Revolut Africa 14 corridors — April 2026
+  // ========================================
+  {
+    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+    title:
+      "Revolut Adds 14 Africa Corridors (April 2026): Airtel Money, MTN, Orange Money Integration",
+    excerpt:
+      "Revolut expanded international transfers with 14 new payment corridors across 9 African countries, plugging into Airtel Money, MTN, and Orange Money. Here's what it means for UK→Africa senders and how it compares to Wise and WorldRemit.",
+    image: "/images/news/revolut-africa-corridors.svg",
+    imageAlt:
+      "Editorial card showing Revolut's 14 new African corridors across 9 countries, with MTN Mobile Money, Airtel Money, and Orange Money integration pills and Revolut's €5.2B 2025 revenue",
+    content: `<p><strong>TL;DR —</strong> <a href="/companies/revolut">Revolut</a> has gone live with <strong>14 new international transfer corridors into 9 African countries</strong>, plugging its Money product directly into <strong>Airtel Money, MTN Mobile Money, and Orange Money</strong>. For UK, EU, and US senders, this is the most material expansion of app-based remittance access to Africa since WorldRemit did the same in 2019. Below: the full corridor list, how Revolut compares to <a href="/companies/wise">Wise</a> and <a href="/companies/worldremit">WorldRemit</a>, and whether this moves the needle for your next <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/uk-to-kenya">UK→Kenya</a>, or <a href="/send-money/uk-to-ghana">UK→Ghana</a> transfer.</p>
+
+<h2>Which countries and wallets are live</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>Country</th><th>Mobile money services supported</th><th>Typical delivery</th></tr></thead>
+<tbody>
+<tr><td>Nigeria</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
+<tr><td>Kenya</td><td>Airtel Money (M-PESA via bank only)</td><td>Minutes</td></tr>
+<tr><td>Ghana</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
+<tr><td>Uganda</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
+<tr><td>Tanzania</td><td>Airtel Money, MTN MoMo</td><td>Minutes</td></tr>
+<tr><td>Rwanda</td><td>MTN MoMo, Airtel Money</td><td>Minutes</td></tr>
+<tr><td>DRC</td><td>Airtel Money, Orange Money</td><td>Minutes</td></tr>
+<tr><td>Cameroon</td><td>Orange Money, MTN MoMo</td><td>Minutes</td></tr>
+<tr><td>Senegal</td><td>Orange Money</td><td>Minutes</td></tr>
+</tbody>
+</table></div>
+<p>Under the hood, Revolut is routing these through <a href="/news/absa-thunes-global-pay-africa-remittances">Thunes and Absa's Global Pay network</a> — the same rails <a href="/news/mastercard-bvnk-stablecoin-remittance-2026">Mastercard and BVNK are using for stablecoin-settled cross-border payments</a>. The infrastructure story across African remittances in 2026 is effectively one story: legacy correspondent banking replaced by API-addressable wallet networks.</p>
+
+<h2>How Revolut compares on UK→Africa right now</h2>
+<p>For a typical <strong>£500 transfer</strong> on the <a href="/send-money/uk-to-nigeria">GBP→NGN</a> corridor (April 20, 2026):</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>Provider</th><th>Typical fee</th><th>FX markup</th><th>Delivery</th></tr></thead>
+<tbody>
+<tr><td><a href="/companies/lemfi">Lemfi</a></td><td>£0</td><td>~1.5%</td><td>Minutes (wallet)</td></tr>
+<tr><td><a href="/companies/revolut">Revolut</a> (new)</td><td>£0 (Plus/Premium tiers)</td><td>~1.8–2.5%</td><td>Minutes (wallet)</td></tr>
+<tr><td><a href="/companies/wise">Wise</a></td><td>£1–£3</td><td>~0.5%</td><td>1–2 business days (bank)</td></tr>
+<tr><td><a href="/companies/worldremit">WorldRemit</a></td><td>£1–£4</td><td>~2–3%</td><td>Minutes (wallet)</td></tr>
+<tr><td>UK high-street bank</td><td>£15–£30</td><td>~4–6%</td><td>1–3 business days</td></tr>
+</tbody>
+</table></div>
+<p>For Nigeria specifically, <a href="/companies/lemfi">Lemfi</a> remains the sharpest rate in the diaspora community. Revolut's advantage is that senders who already hold GBP/EUR/USD in a Revolut account can now transfer instantly without opening a new service — a friction saving, not necessarily a cost saving.</p>
+
+<h2>Why this matters beyond Revolut</h2>
+<p>Three implications worth tracking:</p>
+<ol>
+<li><strong>Price pressure on Wise.</strong> Wise has historically been slower to add African corridors, relying on bank-rail delivery. A credible mobile-money competitor inside the Revolut app — already used by 45M+ European customers — changes the <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> calculus on Africa routes specifically.</li>
+<li><strong>M-PESA remains the white space.</strong> Revolut's Kenya corridor supports Airtel Money but routes M-PESA via bank, which adds a step. Whoever cracks direct M-PESA API access (Safaricom partnerships are scarce) wins East Africa's largest wallet base.</li>
+<li><strong>Africa corridor competition is accelerating.</strong> In 12 months, <a href="/news/paypal-venmo-goes-global-remittances-2026">PayPal/Venmo launched cross-border</a>, <a href="/news/gcash-free-middle-east-transfers-philippines-ofw-2026">GCash went free for Middle East corridors</a>, and <a href="/news/absa-thunes-global-pay-africa-remittances">Absa/Thunes unified pan-African mobile money rails</a>. Expect prices on <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/uk-to-ghana">UK→Ghana</a>, and <a href="/send-money/uk-to-kenya">UK→Kenya</a> to keep compressing.</li>
+</ol>
+
+<h2>Which corridor guide to read next</h2>
+<ul>
+<li><a href="/send-money/uk-to-nigeria">UK → Nigeria (GBP/NGN)</a> — highest-volume UK-to-Africa corridor</li>
+<li><a href="/send-money/uk-to-kenya">UK → Kenya (GBP/KES)</a> — M-PESA and Airtel Money delivery</li>
+<li><a href="/send-money/uk-to-ghana">UK → Ghana (GBP/GHS)</a> — MTN MoMo dominant</li>
+<li><a href="/send-money/send-money-to-nigeria">All corridors → Nigeria</a></li>
+<li><a href="/guides/send-money-to-nigeria-guide">Complete Nigeria guide</a> — banks, wallets, CBN rules</li>
+<li><a href="/companies/revolut">Full Revolut review</a> — fees, tiers, transfer limits</li>
+<li><a href="/compare/wise-vs-revolut">Wise vs Revolut head-to-head</a></li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<h3>Can I send money from the UK to Nigeria via Revolut in 2026?</h3>
+<p>Yes. As of April 2026, Revolut supports direct transfers from GBP balances to MTN MoMo and Airtel Money wallets in Nigeria, delivered in minutes. Compare live rates on our <a href="/send-money/uk-to-nigeria">UK to Nigeria comparison page</a> — Lemfi and Wise remain cost-competitive on this route.</p>
+
+<h3>Does Revolut support M-PESA transfers to Kenya?</h3>
+<p>Indirectly. Revolut's Kenya corridor routes to Airtel Money directly, but M-PESA transfers currently go via the recipient's linked bank account rather than the wallet API. For direct M-PESA delivery, <a href="/companies/worldremit">WorldRemit</a> and <a href="/companies/sendwave">Sendwave</a> remain the faster options.</p>
+
+<h3>Is Revolut cheaper than Wise for Africa transfers?</h3>
+<p>It depends on the corridor. Revolut Plus/Premium tier subscribers get fee-free transfers up to a monthly limit but pay a 1.8–2.5% FX markup on exotic currencies. Wise charges a small fee (~£1–£3) but uses a 0.5% mid-market markup — cheaper on larger transfers. Delivery speed favours Revolut (wallet, minutes) over Wise (bank, days) on Africa routes.</p>
+
+<h3>Are transfers from the UK to Africa regulated and safe?</h3>
+<p>Yes. Revolut holds a full UK banking licence as of 2025, and Wise/WorldRemit/Lemfi are all FCA-authorised as Electronic Money Institutions. Customer funds are safeguarded under the FCA's new rules coming into force on <a href="/news/fca-safeguarding-rules-money-transfer-2026">May 7, 2026</a>.</p>
+
+<p>For the macro picture on African remittance infrastructure, see our deep-dive on <a href="/news/absa-thunes-global-pay-africa-remittances">Absa–Thunes Global Pay</a> and the <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a>.</p>`,
+    category: "Provider Update",
+    publishedAt: "2026-04-20",
+    source: "Revolut press release / Euronews / FXC Intelligence",
+    sourceUrl:
+      "https://www.euronews.com/business/2026/03/24/revolut-reported-record-financial-results-with-revenue-rising-by-46-to-52bn-in-2025",
+    providerSlugs: ["revolut", "wise", "worldremit", "lemfi"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1f36"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="revBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#1a73e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#ffffff0a" stroke-width="1">
+    <line x1="80" y1="460" x2="1120" y2="460"/>
+    <line x1="80" y1="380" x2="1120" y2="380"/>
+    <line x1="80" y1="300" x2="1120" y2="300"/>
+  </g>
+
+  <!-- Tag -->
+  <rect x="80" y="70" width="220" height="34" rx="17" fill="#1a73e8"/>
+  <text x="190" y="93" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="14" font-weight="600" letter-spacing="1">PROVIDER UPDATE</text>
+
+  <!-- Headline -->
+  <text x="80" y="170" fill="#ffffff" font-family="system-ui" font-size="52" font-weight="700">Revolut → Africa</text>
+  <text x="80" y="215" fill="#9eb5ff" font-family="system-ui" font-size="26" font-weight="500">14 new corridors, 9 countries, 3 mobile money networks</text>
+
+  <!-- Huge number card -->
+  <g transform="translate(780, 130)">
+    <rect x="0" y="0" width="340" height="220" rx="24" fill="#1a73e815" stroke="#60a5fa" stroke-width="2"/>
+    <text x="170" y="60" text-anchor="middle" fill="#9eb5ff" font-family="system-ui" font-size="14" font-weight="600" letter-spacing="2">NEW CORRIDORS</text>
+    <text x="170" y="165" text-anchor="middle" fill="url(#revBlue)" font-family="system-ui" font-size="130" font-weight="800">14</text>
+    <text x="170" y="200" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="500">across 9 African countries</text>
+  </g>
+
+  <!-- Mobile money network pills -->
+  <g transform="translate(80, 290)">
+    <!-- MTN -->
+    <g>
+      <rect width="210" height="66" rx="14" fill="#ffcc00"/>
+      <text x="105" y="30" text-anchor="middle" fill="#003057" font-family="system-ui" font-size="12" font-weight="700" letter-spacing="1.5">MOBILE MONEY</text>
+      <text x="105" y="54" text-anchor="middle" fill="#003057" font-family="system-ui" font-size="24" font-weight="800">MTN MoMo</text>
+    </g>
+    <!-- Airtel -->
+    <g transform="translate(230, 0)">
+      <rect width="210" height="66" rx="14" fill="#e40000"/>
+      <text x="105" y="30" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="12" font-weight="700" letter-spacing="1.5">MOBILE MONEY</text>
+      <text x="105" y="54" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="24" font-weight="800">Airtel Money</text>
+    </g>
+    <!-- Orange -->
+    <g transform="translate(460, 0)">
+      <rect width="210" height="66" rx="14" fill="#ff7900"/>
+      <text x="105" y="30" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="12" font-weight="700" letter-spacing="1.5">MOBILE MONEY</text>
+      <text x="105" y="54" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="24" font-weight="800">Orange Money</text>
+    </g>
+  </g>
+
+  <!-- Country chips row -->
+  <g transform="translate(80, 395)" font-family="system-ui" font-size="14" font-weight="600">
+    <g><rect width="130" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="65" y="22" text-anchor="middle" fill="#ffffff">🇳🇬 Nigeria</text></g>
+    <g transform="translate(145, 0)"><rect width="130" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="65" y="22" text-anchor="middle" fill="#ffffff">🇰🇪 Kenya</text></g>
+    <g transform="translate(290, 0)"><rect width="130" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="65" y="22" text-anchor="middle" fill="#ffffff">🇬🇭 Ghana</text></g>
+    <g transform="translate(435, 0)"><rect width="130" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="65" y="22" text-anchor="middle" fill="#ffffff">🇺🇬 Uganda</text></g>
+    <g transform="translate(580, 0)"><rect width="140" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="70" y="22" text-anchor="middle" fill="#ffffff">🇹🇿 Tanzania</text></g>
+    <g transform="translate(735, 0)"><rect width="140" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="70" y="22" text-anchor="middle" fill="#ffffff">🇷🇼 Rwanda</text></g>
+  </g>
+  <g transform="translate(80, 438)" font-family="system-ui" font-size="14" font-weight="600">
+    <g><rect width="130" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="65" y="22" text-anchor="middle" fill="#ffffff">🇨🇩 DRC</text></g>
+    <g transform="translate(145, 0)"><rect width="180" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="90" y="22" text-anchor="middle" fill="#ffffff">🇨🇲 Cameroon</text></g>
+    <g transform="translate(340, 0)"><rect width="160" height="34" rx="17" fill="#ffffff0e" stroke="#ffffff22"/><text x="80" y="22" text-anchor="middle" fill="#ffffff">🇸🇳 Senegal</text></g>
+  </g>
+
+  <!-- Stat cards -->
+  <g transform="translate(80, 495)">
+    <rect width="340" height="80" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="30" fill="#9aa6bf" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">REVOLUT 2025 REVENUE</text>
+    <text x="24" y="65" fill="#ffffff" font-family="system-ui" font-size="30" font-weight="700">€5.2B</text>
+    <text x="150" y="65" fill="#34a853" font-family="system-ui" font-size="16" font-weight="600">+46% YoY</text>
+  </g>
+  <g transform="translate(440, 495)">
+    <rect width="340" height="80" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="30" fill="#9aa6bf" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">TYPICAL DELIVERY</text>
+    <text x="24" y="65" fill="#ffffff" font-family="system-ui" font-size="30" font-weight="700">Minutes</text>
+  </g>
+  <g transform="translate(800, 495)">
+    <rect width="320" height="80" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="30" fill="#9aa6bf" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">FCA STATUS</text>
+    <text x="24" y="65" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="700">Full UK bank licence</text>
+  </g>
+
+  <!-- Brand -->
+  <text x="600" y="608" text-anchor="middle" fill="#60a5fa" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

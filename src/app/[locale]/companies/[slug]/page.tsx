@@ -22,6 +22,8 @@ import { getGoUrl } from "@/lib/affiliate";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { newsItems } from "@/data/news";
+import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -70,6 +72,12 @@ export default async function CompanyPage({ params }: Props) {
   const review = getProviderReview(slug);
   const otherProviders = providers.filter((p) => p.slug !== slug).slice(0, 4);
 
+  // News articles mentioning this provider — sorted newest first
+  const providerNews = newsItems
+    .filter((n) => n.providerSlugs?.includes(slug))
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 4);
+
   const crossLinks = (
     <CrossLinks
       sections={[
@@ -105,10 +113,10 @@ export default async function CompanyPage({ params }: Props) {
   );
 
   if (review) {
-    return <DetailedReview slug={slug} provider={provider} review={review} otherProviders={otherProviders} crossLinks={crossLinks} />;
+    return <DetailedReview slug={slug} provider={provider} review={review} otherProviders={otherProviders} crossLinks={crossLinks} providerNews={providerNews} />;
   }
 
-  return <DefaultReview slug={slug} provider={provider} otherProviders={otherProviders} crossLinks={crossLinks} />;
+  return <DefaultReview slug={slug} provider={provider} otherProviders={otherProviders} crossLinks={crossLinks} providerNews={providerNews} />;
 }
 
 /* ─── Score color helper ─── */
@@ -125,12 +133,14 @@ function DetailedReview({
   review,
   otherProviders,
   crossLinks,
+  providerNews,
 }: {
   slug: string;
   provider: (typeof providers)[number];
   review: NonNullable<ReturnType<typeof getProviderReview>>;
   otherProviders: (typeof providers)[number][];
   crossLinks: React.ReactNode;
+  providerNews: (typeof newsItems)[number][];
 }) {
   const score = getScoreStyle(review.editorRating);
 
@@ -441,6 +451,37 @@ function DetailedReview({
                   ))}
                 </div>
               </Card>
+
+              {providerNews.length > 0 && (
+                <Card>
+                  <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">
+                    Latest on {provider.name}
+                  </h3>
+                  <ul className="space-y-3">
+                    {providerNews.map((n) => (
+                      <li key={n.slug}>
+                        <Link href={`/news/${n.slug}`} className="block group">
+                          <p className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] leading-snug">
+                            {n.title}
+                          </p>
+                          <time
+                            className="text-2xs text-[var(--color-on-surface-variant)] mt-1 block"
+                            dateTime={n.publishedAt}
+                          >
+                            {formatLocalDate(n.publishedAt, { month: "short", day: "numeric", year: "numeric" })}
+                          </time>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/news"
+                    className="text-2xs text-[var(--color-primary)] hover:underline mt-3 block"
+                  >
+                    All news →
+                  </Link>
+                </Card>
+              )}
             </div>
           </div>
         </div>
@@ -509,11 +550,13 @@ function DefaultReview({
   provider,
   otherProviders,
   crossLinks,
+  providerNews,
 }: {
   slug: string;
   provider: (typeof providers)[number];
   otherProviders: (typeof providers)[number][];
   crossLinks: React.ReactNode;
+  providerNews: (typeof newsItems)[number][];
 }) {
   return (
     <>
@@ -637,6 +680,36 @@ function DefaultReview({
                 ))}
               </div>
             </Card>
+            {providerNews.length > 0 && (
+              <Card>
+                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">
+                  Latest on {provider.name}
+                </h3>
+                <ul className="space-y-3">
+                  {providerNews.map((n) => (
+                    <li key={n.slug}>
+                      <Link href={`/news/${n.slug}`} className="block group">
+                        <p className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] leading-snug">
+                          {n.title}
+                        </p>
+                        <time
+                          className="text-2xs text-[var(--color-on-surface-variant)] mt-1 block"
+                          dateTime={n.publishedAt}
+                        >
+                          {formatLocalDate(n.publishedAt, { month: "short", day: "numeric", year: "numeric" })}
+                        </time>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/news"
+                  className="text-2xs text-[var(--color-primary)] hover:underline mt-3 block"
+                >
+                  All news →
+                </Link>
+              </Card>
+            )}
           </div>
         </div>
       </Container>
