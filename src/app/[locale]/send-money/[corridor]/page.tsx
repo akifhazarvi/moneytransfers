@@ -24,6 +24,7 @@ import {
 } from "@/data/providers";
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
+import { swedishCorridorBlocks } from "@/data/sweden-content";
 import { getCountryDetails } from "@/data/corridor-details";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -825,6 +826,55 @@ export function generateStaticParams() {
     .map((c) => ({ corridor: c.slug }));
 }
 
+// Corridor → most relevant news article. Drives the "In the news" callout
+// shown under the editorial note. Keep this list short and timely.
+const corridorRelatedNews: Record<string, { slug: string; label: string }> = {
+  "uk-to-pakistan": {
+    slug: "pakistan-record-41-billion-remittance-2026",
+    label: "Pakistan hits record $41B remittance year — cheapest way to send GBP to PKR",
+  },
+  "usa-to-pakistan": {
+    slug: "pakistan-record-41-billion-remittance-2026",
+    label: "Pakistan hits record $41B remittance year (Apr 2026)",
+  },
+  "uk-to-india": {
+    slug: "inr-weakest-year-send-money-india-april-2026",
+    label: "INR at 92.98/USD — should you send money to India now or wait?",
+  },
+  "usa-to-india": {
+    slug: "inr-weakest-year-send-money-india-april-2026",
+    label: "INR at 92.98/USD — should you send money to India now or wait?",
+  },
+  "canada-to-india": {
+    slug: "inr-weakest-year-send-money-india-april-2026",
+    label: "INR weakest in a year — decision framework for USD/GBP/CAD → INR",
+  },
+  "australia-to-india": {
+    slug: "inr-weakest-year-send-money-india-april-2026",
+    label: "INR weakest in a year — decision framework for AUD → INR",
+  },
+  "uk-to-nigeria": {
+    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
+  },
+  "uk-to-kenya": {
+    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
+  },
+  "uk-to-ghana": {
+    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
+  },
+  "usa-to-nigeria": {
+    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
+  },
+  "usa-to-kenya": {
+    slug: "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+    label: "Revolut adds 14 new Africa corridors — Airtel, MTN, Orange Money",
+  },
+};
+
 const corridorSeoOverrides: Record<string, { title: string; description: string; ogTitle: string; ogDescription: string; keywords: string }> = {
   "usa-to-pakistan": {
     title: "Cheapest Way to Send Money USA to Pakistan — USD→PKR Rates (2026)",
@@ -1528,6 +1578,26 @@ const corridorSeoOverrides: Record<string, { title: string; description: string;
     keywords:
       "send money Sweden to Brazil, bästa sättet att skicka pengar till brasilien, SEK to BRL, cheapest way to send money Sweden Brazil, PIX transfer",
   },
+  "sweden-to-mexico": {
+    title: "Cheapest Way to Send Money Sweden to Mexico (2026) — SEK→MXN Rates",
+    description:
+      "Compare the cheapest ways to send money from Sweden to Mexico. SEK to MXN rates from 10+ providers — SPEI instant delivery + Oxxo cash pickup. Updated every 6 hrs.",
+    ogTitle: "Sweden→Mexico: Who Gives the Best SEK→MXN Rate?",
+    ogDescription:
+      "Compare SEK to MXN rates. SPEI instant delivery to Mexican banks, Oxxo cash pickup. Find the cheapest way to send money from Sweden to Mexico.",
+    keywords:
+      "send money Sweden to Mexico, bästa sättet att skicka pengar till mexiko, SEK to MXN, cheapest way to send money Sweden Mexico, SPEI transfer Mexico",
+  },
+  "sweden-to-philippines": {
+    title: "Cheapest Way to Send Money Sweden to Philippines (2026) — SEK→PHP Rates",
+    description:
+      "Compare the cheapest ways to send money from Sweden to Philippines. SEK to PHP rates from 10+ providers — GCash, Maya wallet + bank deposit. Updated every 6 hrs.",
+    ogTitle: "Sweden→Philippines: Who Gives the Best SEK→PHP Rate?",
+    ogDescription:
+      "Compare SEK to PHP rates. GCash and Maya delivery + bank deposit. Find the cheapest way to send money from Sweden to the Philippines.",
+    keywords:
+      "send money Sweden to Philippines, bästa sättet att skicka pengar till filippinerna, SEK to PHP, cheapest way to send money Sweden Philippines, GCash from Sweden",
+  },
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -2142,9 +2212,22 @@ export default async function CorridorPage({ params }: Props) {
                 <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
                   {editorialNote.warningBody}
                 </p>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
                   For recurring transfers, it is worth checking live quotes each time rather than relying on one provider by habit. Competition on this corridor is strong enough that rankings can shift meaningfully with market moves.
                 </p>
+                {corridorRelatedNews[slug] && (
+                  <div className="pt-3 border-t border-[var(--color-outline)]">
+                    <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
+                      In the news
+                    </p>
+                    <Link
+                      href={`/news/${corridorRelatedNews[slug].slug}`}
+                      className="text-2sm text-[var(--color-primary)] hover:underline leading-snug block"
+                    >
+                      {corridorRelatedNews[slug].label} →
+                    </Link>
+                  </div>
+                )}
               </Card>
             </div>
           </Container>
@@ -2873,6 +2956,43 @@ export default async function CorridorPage({ params }: Props) {
         </section>
       )}
 
+      {/* ─── Swedish content block (sweden-* corridors only) ─── */}
+      {swedishCorridorBlocks[slug] && (
+        <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]" lang="sv">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
+                {swedishCorridorBlocks[slug].h2}
+              </h2>
+              <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
+                {swedishCorridorBlocks[slug].intro}
+              </p>
+              <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
+                Vanliga frågor
+              </h3>
+              <div className="divide-y divide-[var(--color-outline)]">
+                {swedishCorridorBlocks[slug].faqs.map((faq) => (
+                  <details key={faq.q} className="group py-4">
+                    <summary className="flex items-center justify-between cursor-pointer list-none text-sm md:text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                      {faq.q}
+                      <svg
+                        className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                      {faq.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* ─── FAQ ─── */}
       <section id="faq" className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
@@ -3083,14 +3203,19 @@ export default async function CorridorPage({ params }: Props) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: corridor.faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.a,
-              },
-            })),
+            mainEntity: [
+              ...corridor.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.q,
+                acceptedAnswer: { "@type": "Answer", text: faq.a },
+              })),
+              ...(swedishCorridorBlocks[slug]?.faqs ?? []).map((faq) => ({
+                "@type": "Question",
+                name: faq.q,
+                inLanguage: "sv",
+                acceptedAnswer: { "@type": "Answer", text: faq.a, inLanguage: "sv" },
+              })),
+            ],
           }),
         }}
       />

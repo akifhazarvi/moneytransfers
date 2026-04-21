@@ -3684,6 +3684,186 @@ export const corridors: Corridor[] = [
   },
 
   {
+    slug: "sweden-to-mexico",
+    fromCountry: "Sweden",
+    toCountry: "Mexico",
+    fromCurrency: "SEK",
+    toCurrency: "MXN",
+    fromFlag: "🇸🇪",
+    toFlag: "🇲🇽",
+    sampleAmount: 5000,
+    intro:
+      "Mexico received USD 63.3 billion in remittances in 2024 — the second-largest inflow of any country after India. The Swedish-Mexican corridor is small but growing: Sweden hosts roughly 7,000 people with Mexican heritage, plus a steady flow of Swedish retirees, remote workers, and students with ties to Mexico. The SEK→MXN route benefits from Mexico's world-class SPEI instant payment system and a mature cash pickup network covering every city and most rural towns.",
+    context:
+      "Wise, Remitly, WorldRemit, Western Union, and MoneyGram all support SEK→MXN, with delivery options ranging from instant SPEI bank deposits to Oxxo cash pickup at 21,000+ convenience store locations. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) add 3–5% exchange rate markups plus SEK 150–200 SWIFT fees — on a SEK 5,000 transfer, the gap between a specialist and a bank can exceed MXN 200. The Swedish krona's 16.8% gain against the US dollar in 2025 made this corridor unusually favourable for Swedish senders, since MXN largely tracks USD. Banxico (Mexico's central bank) and the US Federal Reserve set the tempo for MXN — rate divergence between the two drives most medium-term movement. USMCA trade policy and US tariff announcements can also move the peso sharply within hours.",
+    feesNote:
+      "Fees range from zero (Remitly first transfer; Wise for SEPA-funded transfers) to SEK 200+ at banks. Wise typically charges 0.6–1.0% total on this corridor — among the tightest markups in Latin America because MXN is highly liquid. Remitly's express delivery adds SEK 25–50. Card funding adds SEK 20–60 and may trigger a cash-advance fee from your card issuer. The exchange rate markup is where most of the cost hides: banks can clip 3–5% on top of the mid-market rate, costing your recipient MXN 150–250 on a 5,000 SEK transfer.",
+    deliveryNote:
+      "SPEI (Sistema de Pagos Electrónicos Interbancarios) is Mexico's real-time bank transfer rail — transfers via Wise or Remitly arrive in the recipient's Mexican bank account within seconds once processed. Oxxo cash pickup via Remitly, Western Union, or MoneyGram is typically available within 1–2 hours at 21,000+ Oxxo stores nationwide. Bank deposits to BBVA México, Banorte, Santander, Citibanamex, and HSBC arrive via SPEI in minutes. Fund your transfer via Swish (where supported), SEPA Instant bank transfer, or Swedish card — SEPA Instant from a Swedish account is fastest on the sender side.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Sweden to Mexico?",
+        a: "Wise and Remitly consistently deliver the most pesos per Swedish krona. Wise uses the real mid-market rate with a transparent fee of roughly 0.6–1.0% — the best option for transfers above SEK 2,000. Remitly offers competitive rates plus promotional zero-fee first transfers, and runs faster on express delivery. For cash pickup specifically, Western Union, MoneyGram, and Ria have the widest Oxxo and bank-branch network in Mexico (21,000+ locations). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in SWIFT fees — on a SEK 5,000 transfer, the specialist advantage is typically MXN 150–250. Always compare total MXN received, not just the fee.",
+      },
+      {
+        q: "What is SPEI and why does it matter for SEK to MXN transfers?",
+        a: "SPEI (Sistema de Pagos Electrónicos Interbancarios) is Mexico's real-time interbank payment system, operated by Banxico. It's the Mexican equivalent of UK Faster Payments or SEPA Instant — transfers between Mexican banks settle in seconds, 24/7, at near-zero cost. When you send SEK via Wise, Remitly, or WorldRemit, the provider receives your SEK, converts it to MXN using their cross-border rails, then uses SPEI to credit your recipient's Mexican bank account. The actual MXN arrives in under 30 seconds in most cases. SPEI support is why Mexico is one of the fastest remittance destinations in the world — faster than a typical domestic bank transfer in the US.",
+      },
+      {
+        q: "Can I send cash for pickup in Mexico?",
+        a: "Yes. Oxxo, Mexico's ubiquitous convenience store chain, is the most popular cash pickup location with over 21,000 stores nationwide. Remitly, Western Union, MoneyGram, and Ria all offer Oxxo pickup from Sweden — funds are typically available within 1–2 hours of sending. Your recipient presents a government-issued ID (INE, CURP, or passport) and the reference number. Banks like BBVA México, Banorte, Santander, and HSBC also offer cash pickup at their branches through Western Union and MoneyGram partnerships. Cash pickup is ideal for unbanked recipients or for sending to smaller towns where Oxxo's rural coverage exceeds that of traditional banks.",
+      },
+      {
+        q: "How much does the exchange rate matter vs the fee?",
+        a: "On SEK→MXN, the exchange rate matters more than the fee for any transfer above roughly SEK 1,500. A 3% rate markup on a SEK 5,000 transfer is about MXN 180 — more than most specialist providers' total fees. Banks often quote 'low' flat fees (SEK 75–150) but hide 3–5% in the rate. Wise, by contrast, uses the real mid-market rate and charges a transparent percentage fee — you see the exact total upfront. Always compare the final MXN amount your recipient receives, not the headline fee. Most comparison widgets show this — use them.",
+      },
+      {
+        q: "Does Mexico tax incoming remittances?",
+        a: "No. Personal remittances received in Mexico are not subject to income tax or any specific remittance tax under current Mexican law — this has been a political topic but as of 2026 no remittance tax has been enacted. However, a US federal proposal exists to tax outbound US remittances; this does not affect Sweden-to-Mexico transfers. For very large transfers (MXN 600,000+ in a single transaction, roughly USD 35,000), Mexican banks must report to SAT (Mexico's tax authority) under AML rules — this is a reporting requirement, not a tax. Ordinary family support transfers well below this threshold have no tax implications on either side.",
+      },
+      {
+        q: "Is the Mexican peso a stable currency?",
+        a: "The peso (MXN) floats freely and is one of the most actively traded emerging-market currencies — this means rates can move 1–3% on major economic news (US Fed decisions, Banxico rate announcements, US trade policy). The peso strengthened significantly from 2021–2024 on strong remittance inflows and nearshoring investment, then weakened in early 2025 on US tariff concerns. For Swedish senders in 2024–2025, the strong krona more than offset peso volatility — MXN-per-SEK was broadly favourable. For regular senders, setting a rate alert via Wise or Remitly can help lock in better moments. For one-off transfers, the variance is usually small enough that timing doesn't meaningfully change the outcome.",
+      },
+    ],
+  },
+
+  {
+    slug: "sweden-to-romania",
+    fromCountry: "Sweden",
+    toCountry: "Romania",
+    fromCurrency: "SEK",
+    toCurrency: "RON",
+    fromFlag: "🇸🇪",
+    toFlag: "🇷🇴",
+    sampleAmount: 5000,
+    intro:
+      "Romania is Sweden's largest Eastern European diaspora source, with an estimated 30,000–45,000 Romanian-born residents and many more second-generation Romanian-Swedes. Romania received EUR 7.6 billion in remittances in 2024 — a significant share of rural household income. The SEK→RON corridor benefits from Romania's EU membership (SEPA access for EUR intermediaries), a modernising instant payments infrastructure, and strong competition from Revolut, Wise, and TransferGo, all of which have major operations serving the Romanian community.",
+    context:
+      "Revolut is especially popular on this corridor — Romania is one of Revolut's top European markets with millions of Romanian users holding multi-currency accounts. Wise, TransferGo, and Paysend all offer competitive SEK→RON rates; Paysend's SEK 19 flat fee is unbeatable for small amounts. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) can route via SEPA but typically add 3–5% exchange rate markups plus SEK 150–200 in fees. Romania's major banks — BCR (Banca Comercială Română), BRD (Groupe Société Générale), Banca Transilvania, ING Bank Romania, and Raiffeisen Bank Romania — all support fast domestic settlement via Romania's interbank systems. The Romanian leu (RON) is managed by Banca Națională a României (BNR) with a managed float against EUR — in practice RON tracks EUR closely, so SEK→RON moves largely reflect SEK volatility. The krona's 16.8% gain against USD in 2025 translated into favourable SEK-RON rates for Swedish senders.",
+    feesNote:
+      "Fees range from SEK 19 (Paysend flat) and near-zero (Revolut for standard-plan free transfers, Wise for SEPA-funded) up to SEK 200+ at Swedish banks. Wise typically charges 0.6–1.0% total on SEK→RON. Revolut's free transfer allowance depends on your plan tier — above the allowance, a small fee applies. TransferGo has two speed tiers: Now (instant, slightly higher fee) and Tomorrow (next-day, cheaper). Cross-currency transfers outside business hours or on weekends may add a small markup at some providers.",
+    deliveryNote:
+      "Revolut-to-Revolut transfers are instant and free if both sender and recipient are on Revolut. Wise typically delivers to Romanian bank accounts within hours for SEPA-routed transfers. TransferGo's Now option delivers in under 30 minutes. Paysend delivers within 1–2 business days. Standard SEPA transfers to BCR, BRD, Banca Transilvania, ING, or Raiffeisen arrive within hours if sent during business days. Traditional SWIFT wires from Swedish banks take 2–4 business days. Funding via Swish (where supported) or SEPA Instant from a Swedish bank is near-instant.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Sweden to Romania?",
+        a: "For most transfers, Revolut is hard to beat — Revolut-to-Revolut is instant and free, and Romania is one of Revolut's largest markets (millions of Romanian users). For non-Revolut recipients, Wise and TransferGo are the most cost-effective: Wise charges roughly 0.6–1.0% on SEK→RON with the real mid-market rate; TransferGo offers Now (instant) and Tomorrow (cheaper) speed tiers. Paysend's flat SEK 19 fee is ideal for small amounts under SEK 2,000. Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in fees — a specialist typically delivers RON 100–200 more on a SEK 5,000 transfer. Always check total RON received, not just the fee.",
+      },
+      {
+        q: "Can I send EUR directly to a Romanian bank account?",
+        a: "Yes. Many Romanian bank accounts can hold EUR as well as RON — BCR, BRD, Banca Transilvania, ING Bank Romania, and Raiffeisen all support multi-currency accounts. Wise and Revolut let you send EUR directly via SEPA Instant, with funds arriving in seconds during business hours. Your recipient then converts EUR to RON locally if needed — this can sometimes yield a better rate than letting the provider do the conversion upfront. For recipients who primarily hold RON accounts, direct SEK→RON via Wise or TransferGo is simpler and usually cheaper overall because you avoid a second conversion.",
+      },
+      {
+        q: "How long does a transfer from Sweden to Romania take?",
+        a: "Revolut-to-Revolut is instant. TransferGo Now delivers in under 30 minutes. Wise typically delivers to Romanian bank accounts within hours for SEPA-routed transfers — in some cases under 60 minutes. Paysend delivers within 1–2 business days. Standard SEPA transfers during Romanian business hours (Monday–Friday) settle within hours. Traditional SWIFT wires from Swedish banks (Swedbank, SEB, Nordea) take 2–4 business days and are the slowest option. Funding with Swish (where accepted) or SEPA Instant makes the sender leg near-instant — the entire transfer completes in under an hour on a specialist provider.",
+      },
+      {
+        q: "Is Revolut a good option for SEK to RON?",
+        a: "Yes, if both sender and recipient are Revolut users — transfers are instant, free, and happen entirely within the Revolut app. Romania is one of Revolut's top three European markets by user count, so the recipient likely already has an account or will be happy to open one (opening is free, takes minutes, and works with a Romanian phone number and ID). For non-Revolut recipients, Revolut sends to external bank accounts via SEPA — included free on some plans, with small fees on the basic plan after the monthly allowance. Weekend transfers may incur a small markup. For occasional transfers, Wise or TransferGo may be cheaper; for regular transfers where your recipient uses Revolut, the in-app route is hard to beat.",
+      },
+      {
+        q: "Does Romania tax incoming remittances?",
+        a: "No. Romania does not tax incoming personal remittances — sending money to family is not a taxable event on either side. For large transfers (EUR 15,000+ in a single transaction or roughly RON 75,000), Romanian banks must file an AML report under EU 5th AMLD rules — this is a reporting requirement and does not delay or affect legitimate transfers. Recipients don't need to declare family support remittances as income. For business-related transfers or property transactions, standard Romanian tax rules apply — consult an accountant for non-personal transfers.",
+      },
+      {
+        q: "What is the Romanian leu and why isn't it the euro?",
+        a: "The Romanian leu (RON) is Romania's national currency — Romania is an EU member but has not yet adopted the euro, unlike Slovenia, Slovakia, Estonia, Latvia, or Lithuania. Romania's target euro adoption date has been repeatedly postponed; as of 2026 there is no firm timeline. The leu is managed by Banca Națională a României (BNR) with a managed float against EUR — in practice the rate stays within a narrow band. This means RON is significantly more stable than most non-euro EU currencies. For Swedish senders, SEK→RON moves largely reflect SEK-EUR dynamics rather than RON-specific volatility.",
+      },
+    ],
+  },
+
+  {
+    slug: "sweden-to-brazil",
+    fromCountry: "Sweden",
+    toCountry: "Brazil",
+    fromCurrency: "SEK",
+    toCurrency: "BRL",
+    fromFlag: "🇸🇪",
+    toFlag: "🇧🇷",
+    sampleAmount: 5000,
+    intro:
+      "Brazil received USD 5.3 billion in remittances in 2024 and has a modest but growing Scandinavian diaspora — roughly 8,000–12,000 Brazilians live in Sweden, many connected to tech, academia, and the creative industries. The SEK→BRL corridor is defined by one thing: PIX, Brazil's free, instant, 24/7 payment system operated by the Banco Central do Brasil. Once funds arrive in Brazil, PIX delivers them to any Brazilian bank account or mobile wallet in under 10 seconds, including weekends and holidays. For Swedish senders, the main question is how efficiently a provider can convert SEK to BRL and reach the PIX rail.",
+    context:
+      "Wise, Remitly, Western Union, and Instarem all support SEK→BRL with PIX delivery. Wise has been particularly aggressive on this corridor, often quoting sub-1% total cost including the spread. Remitly supports PIX via partnerships with Brazilian banks. Brazil's major banks — Itaú Unibanco, Banco do Brasil, Bradesco, Santander Brasil, Caixa Econômica Federal — all participate in PIX, as do digital banks like Nubank (90+ million users) and Inter. The Brazilian real (BRL) is among the most volatile emerging-market currencies — Banco Central do Brasil's Selic rate (Brazil's benchmark interest rate, one of the highest in the G20) drives capital flows, while fiscal and political uncertainty can move BRL 3–5% in a single week. Swedish banks add 3–5% on the rate plus SEK 150–200 in SWIFT fees — on SEK 5,000, the gap to a specialist is typically BRL 50–100.",
+    feesNote:
+      "Fees range from near-zero (Wise for SEPA-funded transfers, Remitly first-transfer promotions) to SEK 200+ at Swedish banks. Wise typically charges 0.8–1.3% total on SEK→BRL. Remitly charges SEK 15–40 for express delivery. Brazil levies an IOF tax (Imposto sobre Operações Financeiras) on international currency conversion — for personal transfers to Brazilian residents, IOF is typically 0.38% on incoming funds via the official banking system (applied before the money reaches the recipient). Providers handle IOF automatically and display the final BRL amount after tax. Card funding adds SEK 20–60 and may trigger a cash-advance charge.",
+    deliveryNote:
+      "PIX delivery is near-instant — funds arrive in the recipient's Brazilian bank account or digital wallet within 10 seconds, 24/7, including weekends and holidays. Wise and Remitly both support direct PIX to Itaú, Bradesco, Santander, Banco do Brasil, Nubank, and Inter. Your recipient provides a PIX key (CPF number, email, phone, or random key) which routes the payment instantly. Cash pickup via Western Union and MoneyGram is available at several thousand agent locations, typically within 1–2 hours. Traditional SWIFT wires to Brazilian bank accounts take 2–4 business days and are much more expensive due to IOF interactions. Funding via Swish or SEPA Instant from Swedish banks is near-instant on the sender side.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Sweden to Brazil?",
+        a: "Wise is consistently the cheapest for transfers above SEK 2,000 — the real mid-market rate plus a transparent 0.8–1.3% fee, with PIX delivery in under 10 seconds. Remitly is competitive and often runs zero-fee first-transfer promotions; strong for express delivery and cash pickup. Instarem has occasional promotional rates on SEK→BRL. For very small amounts (under SEK 1,000), Paysend's flat SEK 19 fee may win despite being slightly behind on rate. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) are the most expensive — 3–5% exchange markup plus SEK 150–200 SWIFT fees means BRL 50–100 less on a SEK 5,000 transfer. Always compare total BRL received after IOF tax, not just the headline fee.",
+      },
+      {
+        q: "What is PIX and how does it work for receiving money from Sweden?",
+        a: "PIX is Brazil's instant payment system, launched by Banco Central do Brasil in November 2020. It settles transfers in under 10 seconds, 24/7, including weekends and holidays, at zero cost for personal use. Every Brazilian bank and digital wallet (Itaú, Bradesco, Santander, Banco do Brasil, Caixa, Nubank, Inter, C6) participates. To receive a PIX from abroad via Wise or Remitly, your recipient provides a PIX key — this can be their CPF number, email, phone number, or a random UUID. The specialist provider converts your SEK to BRL, routes through a Brazilian banking partner, and triggers PIX delivery. Your recipient's bank notifies them within seconds. PIX has transformed Brazilian remittances — it's why SEK→BRL can complete in under a minute end-to-end via Wise.",
+      },
+      {
+        q: "What is IOF tax and how does it affect transfers to Brazil?",
+        a: "IOF (Imposto sobre Operações Financeiras) is a Brazilian federal tax on financial transactions, including incoming foreign currency conversions. For personal remittances into Brazil via the official banking system, IOF is typically 0.38% of the transferred amount. The tax is applied before funds reach the recipient's account — the provider deducts it automatically and the final BRL shown in your quote is net of IOF. You don't need to file anything — it's handled in the banking rails. IOF rates can change (the Brazilian government adjusts them periodically for capital flow management), so always check your quote for the current IOF deduction. For a SEK 5,000 transfer, IOF costs roughly BRL 10–15 depending on the rate.",
+      },
+      {
+        q: "Do I need my recipient's CPF number to send money to Brazil?",
+        a: "Yes. CPF (Cadastro de Pessoas Físicas) is Brazil's taxpayer identification number and is required for any incoming international transfer — this is a federal regulatory requirement, not a provider-specific rule. Your recipient must provide their CPF when you initiate the transfer. If your recipient uses PIX with their CPF as a PIX key, the same number serves both purposes. Brazilian banks and digital wallets won't accept international transfers without a valid CPF on file. If you're sending to someone without a CPF (rare for residents, common for recent arrivals), they'll need to register one at a Receita Federal office or online before receiving transfers.",
+      },
+      {
+        q: "How volatile is the Brazilian real (BRL)?",
+        a: "BRL is one of the most volatile major emerging-market currencies. The real can move 3–5% in a single week during periods of political uncertainty, fiscal news, or commodity price shifts (Brazil is a major iron ore, soybean, and oil exporter). The Selic rate — Brazil's benchmark interest rate, among the highest in the G20 at typically 10–14% — drives large capital flows in and out of BRL. For Swedish senders, this creates both risk and opportunity: the krona's 16.8% gain against USD in 2025 combined with BRL swings meant effective SEK-BRL rates varied widely over the year. Setting a rate alert via Wise or Remitly is especially valuable on this corridor. For one-off transfers, just compare rates on the day and use the cheapest specialist.",
+      },
+      {
+        q: "Can I send money to Nubank, Inter, or other Brazilian digital wallets?",
+        a: "Yes. Nubank (90+ million users), Inter, C6 Bank, and most Brazilian digital banks fully participate in PIX, so any Wise or Remitly transfer using the recipient's PIX key will deliver directly to their Nubank/Inter/C6 account within seconds. Nubank in particular has become the default bank for younger Brazilians and Brazilian diaspora returning home — its user experience rivals or exceeds traditional banks. Recipients can receive PIX transfers, hold funds in BRL, and transfer to other accounts or pay merchants — all from the app. This is often the fastest and most frictionless receive experience for Brazilian recipients.",
+      },
+    ],
+  },
+
+  {
+    slug: "sweden-to-colombia",
+    fromCountry: "Sweden",
+    toCountry: "Colombia",
+    fromCurrency: "SEK",
+    toCurrency: "COP",
+    fromFlag: "🇸🇪",
+    toFlag: "🇨🇴",
+    sampleAmount: 5000,
+    intro:
+      "Colombia received USD 11.8 billion in remittances in 2024 — the third largest inflow in Latin America after Mexico and Guatemala. Sweden hosts roughly 6,000–9,000 people of Colombian heritage, a community built through both historical refugee migration in the 1970s–80s and more recent work/study pathways. The SEK→COP corridor combines a mature remittance infrastructure (COP flows heavily to rural Colombia and smaller cities) with modern mobile wallets like Nequi and Daviplata that deliver funds in minutes.",
+    context:
+      "Western Union, MoneyGram, Remitly, Wise, and WorldRemit all support SEK→COP. Western Union and MoneyGram dominate cash pickup with thousands of agent locations — essential for rural Colombia where banking penetration is lower. Remitly and Wise lead on bank deposit and digital wallet delivery. Colombia's major banks — Bancolombia (the largest), Davivienda, Banco de Bogotá, BBVA Colombia, and Banco AV Villas — all support instant interbank transfers via the national PSE (Pagos Seguros en Línea) and ACH Colombia rails. Mobile wallets Nequi (a Bancolombia product, 20+ million users) and Daviplata (Davivienda, 20+ million users) have transformed the receiving side — transfers arrive in seconds and can be spent instantly at merchants or withdrawn at ATMs. The Colombian peso (COP) is one of Latin America's more volatile currencies, tracking oil prices (Colombia is a major oil exporter) and US Federal Reserve policy. Banco de la República de Colombia sets monetary policy.",
+    feesNote:
+      "Fees range from zero (Remitly first transfer) to SEK 200+ at Swedish banks. Wise typically charges 0.7–1.2% total on SEK→COP. Remitly often runs zero-fee promotions for first transfers and competitive rates for express delivery. Western Union and MoneyGram charge more for cash pickup speed — typically SEK 40–80 — but have unmatched agent coverage. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) add 3–5% on the rate plus SEK 150–200 in SWIFT fees, making them the most expensive option. Card funding adds SEK 20–60.",
+    deliveryNote:
+      "Nequi and Daviplata mobile wallet delivery via Remitly or Wise is typically near-instant — funds arrive in the recipient's wallet within minutes. Bank deposits to Bancolombia, Davivienda, Banco de Bogotá, BBVA Colombia, or AV Villas settle within hours to 1 business day via ACH Colombia. Cash pickup via Western Union, MoneyGram, or Ria is available within 1–2 hours at thousands of locations, including supermarkets (Éxito, Olímpica), drugstores, and dedicated agent offices — critical for rural recipients. Traditional SWIFT wires from Swedish banks take 2–4 business days. Funding via Swish or SEPA Instant makes the sender leg near-instant.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Sweden to Colombia?",
+        a: "Wise and Remitly consistently deliver the most pesos per krona on SEK→COP. Wise charges roughly 0.7–1.2% total using the real mid-market rate — best for transfers above SEK 2,000. Remitly offers competitive rates with frequent zero-fee first-transfer promotions and fast express delivery to banks and Nequi/Daviplata wallets. For cash pickup specifically, Western Union and MoneyGram have the widest agent network in Colombia (including rural areas where bank access is limited). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in fees — on a SEK 5,000 transfer, specialists deliver COP 40,000–80,000 more. Always compare total COP received, not just the fee.",
+      },
+      {
+        q: "What are Nequi and Daviplata and should I use them?",
+        a: "Nequi (owned by Bancolombia) and Daviplata (owned by Davivienda) are Colombia's two dominant mobile wallets, with over 20 million users each. Both let recipients hold Colombian pesos in a smartphone app linked to their national ID (cédula). From Sweden, Remitly supports direct deposit to both Nequi and Daviplata — funds arrive within minutes. Wise supports bank deposits to the underlying Bancolombia and Davivienda accounts, which auto-sync with the wallet in most cases. For unbanked or semi-banked recipients, Nequi/Daviplata are far easier to open than a traditional bank account (minutes vs weeks) and enable instant receipt, spending at merchants via QR, and free withdrawals at partner ATMs. This is often the preferred route for younger recipients.",
+      },
+      {
+        q: "Can I send cash for pickup in Colombia?",
+        a: "Yes. Western Union, MoneyGram, and Ria Money Transfer operate thousands of pickup locations across Colombia — including major supermarkets (Éxito, Jumbo, Olímpica), drugstore chains (Cruz Verde, La Rebaja), and dedicated agent offices. Coverage is strong in both major cities (Bogotá, Medellín, Cali, Barranquilla, Cartagena) and rural areas. Cash is typically available within 1–2 hours of sending. Your recipient needs their Colombian cédula (national ID) and the transaction reference number. No bank account is required — this is ideal for elderly relatives, rural recipients, or anyone without digital banking. Remitly also offers cash pickup via its Colombian partner network.",
+      },
+      {
+        q: "How long does a transfer from Sweden to Colombia take?",
+        a: "Nequi and Daviplata wallet deliveries via Remitly arrive within minutes. Cash pickup via Western Union, MoneyGram, or Ria is typically available within 1–2 hours. Wise bank deposits to Bancolombia, Davivienda, Banco de Bogotá, BBVA Colombia, or AV Villas usually arrive within hours on business days, sometimes same-day during Colombian banking hours. Traditional SWIFT wires from Swedish banks take 2–4 business days. Funding your transfer via Swish (where supported) or SEPA Instant from Swedish banks is near-instant — so the total end-to-end time on a specialist is typically under 2 hours for wallet or cash pickup, under a day for bank deposit.",
+      },
+      {
+        q: "How volatile is the Colombian peso?",
+        a: "COP is among Latin America's more volatile currencies — it can move 2–5% on major news (Banco de la República rate decisions, US Fed policy, oil price swings). Colombia is a significant oil exporter, so Brent crude movements meaningfully affect COP. Political and fiscal uncertainty can add to volatility. For Swedish senders, the krona's strong 2024–2025 performance (up 16.8% vs USD) partially insulated SEK-COP rates from COP weakness. For regular senders, a rate alert via Wise or Remitly helps catch favourable moments. For one-off transfers, the variance is usually modest enough that timing has limited impact — just pick the cheapest specialist on the day.",
+      },
+      {
+        q: "Does Colombia tax incoming remittances?",
+        a: "No. Personal remittances received in Colombia are not subject to income tax or any specific remittance tax — family support transfers are not taxable events. For large transfers (above COP 150 million in a single year, roughly USD 36,000), Colombian banks report to the DIAN (tax authority) under standard AML rules — this is a reporting requirement, not a tax. Recipients don't need to declare family support as income. For very large one-time transfers (property purchases, investments), standard Colombian capital inflow rules apply and may require documentation of source — consult a local accountant for non-family-support transfers.",
+      },
+    ],
+  },
+
+  {
     slug: "ireland-to-philippines",
     fromCountry: "Ireland",
     toCountry: "Philippines",

@@ -60,10 +60,10 @@ export async function generateStaticParams() {
 // concrete format breakdown users see straight in the SERP.
 const ibanMetaOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDesc?: string }> = {
   germany: {
-    title: "German IBAN Format (2026): DE + 20 Digits, Example & Free Check",
-    description: "A German IBAN is 22 characters: DE + 2 check digits + 8-digit BLZ + 10-digit account. See a real example, the full format breakdown, BLZ codes for Deutsche Bank, Commerzbank, Sparkasse & N26, and SEPA Instant transfer rules.",
-    ogTitle: "German IBAN: 22-Char Format, Example + BLZ Codes (2026)",
-    ogDesc: "DE IBAN explained in 30 seconds: structure, real example, BLZ lookup for Deutsche Bank / Commerzbank / Sparkasse / N26, and SEPA Instant rules.",
+    title: "German IBAN Format (2026): 22 Characters, Real Example + BLZ Codes",
+    description: "German IBAN = 22 chars: DE + 2 check digits + 8-digit BLZ + 10-digit account. See a real example, BLZ codes for Deutsche Bank, Commerzbank, Sparkasse, N26.",
+    ogTitle: "German IBAN: 22-Character Format, Example + BLZ Codes (2026)",
+    ogDesc: "DE IBAN in 30 seconds: 22-char structure, real example, BLZ lookup for Deutsche Bank / Commerzbank / Sparkasse / N26, and SEPA Instant rules.",
   },
 };
 

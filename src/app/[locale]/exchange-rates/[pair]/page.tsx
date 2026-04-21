@@ -12,6 +12,20 @@ import CircleFlag from "@/components/CircleFlag";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
 import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
+import { newsItems } from "@/data/news";
+import { formatLocalDate } from "@/lib/format-date";
+
+// Pair slug → most relevant news article for context-sensitive callouts
+const pairRelatedNews: Record<string, string> = {
+  "usd-to-inr": "inr-weakest-year-send-money-india-april-2026",
+  "gbp-to-inr": "inr-weakest-year-send-money-india-april-2026",
+  "cad-to-inr": "inr-weakest-year-send-money-india-april-2026",
+  "aud-to-inr": "inr-weakest-year-send-money-india-april-2026",
+  "gbp-to-pkr": "pakistan-record-41-billion-remittance-2026",
+  "usd-to-pkr": "pakistan-record-41-billion-remittance-2026",
+  "usd-to-ngn": "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+  "gbp-to-ngn": "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
+};
 
 /* ── Corridor pair config ─────────────────────────────────── */
 interface CurrencyPair {
@@ -284,9 +298,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const month = new Date().toLocaleDateString("en-US", { month: "long" });
   const pairOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDesc?: string }> = {
     "usd-to-brl": {
-      title: `USD to BRL Exchange Rate Today: Dollar to Real Live Rate (${month} ${year})`,
-      description: `Live USD to BRL rate today updated every 60 seconds. See how many Brazilian reais 1 dollar gets you, plus what Wise, Remitly & 10+ providers actually pay after markup — up to 4% difference per $1,000.`,
-      ogTitle: `USD to BRL Today — Live Dollar to Real Rate (${month} ${year})`,
+      title: `USD to BRL Today: Live Rate + Real Reais You Get (${month} ${year})`,
+      description: `Live USD/BRL rate updated every 60s — plus what Wise, Remitly & 10+ providers actually pay after markup. See real reais per dollar, not just the mid-market rate.`,
+      ogTitle: `USD to BRL Today — Live Rate + Real Reais You Get (${month} ${year})`,
       ogDesc: `Live USD/BRL mid-market rate + what 10+ providers actually offer. Find who gives you the most reais per dollar today.`,
     },
   };
@@ -424,6 +438,36 @@ export default async function ExchangeRatePairPage({ params }: Props) {
               <p className="text-[var(--color-on-surface-variant)]">Rate data temporarily unavailable.</p>
             )}
           </div>
+
+          {/* In-context news callout — shown when pair has a related article */}
+          {(() => {
+            const relatedSlug = pairRelatedNews[pair];
+            if (!relatedSlug) return null;
+            const article = newsItems.find((n) => n.slug === relatedSlug);
+            if (!article) return null;
+            return (
+              <Link
+                href={`/news/${article.slug}`}
+                className="block bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 mb-8 hover:border-[var(--color-primary)] hover:shadow-sm transition-all group"
+              >
+                <p className="text-2xs font-medium text-[var(--color-primary)] uppercase tracking-wider mb-2">
+                  In the news
+                </p>
+                <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] leading-snug mb-1">
+                  {article.title}
+                </p>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-2">
+                  {article.excerpt}
+                </p>
+                <time
+                  className="text-2xs text-[var(--color-on-surface-variant)]"
+                  dateTime={article.publishedAt}
+                >
+                  {formatLocalDate(article.publishedAt, { month: "short", day: "numeric", year: "numeric" })}
+                </time>
+              </Link>
+            );
+          })()}
 
           {/* AI-citable Quick Answer — high-value pairs only */}
           {midRate && (() => {
