@@ -15,12 +15,15 @@ const SPAM_UA_PATTERNS = [
   "wget/", "curl/", "libwww-perl",
 ];
 
-// Legitimate bots to ALLOW (search engines + AI crawlers)
+// Legitimate bots to ALLOW (search engines + AI crawlers + social preview crawlers)
 const ALLOWED_BOTS = [
   "googlebot", "bingbot", "yandexbot", "duckduckbot", "baiduspider",
   "applebot", "chatgpt-user", "gptbot", "oai-searchbot",
   "perplexitybot", "claudebot", "anthropic-ai",
-  "bytespider", "facebookexternalhit", "twitterbot", "linkedinbot",
+  "bytespider", "facebookexternalhit", "facebookcatalog", "meta-externalagent",
+  "twitterbot", "linkedinbot", "whatsapp", "telegrambot", "discordbot",
+  "slackbot", "slack-imgproxy", "redditbot", "pinterest",
+  "skypeuripreview", "viber", "line-poker",
   "slurp", "ia_archiver", "archive.org_bot",
   "vercel-edge-functions", "vercel",
 ];
@@ -48,11 +51,12 @@ const DATA_CENTER_CITIES = new Set([
 function isSpamBot(request: NextRequest): boolean {
   const ua = (request.headers.get("user-agent") || "").toLowerCase();
 
-  // Empty user agent = bot
-  if (!ua || ua.length < 10) return true;
+  // Allow known legitimate bots FIRST — before any length/heuristic check.
+  // Short UAs like "WhatsApp/2.x" would otherwise be blocked as "too short".
+  if (ua && ALLOWED_BOTS.some((bot) => ua.includes(bot))) return false;
 
-  // Allow known legitimate bots FIRST (before any other check)
-  if (ALLOWED_BOTS.some((bot) => ua.includes(bot))) return false;
+  // Empty or suspiciously short user agent = bot
+  if (!ua || ua.length < 10) return true;
 
   // Block known spam bots
   if (SPAM_UA_PATTERNS.some((pattern) => ua.includes(pattern))) return true;
