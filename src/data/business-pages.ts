@@ -732,6 +732,62 @@ export const businessPages: BusinessPage[] = [
 <p>For most businesses in 2026, established specialist providers (Wise, OFX, XE, Revolut) remain the best option for B2B international money transfers. Emerging technologies are worth monitoring but aren't yet mature enough to replace proven solutions for critical B2B payments. For more on industry trends, read our <a href="/news/stablecoins-cross-border-payments-2026">analysis of stablecoins in cross-border payments</a>.</p>`,
       },
       {
+        heading: "Top B2B International Money Transfer Corridors: Costs & Rails",
+        content: `<p>B2B transfer economics, speed, and compliance vary significantly by corridor. Here's a breakdown of the five highest-volume B2B international money transfer routes for 2026, with the specific provider strengths and regulatory quirks you need to know:</p>
+
+<h3>USA → China (USD → CNY)</h3>
+<p>China is the world's largest B2B payment destination by volume — USD→CNY flows total over $700 billion annually. Onshore CNY transfers route through China's CIPS (Cross-Border Interbank Payment System), the domestic equivalent of SWIFT. China enforces strict capital controls: transfers over CNY 500,000 (~$70,000) require additional documentation (contract, customs invoice, tax certificate). Wise Business supports USD→CNY with full documentation handling. OFX handles larger corporate transfers with compliance support. Withholding tax (typically 10% on service payments to non-residents) may apply — verify with your tax advisor. Expect 1–3 business days including CIPS settlement.</p>
+
+<h3>USA → India (USD → INR)</h3>
+<p>India's Reserve Bank of India requires every inbound business transfer to have a valid "purpose code" and an Importer-Exporter Code (IEC) if goods are being paid for. Specialist providers auto-populate purpose codes from a dropdown. Wise, Remitly, and Instarem all support business USD→INR. For large invoices, OFX offers forward contracts to hedge INR volatility (RBI intervention can move INR 0.5–1% in a day). RBI's Liberalised Remittance Scheme caps some outbound transfers but does not affect inbound B2B. Delivery is near-instant via IMPS/UPI once the rupees arrive in the recipient bank.</p>
+
+<h3>UK → Germany / EU (GBP → EUR)</h3>
+<p>The highest-liquidity B2B corridor in Europe. SEPA Instant (mandatory across the eurozone since January 2025 under EU Regulation 2024/886) means EUR transfers settle in under 10 seconds at no extra cost. Wise Business and Revolut Business both leverage SEPA Instant for near-real-time delivery. Post-Brexit, UK-originated transfers are not eligible for SEPA directly but still settle within hours via specialist providers who bridge UK Faster Payments to SEPA. Markups on this pair are among the lowest globally (0.3–0.5% with Wise). No special documentation needed for standard B2B invoices.</p>
+
+<h3>USA → Mexico (USD → MXN)</h3>
+<p>Mexico received $63.3B in total inbound transfers in 2024, with B2B supplier payments a growing share driven by USMCA nearshoring. SPEI (Mexico's real-time interbank rail) delivers to BBVA, Banorte, Santander, Citibanamex in seconds. Wise and OFX both leverage SPEI. USMCA trade documentation simplifies customs-related B2B payments. Peso volatility (2–3% weekly swings possible around Banxico decisions) makes forward contracts attractive for high-volume supplier payments — OFX handles these well.</p>
+
+<h3>USA → Vietnam & Southeast Asia (USD → VND / PHP / THB)</h3>
+<p>SEA has become a major B2B destination as manufacturing diversifies out of China. Vietnam in particular has seen sharp growth in supplier payment volumes. Wise Business covers VND, PHP, THB, IDR, SGD with transparent pricing. Traditional banks often mark up these corridors 3–6% — the specialist savings are largest here. Local rails vary: Philippines' InstaPay delivers in minutes, Thailand's PromptPay similarly fast, Vietnam's NAPAS slower. For regular suppliers, negotiating USD-denominated invoices (supplier absorbs FX) can simplify accounting; specialist providers still beat banks even when you do the conversion.</p>
+
+<p>For any of these corridors, compare live rates on our <a href="/send-money">comparison tool</a> before committing to a provider. Rates on even the most competitive corridors move 0.2–0.5% weekly.</p>`,
+      },
+      {
+        heading: "Real B2B Use Cases: When Specialist Providers Pay Off",
+        content: `<p>The right B2B international money transfer solution depends on your specific use case. Here are the five most common B2B scenarios and which provider strategy fits each:</p>
+
+<h3>Supplier & Vendor Invoice Payments</h3>
+<p>For manufacturing, retail, and wholesale businesses paying international suppliers on NET-30 or NET-60 terms, the key features are forward contracts (to lock in rates between invoice and payment date), batch processing (to pay multiple suppliers efficiently), and accounting integration (auto-reconciliation in Xero or QuickBooks). Wise Business handles high-volume supplier payments well with CSV batch uploads of up to 1,000 transfers. OFX forwards let you lock in a rate today for a payment due in 30–90 days — critical for margin certainty. See our <a href="/business/vendor-payments">vendor payments guide</a> for detailed workflows.</p>
+
+<h3>International Contractor & Freelancer Payouts</h3>
+<p>SaaS, agency, and creator businesses paying contractors across 20+ countries face a different challenge: many small transfers in many currencies. Wise Business and Payoneer are purpose-built here — both offer contractor onboarding flows, collecting tax forms (W-8BEN, W-8BEN-E) and issuing 1099-NEC/1042-S filings at year-end. Deel and Remote wrap this with full compliance-as-a-service for higher-volume payroll. For under 50 contractors, Wise Business batch payments + manual tax form collection is usually cheapest.</p>
+
+<h3>SaaS Subscription Revenue & International Billing</h3>
+<p>SaaS businesses with international customers often face a hidden reverse problem: receiving foreign-currency revenue at unfavourable FX rates through Stripe or their bank. Multi-currency business accounts with Wise Business, Revolut Business, or Airwallex let you receive GBP, EUR, USD, AUD in local accounts, hold until rates are favourable, then convert at specialist rates. This alone can save 1–2% of international revenue. Combine with Stripe's multi-currency pricing for cleaner customer UX.</p>
+
+<h3>Cross-Border M&A & Capital Transfers</h3>
+<p>Mergers, acquisitions, and equity investments involve one-off high-value transfers ($500K–$50M+). OFX's corporate desk, XE's corporate FX team, and private FX brokers (MoneyCorp, Global Reach) are the right fit here — bank-grade compliance, escrow support, dedicated relationship manager, and competitive spreads on large volumes. Do not use consumer-tier Wise or Revolut for M&A transfers; the compliance overhead and limits make them impractical.</p>
+
+<h3>International Payroll & Salary Payments</h3>
+<p>Companies with remote-first teams across multiple countries need automated, recurring payroll runs with tax compliance by jurisdiction. Employer of Record (EOR) platforms like Deel, Remote, and Oyster handle employment law + payment + tax. For contractors only, Wise Business batch payroll is a solid alternative. For established teams (20+ salaried employees per country), set up local subsidiaries with local payroll — the FX savings become secondary to employment law compliance.</p>`,
+      },
+      {
+        heading: "Batch Payments, APIs & Accounting Integration for B2B",
+        content: `<p>Scale is where specialist B2B providers truly pull ahead of banks. Manual bank wires for 50 suppliers takes hours and costs hundreds in fees; automated B2B payments through specialist rails takes minutes at a fraction of the cost.</p>
+
+<h3>Batch Payments via CSV Upload</h3>
+<p>Wise Business, OFX, and Revolut Business all support CSV batch uploads. The typical workflow: export your Xero or QuickBooks accounts-payable report, map it to the provider's CSV format (recipient name, account details, currency, amount, reference), upload, review, approve. Wise processes batches of up to 1,000 transfers in a single approval click. Each transfer in the batch uses the same live FX rate, simplifying reconciliation. For finance teams previously running each transfer manually, this is typically a 10x time savings on monthly payment runs.</p>
+
+<h3>API Access & Developer Integration</h3>
+<p>Wise, Currencycloud (now Visa), and Airwallex offer REST APIs for programmatic B2B payments. Typical use cases: marketplaces paying out sellers, platforms disbursing contractor earnings, SaaS products with embedded bill-pay. Wise's API supports quote → transfer → track workflows, webhooks for status updates, and multi-currency balance management. Most implementations take 1–2 weeks of developer time. Minimum volumes often apply for API access — typically $100K+/month.</p>
+
+<h3>Accounting Software Integration</h3>
+<p>Native integrations eliminate double-entry and reconciliation errors. Wise Business integrates with Xero, QuickBooks Online, FreeAgent, and Sage — payments sync automatically, FX conversions are captured at the real rate, and bills can be paid directly from your accounts-payable view. OFX integrates with Xero and QuickBooks Enterprise. For NetSuite or SAP users, Airwallex and HSBCnet are the more common choices given enterprise workflow requirements. Verify integration depth before committing — some are read-only; the best support two-way sync with payment initiation from within the accounting tool.</p>
+
+<h3>Approval Workflows & Controls</h3>
+<p>For financial controls, B2B providers support preparer/approver separation (one user creates payments, another must approve), configurable approval thresholds (transfers over $X require additional approvers), and full audit trails. Wise Business, Revolut Business, and OFX all support multi-user accounts with role-based permissions. For SOX-relevant companies, confirm the provider's audit log retention and exportability before implementation.</p>`,
+      },
+      {
         heading: "How to Choose the Right B2B Payment Provider",
         content: `<p>Selecting the right provider for your B2B international money transfers depends on your specific payment patterns and business requirements:</p>
 
@@ -808,6 +864,24 @@ export const businessPages: BusinessPage[] = [
           "What is the best business account for international payments?",
         answer:
           "The best business account for international payments depends on your needs. Wise Business is best overall for cost and features (0% markup, batch payments, API, accounting integration). OFX is best for large transfers with personalised service (dedicated dealer, forward contracts, $0 fees). XE Business is best for FX risk management and exotic currencies (130+ currencies, rate alerts, limit orders). Revolut Business is best for all-in-one financial management (payments, cards, expenses). Most businesses benefit from opening 1–2 specialist accounts alongside their regular bank.",
+      },
+      {
+        question:
+          "How long does B2B provider onboarding take — Wise vs OFX vs XE?",
+        answer:
+          "Wise Business onboarding is typically 1–2 business days fully digital — upload company registration, ID for directors and 25%+ beneficial owners, and expected transfer volume. Revolut Business is similarly fast (1–3 days). OFX takes 2–5 business days because the dedicated account manager flow includes a compliance call. XE Business is 2–4 business days. For regulated industries (crypto, cannabis, gaming, adult content, arms) or complex ownership structures, expect 1–2 weeks across any provider. Avoid common rejection reasons: unclear ownership, nominee directors, registered agent addresses with no operating presence, and business types on the provider's restricted list. Request the restricted-activities list before applying if your industry is borderline.",
+      },
+      {
+        question:
+          "Can I use stablecoins (USDC, USDT) for B2B international payments legally?",
+        answer:
+          "Yes, in most jurisdictions — but with important caveats. Stablecoin-based B2B payments are legal in the US (with FinCEN reporting), the EU (under MiCA regulation, in force since Dec 2024), the UK, Singapore, Switzerland, and UAE. Tax treatment varies: most jurisdictions treat stablecoins as property/currency for accounting, which means FX gain/loss tracking per transaction. Compliance requires sender and recipient KYC via a regulated on/off-ramp (Circle, Bridge, Crossmint). Benefits: near-instant settlement, low fees, 24/7 availability — especially valuable for Southeast Asia, LatAm, and Africa where banking rails are slow. Risks: counterparty risk on the stablecoin issuer, regulatory changes, accounting complexity. For most businesses, stablecoins make sense as a complement to specialist providers on specific corridors, not a replacement. Consult your accountant before making stablecoins a regular B2B payment method.",
+      },
+      {
+        question:
+          "How do I handle VAT, GST, and withholding tax on B2B international payments?",
+        answer:
+          "Tax obligations on B2B international payments depend on what you're paying for and where the recipient is. Services from foreign vendors: most jurisdictions apply reverse-charge VAT/GST — the buyer self-assesses and reports on their return (no VAT paid to the vendor). The EU's VAT MOSS and OSS simplify this for SaaS and digital services. Withholding tax applies to payments for royalties, interest, dividends, and certain services to non-resident entities — typically 10–30% depending on treaty relief. In the US, FORM 1042/1042-S reports payments to foreign persons; W-8BEN-E establishes treaty eligibility. Goods imported through customs have separate VAT/duty treatment. Specialist providers don't handle tax — you or your accountant must. Keep invoices, payment records, FX rate used, and W-8 forms on file for each vendor. For high-volume international vendor payments, platforms like Trolley (formerly Payment Rails) or Tipalto automate 1099/1042 generation alongside payments.",
       },
     ],
     relatedGuides: [
