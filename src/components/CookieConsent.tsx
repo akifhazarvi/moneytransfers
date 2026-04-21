@@ -8,11 +8,21 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const t = useTranslations("cookieConsent");
 
-  function enableAnalytics() {
+  function enableAnalytics(backfillPageview = false) {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("consent", "update", {
         analytics_storage: "granted",
       });
+      // When consent is granted mid-session (user clicked Accept), the landing
+      // pageview was dropped under the initial "denied" default. Fire it now
+      // so GA4 attributes the session to the correct landing page + referrer.
+      if (backfillPageview) {
+        window.gtag("event", "page_view", {
+          page_location: window.location.href,
+          page_title: document.title,
+          page_referrer: document.referrer,
+        });
+      }
     }
   }
 
@@ -60,7 +70,7 @@ export default function CookieConsent() {
 
   function handleAccept() {
     localStorage.setItem("cookie_consent", "accepted");
-    enableAnalytics();
+    enableAnalytics(true);
     setVisible(false);
   }
 

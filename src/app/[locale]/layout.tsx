@@ -196,9 +196,9 @@ export default async function LocaleLayout({ children, params }: Props) {
       />
       <Script
         id="gtag-init"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+          __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
   var EU='AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH';
   var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
@@ -215,17 +215,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   });
   gtag('set','url_passthrough',true);
   gtag('set','ads_data_redaction',true);
-  // Disable GA4 only for CLEAR bot fingerprints. Avoid false positives:
-  // - !document.hasFocus() removed — background-tab opens (search results) are real users
-  // - navigator.webdriver alone is the strongest signal
-  // - multiple fingerprint failures together (language AND screen AND hardware) indicate a bot
-  var webdriverFlag=navigator.webdriver===true;
-  var multipleFailures=[
-    !navigator.languages||navigator.languages.length===0,
-    !window.screen||window.screen.width<100,
-    navigator.hardwareConcurrency===0,
-  ].filter(Boolean).length>=2;
-  if(webdriverFlag||multipleFailures){window['ga-disable-G-HJH07QEJ30']=true;return;}
+  // Only disable GA4 for the strongest bot signal (automation driver).
+  // hardwareConcurrency===0 is reported legitimately by iOS Safari in Low Power Mode,
+  // and privacy browsers can strip navigator.languages — combining them caused
+  // GA4 to silently drop a large slice of real mobile traffic.
+  if(navigator.webdriver===true){window['ga-disable-G-HJH07QEJ30']=true;return;}
   gtag('js',new Date());
   // Attach edge-detected country (from Vercel geo cookie) to every event on
   // this config. Covers cases where GA4's IP geolocation returns "(not set)"
