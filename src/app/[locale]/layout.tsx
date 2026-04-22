@@ -196,7 +196,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       />
       <Script
         id="gtag-init"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
