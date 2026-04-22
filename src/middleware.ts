@@ -113,7 +113,12 @@ export default function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const csp = [
     `default-src 'self'`,
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
+    // 'strict-dynamic' removed: it ignores the host allowlist and requires every
+    // script tag to carry the per-request nonce. Next.js's App Router does not
+    // auto-propagate a nonce to <Script> tags nor to 20+ JSON-LD <script> blocks
+    // across page files, so enabling it silently blocked GA4 + all JSON-LD.
+    // The host allowlist below is precise enough to stand on its own.
+    `script-src 'self' 'nonce-${nonce}' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.

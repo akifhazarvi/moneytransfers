@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -170,6 +171,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  // CSP uses 'strict-dynamic' + per-request nonce. Inline/external scripts MUST
+  // carry the nonce or browsers block them (silently killing GA4, theme init, etc).
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   const messages = await getMessages();
 
   // Only ship namespaces used by client components to reduce JS payload.
@@ -193,10 +198,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30"
         strategy="afterInteractive"
+        nonce={nonce}
       />
       <Script
         id="gtag-init"
         strategy="afterInteractive"
+        nonce={nonce}
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
@@ -233,6 +240,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Script
         id="theme-init"
         strategy="beforeInteractive"
+        nonce={nonce}
         dangerouslySetInnerHTML={{
           __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
         }}
