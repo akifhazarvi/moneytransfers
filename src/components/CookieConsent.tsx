@@ -8,21 +8,15 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const t = useTranslations("cookieConsent");
 
-  function enableAnalytics(backfillPageview = false) {
+  function enableAnalytics() {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("consent", "update", {
         analytics_storage: "granted",
       });
-      // When consent is granted mid-session (user clicked Accept), the landing
-      // pageview was dropped under the initial "denied" default. Fire it now
-      // so GA4 attributes the session to the correct landing page + referrer.
-      if (backfillPageview) {
-        window.gtag("event", "page_view", {
-          page_location: window.location.href,
-          page_title: document.title,
-          page_referrer: document.referrer,
-        });
-      }
+      // Consent Mode v2 already un-queues the landing page_view that was held
+      // under the initial "denied" default once consent flips to granted.
+      // We used to fire a manual backfill here, but it double-counted for EU
+      // users — Google's redelivery queue + our manual event = two pageviews.
     }
   }
 
@@ -70,7 +64,7 @@ export default function CookieConsent() {
 
   function handleAccept() {
     localStorage.setItem("cookie_consent", "accepted");
-    enableAnalytics(true);
+    enableAnalytics();
     setVisible(false);
   }
 

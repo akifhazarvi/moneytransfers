@@ -9,6 +9,7 @@ import LazyForexTicker from "@/components/LazyForexTicker";
 import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
+import GA4PageviewTracker from "@/components/GA4PageviewTracker";
 import LazyCookieConsent from "@/components/LazyCookieConsent";
 import LazySendMoneyBot from "@/components/LazySendMoneyBot";
 import LazyExitIntent from "@/components/LazyExitIntent";
@@ -269,6 +270,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Footer />
           <LazyForexTicker />
           <LazyAnalytics />
+          <GA4PageviewTracker />
           <LazyCookieConsent />
           <LazySendMoneyBot />
           <LazyExitIntent />
