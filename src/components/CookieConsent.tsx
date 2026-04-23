@@ -50,9 +50,9 @@ export default function CookieConsent() {
     }
 
     // No stored consent — check if EU user (needs explicit consent)
-    const EU = "AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH";
+    const EU = new Set(["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE","IS","LI","NO","GB","CH"]);
     const cc = (document.cookie.match(/geo-country=([A-Z]{2})/)?.[1]) || "";
-    const isEU = EU.includes(cc);
+    const isEU = cc.length === 2 && EU.has(cc);
 
     if (isEU) {
       // EU users: show consent banner fast (analytics stays denied until they accept).
@@ -123,7 +123,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 md:flex-initial px-6 py-2.5 text-2sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[#1557b0] rounded-full shadow-md hover:shadow-lg transition-all cursor-pointer animate-cookie-glow"
+                className="flex-1 md:flex-initial px-6 py-2.5 text-2sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-all cursor-pointer animate-cookie-glow"
               >
                 {t("accept")}
               </button>

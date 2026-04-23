@@ -153,7 +153,7 @@ export default function HomepageConverter() {
           </Link>
           <button
             onClick={handleConvert}
-            className="px-8 py-3 bg-[var(--color-primary)] text-white text-md font-medium rounded-full hover:bg-[var(--color-primary-dark,#1557b0)] transition-colors shadow-[0_1px_3px_rgba(26,115,232,0.3)]"
+            className="px-8 py-3 bg-[var(--color-primary)] text-white text-md font-medium rounded-full hover:bg-[var(--color-primary-dark)] transition-colors shadow-[var(--shadow-sm)]"
           >
             {t("convert")}
           </button>

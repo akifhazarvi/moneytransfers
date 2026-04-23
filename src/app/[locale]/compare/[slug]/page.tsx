@@ -573,7 +573,7 @@ function ArticleComparison({
               {/* Verdict banner */}
               <div className="verdict-banner mb-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-lg">🏆</span>
+                  <Trophy className="w-4 h-4 text-white/80" strokeWidth={2} />
                   <span className="text-overline text-white/60">Our Verdict</span>
                 </div>
                 <p className="text-md font-semibold text-white mb-4">{article.verdict.overall}</p>

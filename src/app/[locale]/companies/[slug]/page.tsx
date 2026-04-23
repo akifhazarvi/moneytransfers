@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Check, X } from "lucide-react";
 import { providers, getProviderName } from "@/data/providers";
 
 // Revalidate every 6 hours — matches scraper cadence
@@ -303,20 +304,19 @@ function DetailedReview({
               <div className="grid md:grid-cols-2 gap-6">
                 {review.whoShouldUse.map((group) => {
                   const isIdeal = group.heading.toLowerCase().includes("ideal");
+                  const Mark = isIdeal ? Check : X;
                   return (
                     <div key={group.heading}>
-                      <h3 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[#B91C1C]"}`}>
-                        <span className={`w-5 h-5 rounded-full flex items-center justify-center text-2xs font-bold text-white ${isIdeal ? "bg-[var(--color-success)]" : "bg-[var(--color-danger)]"}`}>
-                          {isIdeal ? "✓" : "✗"}
+                      <h3 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[var(--color-danger)]"}`}>
+                        <span className={`w-5 h-5 rounded-full flex items-center justify-center text-white ${isIdeal ? "bg-[var(--color-success)]" : "bg-[var(--color-danger)]"}`}>
+                          <Mark className="w-3 h-3" strokeWidth={3} />
                         </span>
                         {group.heading}
                       </h3>
                       <ul className="space-y-2">
                         {group.items.map((item, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-on-surface-variant)]">
-                            <span className={`mt-0.5 shrink-0 text-2sm font-bold ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[#C53030]"}`}>
-                              {isIdeal ? "✓" : "✗"}
-                            </span>
+                            <Mark className={`mt-0.5 shrink-0 w-4 h-4 ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[var(--color-danger)]"}`} strokeWidth={2.5} />
                             {item}
                           </li>
                         ))}

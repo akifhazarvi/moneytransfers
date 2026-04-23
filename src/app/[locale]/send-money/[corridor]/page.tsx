@@ -1,6 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import {
+  PiggyBank,
+  Zap,
+  Store,
+  Landmark,
+  Smartphone,
+  Banknote,
+  Home,
+  Radio,
+  Send,
+  ClipboardList,
+  UserPlus,
+  Rocket,
+  BadgeCheck,
+  BarChart3,
+  FileText,
+  type LucideIcon,
+} from "lucide-react";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -2243,11 +2261,11 @@ export default async function CorridorPage({ params }: Props) {
         });
 
         const categories = [
-          { label: "Cheapest transfer", icon: "💰", provider: cheapest, reason: `Delivers the most ${toCurrency} for your money` },
-          { label: "Fastest transfer", icon: "⚡", provider: fastest, reason: fastest ? `Delivers in ${fastest.transferSpeed}` : "" },
-          { label: "Cash pickup", icon: "🏪", provider: cashPickup, reason: "Widest cash pickup network" },
-          { label: "Bank transfer", icon: "🏦", provider: bankTransfer, reason: `Best rate for bank deposit to ${corridor.isCurrencyCorridor ? toCurrency : corridor.toCountry}` },
-        ].filter((c) => c.provider);
+          { label: "Cheapest transfer", Icon: PiggyBank, provider: cheapest, reason: `Delivers the most ${toCurrency} for your money` },
+          { label: "Fastest transfer", Icon: Zap, provider: fastest, reason: fastest ? `Delivers in ${fastest.transferSpeed}` : "" },
+          { label: "Cash pickup", Icon: Store, provider: cashPickup, reason: "Widest cash pickup network" },
+          { label: "Bank transfer", Icon: Landmark, provider: bankTransfer, reason: `Best rate for bank deposit to ${corridor.isCurrencyCorridor ? toCurrency : corridor.toCountry}` },
+        ].filter((c): c is { label: string; Icon: LucideIcon; provider: NonNullable<typeof cheapest>; reason: string } => Boolean(c.provider));
 
         return (
           <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
@@ -2259,21 +2277,23 @@ export default async function CorridorPage({ params }: Props) {
                 Different providers excel at different things. Here&apos;s who&apos;s best for each use case on the {headingFrom} to {headingTo} route.
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {categories.map((cat) => {
-                  const name = getProviderName(cat.provider!.providerSlug);
-                  const provider = providers.find((p) => p.slug === cat.provider!.providerSlug);
-                  const logo = provider?.logo || `/logos/${cat.provider!.providerSlug}.png`;
+                {categories.map(({ label, Icon, provider: quote, reason }) => {
+                  const name = getProviderName(quote!.providerSlug);
+                  const p = providers.find((pp) => pp.slug === quote!.providerSlug);
+                  const logo = p?.logo || `/logos/${quote!.providerSlug}.png`;
                   return (
-                    <div key={cat.label} className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-xl p-5">
-                      <div className="text-2xl mb-2">{cat.icon}</div>
-                      <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{cat.label}</p>
+                    <div key={label} className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5">
+                      <div className="w-10 h-10 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 flex items-center justify-center mb-3">
+                        <Icon className="w-5 h-5 text-[var(--color-primary)]" strokeWidth={1.75} />
+                      </div>
+                      <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-3">{label}</p>
                       <div className="flex items-center gap-2.5 mb-2">
                         <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface)] flex items-center justify-center relative">
                           <Image src={logo} alt={name} width={32} height={32} className="object-cover" />
                         </div>
                         <p className="text-sm font-medium text-[var(--color-on-surface)]">{name}</p>
                       </div>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">{cat.reason}</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">{reason}</p>
                     </div>
                   );
                 })}
@@ -2294,18 +2314,20 @@ export default async function CorridorPage({ params }: Props) {
               Sending money to {corridor.toCountry} is straightforward with the right provider. Here&apos;s how it works in 3 simple steps.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
-              {[
-                { step: 1, title: "Enter your transfer details", description: `Choose how much ${fromCurrency} you want to send, compare providers above, and pick the one offering the best ${toCurrency} amount for your transfer to ${corridor.toCountry}.`, icon: "📝" },
-                { step: 2, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Most providers verify details instantly.`, icon: "👤" },
-                { step: 3, title: "Send & track your transfer", description: `Pay using bank transfer, debit card, or credit card. Track your money in real-time until it arrives${countryDetails.deliveryMethods[0] ? ` — ${countryDetails.deliveryMethods[0].method.toLowerCase()} typically takes ${countryDetails.deliveryMethods[0].speed.toLowerCase()}` : ""}.`, icon: "🚀" },
-              ].map((s) => (
-                <div key={s.step} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-2xl">{s.icon}</span>
-                    <span className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-2sm font-medium flex items-center justify-center">{s.step}</span>
+              {([
+                { step: 1, Icon: ClipboardList, title: "Enter your transfer details", description: `Choose how much ${fromCurrency} you want to send, compare providers above, and pick the one offering the best ${toCurrency} amount for your transfer to ${corridor.toCountry}.` },
+                { step: 2, Icon: UserPlus, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Most providers verify details instantly.` },
+                { step: 3, Icon: Rocket, title: "Send & track your transfer", description: `Pay using bank transfer, debit card, or credit card. Track your money in real-time until it arrives${countryDetails.deliveryMethods[0] ? ` — ${countryDetails.deliveryMethods[0].method.toLowerCase()} typically takes ${countryDetails.deliveryMethods[0].speed.toLowerCase()}` : ""}.` },
+              ] as { step: number; Icon: LucideIcon; title: string; description: string }[]).map(({ step, Icon, title, description }) => (
+                <div key={step} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-2xl bg-[var(--color-primary-surface)] flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-[var(--color-primary)]" strokeWidth={1.75} />
+                    </div>
+                    <span className="text-[11px] font-semibold text-[var(--color-on-surface-muted)] uppercase tracking-wider tabular-nums">Step {step}</span>
                   </div>
-                  <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">{s.title}</h3>
-                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{s.description}</p>
+                  <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-2">{title}</h3>
+                  <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{description}</p>
                 </div>
               ))}
             </div>
@@ -2576,19 +2598,21 @@ export default async function CorridorPage({ params }: Props) {
               Your recipient in {corridor.toCountry} can receive money through these delivery methods. The best option depends on their location and preferences.
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
-              {countryDetails.deliveryMethods.map((dm) => (
+              {countryDetails.deliveryMethods.map((dm) => {
+                const m = dm.method.toLowerCase();
+                const DeliveryIcon: LucideIcon =
+                  m.includes("bank") ? Landmark :
+                  m.includes("cash") ? Banknote :
+                  (m.includes("wallet") || m.includes("pesa") || m.includes("jazz") || m.includes("gcash") || m.includes("easy") || m.includes("dana") || m.includes("ovo") || m.includes("pix") || m.includes("nequi") || m.includes("alipay") || m.includes("wechat")) ? Smartphone :
+                  (m.includes("home") || m.includes("door")) ? Home :
+                  m.includes("airtime") ? Radio :
+                  m.includes("faster") ? Zap :
+                  Send;
+                return (
                 <div key={dm.method} className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-lg">
-                      {dm.method.toLowerCase().includes("bank") ? "🏦" :
-                       dm.method.toLowerCase().includes("cash") ? "💵" :
-                       dm.method.toLowerCase().includes("wallet") || dm.method.toLowerCase().includes("pesa") || dm.method.toLowerCase().includes("jazz") || dm.method.toLowerCase().includes("gcash") || dm.method.toLowerCase().includes("easy") || dm.method.toLowerCase().includes("dana") || dm.method.toLowerCase().includes("ovo") || dm.method.toLowerCase().includes("pix") || dm.method.toLowerCase().includes("nequi") || dm.method.toLowerCase().includes("alipay") || dm.method.toLowerCase().includes("wechat") ? "📱" :
-                       dm.method.toLowerCase().includes("home") || dm.method.toLowerCase().includes("door") ? "🏠" :
-                       dm.method.toLowerCase().includes("sepa") ? "🇪🇺" :
-                       dm.method.toLowerCase().includes("airtime") ? "📶" :
-                       dm.method.toLowerCase().includes("faster") ? "⚡" : "💸"}
-                    </span>
-                    <h3 className="text-md font-medium text-[var(--color-on-surface)]">{dm.method}</h3>
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <DeliveryIcon className="w-5 h-5 text-[var(--color-primary)]" strokeWidth={1.75} />
+                    <h3 className="text-base font-medium text-[var(--color-on-surface)]">{dm.method}</h3>
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-2xs font-medium text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-2 py-0.5 rounded-full">
@@ -2609,7 +2633,8 @@ export default async function CorridorPage({ params }: Props) {
                     )}
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </Container>
         </section>
@@ -2781,20 +2806,20 @@ export default async function CorridorPage({ params }: Props) {
               <div className="space-y-5">
                 {countryDetails.regulations.regulatoryBody && (
                   <div className="flex items-start gap-3">
-                    <span className="text-lg mt-0.5">🏛️</span>
+                    <Landmark className="w-5 h-5 mt-0.5 text-[var(--color-primary)] shrink-0" strokeWidth={1.75} />
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)]">Regulatory body</p>
-                      <p className="text-2sm text-[var(--color-on-surface-variant)]">{countryDetails.regulations.regulatoryBody}</p>
+                      <p className="text-sm text-[var(--color-on-surface-variant)]">{countryDetails.regulations.regulatoryBody}</p>
                     </div>
                   </div>
                 )}
 
                 {countryDetails.regulations.inboundLimit && (
                   <div className="flex items-start gap-3">
-                    <span className="text-lg mt-0.5">📊</span>
+                    <BarChart3 className="w-5 h-5 mt-0.5 text-[var(--color-primary)] shrink-0" strokeWidth={1.75} />
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)]">Inbound transfer limits</p>
-                      <p className="text-2sm text-[var(--color-on-surface-variant)]">{countryDetails.regulations.inboundLimit}</p>
+                      <p className="text-sm text-[var(--color-on-surface-variant)]">{countryDetails.regulations.inboundLimit}</p>
                     </div>
                   </div>
                 )}
@@ -2802,7 +2827,7 @@ export default async function CorridorPage({ params }: Props) {
                 {countryDetails.regulations.documentationNeeded.length > 0 && (
                   <div>
                     <div className="flex items-start gap-3 mb-3">
-                      <span className="text-lg mt-0.5">📋</span>
+                      <FileText className="w-5 h-5 mt-0.5 text-[var(--color-primary)] shrink-0" strokeWidth={1.75} />
                       <p className="text-sm font-medium text-[var(--color-on-surface)]">Documentation you may need</p>
                     </div>
                     <ul className="space-y-2 pl-9">

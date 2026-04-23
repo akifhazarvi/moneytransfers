@@ -209,7 +209,7 @@ export default function HeroSearch({ compact = false }: { compact?: boolean }) {
         {/* Submit button */}
         <button
           onClick={() => submit()}
-          className={`shrink-0 ${compact ? "w-6 h-6" : "w-8 h-8 sm:w-9 sm:h-9"} rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark,#1557b0)] text-white flex items-center justify-center transition-colors`}
+          className={`shrink-0 ${compact ? "w-6 h-6" : "w-8 h-8 sm:w-9 sm:h-9"} rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white flex items-center justify-center transition-colors`}
           aria-label="Search"
         >
           <svg className={compact ? "w-3 h-3" : "w-4 h-4"} fill="none" stroke="currentColor" viewBox="0 0 24 24">

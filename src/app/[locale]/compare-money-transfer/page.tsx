@@ -15,6 +15,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Star } from "lucide-react";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
@@ -363,8 +364,8 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                     <div>
                       <RatingBadge rating={p.rating} label={p.ratingLabel} size="sm" />
                       {tp?.score && (
-                        <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 tabular-nums">
-                          Trustpilot ★ {tp.score.toFixed(1)}
+                        <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 flex items-center gap-1 tabular-nums">
+                          Trustpilot <Star className="w-2.5 h-2.5 fill-current text-[var(--color-accent)]" /> {tp.score.toFixed(1)}
                         </p>
                       )}
                     </div>

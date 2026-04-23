@@ -208,9 +208,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
-  var EU='AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH';
+  var EU=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
   var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
-  var isEU=EU.indexOf(cc)!==-1;
+  var isEU=cc.length===2&&EU.indexOf(cc)!==-1;
   var stored=localStorage.getItem('cookie_consent');
   var isDeclined=stored==='declined'||(stored&&stored.indexOf('declined:')===0);
   var consent=stored==='accepted'?'granted':isDeclined?'denied':isEU?'denied':'granted';
