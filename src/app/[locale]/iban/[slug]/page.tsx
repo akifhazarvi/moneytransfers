@@ -449,18 +449,18 @@ export default async function IbanCountryPage({ params }: Props) {
               Example IBAN
             </h2>
             <div className="bg-[var(--color-surface-dim)] rounded-lg p-4 mb-4">
-              <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1">
+              <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1.5">
                 Electronic format
               </p>
-              <p className="text-lg font-mono text-[var(--color-on-surface)] tracking-wide">
+              <p className="text-base sm:text-lg font-mono text-[var(--color-on-surface)] break-all leading-relaxed">
                 {country.exampleIban}
               </p>
             </div>
             <div className="bg-[var(--color-surface-dim)] rounded-lg p-4">
-              <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1">
+              <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-1.5">
                 Print format
               </p>
-              <p className="text-lg font-mono text-[var(--color-on-surface)] tracking-wide">
+              <p className="text-base sm:text-lg font-mono text-[var(--color-on-surface)] break-words leading-relaxed">
                 {formatIban(country.exampleIban)}
               </p>
             </div>
@@ -669,8 +669,8 @@ export default async function IbanCountryPage({ params }: Props) {
 
         {/* Sidebar */}
         <div className="space-y-6">
-          <Card className="sticky top-20">
-            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
+          <Card className="sticky top-20 bg-[var(--color-surface-dim)] border-[var(--color-outline)]">
+            <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
               Send money to {name}
             </h3>
             <ComparisonWidget compact />

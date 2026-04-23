@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Trophy, ArrowRight } from "lucide-react";
 import { providers, generateQuotes } from "@/data/providers";
 
 // Revalidate every 6 hours — matches scraper cadence
@@ -191,6 +192,34 @@ function ArticleComparison({
     };
   });
 
+  // Compute who actually wins across the sample corridors — head-to-head by receive amount.
+  // This becomes the hero winner callout above the provider summary cards. If both are missing
+  // on every sampled corridor (rare edge case) we fall back to provider.rating.
+  const winnerTally = corridorQuotes.reduce(
+    (acc, c) => {
+      if (c.quoteA && c.quoteB) {
+        if (c.quoteA.receiveAmount > c.quoteB.receiveAmount) acc.a += 1;
+        else if (c.quoteB.receiveAmount > c.quoteA.receiveAmount) acc.b += 1;
+      }
+      return acc;
+    },
+    { a: 0, b: 0 }
+  );
+  const totalRanked = winnerTally.a + winnerTally.b;
+  const leader: "a" | "b" | null =
+    totalRanked === 0
+      ? a.rating >= b.rating
+        ? "a"
+        : "b"
+      : winnerTally.a > winnerTally.b
+        ? "a"
+        : winnerTally.b > winnerTally.a
+          ? "b"
+          : null;
+  const winner = leader === "a" ? a : leader === "b" ? b : null;
+  const loser = leader === "a" ? b : leader === "b" ? a : null;
+  const winnerWins = leader === "a" ? winnerTally.a : leader === "b" ? winnerTally.b : 0;
+
   return (
     <>
       <ScrollTracker slug={slug} contentType="comparison" />
@@ -315,26 +344,74 @@ function ArticleComparison({
               </div>
             </div>
 
+            {/* Winner callout — the answer, up front. The user came to find out who wins;
+                give them the verdict before the article body. */}
+            {winner && loser && (
+              <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 sm:p-6 shadow-[var(--shadow-sm)] mb-6 relative overflow-hidden">
+                <div className="absolute inset-x-0 top-0 h-0.5 bg-[var(--color-success)]" />
+                <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+                  <div className="flex items-center gap-4 flex-1 min-w-0">
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/60 shrink-0">
+                      <Image src={winner.logo} alt={`${winner.name} logo`} width={56} height={56} className="object-cover w-full h-full" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--color-success-dark)] uppercase tracking-wider mb-1">
+                        <Trophy className="w-3 h-3" strokeWidth={2.25} />
+                        Our verdict
+                      </span>
+                      <p className="text-lg sm:text-xl font-semibold text-[var(--color-on-surface)] tracking-[-0.01em] leading-tight">
+                        {winner.name} wins
+                        {winnerWins > 0 && (
+                          <span className="text-[var(--color-on-surface-muted)] font-normal text-sm tabular-nums"> · {winnerWins} of {totalRanked} corridors</span>
+                        )}
+                      </p>
+                      <p className="text-sm text-[var(--color-on-surface-variant)] mt-0.5">
+                        Cheaper than {loser.name} on the transfers we sampled below.
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href={getGoUrl(winner.slug, { sourceCurrency: "USD", targetCurrency: "INR", sourceAmount: 1000 })}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-colors shadow-[var(--shadow-sm)] shrink-0 whitespace-nowrap"
+                  >
+                    Send with {winner.name}
+                    <ArrowRight className="w-4 h-4" strokeWidth={2.25} />
+                  </a>
+                </div>
+              </div>
+            )}
+
             {/* Provider summary cards */}
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {[a, b].map((provider) => (
-                <Card key={provider.slug}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
-                      <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
+              {[a, b].map((provider) => {
+                const isWinner = winner?.slug === provider.slug;
+                return (
+                  <Card key={provider.slug} className={isWinner ? "border-[var(--color-success)]/40 bg-[var(--color-success-surface)]/30" : ""}>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
+                        <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
+                      </div>
+                      <div className="min-w-0">
+                        <h2 className="text-base font-medium text-[var(--color-on-surface)] truncate">{provider.name}</h2>
+                        <RatingBadge rating={provider.rating} label={provider.ratingLabel} />
+                      </div>
+                      {isWinner && (
+                        <span className="ml-auto inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--color-success-dark)] bg-[var(--color-success-surface-dim)] px-2 py-1 rounded-full uppercase tracking-wider shrink-0">
+                          <Trophy className="w-2.5 h-2.5" strokeWidth={2.5} />
+                          Winner
+                        </span>
+                      )}
                     </div>
-                    <div>
-                      <h2 className="text-md font-medium text-[var(--color-on-surface)]">{provider.name}</h2>
-                      <RatingBadge rating={provider.rating} label={provider.ratingLabel} />
+                    <p className="text-[13px] text-[var(--color-on-surface-variant)] line-clamp-2 mb-3">{provider.description}</p>
+                    <div className="flex gap-4 text-xs text-[var(--color-on-surface-variant)]">
+                      <span className="tabular-nums">{provider.supportedCountries}+ countries</span>
+                      <span className="tabular-nums">{provider.supportedCurrencies}+ currencies</span>
                     </div>
-                  </div>
-                  <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-2 mb-3">{provider.description}</p>
-                  <div className="flex gap-4 text-xs text-[var(--color-on-surface-variant)]">
-                    <span>{provider.supportedCountries}+ countries</span>
-                    <span>{provider.supportedCurrencies}+ currencies</span>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
 
             {/* Introduction */}

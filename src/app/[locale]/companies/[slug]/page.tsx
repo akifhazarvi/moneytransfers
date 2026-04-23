@@ -182,11 +182,8 @@ function DetailedReview({
       </div>
 
       <Container className="py-8">
-        <div className="max-w-3xl mb-6">
-          <AffiliateDisclosure />
-        </div>
         {/* ── Verdict banner + Quick Stats ── */}
-        <div className="mb-8 space-y-4">
+        <div className="mb-6 space-y-4">
           {/* Verdict — moved from hero, now full-width and readable */}
           <div className="rounded-2xl border border-[var(--color-outline)] overflow-hidden">
             <div className="flex items-center gap-4 px-5 py-4" style={{ background: score.bg }}>
@@ -233,6 +230,13 @@ function DetailedReview({
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Disclosure — moved below the score/CTA block. Reviews lead with the verdict,
+            not with a disclaimer. A smaller inline treatment keeps it compliant without
+            undermining confidence. */}
+        <div className="max-w-3xl mb-8">
+          <AffiliateDisclosure />
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
