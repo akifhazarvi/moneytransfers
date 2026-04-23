@@ -342,6 +342,26 @@ function ArticleComparison({
               {article.intro}
             </p>
 
+            {/* AI-citable Quick Answer — top comparison slugs only */}
+            {(() => {
+              const quickAnswers: Record<string, string> = {
+                "wise-vs-remitly": `Wise and Remitly are both among the cheapest money transfer providers, but they win on different corridors. Wise uses the mid-market rate with a transparent fee (typically 0.3–0.6% of the transfer) and is cheapest on bank-to-bank transfers to developed markets (Europe, US, UK, Canada, Australia). Remitly adds a 1–2% FX markup but offers faster cash pickup, mobile-wallet delivery, and promotional rates on first transfers to emerging-market corridors (Philippines, India, Mexico, Nigeria). For regular senders Wise tends to beat Remitly by 0.5–1.5% on the all-in cost after the first transfer.`,
+                "wise-vs-western-union": `Wise is cheaper than Western Union on almost every bank-to-bank corridor — on a $1,000 transfer, Wise typically costs $4–$8 total while Western Union costs $30–$50 (1.5–3% rate markup plus upfront fees). Western Union wins only when you need cash pickup in 500,000+ agent locations worldwide or when sending to countries with weak banking access (parts of Africa, South America, and remote Asia). For standard bank-to-bank transfers, Wise uses the mid-market rate with a transparent 0.3–0.6% fee — every time.`,
+                "wise-vs-revolut": `Wise and Revolut both use the mid-market rate for transfers, but they differ sharply on fees and limits. Wise charges a flat transparent fee (typically 0.3–0.6% of the amount) and has no monthly caps. Revolut is free for Standard account holders up to £1,000/month (or equivalent) and then charges 0.5% — but paid tiers (Premium £6.99/month, Metal £12.99/month) raise the free allowance to £10,000–£20,000 and skip conversion fees on weekends. Revolut only converts during market hours by default (1% weekend markup); Wise converts 24/7 at the locked rate.`,
+                "revolut-vs-chase": `Revolut is significantly cheaper than Chase for international transfers. Chase charges a $40–$50 wire fee plus a 3–5% exchange rate markup on international wires — on a $1,000 USD→EUR transfer that's roughly $80–$100 total cost. Revolut is free up to £1,000/month on Standard plans (0.5% after), uses the mid-market rate during trading hours, and settles within minutes. Chase's only advantage is integration with existing US checking accounts and FDIC insurance on USD balances; Revolut US is FDIC-insured via Lead Bank partnership.`,
+                "wise-vs-rbs": `Wise is dramatically cheaper than Royal Bank of Scotland (RBS) for international transfers. RBS charges £22 per non-sterling transfer via online banking (up to £40 for a branch transfer), plus an FX markup of 2.75–3.5% on top of the interbank rate. On a £2,000 transfer, RBS costs roughly £75–£90 total. Wise charges around £8–£12 on the same transfer using the mid-market rate — a real-world saving of £65–£80 per transfer. RBS is convenient if you already bank there, but for anything above £500 the Wise saving outweighs the convenience.`,
+              };
+              const answer = quickAnswers[slug];
+              if (!answer) return null;
+              return (
+                <div className="bg-[var(--color-primary-surface)] border-y border-[var(--color-primary-light)] -mx-4 sm:mx-0 sm:rounded-2xl px-4 sm:px-6 py-4 sm:py-5 mb-8">
+                  <p className="text-sm text-[var(--color-on-surface)] leading-relaxed">
+                    <strong className="text-[var(--color-primary)]">Quick answer:</strong> {answer}
+                  </p>
+                </div>
+              );
+            })()}
+
             {/* Table of Contents */}
             <div className="bg-[var(--color-surface-dim)] rounded-xl p-5 mb-8">
               <h2 className="text-sm font-medium text-[var(--color-on-surface)] mb-3">In this article</h2>

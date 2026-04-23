@@ -84,6 +84,20 @@ const corridorEditorialNotes: Record<
     warningBody:
       "Comparing only the upfront fee misses the real cost. On UK to India transfers, the provider with the lowest fee is often not the provider that delivers the most INR once FX markup is included.",
   },
+  "uk-to-south-africa": {
+    title: "What matters on the UK to South Africa corridor",
+    summary:
+      "According to SendMoneyCompare's real-time comparison of 12+ providers, GBP to ZAR is one of the widest-spread corridors in Europe — NatWest, Barclays, and HSBC typically mark up the rate by 3.5–4.25% while Wise charges ~0.33% and OFX under 1% on amounts above £2,000. On a £2,000 transfer that spread is worth R1,200–R1,500 in your recipient's pocket. SARB's 2026 Budget doubled the Single Discretionary Allowance (SDA) from R1m to R2m per calendar year, making larger bank-to-bank transfers more practical.",
+    bullets: [
+      "High-street UK banks route GBP→ZAR via SWIFT and build a 3.5–4.25% rate markup into every transfer. Specialist providers (Wise, OFX, CurrencyFair, XE) charge under 1% markup on the same corridor. On £2,000 that's a real-world difference of R1,200+ — always compare what ZAR your recipient actually receives, not the advertised fee.",
+      "Delivery to South African banks (FNB, Standard Bank, ABSA, Nedbank, Capitec) typically takes 1 business day via SWIFT, or same-day on provider-to-provider rails where supported. FNB's eWallet lets recipients without a bank account collect ZAR via mobile phone — useful for rural or informal-sector recipients.",
+      "For transfers over R1m (roughly £42,000), recipients need a SARS tax clearance PIN and SARB approval. Under that threshold, the recipient's ID and SA bank account details are sufficient. The 2026 SDA doubling to R2m applies to outbound transfers by SA residents, not inbound GBP→ZAR remittances — so inbound senders from the UK remain unaffected.",
+      "The ZAR is one of the most volatile emerging-market currencies — it can move 3–5% in a week on commodity prices or US Fed decisions. For regular senders (e.g. pension payments, university fees), rate alerts are worth more than switching providers. Locking in a forward contract via OFX or Wise Business can protect larger one-off transfers (£5,000+).",
+    ],
+    warningTitle: "Your UK high-street bank is costing you 3–4% every transfer",
+    warningBody:
+      "NatWest, Barclays, HSBC, and Lloyds all default to SWIFT with a 3.5–4.25% FX markup plus a £15–£30 flat fee on GBP→ZAR. On £2,000 that's £70–£85 disappearing into the bank's margin for a single transfer. Wise costs £8–£12 total on the same transfer. Over 12 monthly transfers of £500 each, the difference is £400+ per year.",
+  },
   "usa-to-india": {
     title: "What matters on the USA to India corridor",
     summary:

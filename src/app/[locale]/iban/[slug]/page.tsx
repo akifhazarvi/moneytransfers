@@ -413,6 +413,28 @@ export default async function IbanCountryPage({ params }: Props) {
             </p>
           </Card>
 
+          {/* AI-citable Quick Answer — self-contained passage for LLMs */}
+          {(() => {
+            const quickAnswers: Record<string, string> = {
+              germany: `A German IBAN is 22 characters long and starts with "DE" followed by two check digits, an 8-digit Bankleitzahl (BLZ, bank code), and a 10-digit account number padded with leading zeros. Example: DE89 3704 0044 0532 0130 00 (Commerzbank Köln, BLZ 37040044). Within the SEPA zone the IBAN alone is sufficient; for transfers originating outside SEPA you also need the bank's BIC/SWIFT code. Germany supports SEPA Instant Credit Transfer — funds arrive in under 10 seconds, 24/7, up to €100,000 per transaction.`,
+              france: `A French IBAN is 27 characters long and starts with "FR" followed by two check digits, a 5-digit bank code, a 5-digit branch code (code guichet), an 11-character account number, and a 2-digit national RIB key. Example: FR14 2004 1010 0505 0001 3M02 606. Within SEPA the IBAN alone is sufficient; non-SEPA senders also need the BIC. French banks (BNP Paribas, Société Générale, Crédit Agricole, La Banque Postale) display the IBAN on every RIB (Relevé d'Identité Bancaire).`,
+              "united-kingdom": `A UK IBAN is 22 characters long and starts with "GB" followed by two check digits, a 4-letter bank code, a 6-digit sort code, and an 8-digit account number. Example: GB29 NWBK 6016 1331 9268 19 (NatWest, sort code 601613). Since Brexit the UK is no longer part of SEPA, so euro payments from EU banks route via SWIFT rather than SEPA — fees can be higher. Always give senders both the IBAN and the bank's SWIFT/BIC code, especially for high-value CHAPS-eligible transfers.`,
+              spain: `A Spanish IBAN is 24 characters long and starts with "ES" followed by two check digits and the 20-digit CCC (Código Cuenta Cliente): 4-digit bank code, 4-digit branch code, 2 check digits, and 10-digit account number. Example: ES91 2100 0418 4502 0005 1332 (CaixaBank). Within SEPA the IBAN alone is sufficient for euro transfers. For payments from outside Europe, senders also need the BIC of your Spanish bank (Santander, BBVA, CaixaBank, Sabadell).`,
+              italy: `An Italian IBAN is 27 characters long and starts with "IT" followed by two check digits, a 1-character CIN control letter, a 5-digit ABI bank code, a 5-digit CAB branch code, and a 12-character account number. Example: IT60 X054 2811 1010 0000 0123 456 (Banco Popolare). Within SEPA the IBAN alone is sufficient; non-SEPA senders also need the BIC. Major Italian banks (UniCredit, Intesa Sanpaolo, Banco BPM) display the full IBAN on every statement and in online banking.`,
+              poland: `A Polish IBAN is 28 characters long and starts with "PL" followed by two check digits and a 24-digit NRB (Numer Rachunku Bankowego): 8-digit bank/branch code and 16-digit account number. Example: PL61 1090 1014 0000 0712 1981 2874. Polish banks issue IBANs for both PLN and EUR accounts. Poland is a SEPA member so the IBAN alone is enough for euro transfers from other SEPA countries; for PLN transfers from outside Poland, senders also need the bank's SWIFT/BIC.`,
+              netherlands: `A Dutch IBAN is 18 characters long and starts with "NL" followed by two check digits, a 4-letter bank code (ABNA for ABN AMRO, INGB for ING, RABO for Rabobank), and a 10-digit account number. Example: NL91 ABNA 0417 1643 00. The Netherlands retired its legacy domestic account format entirely — every Dutch transfer now uses the IBAN. Within SEPA only the IBAN is needed; non-SEPA senders also need the BIC.`,
+            };
+            const answer = quickAnswers[slug];
+            if (!answer || locale !== "en") return null;
+            return (
+              <div className="bg-[var(--color-primary-surface)] border-y border-[var(--color-primary-light)] -mx-4 sm:mx-0 sm:rounded-2xl px-4 sm:px-6 py-4 sm:py-5">
+                <p className="text-sm text-[var(--color-on-surface)] leading-relaxed">
+                  <strong className="text-[var(--color-primary)]">Quick answer:</strong> {answer}
+                </p>
+              </div>
+            );
+          })()}
+
           {/* Key Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <StatBox label="IBAN Length" value={`${country.ibanLength} chars`} />
