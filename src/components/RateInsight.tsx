@@ -1,3 +1,4 @@
+import { Award, TrendingUp, BarChart3, AlertTriangle, type LucideIcon } from "lucide-react";
 import {
   type RateInsight,
   type ProviderBadge,
@@ -130,22 +131,22 @@ function StatRow({
 // ── Provider Badge ─────────────────────────────────────────────
 // Inline tag shown below provider name in quote results
 
-const badgeStyles: Record<ProviderBadge["type"], { color: string; bg: string; icon: string }> = {
-  "best-rate": { color: "var(--color-success)", bg: "var(--color-success-surface)", icon: "🏆" },
-  "most-improved": { color: "var(--color-primary)", bg: "var(--color-primary-surface)", icon: "📈" },
-  "most-consistent": { color: "var(--color-on-surface-variant)", bg: "var(--color-surface-container)", icon: "📊" },
-  "worst-markup": { color: "var(--color-danger)", bg: "var(--color-danger-surface)", icon: "⚠️" },
+const badgeStyles: Record<ProviderBadge["type"], { color: string; bg: string; Icon: LucideIcon }> = {
+  "best-rate": { color: "var(--color-success)", bg: "var(--color-success-surface)", Icon: Award },
+  "most-improved": { color: "var(--color-primary)", bg: "var(--color-primary-surface)", Icon: TrendingUp },
+  "most-consistent": { color: "var(--color-on-surface-variant)", bg: "var(--color-surface-container)", Icon: BarChart3 },
+  "worst-markup": { color: "var(--color-danger)", bg: "var(--color-danger-surface)", Icon: AlertTriangle },
 };
 
 export function ProviderBadgeTag({ badge }: { badge: ProviderBadge }) {
-  const style = badgeStyles[badge.type];
+  const { Icon, color, bg } = badgeStyles[badge.type];
   return (
     <span
-      className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-2xs font-medium"
-      style={{ color: style.color, backgroundColor: style.bg }}
+      className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium"
+      style={{ color, backgroundColor: bg }}
       title={badge.detail}
     >
-      <span>{style.icon}</span>
+      <Icon className="w-3 h-3" strokeWidth={2.25} />
       {badge.label}
     </span>
   );

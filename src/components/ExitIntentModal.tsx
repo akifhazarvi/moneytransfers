@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
+import { Bell, BellRing } from "lucide-react";
 import {
   trackExitIntentShown,
   trackExitIntentDismissed,
@@ -164,7 +165,7 @@ export default function ExitIntentModal() {
             ×
           </button>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-2xl">👋</span>
+            <BellRing className="w-5 h-5 opacity-90" strokeWidth={2} />
             <p className="text-xs font-semibold uppercase tracking-wider opacity-80">Wait — one thing</p>
           </div>
           <h2 className="text-xl font-bold leading-tight">
@@ -178,7 +179,7 @@ export default function ExitIntentModal() {
         {/* Body */}
         {status === "success" ? (
           <div className="px-6 py-6 text-center">
-            <div className="text-4xl mb-2">🔔</div>
+            <Bell className="w-10 h-10 mx-auto mb-3 text-[var(--color-success)]" strokeWidth={1.75} />
             <p className="font-semibold text-[var(--color-on-surface)]">You&apos;re set!</p>
             <p className="text-sm text-[var(--color-on-surface-variant)] mt-1">
               I&apos;ll email you when the {from}→{to} rate is right.
@@ -199,9 +200,9 @@ export default function ExitIntentModal() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="h-11 bg-gradient-to-br from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white rounded-xl text-sm font-semibold transition-all disabled:opacity-60 shadow-md"
+              className="h-11 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white rounded-full text-sm font-semibold transition-colors disabled:opacity-60 shadow-[var(--shadow-sm)]"
             >
-              {status === "loading" ? "Setting up…" : `🔔 Get free ${from}→${to} alerts`}
+              {status === "loading" ? "Setting up…" : `Get free ${from}→${to} alerts`}
             </button>
             {status === "error" && <p className="text-xs text-rose-500">{errorMsg}</p>}
             <p className="text-[11px] text-center text-[var(--color-on-surface-muted)]">

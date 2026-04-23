@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { Bell } from "lucide-react";
 import { trackRateAlertSet } from "@/lib/analytics";
 
 interface Props {
@@ -73,7 +74,7 @@ export default function RateAlertForm({
   if (status === "success") {
     return (
       <div className="bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20 rounded-2xl p-6 text-center">
-        <div className="text-2xl mb-2">🔔</div>
+        <Bell className="w-8 h-8 mx-auto mb-3 text-[var(--color-primary)]" strokeWidth={1.75} />
         <p className="font-semibold text-[var(--color-on-surface)] mb-1">
           You&apos;re set!
         </p>
@@ -91,8 +92,8 @@ export default function RateAlertForm({
 
   return (
     <div className={wrapperCls}>
-      <div className="flex items-start gap-2 mb-3">
-        <span className="text-xl">🔔</span>
+      <div className="flex items-start gap-2.5 mb-3">
+        <Bell className="w-5 h-5 mt-0.5 text-[var(--color-primary)] shrink-0" strokeWidth={2} />
         <div>
           <h3 className={`font-semibold text-[var(--color-on-surface)] ${compact ? "text-sm" : "text-base"}`}>
             Get rate alerts for {fromCurrency}→{toCurrency}

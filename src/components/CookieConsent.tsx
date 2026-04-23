@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Shield } from "lucide-react";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -86,16 +87,16 @@ export default function CookieConsent() {
       <div className="max-w-4xl mx-auto">
         <div className="relative overflow-hidden rounded-2xl bg-[var(--color-surface)] border border-[var(--color-primary)]/30 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.35)] ring-1 ring-black/5">
           {/* Brand accent stripe */}
-          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[var(--color-primary)] via-[#4285F4] to-[#1557b0]" />
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary)] to-[var(--color-primary-dark)]" />
 
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-5 p-5 md:p-6 md:pr-5">
             {/* Icon badge */}
             <div className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full bg-[var(--color-primary-surface)] grid place-items-center text-xl shadow-inner" aria-hidden="true">
-                <span role="img" aria-label="Cookie">🍪</span>
+              <div className="flex-shrink-0 w-11 h-11 rounded-full bg-[var(--color-primary-surface)] grid place-items-center shadow-inner" aria-hidden="true">
+                <Shield className="w-5 h-5 text-[var(--color-primary)]" strokeWidth={2} />
               </div>
               <p className="md:hidden text-[0.95rem] font-semibold text-[var(--color-on-surface)]">
-                Cookies
+                Privacy
               </p>
             </div>
 

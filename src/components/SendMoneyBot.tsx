@@ -4,6 +4,19 @@ import { useState, useEffect, type FormEvent } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
+  Bell,
+  Mail,
+  HelpCircle,
+  PiggyBank,
+  Zap,
+  TrendingUp,
+  Shield,
+  Landmark,
+  Globe2,
+  MessageSquare,
+  type LucideIcon,
+} from "lucide-react";
+import {
   trackBotPreviewShown,
   trackBotPreviewDismissed,
   trackBotPreviewClicked,
@@ -63,10 +76,10 @@ const POPULAR_CORRIDORS = [
 
 // Compact proof stats — shown both on the teaser card and inside the open chat.
 // Replaces the old 4-second rotating ticker with something scannable at a glance.
-const PROOF_STATS = [
-  { icon: "💰", label: "avg saved", value: "$47", sub: "per $1K transfer" },
-  { icon: "🔔", label: "alerts active", value: "847", sub: "this month" },
-  { icon: "⚡", label: "data refresh", value: "6h", sub: "from 35+ APIs" },
+const PROOF_STATS: { Icon: LucideIcon; label: string; value: string; sub: string }[] = [
+  { Icon: PiggyBank, label: "avg saved", value: "$47", sub: "per $1K transfer" },
+  { Icon: Bell, label: "alerts active", value: "847", sub: "this month" },
+  { Icon: Zap, label: "data refresh", value: "6h", sub: "from 35+ APIs" },
 ];
 
 interface Greeting {
@@ -285,17 +298,17 @@ export default function SendMoneyBot() {
 
                 {/* Proof strip — 3 scannable stats */}
                 <div className="grid grid-cols-3 gap-1 px-3 pb-2">
-                  {PROOF_STATS.map((s) => (
-                    <div key={s.label} className="bg-[var(--color-surface-dim)] rounded-lg px-1.5 py-1 text-center">
-                      <p className="text-[10px]">{s.icon}</p>
-                      <p className="text-[12px] font-bold text-[var(--color-on-surface)] leading-none mt-0.5 tabular-nums">{s.value}</p>
-                      <p className="text-[9px] text-[var(--color-on-surface-muted)] mt-0.5 leading-tight truncate">{s.label}</p>
+                  {PROOF_STATS.map(({ Icon, label, value }) => (
+                    <div key={label} className="bg-[var(--color-surface-dim)] rounded-lg px-1.5 py-1.5 text-center">
+                      <Icon className="w-3 h-3 mx-auto text-[var(--color-on-surface-muted)]" strokeWidth={2} />
+                      <p className="text-[12px] font-bold text-[var(--color-on-surface)] leading-none mt-1 tabular-nums">{value}</p>
+                      <p className="text-[9px] text-[var(--color-on-surface-muted)] mt-0.5 leading-tight truncate">{label}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* Action */}
-                <div className="bg-gradient-to-r from-indigo-50 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/30 px-3 py-2 border-t border-[var(--color-outline)]">
+                <div className="bg-[var(--color-primary-surface)] px-3 py-2 border-t border-[var(--color-outline)]">
                   <p className="text-[11px] text-[var(--color-primary)] font-semibold flex items-center gap-1">
                     {greeting.teaserSub}
                   </p>
@@ -372,11 +385,11 @@ export default function SendMoneyBot() {
 
               {/* Proof card — 3 stats at a glance (replaces fast-rotating ticker) */}
               <div className="relative mt-3 grid grid-cols-3 gap-1.5">
-                {PROOF_STATS.map((s) => (
-                  <div key={s.label} className="bg-white/15 backdrop-blur-sm rounded-lg px-2 py-1.5 text-center">
-                    <p className="text-sm">{s.icon}</p>
-                    <p className="text-sm font-bold tabular-nums leading-none mt-0.5">{s.value}</p>
-                    <p className="text-[10px] opacity-80 mt-0.5 leading-tight">{s.label}</p>
+                {PROOF_STATS.map(({ Icon, label, value }) => (
+                  <div key={label} className="bg-white/15 backdrop-blur-sm rounded-lg px-2 py-2 text-center">
+                    <Icon className="w-3.5 h-3.5 mx-auto opacity-90" strokeWidth={2} />
+                    <p className="text-sm font-bold tabular-nums leading-none mt-1">{value}</p>
+                    <p className="text-[10px] opacity-80 mt-0.5 leading-tight">{label}</p>
                   </div>
                 ))}
               </div>
@@ -429,7 +442,7 @@ function MenuView({ setTab, greeting }: { setTab: (t: Tab) => void; greeting: Re
   return (
     <>
       <ChatBubble>
-        <p className="font-medium">👋 {greeting.title}</p>
+        <p className="font-medium">{greeting.title}</p>
       </ChatBubble>
 
       {showSecond ? (
@@ -442,13 +455,13 @@ function MenuView({ setTab, greeting }: { setTab: (t: Tab) => void; greeting: Re
 
       {showActions && (
         <div className="flex flex-col gap-2 mt-1 smcBot-fadeIn">
-          <QuickReply icon="🔔" title="Set a rate alert" subtitle="Email when your target rate hits" onClick={() => setTab("alert")} />
-          <QuickReply icon="📧" title="Weekly digest" subtitle="Monday emails, cheapest providers" badge="POPULAR" onClick={() => setTab("digest")} />
-          <QuickReply icon="💡" title="Ask a question" subtitle="Guides, safety, FAQs" onClick={() => setTab("question")} />
+          <QuickReply Icon={Bell} title="Set a rate alert" subtitle="Email when your target rate hits" onClick={() => setTab("alert")} />
+          <QuickReply Icon={Mail} title="Weekly digest" subtitle="Monday emails, cheapest providers" badge="POPULAR" onClick={() => setTab("digest")} />
+          <QuickReply Icon={HelpCircle} title="Ask a question" subtitle="Guides, safety, FAQs" onClick={() => setTab("question")} />
 
           <div className="mt-2 bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-3">
-            <p className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2 flex items-center gap-1">
-              <span>🔥</span> Popular this week
+            <p className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <TrendingUp className="w-3 h-3" strokeWidth={2.5} /> Popular this week
             </p>
             <div className="flex flex-wrap gap-1.5">
               {POPULAR_CORRIDORS.slice(0, 5).map((c) => (
@@ -496,22 +509,22 @@ function TypingIndicator() {
   );
 }
 
-function QuickReply({ icon, title, subtitle, badge, onClick }: {
-  icon: string; title: string; subtitle: string; badge?: string; onClick: () => void;
+function QuickReply({ Icon, title, subtitle, badge, onClick }: {
+  Icon: LucideIcon; title: string; subtitle: string; badge?: string; onClick: () => void;
 }) {
   return (
     <button
       onClick={onClick}
-      className="w-full text-left bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-3 hover:border-[var(--color-primary)] hover:shadow-md hover:-translate-y-0.5 transition-all group relative"
+      className="w-full text-left bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-3 hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-sm)] hover:-translate-y-0.5 transition-all group relative"
     >
       {badge && (
-        <span className="absolute -top-2 right-4 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+        <span className="absolute -top-2 right-4 bg-[var(--color-accent)] text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-[var(--shadow-xs)]">
           {badge}
         </span>
       )}
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-[var(--color-primary-surface)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-primary-light)] transition-colors">
-          <span className="text-lg">{icon}</span>
+        <div className="w-10 h-10 rounded-2xl bg-[var(--color-primary-surface)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-primary-light)] transition-colors">
+          <Icon className="w-5 h-5 text-[var(--color-primary)]" strokeWidth={2} />
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-sm font-semibold text-[var(--color-on-surface)] leading-tight">{title}</p>
@@ -555,7 +568,10 @@ function AlertView({ onBack }: { onBack: () => void }) {
   return (
     <>
       <BackChip onClick={onBack} />
-      <ChatBubble><p className="font-medium mb-1">🔔 Let&apos;s set up an alert</p><p className="text-xs text-[var(--color-on-surface-variant)]">Pick your currencies and I&apos;ll email you when the rate is right.</p></ChatBubble>
+      <ChatBubble>
+        <p className="font-medium mb-1 flex items-center gap-1.5"><Bell className="w-3.5 h-3.5 text-[var(--color-primary)]" strokeWidth={2.25} />Let&apos;s set up an alert</p>
+        <p className="text-xs text-[var(--color-on-surface-variant)]">Pick your currencies and I&apos;ll email you when the rate is right.</p>
+      </ChatBubble>
 
       <form onSubmit={submit} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-4 flex flex-col gap-3 shadow-sm">
         {/* Email first — lowest-friction commit. Once the email is in, completion rate of remaining fields jumps. */}
@@ -579,8 +595,8 @@ function AlertView({ onBack }: { onBack: () => void }) {
           <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Target rate <span className="text-[var(--color-on-surface-muted)] normal-case font-normal">(optional — leave blank to get any improvement)</span></label>
           <input type="number" step="any" min="0" value={targetRate} onChange={(e) => setTargetRate(e.target.value)} placeholder="e.g. 85.50" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
         </div>
-        <button type="submit" disabled={status === "loading"} className="mt-1 bg-gradient-to-br from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white px-4 py-3 rounded-xl text-sm font-semibold transition-all disabled:opacity-60 shadow-md">
-          {status === "loading" ? "Setting up…" : "🔔 Create free alert"}
+        <button type="submit" disabled={status === "loading"} className="mt-1 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-4 py-3 rounded-full text-sm font-semibold transition-colors disabled:opacity-60 shadow-[var(--shadow-sm)]">
+          {status === "loading" ? "Setting up…" : "Create free alert"}
         </button>
         {status === "error" && <p className="text-xs text-rose-500">{errorMsg}</p>}
         <p className="text-[10px] text-center text-[var(--color-on-surface-muted)]">Free · No spam · Unsubscribe anytime</p>
@@ -622,7 +638,10 @@ function DigestView({ onBack }: { onBack: () => void }) {
   return (
     <>
       <BackChip onClick={onBack} />
-      <ChatBubble><p className="font-medium mb-1">📧 Weekly corridor digest</p><p className="text-xs text-[var(--color-on-surface-variant)]">Every Monday — the 3 cheapest providers + rate movements.</p></ChatBubble>
+      <ChatBubble>
+        <p className="font-medium mb-1 flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-[var(--color-primary)]" strokeWidth={2.25} />Weekly corridor digest</p>
+        <p className="text-xs text-[var(--color-on-surface-variant)]">Every Monday — the 3 cheapest providers + rate movements.</p>
+      </ChatBubble>
 
       <form onSubmit={submit} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-4 flex flex-col gap-3 shadow-sm">
         {/* Email first — lowest-friction commit. */}
@@ -636,8 +655,8 @@ function DigestView({ onBack }: { onBack: () => void }) {
             {POPULAR_CORRIDORS.map((c) => <option key={c.slug} value={c.slug}>{c.label}</option>)}
           </select>
         </div>
-        <button type="submit" disabled={status === "loading"} className="mt-1 bg-gradient-to-br from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white px-4 py-3 rounded-xl text-sm font-semibold transition-all disabled:opacity-60 shadow-md">
-          {status === "loading" ? "Subscribing…" : "📧 Subscribe — it's free"}
+        <button type="submit" disabled={status === "loading"} className="mt-1 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-4 py-3 rounded-full text-sm font-semibold transition-colors disabled:opacity-60 shadow-[var(--shadow-sm)]">
+          {status === "loading" ? "Subscribing…" : "Subscribe — it's free"}
         </button>
         {status === "error" && <p className="text-xs text-rose-500">{errorMsg}</p>}
         <p className="text-[10px] text-center text-[var(--color-on-surface-muted)]">Free · No spam · Unsubscribe anytime</p>
@@ -647,24 +666,27 @@ function DigestView({ onBack }: { onBack: () => void }) {
 }
 
 function QuestionView({ onBack }: { onBack: () => void }) {
-  const links = [
-    { icon: "💰", label: "What's the cheapest way to send money?", href: "/guides/cheapest-way-to-send-money-internationally" },
-    { icon: "🔒", label: "Are online money transfers safe?", href: "/guides/money-transfer-safety-guide" },
-    { icon: "📊", label: "What is exchange rate markup?", href: "/guides/exchange-rate-markup-explained" },
-    { icon: "🏦", label: "What is a SWIFT code?", href: "/guides/swift-codes-explained" },
-    { icon: "🌍", label: "What is an IBAN?", href: "/guides/iban-numbers-explained" },
-    { icon: "⚡", label: "How do international wires work?", href: "/guides/wire-transfer-guide" },
+  const links: { Icon: LucideIcon; label: string; href: string }[] = [
+    { Icon: PiggyBank, label: "What's the cheapest way to send money?", href: "/guides/cheapest-way-to-send-money-internationally" },
+    { Icon: Shield, label: "Are online money transfers safe?", href: "/guides/money-transfer-safety-guide" },
+    { Icon: TrendingUp, label: "What is exchange rate markup?", href: "/guides/exchange-rate-markup-explained" },
+    { Icon: Landmark, label: "What is a SWIFT code?", href: "/guides/swift-codes-explained" },
+    { Icon: Globe2, label: "What is an IBAN?", href: "/guides/iban-numbers-explained" },
+    { Icon: Zap, label: "How do international wires work?", href: "/guides/wire-transfer-guide" },
   ];
   return (
     <>
       <BackChip onClick={onBack} />
-      <ChatBubble><p className="font-medium mb-1">💡 I&apos;ve got answers</p><p className="text-xs text-[var(--color-on-surface-variant)]">Quick links to common questions:</p></ChatBubble>
+      <ChatBubble>
+        <p className="font-medium mb-1 flex items-center gap-1.5"><HelpCircle className="w-3.5 h-3.5 text-[var(--color-primary)]" strokeWidth={2.25} />I&apos;ve got answers</p>
+        <p className="text-xs text-[var(--color-on-surface-variant)]">Quick links to common questions:</p>
+      </ChatBubble>
 
       <div className="flex flex-col gap-1.5">
-        {links.map((l) => (
-          <a key={l.href} href={l.href} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl px-3.5 py-2.5 hover:border-[var(--color-primary)] hover:shadow-sm transition-all flex items-center gap-2.5 group">
-            <span className="text-base">{l.icon}</span>
-            <span className="text-xs font-medium text-[var(--color-on-surface)] flex-1">{l.label}</span>
+        {links.map(({ Icon, label, href }) => (
+          <a key={href} href={href} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl px-3.5 py-2.5 hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-sm)] transition-all flex items-center gap-2.5 group">
+            <Icon className="w-4 h-4 text-[var(--color-primary)] shrink-0" strokeWidth={2} />
+            <span className="text-xs font-medium text-[var(--color-on-surface)] flex-1">{label}</span>
             <span className="text-[var(--color-on-surface-muted)] group-hover:text-[var(--color-primary)] group-hover:translate-x-0.5 transition-all">→</span>
           </a>
         ))}
@@ -673,7 +695,7 @@ function QuestionView({ onBack }: { onBack: () => void }) {
       <div className="mt-2 bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-3.5 text-center">
         <p className="text-xs text-[var(--color-on-surface-variant)] mb-2">Still need help?</p>
         <a href="mailto:hello@sendmoneycompare.com" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] hover:underline">
-          📩 hello@sendmoneycompare.com
+          <MessageSquare className="w-3.5 h-3.5" strokeWidth={2.25} /> hello@sendmoneycompare.com
         </a>
       </div>
     </>
@@ -684,8 +706,10 @@ function SuccessView({ onBack, message }: { onBack: () => void; message: string 
   return (
     <div className="flex-1 flex flex-col items-center justify-center py-8 text-center smcBot-fadeIn">
       <div className="relative mb-4">
-        <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center">
-          <span className="text-3xl">✅</span>
+        <div className="w-16 h-16 rounded-full bg-[var(--color-success-surface)] flex items-center justify-center">
+          <svg className="w-8 h-8 text-[var(--color-success)]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
         </div>
       </div>
       <p className="font-bold text-lg text-[var(--color-on-surface)] mb-1">You&apos;re all set!</p>

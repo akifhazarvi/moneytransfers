@@ -29,7 +29,7 @@ import { getCountryDetails } from "@/data/corridor-details";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { statSync } from "fs";
+import { statSync, readdirSync } from "fs";
 import { join } from "path";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
@@ -46,17 +46,22 @@ function getDataFreshnessDate(): string {
   return getDataFreshnessISO().split("T")[0];
 }
 
-/** Full ISO timestamp of most recent scrape — used by <LiveTimestamp /> for relative "X mins ago" rendering. */
+/** Full ISO timestamp of most recent scrape — used by <LiveTimestamp /> for relative "X mins ago" rendering.
+ *  Scans any *-quotes.json or *-rates.json file so we don't depend on specific filenames being present. */
 function getDataFreshnessISO(): string {
   const scrapedDir = join(process.cwd(), "src/data/scraped");
-  const quoteFiles = ["provider-quotes.json", "mid-market-rates.json", "exchange-rates.json"];
   let latest = new Date(0);
-  for (const file of quoteFiles) {
-    try {
-      const mtime = statSync(join(scrapedDir, file)).mtime;
-      if (mtime > latest) latest = mtime;
-    } catch { /* file may not exist */ }
-  }
+  try {
+    const files = readdirSync(scrapedDir);
+    for (const file of files) {
+      if (!/(quotes|rates)\.json$/.test(file)) continue;
+      try {
+        const mtime = statSync(join(scrapedDir, file)).mtime;
+        if (mtime > latest) latest = mtime;
+      } catch { /* skip unreadable */ }
+    }
+  } catch { /* scraped dir may be missing in dev */ }
+  // Fall back to now if nothing found — better than showing a decade-old date.
   return latest.getTime() > 0 ? latest.toISOString() : new Date().toISOString();
 }
 

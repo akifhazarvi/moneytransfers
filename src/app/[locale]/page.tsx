@@ -6,7 +6,7 @@ import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
 import RatingBadge from "@/components/RatingBadge";
 import BestTransferToday from "@/components/BestTransferToday";
-import HeroTabs from "@/components/HeroTabs";
+import ComparisonWidget from "@/components/ComparisonWidget";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
@@ -191,29 +191,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeVideoSchema) }}
       />
-      {/* ─── 1. HERO ─── */}
-      <section className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-surface-dim)] pt-6 sm:pt-16 pb-6 sm:pb-14">
+      {/* ─── HERO ─── widget-as-hero, single job: start a comparison */}
+      <section className="bg-[var(--color-surface)] pt-10 sm:pt-20 pb-10 sm:pb-16 border-b border-[var(--color-outline)]">
         <Container>
-          <div className="text-center mb-4 sm:mb-6">
-            <h1 className="text-2xl sm:text-h2-plus md:text-5xl font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.5px] max-w-3xl mx-auto">
+          <div className="text-center mb-8 sm:mb-10 max-w-2xl mx-auto">
+            <h1 className="text-[28px] sm:text-5xl font-semibold text-[var(--color-on-surface)] leading-[1.1] tracking-[-0.02em]">
               {tHero("title")}{" "}
               <span className="text-[var(--color-primary)]">{tHero("titleHighlight")}</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-[var(--color-on-surface-variant)] mt-2 sm:mt-4 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
               {tHero("subtitle")}
             </p>
-            {topCorridorProviders[0] && (
-              <p className="text-xs sm:text-sm text-[var(--color-on-surface-variant)] mt-2 max-w-2xl mx-auto leading-relaxed">
-                As of {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}, sending ${topCorridorProviders[0].providerName && `$1,000 USD to ${topCorridorProviders[0].toCurrency} costs as little as $${topCorridorProviders[0].fee.toFixed(2)} with ${topCorridorProviders[0].providerName}`}. We compare 35+ providers across 64+ corridors, updated every 6 hours.
-              </p>
-            )}
           </div>
-          <div className="max-w-[860px] mx-auto">
-            <HeroTabs defaultFrom={sendCurrency} defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
+          <div className="max-w-[720px] mx-auto">
+            <ComparisonWidget defaultFrom={sendCurrency} defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
           </div>
-          <p className="text-center text-xs text-[var(--color-on-surface-variant)] mt-3 sm:mt-4 max-w-md mx-auto hidden sm:block">
-            {tHero("disclaimer")}
-          </p>
         </Container>
       </section>
 
