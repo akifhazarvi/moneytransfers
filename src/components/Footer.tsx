@@ -19,6 +19,7 @@ export default function Footer() {
       titleKey: "products",
       links: [
         { href: "/send-money", labelKey: "sendMoney" },
+        { href: "/compare-money-transfer", labelKey: "compareMoneyTransfer" },
         { href: "/compare", labelKey: "compareProviders" },
         { href: "/currency-converter", labelKey: "currencyConverter" },
         { href: "/companies", labelKey: "allReviews" },
