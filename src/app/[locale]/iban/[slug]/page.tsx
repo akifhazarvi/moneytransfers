@@ -65,6 +65,42 @@ const ibanMetaOverrides: Record<string, { title: string; description: string; og
     ogTitle: "German IBAN: 22-Character Format, Example + BLZ Codes (2026)",
     ogDesc: "DE IBAN in 30 seconds: 22-char structure, real example, BLZ lookup for Deutsche Bank / Commerzbank / Sparkasse / N26, and SEPA Instant rules.",
   },
+  poland: {
+    title: "Polish IBAN Format (2026): 28 Characters, NRB Example + Bank Codes",
+    description: "Polish IBAN = 28 chars (one of Europe's longest): PL + 2 check digits + 26-digit NRB. See a real example, bank codes for PKO BP, mBank, Santander Polska, ING Bank Śląski, plus Express Elixir rules.",
+    ogTitle: "Polish IBAN: 28-Character NRB Format + Bank Codes (2026)",
+    ogDesc: "PL IBAN in 30 seconds: 28-char structure, real example, codes for PKO BP / mBank / Santander Polska / ING Bank Śląski.",
+  },
+  ireland: {
+    title: "Irish IBAN Format (2026): 22 Characters, Example + Bank Codes",
+    description: "Irish IBAN = 22 chars: IE + 2 check digits + 4-letter bank code + 6-digit sort + 8-digit account. Real example, codes for AIB, Bank of Ireland, PTSB, Revolut Ireland, SEPA Instant rules.",
+    ogTitle: "Irish IBAN: 22-Character Format + Bank Codes (2026)",
+    ogDesc: "IE IBAN: 22-char structure, example, AIB / BOI / PTSB / Revolut codes, SEPA Instant rules.",
+  },
+  spain: {
+    title: "Spanish IBAN Format (2026): 24 Characters, Example + Bank Codes",
+    description: "Spanish IBAN = 24 chars: ES + 2 check digits + 20-digit CCC. See a real example, bank codes for Santander, BBVA, CaixaBank, Banco Sabadell, ING, plus SEPA Instant and Iberpay rules.",
+    ogTitle: "Spanish IBAN: 24-Character Format + Bank Codes (2026)",
+    ogDesc: "ES IBAN: 24-char structure, example, Santander / BBVA / CaixaBank / Sabadell codes, SEPA Instant.",
+  },
+  italy: {
+    title: "Italian IBAN Format (2026): 27 Characters, Example + Bank Codes",
+    description: "Italian IBAN = 27 chars (one of Europe's longest): IT + 2 check digits + 1-letter CIN + 23-digit BBAN. Real example, codes for UniCredit, Intesa Sanpaolo, Banco BPM, Poste Italiane.",
+    ogTitle: "Italian IBAN: 27-Character Format + Bank Codes (2026)",
+    ogDesc: "IT IBAN: 27-char structure, example, UniCredit / Intesa Sanpaolo / Poste Italiane codes, SEPA Instant.",
+  },
+  belgium: {
+    title: "Belgian IBAN Format (2026): 16 Characters, Example + Bank Codes",
+    description: "Belgian IBAN = 16 chars (Europe's shortest): BE + 2 check digits + 12-digit account. Real example, bank codes for KBC, BNP Paribas Fortis, Belfius, ING Belgium, plus SEPA Instant and Bancontact.",
+    ogTitle: "Belgian IBAN: 16-Character Format + Bank Codes (2026)",
+    ogDesc: "BE IBAN: 16-char structure, example, KBC / BNP Fortis / Belfius / ING Belgium codes.",
+  },
+  "united-arab-emirates": {
+    title: "UAE IBAN Format (2026): 23 Characters, Example + How to Check",
+    description: "UAE IBAN = 23 chars: AE + 2 check digits + 3-digit bank code + 16-digit account. Real example, codes for Emirates NBD, ADCB, FAB, Mashreq, Dubai Islamic Bank, plus how to validate any UAE IBAN.",
+    ogTitle: "UAE IBAN: 23-Character Format + Bank Codes (2026)",
+    ogDesc: "AE IBAN: 23-char structure, real example, codes for Emirates NBD / ADCB / FAB / Mashreq / DIB.",
+  },
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

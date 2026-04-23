@@ -4067,6 +4067,60 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+
+  // ═════════════════════════════════════════════════════════════════
+  // UK → South Africa — added Apr 20 2026 from GSC Q1 UK data
+  // showing 19+ UK impressions across 4 queries hitting /send-money/uk-to-south-africa
+  // at positions 78–87 with zero clicks. Page had no editorial entry.
+  // ═════════════════════════════════════════════════════════════════
+  {
+    slug: "uk-to-south-africa",
+    fromCountry: "United Kingdom",
+    toCountry: "South Africa",
+    fromCurrency: "GBP",
+    toCurrency: "ZAR",
+    fromFlag: "🇬🇧",
+    toFlag: "🇿🇦",
+    sampleAmount: 1000,
+    intro:
+      "The United Kingdom hosts the world's largest South African diaspora — roughly 240,000–300,000 South Africans, plus tens of thousands of British nationals who have retired to South Africa and draw UK pensions back home. The GBP→ZAR corridor is among the most punishing for UK bank users: NatWest applies a 4.25% exchange rate markup compared to Wise's 0.33%, which on a £1,000 transfer means R400–R500 less reaching your recipient.",
+    context:
+      "The UK→South Africa route is a small but concentrated corridor. Providers that actually compete on GBP→ZAR include Wise (best mid-market rate), WorldRemit (dominant in African cash pickup — 93% cheapest on Monito comparisons), Remitly, Moneycorp, and OFX. UK banks (Barclays, HSBC, NatWest, Lloyds, Santander) charge the highest total cost — typically 2–4.25% exchange rate markup plus £5–£20 fixed SWIFT fees, which compounds into 8–9% of a typical transfer value according to World Bank Q1 2025 data on the Southern Africa region. South Africa's SARB doubled the Single Discretionary Allowance to R2 million per year in the 2026 Budget (effective April 2026), which means almost all personal remittances now fall inside the SDA and don't require SARS tax clearance.",
+    feesNote:
+      "Fees from the UK to South Africa range from £0 (Wise on certain payment methods) to £20+ at high-street banks. Wise charges 0.33%–0.5% in total (fee + spread). WorldRemit charges £2.99–£4.99 per transaction plus a tight exchange rate spread. Remitly offers promotional FX rates on first transfers under £500. Moneycorp has zero transaction fees but 1–2% FX markup. UK banks are not competitive — NatWest applies the highest markup at 4.25%, and HSBC, Barclays, and Lloyds typically add 2–3%. On a £1,000 transfer the gap between Wise and NatWest is roughly R400–R500 less for your recipient.",
+    deliveryNote:
+      "Bank deposits to Standard Bank, FNB, Absa, Nedbank, or Capitec arrive within 2–3 business days via SWIFT. Wise and WorldRemit typically complete most transfers within 1–3 business days end-to-end. Cash pickup through Western Union, MoneyGram, and Shoprite MoneyMarket is available within 10 minutes to 2 hours at thousands of locations across South Africa. Mobile wallet delivery is limited compared to East African corridors — bank deposit remains the dominant method. Priority same-day SWIFT is possible if submitted before 14:00 GMT but costs £25+ from most UK banks.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from the UK to South Africa?",
+        a: "Wise is consistently the cheapest specialist provider for GBP→ZAR transfers, using the real mid-market exchange rate with a transparent 0.33%–0.5% fee — meaning the quoted cost is the total cost with no hidden markup. WorldRemit is competitive and often cheapest for cash pickup delivery (Shoprite MoneyMarket, Western Union), with strong Africa-specific coverage — Monito's data shows WorldRemit is the cheapest option on 93% of searches across African corridors. Remitly offers promotional zero-fee first transfers which can save £5–£15 on your initial send, especially valuable for transfers under £500. For a £1,000 transfer, the gap between Wise and a UK high-street bank like NatWest (which applies a 4.25% exchange rate markup) exceeds R400–R500 reaching your recipient. Always compare the total ZAR amount received rather than just the advertised fee.",
+      },
+      {
+        q: "What is the best way to transfer money to South Africa?",
+        a: "For most UK-to-South Africa transfers, the cheapest and fastest option is a specialist provider like Wise, WorldRemit, or Remitly delivering to a South African bank account (Standard Bank, FNB, Absa, Nedbank, or Capitec). These providers offer transparent pricing, exchange rates within 0.4–1% of the mid-market, and delivery in 1–3 business days. For recipients without a bank account, WorldRemit or MoneyGram offer cash pickup at thousands of locations including Shoprite MoneyMarket, Pick n Pay, and dedicated agent outlets. Avoid UK high-street banks for anything under £5,000 — the combination of 2–4.25% FX markup and £5–£20 fixed SWIFT fees makes them the most expensive option by a wide margin. For very large transfers above £10,000, Moneycorp and OFX offer dedicated support and slightly better rates than Wise, though their exchange rate margins are still 1–2% versus Wise's 0.33%.",
+      },
+      {
+        q: "How long does a bank transfer from the UK to South Africa take?",
+        a: "Standard bank transfers from the UK to South Africa typically take 2–3 business days. Specialist providers like Wise and WorldRemit often complete transfers in 1–3 business days, and some Wise transfers arrive within hours depending on the time of day submitted and the recipient's bank. Priority SWIFT transfers from UK banks can arrive same-day if submitted before 14:00 GMT, but cost £25+ in fees. Cash pickup via Western Union, MoneyGram, or Shoprite MoneyMarket is available within 10 minutes to 2 hours once the sender has funded the transfer — significantly faster than bank deposit but usually more expensive in total cost. Funding your transfer with a UK debit card rather than a Faster Payments bank transfer is usually near-instant on the sender side; bank transfers settle within 60 seconds via UK Faster Payments.",
+      },
+      {
+        q: "Does SARB still limit how much money I can receive from the UK?",
+        a: "South Africa's exchange control rules, administered by the South African Reserve Bank (SARB), limit how much money South African residents can send OUT of the country — not how much they can receive from abroad. Inbound personal remittances from the UK to South African residents are not capped and do not require any SARS tax clearance or SARB approval. The Single Discretionary Allowance (SDA) was doubled from R1 million to R2 million per calendar year in South Africa's 2026 Budget (effective April 2026), which matters mostly for South Africans sending money out of the country. For a UK sender transferring to family or friends in South Africa, there are no limits imposed by SARB or SARS on the incoming side. UK regulators (FCA) also do not cap outbound personal remittances.",
+      },
+      {
+        q: "Is it safe to send money to South Africa with Wise or WorldRemit?",
+        a: "Yes. Both Wise (FCA authorised Electronic Money Institution) and WorldRemit (FCA authorised Payment Institution) are fully regulated by the UK Financial Conduct Authority and hold customer funds in segregated safeguarded accounts. You can verify any UK provider's authorisation status by searching their name on the FCA Financial Services Register. South African recipients pay no additional fees for receiving bank deposits from Wise or WorldRemit (inbound fees are absorbed by the sender-side platform). For cash pickup, the recipient presents government-issued photo ID and the transaction reference number. Wise has over 15 million customers globally and processes transfers in 60+ corridors; WorldRemit serves over 6 million customers with particular strength in African corridors including South Africa.",
+      },
+      {
+        q: "Why are UK banks so expensive for transfers to South Africa?",
+        a: "UK high-street banks (Barclays, HSBC, NatWest, Lloyds, Santander) are expensive on the GBP→ZAR corridor for three reasons. First, their exchange rate markups are 2–4.25% — NatWest's 4.25% markup alone costs £40+ on a £1,000 transfer. Second, they add fixed SWIFT fees of £5–£20 per outgoing transfer, plus the receiving South African bank often charges a £7–£25 inbound SWIFT fee that comes out of the recipient's amount. Third, international transfers route through correspondent banks (typically one or two intermediary banks in London or Frankfurt), each of which extracts a small fee, stretching delivery time to 3–5 business days. Specialist providers like Wise and WorldRemit bypass this correspondent banking network entirely — they hold funds in South African banks directly and deliver via domestic ACH, avoiding the fees and delays of SWIFT.",
+      },
+      {
+        q: "What is the GBP to ZAR exchange rate outlook for 2026?",
+        a: "The South African rand strengthened dramatically in 2025 — appreciating around 13% against the US dollar, its best year since 2009. GBP/ZAR fell from approximately 25 at the start of 2025 to around 22 by early 2026. The main drivers were S&P's credit rating upgrade of South Africa to BB in November 2025, stability of the Government of National Unity (GNU), inflation anchored at ~3%, and a precious metals export surge. Analysts expect continued volatility in 2026, with GBP/ZAR projected to range between roughly 20 and 24 depending on UK–SA interest rate differentials, global risk sentiment, and SA domestic events (power outages, political shifts). For UK senders, this means timing matters more than on stable corridors — a 5–10% swing over a few months is realistic. Setting a rate alert via a specialist provider lets you lock in above-average rates.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──
