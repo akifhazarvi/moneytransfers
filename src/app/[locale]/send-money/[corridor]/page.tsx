@@ -6,6 +6,7 @@ import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
 import RateAlertForm from "@/components/RateAlertForm";
 import ComparisonWidget from "@/components/ComparisonWidget";
+import CorridorHero from "@/components/CorridorHero";
 import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import CrossLinks from "@/components/CrossLinks";
@@ -1815,94 +1816,27 @@ export default async function CorridorPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
-      {/* ─── Hero ─── */}
-      <section className="bg-[var(--color-surface)] pt-8 pb-6">
-        <Container>
-          <div className="flex items-center gap-2 text-2sm text-[var(--color-on-surface-variant)] mb-4">
-            <Link href="/" className="hover:text-[var(--color-primary)]">Home</Link>
-            <span>/</span>
-            <Link href="/send-money" className="hover:text-[var(--color-primary)]">Send Money</Link>
-            <span>/</span>
-            <span className="text-[var(--color-on-surface)]">
-              {isCountryPage ? `Send Money to ${headingTo}` : `${headingFrom} to ${headingTo}`}
-            </span>
-          </div>
-
-          <div className="max-w-3xl">
-            <h1 className="text-h3 md:text-h1-plus font-normal text-[var(--color-on-surface)] leading-tight tracking-[-0.5px]">
-              {isCountryPage ? `${headingPrefix} ${headingTo}` : `${headingPrefix} ${headingFrom} to ${headingTo}`}
-              {headingSuffix && (
-                <>
-                  {" "}
-                  <span className="text-[var(--color-on-surface-variant)] text-xl md:text-h3">
-                    {headingSuffix}
-                  </span>
-                </>
-              )}
-            </h1>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-6 mt-4 text-2sm text-[var(--color-on-surface-variant)]">
-            <span className="flex items-center gap-1.5">
-              <CircleFlag code={corridor.fromCurrency} size={20} />
-              {fromCurrency}
-            </span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-            <span className="flex items-center gap-1.5">
-              <CircleFlag code={corridor.toCurrency} size={20} />
-              {toCurrency}
-            </span>
-            <span className="hidden sm:inline text-[var(--color-outline)]">|</span>
-            <span className="hidden sm:inline">
-              Mid-market rate: <strong className="text-[var(--color-on-surface)]">{midRate.toFixed(4)}</strong>
-            </span>
-            <span className="sm:hidden w-full text-2xs">
-              Mid-market rate: <strong className="text-[var(--color-on-surface)] tabular-nums">{midRate.toFixed(4)}</strong>
-            </span>
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── Introduction ─── */}
-      <section className="bg-[var(--color-surface)] pb-8">
-        <Container>
-          <div className="max-w-3xl">
-            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3 flex flex-wrap items-center gap-x-1.5 gap-y-1">
-              <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">Akif Hazarvi</Link></span>
-              <span className="text-[var(--color-outline)]">·</span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="relative flex h-1.5 w-1.5 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-70" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
-                </span>
-                <LiveTimestamp iso={dataUpdatedISO} prefix="Rates updated" />
-              </span>
-              <span className="text-[var(--color-outline)]">·</span>
-              <span>Refreshed every 6 hours</span>
-            </p>
-          </div>
-          <div className="max-w-3xl mb-4">
-            <AffiliateDisclosure />
-          </div>
-          <div className="max-w-3xl text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
-            <p>{corridor.intro}</p>
-            {corridor.highlights && corridor.highlights.length > 0 ? (
-              <ul className="space-y-2 mt-3">
-                {corridor.highlights.map((h, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="mt-[3px] shrink-0 w-4 h-4 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-2xs font-bold flex items-center justify-center">✓</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>{corridor.context}</p>
-            )}
-          </div>
-        </Container>
-      </section>
+      {/* ─── Premium Corridor Hero — best-provider-as-hero, editorial below ─── */}
+      <CorridorHero
+        headingFrom={headingFrom}
+        headingTo={headingTo}
+        fromCurrency={fromCurrency}
+        toCurrency={toCurrency}
+        fromCurrencyCode={corridor.fromCurrency}
+        toCurrencyCode={corridor.toCurrency}
+        sampleAmount={sampleAmount}
+        sendSymbol={sendSymbol}
+        receiveSymbol={receiveSymbol}
+        midRate={midRate}
+        best={best}
+        worst={worst}
+        quotes={quotes}
+        dataUpdatedISO={dataUpdatedISO}
+        isCountryPage={isCountryPage}
+        headingPrefix={headingPrefix}
+        headingSuffix={headingSuffix}
+        corridorSlug={slug}
+      />
 
       {/* ─── AI-Citable Answer Block ─── */}
       {best && (
@@ -2130,6 +2064,39 @@ export default async function CorridorPage({ params }: Props) {
               </p>
             </div>
           )}
+        </Container>
+      </section>
+
+      {/* ─── Editorial Intro — moved below the comparison table.
+           Answer first, context second: the user came to compare; once they
+           see the data they're more willing to read the context. */}
+      <section className="bg-[var(--color-surface)] py-8 sm:py-10 border-t border-[var(--color-outline)]">
+        <Container>
+          <div className="max-w-3xl">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[var(--color-on-surface-muted)] mb-5">
+              <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">Akif Hazarvi</Link></span>
+              <span className="text-[var(--color-outline)]">·</span>
+              <span>Refreshed every 6 hours from 35+ provider APIs</span>
+            </div>
+            <div className="mb-5">
+              <AffiliateDisclosure />
+            </div>
+            <div className="text-[15px] text-[var(--color-on-surface-variant)] leading-relaxed space-y-4">
+              <p>{corridor.intro}</p>
+              {corridor.highlights && corridor.highlights.length > 0 ? (
+                <ul className="space-y-2.5 mt-4">
+                  {corridor.highlights.map((h, i) => (
+                    <li key={i} className="flex gap-2.5">
+                      <span className="mt-[6px] shrink-0 w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{corridor.context}</p>
+              )}
+            </div>
+          </div>
         </Container>
       </section>
 
