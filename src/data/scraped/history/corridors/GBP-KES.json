@@ -1940,5 +1940,76 @@
         "receiveAmount": 16145.66
       }
     }
+  },
+  {
+    "date": "2026-04-23",
+    "providers": {
+      "ace-money-transfer": {
+        "rate": 172.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17240
+      },
+      "ria": {
+        "rate": 170.5041,
+        "fee": 4.5,
+        "markup": null,
+        "receiveAmount": 17077
+      },
+      "taptap-send": {
+        "rate": 174.1,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17410
+      },
+      "western-union": {
+        "rate": 170.2874,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 16519.58
+      },
+      "xoom": {
+        "rate": 166.3699,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 16139.55
+      },
+      "natwest": {
+        "rate": 169.7309,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16973.09
+      },
+      "hsbc": {
+        "rate": 169.4378,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16943.78
+      },
+      "remitly": {
+        "rate": 171.3603,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17136.03
+      },
+      "skrill": {
+        "rate": 169.6989,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16969.89
+      },
+      "rbs": {
+        "rate": 169.7309,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16973.09
+      },
+      "barclays": {
+        "rate": 169.7508,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16975.08
+      }
+    }
   }
 ]

@@ -824,5 +824,28 @@
         "receiveAmount": 467.13
       }
     }
+  },
+  {
+    "date": "2026-04-23",
+    "providers": {
+      "remitly": {
+        "rate": 4.8147,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 467.07
+      },
+      "nab": {
+        "rate": 4.7314,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 473.14
+      },
+      "western-union": {
+        "rate": 4.8867,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 488.67
+      }
+    }
   }
 ]

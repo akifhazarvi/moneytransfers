@@ -2408,5 +2408,64 @@
         "receiveAmount": 85.68
       }
     }
+  },
+  {
+    "date": "2026-04-23",
+    "providers": {
+      "remitly": {
+        "rate": 0.8566,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 83.96
+      },
+      "taptap-send": {
+        "rate": 0.862,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 86.2
+      },
+      "monese": {
+        "rate": 0.8665,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 84.06
+      },
+      "moneygram": {
+        "rate": 0.8499,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 83.3
+      },
+      "xoom": {
+        "rate": 0.8122,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 79.61
+      },
+      "paypal": {
+        "rate": 0.8345,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 80.12
+      },
+      "skrill": {
+        "rate": 0.8503,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 85.03
+      },
+      "worldremit": {
+        "rate": 0.8543,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 84.58
+      },
+      "wise": {
+        "rate": 0.8673,
+        "fee": 1.45,
+        "markup": null,
+        "receiveAmount": 85.47
+      }
+    }
   }
 ]
