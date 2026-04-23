@@ -13,7 +13,6 @@ import GA4PageviewTracker from "@/components/GA4PageviewTracker";
 import LazyCookieConsent from "@/components/LazyCookieConsent";
 import LazySendMoneyBot from "@/components/LazySendMoneyBot";
 import LazyExitIntent from "@/components/LazyExitIntent";
-import Script from "next/script";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -196,14 +195,11 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30"
-        strategy="afterInteractive"
-        nonce={nonce}
-      />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
+      {/* GA4 library — plain <script> with async so it doesn't block paint. Using
+          next/script here caused hydration mismatches because the client pass dropped
+          the SSR nonce (same issue as theme-init). */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30" nonce={nonce} />
+      <script
         nonce={nonce}
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
@@ -238,9 +234,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 })();`,
         }}
       />
-      <Script
-        id="theme-init"
-        strategy="beforeInteractive"
+      {/* Plain <script> (not Next's <Script>) — theme init must run before paint.
+          We avoid next/script here because it re-renders client-side and drops the
+          SSR nonce, triggering a hydration mismatch on every page load. */}
+      <script
         nonce={nonce}
         dangerouslySetInnerHTML={{
           __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
