@@ -2,7 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import ratesData from "@/data/scraped/xe-midmarket-rates.json";
+
+// Inline fallback rates (approx mid-market, USD base) shown for a few ms
+// until /api/exchange-rates returns. Avoids bundling the full scraped JSON.
+const staticRates: Record<string, number> = {
+  EUR: 0.86, GBP: 0.74, JPY: 159.78, INR: 94.23, CAD: 1.37, AUD: 1.4,
+  CHF: 0.79, PKR: 278.84, PHP: 60.68, NGN: 1352.25, MXN: 17.42, BRL: 5.03,
+};
 
 const forexPairs = [
   { from: "EUR", to: "USD", flag: "\u{1F1EA}\u{1F1FA}" },
@@ -35,9 +41,6 @@ function calcRate(from: string, to: string, rates: Record<string, number>): stri
   if (!fromRate) return "\u2014";
   return formatRate(1 / fromRate);
 }
-
-// Static rates as initial/fallback (from scraped data)
-const staticRates = ratesData.rates as Record<string, number>;
 
 export default function ForexTicker() {
   const [liveRates, setLiveRates] = useState<Record<string, number>>(staticRates);

@@ -38,7 +38,7 @@ export default async function CookiePolicyPage({ params }: Props) {
               {t("title")}
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed">
-              {t("lastUpdated", { date: "March 15, 2026" })}
+              {t("lastUpdated", { date: "April 24, 2026" })}
             </p>
           </div>
         </Container>
@@ -55,10 +55,14 @@ export default async function CookiePolicyPage({ params }: Props) {
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
                   Cookies are small text files that are stored on your device when you
-                  visit a website. They are widely used to make websites work more
-                  efficiently and to provide information to website owners. Cookies can
-                  be &quot;persistent&quot; (stored until they expire or are deleted) or
-                  &quot;session&quot; (deleted when you close your browser).
+                  visit a website. This page also covers browser storage like
+                  localStorage and sessionStorage, which work similarly.
+                </p>
+                <p>
+                  We do not use advertising cookies, tracking cookies, or any storage
+                  that identifies you personally. We use Google Analytics in cookieless
+                  mode — it records anonymous pageview counts without storing anything
+                  on your device.
                 </p>
               </div>
             </div>
@@ -69,15 +73,14 @@ export default async function CookiePolicyPage({ params }: Props) {
                 {t("cookiesWeUse")}
               </h2>
               <div className="space-y-6 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                {/* Essential Cookies */}
                 <div>
                   <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("essentialCookies")}
                   </h3>
                   <p className="mb-3">
-                    These cookies are necessary for the website to function and cannot be
-                    switched off. They are usually set in response to actions you take,
-                    such as setting your privacy preferences or choosing a theme.
+                    These are required for the site to function correctly or to remember
+                    your preferences. None of them identify you or track you across
+                    other websites.
                   </p>
                   <div className="overflow-x-auto">
                     <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
@@ -90,62 +93,47 @@ export default async function CookiePolicyPage({ params }: Props) {
                       </thead>
                       <tbody>
                         <tr className="border-b border-[var(--color-outline)]">
+                          <td className="px-4 py-3 font-mono text-xs">geo-country</td>
+                          <td className="px-4 py-3">Edge-detected country code, used to show the right currency defaults</td>
+                          <td className="px-4 py-3">30 days (cookie)</td>
+                        </tr>
+                        <tr className="border-b border-[var(--color-outline)]">
+                          <td className="px-4 py-3 font-mono text-xs">geo-currency</td>
+                          <td className="px-4 py-3">Remembers your preferred send currency</td>
+                          <td className="px-4 py-3">30 days (cookie)</td>
+                        </tr>
+                        <tr className="border-b border-[var(--color-outline)]">
                           <td className="px-4 py-3 font-mono text-xs">theme</td>
                           <td className="px-4 py-3">Stores your light/dark mode preference</td>
                           <td className="px-4 py-3">Persistent (localStorage)</td>
                         </tr>
+                        <tr className="border-b border-[var(--color-outline)]">
+                          <td className="px-4 py-3 font-mono text-xs">converter-prefs</td>
+                          <td className="px-4 py-3">Remembers your currency converter selections</td>
+                          <td className="px-4 py-3">Persistent (localStorage)</td>
+                        </tr>
                         <tr>
-                          <td className="px-4 py-3 font-mono text-xs">cookie_consent</td>
-                          <td className="px-4 py-3">Records your cookie consent choice</td>
-                          <td className="px-4 py-3">365 days</td>
+                          <td className="px-4 py-3 font-mono text-xs">sticky_cta_dismissed, bot_dismissed, exit_intent_*</td>
+                          <td className="px-4 py-3">Remembers if you dismissed a UI element so we don&apos;t re-show it</td>
+                          <td className="px-4 py-3">Until tab closes (sessionStorage)</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
 
-                {/* Analytics Cookies */}
                 <div>
                   <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
                     {t("analyticsCookies")}
                   </h3>
-                  <p className="mb-3">
-                    These cookies help us understand how visitors interact with our
-                    website by collecting anonymous usage data. They are only set if you
-                    give your consent.
+                  <p>
+                    We use Google Analytics 4 in cookieless mode. It counts anonymous
+                    pageviews and events so we can understand what pages are useful, but
+                    it does not set any cookies (<span className="font-mono text-xs">_ga</span>,{" "}
+                    <span className="font-mono text-xs">_ga_*</span>) and does not store
+                    a visitor ID on your device. No advertising, remarketing, or
+                    cross-site tracking data is collected.
                   </p>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
-                      <thead>
-                        <tr className="bg-[var(--color-surface-dim)]">
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("cookieName")}</th>
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">Provider</th>
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("purpose")}</th>
-                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("duration")}</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">_ga</td>
-                          <td className="px-4 py-3">Google Analytics</td>
-                          <td className="px-4 py-3">Distinguishes unique visitors</td>
-                          <td className="px-4 py-3">2 years</td>
-                        </tr>
-                        <tr className="border-b border-[var(--color-outline)]">
-                          <td className="px-4 py-3 font-mono text-xs">_ga_*</td>
-                          <td className="px-4 py-3">Google Analytics</td>
-                          <td className="px-4 py-3">Maintains session state</td>
-                          <td className="px-4 py-3">2 years</td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-3 font-mono text-xs">va</td>
-                          <td className="px-4 py-3">Vercel Analytics</td>
-                          <td className="px-4 py-3">Privacy-friendly web analytics</td>
-                          <td className="px-4 py-3">Session</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
                 </div>
               </div>
             </div>
@@ -157,20 +145,19 @@ export default async function CookiePolicyPage({ params }: Props) {
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  When you first visit our website, a cookie consent banner will ask for
-                  your permission before we set any non-essential cookies. You can change
-                  your preference at any time by:
+                  Because we don&apos;t use tracking or advertising cookies, there is no
+                  consent banner to manage. You can still clear the essential cookies
+                  and browser storage listed above at any time via your browser
+                  settings — the site will simply re-create them with defaults on your
+                  next visit.
                 </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Clearing your browser cookies (this will reset your consent choice, and the banner will appear again)</li>
-                  <li>
-                    Using your browser&apos;s built-in cookie management settings to block
-                    or delete specific cookies
-                  </li>
-                </ul>
                 <p>
-                  Please note that blocking essential cookies may prevent the website from
-                  functioning correctly.
+                  If you don&apos;t want Google Analytics to record your anonymous
+                  pageviews, you can install the{" "}
+                  <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] hover:underline">
+                    Google Analytics Opt-out Browser Add-on
+                  </a>{" "}
+                  or enable Do Not Track / tracking protection in your browser.
                 </p>
               </div>
             </div>

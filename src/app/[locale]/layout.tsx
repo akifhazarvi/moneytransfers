@@ -10,7 +10,6 @@ import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
 import GA4PageviewTracker from "@/components/GA4PageviewTracker";
-import LazyCookieConsent from "@/components/LazyCookieConsent";
 import LazySendMoneyBot from "@/components/LazySendMoneyBot";
 import LazyExitIntent from "@/components/LazyExitIntent";
 
@@ -216,31 +215,17 @@ export default async function LocaleLayout({ children, params }: Props) {
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
-  var EU=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
   var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
-  var isEU=cc.length===2&&EU.indexOf(cc)!==-1;
-  var stored=localStorage.getItem('cookie_consent');
-  var isDeclined=stored==='declined'||(stored&&stored.indexOf('declined:')===0);
-  var consent=stored==='accepted'?'granted':isDeclined?'denied':isEU?'denied':'granted';
+  // Cookieless GA4 for everyone: no _ga cookie, no banner needed under ePrivacy.
+  // Events still fire (including page_referrer) but without client_id continuity.
   gtag('consent','default',{
-    'analytics_storage':consent,
+    'analytics_storage':'denied',
     'ad_storage':'denied',
     'ad_user_data':'denied',
-    'ad_personalization':'denied',
-    'wait_for_update':500
+    'ad_personalization':'denied'
   });
-  gtag('set','url_passthrough',true);
-  gtag('set','ads_data_redaction',true);
-  // Only disable GA4 for the strongest bot signal (automation driver).
-  // hardwareConcurrency===0 is reported legitimately by iOS Safari in Low Power Mode,
-  // and privacy browsers can strip navigator.languages — combining them caused
-  // GA4 to silently drop a large slice of real mobile traffic.
   if(navigator.webdriver===true){window['ga-disable-G-HJH07QEJ30']=true;return;}
   gtag('js',new Date());
-  // Attach edge-detected country (from Vercel geo cookie) to every event on
-  // this config. Covers cases where GA4's IP geolocation returns "(not set)"
-  // — VPNs, IPv6, certain mobile carriers, corporate proxies. Also mirrors
-  // to user_properties so it's available for segment/audience definitions.
   var cfg={send_page_view:true};if(cc){cfg.country=cc;gtag('set','user_properties',{geo_country:cc});}
   gtag('config','G-HJH07QEJ30',cfg);
 })();`,
@@ -280,7 +265,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LazyForexTicker />
           <LazyAnalytics />
           <GA4PageviewTracker />
-          <LazyCookieConsent />
           <LazySendMoneyBot />
           <LazyExitIntent />
         </ThemeProvider>

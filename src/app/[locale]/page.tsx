@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -9,20 +8,14 @@ import BestTransferToday from "@/components/BestTransferToday";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
+import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
+import LazyNewsTicker from "@/components/LazyNewsTicker";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
-
-const HistoricalRateWidget = dynamic(() => import("@/components/HistoricalRateWidget"), {
-  loading: () => <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] min-h-[360px] animate-pulse" />,
-});
-
-const NewsTicker = dynamic(() => import("@/components/NewsTicker"), {
-  loading: () => <div className="min-h-[200px]" />,
-});
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs
@@ -305,7 +298,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section id="rate-trends" className="py-8 sm:py-12 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="max-w-[860px] mx-auto">
-            <HistoricalRateWidget defaultCorridor={`${sendCurrency}-${geoConfig.defaultTo}`} />
+            <LazyHistoricalRateWidget defaultCorridor={`${sendCurrency}-${geoConfig.defaultTo}`} />
           </div>
         </Container>
       </section>
@@ -749,7 +742,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* ─── 7. NEWS ─── */}
-      <NewsTicker
+      <LazyNewsTicker
         items={getLatestNews(6).map((n) => ({
           slug: n.slug,
           title: n.title,
