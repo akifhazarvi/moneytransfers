@@ -32,10 +32,10 @@ export default async function BestTransferToday({
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[var(--shadow-sm)]">
-        {/* Table header */}
-        <div className="grid grid-cols-[1fr_90px_80px_110px] sm:grid-cols-[1fr_110px_100px_130px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+        {/* Table header — on mobile, hide Rate column (lowest value on small screens); show all 4 on sm+ */}
+        <div className="grid grid-cols-[minmax(0,1fr)_60px_100px] sm:grid-cols-[minmax(0,1fr)_110px_100px_130px] gap-2 px-3 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
           <span>{t("provider")}</span>
-          <span className="text-right">{t("rate")}</span>
+          <span className="hidden sm:inline text-right">{t("rate")}</span>
           <span className="text-right">{t("fee")}</span>
           <span className="text-right">{t("youGet")}</span>
         </div>
@@ -50,7 +50,7 @@ export default async function BestTransferToday({
           return (
             <div
               key={q.providerSlug}
-              className={`grid grid-cols-[1fr_90px_80px_110px] sm:grid-cols-[1fr_110px_100px_130px] gap-2 items-center px-4 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface)]/40" : ""}`}
+              className={`grid grid-cols-[minmax(0,1fr)_60px_100px] sm:grid-cols-[minmax(0,1fr)_110px_100px_130px] gap-2 items-center px-3 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface)]/40" : ""}`}
             >
               {/* Provider */}
               <div className="flex items-center gap-2.5 min-w-0">
@@ -76,8 +76,8 @@ export default async function BestTransferToday({
                 </div>
               </div>
 
-              {/* Rate */}
-              <p className="text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
+              {/* Rate — hidden on mobile to preserve horizontal space */}
+              <p className="hidden sm:block text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
                 {q.exchangeRate.toFixed(2)}
               </p>
 

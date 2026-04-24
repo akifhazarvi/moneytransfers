@@ -267,7 +267,25 @@ body {
   line-height: 1.5;
   border: 1px solid var(--color-outline);
   border-radius: 12px;
-  overflow: hidden;
+  /* Mobile: allow horizontal scroll so wide tables don't break page layout.
+     `display: block` + `overflow-x: auto` on the table itself (rather than a
+     wrapper) is used because the HTML comes from a trusted string and we
+     can't inject a wrapper without touching every review entry. */
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+:is(.prose-content, .prose-custom) table tbody,
+:is(.prose-content, .prose-custom) table thead,
+:is(.prose-content, .prose-custom) table tr {
+  /* Keep table semantics while table is `display: block` for scroll */
+}
+@media (min-width: 640px) {
+  :is(.prose-content, .prose-custom) table {
+    display: table;
+    overflow-x: visible;
+  }
 }
 :is(.prose-content, .prose-custom) th {
   background: var(--color-surface-container);
