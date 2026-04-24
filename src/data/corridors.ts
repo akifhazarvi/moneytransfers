@@ -4121,6 +4121,98 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+
+  // ═════════════════════════════════════════════════════════════════
+  // Ireland → Bangladesh — GSC opportunity: 28 impressions at pos 45, zero clicks.
+  // Small but growing Bangladeshi community in Ireland. Unique selling angle:
+  // the 2.5% Bangladesh government cash incentive (still in effect 2026).
+  // ═════════════════════════════════════════════════════════════════
+  {
+    slug: "ireland-to-bangladesh",
+    fromCountry: "Ireland",
+    toCountry: "Bangladesh",
+    fromCurrency: "EUR",
+    toCurrency: "BDT",
+    fromFlag: "🇮🇪",
+    toFlag: "🇧🇩",
+    sampleAmount: 500,
+    intro:
+      "Ireland hosts a growing Bangladeshi community — Census 2022 recorded 94,434 people in the combined Indian, Pakistani and Bangladeshi ethnic category, concentrated in Dublin, Cork and Galway, with strong representation in healthcare, IT and higher education. The EUR→BDT corridor is small but economically significant: Bangladesh is one of the world's top 10 remittance recipients, and remittances made up 5.26% of Bangladesh's GDP in 2023 (World Bank). The single biggest differentiator on this corridor is the Bangladesh government's 2.5% cash incentive on remittances sent through licensed channels — confirmed in effect through 2026.",
+    context:
+      "Wise, Remitly, WorldRemit, TapTap Send and Western Union all serve EUR→BDT from Ireland. Wise uses the real mid-market rate with a transparent 0.6–1.2% fee and supports direct delivery to bKash, Nagad and all major Bangladeshi banks. Remitly runs zero-fee promotional first transfers, then EUR 1.99–3.99 for express delivery — strong for small recurring sends. TapTap Send is purpose-built for emerging-market corridors and typically publishes some of the most competitive EUR→BDT rates, with instant bKash/Nagad delivery. Irish banks (AIB, Bank of Ireland, PTSB) apply 3–5% FX markups plus EUR 8–15 fixed SWIFT fees; on a typical EUR 500 remittance that's BDT 3,000–4,000 less reaching your family versus a specialist provider. Ireland's full SEPA membership means funding the provider from any Irish bank is near-instant via SEPA Instant Credit Transfer.",
+    feesNote:
+      "Fees range from zero (Remitly/TapTap Send promotional first transfers; Wise on some SEPA-funded amounts) to EUR 15 at Irish banks. The 2.5% Bangladesh government cash incentive effectively refunds a meaningful chunk of the transfer cost — on a EUR 500 send, that's ~BDT 1,650 credited to your recipient on top of the converted amount, capped at BDT 500,000 (~EUR 5,300) per recipient per year. Credit-card funding adds EUR 3–8 per transfer. Hundi (informal) channels may advertise better rates but do not qualify for the 2.5% incentive and carry legal risk on the Bangladesh side.",
+    deliveryNote:
+      "bKash (70 million+ users, operated by BRAC), Nagad (Bangladesh Post Office, unicorn as of 2023) and Rocket (Dutch-Bangla Bank) are the dominant mobile-wallet destinations — direct delivery via Wise, Remitly or TapTap Send typically arrives in seconds to 2 hours. Bank deposits to Sonali Bank, Islami Bank Bangladesh, Dutch-Bangla Bank, BRAC Bank, City Bank and Prime Bank settle within hours to 1 business day via domestic rails. Non-Resident Bangladeshis can open a Foreign Currency Account (FCA) under Bangladesh Bank guidelines to hold inbound remittances in EUR or USD. Traditional SWIFT from AIB or Bank of Ireland is slowest at 2–5 business days.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Ireland to Bangladesh?",
+        a: "Wise, TapTap Send and Remitly are consistently the cheapest options for EUR→BDT from Ireland. Wise uses the real mid-market exchange rate with a transparent 0.6–1.2% fee and supports direct delivery to bKash, Nagad and all major Bangladeshi banks. TapTap Send specialises in emerging-market corridors and usually publishes the tightest EUR→BDT rates with near-instant mobile-wallet delivery. Remitly runs promotional zero-fee first transfers that can save EUR 5–10 on your initial send. On a EUR 500 transfer, the gap between one of these specialist providers and AIB or Bank of Ireland is typically BDT 3,000–4,000 less reaching your family. Importantly, all three are licensed by Bangladesh Bank, which means your recipient qualifies for the 2.5% government cash incentive automatically.",
+      },
+      {
+        q: "What is the 2.5% Bangladesh remittance incentive and how does it work?",
+        a: "The Bangladesh government pays a 2.5% cash incentive on top of every inbound remittance routed through a licensed channel — banks or Bangladesh Bank-approved money transfer operators like Wise, Remitly, TapTap Send, WorldRemit and Western Union. The incentive is credited directly to the recipient's account alongside the converted BDT amount, with no application required. On a EUR 500 transfer that converts to roughly BDT 66,000, your recipient receives an additional ~BDT 1,650 as the incentive. The cap is BDT 500,000 (approximately EUR 5,300) per recipient per calendar year. Importantly, informal 'hundi' transfers do not qualify — the incentive is specifically designed to push remittance flows onto formal, traceable rails. The policy has been in continuous operation since 2019 and remains in effect for 2026.",
+      },
+      {
+        q: "Can I send money directly to bKash or Nagad from Ireland?",
+        a: "Yes. Wise, Remitly, TapTap Send and WorldRemit all support direct delivery to bKash and Nagad from Ireland. Funds typically arrive in the recipient's mobile wallet within minutes — often under 30 seconds for TapTap Send. Your recipient needs an active bKash or Nagad account linked to their Bangladeshi mobile number; you enter that number when setting up the transfer. bKash is the dominant mobile wallet with over 70 million users and partnerships with thousands of merchants, while Nagad (operated by Bangladesh Post Office) has roughly 90 million registered users. Once the funds land, recipients can spend at merchants, pay bills, transfer to bank accounts via domestic rails, or withdraw cash at any bKash or Nagad agent. Mobile wallets cannot receive SWIFT wires directly — you must use a licensed remittance operator.",
+      },
+      {
+        q: "How long does a transfer from Ireland to Bangladesh take?",
+        a: "Mobile wallet delivery (bKash, Nagad, Rocket) is the fastest — typically seconds to 2 hours via TapTap Send, Wise or Remitly. Bank deposits to Sonali Bank, Islami Bank, Dutch-Bangla, BRAC Bank or City Bank arrive within hours to 1 business day when delivered through a licensed provider's domestic partner. SWIFT wires from Irish banks (AIB, Bank of Ireland, PTSB) take 2–5 business days because of correspondent banking intermediaries and BDT conversion. On the Irish funding side, SEPA Instant Credit Transfer from any major Irish bank funds the provider in under 10 seconds, so end-to-end, a EUR→BDT transfer via Wise to bKash typically completes within a few minutes to under an hour depending on compliance checks.",
+      },
+      {
+        q: "Do I need to pay tax on money sent from Ireland to Bangladesh?",
+        a: "On the Irish side, personal remittances to support family are not a taxable event for the sender — there is no Irish tax on outbound family support. For transfers above EUR 10,000 per transaction, Irish banks must report to the Irish Financial Intelligence Unit under 5AMLD anti-money-laundering rules; this is a reporting requirement, not a tax. Irish residents who are non-domiciled may be affected by the Remittance Basis of Taxation on foreign-source income — a niche edge case; consult a tax adviser if relevant. On the Bangladesh side, personal remittances received through licensed channels are entirely tax-free for the recipient, and qualify for the 2.5% government cash incentive. Payments to non-family individuals may be classified as capital income and subject to tax on the Bangladesh side — the incentive and tax-free treatment apply specifically to support payments to spouse, parents, children or other close family.",
+      },
+    ],
+  },
+
+  // ═════════════════════════════════════════════════════════════════
+  // Denmark → France — GSC opportunity: 17 impressions at pos 48.
+  // Intra-EU/EEA, DKK source, EUR destination. Use cases: property,
+  // students, professionals, retirees. Currency is pegged via ERM II.
+  // ═════════════════════════════════════════════════════════════════
+  {
+    slug: "denmark-to-france",
+    fromCountry: "Denmark",
+    toCountry: "France",
+    fromCurrency: "DKK",
+    toCurrency: "EUR",
+    fromFlag: "🇩🇰",
+    toFlag: "🇫🇷",
+    sampleAmount: 5000,
+    intro:
+      "Denmark→France is an intra-EU corridor with a specific character: stable exchange rate (DKK is pegged to EUR via ERM II at 7.46038 ±2.25% — the tightest band in the EU framework), full SEPA membership on both sides, but DKK-denominated accounts needing conversion before settling in EUR. Primary use cases are Danish property owners on the Côte d'Azur and in Provence, students at French institutions, professionals seconded to French subsidiaries of Danish firms (Novo Nordisk announced a €2.1bn French production investment in 2023; Lego, Carlsberg, Vestas all have French operations), and retirees relocating south.",
+    context:
+      "The two domestic players are Danske Bank and Nordea — Nordea offers free transfers between its own DKK/EUR accounts across the Nordics and charges tiered fees for third-party SEPA; Danske Bank charges around DKK 50 for standard SEPA and more for SWIFT. Fintech alternatives are where this corridor actually gets competitive: Wise runs the most transparent DKK→EUR pricing (real mid-market rate with ~0.4–0.9% fee), Revolut charges 0.5% on exchanges over EUR 1,000 on the Standard plan (free under that threshold), and Lunar publishes SEPA and SWIFT price lists. Denmark's central bank migrated to TARGET Services in April 2025, bringing DKK accounts into SEPA Instant — so provider-funding from a Danish bank is now near-instant, 24/7. French banks (BNP Paribas, Crédit Agricole, Société Générale, Crédit Mutuel, La Banque Postale) have been SEPA Instant-reachable since January 2025 under EU mandate.",
+    feesNote:
+      "Costs split into two layers: the DKK→EUR conversion (where the provider makes the spread) and the EUR→EUR SEPA settlement (standardised at zero for incoming SEPA). Wise typically costs 0.4–0.9% of the transfer; Revolut 0–0.5% depending on plan and volume; Danske Bank around DKK 50 plus 1.5–3% FX markup; Nordea roughly the same on third-party destinations. On a DKK 37,000 (~EUR 5,000) property deposit, the gap between Wise (~EUR 30 total) and a Danske Bank SWIFT transfer (~EUR 100–150 total) is material. Some French banks levy EUR 10–25 on non-SEPA inbound wires — make sure your transfer routes as SEPA and not SWIFT.",
+    deliveryNote:
+      "SEPA Instant delivery to any French bank (BNP Paribas, Crédit Agricole, Société Générale, Crédit Mutuel, La Banque Postale) completes in under 10 seconds, 24/7/365, up to EUR 100,000 per transaction. Standard SEPA Credit Transfer arrives next business day — fine for non-urgent transfers. From the Danish side, SEPA Instant Credit Transfer from DKK accounts went live in April 2025 when Denmark joined TARGET services, so both legs of the transfer are now instant. SWIFT via Danske Bank or Nordea takes 1–3 business days and incurs extra correspondent-bank fees — only use SWIFT for amounts above the SEPA Instant EUR 100,000 threshold. French IBAN format is 27 characters (FR + 2 check digits + 5-digit bank code + 5-digit branch code + 11-character account + 2 national check).",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Denmark to France?",
+        a: "Wise is consistently the cheapest option for DKK→EUR transfers from Denmark. It uses the real mid-market exchange rate with a transparent 0.4–0.9% fee — meaning no hidden FX spread. Revolut is competitive for standing balances: it's free to exchange up to EUR 1,000/month on the Standard plan and 0.5% above, so for regular smaller transfers it can beat Wise. Lunar (Danish fintech) and Pleo (for business users) also offer competitive SEPA pricing. Danske Bank and Nordea are not price-competitive for third-party transfers: Danske charges around DKK 50 per SEPA plus 1.5–3% FX markup, and Nordea has similar pricing. On a DKK 37,000 (~EUR 5,000) property deposit, the gap between Wise and Danske Bank is typically EUR 70–120 — material but not catastrophic because of the stable ERM II peg. Always request SEPA routing (not SWIFT) on the outbound side — some French receiving banks charge EUR 10–25 on SWIFT inbound wires but nothing on SEPA.",
+      },
+      {
+        q: "Is DKK to EUR a stable exchange rate?",
+        a: "Yes — it's one of the most stable FX pairs in Europe. Denmark participates in the Exchange Rate Mechanism II (ERM II), the EU's formal pre-euro currency regime, with a central rate of 7.46038 DKK per EUR and a narrow ±2.25% fluctuation band. That's the tightest band permitted under ERM II (most ERM II participants use ±15%) and reflects a policy commitment by Danmarks Nationalbank to defend the peg through unlimited intervention if necessary. In practice the rate rarely moves more than 0.5% from centre in any given quarter. For DKK→EUR transfers this means the timing decision is unusually low-stakes — waiting a week to send DKK 100,000 is unlikely to swing the EUR received by more than EUR 200. The competitive gap is therefore dominated by provider fees and FX markup, not by market movement.",
+      },
+      {
+        q: "How long does a SEPA Instant transfer from Denmark to France take?",
+        a: "Under 10 seconds, 24/7/365. SEPA Instant Credit Transfer delivers funds to the recipient's French account in real time, up to EUR 100,000 per transaction, any day of the year including weekends and public holidays. Denmark joined SEPA Instant in April 2025 when Danmarks Nationalbank migrated DKK accounts to TARGET Services (TIPS). All major French banks — BNP Paribas, Crédit Agricole, Société Générale, Crédit Mutuel, La Banque Postale — have been mandated to support SEPA Instant receipt since January 2025 under EU regulation, and must offer free outgoing SEPA Instant by October 2025. For property purchases or other transfers above EUR 100,000, you'll need to split the transfer across multiple SEPA Instant runs or use standard SEPA (next business day) or SWIFT (1–3 business days). Wise and Revolut both support SEPA Instant routing when the receiving French bank supports it.",
+      },
+      {
+        q: "I'm buying a property in France — what's the best way to transfer the deposit from Denmark?",
+        a: "For a property deposit (typically 10% of purchase price — usually EUR 20,000–100,000), Wise's large-transfer service is the best combination of cost and speed: mid-market rate, ~0.4–0.9% fee, SEPA Instant routing where supported, full traceability with your notaire. For amounts above EUR 100,000 (the SEPA Instant per-transaction limit), either split across multiple transfers on the same day or use Wise's standard SEPA (1 business day) or Danske Bank SWIFT for the larger single-transaction amount. Important: your French notaire will typically require funds in the notarial trust account (compte séquestre) at least 2–3 business days before signing, so don't cut timing too fine. The notaire will issue an attestation of funds once received, which you may need for your Danish tax records. Property purchases above EUR 50,000 may need documented source of funds — keep the Wise or Danske Bank confirmation and the Danish tax return or payslip that generated the savings.",
+      },
+      {
+        q: "Are there any tax implications for transferring money from Denmark to France?",
+        a: "For personal transfers between your own Danish and French bank accounts, there is no Danish or French tax — you are moving your own post-tax money. For gifts (parent to child, between spouses etc.), French gift tax applies above specific thresholds with 15-year abattement cycles: EUR 100,000 between parent and child, EUR 80,724 between spouses, EUR 31,865 between grandparents and grandchildren. A gift from a Danish tax resident to a French tax resident must be declared in France via CERFA form 2735 SD within one month. Danish gift tax allowances for 2026 are roughly DKK 80,600 (~EUR 10,800) per year to descendants tax-free and DKK 28,200 to spouses — amounts above this are taxed at 15% under Danish rules. Property purchases are automatically reported to French tax authorities via the notaire. For business payments (invoice settlement between Danish company and French supplier), standard VAT reverse-charge rules apply and there is no additional transfer tax.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──

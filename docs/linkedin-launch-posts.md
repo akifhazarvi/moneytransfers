@@ -8,16 +8,40 @@ Starter content sequence for the SendMoneyCompare LinkedIn page (linkedin.com/co
 
 ---
 
+## Content Rotation (3-week cycle)
+
+Don't post the same format twice in a row. Variety trains the algorithm, reaches different audience segments, and avoids looking robotic. Rotate through six post types — then repeat with fresh data/corridors/providers.
+
+| Slot | Type | Hook | Needs fresh scrape? | Link drop |
+|------|------|------|---------------------|-----------|
+| Tue W1 | 📊 Data drop | "Here's today's spread across X corridors" | ✅ Yes | `/compare` or corridor page |
+| Thu W1 | 🧠 Myth buster | "Everyone gets this wrong about…" | ❌ Evergreen | (no link — max reach) |
+| Tue W2 | 🔍 Corridor deep-dive | One corridor, story-led | ✅ Yes | `/send-money/<corridor>` |
+| Thu W2 | ⚔️ Head-to-head | "X vs Y — who actually wins?" | ✅ Yes | `/compare/x-vs-y` |
+| Tue W3 | 💡 Hidden fee exposé | One specific rip-off | ❌ Evergreen | (optional) |
+| Thu W3 | 🗣️ Engagement hook | Ask the audience, promise to reply | ❌ Evergreen | (no link) |
+
+After Week 3, cycle back to Week 1 with a new corridor/provider pair. Build up a content bank — after 6 weeks you have 12 posts to remix.
+
+### When to break the rotation
+- **News-driven moments** (central bank rate change, provider outage, fee hike) → skip the slot and post timely commentary.
+- **Big site milestone** (new provider added, new feature) → replace that slot's post.
+
+---
+
 ## Status Tracker
 
-| # | Post | Week | Day | Shipped | Link drop |
-|---|------|------|-----|---------|-----------|
-| 1 | Founder intro | 1 | Tue | ✅ 2026-04-17 | Homepage |
-| 2 | Data insight | 1 | Thu | ☐ | `/compare` |
-| 3 | Myth buster | 2 | Tue | ☐ | (no link) |
-| 4 | UK→India corridor | 2 | Thu | ☐ | `/send-money/uk-to-india` |
-| 5 | Wise vs Remitly | 3 | Tue | ☐ | `/compare/wise-vs-remitly` |
-| 6 | Engagement hook | 3 | Thu | ☐ | (no link) |
+| # | Date | Slot | Type | Topic | Shipped | Link drop |
+|---|------|------|------|-------|---------|-----------|
+| 1 | 2026-04-17 | Tue W1 | 📊 Data drop | Founder intro (off-rotation launch post) | ✅ | Homepage |
+| 2 | 2026-04-24 | Thu W1 | 📊 Data drop | 6-corridor spread (India/PH/MX/PK x USD/GBP/EUR) | ☐ | `/compare` |
+| 3 | Tue W2 | Thu W1 | 🧠 Myth buster | "Your bank isn't safer — it's more expensive" | ☐ | (no link) |
+| 4 | Thu W2 | Tue W2 | 🔍 Corridor | UK→India deep-dive | ☐ | `/send-money/uk-to-india` |
+| 5 | Tue W3 | Thu W2 | ⚔️ Head-to-head | Wise vs Remitly | ☐ | `/compare/wise-vs-remitly` |
+| 6 | Thu W3 | Tue W3 | 💡 Hidden fee | "Zero fees" trick: FX markup exposé | ☐ | (optional) |
+| 7 | — | Thu W3 | 🗣️ Engagement | "Worst fee you've ever paid?" | ☐ | (no link) |
+
+*Note: Post 1 was a one-off founder intro; the regular rotation starts at Post 2.*
 
 ---
 
