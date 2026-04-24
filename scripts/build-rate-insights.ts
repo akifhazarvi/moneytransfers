@@ -18,6 +18,11 @@ const OUTPUT_PATH = path.join("src/data/scraped/rate-insights.json");
 const MIDMARKET_HISTORY_PATH = path.join("src/data/scraped/history/midmarket-daily.json");
 const MIDMARKET_OUTPUT_PATH = path.join("src/data/scraped/midmarket-history.json");
 
+// All user-facing history is capped to the most recent N days so that
+// avg / best / worst / sparklines / badges / schema copy all agree on the
+// same window. Raw snapshots in CORRIDORS_DIR keep their full history.
+const HISTORY_WINDOW_DAYS = 30;
+
 interface ProviderDayData {
   rate: number;
   fee: number;
@@ -65,7 +70,8 @@ interface RateInsight {
   sparklines: Record<string, SparklinePoint[]>;
 }
 
-function computeInsight(corridor: string, history: DayEntry[]): RateInsight | null {
+function computeInsight(corridor: string, fullHistory: DayEntry[]): RateInsight | null {
+  const history = fullHistory.slice(-HISTORY_WINDOW_DAYS);
   if (history.length < 2) return null;
 
   const latestDay = history[history.length - 1];
@@ -238,7 +244,8 @@ function buildMidMarketOutput(): void {
 
   let history: MidMarketDay[];
   try {
-    history = JSON.parse(fs.readFileSync(MIDMARKET_HISTORY_PATH, "utf-8"));
+    const raw: MidMarketDay[] = JSON.parse(fs.readFileSync(MIDMARKET_HISTORY_PATH, "utf-8"));
+    history = raw.slice(-HISTORY_WINDOW_DAYS);
   } catch {
     fs.writeFileSync(MIDMARKET_OUTPUT_PATH, JSON.stringify({ currencies: [], days: [] }));
     return;

@@ -21,8 +21,10 @@ export interface BlogPost {
 
 import { corridorGuides2 } from "./blog-corridor-guides-2";
 import { corridorGuidesIndia } from "./blog-corridor-guides-india";
+import { converterGuides } from "./blog-converter-guides";
 
 export const blogPosts: BlogPost[] = [
+  ...converterGuides,
   ...corridorGuidesIndia,
   ...corridorGuides2,
   // ============================

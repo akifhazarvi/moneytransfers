@@ -63,6 +63,18 @@ export default function CookieConsent() {
     // Non-EU users: analytics already granted by gtag init, no banner needed
   }, []);
 
+  // Allow any component (e.g. footer link) to reopen the banner so users can
+  // withdraw consent as easily as they gave it. Required by GDPR Art. 7(3).
+  useEffect(() => {
+    function reopen() {
+      localStorage.removeItem("cookie_consent");
+      denyAnalytics();
+      setVisible(true);
+    }
+    window.addEventListener("open-cookie-consent", reopen);
+    return () => window.removeEventListener("open-cookie-consent", reopen);
+  }, []);
+
   function handleAccept() {
     localStorage.setItem("cookie_consent", "accepted");
     enableAnalytics();
@@ -113,17 +125,19 @@ export default function CookieConsent() {
               </p>
             </div>
 
-            {/* Buttons */}
+            {/* Buttons — equal prominence per ICO/CNIL guidance: matching size,
+                padding, and weight. Accept stays branded but Decline is equally
+                legible and discoverable. */}
             <div className="flex items-center gap-2 sm:gap-3 w-full md:w-auto shrink-0">
               <button
                 onClick={handleDecline}
-                className="flex-1 md:flex-initial px-4 py-2.5 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-full transition-colors cursor-pointer"
+                className="flex-1 md:flex-initial px-6 py-2.5 text-2sm font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-full transition-colors cursor-pointer"
               >
                 {t("decline")}
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 md:flex-initial px-6 py-2.5 text-2sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-all cursor-pointer animate-cookie-glow"
+                className="flex-1 md:flex-initial px-6 py-2.5 text-2sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-colors cursor-pointer"
               >
                 {t("accept")}
               </button>

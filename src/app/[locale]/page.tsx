@@ -610,6 +610,69 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
+      {/* ─── 4d. TRAVEL GUIDES + eSIM ─── */}
+      <section id="travel" className="py-8 sm:py-14 bg-[var(--color-surface)]">
+        <Container>
+          <div className="text-center mb-5 sm:mb-8">
+            <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-3">
+              New
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+              Travelling? Get an eSIM + know your money
+            </h2>
+            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
+              Country guides with live FX conversion, eSIM picks, cultural dos and don&rsquo;ts, and typical daily budgets — built for travellers who don&rsquo;t want to overpay on money or roaming.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            <Link
+              href="/travel/thailand"
+              className="group flex flex-col bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5 hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] transition-all"
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-2xl">🇹🇭</span>
+                <div>
+                  <p className="font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Thailand</p>
+                  <p className="text-2xs text-[var(--color-on-surface-variant)]">Thai Baht (฿ THB)</p>
+                </div>
+              </div>
+              <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-2 mb-3">
+                eSIM from $8.50, 60-day visa-free, ฿36 per USD. Muay Thai, street food, island hopping.
+              </p>
+              <p className="text-2sm text-[var(--color-primary)] font-medium mt-auto">Read guide &rarr;</p>
+            </Link>
+
+            {[
+              { name: "Japan", flag: "🇯🇵", currency: "JPY", blurb: "Coming soon" },
+              { name: "Turkey", flag: "🇹🇷", currency: "TRY", blurb: "Coming soon" },
+              { name: "Mexico", flag: "🇲🇽", currency: "MXN", blurb: "Coming soon" },
+            ].map((c) => (
+              <div
+                key={c.name}
+                className="flex flex-col bg-[var(--color-surface-dim)] border border-dashed border-[var(--color-outline)] rounded-2xl p-5 opacity-70"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl">{c.flag}</span>
+                  <div>
+                    <p className="font-semibold text-[var(--color-on-surface)]">{c.name}</p>
+                    <p className="text-2xs text-[var(--color-on-surface-variant)]">{c.currency}</p>
+                  </div>
+                </div>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">{c.blurb}</p>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] italic mt-auto">Launching soon</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/travel" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
+              See all travel guides &rarr;
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       {/* ─── 5. LIVE EXAMPLE: $1,000 USD → PKR ─── */}
       <section id="live-example" className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>

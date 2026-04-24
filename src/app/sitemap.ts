@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { allCorridors } from "@/data/corridors";
+import { getAllTravelGuideSlugs } from "@/data/travel-guides";
 import { providers } from "@/data/providers";
 import { blogPosts } from "@/data/blog-posts";
 import { newsItems } from "@/data/news";
@@ -105,6 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("compare-money-transfer", DATA_UPDATED),
     entry("currency-converter", DATA_UPDATED),
     entry("guides", STATIC_HUB_DATE),
+    entry("travel", STATIC_HUB_DATE),
     entry("iban", STATIC_HUB_DATE),
     entry("swift-codes", STATIC_HUB_DATE),
     entry("about", STATIC_HUB_DATE),  // No live data — static content
@@ -130,6 +132,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...withLocales("compare", DATA_UPDATED),
     ...withLocales("currency-converter", DATA_UPDATED),
     ...withLocales("guides", STATIC_HUB_DATE),
+    ...withLocales("travel", STATIC_HUB_DATE),
     ...withLocales("iban", STATIC_HUB_DATE),
     ...withLocales("swift-codes", STATIC_HUB_DATE),
     // exchange-rates locales handled in exchangeRatesPage via entryWithLocales()
@@ -152,6 +155,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const corridorPages: MetadataRoute.Sitemap = [
     ...indexedCorridors.map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED)),
     ...indexedCorridors.flatMap((c) => withLocales(`send-money/${c.slug}`, DATA_UPDATED)),
+  ];
+
+  const travelSlugs = getAllTravelGuideSlugs();
+  const travelPages: MetadataRoute.Sitemap = [
+    ...travelSlugs.map((slug) => entry(`travel/${slug}`, STATIC_HUB_DATE)),
+    ...travelSlugs.flatMap((slug) => withLocales(`travel/${slug}`, STATIC_HUB_DATE)),
   ];
 
   // Only include providers that have editorial reviews (others are noindexed)
@@ -235,6 +244,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...staticLocalePages,
     ...corridorPages,
+    ...travelPages,
     ...providerPages,
     ...comparisonPages,
     ...guidePages,

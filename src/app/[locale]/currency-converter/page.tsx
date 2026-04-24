@@ -1,10 +1,32 @@
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import Link from "next/link";
 import Container from "@/components/Container";
 import CurrencyConverterClient from "@/components/CurrencyConverterClient";
 import { currencies, exchangeRates } from "@/data/providers";
 import { getRate } from "@/lib/rates-util";
+
+const converterGuides = [
+  {
+    slug: "traveling-multiple-countries-currency-guide",
+    title: "Traveling to multiple countries? Track every rate in one place",
+    excerpt: "A 60-second workflow for monitoring 5+ currencies on a multi-country trip — without juggling five apps.",
+    readTime: "9 min read",
+  },
+  {
+    slug: "compare-exchange-rates-multiple-currencies",
+    title: "How to compare exchange rates across multiple currencies at once",
+    excerpt: "Scan 150+ currencies simultaneously to spot which pairs are moving in your favor today.",
+    readTime: "8 min read",
+  },
+  {
+    slug: "currency-converter-vs-bank-app-travel",
+    title: "Why a live converter beats your bank's app when traveling",
+    excerpt: "Bank apps hide a 2–4% FX markup inside the quoted rate. Here's how to spot it in three seconds.",
+    readTime: "7 min read",
+  },
+];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -52,6 +74,47 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
 
       {/* Interactive client widget */}
       <CurrencyConverterClient />
+
+      {/* Visible guides — builds topical depth and internal links for SEO */}
+      <Container className="py-12">
+        <div className="max-w-[1000px]">
+          <h2 className="font-display text-[clamp(1.5rem,3vw,2rem)] font-normal leading-[1.25] tracking-[-0.01em] text-[var(--color-on-surface)] mb-2">
+            Using the converter: travel, transfers & multi-currency
+          </h2>
+          <p className="text-md text-[var(--color-on-surface-variant)] mb-8 max-w-[720px]">
+            Three guides that go deeper on when and how to use a live mid-market rate — whether you&apos;re planning a multi-country trip, comparing providers, or checking what your bank is really charging.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {converterGuides.map((guide) => (
+              <Link
+                key={guide.slug}
+                href={`/guides/${guide.slug}`}
+                className="group block bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 hover:shadow-[var(--shadow-sm)] hover:border-[var(--color-primary-light)] transition-all"
+              >
+                <h3 className="text-md font-semibold text-[var(--color-on-surface)] leading-snug mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+                  {guide.title}
+                </h3>
+                <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
+                  {guide.excerpt}
+                </p>
+                <span className="text-2xs text-[var(--color-on-surface-muted)]">{guide.readTime}</span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 pt-8 border-t border-[var(--color-outline)]">
+            <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal text-[var(--color-on-surface)] mb-3">
+              How to use the converter
+            </h2>
+            <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4 max-w-[720px]">
+              The converter above shows the live mid-market rate — the midpoint between the buy and sell prices on the global currency market, and the rate banks use when trading with each other. It&apos;s the fairest benchmark you can find. When you send money, spend abroad, or withdraw cash overseas, your bank or provider adds a markup on top of this rate. Compare their quote to the mid-market rate here to see how much that markup is costing you.
+            </p>
+            <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed max-w-[720px]">
+              For multi-country trips, bookmark this page on your phone&apos;s home screen — you can switch between any of 150+ currencies in one tap, so checking &quot;what&apos;s this in USD?&quot; takes about five seconds at any restaurant, hotel, or ATM. To find the cheapest provider for an actual transfer, use our <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">live provider comparison tool</Link>. For market-wide context on which currencies are moving today, see our <Link href="/exchange-rates" className="text-[var(--color-primary)] hover:underline">live exchange rates dashboard</Link>.
+            </p>
+          </div>
+        </div>
+      </Container>
 
       {/* Server-rendered SEO content — visible to crawlers */}
       <Container>
