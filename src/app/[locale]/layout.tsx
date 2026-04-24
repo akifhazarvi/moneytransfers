@@ -32,6 +32,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const localeMap: Record<string, string> = { en: "en_US", es: "es_ES", fr: "fr_FR", pt: "pt_BR" };
 
   return {
+    // Title template runs on every child page that sets title: "Page Title".
+    // Child pages can still bypass via title: { absolute: "..." } when they
+    // need full control (e.g. the homepage, where the brand already leads).
+    title: {
+      default: t("title"),
+      template: "%s | SendMoneyCompare",
+    },
     description: t("description"),
     keywords: t("keywords"),
     other: {
@@ -122,13 +129,18 @@ const organizationSchema = {
     "Stablecoins",
   ],
   sameAs: [
-    "https://twitter.com/sendmoneycompare",
-    "https://x.com/sendmoneycompare",
+    // Brand entity graph — Google uses these to disambiguate us from other
+    // "send money compare" strings. The first two (Trustpilot + Crunchbase) are
+    // the ones that outrank our own homepage for the branded query — declaring
+    // them here tells Google they describe the same entity.
+    "https://www.trustpilot.com/review/sendmoneycompare.com",
+    "https://www.crunchbase.com/organization/send-money-compare",
     "https://www.linkedin.com/company/sendmoneycompare",
+    "https://x.com/sendmoneycompare",
+    "https://twitter.com/sendmoneycompare",
     "https://www.youtube.com/@sendmoneycompare",
     "https://www.facebook.com/sendmoneycompare",
     "https://github.com/sendmoneycompare",
-    "https://www.crunchbase.com/organization/sendmoneycompare",
   ],
   publishingPrinciples: `${SITE_URL}/editorial-policy`,
   correctionsPolicy: `${SITE_URL}/corrections`,
