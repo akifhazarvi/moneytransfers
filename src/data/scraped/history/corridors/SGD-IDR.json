@@ -889,5 +889,28 @@
         "receiveAmount": 1335204.63
       }
     }
+  },
+  {
+    "date": "2026-04-24",
+    "providers": {
+      "hsbc-sg": {
+        "rate": 13366.5812,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1336658.12
+      },
+      "ocbc": {
+        "rate": 13178.8547,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 922519.83
+      },
+      "remitly": {
+        "rate": 13272.4992,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1261020.15
+      }
+    }
   }
 ]

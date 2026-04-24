@@ -827,5 +827,28 @@
         "receiveAmount": 709.88
       }
     }
+  },
+  {
+    "date": "2026-04-24",
+    "providers": {
+      "paypal": {
+        "rate": 7.3573,
+        "fee": 38.99,
+        "markup": null,
+        "receiveAmount": 448.87
+      },
+      "hsbc-hk": {
+        "rate": 7.6521,
+        "fee": 70,
+        "markup": null,
+        "receiveAmount": 229.56
+      },
+      "wise": {
+        "rate": 7.7502,
+        "fee": 7.94,
+        "markup": null,
+        "receiveAmount": 713.49
+      }
+    }
   }
 ]
