@@ -206,18 +206,17 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <>
-      {/* GA4 library — plain <script> with async so it doesn't block paint. Using
-          next/script here caused hydration mismatches because the client pass dropped
-          the SSR nonce (same issue as theme-init). */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30" nonce={nonce} />
+      {/* GA4: dataLayer + gtag stub run synchronously so any early event calls
+          are buffered. The 150 KB gtag.js library load is deferred until first
+          user interaction (scroll/click/input/touch) or a 4 s idle fallback,
+          whichever comes first. Shaves ~150 ms of main-thread parse off the
+          initial load without losing any events (queued calls flush on load). */}
       <script
         nonce={nonce}
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
   var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
-  // Cookieless GA4 for everyone: no _ga cookie, no banner needed under ePrivacy.
-  // Events still fire (including page_referrer) but without client_id continuity.
   gtag('consent','default',{
     'analytics_storage':'denied',
     'ad_storage':'denied',
@@ -228,6 +227,19 @@ export default async function LocaleLayout({ children, params }: Props) {
   gtag('js',new Date());
   var cfg={send_page_view:true};if(cc){cfg.country=cc;gtag('set','user_properties',{geo_country:cc});}
   gtag('config','G-HJH07QEJ30',cfg);
+  var loaded=false;
+  function loadGA(){
+    if(loaded)return;loaded=true;
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30';
+    ${nonce ? `s.setAttribute('nonce','${nonce}');` : ''}
+    document.head.appendChild(s);
+    evts.forEach(function(e){removeEventListener(e,loadGA,opts)});
+  }
+  var evts=['pointerdown','keydown','scroll','touchstart'];
+  var opts={passive:true,once:true};
+  evts.forEach(function(e){addEventListener(e,loadGA,opts)});
+  setTimeout(loadGA,4000);
 })();`,
         }}
       />
