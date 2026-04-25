@@ -151,10 +151,10 @@ export default function middleware(request: NextRequest) {
     // React apps — Next.js App Router does not support nonce-based inline styles.
     // See: https://csp.withgoogle.com/ and https://nextjs.org/docs/app/api-reference/config/next-config-js/headers#content-security-policy
     `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com`,
+    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com`,
     `connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com`,
     `font-src 'self'`,
-    `frame-src https://widget.trustpilot.com`,
+    `frame-src https://widget.trustpilot.com https://www.youtube-nocookie.com https://www.youtube.com`,
     `object-src 'none'`,
     `base-uri 'self'`,
     `form-action 'self'`,
