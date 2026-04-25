@@ -216,6 +216,15 @@ export default async function LocaleLayout({ children, params }: Props) {
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
+  // Self-exclusion: visiting ?gtm_disable=1 once permanently opts this browser
+  // out of GA4 (stored in localStorage). Visit ?gtm_disable=0 to re-enable.
+  // Used so internal testing doesn't pollute GA4 reports.
+  try{
+    var qs=location.search;
+    if(qs.indexOf('gtm_disable=1')!==-1)localStorage.setItem('ga_optout','1');
+    if(qs.indexOf('gtm_disable=0')!==-1)localStorage.removeItem('ga_optout');
+    if(localStorage.getItem('ga_optout')==='1'){window['ga-disable-G-HJH07QEJ30']=true;return;}
+  }catch(e){}
   var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
   gtag('consent','default',{
     'analytics_storage':'denied',
@@ -226,6 +235,32 @@ export default async function LocaleLayout({ children, params }: Props) {
   if(navigator.webdriver===true){window['ga-disable-G-HJH07QEJ30']=true;return;}
   gtag('js',new Date());
   var cfg={send_page_view:true};if(cc){cfg.country=cc;gtag('set','user_properties',{geo_country:cc});}
+  // AI-search referral attribution. ChatGPT, Perplexity, Copilot and similar
+  // strip or shorten the Referer header for many clicks, so GA4 receives
+  // source='chatgpt.com' but medium=(not set) — landing in 'Unassigned' or
+  // bleeding into 'Direct'. We detect the host explicitly and inject
+  // campaign params into the config call so GA4 routes the very first
+  // pageview into the Referral channel with a sensible source/medium.
+  // First-touch is persisted to localStorage so internal navs keep the
+  // attribution even if the referrer is dropped on subsequent requests.
+  try{
+    var ref=document.referrer||'';
+    var refHost='';try{refHost=ref?new URL(ref).hostname.toLowerCase():'';}catch(e){}
+    var aiHosts={'chatgpt.com':'chatgpt','chat.openai.com':'chatgpt','perplexity.ai':'perplexity','www.perplexity.ai':'perplexity','copilot.microsoft.com':'copilot','www.bing.com':null,'gemini.google.com':'gemini','claude.ai':'claude','you.com':'you','phind.com':'phind'};
+    var aiSource=null;
+    if(refHost && aiHosts[refHost]!==undefined){aiSource=aiHosts[refHost];}
+    // Already-stored first-touch wins for the session if we can't detect now.
+    var stored=null;try{stored=sessionStorage.getItem('first_ai_src');}catch(e){}
+    if(aiSource){try{sessionStorage.setItem('first_ai_src',aiSource);}catch(e){}}
+    var src=aiSource||stored;
+    if(src){
+      cfg.campaign_source=src;
+      cfg.campaign_medium='referral';
+      cfg.campaign_name='ai_search';
+      // Also expose it as a user property so we can segment by AI traffic.
+      gtag('set','user_properties',{ai_referrer:src});
+    }
+  }catch(e){}
   gtag('config','G-HJH07QEJ30',cfg);
   var loaded=false;
   function loadGA(){
