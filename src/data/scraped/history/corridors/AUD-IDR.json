@@ -918,5 +918,40 @@
         "receiveAmount": 1198338.42
       }
     }
+  },
+  {
+    "date": "2026-04-25",
+    "providers": {
+      "commonwealth-bank": {
+        "rate": 11691.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1169150
+      },
+      "remitly": {
+        "rate": 12034.43,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1191528.91
+      },
+      "western-union": {
+        "rate": 12344.2722,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1234427.22
+      },
+      "paypal": {
+        "rate": 11858.9155,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1126596.97
+      },
+      "nab": {
+        "rate": 11839.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1183940
+      }
+    }
   }
 ]
