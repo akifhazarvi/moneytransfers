@@ -30,22 +30,39 @@ const ALLOWED_BOTS = [
 
 // Countries where we have 0 real users (GSC: 0-1 clicks) but heavy bot traffic.
 // Blocking at edge saves compute and cleans GA4 data.
-// If a real user from these countries ever appears in GSC, remove the block.
+// IMPORTANT: only block countries where GA4 + GSC together confirm zero real
+// human traffic. Removing a country here is cheap; adding one risks killing
+// a real diaspora audience.
 const BOT_HEAVY_COUNTRIES = new Set([
-  "SG", // Singapore: 88+ GA4 sessions, 97.7% bounce, 4.2s avg — bot farm (GSC: 1 click lifetime)
+  "SG", // Singapore: 86 GA4 sessions, 1.2% engagement rate, 1:1 user:session ratio (no return visits) — verified bot farm (GSC: 1 click lifetime)
 ]);
 
-// Known data center / cloud IP ranges that host bots.
-// These are the cities Vercel's geo header reports for major cloud regions.
-// Block bot traffic from cloud data centers (not real users).
+// Country+city pairs where we see bot patterns in GA4 (low engagement, no
+// search referrer, anonymous geo) but where the country itself has real users
+// elsewhere. Block these specific combinations only — do NOT block the whole
+// country.
+//
+// Format: "CC|city" (Vercel reports city in `x-vercel-ip-city`).
+// Verified against 28-day GA4 data 2026-03-28..2026-04-24.
+const BOT_HEAVY_COUNTRY_CITIES = new Set([
+  "CN|Hangzhou", // Alibaba Cloud HQ, 0% engagement, 4 sessions
+  "CN|Hefei",    // Cloud DC region, 0% engagement
+  "CN|Zhuhai",   // Cloud DC region, 0% engagement
+  // NOT blocking CN|Guangzhou (10 sessions, 60% engagement — real users)
+  // NOT blocking CN|Shanghai (7 sessions, 29% engagement — borderline real)
+  // NOT blocking CN|Beijing (6 sessions, 17% engagement — borderline real)
+]);
+
+// Pure data-center cities (US-side) where Vercel reports the city as a known
+// cloud region. These are exclusively bot hosts — no real user lives in
+// "The Dalles, OR" (Google Cloud us-west1).
 const DATA_CENTER_CITIES = new Set([
   "The Dalles",      // Google Cloud us-west1
   "Boardman",        // AWS us-west-2
-  "Ashburn",         // AWS us-east-1 / Azure East US
   "Council Bluffs",  // Google Cloud us-central1
-  "Hangzhou",        // Alibaba Cloud (confirmed bots in GA4)
-  "Hefei",           // Confirmed bots
-  "Zhuhai",          // Confirmed bots
+  // NOT blocking Ashburn — it's AWS us-east-1 BUT also Loudoun County, VA
+  // (real residents). 13 sessions, 23% engagement is suspicious but mixed,
+  // so we let UA/header heuristics handle it instead of blanket-blocking.
 ]);
 
 function isSpamBot(request: NextRequest): boolean {
@@ -65,9 +82,19 @@ function isSpamBot(request: NextRequest): boolean {
   const country = request.headers.get("x-vercel-ip-country") || "";
   if (country && BOT_HEAVY_COUNTRIES.has(country)) return true;
 
-  // Block known data center cities (cloud-hosted bots)
+  // Block specific country+city pairs that are bot-only while the rest of the
+  // country has real users (e.g. China cloud regions vs Chinese diaspora users)
   const city = request.headers.get("x-vercel-ip-city") || "";
+  if (country && city && BOT_HEAVY_COUNTRY_CITIES.has(`${country}|${city}`)) return true;
+
+  // Block known US-side data center cities (cloud-hosted bots)
   if (city && DATA_CENTER_CITIES.has(city)) return true;
+
+  // Block requests where Vercel resolved no city at all in a high-traffic
+  // bot-host country (anonymous proxy / Tor exit / cloud anycast). This
+  // catches the "China/(not set)" pattern (35 GA4 sessions, 11% engagement)
+  // without affecting real Chinese users who resolve to a city.
+  if (country === "CN" && !city) return true;
 
   // Soft-signal bot detection: require AT LEAST 2 suspicious signals to block,
   // rather than treating any single signal as conclusive.
