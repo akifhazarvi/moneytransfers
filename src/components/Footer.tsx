@@ -2,7 +2,6 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 import LazyTrustpilot from "@/components/LazyTrustpilot";
-import CookiePreferencesLink from "@/components/CookiePreferencesLink";
 
 type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean };
 type StaticLink = { href: string; label: string; noFollow?: boolean };
@@ -66,7 +65,6 @@ export default function Footer() {
         { href: "/privacy-policy", labelKey: "privacyLink", noFollow: true },
         { href: "/terms", labelKey: "termsLink", noFollow: true },
         { href: "/cookies", labelKey: "cookiesLink", noFollow: true },
-        { href: "#cookie-preferences", labelKey: "cookiePreferencesLink", noFollow: true },
         { href: "/disclaimer", labelKey: "disclaimerLink", noFollow: true },
       ],
     },
@@ -149,17 +147,13 @@ export default function Footer() {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.labelKey}>
-                    {link.href === "#cookie-preferences" ? (
-                      <CookiePreferencesLink label={t(link.labelKey)} />
-                    ) : (
-                      <Link
-                        href={link.href}
-                        {...(link.noFollow && { rel: "nofollow" })}
-                        className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
-                      >
-                        {t(link.labelKey)}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      {...(link.noFollow && { rel: "nofollow" })}
+                      className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
+                    >
+                      {t(link.labelKey)}
+                    </Link>
                   </li>
                 ))}
               </ul>

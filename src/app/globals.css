@@ -477,22 +477,3 @@ body {
 .animate-ticker { animation: ticker 35s linear infinite; }
 .animate-ticker:hover { animation-play-state: paused; }
 
-/* ─── Cookie consent entrance + attention ─── */
-@keyframes cookie-slide-up {
-  0%   { transform: translateY(120%); opacity: 0; }
-  100% { transform: translateY(0);     opacity: 1; }
-}
-.animate-cookie-slide-up {
-  animation: cookie-slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-@keyframes cookie-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.0); }
-  50%      { box-shadow: 0 0 0 8px rgba(26, 115, 232, 0.18); }
-}
-.animate-cookie-glow {
-  animation: cookie-glow 2.2s ease-out 0.8s 2;
-}
-@media (prefers-reduced-motion: reduce) {
-  .animate-cookie-slide-up,
-  .animate-cookie-glow { animation: none; }
-}
