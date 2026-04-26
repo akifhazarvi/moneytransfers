@@ -479,5 +479,22 @@
         "receiveAmount": 9399
       }
     }
+  },
+  {
+    "date": "2026-04-26",
+    "providers": {
+      "wise": {
+        "rate": 25.0843,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2508.43
+      },
+      "xoom": {
+        "rate": 93.9921,
+        "fee": 4.29,
+        "markup": null,
+        "receiveAmount": 9399
+      }
+    }
   }
 ]
