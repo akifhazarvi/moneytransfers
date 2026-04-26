@@ -80,11 +80,35 @@ function getCorridorsWithData(): Set<string> {
 }
 
 /**
+ * Read the editorial corridor list directly from the source so newly added
+ * corridors (e.g. ireland-to-bangladesh, denmark-to-france) get pinged even
+ * when no scraped quote file references them yet.
+ */
+function getEditorialCorridorSlugs(): string[] {
+  try {
+    const corridorsTs = fs.readFileSync(
+      path.join(__dirname, "..", "src", "data", "corridors.ts"),
+      "utf-8"
+    );
+    const slugs = new Set<string>();
+    const re = /slug:\s*"([a-z0-9-]+)"/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(corridorsTs))) {
+      slugs.add(m[1]);
+    }
+    return [...slugs];
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Generate all data-driven URLs that change when scraped data updates.
  */
 function generateUrls(): string[] {
   const urls: string[] = [];
   const corridorsWithData = getCorridorsWithData();
+  const editorialSlugs = getEditorialCorridorSlugs();
 
   // 1. Homepage + hub pages
   urls.push(
@@ -92,10 +116,19 @@ function generateUrls(): string[] {
     `${SITE_URL}/send-money`,
     `${SITE_URL}/companies`,
     `${SITE_URL}/compare`,
+    `${SITE_URL}/compare-money-transfer`,
     `${SITE_URL}/exchange-rates`,
     `${SITE_URL}/currency-converter`,
     `${SITE_URL}/remittance-cost-index`,
+    `${SITE_URL}/guides`,
+    `${SITE_URL}/iban`,
+    `${SITE_URL}/swift-codes`,
   );
+
+  // 1b. Every editorial corridor (always indexed regardless of scrape data)
+  for (const slug of editorialSlugs) {
+    urls.push(`${SITE_URL}/send-money/${slug}`);
+  }
 
   // 2. Corridor pages — only corridors that have scraped data
   for (const pair of corridorsWithData) {
@@ -147,39 +180,56 @@ function generateUrls(): string[] {
 }
 
 /**
- * Submit URLs to IndexNow API in batches of 10,000.
+ * Submit URLs to IndexNow API one at a time with a small delay.
+ *
+ * Bing Webmaster's stated recommendation is to AVOID Batch Mode (POST with
+ * urlList) because batch submissions can trigger rate-limiting and indexing
+ * delays. Single-URL GET submissions per their spec are the preferred path
+ * and let Bing process each ping independently.
+ *
+ * 250ms delay between requests stays well under any per-host throttle while
+ * keeping a 200-URL run under one minute.
  */
 async function submitToIndexNow(urls: string[]): Promise<void> {
-  const BATCH_SIZE = 10000;
+  const KEY_LOCATION = `${SITE_URL}/${INDEXNOW_KEY}.txt`;
+  const DELAY_MS = 250;
+  let succeeded = 0;
+  let failed = 0;
 
-  for (let i = 0; i < urls.length; i += BATCH_SIZE) {
-    const batch = urls.slice(i, i + BATCH_SIZE);
-
-    const payload = {
-      host: "sendmoneycompare.com",
-      key: INDEXNOW_KEY,
-      keyLocation: `${SITE_URL}/${INDEXNOW_KEY}.txt`,
-      urlList: batch,
-    };
+  for (let i = 0; i < urls.length; i++) {
+    const url = urls[i];
+    const requestUrl = new URL("https://api.indexnow.org/indexnow");
+    requestUrl.searchParams.set("url", url);
+    requestUrl.searchParams.set("key", INDEXNOW_KEY);
+    requestUrl.searchParams.set("keyLocation", KEY_LOCATION);
 
     try {
-      const res = await fetch("https://api.indexnow.org/indexnow", {
-        method: "POST",
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify(payload),
+      const res = await fetch(requestUrl.toString(), {
+        method: "GET",
+        headers: { "User-Agent": "SendMoneyCompare-IndexNow/1.0 (+https://sendmoneycompare.com)" },
       });
-
-      const batchNum = Math.floor(i / BATCH_SIZE) + 1;
       if (res.ok || res.status === 202) {
-        console.log(`✓ Batch ${batchNum}: Submitted ${batch.length} URLs (HTTP ${res.status})`);
+        succeeded++;
       } else {
+        failed++;
         const body = await res.text().catch(() => "");
-        console.error(`✗ Batch ${batchNum}: IndexNow returned HTTP ${res.status}${body ? ` — ${body}` : ""}`);
+        console.error(`✗ ${url} — HTTP ${res.status}${body ? `: ${body.slice(0, 100)}` : ""}`);
       }
     } catch (err) {
-      console.error(`✗ Failed to reach IndexNow API:`, err);
+      failed++;
+      console.error(`✗ ${url} — network error:`, err instanceof Error ? err.message : err);
+    }
+
+    // Progress every 25 URLs so CI logs stay informative
+    if ((i + 1) % 25 === 0) {
+      console.log(`  ... ${i + 1}/${urls.length} submitted (${succeeded} ok, ${failed} failed)`);
+    }
+    if (DELAY_MS > 0 && i < urls.length - 1) {
+      await new Promise((r) => setTimeout(r, DELAY_MS));
     }
   }
+
+  console.log(`\n✓ Done: ${succeeded}/${urls.length} URLs accepted, ${failed} failed`);
 }
 
 async function main() {
