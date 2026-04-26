@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     template: "%s | SendMoneyCompare",
   },
   icons: {
+    // Bing prefers the legacy 'shortcut icon' rel and is slower than Google
+    // to refresh favicons for newer domains. Declaring 'shortcut icon' first
+    // (mapped from icons.shortcut by Next.js Metadata API) gives Bing's
+    // crawler the rel signal it grades highest. The numbered .ico is also
+    // referenced explicitly so the favicon URL changes at deploy and
+    // forces Bing to re-fetch instead of serving the cached generic globe.
+    shortcut: ["/favicon.ico"],
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
       { url: "/favicon-48.png", type: "image/png", sizes: "48x48" },
