@@ -96,25 +96,24 @@ function isSpamBot(request: NextRequest): boolean {
   // without affecting real Chinese users who resolve to a city.
   if (country === "CN" && !city) return true;
 
-  // Soft-signal bot detection: require AT LEAST 2 suspicious signals to block,
-  // rather than treating any single signal as conclusive.
-  // Rationale: privacy-focused users (Brave with strict shields, Firefox with
-  // resistFingerprinting, older mobile WebViews) legitimately omit sec-ch-ua
-  // and/or Accept-Language. We were false-positive-blocking real users.
-  const secChUa = request.headers.get("sec-ch-ua");
-  const acceptLang = request.headers.get("accept-language");
+  // Hard-signal bot detection ONLY. Earlier we used soft heuristics (missing
+  // sec-ch-ua, missing accept-language, etc) and false-positive-blocked EU
+  // privacy users (Brave/Firefox/Chrome with strict shields) — Vercel logs
+  // showed steady EU traffic that GA4 never recorded because middleware
+  // returned 403 before the HTML rendered.
+  //
+  // Now we only block on:
+  //  (a) UA strings that are obviously forged (e.g. Chrome without Safari
+  //      fragment — no real Chrome ships without that), AND
+  //  (b) the request lacks ANY Accept header pointing at HTML (real browsers
+  //      always send one).
+  // Both must be true together. A privacy browser stripping sec-ch-ua is
+  // not enough to block.
   const acceptHeader = request.headers.get("accept") || "";
-  const isDesktopChrome = ua.includes("chrome/") && !ua.includes("mobile");
+  const isForgedChrome = ua.includes("chrome/") && !ua.includes("safari/");
+  const noHtmlIntent = !acceptHeader.includes("text/html") && !acceptHeader.includes("*/*");
 
-  const suspiciousSignals = [
-    isDesktopChrome && !secChUa,           // desktop Chrome without client hints
-    !acceptLang,                            // no language preference at all
-    !acceptHeader.includes("text/html"),    // not asking for HTML content
-    ua.includes("chrome/") && !ua.includes("safari/"), // Chrome UA without Safari fragment = forged
-  ].filter(Boolean).length;
-
-  // 2+ suspicious signals = block. Any single one alone = allow (could be a real user).
-  if (suspiciousSignals >= 2) return true;
+  if (isForgedChrome && noHtmlIntent) return true;
 
   return false;
 }
