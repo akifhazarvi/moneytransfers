@@ -54,13 +54,23 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
         ],
       },
-      // HTML pages: cache for 30 minutes, serve stale for up to 6 hours while revalidating
-      // Data updates every 6hrs via scrapers — no need for aggressive re-renders
-      // Excludes static assets already handled above
+      // HTML pages MUST NOT be CDN-cached because middleware.ts generates a
+      // per-request CSP nonce. If Vercel's edge cache serves cached HTML to
+      // user A while sending user B's response headers, the page's inline
+      // <script nonce="..."> tags carry user A's nonce but the CSP header
+      // declares user B's nonce — silently blocking gtag, theme-init, and
+      // every JSON-LD block. This was observed as intermittent GA blackouts
+      // and zero EU traffic in GA4 despite Vercel logs showing EU requests.
+      //
+      // private = browser may cache, but no shared/CDN caching.
+      // Vercel still serves these as dynamic functions; Next.js' built-in
+      // ISR/static rendering handles content freshness at the framework level.
+      // Data still refreshes every 6hrs via scrapers — no perf regression
+      // because user-side caching still works for repeat views.
       {
         source: "/((?!_next/|api/|go/|out/|logos/).*)",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=1800, stale-while-revalidate=21600" },
+          { key: "Cache-Control", value: "private, no-cache, must-revalidate" },
         ],
       },
     ];
