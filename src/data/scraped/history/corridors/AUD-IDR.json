@@ -988,5 +988,34 @@
         "receiveAmount": 1169150
       }
     }
+  },
+  {
+    "date": "2026-04-27",
+    "providers": {
+      "nab": {
+        "rate": 11981.4437,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1198144.37
+      },
+      "remitly": {
+        "rate": 12044.3914,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1192515.2
+      },
+      "commonwealth-bank": {
+        "rate": 11717.4496,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1171744.96
+      },
+      "paypal": {
+        "rate": 11847.1921,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1125483.25
+      }
+    }
   }
 ]

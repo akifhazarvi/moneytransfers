@@ -910,5 +910,22 @@
         "receiveAmount": 1886909
       }
     }
+  },
+  {
+    "date": "2026-04-27",
+    "providers": {
+      "remitly": {
+        "rate": 18521.2493,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1815268
+      },
+      "commonwealth-bank": {
+        "rate": 17760.1972,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1776020
+      }
+    }
   }
 ]

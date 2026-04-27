@@ -1498,5 +1498,52 @@
         "receiveAmount": 1017.09
       }
     }
+  },
+  {
+    "date": "2026-04-27",
+    "providers": {
+      "ria": {
+        "rate": 10.659,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1117.15
+      },
+      "taptap-send": {
+        "rate": 10.71,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1071
+      },
+      "deutsche-bank": {
+        "rate": 10.5967,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 672.36
+      },
+      "commerzbank": {
+        "rate": 10.4869,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 917.61
+      },
+      "xoom": {
+        "rate": 10.5143,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 1035.77
+      },
+      "remitly": {
+        "rate": 10.6061,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1055.41
+      },
+      "wise": {
+        "rate": 10.8379,
+        "fee": 6.05,
+        "markup": null,
+        "receiveAmount": 1018.22
+      }
+    }
   }
 ]

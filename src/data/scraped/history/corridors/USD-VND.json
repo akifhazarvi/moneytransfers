@@ -1192,5 +1192,34 @@
         "receiveAmount": 2568277
       }
     }
+  },
+  {
+    "date": "2026-04-27",
+    "providers": {
+      "remitly": {
+        "rate": 26086.5,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 2556738
+      },
+      "ria": {
+        "rate": 26687.97,
+        "fee": 1.9,
+        "markup": null,
+        "receiveAmount": 2668797
+      },
+      "xoom": {
+        "rate": 25532.7256,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 2553300
+      },
+      "wise": {
+        "rate": 26344.5,
+        "fee": 2.51,
+        "markup": null,
+        "receiveAmount": 2568325
+      }
+    }
   }
 ]

@@ -1090,5 +1090,34 @@
         "receiveAmount": 310.6
       }
     }
+  },
+  {
+    "date": "2026-04-27",
+    "providers": {
+      "uob": {
+        "rate": 3.0521,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 213.65
+      },
+      "hsbc-sg": {
+        "rate": 3.0984,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 309.84
+      },
+      "paypal": {
+        "rate": 2.9644,
+        "fee": 6.36,
+        "markup": null,
+        "receiveAmount": 277.58
+      },
+      "remitly": {
+        "rate": 3.033,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 297.26
+      }
+    }
   }
 ]
