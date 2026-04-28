@@ -1010,5 +1010,34 @@
         "receiveAmount": 4173.2
       }
     }
+  },
+  {
+    "date": "2026-04-28",
+    "providers": {
+      "ria": {
+        "rate": 43.539,
+        "fee": 2,
+        "markup": null,
+        "receiveAmount": 4391.47
+      },
+      "bank-of-america": {
+        "rate": 43.4343,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4343.43
+      },
+      "remitly": {
+        "rate": 44.582,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 4324.9
+      },
+      "wise": {
+        "rate": 45.0342,
+        "fee": 7.3,
+        "markup": null,
+        "receiveAmount": 4174.67
+      }
+    }
   }
 ]

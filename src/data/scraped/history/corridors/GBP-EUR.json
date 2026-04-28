@@ -6243,5 +6243,190 @@
         "receiveAmount": 111.21
       }
     }
+  },
+  {
+    "date": "2026-04-28",
+    "providers": {
+      "hsbc": {
+        "rate": 1.1116,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 111.16
+      },
+      "skrill": {
+        "rate": 1.1319,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 113.19
+      },
+      "taptap-send": {
+        "rate": 1.153,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 115.3
+      },
+      "xe": {
+        "rate": 1.1456,
+        "fee": 3,
+        "markup": 0.75,
+        "receiveAmount": 111.12
+      },
+      "western-union": {
+        "rate": 1.1348,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 110.09
+      },
+      "profee": {
+        "rate": 1.1369,
+        "fee": 2.5,
+        "markup": 1.5,
+        "receiveAmount": 110.85
+      },
+      "dahabshiil": {
+        "rate": 1.122,
+        "fee": 0.99,
+        "markup": 2.79,
+        "receiveAmount": 111.09
+      },
+      "currencies-direct": {
+        "rate": 1.1375,
+        "fee": 0,
+        "markup": 1.45,
+        "receiveAmount": 113.75
+      },
+      "rbs": {
+        "rate": 1.1278,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.78
+      },
+      "ofx": {
+        "rate": 1.1522,
+        "fee": 0,
+        "markup": 0.17,
+        "receiveAmount": 115.22
+      },
+      "currencyfair": {
+        "rate": 1.1472,
+        "fee": 2.62,
+        "markup": 0.61,
+        "receiveAmount": 111.71
+      },
+      "transfergo": {
+        "rate": 1.134,
+        "fee": 0,
+        "markup": 1.75,
+        "receiveAmount": 113.4
+      },
+      "instarem": {
+        "rate": 1.1489,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 114.89
+      },
+      "mukuru": {
+        "rate": 1.1494,
+        "fee": 1.89,
+        "markup": 0.42,
+        "receiveAmount": 112.77
+      },
+      "paysend": {
+        "rate": 1.1351,
+        "fee": 1,
+        "markup": 1.66,
+        "receiveAmount": 112.37
+      },
+      "remitly": {
+        "rate": 1.1425,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 112.54
+      },
+      "revolut": {
+        "rate": 1.1503,
+        "fee": 20.79,
+        "markup": 0.34,
+        "receiveAmount": 91.11
+      },
+      "wise": {
+        "rate": 1.1547,
+        "fee": 0.92,
+        "markup": null,
+        "receiveAmount": 114.4
+      },
+      "ria": {
+        "rate": 1.1356,
+        "fee": 4.5,
+        "markup": null,
+        "receiveAmount": 113.85
+      },
+      "barclays": {
+        "rate": 1.1227,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.27
+      },
+      "xoom": {
+        "rate": 1.1027,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 109.18
+      },
+      "starling": {
+        "rate": 1.1529,
+        "fee": 5.9,
+        "markup": null,
+        "receiveAmount": 108.49
+      },
+      "moneygram": {
+        "rate": 1.1344,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 113.44
+      },
+      "nationwide": {
+        "rate": 1.1286,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 95.93
+      },
+      "lloyds": {
+        "rate": 1.1125,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 111.25
+      },
+      "santander": {
+        "rate": 1.1209,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.09
+      },
+      "monese": {
+        "rate": 1.1542,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 111.95
+      },
+      "paypal": {
+        "rate": 1.106,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 107.29
+      },
+      "halifax": {
+        "rate": 1.1126,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 111.26
+      },
+      "natwest": {
+        "rate": 1.1278,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112.78
+      }
+    }
   }
 ]
