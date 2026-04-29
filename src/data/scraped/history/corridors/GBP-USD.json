@@ -4214,5 +4214,106 @@
         "receiveAmount": 112.71
       }
     }
+  },
+  {
+    "date": "2026-04-29",
+    "providers": {
+      "paypal": {
+        "rate": 1.292,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 125.34
+      },
+      "western-union": {
+        "rate": 1.3335,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 130.7
+      },
+      "lloyds": {
+        "rate": 1.3042,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 118.03
+      },
+      "santander": {
+        "rate": 1.3139,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 98.54
+      },
+      "barclays": {
+        "rate": 1.3156,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 131.56
+      },
+      "skrill": {
+        "rate": 1.3126,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 131.26
+      },
+      "remitly": {
+        "rate": 1.348,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 133.46
+      },
+      "nationwide": {
+        "rate": 1.3185,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 112.08
+      },
+      "hsbc": {
+        "rate": 1.3419,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 134.19
+      },
+      "rbs": {
+        "rate": 1.3211,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 132.11
+      },
+      "natwest": {
+        "rate": 1.3211,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 132.11
+      },
+      "monese": {
+        "rate": 1.3513,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 131.07
+      },
+      "moneygram": {
+        "rate": 1.341,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 134.1
+      },
+      "halifax": {
+        "rate": 1.3033,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 117.95
+      },
+      "worldremit": {
+        "rate": 1.3349,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 130.83
+      },
+      "xoom": {
+        "rate": 1.2944,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 126.86
+      }
+    }
   }
 ]
