@@ -3,7 +3,7 @@
  *
  * Classifies every corridor page into 3 tiers based on real data quality:
  *   Tier 1: Editorial corridors OR corridors with 5+ providers → always index
- *   Tier 2: 1-4 providers with data OR country pages → index (conditional value)
+ *   Tier 2: 2-4 providers with data OR country pages with ≥1 provider → index (conditional value)
  *   Tier 3: Zero provider data, template only → noindex + remove from sitemap
  *
  * This module drives both sitemap.ts (which corridors to submit) and
@@ -46,13 +46,19 @@ export function getCorridorTier(
   // Tier 1: Rich comparison data (5+ providers)
   if (providerCount >= 5) return 1;
 
-  // Tier 2: Some data (1-4 providers)
-  if (providerCount >= 1) return 2;
+  // Tier 2: Meaningful data (2-4 providers). Single-provider pages used to
+  // qualify here but Google flagged ~400 of them as soft 404 — a one-row
+  // comparison table reads as "no real comparison" to the quality classifier.
+  // Demote to Tier 3 so they 404 instead of rendering a thin shell.
+  if (providerCount >= 2) return 2;
 
-  // Tier 2: Country pages (navigational hubs, even without corridor-specific data)
-  if (isCountryPage) return 2;
+  // Tier 2: Country pages with at least one provider — navigational hubs with
+  // real comparison data. Country pages with zero providers are pure shells:
+  // no comparison table, no quotes, nothing a user can act on. Demoting them
+  // to Tier 3 stops Google from burning crawl budget on 25 empty pages.
+  if (isCountryPage && providerCount >= 1) return 2;
 
-  // Tier 3: No data, template only
+  // Tier 3: No data or single-provider — too thin to index.
   return 3;
 }
 

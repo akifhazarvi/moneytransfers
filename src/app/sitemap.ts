@@ -15,6 +15,7 @@ import { join } from "path";
 
 const SITE_URL = "https://sendmoneycompare.com";
 import { shouldIncludeInSitemap } from "@/lib/corridor-tiers";
+import { INDEXED_HISTORY_SLUGS } from "@/lib/seo-indexing";
 
 // ── Issue 5 fix: Use stable dates for truly static content ──
 // Google's John Mueller recommends lastmod should reflect actual content changes,
@@ -51,7 +52,11 @@ function getDataUpdatedDate(): string {
 
 const DATA_UPDATED = getDataUpdatedDate();
 
-const LOCALES = ["es", "fr", "pt"] as const;
+// Non-English locales (es/fr/pt) were retired on 2026-04-27 — middleware
+// returns 410 Gone for those prefixes. The helpers below previously fanned
+// every URL out across 3 locales; they now no-op so we ship a 4× smaller
+// sitemap and stop submitting URLs that no longer resolve.
+const LOCALES: readonly string[] = [];
 
 const INDEXED_IBAN_SLUGS = new Set([
   "united-kingdom", "germany", "france", "netherlands", "spain",
@@ -122,56 +127,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("for-ai", DATA_UPDATED),
   ];
 
-  // ── Issue 1 fix: ALL static pages now have locale variants ──
-  // Google's Search Central docs recommend including all indexable locale
-  // variants in the sitemap to ensure complete crawl discovery.
-  const staticLocalePages: MetadataRoute.Sitemap = [
-    ...withLocales("", DATA_UPDATED), // Homepage has live data
-    ...withLocales("send-money", DATA_UPDATED),
-    ...withLocales("companies", DATA_UPDATED),
-    ...withLocales("compare", DATA_UPDATED),
-    ...withLocales("currency-converter", DATA_UPDATED),
-    ...withLocales("guides", STATIC_HUB_DATE),
-    ...withLocales("travel", STATIC_HUB_DATE),
-    ...withLocales("iban", STATIC_HUB_DATE),
-    ...withLocales("swift-codes", STATIC_HUB_DATE),
-    // exchange-rates locales handled in exchangeRatesPage via entryWithLocales()
-    ...withLocales("business", STATIC_HUB_DATE),
-    ...withLocales("news", STATIC_HUB_DATE),
-    ...withLocales("about", STATIC_HUB_DATE),
-    ...withLocales("contact", STATIC_HUB_DATE),
-    // Previously missing locale variants — now included
-    ...withLocales("editorial-policy", STATIC_CONTENT_DATE),
-    ...withLocales("how-we-review", STATIC_CONTENT_DATE),
-    ...withLocales("methodology", STATIC_CONTENT_DATE),
-    ...withLocales("privacy-policy", STATIC_CONTENT_DATE),
-    ...withLocales("terms", STATIC_CONTENT_DATE),
-    ...withLocales("cookies", STATIC_CONTENT_DATE),
-    ...withLocales("disclaimer", STATIC_CONTENT_DATE),
-  ];
-
+  // Corridor pages are English-only — locale variants were retired
+  // (middleware returns 410 Gone for /es/, /fr/, /pt/).
   const indexedCorridors = allCorridors
     .filter((c) => shouldIncludeInSitemap(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage));
-  const corridorPages: MetadataRoute.Sitemap = [
-    ...indexedCorridors.map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED)),
-    ...indexedCorridors.flatMap((c) => withLocales(`send-money/${c.slug}`, DATA_UPDATED)),
-  ];
+  const corridorPages: MetadataRoute.Sitemap = indexedCorridors.map((c) =>
+    entry(`send-money/${c.slug}`, DATA_UPDATED),
+  );
 
+  // Travel guides are English-only editorial content. Locale variants are
+  // not currently translated; including them in the sitemap submits empty
+  // shells, so we emit English only.
   const travelSlugs = getAllTravelGuideSlugs();
-  const travelPages: MetadataRoute.Sitemap = [
-    ...travelSlugs.map((slug) => entry(`travel/${slug}`, STATIC_HUB_DATE)),
-    ...travelSlugs.flatMap((slug) => withLocales(`travel/${slug}`, STATIC_HUB_DATE)),
-  ];
+  const travelPages: MetadataRoute.Sitemap = travelSlugs.map((slug) =>
+    entry(`travel/${slug}`, STATIC_HUB_DATE),
+  );
 
-  // Only include providers that have editorial reviews (others are noindexed)
+  // Only include providers that have editorial reviews (others are noindexed).
+  // Company pages are English-only (locales are noindex'd in [locale]/companies/[slug])
+  // so we no longer emit locale variants here.
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));
   const reviewDateMap = new Map(providerReviews.map((r) => [r.slug, r.updatedAt || DATA_UPDATED]));
   const providerPages: MetadataRoute.Sitemap = providers
     .filter((p) => reviewedSlugs.has(p.slug))
-    .flatMap((p) => {
-      const lastmod = reviewDateMap.get(p.slug) || DATA_UPDATED;
-      return [entry(`companies/${p.slug}`, lastmod), ...withLocales(`companies/${p.slug}`, lastmod)];
-    });
+    .map((p) => entry(`companies/${p.slug}`, reviewDateMap.get(p.slug) || DATA_UPDATED));
 
   // Only include comparison pages where both providers have editorial reviews.
   // Combinations involving unreviewed providers lack editorial depth (thin content).
@@ -213,18 +192,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...entryWithLocales("exchange-rates", DATA_UPDATED),
     ...entryWithLocales("remittance-cost-index", DATA_UPDATED),
     ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, DATA_UPDATED)),
-    // History hub + per-corridor history pages
+    // History hub + only the 12 GSC-validated history pages (≥10 impressions).
+    // The other 167 history pages are noindexed via middleware — submitting them
+    // wastes crawl budget and dilutes sitemap quality signals.
     ...entryWithLocales("exchange-rates/history", DATA_UPDATED),
-    ...getAllInsights(2).map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, DATA_UPDATED)),
+    ...getAllInsights(2)
+      .filter((i) => INDEXED_HISTORY_SLUGS.has(corridorToSlug(i.corridor)))
+      .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, DATA_UPDATED)),
   ];
 
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
     .filter((c) => c.slug && INDEXED_IBAN_SLUGS.has(c.slug))
-    .flatMap((c) => [entry(`iban/${c.slug}`, STATIC_HUB_DATE), ...withLocales(`iban/${c.slug}`, STATIC_HUB_DATE)]);
+    .map((c) => entry(`iban/${c.slug}`, STATIC_HUB_DATE));
 
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
     .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
-    .flatMap((c) => [entry(`swift-codes/${c.slug}`, STATIC_HUB_DATE), ...withLocales(`swift-codes/${c.slug}`, STATIC_HUB_DATE)]);
+    .map((c) => entry(`swift-codes/${c.slug}`, STATIC_HUB_DATE));
 
   // Business content is English-only — locale variants are noindexed
   const businessHubPages: MetadataRoute.Sitemap = [
@@ -242,7 +225,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
-    ...staticLocalePages,
     ...corridorPages,
     ...travelPages,
     ...providerPages,
