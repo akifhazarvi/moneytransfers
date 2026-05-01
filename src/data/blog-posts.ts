@@ -825,6 +825,7 @@ export const blogPosts: BlogPost[] = [
 <tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup, transparent fees, 284K+ reviews</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>4.6/5 Trustpilot, Express in minutes</td></tr>
 <tr><td><strong>Cheapest Option</strong></td><td><a href="/companies/instarem">Instarem</a></td><td>Zero fees, 0.42% avg markup</td></tr>
+<tr><td><strong>Best for Diaspora Corridors</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>4.7/5 Trustpilot (32K+ reviews), 80+ countries, 95% under 3 min</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Based on real quotes from our comparison engine. <a href="/send-money">Compare live rates →</a></p>
@@ -864,6 +865,13 @@ export const blogPosts: BlogPost[] = [
 <p><a href="/companies/ofx">OFX</a> (formerly OzForex) specializes in large transfers for businesses and individuals. They offer no transfer fees, dedicated dealers for transfers over $10,000, and forward contracts to lock in exchange rates.</p>
 <p><strong>Best for:</strong> Large transfers ($10,000+), business payments, and property purchases abroad. Dedicated dealer support.</p>
 <p><strong>Drawbacks:</strong> Higher markup than specialist remittance services. Minimum transfer amounts in some corridors.</p>`,
+      },
+      {
+        heading: "6. TapTap Send — Best for Africa & South Asian Diaspora",
+        content: `<p><strong>Trustpilot: 4.7/5 (32,000+ reviews — highest in money transfer) | Markup: ~0.7% | Fee: $0 on most corridors</strong></p>
+<p><a href="/companies/taptap-send">TapTap Send</a> has the highest Trustpilot rating of any money transfer provider we track — 4.7 from over 32,000 reviews. It's purpose-built for diaspora remittances to Africa, South Asia, and beyond: 80+ countries, 65+ currencies, and <strong>95% of transfers delivered in under 3 minutes</strong>.</p>
+<p><strong>Best for:</strong> Regular senders to Nigeria, Ghana, Kenya, Pakistan, Bangladesh, Nepal, Colombia, and other key remittance corridors. Zero fees on most corridors with a ~0.7% markup. Accepts debit card, bank transfer, Google Pay, Apple Pay, and UPI. Multi-currency account available for UK and EU users. Founded by Michael Faye, who also founded GiveDirectly.</p>
+<p><strong>Drawbacks:</strong> Mobile app only — no full website transfer experience. No cash pickup option. Multi-currency account limited to UK and EU.</p>`,
       },
       {
         heading: "Providers to Avoid",
@@ -10503,7 +10511,7 @@ export const blogPosts: BlogPost[] = [
 <p>For a £500 transfer:</p>
 <ul>
 <li><strong>Wise</strong> and <strong>Remitly</strong> compete closely. Wise wins on rate transparency; Remitly wins on speed.</li>
-<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Zero fee with a competitive NPR rate — strong option for the UK corridor.</li>
+<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Zero fee with a ~0.7% markup — strong option for the UK corridor. 95% of transfers arrive in under 3 minutes.</li>
 <li><strong>WorldRemit</strong>: Good all-rounder with multiple delivery options including eSewa.</li>
 </ul>
 
@@ -10697,7 +10705,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money to Nepal?",
         answer:
-          "Wise consistently delivers the most NPR per dollar, pound, or Australian dollar because it uses the mid-market rate with 0% markup. Remitly and TapTap Send (from the UK) compete closely on smaller amounts. Western Union and MoneyGram are the most expensive options but necessary for cash pickup in rural areas.",
+          "Wise consistently delivers the most NPR per dollar, pound, or Australian dollar because it uses the mid-market rate with 0% markup. Remitly and TapTap Send (from the UK, zero fee with ~0.7% markup) compete closely on smaller amounts — TapTap Send delivers 95% of transfers in under 3 minutes. Western Union and MoneyGram are the most expensive options but necessary for cash pickup in rural areas.",
       },
       {
         question: "How long does it take to send money to Nepal?",
@@ -11491,6 +11499,7 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently cheapest for £500+</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Express to bKash — near-instant delivery to 60M+ accounts, 24/7</td></tr>
+<tr><td><strong>Best Zero-Fee Option</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, ~0.7% markup — 95% of transfers under 3 minutes. 4.7/5 Trustpilot</td></tr>
 <tr><td><strong>Best for bKash</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Supports bKash, Nagad, and bank deposit with competitive GBP rates</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across Bangladesh including rural districts</td></tr>
 </tbody>
@@ -11502,6 +11511,7 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong>: ~£5 fee, 0% markup (mid-market rate) — consistently best value for medium to large amounts</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Low fee, competitive rate — Express delivery in seconds via bKash. First transfer fee often waived.</li>
+<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Zero fee, ~0.7% markup — among the tightest total costs available. 95% of transfers arrive in under 3 minutes. Accepts debit card, bank transfer, Google Pay, Apple Pay. Highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews).</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good BDT rates with bKash, Nagad, and bank deposit delivery options</li>
 <li><strong><a href="/companies/xe">XE</a></strong>: No transfer fees, competitive rates — suited for larger transfers</li>
 <li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but extensive cash pickup network across Bangladesh, including Sylhet and Chittagong divisions</li>
@@ -11586,6 +11596,7 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~£5</td><td>0%</td><td>৳140,000 (example)</td></tr>
 <tr><td><strong>Remitly</strong></td><td>~£2</td><td>0.3–0.5%</td><td>৳139,200 (example)</td></tr>
+<tr><td><strong>TapTap Send</strong></td><td>£0</td><td>~0.7%</td><td>৳139,020 (example)</td></tr>
 <tr><td><strong>HSBC UK</strong></td><td>£15–£30</td><td>2.5–4%</td><td>৳133,000 (example)</td></tr>
 <tr><td><strong>Barclays</strong></td><td>£25</td><td>3–4%</td><td>৳132,000 (example)</td></tr>
 </tbody>
@@ -11635,7 +11646,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UK to Bangladesh?",
         answer:
-          "Wise and Remitly consistently offer the best value for GBP to BDT transfers. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with bKash Express delivery in seconds. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
+          "Wise, Remitly, and TapTap Send consistently offer the best value for GBP to BDT transfers. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with bKash Express delivery in seconds. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
       },
       {
         question: "How long does it take to send money from UK to Bangladesh?",
@@ -11900,6 +11911,7 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Best Overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>0% markup on mid-market rate, ~£5 fee — consistently transparent</td></tr>
 <tr><td><strong>Best for Nigeria Corridor</strong></td><td><a href="/companies/lemfi">LemFi</a></td><td>Zero-fee, competitive NGN rates — built specifically for African diaspora</td></tr>
+<tr><td><strong>Best Zero-Fee + Speed</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, ~0.7% markup — 95% of transfers under 3 minutes. 4.7/5 Trustpilot</td></tr>
 <tr><td><strong>Fastest Transfer</strong></td><td><a href="/companies/worldremit">WorldRemit</a></td><td>Bank deposit in minutes, mobile wallet delivery available</td></tr>
 <tr><td><strong>Best for Cash Pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>Agent locations across all 36 Nigerian states</td></tr>
 </tbody>
@@ -11911,6 +11923,7 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li><strong><a href="/companies/wise">Wise</a></strong>: ~£5 fee, 0% markup (mid-market rate) — best for transparency and larger amounts</li>
 <li><strong><a href="/companies/lemfi">LemFi</a></strong>: Zero fees, competitive NGN rates — purpose-built for UK-Africa transfers. Strong on the Nigeria corridor.</li>
+<li><strong><a href="/companies/taptap-send">TapTap Send</a></strong>: Zero fee, ~0.7% markup — highly competitive total cost with blazing speed (95% of transfers under 3 minutes). Accepts debit card, bank transfer, Google Pay, Apple Pay. Nigeria is one of TapTap Send's core corridors. Highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews).</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Good rates with bank deposit, cash pickup, and mobile wallet delivery options</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: Competitive rates with Express delivery in minutes</li>
 <li><strong><a href="/companies/western-union">Western Union</a></strong>: Higher cost but unmatched cash pickup network — over 10,000 agent locations across Nigeria</li>
@@ -11976,6 +11989,7 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr class="blog-row-highlight"><td><strong>Wise</strong></td><td>~£5</td><td>0%</td><td>₦2,050,000 (example)</td></tr>
 <tr><td><strong>LemFi</strong></td><td>£0</td><td>0.5–1%</td><td>₦2,030,000 (example)</td></tr>
+<tr><td><strong>TapTap Send</strong></td><td>£0</td><td>~0.7%</td><td>₦2,036,000 (example)</td></tr>
 <tr><td><strong>WorldRemit</strong></td><td>~£2</td><td>0.5–1.5%</td><td>₦2,010,000 (example)</td></tr>
 <tr><td><strong>HSBC UK</strong></td><td>£15–£30</td><td>3–5%</td><td>₦1,900,000 (example)</td></tr>
 <tr><td><strong>Barclays</strong></td><td>£25</td><td>3–5%</td><td>₦1,890,000 (example)</td></tr>
@@ -12007,7 +12021,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UK to Nigeria?",
         answer:
-          "Wise and LemFi consistently offer the best value for GBP to NGN transfers. Wise uses the mid-market rate with a ~£5 fee. LemFi offers zero-fee transfers with competitive Naira rates. WorldRemit and Remitly are also competitive. Always compare the total Naira received, not just the headline fee — provider differences on this corridor can be ₦50,000–₦150,000 on £1,000.",
+          "Wise, LemFi, and TapTap Send consistently offer the best value for GBP to NGN transfers. Wise uses the mid-market rate with a ~£5 fee. LemFi offers zero-fee transfers with competitive Naira rates. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes — Nigeria is one of their core corridors. WorldRemit and Remitly are also competitive. Always compare the total Naira received, not just the headline fee — provider differences on this corridor can be ₦50,000–₦150,000 on £1,000.",
       },
       {
         question: "How long does it take to send money from UK to Nigeria?",
@@ -12285,11 +12299,12 @@ export const blogPosts: BlogPost[] = [
 <tbody>
 <tr><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market rate, 0% markup, $4–7 fee. 1–2 day delivery to Bancolombia, Davivienda, BBVA Colombia</td></tr>
 <tr><td><strong>Best for Nequi</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct Nequi delivery within minutes. Express fee $2–4, economy $0–2. Competitive COP rates</td></tr>
+<tr><td><strong>Best zero-fee option</strong></td><td><a href="/companies/taptap-send">TapTap Send</a></td><td>Zero fee, ~0.7% markup — 95% of transfers under 3 minutes. 4.7/5 Trustpilot, 32K+ reviews</td></tr>
 <tr><td><strong>Best for cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a></td><td>10,000+ Efecty locations plus Gana and Super Giros networks. Available within minutes</td></tr>
 <tr><td><strong>Best from Spain</strong></td><td><a href="/companies/ria">Ria</a></td><td>Strong EUR→COP rates. Cash pickup at Efecty and Su Red networks. Popular with Colombian community in Spain</td></tr>
 <tr><td><strong>Best for large amounts</strong></td><td><a href="/companies/ofx">OFX</a></td><td>No transfer fees, dedicated FX dealers. Strong for amounts over $5,000 and business payments</td></tr>
 </tbody></table></div>
-<p><strong>From the US</strong> (largest corridor): Wise and Remitly dominate. Fund via ACH (free) or debit card. Remitly offers Nequi delivery; Wise deposits to any Colombian bank.</p>
+<p><strong>From the US</strong> (largest corridor): Wise, Remitly, and TapTap Send all compete strongly. Fund via ACH (free) or debit card. Remitly offers Nequi delivery; Wise deposits to any Colombian bank; TapTap Send offers zero-fee transfers with 95% arriving in under 3 minutes.</p>
 <p><strong>From Spain</strong> (second-largest corridor): Ria and Western Union have the strongest local infrastructure. Wise also supports EUR→COP with competitive rates and SEPA funding.</p>
 <p><strong>From Chile/Ecuador</strong>: Options are more limited. Western Union and MoneyGram offer cash-to-cash services. Wise supports CLP→COP from Chile.</p>`,
       },
@@ -13607,9 +13622,9 @@ export const blogPosts: BlogPost[] = [
     slug: "best-money-transfer-apps-expats-2026",
     title: "Best Money Transfer Apps for Expats Living Abroad (2026)",
     metaDescription:
-      "The 7 best money transfer apps for expats in 2026 — ranked by fees, multi-currency features, and global reach. Wise, Revolut, Remitly, OFX and more compared for regular international senders.",
+      "The 8 best money transfer apps for expats in 2026 — ranked by fees, multi-currency features, and global reach. Wise, Revolut, Remitly, TapTap Send, OFX and more compared.",
     excerpt:
-      "Living abroad means regular international transfers — salary conversions, paying bills back home, sending money to family. Here are the 7 best apps for expats, ranked by what actually matters.",
+      "Living abroad means regular international transfers — salary conversions, paying bills back home, sending money to family. Here are the 8 best apps for expats, ranked by what actually matters.",
     category: "Guides",
     readTime: "11 min read",
     publishedAt: "2026-04-11",
@@ -13650,7 +13665,11 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Why expats love it:</strong> XE's rate alert system is the most sophisticated — set target rates and get notified when your preferred pair hits your price. Good for expats timing large conversions.</p>
 <ul><li>Fees: Low flat fees</li><li>Rate: Competitive (small markup)</li><li>Corridors: 130+ countries</li><li>Best for: Expats who want to time currency conversions</li></ul>
 
-<h3>7. <a href="/companies/western-union">Western Union</a> — Best for Cash Pickup Anywhere</h3>
+<h3>7. <a href="/companies/taptap-send">TapTap Send</a> — Best for Diaspora Remittances</h3>
+<p><strong>Why expats love it:</strong> TapTap Send is built for expats sending money home to Africa, South Asia, and Latin America. Zero fees on most corridors, a ~0.7% markup, and <strong>95% of transfers delivered in under 3 minutes</strong>. The highest Trustpilot rating in money transfer — 4.7 from 32,000+ reviews. Accepts debit card, bank transfer, Google Pay, Apple Pay, and UPI.</p>
+<ul><li>Fees: $0 on most corridors, small fee on select routes</li><li>Rate: ~0.7% markup</li><li>Corridors: 80+ countries, 65+ currencies</li><li>Multi-currency card: Available for UK & EU users</li><li>Best for: Expats sending to Nigeria, Ghana, Kenya, Pakistan, Bangladesh, Nepal, Colombia, India and other diaspora corridors</li></ul>
+
+<h3>8. <a href="/companies/western-union">Western Union</a> — Best for Cash Pickup Anywhere</h3>
 <p><strong>Why expats love it:</strong> The only option when your recipient needs cash and doesn't have a bank account. 500,000+ agent locations worldwide. Available in countries where digital providers have limited reach.</p>
 <ul><li>Fees: $5–15 per transfer</li><li>Rate: Higher markup (2-4%)</li><li>Corridors: 200+ countries</li><li>Best for: Sending to recipients without bank accounts or in remote areas</li></ul>`,
       },
@@ -13671,7 +13690,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     faqs: [
-      { question: "What is the best money transfer app for expats in 2026?", answer: "Wise is the best overall for expats — mid-market exchange rate, multi-currency account with 40+ currencies, debit card for local spending, and batch payments. For sending money home to family in emerging markets, Remitly offers the best corridor coverage and speed. For an all-in-one financial app, Revolut combines banking, transfers, and investing." },
+      { question: "What is the best money transfer app for expats in 2026?", answer: "Wise is the best overall for expats — mid-market exchange rate, multi-currency account with 40+ currencies, debit card for local spending, and batch payments. For sending money home to family in emerging markets, Remitly offers the best corridor coverage and speed. For diaspora expats sending to Africa, South Asia, or Latin America, TapTap Send stands out with zero fees, a ~0.7% markup, and 95% of transfers under 3 minutes — plus the highest Trustpilot rating in money transfer (4.7 from 32,000+ reviews). For an all-in-one financial app, Revolut combines banking, transfers, and investing." },
       { question: "How can expats avoid high exchange rate fees?", answer: "Use providers that show the mid-market rate (Wise, Revolut). Fund transfers via bank transfer instead of card. Avoid weekend conversions on Revolut (0.5-1% markup). Set up rate alerts on XE to time large conversions. Compare providers before every transfer — even small rate differences add up over a year of regular sending." },
       { question: "Can I use Wise in any country?", answer: "Wise is available in 170+ countries for sending money. Multi-currency accounts with local bank details are available in fewer countries — check Wise's website for your specific location. The Wise debit card works in 200+ countries but cannot be issued in all countries." },
       { question: "Is Revolut or Wise better for expats?", answer: "Wise is better for pure money transfers — mid-market rate with 0% markup. Revolut is better if you want an all-in-one app (banking, transfers, crypto, insurance). Wise's multi-currency account has more currency options (40+ vs 30+). Revolut offers free exchange up to €1,000/month on Standard plan." },
