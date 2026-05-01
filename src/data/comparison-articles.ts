@@ -2800,6 +2800,549 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
     ],
   },
+  // ============================
+  // Chase vs HSBC — head-to-head bank international transfer comparison
+  // GSC: pos 9.6, 5 impressions — one editorial article away from page 1
+  // ============================
+  {
+    slug: "chase-vs-hsbc",
+    providerA: "chase",
+    providerB: "hsbc",
+    title: "Chase vs HSBC 2026 — Which Bank Charges Less for International Transfers?",
+    metaDescription:
+      "Chase vs HSBC for international wires: Chase charges $40–50 per outgoing wire plus 3–5% FX markup. HSBC offers 'Global Transfers' free between HSBC accounts. See which bank costs less and where Wise beats both.",
+    updatedAt: "2026-04-30",
+    readTime: "11 min read",
+    intro:
+      "Chase and HSBC are two of the largest banks in the world, and millions of US, UK, and international customers reach for them when they need to send money abroad. Both banks let you wire foreign currency from inside their app — but neither is cheap, and the cost structures differ in ways that matter. Chase charges a flat $40–50 per outgoing international wire plus a 3–5% FX markup baked into the exchange rate. HSBC's pitch is 'Global Transfers' — free wires between HSBC accounts in different countries — but only if both ends are HSBC, and the FX markup is still 2–4%. This comparison breaks down what each actually costs on a real $1,000 transfer, where one beats the other, and where a specialist provider beats both by enough to make using either bank a financial mistake.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Chase vs HSBC at a Glance",
+        content: `<p>Both Chase and HSBC are systemically important banks with retail operations spanning multiple countries. They are not specialist money transfer providers. International transfers are a side product, priced for convenience rather than competitiveness.</p>
+
+<table>
+<tr><th>Feature</th><th>Chase</th><th>HSBC</th></tr>
+<tr><td>HQ</td><td>New York, US (JPMorgan Chase)</td><td>London, UK</td></tr>
+<tr><td>Best for</td><td>Existing Chase customers, US domestic</td><td>HSBC-to-HSBC global transfers, UK/HK/Asia presence</td></tr>
+<tr><td>Outgoing wire fee</td><td>$40–50 (online), $50 (in-branch)</td><td>£4 / $0–35 depending on plan + market</td></tr>
+<tr><td>FX markup (typical)</td><td>3–5% above mid-market</td><td>2–4% above mid-market</td></tr>
+<tr><td>HSBC-to-HSBC free transfer</td><td>Not available</td><td>Yes — Global Transfers between HSBC accounts</td></tr>
+<tr><td>Receiving fee (incoming)</td><td>$15</td><td>£0–9 (varies by region)</td></tr>
+<tr><td>Multi-currency account</td><td>No retail option</td><td>HSBC Global Money Account (US/UK retail)</td></tr>
+<tr><td>Speed</td><td>1–4 business days (SWIFT)</td><td>Minutes (HSBC-to-HSBC) or 1–4 days (SWIFT)</td></tr>
+<tr><td>Mobile app transfers</td><td>Yes (Zelle for domestic)</td><td>Yes (Global Money / Global View)</td></tr>
+<tr><td>Branch network</td><td>4,700+ US branches</td><td>~3,500 globally, 60+ countries</td></tr>
+<tr><td>Cash pickup</td><td>No</td><td>No</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> Chase is built for US domestic banking with international wires as an afterthought. HSBC is built around global presence — its <strong>Global Transfers</strong> product (HSBC-to-HSBC, free, instant) is genuinely useful if both you and your recipient hold HSBC accounts. Neither is competitive with specialist providers like <a href="/companies/wise">Wise</a> for one-off transfers to non-bank recipients.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Fees: What Chase and HSBC Actually Charge",
+        content: `<p>Both banks layer multiple costs on a single international transfer. Understanding the stack matters because the headline number ("$40 wire fee") is rarely the full cost.</p>
+
+<h3>Chase International Wire Fees</h3>
+<ul>
+<li><strong>Outgoing wire (online, in foreign currency)</strong>: $40 flat fee per transfer</li>
+<li><strong>Outgoing wire (in-branch or by phone)</strong>: $50 flat fee</li>
+<li><strong>Outgoing wire (in USD to foreign country)</strong>: $40–50, but recipient pays correspondent bank lifting fees of $10–30</li>
+<li><strong>Incoming international wire</strong>: $15 per transfer</li>
+<li><strong>FX markup</strong>: 3–5% above mid-market on consumer accounts. Chase Private Client and Chase Sapphire Banking customers see 1–3% markup instead</li>
+<li><strong>Wire reversal / amendment fee</strong>: $15–35 if you need to change details after submission</li>
+</ul>
+
+<p>On a $1,000 USD→EUR consumer wire, the typical Chase cost stack is: $40 flat fee + ~$30–50 in FX markup = <strong>$70–90 total cost</strong>. Chase doesn't disclose the markup percentage anywhere in the wire flow — you have to compare the offered EUR amount against the live mid-market rate to derive it.</p>
+
+<h3>HSBC International Transfer Fees</h3>
+<p>HSBC's pricing is more fragmented because it varies by country, account type, and destination:</p>
+<ul>
+<li><strong>HSBC US — outgoing international wire</strong>: $35 (Premier/Advance), $50 (regular)</li>
+<li><strong>HSBC UK — outgoing international wire</strong>: £4 standard, £9 to non-HSBC, £0 if both ends are HSBC and within the same Global Money account</li>
+<li><strong>HSBC HK — outgoing TT</strong>: HK$0–80 depending on plan</li>
+<li><strong>HSBC-to-HSBC Global Transfer</strong>: Free, instant, between HSBC accounts in different countries (this is the genuinely good HSBC product)</li>
+<li><strong>FX markup</strong>: 2–4% on standard accounts, 1–2.5% on HSBC Premier and Jade. Better than Chase but still 5–10× a specialist provider's markup</li>
+<li><strong>Incoming international wire</strong>: £0–9 depending on UK product, $0 in HSBC US</li>
+</ul>
+
+<p>On a £1,000 GBP→USD wire from HSBC UK to a non-HSBC account, the typical cost stack is: £4 wire fee + ~£25–40 in FX markup = <strong>£29–44 total cost</strong>. The HSBC-to-HSBC route on the same amount costs £0 + the same ~£25–40 FX markup = <strong>£25–40 total cost</strong>. The free wire only saves you the £4 — the markup remains the dominant cost.</p>
+
+<table>
+<tr><th>Cost component</th><th>Chase (consumer)</th><th>HSBC (standard)</th><th>HSBC (Premier)</th></tr>
+<tr><td>Flat wire fee</td><td>$40–50</td><td>$35–50 / £4–9</td><td>$0–35 / £0</td></tr>
+<tr><td>FX markup</td><td>3–5%</td><td>2–4%</td><td>1–2.5%</td></tr>
+<tr><td>HSBC-to-HSBC option</td><td>N/A</td><td>Free + 2–4% markup</td><td>Free + 1–2.5% markup</td></tr>
+<tr><td>Incoming fee</td><td>$15</td><td>£0–9 / $0</td><td>£0 / $0</td></tr>
+<tr><td>Total on $1,000 (consumer)</td><td>~$70–90</td><td>~$60–80</td><td>~$30–55</td></tr>
+</table>
+
+<p><strong>Bottom line on fees:</strong> HSBC is consistently cheaper than Chase by $10–35 on a $1,000 wire, and HSBC Premier/Jade narrows the gap to specialist providers. But "consistently cheaper than Chase" still means 8–10× more expensive than <a href="/companies/wise">Wise</a>.</p>`,
+      },
+      {
+        id: "exchange-rates",
+        heading: "Exchange Rates: The Hidden Cost That Dwarfs the Wire Fee",
+        content: `<p>This is where both banks make most of their money on international transfers, and where customers almost universally underestimate the cost.</p>
+
+<p><strong>Chase</strong> sets a daily international transfer FX rate that includes a markup of <strong>3–5%</strong> on consumer accounts (sometimes 5–7% on minor currencies). The rate is shown to you in the wire flow but never compared against the mid-market rate. On a $10,000 transfer, a 4% markup costs you <strong>$400</strong> — ten times the $40 wire fee.</p>
+
+<p><strong>HSBC</strong> markup runs <strong>2–4%</strong> on standard accounts and <strong>1–2.5%</strong> on Premier/Jade. The HSBC Global Money Account (a multi-currency wallet for Premier customers) offers near-mid-market rates on a small set of major currencies — this is HSBC's strongest competitive position and worth using if you qualify for it.</p>
+
+<h3>Real Example: $1,000 USD → EUR</h3>
+<p>Live mid-market rate: roughly 1 USD = 0.92 EUR (subject to current market).</p>
+<table>
+<tr><th>Provider</th><th>Rate offered</th><th>Markup vs mid-market</th><th>You receive</th></tr>
+<tr><td>Mid-market reference</td><td>0.9200</td><td>0%</td><td>€920</td></tr>
+<tr><td>Chase consumer wire</td><td>~0.882</td><td>~4.1%</td><td>€842 (after $40 fee → €802 net)</td></tr>
+<tr><td>HSBC standard wire</td><td>~0.892</td><td>~3.0%</td><td>€852 (after $35 fee → €820 net)</td></tr>
+<tr><td>HSBC Premier wire</td><td>~0.905</td><td>~1.6%</td><td>€865 (after $0 fee → €865 net)</td></tr>
+<tr><td><a href="/companies/wise">Wise</a></td><td>0.920</td><td>0%</td><td>€920 (after ~$5 fee → €915 net)</td></tr>
+</table>
+
+<p><em>Rates are illustrative based on typical market conditions. Verify the current rate at <a href="/exchange-rates/usd-to-eur">live USD/EUR comparison</a> before sending.</em></p>
+
+<p><strong>Wise delivers €113 more than Chase, €95 more than HSBC standard, and €50 more than HSBC Premier on a $1,000 transfer.</strong> Compounded across 12 monthly transfers, that's $600–1,400 a year saved by avoiding both banks. See our deeper analysis in <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
+      },
+      {
+        id: "global-transfers",
+        heading: "HSBC's Killer Feature: Global Transfers (Chase Has No Equivalent)",
+        content: `<p>If there's one product where HSBC genuinely beats Chase — and where it's competitive with specialist providers — it's <strong>Global Transfers</strong>.</p>
+
+<h3>What Global Transfers Actually Is</h3>
+<p>If you hold HSBC accounts in two or more countries (e.g., HSBC US and HSBC UK), Global Transfers lets you move money between them <strong>instantly, free of wire fees, 24/7</strong>. The catch is that the FX markup still applies — typically 2–4% on standard accounts, 1–2.5% on Premier/Jade.</p>
+
+<p>For HSBC Premier customers in particular, this is genuinely useful: you can hold balances in 60+ HSBC markets, move money between them on demand, and pay no flat fee. For an expat who lives in Hong Kong but maintains a UK HSBC account, this is the most frictionless multi-country banking product on the consumer market.</p>
+
+<h3>HSBC Global Money Account (US/UK)</h3>
+<p>Layered on top of Global Transfers is the <strong>HSBC Global Money Account</strong> — a multi-currency wallet for HSBC Premier customers in the US and UK. It supports holding 8 currencies (USD, GBP, EUR, AUD, CAD, HKD, SGD, JPY) at near-mid-market rates with zero conversion fee for amounts under specified caps. Transfers between Global Money holders are instant and free.</p>
+
+<p>For Premier customers, this is the closest thing a traditional bank offers to a Wise multi-currency account. The two limitations: (1) you must qualify for HSBC Premier, which typically requires £75,000+ in deposits/investments globally; (2) only 8 currencies are supported vs Wise's 50+.</p>
+
+<h3>Why Chase Has No Equivalent</h3>
+<p>JPMorgan Chase is primarily a US-domestic bank. While Chase has a UK private bank (J.P. Morgan UK) and corporate operations globally, retail consumer banking is a US-only product. There's no Chase-to-Chase free international transfer because there are virtually no Chase retail accounts outside the US to transfer to. Chase customers needing cross-border banking either use Chase wires (expensive) or open accounts with another bank.</p>
+
+<p><strong>Verdict on Global Transfers</strong>: If you (or your recipient) already bank with HSBC in another country, this is the cheapest option HSBC offers — and it's genuinely competitive with Wise on speed (instant) if not on FX markup. If neither end has HSBC, the product is irrelevant.</p>`,
+      },
+      {
+        id: "speed",
+        heading: "Transfer Speed: Where HSBC's Network Helps and SWIFT Hurts Both",
+        content: `<p>Both banks predominantly use SWIFT for cross-border transfers, with HSBC's massive network giving it some intra-network advantages.</p>
+
+<h3>Chase Speed</h3>
+<ul>
+<li><strong>USD → other currency</strong>: 1–3 business days via SWIFT correspondent banking</li>
+<li><strong>USD → USD international</strong>: 1–2 business days, but $10–30 in correspondent bank lifting fees apply</li>
+<li><strong>Cut-off times</strong>: Wires submitted before 4pm ET typically leave the same business day</li>
+<li><strong>Weekends/holidays</strong>: Wires don't process; submission delays to next business day</li>
+</ul>
+
+<h3>HSBC Speed</h3>
+<ul>
+<li><strong>HSBC-to-HSBC Global Transfer</strong>: Instant — typically under 1 minute</li>
+<li><strong>HSBC to non-HSBC international</strong>: 1–4 business days via SWIFT</li>
+<li><strong>HSBC to HSBC partner banks</strong>: Some routes have negotiated 1–2 day delivery</li>
+<li><strong>Cut-off times</strong>: Vary by HSBC market — UK 3:30pm GMT, US 4pm ET typically</li>
+<li><strong>Weekends/holidays</strong>: Same SWIFT constraints as Chase, except Global Transfer (which works 24/7)</li>
+</ul>
+
+<h3>The Specialist Comparison</h3>
+<p>Both banks lose to <a href="/companies/wise">Wise</a> on speed for any non-HSBC-internal route. Wise's USD→EUR delivery is typically <strong>under 30 minutes</strong> (Wise pre-positions EUR liquidity in EU banks via SEPA Instant). USD→GBP is similar via UK Faster Payments. For specific corridors, see <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> for the speed numbers.</p>
+
+<p>Where banks win on speed: large amounts (>$100,000) where SWIFT's regulatory clarity beats specialist providers' batch settlement, and wire-to-IBAN-to-account routes that bypass any specialist altogether.</p>`,
+      },
+      {
+        id: "which-cheaper",
+        heading: "Which Bank Is Actually Cheaper? Real Transfer Examples",
+        content: `<p>The only way to compare is total cost — wire fee + FX markup combined. Here are three real-world scenarios.</p>
+
+<h3>Scenario 1: $1,000 USD → EUR, consumer accounts at both banks</h3>
+<table>
+<tr><th></th><th>Chase</th><th>HSBC standard</th><th>Difference</th></tr>
+<tr><td>Wire fee</td><td>$40</td><td>$35</td><td>HSBC saves $5</td></tr>
+<tr><td>FX markup (≈)</td><td>4.0%</td><td>3.0%</td><td>HSBC saves ~$10</td></tr>
+<tr><td>You receive</td><td>~€802</td><td>~€820</td><td>HSBC delivers €18 more</td></tr>
+</table>
+
+<h3>Scenario 2: $5,000 USD → GBP, HSBC Premier vs Chase Sapphire Banking</h3>
+<table>
+<tr><th></th><th>Chase Sapphire Banking</th><th>HSBC Premier</th><th>Difference</th></tr>
+<tr><td>Wire fee</td><td>$40 (Sapphire doesn't waive int'l wires)</td><td>$0</td><td>HSBC saves $40</td></tr>
+<tr><td>FX markup (≈)</td><td>2.5%</td><td>2.0%</td><td>HSBC saves ~$25</td></tr>
+<tr><td>You receive</td><td>~£3,830</td><td>~£3,872</td><td>HSBC delivers £42 more</td></tr>
+</table>
+
+<h3>Scenario 3: HSBC US → HSBC UK, $1,000</h3>
+<table>
+<tr><th></th><th>Chase wire</th><th>HSBC Global Transfer</th><th>Difference</th></tr>
+<tr><td>Wire fee</td><td>$40</td><td>$0</td><td>HSBC saves $40</td></tr>
+<tr><td>FX markup (≈)</td><td>4.0%</td><td>3.0%</td><td>HSBC saves ~$10</td></tr>
+<tr><td>Speed</td><td>1–3 days</td><td>Instant</td><td>HSBC days faster</td></tr>
+<tr><td>You receive</td><td>~£675</td><td>~£710</td><td>HSBC delivers £35 more, instantly</td></tr>
+</table>
+
+<p><strong>The pattern is consistent</strong>: HSBC beats Chase on fees and FX markup across virtually all scenarios. The advantage is largest when both ends are HSBC (Global Transfers eliminates the wire fee entirely) and shrinks but doesn't disappear when only the sender uses HSBC. For the same scenarios, <a href="/companies/wise">Wise</a> would deliver an additional 2–4% on top of HSBC Premier's already-strong rate.</p>`,
+      },
+      {
+        id: "who-should-use-which",
+        heading: "Who Should Use Chase, HSBC, or Neither",
+        content: `<h3>Use Chase International Wires If:</h3>
+<ul>
+<li>You're already a Chase customer and need to send money once a year, value the convenience over the $40–90 cost penalty</li>
+<li>You're sending $50,000+ where regulatory documentation and same-bank-of-record matter (e.g., investment account funding)</li>
+<li>You're a Chase Private Client and the dedicated banker can negotiate the FX rate down to 1–2%</li>
+</ul>
+
+<h3>Use HSBC International Wires If:</h3>
+<ul>
+<li><strong>Both you and your recipient hold HSBC accounts</strong> — Global Transfers is free, instant, and the markup is the lowest of any major bank</li>
+<li>You're an HSBC Premier or Jade customer with the Global Money multi-currency account — this is genuinely competitive with specialist providers for the 8 currencies it supports</li>
+<li>You travel frequently across HSBC's 60+ markets and need consistent banking access (not pure remittance) — convenience has real value here</li>
+</ul>
+
+<h3>Use a Specialist (Not Either Bank) If:</h3>
+<ul>
+<li>You're a normal consumer sending under $50,000 to anyone other than yourself</li>
+<li>Your recipient doesn't have an HSBC account</li>
+<li>You don't qualify for HSBC Premier (the standard HSBC markup is still 2–4%)</li>
+<li>You care about rate transparency — neither bank publishes their FX markup; specialists like Wise show the rate against mid-market</li>
+<li>Your recipient needs cash pickup, mobile money, or non-bank delivery — neither Chase nor HSBC supports these; <a href="/companies/remitly">Remitly</a> and <a href="/companies/western-union">Western Union</a> do</li>
+</ul>
+
+<p>For a deeper look at specialist-vs-bank economics, see <a href="/compare/wise-vs-western-union">Wise vs Western Union</a> or <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally</a>.</p>`,
+      },
+    ],
+
+    verdict: {
+      largeTransfers: {
+        winner: "HSBC (Premier)",
+        explanation:
+          "For transfers above $10,000 from someone holding HSBC Premier or Jade, the combination of fee waivers and 1–2.5% FX markup beats Chase by $50–200 per transfer. Below Premier tier, both lose decisively to specialist providers. Chase Sapphire Banking does not waive international wire fees the way HSBC Premier does.",
+      },
+      smallTransfers: {
+        winner: "HSBC (Global Transfers, if both ends HSBC)",
+        explanation:
+          "On small HSBC-to-HSBC transfers, the free Global Transfer is the only competitive bank product against specialists — instant, no flat fee, only the FX markup applies. Chase has no comparable product. For small transfers between non-HSBC accounts, neither bank wins; use Wise or Remitly.",
+      },
+      overall:
+        "HSBC beats Chase across virtually every comparison axis: lower wire fees, lower FX markup, the unique Global Transfers product, and the multi-currency Global Money account for Premier customers. Chase's only edges are US domestic banking depth (Zelle, branch network) and brand familiarity. For international transfers specifically, choose HSBC over Chase if you're picking between the two — but choose Wise or Remitly over either bank for any transfer where convenience is not the dominant factor.",
+    },
+
+    faqs: [
+      {
+        q: "Which is cheaper for international wires, Chase or HSBC?",
+        a: "HSBC is consistently cheaper. On a $1,000 USD→EUR consumer wire, Chase typically costs $70–90 total (including ~4% FX markup hidden in the rate), while HSBC standard costs $60–80 (≈3% markup). HSBC Premier customers pay $30–55 total — close to half Chase's cost. Both lose to specialist providers like Wise by 5–10×.",
+      },
+      {
+        q: "Is HSBC Global Transfers really free?",
+        a: "The wire fee is zero, yes — but only for transfers between two HSBC accounts in different countries. The FX markup (typically 2–4% on standard accounts, 1–2.5% on Premier) still applies on currency conversion. So 'free' refers to the flat fee, not the total cost. On a same-currency transfer (e.g., USD HSBC US to USD HSBC UK), the Global Transfer is genuinely fee-free with no markup since no FX conversion happens.",
+      },
+      {
+        q: "Does Chase have a Global Transfer product like HSBC?",
+        a: "No. JPMorgan Chase is primarily a US-domestic retail bank with corporate and private banking operations elsewhere — there are virtually no Chase retail accounts outside the US to transfer to. Chase customers needing multi-country banking either use expensive wire transfers, open accounts at HSBC or another global bank, or use a multi-currency account from Wise or Revolut.",
+      },
+      {
+        q: "What is Chase's exchange rate markup on international wires?",
+        a: "Chase doesn't publish the markup, but consumer accounts typically see 3–5% above the mid-market rate on major currencies (USD/EUR, USD/GBP, USD/CAD), rising to 5–7% on minor currencies (USD/PHP, USD/INR, USD/MXN). Chase Private Client and Sapphire Banking customers see 1–3% markup. Compare the offered EUR amount to the live mid-market rate at /exchange-rates/usd-to-eur to verify the markup on any specific transfer.",
+      },
+      {
+        q: "Should I open an HSBC account just for international transfers?",
+        a: "Probably not. HSBC standard accounts have a 2–4% FX markup that's still 5–10× a specialist provider's. The math only works if you qualify for HSBC Premier (typically requires £75,000+ in deposits/investments globally) and use Global Transfers regularly. For one-off or moderate-volume international transfers, opening a Wise or Revolut multi-currency account is faster, cheaper, and has no minimum balance requirement.",
+      },
+      {
+        q: "Can I send international wires from Chase or HSBC without going to a branch?",
+        a: "Yes — both banks support international wires through their mobile app or online banking. Chase's online wire fee is $40 vs $50 in-branch. HSBC's app supports both standard wires and Global Transfers (HSBC-to-HSBC) entirely online with no fee difference. For amounts above $25,000 or to certain high-risk jurisdictions, both banks may require in-branch verification or a phone call regardless.",
+      },
+      {
+        q: "How long does a Chase or HSBC international transfer take?",
+        a: "Chase: 1–3 business days via SWIFT correspondent banking. HSBC standard wires: 1–4 business days via SWIFT. HSBC Global Transfers (HSBC-to-HSBC): instant, typically under 1 minute, 24/7. Wise USD→EUR: typically under 30 minutes once source funding clears. Bank wires submitted after the daily cut-off (4pm ET / 3:30pm GMT) don't leave until the next business day.",
+      },
+      {
+        q: "Why does Wise cost so much less than either bank?",
+        a: "Specialist providers like Wise hold pre-positioned currency in partner banks across the world, so cross-border transfers are actually two domestic transfers (sender's currency → Wise's local account; Wise's destination-country account → recipient) rather than one expensive SWIFT wire. They charge a transparent percentage fee (Wise: 0.4–1.5%) instead of marking up the FX rate. Banks haven't matched this because international wires are a small product line for them — Chase and HSBC make most of their money on lending, not transfers.",
+      },
+    ],
+  },
+  // ============================
+  // BOSS Money vs Remitly — head-to-head specialist comparison
+  // GSC: pos 9.7, 3 impressions on /compare/boss-money-vs-remitly — page 1 candidate
+  // ============================
+  {
+    slug: "boss-money-vs-remitly",
+    providerA: "boss-money",
+    providerB: "remitly",
+    title: "BOSS Money vs Remitly 2026 — Which Saves More on Latin America & East Africa?",
+    metaDescription:
+      "BOSS Money vs Remitly: BOSS specialises in Latin America and Africa with cash pickup at 200,000+ locations. Remitly delivers express to 100+ countries with stronger Asia coverage. See real cost comparisons.",
+    updatedAt: "2026-04-30",
+    readTime: "10 min read",
+    intro:
+      "BOSS Money (operated by IDT Corporation) and Remitly are both digital remittance specialists with a focus on emigrant communities sending money home — but they specialise in different geographies. BOSS Money's strength is the Latin America corridor (especially Mexico, Dominican Republic, Honduras, El Salvador) and the Horn of Africa (Ethiopia, Somalia). Remitly is broader, covering 100+ countries with particular dominance in Asia (India, Philippines, Bangladesh, Pakistan). Both offer cash pickup, mobile money, and bank deposit. Both target the same kind of customer: a $200–$1,500 transfer where speed matters and the recipient may not have a bank account. This comparison breaks down where each wins, what each actually costs on real corridors, and which to choose based on your specific destination.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "BOSS Money vs Remitly at a Glance",
+        content: `<p>Both providers are pure-play remittance specialists — they don't try to be a multi-currency account, business platform, or bank. The product is sending money to specific destination countries with a focus on cash, wallet, and bank delivery options that work for everyday recipients.</p>
+
+<table>
+<tr><th>Feature</th><th>BOSS Money</th><th>Remitly</th></tr>
+<tr><td>Founded</td><td>2018 (subsidiary of IDT, est. 1990)</td><td>2011 (Seattle, US)</td></tr>
+<tr><td>Best for</td><td>Latin America, Horn of Africa, cash pickup</td><td>Asia, Africa, Latin America — broader coverage</td></tr>
+<tr><td>Countries</td><td>50+ (deepest in LATAM and Africa)</td><td>100+</td></tr>
+<tr><td>Send from</td><td>US (primary), Canada, UK</td><td>US, UK, Canada, Australia, EU, Singapore, others</td></tr>
+<tr><td>Fee model</td><td>$0–$5.99 (often $0 promotional)</td><td>$0–$3.99 (often $0 promotional)</td></tr>
+<tr><td>FX markup</td><td>0.5–2% (varies by corridor)</td><td>0.5–2% (varies by corridor)</td></tr>
+<tr><td>Cash pickup network</td><td>200,000+ locations</td><td>500,000+ locations</td></tr>
+<tr><td>Mobile money</td><td>M-Pesa, MTN, Airtel, GCash, bKash</td><td>M-Pesa, GCash, bKash, JazzCash, Easypaisa, more</td></tr>
+<tr><td>Bank deposit</td><td>Yes (most corridors)</td><td>Yes (most corridors)</td></tr>
+<tr><td>Speed (Express)</td><td>Minutes</td><td>Minutes</td></tr>
+<tr><td>Speed (Economy)</td><td>3–5 business days</td><td>3–5 business days</td></tr>
+<tr><td>Max transfer</td><td>$2,999 unverified, higher tiers up to $10,000</td><td>$2,999 unverified, up to $10,000 verified</td></tr>
+<tr><td>Mobile app</td><td>iOS + Android</td><td>iOS + Android</td></tr>
+<tr><td>Trustpilot rating</td><td>4.5★ (40,000+ reviews)</td><td>4.0★ (130,000+ reviews)</td></tr>
+<tr><td>Regulated by</td><td>FinCEN (US), state MTLs</td><td>FinCEN (US), FCA (UK), state MTLs</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> Remitly is the broader provider with more send-from countries, more delivery destinations, and a larger cash pickup network. BOSS Money is the specialist — it knows the LATAM and East Africa corridors deeply and is often cheaper or faster on those specific routes because IDT (the parent company) has decades of relationships with local banks and pickup partners.</p>`,
+      },
+      {
+        id: "geography",
+        heading: "Where Each Provider Actually Excels",
+        content: `<p>The "100+ countries" headline doesn't capture which corridors are <em>actually competitive</em>. Both providers list many destinations but specialise in fewer.</p>
+
+<h3>BOSS Money's Strong Corridors</h3>
+<ul>
+<li><strong>Mexico (USD→MXN)</strong>: One of the cheapest options in the corridor. Cash pickup at OXXO, Banorte, Banco Azteca, plus mobile wallet to Mercado Pago</li>
+<li><strong>Dominican Republic (USD→DOP)</strong>: Strong relationships with Banco Popular, BHD, Banreservas. Cash pickup at Caribe Express</li>
+<li><strong>El Salvador, Honduras, Guatemala, Nicaragua</strong>: Comprehensive Central America network</li>
+<li><strong>Ethiopia (USD→ETB)</strong>: Bank deposit + mobile money to Telebirr, Amole. Often the cheapest legal route from the US</li>
+<li><strong>Somalia (USD→SOS)</strong>: Cash pickup via Dahabshiil partnership and World Remit-equivalent network — IDT has decades of Horn of Africa expertise</li>
+<li><strong>Brazil (USD→BRL)</strong>: PIX delivery (Brazil's instant payment system) is supported, often beating Remitly on speed</li>
+</ul>
+
+<h3>Remitly's Strong Corridors</h3>
+<ul>
+<li><strong>India (USD→INR)</strong>: One of the largest competitors. UPI delivery to any Indian bank, RBI-compliant LRS</li>
+<li><strong>Philippines (USD→PHP)</strong>: Express delivery to GCash, Maya, plus 25,000+ cash pickup locations (Cebuana, Palawan, M Lhuillier)</li>
+<li><strong>Bangladesh (USD→BDT)</strong>: bKash + bank deposit + cash pickup. Strong from US, UK, Canada</li>
+<li><strong>Pakistan (USD→PKR)</strong>: JazzCash, Easypaisa, bank deposit. Competitive with ACE Money Transfer on the GBP→PKR route</li>
+<li><strong>Mexico (USD→MXN)</strong>: Comparable to BOSS Money — large network, similar pricing. Express delivery in minutes</li>
+<li><strong>Kenya (USD→KES)</strong>: M-Pesa is the killer feature — instant delivery to mobile wallet</li>
+<li><strong>Nigeria (USD→NGN)</strong>: Bank deposit and mobile money. Compliant with CBN's restrictive remittance rules</li>
+</ul>
+
+<h3>Where They Overlap</h3>
+<p>Both compete head-to-head on Mexico, the Philippines (BOSS has limited Philippines coverage), Honduras, El Salvador, and Brazil. On these overlapping corridors, the "cheaper" provider varies week to week based on promotional FX rates. Always check both at the moment of transfer — don't pick based on past experience.</p>
+
+<h3>Where Neither Is the Answer</h3>
+<p>For UK→Europe transfers, Australia, New Zealand, Japan, Korea, Singapore, or the UAE: use <a href="/companies/wise">Wise</a> or <a href="/companies/revolut">Revolut</a> instead. Both BOSS and Remitly are designed for emerging-market remittances; their pricing on developed-market routes is uncompetitive.</p>`,
+      },
+      {
+        id: "fees-rates",
+        heading: "Fees and Exchange Rates: How They Compare",
+        content: `<p>Both providers use the same general structure: a small flat fee (often $0 on promotion) plus a markup on the exchange rate that varies by corridor and delivery speed.</p>
+
+<h3>Fee Structure</h3>
+<ul>
+<li><strong>BOSS Money</strong>: $0–$5.99 typical fee. First-transfer promotions frequently waive the fee entirely. Express delivery sometimes carries a $1–$3 surcharge over Economy</li>
+<li><strong>Remitly</strong>: $0–$3.99 typical fee. First-transfer promo rates are aggressive — often pricing at exact mid-market for the first transfer to acquire the customer</li>
+</ul>
+
+<h3>Exchange Rate Markup (Typical)</h3>
+<table>
+<tr><th>Corridor</th><th>BOSS Money typical markup</th><th>Remitly typical markup</th></tr>
+<tr><td>USD → MXN (Mexico)</td><td>0.5–1.0%</td><td>0.5–1.0%</td></tr>
+<tr><td>USD → DOP (Dominican Republic)</td><td>0.5–1.5%</td><td>1.0–2.0%</td></tr>
+<tr><td>USD → INR (India)</td><td>1.0–2.0% (limited corridor)</td><td>0.5–1.0%</td></tr>
+<tr><td>USD → PHP (Philippines)</td><td>1.5–2.5% (limited)</td><td>0.5–1.0%</td></tr>
+<tr><td>USD → ETB (Ethiopia)</td><td>0.8–1.5%</td><td>1.5–2.5%</td></tr>
+<tr><td>USD → BDT (Bangladesh)</td><td>1.0–2.0%</td><td>0.5–1.0%</td></tr>
+<tr><td>USD → KES (Kenya, M-Pesa)</td><td>1.0–2.0%</td><td>0.5–1.5%</td></tr>
+</table>
+
+<p><em>Markups are approximate and fluctuate weekly. Promotional rates for first-time users can be substantially lower.</em></p>
+
+<h3>Real Example: $500 USD → MXN (Mexico)</h3>
+<table>
+<tr><th></th><th>BOSS Money</th><th>Remitly</th></tr>
+<tr><td>Transfer fee</td><td>$0 (promo)</td><td>$0 (promo)</td></tr>
+<tr><td>FX markup</td><td>~0.7%</td><td>~0.8%</td></tr>
+<tr><td>Recipient receives</td><td>~MXN 8,940</td><td>~MXN 8,930</td></tr>
+<tr><td>Speed</td><td>Minutes (cash pickup)</td><td>Minutes (cash pickup)</td></tr>
+</table>
+
+<p>Effectively a tie on Mexico — both within MXN 10–20 of each other on $500. The deciding factor is which pickup network is closer to your recipient.</p>
+
+<h3>Real Example: $500 USD → ETB (Ethiopia)</h3>
+<table>
+<tr><th></th><th>BOSS Money</th><th>Remitly</th></tr>
+<tr><td>Transfer fee</td><td>$0–$1.99</td><td>$1.99–$3.99</td></tr>
+<tr><td>FX markup</td><td>~1.0%</td><td>~2.0%</td></tr>
+<tr><td>Recipient receives</td><td>~ETB 31,200</td><td>~ETB 30,800</td></tr>
+<tr><td>Difference</td><td colspan="2"><strong>BOSS delivers ~ETB 400 more on $500</strong></td></tr>
+</table>
+
+<p>BOSS's Ethiopia advantage comes from IDT's long-standing partnerships in the Horn of Africa, where Remitly is a relatively newer entrant.</p>
+
+<h3>Real Example: $500 USD → INR (India)</h3>
+<table>
+<tr><th></th><th>BOSS Money</th><th>Remitly</th></tr>
+<tr><td>Transfer fee</td><td>Limited corridor — $3.99</td><td>$0 (promo) / $3.99 standard</td></tr>
+<tr><td>FX markup</td><td>~1.5%</td><td>~0.7%</td></tr>
+<tr><td>Recipient receives</td><td>~INR 41,800</td><td>~INR 42,200</td></tr>
+<tr><td>Difference</td><td colspan="2"><strong>Remitly delivers ~INR 400 more on $500</strong></td></tr>
+</table>
+
+<p>India is Remitly's home turf. BOSS Money's India support exists but is not their priority corridor, and pricing reflects that.</p>`,
+      },
+      {
+        id: "delivery-speed",
+        heading: "Delivery Methods and Speed",
+        content: `<p>Both providers offer the three delivery types every emerging-markets remittance customer needs — bank deposit, cash pickup, and mobile wallet — but the speed and pickup networks differ.</p>
+
+<h3>BOSS Money Delivery</h3>
+<ul>
+<li><strong>Cash pickup</strong>: 200,000+ locations across LATAM and Africa. Pickup at OXXO, Banorte, Banco Azteca (Mexico); Caribe Express, Banco Popular (Dominican Republic); Dahabshiil (Somalia, Ethiopia); MoneyGram-affiliated locations. Available in minutes for Express transfers</li>
+<li><strong>Bank deposit</strong>: Most major LATAM banks supported. PIX in Brazil. SPEI in Mexico. Speed: minutes (Express) to 1–2 days (Economy)</li>
+<li><strong>Mobile money</strong>: Limited — M-Pesa (Kenya/Tanzania, where supported), Telebirr/Amole (Ethiopia), Mercado Pago (Mexico/Argentina)</li>
+</ul>
+
+<h3>Remitly Delivery</h3>
+<ul>
+<li><strong>Cash pickup</strong>: 500,000+ locations globally. Cebuana, Palawan, M Lhuillier (Philippines); Bancomer, Banco Azteca (Mexico); Western Union-affiliated locations (most countries). Available in minutes for Express</li>
+<li><strong>Bank deposit</strong>: 100+ countries supported. UPI (India), bKash bank-link (Bangladesh), most major banks globally. Speed: minutes (Express) to 3–5 days (Economy)</li>
+<li><strong>Mobile money</strong>: Comprehensive — M-Pesa (Kenya), GCash + Maya (Philippines), bKash (Bangladesh), JazzCash + Easypaisa (Pakistan), MTN MoMo (Ghana, Uganda), Orange Money (Senegal)</li>
+<li><strong>Home delivery</strong>: Available in Vietnam, Philippines, and select countries</li>
+</ul>
+
+<h3>Speed Tiers Compared</h3>
+<table>
+<tr><th>Delivery time</th><th>BOSS Money</th><th>Remitly</th></tr>
+<tr><td>Instant / minutes</td><td>Express to cash pickup, M-Pesa, Telebirr</td><td>Express to cash pickup, mobile money, most banks</td></tr>
+<tr><td>Same day</td><td>Most LATAM Express transfers</td><td>Most Express transfers globally</td></tr>
+<tr><td>1–2 business days</td><td>Standard bank deposits</td><td>Standard bank deposits</td></tr>
+<tr><td>3–5 business days</td><td>Economy tier (LATAM bank)</td><td>Economy tier (most countries)</td></tr>
+</table>
+
+<p><strong>Verdict on delivery</strong>: Remitly's broader network gives it the edge for general use. BOSS Money matches or beats Remitly on its specialist LATAM and Horn of Africa routes — particularly Ethiopia, Somalia, and Dominican Republic.</p>`,
+      },
+      {
+        id: "user-experience",
+        heading: "User Experience and Trust Signals",
+        content: `<p>Both providers run mobile-first product experiences. The differences are in scale, polish, and customer service.</p>
+
+<h3>BOSS Money</h3>
+<ul>
+<li><strong>App quality</strong>: Solid iOS/Android apps. Slightly less polished than Remitly's but functional</li>
+<li><strong>Trustpilot</strong>: 4.5★ from 40,000+ reviews. Strong scores reflecting the loyal LATAM/East Africa customer base</li>
+<li><strong>Customer service</strong>: 24/7 phone support and live chat. Multilingual support including Spanish, Portuguese, Amharic, Somali</li>
+<li><strong>Tracking</strong>: Real-time transfer tracking in the app. SMS notifications</li>
+<li><strong>Parent company stability</strong>: IDT Corporation has been profitable and publicly traded (NYSE: IDT) for 30+ years — relatively low counterparty risk</li>
+</ul>
+
+<h3>Remitly</h3>
+<ul>
+<li><strong>App quality</strong>: Best-in-class for remittance specialists. Clean UX, good multilingual support, strong recipient management</li>
+<li><strong>Trustpilot</strong>: 4.0★ from 130,000+ reviews. Higher review volume reflects larger customer base; rating slightly lower partly due to scale</li>
+<li><strong>Customer service</strong>: 24/7 chat, email, and phone in 7+ languages including Spanish, Tagalog, Hindi, French</li>
+<li><strong>Tracking</strong>: Real-time transfer tracking with delivery photos for cash pickup in some corridors. SMS + push notifications</li>
+<li><strong>Public company</strong>: NASDAQ-listed (RELY) since 2021. Quarterly financials disclosed; reasonable transparency</li>
+</ul>
+
+<p>Both providers comply with the same regulatory frameworks (FinCEN US, FCA UK, state MTLs). Both segregate customer funds. For a deeper safety review, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+      },
+      {
+        id: "which-cheaper",
+        heading: "Which Is Cheaper? Verdict by Corridor",
+        content: `<p>The honest answer is "it depends on the corridor" — and within a corridor, on whether you have an active first-transfer promotion. Here's the rule-of-thumb breakdown:</p>
+
+<h3>BOSS Money Wins When:</h3>
+<ul>
+<li>Sending to <strong>Ethiopia, Somalia, Eritrea</strong> (Horn of Africa specialty)</li>
+<li>Sending to <strong>Dominican Republic, El Salvador, Honduras, Nicaragua</strong> (deep LATAM relationships)</li>
+<li>Sending to <strong>Brazil via PIX</strong> (often faster than Remitly's standard route)</li>
+<li>The recipient prefers cash pickup at OXXO, Banorte, or Banco Azteca specifically (Mexico)</li>
+</ul>
+
+<h3>Remitly Wins When:</h3>
+<ul>
+<li>Sending to <strong>India, Philippines, Bangladesh, Pakistan, Sri Lanka</strong> (Asia dominance)</li>
+<li>Sending to <strong>Kenya via M-Pesa</strong> (instant + competitive markup)</li>
+<li>Sending to <strong>Nigeria, Ghana, Senegal</strong> via mobile money</li>
+<li>You're sending from <strong>UK, Canada, Australia, EU</strong> (BOSS Money is US-primary)</li>
+<li>You want the largest cash pickup network globally</li>
+</ul>
+
+<h3>It's Effectively a Tie When:</h3>
+<ul>
+<li>Sending to <strong>Mexico</strong> — both cover OXXO, both are competitive, often within MXN 20 on $500</li>
+<li>Sending to <strong>Guatemala</strong> — comparable networks and markups</li>
+</ul>
+
+<h3>Use Wise Instead When:</h3>
+<ul>
+<li>Sending more than $5,000 in one transfer</li>
+<li>Sending to a <strong>developed-market</strong> bank account (UK, EU, Australia, Canada, Japan, Korea, Singapore)</li>
+<li>The recipient has a bank account and you don't need cash pickup</li>
+</ul>
+
+<h3>Use Western Union Instead When:</h3>
+<ul>
+<li>The recipient is in a remote area not covered by either BOSS or Remitly's pickup network</li>
+<li>You need same-hour cash pickup in a country with limited mobile money penetration</li>
+</ul>
+
+<p>For competitive comparisons against the broader market, see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> and <a href="/guides/best-money-transfer-services">best money transfer services</a>.</p>`,
+      },
+    ],
+
+    verdict: {
+      largeTransfers: {
+        winner: "Neither — use Wise or OFX",
+        explanation:
+          "Both BOSS Money and Remitly cap unverified accounts around $2,999 and verified accounts around $10,000. For larger amounts, use Wise (up to ~$1M) or OFX (no upper limit, dealer-supported on $10,000+). Both BOSS and Remitly's percentage markup also becomes punitive in absolute dollars on large transfers — a 1% markup on $10,000 is $100, vs Wise's flat ~$40 fee.",
+      },
+      smallTransfers: {
+        winner: "Depends on corridor",
+        explanation:
+          "On small remittances ($100–$500), the winner is corridor-specific. BOSS Money wins on Ethiopia, Somalia, Dominican Republic, El Salvador. Remitly wins on India, Philippines, Bangladesh, Pakistan, Kenya. Both have free first-transfer promotions worth using to pick the cheaper option for your specific destination.",
+      },
+      overall:
+        "Remitly is the broader, more polished provider — the right default if you don't know your corridor's specifics. BOSS Money is the specialist that consistently beats Remitly on Latin America (especially Dominican Republic) and the Horn of Africa (especially Ethiopia and Somalia) thanks to IDT's 30+ years of regional partnerships. Open both apps, send your first transfer with whichever has the better promo, then optimise to the cheaper one for your specific destination on subsequent transfers. For developed-market routes or amounts above $5,000, neither is the right tool — use Wise instead.",
+    },
+
+    faqs: [
+      {
+        q: "Which is cheaper, BOSS Money or Remitly?",
+        a: "It depends on the corridor. BOSS Money is typically cheaper to Ethiopia, Somalia, Dominican Republic, El Salvador, and Honduras due to IDT's deep regional relationships. Remitly is typically cheaper to India, Philippines, Bangladesh, Pakistan, and Kenya. On Mexico the two are roughly tied. Both offer free first-transfer promotions, so trying both for one transfer each is the cheapest way to decide.",
+      },
+      {
+        q: "Is BOSS Money safe and legitimate?",
+        a: "Yes. BOSS Money is a subsidiary of IDT Corporation, a NYSE-listed company (ticker: IDT) that has been operating in international communications and money transfer for over 30 years. BOSS Money is registered with FinCEN as a Money Services Business and licensed in 50 US states. Customer funds are segregated from operating funds. Trustpilot rating is 4.5★ across 40,000+ reviews.",
+      },
+      {
+        q: "Does BOSS Money send to India and the Philippines?",
+        a: "BOSS Money has limited support for both countries. Coverage exists but pricing is uncompetitive — the company prioritises Latin America and East Africa. For India and Philippines transfers, Remitly, Wise, or specialist providers like ACE Money Transfer (India/Pakistan) are typically cheaper and faster.",
+      },
+      {
+        q: "Can I send money from the UK or Canada with BOSS Money?",
+        a: "BOSS Money does support sending from the UK and Canada, but the focus is the US market. Remitly has better established UK, Canadian, Australian, and EU presence with dedicated apps and locally compliant funding (UK Faster Payments, EU SEPA, etc.). If you're not sending from the US, Remitly is usually the better default.",
+      },
+      {
+        q: "How fast is BOSS Money vs Remitly?",
+        a: "Both offer Express tiers that deliver in minutes for cash pickup, mobile money, and many bank routes. Both offer Economy tiers at lower cost taking 3–5 business days. On the Mexico corridor specifically, both deliver to OXXO and major banks within minutes via Express. On Ethiopia, BOSS Money's Telebirr delivery is often faster than Remitly's standard route. On the Philippines, Remitly's GCash delivery is among the fastest in the industry — under 1 minute for verified Express transfers.",
+      },
+      {
+        q: "What's the maximum I can send with BOSS Money or Remitly?",
+        a: "Both providers cap unverified accounts at around $2,999 per transfer. Verified accounts (with ID and proof of address uploaded) can typically send up to $10,000 per transfer. For larger amounts, you'd need to break the transfer into multiple instalments — or, more practically, use Wise (max ~$1M per transfer on most corridors) or OFX (no upper limit, dealer-supported on $10,000+).",
+      },
+      {
+        q: "Do BOSS Money or Remitly support cryptocurrencies or stablecoins?",
+        a: "No. Both are fiat-only money transfer providers regulated under traditional MSB frameworks. They do not currently offer USDC, USDT, or other stablecoin transfers. If you specifically want a stablecoin-rail transfer, see providers like MoneyGram (which offers USDC pickup in select markets) or specialist crypto-remittance startups — though these are generally less reliable than the regulated fiat providers for routine remittance.",
+      },
+    ],
+  },
 ];
 
 export function getComparisonArticle(slug: string): ComparisonArticle | undefined {
