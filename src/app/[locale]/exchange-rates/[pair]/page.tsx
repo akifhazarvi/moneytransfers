@@ -292,16 +292,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const year = new Date().getFullYear();
 
   // CTR-optimized overrides for high-impression pairs.
-  // usd-to-brl: 5-query cluster ranking pos 2.8–3.0 ("current usd to brl
-  // exchange rate today", "dollar to brl", "dollar to real today brazil")
-  // with 33 impressions and 0 clicks. Title now echoes all 3 query phrasings.
+  //
+  // usd-to-brl:    pos 2.7, 232 impressions, 0 clicks (biggest CTR miss on the site).
+  //                Brazil country traffic: 257 impr, pos 4.1, 0 clicks total.
+  //                Old title was generic and didn't echo the searcher's actual question.
+  //                New: lead with "1 USD = X BRL", echo the conversion intent (the most
+  //                searched query phrasing is "1 dollar to real" / "dolar hoje").
+  // gbp-to-eur:    pos 5.5, 69 impressions, 0 clicks. UK→EU traveller intent dominant —
+  //                title now leads with the conversion+pound-amount hook.
   const month = new Date().toLocaleDateString("en-US", { month: "long" });
   const pairOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDesc?: string }> = {
     "usd-to-brl": {
-      title: `USD to BRL Today: Live Rate + Real Reais You Get (${month} ${year})`,
-      description: `Live USD/BRL rate updated every 60s — plus what Wise, Remitly & 10+ providers actually pay after markup. See real reais per dollar, not just the mid-market rate.`,
-      ogTitle: `USD to BRL Today — Live Rate + Real Reais You Get (${month} ${year})`,
-      ogDesc: `Live USD/BRL mid-market rate + what 10+ providers actually offer. Find who gives you the most reais per dollar today.`,
+      title: `1 USD to BRL Today — Live Dollar to Real Rate + Best Transfer Providers (${month} ${year})`,
+      description: `How much is 1 USD in Brazilian Real today? Live USD/BRL mid-market rate updated every 60 seconds — plus the real reais Wise, Remitly, Xoom & 10+ providers actually deliver after markup. Find the cheapest USD→BRL transfer in seconds.`,
+      ogTitle: `1 USD to BRL Today — Live Dollar to Real Rate (${month} ${year})`,
+      ogDesc: `Live USD to Brazilian Real rate + what 10+ providers actually pay. See who delivers the most reais per dollar today, plus PIX delivery options.`,
+    },
+    "gbp-to-eur": {
+      title: `GBP to EUR Today — How Much Is £1,000 in Euros? Live Rate + Best UK→Europe Providers (${month} ${year})`,
+      description: `Live GBP/EUR rate updated every 60 seconds. See how much £100, £500, or £1,000 is in euros right now — plus what Wise, Revolut & 10+ providers actually deliver after FX markup. Cheapest UK to Europe transfers compared.`,
+      ogTitle: `GBP to EUR Today — Live Pound to Euro Rate + Cheapest UK→EU Providers`,
+      ogDesc: `Live GBP/EUR mid-market rate + what UK-to-Europe transfer providers actually offer. Skip the 3% bank markup — see who gives you the most euros per pound.`,
     },
   };
 

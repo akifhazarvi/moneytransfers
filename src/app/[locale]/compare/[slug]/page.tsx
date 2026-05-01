@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Trophy, ArrowRight } from "lucide-react";
 import { providers, generateQuotes } from "@/data/providers";
 
@@ -141,6 +141,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "wise-vs-westpac": {
       title: `Wise vs Westpac ${year} — We Sent AU$1,000. Your Recipient Gets AU$35 More`,
       desc: `Westpac charges AU$10–$32 plus a 3.5–6% hidden FX markup. Wise uses the mid-market rate with a ~0.5% fee. On AU$1,000 to USD, GBP, INR or PHP, Wise delivers ~AU$30–$35 more.`,
+    },
+    "wise-vs-ofx": {
+      title: `Wise vs OFX ${year} — Which Wins for Large Transfers ($10,000+)?`,
+      desc: `OFX charges zero fees with a dedicated dealer who can lock the rate for 24 hours — best for $10,000+ transfers. Wise uses the mid-market rate with a 0.4–0.6% fee — best below $10,000. We tested both on 6 corridors. See which actually delivers more.`,
     },
   };
 
@@ -1245,6 +1249,20 @@ export default async function ComparisonPage({ params }: Props) {
 
   const { a, b } = pair;
   const article = getComparisonArticle(slug);
+
+  // Canonicalize reverse pairs (e.g. /compare/remitly-vs-wise → /compare/wise-vs-remitly).
+  // Editorial articles pin their own slug direction, so only redirect when
+  // there is no editorial content and the current order isn't alphabetical.
+  // Without this, Google was clustering both directions and picking its own
+  // canonical, surfacing 94 "Duplicate, Google chose different canonical".
+  if (!article) {
+    const [first, second] = [a.slug, b.slug].sort();
+    const canonicalSlug = `${first}-vs-${second}`;
+    if (canonicalSlug !== slug && !getComparisonArticle(canonicalSlug)) {
+      const path = locale === "en" ? `/compare/${canonicalSlug}` : `/${locale}/compare/${canonicalSlug}`;
+      redirect(path);
+    }
+  }
 
   if (article) {
     return <ArticleComparison slug={slug} a={a} b={b} />;
