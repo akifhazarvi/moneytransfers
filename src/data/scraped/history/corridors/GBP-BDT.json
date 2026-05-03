@@ -2044,5 +2044,58 @@
         "receiveAmount": 16150.53
       }
     }
+  },
+  {
+    "date": "2026-05-03",
+    "providers": {
+      "ace-money-transfer": {
+        "rate": 163.2,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16320
+      },
+      "ria": {
+        "rate": 164.2,
+        "fee": 2,
+        "markup": null,
+        "receiveAmount": 16604.84
+      },
+      "taptap-send": {
+        "rate": 166.6,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16660
+      },
+      "xoom": {
+        "rate": 119.9346,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 11993.46
+      },
+      "remitly": {
+        "rate": 166.73,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 16507.94
+      },
+      "western-union": {
+        "rate": 166.4832,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 16150.53
+      },
+      "instarem": {
+        "rate": 164.9378,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16493.78
+      },
+      "skrill": {
+        "rate": 164.8399,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16483.99
+      }
+    }
   }
 ]
