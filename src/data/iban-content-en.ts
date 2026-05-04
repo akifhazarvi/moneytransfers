@@ -264,11 +264,14 @@ export const ibanContentEn: IbanContent = {
   "united-arab-emirates": {
     title: "How IBAN is used in the United Arab Emirates",
     intro:
-      "The UAE introduced mandatory IBAN use in May 2011 under a mandate from the Central Bank of the UAE (CBUAE). All bank accounts in the UAE have a 23-character IBAN, and this is the required format for all domestic interbank transfers and international wire transfers to the country. The UAE is not part of SEPA, so all cross-border payments are processed through the SWIFT network. The UAE dirham (AED) is the currency, and transactions are settled through the UAE Funds Transfer System (UAEFTS).",
+      "The UAE introduced mandatory IBAN use in May 2011 under a mandate from the Central Bank of the UAE (CBUAE). All bank accounts in the UAE have a 23-character IBAN, and this is the required format for all domestic interbank transfers and international wire transfers to the country. The UAE is not part of SEPA, so all cross-border payments are processed through the SWIFT network. The UAE dirham (AED) is the currency, and transactions are settled through the UAE Funds Transfer System (UAEFTS) and the new Aani instant payments system, both of which use the IBAN as the standard account identifier.",
     bullets: [
       "A UAE IBAN is 23 characters long: the country code AE, two check digits, and a three-digit bank code followed by a 16-digit account number. Emirates NBD (bank code 033), Abu Dhabi Commercial Bank — ADCB (030), First Abu Dhabi Bank — FAB (035), and Mashreq (020) are among the largest banks. Your IBAN is displayed in your online banking portal, mobile app, or printed on your bank statement.",
       "The UAE Funds Transfer System (UAEFTS) handles all domestic AED interbank transfers and uses the IBAN as the mandatory account identifier. The system operates 24/7 and settles transfers in real time. For sending money between UAE banks locally, share your 23-character AE IBAN — no SWIFT code is needed for domestic transfers within the UAE.",
       "For international transfers to the UAE from abroad, senders always need the recipient's full AE IBAN together with the bank's SWIFT/BIC code. Major UAE banks process inbound SWIFT transfers in a wide range of currencies, but the funds are typically held in AED. If you need to receive foreign currency without conversion, enquire with your bank about opening a foreign currency account with a separate IBAN.",
+      "Aani, the UAE's instant payments platform launched by Al Etihad Payments in October 2023, allows real-time AED transfers between any participating UAE bank using just the recipient's IBAN, mobile number, or email alias. Aani transfers are free for retail users on most banks and settle in under 10 seconds, 24/7. The platform is part of CBUAE's Financial Infrastructure Transformation programme and is gradually replacing traditional UAEFTS for retail flows.",
+      "The UAE is one of the world's largest remittance corridors — outbound transfers to India, Pakistan, Philippines, Bangladesh, Egypt, and Sri Lanka totaled over $50 billion in 2024 according to the World Bank. UAE residents looking to send money abroad use either bank wires (more expensive — $20-30 fee plus 2-4% FX markup) or licensed exchange houses (Lulu Exchange, Al Ansari, UAE Exchange) and digital providers like Wise, Remitly, and TapTap Send. For comparing live rates from your AE IBAN to common remittance destinations, see our send-money tool.",
+      "Finding your IBAN at major UAE banks: Emirates NBD shows the IBAN under 'Account Summary' in the mobile app and Liv. app. ADCB displays it under 'My Accounts' in ProTrade and the mobile banking app. FAB shows it on the account dashboard in the FAB Mobile app. Mashreq displays it under account details in the NeoBiz portal and Mashreq Neo app. Your IBAN also appears on every account statement (monthly statements PDF), on cheque books, and via SMS by texting your bank's IBAN-request shortcode.",
     ],
   },
   "saudi-arabia": {
@@ -1200,6 +1203,22 @@ export const ibanContentEn: IbanContent = {
     {
       q: "How long does it take to receive an international SWIFT transfer in the UAE?",
       a: "International SWIFT transfers to UAE banks typically take 1–3 business days, depending on the sending country, intermediary banks involved, and time zone differences. Transfers from GCC countries (Saudi Arabia, Kuwait, Qatar, Bahrain, Oman) often arrive faster due to direct correspondent banking relationships. Your bank's incoming wire cut-off time also affects same-day vs next-day processing.",
+    },
+    {
+      q: "How do I validate a UAE IBAN?",
+      a: "A valid UAE IBAN must be exactly 23 characters: 'AE' + 2 check digits + 3-digit bank code + 16-digit account number. To validate: (1) confirm length is 23, (2) confirm it starts with 'AE', (3) confirm the bank code (positions 5-7) matches a registered CBUAE bank — common codes include 033 (Emirates NBD), 030 (ADCB), 035 (FAB), 020 (Mashreq), 053 (Dubai Islamic Bank), 026 (Abu Dhabi Islamic Bank). The check digits (positions 3-4) follow the ISO 13616 modulo-97 algorithm. Most UAE banks provide a free IBAN validator in their mobile app, and CBUAE publishes an official IBAN validator service at the Al Etihad Payments website.",
+    },
+    {
+      q: "What is Aani and how does it work with my UAE IBAN?",
+      a: "Aani is the UAE's domestic instant payment platform, launched by Al Etihad Payments (CBUAE subsidiary) in October 2023. It uses your existing 23-character AE IBAN as the underlying account identifier, but lets you send and receive AED in under 10 seconds using simpler aliases — your UAE mobile number (+971...), email address, or just the IBAN. Aani transfers are typically free for retail users on Emirates NBD, ADCB, FAB, Mashreq, ENBD, ADIB, RAKBank, and most other CBUAE-licensed banks. The platform is replacing traditional UAEFTS for retail-sized transfers and is available 24/7/365 through your bank's mobile app.",
+    },
+    {
+      q: "Can I send money from my UAE IBAN to India, Pakistan, or the Philippines?",
+      a: "Yes — outbound remittances from UAE bank accounts are one of the largest cross-border flows in the world. Emirates NBD, ADCB, FAB, and Mashreq all offer international transfers from your AE IBAN via SWIFT, but bank fees run AED 75-100 per transfer plus 2-4% FX markup. Cheaper alternatives: licensed exchange houses (Lulu Exchange, Al Ansari Exchange, UAE Exchange) often have better AED-to-INR/PKR/PHP rates with lower fees. Digital providers like Wise (multi-currency), Remitly (cash pickup networks), and TapTap Send (very low fees to specific corridors) typically beat bank wires on cost. For live rate comparison, our send-money tool shows real quotes from your UAE bank account to India, Pakistan, Philippines, Bangladesh, Egypt, and Sri Lanka.",
+    },
+    {
+      q: "Is the IBAN the same as the account number in the UAE?",
+      a: "No, but the account number is embedded inside the IBAN. Your UAE IBAN is 23 characters total — the last 16 digits are your account number (positions 8-23), preceded by the 3-digit bank code (positions 5-7), check digits (positions 3-4), and the 'AE' country code (positions 1-2). Some UAE banks display only the 16-digit account number internally (for example on cheques), while others show the full 23-character IBAN. For any interbank transfer in the UAE — whether through UAEFTS or Aani — you must use the full 23-character IBAN, not just the account number portion.",
     },
   ],
   "saudi-arabia": [

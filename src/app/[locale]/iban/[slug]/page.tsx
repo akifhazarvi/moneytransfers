@@ -257,6 +257,11 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "UK to UAE transfers", href: "/send-money/uk-to-uae" },
     { label: "UAE to India transfers", href: "/send-money/uae-to-india" },
     { label: "UAE to Pakistan transfers", href: "/send-money/uae-to-pakistan" },
+    { label: "UAE to Philippines transfers", href: "/send-money/uae-to-philippines" },
+    { label: "UAE to Bangladesh transfers", href: "/send-money/uae-to-bangladesh" },
+    { label: "UAE to Egypt transfers", href: "/send-money/uae-to-egypt" },
+    { label: "UAE to Nepal transfers", href: "/send-money/uae-to-nepal" },
+    { label: "Best apps to send money from UAE", href: "/guides/best-money-transfer-apps" },
   ],
   "saudi-arabia": [
     { label: "Saudi to India transfers", href: "/send-money/saudi-arabia-to-india" },
@@ -423,6 +428,7 @@ export default async function IbanCountryPage({ params }: Props) {
               italy: `An Italian IBAN is 27 characters long and starts with "IT" followed by two check digits, a 1-character CIN control letter, a 5-digit ABI bank code, a 5-digit CAB branch code, and a 12-character account number. Example: IT60 X054 2811 1010 0000 0123 456 (Banco Popolare). Within SEPA the IBAN alone is sufficient; non-SEPA senders also need the BIC. Major Italian banks (UniCredit, Intesa Sanpaolo, Banco BPM) display the full IBAN on every statement and in online banking.`,
               poland: `A Polish IBAN is 28 characters long and starts with "PL" followed by two check digits and a 24-digit NRB (Numer Rachunku Bankowego): 8-digit bank/branch code and 16-digit account number. Example: PL61 1090 1014 0000 0712 1981 2874. Polish banks issue IBANs for both PLN and EUR accounts. Poland is a SEPA member so the IBAN alone is enough for euro transfers from other SEPA countries; for PLN transfers from outside Poland, senders also need the bank's SWIFT/BIC.`,
               netherlands: `A Dutch IBAN is 18 characters long and starts with "NL" followed by two check digits, a 4-letter bank code (ABNA for ABN AMRO, INGB for ING, RABO for Rabobank), and a 10-digit account number. Example: NL91 ABNA 0417 1643 00. The Netherlands retired its legacy domestic account format entirely — every Dutch transfer now uses the IBAN. Within SEPA only the IBAN is needed; non-SEPA senders also need the BIC.`,
+              "united-arab-emirates": `A UAE IBAN is 23 characters long and starts with "AE" followed by two check digits, a 3-digit bank code, and a 16-digit account number. Example: AE07 0331 2345 6789 0123 456 (Emirates NBD, bank code 033). The UAE is not part of SEPA — all international transfers route via SWIFT. For domestic AE-to-AE transfers through the UAE Funds Transfer System (UAEFTS), only the 23-character IBAN is needed. For inbound international transfers, senders need both the IBAN and the bank's SWIFT/BIC code (Emirates NBD = EBILAEAD, ADCB = ADCBAEAD, FAB = NBADAEAA, Mashreq = BOMLAEAD).`,
             };
             const answer = quickAnswers[slug];
             if (!answer || locale !== "en") return null;
