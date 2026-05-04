@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const year = new Date().getFullYear();
   const month = new Date().toLocaleDateString("en-US", { month: "long" });
 
-  const title = `Compare Money Transfer Services ${year} — Live Rates from 35+ Providers`;
-  const description = `Compare Wise, Remitly, Western Union, OFX, Revolut & 30+ more money transfer services side by side. Live exchange rates, real fees, Trustpilot ratings — updated every 6 hours. Find who's actually cheapest for your corridor in ${month} ${year}.`;
+  const title = `Compare Money Transfer ${year} — Wise, Remitly, Western Union & 30+ Services Side-by-Side`;
+  const description = `Compare money transfer services in ${month} ${year}. Wise, Remitly, Western Union, OFX, Revolut & 30+ more — live exchange rates, real fees, Trustpilot ratings, updated every 6 hours. Find who's actually cheapest for your corridor.`;
 
   return {
     title,
@@ -229,7 +229,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
 
           <div className="max-w-4xl">
             <h1 className="text-[clamp(1.75rem,5vw,2.75rem)] font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.02em] mb-4">
-              Compare money transfer services — live rates from <span className="text-[var(--color-primary)]">{providers.length}+ providers</span>
+              Compare money transfer rates from <span className="text-[var(--color-primary)]">{providers.length}+ providers</span> — live, in 30 seconds
             </h1>
             <p className="text-base sm:text-lg text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
               Real exchange rates, real fees, refreshed every 6 hours from live provider APIs.

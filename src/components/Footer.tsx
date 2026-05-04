@@ -72,6 +72,7 @@ export default function Footer() {
       titleKey: "resources",
       links: [
         { href: "/guides", labelKey: "guidesLink" },
+        { href: "/guides/money-transfer-safety-guide", labelKey: "safetyGuideLink" },
         { href: "/travel", labelKey: "travelLink" },
         { href: "/business", labelKey: "businessLink" },
         { href: "/news", labelKey: "newsLink" },
