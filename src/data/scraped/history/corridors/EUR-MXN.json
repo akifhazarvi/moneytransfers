@@ -2248,5 +2248,22 @@
         "receiveAmount": 2010.03
       }
     }
+  },
+  {
+    "date": "2026-05-04",
+    "providers": {
+      "wise": {
+        "rate": 20.4518,
+        "fee": 1.77,
+        "markup": null,
+        "receiveAmount": 2008.98
+      },
+      "xoom": {
+        "rate": 17.6754,
+        "fee": 1.69,
+        "markup": null,
+        "receiveAmount": 1768
+      }
+    }
   }
 ]

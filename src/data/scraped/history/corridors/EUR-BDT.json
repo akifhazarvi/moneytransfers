@@ -1366,5 +1366,28 @@
         "receiveAmount": 13930.11
       }
     }
+  },
+  {
+    "date": "2026-05-04",
+    "providers": {
+      "taptap-send": {
+        "rate": 143.6,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14360
+      },
+      "wise": {
+        "rate": 143.853,
+        "fee": 3.14,
+        "markup": null,
+        "receiveAmount": 13933.6
+      },
+      "xoom": {
+        "rate": 119.9346,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 11993.46
+      }
+    }
   }
 ]
