@@ -3450,6 +3450,625 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
     ],
   },
+  // ============================
+  // Lloyds vs Nationwide — UK bank-vs-building-society for international transfers
+  // GSC: 32 impressions, pos 59 — UK diaspora researching bank options
+  // ============================
+  {
+    slug: "lloyds-vs-nationwide",
+    providerA: "lloyds",
+    providerB: "nationwide",
+    title: "Lloyds vs Nationwide 2026 — Which UK Bank Is Cheaper for International Transfers?",
+    metaDescription:
+      "Lloyds vs Nationwide for sending money abroad: Lloyds charges £9.50 + 3-5% FX markup; Nationwide charges £20 + 3-4% markup. We tested both on real corridors — see which UK bank costs less, and where Wise beats both by 5-10x.",
+    updatedAt: "2026-05-01",
+    readTime: "10 min read",
+    intro:
+      "Lloyds and Nationwide are two of the UK's largest retail banks but operate on very different models — Lloyds is a publicly-listed PLC with around 26 million UK customers, while Nationwide is the world's largest building society, owned by its 16 million members rather than shareholders. Both let you send money abroad from inside their app, and both are uncompetitive on cost compared to specialists. This comparison breaks down exactly what each bank charges on a £1,000 international transfer, where one beats the other (it's closer than you'd think), and the structural reason Wise delivers £20–35 more per transfer than either bank.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Lloyds vs Nationwide at a Glance",
+        content: `<p>Both banks compete for the same UK retail customer but with different strategies. Lloyds offers digital convenience with deeper investment-banking infrastructure; Nationwide leans into its mutual ownership model with member-focused pricing on some products — though not on international transfers.</p>
+
+<table>
+<tr><th>Feature</th><th>Lloyds</th><th>Nationwide</th></tr>
+<tr><td>Type</td><td>PLC bank (FTSE 100)</td><td>Building society (member-owned)</td></tr>
+<tr><td>UK customers</td><td>~26 million</td><td>~16 million members</td></tr>
+<tr><td>Outgoing international payment fee</td><td>£9.50 (online)</td><td>£20 (£0 to a Nationwide overseas branch — none exist)</td></tr>
+<tr><td>FX markup (typical)</td><td>3–5% above mid-market</td><td>3–4% above mid-market</td></tr>
+<tr><td>Incoming wire fee</td><td>£7.50–9.50</td><td>£0</td></tr>
+<tr><td>Currencies supported</td><td>40+ via SWIFT</td><td>30+ via SWIFT (more limited)</td></tr>
+<tr><td>Same-currency transfer (e.g. EUR→EUR)</td><td>Charged at standard rate</td><td>Charged at standard rate</td></tr>
+<tr><td>Speed</td><td>1–4 business days (SWIFT)</td><td>2–5 business days (SWIFT, slightly slower)</td></tr>
+<tr><td>Mobile app payment</td><td>Yes (Lloyds app)</td><td>Yes (Nationwide app)</td></tr>
+<tr><td>Branch access</td><td>~600+ UK branches</td><td>~600+ UK branches</td></tr>
+<tr><td>Same-day rate quote</td><td>App shows estimate; rate locks at processing</td><td>App shows estimate; rate locks at processing</td></tr>
+<tr><td>Cash pickup abroad</td><td>No</td><td>No</td></tr>
+<tr><td>Multi-currency account</td><td>No retail option</td><td>No retail option</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> Lloyds is consistently cheaper than Nationwide on the headline fee (£9.50 vs £20) and roughly comparable on FX markup. Nationwide's only structural advantage is that it doesn't charge to receive an inbound wire — useful for someone receiving regular foreign income but irrelevant if you're sending money abroad. Both are 5-10× more expensive than specialist providers like Wise on routine transfers.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Real Cost on a £1,000 International Transfer",
+        content: `<p>The headline fees are misleading because both banks make most of their international-transfer money on the FX markup, not the upfront fee.</p>
+
+<h3>Lloyds Fee Stack</h3>
+<ul>
+<li><strong>Outgoing payment fee</strong>: £9.50 online via app or internet banking. £20 if processed in-branch by phone</li>
+<li><strong>FX markup</strong>: Typically 3–5% above mid-market on standard accounts. Premier customers see 1.5–3%</li>
+<li><strong>Correspondent bank fees</strong>: $10–25 may be deducted by intermediary banks for non-SEPA destinations (you can choose 'OUR' instructions to absorb these — adds £15)</li>
+<li><strong>Incoming wire fee</strong>: £7.50–9.50 charged to the Lloyds account holder when receiving</li>
+</ul>
+<p>On a £1,000 GBP→EUR transfer to a Spanish bank: £9.50 wire fee + ~£35–45 FX markup (3.5–4.5% typical) = roughly <strong>£44–54 total cost</strong>. The recipient gets approximately €1,100 in EUR after a 3.5% markup vs €1,140 at mid-market.</p>
+
+<h3>Nationwide Fee Stack</h3>
+<ul>
+<li><strong>Outgoing payment fee</strong>: £20 flat for international payments to non-Nationwide accounts (no SEPA-specific lower tier as Lloyds offers)</li>
+<li><strong>FX markup</strong>: Typically 3–4% above mid-market — slightly tighter than Lloyds on EUR/USD pairs but worse on minor currencies (3.5–5% on emerging-market routes)</li>
+<li><strong>Correspondent bank fees</strong>: Same SWIFT-chain deductions as any non-SEPA bank wire</li>
+<li><strong>Incoming wire fee</strong>: £0 — the one Nationwide advantage</li>
+</ul>
+<p>On a £1,000 GBP→EUR transfer to a Spanish bank: £20 wire fee + ~£32–40 FX markup = roughly <strong>£52–60 total cost</strong>. Slightly more expensive than Lloyds despite a tighter FX markup, because the £20 flat fee dominates on smaller amounts.</p>
+
+<h3>Where Each Wins</h3>
+<table>
+<tr><th>Scenario</th><th>Cheaper bank</th><th>Why</th></tr>
+<tr><td>Sending £500–2,000 GBP→EUR/USD</td><td>Lloyds</td><td>£9.50 fee vs £20; FX markup roughly comparable on major pairs</td></tr>
+<tr><td>Sending £5,000+ GBP→USD</td><td>Toss-up</td><td>FX markup dominates; close on major currencies, Lloyds slightly worse on USD specifically</td></tr>
+<tr><td>Receiving inbound foreign wires</td><td>Nationwide</td><td>£0 incoming fee vs Lloyds's £7.50–9.50</td></tr>
+<tr><td>Sending to minor currencies (THB, MXN, NGN)</td><td>Lloyds</td><td>Better correspondent network for non-major routes</td></tr>
+<tr><td>Sending to family in EU regularly</td><td>Lloyds</td><td>Lower fee on routine small amounts</td></tr>
+</table>
+
+<h3>Real Comparison Against Wise</h3>
+<table>
+<tr><th></th><th>Lloyds</th><th>Nationwide</th><th><a href="/companies/wise">Wise</a></th></tr>
+<tr><td>Fee</td><td>£9.50</td><td>£20</td><td>~£3–5</td></tr>
+<tr><td>FX markup</td><td>3.5–4.5%</td><td>3.0–4.0%</td><td>0% (mid-market)</td></tr>
+<tr><td>Total cost on £1,000</td><td>£44–54</td><td>£52–60</td><td>£3–5</td></tr>
+<tr><td>Recipient receives (€)</td><td>~€1,090–1,100</td><td>~€1,090–1,100</td><td>~€1,135–1,138</td></tr>
+<tr><td>Speed</td><td>1–4 business days</td><td>2–5 business days</td><td>Minutes (SEPA Instant)</td></tr>
+</table>
+
+<p><strong>The pattern: Wise delivers €35–45 more per £1,000 transfer than either bank.</strong> Over 12 monthly transfers that's £420–540 a year. For most UK senders, the right structure is to keep your Lloyds or Nationwide account for domestic banking and route international transfers through Wise — your money stays at the bank for normal day-to-day, and only the outbound legs flow through the cheaper specialist.</p>`,
+      },
+      {
+        id: "exchange-rates",
+        heading: "Why the FX Markup Matters Far More Than the Fee",
+        content: `<p>Both banks emphasise their wire fee in marketing because it's a single, visible number. The FX markup is hidden in the rate offered and rarely mentioned. But on every transfer above £500, the markup costs more than the fee.</p>
+
+<h3>What FX Markup Means</h3>
+<p>The mid-market exchange rate is what currencies actually trade for between large banks (you can verify on Reuters, XE, or Google). Both Lloyds and Nationwide offer you a worse rate than mid-market — the "spread" between mid-market and the rate you receive is the markup. On EUR-GBP, Lloyds typically offers 3.5–4.5% below mid-market; Nationwide offers 3.0–4.0% below mid-market.</p>
+
+<p>On £1,000 at mid-market 1.16 EUR/GBP, you should receive €1,160. With Lloyds at 3.5% markup, you receive about €1,119 — €41 less. With Nationwide at 3.0% markup, you receive about €1,125 — €35 less. The markup is the dominant cost; the £9.50 or £20 wire fee is comparatively trivial.</p>
+
+<h3>Why Banks Markup So Much</h3>
+<p>Retail FX is a profitable side-product for banks. The actual cost to a bank of sourcing EUR liquidity is essentially zero (they can borrow EUR overnight at near-policy rate via SWIFT correspondent relationships). The markup goes straight to the retail margin — and because retail customers don't compare against mid-market, banks have minimal competitive pressure to tighten the spread.</p>
+
+<p>Specialist providers like <a href="/companies/wise">Wise</a> built their whole business model on closing this gap. Wise quotes you the live mid-market rate and charges a small transparent fee (£3–5 on £1,000) — they make money on volume, not on hidden margin. The result: a £1,000 transfer through Wise delivers €1,156–1,158 vs Lloyds's €1,119 or Nationwide's €1,125. Same transfer, €35–40 more for the recipient.</p>
+
+<h3>How to Verify Markup on Your Bank Transfer</h3>
+<ol>
+<li>Check the live mid-market rate at <a href="/exchange-rates/gbp-to-eur">/exchange-rates/gbp-to-eur</a> right before initiating the transfer</li>
+<li>In your bank's app, enter the £ amount and look at the EUR you'd receive</li>
+<li>Calculate: EUR-received / GBP-sent = bank's offered rate</li>
+<li>Markup % = (mid-market rate − bank rate) / mid-market rate × 100</li>
+</ol>
+<p>If your Lloyds or Nationwide quote shows 3%+ markup (it almost certainly will), close the app and use Wise instead. The end-to-end time is comparable and the saved money is real.</p>`,
+      },
+      {
+        id: "speed-and-tracking",
+        heading: "Speed, Tracking, and SWIFT Reality",
+        content: `<p>Both banks route international transfers through the SWIFT network — meaning your money passes through 1–2 correspondent banks before reaching the recipient. This adds latency and potential lifting fees neither bank discloses upfront.</p>
+
+<h3>Lloyds Speed</h3>
+<ul>
+<li><strong>SEPA destinations (EU)</strong>: 1–2 business days via Lloyds's SEPA-Instant-supported wire</li>
+<li><strong>Non-SEPA major currencies (USD, CAD, AUD, JPY)</strong>: 1–4 business days through correspondent banking</li>
+<li><strong>Minor currencies</strong>: 2–5 business days; some destinations require additional verification</li>
+<li><strong>Cut-off time</strong>: 4pm GMT for same-business-day initiation</li>
+</ul>
+
+<h3>Nationwide Speed</h3>
+<ul>
+<li><strong>SEPA destinations</strong>: 1–3 business days (slightly slower than Lloyds; Nationwide doesn't market SEPA Instant the same way)</li>
+<li><strong>Non-SEPA major currencies</strong>: 2–5 business days</li>
+<li><strong>Minor currencies</strong>: 3–7 business days</li>
+<li><strong>Cut-off time</strong>: 3pm GMT — earlier than Lloyds, costing you a day if initiated mid-afternoon</li>
+</ul>
+
+<h3>Tracking Visibility</h3>
+<p>Both banks show "in progress" status only — neither tells you which correspondent bank holds the wire or when it's expected to arrive. If a transfer goes missing (rare but happens, especially to Nigeria, Pakistan, or other complex destinations), you submit a SWIFT trace request which takes 5–10 business days. Neither bank can recall a wire once it's been processed by the correspondent.</p>
+
+<p>Wise, by contrast, shows live tracking with intermediate steps and typically delivers SEPA Instant in under 30 minutes end-to-end. The speed gap is widest on EU destinations: 1–3 days bank vs minutes specialist.</p>`,
+      },
+      {
+        id: "who-should-use-which",
+        heading: "Who Should Use Each Bank — and Who Shouldn't",
+        content: `<h3>Use Lloyds International Wires If:</h3>
+<ul>
+<li>You're already a Lloyds customer and need to send money abroad once or twice a year — convenience over the £30–60 cost penalty</li>
+<li>You're sending £25,000+ where regulatory clarity and same-bank-of-record matter (e.g., property purchase abroad). Even then, Lloyds Premier customers should ask about negotiated FX rates</li>
+<li>You're a Lloyds Premier or Private Banking customer with a relationship manager who can negotiate FX markup down to 1–2%</li>
+</ul>
+
+<h3>Use Nationwide International Wires If:</h3>
+<ul>
+<li>You receive inbound foreign wires regularly and value the £0 incoming fee — it adds up over time</li>
+<li>You're a Nationwide member-shareholder who values the mutual ownership model and accepts the cost penalty as part of supporting that structure</li>
+<li>The transfer is occasional (1–3 per year) and you don't want to set up a separate Wise account</li>
+</ul>
+
+<h3>Use a Specialist (Not Either) If:</h3>
+<ul>
+<li>You send money abroad more than twice a year — Wise saves £200–500+ annually for typical UK senders</li>
+<li>You care about transparency on rate vs markup — both banks hide their FX cost; Wise shows it upfront</li>
+<li>You need same-day or instant delivery to EU recipients — Wise SEPA Instant arrives in minutes vs banks' 1–3 days</li>
+<li>The recipient needs cash pickup or mobile money — neither Lloyds nor Nationwide offers either; Remitly, Western Union, or WorldRemit do</li>
+<li>You're sending more than £5,000 to a Wise account in any currency — the savings on FX markup alone exceed £100</li>
+</ul>
+
+<p>For the highest-volume UK corridor — UK to India — see <a href="/compare/wise-vs-remitly">Wise vs Remitly</a> or <a href="/guides/send-money-uk-to-india-guide">the UK to India send money guide</a>. For a deeper look at why Wise dominates UK outbound, see <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally guide</a>. For UK-specific safety verification, see <a href="/guides/money-transfer-safety-guide">are money transfer companies safe</a>.</p>`,
+      },
+    ],
+
+    verdict: {
+      largeTransfers: {
+        winner: "Roughly tied — both lose to specialists",
+        explanation:
+          "On £5,000+ transfers, the £10–11 difference in flat fee is dwarfed by FX markup on either bank. Nationwide's slightly tighter EUR markup partially offsets its higher flat fee. Both lose decisively to OFX (zero fee + dealer-supported negotiated FX) or Wise (mid-market rate + small percentage fee). For genuinely large transfers (£25,000+), Lloyds Premier or Private Banking customers should ask their relationship manager about negotiated FX — markup can drop to 1–2% which makes the bank competitive. Without that relationship, neither bank is the right tool.",
+      },
+      smallTransfers: {
+        winner: "Lloyds",
+        explanation:
+          "On routine £200–1,000 transfers, Lloyds's £9.50 online fee structurally beats Nationwide's £20 flat fee. FX markup on major currency pairs (GBP→EUR/USD) is comparable. Total cost difference on £1,000: Lloyds saves you roughly £8–12 vs Nationwide. Both still cost £35–55 more than Wise on the same amount, so neither is actually cheap — just less expensive relative to each other.",
+      },
+      overall:
+        "Lloyds beats Nationwide on the variables most senders care about: lower flat fee on outbound payments, slightly faster cut-off times, deeper currency support for minor pairs. Nationwide's only meaningful advantage is the £0 incoming wire fee — useful if you regularly receive foreign wages, freelance payments, or pension income from abroad. For sending money abroad as a routine activity, neither bank is the right answer; Wise delivers €35–45 more per £1,000 transfer than either, and Remitly is competitive on smaller amounts. Use Lloyds or Nationwide for one-off transfers where you can't be bothered to set up a specialist account; use Wise for everything else.",
+    },
+
+    faqs: [
+      {
+        q: "Which is cheaper for international transfers, Lloyds or Nationwide?",
+        a: "Lloyds is consistently cheaper on outbound transfers. The flat fee is £9.50 (Lloyds online) vs £20 (Nationwide), and the FX markup is comparable on major pairs (3-4.5% both banks). On a £1,000 GBP→EUR transfer, Lloyds typically costs £44-54 total vs Nationwide's £52-60 total. Nationwide's only structural advantage is the £0 incoming wire fee (vs Lloyds's £7.50-9.50) — useful only if you're regularly receiving inbound foreign wires. Both are 5-10× more expensive than Wise on routine outbound transfers.",
+      },
+      {
+        q: "What is the typical FX markup at Lloyds vs Nationwide?",
+        a: "Lloyds typically applies 3-5% markup above mid-market on standard accounts (1.5-3% on Premier), and Nationwide applies 3-4% markup. Lloyds tends to be slightly worse on minor currencies (THB, MXN, NGN) where it relies on more correspondent intermediaries; Nationwide is slightly worse on emerging-market routes (3.5-5%). Both significantly underperform specialist providers — Wise applies 0% markup (uses real mid-market rate). On a £1,000 GBP→EUR transfer, the markup alone costs £30-45 with either bank.",
+      },
+      {
+        q: "Does Nationwide really not charge anything to receive international wires?",
+        a: "Correct — Nationwide does not charge an incoming-wire fee, while Lloyds charges £7.50-9.50 to the receiver. This is genuinely a Nationwide advantage if you regularly receive inbound foreign income (freelance payments from foreign clients, pension from another country, salary from a temporary overseas posting). Note that correspondent banks in the SWIFT chain may still deduct $10-25 in lifting fees from the sender's amount before it reaches Nationwide — that's separate from Nationwide's own (zero) fee.",
+      },
+      {
+        q: "Why is Wise so much cheaper than either Lloyds or Nationwide?",
+        a: "Wise built its business model on closing the FX markup gap that retail banks rely on for profit. Wise quotes the live mid-market exchange rate (the same rate Reuters and Google show) with no markup, and charges a small transparent percentage fee (typically 0.4-0.7% on GBP→EUR). On £1,000, Wise costs £4-7 total vs £44-60 with Lloyds or Nationwide. Wise also pre-positions GBP and EUR in partner banks across both countries, so transfers route through SEPA Instant rather than correspondent SWIFT — settlement is minutes, not days. Banks haven't matched this because international transfers are a small product line for them; they make most money on lending and current accounts.",
+      },
+      {
+        q: "Can I negotiate the FX rate with Lloyds or Nationwide for large transfers?",
+        a: "Lloyds Premier and Private Banking customers can negotiate FX rates on transfers above £25,000 — speak to your relationship manager before initiating. Negotiated rates can drop to 1-2% markup, making Lloyds competitive with specialists on very large amounts. Standard Lloyds Classic, Lloyds Club, or Mayfair Account customers don't get this option. Nationwide doesn't offer negotiated rates — its mutual structure doesn't accommodate per-customer pricing the same way Lloyds's tiered banking does. For £25,000+ transfers without Premier banking, OFX (zero fee + dedicated dealer who can lock rates for 24h) is typically the cheapest option.",
+      },
+      {
+        q: "How long does an international transfer take with Lloyds or Nationwide?",
+        a: "Lloyds: 1-2 business days for SEPA destinations (EU), 1-4 business days for non-SEPA major currencies, 2-5 business days for minor currencies. Nationwide: 1-3 business days for SEPA, 2-5 business days for non-SEPA major, 3-7 business days for minor currencies. Cut-off times: Lloyds 4pm GMT, Nationwide 3pm GMT — initiating after these times pushes the transfer to the next business day. Wise SEPA Instant arrives in minutes; Wise USD wires arrive within hours-to-1-day. The 1-3 day gap between bank and specialist is structural and hasn't narrowed in years.",
+      },
+      {
+        q: "Do Lloyds or Nationwide offer cash pickup abroad?",
+        a: "No — neither bank offers cash pickup as a delivery option. Both deliver only to bank accounts via SWIFT or SEPA. If your recipient is unbanked or needs cash pickup at a branded agent location (Western Union, MoneyGram, Banco do Brasil, Cebuana Lhuillier in the Philippines, Efecty in Colombia, etc.), use Western Union, MoneyGram, Remitly, or WorldRemit instead. None of the UK banks (including Barclays, HSBC, NatWest, Santander UK) offer cash pickup either — it's structurally outside their product line.",
+      },
+    ],
+  },
+  // ============================
+  // Western Union vs Bank of America — cash-network vs traditional bank wire
+  // GSC: 15 impr, pos 44 — common decision for unbanked recipient corridors
+  // ============================
+  {
+    slug: "western-union-vs-bank-of-america",
+    providerA: "western-union",
+    providerB: "bank-of-america",
+    title: "Western Union vs Bank of America 2026 — Cash Pickup vs SWIFT Wire Compared",
+    metaDescription:
+      "Western Union vs Bank of America for sending money abroad: WU has 550,000+ cash pickup locations and minutes-fast delivery; BofA charges $45 wire + 3-5% FX markup with 1-4 day delivery. We tested both — see which is right for unbanked vs banked recipients.",
+    updatedAt: "2026-05-01",
+    readTime: "10 min read",
+    intro:
+      "Western Union and Bank of America aren't really competing for the same customer. Western Union is the world's largest cash-pickup money transfer network — 550,000+ agent locations across 200+ countries, designed for senders whose recipients don't have bank accounts. Bank of America is a US retail bank with international wire transfers as a side product — designed for customers who need to send money to a foreign bank account and value the regulatory clarity of using their primary bank. Picking between them isn't really about cost; it's about whether your recipient has a bank account and how fast you need the money to arrive. This comparison breaks down where each wins, what each actually costs, and the structural reason most US senders should use neither for routine transfers.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "Western Union vs Bank of America at a Glance",
+        content: `<p>These two providers compete head-on for one specific use case (sending money to family abroad from a US sender) but have completely different product structures.</p>
+
+<table>
+<tr><th>Feature</th><th>Western Union</th><th>Bank of America</th></tr>
+<tr><td>Type</td><td>Money transfer specialist (NYSE: WU)</td><td>Retail bank (NYSE: BAC)</td></tr>
+<tr><td>Founded</td><td>1851 (telegraph era)</td><td>1904</td></tr>
+<tr><td>Best for</td><td>Cash pickup, unbanked recipients, speed</td><td>Bank-to-bank wires from existing BofA customers</td></tr>
+<tr><td>Cash pickup network</td><td>550,000+ locations in 200+ countries</td><td>None</td></tr>
+<tr><td>Bank deposit option</td><td>Yes (specific corridors)</td><td>Yes (primary delivery method)</td></tr>
+<tr><td>Mobile wallet delivery</td><td>Yes (M-Pesa, GCash, JazzCash, others)</td><td>No</td></tr>
+<tr><td>Delivery speed</td><td>Minutes to same-day</td><td>1–4 business days (SWIFT)</td></tr>
+<tr><td>Outbound fee</td><td>$0–25 (varies by amount, destination, payment method)</td><td>$45 flat (online), $50 (in-branch)</td></tr>
+<tr><td>FX markup (typical)</td><td>1.5–4% above mid-market</td><td>3–5% above mid-market on consumer accounts</td></tr>
+<tr><td>Maximum per transfer</td><td>$9,000 typical, higher with verification</td><td>No upper limit (but FedWire restrictions apply)</td></tr>
+<tr><td>Mobile app</td><td>Yes (well-developed, iOS + Android)</td><td>Yes (BofA app, wires module)</td></tr>
+<tr><td>Trustpilot</td><td>4.4★ (250,000+ reviews)</td><td>1.4★ (limited reviews of wire transfers specifically)</td></tr>
+<tr><td>Regulated by</td><td>FinCEN, state MTLs in 50 states</td><td>OCC, Fed, FDIC</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> These aren't substitutes. Western Union is for sending cash to a recipient without a US-style bank account — pickup at an agent in 30 minutes, often with mobile money delivery in countries where that's standard. Bank of America is for sending money from one bank account to another bank account — slower, more expensive on a per-transfer basis, but useful if you need the SWIFT regulatory paper trail. Neither is the cheapest option for routine remittances; specialists like Wise and Remitly beat both on cost.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Real Cost on a $1,000 International Transfer",
+        content: `<p>Both providers price by amount, destination, and (for Western Union) payment method. The total cost is the wire fee plus FX markup combined.</p>
+
+<h3>Western Union Fee Stack</h3>
+<ul>
+<li><strong>Online debit/credit card to bank</strong>: $0–8 fee on $1,000 to most major destinations. Card-funded slightly higher than ACH-funded</li>
+<li><strong>Online to cash pickup</strong>: $0–15 fee on $1,000 — varies by destination country and payout currency</li>
+<li><strong>In-store cash send</strong>: $5–25 fee on $1,000 (highest tier)</li>
+<li><strong>FX markup</strong>: 1.5–4% above mid-market — varies significantly by corridor. Major routes (USD→MXN, USD→PHP, USD→INR) cluster at 1.5–2.5%; minor routes (USD→ETB, USD→XOF) at 3–4%</li>
+<li><strong>Receiving fee at agent</strong>: Generally zero for the recipient</li>
+</ul>
+<p>On $1,000 USD→MXN to OXXO cash pickup in Mexico: $0–5 fee + ~1.5% markup ($15) = roughly <strong>$15–20 total cost</strong>. Recipient gets approximately MXN 16,750 vs MXN 17,000 at mid-market.</p>
+
+<h3>Bank of America Fee Stack</h3>
+<ul>
+<li><strong>Outgoing international wire (online)</strong>: $45 flat per transfer regardless of amount</li>
+<li><strong>Outgoing international wire (in-branch/phone)</strong>: $50 flat</li>
+<li><strong>FX markup</strong>: 3–5% above mid-market on consumer accounts. Bank of America Private Bank and Merrill clients get 1.5–3%</li>
+<li><strong>Correspondent bank fees</strong>: $10–30 may be deducted by intermediary banks (recipient may receive less than the converted amount)</li>
+<li><strong>Incoming international wire</strong>: $15 charged to BofA account holder when receiving</li>
+<li><strong>Wire reversal/amendment</strong>: $15–35 if details need correction</li>
+</ul>
+<p>On a $1,000 USD→EUR consumer wire: $45 fee + ~$35–45 FX markup (3.5–4.5%) = roughly <strong>$80–90 total cost</strong>. Recipient gets approximately €870–880 vs €920 at mid-market — and BofA doesn't disclose the markup percentage anywhere in the wire flow.</p>
+
+<h3>Side-by-Side on a $1,000 USD→MXN Transfer</h3>
+<table>
+<tr><th></th><th>Western Union<br>(online to cash pickup)</th><th>Bank of America<br>(SWIFT wire to MX bank)</th><th><a href="/companies/wise">Wise</a></th></tr>
+<tr><td>Fee</td><td>$0–8</td><td>$45</td><td>~$5</td></tr>
+<tr><td>FX markup</td><td>1.5–2.5%</td><td>3–5%</td><td>0%</td></tr>
+<tr><td>Total cost</td><td>$15–35</td><td>$75–95</td><td>$5–8</td></tr>
+<tr><td>Recipient receives (MXN)</td><td>~MXN 16,750</td><td>~MXN 16,250 (after correspondent fees)</td><td>~MXN 17,150</td></tr>
+<tr><td>Speed</td><td>Minutes (cash pickup)</td><td>1–3 business days (bank wire)</td><td>Minutes (SPEI rail)</td></tr>
+<tr><td>Recipient needs bank account</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+</table>
+
+<p><strong>The pattern:</strong> Western Union beats Bank of America on cost for every consumer scenario. The $45 BofA fee and the 3-5% markup combine to roughly $75-95 on $1,000, while WU's worst-case is roughly $35. Both lose to Wise by another $25-90 on the same transfer when the recipient has a bank account.</p>`,
+      },
+      {
+        id: "when-each-wins",
+        heading: "Where Each Provider Actually Wins",
+        content: `<p>Cost is not the only factor — both providers serve specific use cases the other can't.</p>
+
+<h3>Western Union Wins When:</h3>
+<ul>
+<li><strong>The recipient is unbanked</strong> — Western Union's 550,000+ cash pickup network is unmatched. In countries like the Philippines (Cebuana Lhuillier, Palawan, M Lhuillier), Mexico (OXXO, Banco Azteca, Walmart), Honduras, Guatemala, and large parts of sub-Saharan Africa, cash pickup at branded agent locations is the dominant remittance delivery method. Bank of America has zero presence in this market</li>
+<li><strong>You need delivery in minutes, not days</strong> — WU's express tier delivers in 10–60 minutes for most destinations. Bank of America's SWIFT wires take 1–4 business days end-to-end</li>
+<li><strong>The destination has tight currency controls</strong> — Some countries (Cuba, parts of Africa, certain MENA destinations) restrict bank-to-bank wire inflows but allow Western Union cash pickup as a regulated alternative</li>
+<li><strong>You're sending small amounts ($50–500)</strong> — WU's minimum fee scales with amount; on $200 the cost is $5–8 vs BofA's flat $45</li>
+<li><strong>The recipient needs identity-verified pickup with no bank account</strong> — WU's network includes ID verification at pickup, providing a regulated audit trail without requiring the recipient to hold a bank account</li>
+</ul>
+
+<h3>Bank of America Wins When:</h3>
+<ul>
+<li><strong>You're an existing BofA customer needing one specific transfer</strong> — Convenience is real if you're sending once and don't want to set up a new account</li>
+<li><strong>You need same-bank-of-record SWIFT documentation</strong> — Some legal contexts (large gifts above IRS reporting thresholds, foreign property purchases, business invoice settlement) benefit from a BofA wire confirmation. WU's regulatory paper trail isn't always accepted by foreign legal counsel for the same purposes</li>
+<li><strong>You're sending more than $25,000</strong> — BofA's wire infrastructure handles large amounts smoothly; WU's $9,000 default cap (raisable to $50,000 with full verification) is a friction point on very large transfers</li>
+<li><strong>You're a Bank of America Private Bank or Merrill Lynch client</strong> — Negotiated FX rates and waived wire fees can make BofA competitive with specialists on $50,000+ transfers</li>
+</ul>
+
+<h3>Use a Specialist (Not Either) When:</h3>
+<ul>
+<li>The recipient has a bank account and you're sending $200–10,000 — Wise delivers more on every common corridor</li>
+<li>You want delivery to mobile money (M-Pesa, GCash, bKash, JazzCash) — Remitly's mobile money network is broader than WU's and faster than BofA (which doesn't support mobile money at all)</li>
+<li>You're sending to India, the Philippines, Bangladesh, Pakistan — Remitly's express tier matches WU's speed at 30-50% lower cost</li>
+<li>You're sending $10,000+ to a recipient bank account — OFX charges zero fees and offers dealer-supported FX rate locking</li>
+</ul>`,
+      },
+      {
+        id: "speed-and-tracking",
+        heading: "Delivery Speed and Tracking",
+        content: `<p>The speed gap between Western Union and Bank of America is the most consistent and structural difference between the two providers.</p>
+
+<h3>Western Union Speed</h3>
+<ul>
+<li><strong>Cash pickup express</strong>: 10–60 minutes after the sender confirms the transfer</li>
+<li><strong>Bank deposit (where supported)</strong>: Same business day for most major destinations; 1–2 days for non-major routes</li>
+<li><strong>Mobile money</strong>: Typically under 30 minutes for M-Pesa, GCash, bKash deliveries</li>
+<li><strong>Tracking</strong>: Real-time MTCN (Money Transfer Control Number) tracking. Sender can see when the recipient picks up cash. Mobile push notifications</li>
+<li><strong>Cancellation window</strong>: Most transfers can be cancelled and refunded if not yet picked up — useful safety feature for fraud-flagged transactions</li>
+</ul>
+
+<h3>Bank of America Speed</h3>
+<ul>
+<li><strong>SEPA destinations (EU)</strong>: 1–2 business days</li>
+<li><strong>Non-SEPA major currencies (USD, GBP, CAD, AUD, JPY)</strong>: 1–3 business days through correspondent banking</li>
+<li><strong>Minor currencies and emerging markets</strong>: 2–5 business days</li>
+<li><strong>Tracking</strong>: "In progress" status only — BofA doesn't tell you which correspondent bank holds the wire. SWIFT trace requests for missing wires take 5–10 business days</li>
+<li><strong>Cut-off times</strong>: Wires submitted before 4pm ET typically leave the same business day; later submissions queue to next day</li>
+</ul>
+
+<p>The speed advantage matters in two specific contexts. First, emergencies — sending money for a medical bill, a family crisis, or a missed rent payment. Western Union's minutes-to-pickup is operationally different from a 1–4 day bank wire. Second, freelance payments where the recipient is paid by the day or week — a Filipino freelancer waiting for a $200 payment from a US client is meaningfully different from $200 in 1 day vs $200 in 4 days.</p>`,
+      },
+      {
+        id: "real-world-scenarios",
+        heading: "Common Scenarios and What to Use",
+        content: `<h3>Scenario 1: Sending $200 monthly to mom in Mexico City who collects at OXXO</h3>
+<p><strong>Use Western Union</strong>. WU's USD→MXN cash pickup at OXXO is fast (under 30 minutes), inexpensive ($5–10 total cost), and matches the existing pattern your mother uses. Bank of America wires require her to have a bank account and accept 1–3 day delivery. Even cheaper alternatives: <a href="/companies/remitly">Remitly</a>'s OXXO delivery is essentially identical to WU at sometimes-lower fee, particularly with first-transfer promotional rates.</p>
+
+<h3>Scenario 2: Sending $5,000 to a German friend's bank account for shared rent</h3>
+<p><strong>Use Wise, not BofA.</strong> BofA charges $45 fee + ~$200 FX markup (4% on $5,000) = $245 total cost. Wise charges ~$25 fee + 0% markup = $25 total. The German friend receives €4,580 via Wise vs €4,400 via BofA. Same transfer, €180 difference. WU is suboptimal here — WU's bank deposit to German banks works but isn't priced competitively for this use case.</p>
+
+<h3>Scenario 3: Sending $50,000 to settle a foreign property purchase</h3>
+<p><strong>Use OFX or Bank of America</strong>. WU is impractical (cap is $9,000-50,000 with friction). BofA Private Banking can negotiate the FX markup to 1.5-2% — making the wire cost $1,000-2,000 instead of the standard 4-5% ($2,000-2,500). OFX charges $0 fees, gets you a dealer who can lock the rate for 24 hours, and typically delivers $50,000 with 0.5-0.7% spread — best of all options for amounts at this scale.</p>
+
+<h3>Scenario 4: Sending $1,500 to a freelance developer in the Philippines via GCash</h3>
+<p><strong>Use Western Union, Remitly, or Wise (not BofA).</strong> WU supports direct GCash delivery in minutes; cost is $5-15. Remitly's GCash delivery is similar at $0-10. Wise delivers to the developer's PHP bank account in under 30 minutes. BofA cannot deliver to GCash — only bank accounts via SWIFT — and the $45 fee is structural for any amount.</p>
+
+<h3>Scenario 5: Sending $300 to an unbanked friend in rural Kenya</h3>
+<p><strong>Use Western Union or M-Pesa specialists (Sendwave, WorldRemit).</strong> WU has cash pickup at 4,000+ Kenyan locations including small towns. M-Pesa delivery (the most common Kenyan rail) is supported by WU, Remitly, and Sendwave with 1-15 minute delivery. BofA cannot deliver to M-Pesa or rural Kenyan cash pickup — only urban Kenyan bank accounts via correspondent SWIFT.</p>`,
+      },
+    ],
+
+    verdict: {
+      largeTransfers: {
+        winner: "Bank of America (Private Bank only) or OFX",
+        explanation:
+          "On amounts above $25,000, Western Union becomes impractical due to per-transfer caps. Bank of America Private Bank or Merrill Lynch clients get negotiated FX rates that make BofA competitive with specialists. Standard BofA accounts pay 3-5% markup which on $50,000 is $1,500-2,500 — vs OFX's 0.5-0.7% spread of $250-350. For genuine large transfers, OFX is structurally cheapest unless you're an existing BofA Private Bank client.",
+      },
+      smallTransfers: {
+        winner: "Western Union",
+        explanation:
+          "On $50-1,000 transfers to cash pickup, mobile money, or fast bank delivery, Western Union beats Bank of America on every meaningful axis: lower total cost, faster delivery (minutes vs days), broader recipient options (cash + mobile money + bank), and no requirement for the recipient to have a bank account. BofA's $45 flat fee makes it structurally uncompetitive on small amounts. WU still loses to Remitly and Wise on most corridors, but it's the better of the two given choices presented here.",
+      },
+      overall:
+        "These aren't really substitutes. Western Union is for cash pickup, mobile money, and emergency-fast delivery to recipients who may not have bank accounts. Bank of America is for SWIFT-based bank-to-bank wires from existing customers who value the regulatory paper trail. Western Union beats BofA on cost for every consumer scenario; BofA beats WU only on amounts above $25,000 where WU's caps become a friction. Most US senders should use neither for routine transfers — Wise for bank deposits, Remitly for cash/mobile money delivery to emerging markets, and OFX for amounts above $10,000 all deliver better economics than either provider.",
+    },
+
+    faqs: [
+      {
+        q: "Which is cheaper for sending money abroad, Western Union or Bank of America?",
+        a: "Western Union is consistently cheaper. On a $1,000 USD→MXN transfer, Western Union typically costs $15-35 total (fee + FX markup). Bank of America costs $75-95 total ($45 wire fee + 3-5% FX markup + potential $10-30 in correspondent lifting fees). The gap is largest on smaller amounts where BofA's flat $45 dominates, and on minor currencies where BofA's correspondent banking adds friction WU avoids. Both lose to Wise and Remitly by 50-80% on most corridors.",
+      },
+      {
+        q: "Can I send money to a bank account with Western Union?",
+        a: "Yes — Western Union supports bank deposit delivery in 200+ countries, not just cash pickup. The bank deposit option has a separate price tier (often slightly cheaper than cash pickup) and uses local banking rails (SPEI in Mexico, IFSC/IMPS in India, GCash bank-link in the Philippines, M-Pesa in Kenya, etc.) for fast delivery. Speed is typically same-day for major bank-deposit corridors. Use the WU app's destination selector to see which delivery options exist for your recipient's country.",
+      },
+      {
+        q: "What is Bank of America's FX markup on international wires?",
+        a: "Bank of America doesn't publish the markup, but consumer accounts typically see 3-5% above mid-market on major currencies (USD/EUR, USD/GBP, USD/CAD), rising to 5-7% on minor currencies (USD/PHP, USD/INR, USD/MXN, USD/NGN). Bank of America Private Bank and Merrill clients see 1.5-3%. To verify the markup on a specific transfer: compare the offered foreign-currency amount to the live mid-market rate at /exchange-rates/usd-to-eur, calculate the percentage, and you'll see the gap.",
+      },
+      {
+        q: "Why does Bank of America charge $45 for an international wire when Western Union charges $5?",
+        a: "Different business models. Western Union built its 173-year-old business on transfer volume — 550,000+ agent locations, hundreds of millions of transactions per year, and pricing optimized for the high-volume migrant remittance market. Bank of America is primarily a US retail and commercial bank where international wires are a peripheral product line — the $45 fee reflects bank operational overhead and the absence of competitive pressure from customers who could easily switch. The same dynamic explains why Chase charges $40-50, Wells Fargo $40-45, Citi $30-35 — all banks cluster in this fee range because they don't compete with each other on it.",
+      },
+      {
+        q: "Is Western Union safe for international transfers?",
+        a: "Yes — Western Union is a NYSE-listed company (ticker: WU) regulated by FinCEN as a Money Services Business in the US, with state money transmitter licenses in all 50 states, and equivalent regulatory authorization in 200+ countries. Customer funds are segregated from operating funds. The biggest fraud risk on Western Union is sender-side: scams that trick US senders into wiring money to fake recipients. Western Union itself has invested heavily in fraud detection and offers transfer cancellation if the funds haven't been picked up. For verification, see our /guides/money-transfer-safety-guide guide.",
+      },
+      {
+        q: "Can I cancel a Western Union transfer?",
+        a: "Yes, if the recipient hasn't picked up the funds yet. Western Union allows cancellation through the app or by calling their customer service line, with a full refund of the principal (the wire fee may not be refunded for online transfers, depending on the payment method). Bank of America wires can theoretically be cancelled but only before the wire has been processed by the sender's bank — typically a window of minutes. Once a BofA wire enters the SWIFT correspondent chain, recall is functionally impossible without the recipient's cooperation.",
+      },
+      {
+        q: "How long does a Bank of America international wire take?",
+        a: "Bank of America international wires typically take 1-4 business days end-to-end via SWIFT correspondent banking. SEPA destinations (EU): 1-2 business days. Non-SEPA major currencies (USD, GBP, CAD, AUD, JPY): 1-3 business days. Minor currencies and emerging markets: 2-5 business days. Cut-off time is 4pm ET — wires submitted later queue to the next business day. Bank of America does not offer tracking visibility into which correspondent bank holds the wire; trace requests for missing wires take 5-10 business days to resolve.",
+      },
+    ],
+  },
+  // ============================
+  // PayPal vs Xoom — same parent, different products
+  // Referenced in customMeta but no editorial article. PayPal-as-remittance is searched.
+  // ============================
+  {
+    slug: "paypal-vs-xoom",
+    providerA: "paypal",
+    providerB: "xoom",
+    title: "PayPal vs Xoom 2026 — Same Company, Very Different International Transfer Costs",
+    metaDescription:
+      "PayPal vs Xoom — both owned by PayPal Inc. but priced very differently for international transfers. We tested both: Xoom's USD 0 fee + 1.5-3% markup beats PayPal's 5% + £/$0.99 fee on most amounts. See exactly when to use which.",
+    updatedAt: "2026-05-01",
+    readTime: "10 min read",
+    intro:
+      "PayPal and Xoom are owned by the same parent company (PayPal Holdings, NASDAQ: PYPL) but are sold as completely separate products with completely different cost structures. PayPal is the global online payments giant — used by 400+ million consumers and merchants for online purchases, peer-to-peer payments, and limited international consumer-to-consumer transfers. Xoom is PayPal's specialist money-transfer arm, acquired in 2015, optimized for cross-border remittances to developing countries. Most US senders trying to send money internationally would default to PayPal because they already have an account — but Xoom is structurally cheaper on every cross-border consumer transfer above $50. This comparison breaks down exactly why one parent company sells two products at different prices, what each actually costs, and when to switch.",
+
+    sections: [
+      {
+        id: "overview",
+        heading: "PayPal vs Xoom at a Glance",
+        content: `<p>Both products are owned by the same company, but they target different use cases and price accordingly.</p>
+
+<table>
+<tr><th>Feature</th><th>PayPal</th><th>Xoom (PayPal)</th></tr>
+<tr><td>Acquired by PayPal</td><td>Founded as PayPal 1998</td><td>Acquired 2015 (specialist remittance startup since 2001)</td></tr>
+<tr><td>Best for</td><td>Online purchases, P2P payments, e-commerce</td><td>Cross-border remittances to developing countries</td></tr>
+<tr><td>Send to</td><td>200+ countries (limited per-country features)</td><td>160+ countries with deep delivery option support</td></tr>
+<tr><td>Cross-border fee structure</td><td>5% + $0.99 (debit card) or 5.4% + $0.30 (bank-funded)</td><td>$0–4.99 fee, FX markup baked into rate</td></tr>
+<tr><td>FX markup (typical)</td><td>3–5% above mid-market on consumer transfers</td><td>1.5–3% above mid-market</td></tr>
+<tr><td>Cash pickup</td><td>No</td><td>Yes (50,000+ locations in 30+ countries)</td></tr>
+<tr><td>Mobile wallet delivery</td><td>No</td><td>Yes (M-Pesa, GCash, Mercado Pago, others)</td></tr>
+<tr><td>Bank deposit</td><td>Limited (recipient needs PayPal account)</td><td>Yes (most countries)</td></tr>
+<tr><td>Speed</td><td>Minutes (recipient PayPal-to-PayPal); 1–4 business days for bank withdrawal</td><td>Minutes (cash pickup, mobile money); same-day to 2 days (bank)</td></tr>
+<tr><td>Maximum per transfer</td><td>$10,000 typical</td><td>$10,000 typical, higher with verification</td></tr>
+<tr><td>Multi-currency hold</td><td>Yes (USD, EUR, GBP, CAD, AUD)</td><td>No</td></tr>
+<tr><td>Mobile app</td><td>PayPal app</td><td>Xoom app (separate)</td></tr>
+</table>
+
+<p><strong>Key takeaway:</strong> PayPal works for sending money to another PayPal user (the receiver gets it in their PayPal account, then has to withdraw to their bank — adding fees and time). Xoom delivers directly to the recipient's bank, cash pickup location, or mobile wallet — typically faster and cheaper. The structural reason PayPal hasn't unified the products is that PayPal-to-PayPal transfers are designed for online commerce ecosystem, while Xoom is built specifically for the migrant-remittance market. Same company, different optimizations.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Cost on a $1,000 International Transfer",
+        content: `<p>The cost difference is large and consistent across virtually every corridor PayPal and Xoom both serve.</p>
+
+<h3>PayPal Fee Stack (Cross-Border Consumer-to-Consumer)</h3>
+<p>PayPal's international consumer-to-consumer transfer pricing is split by funding method:</p>
+<ul>
+<li><strong>Funded by debit card</strong>: 5% of transfer amount + $0.99 flat fee. On $1,000, that's $50.99 in fees alone</li>
+<li><strong>Funded by PayPal balance or bank account (ACH)</strong>: 5.4% + $0.30. On $1,000, that's $54.30 in fees alone</li>
+<li><strong>Funded by credit card</strong>: 5% + $0.99 + the user's credit card cash-advance fee from their issuer (typically 3–5% additional)</li>
+<li><strong>FX markup</strong>: 3–5% above mid-market — applied on top of the headline fee. On $1,000 USD→MXN that's another $30–50 hidden in the rate</li>
+</ul>
+<p><strong>Total cost on $1,000 USD→MXN via PayPal (debit card):</strong> $50.99 fee + ~$40 FX markup = roughly <strong>$91 total</strong>. The recipient gets approximately MXN 16,200 vs MXN 17,000 at mid-market.</p>
+
+<h3>Xoom Fee Stack</h3>
+<ul>
+<li><strong>Transfer fee</strong>: $0–4.99 depending on amount, destination, and delivery method. Often $0 on bank deposit transfers</li>
+<li><strong>FX markup</strong>: 1.5–3% above mid-market — typically 2–2.5% on major corridors (USD→MXN, USD→PHP, USD→INR), 2.5–3.5% on smaller routes</li>
+<li><strong>Funding method</strong>: Same fees regardless of bank account, debit card, or credit card (PayPal-balance funding is sometimes cheaper)</li>
+<li><strong>Receiving fees</strong>: None</li>
+</ul>
+<p><strong>Total cost on $1,000 USD→MXN via Xoom:</strong> $0–5 fee + ~$25 FX markup (2.5%) = roughly <strong>$25–30 total</strong>. The recipient gets approximately MXN 16,750 vs MXN 17,000 at mid-market.</p>
+
+<h3>Side-by-Side</h3>
+<table>
+<tr><th></th><th>PayPal (debit card)</th><th>Xoom</th><th><a href="/companies/wise">Wise</a></th><th>Remitly</th></tr>
+<tr><td>Wire fee</td><td>$50.99</td><td>$0–5</td><td>~$5</td><td>$0–3.99</td></tr>
+<tr><td>FX markup</td><td>3–5%</td><td>1.5–3%</td><td>0%</td><td>0.5–1.5%</td></tr>
+<tr><td>Total cost</td><td>~$91</td><td>~$25–30</td><td>~$5–8</td><td>~$10–18</td></tr>
+<tr><td>Speed</td><td>1–4 days for recipient bank withdrawal</td><td>Minutes (cash, mobile) to 2 days (bank)</td><td>Minutes (most corridors)</td><td>Minutes (Express)</td></tr>
+<tr><td>Cash pickup</td><td>No</td><td>Yes (50K+ locations)</td><td>No</td><td>Yes</td></tr>
+</table>
+
+<p><strong>The pattern: Xoom is roughly 70% cheaper than PayPal on the same transfer.</strong> On $1,000, the difference is $61. Over 12 monthly transfers that's $732/year saved by switching from PayPal to Xoom — same parent company, same regulatory framework, same recipient. The reason most users default to PayPal is convenience (they already have an account), not cost.</p>`,
+      },
+      {
+        id: "delivery-options",
+        heading: "Delivery Options: Where the Products Actually Diverge",
+        content: `<p>Cost is one axis; delivery method is the other. Xoom and PayPal serve different recipient situations.</p>
+
+<h3>PayPal Delivery</h3>
+<p>PayPal's international transfer model assumes both sender and recipient have PayPal accounts. Money is sent from sender's PayPal balance/bank/card to recipient's PayPal account in the destination country (recipient receives a notification and currency-converts within PayPal). To actually withdraw the money to a local bank account, the recipient pays additional withdrawal fees and waits 1–4 business days depending on the country.</p>
+<ul>
+<li><strong>Strengths</strong>: Convenient if both ends have PayPal; supported in 200+ countries</li>
+<li><strong>Weaknesses</strong>: Recipient must have a PayPal account in the destination country; PayPal's coverage in many remittance-receiving countries is limited (e.g., PayPal works poorly in much of Africa); two-step withdrawal adds friction; no cash pickup or mobile wallet</li>
+</ul>
+
+<h3>Xoom Delivery</h3>
+<p>Xoom's product is designed for the migrant-remittance market — recipients often don't have PayPal accounts but do have bank accounts, mobile wallets, or visit cash-pickup locations.</p>
+<ul>
+<li><strong>Bank deposit</strong>: Direct to 60+ countries' banks. Same-day to 2 business days</li>
+<li><strong>Cash pickup</strong>: 50,000+ locations across 30+ countries. Bancomer, Banco Azteca, OXXO, Walmart in Mexico; Cebuana Lhuillier, Palawan, M Lhuillier in the Philippines; Banco do Brasil, Bradesco in Brazil; Western Union–affiliated locations in many regions. Available in minutes</li>
+<li><strong>Mobile wallet</strong>: M-Pesa (Kenya), GCash + Maya (Philippines), bKash (Bangladesh), Nequi/Daviplata (Colombia), Mercado Pago (Argentina/Brazil/Mexico)</li>
+<li><strong>Home delivery</strong>: Available in select countries (Vietnam, Philippines)</li>
+<li><strong>Strengths</strong>: Comprehensive emerging-market delivery network; faster than PayPal end-to-end; recipient doesn't need a PayPal account</li>
+<li><strong>Weaknesses</strong>: Limited European coverage compared to Wise; no multi-currency holding; no business-account features</li>
+</ul>
+
+<h3>Practical Decision Framework</h3>
+<ul>
+<li>Recipient has a PayPal account in their country and is comfortable using it: PayPal works (but is more expensive)</li>
+<li>Recipient has a bank account but no PayPal: Xoom (or Wise/Remitly) — bank deposit faster and cheaper</li>
+<li>Recipient is unbanked and needs cash pickup: Xoom or Western Union — PayPal cannot serve this case</li>
+<li>Recipient uses M-Pesa, GCash, bKash, or another mobile wallet: Xoom (or Remitly) — PayPal cannot deliver to mobile wallets</li>
+</ul>`,
+      },
+      {
+        id: "speed-and-tracking",
+        heading: "Speed and Tracking",
+        content: `<p>End-to-end timing is similar between the two products, but the friction patterns differ.</p>
+
+<h3>PayPal Speed</h3>
+<ol>
+<li><strong>Sender to PayPal</strong>: Instant if balance-funded or debit-card-funded; 1–3 business days for ACH</li>
+<li><strong>PayPal-to-PayPal cross-border</strong>: Instant for the receiver to see the money in their PayPal account</li>
+<li><strong>PayPal to recipient's local bank</strong>: 1–4 business days for the receiver to withdraw funds — and this is where the recipient pays additional country-specific withdrawal fees</li>
+</ol>
+<p>The total end-to-end time for the recipient to actually have the money in their bank account is typically 2–6 business days from when the sender initiated.</p>
+
+<h3>Xoom Speed</h3>
+<ol>
+<li><strong>Sender to Xoom</strong>: Instant if debit-card or PayPal-balance-funded; 1–3 business days for ACH</li>
+<li><strong>Xoom to recipient</strong>: Minutes for cash pickup or mobile wallet; same business day to 2 days for bank deposit</li>
+</ol>
+<p>For cash-pickup or mobile-wallet delivery, the total end-to-end time is typically under 1 hour from sender initiation. For bank deposit, 1–3 business days end-to-end.</p>
+
+<h3>Tracking</h3>
+<p>Both products offer real-time status tracking in their respective apps. Xoom additionally provides delivery confirmation via SMS to the recipient's phone for cash pickup transfers — useful for the sender to know exactly when the recipient has the money. PayPal's tracking is more opaque on the recipient-withdrawal step, since that depends on the recipient's local bank's withdrawal speed which varies by country.</p>`,
+      },
+      {
+        id: "when-each-wins",
+        heading: "When to Use Which (or Neither)",
+        content: `<h3>Use PayPal If:</h3>
+<ul>
+<li><strong>You're paying a freelancer who specifically requests PayPal</strong> — Many international freelancers use PayPal as their payment-receiving rail; switching to Xoom requires the recipient to set up a separate flow</li>
+<li><strong>You're sending money for an online purchase</strong> — PayPal's seller-protection on goods purchases is meaningful and Xoom doesn't compete for this use case</li>
+<li><strong>The recipient holds a PayPal balance they'll use to spend online</strong> — Skips the bank-withdrawal step, saving them fees</li>
+<li><strong>You're a PayPal Business customer with negotiated cross-border rates</strong> — Some business accounts get better pricing than the consumer fee schedule</li>
+</ul>
+
+<h3>Use Xoom If:</h3>
+<ul>
+<li><strong>You're sending personal remittances to family</strong> — Xoom is structurally 50–70% cheaper than PayPal on identical transfers</li>
+<li><strong>The recipient needs cash pickup, mobile wallet, or local bank deposit</strong> — Xoom's network covers all three; PayPal covers none</li>
+<li><strong>You're sending to a country where Xoom has stronger presence than PayPal</strong> — Latin America, the Philippines, India, Bangladesh, much of Africa</li>
+<li><strong>Speed matters and you want minutes-not-days delivery</strong> — Xoom's express tier delivers in under 30 minutes for most destinations</li>
+</ul>
+
+<h3>Use Neither If:</h3>
+<ul>
+<li><strong>You're sending more than $1,000 to a bank account</strong> — Wise charges 0% FX markup vs Xoom's 1.5–3%. On $5,000, Wise saves $75–150 over Xoom. Wise also handles up to $1M per transfer vs Xoom's $10,000 cap</li>
+<li><strong>You want the absolute cheapest provider for any specific corridor</strong> — Run a comparison at <a href="/send-money">/send-money</a> for your specific amount and destination. Wise typically wins on bank deposits to most countries; Remitly wins on first-transfer promos and Asian corridor mobile money; Boss Money wins on Latin America and Horn of Africa</li>
+<li><strong>You're sending more than $25,000</strong> — OFX (zero fee + dealer-supported) is structurally cheapest. Xoom's $10,000 cap and PayPal's complex pricing both create friction at scale</li>
+</ul>
+
+<p>For deeper corridor comparisons see <a href="/compare/wise-vs-xoom">Wise vs Xoom</a>, <a href="/compare/remitly-vs-xoom">Remitly vs Xoom</a>, or <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally</a> guide.</p>`,
+      },
+    ],
+
+    verdict: {
+      largeTransfers: {
+        winner: "Neither — use Wise or OFX",
+        explanation:
+          "Both PayPal and Xoom cap at $10,000 per transfer (verified accounts) and the percentage-based pricing means absolute dollar costs balloon on large amounts. PayPal's 5% + 5% markup on a $5,000 transfer is roughly $500. Xoom's 2.5% markup on $5,000 is $125. Wise charges $25-30 with 0% markup. OFX charges $0 fee with 0.5-0.7% spread, dealer-supported. Both are wrong tools above $1,000.",
+      },
+      smallTransfers: {
+        winner: "Xoom by a wide margin",
+        explanation:
+          "On routine $200-1,000 personal remittances, Xoom is 50-70% cheaper than PayPal for identical transfers, supports cash pickup and mobile wallet delivery PayPal doesn't, and delivers faster end-to-end. The only reason to use PayPal at this scale is if the recipient specifically requires PayPal (typical for online freelance work). For family remittances where the sender chooses the rail, Xoom wins decisively.",
+      },
+      overall:
+        "PayPal and Xoom are owned by the same company but priced for different markets. PayPal is optimized for online commerce ecosystem and consumer-to-consumer payments where both ends have PayPal accounts. Xoom is optimized specifically for migrant remittances and is consistently 50-70% cheaper than PayPal on cross-border consumer transfers. Most US senders default to PayPal because they already have an account; switching to Xoom (which uses the same PayPal Holdings login if you already have a PayPal account) is the single highest-ROI optimization for routine international transfers. For absolute cheapest, however, Wise beats both by another 50-80% on bank-deposit corridors.",
+    },
+
+    faqs: [
+      {
+        q: "Why does PayPal cost so much more than Xoom for international transfers when they're owned by the same company?",
+        a: "Because they're sold as separate products serving different markets. PayPal is built for online commerce and online consumer-to-consumer payments — its 5% + $0.99 fee structure reflects card-network costs, fraud protection, and the bundled seller-protection program. Xoom is a specialist remittance product acquired by PayPal in 2015 and priced for the migrant-remittance market, where competitive pressure forces tighter pricing. PayPal Holdings hasn't unified the products because consolidating Xoom's pricing into PayPal would lose the seller-protection economics, and consolidating PayPal's pricing into Xoom would lose remittance customers to Wise and Remitly. The structural answer: same parent company, two products, two pricing models.",
+      },
+      {
+        q: "Can I send money internationally using my existing PayPal account through Xoom?",
+        a: "Yes. Xoom uses the same PayPal Holdings login system, so if you already have a PayPal account you can log into Xoom with the same credentials and immediately use Xoom's delivery network. You don't need to verify your identity again or create a new account from scratch. This is the easiest way to switch from PayPal to Xoom for cross-border consumer-to-consumer transfers — one login, completely different cost structure.",
+      },
+      {
+        q: "Does Xoom really deliver to cash pickup locations and mobile wallets?",
+        a: "Yes — Xoom's strength is its delivery network. Cash pickup at 50,000+ locations across 30+ countries (Banco Azteca, OXXO, Walmart in Mexico; Cebuana Lhuillier, Palawan, M Lhuillier in the Philippines; Banco do Brasil, Bradesco in Brazil; many Western Union-affiliated locations elsewhere). Mobile wallet delivery to M-Pesa (Kenya), GCash + Maya (Philippines), bKash (Bangladesh), Nequi + Daviplata (Colombia), Mercado Pago (Argentina/Brazil/Mexico). Speed is typically under 30 minutes for cash pickup or mobile wallet. PayPal does not offer cash pickup or mobile wallet delivery — only PayPal-account-to-PayPal-account or bank withdrawal.",
+      },
+      {
+        q: "How does Xoom's FX markup compare to Wise or Remitly?",
+        a: "Xoom's typical FX markup is 1.5-3% above mid-market — better than PayPal (3-5%), Western Union (1.5-4%), Bank of America (3-5%), but worse than Wise (0%, mid-market rate) and Remitly (0.5-1.5%). On a $1,000 USD→MXN transfer, Xoom typically delivers MXN 16,750 vs Wise's MXN 17,150 — a difference of MXN 400 (~$24). For a routine monthly remittance, that's $288/year. If the recipient has a bank account, Wise or Remitly are cheaper than Xoom; if the recipient needs cash pickup, Xoom is competitive with WU.",
+      },
+      {
+        q: "What's the maximum I can send with PayPal or Xoom?",
+        a: "PayPal: typical maximum is $10,000 per transaction for verified accounts. Xoom: similar $10,000 cap, raisable to higher limits with full identity verification (some corridors can go up to $50,000 with KYC documentation). Both are caps that work for routine personal remittances but are restrictive for property purchases, large gifts, or business invoice settlement. For amounts above $10,000, use Wise (up to ~$1M per transfer on most corridors) or OFX (no upper limit, dealer-supported on $10,000+).",
+      },
+      {
+        q: "Can I send to a recipient who doesn't have a PayPal account through PayPal?",
+        a: "Functionally limited. PayPal allows you to send money to an email address — if the recipient doesn't have a PayPal account, they receive an email invitation to create one to claim the funds. This works only if the recipient is willing and able to set up a PayPal account in their country, which is impractical in countries where PayPal has limited presence (much of sub-Saharan Africa, parts of South Asia, smaller Latin American countries). Xoom does not require the recipient to have any specific account — they pick up cash, receive into mobile wallet, or have funds deposited to their existing local bank account.",
+      },
+      {
+        q: "Are PayPal and Xoom both safe for international transfers?",
+        a: "Yes. Both are owned by PayPal Holdings (NASDAQ: PYPL), regulated by FinCEN as Money Services Businesses in the US, with state money transmitter licenses in all 50 states. PayPal is additionally regulated under PSD2 in Europe and equivalent frameworks worldwide. Customer funds are segregated from operating funds at both products. Trust signals: PayPal's Trustpilot is a complex aggregate of all PayPal services (4.0★ at scale), Xoom specifically is 4.4★ from 80,000+ Trustpilot reviews — among the strongest in the remittance space. For deeper safety verification, see /guides/money-transfer-safety-guide.",
+      },
+    ],
+  },
 ];
 
 export function getComparisonArticle(slug: string): ComparisonArticle | undefined {
