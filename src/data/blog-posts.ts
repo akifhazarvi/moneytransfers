@@ -3460,6 +3460,204 @@ export const blogPosts: BlogPost[] = [
   // Send Money to Mexico Guide
   // ============================
   {
+    slug: "send-money-to-brazil-guide",
+    title: "Send Money to Brazil from the US (2026) — PIX, IOF Tax, and the Real Cost Compared",
+    metaDescription:
+      "Send money to Brazil cheaper: 10+ providers compared on USD to BRL with PIX delivery, the 0.38% IOF tax explained, and real-world examples from US-Brazil diaspora corridors. Updated April 2026.",
+    excerpt:
+      "Brazil received over USD 4 billion in US remittances last year. We unpacked PIX delivery, the 0.38% IOF tax that surprises every first-time sender, and which of the 10+ available providers actually delivers the most reais per dollar.",
+    category: "Corridors",
+    readTime: "13 min read",
+    publishedAt: "2026-05-01",
+    updatedAt: "2026-05-01",
+    author: "Akif Hazarvi",
+    tags: ["Brazil", "BRL", "Brazilian real", "PIX", "IOF", "remittance", "USD to BRL", "corridor guide", "send money to Brazil"],
+    featuredImage: "/images/blog/send-money-to-brazil.jpg",
+    sections: [
+      {
+        heading: "Sending Money to Brazil: PIX Made It Fast, IOF Made It Taxed",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from the US to Brazil is <a href="/companies/wise">Wise</a> — mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000, delivered via PIX in seconds. <a href="/companies/remitly">Remitly</a> Express is competitive on smaller amounts (USD 100–500) with frequent zero-fee promotions. Brazil charges a <strong>0.38% IOF tax</strong> on every inbound foreign-currency conversion — automatically deducted by the receiving Brazilian bank, applied to all providers including Wise, Remitly, Xoom, and US bank wires alike. On USD 1,000 that is roughly <strong>BRL 19</strong> deducted unavoidably. PIX delivery (Brazil's instant payment rail launched 2020, now used by 160+ million Brazilians) means transfers settle within seconds 24/7. <a href="/send-money/usa-to-brazil">Compare live USD to BRL rates →</a></p></div>
+<p>The US–Brazil corridor doesn't fit the typical "remittance to a developing country" template. Brazil isn't poor: it's the world's <strong>ninth-largest economy</strong> by GDP and operates one of the most modern domestic payment systems on the planet. <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> launched <strong>PIX</strong> in November 2020, and within four years it became the dominant way Brazilians move money — over <strong>160 million users</strong> (roughly 80% of all adults) and over 5 billion transactions per month, more than the country's debit card and TED transfers combined.</p>
+<p>Two structural facts shape this corridor in 2026. First, PIX has changed receive-side delivery from "1–2 business days via TED" to "seconds, 24/7" for most US digital providers (Wise, Remitly, Xoom, Boss Money, Western Union all now route final-mile through PIX). Second, Brazil charges a 0.38% <strong>IOF</strong> (Imposto sobre Operações Financeiras) on every inbound USD→BRL conversion — a federal tax automatically deducted at the moment of FX. It's small in percentage terms but it's the single most-asked-about line item from first-time senders, because it appears as a deduction on the recipient's bank statement that doesn't show up in the provider's quote screen.</p>
+<p>This guide covers exactly what to expect: which providers actually win on USD→BRL today, how PIX delivery works end-to-end, what the IOF tax is and why you can't avoid it, the diaspora-economics realities of the Florida-Massachusetts-New York Brazilian-American corridors, and the common mistakes that cost first-time senders BRL 50–200 per transfer.</p>`,
+      },
+      {
+        heading: "Best Providers for Sending Money to Brazil",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Quick Comparison: USD to BRL Providers (USD 1,000 transfer)</h3>
+<table>
+<thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Cheapest overall</strong></td><td><a href="/companies/wise">Wise</a></td><td>Mid-market USD/BRL rate, 0% markup. USD 5–8 fee. PIX delivery in seconds</td></tr>
+<tr><td><strong>Best for &lt; USD 500</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>USD 0–3.99 fee with Express PIX delivery. Frequent first-transfer promo zero-markup deals</td></tr>
+<tr><td><strong>Strong PIX coverage</strong></td><td><a href="/companies/xoom">Xoom</a></td><td>PayPal-owned, USD 0 fee but 1.5–3% markup. Best if you already use PayPal balance</td></tr>
+<tr><td><strong>Latin America specialist</strong></td><td>Boss Money</td><td>Deep Brazilian-side relationships, often competitive on FX markup. Strong on smaller transfers</td></tr>
+<tr><td><strong>Cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a> / <a href="/companies/moneygram">MoneyGram</a></td><td>Banco do Brasil, Caixa Econômica, Bradesco branches. 1.5–3% markup, useful if recipient unbanked</td></tr>
+<tr><td><strong>Avoid</strong></td><td>US bank wires</td><td>USD 40–50 fee + 3–5% FX markup = USD 70–90 total cost on USD 1,000 vs USD 5–8 with Wise</td></tr>
+</tbody></table>
+<p class="blog-footnote">Based on real scraped quotes refreshed every 6 hours. <a href="/send-money/usa-to-brazil">Compare live rates →</a></p>
+</div>
+
+<h3>Wise — The Default for Bank-Account Recipients</h3>
+<p>If your recipient has a Brazilian bank account (and 85% of adult Brazilians do, according to <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> financial inclusion data), Wise is structurally the cheapest option. The fee on USD 1,000 is roughly USD 5–8, the FX rate is the live mid-market rate from Banco Central's PTAX feed, and delivery is via PIX — typically under 30 minutes end-to-end including US-side ACH clearing, sometimes under 5 minutes with debit-card funding.</p>
+<p>Wise's PIX integration accepts all PIX key types: CPF, phone number, email, or random key (chave aleatória). You enter the key in the recipient screen; Wise looks up the registered Brazilian bank automatically. Wise has been actively expanding Brazilian-side liquidity since 2022 and is now one of the largest non-bank originators of inbound PIX volume in the country.</p>
+
+<h3>Remitly — Better for Small or First Transfers</h3>
+<p>For amounts under USD 500, <a href="/companies/remitly">Remitly</a>'s flat-fee structure (USD 0–3.99) often delivers more BRL than Wise's percentage fee. Remitly also runs aggressive first-transfer promotional rates — sometimes pricing at exact mid-market for the first send to acquire the customer. If you're sending USD 100–300 monthly to family, signing up for Remitly to capture the first-transfer promo (which typically delivers BRL 10–30 more on USD 200 than Wise's standard pricing) and then comparing both for subsequent transfers is the rational play.</p>
+<p>Remitly's Express tier delivers via PIX in minutes; the Economy tier (3–5 business days) routes through TED-style bank transfers and is rarely worth the savings on the BRL corridor since PIX has compressed delivery times across the board.</p>
+
+<h3>Xoom — If You Already Use PayPal</h3>
+<p>Xoom is owned by PayPal and integrates directly with PayPal balances, which can be useful if you already hold USD in PayPal (e.g., from US-based freelance work). The fee is typically USD 0 but the FX markup is 1.5–3% — meaning Xoom is rarely the absolute cheapest, but it can be the most convenient if you'd otherwise need to move money out of PayPal first. Funds delivered via PIX, typically within the hour.</p>
+
+<h3>Boss Money — The Specialist Underdog</h3>
+<p>Boss Money (subsidiary of NYSE-listed IDT Corporation) has built deep relationships across Latin America including Brazil. Their pricing is competitive — typically matching or slightly beating Wise on small transfers — and they offer Portuguese-language customer service that the larger providers don't always staff well. Their PIX delivery is solid. Worth comparing for any USD–BRL transfer, especially the first.</p>
+
+<h3>Western Union, MoneyGram — Cash Pickup Only</h3>
+<p>If your recipient is unbanked or temporarily without a CPF (e.g., a recent return migrant), <a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a> offer cash pickup at thousands of Brazilian agent locations including Banco do Brasil, Caixa Econômica Federal, Bradesco, Itaú, and Lojas Americanas. The FX markup is 1.5–3% — substantially worse than Wise — so use only when bank delivery isn't an option.</p>
+
+<h3>What to Avoid: US Bank Wires</h3>
+<p>Chase, Bank of America, and Wells Fargo all charge USD 40–50 per international wire plus 3–5% FX markup. On a USD 1,000 transfer to Brazil, that's USD 70–90 in total cost, vs USD 5–8 with Wise. Over 12 monthly transfers, the difference is USD 750–1,000 a year — money that could have gone to your family in São Paulo or Rio instead. The only legitimate use case for a US bank wire to Brazil is amounts above USD 50,000 where SWIFT's regulatory clarity matters (e.g., property purchase) — and even then, Wise handles up to USD ~1M per transfer with proper documentation.</p>`,
+      },
+      {
+        heading: "How PIX Works (and Why It Changed Everything)",
+        content: `<p>PIX is Brazil's central-bank-operated instant payments rail, launched November 16, 2020 by <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a>. Within four years it became the dominant payment method in the country — not just for international remittances, but for groceries, rent, business invoices, and tipping. Understanding PIX matters because it's now the default delivery method for every major US-to-Brazil money transfer provider.</p>
+
+<h3>What a PIX Key Is</h3>
+<p>A PIX key (<em>chave PIX</em>) is a piece of identifying information your recipient registers with their Brazilian bank or payment app, which routes incoming PIX payments to that account. Every Brazilian bank or fintech (Itaú, Bradesco, Banco do Brasil, Nubank, Inter, C6, PicPay, etc.) lets users register up to five PIX keys. The four key types:</p>
+<ul>
+<li><strong>CPF</strong> — the Brazilian individual taxpayer ID. Most universal; almost every adult has one</li>
+<li><strong>Phone number</strong> — Brazilian mobile number with country code +55</li>
+<li><strong>Email</strong> — any email address registered to the recipient at their bank</li>
+<li><strong>Random key (chave aleatória)</strong> — a 32-character UUID generated by the bank app, used to avoid disclosing the CPF or phone</li>
+</ul>
+<p>For inbound international transfers, providers typically ask for the recipient's CPF as the PIX key — it's the most reliable lookup. Some providers (Wise, Remitly Express) also accept phone or email PIX keys directly.</p>
+
+<h3>End-to-End PIX Flow from a US Sender</h3>
+<ol>
+<li><strong>Sender funds the transfer</strong> in the US: ACH from a US bank (1–2 business days), debit card (instant), or wire (same-day, USD 25–30 fee)</li>
+<li><strong>Provider initiates the FX conversion</strong> — USD is converted to BRL at the provider's quoted rate, with the 0.38% IOF withheld at this stage</li>
+<li><strong>Provider pushes via PIX</strong> to the recipient's registered bank using the PIX key — settlement in under 10 seconds</li>
+<li><strong>Recipient sees the BRL credit</strong> in their bank app instantly, with a notification</li>
+</ol>
+<p>Total time: typically under 30 minutes if ACH-funded and initiated during US business hours, under 5 minutes if debit-card-funded. PIX itself is the fastest leg by far — the bottleneck is always the US-side funding clearance.</p>
+
+<h3>What PIX Doesn't Do</h3>
+<p>PIX is domestic-only. Brazilians can use PIX to receive funds inside Brazil 24/7, but PIX itself doesn't move money across borders — your US-to-Brazil provider performs the FX, then uses PIX as the final-mile rail inside Brazil. There is no such thing as "international PIX" yet, though Banco Central do Brasil has signaled <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">cross-border PIX integration plans</a> with Argentina, Uruguay, and other Mercosul countries are in development.</p>`,
+      },
+      {
+        heading: "The IOF Tax: 0.38% You Cannot Avoid",
+        content: `<p>The single most-asked-about line item from first-time US-to-Brazil senders is the IOF tax — Imposto sobre Operações Financeiras (Tax on Financial Operations). Here's exactly what it is, why it appears, and why no provider can legally remove it.</p>
+
+<h3>What IOF Is</h3>
+<p>IOF is a Brazilian federal tax levied on financial operations, including foreign currency conversions. The rate for inbound personal remittances (i.e., someone in the US sending money to a person in Brazil for non-business purposes) is <strong>0.38%</strong>, deducted automatically at the moment the receiving Brazilian bank converts the incoming USD to BRL.</p>
+<p>Other IOF rates apply to other transactions: 1.10% on inbound investment, 6.38% on outbound credit card spending abroad, 0.38% on FX conversions for foreign business operations. The 0.38% rate has been in effect since 2013 and is governed by Brazilian Federal Decree 6,306/2007.</p>
+
+<h3>Where IOF Is Visible (and Where It Isn't)</h3>
+<p>IOF deduction does <em>not</em> appear in the US-side provider's quote screen. The provider quotes you a USD amount converted at their offered rate; the IOF is then withheld by the Brazilian receiving bank on top of the provider's quoted spread. Your recipient sees the IOF as a deduction line on their bank statement (typically labeled "IOF" or "IOF s/operação cambial").</p>
+<p>To verify the IOF deduction:</p>
+<ul>
+<li>Check the live mid-market USD/BRL rate at <a href="/exchange-rates/usd-to-brl">/exchange-rates/usd-to-brl</a></li>
+<li>Multiply by your USD send amount to get the unmarked-up BRL value</li>
+<li>Subtract the 0.38% IOF (e.g., on USD 1,000 at BRL 5.0/USD = BRL 5,000 × 0.38% = BRL 19)</li>
+<li>Compare against what your recipient actually received — the difference is the provider's FX markup</li>
+</ul>
+
+<h3>Why You Can't Avoid IOF</h3>
+<p>IOF is a federal tax collected by the Brazilian central bank, not a provider fee. Every USD-to-BRL conversion processed through Brazilian banking infrastructure incurs it, regardless of which provider initiated the transfer. Wise, Remitly, Xoom, Western Union, US bank wires — all incur IOF on the BRL side because all use Brazilian banks for the final settlement.</p>
+<p>Some providers advertise "no Brazil tax" or "we cover IOF" — what they actually do is pre-discount their offered rate by the IOF amount, so the BRL credited to the recipient's account matches the unmarked-up mid-market amount. This is marketing legal but not actual tax avoidance; the IOF is still collected, it's just absorbed into the provider's pricing model. It's a useful feature if you want a simpler quote-vs-receive comparison, but it doesn't make the transfer cheaper overall.</p>
+
+<h3>What Doesn't Trigger IOF</h3>
+<p>Cryptocurrency-based transfers (e.g., USDC stablecoin → onramp at a Brazilian crypto exchange → off-ramp to BRL) technically don't trigger IOF on the conversion leg because the off-ramp uses a separate regulatory framework. But Brazilian crypto exchanges (Mercado Bitcoin, Foxbit, Bitso) charge 1–3% in spread plus crypto network fees, so the practical cost to the recipient is similar to a Wise transfer with IOF. Crypto routing is also more complex and less reliable for the average non-technical recipient — not recommended for routine remittances.</p>`,
+      },
+      {
+        heading: "Brazilian Banks and What Your Recipient Should Know",
+        content: `<p>Knowing which Brazilian bank your recipient holds an account with shapes your provider choice. The five major incumbents handle most retail accounts; three large neobanks have grown rapidly since 2018 and now hold a substantial share, especially among younger Brazilians.</p>
+
+<h3>Major Incumbent Banks</h3>
+<ul>
+<li><strong>Itaú Unibanco</strong> — Brazil's largest private bank by assets. SWIFT: ITAUBRSP. Strong PIX integration, accepts all PIX key types</li>
+<li><strong>Bradesco</strong> — Second-largest private bank. SWIFT: BBDEBRSP. Extensive branch network across all states</li>
+<li><strong>Banco do Brasil</strong> — State-owned, largest physical branch network. SWIFT: BRASBRRJBSA. Common cash pickup partner for Western Union/MoneyGram</li>
+<li><strong>Caixa Econômica Federal</strong> — State-owned, social-program disbursements. SWIFT: CEFXBRSP. Often used by lower-income recipients</li>
+<li><strong>Santander Brasil</strong> — Spanish-owned subsidiary. SWIFT: BSCHBRSP. Common for Brazilian-Spanish dual citizens</li>
+</ul>
+
+<h3>Neobanks and Fintechs</h3>
+<ul>
+<li><strong>Nubank</strong> — 90+ million customers across Brazil/Mexico/Colombia. SWIFT: NUBKBRSP. Free PIX, popular with younger users. Receives international transfers seamlessly via PIX</li>
+<li><strong>Banco Inter</strong> — All-digital bank, ~30 million customers. Strong with white-collar professionals and small businesses</li>
+<li><strong>Banco Original / C6 Bank / PicPay</strong> — Smaller neobanks/fintechs, all PIX-enabled</li>
+</ul>
+
+<h3>Which Banks Charge the Recipient on Inbound Transfers</h3>
+<p>Most Brazilian banks do <em>not</em> charge the recipient an inbound-transfer fee for PIX-based receipts (PIX is free for end users by central bank mandate). Older TED-based receipts may incur a small handling fee at some banks (BRL 0–10), but this is rare in 2026 since PIX has displaced TED for inbound routes. The 0.38% IOF still applies regardless. SWIFT-based receipts (e.g., a US bank wire) typically incur a BRL 30–80 receiving-bank fee plus correspondent banking lifting fees of USD 10–30 — another reason to use specialist providers (Wise, Remitly) over US bank wires for any Brazil-bound transfer.</p>`,
+      },
+      {
+        heading: "The Brazilian Diaspora in the US: Why This Corridor Looks Different",
+        content: `<p>Understanding the demographic shape of the US-Brazil corridor explains why some providers have stronger Portuguese-language support than others, and why certain regional cash-pickup partnerships matter.</p>
+
+<h3>Where Brazilians in the US Live</h3>
+<ul>
+<li><strong>Florida</strong> — Roughly 400,000 Brazilians, concentrated in Miami-Dade, Broward (Pompano Beach, Deerfield Beach), Palm Beach (Boca Raton), and Orlando. Largest community by population</li>
+<li><strong>Massachusetts</strong> — Approximately 350,000, with the Boston MetroWest area (Framingham, Marlborough, Hudson) and the South Coast (Brockton, Fall River) as the densest pockets. Older, more established community</li>
+<li><strong>New York / New Jersey</strong> — 250,000+ across Newark NJ (Ironbound neighborhood), Long Branch, and parts of Queens NYC</li>
+<li><strong>Connecticut</strong> — 100,000+ in Danbury, Bridgeport, Stamford</li>
+<li><strong>California</strong> — 80,000+ in Los Angeles and the Bay Area, more recent and tech/professional-skewed</li>
+<li><strong>Georgia, Texas</strong> — Smaller but growing communities (Atlanta, Houston)</li>
+</ul>
+
+<h3>What This Means for Your Provider Choice</h3>
+<p>If you're in Florida or Massachusetts and prefer in-person customer support, Western Union and MoneyGram have the densest physical agent networks in Brazilian-American neighborhoods. If you're in any of the major Brazilian-American hubs and want digital-first, Wise and Remitly both have full Portuguese-language apps and customer service. Boss Money's Latin-America specialty makes it particularly strong with Brazilian senders who want regional expertise — they staff Portuguese support 24/7.</p>
+
+<h3>Common Sender Profiles and Best Provider Match</h3>
+<ul>
+<li><strong>Construction worker in Pompano Beach sending USD 200 weekly to a parent in Belo Horizonte</strong>: Remitly Express (low fee on small amounts, frequent promos, instant PIX delivery)</li>
+<li><strong>Tech professional in San Francisco sending USD 2,000 monthly for parents' apartment in São Paulo</strong>: Wise (best total cost on amounts above USD 1,000, mid-market FX, transparent fee)</li>
+<li><strong>Recent immigrant in Framingham without a US bank account, sending USD 400</strong>: Boss Money or Western Union (both accept cash funding at retail agents, deliver via PIX or cash pickup)</li>
+<li><strong>Brazilian-American business owner in Newark paying a freelancer in Florianópolis</strong>: Wise Business or OFX for amounts above USD 5,000 (proper invoice documentation, business account features)</li>
+<li><strong>Parents in Boca Raton paying their daughter's monthly rent in Rio</strong>: Wise (set up auto-conversion, monthly recurring transfer, lock favorable rate)</li>
+</ul>`,
+      },
+      {
+        heading: "Common Mistakes That Cost First-Time Senders Money",
+        content: `<p>Five recurring errors on the USD-to-BRL corridor:</p>
+
+<h3>1. Comparing Headline Fees Instead of Total BRL Received</h3>
+<p>Xoom advertises "USD 0 fee" but charges 1.5–3% FX markup; Wise charges USD 5–8 fee but uses the mid-market rate. On USD 1,000, Wise delivers approximately BRL 15–30 more than Xoom even though Wise's "fee" is higher. Always compare what your recipient actually receives, not the headline fee. The <a href="/exchange-rates/usd-to-brl">live USD/BRL comparison</a> tool shows the real BRL each provider would deliver right now.</p>
+
+<h3>2. Ignoring the IOF Surprise</h3>
+<p>First-time senders frequently message us asking "why did my recipient receive less BRL than the provider quoted?" The answer is almost always the 0.38% IOF — automatically deducted by the Brazilian receiving bank, not visible in the provider's quote screen. It's small (BRL 19 on USD 1,000) but the surprise erodes trust. Tell your recipient up front: the BRL hitting their account will be ~0.38% less than the provider's quoted FX × USD amount.</p>
+
+<h3>3. Using a US Bank Wire for Routine Remittances</h3>
+<p>The single biggest cost mistake. Chase, BofA, and Wells Fargo charge USD 40–50 per wire plus 3–5% FX markup — USD 70–90 total on USD 1,000 vs USD 5–8 with Wise. Over 12 monthly transfers that's USD 750–1,000 a year. There is essentially no scenario where a US bank wire to Brazil under USD 50,000 makes sense over a specialist.</p>
+
+<h3>4. Sending TED-Routed When PIX Is Available</h3>
+<p>Some providers default to TED (Brazilian electronic transfer, 1–2 day delivery) instead of PIX (instant) — especially older or non-specialist providers. Always check the delivery method before confirming; if your provider only offers TED, switch providers. Wise, Remitly, Xoom, Boss Money, and Western Union all support PIX in 2026; if yours doesn't, it's outdated.</p>
+
+<h3>5. Wrong PIX Key Format</h3>
+<p>If you enter the recipient's CPF as a PIX key, format it correctly: 11 digits, no dots or dashes (123.456.789-00 should be entered as 12345678900). For phone-number PIX keys, include the +55 country code. For email keys, double-check there are no typos. Wrong PIX keys typically fail with a "key not found" error and the funds are returned, but the FX may have been done at one rate and the refund happens at a different (worse) rate — costing you BRL 20–80 on a USD 1,000 transfer.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market USD/BRL reference rates from <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> PTAX feed and exchangerate.host. PIX system documentation from Banco Central do Brasil's PIX information portal. IOF tax rate per Brazilian Federal Decree 6,306/2007 and current Receita Federal guidance. Brazilian-American population figures from Ministério das Relações Exteriores (Brazilian Foreign Ministry) consular registration data and US Census American Community Survey ancestry tabulations. Remittance flow figures from <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> and Banco Central do Brasil balance-of-payments data. <a href="/send-money/usa-to-brazil">Compare live USD to BRL rates →</a></p>`,
+      },
+    ],
+    faqs: [
+      { question: "What is the cheapest way to send money to Brazil from the US?", answer: "Wise is consistently cheapest for amounts USD 500+ — mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000. PIX delivery in seconds. For USD 100–500 transfers, Remitly Express is competitive thanks to a low flat fee (USD 0–3.99) and frequent first-transfer promotional rates. Boss Money is competitive for sender-side cash funding and Portuguese-language customer service. Brazil's 0.38% IOF tax applies on top regardless of provider — unavoidable. Avoid US bank wires (Chase, BofA, Wells Fargo) which cost USD 70–90 total on USD 1,000 vs USD 5–8 with Wise." },
+      { question: "What is PIX and how does it work for international transfers?", answer: "PIX is Brazil's central-bank-operated instant payments rail, launched November 2020 by Banco Central do Brasil and now used by 160+ million Brazilians. For US-to-Brazil transfers, providers (Wise, Remitly, Xoom, Boss Money, Western Union) perform the USD-to-BRL FX conversion in their system, then push BRL via PIX to the recipient's registered Brazilian bank account using the recipient's PIX key (CPF, phone number, email, or random key). Settlement is under 10 seconds inside Brazil — the dominant variable in total transfer time is US-side funding clearance (1–2 days for ACH, instant for debit card). PIX is free for end users (mandated by Banco Central do Brasil) and works 24/7/365 including weekends and overnight." },
+      { question: "What is the IOF tax and do I have to pay it?", answer: "IOF (Imposto sobre Operações Financeiras) is a Brazilian federal tax on financial transactions. For inbound personal remittances, the rate is 0.38% — automatically deducted by the receiving Brazilian bank at the moment of USD-to-BRL conversion. On USD 1,000 at BRL 5.0/USD that's roughly BRL 19. IOF applies to every provider — Wise, Remitly, Xoom, Western Union, US bank wires all incur it equally because the tax is on the BRL-side conversion, not the provider's fee. Some providers advertise 'no Brazil tax' which means they pre-discount their FX to absorb the IOF, but the tax is still collected by the Brazilian government — it's just hidden in the provider's pricing. There is no legal way to avoid IOF on inbound personal remittances." },
+      { question: "How fast does a Wise transfer to Brazil arrive?", answer: "Typically under 30 minutes end-to-end, sometimes under 5 minutes. The Brazilian leg via PIX is sub-10-second; the dominant variable is US-side funding. ACH-funded Wise transfers take 1–2 business days for the US ACH leg to clear before Wise can dispatch PIX. Debit-card-funded Wise transfers are instant on the US side and arrive in BRL within minutes. Wire-funded Wise transfers (USD 25–30 wire fee) clear same-day. Once Wise initiates PIX, the recipient sees the BRL credit in their bank app within seconds, regardless of time of day or day of week." },
+      { question: "Does my recipient need a CPF to receive money in Brazil?", answer: "For PIX or bank deposit delivery, yes — your recipient needs a CPF (Cadastro de Pessoas Físicas, the Brazilian individual taxpayer ID) registered with their bank or fintech app. The CPF is held by virtually every adult Brazilian (it's required for employment, banking, healthcare, and most public services). For cash pickup at Western Union or MoneyGram agent locations, identification may be requested for amounts above BRL 10,000 but is typically not required for smaller pickups. The sender (you) does not need a CPF — only US-side identification (your name, address, and source of funds for amounts above USD 3,000)." },
+      { question: "What's the difference between PIX and TED in Brazil?", answer: "Both are Brazilian electronic transfer systems but they're built on different rails. PIX (launched 2020) is real-time, 24/7, free for end users, and uses simple keys (CPF, phone, email, random) for routing — the modern default. TED (Transferência Eletrônica Disponível, launched 2002) is older, only operates during banking hours (typically 6am–4:30pm BRT), takes a few hours to settle, may charge the sender or recipient a small fee, and requires the full recipient bank/branch/account number. In 2026, virtually every major US-to-Brazil money transfer provider has migrated to PIX as the default delivery method. If your provider only offers TED delivery, switch providers — it's an outdated routing." },
+      { question: "Can I send money to a Nubank or Banco Inter account in Brazil?", answer: "Yes, all Brazilian neobanks (Nubank, Banco Inter, C6 Bank, PicPay, Banco Original) accept inbound PIX transfers exactly like traditional banks. The recipient registers a PIX key (typically their CPF) with the neobank, and the international provider routes the PIX to that key. Nubank in particular is very common with younger Brazilian recipients (90+ million customers) and has seamless inbound PIX handling. There's no functional difference for the sender between sending to a Nubank account and an Itaú or Bradesco account — same flow, same speed, same IOF deduction." },
+      { question: "What's the maximum I can send to Brazil per transfer?", answer: "Per-transfer limits vary by provider. Wise allows up to roughly USD 1 million per transfer on the USD-to-BRL corridor (with full identity verification). Remitly's verified accounts can send up to USD 10,000 per transfer. Boss Money typically caps at USD 9,999 per transfer. US bank wires have no upper limit but become structurally expensive due to the FX markup. On the Brazilian receive side, there is no limit on inbound PIX or TED transfers — unlimited amounts can be received. For amounts above USD 50,000 (e.g., property purchases, business invoices), provide source-of-funds documentation in advance to avoid compliance holds; Wise and OFX both handle large transfers smoothly with proper documentation." },
+    ],
+    relatedSlugs: ["send-money-to-mexico-guide", "send-money-to-colombia-guide", "cheapest-way-to-send-money-internationally", "best-money-transfer-apps", "exchange-rate-markup-explained", "us-remittance-tax-2026"],
+  },
+  // ============================
+  // Send Money to Mexico Guide
+  // ============================
+  {
     slug: "send-money-to-mexico-guide",
     title: "Cheapest Way to Send Money to Mexico (2026) — 7 Providers Compared",
     metaDescription:
