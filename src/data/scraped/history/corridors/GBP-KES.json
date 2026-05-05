@@ -2816,5 +2816,28 @@
         "receiveAmount": 17117.12
       }
     }
+  },
+  {
+    "date": "2026-05-05",
+    "providers": {
+      "ace-money-transfer": {
+        "rate": 172.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17240
+      },
+      "ria": {
+        "rate": 170.5041,
+        "fee": 4.5,
+        "markup": null,
+        "receiveAmount": 17077
+      },
+      "taptap-send": {
+        "rate": 174,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17400
+      }
+    }
   }
 ]

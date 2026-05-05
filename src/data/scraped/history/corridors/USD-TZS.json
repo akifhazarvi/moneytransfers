@@ -1069,5 +1069,22 @@
         "receiveAmount": 249667.76
       }
     }
+  },
+  {
+    "date": "2026-05-05",
+    "providers": {
+      "ria": {
+        "rate": 2500.6547,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 255854.02
+      },
+      "wise": {
+        "rate": 2600.2,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 260020
+      }
+    }
   }
 ]
