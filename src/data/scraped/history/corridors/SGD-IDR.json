@@ -1195,5 +1195,34 @@
         "receiveAmount": 1356240.98
       }
     }
+  },
+  {
+    "date": "2026-05-06",
+    "providers": {
+      "remitly": {
+        "rate": 13426.7461,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1275675.14
+      },
+      "instarem": {
+        "rate": 13662.1701,
+        "fee": 0.62,
+        "markup": null,
+        "receiveAmount": 1357746.47
+      },
+      "hsbc-sg": {
+        "rate": 13537.0018,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1353700.18
+      },
+      "ocbc": {
+        "rate": 13320.5513,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 932438.59
+      }
+    }
   }
 ]
