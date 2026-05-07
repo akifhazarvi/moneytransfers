@@ -3306,5 +3306,82 @@
         "receiveAmount": 7349.66
       }
     }
+  },
+  {
+    "date": "2026-05-07",
+    "providers": {
+      "singx": {
+        "rate": 72.9881,
+        "fee": 2,
+        "markup": 0.33,
+        "receiveAmount": 7152.83
+      },
+      "skrill": {
+        "rate": 70.9562,
+        "fee": 0,
+        "markup": 3.1,
+        "receiveAmount": 7095.62
+      },
+      "western-union": {
+        "rate": 72.5236,
+        "fee": 1.5,
+        "markup": 0.96,
+        "receiveAmount": 7143.58
+      },
+      "currencyfair": {
+        "rate": 72.5865,
+        "fee": 1.65,
+        "markup": 0.88,
+        "receiveAmount": 7138.88
+      },
+      "instarem": {
+        "rate": 74.7251,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 7431.41
+      },
+      "remitly": {
+        "rate": 74.3296,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 7136.39
+      },
+      "revolut": {
+        "rate": 72.9266,
+        "fee": 1.9,
+        "markup": 0.41,
+        "receiveAmount": 7154.1
+      },
+      "ria": {
+        "rate": 72.63,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 7318.29
+      },
+      "ocbc": {
+        "rate": 73.2136,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 5124.95
+      },
+      "uob": {
+        "rate": 72.5295,
+        "fee": 40,
+        "markup": null,
+        "receiveAmount": 4351.77
+      },
+      "hsbc-sg": {
+        "rate": 74.0571,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 7405.71
+      },
+      "wise": {
+        "rate": 74.6558,
+        "fee": 1.05,
+        "markup": null,
+        "receiveAmount": 7387.19
+      }
+    }
   }
 ]
