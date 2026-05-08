@@ -1589,5 +1589,40 @@
         "receiveAmount": 20373.02
       }
     }
+  },
+  {
+    "date": "2026-05-08",
+    "providers": {
+      "ria": {
+        "rate": 202.0306,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 21042
+      },
+      "xoom": {
+        "rate": 196.7395,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 18692.22
+      },
+      "worldremit": {
+        "rate": 203.2709,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 20327.09
+      },
+      "remitly": {
+        "rate": 201.2769,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 19928.43
+      },
+      "rbc": {
+        "rate": 198.0557,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 19805.57
+      }
+    }
   }
 ]

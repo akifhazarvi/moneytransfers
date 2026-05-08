@@ -2321,5 +2321,58 @@
         "receiveAmount": 567.99
       }
     }
+  },
+  {
+    "date": "2026-05-08",
+    "providers": {
+      "ria": {
+        "rate": 5.83,
+        "fee": 4.5,
+        "markup": null,
+        "receiveAmount": 588.46
+      },
+      "moneygram": {
+        "rate": 5.6149,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 550.31
+      },
+      "paypal": {
+        "rate": 5.5101,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 529.03
+      },
+      "xoom": {
+        "rate": 4.741,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 474.1
+      },
+      "instarem": {
+        "rate": 5.7368,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 573.68
+      },
+      "skrill": {
+        "rate": 5.5841,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 558.41
+      },
+      "remitly": {
+        "rate": 5.6865,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 557.34
+      },
+      "wise": {
+        "rate": 5.7837,
+        "fee": 1.86,
+        "markup": null,
+        "receiveAmount": 567.61
+      }
+    }
   }
 ]

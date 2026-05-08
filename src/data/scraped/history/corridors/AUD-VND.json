@@ -1123,5 +1123,34 @@
         "receiveAmount": 1829859
       }
     }
+  },
+  {
+    "date": "2026-05-08",
+    "providers": {
+      "commonwealth-bank": {
+        "rate": 17844.8621,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1784486
+      },
+      "remitly": {
+        "rate": 18560.9358,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1819157
+      },
+      "xoom": {
+        "rate": 19298.3712,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1929837
+      },
+      "instarem": {
+        "rate": 18953.2671,
+        "fee": 0.5,
+        "markup": null,
+        "receiveAmount": 1885850
+      }
+    }
   }
 ]
