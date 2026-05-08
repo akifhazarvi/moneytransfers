@@ -16,6 +16,73 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+
+interface InlineQuoteCorridor {
+  from: string;
+  to: string;
+  amount: number;
+  heading?: string;
+}
+
+const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
+  "send-money-to-philippines-guide": { from: "USD", to: "PHP", amount: 1000, heading: "Top USD → PHP providers right now" },
+  "send-money-to-china-guide": { from: "USD", to: "CNY", amount: 1000, heading: "Top USD → CNY providers right now" },
+  "send-money-to-colombia-guide": { from: "USD", to: "COP", amount: 1000, heading: "Top USD → COP providers right now" },
+  "send-money-to-jamaica-guide": { from: "USD", to: "JMD", amount: 500, heading: "Top USD → JMD providers right now" },
+  "send-money-to-ethiopia-guide": { from: "USD", to: "ETB", amount: 500, heading: "Top USD → ETB providers right now" },
+  "send-money-to-mexico-guide": { from: "USD", to: "MXN", amount: 1000, heading: "Top USD → MXN providers right now" },
+  "send-money-to-kenya-from-usa-guide": { from: "USD", to: "KES", amount: 500, heading: "Top USD → KES providers right now" },
+  "send-money-uae-to-india-guide": { from: "AED", to: "INR", amount: 5000, heading: "Top AED → INR providers right now" },
+  "send-money-uae-to-pakistan-guide": { from: "AED", to: "PKR", amount: 5000, heading: "Top AED → PKR providers right now" },
+  "best-money-transfer-apps": { from: "USD", to: "INR", amount: 1000, heading: "Live USD → INR rates from top-ranked apps" },
+  "best-money-transfer-services": { from: "USD", to: "INR", amount: 1000, heading: "Live USD → INR rates from top-ranked services" },
+  "best-money-transfer-apps-expats-2026": { from: "USD", to: "EUR", amount: 1000, heading: "Live USD → EUR rates for expats" },
+  "us-dollar-forecast-2026": { from: "USD", to: "INR", amount: 1000, heading: "Lock in today's USD rate — top providers" },
+  "money-transfer-limits-by-provider-country": { from: "USD", to: "INR", amount: 5000, heading: "Live USD → INR rates by provider" },
+  "wise-vs-remitly-comparison": { from: "USD", to: "INR", amount: 1000, heading: "Wise vs Remitly — live USD → INR rates" },
+  "exchange-rate-markup-explained": { from: "USD", to: "EUR", amount: 1000, heading: "See markup-free rates — top USD → EUR providers" },
+  "multi-currency-accounts-exchange-rates": { from: "USD", to: "EUR", amount: 1000, heading: "Top USD → EUR providers (multi-currency ready)" },
+  "stablecoin-international-transfers-guide": { from: "USD", to: "EUR", amount: 1000, heading: "Compare USD → EUR fiat rates" },
+  "revolut-foreign-transaction-fees-2026": { from: "USD", to: "EUR", amount: 1000, heading: "Top USD → EUR providers vs Revolut" },
+  "wire-transfer-guide": { from: "USD", to: "EUR", amount: 1000, heading: "Skip the wire — top USD → EUR providers" },
+  "how-to-send-money-abroad": { from: "USD", to: "INR", amount: 1000, heading: "Live USD → INR rates — top providers today" },
+  "cheapest-way-to-send-money-internationally": { from: "USD", to: "INR", amount: 1000, heading: "Today's cheapest USD → INR providers" },
+  "money-transfer-safety-guide": { from: "USD", to: "INR", amount: 1000, heading: "Top regulated USD → INR providers" },
+};
+
+const TAG_TO_CORRIDOR: Record<string, InlineQuoteCorridor> = {
+  india: { from: "USD", to: "INR", amount: 1000 },
+  inr: { from: "USD", to: "INR", amount: 1000 },
+  pakistan: { from: "USD", to: "PKR", amount: 1000 },
+  pkr: { from: "USD", to: "PKR", amount: 1000 },
+  philippines: { from: "USD", to: "PHP", amount: 1000 },
+  php: { from: "USD", to: "PHP", amount: 1000 },
+  mexico: { from: "USD", to: "MXN", amount: 1000 },
+  mxn: { from: "USD", to: "MXN", amount: 1000 },
+  nigeria: { from: "USD", to: "NGN", amount: 500 },
+  ngn: { from: "USD", to: "NGN", amount: 500 },
+  bangladesh: { from: "GBP", to: "BDT", amount: 500 },
+  bdt: { from: "GBP", to: "BDT", amount: 500 },
+  europe: { from: "GBP", to: "EUR", amount: 1000 },
+  eur: { from: "USD", to: "EUR", amount: 1000 },
+  morocco: { from: "EUR", to: "MAD", amount: 500 },
+  vietnam: { from: "USD", to: "VND", amount: 1000 },
+  brazil: { from: "USD", to: "BRL", amount: 1000 },
+  colombia: { from: "USD", to: "COP", amount: 1000 },
+  china: { from: "USD", to: "CNY", amount: 1000 },
+};
+
+function getInlineQuoteCorridor(slug: string, tags: string[]): InlineQuoteCorridor {
+  if (SLUG_CORRIDOR_OVERRIDES[slug]) return SLUG_CORRIDOR_OVERRIDES[slug];
+  for (const tag of tags) {
+    const words = tag.toLowerCase().split(/[\s,/-]+/);
+    for (const word of words) {
+      if (TAG_TO_CORRIDOR[word]) return TAG_TO_CORRIDOR[word];
+    }
+  }
+  return { from: "USD", to: "INR", amount: 1000 };
+}
 
 /** Slugify a heading string into a URL-friendly ID */
 function slugifyHeading(heading: string): string {
@@ -158,6 +225,7 @@ export default async function BlogPostPage({ params }: Props) {
   const relatedPosts = getRelatedPosts(slug);
 
   const sectionIds = post.sections.map((s) => slugifyHeading(s.heading));
+  const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -398,20 +466,15 @@ export default async function BlogPostPage({ params }: Props) {
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
 
-                {/* In-content CTA after 2nd section */}
+                {/* Inline live-quote widget after 2nd section — converts editorial readers */}
                 {i === 1 && (
-                  <div className="mt-8 bg-[var(--color-primary-surface)] border border-[var(--color-primary-light)] rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4">
-                    <div className="flex-1">
-                      <p className="text-md font-semibold text-[var(--color-on-surface)] mb-1">Compare rates for your transfer</p>
-                      <p className="text-2sm text-[var(--color-on-surface-variant)]">See how much your recipient gets with 35+ providers — updated every 6 hours.</p>
-                    </div>
-                    <Link
-                      href="/send-money"
-                      className="shrink-0 inline-flex items-center justify-center h-10 px-6 bg-[var(--color-primary)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
-                    >
-                      Compare Rates →
-                    </Link>
-                  </div>
+                  <InlineProviderQuotes
+                    from={inlineQuoteCorridor.from}
+                    to={inlineQuoteCorridor.to}
+                    amount={inlineQuoteCorridor.amount}
+                    heading={inlineQuoteCorridor.heading}
+                    source={`guide:${slug}`}
+                  />
                 )}
               </section>
             ))}
