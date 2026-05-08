@@ -2,125 +2,49 @@
  * TapTap Send API Scraper
  *
  * TapTap Send exposes a public API at https://api.taptapsend.com/api/fxRates
- * that returns all corridors with exchange rates and fee schedules in a single
- * call. No browser automation needed.
+ * and a partner endpoint at https://api.taptapsend.com/api/fxRates/partners.
+ * Both return corridor exchange rates with fee schedules in a single call, so
+ * no browser automation is needed.
  *
- * The fxRates response structure:
- *   { availableCountries: [{ isoCountryCode, currency, corridors: [{ isoCountryCode, currency, fxRate, feeSchedule? }] }] }
+ * Public response shape:
+ *   { availableCountries: [{ isoCountryCode, currency, corridors: [{ currency, fxRate, feeSchedule? }] }] }
+ * Partner response shape adds payoutMethods[] and renames the fee fields:
+ *   feeSchedule → transferFeeSchedule, tier.minValue → tier.minTransferAmount.
  *
- * Fee schedule (when present) is tiered:
- *   { type: "tiered", tiers: [{ fee: "0.99", minValue: "0.00" }, { fee: "0.00", minValue: "125.00" }] }
- *   Meaning: fee is 0.99 for sends under 125, and 0 for sends >= 125.
+ * Tiered fees: { tiers: [{ fee: "0.99", minValue: "0.00" }, { fee: "0.00", minValue: "125.00" }] }
+ * means $0.99 fee under 125, $0 at 125+.
  *
- * Strategy: Fetch fxRates API → match corridors → compute quotes for each SEND_AMOUNT.
+ * Partner API configuration:
+ * - TAPTAP_PARTNER_API_KEY: enables partner mode (Authorization: Bearer <key>)
+ * - TAPTAP_FX_RATES_URL: override endpoint if needed
  */
 import {
-  OUTPUT_DIR,
   SEND_AMOUNTS,
   writeOutput,
   type ProviderQuote,
 } from "./lib/browser";
 
-// Map from send currency to the origin country ISO code used in the API.
-// For EUR we pick Germany (DE) as a representative; all EUR countries share the same rates.
-const CURRENCY_TO_ORIGIN_ISO: Record<string, string> = {
-  USD: "US",
-  GBP: "GB",
-  EUR: "DE",
-  CAD: "CA",
-  AUD: "AU",
-  AED: "AE",
-  SAR: "SA",
-  OMR: "OM",
-  KWD: "KW",
-  BHD: "BH",
-  QAR: "QA",
-  SGD: "SG",
+type ProcessWithLoadEnvFile = NodeJS.Process & {
+  loadEnvFile?: (path?: string) => void;
 };
 
-// Corridors we care about — must match currencies our platform tracks
-const CORRIDORS = [
-  // From USD
-  { from: "USD", to: "INR" },
-  { from: "USD", to: "PHP" },
-  { from: "USD", to: "IDR" },
-  { from: "USD", to: "NGN" },
-  { from: "USD", to: "PKR" },
-  { from: "USD", to: "BDT" },
-  { from: "USD", to: "GHS" },
-  { from: "USD", to: "KES" },
-  { from: "USD", to: "MXN" },
-  { from: "USD", to: "COP" },
-  { from: "USD", to: "BRL" },
-  { from: "USD", to: "EUR" },
-  { from: "USD", to: "GBP" },
-  // From GBP
-  { from: "GBP", to: "INR" },
-  { from: "GBP", to: "NGN" },
-  { from: "GBP", to: "PKR" },
-  { from: "GBP", to: "GHS" },
-  { from: "GBP", to: "KES" },
-  { from: "GBP", to: "BDT" },
-  { from: "GBP", to: "PHP" },
-  { from: "GBP", to: "EUR" },
-  // From EUR
-  { from: "EUR", to: "NGN" },
-  { from: "EUR", to: "GHS" },
-  { from: "EUR", to: "KES" },
-  { from: "EUR", to: "INR" },
-  { from: "EUR", to: "GBP" },
-  { from: "EUR", to: "PHP" },
-  { from: "EUR", to: "PKR" },
-  { from: "EUR", to: "BDT" },
-  { from: "EUR", to: "MAD" },
-  { from: "EUR", to: "TRY" },
-  // From CAD
-  { from: "CAD", to: "INR" },
-  { from: "CAD", to: "PHP" },
-  // From AUD
-  { from: "AUD", to: "INR" },
-  { from: "AUD", to: "PHP" },
-  // From AED
-  { from: "AED", to: "INR" },
-  { from: "AED", to: "PKR" },
-  { from: "AED", to: "PHP" },
-  { from: "AED", to: "BDT" },
-  { from: "AED", to: "NGN" },
-  { from: "AED", to: "EGP" },
-  { from: "AED", to: "NPR" },
-  { from: "AED", to: "LKR" },
-  // From SAR
-  { from: "SAR", to: "INR" },
-  { from: "SAR", to: "PKR" },
-  { from: "SAR", to: "BDT" },
-  { from: "SAR", to: "PHP" },
-  { from: "SAR", to: "NGN" },
-  { from: "SAR", to: "EGP" },
-  // From OMR
-  { from: "OMR", to: "INR" },
-  { from: "OMR", to: "PKR" },
-  { from: "OMR", to: "PHP" },
-  { from: "OMR", to: "BDT" },
-  // From KWD
-  { from: "KWD", to: "INR" },
-  { from: "KWD", to: "PKR" },
-  { from: "KWD", to: "PHP" },
-  { from: "KWD", to: "BDT" },
-  // From BHD
-  { from: "BHD", to: "INR" },
-  { from: "BHD", to: "PKR" },
-  { from: "BHD", to: "PHP" },
-  { from: "BHD", to: "BDT" },
-  // From QAR
-  { from: "QAR", to: "INR" },
-  { from: "QAR", to: "PKR" },
-  { from: "QAR", to: "PHP" },
-  { from: "QAR", to: "BDT" },
-  // From SGD
-  { from: "SGD", to: "INR" },
-  { from: "SGD", to: "PHP" },
-  { from: "SGD", to: "BDT" },
-];
+(process as ProcessWithLoadEnvFile).loadEnvFile?.(".env.local");
+
+import { sendCurrencies, currencies } from "../src/data/transfer-currencies";
+
+const TRACKED_SEND = new Set(sendCurrencies.map((c) => c.code));
+const TRACKED_RECEIVE = new Set(currencies.map((c) => c.code));
+
+interface FeeTier {
+  fee: string;
+  minValue?: string;
+  minTransferAmount?: string;
+}
+
+interface FeeSchedule {
+  type: string;
+  tiers: FeeTier[];
+}
 
 interface FxCorridor {
   isoCountryCode: string;
@@ -128,10 +52,8 @@ interface FxCorridor {
   currency: string;
   currencyScale: number;
   fxRate: string;
-  feeSchedule?: {
-    type: string;
-    tiers: Array<{ fee: string; minValue: string }>;
-  };
+  feeSchedule?: FeeSchedule;
+  transferFeeSchedule?: FeeSchedule;
 }
 
 interface FxOriginCountry {
@@ -145,26 +67,125 @@ interface FxRatesResponse {
   availableCountries: FxOriginCountry[];
 }
 
-/**
- * Determine the fee for a given send amount based on a tiered fee schedule.
- * Tiers are sorted ascending by minValue; the highest tier whose minValue <= amount applies.
- */
-function getFeeForAmount(
-  feeSchedule: FxCorridor["feeSchedule"],
-  sendAmount: number
-): number {
-  if (!feeSchedule || !feeSchedule.tiers || feeSchedule.tiers.length === 0) {
-    return 0; // No fee schedule means $0 fee (TapTap Send default)
+const DEFAULT_PUBLIC_FX_RATES_URL = "https://api.taptapsend.com/api/fxRates";
+const DEFAULT_PARTNER_FX_RATES_URL =
+  "https://api.taptapsend.com/api/fxRates/partners";
+const DEFAULT_USER_AGENT =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
+interface TapTapApiConfig {
+  headers: Record<string, string>;
+  isPartner: boolean;
+  source: string;
+  url: string;
+}
+
+function getApiConfig(): TapTapApiConfig {
+  const partnerApiKey = process.env.TAPTAP_PARTNER_API_KEY?.trim() || "";
+  const explicitUrl = process.env.TAPTAP_FX_RATES_URL?.trim() || "";
+  const isPartner =
+    explicitUrl.includes("/partners") ||
+    (!explicitUrl && partnerApiKey.length > 0);
+  const url =
+    explicitUrl ||
+    (isPartner ? DEFAULT_PARTNER_FX_RATES_URL : DEFAULT_PUBLIC_FX_RATES_URL);
+
+  const headers: Record<string, string> = {
+    Accept: "application/json",
+    "User-Agent": DEFAULT_USER_AGENT,
+  };
+
+  if (isPartner) {
+    if (!partnerApiKey) {
+      throw new Error(
+        "Partner endpoint requires TAPTAP_PARTNER_API_KEY in env."
+      );
+    }
+    headers.Authorization = `Bearer ${partnerApiKey}`;
+  } else {
+    headers["Appian-Version"] = "web/2022-05-03.0";
+    headers["X-Device-Id"] = "web";
+    headers["X-Device-Model"] = "web";
   }
 
-  // Sort tiers by minValue ascending
-  const tiers = [...feeSchedule.tiers].sort(
-    (a, b) => parseFloat(a.minValue) - parseFloat(b.minValue)
-  );
+  return {
+    headers,
+    isPartner,
+    source: isPartner ? "taptapsend-partner-api" : "taptapsend-api",
+    url,
+  };
+}
 
+function extractAvailableCountries(payload: unknown): FxOriginCountry[] {
+  if (Array.isArray(payload)) return payload as FxOriginCountry[];
+  if (!payload || typeof payload !== "object") return [];
+
+  const record = payload as Record<string, unknown>;
+  if (Array.isArray(record.availableCountries)) {
+    return record.availableCountries as FxOriginCountry[];
+  }
+
+  if (record.data && typeof record.data === "object") {
+    const nested = record.data as Record<string, unknown>;
+    if (Array.isArray(nested.availableCountries)) {
+      return nested.availableCountries as FxOriginCountry[];
+    }
+    if (Array.isArray(nested.countries)) {
+      return nested.countries as FxOriginCountry[];
+    }
+  }
+
+  if (Array.isArray(record.countries)) {
+    return record.countries as FxOriginCountry[];
+  }
+  if (Array.isArray(record.originCountries)) {
+    return record.originCountries as FxOriginCountry[];
+  }
+
+  return [];
+}
+
+async function fetchFxRates(config: TapTapApiConfig): Promise<FxRatesResponse> {
+  const response = await fetch(config.url, { headers: config.headers });
+
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    const bodyPreview = body.trim().slice(0, 300);
+    throw new Error(
+      `TapTap returned ${response.status} ${response.statusText}${bodyPreview ? `: ${bodyPreview}` : ""}`
+    );
+  }
+
+  const payload = (await response.json()) as unknown;
+  const availableCountries = extractAvailableCountries(payload);
+
+  if (availableCountries.length === 0) {
+    const topLevelKeys =
+      payload && typeof payload === "object"
+        ? Object.keys(payload as Record<string, unknown>).join(", ")
+        : typeof payload;
+    throw new Error(
+      `TapTap response did not contain available countries. Top-level keys: ${topLevelKeys || "(none)"}`
+    );
+  }
+
+  return { availableCountries };
+}
+
+function tierMin(tier: FeeTier): number {
+  return parseFloat(tier.minTransferAmount ?? tier.minValue ?? "0") || 0;
+}
+
+function getFeeForAmount(
+  schedule: FeeSchedule | undefined,
+  sendAmount: number
+): number {
+  if (!schedule?.tiers?.length) return 0;
+
+  const tiers = [...schedule.tiers].sort((a, b) => tierMin(a) - tierMin(b));
   let fee = parseFloat(tiers[0].fee) || 0;
   for (const tier of tiers) {
-    if (sendAmount >= parseFloat(tier.minValue)) {
+    if (sendAmount >= tierMin(tier)) {
       fee = parseFloat(tier.fee) || 0;
     }
   }
@@ -172,8 +193,10 @@ function getFeeForAmount(
 }
 
 async function main() {
-  console.log("=== TapTap Send API Scraper ===\n");
-  console.log(`Corridors: ${CORRIDORS.length}`);
+  const apiConfig = getApiConfig();
+
+  console.log("=== TapTap Send API Scraper ===");
+  console.log(`Endpoint: ${apiConfig.url} (${apiConfig.isPartner ? "partner" : "public"})`);
   console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}\n`);
 
   const startTime = Date.now();
@@ -181,105 +204,67 @@ async function main() {
   let successCount = 0;
   let failCount = 0;
 
-  // Fetch rates from the public API
-  console.log("Fetching rates from api.taptapsend.com/api/fxRates ...");
-  const response = await fetch("https://api.taptapsend.com/api/fxRates", {
-    headers: {
-      "Appian-Version": "web/2022-05-03.0",
-      "X-Device-Id": "web",
-      "X-Device-Model": "web",
-      "User-Agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    },
-  });
+  const data = await fetchFxRates(apiConfig);
+  console.log(`Received data for ${data.availableCountries.length} origin countries\n`);
 
-  if (!response.ok) {
-    console.error(`API request failed: ${response.status} ${response.statusText}`);
-    process.exit(1);
-  }
-
-  const data: FxRatesResponse = await response.json();
-  console.log(
-    `Received data for ${data.availableCountries.length} origin countries\n`
-  );
-
-  // Build a lookup: originISO -> { destCurrency -> FxCorridor }
-  const rateMap = new Map<string, Map<string, FxCorridor>>();
+  // Dedupe origin currencies — multiple eurozone countries share EUR rates.
+  // Keep the first origin we see per send currency.
+  const originBySendCurrency = new Map<string, FxOriginCountry>();
   for (const origin of data.availableCountries) {
-    const destMap = new Map<string, FxCorridor>();
+    if (!TRACKED_SEND.has(origin.currency)) continue;
+    if (!originBySendCurrency.has(origin.currency)) {
+      originBySendCurrency.set(origin.currency, origin);
+    }
+  }
+
+  const sendCurrenciesCovered = [...originBySendCurrency.keys()].sort();
+  console.log(`Send currencies covered: ${sendCurrenciesCovered.join(", ")}\n`);
+
+  for (const [sendCurrency, origin] of originBySendCurrency) {
+    let corridorCount = 0;
     for (const corridor of origin.corridors) {
-      destMap.set(corridor.currency, corridor);
-    }
-    rateMap.set(origin.isoCountryCode, destMap);
-  }
+      const receiveCurrency = corridor.currency;
+      if (!TRACKED_RECEIVE.has(receiveCurrency)) continue;
+      if (sendCurrency === receiveCurrency) continue;
 
-  for (const corridor of CORRIDORS) {
-    const originISO = CURRENCY_TO_ORIGIN_ISO[corridor.from];
-    if (!originISO) {
-      console.log(`  Skipping ${corridor.from} -> ${corridor.to}: no origin ISO mapping`);
-      failCount += SEND_AMOUNTS.length;
-      continue;
-    }
+      const rate = parseFloat(corridor.fxRate);
+      if (!rate || rate <= 0) continue;
 
-    const destMap = rateMap.get(originISO);
-    if (!destMap) {
-      console.log(`  Skipping ${corridor.from} -> ${corridor.to}: origin ${originISO} not in API`);
-      failCount += SEND_AMOUNTS.length;
-      continue;
-    }
+      const schedule = corridor.transferFeeSchedule ?? corridor.feeSchedule;
 
-    const fxCorridor = destMap.get(corridor.to);
-    if (!fxCorridor) {
-      console.log(`  Skipping ${corridor.from} -> ${corridor.to}: destination currency not found`);
-      failCount += SEND_AMOUNTS.length;
-      continue;
-    }
+      for (const amount of SEND_AMOUNTS) {
+        const fee = getFeeForAmount(schedule, amount);
+        const effectiveSend = amount - fee;
+        const receiveAmount = effectiveSend > 0 ? effectiveSend * rate : 0;
+        if (receiveAmount <= 0) {
+          failCount++;
+          continue;
+        }
 
-    const rate = parseFloat(fxCorridor.fxRate);
-    if (!rate || rate <= 0) {
-      console.log(`  Skipping ${corridor.from} -> ${corridor.to}: invalid rate ${fxCorridor.fxRate}`);
-      failCount += SEND_AMOUNTS.length;
-      continue;
-    }
-
-    console.log(`${corridor.from} -> ${corridor.to}: rate=${rate}`);
-
-    for (const amount of SEND_AMOUNTS) {
-      const fee = getFeeForAmount(fxCorridor.feeSchedule, amount);
-      const effectiveSend = amount - fee;
-      const receiveAmount = effectiveSend > 0 ? effectiveSend * rate : 0;
-
-      if (receiveAmount <= 0) {
-        console.log(`    $${amount}: fee=${fee} exceeds send amount, skipping`);
-        failCount++;
-        continue;
+        allQuotes.push({
+          provider: "TapTap Send",
+          providerSlug: "taptap-send",
+          providerType: "moneyTransferProvider",
+          sendCurrency,
+          receiveCurrency,
+          sendAmount: amount,
+          fee: Math.round(fee * 100) / 100,
+          exchangeRate: Math.round(rate * 10000) / 10000,
+          receiveAmount: Math.round(receiveAmount * 100) / 100,
+          paymentMethod: null,
+          deliveryEstimate: null,
+          deliveryMethod: null,
+          dateCollected: new Date().toISOString(),
+          source: apiConfig.source,
+        });
+        successCount++;
       }
-
-      const quote: ProviderQuote = {
-        provider: "TapTap Send",
-        providerSlug: "taptap-send",
-        providerType: "moneyTransferProvider",
-        sendCurrency: corridor.from,
-        receiveCurrency: corridor.to,
-        sendAmount: amount,
-        fee: Math.round(fee * 100) / 100,
-        exchangeRate: Math.round(rate * 10000) / 10000,
-        receiveAmount: Math.round(receiveAmount * 100) / 100,
-        paymentMethod: null,
-        deliveryEstimate: null,
-        deliveryMethod: null,
-        dateCollected: new Date().toISOString(),
-        source: "taptapsend-api",
-      };
-
-      allQuotes.push(quote);
-      successCount++;
-      console.log(
-        `    $${amount}: fee=${fee}, receive=${quote.receiveAmount} ${corridor.to}`
-      );
+      corridorCount++;
     }
+    console.log(`${sendCurrency} (${origin.isoCountryCode}): ${corridorCount} corridors`);
   }
 
+  console.log(`\nTotal quotes: ${successCount} success, ${failCount} failed`);
   writeOutput("TapTap Send", "taptapsend", allQuotes, startTime, successCount, failCount);
 }
 

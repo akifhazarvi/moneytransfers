@@ -39,8 +39,10 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
-      - name: Scrape TapTap Send (API)
+      - name: Scrape TapTap Send (Partner API)
         run: npx tsx scripts/scrape-taptapsend.ts
+        env:
+          TAPTAP_PARTNER_API_KEY: ${{ secrets.TAPTAP_PARTNER_API_KEY }}
         timeout-minutes: 5
         continue-on-error: true
 
