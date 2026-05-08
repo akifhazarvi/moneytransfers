@@ -44,6 +44,7 @@ import {
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
 import { swedishCorridorBlocks } from "@/data/sweden-content";
+import { corridorDeepBlocks } from "@/data/corridor-deep-content";
 import { getCountryDetails } from "@/data/corridor-details";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -2967,6 +2968,43 @@ export default async function CorridorPage({ params }: Props) {
         </section>
       )}
 
+      {/* ─── English deep-content block for high-impression target corridors ─── */}
+      {corridorDeepBlocks[slug] && (
+        <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+          <Container>
+            <div className="max-w-3xl">
+              <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
+                {corridorDeepBlocks[slug].h2}
+              </h2>
+              <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
+                {corridorDeepBlocks[slug].intro}
+              </p>
+              <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-3">
+                Frequently asked questions
+              </h3>
+              <div className="divide-y divide-[var(--color-outline)]">
+                {corridorDeepBlocks[slug].faqs.map((faq) => (
+                  <details key={faq.q} className="group py-4">
+                    <summary className="flex items-center justify-between cursor-pointer list-none text-sm md:text-md font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                      {faq.q}
+                      <svg
+                        className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
+                      {faq.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* ─── Swedish content block (sweden-* corridors only) ─── */}
       {swedishCorridorBlocks[slug] && (
         <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]" lang="sv">
@@ -3227,6 +3265,11 @@ export default async function CorridorPage({ params }: Props) {
                 name: faq.q,
                 inLanguage: "sv",
                 acceptedAnswer: { "@type": "Answer", text: faq.a, inLanguage: "sv" },
+              })),
+              ...(corridorDeepBlocks[slug]?.faqs ?? []).map((faq) => ({
+                "@type": "Question",
+                name: faq.q,
+                acceptedAnswer: { "@type": "Answer", text: faq.a },
               })),
             ],
           }),
