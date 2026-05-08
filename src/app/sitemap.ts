@@ -152,15 +152,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((p) => reviewedSlugs.has(p.slug))
     .map((p) => entry(`companies/${p.slug}`, reviewDateMap.get(p.slug) || DATA_UPDATED));
 
-  // Only include comparison pages where both providers have editorial reviews.
-  // Combinations involving unreviewed providers lack editorial depth (thin content).
-  // Locale variants of comparison pages are noindexed, so exclude from sitemap.
+  // Only submit comparison pages where one side is Wise or Remitly. The full
+  // n×(n-1)/2 combinatorial set was 91 pages — most ("wise vs torfx" etc) had
+  // zero search demand and bloated the sitemap. The wise-vs-* and remitly-vs-*
+  // patterns capture nearly all of the comparison search volume per GSC.
+  // Other comparison pages stay live and are reachable via internal links.
+  const SITEMAP_COMPARISON_ANCHORS = new Set(["wise", "remitly"]);
   const reviewedProviders = providers.filter((p) => reviewedSlugs.has(p.slug));
   const comparisonPages: MetadataRoute.Sitemap = [];
   for (let i = 0; i < reviewedProviders.length; i++) {
     for (let j = i + 1; j < reviewedProviders.length; j++) {
-      const slug = `compare/${reviewedProviders[i].slug}-vs-${reviewedProviders[j].slug}`;
-      comparisonPages.push(entry(slug, DATA_UPDATED));
+      const a = reviewedProviders[i].slug;
+      const b = reviewedProviders[j].slug;
+      if (!SITEMAP_COMPARISON_ANCHORS.has(a) && !SITEMAP_COMPARISON_ANCHORS.has(b)) continue;
+      comparisonPages.push(entry(`compare/${a}-vs-${b}`, DATA_UPDATED));
     }
   }
 

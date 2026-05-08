@@ -64,7 +64,12 @@ export function getCorridorTier(
 
 /**
  * Should this corridor appear in the sitemap?
- * Only Tier 1 and Tier 2.
+ *
+ * After GSC showed 882 sitemap URLs vs 31 indexed pages (May 8), curate
+ * harder: editorial corridors only. The auto-generated currency × country
+ * pairs stay live and crawlable via internal links — but Google clearly
+ * isn't trusting the sitemap when 96% of submitted URLs aren't indexed.
+ * Re-add programmatic corridors once the indexed-page count recovers.
  */
 export function shouldIncludeInSitemap(
   slug: string,
@@ -72,7 +77,7 @@ export function shouldIncludeInSitemap(
   toCurrency: string,
   isCountryPage?: boolean,
 ): boolean {
-  return getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage) <= 2;
+  return EDITORIAL_SLUGS.has(slug);
 }
 
 /**
