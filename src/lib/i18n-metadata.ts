@@ -9,7 +9,10 @@
  */
 
 const SITE_URL = "https://sendmoneycompare.com";
-const LOCALES = ["en", "es", "fr", "pt"] as const;
+// Non-English locales (es/fr/pt) were retired on 2026-04-27 — middleware
+// returns 410 Gone for those prefixes. With no alternate language version
+// being served, hreflang collapses to English-only.
+const LOCALES = ["en"] as const;
 
 /**
  * Generate alternates object for Next.js Metadata API.

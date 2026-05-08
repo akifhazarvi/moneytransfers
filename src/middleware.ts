@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 import { COUNTRY_TO_CURRENCY } from "./data/geo-corridors";
+import { shouldNoindexPath } from "./lib/seo-indexing";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -118,6 +119,14 @@ function isSpamBot(request: NextRequest): boolean {
   return false;
 }
 
+// Locale prefixes we used to support but have since killed. 90 days of GSC
+// data (Jan 28 → Apr 24, 2026) showed 0 clicks across /es/ + /pt/ and 2 clicks
+// from /fr/ across 390 URLs and 3,182 impressions — Google was burying them at
+// position 50–90 because the chrome was translated but the body stayed in
+// English. Returning 410 Gone evicts them from the index in 1–2 weeks and
+// recovers crawl budget for English pages.
+const KILLED_LOCALE_PREFIXES = /^\/(es|fr|pt)(\/|$)/;
+
 export default function middleware(request: NextRequest) {
   // Redirect www to non-www (canonical domain)
   const host = request.headers.get("host") || "";
@@ -128,12 +137,43 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // Hard-kill non-English locale URLs with 410 Gone. Must run BEFORE
+  // intlMiddleware so next-intl never sees the locale prefix.
+  if (KILLED_LOCALE_PREFIXES.test(request.nextUrl.pathname)) {
+    return new NextResponse(
+      "Gone — this localized URL has been retired. The English version is at " +
+        request.nextUrl.pathname.replace(KILLED_LOCALE_PREFIXES, "/"),
+      {
+        status: 410,
+        headers: {
+          "Content-Type": "text/plain; charset=utf-8",
+          "X-Robots-Tag": "noindex",
+          // Tell shared caches not to memoize 410s — once we ever bring i18n
+          // back, we don't want stale gone-responses sticking around.
+          "Cache-Control": "private, no-cache, must-revalidate",
+        },
+      },
+    );
+  }
+
   // Block spam bots at the edge — return 403 before any processing
   if (isSpamBot(request)) {
     return new NextResponse("Forbidden", { status: 403 });
   }
 
   const response = intlMiddleware(request);
+
+  // X-Robots-Tag for routes we noindex in page metadata. Sending this as an
+  // HTTP header lets Googlebot drop the URL from indexing without rendering
+  // the full HTML — recovers crawl budget that was being burned on ~3k
+  // noindex'd locale variants and non-priority IBAN/SWIFT pages.
+  // Mirrors the metadata logic in:
+  //   - [locale]/{compare,news,guides,exchange-rates,business,companies,compare-money-transfer}/...
+  //   - non-allowlisted iban/[slug] and swift-codes/[country]
+  const path = request.nextUrl.pathname;
+  if (shouldNoindexPath(path)) {
+    response.headers.set("X-Robots-Tag", "noindex, follow");
+  }
 
   // CSP nonce — generate per request for strict CSP
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
