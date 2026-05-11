@@ -1904,5 +1904,52 @@
         "receiveAmount": 14668
       }
     }
+  },
+  {
+    "date": "2026-05-11",
+    "providers": {
+      "taptap-send": {
+        "rate": 148.7,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14870
+      },
+      "skrill": {
+        "rate": 148.1369,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14813.69
+      },
+      "instarem": {
+        "rate": 148.8953,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14889.53
+      },
+      "xoom": {
+        "rate": 145.2592,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 14091.6
+      },
+      "deutsche-bank": {
+        "rate": 149.4296,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 9481.31
+      },
+      "remitly": {
+        "rate": 148.764,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 14580.36
+      },
+      "wise": {
+        "rate": 151.938,
+        "fee": 3.63,
+        "markup": null,
+        "receiveAmount": 14642
+      }
+    }
   }
 ]
