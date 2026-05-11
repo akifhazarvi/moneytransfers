@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
+import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
 
 // Revalidate every 6 hours — matches scraper cadence
@@ -202,6 +203,15 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           <p className="text-xs text-[var(--color-on-surface-variant)] mt-3">
             {t("ssrTableNote")}
           </p>
+        </div>
+      </section>
+
+      {/* Historical rate trends widget (relocated from homepage) */}
+      <section className="bg-[var(--color-surface-dim)] py-10 sm:py-14">
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
+          <div className="max-w-[860px] mx-auto">
+            <LazyHistoricalRateWidget defaultCorridor="USD-INR" />
+          </div>
         </div>
       </section>
 

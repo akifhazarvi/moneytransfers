@@ -8,14 +8,13 @@ import BestTransferToday from "@/components/BestTransferToday";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
-import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
 import LazyNewsTicker from "@/components/LazyNewsTicker";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
+import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs
@@ -52,7 +51,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const geoConfig = DEFAULT_GEO_CONFIG;
   const sendCurrency = "USD";
 
-  const [rates, tHero, tLive, tTrust, tHow, tBest, tExample, tFaq, tWhy, tExplore] = await Promise.all([
+  const [rates, tHero, tLive, tTrust, tHow, tBest, tExample, tFaq, tWhy] = await Promise.all([
     fetchExchangeRates(),
     getTranslations({ locale, namespace: "hero" }),
     getTranslations({ locale, namespace: "liveRates" }),
@@ -62,7 +61,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     getTranslations({ locale, namespace: "liveExample" }),
     getTranslations({ locale, namespace: "faq" }),
     getTranslations({ locale, namespace: "whyTrust" }),
-    getTranslations({ locale, namespace: "explore" }),
   ]);
 
   // Build popular rates from geo config
@@ -202,7 +200,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
-      {/* ─── BEST PROVIDER BY CORRIDOR ─── */}
+      {/* ─── BEST ROUTES + LIVE EXAMPLE (merged) ─── */}
       {topCorridorProviders.length > 0 && (
         <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
           <Container>
@@ -214,7 +212,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 We compared {sendCurrency} transfers across providers to find the cheapest option for each route.
               </p>
             </div>
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-10">
               {topCorridorProviders.map((c) => (
                 <Link
                   key={c.toCurrency}
@@ -253,6 +251,27 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   </p>
                 </Link>
               ))}
+            </div>
+
+            {/* Featured live example — folded in from the old standalone section */}
+            <div className="max-w-3xl mx-auto bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-5 sm:p-7">
+              <div className="text-center mb-4">
+                <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-2xs sm:text-xs font-semibold uppercase tracking-wide px-2.5 py-0.5 rounded-full mb-2">
+                  {tExample("badge")}
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-[var(--color-on-surface)]">
+                  {tExample("title")}
+                </h3>
+                <p className="text-2sm sm:text-sm text-[var(--color-on-surface-variant)] mt-1 max-w-md mx-auto">
+                  {tExample("subtitle")}
+                </p>
+              </div>
+              <BestTransferToday amount={geoConfig.defaultAmount} from={sendCurrency} to={geoConfig.defaultTo} symbol={geoConfig.popularCorridors[0]?.symbol || "₹"} />
+              <div className="text-center mt-5">
+                <PrimaryButton href={`/send-money?from=${sendCurrency}&to=${geoConfig.defaultTo}&amount=${geoConfig.defaultAmount}`}>
+                  {tExample("cta")}
+                </PrimaryButton>
+              </div>
             </div>
           </Container>
         </section>
@@ -294,21 +313,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </section>
       )}
 
-      {/* ─── RATE TRENDS WIDGET ─── */}
-      <section id="rate-trends" className="py-8 sm:py-12 bg-[var(--color-surface-dim)]">
+      {/* ─── TRUST STRIP + WHY TRUST US (compressed) ─── */}
+      <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)] py-6 sm:py-12">
         <Container>
-          <div className="max-w-[860px] mx-auto">
-            <LazyHistoricalRateWidget defaultCorridor={`${sendCurrency}-${geoConfig.defaultTo}`} />
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── 2. TRUST SECTION ─── */}
-      {/* Mobile: horizontal scroll of compact chips */}
-      <section className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-3 sm:py-10">
-        <Container>
-          {/* Mobile — compact horizontal scroll */}
-          <div className="flex sm:hidden items-center gap-2 overflow-x-auto -mx-4 px-4 scrollbar-hide" style={{ WebkitOverflowScrolling: "touch" }}>
+          {/* Top row — quick chips (mobile: scroll, desktop: row) */}
+          <div className="flex sm:hidden items-center gap-2 overflow-x-auto -mx-4 px-4 scrollbar-hide mb-5" style={{ WebkitOverflowScrolling: "touch" }}>
             {trustItems.map((item) => (
               <span key={item.text} className="shrink-0 inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] rounded-full px-3 py-1.5 border border-[var(--color-outline)]">
                 <svg className="w-3 h-3 text-[var(--color-success)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -329,8 +338,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               Trustpilot
             </a>
           </div>
-          {/* Desktop — original icon grid */}
-          <div className="hidden sm:grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+          <div className="hidden sm:grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-8">
             {trustItems.map((item) => (
               <div key={item.text} className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-[var(--color-success-surface,var(--color-primary-surface))] flex items-center justify-center shrink-0 mt-0.5">
@@ -356,6 +364,31 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 Reviewed on Trustpilot
               </p>
             </a>
+          </div>
+
+          {/* Why Trust Us — compressed 2x2 grid (kept for E-E-A-T / AI Overviews) */}
+          <div className="max-w-4xl mx-auto pt-6 sm:pt-8 border-t border-[var(--color-outline)]">
+            <h2 className="text-base sm:text-lg font-semibold text-[var(--color-on-surface)] text-center mb-4 sm:mb-6">
+              {tWhy("title")}
+            </h2>
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 text-left">
+              <div>
+                <h3 className="text-2sm sm:text-sm font-semibold text-[var(--color-on-surface)] mb-1">{tWhy("independentTitle")}</h3>
+                <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("independentDesc")}</p>
+              </div>
+              <div>
+                <h3 className="text-2sm sm:text-sm font-semibold text-[var(--color-on-surface)] mb-1">{tWhy("realDataTitle")}</h3>
+                <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("realDataDesc")}</p>
+              </div>
+              <div>
+                <h3 className="text-2sm sm:text-sm font-semibold text-[var(--color-on-surface)] mb-1">{tWhy("regulatedTitle")}</h3>
+                <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("regulatedDesc")}</p>
+              </div>
+              <div>
+                <h3 className="text-2sm sm:text-sm font-semibold text-[var(--color-on-surface)] mb-1">{tWhy("transparentTitle")}</h3>
+                <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("transparentDesc")}</p>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -400,7 +433,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
-      {/* ─── 4. BEST PROVIDERS ─── */}
+      {/* ─── PROVIDERS — Top + By Use Case stacked, no JS tabs ─── */}
       <section id="providers" className="py-8 sm:py-14">
         <Container>
           <div className="text-center mb-6 sm:mb-10">
@@ -466,7 +499,49 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </Card>
             ))}
           </div>
-          <div className="text-center mt-5 sm:mt-8">
+
+          {/* Sub-section: Best by Need (stacked under Top Providers) */}
+          <div className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-[var(--color-outline)]">
+            <div className="text-center mb-5 sm:mb-8">
+              <h3 className="text-lg sm:text-xl font-semibold text-[var(--color-on-surface)]">
+                Best by use case
+              </h3>
+              <p className="text-2sm sm:text-sm text-[var(--color-on-surface-variant)] mt-1.5 max-w-xl mx-auto">
+                No single provider wins every category. Here&apos;s who leads for each use case.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
+              {[
+                { badge: "Best Rate", provider: "Wise", reason: "Uses the real mid-market rate with fees from 0.41%. Consistently the lowest total cost for most corridors.", href: "/companies/wise", color: "var(--color-primary)" },
+                { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes to 170+ countries. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
+                { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
+                { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },
+                { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", href: "/companies/revolut", color: "var(--color-success)" },
+                { badge: "Most Reliable", provider: "MoneyGram", reason: "Global presence in 200+ countries with cash, bank, and mobile wallet delivery. Trusted by millions since 1940.", href: "/companies/moneygram", color: "var(--color-warning)" },
+              ].map((item) => (
+                <Link
+                  key={item.provider}
+                  href={item.href}
+                  className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:shadow-[var(--shadow-md)] transition-all"
+                >
+                  <span
+                    className="inline-block text-[10px] sm:text-2xs font-semibold uppercase tracking-wide px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mb-2 sm:mb-3"
+                    style={{ background: `color-mix(in srgb, ${item.color} 12%, transparent)`, color: item.color }}
+                  >
+                    {item.badge}
+                  </span>
+                  <h4 className="text-sm sm:text-base font-semibold text-[var(--color-on-surface)] mb-1 sm:mb-1.5 group-hover:text-[var(--color-primary)]">
+                    {item.provider}
+                  </h4>
+                  <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-2 sm:line-clamp-none">
+                    {item.reason}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-6 sm:mt-8">
             <Link href="/companies" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
               {tBest("seeAll")} &rarr;
             </Link>
@@ -474,243 +549,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
-      {/* ─── 4b. BEST FOR USE CASES ─── */}
-      <section id="best-by-need" className="py-8 sm:py-14 bg-[var(--color-surface)]">
-        <Container>
-          <div className="text-center mb-6 sm:mb-10">
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-              Best Money Transfer Service by Need
-            </h2>
-            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-              No single provider wins every category. Here&apos;s who leads for each use case.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
-            {[
-              { badge: "Best Rate", provider: "Wise", reason: "Uses the real mid-market rate with fees from 0.41%. Consistently the lowest total cost for most corridors.", href: "/companies/wise", color: "var(--color-primary)" },
-              { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes to 170+ countries. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
-              { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
-              { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },
-              { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", href: "/companies/revolut", color: "var(--color-success)" },
-              { badge: "Most Reliable", provider: "MoneyGram", reason: "Global presence in 200+ countries with cash, bank, and mobile wallet delivery. Trusted by millions since 1940.", href: "/companies/moneygram", color: "var(--color-warning)" },
-            ].map((item) => (
-              <Link
-                key={item.provider}
-                href={item.href}
-                className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:shadow-[var(--shadow-md)] transition-all"
-              >
-                <span
-                  className="inline-block text-[10px] sm:text-2xs font-semibold uppercase tracking-wide px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mb-2 sm:mb-3"
-                  style={{ background: `color-mix(in srgb, ${item.color} 12%, transparent)`, color: item.color }}
-                >
-                  {item.badge}
-                </span>
-                <h3 className="text-sm sm:text-base font-semibold text-[var(--color-on-surface)] mb-1 sm:mb-1.5 group-hover:text-[var(--color-primary)]">
-                  {item.provider}
-                </h3>
-                <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-2 sm:line-clamp-none">
-                  {item.reason}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── 4c. SEND MONEY TO DESTINATIONS ─── */}
-      <section id="destinations" className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
-        <Container>
-          <div className="text-center mb-5 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-              {tExplore("destinationsTitle")}
-            </h2>
-            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-              {tExplore("destinationsSubtitle")}
-            </p>
-          </div>
-          <div className="space-y-5 max-w-5xl mx-auto">
-            {[
-              { region: "South Asia", destinations: [
-                { name: "India", slug: "india", flag: "🇮🇳", currency: "INR" },
-                { name: "Pakistan", slug: "pakistan", flag: "🇵🇰", currency: "PKR" },
-                { name: "Bangladesh", slug: "bangladesh", flag: "🇧🇩", currency: "BDT" },
-                { name: "Nepal", slug: "nepal", flag: "🇳🇵", currency: "NPR" },
-                { name: "Sri Lanka", slug: "sri-lanka", flag: "🇱🇰", currency: "LKR" },
-              ]},
-              { region: "Southeast Asia", destinations: [
-                { name: "Philippines", slug: "philippines", flag: "🇵🇭", currency: "PHP" },
-                { name: "Vietnam", slug: "vietnam", flag: "🇻🇳", currency: "VND" },
-                { name: "Indonesia", slug: "indonesia", flag: "🇮🇩", currency: "IDR" },
-                { name: "Thailand", slug: "thailand", flag: "🇹🇭", currency: "THB" },
-                { name: "Malaysia", slug: "malaysia", flag: "🇲🇾", currency: "MYR" },
-              ]},
-              { region: "Latin America", destinations: [
-                { name: "Mexico", slug: "mexico", flag: "🇲🇽", currency: "MXN" },
-                { name: "Brazil", slug: "brazil", flag: "🇧🇷", currency: "BRL" },
-                { name: "Colombia", slug: "colombia", flag: "🇨🇴", currency: "COP" },
-                { name: "Guatemala", slug: "guatemala", flag: "🇬🇹", currency: "GTQ" },
-                { name: "Dominican Republic", slug: "dominican-republic", flag: "🇩🇴", currency: "DOP" },
-              ]},
-              { region: "Africa", destinations: [
-                { name: "Nigeria", slug: "nigeria", flag: "🇳🇬", currency: "NGN" },
-                { name: "Kenya", slug: "kenya", flag: "🇰🇪", currency: "KES" },
-                { name: "Ghana", slug: "ghana", flag: "🇬🇭", currency: "GHS" },
-                { name: "South Africa", slug: "south-africa", flag: "🇿🇦", currency: "ZAR" },
-                { name: "Egypt", slug: "egypt", flag: "🇪🇬", currency: "EGP" },
-                { name: "Morocco", slug: "morocco", flag: "🇲🇦", currency: "MAD" },
-              ]},
-              { region: "Europe & Middle East", destinations: [
-                { name: "Europe", slug: "europe", flag: "🇪🇺", currency: "EUR" },
-                { name: "Germany", slug: "germany", flag: "🇩🇪", currency: "EUR" },
-                { name: "France", slug: "france", flag: "🇫🇷", currency: "EUR" },
-                { name: "Spain", slug: "spain", flag: "🇪🇸", currency: "EUR" },
-                { name: "UAE", slug: "uae", flag: "🇦🇪", currency: "AED" },
-                { name: "Turkey", slug: "turkey", flag: "🇹🇷", currency: "TRY" },
-              ]},
-              { region: "English-Speaking & Pacific", destinations: [
-                { name: "United Kingdom", slug: "uk", flag: "🇬🇧", currency: "GBP" },
-                { name: "Australia", slug: "australia", flag: "🇦🇺", currency: "AUD" },
-                { name: "Canada", slug: "canada", flag: "🇨🇦", currency: "CAD" },
-                { name: "New Zealand", slug: "new-zealand", flag: "🇳🇿", currency: "NZD" },
-                { name: "South Korea", slug: "south-korea", flag: "🇰🇷", currency: "KRW" },
-                { name: "China", slug: "china", flag: "🇨🇳", currency: "CNY" },
-              ]},
-            ].map((group) => (
-              <div key={group.region}>
-                <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">
-                  {group.region}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {group.destinations.map((dest) => (
-                    <Link
-                      key={dest.slug}
-                      href={`/send-money/send-money-to-${dest.slug}`}
-                      className="flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-2sm text-[var(--color-on-surface-variant)] transition-colors"
-                    >
-                      <span>{dest.flag}</span>
-                      <span>{dest.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/send-money" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
-              {tExplore("seeAllDestinations")} &rarr;
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── 4d. TRAVEL GUIDES + eSIM ─── */}
-      <section id="travel" className="py-8 sm:py-14 bg-[var(--color-surface)]">
-        <Container>
-          <div className="text-center mb-5 sm:mb-8">
-            <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-3">
-              New
-            </div>
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-              Travelling? Get an eSIM + know your money
-            </h2>
-            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-              Country guides with live FX conversion, eSIM picks, cultural dos and don&rsquo;ts, and typical daily budgets — built for travellers who don&rsquo;t want to overpay on money or roaming.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            <Link
-              href="/travel/thailand"
-              className="group flex flex-col bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5 hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] transition-all"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-2xl">🇹🇭</span>
-                <div>
-                  <p className="font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Thailand</p>
-                  <p className="text-2xs text-[var(--color-on-surface-variant)]">Thai Baht (฿ THB)</p>
-                </div>
-              </div>
-              <p className="text-2sm text-[var(--color-on-surface-variant)] line-clamp-2 mb-3">
-                eSIM from $8.50, 60-day visa-free, ฿36 per USD. Muay Thai, street food, island hopping.
-              </p>
-              <p className="text-2sm text-[var(--color-primary)] font-medium mt-auto">Read guide &rarr;</p>
-            </Link>
-
-            {[
-              { name: "Japan", flag: "🇯🇵", currency: "JPY", blurb: "Coming soon" },
-              { name: "Turkey", flag: "🇹🇷", currency: "TRY", blurb: "Coming soon" },
-              { name: "Mexico", flag: "🇲🇽", currency: "MXN", blurb: "Coming soon" },
-            ].map((c) => (
-              <div
-                key={c.name}
-                className="flex flex-col bg-[var(--color-surface-dim)] border border-dashed border-[var(--color-outline)] rounded-2xl p-5 opacity-70"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl">{c.flag}</span>
-                  <div>
-                    <p className="font-semibold text-[var(--color-on-surface)]">{c.name}</p>
-                    <p className="text-2xs text-[var(--color-on-surface-variant)]">{c.currency}</p>
-                  </div>
-                </div>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] mb-3">{c.blurb}</p>
-                <p className="text-2sm text-[var(--color-on-surface-variant)] italic mt-auto">Launching soon</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link href="/travel" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
-              See all travel guides &rarr;
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── 5. LIVE EXAMPLE: $1,000 USD → PKR ─── */}
-      <section id="live-example" className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
-        <Container>
-          <div className="text-center mb-2">
-            <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
-              {tExample("badge")}
-            </div>
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-              {tExample("title")}
-            </h2>
-            <p className="text-md text-[var(--color-on-surface-variant)] mt-3 mb-6 max-w-lg mx-auto">
-              {tExample("subtitle")}
-            </p>
-          </div>
-          <BestTransferToday amount={geoConfig.defaultAmount} from={sendCurrency} to={geoConfig.defaultTo} symbol={geoConfig.popularCorridors[0]?.symbol || "₹"} />
-          <div className="text-center mt-8">
-            <PrimaryButton href={`/send-money?from=${sendCurrency}&to=${geoConfig.defaultTo}&amount=${geoConfig.defaultAmount}`}>
-              {tExample("cta")}
-            </PrimaryButton>
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── VIDEO ─── */}
-      <section id="video" className="py-8 sm:py-14 bg-[var(--color-surface)]">
-        <Container>
-          <div className="text-center mb-5 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-              Watch: Which is Cheapest?
-            </h2>
-            <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-              Wise vs Remitly vs WorldRemit — head-to-head on a $1,000 transfer.
-            </p>
-          </div>
-          <div className="max-w-[340px] sm:max-w-[380px] mx-auto">
-            <YouTubeEmbed
-              videoId="AKRQH9xbR18"
-              title="Wise vs Remitly vs WorldRemit: Which is Actually Cheapest?"
-              shorts
-            />
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── 6. FAQ ─── */}
+      {/* ─── FAQ (collapsed by default) — video embedded in answer #6 ─── */}
       <section id="faq" className="py-8 sm:py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -719,8 +558,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
               {faqs.map((faq, i) => (
-                <details key={faq.q} className="group py-5" {...(i < 3 ? { open: true } : {})}>
-                  <summary className="flex items-center justify-between cursor-pointer list-none text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[48px]">
+                <details key={faq.q} className="group py-5">
+                  <summary className="faq-question flex items-center justify-between cursor-pointer list-none text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[48px]">
                     {faq.q}
                     <svg
                       className="w-5 h-5 shrink-0 ml-4 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
@@ -731,9 +570,33 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
-                    {faq.a}
-                  </p>
+                  <div className="mt-3 pr-8 space-y-4">
+                    <p className="faq-answer text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                      {faq.a}
+                    </p>
+                    {i === 5 && (
+                      <div className="pt-2">
+                        <p className="text-2sm font-medium text-[var(--color-on-surface)] mb-2">
+                          Watch: Wise vs Remitly vs WorldRemit on a $1,000 transfer
+                        </p>
+                        <div className="max-w-[280px]">
+                          <YouTubeEmbed
+                            videoId="AKRQH9xbR18"
+                            title="Wise vs Remitly vs WorldRemit: Which is Actually Cheapest?"
+                            shorts
+                          />
+                        </div>
+                      </div>
+                    )}
+                    {i === 0 && (
+                      <p className="text-2sm text-[var(--color-on-surface-variant)]">
+                        Travelling instead of sending money home?{" "}
+                        <Link href="/travel" className="text-[var(--color-primary)] hover:underline font-medium">
+                          See our country travel guides &rarr;
+                        </Link>
+                      </p>
+                    )}
+                  </div>
                 </details>
               ))}
             </div>
@@ -741,7 +604,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
-      {/* ─── 7. NEWS ─── */}
+      {/* ─── NEWS ─── */}
       <LazyNewsTicker
         items={getLatestNews(6).map((n) => ({
           slug: n.slug,
@@ -752,131 +615,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         }))}
       />
 
-      {/* ─── 8. WHY TRUST US ─── */}
-      <section className="py-8 sm:py-14">
-        <Container>
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-6 sm:mb-10">
-              <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-                {tWhy("title")}
-              </h2>
-              <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-                {tWhy("subtitle")}
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-[var(--color-surface-dim)] rounded-2xl p-6 hover:shadow-[var(--shadow-md)] transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("independentTitle")}</h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("independentDesc")}</p>
-              </div>
-              <div className="bg-[var(--color-surface-dim)] rounded-2xl p-6 hover:shadow-[var(--shadow-md)] transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </div>
-                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("realDataTitle")}</h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("realDataDesc")}</p>
-              </div>
-              <div className="bg-[var(--color-surface-dim)] rounded-2xl p-6 hover:shadow-[var(--shadow-md)] transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("regulatedTitle")}</h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("regulatedDesc")}</p>
-              </div>
-              <div className="bg-[var(--color-surface-dim)] rounded-2xl p-6 hover:shadow-[var(--shadow-md)] transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center mb-4">
-                  <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                  </svg>
-                </div>
-                <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{tWhy("transparentTitle")}</h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">{tWhy("transparentDesc")}</p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ─── EXPLORE MORE ─── */}
-      <section className="py-8 sm:py-14 bg-[var(--color-surface-dim)]">
-        <Container>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            <div>
-              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("popularCorridors")}</h3>
-              <ul className="space-y-2">
-                {geoConfig.popularCorridors.map((c) => (
-                  <li key={c.toCurrency}>
-                    <Link href={`/send-money/${c.corridorSlug}`} className="text-sm text-[var(--color-primary)] hover:underline">
-                      {c.flag} {sendCurrency} → {c.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("comparisons")}</h3>
-              <ul className="space-y-2">
-                <li><Link href="/compare/wise-vs-remitly" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("wiseVsRemitly")}</Link></li>
-                <li><Link href="/compare/wise-vs-western-union" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("wiseVsWu")}</Link></li>
-                <li><Link href="/compare/remitly-vs-western-union" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("remitlyVsWu")}</Link></li>
-                <li><Link href="/compare" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("allComparisons")} &rarr;</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("guides")}</h3>
-              <ul className="space-y-2">
-                <li><Link href="/guides/how-to-send-money-abroad" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("howToSend")}</Link></li>
-                <li><Link href="/guides/cheapest-way-to-send-money-internationally" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("cheapestWay")}</Link></li>
-                <li><Link href="/guides/exchange-rate-markup-explained" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("exchangeRates")}</Link></li>
-                <li><Link href="/guides" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("allGuides")} &rarr;</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{tExplore("toolsResearch")}</h3>
-              <ul className="space-y-2">
-                <li><Link href="/send-money" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("rateCalculator")}</Link></li>
-                <li><Link href="/currency-converter" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("currencyConverter")}</Link></li>
-                <li><Link href="/exchange-rates" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("liveExchangeRates")}</Link></li>
-                <li><Link href="/remittance-cost-index" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("remittanceCostIndex")}</Link></li>
-                <li><Link href="/iban" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("ibanLookup")}</Link></li>
-                <li><Link href="/swift-codes" className="text-sm text-[var(--color-primary)] hover:underline">{tExplore("swiftCodes")}</Link></li>
-              </ul>
-            </div>
-            <div className="mt-8 pt-6 border-t border-[var(--color-outline)] flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-xs text-[var(--color-on-surface-muted)] uppercase tracking-wide font-medium">Providers regulated by</span>
-              <a href="https://www.fca.org.uk" target="_blank" rel="noopener noreferrer" className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
-                FCA (UK)
-              </a>
-              <a href="https://www.cfpb.gov" target="_blank" rel="noopener noreferrer" className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
-                CFPB (US)
-              </a>
-              <a href="https://remittanceprices.worldbank.org" target="_blank" rel="noopener noreferrer" className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
-                World Bank Remittance Prices
-              </a>
-            </div>
-          </div>
-        </Container>
-      </section>
-
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
 
       {/* Mobile back-to-top + section label */}
       <MobileScrollNav
         sections={[
           { id: "best-routes", label: "Best Routes" },
-          { id: "live-rates", label: "Rates" },
           { id: "how-it-works", label: "How It Works" },
           { id: "providers", label: "Providers" },
-          { id: "destinations", label: "Destinations" },
           { id: "faq", label: "FAQ" },
         ]}
       />

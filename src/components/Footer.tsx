@@ -72,7 +72,12 @@ export default function Footer() {
       titleKey: "resources",
       links: [
         { href: "/guides", labelKey: "guidesLink" },
+        { href: "/guides/how-to-send-money-abroad", labelKey: "howToSendGuideLink" },
+        { href: "/guides/cheapest-way-to-send-money-internationally", labelKey: "cheapestWayGuideLink" },
+        { href: "/guides/exchange-rate-markup-explained", labelKey: "exchangeMarkupGuideLink" },
         { href: "/guides/money-transfer-safety-guide", labelKey: "safetyGuideLink" },
+        { href: "/guides/how-euribor-affects-euro-transfers", labelKey: "euriborGuideLink" },
+        { href: "/remittance-cost-index", labelKey: "remittanceCostIndexLink" },
         { href: "/travel", labelKey: "travelLink" },
         { href: "/business", labelKey: "businessLink" },
         { href: "/news", labelKey: "newsLink" },
@@ -80,7 +85,6 @@ export default function Footer() {
         { href: "/swift-codes", labelKey: "swiftLink" },
         { href: "/exchange-rates", labelKey: "exchangeRatesLink" },
         { href: "/exchange-rates/history", labelKey: "rateHistoryLink" },
-        { href: "/guides/how-euribor-affects-euro-transfers", labelKey: "euriborGuideLink" },
       ],
     },
   ];
