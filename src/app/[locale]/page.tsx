@@ -11,7 +11,6 @@ import YouTubeEmbed from "@/components/YouTubeEmbed";
 import LazyNewsTicker from "@/components/LazyNewsTicker";
 import { providers, generateQuotes, getProviderName } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
-import { fetchExchangeRates, getRate } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
@@ -51,10 +50,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const geoConfig = DEFAULT_GEO_CONFIG;
   const sendCurrency = "USD";
 
-  const [rates, tHero, tLive, tTrust, tHow, tBest, tExample, tFaq, tWhy] = await Promise.all([
-    fetchExchangeRates(),
+  const [tHero, tTrust, tHow, tBest, tExample, tFaq, tWhy] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
-    getTranslations({ locale, namespace: "liveRates" }),
     getTranslations({ locale, namespace: "trust" }),
     getTranslations({ locale, namespace: "howItWorks" }),
     getTranslations({ locale, namespace: "bestProviders" }),
@@ -62,16 +59,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     getTranslations({ locale, namespace: "faq" }),
     getTranslations({ locale, namespace: "whyTrust" }),
   ]);
-
-  // Build popular rates from geo config
-  const liveRates = geoConfig.popularCorridors
-    .map((c) => ({
-      code: c.toCurrency,
-      label: `${sendCurrency} → ${c.toCurrency}`,
-      corridor: c.corridorSlug,
-      rate: getRate(rates, sendCurrency, c.toCurrency),
-    }))
-    .filter((r) => r.rate && r.rate > 0);
 
   // Top providers for the user's geo currency — top 3 payout corridors
   const topCorridorProviders = geoConfig.popularCorridors.slice(0, 3).map((c) => {
@@ -200,6 +187,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
 
+      {/* ─── LATEST NEWS ─── moved above the fold for freshness signal */}
+      <LazyNewsTicker
+        items={getLatestNews(6).map((n) => ({
+          slug: n.slug,
+          title: n.title,
+          excerpt: n.excerpt,
+          category: n.category,
+          publishedAt: n.publishedAt,
+        }))}
+      />
+
       {/* ─── BEST ROUTES + LIVE EXAMPLE (merged) ─── */}
       {topCorridorProviders.length > 0 && (
         <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
@@ -272,42 +270,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   {tExample("cta")}
                 </PrimaryButton>
               </div>
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* ─── LIVE RATES BAR ─── */}
-      {liveRates.length > 0 && (
-        <section id="live-rates" className="bg-[var(--color-surface)] border-y border-[var(--color-outline)] py-4">
-          <Container>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
-              <h2 className="text-xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-                {tLive("title")}
-              </h2>
-              <Link href="/exchange-rates" className="text-xs text-[var(--color-primary)] hover:underline ml-auto">
-                {tLive("seeAll")} &rarr;
-              </Link>
-            </div>
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
-              {liveRates.map((r) => (
-                <Link
-                  key={r.code}
-                  href={`/send-money/${r.corridor}`}
-                  className="flex flex-col items-center px-2 sm:px-3 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] transition-colors group"
-                >
-                  <span className="text-[10px] sm:text-xs text-[var(--color-on-surface-variant)] group-hover:text-[var(--color-primary)]">
-                    {r.label}
-                  </span>
-                  <span className="text-sm sm:text-md font-semibold text-[var(--color-on-surface)] tabular-nums mt-px sm:mt-0.5">
-                    {r.rate >= 1000 ? r.rate.toFixed(2) : r.rate >= 100 ? r.rate.toFixed(3) : r.rate.toFixed(4)}
-                  </span>
-                </Link>
-              ))}
             </div>
           </Container>
         </section>
@@ -603,17 +565,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </Container>
       </section>
-
-      {/* ─── NEWS ─── */}
-      <LazyNewsTicker
-        items={getLatestNews(6).map((n) => ({
-          slug: n.slug,
-          title: n.title,
-          excerpt: n.excerpt,
-          category: n.category,
-          publishedAt: n.publishedAt,
-        }))}
-      />
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
 
