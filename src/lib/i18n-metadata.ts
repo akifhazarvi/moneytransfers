@@ -1,51 +1,23 @@
 /**
- * Shared helper for generating locale-aware alternates metadata.
+ * Shared helper for generating canonical metadata.
  *
- * Ensures every page emits correct hreflang link tags:
- * - Self-referencing tag for current locale
- * - Return tags for all other locales
- * - x-default pointing to English version
- * - Canonical URL matching the current locale
+ * The site is English-only — non-English locales (es/fr/pt) were retired on
+ * 2026-04-27 and middleware returns 410 Gone for those prefixes. There is no
+ * alternate language version, so hreflang has been dropped — a single-language
+ * site does not need hreflang tags.
  */
 
 const SITE_URL = "https://sendmoneycompare.com";
-// Non-English locales (es/fr/pt) were retired on 2026-04-27 — middleware
-// returns 410 Gone for those prefixes. With no alternate language version
-// being served, hreflang collapses to English-only.
-const LOCALES = ["en"] as const;
 
 /**
- * Generate alternates object for Next.js Metadata API.
+ * Generate canonical URL for Next.js Metadata API.
  *
- * @param path - Page path without locale prefix (e.g. "guides/some-slug", "companies/wise", or "" for homepage)
- * @param locale - Current page locale
- * @returns Metadata alternates object with canonical + languages (hreflang)
+ * @param path - Page path (e.g. "guides/some-slug", "companies/wise", or "" for homepage)
+ * @param _locale - Kept for call-site compatibility; ignored (site is EN-only)
  */
-export function getAlternates(path: string, locale: string) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function getAlternates(path: string, _locale: string) {
   const cleanPath = path.replace(/^\/+/, "");
-  const canonical =
-    locale === "en"
-      ? cleanPath
-        ? `${SITE_URL}/${cleanPath}`
-        : SITE_URL
-      : cleanPath
-        ? `${SITE_URL}/${locale}/${cleanPath}`
-        : `${SITE_URL}/${locale}`;
-
-  const languages: Record<string, string> = {
-    "x-default": cleanPath ? `${SITE_URL}/${cleanPath}` : SITE_URL,
-  };
-
-  for (const loc of LOCALES) {
-    languages[loc] =
-      loc === "en"
-        ? cleanPath
-          ? `${SITE_URL}/${cleanPath}`
-          : SITE_URL
-        : cleanPath
-          ? `${SITE_URL}/${loc}/${cleanPath}`
-          : `${SITE_URL}/${loc}`;
-  }
-
-  return { canonical, languages };
+  const canonical = cleanPath ? `${SITE_URL}/${cleanPath}` : SITE_URL;
+  return { canonical };
 }

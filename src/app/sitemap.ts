@@ -53,11 +53,7 @@ function getDataUpdatedDate(): string {
 const DATA_UPDATED = getDataUpdatedDate();
 
 // Non-English locales (es/fr/pt) were retired on 2026-04-27 — middleware
-// returns 410 Gone for those prefixes. The helpers below previously fanned
-// every URL out across 3 locales; they now no-op so we ship a 4× smaller
-// sitemap and stop submitting URLs that no longer resolve.
-const LOCALES: readonly string[] = [];
-
+// returns 410 Gone for those prefixes. Site is English-only; no locale fan-out.
 const INDEXED_IBAN_SLUGS = new Set([
   "united-kingdom", "germany", "france", "netherlands", "spain",
   "italy", "denmark", "belgium", "austria", "ireland",
@@ -84,21 +80,6 @@ const INDEXED_SWIFT_SLUGS = new Set([
 function entry(path: string, lastModified: string): MetadataRoute.Sitemap[number] {
   const url = path ? `${SITE_URL}/${path}` : SITE_URL;
   return { url, lastModified };
-}
-
-/** Generate locale variant entries for a given path */
-function withLocales(path: string, lastModified: string): MetadataRoute.Sitemap {
-  return LOCALES.map((locale) =>
-    entry(path ? `${locale}/${path}` : locale, lastModified)
-  );
-}
-
-/**
- * Generate both EN + locale entries for a given path.
- * Consolidates the common pattern of entry() + withLocales() into one call.
- */
-function entryWithLocales(path: string, lastModified: string): MetadataRoute.Sitemap {
-  return [entry(path, lastModified), ...withLocales(path, lastModified)];
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -191,16 +172,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "usd-to-brl", "usd-to-cny",
   ];
 
-  // Exchange rate index/hub pages keep locale variants (translated UI).
-  // Individual pair pages are English-only content — locale variants are noindexed.
   const exchangeRatesPage: MetadataRoute.Sitemap = [
-    ...entryWithLocales("exchange-rates", DATA_UPDATED),
-    ...entryWithLocales("remittance-cost-index", DATA_UPDATED),
+    entry("exchange-rates", DATA_UPDATED),
+    entry("remittance-cost-index", DATA_UPDATED),
     ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, DATA_UPDATED)),
     // History hub + only the 12 GSC-validated history pages (≥10 impressions).
     // The other 167 history pages are noindexed via middleware — submitting them
     // wastes crawl budget and dilutes sitemap quality signals.
-    ...entryWithLocales("exchange-rates/history", DATA_UPDATED),
+    entry("exchange-rates/history", DATA_UPDATED),
     ...getAllInsights(2)
       .filter((i) => INDEXED_HISTORY_SLUGS.has(corridorToSlug(i.corridor)))
       .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, DATA_UPDATED)),
@@ -220,13 +199,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...businessPages.map((p) => entry(`business/${p.slug}`, STATIC_HUB_DATE)),
   ];
 
-  // ── Issue 3 fix: Author pages now include locale variants ──
-  const authorPages: MetadataRoute.Sitemap = authors.flatMap((author) =>
-    entryWithLocales(`about/${author.slug}`, STATIC_HUB_DATE)
+  const authorPages: MetadataRoute.Sitemap = authors.map((author) =>
+    entry(`about/${author.slug}`, STATIC_HUB_DATE)
   );
 
-  // ── Issue 4 fix: Corrections page now includes locale variants ──
-  const correctionsPage: MetadataRoute.Sitemap = entryWithLocales("corrections", STATIC_HUB_DATE);
+  const correctionsPage: MetadataRoute.Sitemap = [entry("corrections", STATIC_HUB_DATE)];
 
   return [
     ...staticPages,
