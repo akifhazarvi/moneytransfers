@@ -69,6 +69,7 @@ const affiliateLinks: Record<string, string> = {
   "boss-money": "https://bossmoney.com/?ref=sendmoneycompare",
   koho: "https://koho.ca/?ref=sendmoneycompare",
   fairfx: "https://fairfx.com/?ref=sendmoneycompare",
+  regencyfx: "https://www.regencyfx.com/partner/sendmoneycompare",
   "pnb-europe": "https://pnbeuropebank.com/?ref=sendmoneycompare",
   starling: "https://starlingbank.com/?ref=sendmoneycompare",
   halifax: "https://halifax.co.uk/?ref=sendmoneycompare",
