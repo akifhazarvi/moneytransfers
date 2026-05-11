@@ -4,68 +4,21 @@ import { useTranslations } from "next-intl";
 import LazyTrustpilot from "@/components/LazyTrustpilot";
 
 type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean };
-type StaticLink = { href: string; label: string; noFollow?: boolean };
-type FooterLink = TranslatedLink | StaticLink;
-
-function isStatic(l: FooterLink): l is StaticLink {
-  return "label" in l;
-}
+type StaticLink = { href: string; label: string };
 
 export default function Footer() {
   const t = useTranslations("footer");
 
-  const translatedSections: { titleKey: string; links: TranslatedLink[] }[] = [
+  // ── 4 lean columns, max 5 links each (Apple/Google pattern) ─────────────
+  const primaryColumns: { titleKey: string; links: TranslatedLink[] }[] = [
     {
       titleKey: "products",
       links: [
-        { href: "/send-money", labelKey: "sendMoney" },
         { href: "/compare-money-transfer", labelKey: "compareMoneyTransfer" },
-        { href: "/compare", labelKey: "compareProviders" },
-        { href: "/currency-converter", labelKey: "currencyConverter" },
+        { href: "/send-money", labelKey: "sendMoney" },
         { href: "/companies", labelKey: "allReviews" },
-      ],
-    },
-    {
-      titleKey: "popularRoutes",
-      links: [
-        { href: "/send-money/usa-to-india", labelKey: "usaToIndia" },
-        { href: "/send-money/uk-to-india", labelKey: "ukToIndia" },
-        { href: "/send-money/uae-to-india", labelKey: "uaeToIndia" },
-        { href: "/send-money/usa-to-philippines", labelKey: "usaToPhilippines" },
-        { href: "/send-money/uk-to-philippines", labelKey: "ukToPhilippines" },
-        { href: "/send-money/usa-to-pakistan", labelKey: "usaToPakistan" },
-        { href: "/send-money/usa-to-mexico", labelKey: "usaToMexico" },
-        { href: "/send-money/usa-to-nigeria", labelKey: "usaToNigeria" },
-        { href: "/send-money/europe-to-india", labelKey: "europeToIndia" },
-        { href: "/send-money/uk-to-europe", labelKey: "ukToEurope" },
-        { href: "/send-money/usa-to-ghana", labelKey: "usaToGhana" },
-        { href: "/send-money/usa-to-colombia", labelKey: "usaToColombia" },
-      ],
-    },
-    {
-      titleKey: "topProviders",
-      links: [
-        { href: "/companies/wise", labelKey: "wiseReview" },
-        { href: "/companies/remitly", labelKey: "remitlyReview" },
-        { href: "/companies/western-union", labelKey: "westernUnionReview" },
-        { href: "/companies/worldremit", labelKey: "worldremitReview" },
-        { href: "/companies/xoom", labelKey: "xoomReview" },
-        { href: "/companies/revolut", labelKey: "revolutReview" },
-        { href: "/companies/ofx", labelKey: "ofxReview" },
-        { href: "/companies/xe", labelKey: "xeReview" },
-      ],
-    },
-    {
-      titleKey: "company",
-      links: [
-        { href: "/about", labelKey: "aboutLink" },
-        { href: "/contact", labelKey: "contactLink" },
-        { href: "/editorial-policy", labelKey: "editorialLink" },
-        { href: "/methodology", labelKey: "methodologyLink" },
-        { href: "/privacy-policy", labelKey: "privacyLink", noFollow: true },
-        { href: "/terms", labelKey: "termsLink", noFollow: true },
-        { href: "/cookies", labelKey: "cookiesLink", noFollow: true },
-        { href: "/disclaimer", labelKey: "disclaimerLink", noFollow: true },
+        { href: "/currency-converter", labelKey: "currencyConverter" },
+        { href: "/exchange-rates", labelKey: "exchangeRatesLink" },
       ],
     },
     {
@@ -74,79 +27,118 @@ export default function Footer() {
         { href: "/guides", labelKey: "guidesLink" },
         { href: "/guides/how-to-send-money-abroad", labelKey: "howToSendGuideLink" },
         { href: "/guides/cheapest-way-to-send-money-internationally", labelKey: "cheapestWayGuideLink" },
-        { href: "/guides/exchange-rate-markup-explained", labelKey: "exchangeMarkupGuideLink" },
         { href: "/guides/money-transfer-safety-guide", labelKey: "safetyGuideLink" },
-        { href: "/guides/how-euribor-affects-euro-transfers", labelKey: "euriborGuideLink" },
         { href: "/remittance-cost-index", labelKey: "remittanceCostIndexLink" },
-        { href: "/travel", labelKey: "travelLink" },
-        { href: "/business", labelKey: "businessLink" },
-        { href: "/news", labelKey: "newsLink" },
+      ],
+    },
+    {
+      titleKey: "tools",
+      links: [
         { href: "/iban", labelKey: "ibanLink" },
         { href: "/swift-codes", labelKey: "swiftLink" },
-        { href: "/exchange-rates", labelKey: "exchangeRatesLink" },
         { href: "/exchange-rates/history", labelKey: "rateHistoryLink" },
+        { href: "/travel", labelKey: "travelLink" },
+        { href: "/business", labelKey: "businessLink" },
+      ],
+    },
+    {
+      titleKey: "company",
+      links: [
+        { href: "/about", labelKey: "aboutLink" },
+        { href: "/methodology", labelKey: "methodologyLink" },
+        { href: "/editorial-policy", labelKey: "editorialLink" },
+        { href: "/how-we-review", labelKey: "howWeReview" },
+        { href: "/contact", labelKey: "contactLink" },
       ],
     },
   ];
 
-  // Popular comparisons — static, driven by GSC demand
-  const comparisonsSection: { title: string; links: StaticLink[] } = {
-    title: "Popular Comparisons",
-    links: [
-      { href: "/compare/wise-vs-remitly", label: "Wise vs Remitly" },
-      { href: "/compare/wise-vs-western-union", label: "Wise vs Western Union" },
-      { href: "/compare/wise-vs-paypal", label: "Wise vs PayPal" },
-      { href: "/compare/wise-vs-xe", label: "Wise vs Xe" },
-      { href: "/compare/remitly-vs-western-union", label: "Remitly vs Western Union" },
-      { href: "/compare/remitly-vs-xe", label: "Remitly vs Xe" },
-    ],
-  };
+  // ── Disclosure: full destinations list ──────────────────────────────────
+  const sendMoneyToLinks: StaticLink[] = [
+    { href: "/send-money/send-money-to-india", label: "India" },
+    { href: "/send-money/send-money-to-pakistan", label: "Pakistan" },
+    { href: "/send-money/send-money-to-philippines", label: "Philippines" },
+    { href: "/send-money/send-money-to-mexico", label: "Mexico" },
+    { href: "/send-money/send-money-to-nigeria", label: "Nigeria" },
+    { href: "/send-money/send-money-to-bangladesh", label: "Bangladesh" },
+    { href: "/send-money/send-money-to-kenya", label: "Kenya" },
+    { href: "/send-money/send-money-to-brazil", label: "Brazil" },
+    { href: "/send-money/send-money-to-ghana", label: "Ghana" },
+    { href: "/send-money/send-money-to-nepal", label: "Nepal" },
+    { href: "/send-money/send-money-to-uk", label: "United Kingdom" },
+    { href: "/send-money/send-money-to-australia", label: "Australia" },
+    { href: "/send-money/send-money-to-canada", label: "Canada" },
+    { href: "/send-money/send-money-to-uae", label: "UAE" },
+    { href: "/send-money/send-money-to-germany", label: "Germany" },
+    { href: "/send-money/send-money-to-france", label: "France" },
+    { href: "/send-money/send-money-to-colombia", label: "Colombia" },
+    { href: "/send-money/send-money-to-egypt", label: "Egypt" },
+    { href: "/send-money/send-money-to-vietnam", label: "Vietnam" },
+    { href: "/send-money/send-money-to-indonesia", label: "Indonesia" },
+    { href: "/send-money/send-money-to-sri-lanka", label: "Sri Lanka" },
+    { href: "/send-money/send-money-to-morocco", label: "Morocco" },
+    { href: "/send-money/send-money-to-thailand", label: "Thailand" },
+    { href: "/send-money/send-money-to-romania", label: "Romania" },
+    { href: "/send-money/send-money-to-turkey", label: "Turkey" },
+    { href: "/send-money/send-money-to-jamaica", label: "Jamaica" },
+    { href: "/send-money/send-money-to-japan", label: "Japan" },
+    { href: "/send-money/send-money-to-south-africa", label: "South Africa" },
+    { href: "/send-money/send-money-to-peru", label: "Peru" },
+    { href: "/send-money/send-money-to-fiji", label: "Fiji" },
+  ];
 
-  // Static "Send Money To" section — no translation keys needed
-  const sendMoneyToSection: { title: string; links: StaticLink[] } = {
-    title: "Send Money To",
-    links: [
-      { href: "/send-money/send-money-to-india", label: "Send Money to India" },
-      { href: "/send-money/send-money-to-pakistan", label: "Send Money to Pakistan" },
-      { href: "/send-money/send-money-to-philippines", label: "Send Money to Philippines" },
-      { href: "/send-money/send-money-to-mexico", label: "Send Money to Mexico" },
-      { href: "/send-money/send-money-to-nigeria", label: "Send Money to Nigeria" },
-      { href: "/send-money/send-money-to-bangladesh", label: "Send Money to Bangladesh" },
-      { href: "/send-money/send-money-to-kenya", label: "Send Money to Kenya" },
-      { href: "/send-money/send-money-to-brazil", label: "Send Money to Brazil" },
-      { href: "/send-money/send-money-to-ghana", label: "Send Money to Ghana" },
-      { href: "/send-money/send-money-to-nepal", label: "Send Money to Nepal" },
-      { href: "/send-money/send-money-to-uk", label: "Send Money to UK" },
-      { href: "/send-money/send-money-to-australia", label: "Send Money to Australia" },
-      { href: "/send-money/send-money-to-canada", label: "Send Money to Canada" },
-      { href: "/send-money/send-money-to-uae", label: "Send Money to UAE" },
-      { href: "/send-money/send-money-to-germany", label: "Send Money to Germany" },
-      { href: "/send-money/send-money-to-france", label: "Send Money to France" },
-      { href: "/send-money/send-money-to-colombia", label: "Send Money to Colombia" },
-      { href: "/send-money/send-money-to-egypt", label: "Send Money to Egypt" },
-      { href: "/send-money/send-money-to-vietnam", label: "Send Money to Vietnam" },
-      { href: "/send-money/send-money-to-indonesia", label: "Send Money to Indonesia" },
-      { href: "/send-money/send-money-to-sri-lanka", label: "Send Money to Sri Lanka" },
-      { href: "/send-money/send-money-to-morocco", label: "Send Money to Morocco" },
-      { href: "/send-money/send-money-to-thailand", label: "Send Money to Thailand" },
-      { href: "/send-money/send-money-to-romania", label: "Send Money to Romania" },
-      { href: "/send-money/send-money-to-turkey", label: "Send Money to Turkey" },
-      { href: "/send-money/send-money-to-jamaica", label: "Send Money to Jamaica" },
-      { href: "/send-money/send-money-to-japan", label: "Send Money to Japan" },
-      { href: "/send-money/send-money-to-south-africa", label: "Send Money to South Africa" },
-      { href: "/send-money/send-money-to-peru", label: "Send Money to Peru" },
-      { href: "/send-money/send-money-to-fiji", label: "Send Money to Fiji" },
-    ],
-  };
+  // ── Disclosure: popular corridor routes ─────────────────────────────────
+  const popularRoutes: StaticLink[] = [
+    { href: "/send-money/usa-to-india", label: "USA → India" },
+    { href: "/send-money/uk-to-india", label: "UK → India" },
+    { href: "/send-money/uae-to-india", label: "UAE → India" },
+    { href: "/send-money/usa-to-philippines", label: "USA → Philippines" },
+    { href: "/send-money/uk-to-philippines", label: "UK → Philippines" },
+    { href: "/send-money/usa-to-pakistan", label: "USA → Pakistan" },
+    { href: "/send-money/usa-to-mexico", label: "USA → Mexico" },
+    { href: "/send-money/usa-to-nigeria", label: "USA → Nigeria" },
+    { href: "/send-money/europe-to-india", label: "Europe → India" },
+    { href: "/send-money/uk-to-europe", label: "UK → Europe" },
+    { href: "/send-money/usa-to-ghana", label: "USA → Ghana" },
+    { href: "/send-money/usa-to-colombia", label: "USA → Colombia" },
+  ];
+
+  // ── Disclosure: provider reviews + comparisons ──────────────────────────
+  const providerReviews: StaticLink[] = [
+    { href: "/companies/wise", label: "Wise Review" },
+    { href: "/companies/remitly", label: "Remitly Review" },
+    { href: "/companies/western-union", label: "Western Union Review" },
+    { href: "/companies/worldremit", label: "WorldRemit Review" },
+    { href: "/companies/xoom", label: "Xoom Review" },
+    { href: "/companies/revolut", label: "Revolut Review" },
+    { href: "/companies/ofx", label: "OFX Review" },
+    { href: "/companies/xe", label: "Xe Review" },
+  ];
+
+  const popularComparisons: StaticLink[] = [
+    { href: "/compare/wise-vs-remitly", label: "Wise vs Remitly" },
+    { href: "/compare/wise-vs-western-union", label: "Wise vs Western Union" },
+    { href: "/compare/wise-vs-paypal", label: "Wise vs PayPal" },
+    { href: "/compare/wise-vs-xe", label: "Wise vs Xe" },
+    { href: "/compare/remitly-vs-western-union", label: "Remitly vs Western Union" },
+    { href: "/compare/remitly-vs-xe", label: "Remitly vs Xe" },
+  ];
+
+  const legalLinks: TranslatedLink[] = [
+    { href: "/privacy-policy", labelKey: "privacyLink", noFollow: true },
+    { href: "/terms", labelKey: "termsLink", noFollow: true },
+    { href: "/cookies", labelKey: "cookiesLink", noFollow: true },
+    { href: "/disclaimer", labelKey: "disclaimerLink", noFollow: true },
+  ];
 
   return (
     <footer className="bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-      <Container className="py-12">
-        {/* Main link grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-8">
-          {translatedSections.map((section) => (
+      <Container className="py-12 sm:py-16">
+        {/* ── Layer 1 — 4 lean columns ─────────────────────────────────── */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 mb-10 sm:mb-12">
+          {primaryColumns.map((section) => (
             <div key={section.titleKey}>
-              <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
+              <p className="text-xs font-semibold text-[var(--color-on-surface)] uppercase tracking-wider mb-4">
                 {t(section.titleKey)}
               </p>
               <ul className="space-y-3">
@@ -166,91 +158,133 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Send Money To destinations row */}
-        <div className="border-t border-[var(--color-outline)] pt-8 mb-8">
-          <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
-            {sendMoneyToSection.title}
-          </p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {sendMoneyToSection.links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* ── Layer 2 — collapsed disclosures (links stay in DOM for SEO) ── */}
+        <div className="border-t border-[var(--color-outline)] pt-6 mb-10 sm:mb-12 space-y-2">
+          <FooterDisclosure label={`Send money to popular countries (${sendMoneyToLinks.length})`}>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
+              {sendMoneyToLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterDisclosure>
+
+          <FooterDisclosure label={`Popular send-money routes (${popularRoutes.length})`}>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
+              {popularRoutes.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterDisclosure>
+
+          <FooterDisclosure label={`Provider reviews & comparisons (${providerReviews.length + popularComparisons.length})`}>
+            <div className="pt-3 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+              <div>
+                <p className="text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">Reviews</p>
+                <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                  {providerReviews.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">Head-to-head</p>
+                <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                  {popularComparisons.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </FooterDisclosure>
         </div>
 
-        {/* Popular Comparisons row */}
-        <div className="border-t border-[var(--color-outline)] pt-8 mb-8">
-          <p className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-4">
-            {comparisonsSection.title}
-          </p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {comparisonsSection.links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* ── Layer 3 — brand + legal + trust ──────────────────────────── */}
+        <div className="border-t border-[var(--color-outline)] pt-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            {/* Brand — matches Header */}
+            <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-2.5 shrink-0">
+              <svg width="26" height="26" viewBox="0 0 30 30" aria-hidden="true" focusable="false">
+                <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-primary)" />
+                <path d="M14.5 19.5L26.5 4.5" stroke="var(--color-surface)" strokeWidth="0.8" opacity="0.8" />
+                <path d="M14.5 19.5L21 27L18 20.5Z" fill="var(--color-primary)" opacity="0.45" />
+              </svg>
+              <span className="text-[17px] tracking-[-0.4px] text-[var(--color-on-surface)]">
+                <span className="font-extrabold">Send</span>
+                <span className="font-normal text-[var(--color-on-surface-variant)]">money</span>
+              </span>
+            </Link>
 
-        <div className="border-t border-[var(--color-outline)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Trustpilot — loads script via IntersectionObserver when footer nears viewport */}
-          <LazyTrustpilot />
-          <div className="flex items-center gap-3 min-h-[52px]">
-            <div
-              className="trustpilot-widget"
-              data-locale="en-US"
-              data-template-id="56278e9abfbbba0bdcd568bc"
-              data-businessunit-id="69bc5a943f1059db5792229b"
-              data-style-height="52px"
-              data-style-width="250px"
-              data-token="a6ccf0e6-609c-4efc-8441-5694ad5c3a05"
-            >
-              <a
-                href="https://www.trustpilot.com/review/sendmoneycompare.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00B67A"/>
-                </svg>
-                Review us on Trustpilot
-              </a>
+            {/* Legal — inline, separated by dots (Apple style) */}
+            <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-[var(--color-on-surface-variant)]">
+              {legalLinks.map((link, i) => (
+                <span key={link.labelKey} className="flex items-center gap-1.5">
+                  <Link
+                    href={link.href}
+                    rel="nofollow"
+                    className="hover:text-[var(--color-primary)] transition-colors"
+                  >
+                    {t(link.labelKey)}
+                  </Link>
+                  {i < legalLinks.length - 1 && <span aria-hidden="true">·</span>}
+                </span>
+              ))}
+            </nav>
+
+            {/* Trust + copyright */}
+            <div className="flex items-center gap-4">
+              <LazyTrustpilot />
+              <span className="text-xs text-[var(--color-on-surface-variant)] whitespace-nowrap">
+                {t("copyright", { year: new Date().getFullYear() })}
+              </span>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="16" fill="#1a73e8" />
-              <text x="16" y="21" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="system-ui, sans-serif">$</text>
-              <path d="M6 12h5" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M8 12l2-2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M8 12l2 2" stroke="#81D4FA" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M26 20h-5" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M24 20l-2-2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
-              <path d="M24 20l-2 2" stroke="#A5D6A7" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-            <span className="text-sm font-medium text-[var(--color-on-surface-variant)]">SendMoneyCompare</span>
-          </div>
-          <p className="text-xs text-[var(--color-on-surface-variant)] text-center max-w-xl" data-nosnippet="">
+
+          {/* Disclaimer — single muted line, full width */}
+          <p
+            className="text-2xs text-[var(--color-on-surface-variant)] leading-relaxed mt-6 max-w-3xl"
+            data-nosnippet=""
+          >
             {t("footerDisclaimer")}
-          </p>
-          <p className="text-xs text-[var(--color-on-surface-variant)]">
-            {t("copyright", { year: new Date().getFullYear() })}
           </p>
         </div>
       </Container>
     </footer>
+  );
+}
+
+// Disclosure helper — pure HTML <details>, no JS
+function FooterDisclosure({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <details className="group">
+      <summary className="flex items-center justify-between cursor-pointer list-none py-2.5 text-2sm font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[44px]">
+        <span>{label}</span>
+        <svg
+          className="w-4 h-4 shrink-0 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div className="pb-3">{children}</div>
+    </details>
   );
 }
