@@ -24,6 +24,11 @@ export const metadata: Metadata = {
       "Compare 35+ Money Transfer Services — Find the Cheapest Rate (2026)",
     template: "%s | SendMoneyCompare",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   icons: {
     // Bing prefers the legacy 'shortcut icon' rel and is slower than Google
     // to refresh favicons for newer domains. Declaring 'shortcut icon' first

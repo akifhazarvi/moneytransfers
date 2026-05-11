@@ -63,14 +63,14 @@ const nextConfig: NextConfig = {
       // and zero EU traffic in GA4 despite Vercel logs showing EU requests.
       //
       // private = browser may cache, but no shared/CDN caching.
-      // Vercel still serves these as dynamic functions; Next.js' built-in
-      // ISR/static rendering handles content freshness at the framework level.
-      // Data still refreshes every 6hrs via scrapers — no perf regression
-      // because user-side caching still works for repeat views.
+      // max-age=0, stale-while-revalidate=300 lets the browser/Googlebot
+      // serve the response while revalidating in the background — softer
+      // than no-cache, must-revalidate which signals "do not trust this
+      // response" to crawlers and contributed to the May 2026 deindex.
       {
         source: "/((?!_next/|api/|go/|out/|logos/).*)",
         headers: [
-          { key: "Cache-Control", value: "private, no-cache, must-revalidate" },
+          { key: "Cache-Control", value: "private, max-age=0, stale-while-revalidate=300" },
         ],
       },
     ];
