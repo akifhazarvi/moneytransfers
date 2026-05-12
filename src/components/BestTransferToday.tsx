@@ -100,14 +100,16 @@ export default async function BestTransferToday({
                 </div>
               </div>
 
-              {/* Rate — hidden on mobile to preserve horizontal space */}
-              <p className="hidden sm:block text-2sm sm:text-sm text-[var(--color-on-surface)] text-right tabular-nums">
-                {q.exchangeRate.toFixed(2)}
+              {/* Rate — hidden on mobile. Indicative quotes flag the rate as
+                  estimated (we have mid-market, not the broker's actual spread). */}
+              <p className={`hidden sm:block text-2sm sm:text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)]" : "text-[var(--color-on-surface)]"}`}>
+                {q.exchangeRate.toFixed(2)}{q.isIndicative ? <span className="ml-1 text-2xs italic text-[var(--color-on-surface-variant)]">est.</span> : null}
               </p>
 
-              {/* Fee — "Estimated" for indicative quotes, "Free" for zero-fee real quotes */}
-              <p className={`text-2sm sm:text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)] italic" : q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
-                {q.isIndicative ? "Estimated" : q.fee === 0 ? t("free") : `$${q.fee.toFixed(2)}`}
+              {/* Fee — for account-managed FX brokers the fee is genuinely £0
+                  (all cost is in the rate spread), so show "Free" honestly. */}
+              <p className={`text-2sm sm:text-sm text-right tabular-nums ${q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
+                {q.fee === 0 ? t("free") : `$${q.fee.toFixed(2)}`}
               </p>
 
               {/* Recipient gets */}

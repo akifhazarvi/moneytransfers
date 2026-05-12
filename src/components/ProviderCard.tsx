@@ -44,11 +44,10 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
     sourceAmount: quote.sendAmount,
   });
 
-  // Indicative quotes (account-managed FX brokers without a public rate feed)
-  // show "Estimated" instead of a fee — we don't know their actual spread.
-  const feeLabel = quote.isIndicative
-    ? "Estimated"
-    : quote.fee === 0 ? t("free") : `${sendCurrencySymbol}${quote.fee.toFixed(2)}`;
+  // Account-managed FX brokers charge zero fee — all cost is in the rate
+  // spread — so the fee label is genuinely "Free" even on indicative quotes.
+  // The "estimated" caveat attaches to the rate column instead.
+  const feeLabel = quote.fee === 0 ? t("free") : `${sendCurrencySymbol}${quote.fee.toFixed(2)}`;
   const isFast = quote.transferSpeed.toLowerCase().includes("minute") || quote.transferSpeed.toLowerCase().includes("instant");
   const isBest = rank === 1;
   const promo = promos.find((p) => p.providerSlug === quote.providerSlug);
@@ -142,9 +141,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
           {/* Amount — right aligned with label */}
           <div className="shrink-0 text-right">
             <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-[17px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
-              {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
-            <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{t("recipientGets")}</p>
+            <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
             <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 ml-auto mt-1 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -248,9 +247,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
 
           <div className="text-right shrink-0 mr-1">
             <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-h4 sm:text-2xl text-[var(--color-success-dark)]" : "text-lg sm:text-xl text-[var(--color-on-surface)]"}`}>
-              {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
-            <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">{t("recipientGets")}</p>
+            <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
           </div>
 
           <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover/row:bg-[var(--color-surface-container)] transition-colors">
@@ -287,9 +286,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 <p className="text-md font-medium text-[var(--color-on-surface)] mt-1">{quote.transferSpeed}</p>
               </div>
               <div className="px-4 py-3">
-                <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("recipientGets")}</p>
+                <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{quote.isIndicative ? "Estimated receive" : t("recipientGets")}</p>
                 <p className={`text-md font-semibold mt-1 tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                  {receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
               </div>
             </div>
