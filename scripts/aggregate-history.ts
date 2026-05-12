@@ -283,10 +283,11 @@ function saveMidMarketSnapshot(): void {
 
   history.push({ date: today, rates: filteredRates });
 
-  // Keep last 90 days max
-  if (history.length > 90) {
-    history = history.slice(history.length - 90);
-  }
+  // No truncation — we have a 5-year CurrencyAPI backfill (2021-01-01 onwards)
+  // plus daily XE snapshots going forward. The file grows ~360 rows per year
+  // (~360 KB at this currency set) which is fine for the lifetime of the site.
+  // build-rate-insights.ts applies its own HISTORY_WINDOW_DAYS slice when
+  // generating the user-facing published file.
 
   fs.writeFileSync(MIDMARKET_HISTORY_PATH, JSON.stringify(history));
   console.log(`Saved mid-market snapshot for ${today} (${Object.keys(filteredRates).length} currencies, ${history.length} days total)`);
