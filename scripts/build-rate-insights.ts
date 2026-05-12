@@ -21,7 +21,12 @@ const MIDMARKET_OUTPUT_PATH = path.join("src/data/scraped/midmarket-history.json
 // All user-facing history is capped to the most recent N days so that
 // avg / best / worst / sparklines / badges / schema copy all agree on the
 // same window. Raw snapshots in CORRIDORS_DIR keep their full history.
-const HISTORY_WINDOW_DAYS = 30;
+//
+// 365 days gives 12-month context on corridor pages while keeping the
+// published midmarket-history.json under ~250KB. The raw daily source
+// in history/midmarket-daily.json holds the deeper 5-year backfill for
+// features that need it (rate alerts, analytics, weekly digest).
+const HISTORY_WINDOW_DAYS = 365;
 
 interface ProviderDayData {
   rate: number;

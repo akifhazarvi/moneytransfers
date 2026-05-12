@@ -95,6 +95,11 @@ export default async function BestTransferToday({
                         {t("best")}
                       </span>
                     )}
+                    {isHighlight && !isBest && (
+                      <span className="ml-1.5 text-2xs text-white bg-[var(--color-primary)] px-1.5 py-0.5 rounded font-semibold align-middle tracking-wide uppercase">
+                        Featured
+                      </span>
+                    )}
                   </p>
                   <p className="text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</p>
                 </div>

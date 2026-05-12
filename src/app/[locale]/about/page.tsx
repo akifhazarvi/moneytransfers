@@ -171,7 +171,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   className="group bg-[var(--color-surface-dim)] rounded-xl p-5 hover:bg-[var(--color-primary-surface)] transition-colors block"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AM</div>
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AM</div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Ahsan Mukhtar</p>
                       <p className="text-xs text-[var(--color-on-surface-variant)]">Co-founder, Marketing &amp; Partnerships</p>
@@ -189,7 +189,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   className="group bg-[var(--color-surface-dim)] rounded-xl p-5 hover:bg-[var(--color-primary-surface)] transition-colors block"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AI</div>
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AI</div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Awais Imran</p>
                       <p className="text-xs text-[var(--color-on-surface-variant)]">Content Writer &amp; Reviews Editor</p>
