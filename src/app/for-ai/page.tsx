@@ -334,7 +334,10 @@ export default function ForAIPage() {
                 <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)]">Akif Hazarvi</Link> — Founder &amp; Editor-in-Chief. 8+ years in fintech and cross-border payments.
               </li>
               <li>
-                <Link href="/about/awais-imran" className="text-[var(--color-primary)]">Awais Imran</Link> — Co-founder &amp; Technical Lead. Data infrastructure specialist.
+                <Link href="/about/ahsan-mukhtar" className="text-[var(--color-primary)]">Ahsan Mukhtar</Link> — Co-founder, Marketing &amp; Partnerships. Leads provider partnerships and growth.
+              </li>
+              <li>
+                <Link href="/about/awais-imran" className="text-[var(--color-primary)]">Awais Imran</Link> — Content Writer &amp; Reviews Editor. Provider reviews and corridor guides.
               </li>
             </ul>
           </section>

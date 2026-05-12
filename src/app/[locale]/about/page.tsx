@@ -136,7 +136,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               </div>
             </div>
 
-            <div>
+            <div id="team" className="scroll-mt-24">
               <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
                 Our team
               </h2>
@@ -147,12 +147,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   is written by people who have personally used the providers we review.
                 </p>
               </div>
-              <div className="grid sm:grid-cols-2 gap-4 mt-4">
-                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                <Link
+                  href="/about/akif-hazarvi"
+                  className="group bg-[var(--color-surface-dim)] rounded-xl p-5 hover:bg-[var(--color-primary-surface)] transition-colors block"
+                >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-lg">AH</div>
                     <div>
-                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Akif Hazarvi</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Akif Hazarvi</p>
                       <p className="text-xs text-[var(--color-on-surface-variant)]">Founder &amp; Editor</p>
                     </div>
                   </div>
@@ -162,22 +165,43 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     monthly volume. Oversees data methodology, provider reviews, and
                     editorial standards.
                   </p>
-                </div>
-                <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
+                </Link>
+                <Link
+                  href="/about/ahsan-mukhtar"
+                  className="group bg-[var(--color-surface-dim)] rounded-xl p-5 hover:bg-[var(--color-primary-surface)] transition-colors block"
+                >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AI</div>
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AM</div>
                     <div>
-                      <p className="text-sm font-medium text-[var(--color-on-surface)]">Awais Imran</p>
-                      <p className="text-xs text-[var(--color-on-surface-variant)]">Co-founder &amp; Technical Lead</p>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Ahsan Mukhtar</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Co-founder, Marketing &amp; Partnerships</p>
                     </div>
                   </div>
                   <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    Software engineer specialising in data pipelines and automation.
-                    Designed and maintains the scraping infrastructure that collects live
-                    quotes from 60+ providers every 6 hours. Ensures data accuracy and
-                    system reliability.
+                    Leads marketing, partnerships, and growth at SendMoneyCompare. Works
+                    directly with money transfer providers, banks, and affiliate networks
+                    to onboard new providers and maintain fair, transparent comparison
+                    coverage.
                   </p>
-                </div>
+                </Link>
+                <Link
+                  href="/about/awais-imran"
+                  className="group bg-[var(--color-surface-dim)] rounded-xl p-5 hover:bg-[var(--color-primary-surface)] transition-colors block"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-primary-surface)] flex items-center justify-center text-base font-medium text-[var(--color-primary)]">AI</div>
+                    <div>
+                      <p className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">Awais Imran</p>
+                      <p className="text-xs text-[var(--color-on-surface-variant)]">Content Writer &amp; Reviews Editor</p>
+                    </div>
+                  </div>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                    Writes and maintains the in-depth provider reviews, comparison
+                    articles, and corridor guides on SendMoneyCompare. Runs real test
+                    quotes and updates editorial content as providers change pricing and
+                    coverage.
+                  </p>
+                </Link>
               </div>
             </div>
 

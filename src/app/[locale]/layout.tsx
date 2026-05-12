@@ -86,7 +86,10 @@ const organizationSchema = {
   foundingDate: "2024",
   founders: [
     { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder & Editor-in-Chief", url: `${SITE_URL}/about/akif-hazarvi` },
-    { "@type": "Person", name: "Awais Imran", jobTitle: "Co-founder & Technical Lead", url: `${SITE_URL}/about/awais-imran` },
+    { "@type": "Person", name: "Ahsan Mukhtar", jobTitle: "Co-founder, Marketing & Partnerships", url: `${SITE_URL}/about/ahsan-mukhtar`, sameAs: "https://www.linkedin.com/in/ahsan-mukhtar/" },
+  ],
+  employee: [
+    { "@type": "Person", name: "Awais Imran", jobTitle: "Content Writer & Reviews Editor", url: `${SITE_URL}/about/awais-imran` },
   ],
   contactPoint: [
     {

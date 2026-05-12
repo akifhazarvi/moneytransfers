@@ -51,32 +51,58 @@ Before founding SendMoneyCompare, Akif held product and analytics roles at finte
     byline: "Akif Hazarvi is the editor-in-chief of SendMoneyCompare with 8+ years in fintech and cross-border payments.",
   },
   {
-    slug: "awais-imran",
-    name: "Awais Imran",
-    role: "Co-founder & Technical Lead",
-    initials: "AI",
-    bio: `Awais Imran is the co-founder and technical lead of SendMoneyCompare, responsible for the data infrastructure that powers the platform's real-time provider comparisons. He designed and maintains the scraping system that collects live transfer quotes from 35+ providers every 6 hours.
+    slug: "ahsan-mukhtar",
+    name: "Ahsan Mukhtar",
+    role: "Co-founder, Marketing & Partnerships",
+    initials: "AM",
+    bio: `Ahsan Mukhtar is a co-founder of SendMoneyCompare and leads marketing and partnerships across the platform. He oversees the commercial side of the business: provider partnerships, affiliate relationships, distribution, and growth strategy.
 
-Awais specialises in data engineering, automation, and building reliable data pipelines for financial services. The SendMoneyCompare data pipeline uses a combination of direct API integrations, browser automation (Playwright), and HTML scraping (Cheerio) to collect exchange rates, fees, and delivery speeds from providers including Wise, Remitly, OFX, XE, Western Union, Revolut, and many others.
+Ahsan works directly with money transfer providers, banks, and fintech companies to ensure SendMoneyCompare maintains accurate provider information, fair affiliate terms, and a level playing field for new entrants and established brands alike. His remit covers brand strategy, performance marketing, and the partnerships pipeline that brings new providers onto the comparison platform.
 
-The technical infrastructure ensures data accuracy through multiple validation layers: cross-referencing multiple data sources, detecting and flagging anomalous rates, and maintaining a priority system that favours direct API data over indirect sources. When discrepancies arise between data sources, the system defaults to the most reliable source based on a tiered priority model.
-
-Awais also maintains the platform's automated testing, deployment pipelines, and monitoring systems. He holds a degree in Software Engineering and is based in London, United Kingdom.`,
+He also leads outreach with publishers, diaspora communities, and financial educators, with the aim of helping more people discover transparent comparison data when sending money abroad. Ahsan holds a background in marketing and business development across financial services and consumer technology.`,
     expertise: [
-      "Data engineering and pipeline architecture",
-      "Web scraping and browser automation",
-      "Financial data collection and validation",
-      "API integration and system reliability",
-      "Software engineering and DevOps",
+      "Marketing strategy and brand positioning",
+      "Provider and affiliate partnerships",
+      "Business development in fintech",
+      "Growth and performance marketing",
+      "Distribution and publisher relationships",
     ],
     credentials: [
-      "Designed data pipeline collecting quotes from 35+ providers",
-      "Built automated scraping infrastructure processing 10,000+ quotes daily",
-      "Software engineering background with focus on financial data systems",
+      "Leads partnerships with money transfer providers and affiliate networks",
+      "Background in marketing and BD across financial services",
+      "Drives growth strategy and provider acquisition for SendMoneyCompare",
+    ],
+    linkedin: "https://www.linkedin.com/in/ahsan-mukhtar/",
+    articlesWritten: 0,
+    byline: "Ahsan Mukhtar is co-founder of SendMoneyCompare and leads marketing and partnerships with money transfer providers.",
+  },
+  {
+    slug: "awais-imran",
+    name: "Awais Imran",
+    role: "Content Writer & Reviews Editor",
+    initials: "AI",
+    bio: `Awais Imran is the content writer and reviews editor at SendMoneyCompare, responsible for the editorial side of the platform: provider reviews, comparison articles, corridor guides, and the blog.
+
+Awais writes and maintains the in-depth reviews of the 60+ providers featured on the site, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
+
+His editorial process involves running real test quotes against provider calculators, cross-referencing the platform's live scraped data, and updating reviews when providers change pricing, expand coverage, or launch new features. He coordinates closely with the editor-in-chief on editorial standards and with the technical team on fact-checking provider data.
+
+Awais holds a degree in English and Communications and is based in London, United Kingdom.`,
+    expertise: [
+      "Provider reviews and editorial research",
+      "Money transfer corridor guides",
+      "Comparison and explainer content",
+      "Editorial fact-checking and updates",
+      "Blog and SEO content production",
+    ],
+    credentials: [
+      "Writes and maintains reviews for 60+ money transfer providers",
+      "Produces corridor guides and explainers across SendMoneyCompare",
+      "Editorial background with focus on financial services content",
     ],
     linkedin: "https://www.linkedin.com/in/awaisimran",
     articlesWritten: 0,
-    byline: "Awais Imran is the co-founder and technical lead of SendMoneyCompare, responsible for data infrastructure and provider integrations.",
+    byline: "Awais Imran is the content writer and reviews editor at SendMoneyCompare, covering provider reviews and corridor guides.",
   },
 ];
 
