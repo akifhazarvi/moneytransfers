@@ -311,7 +311,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                     <div className="flex items-start gap-3">
                       <span className="text-sm font-bold tabular-nums text-[var(--color-on-surface-variant)] w-5 text-center mt-1.5 shrink-0">{i + 1}</span>
                       <div className="w-12 h-12 rounded-xl overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40 shrink-0 flex items-center justify-center">
-                        <Image src={p.logo} alt={`${p.name} logo`} width={48} height={48} className="w-full h-full object-cover" unoptimized={p.logo.endsWith(".svg")} />
+                        <Image src={p.logo} alt={`${p.name} logo`} width={48} height={48} className="w-full h-full object-contain p-1" unoptimized={p.logo.endsWith(".svg")} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <Link href={`/companies/${p.slug}`} className="text-base font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">
@@ -348,7 +348,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                     <span className="text-sm font-bold tabular-nums text-[var(--color-on-surface-variant)]">{i + 1}</span>
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-11 h-11 rounded-xl overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40 shrink-0">
-                        <Image src={p.logo} alt={`${p.name} logo`} width={44} height={44} className="w-full h-full object-cover" unoptimized={p.logo.endsWith(".svg")} />
+                        <Image src={p.logo} alt={`${p.name} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={p.logo.endsWith(".svg")} />
                       </div>
                       <div className="min-w-0">
                         <Link href={`/companies/${p.slug}`} className="text-sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] block truncate">
@@ -413,7 +413,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                 <Card key={item.category} className="h-full">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 rounded-xl overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40 shrink-0">
-                      <Image src={provider.logo} alt={provider.name} width={48} height={48} className="w-full h-full object-cover" unoptimized={provider.logo.endsWith(".svg")} />
+                      <Image src={provider.logo} alt={provider.name} width={48} height={48} className="w-full h-full object-contain p-1" unoptimized={provider.logo.endsWith(".svg")} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-2xs font-semibold uppercase tracking-wide text-[var(--color-primary)] mb-0.5">

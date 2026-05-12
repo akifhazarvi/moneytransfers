@@ -1950,7 +1950,7 @@ export default async function CorridorPage({ params }: Props) {
                           {i + 1}
                         </span>
                         <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40">
-                          <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-cover" />
+                          <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">
@@ -2004,7 +2004,7 @@ export default async function CorridorPage({ params }: Props) {
                       </span>
                       <div className="flex items-center gap-2.5 min-w-0">
                         <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)] relative">
-                          <Image src={logo} alt={`${name} logo`} width={32} height={32} className="object-cover" />
+                          <Image src={logo} alt={`${name} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
                         </div>
                         <div className="min-w-0">
                           <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">
@@ -2290,7 +2290,7 @@ export default async function CorridorPage({ params }: Props) {
                       <p className="text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-3">{label}</p>
                       <div className="flex items-center gap-2.5 mb-2">
                         <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface)] flex items-center justify-center relative">
-                          <Image src={logo} alt={name} width={32} height={32} className="object-cover" />
+                          <Image src={logo} alt={name} width={32} height={32} className="w-full h-full object-contain p-1" />
                         </div>
                         <p className="text-sm font-medium text-[var(--color-on-surface)]">{name}</p>
                       </div>

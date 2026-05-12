@@ -226,7 +226,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
                     {c.providerLogo && (
                       <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center relative border border-[var(--color-outline)]/50">
-                        <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="object-cover" priority />
+                        <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="w-full h-full object-contain p-1" priority />
                       </div>
                     )}
                     <p className="text-2sm sm:text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] truncate">
@@ -412,7 +412,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <Link key={provider.slug} href={`/companies/${provider.slug}`} className="snap-start shrink-0 w-[65vw] block p-3.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-all">
                 <div className="flex items-center gap-2.5 mb-2">
                   <div className="w-9 h-9 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0">
-                    <Image src={provider.logo} alt={`${provider.name} logo`} width={36} height={36} className="object-cover" />
+                    <Image src={provider.logo} alt={`${provider.name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-[var(--color-on-surface)]">{provider.name}</h3>
@@ -439,7 +439,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                       alt={`${provider.name} logo`}
                       width={48}
                       height={48}
-                      className="object-cover"
+                      className="w-full h-full object-contain p-1"
                     />
                   </div>
                   <div>

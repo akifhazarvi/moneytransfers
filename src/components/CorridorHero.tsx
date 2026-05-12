@@ -151,7 +151,7 @@ export default function CorridorHero({
                 <div className="flex items-center gap-3 mb-6">
                   {bestLogo && (
                     <div className="w-12 h-12 rounded-2xl overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/60 flex items-center justify-center shrink-0 relative">
-                      <Image src={bestLogo} alt={`${bestName} logo`} width={48} height={48} className="object-cover" />
+                      <Image src={bestLogo} alt={`${bestName} logo`} width={48} height={48} className="w-full h-full object-contain p-1" />
                     </div>
                   )}
                   <div className="min-w-0">

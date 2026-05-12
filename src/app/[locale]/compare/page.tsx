@@ -133,10 +133,10 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white">
-                  <Image src={c.logoA} alt={c.nameA} width={40} height={40} className="object-cover" />
+                  <Image src={c.logoA} alt={c.nameA} width={40} height={40} className="w-full h-full object-contain p-1" />
                 </div>
                 <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white">
-                  <Image src={c.logoB} alt={c.nameB} width={40} height={40} className="object-cover" />
+                  <Image src={c.logoB} alt={c.nameB} width={40} height={40} className="w-full h-full object-contain p-1" />
                 </div>
               </div>
               <span className="text-2sm font-medium text-[var(--color-on-surface)]">{c.nameA} vs {c.nameB}</span>

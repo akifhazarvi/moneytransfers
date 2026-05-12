@@ -96,7 +96,7 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
           <Card key={provider.slug} href={`/companies/${provider.slug}`} className="group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
-                <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
+                <Image src={provider.logo} alt={provider.name} width={56} height={56} className="w-full h-full object-contain p-1" />
               </div>
               <div>
                 <h2 className="text-base font-medium text-[var(--color-on-surface)]">{provider.name}</h2>

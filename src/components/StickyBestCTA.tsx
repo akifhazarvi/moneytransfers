@@ -98,7 +98,7 @@ export default function StickyBestCTA({
               alt={`${providerName} logo`}
               width={48}
               height={48}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-1"
               unoptimized={providerLogo.endsWith(".svg")}
             />
           </div>

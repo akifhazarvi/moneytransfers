@@ -533,7 +533,7 @@ function SendMoneyContent() {
                         height={20}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain p-1"
                         onError={(e) => {
                           const target = e.currentTarget;
                           target.style.display = "none";
@@ -793,7 +793,7 @@ function SendMoneyContent() {
                         width={56}
                         height={56}
                         loading="lazy"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain p-1"
                         onError={(e) => { e.currentTarget.style.display = "none"; e.currentTarget.parentElement!.textContent = name.charAt(0); }}
                       />
                     </div>
@@ -866,7 +866,7 @@ function SendMoneyContent() {
                   alt={`${getProviderName(compareList[0])} logo`}
                   width={32}
                   height={32}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-1"
                 />
               </div>
               <span className="text-sm font-medium text-[var(--color-on-surface)]">

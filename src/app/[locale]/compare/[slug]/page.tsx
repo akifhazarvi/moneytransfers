@@ -356,7 +356,7 @@ function ArticleComparison({
                 <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                   <div className="flex items-center gap-4 flex-1 min-w-0">
                     <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/60 shrink-0">
-                      <Image src={winner.logo} alt={`${winner.name} logo`} width={56} height={56} className="object-cover w-full h-full" />
+                      <Image src={winner.logo} alt={`${winner.name} logo`} width={56} height={56} className="w-full h-full object-contain p-1" />
                     </div>
                     <div className="min-w-0">
                       <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--color-success-dark)] uppercase tracking-wider mb-1">
@@ -395,7 +395,7 @@ function ArticleComparison({
                   <Card key={provider.slug} className={isWinner ? "border-[var(--color-success)]/40 bg-[var(--color-success-surface)]/30" : ""}>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
-                        <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
+                        <Image src={provider.logo} alt={provider.name} width={56} height={56} className="w-full h-full object-contain p-1" />
                       </div>
                       <div className="min-w-0">
                         <h2 className="text-base font-medium text-[var(--color-on-surface)] truncate">{provider.name}</h2>
@@ -638,7 +638,7 @@ function ArticleComparison({
                 <Card key={provider.slug} className="!p-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
-                      <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
+                      <Image src={provider.logo} alt={provider.name} width={56} height={56} className="w-full h-full object-contain p-1" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-[var(--color-on-surface)]">{provider.name}</p>
@@ -854,7 +854,7 @@ function DefaultComparison({
               <Card key={provider.slug}>
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
-                    <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
+                    <Image src={provider.logo} alt={provider.name} width={56} height={56} className="w-full h-full object-contain p-1" />
                   </div>
                   <div>
                     <h2 className="text-md font-medium text-[var(--color-on-surface)]">{provider.name}</h2>
@@ -1017,7 +1017,7 @@ function DefaultComparison({
               <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                    <Image src={a.logo} alt={a.name} width={32} height={32} className="object-cover" />
+                    <Image src={a.logo} alt={a.name} width={32} height={32} className="w-full h-full object-contain p-1" />
                   </div>
                   <h3 className="text-md font-medium text-[var(--color-on-surface)]">Choose {a.name} if:</h3>
                 </div>
@@ -1035,7 +1035,7 @@ function DefaultComparison({
               <div className="bg-[var(--color-surface-dim)] rounded-xl p-5">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                    <Image src={b.logo} alt={b.name} width={32} height={32} className="object-cover" />
+                    <Image src={b.logo} alt={b.name} width={32} height={32} className="w-full h-full object-contain p-1" />
                   </div>
                   <h3 className="text-md font-medium text-[var(--color-on-surface)]">Choose {b.name} if:</h3>
                 </div>
@@ -1136,7 +1136,7 @@ function DefaultComparison({
               <Card key={provider.slug} className="!p-4">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
-                    <Image src={provider.logo} alt={provider.name} width={56} height={56} className="object-cover" />
+                    <Image src={provider.logo} alt={provider.name} width={56} height={56} className="w-full h-full object-contain p-1" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-[var(--color-on-surface)]">{provider.name}</p>

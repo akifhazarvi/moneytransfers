@@ -84,7 +84,7 @@ export default async function BestTransferToday({
                     alt={`${name} logo`}
                     width={32}
                     height={32}
-                    className="object-cover"
+                    className="w-full h-full object-contain p-1"
                   />
                 </div>
                 <div className="min-w-0">
