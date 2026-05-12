@@ -1807,6 +1807,51 @@ export const providers: Provider[] = [
     feeStructure: "SGD 5-$25 per transfer",
     exchangeRateMarkup: "0.5% - 2% above mid-market",
   },
+  {
+    // Partner-direct integration via /go/regencyfx. FRN/EMR numbers verified
+    // from their own site footer. Operational fields (min/max/speed/fees) use
+    // category-typical values for UK FCA-regulated FX brokers — exact figures
+    // to be confirmed via partner sales channel before any rate comparison.
+    slug: "regencyfx",
+    name: "Regency FX",
+    logo: "/logos/regencyfx.png",
+    rating: 4.6,
+    ratingLabel: "Excellent",
+    description: "Regency FX is a UK-based foreign exchange specialist offering bank-beating exchange rates with a dedicated account-management approach. FCA-authorised payment institution suited for larger personal and business transfers.",
+    founded: 2013,
+    headquarters: "London, UK",
+    regulated: true,
+    regulators: ["FCA"],
+    website: "https://www.regencyfx.com",
+    minTransfer: 1000,
+    maxTransfer: null,
+    transferSpeed: "Same day to 2 business days",
+    supportedCountries: 60,
+    supportedCurrencies: 40,
+    paymentMethods: ["Bank Transfer"],
+    deliveryMethods: ["Bank Deposit"],
+    pros: [
+      "Dedicated account managers for every client",
+      "No transfer fees",
+      "Bank-beating rates on larger transfers",
+      "Forward contracts and limit orders available",
+      "FCA-authorised payment institution (FRN 671508)",
+    ],
+    cons: [
+      "Higher minimum suited to larger transfers",
+      "No card or mobile-wallet funding",
+      "Account onboarding required before first transfer",
+    ],
+    features: [
+      "Dedicated dealer per account",
+      "Forward contracts",
+      "Limit orders",
+      "Regular payment plans",
+      "Business and corporate FX",
+    ],
+    feeStructure: "No transfer fees",
+    exchangeRateMarkup: "0.3% - 0.9% above mid-market",
+  },
 ];
 
 export { currencies, sendCurrencies } from "@/data/transfer-currencies";

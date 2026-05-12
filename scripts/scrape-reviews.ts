@@ -19,6 +19,7 @@ const PROVIDERS: { slug: string; name: string; trustpilotDomain: string }[] = [
   { slug: "xoom", name: "Xoom", trustpilotDomain: "xoom.com" },
   { slug: "torfx", name: "TorFX", trustpilotDomain: "torfx.com" },
   { slug: "instarem", name: "Instarem", trustpilotDomain: "instarem.com" },
+  { slug: "regencyfx", name: "Regency FX", trustpilotDomain: "regencyfx.com" },
 ];
 
 interface TrustpilotRating {
