@@ -29,6 +29,15 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
+  // Affiliate-network domain verification. Each partner network drops a
+  // verification meta to prove we own the domain. Add new entries here as
+  // partners request them; remove if the partnership ends.
+  verification: {
+    other: {
+      // Remitly via FlexOffers — requested by Ahsun 2026-05-12
+      "fo-verify": "77fb4b4b-5063-4b40-be91-b0a44a65eb39",
+    },
+  },
   icons: {
     // Bing prefers the legacy 'shortcut icon' rel and is slower than Google
     // to refresh favicons for newer domains. Declaring 'shortcut icon' first
