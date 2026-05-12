@@ -1832,7 +1832,7 @@ export const providers: Provider[] = [
     maxTransfer: null,
     transferSpeed: "Same day to 2 business days",
     supportedCountries: 60,
-    supportedCurrencies: 40,
+    supportedCurrencies: 50,
     paymentMethods: ["Bank Transfer"],
     deliveryMethods: ["Bank Deposit"],
     pros: [
@@ -1983,7 +1983,36 @@ export function generateQuotes(
 // rate feed, so we show the mid-market rate with no fee and route the user
 // to their partner page for a real quote. Always rendered after scraped
 // quotes so they never claim to be the cheapest.
-const INDICATIVE_PROVIDER_SLUGS = ["regencyfx"] as const;
+//
+// Each provider declares supported `from` and `to` currency sets. A corridor
+// only gets an indicative quote when fromCurrency is in `from` AND
+// toCurrency is in `to` — pulled directly from the partner's quote form
+// dropdowns, so we never surface a corridor they don't actually serve.
+const INDICATIVE_PROVIDERS: {
+  slug: string;
+  from: ReadonlySet<string>;
+  to: ReadonlySet<string>;
+}[] = [
+  {
+    slug: "regencyfx",
+    // Source: regencyfx.com/partner/sendmoneycompare quote form (May 2026)
+    from: new Set([
+      "GBP", "EUR", "USD", "CAD", "AUD", "NZD", "JPY", "ZAR", "CHF",
+      "BHD", "BWP", "BGN", "CNY", "HRK", "CZK", "DKK", "EGP", "GHS",
+      "HKD", "HUF", "ILS", "JOD", "KES", "KWD", "LVL", "LTL", "MUR",
+      "MXN", "MAD", "NOK", "OMR", "PLN", "QAR", "RON", "SAR", "SGD",
+      "SEK", "THB", "TND", "TRY", "AED", "UGX",
+    ]),
+    to: new Set([
+      "GBP", "EUR", "USD", "CAD", "AUD", "NZD", "JPY", "ZAR", "CHF",
+      "BHD", "BWP", "BRL", "BGN", "XAF", "CNY", "HRK", "CZK", "DKK",
+      "EGP", "GHS", "HKD", "HUF", "INR", "IDR", "ILS", "JOD", "KES",
+      "KWD", "LVL", "LTL", "MYR", "MUR", "MXN", "MAD", "NOK", "OMR",
+      "PKR", "PHP", "PLN", "QAR", "RON", "SAR", "SGD", "SEK", "THB",
+      "TND", "TRY", "AED", "UGX", "XOF",
+    ]),
+  },
+];
 
 function buildIndicativeQuotes(
   amount: number,
@@ -1992,7 +2021,8 @@ function buildIndicativeQuotes(
   baseRate: number,
 ): TransferQuote[] {
   if (!baseRate || baseRate <= 0) return [];
-  return INDICATIVE_PROVIDER_SLUGS.flatMap((slug) => {
+  return INDICATIVE_PROVIDERS.flatMap(({ slug, from, to }) => {
+    if (!from.has(fromCurrency) || !to.has(toCurrency)) return [];
     const provider = providers.find((p) => p.slug === slug);
     if (!provider) return [];
     const tp = trustpilotIndex[slug];
