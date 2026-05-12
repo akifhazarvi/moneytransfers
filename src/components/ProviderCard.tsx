@@ -44,7 +44,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
     sourceAmount: quote.sendAmount,
   });
 
-  const feeLabel = quote.fee === 0 ? t("free") : `${sendCurrencySymbol}${quote.fee.toFixed(2)}`;
+  // Indicative quotes (account-managed FX brokers without a public rate feed)
+  // show "Estimated" instead of a fee — we don't know their actual spread.
+  const feeLabel = quote.isIndicative
+    ? "Estimated"
+    : quote.fee === 0 ? t("free") : `${sendCurrencySymbol}${quote.fee.toFixed(2)}`;
   const isFast = quote.transferSpeed.toLowerCase().includes("minute") || quote.transferSpeed.toLowerCase().includes("instant");
   const isBest = rank === 1;
   const promo = promos.find((p) => p.providerSlug === quote.providerSlug);
@@ -225,7 +229,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             <div className="w-[130px] shrink-0">
               <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide font-medium">{t("rate")}</p>
               <p className="text-2sm text-[var(--color-on-surface)] mt-0.5 tabular-nums">{quote.exchangeRate.toFixed(4)}</p>
-              {markupPct !== null && midMarketRate && (
+              {quote.isIndicative ? (
+                <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-px">
+                  Estimated &middot; <span className="text-[var(--color-on-surface-variant)]">click to quote</span>
+                </p>
+              ) : markupPct !== null && midMarketRate && (
                 <p className="text-[10px] text-[var(--color-on-surface-variant)] tabular-nums mt-px">
                   Mid {midMarketRate.toFixed(4)}{" "}
                   <span className={`font-semibold ${markupPct >= 0 ? "text-[var(--color-success-dark)]" : "text-[var(--color-error)]"}`}>

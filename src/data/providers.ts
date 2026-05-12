@@ -35,6 +35,11 @@ export interface TransferQuote {
   transferSpeed: string;
   rating: number;
   ratingLabel: "Excellent" | "Good" | "Fair" | "Poor";
+  // Partner-direct brokers (e.g. Regency FX) don't expose a public rate feed.
+  // We surface the mid-market rate as an "Indicative Rate" with no fee shown
+  // and route the user to the partner for an actual quote — same pattern
+  // RemitFinder and other comparison sites use for account-managed FX brokers.
+  isIndicative?: boolean;
 }
 
 export const providers: Provider[] = [
@@ -1963,11 +1968,49 @@ export function generateQuotes(
       });
     }
 
-    return quotes.sort((a, b) => b.receiveAmount - a.receiveAmount);
+    // Indicative quotes always sit after real scraped quotes — they're
+    // pinned at mid-market and would otherwise win on receiveAmount and
+    // claim the "Best Deal" badge.
+    const indicative = buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate);
+    return [...quotes.sort((a, b) => b.receiveAmount - a.receiveAmount), ...indicative];
   }
 
-  // No scraped data for this corridor — return empty
-  return [];
+  // No scraped data for this corridor — still surface indicative-only quotes
+  return buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate);
+}
+
+// Providers we surface as estimated/indicative — they don't expose a public
+// rate feed, so we show the mid-market rate with no fee and route the user
+// to their partner page for a real quote. Always rendered after scraped
+// quotes so they never claim to be the cheapest.
+const INDICATIVE_PROVIDER_SLUGS = ["regencyfx"] as const;
+
+function buildIndicativeQuotes(
+  amount: number,
+  fromCurrency: string,
+  toCurrency: string,
+  baseRate: number,
+): TransferQuote[] {
+  if (!baseRate || baseRate <= 0) return [];
+  return INDICATIVE_PROVIDER_SLUGS.flatMap((slug) => {
+    const provider = providers.find((p) => p.slug === slug);
+    if (!provider) return [];
+    const tp = trustpilotIndex[slug];
+    const rating = tp?.score ?? provider.rating ?? 4.0;
+    return [{
+      providerSlug: slug,
+      sendAmount: amount,
+      sendCurrency: fromCurrency,
+      receiveCurrency: toCurrency,
+      exchangeRate: Math.round(baseRate * 10000) / 10000,
+      fee: 0,
+      receiveAmount: Math.round(amount * baseRate * 100) / 100,
+      transferSpeed: provider.transferSpeed,
+      rating,
+      ratingLabel: toRatingLabel(rating),
+      isIndicative: true,
+    }];
+  });
 }
 
 export function getProvider(slug: string): Provider | undefined {
