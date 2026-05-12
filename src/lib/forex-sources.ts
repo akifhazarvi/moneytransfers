@@ -101,6 +101,27 @@ async function fetchFloatRates(base: string): Promise<SourceResult> {
   }
 }
 
+async function fetchCurrencyApi(base: string): Promise<SourceResult> {
+  const t0 = Date.now();
+  try {
+    // Hits our own /api/rates/currencyapi proxy — the CURRENCY_API_KEY lives
+    // on the server, never in the browser bundle.
+    const res = await fetch(`/api/rates/currencyapi?base=${base}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = (await res.json()) as { rates: Record<string, number> };
+    return {
+      name: "CurrencyAPI",
+      shortName: "C-API",
+      status: "ok",
+      currencyCount: Object.keys(data.rates).length,
+      rates: data.rates,
+      latency: Date.now() - t0,
+    };
+  } catch {
+    return { name: "CurrencyAPI", shortName: "C-API", status: "error", currencyCount: 0, rates: {}, latency: Date.now() - t0 };
+  }
+}
+
 async function fetchCurrencyApiPages(base: string): Promise<SourceResult> {
   const t0 = Date.now();
   try {
@@ -181,12 +202,13 @@ export async function fetchAllSources(base: string): Promise<{
   aggregated: Map<string, AggregatedRate>;
   codes: string[];
 }> {
-  // Fire all 4 in parallel
+  // Fire all 5 in parallel
   const sources = await Promise.all([
     fetchOpenErApi(base),
     fetchFawazAhmed(base),
     fetchFloatRates(base),
     fetchCurrencyApiPages(base),
+    fetchCurrencyApi(base),
   ]);
 
   // Collect all currency codes seen across sources
