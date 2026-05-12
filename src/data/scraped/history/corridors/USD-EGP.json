@@ -1248,5 +1248,34 @@
         "receiveAmount": 4803.39
       }
     }
+  },
+  {
+    "date": "2026-05-12",
+    "providers": {
+      "ria": {
+        "rate": 52.0856,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 5208.56
+      },
+      "remitly": {
+        "rate": 52.15,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 5111.22
+      },
+      "xoom": {
+        "rate": 51.0371,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 4849.03
+      },
+      "wise": {
+        "rate": 52.77,
+        "fee": 8.61,
+        "markup": null,
+        "receiveAmount": 4822.65
+      }
+    }
   }
 ]
