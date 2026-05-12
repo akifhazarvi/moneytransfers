@@ -7,6 +7,12 @@ interface BestTransferTodayProps {
   from?: string;
   to?: string;
   symbol?: string;
+  // When set, the widget shows the top-4 quotes plus the highlighted provider's
+  // row (in its actual ranked position) — so a page about Provider X always
+  // shows Provider X's quote rather than just the global top 5. Without this,
+  // a "Live X rates today" widget on /companies/x is misleading because X may
+  // not appear in the global top-5 at all.
+  highlightSlug?: string;
 }
 
 export default async function BestTransferToday({
@@ -14,9 +20,20 @@ export default async function BestTransferToday({
   from = "USD",
   to = "PKR",
   symbol = "Rs",
+  highlightSlug,
 }: BestTransferTodayProps) {
   const t = await getTranslations("bestTransferToday");
-  const quotes = generateQuotes(amount, from, to).slice(0, 5);
+  const all = generateQuotes(amount, from, to);
+
+  // If a highlight slug is given, always include that provider's quote in the
+  // displayed set even if it's outside the top 5. Otherwise show the top 5.
+  let quotes = all.slice(0, 5);
+  if (highlightSlug && !quotes.some((q) => q.providerSlug === highlightSlug)) {
+    const highlight = all.find((q) => q.providerSlug === highlightSlug);
+    if (highlight) {
+      quotes = [...all.slice(0, 4), highlight];
+    }
+  }
 
   if (quotes.length === 0) {
     return (
@@ -28,6 +45,12 @@ export default async function BestTransferToday({
 
   const best = quotes[0];
   const worst = quotes[quotes.length - 1];
+  const highlighted = highlightSlug
+    ? all.find((q) => q.providerSlug === highlightSlug) ?? null
+    : null;
+  const highlightedRank = highlighted
+    ? all.findIndex((q) => q.providerSlug === highlightSlug) + 1
+    : null;
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -46,11 +69,12 @@ export default async function BestTransferToday({
           const provider = providers.find((p) => p.slug === q.providerSlug);
           const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
           const isBest = i === 0;
+          const isHighlight = highlightSlug && q.providerSlug === highlightSlug;
 
           return (
             <div
               key={q.providerSlug}
-              className={`grid grid-cols-[minmax(0,1fr)_60px_100px] sm:grid-cols-[minmax(0,1fr)_110px_100px_130px] gap-2 items-center px-3 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface)]/40" : ""}`}
+              className={`grid grid-cols-[minmax(0,1fr)_60px_100px] sm:grid-cols-[minmax(0,1fr)_110px_100px_130px] gap-2 items-center px-3 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isHighlight ? "bg-[var(--color-primary-surface)]/60 ring-1 ring-[var(--color-primary)]/30" : isBest ? "bg-[var(--color-success-surface)]/40" : ""}`}
             >
               {/* Provider */}
               <div className="flex items-center gap-2.5 min-w-0">
@@ -81,9 +105,9 @@ export default async function BestTransferToday({
                 {q.exchangeRate.toFixed(2)}
               </p>
 
-              {/* Fee */}
-              <p className={`text-2sm sm:text-sm text-right tabular-nums ${q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
-                {q.fee === 0 ? t("free") : `$${q.fee.toFixed(2)}`}
+              {/* Fee — "Estimated" for indicative quotes, "Free" for zero-fee real quotes */}
+              <p className={`text-2sm sm:text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)] italic" : q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
+                {q.isIndicative ? "Estimated" : q.fee === 0 ? t("free") : `$${q.fee.toFixed(2)}`}
               </p>
 
               {/* Recipient gets */}
@@ -95,8 +119,28 @@ export default async function BestTransferToday({
         })}
       </div>
 
-      {/* Savings callout */}
-      {quotes.length >= 2 && (
+      {/* Callout — when a provider is highlighted, frame the result from their
+          perspective (rank + their indicative status) rather than headlining a
+          competitor's win. Otherwise show the standard cheapest-vs-worst delta. */}
+      {highlighted && highlightedRank ? (
+        <div className="mt-4 bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/15 rounded-xl px-4 py-3 flex items-center gap-3">
+          <svg className="w-4 h-4 text-[var(--color-primary)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p className="text-2sm text-[var(--color-on-surface)]">
+            {highlighted.isIndicative ? (
+              <>
+                <strong>{getProviderName(highlightSlug!)}</strong> doesn&apos;t publish a public rate feed — the figure above is the mid-market rate, click through for an actual quote.
+              </>
+            ) : (
+              <>
+                <strong>{getProviderName(highlightSlug!)}</strong> ranks{" "}
+                <strong>#{highlightedRank}</strong> of {all.length} providers we tracked for this corridor today.
+              </>
+            )}
+          </p>
+        </div>
+      ) : quotes.length >= 2 ? (
         <div className="mt-4 bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/15 rounded-xl px-4 py-3 flex items-center gap-3">
           <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -109,7 +153,7 @@ export default async function BestTransferToday({
             vs {getProviderName(worst.providerSlug)}.
           </p>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

@@ -271,12 +271,23 @@ function DetailedReview({
               </div>
             </Card>
 
-            {/* Live corridor performance */}
+            {/* Live corridor performance — pick a corridor the provider actually
+                serves and always include their row in the displayed set, so a
+                page about Provider X never headlines a competitor as "BEST". */}
             <Card>
               <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
-                Live {provider.name} rates today
+                How {provider.name} compares today
               </h2>
-              <BestTransferToday amount={1000} from="USD" to="INR" symbol="₹" />
+              {(() => {
+                // UK FX brokers default to GBP→EUR (their core corridor); everyone
+                // else stays on USD→INR which is our highest-volume corridor.
+                const ukSpecialist = ["regencyfx", "torfx", "currencies-direct", "ofx", "xe", "halifax", "barclays", "lloyds", "nationwide", "natwest", "hsbc", "santander"];
+                const isUk = ukSpecialist.includes(slug);
+                const from = isUk ? "GBP" : "USD";
+                const to = isUk ? "EUR" : "INR";
+                const symbol = isUk ? "€" : "₹";
+                return <BestTransferToday amount={1000} from={from} to={to} symbol={symbol} highlightSlug={slug} />;
+              })()}
             </Card>
 
             {/* Article Sections */}
