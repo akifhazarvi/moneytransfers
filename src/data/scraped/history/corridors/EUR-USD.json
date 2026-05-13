@@ -3264,5 +3264,64 @@
         "receiveAmount": 108.2
       }
     }
+  },
+  {
+    "date": "2026-05-13",
+    "providers": {
+      "moneygram": {
+        "rate": 1.1579,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 113.48
+      },
+      "commerzbank": {
+        "rate": 1.171,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 102.46
+      },
+      "instarem": {
+        "rate": 1.165,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 116.5
+      },
+      "remitly": {
+        "rate": 1.1574,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 112.28
+      },
+      "monese": {
+        "rate": 1.1739,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 113.87
+      },
+      "deutsche-bank": {
+        "rate": 1.168,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 74.11
+      },
+      "xoom": {
+        "rate": 1.0899,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 106.82
+      },
+      "paypal": {
+        "rate": 1.1254,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 108.05
+      },
+      "skrill": {
+        "rate": 1.1399,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 113.99
+      }
+    }
   }
 ]
