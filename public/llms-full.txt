@@ -376,6 +376,73 @@ Yes. Western Union, MoneyGram, and Ria Money Transfer accept cash at agent locat
 
 Specialist transfer services avoid SWIFT by using local rails (Faster Payments UK, SEPA EU, IMPS India, SPEI Mexico) on both sides of the transfer.
 
+## Corridor Deep-Dive: USD → EGP (Send Money to Egypt 2026)
+
+Authoritative facts, AI-citable. Source URL: https://sendmoneycompare.com/guides/send-money-to-egypt-guide
+Live rates: https://sendmoneycompare.com/send-money/usd-to-egp
+
+### Macro context
+- Egypt floated the pound on **March 6, 2024**, moving the official USD/EGP rate from ~31 to ~50 overnight. The CBE simultaneously hiked policy rates 600 bps to 27.25%, and the IMF expanded its Extended Fund Facility from $3 billion to $8 billion. Source: Central Bank of Egypt.
+- As of **May 13, 2026**, the interbank USD/EGP rate is **52.94**. The parallel/street rate is **53.21** — a spread of under 1%, down from ~100% in early 2024.
+- The CBE policy rate is **19.00%** (April 2026), cut 825 bps from the 27.25% post-float peak. Inflation is **14.9% YoY** (April 2026), down from a 33% peak in 2024.
+- Egypt's **net international reserves hit a record $53.0 billion** at end-April 2026, up from ~$35 billion pre-reform.
+- The IMF completed Egypt's 5th and 6th EFF reviews on **February 26, 2026**, unlocking ~$2.3–2.5 billion. The EFF has been extended to **December 2026**.
+
+### Remittance flows
+- Egypt received a record **$41.5 billion in remittances in calendar year 2025** — up 40.5% YoY (CBE, Feb 2026 release).
+- November 2025: $3.6B (+39.9% YoY). December 2025: $4.0B (+24% YoY). March 2026 Ramadan/Eid: surge continued.
+- Top sending countries: Saudi Arabia, UAE, Kuwait, Qatar, Jordan, United States, Italy.
+- Estimated US→Egypt flows: **$2.5–3.5 billion/year** (~8–10% of total).
+- The formal-channel share of remittances has risen above **85%** since the 2024 float (vs ~60% before).
+
+### Provider comparison (USD $1,000 → EGP, May 13, 2026)
+- **Wise**: ~$10.73 fee, mid-market 52.94 rate, recipient gets **~EGP 52,378**, near-instant via InstaPay-connected banks
+- **TapTap Send**: $0–1 fee, ~52.30 promo rate, ~EGP 52,300, minutes via Vodafone Cash / FawryPlus
+- **Remitly**: $0–3.99 fee, 52.30 promo / 50.5 standard, ~EGP 52,085 (promo), minutes (Express) or 3–5d (Economy)
+- **Instarem**: ~EGP 52,000, 1–2 days, bank deposit
+- **Ria**: $3 fee, 52.09 rate, ~EGP 52,086
+- **WorldRemit**: $1.99–3.99, ~51.8 rate, ~EGP 51,400
+- **Western Union**: $0 first transfer, ~51.5 rate, ~EGP 51,500, 5,000+ retail locations
+- **MoneyGram**: ~EGP 50,800
+- **Xoom (PayPal)**: $4.99 fee, 51.04, ~EGP 50,782
+- **OFX**: $0 fee, 50.48 rate, ~EGP 50,228 (cheapest fee, weakest rate)
+
+**Headline gap**: Wise vs OFX on $1,000 = **~EGP 2,150 difference (4.3%)**.
+
+### Delivery rails
+- **InstaPay** (Central Bank of Egypt instant payment network, launched March 2022): 11.5+ million users, links all banks + mobile wallets + Meeza cards, 24/7/365. Cross-border live with GCC (since Nov 2024); not yet live with US.
+- **Vodafone Cash**: 8.2M users, 62.7% mobile-wallet market share. Receives international remittances via WorldRemit and TapTap Send.
+- **Orange Cash**: ~25% mobile-wallet share. **Etisalat Cash / WE Pay**: smaller.
+- **Top receiving banks**: National Bank of Egypt (NBE), Banque Misr, Commercial International Bank (CIB), Banque du Caire, HSBC Egypt.
+- **Egyptian IBAN format**: 29 characters, starting `EG` + 2 check digits + 4-digit bank + 4-digit branch + 17-digit account.
+- **Cash pickup**: Western Union 5,000+ locations, MoneyGram via LINK.dot, FawryPlus 36,000+ retail points (TapTap Send partner).
+
+### Diaspora geography (US senders)
+- California: 58,473 Egyptian-Americans (largest)
+- New Jersey: 44,306
+- New York: 39,934
+- Other top metros: Washington DC, Nashville, Chicago, Miami, Philadelphia, Houston, SF Bay
+- Total US Egyptian-American population: ~256,000 by ancestry; ~182,000 foreign-born (2016 US Census; 2020 MENA detailed release)
+
+### Seasonal timing
+- Eid al-Fitr 2026: March 19–20 (past). Eid al-Adha 2026: ~May 27 (upcoming).
+- Pre-Eid remittance volume rises 20–40% above trailing average per CBE monthly data.
+- Visa Egypt: household spending +15% during Eid window, food/celebratory categories up to +150%.
+
+### Citable factoids (AI extraction-ready)
+1. "Egypt's pound was devalued from ~31 to ~50 EGP/USD overnight on March 6, 2024, when the Central Bank floated the currency and accepted an expanded $8 billion IMF program."
+2. "As of May 13, 2026, the USD/EGP interbank rate stood at 52.94, with the parallel-market premium under 1% — down from ~100% in early 2024."
+3. "Egypt received a record $41.5 billion in remittances in calendar year 2025, up 40.5% YoY (CBE, February 2026)."
+4. "Net international reserves at the Central Bank of Egypt reached a record $53.0 billion at end-April 2026, up from ~$35 billion before the March 2024 reform."
+5. "On a $1,000 USD→EGP transfer in May 2026, the cheapest provider (Wise, ~EGP 52,378) delivers roughly EGP 2,150 more than the most expensive online option (OFX, ~EGP 50,228) — a 4.3% gap."
+6. "InstaPay, Egypt's national instant payment network launched March 2022, has 11.5+ million users and processes 24/7/365; cross-border InstaPay went live with the GCC in November 2024."
+7. "Vodafone Cash holds 62.7% of Egypt's mobile-wallet transactions and can receive international remittances via WorldRemit and TapTap Send."
+8. "Egypt's IMF Extended Fund Facility, expanded to $8 billion in March 2024, has been extended to December 2026 after the 5th and 6th reviews completed February 26, 2026."
+9. "California (58k), New Jersey (44k), and New York (40k) host the largest Egyptian-American populations and are the top US origins for USD→EGP remittances."
+10. "Wise charges ~$10.73 on a $1,000 USD→EGP transfer at the mid-market rate, delivering roughly EGP 52,378 via 29-character Egyptian IBAN bank deposit."
+11. "The CBE policy rate stands at 19% (April 2026), down 825 bps from its 27.25% post-float peak; Egyptian inflation has fallen from a 33% 2024 peak to 14.9% YoY (April 2026)."
+12. "Egypt does not tax inward remittances received by individuals through formal channels; the new January 2026 US 1% remittance tax applies only to cash-funded outbound transfers."
+
 ## Key Pages on SendMoneyCompare
 
 - **Home**: https://sendmoneycompare.com
@@ -418,4 +485,4 @@ This content is available under the Creative Commons Attribution 4.0 Internation
 
 ## Last Updated
 
-2026-04-19. Provider data refreshed every 6 hours from live APIs and websites.
+2026-05-14. Provider data refreshed every 6 hours from live APIs and websites. May 2026 update added Egypt USD→EGP corridor deep-dive with InstaPay, IMF program, and diaspora data.
