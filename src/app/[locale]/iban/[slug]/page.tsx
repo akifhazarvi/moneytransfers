@@ -101,6 +101,60 @@ const ibanMetaOverrides: Record<string, { title: string; description: string; og
     ogTitle: "UAE IBAN: 23-Character Format + Bank Codes (2026)",
     ogDesc: "AE IBAN: 23-char structure, real example, codes for Emirates NBD / ADCB / FAB / Mashreq / DIB.",
   },
+  netherlands: {
+    title: "Dutch IBAN Format (2026): 18 Characters, Example + Bank Codes",
+    description: "Dutch IBAN (Nederlands IBAN) = 18 chars: NL + 2 check digits + 4-letter bank code + 10-digit account. Real example, codes for ABN AMRO, ING, Rabobank, Bunq, SNS, plus SEPA Instant rules.",
+    ogTitle: "Dutch IBAN: 18-Character Format + Bank Codes (2026)",
+    ogDesc: "NL IBAN: 18-char structure, example, ABN AMRO / ING / Rabobank / Bunq codes, SEPA Instant.",
+  },
+  romania: {
+    title: "Romanian IBAN Format (2026): 24 Characters, Example + Bank Codes",
+    description: "Romanian IBAN (composizione IBAN Romania) = 24 chars: RO + 2 check digits + 4-letter bank code + 16-digit account. Real example, codes for Banca Transilvania, BRD, ING Bank, Alpha Bank Romania, plus SEPA Instant.",
+    ogTitle: "Romanian IBAN: 24-Character Format + Bank Codes (2026)",
+    ogDesc: "RO IBAN: 24-char structure, example, Banca Transilvania / BRD / ING / Alpha Bank codes.",
+  },
+  portugal: {
+    title: "Portuguese IBAN Format (2026): 25 Characters, Example + Bank Codes",
+    description: "Portuguese IBAN = 25 chars: PT50 + 4-digit bank + 4-digit branch + 11-digit account + 2 check digits. Real example, codes for Caixa Geral, Millennium BCP, Santander Portugal, ActivoBank, plus SEPA Instant.",
+    ogTitle: "Portuguese IBAN: 25-Character Format + Bank Codes (2026)",
+    ogDesc: "PT IBAN: 25-char structure, example, Caixa Geral / Millennium BCP / Santander / ActivoBank codes.",
+  },
+  finland: {
+    title: "Finnish IBAN Format (2026): 18 Characters, Example + Bank Codes",
+    description: "Finnish IBAN = 18 chars: FI + 2 check digits + 6-digit bank code + 8-digit account + 1 check digit. Real example, codes for Nordea, OP, Danske Bank Finland, plus SEPA Instant Credit Transfer rules.",
+    ogTitle: "Finnish IBAN: 18-Character Format + Bank Codes (2026)",
+    ogDesc: "FI IBAN: 18-char structure, example, Nordea / OP / Danske Bank codes, SEPA Instant.",
+  },
+  denmark: {
+    title: "Danish IBAN Format (2026): 18 Characters, Example + Bank Codes",
+    description: "Danish IBAN = 18 chars: DK + 2 check digits + 4-digit bank code + 10-digit account. Real example, codes for Danske Bank, Nordea Denmark, Jyske Bank, Nykredit, plus SEPA Instant and Straksclearing rules.",
+    ogTitle: "Danish IBAN: 18-Character Format + Bank Codes (2026)",
+    ogDesc: "DK IBAN: 18-char structure, example, Danske Bank / Nordea / Jyske / Nykredit codes.",
+  },
+  hungary: {
+    title: "Hungarian IBAN Format (2026): 28 Characters, Example + Bank Codes",
+    description: "Hungarian IBAN = 28 chars (one of Europe's longest): HU + 2 check digits + 3-digit bank code + 4-digit branch + 17-digit account + 2 check digits. Real example, codes for OTP Bank, MKB, CIB Bank, Budapest Bank, plus AFR instant rules.",
+    ogTitle: "Hungarian IBAN: 28-Character Format + Bank Codes (2026)",
+    ogDesc: "HU IBAN: 28-char structure, example, OTP / MKB / CIB / Budapest Bank codes, instant payment rules.",
+  },
+  qatar: {
+    title: "Qatar IBAN Format (2026): 29 Characters, Example + Bank Codes",
+    description: "Qatar IBAN = 29 chars: QA + 2 check digits + 4-letter bank code + 21-character account. Real example, codes for Qatar National Bank (QNB), Qatar Islamic Bank, Doha Bank, Masraf Al Rayan, plus QCB rules.",
+    ogTitle: "Qatar IBAN: 29-Character Format + Bank Codes (2026)",
+    ogDesc: "QA IBAN: 29-char structure, example, QNB / Qatar Islamic / Doha Bank / Masraf Al Rayan codes.",
+  },
+  egypt: {
+    title: "Egyptian IBAN Format (2026): 29 Characters, Example + Bank Codes",
+    description: "Egyptian IBAN = 29 chars: EG + 2 check digits + 4-digit bank code + 4-digit branch + 17-digit account. Real example, codes for Commercial International Bank (CIB), HSBC Egypt, Crédit Agricole Egypt, Bank of Alexandria, plus CBE rules.",
+    ogTitle: "Egyptian IBAN: 29-Character Format + Bank Codes (2026)",
+    ogDesc: "EG IBAN: 29-char structure, example, CIB / HSBC Egypt / Crédit Agricole / Alexbank codes.",
+  },
+  luxembourg: {
+    title: "Luxembourg IBAN Format (2026): 20 Characters, Example + Bank Codes",
+    description: "Luxembourg IBAN (iban lu / iban luxemburg) = 20 chars: LU + 2 check digits + 3-digit bank code + 13-digit account. Real example, codes for BGL BNP Paribas, BCEE (Spuerkeess), Banque de Luxembourg, ING Luxembourg, plus SEPA Instant rules.",
+    ogTitle: "Luxembourg IBAN: 20-Character Format + Bank Codes (2026)",
+    ogDesc: "LU IBAN: 20-char structure, example, BGL BNP Paribas / BCEE / Banque de Luxembourg / ING codes.",
+  },
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -802,9 +802,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "iban-numbers-explained",
-    title: "What Is an IBAN Number? Format, How to Find Yours & Country List (2026)",
+    title: "IBAN Number Format Explained: Structure, Length & Country Examples (2026)",
     metaDescription:
-      "What is an IBAN number? An international bank account number used in 80+ countries for cross-border transfers. IBAN format explained, how to find yours, and full country-by-country guide.",
+      "IBAN number format explained — full structure, length by country, and how many characters an IBAN has. With validated examples for 80+ countries including Germany, Italy, Spain, UAE and Luxembourg.",
     excerpt:
       "An IBAN is a standardized international bank account number used in 80+ countries. Here's how it works and why it matters.",
     category: "Education",
@@ -8949,9 +8949,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "us-dollar-forecast-2026",
-    title: "US Dollar Forecast 2026–2027: Will the Dollar Go Up or Down?",
+    title: "USD Dollar Index Outlook 2026: DXY Forecast, Fed Path & Predictions",
     metaDescription:
-      "Expert US dollar forecast for 2026–2027 backed by Fed data, economist quotes, and historical analysis. See what Goldman Sachs, ING, and top economists predict — and what it means for your international transfers.",
+      "USD dollar index (DXY) outlook for 2026: full forecast with Fed rate path, economist predictions from Goldman Sachs, ING & Morgan Stanley, and what the dollar's direction means for international transfers.",
     excerpt:
       "The Fed has cut rates 100 basis points since late 2023, the DXY sits at 120.55, and economists are split. We break down the bull and bear cases with real data from the Fed, ING, Morgan Stanley, and the World Bank — plus what it all means for people sending money abroad.",
     category: "Research",

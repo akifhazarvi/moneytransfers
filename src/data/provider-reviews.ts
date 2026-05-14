@@ -289,9 +289,9 @@ export const providerReviews: ProviderReview[] = [
   },
   {
     slug: "remitly",
-    title: "Remitly Review 2026 — Fees, Speed & Delivery Options",
+    title: "Remitly Money Transfer Review 2026 — Fees, Rates & Delivery Speed",
     metaDescription:
-      "Detailed Remitly review covering fees, exchange rates, express vs economy transfers, cash pickup, mobile money, and delivery speed. Based on real transfer data and 300,000+ Trustpilot reviews.",
+      "Remitly review 2026: real fees, exchange rate markup, transfer speed, and delivery options (bank deposit, cash pickup, mobile money). Tested across 4 corridors. Compare Remitly to Wise, Western Union & more.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
