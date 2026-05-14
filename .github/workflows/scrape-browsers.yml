@@ -68,9 +68,67 @@ jobs:
           path: src/data/scraped/
           retention-days: 1
 
+  scrape-ria:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape Ria (browser auth + API)
+        run: npx tsx scripts/scrape-ria.ts
+        timeout-minutes: 18
+        continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-ria
+          path: src/data/scraped/
+          retention-days: 1
+
+  scrape-compareremit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape CompareRemit (Playwright)
+        run: npx tsx scripts/scrape-compareremit.ts
+        timeout-minutes: 18
+        continue-on-error: true
+
+      - name: Upload scraped data
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraped-compareremit
+          path: src/data/scraped/
+          retention-days: 1
+
   commit-data:
     runs-on: ubuntu-latest
-    needs: [scrape-monito, scrape-xoom]
+    needs: [scrape-monito, scrape-xoom, scrape-ria, scrape-compareremit]
     if: always()
     timeout-minutes: 10
 
@@ -88,6 +146,20 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: scraped-xoom
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download Ria scraper results
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-ria
+          path: src/data/scraped/
+        continue-on-error: true
+
+      - name: Download CompareRemit scraper results
+        uses: actions/download-artifact@v4
+        with:
+          name: scraped-compareremit
           path: src/data/scraped/
         continue-on-error: true
 
