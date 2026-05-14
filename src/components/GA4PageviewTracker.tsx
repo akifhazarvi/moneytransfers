@@ -18,10 +18,15 @@ function Tracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const isFirstRun = useRef(true);
+  // Track the previous URL so we can pass page_referrer on each SPA navigation.
+  // Without this, GA4 sees soft-nav page_views with no referrer and re-attributes
+  // them to (not set) instead of inheriting the session's original source/medium.
+  const previousUrl = useRef<string>("");
 
   useEffect(() => {
     if (isFirstRun.current) {
       isFirstRun.current = false;
+      previousUrl.current = window.location.href;
       return;
     }
     if (typeof window === "undefined" || typeof window.gtag !== "function") return;
@@ -29,11 +34,24 @@ function Tracker() {
     const qs = searchParams?.toString();
     const url = qs ? `${pathname}?${qs}` : pathname;
 
+    // Carry AI-search attribution (set in sessionStorage by the inline gtag
+     // bootstrap in [locale]/layout.tsx) onto every soft-nav page_view too —
+     // otherwise mid-session pageviews land with empty source/medium and GA4
+     // re-buckets them into (not set) rather than the original referral.
+    let aiSrc: string | null = null;
+    try { aiSrc = sessionStorage.getItem("first_ai_src"); } catch { /* sessionStorage may be unavailable */ }
+
     window.gtag("event", "page_view", {
       page_location: window.location.href,
       page_path: url,
       page_title: document.title,
+      page_referrer: previousUrl.current || document.referrer || "",
+      ...(aiSrc
+        ? { campaign_source: aiSrc, campaign_medium: "referral", campaign_name: "ai_search" }
+        : {}),
     });
+
+    previousUrl.current = window.location.href;
   }, [pathname, searchParams]);
 
   return null;
