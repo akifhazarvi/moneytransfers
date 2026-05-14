@@ -120,16 +120,21 @@ async function fetchRemitlyQuote(
     const estimate = json?.estimate;
     if (!estimate) return null;
 
+    // Prefer base_rate over promotional_exchange_rate: the promo is typically
+    // "new customers only, capped at first $1,000" — using it as the headline
+    // rate makes Remitly look more competitive than what a typical/repeat
+    // user will actually receive. base_rate is what we want to compare.
     const baseRate = parseFloat(estimate.exchange_rate?.base_rate || "0");
-    const promoRate = parseFloat(estimate.exchange_rate?.promotional_exchange_rate || "0");
-    const rate = promoRate > 0 ? promoRate : baseRate;
+    const rate = baseRate || parseFloat(estimate.exchange_rate?.promotional_exchange_rate || "0");
     const fee = parseFloat(estimate.fee?.total_fee_amount || "0");
-    const receiveAmount = parseFloat(estimate.receive_amount || "0");
     const sendAmount = parseFloat(estimate.send_amount || String(amount));
     const payInMethod = estimate.pay_in_method || null;
     const payOutMethod = estimate.pay_out_method || null;
 
-    if (!rate && !receiveAmount) return null;
+    if (!rate) return null;
+    // Compute receive from base rate (Remitly's `receive_amount` field uses
+    // the promo rate when present, so we can't reuse it here).
+    const receiveAmount = (sendAmount - fee) * rate;
 
     return {
       provider: "Remitly",

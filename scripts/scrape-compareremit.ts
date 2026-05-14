@@ -9,6 +9,8 @@
  *
  * URL pattern: /compare-money-transfer-services-from-{currency}-to-{country}/
  */
+import * as fs from "fs";
+import * as path from "path";
 import {
   setupBrowserContext,
   delay,
@@ -22,6 +24,29 @@ import {
   writeOutput,
 } from "./lib/browser";
 import type { BrowserContext, Page } from "playwright";
+
+// Cross-check rates against XE mid-market so we can drop suspicious quotes.
+// CompareRemit lists obscure providers (Unplex, Xpat) advertising rates
+// 5-10% ABOVE mid-market, which is mathematically impossible for an honest
+// transfer service — those are bait/promo numbers we shouldn't surface.
+type XeRates = { rates: Record<string, number> };
+function loadMidMarketRate(from: string, to: string): number {
+  try {
+    const p = path.join(OUTPUT_DIR, "xe-midmarket-rates.json");
+    const xe = JSON.parse(fs.readFileSync(p, "utf-8")) as XeRates;
+    const f = xe.rates[from] || (from === "USD" ? 1 : 0);
+    const t = xe.rates[to];
+    if (!f || !t) return 0;
+    return t / f;
+  } catch {
+    return 0;
+  }
+}
+
+// Reject rates more than this fraction better than mid-market. Real providers
+// occasionally offer ~0.5-1% above mid for promo wallets, but anything beyond
+// 2% is either a stale headline rate or outright bait pricing.
+const MAX_RATE_ABOVE_MIDMARKET = 0.02;
 
 const DELAY_MS = 1500;
 
@@ -168,7 +193,15 @@ async function main() {
     providers: ParsedProvider[]
   ) {
     if (providers.length > 0) {
+      const midMarket = loadMidMarketRate(corridor.from, corridor.to);
+      const ceiling = midMarket > 0 ? midMarket * (1 + MAX_RATE_ABOVE_MIDMARKET) : 0;
       for (const p of providers) {
+        if (ceiling > 0 && p.rate > ceiling) {
+          console.log(
+            `    ⚠ Dropping ${p.name} ${corridor.from}->${corridor.to}: rate ${p.rate} > ${ceiling.toFixed(4)} (mid+${(MAX_RATE_ABOVE_MIDMARKET * 100).toFixed(0)}%)`
+          );
+          continue;
+        }
         const receiveAmount = p.receiveAmount > 0
           ? p.receiveAmount
           : Math.round((amount - p.fee) * p.rate * 100) / 100;

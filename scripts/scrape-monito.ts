@@ -293,6 +293,14 @@ async function scrapeCorridorAmount(
   }
 }
 
+// Write atomically (tmp → rename) so a kill mid-write can't leave a
+// half-written file that breaks the Next.js build that imports it.
+function writeQuotesAtomic(outputPath: string, quotes: MonitoQuote[]) {
+  const tmp = `${outputPath}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(quotes, null, 2));
+  fs.renameSync(tmp, outputPath);
+}
+
 async function main() {
   console.log("=== Monito Comparison Scraper (Playwright) ===\n");
   console.log(`Corridors: ${CORRIDORS.length}`);
@@ -306,6 +314,13 @@ async function main() {
   let successCorridors = 0;
   let failCorridors = 0;
   const startTime = Date.now();
+
+  const outputPath = path.join(OUTPUT_DIR, "monito-quotes.json");
+  // Persist every N corridors so CI timeouts (28 min job vs ~34 min local
+  // runtime) still produce useful partial output instead of losing the
+  // entire scrape and leaving stale data from the previous run.
+  const FLUSH_EVERY = 10;
+  let corridorsProcessed = 0;
 
   try {
     for (const corridor of CORRIDORS) {
@@ -324,15 +339,19 @@ async function main() {
           console.log(`    ✗ No data`);
         }
 
+        corridorsProcessed++;
+        if (corridorsProcessed % FLUSH_EVERY === 0 && allQuotes.length > 0) {
+          writeQuotesAtomic(outputPath, allQuotes);
+          console.log(`    [flushed ${allQuotes.length} quotes]`);
+        }
+
         await jitteredDelay(DELAY_MS);
       }
     }
   } finally {
     await context.browser()?.close();
+    if (allQuotes.length > 0) writeQuotesAtomic(outputPath, allQuotes);
   }
-
-  const outputPath = path.join(OUTPUT_DIR, "monito-quotes.json");
-  fs.writeFileSync(outputPath, JSON.stringify(allQuotes, null, 2));
 
   const elapsed = Math.round((Date.now() - startTime) / 1000);
   console.log(`\n=== Monito Scraping Complete ===`);
