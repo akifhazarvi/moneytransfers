@@ -33,7 +33,9 @@ type ProcessWithLoadEnvFile = NodeJS.Process & {
   loadEnvFile?: (path?: string) => void;
 };
 
-(process as ProcessWithLoadEnvFile).loadEnvFile?.(".env.local");
+// Local dev only — CI injects TAPTAP_PARTNER_API_KEY via workflow env.
+// loadEnvFile throws ENOENT (not a no-op) when the file is missing.
+try { (process as ProcessWithLoadEnvFile).loadEnvFile?.(".env.local"); } catch {}
 
 import { sendCurrencies, currencies } from "../src/data/transfer-currencies";
 
