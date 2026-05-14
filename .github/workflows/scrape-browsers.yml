@@ -12,7 +12,10 @@ permissions:
 jobs:
   scrape-monito:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    # Monito scrapes ~103 corridors at ~10s each, ~34 min locally. CI runners
+    # are slower, so we allow 50 min. The scraper now writes incrementally
+    # (every 10 corridors), so a timeout-kill still leaves partial data.
+    timeout-minutes: 55
 
     steps:
       - uses: actions/checkout@v4
@@ -29,7 +32,7 @@ jobs:
 
       - name: Scrape Monito comparison (Playwright)
         run: npx tsx scripts/scrape-monito.ts
-        timeout-minutes: 28
+        timeout-minutes: 50
         continue-on-error: true
 
       - name: Upload scraped data

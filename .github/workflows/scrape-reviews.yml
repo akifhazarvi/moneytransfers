@@ -1,0 +1,44 @@
+name: Scrape Trustpilot Reviews
+
+# Trustpilot rolled out an AWS WAF JS challenge in May 2026 so the scraper
+# now needs a real browser. Running it in its own workflow keeps the
+# Playwright install out of the fast API workflow and staggers commit times.
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-reviews:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Scrape Trustpilot reviews
+        run: npx tsx scripts/scrape-reviews.ts
+        timeout-minutes: 10
+        continue-on-error: true
+
+      - name: Commit review data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/scraped/trustpilot-ratings.json
+          git diff --staged --quiet || git commit -m "chore: update Trustpilot ratings [$(date -u +%Y-%m-%d)]"
+          git pull --rebase
+          git push

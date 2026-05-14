@@ -113,29 +113,6 @@ jobs:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         continue-on-error: true
 
-  scrape-reviews:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-
-      - run: npm ci
-
-      - name: Scrape Trustpilot reviews
-        run: npx tsx scripts/scrape-reviews.ts
-        continue-on-error: true
-
-      - name: Commit review data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/scraped/trustpilot-ratings.json
-          git diff --staged --quiet || git commit -m "chore: update Trustpilot ratings [$(date -u +%Y-%m-%d)]"
-          git pull --rebase
-          git push
+  # Trustpilot moved to its own workflow (.github/workflows/scrape-reviews.yml)
+  # at 06:00 UTC — it needs Playwright (AWS WAF JS challenge) and we want to
+  # stagger commits to avoid git-push races with the fast and browser batches.
