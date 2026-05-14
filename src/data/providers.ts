@@ -1914,18 +1914,24 @@ export function generateQuotes(
 
   if (corridorQuotes && corridorQuotes.length > 0) {
     // Try exact amount match first, then nearest scraped amount
-    const nearestAmount = findNearestAmount(amount);
+    const nearestAmount = findNearestAmount(amount, corridorKey);
     const amountKey = `${corridorKey}_${nearestAmount}`;
-    const nearestQuotes = quotesByCorridorAmount[amountKey] || corridorQuotes;
+    const nearestQuotes = quotesByCorridorAmount[amountKey] || [];
     const isExactAmount = nearestAmount === amount;
 
-    // Deduplicate by provider slug (prefer the nearest amount quote)
+    // Start from every provider that quotes this corridor at any amount,
+    // then prefer the nearest-amount quote when one exists. Without this
+    // fallback, sparse amount buckets (e.g. USD→EUR @ $500 has only 1
+    // scraped quote) would collapse the result to a single provider.
     const providerQuoteMap = new Map<string, NormalizedQuote>();
-    for (const sq of nearestQuotes) {
+    for (const sq of corridorQuotes) {
       const existing = providerQuoteMap.get(sq.providerSlug);
       if (!existing || sq.sourcePriority < existing.sourcePriority) {
         providerQuoteMap.set(sq.providerSlug, sq);
       }
+    }
+    for (const sq of nearestQuotes) {
+      providerQuoteMap.set(sq.providerSlug, sq);
     }
 
     const quotes: TransferQuote[] = [];

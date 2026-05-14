@@ -19,10 +19,15 @@
  * - TAPTAP_FX_RATES_URL: override endpoint if needed
  */
 import {
-  SEND_AMOUNTS,
   writeOutput,
   type ProviderQuote,
 } from "./lib/browser";
+
+// Wider per-amount coverage than the shared SEND_AMOUNTS — TapTap's API
+// returns every corridor in a single HTTP call, so adding amounts costs
+// essentially nothing. Denser amount buckets let the unified-quote layer
+// snap to a real per-amount fee instead of falling back to corridor-wide.
+const TAPTAP_SEND_AMOUNTS = [100, 250, 500, 1000, 2500, 5000, 10000];
 
 type ProcessWithLoadEnvFile = NodeJS.Process & {
   loadEnvFile?: (path?: string) => void;
@@ -197,7 +202,7 @@ async function main() {
 
   console.log("=== TapTap Send API Scraper ===");
   console.log(`Endpoint: ${apiConfig.url} (${apiConfig.isPartner ? "partner" : "public"})`);
-  console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}\n`);
+  console.log(`Amounts: ${TAPTAP_SEND_AMOUNTS.join(", ")}\n`);
 
   const startTime = Date.now();
   const allQuotes: ProviderQuote[] = [];
@@ -232,7 +237,7 @@ async function main() {
 
       const schedule = corridor.transferFeeSchedule ?? corridor.feeSchedule;
 
-      for (const amount of SEND_AMOUNTS) {
+      for (const amount of TAPTAP_SEND_AMOUNTS) {
         const fee = getFeeForAmount(schedule, amount);
         const effectiveSend = amount - fee;
         const receiveAmount = effectiveSend > 0 ? effectiveSend * rate : 0;

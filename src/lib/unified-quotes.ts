@@ -248,16 +248,34 @@ for (const key of Object.keys(quotesByCorridorAmount)) {
 
 // --- Available scraped amounts (for nearest-match lookup) ---
 const allAmounts = new Set<number>();
-for (const quotes of Object.values(quotesByCorridorAmount)) {
-  for (const q of quotes) allAmounts.add(q.sendAmount);
+const amountsByCorridor: Record<string, number[]> = {};
+for (const quotes of Object.values(quotesByCorridor)) {
+  for (const q of quotes) {
+    allAmounts.add(q.sendAmount);
+    const k = `${q.sendCurrency}_${q.receiveCurrency}`;
+    if (!amountsByCorridor[k]) amountsByCorridor[k] = [];
+    if (!amountsByCorridor[k].includes(q.sendAmount)) {
+      amountsByCorridor[k].push(q.sendAmount);
+    }
+  }
+}
+for (const k of Object.keys(amountsByCorridor)) {
+  amountsByCorridor[k].sort((a, b) => a - b);
 }
 export const SCRAPED_AMOUNTS = [...allAmounts].sort((a, b) => a - b);
 
-export function findNearestAmount(target: number): number {
-  if (SCRAPED_AMOUNTS.length === 0) return 1000;
-  let closest = SCRAPED_AMOUNTS[0];
+// Picks the closest scraped amount. When `corridorKey` is provided, the
+// search is restricted to amounts that actually exist for that corridor —
+// otherwise sparse corridors snap to a global amount with zero quotes
+// (e.g. USD→EUR @ $500 used to surface only 1 provider).
+export function findNearestAmount(target: number, corridorKey?: string): number {
+  const pool = corridorKey
+    ? amountsByCorridor[corridorKey]
+    : SCRAPED_AMOUNTS;
+  if (!pool || pool.length === 0) return 1000;
+  let closest = pool[0];
   let minDiff = Math.abs(target - closest);
-  for (const amt of SCRAPED_AMOUNTS) {
+  for (const amt of pool) {
     const diff = Math.abs(target - amt);
     if (diff < minDiff) {
       minDiff = diff;
