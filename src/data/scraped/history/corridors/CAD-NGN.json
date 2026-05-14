@@ -892,22 +892,28 @@
     "date": "2026-05-14",
     "providers": {
       "ria": {
-        "rate": 993.4519,
+        "rate": 979.3173,
         "fee": 1.9,
         "markup": null,
-        "receiveAmount": 99345.19
+        "receiveAmount": 98587.08
       },
       "instarem": {
-        "rate": 990.661,
+        "rate": 988.6987,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 99066.1
+        "receiveAmount": 98869.87
       },
       "xoom": {
-        "rate": 965.3589,
+        "rate": 964.2687,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 96535.89
+        "receiveAmount": 96426.87
+      },
+      "taptap-send": {
+        "rate": 1005,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 100500
       }
     }
   }

@@ -2488,52 +2488,82 @@
     "date": "2026-05-14",
     "providers": {
       "ria": {
-        "rate": 50.1952,
+        "rate": 52.1676,
         "fee": 0.9,
         "markup": null,
-        "receiveAmount": 5200.79
+        "receiveAmount": 5381.28
       },
       "taptap-send": {
-        "rate": 53.3,
+        "rate": 53.25,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5330
+        "receiveAmount": 5325
       },
       "deutsche-bank": {
-        "rate": 53.0795,
+        "rate": 53.0064,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 3367.89
+        "receiveAmount": 3363.25
       },
       "commerzbank": {
-        "rate": 52.3574,
+        "rate": 52.2687,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 4581.27
+        "receiveAmount": 4573.51
       },
       "instarem": {
-        "rate": 52.85,
+        "rate": 52.8124,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5285
+        "receiveAmount": 5281.24
       },
       "moneygram": {
-        "rate": 52.9654,
+        "rate": 53.0402,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5296.54
+        "receiveAmount": 5304.02
       },
       "remitly": {
-        "rate": 53.0342,
+        "rate": 53.0022,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 5224.4
+        "receiveAmount": 5221.25
       },
       "wise": {
-        "rate": 53.2103,
+        "rate": 53.0819,
         "fee": 7.58,
         "markup": null,
-        "receiveAmount": 4917.7
+        "receiveAmount": 4905.83
+      },
+      "xe": {
+        "rate": 52.6452,
+        "fee": 4,
+        "markup": 0.91,
+        "receiveAmount": 5053.94
+      },
+      "western-union": {
+        "rate": 52.3914,
+        "fee": 0.99,
+        "markup": 1.38,
+        "receiveAmount": 5187.27
+      },
+      "dahabshiil": {
+        "rate": 52.1368,
+        "fee": 1,
+        "markup": 1.86,
+        "receiveAmount": 5161.54
+      },
+      "paysend": {
+        "rate": 52.1781,
+        "fee": 0,
+        "markup": 1.79,
+        "receiveAmount": 5217.81
+      },
+      "revolut": {
+        "rate": 52.7946,
+        "fee": 0.3,
+        "markup": 0.63,
+        "receiveAmount": 5263.62
       }
     }
   }

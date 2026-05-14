@@ -1323,28 +1323,34 @@
     "date": "2026-05-14",
     "providers": {
       "ria": {
-        "rate": 9.3217,
+        "rate": 9.0905,
         "fee": 2.9,
         "markup": null,
-        "receiveAmount": 936.48
+        "receiveAmount": 916.48
       },
       "xoom": {
-        "rate": 8.8142,
+        "rate": 8.8457,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 837.44
+        "receiveAmount": 840.43
       },
       "remitly": {
-        "rate": 9.0461,
+        "rate": 9.0869,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 904.61
+        "receiveAmount": 908.69
       },
       "wise": {
-        "rate": 9.1645,
+        "rate": 9.2007,
         "fee": 6.19,
         "markup": null,
-        "receiveAmount": 859.72
+        "receiveAmount": 863.12
+      },
+      "taptap-send": {
+        "rate": 9,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 900
       }
     }
   }

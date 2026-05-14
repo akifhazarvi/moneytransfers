@@ -509,10 +509,16 @@
     "date": "2026-05-14",
     "providers": {
       "wise": {
-        "rate": 318.831,
+        "rate": 318.815,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 31883.1
+        "receiveAmount": 31881.5
+      },
+      "skrill": {
+        "rate": 310.427,
+        "fee": 0,
+        "markup": 2.69,
+        "receiveAmount": 31042.7
       }
     }
   }

@@ -802,16 +802,22 @@
     "date": "2026-05-14",
     "providers": {
       "ria": {
-        "rate": 552.7947,
+        "rate": 547.8897,
         "fee": 1,
         "markup": null,
-        "receiveAmount": 57256
+        "receiveAmount": 56748
       },
       "wise": {
-        "rate": 560.07,
+        "rate": 561.283,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 56007
+        "receiveAmount": 56128.3
+      },
+      "taptap-send": {
+        "rate": 542,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 54200
       }
     }
   }

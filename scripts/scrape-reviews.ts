@@ -1,11 +1,18 @@
+/**
+ * Trustpilot Review Scraper (Playwright)
+ *
+ * Trustpilot put up an AWS WAF challenge in May 2026 that returns HTTP 403
+ * to plain fetch() requests — the old cheerio-based scraper started writing
+ * all-null scores. Playwright executes the JS challenge so the real page
+ * loads, and we extract the aggregateRating from JSON-LD as before.
+ */
 import * as fs from "fs";
 import * as path from "path";
-import * as cheerio from "cheerio";
+import { setupBrowserContext, delay, NAV_TIMEOUT } from "./lib/browser";
 
 const OUTPUT_DIR = path.join(__dirname, "..", "src", "data", "scraped");
-const DELAY_MS = 5000; // be very polite with Trustpilot
+const DELAY_MS = 2500;
 
-// Map provider slug to Trustpilot domain
 const PROVIDERS: { slug: string; name: string; trustpilotDomain: string }[] = [
   { slug: "wise", name: "Wise", trustpilotDomain: "wise.com" },
   { slug: "remitly", name: "Remitly", trustpilotDomain: "remitly.com" },
@@ -29,12 +36,8 @@ interface TrustpilotRating {
   score: number | null;
   totalReviews: number | null;
   ratingLabel: string | null;
-  stars: number | null; // 1-5
+  stars: number | null;
   dateCollected: string;
-}
-
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function scoreToLabel(score: number): string {
@@ -46,131 +49,103 @@ function scoreToLabel(score: number): string {
   return "Bad";
 }
 
-async function fetchTrustpilotRating(
-  domain: string
-): Promise<{ score: number | null; totalReviews: number | null; stars: number | null }> {
-  const url = `https://www.trustpilot.com/review/${domain}`;
-
-  try {
-    const res = await fetch(url, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        Accept: "text/html,application/xhtml+xml",
-        "Accept-Language": "en-US,en;q=0.9",
-      },
-    });
-
-    if (!res.ok) {
-      console.log(`    ⚠ HTTP ${res.status}`);
-      return { score: null, totalReviews: null, stars: null };
-    }
-
-    const html = await res.text();
-    const $ = cheerio.load(html);
-
-    // Try to extract from JSON-LD structured data
-    let score: number | null = null;
-    let totalReviews: number | null = null;
-    let stars: number | null = null;
-
-    // Look for JSON-LD schema
-    $('script[type="application/ld+json"]').each((_, el) => {
-      try {
-        const data = JSON.parse($(el).html() || "");
-        if (data.aggregateRating) {
-          score = parseFloat(data.aggregateRating.ratingValue);
-          totalReviews = parseInt(data.aggregateRating.reviewCount);
-          stars = Math.round(score);
-        }
-        // Handle @graph format
-        if (data["@graph"]) {
-          for (const item of data["@graph"]) {
-            if (item.aggregateRating) {
-              score = parseFloat(item.aggregateRating.ratingValue);
-              totalReviews = parseInt(item.aggregateRating.reviewCount);
-              stars = Math.round(score);
-            }
-          }
-        }
-      } catch {
-        // skip malformed JSON
-      }
-    });
-
-    // Fallback: parse from meta tags
-    if (score === null) {
-      const ratingContent = $('meta[property="og:description"]').attr("content") || "";
-      const ratingMatch = ratingContent.match(/([\d.]+)\s*(?:out of|\/)\s*5/);
-      if (ratingMatch) score = parseFloat(ratingMatch[1]);
-
-      const reviewMatch = ratingContent.match(/([\d,]+)\s*reviews?/i);
-      if (reviewMatch) totalReviews = parseInt(reviewMatch[1].replace(/,/g, ""));
-    }
-
-    // Fallback: parse from page content
-    if (score === null) {
-      const scoreEl = $('[data-rating-typography="true"]').first().text();
-      if (scoreEl) score = parseFloat(scoreEl);
-
-      const reviewEl = $('span[data-reviews-count-typography="true"]').first().text();
-      if (reviewEl) totalReviews = parseInt(reviewEl.replace(/[^0-9]/g, ""));
-    }
-
-    if (score) stars = Math.round(score);
-
-    return { score, totalReviews, stars };
-  } catch (err) {
-    console.log(`    ⚠ Failed: ${err}`);
-    return { score: null, totalReviews: null, stars: null };
-  }
-}
-
 async function main() {
-  console.log("=== Trustpilot Review Scraper ===\n");
+  console.log("=== Trustpilot Review Scraper (Playwright) ===\n");
   console.log(`Providers: ${PROVIDERS.length}\n`);
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
+  const context = await setupBrowserContext();
+  const page = await context.newPage();
   const ratings: TrustpilotRating[] = [];
 
-  for (const provider of PROVIDERS) {
-    console.log(`  Fetching: ${provider.name} (${provider.trustpilotDomain})...`);
+  try {
+    for (const provider of PROVIDERS) {
+      console.log(`  Fetching: ${provider.name} (${provider.trustpilotDomain})...`);
 
-    const { score, totalReviews, stars } = await fetchTrustpilotRating(
-      provider.trustpilotDomain
-    );
+      let score: number | null = null;
+      let totalReviews: number | null = null;
+      let stars: number | null = null;
 
-    const rating: TrustpilotRating = {
-      slug: provider.slug,
-      name: provider.name,
-      trustpilotDomain: provider.trustpilotDomain,
-      score,
-      totalReviews,
-      ratingLabel: score ? scoreToLabel(score) : null,
-      stars,
-      dateCollected: new Date().toISOString(),
-    };
+      try {
+        const url = `https://www.trustpilot.com/review/${provider.trustpilotDomain}`;
+        await page.goto(url, { waitUntil: "domcontentloaded", timeout: NAV_TIMEOUT });
+        // <script> tags are never visible — wait for the element to attach.
+        await page.waitForSelector('script[type="application/ld+json"]', {
+          state: "attached",
+          timeout: 15000,
+        });
 
-    ratings.push(rating);
+        const jsonLdBlocks = await page.$$eval(
+          'script[type="application/ld+json"]',
+          (els) => els.map((el) => el.textContent || "")
+        );
 
-    if (score !== null) {
-      console.log(
-        `    ✓ Score: ${score}/5 (${totalReviews?.toLocaleString()} reviews) — ${rating.ratingLabel}`
-      );
-    } else {
-      console.log(`    ✗ Could not extract rating`);
+        for (const raw of jsonLdBlocks) {
+          try {
+            const data = JSON.parse(raw);
+            const items = Array.isArray(data["@graph"]) ? data["@graph"] : [data];
+            for (const item of items) {
+              if (item?.aggregateRating?.ratingValue) {
+                score = parseFloat(item.aggregateRating.ratingValue);
+                totalReviews = parseInt(item.aggregateRating.reviewCount, 10);
+                stars = Math.round(score);
+                break;
+              }
+            }
+            if (score !== null) break;
+          } catch {
+            // skip malformed JSON
+          }
+        }
+
+        if (score === null) {
+          // Last-resort DOM fallback (in case the JSON-LD selector changed)
+          const scoreText = await page.$eval(
+            '[data-rating-typography="true"]',
+            (el) => el.textContent || ""
+          ).catch(() => "");
+          const parsed = parseFloat(scoreText);
+          if (!Number.isNaN(parsed)) {
+            score = parsed;
+            stars = Math.round(parsed);
+          }
+        }
+      } catch (err) {
+        console.log(`    ⚠ Failed: ${(err as Error).message}`);
+      }
+
+      const rating: TrustpilotRating = {
+        slug: provider.slug,
+        name: provider.name,
+        trustpilotDomain: provider.trustpilotDomain,
+        score,
+        totalReviews,
+        ratingLabel: score ? scoreToLabel(score) : null,
+        stars,
+        dateCollected: new Date().toISOString(),
+      };
+
+      ratings.push(rating);
+
+      if (score !== null) {
+        console.log(
+          `    ✓ Score: ${score}/5 (${totalReviews?.toLocaleString() || "?"} reviews) — ${rating.ratingLabel}`
+        );
+      } else {
+        console.log(`    ✗ Could not extract rating`);
+      }
+
+      await delay(DELAY_MS);
     }
-
-    await delay(DELAY_MS);
+  } finally {
+    await context.browser()?.close();
   }
 
-  // Write output
   const outputPath = path.join(OUTPUT_DIR, "trustpilot-ratings.json");
   fs.writeFileSync(outputPath, JSON.stringify(ratings, null, 2));
   console.log(`\nWrote ${outputPath} (${ratings.length} providers)`);
 
-  // Print summary table
   console.log("\n=== Summary ===");
   console.log(`${"Provider".padEnd(20)} ${"Score".padStart(6)} ${"Reviews".padStart(10)} Label`);
   console.log("-".repeat(55));

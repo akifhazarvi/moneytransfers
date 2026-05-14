@@ -791,10 +791,22 @@
         "receiveAmount": 36000
       },
       "wise": {
-        "rate": 373.289,
+        "rate": 371.936,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 37328.9
+        "receiveAmount": 37193.6
+      },
+      "paysend": {
+        "rate": 365.4055,
+        "fee": 0,
+        "markup": 2.07,
+        "receiveAmount": 36540.55
+      },
+      "remitly": {
+        "rate": 362.88,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 36288
       }
     }
   }

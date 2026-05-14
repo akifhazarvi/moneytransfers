@@ -28,6 +28,13 @@ import {
   type ProviderQuote,
 } from "./lib/browser";
 
+// Xoom only operates a US storefront via `xoom.com/{country}/send-money` —
+// EU/GCC senders need a separate localized storefront we don't scrape. The
+// scraper used to record GBP/EUR/AED/SAR-originating corridors by visiting
+// the US site and labeling the captured USD rate with the wrong send
+// currency, which produced fabricated data. Those corridors are covered
+// for Xoom by the Wise Comparison API (~73 Xoom corridors including all
+// the GBP/EUR/AED/SAR routes), so dropping them here loses no coverage.
 const CORRIDORS = [
   { from: "USD", to: "INR", country: "india" },
   { from: "USD", to: "PHP", country: "philippines" },
@@ -45,30 +52,6 @@ const CORRIDORS = [
   { from: "USD", to: "ZAR", country: "south-africa" },
   { from: "USD", to: "IDR", country: "indonesia" },
   { from: "USD", to: "THB", country: "thailand" },
-  // From GBP
-  { from: "GBP", to: "INR", country: "india" },
-  { from: "GBP", to: "PHP", country: "philippines" },
-  { from: "GBP", to: "NGN", country: "nigeria" },
-  { from: "GBP", to: "PKR", country: "pakistan" },
-  { from: "GBP", to: "BDT", country: "bangladesh" },
-  // From EUR
-  { from: "EUR", to: "INR", country: "india" },
-  { from: "EUR", to: "PHP", country: "philippines" },
-  { from: "EUR", to: "NGN", country: "nigeria" },
-  { from: "EUR", to: "PKR", country: "pakistan" },
-  { from: "EUR", to: "BDT", country: "bangladesh" },
-  { from: "EUR", to: "MXN", country: "mexico" },
-  { from: "EUR", to: "BRL", country: "brazil" },
-  // From AED
-  { from: "AED", to: "INR", country: "india" },
-  { from: "AED", to: "PKR", country: "pakistan" },
-  { from: "AED", to: "PHP", country: "philippines" },
-  { from: "AED", to: "BDT", country: "bangladesh" },
-  // From SAR
-  { from: "SAR", to: "INR", country: "india" },
-  { from: "SAR", to: "PKR", country: "pakistan" },
-  { from: "SAR", to: "PHP", country: "philippines" },
-  { from: "SAR", to: "BDT", country: "bangladesh" },
 ];
 
 const SEND_AMOUNTS = [100, 1000];
@@ -96,13 +79,19 @@ function parseXoomResponse(
     const best = achPricing || debitPricing || pricing[0];
 
     const rate = parseFloat(best.fxRate?.rate || "0");
-    const sendAmount = parseFloat(best.sendAmount?.rawValue || "0") || expectedAmount;
-    const receiveAmount = parseFloat(best.receiveAmount?.rawValue || "0");
     const fee = parseFloat(best.feeAmount?.rawValue || "0");
     const paymentType =
       (best.paymentType as Record<string, string>)?.type || null;
 
-    if (!rate || !receiveAmount) return null;
+    // Xoom's rawValue fields switched to a scaled-integer encoding in
+    // May 2026 (sendAmount.rawValue=100200 for a $100 send, receiveAmount
+    // similarly inflated 10000x). We ignore rawValue entirely now and use
+    // the requested expectedAmount as send, and compute receive from
+    // rate × (send - fee). This matches what the user actually gets and
+    // is robust against future Xoom unit-encoding tweaks.
+    const sendAmount = expectedAmount;
+    if (!rate) return null;
+    const receiveAmount = (sendAmount - fee) * rate;
 
     return {
       provider: "Xoom",

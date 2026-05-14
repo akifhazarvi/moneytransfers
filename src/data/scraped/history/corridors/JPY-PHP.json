@@ -520,10 +520,16 @@
     "date": "2026-05-14",
     "providers": {
       "wise": {
-        "rate": 0.3892,
+        "rate": 0.3904,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 38.92
+        "receiveAmount": 39.04
+      },
+      "instarem": {
+        "rate": 0.3865,
+        "fee": 0,
+        "markup": 0.79,
+        "receiveAmount": 38.65
       }
     }
   }

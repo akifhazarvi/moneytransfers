@@ -520,10 +520,16 @@
     "date": "2026-05-14",
     "providers": {
       "ria": {
-        "rate": 196.476,
+        "rate": 201.5628,
         "fee": 2.89,
         "markup": null,
-        "receiveAmount": 19647.6
+        "receiveAmount": 20156.28
+      },
+      "taptap-send": {
+        "rate": 203,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 19490.03
       }
     }
   }

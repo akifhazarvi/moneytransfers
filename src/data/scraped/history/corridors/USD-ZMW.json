@@ -520,10 +520,16 @@
     "date": "2026-05-14",
     "providers": {
       "wise": {
-        "rate": 18.876,
+        "rate": 18.897,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1887.6
+        "receiveAmount": 1889.7
+      },
+      "taptap-send": {
+        "rate": 17.89,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1789
       }
     }
   }

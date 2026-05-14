@@ -2451,22 +2451,22 @@
     "date": "2026-05-14",
     "providers": {
       "remitly": {
-        "rate": 31.6442,
+        "rate": 31.6193,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 3101.45
+        "receiveAmount": 3099.01
       },
       "ria": {
-        "rate": 31.9092,
+        "rate": 31.7958,
         "fee": 1,
         "markup": null,
-        "receiveAmount": 3231.41
+        "receiveAmount": 3219.93
       },
       "instarem": {
-        "rate": 32.1185,
+        "rate": 32.1136,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3211.85
+        "receiveAmount": 3211.36
       },
       "bank-of-america": {
         "rate": 31.4151,
@@ -2481,16 +2481,22 @@
         "receiveAmount": 3132.4
       },
       "xoom": {
-        "rate": 30.9687,
+        "rate": 30.968,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 3096.87
+        "receiveAmount": 2942.27
       },
       "wise": {
-        "rate": 32.345,
+        "rate": 32.35,
         "fee": 2.87,
         "markup": null,
-        "receiveAmount": 3141.67
+        "receiveAmount": 3142.16
+      },
+      "taptap-send": {
+        "rate": 32.2,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3220
       }
     }
   }

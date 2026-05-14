@@ -3472,70 +3472,76 @@
         "receiveAmount": 3436.15
       },
       "western-union": {
-        "rate": 34.3042,
+        "rate": 36.0412,
         "fee": 2.2,
-        "markup": 1.95,
-        "receiveAmount": 3354.96
+        "markup": 1.03,
+        "receiveAmount": 3524.83
       },
       "xe": {
-        "rate": 34.711,
+        "rate": 36.2541,
         "fee": 5,
-        "markup": 0.79,
-        "receiveAmount": 3297.55
+        "markup": 0.45,
+        "receiveAmount": 3444.14
       },
       "revolut": {
-        "rate": 34.6608,
-        "fee": 2.2,
-        "markup": 0.93,
-        "receiveAmount": 3389.82
+        "rate": 36.2422,
+        "fee": 1.2,
+        "markup": 0.48,
+        "receiveAmount": 3580.73
       },
       "wise": {
-        "rate": 36.4504,
+        "rate": 36.4586,
         "fee": 1.7,
         "markup": null,
-        "receiveAmount": 3583.07
+        "receiveAmount": 3583.88
       },
       "ria": {
-        "rate": 34.676,
+        "rate": 36.2175,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3467.6
+        "receiveAmount": 3621.75
       },
       "auckland-savings-bank-nz": {
-        "rate": 35.9358,
+        "rate": 35.8377,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 3413.91
+        "receiveAmount": 3404.58
       },
       "kiwibank": {
-        "rate": 35.5991,
+        "rate": 35.5978,
         "fee": 20,
         "markup": null,
-        "receiveAmount": 2847.93
+        "receiveAmount": 2847.83
       },
       "bank-of-new-zealand-nz": {
-        "rate": 35.8376,
+        "rate": 35.7171,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3583.76
+        "receiveAmount": 3571.71
       },
       "paypal": {
-        "rate": 34.8045,
+        "rate": 34.7518,
         "fee": 6.99,
         "markup": null,
-        "receiveAmount": 3237.17
+        "receiveAmount": 3232.26
       },
       "westpac-nz": {
-        "rate": 35.5598,
+        "rate": 35.5149,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3555.98
+        "receiveAmount": 3551.49
       },
       "remitly": {
-        "rate": 36.0884,
+        "rate": 36.0338,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 3537.03
+        "receiveAmount": 3531.67
+      },
+      "moneygram": {
+        "rate": 35.1575,
+        "fee": 4.99,
+        "markup": 3.46,
+        "receiveAmount": 3340.31
       }
     }
   }

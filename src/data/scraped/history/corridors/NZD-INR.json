@@ -3100,10 +3100,10 @@
     "date": "2026-05-14",
     "providers": {
       "skrill": {
-        "rate": 53.3977,
+        "rate": 55.542,
         "fee": 0,
-        "markup": 2.32,
-        "receiveAmount": 5339.77
+        "markup": 2.03,
+        "receiveAmount": 5554.2
       },
       "xe": {
         "rate": 53.9929,
@@ -3112,52 +3112,58 @@
         "receiveAmount": 5183.31
       },
       "western-union": {
-        "rate": 53.6039,
+        "rate": 55.9929,
         "fee": 1.2,
-        "markup": 1.94,
-        "receiveAmount": 5296.07
+        "markup": 1.23,
+        "receiveAmount": 5532.09
       },
       "revolut": {
-        "rate": 54.3214,
-        "fee": 1.8,
-        "markup": 0.63,
-        "receiveAmount": 5334.36
+        "rate": 56.4693,
+        "fee": 0.8,
+        "markup": 0.39,
+        "receiveAmount": 5601.75
       },
       "ria": {
-        "rate": 53.857,
+        "rate": 56.3103,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5385.7
+        "receiveAmount": 5631.03
       },
       "remitly": {
-        "rate": 56.2157,
+        "rate": 56.1821,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5621.57
+        "receiveAmount": 5618.21
       },
       "westpac-nz": {
-        "rate": 55.3144,
+        "rate": 55.3357,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5531.44
+        "receiveAmount": 5533.57
       },
       "bank-of-new-zealand-nz": {
-        "rate": 55.7366,
+        "rate": 55.7357,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5573.66
+        "receiveAmount": 5573.57
       },
       "auckland-savings-bank-nz": {
-        "rate": 55.8394,
+        "rate": 55.6735,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 5304.74
+        "receiveAmount": 5288.98
       },
       "wise": {
-        "rate": 56.7512,
+        "rate": 56.7279,
         "fee": 1.71,
         "markup": null,
-        "receiveAmount": 5578.08
+        "receiveAmount": 5575.79
+      },
+      "moneygram": {
+        "rate": 54.8425,
+        "fee": 4.99,
+        "markup": 3.26,
+        "receiveAmount": 5210.59
       }
     }
   }
