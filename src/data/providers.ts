@@ -2020,6 +2020,19 @@ const INDICATIVE_PROVIDERS: {
   },
 ];
 
+// Currencies that broker desks treat as majors — tighter spreads, ~0.5%.
+// Everything else (EM, exotics, GCC) gets ~0.8% to reflect wider desk pricing.
+const INDICATIVE_MAJOR_CURRENCIES = new Set([
+  "GBP", "EUR", "USD", "CAD", "AUD", "NZD", "JPY", "CHF",
+]);
+
+function indicativeMarkup(fromCurrency: string, toCurrency: string): number {
+  const bothMajor =
+    INDICATIVE_MAJOR_CURRENCIES.has(fromCurrency) &&
+    INDICATIVE_MAJOR_CURRENCIES.has(toCurrency);
+  return bothMajor ? 0.005 : 0.008;
+}
+
 function buildIndicativeQuotes(
   amount: number,
   fromCurrency: string,
@@ -2027,6 +2040,8 @@ function buildIndicativeQuotes(
   baseRate: number,
 ): TransferQuote[] {
   if (!baseRate || baseRate <= 0) return [];
+  const markup = indicativeMarkup(fromCurrency, toCurrency);
+  const adjustedRate = baseRate * (1 - markup);
   return INDICATIVE_PROVIDERS.flatMap(({ slug, from, to }) => {
     if (!from.has(fromCurrency) || !to.has(toCurrency)) return [];
     const provider = providers.find((p) => p.slug === slug);
@@ -2038,9 +2053,9 @@ function buildIndicativeQuotes(
       sendAmount: amount,
       sendCurrency: fromCurrency,
       receiveCurrency: toCurrency,
-      exchangeRate: Math.round(baseRate * 10000) / 10000,
+      exchangeRate: Math.round(adjustedRate * 10000) / 10000,
       fee: 0,
-      receiveAmount: Math.round(amount * baseRate * 100) / 100,
+      receiveAmount: Math.round(amount * adjustedRate * 100) / 100,
       transferSpeed: provider.transferSpeed,
       rating,
       ratingLabel: toRatingLabel(rating),
