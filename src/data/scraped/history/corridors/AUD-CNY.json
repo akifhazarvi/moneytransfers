@@ -1327,5 +1327,34 @@
         "receiveAmount": 490.02
       }
     }
+  },
+  {
+    "date": "2026-05-14",
+    "providers": {
+      "remitly": {
+        "rate": 4.8546,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 470.95
+      },
+      "instarem": {
+        "rate": 4.9161,
+        "fee": 0.37,
+        "markup": null,
+        "receiveAmount": 489.79
+      },
+      "xoom": {
+        "rate": 5.0312,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 503.12
+      },
+      "nab": {
+        "rate": 4.7751,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 477.51
+      }
+    }
   }
 ]

@@ -2893,5 +2893,52 @@
         "receiveAmount": 72.08
       }
     }
+  },
+  {
+    "date": "2026-05-14",
+    "providers": {
+      "commonwealth-bank": {
+        "rate": 0.7065,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 70.65
+      },
+      "nab": {
+        "rate": 0.7066,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 70.66
+      },
+      "hsbc": {
+        "rate": 0.7109,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 71.09
+      },
+      "instarem": {
+        "rate": 0.7246,
+        "fee": 0.5,
+        "markup": null,
+        "receiveAmount": 72.1
+      },
+      "xoom": {
+        "rate": 0.6859,
+        "fee": 1.29,
+        "markup": null,
+        "receiveAmount": 67.71
+      },
+      "paypal": {
+        "rate": 0.6936,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 65.89
+      },
+      "remitly": {
+        "rate": 0.7154,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 70.47
+      }
+    }
   }
 ]
