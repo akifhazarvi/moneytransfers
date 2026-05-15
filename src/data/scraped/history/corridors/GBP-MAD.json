@@ -532,5 +532,22 @@
         "receiveAmount": 1230
       }
     }
+  },
+  {
+    "date": "2026-05-15",
+    "providers": {
+      "ace-money-transfer": {
+        "rate": 12.3024,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1230.24
+      },
+      "taptap-send": {
+        "rate": 12.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1230
+      }
+    }
   }
 ]

@@ -2757,5 +2757,58 @@
         "receiveAmount": 1720394
       }
     }
+  },
+  {
+    "date": "2026-05-15",
+    "providers": {
+      "remitly": {
+        "rate": 17364.1133,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1719220.86
+      },
+      "ria": {
+        "rate": 17039.176,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1736315
+      },
+      "taptap-send": {
+        "rate": 17500,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1750000
+      },
+      "bank-of-america": {
+        "rate": 16934.0958,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1693409.58
+      },
+      "moneygram": {
+        "rate": 17353.8112,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1718200.85
+      },
+      "xoom": {
+        "rate": 17104.9651,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1710496.51
+      },
+      "instarem": {
+        "rate": 17383.881,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1738388.1
+      },
+      "wise": {
+        "rate": 17613,
+        "fee": 1.86,
+        "markup": null,
+        "receiveAmount": 1728540
+      }
+    }
   }
 ]

@@ -1444,5 +1444,28 @@
         "receiveAmount": 1279504.03
       }
     }
+  },
+  {
+    "date": "2026-05-15",
+    "providers": {
+      "remitly": {
+        "rate": 13427.7492,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1275770.45
+      },
+      "ocbc": {
+        "rate": 13330.3345,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 933123.41
+      },
+      "instarem": {
+        "rate": 13657.8275,
+        "fee": 0.62,
+        "markup": null,
+        "receiveAmount": 1357314.89
+      }
+    }
   }
 ]

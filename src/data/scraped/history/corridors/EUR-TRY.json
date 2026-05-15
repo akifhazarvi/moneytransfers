@@ -2566,5 +2566,88 @@
         "receiveAmount": 5263.62
       }
     }
+  },
+  {
+    "date": "2026-05-15",
+    "providers": {
+      "moneygram": {
+        "rate": 52.9683,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5296.83
+      },
+      "taptap-send": {
+        "rate": 53.25,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5325
+      },
+      "deutsche-bank": {
+        "rate": 52.7868,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3349.32
+      },
+      "xe": {
+        "rate": 52.6452,
+        "fee": 4,
+        "markup": 0.91,
+        "receiveAmount": 5053.94
+      },
+      "western-union": {
+        "rate": 52.3914,
+        "fee": 0.99,
+        "markup": 1.38,
+        "receiveAmount": 5187.27
+      },
+      "dahabshiil": {
+        "rate": 52.1368,
+        "fee": 1,
+        "markup": 1.86,
+        "receiveAmount": 5161.54
+      },
+      "instarem": {
+        "rate": 52.6679,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5266.79
+      },
+      "paysend": {
+        "rate": 52.1781,
+        "fee": 0,
+        "markup": 1.79,
+        "receiveAmount": 5217.81
+      },
+      "remitly": {
+        "rate": 52.8545,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5206.7
+      },
+      "revolut": {
+        "rate": 52.7946,
+        "fee": 0.3,
+        "markup": 0.63,
+        "receiveAmount": 5263.62
+      },
+      "wise": {
+        "rate": 53.0579,
+        "fee": 7.58,
+        "markup": null,
+        "receiveAmount": 4903.61
+      },
+      "ria": {
+        "rate": 52.1676,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5381.28
+      },
+      "commerzbank": {
+        "rate": 52.1978,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4567.31
+      }
+    }
   }
 ]
