@@ -45,7 +45,7 @@ export default function NewsletterForm({ placeholder, buttonLabel }: Props) {
   if (status === "success") {
     return (
       <p className="text-sm text-[var(--color-success-dark)] font-medium py-3">
-        You&apos;re subscribed! We&apos;ll send you the latest guides and rate alerts.
+        You&apos;re subscribed! We&apos;ll send you the latest guides and the weekly digest.
       </p>
     );
   }

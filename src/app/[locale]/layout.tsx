@@ -11,7 +11,6 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
 import GA4PageviewTracker from "@/components/GA4PageviewTracker";
 import LazySendMoneyBot from "@/components/LazySendMoneyBot";
-import LazyExitIntent from "@/components/LazyExitIntent";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -303,7 +302,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LazyAnalytics />
           <GA4PageviewTracker />
           <LazySendMoneyBot />
-          <LazyExitIntent />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>

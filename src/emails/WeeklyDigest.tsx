@@ -256,14 +256,6 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
           <Section>
             <Text style={crossSellHeading}>You might also want</Text>
             <Section style={crossSellItem}>
-              <Link href={corridorLink(corridor, { anchor: "#rate-alert" })} style={crossSellLink}>
-                📈 Set a rate alert
-              </Link>
-              <Text style={crossSellMeta}>
-                Get notified when {corridor.fromCurrency} → {corridor.toCurrency} hits your target.
-              </Text>
-            </Section>
-            <Section style={crossSellItem}>
               <Link href={`${SITE}/guides/how-to-send-money-abroad?${UTM}`} style={crossSellLink}>
                 📘 How to send money abroad
               </Link>

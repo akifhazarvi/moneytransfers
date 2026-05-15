@@ -154,17 +154,8 @@ export function trackBotClosed(pageType: string) {
 }
 
 /** User picked one of the quick-reply actions inside chat */
-export function trackBotActionSelected(action: "alert" | "digest" | "question", pageType: string) {
+export function trackBotActionSelected(action: "digest" | "question", pageType: string) {
   gtagEvent("bot_action_selected", { action, page_type: pageType });
-}
-
-/** User submitted a rate alert from the bot — CONVERSION */
-export function trackBotRateAlertSubmitted(corridorStr: string, hasTargetRate: boolean) {
-  dual("bot_rate_alert_submitted", {
-    corridor: corridorStr,
-    has_target_rate: hasTargetRate,
-    source: "bot_widget",
-  });
 }
 
 /** User subscribed to weekly digest from the bot — CONVERSION */
@@ -173,44 +164,12 @@ export function trackBotDigestSubmitted(corridorStr: string) {
 }
 
 // ═════════════════════════════════════════════════════════════════
-// STEP 4 — Exit-intent modal (last-chance email capture)
-// ═════════════════════════════════════════════════════════════════
-
-/** Modal appeared (mouse-leave triggered) */
-export function trackExitIntentShown(corridorStr: string, pageType: string) {
-  gtagEvent("exit_intent_shown", { corridor: corridorStr, page_type: pageType });
-}
-
-/** User closed the modal without signing up */
-export function trackExitIntentDismissed(pageType: string) {
-  gtagEvent("exit_intent_dismissed", { page_type: pageType });
-}
-
-/** User submitted email in the modal — CONVERSION */
-export function trackExitIntentConverted(corridorStr: string, pageType: string) {
-  dual("exit_intent_converted", {
-    corridor: corridorStr,
-    page_type: pageType,
-    source: "exit_intent",
-  });
-}
-
-// ═════════════════════════════════════════════════════════════════
-// STEP 5 — Email capture (non-bot, non-exit-intent surfaces)
+// STEP 4 — Email capture (page-embedded forms)
 // ═════════════════════════════════════════════════════════════════
 
 /** Newsletter signup from any page-embedded form */
 export function trackNewsletterSignup(source: string) {
   dual("newsletter_signup", { source });
-}
-
-/** Rate alert set from a page-embedded RateAlertForm — CONVERSION */
-export function trackRateAlertSet(corridorStr: string, source: string, hasTargetRate: boolean) {
-  dual("rate_alert_set", {
-    corridor: corridorStr,
-    source,
-    has_target_rate: hasTargetRate,
-  });
 }
 
 // ═════════════════════════════════════════════════════════════════

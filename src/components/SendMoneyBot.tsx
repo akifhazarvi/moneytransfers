@@ -4,7 +4,6 @@ import { useState, useEffect, type FormEvent } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
-  Bell,
   Mail,
   HelpCircle,
   PiggyBank,
@@ -23,11 +22,10 @@ import {
   trackBotOpened,
   trackBotClosed,
   trackBotActionSelected,
-  trackBotRateAlertSubmitted,
   trackBotDigestSubmitted,
 } from "@/lib/analytics";
 
-type Tab = "menu" | "alert" | "digest" | "question";
+type Tab = "menu" | "digest" | "question";
 type Status = "idle" | "loading" | "success" | "error";
 
 /** Classify pathname into a page_type for analytics slicing */
@@ -78,7 +76,7 @@ const POPULAR_CORRIDORS = [
 // Replaces the old 4-second rotating ticker with something scannable at a glance.
 const PROOF_STATS: { Icon: LucideIcon; label: string; value: string; sub: string }[] = [
   { Icon: PiggyBank, label: "avg saved", value: "$47", sub: "per $1K transfer" },
-  { Icon: Bell, label: "alerts active", value: "847", sub: "this month" },
+  { Icon: TrendingUp, label: "providers tracked", value: "35+", sub: "live quotes" },
   { Icon: Zap, label: "data refresh", value: "6h", sub: "from 35+ APIs" },
 ];
 
@@ -105,12 +103,12 @@ function getContextualGreeting(pathname: string | null): Greeting {
   if (corridorMatch) {
     const corridor = prettyCorridor(corridorMatch[1]);
     return {
-      title: `Going ${corridor}? Lock in today's rate.`,
-      subtitle: "I'll email you the second the rate beats your target. Free, no spam.",
-      nudge: "Most senders save $40–$80 per $1,000 by timing their transfer",
-      triggerLabel: `Track ${corridor} rates`,
+      title: `Going ${corridor}? Get the cheapest provider weekly.`,
+      subtitle: "Monday emails with the cheapest provider for your corridor. Free, no spam.",
+      nudge: "Most senders save $40–$80 per $1,000 by picking the right provider",
+      triggerLabel: `Get ${corridor} digest`,
       teaserLead: `Sending to ${corridor.split("→")[1]?.trim() || "this corridor"}?`,
-      teaserSub: "Get a free alert when the rate is right →",
+      teaserSub: "Weekly cheapest-provider email →",
       delayMs: 3000,
     };
   }
@@ -120,12 +118,12 @@ function getContextualGreeting(pathname: string | null): Greeting {
   if (pairMatch) {
     const pair = `${pairMatch[1].toUpperCase()}→${pairMatch[2].toUpperCase()}`;
     return {
-      title: `Track the ${pair} rate for me?`,
-      subtitle: "I'll email you when it hits a rate you like. Set it and forget it.",
-      nudge: `${pair} can swing 1–3% in a week — timing matters`,
-      triggerLabel: `Track ${pair}`,
-      teaserLead: `${pair} — watch this rate?`,
-      teaserSub: "Free alerts sent to your inbox →",
+      title: `Track the ${pair} corridor for me?`,
+      subtitle: "Free weekly digest with the cheapest provider on this pair. No spam.",
+      nudge: `${pair} can swing 1–3% in a week — picking the right provider matters`,
+      triggerLabel: `Get ${pair} digest`,
+      teaserLead: `${pair} — watch this corridor?`,
+      teaserSub: "Free weekly digest to your inbox →",
       delayMs: 3000,
     };
   }
@@ -162,11 +160,11 @@ function getContextualGreeting(pathname: string | null): Greeting {
   if (p.includes("/guides/") || p.includes("/news/")) {
     return {
       title: "Planning to send money soon?",
-      subtitle: "Get free rate alerts or a weekly roundup of the cheapest providers.",
+      subtitle: "Get a weekly digest of the cheapest providers across 35+ services. Free.",
       nudge: "Most readers save $50+ on $1,000 transfers",
-      triggerLabel: "Get rate alerts — free",
+      triggerLabel: "Get the weekly digest — free",
       teaserLead: "Planning a transfer?",
-      teaserSub: "Free rate alerts when it's the right time →",
+      teaserSub: "Free weekly cheapest-provider digest →",
       delayMs: 6000,
     };
   }
@@ -175,11 +173,11 @@ function getContextualGreeting(pathname: string | null): Greeting {
   if (p.includes("/iban") || p.includes("/swift")) {
     return {
       title: "Sending to this country soon?",
-      subtitle: "I can email you when the rate is right — free, no spam.",
+      subtitle: "Free weekly digest with the cheapest provider for your corridor.",
       nudge: "IBAN alone won't save you money — the provider you choose will",
       triggerLabel: "Save on your transfer",
       teaserLead: "Sending money to this country?",
-      teaserSub: "Free rate alerts + the cheapest provider →",
+      teaserSub: "Free weekly digest + cheapest provider →",
       delayMs: 6000,
     };
   }
@@ -200,11 +198,11 @@ function getContextualGreeting(pathname: string | null): Greeting {
   // Homepage + default — low-intent browsing
   return {
     title: "Hi! I'm your money transfer assistant.",
-    subtitle: "I track rates from 35+ providers and can email you when it's the right time to send.",
+    subtitle: "I track 35+ providers and send you a free weekly digest of the cheapest options.",
     nudge: "Compare 35+ providers in one place",
     triggerLabel: "Save on transfers",
     teaserLead: "Save up to $80 per $1,000 transfer",
-    teaserSub: "Free rate alerts from 35+ providers →",
+    teaserSub: "Free weekly digest from 35+ providers →",
     delayMs: 8000,
   };
 }
@@ -257,7 +255,7 @@ export default function SendMoneyBot() {
   }
 
   function handlePickAction(nextTab: Tab) {
-    if (nextTab === "alert" || nextTab === "digest" || nextTab === "question") {
+    if (nextTab === "digest" || nextTab === "question") {
       trackBotActionSelected(nextTab, pageType);
     }
     setTab(nextTab);
@@ -398,7 +396,6 @@ export default function SendMoneyBot() {
             {/* Body */}
             <div className="flex-1 overflow-y-auto bg-[var(--color-surface-dim)] p-4 flex flex-col gap-3">
               {tab === "menu" && <MenuView setTab={handlePickAction} greeting={greeting} />}
-              {tab === "alert" && <AlertView onBack={() => setTab("menu")} />}
               {tab === "digest" && <DigestView onBack={() => setTab("menu")} />}
               {tab === "question" && <QuestionView onBack={() => setTab("menu")} />}
             </div>
@@ -455,7 +452,6 @@ function MenuView({ setTab, greeting }: { setTab: (t: Tab) => void; greeting: Re
 
       {showActions && (
         <div className="flex flex-col gap-2 mt-1 smcBot-fadeIn">
-          <QuickReply Icon={Bell} title="Set a rate alert" subtitle="Email when your target rate hits" onClick={() => setTab("alert")} />
           <QuickReply Icon={Mail} title="Weekly digest" subtitle="Monday emails, cheapest providers" badge="POPULAR" onClick={() => setTab("digest")} />
           <QuickReply Icon={HelpCircle} title="Ask a question" subtitle="Guides, safety, FAQs" onClick={() => setTab("question")} />
 
@@ -533,75 +529,6 @@ function QuickReply({ Icon, title, subtitle, badge, onClick }: {
         <span className="text-[var(--color-on-surface-muted)] group-hover:text-[var(--color-primary)] group-hover:translate-x-0.5 transition-all text-lg">→</span>
       </div>
     </button>
-  );
-}
-
-function AlertView({ onBack }: { onBack: () => void }) {
-  const [email, setEmail] = useState("");
-  const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("INR");
-  const [targetRate, setTargetRate] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-  const [errorMsg, setErrorMsg] = useState("");
-
-  async function submit(e: FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/rate-alerts", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), fromCurrency, toCurrency, targetRate: targetRate.trim() || undefined, source: "bot-widget" }),
-      });
-      if (res.ok) {
-        trackBotRateAlertSubmitted(`${fromCurrency}-${toCurrency}`, !!targetRate.trim());
-        setStatus("success");
-      } else {
-        const d = await res.json().catch(() => ({}));
-        setErrorMsg(d.error || "Something went wrong.");
-        setStatus("error");
-      }
-    } catch { setErrorMsg("Network error."); setStatus("error"); }
-  }
-
-  if (status === "success") return <SuccessView onBack={onBack} message={`You'll get an email when ${fromCurrency}→${toCurrency} hits your target.`} />;
-
-  return (
-    <>
-      <BackChip onClick={onBack} />
-      <ChatBubble>
-        <p className="font-medium mb-1 flex items-center gap-1.5"><Bell className="w-3.5 h-3.5 text-[var(--color-primary)]" strokeWidth={2.25} />Let&apos;s set up an alert</p>
-        <p className="text-xs text-[var(--color-on-surface-variant)]">Pick your currencies and I&apos;ll email you when the rate is right.</p>
-      </ChatBubble>
-
-      <form onSubmit={submit} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-4 flex flex-col gap-3 shadow-sm">
-        {/* Email first — lowest-friction commit. Once the email is in, completion rate of remaining fields jumps. */}
-        <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Your email</label>
-          <input type="email" required autoFocus value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
-        </div>
-        <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Which pair?</label>
-          <div className="flex gap-2 mt-1.5">
-            <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)} className="flex-1 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]">
-              {CURRENCIES.map((c) => <option key={c}>{c}</option>)}
-            </select>
-            <span className="self-center text-[var(--color-primary)] font-bold">→</span>
-            <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)} className="flex-1 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]">
-              {CURRENCIES.map((c) => <option key={c}>{c}</option>)}
-            </select>
-          </div>
-        </div>
-        <div>
-          <label className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider">Target rate <span className="text-[var(--color-on-surface-muted)] normal-case font-normal">(optional — leave blank to get any improvement)</span></label>
-          <input type="number" step="any" min="0" value={targetRate} onChange={(e) => setTargetRate(e.target.value)} placeholder="e.g. 85.50" className="w-full mt-1.5 border border-[var(--color-outline)] rounded-xl px-3 py-2.5 text-sm bg-[var(--color-surface)] text-[var(--color-on-surface)] focus:outline-none focus:border-[var(--color-primary)]" />
-        </div>
-        <button type="submit" disabled={status === "loading"} className="mt-1 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-4 py-3 rounded-full text-sm font-semibold transition-colors disabled:opacity-60 shadow-[var(--shadow-sm)]">
-          {status === "loading" ? "Setting up…" : "Create free alert"}
-        </button>
-        {status === "error" && <p className="text-xs text-rose-500">{errorMsg}</p>}
-        <p className="text-[10px] text-center text-[var(--color-on-surface-muted)]">Free · No spam · Unsubscribe anytime</p>
-      </form>
-    </>
   );
 }
 

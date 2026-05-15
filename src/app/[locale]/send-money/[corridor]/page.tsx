@@ -22,7 +22,6 @@ import {
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
-import RateAlertForm from "@/components/RateAlertForm";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import CorridorHero from "@/components/CorridorHero";
 import RatingBadge from "@/components/RatingBadge";
@@ -3220,15 +3219,6 @@ export default async function CorridorPage({ params }: Props) {
             Compare providers now
           </PrimaryButton>
 
-          {/* Rate alert signup */}
-          <div className="mt-8 text-left">
-            <RateAlertForm
-              defaultFrom={fromCurrency}
-              defaultTo={toCurrency}
-              currentRate={midRate ?? undefined}
-              source={`corridor-${slug}`}
-            />
-          </div>
         </div>
       </section>
 
