@@ -4,7 +4,7 @@
  * Each entry provides unique, SEO-optimised content targeting real user search queries.
  * Countries in this file: India, Pakistan, Bangladesh, Nepal, Sri Lanka, Philippines,
  * Vietnam, Indonesia, Thailand, China, Japan, Mexico, Brazil, Colombia, Peru,
- * Guatemala, Dominican Republic, Jamaica, Nigeria, Kenya.
+ * Argentina, Chile, Panama, Guatemala, Dominican Republic, Jamaica, Nigeria, Kenya.
  */
 
 export interface CountryPageFAQ {
@@ -729,6 +729,152 @@ export const countryPageContents: Record<string, CountryPageContent> = {
         question: "Are there limits on sending money to Peru?",
         answer:
           "Peru's SBS has no cap on inbound personal remittances. Providers have their own limits: Wise up to $1M per transfer, Remitly up to $10,000–$50,000 depending on account verification level. Transfers above $10,000 to Peru may be reported by the sending country's FIU under standard AML rules. Recipients in Peru do not pay tax on personal remittances.",
+      },
+    ],
+  },
+
+  argentina: {
+    slug: "argentina",
+    countryName: "Argentina",
+    currency: "ARS",
+    intro:
+      "Argentina is one of the most complex remittance corridors in the world. The country has multiple parallel USD/ARS exchange rates — the official rate set by Banco Central de la República Argentina (BCRA), the blue (parallel) rate, the MEP (stock market) rate, and the CCL (Contado con Liquidación) rate — and the gap between them has at times exceeded 100%. The local rail, Transferencias 3.0, launched by BCRA in 2020 has reached roughly 29 million active users and ~1.2 billion transactions a year, with QR interoperability across banks and wallets like Mercado Pago and Ualá. Capital controls (the cepo cambiario) have shaped remittance behaviour for years, and choosing how you send dramatically changes how many pesos your recipient actually receives.",
+    highlights: [
+      "Transferencias 3.0 is BCRA's real-time, QR-interoperable instant payment scheme. Recipients can be paid into a CBU (bank account) or a CVU (wallet account at Mercado Pago, Ualá, Naranja X, Brubank, etc.) and funds settle in seconds, 24/7 — many international providers now deliver via CBU/CVU or a human-friendly Alias.",
+      "BCRA (Banco Central de la República Argentina) is the FX regulator. Inbound remittances are credited via the MULC (Mercado Único y Libre de Cambios) at the official wholesale rate unless the provider routes through a digital-dollar product (USDT/USDC) or local fintech rails — the choice of rail determines whether the recipient receives the official rate or a closer-to-blue rate.",
+      "Major receiving banks: Banco Galicia, Banco Santander Argentina, Banco BBVA Argentina, Banco Macro, Banco Nación, and Banco Patagonia. Digital banks Brubank and Naranja X plus fintech wallets Mercado Pago and Ualá now hold ~25M+ Argentine accounts combined and are widely used for international payouts.",
+      "Personal inbound remittances are not subject to Argentine income tax (Ganancias), but ARS received via the official MULC channel is settled at the wholesale rate, which has historically been much weaker than the parallel/MEP rate. There is no IOF-style tax, but recipients can lose 30–50% of value purely from the rate they're paid out at if a non-fintech rail is used.",
+      "ARS is one of the most volatile currencies on the planet — annual depreciation of 80–200% against USD has been common. Live, time-stamped rate comparison is critical: a transfer sent in the morning can differ from one sent in the afternoon by several percent, and rate markups between providers on the USD-to-ARS corridor frequently exceed 5–10%.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Argentina?",
+        answer:
+          "On the official rail, Wise and Remitly typically have the smallest ARS markup, but both settle at the BCRA wholesale rate — which can be 30–80% weaker than the parallel/MEP rate. For maximum ARS received, many senders use providers that route via local fintech rails or stablecoin (USDT/USDC) liquidity — these can pay out at a rate close to MEP. Always compare the total ARS the recipient receives, not just the fee, because the rate spread completely dominates cost on this corridor.",
+      },
+      {
+        question: "What is Transferencias 3.0 and can I send money to a CBU, CVU, or Alias?",
+        answer:
+          "Transferencias 3.0 is the BCRA-operated instant payment scheme launched in 2020, with QR interoperability between every bank, wallet, and fintech in Argentina. Recipients can be identified by a 22-digit CBU (Clave Bancaria Uniforme — bank accounts), a 22-digit CVU (Clave Virtual Uniforme — fintech/wallet accounts like Mercado Pago and Ualá), or a human-readable Alias (e.g. juan.perez.mp). Transfers settle in under 30 seconds, 24/7/365. Several international providers now deliver to CVUs at Mercado Pago and Ualá, which is the fastest route for most recipients.",
+      },
+      {
+        question: "What is the difference between the official, blue, MEP, and CCL dollar rates?",
+        answer:
+          "The official rate (dólar oficial) is BCRA's wholesale rate and applies to most regulated inbound remittances via MULC. The blue rate (dólar blue) is the unofficial parallel market rate quoted in Argentine media — it is illegal to use formally but widely referenced. MEP (Mercado Electrónico de Pagos, also called dólar bolsa) is a legal rate obtained by buying a USD-denominated bond locally and selling its peso pair. CCL (Contado con Liquidación) is the rate used to move dollars out of the country via securities. International transfers settled via fintech or stablecoin rails typically clear near MEP, while traditional bank rails clear at the official rate — the difference can be 30–80% of the amount sent.",
+      },
+      {
+        question: "How long does a money transfer to Argentina take?",
+        answer:
+          "Transfers to a CBU or CVU via providers that use local rails settle in seconds once the international leg clears — usually same-day. Wise typically delivers to Argentine bank accounts within 1–2 business days. SWIFT wires from US/UK commercial banks take 2–4 business days and are subject to MULC settlement delays. Cash pickup is rare in Argentina — bank or wallet deposit is the standard delivery method.",
+      },
+      {
+        question: "What bank details do I need to send money to Argentina?",
+        answer:
+          "For a bank account: the recipient's CBU (22 digits) plus their CUIT/CUIL/DNI (tax/national ID) and full legal name. For a fintech wallet (Mercado Pago, Ualá, Brubank, Naranja X): their CVU (22 digits) or Alias. For international SWIFT routing you also need the bank's SWIFT/BIC code — e.g. Banco Galicia (GABAARBA), Santander Argentina (BSCHARBA), BBVA Argentina (BFRPARBA), Banco Nación (NACNARBA), Banco Macro (BSUDARBA). The CBU/CVU encodes the bank and branch, so SWIFT is only needed on the sending leg, not for the recipient.",
+      },
+      {
+        question: "Are there limits or taxes on receiving money in Argentina?",
+        answer:
+          "Personal inbound remittances are not subject to Argentine income tax (Impuesto a las Ganancias), and there is no IOF-style transaction tax. BCRA's capital controls (cepo cambiario) restrict residents' ability to buy USD, but they do not restrict the receipt of inbound transfers. There is no cap on the amount you can receive, but transfers above USD 10,000 are reported under standard AML rules. Funds received in pesos via the official rail are at BCRA's wholesale rate, which is the main implicit cost on this corridor.",
+      },
+      {
+        question: "What is the best app to send money to Argentina?",
+        answer:
+          "For maximum convenience, Wise and Remitly are the best-known options and deliver directly to a CBU or CVU — but both settle at the official BCRA rate. For maximum ARS received, providers that route via local fintech rails or stablecoin liquidity (delivering close to the MEP rate) typically beat the official-rate apps by a wide margin. Mercado Pago and Ualá are the most common recipient wallets — most Argentines under 35 have at least one. Always check today's official-vs-MEP gap before choosing a provider: when the gap widens, the choice of rail matters far more than the choice of brand.",
+      },
+    ],
+  },
+
+  chile: {
+    slug: "chile",
+    countryName: "Chile",
+    currency: "CLP",
+    intro:
+      "Chile has one of the most stable and digitally mature banking ecosystems in Latin America. Real-time bank-to-bank transfers via TEF (Transferencia Electrónica de Fondos) have been the local norm since 2008, processing roughly 900 million transactions a year across an estimated 15 million active users. The Chilean peso (CLP) is a free-floating currency managed by Banco Central de Chile, and the country's strong regulatory framework, low corruption ranking, and growing fintech sector — Mach (BCI), Tenpo, Fintual, and MercadoPago Chile among them — make Chile one of the more straightforward LATAM corridors for inbound remittances.",
+    highlights: [
+      "TEF/TED (Transferencia Electrónica de Fondos / Transferencia Electrónica Directa) is Chile's bank-to-bank instant payment system, operated through the local clearing house. Transfers between Chilean banks typically settle within seconds to a few minutes during business hours and within hours overnight or on weekends.",
+      "Major receiving banks: Banco Santander Chile, Banco de Chile, BCI (Banco de Crédito e Inversiones), Scotiabank Chile, Banco Estado (state-owned, runs the popular CuentaRUT account), Itaú Chile, and Banco Falabella. CuentaRUT (BancoEstado) is held by over 13 million Chileans — practically anyone with a national ID can receive transfers to it.",
+      "CMF (Comisión para el Mercado Financiero) is Chile's unified financial regulator, overseeing banks, insurers, and fintech under the 2023 Ley Fintech. The framework gives Chile one of the most operationally stable fintech environments in the region — a relevant signal for cross-border senders concerned about provider reliability.",
+      "CLP is a free-floating currency and reflects Chile's high commodity exposure (copper and lithium are major exports). Annual CLP/USD volatility of 10–20% is typical, and rate markups between international providers on the USD-to-CLP corridor are commonly 1–3% — significant but far smaller than the spreads seen on ARS or VES.",
+      "Personal inbound remittances are not subject to Chilean income tax, and there is no IOF-style transaction tax. The SII (Servicio de Impuestos Internos) only treats inbound funds as taxable if they look like business income or undeclared earnings. CLP accounts can also be held in USD at most major banks for senders who want to avoid converting.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Chile?",
+        answer:
+          "Wise and Remitly typically offer the best USD-to-CLP rates, with markups around 0.5–1.5% above the mid-market rate. For transfers from Spain (a common origin given Chilean migration to and from Spain), Ria and WorldRemit are also competitive. CLP volatility means the rate at the time of sending matters: a 2–3% swing in the same week is normal. Use our comparison above to see today's best total CLP received across all providers.",
+      },
+      {
+        question: "What is the RUT and why is it needed for a transfer to Chile?",
+        answer:
+          "RUT (Rol Único Tributario) is the Chilean national tax/ID number — a 7–8 digit number with a check digit (e.g. 12.345.678-9). Every Chilean adult has one, and it is the primary identifier for any financial transaction, including receiving an international transfer. You'll need the recipient's RUT, full legal name, account type (cuenta corriente, cuenta vista, or CuentaRUT), and account number. Foreigners resident in Chile use a RUT issued under the same system.",
+      },
+      {
+        question: "How long does a money transfer to Chile take?",
+        answer:
+          "Wise typically delivers to Chilean bank accounts within 1–2 business days. Remitly Express can deliver same-day. SWIFT bank wires from US/UK commercial banks take 2–4 business days. Once funds reach the recipient's bank, TEF makes the internal credit near-instant. Cash pickup is less common in Chile than in other LATAM markets — bank deposit is by far the dominant delivery method.",
+      },
+      {
+        question: "What bank details do I need to send money to Chile?",
+        answer:
+          "You need the recipient's RUT, full legal name, account type (cuenta corriente / cuenta vista / CuentaRUT), account number, and the receiving bank's SWIFT code. Key SWIFT codes: Banco Santander Chile (BSCHCLRM), Banco de Chile (BCHICLRM), BCI (CREDCLRM), Scotiabank Chile (NOSCCLRM), BancoEstado (BECHCLRM), Itaú Chile (ITAUCLRM), Banco Falabella (FALACLRM). Chile does not use IBAN.",
+      },
+      {
+        question: "Can I send money to BancoEstado CuentaRUT or a digital wallet like Mach in Chile?",
+        answer:
+          "Yes — CuentaRUT is BancoEstado's universal low-cost account, automatically opened for any Chilean adult who requests it, and it works as a normal bank account for receiving international transfers. The account number is simply the recipient's RUT (without the check digit). Digital wallets like Mach (BCI), Tenpo, and MercadoPago Chile can also receive funds, either directly when supported by the provider or via a linked underlying bank account. Confirm the exact routing with your recipient — BancoEstado CuentaRUT is the most universally supported.",
+      },
+      {
+        question: "Are remittances to Chile taxed?",
+        answer:
+          "Personal remittances received in Chile are not subject to Chilean income tax. The SII (tax authority) does not classify family gifts or personal support as taxable income. There is no IOF-style transaction tax. Regularly received funds that look like employment or business income may be classified as taxable. Inbound transfers above USD 10,000 may be reported by the receiving bank under standard AML reporting, but this triggers no tax. Chile also permits USD-denominated accounts at most major banks, which avoids the CLP conversion step entirely.",
+      },
+    ],
+  },
+
+  panama: {
+    slug: "panama",
+    countryName: "Panama",
+    currency: "USD",
+    intro:
+      "Panama is unique in Latin America: the US dollar is legal tender and circulates alongside the Panamanian balboa (PAB) at a permanent 1:1 peg, so there is no exchange-rate conversion on inbound USD remittances. The country is a strategic regional banking hub with a sophisticated financial sector, deep ties to the Colón Free Zone, and a regulator (Superintendencia de Bancos de Panamá) widely respected within LATAM. ACH Panamá operates the country's clearing system, and real-time transfers via the SINPE-style scheme launched in 2022 are increasingly standard. For senders, this means Panama is one of the simplest dollar corridors in the region — but receivers should still understand the FATCA-compliant reporting regime that applies to bank deposits.",
+    highlights: [
+      "USD is legal tender. The balboa (PAB) is the local accounting currency but circulates only as coinage — no banknotes are issued. Senders transferring USD into Panama do not pay any FX conversion cost, making this one of the cheapest LATAM dollar corridors on a like-for-like basis.",
+      "ACH Panamá runs the country's automated clearing house and launched real-time transfers (Transferencia Inmediata) in 2022, settling interbank payments within seconds 24/7. Major receiving banks include Banco General (the largest), Banistmo (Bancolombia subsidiary), Banco Nacional de Panamá, BAC Credomatic, Multibank, and Global Bank.",
+      "Yappy (Banco General) is Panama's leading mobile payment app — interoperable with most local banks via ACH and used by millions of Panamanians for everyday peer-to-peer payments. International providers increasingly support direct Yappy delivery via the recipient's registered mobile number.",
+      "Superintendencia de Bancos de Panamá (SBP) regulates banking activity, with separate oversight for securities (SMV) and insurance (Superintendencia de Seguros). Panama applies FATCA reporting to US persons, and inbound transfers above USD 10,000 are routinely reported to the UAF (Unidad de Análisis Financiero) under standard AML — this is administrative, not a tax.",
+      "Personal inbound remittances are not subject to Panamanian income tax. Panama operates a territorial tax system, so income earned abroad is not taxable in Panama for individuals. There is no IOF-style transaction tax. The combination of USD legal tender, no FX cost, and no remittance tax makes Panama a structurally cheap corridor for senders from the US, but FX matters for senders from EUR, GBP, or non-USD origins.",
+    ],
+    faqs: [
+      {
+        question: "What is the cheapest way to send money to Panama?",
+        answer:
+          "From the US, sending USD to a USD-denominated Panamanian account is essentially zero-FX — the only cost is the provider's fee. Wise, Remitly, and Xe consistently offer the lowest fees on USD-to-Panama transfers, often under $5 on a $1,000 transfer. From the UK or eurozone, the rate markup on GBP-to-USD or EUR-to-USD becomes the main cost variable; Wise typically beats commercial banks by 2–4% on the cross-currency leg. Cash pickup is available through Western Union and MoneyGram agents at most major banks and supermarkets.",
+      },
+      {
+        question: "Do I need to convert to balboas (PAB) when sending money to Panama?",
+        answer:
+          "No. The Panamanian balboa is pegged 1:1 to the US dollar and exists only as coinage — banknotes circulating in Panama are US dollar bills. Bank accounts are held in USD, and inbound transfers are credited in USD with no conversion. The PAB code is sometimes used in accounting and on receipts, but in practice 'sending USD to Panama' means the recipient receives USD with no FX cost on the destination leg.",
+      },
+      {
+        question: "How long does a money transfer to Panama take?",
+        answer:
+          "Wise and Remitly typically deliver to Panamanian bank accounts within 1–2 business days. SWIFT wires from US commercial banks take 1–3 business days. ACH Panamá's Transferencia Inmediata makes the final domestic credit near-instant once the international leg clears. Cash pickup at Western Union or MoneyGram is available within minutes at thousands of agent locations countrywide.",
+      },
+      {
+        question: "What bank details do I need to send money to Panama?",
+        answer:
+          "You need the recipient's account number, full legal name, account type (cuenta corriente or cuenta de ahorros), and the bank's SWIFT/BIC code. Panama does not use IBAN. Key SWIFT codes: Banco General (BAGEPAPA), Banistmo (BSAIPAPA), Banco Nacional de Panamá (BNPAPAPA), BAC Credomatic (BCRGPAPA), Multibank (MULTPAPA), Global Bank (GLBLPAPA). You may also be asked for the recipient's cédula (Panamanian national ID number).",
+      },
+      {
+        question: "Can I send money to Yappy in Panama?",
+        answer:
+          "Yappy is Banco General's mobile payment app and is the most widely used digital wallet in Panama, with millions of registered users and full ACH interoperability with most other Panamanian banks. Some international providers now support direct Yappy delivery via the recipient's registered mobile number. Where direct delivery isn't supported, sending to the recipient's underlying Banco General USD account works just as well, and Yappy can move the funds onward instantly.",
+      },
+      {
+        question: "Are remittances to Panama taxed or reported?",
+        answer:
+          "Personal remittances received in Panama are not subject to Panamanian income tax — Panama uses a territorial tax system, so foreign-sourced personal income is not taxable. There is no IOF or transaction tax. However, Panama complies with FATCA, so US persons receiving funds into Panamanian accounts may have those accounts reported to the IRS by the bank. Inbound transfers above USD 10,000 are routinely reported to the UAF under AML rules, but this is administrative and triggers no tax. For most family and personal remittances there is no tax consequence either at the sender or recipient end.",
       },
     ],
   },
