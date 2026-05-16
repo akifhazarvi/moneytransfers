@@ -212,6 +212,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           initial load without losing any events (queued calls flush on load). */}
       <script
         nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
@@ -272,6 +273,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           SSR nonce, triggering a hydration mismatch on every page load. */}
       <script
         nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
         }}
