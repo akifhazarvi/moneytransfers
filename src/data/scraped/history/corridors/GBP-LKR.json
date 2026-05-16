@@ -740,10 +740,10 @@
         "receiveAmount": 43750
       },
       "hsbc": {
-        "rate": 420.1486,
+        "rate": 420.1575,
         "fee": 20.01,
         "markup": 3.5,
-        "receiveAmount": 33608.81
+        "receiveAmount": 33609.65
       },
       "moneygram": {
         "rate": 436.3466,
@@ -752,10 +752,10 @@
         "receiveAmount": 42766.33
       },
       "skrill": {
-        "rate": 425.7997,
+        "rate": 422.767,
         "fee": 0,
-        "markup": 3.09,
-        "receiveAmount": 42579.97
+        "markup": 2.9,
+        "receiveAmount": 42276.7
       },
       "taptap-send": {
         "rate": 437.5,
@@ -770,10 +770,10 @@
         "receiveAmount": 43319.46
       },
       "profee": {
-        "rate": 427.0314,
+        "rate": 427.0323,
         "fee": 1.1,
         "markup": 1.92,
-        "receiveAmount": 42233.41
+        "receiveAmount": 42233.49
       },
       "dahabshiil": {
         "rate": 436.1752,
@@ -832,7 +832,7 @@
       "wise": {
         "rate": 435.368,
         "fee": 2.43,
-        "markup": 0,
+        "markup": 0.01,
         "receiveAmount": 42478.86
       }
     }

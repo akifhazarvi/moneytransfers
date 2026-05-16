@@ -1594,6 +1594,12 @@
         "fee": 1.61,
         "markup": null,
         "receiveAmount": 12001.71
+      },
+      "skrill": {
+        "rate": 121.172,
+        "fee": 0,
+        "markup": 0.65,
+        "receiveAmount": 12117.2
       }
     }
   }

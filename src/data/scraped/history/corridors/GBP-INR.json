@@ -9886,7 +9886,7 @@
       "moneygram": {
         "rate": 128.0522,
         "fee": 1.49,
-        "markup": 0,
+        "markup": -0.02,
         "receiveAmount": 12614.42
       },
       "skrill": {
@@ -9902,10 +9902,10 @@
         "receiveAmount": 12800
       },
       "sbi": {
-        "rate": 124.5995,
+        "rate": 124.5653,
         "fee": 6.95,
         "markup": 2.7,
-        "receiveAmount": 11593.7
+        "receiveAmount": 11590.45
       },
       "western-union": {
         "rate": 127.9869,
@@ -9914,27 +9914,27 @@
         "receiveAmount": 12544
       },
       "profee": {
-        "rate": 128.0579,
+        "rate": 128.0211,
         "fee": 2.2,
         "markup": 0,
-        "receiveAmount": 12524.06
+        "receiveAmount": 12520.47
       },
       "dahabshiil": {
         "rate": 127.361,
         "fee": 1.79,
-        "markup": 0.54,
+        "markup": 0.52,
         "receiveAmount": 12508.12
       },
       "ofx": {
         "rate": 121.9192,
         "fee": 0,
-        "markup": 4.79,
+        "markup": 4.77,
         "receiveAmount": 12191.92
       },
       "currencyfair": {
         "rate": 126.8828,
         "fee": 0.95,
-        "markup": 0.92,
+        "markup": 0.89,
         "receiveAmount": 12567.74
       },
       "halifax": {
@@ -9946,7 +9946,7 @@
       "transfergo": {
         "rate": 126.6464,
         "fee": 0,
-        "markup": 1.1,
+        "markup": 1.07,
         "receiveAmount": 12664.64
       },
       "worldremit": {
@@ -9964,13 +9964,13 @@
       "mukuru": {
         "rate": 123.76,
         "fee": 2.99,
-        "markup": 3.36,
+        "markup": 3.33,
         "receiveAmount": 12005.96
       },
       "paysend": {
         "rate": 127.8417,
         "fee": 0,
-        "markup": 0.17,
+        "markup": 0.14,
         "receiveAmount": 12784.17
       },
       "remitly": {
@@ -9982,7 +9982,7 @@
       "revolut": {
         "rate": 127.1743,
         "fee": 1.5,
-        "markup": 0.69,
+        "markup": 0.66,
         "receiveAmount": 12526.67
       },
       "ria": {

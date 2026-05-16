@@ -4,6 +4,70 @@
     "providerSlug": "remitly",
     "providerType": "moneyTransferProvider",
     "sendCurrency": "USD",
+    "receiveCurrency": "INR",
+    "sendAmount": 500,
+    "fee": 3.99,
+    "exchangeRate": 96.25,
+    "receiveAmount": 47740.96,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": "0 - 4 Hours",
+    "dateCollected": "2026-05-16T15:40:36.720Z",
+    "source": "compareremit"
+  },
+  {
+    "provider": "SBI California",
+    "providerSlug": "sbi-california",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "INR",
+    "sendAmount": 500,
+    "fee": 0,
+    "exchangeRate": 95.74,
+    "receiveAmount": 47870,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": "0 - 4 Hours",
+    "dateCollected": "2026-05-16T15:40:36.722Z",
+    "source": "compareremit"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "INR",
+    "sendAmount": 1000,
+    "fee": 0,
+    "exchangeRate": 96.25,
+    "receiveAmount": 96250,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": "0 - 4 Hours",
+    "dateCollected": "2026-05-16T15:40:36.723Z",
+    "source": "compareremit"
+  },
+  {
+    "provider": "SBI California",
+    "providerSlug": "sbi-california",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "INR",
+    "sendAmount": 1000,
+    "fee": 0,
+    "exchangeRate": 95.74,
+    "receiveAmount": 95740,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": "0 - 4 Hours",
+    "dateCollected": "2026-05-16T15:40:36.723Z",
+    "source": "compareremit"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
     "receiveCurrency": "MXN",
     "sendAmount": 500,
     "fee": 3.99,
@@ -12,7 +76,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:18.606Z",
+    "dateCollected": "2026-05-16T15:40:41.272Z",
     "source": "compareremit"
   },
   {
@@ -28,7 +92,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:18.606Z",
+    "dateCollected": "2026-05-16T15:40:41.272Z",
     "source": "compareremit"
   },
   {
@@ -44,7 +108,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:23.808Z",
+    "dateCollected": "2026-05-16T15:40:46.254Z",
     "source": "compareremit"
   },
   {
@@ -60,7 +124,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:23.809Z",
+    "dateCollected": "2026-05-16T15:40:46.256Z",
     "source": "compareremit"
   },
   {
@@ -76,7 +140,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:23.809Z",
+    "dateCollected": "2026-05-16T15:40:46.256Z",
     "source": "compareremit"
   },
   {
@@ -92,7 +156,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:29.150Z",
+    "dateCollected": "2026-05-16T15:40:51.210Z",
     "source": "compareremit"
   },
   {
@@ -108,7 +172,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:29.151Z",
+    "dateCollected": "2026-05-16T15:40:51.210Z",
     "source": "compareremit"
   },
   {
@@ -124,7 +188,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:29.151Z",
+    "dateCollected": "2026-05-16T15:40:51.210Z",
     "source": "compareremit"
   },
   {
@@ -140,7 +204,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:34.202Z",
+    "dateCollected": "2026-05-16T15:40:55.904Z",
     "source": "compareremit"
   },
   {
@@ -156,7 +220,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:34.202Z",
+    "dateCollected": "2026-05-16T15:40:55.904Z",
     "source": "compareremit"
   },
   {
@@ -172,7 +236,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:34.205Z",
+    "dateCollected": "2026-05-16T15:40:55.904Z",
     "source": "compareremit"
   },
   {
@@ -188,7 +252,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:39.381Z",
+    "dateCollected": "2026-05-16T15:41:00.687Z",
     "source": "compareremit"
   },
   {
@@ -204,7 +268,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": "0 - 4 Hours",
-    "dateCollected": "2026-05-16T15:35:39.381Z",
+    "dateCollected": "2026-05-16T15:41:00.688Z",
     "source": "compareremit"
   },
   {
@@ -220,7 +284,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": "0 - 4 Hours",
-    "dateCollected": "2026-05-16T15:35:39.381Z",
+    "dateCollected": "2026-05-16T15:41:00.688Z",
     "source": "compareremit"
   },
   {
@@ -236,7 +300,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:44.747Z",
+    "dateCollected": "2026-05-16T15:41:05.915Z",
     "source": "compareremit"
   },
   {
@@ -252,7 +316,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-05-16T15:35:44.747Z",
+    "dateCollected": "2026-05-16T15:41:05.915Z",
     "source": "compareremit"
   }
 ]
