@@ -693,5 +693,94 @@
         "receiveAmount": 20184
       }
     }
+  },
+  {
+    "date": "2026-05-16",
+    "providers": {
+      "ace-money-transfer": {
+        "rate": 200.6219,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 20062.19
+      },
+      "moneygram": {
+        "rate": 206.189,
+        "fee": 0.99,
+        "markup": 0.2,
+        "receiveAmount": 20414.77
+      },
+      "taptap-send": {
+        "rate": 203,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 20300
+      },
+      "western-union": {
+        "rate": 205.3495,
+        "fee": 0.5,
+        "markup": 0.6,
+        "receiveAmount": 20432.28
+      },
+      "profee": {
+        "rate": 203.5751,
+        "fee": 1.1,
+        "markup": 1.46,
+        "receiveAmount": 20133.58
+      },
+      "dahabshiil": {
+        "rate": 211.7777,
+        "fee": 0,
+        "markup": -2.51,
+        "receiveAmount": 21177.77
+      },
+      "transfergo": {
+        "rate": 172.5354,
+        "fee": 0,
+        "markup": 16.49,
+        "receiveAmount": 17253.54
+      },
+      "worldremit": {
+        "rate": 204.7485,
+        "fee": 0.99,
+        "markup": 0.89,
+        "receiveAmount": 20272.15
+      },
+      "instarem": {
+        "rate": 205.7398,
+        "fee": 0,
+        "markup": 0.41,
+        "receiveAmount": 20573.98
+      },
+      "xe": {
+        "rate": 205.4501,
+        "fee": 3,
+        "markup": 0.55,
+        "receiveAmount": 19928.66
+      },
+      "paysend": {
+        "rate": 204.4115,
+        "fee": 1,
+        "markup": 1.06,
+        "receiveAmount": 20236.74
+      },
+      "remitly": {
+        "rate": 205.92,
+        "fee": 3.99,
+        "markup": 0.33,
+        "receiveAmount": 19770.38
+      },
+      "revolut": {
+        "rate": 205.4204,
+        "fee": 1.1,
+        "markup": 0.57,
+        "receiveAmount": 20316.08
+      },
+      "wise": {
+        "rate": 206.9305,
+        "fee": 2.46,
+        "markup": -0.16,
+        "receiveAmount": 20184
+      }
+    }
   }
 ]

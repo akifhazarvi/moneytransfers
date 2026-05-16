@@ -843,5 +843,28 @@
         "receiveAmount": 56312
       }
     }
+  },
+  {
+    "date": "2026-05-16",
+    "providers": {
+      "ria": {
+        "rate": 547.8897,
+        "fee": 1,
+        "markup": null,
+        "receiveAmount": 56748
+      },
+      "taptap-send": {
+        "rate": 544,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 54400
+      },
+      "wise": {
+        "rate": 564.247,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 56424.7
+      }
+    }
   }
 ]
