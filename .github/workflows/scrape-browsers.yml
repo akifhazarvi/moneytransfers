@@ -39,8 +39,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: scraped-monito
-          path: src/data/scraped/
+          path: src/data/scraped/monito-quotes.json
           retention-days: 1
+          if-no-files-found: error
 
   scrape-xoom:
     runs-on: ubuntu-latest
@@ -68,8 +69,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: scraped-xoom
-          path: src/data/scraped/
+          path: src/data/scraped/xoom-quotes.json
           retention-days: 1
+          if-no-files-found: error
 
   scrape-ria:
     runs-on: ubuntu-latest
@@ -97,8 +99,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: scraped-ria
-          path: src/data/scraped/
+          path: src/data/scraped/ria-quotes.json
           retention-days: 1
+          if-no-files-found: error
 
   scrape-compareremit:
     runs-on: ubuntu-latest
@@ -126,8 +129,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: scraped-compareremit
-          path: src/data/scraped/
+          path: src/data/scraped/compareremit-quotes.json
           retention-days: 1
+          if-no-files-found: error
 
   commit-data:
     runs-on: ubuntu-latest

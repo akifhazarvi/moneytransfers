@@ -180,52 +180,50 @@ function generateUrls(): string[] {
 }
 
 /**
- * Submit URLs to IndexNow API one at a time with a small delay.
+ * Submit URLs to IndexNow via batched POST. Spec allows up to 10,000 URLs per
+ * request; we chunk at 10,000 to stay well under any soft limit and keep
+ * payloads under typical CDN body caps. A handful of POSTs replaces ~1,700
+ * sequential GETs and finishes in under 10 seconds vs. ~15 minutes.
  *
- * Bing Webmaster's stated recommendation is to AVOID Batch Mode (POST with
- * urlList) because batch submissions can trigger rate-limiting and indexing
- * delays. Single-URL GET submissions per their spec are the preferred path
- * and let Bing process each ping independently.
- *
- * 250ms delay between requests stays well under any per-host throttle while
- * keeping a 200-URL run under one minute.
+ * Spec: https://www.indexnow.org/documentation
  */
 async function submitToIndexNow(urls: string[]): Promise<void> {
+  const HOST = new URL(SITE_URL).host;
   const KEY_LOCATION = `${SITE_URL}/${INDEXNOW_KEY}.txt`;
-  const DELAY_MS = 250;
+  const BATCH_SIZE = 10_000;
+  const ENDPOINT = "https://api.indexnow.org/indexnow";
   let succeeded = 0;
   let failed = 0;
 
-  for (let i = 0; i < urls.length; i++) {
-    const url = urls[i];
-    const requestUrl = new URL("https://api.indexnow.org/indexnow");
-    requestUrl.searchParams.set("url", url);
-    requestUrl.searchParams.set("key", INDEXNOW_KEY);
-    requestUrl.searchParams.set("keyLocation", KEY_LOCATION);
+  for (let i = 0; i < urls.length; i += BATCH_SIZE) {
+    const batch = urls.slice(i, i + BATCH_SIZE);
+    const body = {
+      host: HOST,
+      key: INDEXNOW_KEY,
+      keyLocation: KEY_LOCATION,
+      urlList: batch,
+    };
 
     try {
-      const res = await fetch(requestUrl.toString(), {
-        method: "GET",
-        headers: { "User-Agent": "SendMoneyCompare-IndexNow/1.0 (+https://sendmoneycompare.com)" },
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "User-Agent": "SendMoneyCompare-IndexNow/1.0 (+https://sendmoneycompare.com)",
+        },
+        body: JSON.stringify(body),
       });
       if (res.ok || res.status === 202) {
-        succeeded++;
+        succeeded += batch.length;
+        console.log(`  ✓ Batch of ${batch.length} URLs accepted (HTTP ${res.status})`);
       } else {
-        failed++;
-        const body = await res.text().catch(() => "");
-        console.error(`✗ ${url} — HTTP ${res.status}${body ? `: ${body.slice(0, 100)}` : ""}`);
+        failed += batch.length;
+        const text = await res.text().catch(() => "");
+        console.error(`  ✗ Batch failed — HTTP ${res.status}${text ? `: ${text.slice(0, 200)}` : ""}`);
       }
     } catch (err) {
-      failed++;
-      console.error(`✗ ${url} — network error:`, err instanceof Error ? err.message : err);
-    }
-
-    // Progress every 25 URLs so CI logs stay informative
-    if ((i + 1) % 25 === 0) {
-      console.log(`  ... ${i + 1}/${urls.length} submitted (${succeeded} ok, ${failed} failed)`);
-    }
-    if (DELAY_MS > 0 && i < urls.length - 1) {
-      await new Promise((r) => setTimeout(r, DELAY_MS));
+      failed += batch.length;
+      console.error(`  ✗ Batch failed — network error:`, err instanceof Error ? err.message : err);
     }
   }
 

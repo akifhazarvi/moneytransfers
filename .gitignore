@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local 3rd-party tools (not checked in)
+/claude-seo/
+/claude-ads/
+/claude-seo-main/
+/claude-ads-main/
