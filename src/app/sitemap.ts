@@ -10,7 +10,7 @@ import { getSwiftCountries } from "@/data/swift-codes";
 import { authors } from "@/data/authors";
 import { providerReviews } from "@/data/provider-reviews";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
-import { statSync } from "fs";
+import { readdirSync, statSync } from "fs";
 import { join } from "path";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -29,21 +29,23 @@ const STATIC_CONTENT_DATE = "2026-03-01"; // Hardcoded for legal/policy pages th
 
 // Dynamically derived from the most recently modified scraped quotes file.
 // This ensures lastmod reflects when live data actually changed, not the deploy date.
+// Scans every *-quotes.json so newly-added scrapers automatically flow through
+// without needing to update a hardcoded file list.
 function getDataUpdatedDate(): string {
   const scrapedDir = join(process.cwd(), "src/data/scraped");
-  const quoteFiles = [
-    "provider-quotes.json",
-    "mid-market-rates.json",
-    "exchange-rates.json",
-  ];
   let latest = new Date(0);
-  for (const file of quoteFiles) {
-    try {
-      const mtime = statSync(join(scrapedDir, file)).mtime;
-      if (mtime > latest) latest = mtime;
-    } catch {
-      // file may not exist — skip
+  try {
+    const files = readdirSync(scrapedDir).filter((f) => f.endsWith("-quotes.json"));
+    for (const file of files) {
+      try {
+        const mtime = statSync(join(scrapedDir, file)).mtime;
+        if (mtime > latest) latest = mtime;
+      } catch {
+        // file may not exist — skip
+      }
     }
+  } catch {
+    // scrapedDir missing — fall through to STATIC_HUB_DATE
   }
   return latest.getTime() > 0
     ? latest.toISOString().split("T")[0]
