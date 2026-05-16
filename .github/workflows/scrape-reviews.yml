@@ -40,5 +40,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/scraped/trustpilot-ratings.json
           git diff --staged --quiet || git commit -m "chore: update Trustpilot ratings [$(date -u +%Y-%m-%d)]"
-          git pull --rebase
+          # Trustpilot scrape is source of truth — prefer our version on conflict.
+          git pull --rebase -X theirs
           git push

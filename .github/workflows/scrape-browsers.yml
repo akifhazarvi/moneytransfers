@@ -189,7 +189,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/scraped/
           git diff --staged --quiet || git commit -m "chore: update browser-scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
-          git pull --rebase
+          # Scraper output is the source of truth — if main diverged on the same
+          # JSON files (e.g. a manual local scrape), prefer our freshly-scraped
+          # version to avoid blocking the workflow on merge conflicts.
+          git pull --rebase -X theirs
           git push
 
       - name: Ping IndexNow (Bing)

@@ -91,7 +91,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/scraped/ public/llms.txt
           git diff --staged --quiet || git commit -m "chore: update scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
-          git pull --rebase
+          # Prefer freshly-scraped output over divergent main (e.g. manual scrapes).
+          git pull --rebase -X theirs
           git push
 
       - name: Trigger Vercel deploy
