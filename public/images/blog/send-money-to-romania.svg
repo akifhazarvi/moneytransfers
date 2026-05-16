@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1e3f"/>
+      <stop offset="100%" stop-color="#05101f"/>
+    </linearGradient>
+    <linearGradient id="ron" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#002b7f"/>
+      <stop offset="50%" stop-color="#fcd116"/>
+      <stop offset="100%" stop-color="#ce1126"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="0.35" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0b1e3f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="320" cy="360" r="260" fill="url(#globe)"/>
+
+  <!-- Romania tricolor accent band -->
+  <rect x="80" y="118" width="6" height="200" rx="3" fill="url(#ron)"/>
+
+  <g stroke="#ffffff0a" stroke-width="1">
+    <line x1="80" y1="460" x2="1120" y2="460"/>
+    <line x1="80" y1="380" x2="1120" y2="380"/>
+  </g>
+
+  <g transform="translate(80, 70)">
+    <rect width="240" height="34" rx="17" fill="#002b7f"/>
+    <rect x="80" width="80" height="34" fill="#fcd116"/>
+    <rect x="160" width="80" height="34" rx="17" fill="#ce1126"/>
+    <text x="120" y="23" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="13" font-weight="600" letter-spacing="1.5">ROMANIA · RON</text>
+  </g>
+
+  <text x="110" y="180" fill="#ffffff" font-family="system-ui" font-size="46" font-weight="700">Send Money to Romania</text>
+  <text x="110" y="225" fill="#fcd116" font-family="system-ui" font-size="24" font-weight="500">RON transfer guide · SEPA Instant</text>
+
+  <g transform="translate(640, 150)">
+    <rect width="480" height="220" rx="24" fill="#fcd11612" stroke="#fcd116" stroke-width="2"/>
+    <text x="240" y="60" text-anchor="middle" fill="#fcd116" font-family="system-ui" font-size="14" font-weight="600" letter-spacing="2">EUR / RON  ·  MID-MARKET</text>
+    <text x="240" y="170" text-anchor="middle" fill="url(#ron)" font-family="system-ui" font-size="100" font-weight="800">RON 5.09</text>
+    <text x="240" y="205" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="500">per €1</text>
+  </g>
+
+  <g transform="translate(80, 480)">
+    <rect width="320" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fcd116" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">USD / RON</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">RON 4.34</text>
+  </g>
+  <g transform="translate(420, 480)">
+    <rect width="320" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fcd116" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">GBP / RON</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">RON 5.89</text>
+  </g>
+  <g transform="translate(760, 480)">
+    <rect width="360" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fcd116" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">TYP. DELIVERY</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="26" font-weight="700">SEPA Instant · 10s</text>
+  </g>
+
+  <text x="600" y="615" text-anchor="middle" fill="#60a5fa" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

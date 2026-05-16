@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1208"/>
+      <stop offset="100%" stop-color="#0c0703"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="0.35" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0c0703" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrA" markerWidth="14" markerHeight="10" refX="13" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="#fde047"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="320" cy="360" r="260" fill="url(#globe)"/>
+
+  <g stroke="#ffffff0a" stroke-width="1">
+    <line x1="80" y1="460" x2="1120" y2="460"/>
+    <line x1="80" y1="380" x2="1120" y2="380"/>
+  </g>
+
+  <g transform="translate(80, 70)">
+    <rect width="260" height="34" rx="17" fill="#000000"/>
+    <rect width="86" height="11" rx="2" fill="#00732f"/>
+    <rect y="11" width="86" height="12" fill="#ffffff"/>
+    <rect y="23" width="86" height="11" rx="2" fill="#000000"/>
+    <rect x="0" y="0" width="22" height="34" fill="#ff0000"/>
+    <text x="170" y="23" text-anchor="middle" fill="#fde047" font-family="system-ui" font-size="13" font-weight="600" letter-spacing="1.5">UAE → INDIA CORRIDOR</text>
+  </g>
+
+  <text x="80" y="180" fill="#ffffff" font-family="system-ui" font-size="46" font-weight="700">Send Money UAE → India</text>
+  <text x="80" y="225" fill="#fde047" font-family="system-ui" font-size="24" font-weight="500">AED → INR · the cheapest route in 2026</text>
+
+  <!-- AED -> INR arrow card -->
+  <g transform="translate(80, 290)">
+    <rect width="220" height="80" rx="16" fill="#fde04715" stroke="#fde047" stroke-width="2"/>
+    <text x="110" y="35" text-anchor="middle" fill="#fde047" font-family="system-ui" font-size="14" font-weight="600">SEND IN</text>
+    <text x="110" y="65" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="28" font-weight="700">AED</text>
+    <line x1="240" y1="40" x2="320" y2="40" stroke="#fde047" stroke-width="4" marker-end="url(#arrA)"/>
+    <rect x="340" width="220" height="80" rx="16" fill="#fde04715" stroke="#fde047" stroke-width="2"/>
+    <text x="450" y="35" text-anchor="middle" fill="#fde047" font-family="system-ui" font-size="14" font-weight="600">RECEIVE IN</text>
+    <text x="450" y="65" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="28" font-weight="700">INR</text>
+  </g>
+
+  <!-- Rate card -->
+  <g transform="translate(680, 150)">
+    <rect width="440" height="220" rx="24" fill="url(#gold)" opacity="0.18"/>
+    <rect width="440" height="220" rx="24" fill="none" stroke="#fde047" stroke-width="2"/>
+    <text x="220" y="60" text-anchor="middle" fill="#fde047" font-family="system-ui" font-size="14" font-weight="600" letter-spacing="2">AED / INR  ·  MID-MARKET</text>
+    <text x="220" y="170" text-anchor="middle" fill="url(#gold)" font-family="system-ui" font-size="100" font-weight="800">₹ 23.05</text>
+    <text x="220" y="205" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="500">per AED 1</text>
+  </g>
+
+  <g transform="translate(80, 480)">
+    <rect width="500" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fde047" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">CHEAPEST PROVIDERS</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="26" font-weight="700">Lulu · Al Ansari · Wise</text>
+  </g>
+  <g transform="translate(600, 480)">
+    <rect width="520" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fde047" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">DELIVERY · UPI / IMPS</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="26" font-weight="700">in minutes · same-day</text>
+  </g>
+
+  <text x="600" y="615" text-anchor="middle" fill="#fde047" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

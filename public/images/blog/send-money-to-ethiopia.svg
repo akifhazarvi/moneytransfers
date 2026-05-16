@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#062417"/>
+      <stop offset="100%" stop-color="#020f08"/>
+    </linearGradient>
+    <linearGradient id="etb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="0.35" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#020f08" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="320" cy="360" r="260" fill="url(#globe)"/>
+
+  <g stroke="#ffffff0a" stroke-width="1">
+    <line x1="80" y1="460" x2="1120" y2="460"/>
+    <line x1="80" y1="380" x2="1120" y2="380"/>
+  </g>
+
+  <g transform="translate(80, 70)">
+    <rect width="230" height="34" rx="17" fill="#078930"/>
+    <text x="115" y="23" text-anchor="middle" fill="#fcdd09" font-family="system-ui" font-size="13" font-weight="600" letter-spacing="1.5">ETHIOPIA · ETB GUIDE</text>
+  </g>
+
+  <text x="80" y="180" fill="#ffffff" font-family="system-ui" font-size="44" font-weight="700">Send Money to Ethiopia</text>
+  <text x="80" y="225" fill="#86efac" font-family="system-ui" font-size="24" font-weight="500">ETB transfer guide · franco-valuta</text>
+
+  <g transform="translate(640, 130)">
+    <rect width="480" height="220" rx="24" fill="#16a34a18" stroke="#16a34a" stroke-width="2"/>
+    <text x="240" y="60" text-anchor="middle" fill="#86efac" font-family="system-ui" font-size="14" font-weight="600" letter-spacing="2">USD / ETB  ·  OFFICIAL</text>
+    <text x="240" y="170" text-anchor="middle" fill="url(#etb)" font-family="system-ui" font-size="96" font-weight="800">ETB 135.4</text>
+    <text x="240" y="205" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="500">per US$1 · post-float</text>
+  </g>
+
+  <g transform="translate(80, 480)">
+    <rect width="320" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#86efac" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">GBP / ETB</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">ETB 183.6</text>
+  </g>
+  <g transform="translate(420, 480)">
+    <rect width="320" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#86efac" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">TOP PROVIDERS</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="26" font-weight="700">WorldRemit · Remitly</text>
+  </g>
+  <g transform="translate(760, 480)">
+    <rect width="360" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#86efac" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">BANK PAYOUT</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="26" font-weight="700">CBE · Dashen · Awash</text>
+  </g>
+
+  <text x="600" y="605" text-anchor="middle" fill="#fcdd09" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>

@@ -146,12 +146,16 @@ export default async function NewsArticlePage({ params }: Props) {
           <article className="flex-1 min-w-0 max-w-3xl">
             {/* Hero image */}
             {item.image && (
-              <div className="relative w-full h-[240px] md:h-[340px] rounded-2xl overflow-hidden mb-8">
+              <div
+                className={`relative w-full h-[240px] md:h-[340px] rounded-2xl overflow-hidden mb-8 ${
+                  item.image.endsWith(".svg") ? "bg-[#05101f]" : ""
+                }`}
+              >
                 <Image
                   src={item.image}
                   alt={item.imageAlt || item.title}
                   fill
-                  className="object-cover"
+                  className={item.image.endsWith(".svg") ? "object-contain" : "object-cover"}
                   priority
                 />
               </div>
@@ -221,12 +225,16 @@ export default async function NewsArticlePage({ params }: Props) {
                       <Link key={n.slug} href={`/news/${n.slug}`} className="block group">
                         <div className="border border-[var(--color-outline)] rounded-xl overflow-hidden hover:shadow-sm transition-shadow">
                           {n.image && (
-                            <div className="relative w-full h-[100px]">
+                            <div
+                              className={`relative w-full h-[100px] ${
+                                n.image.endsWith(".svg") ? "bg-[#05101f]" : ""
+                              }`}
+                            >
                               <Image
                                 src={n.image}
                                 alt={n.imageAlt || n.title}
                                 fill
-                                className="object-cover"
+                                className={n.image.endsWith(".svg") ? "object-contain" : "object-cover"}
                               />
                             </div>
                           )}

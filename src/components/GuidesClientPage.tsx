@@ -82,8 +82,17 @@ export default function GuidesClientPage({ posts, categories, translations }: Pr
         {rest.map((post) => (
           <Card key={post.slug} href={`/guides/${post.slug}`} className="group !p-0 overflow-hidden">
             {post.featuredImage ? (
-              <div className="relative w-full h-[160px]">
-                <Image src={post.featuredImage} alt={post.title} fill className="object-cover" />
+              <div
+                className={`relative w-full h-[160px] ${
+                  post.featuredImage.endsWith(".svg") ? "bg-[#05101f]" : ""
+                }`}
+              >
+                <Image
+                  src={post.featuredImage}
+                  alt={post.title}
+                  fill
+                  className={post.featuredImage.endsWith(".svg") ? "object-contain" : "object-cover"}
+                />
               </div>
             ) : (
               <div className="w-full h-[160px] bg-gradient-to-br from-[var(--color-primary-surface)] to-[var(--color-surface-container)] flex items-center justify-center">

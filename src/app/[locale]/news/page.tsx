@@ -60,12 +60,16 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           <Link href={`/news/${featured.slug}`} className="block mb-8">
             <div className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl overflow-hidden hover:shadow-md transition-shadow md:flex">
               {featured.image && (
-                <div className="relative w-full md:w-[400px] h-[200px] md:h-auto shrink-0">
+                <div
+                  className={`relative w-full md:w-[400px] h-[200px] md:h-auto shrink-0 ${
+                    featured.image.endsWith(".svg") ? "bg-[#05101f]" : ""
+                  }`}
+                >
                   <Image
                     src={featured.image}
                     alt={featured.imageAlt || featured.title}
                     fill
-                    className="object-cover"
+                    className={featured.image.endsWith(".svg") ? "object-contain" : "object-cover"}
                   />
                 </div>
               )}
@@ -96,12 +100,16 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
             <Link key={item.slug} href={`/news/${item.slug}`} className="group">
               <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden h-full hover:shadow-md transition-shadow flex flex-col">
                 {item.image && (
-                  <div className="relative w-full h-[160px]">
+                  <div
+                    className={`relative w-full h-[160px] ${
+                      item.image.endsWith(".svg") ? "bg-[#05101f]" : ""
+                    }`}
+                  >
                     <Image
                       src={item.image}
                       alt={item.imageAlt || item.title}
                       fill
-                      className="object-cover"
+                      className={item.image.endsWith(".svg") ? "object-contain" : "object-cover"}
                     />
                   </div>
                 )}

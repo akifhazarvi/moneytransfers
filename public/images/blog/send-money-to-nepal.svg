@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f0e12"/>
+      <stop offset="100%" stop-color="#0d0307"/>
+    </linearGradient>
+    <linearGradient id="npr" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#9f1239"/>
+    </linearGradient>
+    <radialGradient id="globe" cx="0.35" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#dc2626" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0d0307" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="320" cy="360" r="260" fill="url(#globe)"/>
+
+  <g stroke="#ffffff0a" stroke-width="1">
+    <line x1="80" y1="460" x2="1120" y2="460"/>
+    <line x1="80" y1="380" x2="1120" y2="380"/>
+  </g>
+
+  <!-- Nepal-shape accent (twin pennant approximation) -->
+  <g transform="translate(1060, 130)" opacity="0.8">
+    <polygon points="0,0 70,30 0,60 0,120 80,160 0,200" fill="none" stroke="#003893" stroke-width="3"/>
+  </g>
+
+  <g transform="translate(80, 70)">
+    <rect width="220" height="34" rx="17" fill="#dc143c"/>
+    <text x="110" y="23" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="13" font-weight="600" letter-spacing="1.5">NEPAL · NPR GUIDE</text>
+  </g>
+
+  <text x="80" y="180" fill="#ffffff" font-family="system-ui" font-size="46" font-weight="700">Send Money to Nepal</text>
+  <text x="80" y="225" fill="#fb7185" font-family="system-ui" font-size="24" font-weight="500">NPR transfer guide · IME &amp; eSewa</text>
+
+  <g transform="translate(640, 130)">
+    <rect width="480" height="220" rx="24" fill="#dc143c15" stroke="#fb7185" stroke-width="2"/>
+    <text x="240" y="60" text-anchor="middle" fill="#fb7185" font-family="system-ui" font-size="14" font-weight="600" letter-spacing="2">USD / NPR  ·  MID-MARKET</text>
+    <text x="240" y="170" text-anchor="middle" fill="url(#npr)" font-family="system-ui" font-size="100" font-weight="800">रू 137.4</text>
+    <text x="240" y="205" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="18" font-weight="500">per US$1</text>
+  </g>
+
+  <g transform="translate(80, 480)">
+    <rect width="320" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fb7185" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">GBP / NPR</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="32" font-weight="700">रू 186.3</text>
+  </g>
+  <g transform="translate(420, 480)">
+    <rect width="320" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fb7185" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">FASTEST RAIL</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="28" font-weight="700">eSewa · ConnectIPS</text>
+  </g>
+  <g transform="translate(760, 480)">
+    <rect width="360" height="90" rx="14" fill="#ffffff0a" stroke="#ffffff18"/>
+    <text x="24" y="32" fill="#fb7185" font-family="system-ui" font-size="12" font-weight="600" letter-spacing="1.5">TOP PROVIDERS</text>
+    <text x="24" y="72" fill="#ffffff" font-family="system-ui" font-size="26" font-weight="700">Remitly · IME · Wise</text>
+  </g>
+
+  <text x="600" y="615" text-anchor="middle" fill="#60a5fa" font-family="system-ui" font-size="16" font-weight="600">sendmoneycompare.com</text>
+</svg>
