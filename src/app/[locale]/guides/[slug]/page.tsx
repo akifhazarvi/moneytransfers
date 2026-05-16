@@ -373,18 +373,8 @@ export default async function BlogPostPage({ params }: Props) {
       {/* ── Featured Image ── */}
       {post.featuredImage && (
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 -mt-1">
-          <div
-            className={`relative w-full h-[220px] md:h-[380px] rounded-b-2xl overflow-hidden ${
-              post.featuredImage.endsWith(".svg") ? "bg-[#05101f]" : ""
-            }`}
-          >
-            <Image
-              src={post.featuredImage}
-              alt={post.title}
-              fill
-              className={post.featuredImage.endsWith(".svg") ? "object-contain" : "object-cover"}
-              priority
-            />
+          <div className="relative w-full h-[220px] md:h-[380px] rounded-b-2xl overflow-hidden">
+            <Image src={post.featuredImage} alt={post.title} fill className="object-cover" priority />
           </div>
         </div>
       )}

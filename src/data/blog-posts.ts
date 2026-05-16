@@ -3472,7 +3472,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-05-01",
     author: "Akif Hazarvi",
     tags: ["Brazil", "BRL", "Brazilian real", "PIX", "IOF", "remittance", "USD to BRL", "corridor guide", "send money to Brazil"],
-    featuredImage: "/images/blog/send-money-to-brazil.svg",
+    featuredImage: "/images/blog/send-money-to-brazil.jpg",
     sections: [
       {
         heading: "Sending Money to Brazil: PIX Made It Fast, IOF Made It Taxed",
@@ -8379,7 +8379,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-17",
     author: "Akif Hazarvi",
     tags: ["Eid 2026", "Holi 2026", "festival transfers", "money transfer rates", "comparison", "remittance", "send money home"],
-    featuredImage: "/images/blog/eid-holi-money-transfer-2026.svg",
+    featuredImage: "/images/blog/eid-holi-money-transfer-2026.jpg",
     sections: [
       {
         heading: "Why Festival Season Is the Most Important Time to Compare Rates",
@@ -8969,7 +8969,7 @@ export const blogPosts: BlogPost[] = [
       "DXY",
       "dollar strength",
     ],
-    featuredImage: "/images/blog/us-dollar-forecast-2026.svg",
+    featuredImage: "/images/blog/us-dollar-forecast-2026.jpg",
     sections: [
       {
         heading: "Quick Answer: USD Dollar Index Outlook for the Rest of 2026",
@@ -10824,7 +10824,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-27",
     author: "Akif Hazarvi",
     tags: ["Nepal", "NPR", "remittance", "send money to Nepal", "eSewa", "Khalti", "corridor guide"],
-    featuredImage: "/images/blog/send-money-to-nepal.svg",
+    featuredImage: "/images/blog/send-money-to-nepal.jpg",
     sections: [
       {
         heading: "Why Nepal Is a Critical Remittance Corridor",
@@ -11333,7 +11333,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-27",
     author: "Akif Hazarvi",
     tags: ["Morocco", "MAD", "Dirham", "remittance", "send money to Morocco", "CashPlus", "corridor guide"],
-    featuredImage: "/images/blog/send-money-to-morocco.svg",
+    featuredImage: "/images/blog/send-money-to-morocco.jpg",
     sections: [
       {
         heading: "Morocco's Remittance Market: What You Need to Know",
@@ -11577,7 +11577,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-27",
     author: "Akif Hazarvi",
     tags: ["Romania", "RON", "EUR", "SEPA", "remittance", "send money to Romania", "corridor guide"],
-    featuredImage: "/images/blog/send-money-to-romania.svg",
+    featuredImage: "/images/blog/send-money-to-romania.jpg",
     sections: [
       {
         heading: "Romania's Remittance Landscape",
@@ -11834,7 +11834,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-27",
     author: "Akif Hazarvi",
     tags: ["Bangladesh", "BDT", "GBP to BDT", "UK", "remittance", "bKash", "Nagad", "corridor guide", "send money to Bangladesh"],
-    featuredImage: "/images/blog/send-money-uk-to-bangladesh.svg",
+    featuredImage: "/images/blog/send-money-uk-to-bangladesh.jpg",
     sections: [
       {
         heading: "UK to Bangladesh: A Major Remittance Corridor",
@@ -12049,7 +12049,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-27",
     author: "Akif Hazarvi",
     tags: ["Kenya", "KES", "remittance", "M-Pesa", "Safaricom", "corridor guide", "send money to Kenya", "Africa"],
-    featuredImage: "/images/blog/send-money-to-kenya.svg",
+    featuredImage: "/images/blog/send-money-to-kenya.jpg",
     sections: [
       {
         heading: "Kenya: Africa's Mobile Money Leader",
@@ -12246,7 +12246,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-29",
     author: "Akif Hazarvi",
     tags: ["Nigeria", "NGN", "GBP to NGN", "UK", "remittance", "corridor guide", "send money to Nigeria", "Naira"],
-    featuredImage: "/images/blog/send-money-uk-to-nigeria.svg",
+    featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
     sections: [
       {
         heading: "UK to Nigeria: A High-Volume Remittance Corridor",
@@ -12425,7 +12425,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-31",
     author: "Akif Hazarvi",
     tags: ["South Africa", "ZAR", "remittance", "USD to ZAR", "GBP to ZAR", "AUD to ZAR", "corridor guide", "FNB", "Capitec", "Mukuru"],
-    featuredImage: "/images/blog/send-money-to-south-africa.svg",
+    featuredImage: "/images/blog/send-money-to-south-africa.jpg",
     sections: [
       {
         heading: "South Africa: Sub-Saharan Africa's Largest Economy",
@@ -12634,7 +12634,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-10",
     author: "Akif Hazarvi",
     tags: ["Colombia", "COP", "USD to COP", "remittance", "Nequi", "corridor guide", "send money to Colombia", "Daviplata"],
-    featuredImage: "/images/blog/send-money-to-colombia.svg",
+    featuredImage: "/images/blog/send-money-to-colombia.jpg",
     sections: [
       {
         heading: "Colombia's Remittance Market: Digital Wallets Leading the Way",
@@ -12795,7 +12795,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-10",
     author: "Akif Hazarvi",
     tags: ["Poland", "PLN", "GBP to PLN", "EUR to PLN", "remittance", "corridor guide", "send money to Poland", "SEPA"],
-    featuredImage: "/images/blog/send-money-to-poland.svg",
+    featuredImage: "/images/blog/send-money-to-poland.jpg",
     sections: [
       {
         heading: "Poland: Central Europe's Largest Remittance Destination",
@@ -12952,7 +12952,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-04",
     author: "Akif Hazarvi",
     tags: ["UAE", "India", "AED to INR", "remittance", "NRI", "corridor guide", "send money to India", "Dubai"],
-    featuredImage: "/images/blog/send-money-uae-to-india.svg",
+    featuredImage: "/images/blog/send-money-uae-to-india.jpg",
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money from UAE to India?",
@@ -13143,7 +13143,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-07",
     author: "Daniel Rowe",
     tags: ["China", "CNY", "USD to CNY", "Alipay", "WeChat Pay", "capital controls", "SAFE", "CIPS", "remittance", "corridor guide"],
-    featuredImage: "/images/blog/send-money-to-china.svg",
+    featuredImage: "/images/blog/send-money-to-china.jpg",
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money to China from the USA?",
@@ -13347,7 +13347,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-07",
     author: "Daniel Rowe",
     tags: ["large transfers", "property purchase", "inheritance", "relocation", "forward contract", "OFX", "Wise", "FX broker"],
-    featuredImage: "/images/blog/large-transfers-internationally.svg",
+    featuredImage: "/images/blog/large-transfers-internationally.jpg",
     sections: [
       {
         heading: "What Is the Best Way to Send Large Amounts of Money Internationally?",
@@ -13551,7 +13551,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-08",
     author: "Daniel Rowe",
     tags: ["Vietnam", "VND", "remittance", "USD to VND", "AUD to VND", "corridor guide", "send money to Vietnam"],
-    featuredImage: "/images/blog/send-money-to-vietnam.svg",
+    featuredImage: "/images/blog/send-money-to-vietnam.jpg",
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money to Vietnam?",
@@ -13669,7 +13669,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-08",
     author: "Daniel Rowe",
     tags: ["Turkey", "TRY", "Turkish Lira", "EUR to TRY", "USD to TRY", "corridor guide", "volatility"],
-    featuredImage: "/images/blog/send-money-to-turkey.svg",
+    featuredImage: "/images/blog/send-money-to-turkey.jpg",
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money to Turkey?",
@@ -13782,7 +13782,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-11",
     author: "Akif Hazarvi",
     tags: ["stablecoin", "USDC", "wire transfer", "Wise", "comparison", "cryptocurrency", "remittance"],
-    featuredImage: "/images/blog/stablecoin-vs-wire.svg",
+    featuredImage: "/images/blog/stablecoin-vs-wire.jpg",
     sections: [
       {
         heading: "Can Stablecoins Really Beat Traditional Transfers?",
@@ -13874,7 +13874,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-11",
     author: "Akif Hazarvi",
     tags: ["transfer limits", "how much can I send", "money transfer", "KYC", "compliance", "sending limits"],
-    featuredImage: "/images/blog/transfer-limits.svg",
+    featuredImage: "/images/blog/transfer-limits.jpg",
     sections: [
       {
         heading: "How Much Money Can You Send Internationally?",
@@ -13983,7 +13983,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-11",
     author: "Akif Hazarvi",
     tags: ["expat", "money transfer app", "multi-currency", "digital nomad", "best app", "send money abroad"],
-    featuredImage: "/images/blog/expat-money-transfer.svg",
+    featuredImage: "/images/blog/expat-money-transfer.jpg",
     sections: [
       {
         heading: "What Do Expats Need from a Money Transfer App?",
@@ -14066,7 +14066,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-11",
     author: "Akif Hazarvi",
     tags: ["Spain", "EUR", "SEPA", "remittance", "corridor guide", "send money to Spain"],
-    featuredImage: "/images/blog/send-money-to-spain.svg",
+    featuredImage: "/images/blog/send-money-to-spain.jpg",
     sections: [
       {
         heading: "Spain: A Major Remittance Destination",
@@ -14134,7 +14134,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-30",
     author: "Akif Hazarvi",
     tags: ["UK", "GBP", "Faster Payments", "remittance", "corridor guide", "send money to UK", "USD to GBP", "EUR to GBP"],
-    featuredImage: "/images/blog/send-money-to-uk.svg",
+    featuredImage: "/images/blog/send-money-to-uk.jpg",
     sections: [
       {
         heading: "Sending Money to the UK: Fast, Competitive, and Well-Connected",
@@ -14309,7 +14309,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-30",
     author: "Akif Hazarvi",
     tags: ["South Korea", "KRW", "Korean won", "remittance", "corridor guide", "send money to South Korea", "USD to KRW", "Toss", "KakaoBank"],
-    featuredImage: "/images/blog/send-money-to-south-korea.svg",
+    featuredImage: "/images/blog/send-money-to-south-korea.jpg",
     sections: [
       {
         heading: "Sending Money to South Korea: Modern Banking, Variable Rates",
@@ -14484,7 +14484,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-30",
     author: "Akif Hazarvi",
     tags: ["Australia", "AUD", "NPP", "PayID", "Osko", "remittance", "corridor guide", "send money to Australia", "GBP to AUD", "USD to AUD"],
-    featuredImage: "/images/blog/send-money-to-australia.svg",
+    featuredImage: "/images/blog/send-money-to-australia.jpg",
     sections: [
       {
         heading: "Sending Money to Australia: Modern Infrastructure, Competitive Rates",
@@ -14683,7 +14683,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-11",
     author: "Akif Hazarvi",
     tags: ["Ethiopia", "ETB", "remittance", "corridor guide", "send money to Ethiopia", "telebirr"],
-    featuredImage: "/images/blog/send-money-to-ethiopia.svg",
+    featuredImage: "/images/blog/send-money-to-ethiopia.jpg",
     sections: [
       {
         heading: "Ethiopia: Africa's Second-Largest Remittance Market",
@@ -14763,7 +14763,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-16",
     author: "Akif Hazarvi",
     tags: ["euro forecast", "EUR/USD", "ECB", "exchange rates", "currency forecast", "SEPA", "remittances"],
-    featuredImage: "/images/blog/euro-forecast-2026.svg",
+    featuredImage: "/images/blog/euro-forecast-2026.jpg",
     sections: [
       {
         heading: "Where Does the Euro Stand Right Now?",
@@ -14880,7 +14880,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-16",
     author: "Akif Hazarvi",
     tags: ["GBP forecast", "pound forecast", "GBP/USD", "Bank of England", "exchange rates", "UK economy", "remittances"],
-    featuredImage: "/images/blog/gbp-forecast-2026.svg",
+    featuredImage: "/images/blog/gbp-forecast-2026.jpg",
     sections: [
       {
         heading: "Where Does the Pound Stand Right Now?",
@@ -15006,7 +15006,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-16",
     author: "Akif Hazarvi",
     tags: ["Revolut", "foreign transaction fees", "currency exchange", "travel money", "card fees"],
-    featuredImage: "/images/blog/revolut-fx-fees.svg",
+    featuredImage: "/images/blog/revolut-fx-fees.jpg",
     sections: [
       {
         heading: "Does Revolut Charge Foreign Transaction Fees?",
@@ -15125,7 +15125,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-04-16",
     author: "Akif Hazarvi",
     tags: ["XE", "tax season", "expat", "multi-currency account", "forward contract", "large transfer", "same currency", "FBAR", "FATCA"],
-    featuredImage: "/images/blog/xe-tax-season-2026.svg",
+    featuredImage: "/images/blog/xe-tax-season-2026.jpg",
     sections: [
       {
         heading: "Tax Season Creates a Money-Movement Problem",
@@ -15383,7 +15383,7 @@ export const blogPosts: BlogPost[] = [
       "data",
       "research",
     ],
-    featuredImage: "/images/blog/pakistan-remittance-loss.svg",
+    featuredImage: "/images/blog/pakistan-remittance-loss.jpg",
     sections: [
       {
         heading: "How Much Does Pakistan Lose on Remittances Each Year?",
