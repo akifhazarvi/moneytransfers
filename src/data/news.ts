@@ -1647,6 +1647,133 @@ export const newsItems: NewsItem[] = [
       "https://www.euronews.com/business/2026/03/24/revolut-reported-record-financial-results-with-revenue-rising-by-46-to-52bn-in-2025",
     providerSlugs: ["revolut", "wise", "worldremit", "lemfi"],
   },
+  {
+    slug: "global-currency-outlook-may-2026",
+    title:
+      "Global Currency Outlook May 2026: USD, GBP, EUR Forecasts and What They Mean for Your Transfers",
+    excerpt:
+      "The US dollar peak is behind us. DXY has slid to 97.7 on US–Iran de-escalation, the ECB and BoJ are lining up June rate hikes, and the Fed is split 8-4. Here's what May's currency moves mean for senders to India, Pakistan, the Philippines, Mexico, and the UAE corridors — and whether to send now or wait.",
+    image: "/images/news/global-currency-outlook-may-2026.svg",
+    imageAlt:
+      "Editorial card showing May 2026 currency outlook with DXY at 97.7, EUR/USD at 1.1733, GBP/USD at 1.3578, and USD/INR at 92.98",
+    content: `<p><strong>TL;DR —</strong> The April dollar rally has reversed. <strong>DXY is at 97.7</strong> — its lowest since February — after the US and Iran reopened negotiations and oil dropped 4% in a single session. <strong>EUR/USD is at 1.1733</strong>, <strong>GBP/USD at 1.3578</strong>, and <strong>USD/JPY pulled back to 156.66</strong>. The next eight days are the biggest event window of 2026 so far: ECB on June 11, Fed on June 17, Bank of England on June 18. For senders, the cleanest read is this — if you're sending USD abroad, the next few weeks favour you; if you're sending GBP or EUR, you're near 12-month highs against most emerging-market currencies. Below: what each major rate means for your corridor, and whether to send now or wait.</p>
+
+<h2>Key takeaways for senders</h2>
+<ul>
+<li><strong>The US dollar's April peak is behind us.</strong> DXY has fallen nearly two big figures in ten sessions as the Iran safe-haven premium unwound. The market now prices two Fed cuts before year-end.</li>
+<li><strong>Three central bank decisions in eight days (June 11–18)</strong> will reset every major currency pair. Plan transfers around them, not through them.</li>
+<li><strong>USD senders to India, Pakistan, the Philippines, and Mexico are still in a strong position</strong> — but the window is narrowing as the dollar softens.</li>
+<li><strong>GBP and EUR senders are at 12-month highs</strong> against INR, PKR, and PHP. Lock in if your transfer is large.</li>
+<li><strong>AED is pegged to USD</strong>, so UAE senders to India and Pakistan see the same dollar dynamics — but Gulf corridors stay among the most cost-efficient globally.</li>
+</ul>
+
+<h2>Where the major rates are in May 2026</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>Pair</th><th>Rate (mid-May 2026)</th><th>1-month direction</th><th>What it means for senders</th></tr></thead>
+<tbody>
+<tr><td><strong>USD Index (DXY)</strong></td><td>97.7</td><td>↓ Down ~2%</td><td>Dollar weakening — recipients abroad get less per USD sent</td></tr>
+<tr><td><strong>EUR / USD</strong></td><td>1.1733</td><td>↑ Recovering</td><td>Euro buyers of dollars benefit; eurozone strength building</td></tr>
+<tr><td><strong>GBP / USD</strong></td><td>1.3578</td><td>↔ Range-bound</td><td>UK senders to the US lose slightly; UK→India still strong</td></tr>
+<tr><td><strong>USD / JPY</strong></td><td>156.66</td><td>↓ Off 158</td><td>Japan-bound transfers getting more expensive in USD terms</td></tr>
+<tr><td><strong>USD / INR</strong></td><td>~83.5</td><td>↓ INR recovering</td><td>USA→India still favourable but less so than April</td></tr>
+<tr><td><strong>GBP / INR</strong></td><td>~113</td><td>↑ Near 12-mo high</td><td>UK→India is at its best level in a year</td></tr>
+<tr><td><strong>USD / PHP</strong></td><td>~56</td><td>↔ Steady</td><td>USA→Philippines holding; central bank divergence supports peso</td></tr>
+<tr><td><strong>USD / MXN</strong></td><td>17.52</td><td>↑ Peso weakening</td><td>Mexico-bound dollars are buying more pesos than in March</td></tr>
+<tr><td><strong>AED / INR</strong></td><td>~22.7</td><td>↓ Slight</td><td>UAE→India still among the cheapest corridors globally</td></tr>
+</tbody>
+</table></div>
+<p>For the live picture on any pair, use our <a href="/currency-converter">currency converter</a> — it shows 30-day history and the cheapest provider for each route. For broader macro context, our <a href="/news/inr-weakest-year-send-money-india-april-2026">April 2026 INR analysis</a> sets the baseline this article builds on.</p>
+
+<h2>What's driving currencies in May 2026</h2>
+
+<h3>1. The US–Iran de-escalation has erased the dollar's safe-haven premium</h3>
+<p>April's dollar rally was a geopolitical premium trade, not a fundamentals story. When Tehran and Washington reopened a negotiating channel in early May, Brent crude dropped roughly $12 a barrel in two weeks and DXY fell from 99.3 to 97.7 — its lowest level since February. The April US CPI and PPI prints were the hottest since 2022 and 2023 respectively, but both were energy-led. If oil stays below $80, those readings reverse in the June and July data — exactly when the Fed has to make its call.</p>
+<p><strong>For senders:</strong> the dollar's softness directly reduces what your recipient receives abroad. If you've been waiting to send, the window is narrowing — not closed, but narrower than April.</p>
+
+<h3>2. The Federal Reserve is the most divided it's been since 1992</h3>
+<p>The Fed held at 3.75–4.00% on April 29 in an 8-4 split — the most divided FOMC vote in 34 years. Chair Powell's term ends May 15, and Kevin Warsh is widely expected to chair the June 16–17 meeting. The market now prices two cuts before year-end, having priced in zero just six weeks ago. That's a wholesale reversal in Fed expectations and it's the single biggest reason the dollar is sliding.</p>
+<p>For full background on how Fed decisions move your transfers, see our <a href="/news/fed-holds-rates-march-2026-one-cut-dot-plot">March Fed analysis</a> and our explainer on <a href="/news/central-bank-super-week-march-2026">how central bank rate decisions affect your money transfers</a>.</p>
+
+<h3>3. The ECB and Bank of Japan are lining up rate hikes</h3>
+<p>The European Central Bank held at 2.00% on April 30, but markets now price 50–65 basis points of cumulative tightening this year, with the first hike possible at the June 11 meeting. The Bank of Japan is live for a 25bp hike to 1.00% on June 17 — the clearest tightening signal in a generation. Both moves work directly against the dollar.</p>
+<p><strong>For senders:</strong> a stronger EUR or JPY against USD means USD payers buying euros or yen get less for their money. EU residents sending to dollar countries (and yen-paid expats sending home in JPY) get a tailwind.</p>
+
+<h3>4. The Bank of England is hawkish-on-hold</h3>
+<p>The BoE held at 3.75% on April 30 in a hawkish 8-1 vote — Chief Economist Huw Pill dissented to raise rates to 4.00%. UK gilt yields are at 5.01%, historically elevated. Sterling has held its ground but hasn't rallied because UK politics (the Starmer ethics inquiry, fiscal questions) is capping upside. The next BoE meeting is June 18.</p>
+
+<h3>5. Emerging-market currencies are mixed</h3>
+<p>The Indian rupee has recovered from its April low of 94.62 to around 83.5 as the RBI intervened. The Mexican peso has weakened on softer oil and nearshoring fatigue. The Philippine peso is steady. The Pakistani rupee remains under structural pressure despite a record $41 billion in remittance inflows — see our <a href="/news/pakistan-record-41-billion-remittance-2026">Pakistan remittance analysis</a> for the full picture.</p>
+
+<h2>What this means for your corridor</h2>
+
+<h3>USA → India (USD/INR)</h3>
+<p>You're still in a strong position, but less so than three weeks ago. INR has recovered from 94.62 to ~83.5 as the RBI defends levels. On a $5,000 transfer, that's roughly ₹50,000 less than at the April peak — but still well above the 12-month average. <strong>Verdict: send now if you have a planned transfer; provider choice matters more than waiting another week.</strong></p>
+<p>Compare live rates: <a href="/send-money/usa-to-india">USA → India</a>. Provider picks: <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/instarem">Instarem</a>.</p>
+
+<h3>UK → India and UK → Pakistan (GBP/INR, GBP/PKR)</h3>
+<p>GBP is sitting at 12-month highs against both the rupee and the Pakistani rupee. For UK senders, this is one of the best windows of the past year. The BoE's hawkish-on-hold stance gives sterling underlying support through at least the June 18 meeting.</p>
+<p><strong>Verdict: this is a strong window for UK senders.</strong> If you have a large planned transfer (£10,000+), consider locking it in this month rather than after the June BoE meeting. See <a href="/send-money/uk-to-india">UK → India</a> and <a href="/send-money/uk-to-pakistan">UK → Pakistan</a>.</p>
+
+<h3>USA → Philippines and USA → Mexico (USD/PHP, USD/MXN)</h3>
+<p>USD/PHP is holding around 56 as the BSP maintains its inflation stance. USD/MXN has drifted from 17.0 toward 17.52 as the peso loses some of the carry premium it has enjoyed. Both corridors still favour USD senders, especially Mexico where the move is recent.</p>
+<p>Compare: <a href="/send-money/usa-to-philippines">USA → Philippines</a>, <a href="/send-money/usa-to-mexico">USA → Mexico</a>.</p>
+
+<h3>UAE → India, Pakistan, Philippines, Bangladesh (AED corridors)</h3>
+<p>The UAE dirham is pegged to the US dollar, so AED corridors mirror USD movements. AED/INR is around 22.7, AED/PKR remains stable, and AED/PHP tracks USD/PHP. Gulf corridors continue to be among the cheapest globally thanks to dense competition and digital remittance infrastructure.</p>
+<p>Compare: <a href="/send-money/uae-to-india">UAE → India</a>, <a href="/send-money/uae-to-pakistan">UAE → Pakistan</a>, <a href="/send-money/uae-to-philippines">UAE → Philippines</a>.</p>
+
+<h3>Europe → India and Europe → Africa (EUR corridors)</h3>
+<p>EUR has been the cleanest G10 long in May — recovering from 1.1435 in mid-March to 1.1733 today, with markets pricing an ECB hike in June. EUR senders to India, Morocco, and Sub-Saharan Africa benefit from both euro strength and (in many cases) recipient-country currency softness.</p>
+<p>Worth noting: SEPA Instant payments became mandatory across the EU in 2026 — see our analysis of <a href="/news/eu-instant-payments-mandate-2026">the SEPA Instant mandate</a> for what it means inside the EU.</p>
+
+<h2>Send now or wait? A simple decision framework</h2>
+<p>For most retail transfers (under $10,000 / £8,000 / €8,000), the maths is the same as it was in April: <strong>provider choice saves more than timing</strong>. The gap between the cheapest and most expensive provider on any given day is typically 0.5–3% of your transfer. The gap between this week's rate and next week's is typically 0.3–1%.</p>
+<p>That said, May has two specific timing rules:</p>
+<ol>
+<li><strong>Avoid the June 11–18 window.</strong> Three central bank decisions in eight days. Currencies will move 1–2% in either direction. If you can send before June 10 or after June 20, do.</li>
+<li><strong>For large transfers ($25,000+), consider a forward contract.</strong> Specialist FX brokers like <a href="/companies/ofx">OFX</a> and <a href="/companies/currencies-direct">Currencies Direct</a> let you lock today's rate for delivery up to 12 months out — useful if you're worried the dollar slide continues.</li>
+</ol>
+<p>For background on how to think about timing, see our piece on <a href="/news/inr-weakest-year-send-money-india-april-2026">timing USD/INR transfers</a> and our guide to <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a>.</p>
+
+<h2>Frequently asked questions</h2>
+
+<h3>Is the US dollar going up or down in May 2026?</h3>
+<p>Down. The US Dollar Index (DXY) has fallen from 99.3 in late April to 97.7 in mid-May — its lowest level since February. Three forces are weighing on the dollar: US–Iran de-escalation reducing the safe-haven premium, an 8-4 split FOMC vote signalling internal disagreement, and market pricing of two Fed rate cuts before year-end (compared to zero priced in six weeks ago). Most major banks now expect DXY to end 2026 between 90 and 96.</p>
+
+<h3>Should I send money abroad in May 2026 or wait for June?</h3>
+<p>For USD senders, send sooner rather than later — the dollar is softening and recipients abroad will get less per dollar in June than they would today. For GBP and EUR senders, you're already at favourable levels, so timing is less urgent. Avoid the June 11–18 window: three central bank decisions (ECB, Fed, Bank of England) will move every major currency pair by 1–2%, in unpredictable directions.</p>
+
+<h3>What's the best exchange rate forecast for USD to INR in May 2026?</h3>
+<p>USD/INR has stabilised around 83.5 after the RBI intervened to support the rupee from its April low of 94.62. With the dollar softening globally and the RBI's defensive stance against further INR weakness, the most likely range for May is 83.0–84.5. Compare live rates on the <a href="/send-money/usa-to-india">USA → India</a> page.</p>
+
+<h3>Will GBP get stronger or weaker against the euro in 2026?</h3>
+<p>The euro is forecast to strengthen modestly against the pound through the second half of 2026 as the ECB tightens while the Bank of England holds. EUR/GBP is drifting from 0.8637 toward 0.88 by year-end, according to consensus bank forecasts. UK senders to eurozone countries should expect a slight loss of purchasing power over the coming months.</p>
+
+<h3>How do Fed and ECB rate decisions affect my international transfer?</h3>
+<p>Central bank rate decisions are the single biggest driver of exchange rate moves. When the Fed cuts rates, the dollar typically weakens — bad if you're sending USD abroad (your recipient gets less). When the ECB hikes, the euro typically strengthens — good if you're sending EUR, bad if you're buying EUR with another currency. On a $5,000 transfer, a 1% rate move equals about $50 — usually smaller than the gap between the cheapest and most expensive provider. <strong>Pick the provider first, time the transfer second.</strong> See our full guide to <a href="/news/central-bank-super-week-march-2026">how central bank decisions affect your transfers</a>.</p>
+
+<h3>Which provider has the best USD to INR rate in May 2026?</h3>
+<p>On the <a href="/send-money/usa-to-india">USA → India corridor</a>, Wise, Remitly, and Instarem consistently lead on total INR delivered. <a href="/companies/wise">Wise</a> uses the mid-market rate with a fee of ~0.4–0.6%. <a href="/companies/remitly">Remitly</a>'s Economy tier is often cheapest; Express is fastest. <a href="/companies/instarem">Instarem</a> offers competitive rates with zero fees for first transfers.</p>
+
+<h2>Live rates and tools</h2>
+<ul>
+<li><a href="/currency-converter">Live currency converter</a> — all major pairs with 30-day history</li>
+<li><a href="/send-money/usa-to-india">USA → India provider comparison</a></li>
+<li><a href="/send-money/uk-to-india">UK → India provider comparison</a></li>
+<li><a href="/send-money/uae-to-india">UAE → India provider comparison</a></li>
+<li><a href="/send-money/usa-to-philippines">USA → Philippines provider comparison</a></li>
+<li><a href="/send-money/usa-to-mexico">USA → Mexico provider comparison</a></li>
+<li><a href="/send-money/uk-to-pakistan">UK → Pakistan provider comparison</a></li>
+<li><a href="/exchange-rates/usd-to-inr">USD/INR live rate</a> · <a href="/exchange-rates/gbp-to-inr">GBP/INR live rate</a> · <a href="/exchange-rates/eur-to-usd">EUR/USD live rate</a></li>
+</ul>
+
+<p>For deeper background, our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a> covers the long-run picture — global remittances reached $860 billion in 2025 with 3.8% year-on-year growth, and India remains the world's largest recipient at over $125 billion annually. We'll publish the June 2026 outlook in the second week of June, after the central bank trio is behind us.</p>`,
+    category: "Industry News",
+    publishedAt: "2026-05-16",
+    source: "Federal Reserve / ECB / Bank of England / MUFG Research / Reuters",
+    sourceUrl: "https://www.xe.com/blog/currency-news/the-xe-global-currency-outlook-april-2026/",
+    providerSlugs: ["wise", "remitly", "instarem", "xe", "revolut", "ofx"],
+  },
 ];
 
 export function getNewsItem(slug: string): NewsItem | undefined {
