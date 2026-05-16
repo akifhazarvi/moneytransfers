@@ -103,12 +103,37 @@ function getEditorialCorridorSlugs(): string[] {
 }
 
 /**
+ * Read editorial slugs from a data file using the same `slug: "..."` pattern
+ * used elsewhere in src/data. Used for /news and /guides so newly published
+ * articles get pinged on the next scrape/deploy run.
+ */
+function getEditorialSlugs(relativeDataPath: string): string[] {
+  try {
+    const src = fs.readFileSync(
+      path.join(__dirname, "..", "src", "data", relativeDataPath),
+      "utf-8"
+    );
+    const slugs = new Set<string>();
+    const re = /slug:\s*"([a-z0-9-]+)"/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(src))) {
+      slugs.add(m[1]);
+    }
+    return [...slugs];
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Generate all data-driven URLs that change when scraped data updates.
  */
 function generateUrls(): string[] {
   const urls: string[] = [];
   const corridorsWithData = getCorridorsWithData();
   const editorialSlugs = getEditorialCorridorSlugs();
+  const newsSlugs = getEditorialSlugs("news.ts");
+  const guideSlugs = getEditorialSlugs("blog-posts.ts");
 
   // 1. Homepage + hub pages
   urls.push(
@@ -128,6 +153,15 @@ function generateUrls(): string[] {
   // 1b. Every editorial corridor (always indexed regardless of scrape data)
   for (const slug of editorialSlugs) {
     urls.push(`${SITE_URL}/send-money/${slug}`);
+  }
+
+  // 1c. News and guides — editorial articles freshly published or revised
+  urls.push(`${SITE_URL}/news`);
+  for (const slug of newsSlugs) {
+    urls.push(`${SITE_URL}/news/${slug}`);
+  }
+  for (const slug of guideSlugs) {
+    urls.push(`${SITE_URL}/guides/${slug}`);
   }
 
   // 2. Corridor pages — only corridors that have scraped data
