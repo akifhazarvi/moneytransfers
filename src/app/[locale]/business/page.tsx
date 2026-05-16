@@ -185,7 +185,7 @@ export default async function BusinessHubPage({
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-[var(--color-outline)] bg-[#e8f5e9]">
+                  <tr className="border-b border-[var(--color-outline)] bg-[var(--color-success-surface)]">
                     <td className="py-3 px-3">$5K/month (freelancer)</td>
                     <td className="py-3 px-3">~$175/mo</td>
                     <td className="py-3 px-3">~$30/mo</td>
