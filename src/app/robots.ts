@@ -29,13 +29,19 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },
+      // Perplexity user-initiated fetches (ignores robots but documenting intent)
+      {
+        userAgent: "Perplexity-User",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
       // Allow Google-Extended — powers Google AI Overviews and Gemini (important for AI search visibility)
       {
         userAgent: "Google-Extended",
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },
-      // Bing search crawler — same rules as general crawlers
+      // Bing search crawler — powers Bing, Copilot, ChatGPT Search (via Bing API), DuckDuckGo, Yahoo
       {
         userAgent: "bingbot",
         allow: "/",
@@ -44,6 +50,30 @@ export default function robots(): MetadataRoute.Robots {
       // Allow Apple Intelligence / Siri search
       {
         userAgent: "Applebot-Extended",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
+      // DuckDuckGo's AI assistant (DuckAssist)
+      {
+        userAgent: "DuckAssistBot",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
+      // Meta AI (powers Meta AI search, WhatsApp assistant)
+      {
+        userAgent: "Meta-ExternalAgent",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
+      // Amazon's AI assistant (Rufus)
+      {
+        userAgent: "Amazonbot",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
+      // Mistral AI search
+      {
+        userAgent: "MistralAI-User",
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },

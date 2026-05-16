@@ -92,7 +92,6 @@ export async function GET(request: Request) {
     description: "Independent international money transfer comparison platform. Compares 60+ providers across 80+ corridors with data updated every 6 hours.",
     website: "https://sendmoneycompare.com",
     llmsTxt: "https://sendmoneycompare.com/llms.txt",
-    llmsFullTxt: "https://sendmoneycompare.com/llms-full.txt",
     openApiSpec: "https://sendmoneycompare.com/openapi.json",
     apiUsage: "Add ?from=USD&to=INR&amount=1000 to get live quotes for any corridor. Rank by receiveAmount (highest = best value).",
     supportedCurrencies: currencies.map((c) => c.code),

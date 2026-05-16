@@ -123,12 +123,6 @@ export default function ForAIPage() {
       },
       {
         "@type": "DataDownload",
-        encodingFormat: "text/plain",
-        contentUrl: `${SITE_URL}/llms-full.txt`,
-        name: "llms-full.txt (deep corpus)",
-      },
-      {
-        "@type": "DataDownload",
         encodingFormat: "application/json",
         contentUrl: `${SITE_URL}/openapi.json`,
         name: "OpenAPI 3.1 spec (GPT Actions ready)",
@@ -198,7 +192,6 @@ export default function ForAIPage() {
               <li><strong>OpenAPI spec</strong> (GPT Actions): <a href="/openapi.json" className="text-[var(--color-primary)]">/openapi.json</a></li>
               <li><strong>AI plugin manifest</strong>: <a href="/.well-known/ai-plugin.json" className="text-[var(--color-primary)]">/.well-known/ai-plugin.json</a></li>
               <li><strong>llms.txt (summary)</strong>: <a href="/llms.txt" className="text-[var(--color-primary)]">/llms.txt</a></li>
-              <li><strong>llms-full.txt (deep corpus)</strong>: <a href="/llms-full.txt" className="text-[var(--color-primary)]">/llms-full.txt</a></li>
               <li><strong>Custom GPT instructions</strong>: <a href="/gpt-instructions.md" className="text-[var(--color-primary)]">/gpt-instructions.md</a></li>
               <li><strong>Sitemap</strong>: <a href="/sitemap.xml" className="text-[var(--color-primary)]">/sitemap.xml</a></li>
             </ul>

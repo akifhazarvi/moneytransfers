@@ -1,6 +1,6 @@
 # ai.txt — AI Usage Declaration for SendMoneyCompare
 # Format inspired by emerging ai.txt conventions. For the authoritative
-# corpus see llms.txt and llms-full.txt.
+# corpus see llms.txt.
 
 Site: https://sendmoneycompare.com
 Publisher: SendMoneyCompare
@@ -14,7 +14,6 @@ Editorial team:
 # Resources for AI agents
 AI-hub: https://sendmoneycompare.com/for-ai
 Summary: https://sendmoneycompare.com/llms.txt
-Full-corpus: https://sendmoneycompare.com/llms-full.txt
 Live-quotes-API: https://sendmoneycompare.com/api/ai
 OpenAPI-spec: https://sendmoneycompare.com/openapi.json
 Plugin-manifest: https://sendmoneycompare.com/.well-known/ai-plugin.json

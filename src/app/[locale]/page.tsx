@@ -100,13 +100,64 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     { step: "3", title: tHow("step3Title"), desc: tHow("step3Desc") },
   ];
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://sendmoneycompare.com/#organization",
+    name: "SendMoneyCompare",
+    url: "https://sendmoneycompare.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://sendmoneycompare.com/icon-512x512.png",
+      width: 512,
+      height: 512,
+    },
+    description: "Independent international money transfer comparison platform. Compares 60+ providers across 64+ currency corridors with live data refreshed every 6 hours.",
+    foundingDate: "2024",
+    founder: [
+      { "@type": "Person", name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" },
+      { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
+    ],
+    sameAs: [
+      "https://www.linkedin.com/company/sendmoneycompare",
+    ],
+    knowsAbout: [
+      "International money transfers",
+      "Foreign exchange rates",
+      "Remittance services",
+      "Cross-border payments",
+      "SWIFT codes",
+      "IBAN numbers",
+    ],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://sendmoneycompare.com/#website",
+    name: "SendMoneyCompare",
+    alternateName: "Send Money Compare",
+    url: "https://sendmoneycompare.com",
+    publisher: { "@id": "https://sendmoneycompare.com/#organization" },
+    inLanguage: "en-US",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://sendmoneycompare.com/send-money/{search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   const homePageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Compare Money Transfers — Best Rates & Lowest Fees",
     description: "Compare fees, exchange rates, and delivery times from 60+ money transfer providers across 64+ corridors. Updated every 6 hours with live data.",
     url: "https://sendmoneycompare.com",
-    isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+    isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
+    about: { "@id": "https://sendmoneycompare.com/#organization" },
   };
 
   const homeBreadcrumbSchema = {
@@ -153,6 +204,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
