@@ -566,16 +566,16 @@
     "date": "2026-05-16",
     "providers": {
       "instarem": {
-        "rate": 0.6036,
+        "rate": 0.6013,
         "fee": 0,
-        "markup": 0.35,
-        "receiveAmount": 60.36
+        "markup": 0.62,
+        "receiveAmount": 60.13
       },
       "revolut": {
-        "rate": 0.602,
-        "fee": 0,
-        "markup": 0.61,
-        "receiveAmount": 60.2
+        "rate": 0.6015,
+        "fee": 1,
+        "markup": 0.59,
+        "receiveAmount": 59.55
       },
       "wise": {
         "rate": 0.6046,

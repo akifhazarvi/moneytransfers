@@ -1723,10 +1723,10 @@
     "date": "2026-05-16",
     "providers": {
       "moneygram": {
-        "rate": 151.6792,
+        "rate": 151.8806,
         "fee": 1.99,
-        "markup": 0.9,
-        "receiveAmount": 14866.08
+        "markup": 1.23,
+        "receiveAmount": 14885.82
       },
       "ria": {
         "rate": 151.5239,
@@ -1743,19 +1743,19 @@
       "boss-money": {
         "rate": 148.02,
         "fee": 2.49,
-        "markup": 3.29,
+        "markup": 3.74,
         "receiveAmount": 14433.43
       },
       "western-union": {
-        "rate": 151.9786,
+        "rate": 152.2467,
         "fee": 1.99,
-        "markup": 0.71,
-        "receiveAmount": 14895.42
+        "markup": 0.99,
+        "receiveAmount": 14921.7
       },
       "worldremit": {
         "rate": 151.2181,
         "fee": 0.99,
-        "markup": 1.2,
+        "markup": 1.66,
         "receiveAmount": 14972.1
       },
       "instarem": {
@@ -1765,10 +1765,10 @@
         "receiveAmount": 15203.53
       },
       "xe": {
-        "rate": 151.6003,
+        "rate": 151.868,
         "fee": 4,
-        "markup": 0.95,
-        "receiveAmount": 14553.63
+        "markup": 1.24,
+        "receiveAmount": 14579.33
       },
       "paysend": {
         "rate": 150.6384,

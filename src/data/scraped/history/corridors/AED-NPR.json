@@ -855,22 +855,22 @@
     "date": "2026-05-16",
     "providers": {
       "skrill": {
-        "rate": 40.4459,
+        "rate": 40.5555,
         "fee": 0,
-        "markup": 3.07,
-        "receiveAmount": 4044.59
+        "markup": 3.14,
+        "receiveAmount": 4055.55
       },
       "paysend": {
-        "rate": 40.8049,
+        "rate": 40.8635,
         "fee": 9,
-        "markup": 2.21,
-        "receiveAmount": 3713.25
+        "markup": 2.41,
+        "receiveAmount": 3718.58
       },
       "remitly": {
-        "rate": 41.5,
+        "rate": 41.59,
         "fee": 5,
-        "markup": 0.55,
-        "receiveAmount": 3942.5
+        "markup": 0.67,
+        "receiveAmount": 3951.05
       },
       "taptap-send": {
         "rate": 41.45,

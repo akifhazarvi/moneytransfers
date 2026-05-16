@@ -1928,10 +1928,10 @@
     "date": "2026-05-16",
     "providers": {
       "moneygram": {
-        "rate": 7.5337,
+        "rate": 7.5318,
         "fee": 2.99,
-        "markup": 1.24,
-        "receiveAmount": 730.84
+        "markup": 1.21,
+        "receiveAmount": 730.66
       },
       "ria": {
         "rate": 7.5328,
@@ -1946,28 +1946,28 @@
         "receiveAmount": 760
       },
       "boss-money": {
-        "rate": 7.5529,
+        "rate": 7.56,
         "fee": 1.49,
-        "markup": 0.99,
-        "receiveAmount": 744.04
+        "markup": 0.84,
+        "receiveAmount": 744.74
       },
       "western-union": {
-        "rate": 7.5337,
+        "rate": 7.5317,
         "fee": 1.99,
-        "markup": 1.24,
-        "receiveAmount": 738.38
+        "markup": 1.21,
+        "receiveAmount": 738.18
       },
       "xoom": {
-        "rate": 7.6303,
-        "fee": 0,
+        "rate": 7.7771,
+        "fee": 4.99,
         "markup": null,
-        "receiveAmount": 763.03
+        "receiveAmount": 738.9
       },
       "worldremit": {
-        "rate": 7.5553,
+        "rate": 7.5557,
         "fee": 1.99,
-        "markup": 0.96,
-        "receiveAmount": 740.49
+        "markup": 0.9,
+        "receiveAmount": 740.54
       },
       "instarem": {
         "rate": 7.5723,
@@ -1978,14 +1978,14 @@
       "paysend": {
         "rate": 7.5948,
         "fee": 1.99,
-        "markup": 0.44,
+        "markup": 0.38,
         "receiveAmount": 744.37
       },
       "sendwave": {
-        "rate": 7.5591,
+        "rate": 7.5596,
         "fee": 1.99,
-        "markup": 0.91,
-        "receiveAmount": 740.86
+        "markup": 0.85,
+        "receiveAmount": 740.91
       },
       "remitly": {
         "rate": 7.4634,
@@ -1994,10 +1994,10 @@
         "receiveAmount": 731.49
       },
       "revolut": {
-        "rate": 7.5662,
-        "fee": 0.75,
-        "markup": 0.81,
-        "receiveAmount": 750.95
+        "rate": 7.5694,
+        "fee": 1.75,
+        "markup": 0.72,
+        "receiveAmount": 743.69
       },
       "wise": {
         "rate": 7.6208,

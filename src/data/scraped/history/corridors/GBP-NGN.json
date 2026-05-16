@@ -4700,10 +4700,10 @@
     "date": "2026-05-16",
     "providers": {
       "ace-money-transfer": {
-        "rate": 1860,
+        "rate": 1830,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 186000
+        "receiveAmount": 183000
       },
       "remitly": {
         "rate": 1830.92,
@@ -4740,6 +4740,60 @@
         "fee": 1.23,
         "markup": null,
         "receiveAmount": 180060.67
+      },
+      "moneygram": {
+        "rate": 1842.9445,
+        "fee": 0.99,
+        "markup": -0.92,
+        "receiveAmount": 182469.93
+      },
+      "profee": {
+        "rate": 1853.4723,
+        "fee": 1.8,
+        "markup": -1.5,
+        "receiveAmount": 182010.98
+      },
+      "dahabshiil": {
+        "rate": 1834.0015,
+        "fee": 0,
+        "markup": -0.43,
+        "receiveAmount": 183400.15
+      },
+      "transfergo": {
+        "rate": 1831.052,
+        "fee": 0,
+        "markup": -0.27,
+        "receiveAmount": 183105.2
+      },
+      "worldremit": {
+        "rate": 1819.0387,
+        "fee": 0.99,
+        "markup": 0.39,
+        "receiveAmount": 180103.03
+      },
+      "instarem": {
+        "rate": 1814.105,
+        "fee": 0,
+        "markup": 0.66,
+        "receiveAmount": 181410.5
+      },
+      "mukuru": {
+        "rate": 1814.35,
+        "fee": 0,
+        "markup": 0.64,
+        "receiveAmount": 181435
+      },
+      "paysend": {
+        "rate": 1812.5943,
+        "fee": 0,
+        "markup": 0.74,
+        "receiveAmount": 181259.43
+      },
+      "sendwave": {
+        "rate": 1819.0387,
+        "fee": 0.99,
+        "markup": 0.39,
+        "receiveAmount": 180103.03
       }
     }
   }
