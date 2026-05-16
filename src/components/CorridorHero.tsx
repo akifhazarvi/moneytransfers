@@ -88,7 +88,7 @@ export default function CorridorHero({
         </nav>
 
         {/* Title row */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-10">
           <div className="max-w-2xl">
             <h1 className="text-[32px] sm:text-5xl lg:text-[56px] font-semibold text-[var(--color-on-surface)] leading-[1.05] tracking-[-0.025em]">
               {isCountryPage ? `${headingPrefix} ${headingTo}` : `${headingPrefix} ${headingFrom} to ${headingTo}`}
