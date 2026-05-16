@@ -11,11 +11,15 @@ permissions:
 
 jobs:
   scrape-monito:
+    # Monito has ~103 corridors. We shard across 4 parallel jobs (round-robin)
+    # so wallclock drops from ~34 min serial to ~10 min per shard. Each shard
+    # writes monito-quotes.shard-N.json; commit-data merges them.
     runs-on: ubuntu-latest
-    # Monito scrapes ~103 corridors at ~10s each, ~34 min locally. CI runners
-    # are slower, so we allow 50 min. The scraper now writes incrementally
-    # (every 10 corridors), so a timeout-kill still leaves partial data.
-    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -30,18 +34,18 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
-      - name: Scrape Monito comparison (Playwright)
-        run: npx tsx scripts/scrape-monito.ts
-        timeout-minutes: 50
+      - name: Scrape Monito comparison (shard ${{ matrix.shard }}/4)
+        run: npx tsx scripts/scrape-monito.ts --shard ${{ matrix.shard }} --total 4
+        timeout-minutes: 15
         continue-on-error: true
 
-      - name: Upload scraped data
+      - name: Upload shard output
         uses: actions/upload-artifact@v4
         with:
-          name: scraped-monito
-          path: src/data/scraped/monito-quotes.json
+          name: scraped-monito-shard-${{ matrix.shard }}
+          path: src/data/scraped/monito-quotes.shard-${{ matrix.shard }}.json
           retention-days: 1
-          if-no-files-found: error
+          if-no-files-found: warn
 
   scrape-xoom:
     runs-on: ubuntu-latest
@@ -142,10 +146,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download Monito scraper results
+      - name: Download Monito shard outputs
         uses: actions/download-artifact@v4
         with:
-          name: scraped-monito
+          pattern: scraped-monito-shard-*
+          merge-multiple: true
           path: src/data/scraped/
         continue-on-error: true
 
@@ -176,6 +181,9 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+
+      - name: Merge Monito shards into monito-quotes.json
+        run: npx tsx scripts/merge-monito-shards.ts
 
       - name: Aggregate historical data
         run: npx tsx scripts/aggregate-history.ts

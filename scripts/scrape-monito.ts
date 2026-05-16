@@ -25,7 +25,27 @@ import {
 
 const DELAY_MS = 2500;
 
-const CORRIDORS = [
+// Parse --shard <i> --total <n> for parallel runs in CI. Defaults: full list.
+// Each shard gets every Nth corridor (round-robin) so geographic/payment-method
+// load is spread evenly rather than one shard getting all the slow corridors.
+function parseShardArgs(): { index: number; total: number } {
+  const args = process.argv.slice(2);
+  let index = 0;
+  let total = 1;
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--shard") index = Number(args[i + 1]);
+    if (args[i] === "--total") total = Number(args[i + 1]);
+  }
+  if (!Number.isInteger(index) || !Number.isInteger(total) || total < 1 || index < 0 || index >= total) {
+    console.error(`Invalid shard args: --shard ${index} --total ${total}`);
+    process.exit(1);
+  }
+  return { index, total };
+}
+
+const SHARD = parseShardArgs();
+
+const ALL_CORRIDORS = [
   { fromCountry: "us", toCountry: "in", from: "USD", to: "INR" },
   { fromCountry: "us", toCountry: "ph", from: "USD", to: "PHP" },
   { fromCountry: "us", toCountry: "mx", from: "USD", to: "MXN" },
@@ -145,6 +165,11 @@ const CORRIDORS = [
   { fromCountry: "za", toCountry: "gb", from: "ZAR", to: "GBP" },
   { fromCountry: "za", toCountry: "ke", from: "ZAR", to: "KES" },
 ];
+
+// Round-robin shard: corridor[i] goes to shard (i % total).
+// Round-robin spreads regional load evenly across shards rather than
+// chunking which would concentrate slow corridors in one shard.
+const CORRIDORS = ALL_CORRIDORS.filter((_, i) => i % SHARD.total === SHARD.index);
 
 const SEND_AMOUNTS = [100, 1000];
 
@@ -302,8 +327,10 @@ function writeQuotesAtomic(outputPath: string, quotes: MonitoQuote[]) {
 }
 
 async function main() {
+  const sharded = SHARD.total > 1;
   console.log("=== Monito Comparison Scraper (Playwright) ===\n");
-  console.log(`Corridors: ${CORRIDORS.length}`);
+  if (sharded) console.log(`Shard: ${SHARD.index + 1}/${SHARD.total}`);
+  console.log(`Corridors: ${CORRIDORS.length}${sharded ? ` (of ${ALL_CORRIDORS.length} total)` : ""}`);
   console.log(`Amounts: ${SEND_AMOUNTS.join(", ")}\n`);
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -315,7 +342,10 @@ async function main() {
   let failCorridors = 0;
   const startTime = Date.now();
 
-  const outputPath = path.join(OUTPUT_DIR, "monito-quotes.json");
+  // Sharded runs write to monito-quotes.shard-N.json so parallel workers
+  // don't clobber each other's output. Merge step in CI concatenates.
+  const outputFile = sharded ? `monito-quotes.shard-${SHARD.index}.json` : "monito-quotes.json";
+  const outputPath = path.join(OUTPUT_DIR, outputFile);
   // Persist every N corridors so CI timeouts (28 min job vs ~34 min local
   // runtime) still produce useful partial output instead of losing the
   // entire scrape and leaving stale data from the previous run.
