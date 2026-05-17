@@ -4796,5 +4796,94 @@
         "receiveAmount": 180103.03
       }
     }
+  },
+  {
+    "date": "2026-05-17",
+    "providers": {
+      "moneygram": {
+        "rate": 1842.9445,
+        "fee": 0.99,
+        "markup": -0.92,
+        "receiveAmount": 182469.93
+      },
+      "taptap-send": {
+        "rate": 1830,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 183000
+      },
+      "western-union": {
+        "rate": 1786.1047,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 173270.01
+      },
+      "profee": {
+        "rate": 1853.466,
+        "fee": 1.8,
+        "markup": -1.5,
+        "receiveAmount": 182010.36
+      },
+      "dahabshiil": {
+        "rate": 1834.0015,
+        "fee": 0,
+        "markup": -0.43,
+        "receiveAmount": 183400.15
+      },
+      "transfergo": {
+        "rate": 1829.5248,
+        "fee": 0,
+        "markup": -0.19,
+        "receiveAmount": 182952.48
+      },
+      "worldremit": {
+        "rate": 1819.0387,
+        "fee": 0.99,
+        "markup": 0.39,
+        "receiveAmount": 180103.03
+      },
+      "instarem": {
+        "rate": 1814.105,
+        "fee": 0,
+        "markup": 0.66,
+        "receiveAmount": 181410.5
+      },
+      "mukuru": {
+        "rate": 1814.35,
+        "fee": 0,
+        "markup": 0.64,
+        "receiveAmount": 181435
+      },
+      "paysend": {
+        "rate": 1812.5943,
+        "fee": 0,
+        "markup": 0.74,
+        "receiveAmount": 181259.43
+      },
+      "sendwave": {
+        "rate": 1819.0387,
+        "fee": 0.99,
+        "markup": 0.39,
+        "receiveAmount": 180103.03
+      },
+      "remitly": {
+        "rate": 1830.92,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 183092
+      },
+      "xoom": {
+        "rate": 1796.749,
+        "fee": 0.89,
+        "markup": null,
+        "receiveAmount": 178075.79
+      },
+      "wise": {
+        "rate": 1823.03,
+        "fee": 1.23,
+        "markup": null,
+        "receiveAmount": 180060.67
+      }
+    }
   }
 ]
