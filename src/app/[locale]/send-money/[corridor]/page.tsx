@@ -1879,6 +1879,9 @@ export default async function CorridorPage({ params }: Props) {
                   : `The cheapest way to send money from ${corridor.fromCountry} to ${corridor.toCountry} in ${new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })} is ${getProviderName(best.providerSlug)}, which delivers ${best.receiveAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${toCurrency} on a ${sampleAmount.toLocaleString()} ${fromCurrency} transfer with a fee of ${best.fee > 0 ? getCurrencySymbol(fromCurrency) + best.fee.toFixed(2) : "zero"}.`}
                 {savings > 1 && ` According to SendMoneyCompare's comparison of ${quotes.length} providers updated every 6 hours, the difference between the cheapest and most expensive provider on this corridor is ${savings.toLocaleString(undefined, { maximumFractionDigits: 0 })} ${toCurrency}.`}
               </p>
+              <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
+                Last reviewed: <time dateTime={dataUpdatedDate}>{new Date(dataUpdatedDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time> by <a href="https://sendmoneycompare.com/about/awais-imran" className="hover:underline">Awais Imran</a>, Reviews Editor
+              </p>
             </div>
           </Container>
         </section>

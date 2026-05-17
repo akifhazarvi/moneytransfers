@@ -33,7 +33,7 @@ export const countryPageContents: Record<string, CountryPageContent> = {
     countryName: "India",
     currency: "INR",
     intro:
-      "India is the world's largest remittance recipient, receiving over $125 billion in 2023 — more than any other country on earth. With a vast diaspora in the US, UK, UAE, Canada, and Australia, the USD/GBP/AED-to-INR corridor is one of the most competitive in the world, making it easier than ever to find a cheap, fast transfer.",
+      "India is the world's largest remittance recipient, receiving over $125 billion annually according to the World Bank — more than any other country on earth. With a vast diaspora in the US, UK, UAE, Canada, and Australia, the USD/GBP/AED-to-INR corridor is one of the most competitive in the world, making it easier than ever to find a cheap, fast transfer.",
     highlights: [
       "IMPS and UPI transfers settle 24/7 in real time — many providers can credit an Indian bank account within minutes of sending.",
       "Specialist providers like Wise, Remitly, and Instarem routinely beat bank exchange rates by 2–4%, which on a $1,000 transfer can mean ₹1,500–₹3,000 more for your recipient.",

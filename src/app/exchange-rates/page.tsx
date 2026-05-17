@@ -5,7 +5,7 @@ import LiveRatesBoard from "./LiveRatesBoard";
 export const metadata: Metadata = {
   title: "Live Exchange Rates Today — Real-Time Currency Rates (Updated Every 60s)",
   description:
-    "Live mid-market exchange rates from 4 independent sources, updated every 60 seconds. USD, EUR, GBP, INR, JPY & 20+ currencies. See how much banks and transfer services mark up the real rate.",
+    "Live mid-market rates for 20+ currencies updated every 60 seconds. See how much banks mark up the real rate and find the cheapest provider for your transfer.",
   keywords:
     "live exchange rates, exchange rates today, currency rates, forex rates, USD to INR, GBP to USD, mid-market rate, real exchange rate",
   alternates: {
