@@ -10,10 +10,23 @@
  */
 import * as fs from "fs";
 import * as path from "path";
+import { getSwiftCountries } from "../src/data/swift-codes";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY || "504f73e915dcbe38e02c363c31409cad";
 const SCRAPED_DIR = path.join(__dirname, "..", "src", "data", "scraped");
+
+// ── IBAN country slugs that are indexed (must match indexedIbanCountries in iban/[slug]/page.tsx) ──
+const INDEXED_IBAN_SLUGS = [
+  "united-kingdom", "germany", "france", "netherlands", "spain",
+  "italy", "denmark", "belgium", "austria", "ireland",
+  "portugal", "sweden", "switzerland", "poland", "norway",
+  "pakistan",
+  "turkey", "romania", "czechia", "hungary", "croatia",
+  "finland", "greece", "cyprus", "luxembourg",
+  "united-arab-emirates", "saudi-arabia", "qatar", "kuwait", "bahrain",
+  "jordan", "egypt", "israel", "brazil", "ukraine", "georgia",
+];
 
 // ── Provider slugs (must match src/data/providers.ts) ──
 const PROVIDER_SLUGS = [
@@ -150,6 +163,11 @@ function generateUrls(): string[] {
     `${SITE_URL}/swift-codes`,
   );
 
+  // 1a. IBAN country pages (indexed subset)
+  for (const slug of INDEXED_IBAN_SLUGS) {
+    urls.push(`${SITE_URL}/iban/${slug}`);
+  }
+
   // 1b. Every editorial corridor (always indexed regardless of scrape data)
   for (const slug of editorialSlugs) {
     urls.push(`${SITE_URL}/send-money/${slug}`);
@@ -207,6 +225,25 @@ function generateUrls(): string[] {
   // 7. Exchange rate pages
   for (const pair of EXCHANGE_RATE_PAIRS) {
     urls.push(`${SITE_URL}/exchange-rates/${pair}`);
+  }
+
+  // 8. Retired locale URLs (410 Gone) — ping so Bing recrawls and deindexes them.
+  // The middleware returns 410 for /fr/, /es/, /pt/ prefixes. Submitting these
+  // to IndexNow tells Bing to revisit and drop them from the index.
+  const KILLED_LOCALES = ["fr", "es", "pt"];
+  for (const locale of KILLED_LOCALES) {
+    // Swift-codes country pages that were previously indexed under /fr/
+    for (const country of getSwiftCountries().map((c) => c.slug)) {
+      urls.push(`${SITE_URL}/${locale}/swift-codes/${country}`);
+    }
+    // IBAN country pages
+    for (const slug of INDEXED_IBAN_SLUGS) {
+      urls.push(`${SITE_URL}/${locale}/iban/${slug}`);
+    }
+    // Top-level hub pages
+    for (const hub of ["", "send-money", "companies", "swift-codes", "iban", "exchange-rates"]) {
+      urls.push(`${SITE_URL}/${locale}${hub ? `/${hub}` : ""}`);
+    }
   }
 
   // Deduplicate
