@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="Sendmoney">
+  <title>Sendmoney</title>
+  <!-- Paper plane -->
+  <g transform="translate(8 24)">
+    <path d="M3.5 15.8L34 2L26.5 32L17.5 22.5Z" fill="#8B92F2"/>
+    <path d="M17.5 22.5L34 2" stroke="#0f1115" stroke-width="0.9" opacity="0.85"/>
+    <path d="M17.5 22.5L26.5 32L22 23.8Z" fill="#8B92F2" opacity="0.5"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="64" y="54"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif"
+        font-size="38"
+        letter-spacing="-0.8"><tspan font-weight="800" fill="#ffffff">Send</tspan><tspan font-weight="400" fill="#9aa0a6">money</tspan></text>
+</svg>
