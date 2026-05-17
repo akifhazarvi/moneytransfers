@@ -15631,7 +15631,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong><a href="/companies/wise">Wise</a></strong> — the benchmark; mid-market rate, transparent fees, trusted by millions</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong> — dominant in the South Asian remittance market; Express vs Economy options</li>
 <li><strong><a href="/companies/ria">Ria Money Transfer</a></strong> — part of Euronet, strong in cash pickup and direct bank deposit to Pakistan</li>
-<li><strong>XE</strong> — well-known currency brand, less focused on high-frequency small remittances</li>
+<li><strong>XE</strong> — well-known currency brand; solid rate but ACH-only funding means 3 business days to deliver</li>
 </ul>
 <p>All five are regulated, all five serve the USA to Pakistan corridor. I was testing on a real transfer, not a quote — so the numbers below reflect what actually happened, not a screenshot of a calculator.</p>`,
       },
@@ -15646,7 +15646,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><a href="/companies/remitly">Remitly</a></td><td>$1,000</td><td>$0</td><td>280.01</td><td>280,010</td><td>Debit card / Bank</td><td>Minutes (Express)</td></tr>
 <tr><td><a href="/companies/ria">Ria</a></td><td>$1,000</td><td>$0</td><td>280.32</td><td>280,316</td><td>Debit card / Bank</td><td>Minutes–hours</td></tr>
 <tr><td><a href="/companies/wise">Wise</a></td><td>$1,000</td><td>$8.36</td><td>278.61</td><td>276,284</td><td>Debit / Bank</td><td>~10 minutes</td></tr>
-<tr><td>XE</td><td>$1,000</td><td>Varies</td><td>Varies</td><td>Varies</td><td>Bank only</td><td>1–2 days</td></tr>
+<tr><td>XE</td><td>$1,000</td><td>$0</td><td>278.12</td><td>278,123</td><td>Bank (ACH only)</td><td>3 business days</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Rates captured on the same day. Live rates update every 6 hours — <a href="/send-money/usa-to-pakistan">check current USD to PKR rates →</a></p>
@@ -15678,7 +15678,8 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Every provider quotes a delivery estimate. What they don't tell you is when that clock starts — because bank-funded transfers don't start until the ACH debit clears, which can take a full business day.</p>
 <p>TapTap's Apple Pay and debit card funding solves this. The payment is captured instantly, and the PKR hits the recipient's account within seconds to a couple of minutes. I watched it happen in real time.</p>
 <p>Remitly Express is also fast — genuinely 4–8 minutes in my experience on this corridor via card. But you're paying $2.99 at the $100 level, and the rate is marginally lower.</p>
-<p>Wise is the slowest of the group despite the "instant" marketing on some corridors. My Pakistan transfers via Wise have ranged from 8 minutes to 2 hours depending on the time of day and payment method. Bank-funded Wise transfers take longer.</p>
+<p>XE is the slowest — $0 fee and a decent rate (278.12), but it's ACH-only, which means 3 business days. For anyone sending money to family who needs it today, XE doesn't work. Where XE does make sense is <a href="/guides/how-to-send-large-amounts-internationally">large transfers</a> — think $5,000–$50,000 — where the zero-fee structure and dedicated FX desk add real value. For everyday remittances under $2,000, the 3-day wait rules it out.</p>
+<p>Wise is faster than XE but still variable. My Pakistan transfers via Wise have ranged from 8 minutes to 2 hours depending on time of day and payment method. Bank-funded Wise transfers sit closer to the 2-hour end.</p>
 <p><strong>If speed matters</strong> — someone needs the money now, it's a weekend, it's after hours — TapTap via Apple Pay is the best option on this corridor I've tested.</p>`,
       },
       {
@@ -15741,6 +15742,7 @@ export const blogPosts: BlogPost[] = [
       "cheapest-way-to-send-money-internationally",
       "exchange-rate-markup-explained",
       "pakistan-remittance-loss-2026",
+      "how-to-send-large-amounts-internationally",
     ],
   },
 ];
