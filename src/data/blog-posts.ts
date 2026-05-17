@@ -14760,7 +14760,7 @@ export const blogPosts: BlogPost[] = [
     category: "Research",
     readTime: "13 min read",
     publishedAt: "2026-04-16",
-    updatedAt: "2026-04-16",
+    updatedAt: "2026-05-16",
     author: "Akif Hazarvi",
     tags: ["euro forecast", "EUR/USD", "ECB", "exchange rates", "currency forecast", "SEPA", "remittances"],
     featuredImage: "/images/blog/euro-forecast-2026.jpg",
