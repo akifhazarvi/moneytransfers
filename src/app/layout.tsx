@@ -49,8 +49,9 @@ export const metadata: Metadata = {
     // forces Bing to re-fetch instead of serving the cached generic globe.
     shortcut: ["/favicon.ico"],
     icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48 64x64" },
       { url: "/favicon-48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-64.png", type: "image/png", sizes: "64x64" },
       { url: "/icon.svg", type: "image/svg+xml" },
       { url: "/icon-192x192.png", type: "image/png", sizes: "192x192" },
     ],
