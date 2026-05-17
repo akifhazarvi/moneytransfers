@@ -23,13 +23,46 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
+const SITE_URL = "https://sendmoneycompare.com";
+
 export default async function GuidesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("guides");
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
+    ],
+  };
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "International Money Transfer Guides",
+    description: "Expert guides on sending money internationally — compare providers, understand fees, and find the cheapest transfer route.",
+    url: `${SITE_URL}/guides`,
+    publisher: {
+      "@type": "Organization",
+      name: "SendMoneyCompare",
+      url: SITE_URL,
+    },
+    hasPart: blogPosts.slice(0, 10).map((post) => ({
+      "@type": "Article",
+      name: post.title,
+      url: `${SITE_URL}/guides/${post.slug}`,
+      datePublished: post.publishedAt,
+    })),
+  };
+
   return (
-    <Container className="py-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+      <Container className="py-8">
       <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
         <Link href="/" className="hover:text-[var(--color-primary)]">{t("home")}</Link>
         {" / "}
@@ -108,5 +141,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         />
       </div>
     </Container>
+    </>
   );
 }

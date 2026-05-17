@@ -102,12 +102,12 @@ export default function CorridorHero({
             {/* Meta line — single row, muted, monospace numerics */}
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-5 text-sm text-[var(--color-on-surface-variant)]">
               <span className="inline-flex items-center gap-1.5">
-                <CircleFlag code={fromCurrencyCode} size={20} />
+                <CircleFlag code={fromCurrencyCode} size={20} priority={true} />
                 <span className="font-medium tabular-nums">{fromCurrency}</span>
               </span>
               <ArrowRight className="w-3.5 h-3.5 text-[var(--color-on-surface-muted)]" strokeWidth={2} />
               <span className="inline-flex items-center gap-1.5">
-                <CircleFlag code={toCurrencyCode} size={20} />
+                <CircleFlag code={toCurrencyCode} size={20} priority={true} />
                 <span className="font-medium tabular-nums">{toCurrency}</span>
               </span>
               <span className="text-[var(--color-outline)]">|</span>

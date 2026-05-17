@@ -71,8 +71,10 @@ export default async function RootLayout({
     <html lang={locale} className={inter.variable} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://widget.trustpilot.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://open.er-api.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://open.er-api.com" />
+        <link rel="dns-prefetch" href="https://hatscripts.github.io" />
       </head>
       <body className="antialiased">{children}</body>
     </html>

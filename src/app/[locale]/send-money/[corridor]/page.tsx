@@ -66,8 +66,13 @@ function getDataFreshnessDate(): string {
 }
 
 /** Full ISO timestamp of most recent scrape — used by <LiveTimestamp /> for relative "X mins ago" rendering.
- *  Scans any *-quotes.json or *-rates.json file so we don't depend on specific filenames being present. */
+ *  Scans any *-quotes.json or *-rates.json file so we don't depend on specific filenames being present.
+ *
+ *  Vercel normalises all file mtimes to 2018-10-20T00:00:00Z in build containers for reproducibility.
+ *  We detect this sentinel and fall back to NEXT_PUBLIC_BUILD_TIME (injected at build time via vercel.json)
+ *  so schemas always show a realistic date rather than one that predates the site by 6 years. */
 function getDataFreshnessISO(): string {
+  const VERCEL_SENTINEL = new Date("2018-10-20").getTime();
   const scrapedDir = join(process.cwd(), "src/data/scraped");
   let latest = new Date(0);
   try {
@@ -80,8 +85,11 @@ function getDataFreshnessISO(): string {
       } catch { /* skip unreadable */ }
     }
   } catch { /* scraped dir may be missing in dev */ }
-  // Fall back to now if nothing found — better than showing a decade-old date.
-  return latest.getTime() > 0 ? latest.toISOString() : new Date().toISOString();
+  // Vercel zeroes mtimes to 2018-10-20 — detect and override with build timestamp.
+  if (latest.getTime() <= VERCEL_SENTINEL) {
+    return process.env.NEXT_PUBLIC_BUILD_TIME ?? new Date().toISOString();
+  }
+  return latest.toISOString();
 }
 
 const corridorEditorialNotes: Record<
@@ -1677,6 +1685,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: ogDescription,
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
+    },
     alternates: getAlternates(`send-money/${slug}`, locale),
     robots: shouldNoindex(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) ? { index: false, follow: true } : undefined,
   };
@@ -1817,10 +1830,6 @@ export default async function CorridorPage({ params }: Props) {
       { "@type": "Thing", name: "International Money Transfer" },
       { "@type": "Thing", name: `${fromCurrency} to ${toCurrency} Exchange Rate` },
     ],
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: [".corridor-answer-box", "h1", ".editorial-note"],
-    },
     reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
   };
 
@@ -3222,21 +3231,6 @@ export default async function CorridorPage({ params }: Props) {
         </div>
       </section>
 
-      {/* BreadcrumbList structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
-              { "@type": "ListItem", position: 2, name: "Send Money", item: "https://sendmoneycompare.com/send-money" },
-              { "@type": "ListItem", position: 3, name: `${headingFrom} to ${headingTo}`, item: `https://sendmoneycompare.com/send-money/${slug}` },
-            ],
-          }),
-        }}
-      />
       {/* FAQ structured data */}
       <script
         type="application/ld+json"
@@ -3279,6 +3273,7 @@ export default async function CorridorPage({ params }: Props) {
               priceCurrency: toCurrency,
               unitText: `1 ${fromCurrency}`,
             },
+            validFrom: dataUpdatedISO,
             ...(best && {
               exchangeRateSpread: ((midRate - best.exchangeRate) / midRate * 100).toFixed(2) + "%",
             }),

@@ -57,7 +57,7 @@ const DATA_UPDATED = getDataUpdatedDate();
 // Non-English locales (es/fr/pt) were retired on 2026-04-27 — middleware
 // returns 410 Gone for those prefixes. Site is English-only; no locale fan-out.
 const INDEXED_IBAN_SLUGS = new Set([
-  "united-kingdom", "germany", "france", "netherlands", "spain",
+  "uk", "germany", "france", "netherlands", "spain",
   "italy", "denmark", "belgium", "austria", "ireland",
   "portugal", "sweden", "switzerland", "poland", "norway",
   "pakistan",
@@ -107,7 +107,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("terms", STATIC_CONTENT_DATE),
     entry("cookies", STATIC_CONTENT_DATE),
     entry("disclaimer", STATIC_CONTENT_DATE),
-    entry("for-ai", DATA_UPDATED),
+    entry("for-ai", DATA_UPDATED), // page lives under [locale]/for-ai/page.tsx
   ];
 
   // Corridor pages are English-only — locale variants were retired

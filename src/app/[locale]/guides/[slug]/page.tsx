@@ -236,8 +236,18 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
-    author: { "@type": "Person", name: post.author, url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}` },
-    reviewedBy: { "@type": "Person", name: "Awais Imran", url: "https://sendmoneycompare.com/about/awais-imran" },
+    author: {
+      "@type": "Person",
+      "@id": `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}#person`,
+      name: post.author,
+      url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}`,
+    },
+    reviewedBy: {
+      "@type": "Person",
+      "@id": "https://sendmoneycompare.com/about/awais-imran#person",
+      name: "Awais Imran",
+      url: "https://sendmoneycompare.com/about/awais-imran",
+    },
     mainEntityOfPage: `https://sendmoneycompare.com/guides/${slug}`,
     isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/guides" },
     about: [
@@ -249,10 +259,6 @@ export default async function BlogPostPage({ params }: Props) {
       name: "SendMoneyCompare",
       "@id": "https://sendmoneycompare.com/#organization",
       logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
-    },
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: [".blog-answer-box", "article h1", "article h2"],
     },
   };
 

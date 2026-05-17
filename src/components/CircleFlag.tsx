@@ -33,12 +33,15 @@ export default function CircleFlag({
   code,
   size = 20,
   className = "",
+  priority = false,
 }: {
   /** 2-letter country code or 3-letter currency code */
   code: string;
   /** Size in pixels (default 20) */
   size?: number;
   className?: string;
+  /** Set true for above-fold flags to prevent lazy-loading and improve LCP */
+  priority?: boolean;
 }) {
   const countryName = CURRENCY_NAMES[code.toUpperCase()] || code;
   return (
@@ -49,8 +52,9 @@ export default function CircleFlag({
       width={size}
       height={size}
       className={`inline-block rounded-full shrink-0 ${className}`}
-      loading="lazy"
-      decoding="async"
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
+      decoding={priority ? "sync" : "async"}
     />
   );
 }

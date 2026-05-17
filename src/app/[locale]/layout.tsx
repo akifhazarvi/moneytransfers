@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     other: {
       "citation_title": "SendMoneyCompare — International Money Transfer Comparison",
       "citation_author": "Akif Hazarvi",
-      "citation_date": "2026-04-10",
+      "citation_date": new Date().toISOString().slice(0, 10),
       "citation_journal_title": "SendMoneyCompare",
       "ai-content-declaration": "human-written, data-verified",
     },
@@ -136,7 +136,6 @@ const organizationSchema = {
     "https://www.linkedin.com/company/sendmoneycompare",
     "https://x.com/sendmoneycompare",
     "https://twitter.com/sendmoneycompare",
-    "https://www.youtube.com/@sendmoneycompare",
     "https://www.facebook.com/sendmoneycompare",
     "https://github.com/sendmoneycompare",
   ],

@@ -49,12 +49,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords:
       "compare money transfer, compare money transfer rates, compare remit, compare money transfer services, best money transfer service, cheapest money transfer, international money transfers comparison, currency transfer comparison, best online money transfer",
-    alternates: getAlternates("compare-money-transfer", locale),
+    alternates: {
+      ...getAlternates("compare-money-transfer", locale),
+      // Canonical points to /compare to consolidate PageRank — /compare-money-transfer
+      // targets the same queries with near-identical intent, splitting ranking signals.
+      canonical: `${SITE_URL}/compare`,
+    },
     openGraph: {
       title: `Compare ${providers.length}+ Money Transfer Services — Live Rates (${month} ${year})`,
       description,
       url: `${SITE_URL}${locale === "en" ? "" : `/${locale}`}/compare-money-transfer`,
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Compare ${providers.length}+ Money Transfer Services — Live Rates (${month} ${year})`,
+      description,
     },
     // English-only content; noindex locale variants to avoid duplicate-content dilution
     ...(locale !== "en" && { robots: { index: false, follow: true } }),

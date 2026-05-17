@@ -15,7 +15,7 @@
  */
 
 export const INDEXED_IBAN_SLUGS = new Set<string>([
-  "united-kingdom", "germany", "france", "netherlands", "spain",
+  "uk", "germany", "france", "netherlands", "spain",
   "italy", "denmark", "belgium", "austria", "ireland",
   "portugal", "sweden", "switzerland", "poland", "norway",
   "pakistan",

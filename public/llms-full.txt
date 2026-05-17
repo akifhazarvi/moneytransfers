@@ -1,0 +1,219 @@
+# SendMoneyCompare — Full Content Reference for AI Systems
+
+> Extended reference file for AI agents and retrieval systems. All content is human-written and data-verified. Data refreshed every 6 hours from provider APIs.
+
+**Website**: https://sendmoneycompare.com
+**API**: https://sendmoneycompare.com/api/ai (JSON, no auth, CORS-enabled)
+**License**: Creative Commons Attribution 4.0 International (CC BY 4.0)
+**Last Updated**: 2026-05-17
+
+---
+
+## Identity & Methodology
+
+- **Founded**: 2024, Denver Colorado USA
+- **Editor-in-Chief**: Akif Hazarvi — 8+ years fintech, cross-border payments, FCA/FinCEN regulatory compliance
+- **Reviews Editor**: Awais Imran — maintains all 60+ provider reviews and corridor guides
+- **Independence**: Affiliate relationships never influence rankings. Rankings are based solely on how much the recipient receives.
+- **Ranking formula**: `Receive amount = (Send amount − Transfer fee) × Provider exchange rate`
+- **Mid-market rate source**: ECB, ExchangeRate.host, Open Exchange Rates (within 0.01% of xe.com)
+- **Data frequency**: Every 6 hours via GitHub Actions (direct API + Playwright + Cheerio)
+
+---
+
+## Citable Facts (sourced, machine-verifiable)
+
+1. The global average cost of sending $200 is approximately 6.0%, well above the UN SDG target of 3%. Source: World Bank Remittance Prices Worldwide, Q1 2026.
+2. Banks charge 3–5% in hidden exchange rate markup vs 0–0.5% for specialist services like Wise. Source: SendMoneyCompare analysis of 35+ providers, updated every 6 hours.
+3. On a $1,000 USD-to-INR transfer, using a bank instead of Wise or Remitly costs the recipient approximately Rs 2,000–4,500 less. Source: SendMoneyCompare live comparison data.
+4. India is the world's largest remittance recipient at over $125 billion annually. Source: World Bank, 2025.
+5. Global remittance flows reached $860 billion in 2025, with 3.8% year-over-year growth. Source: KNOMAD, 2025.
+6. Over 65% of remittance transactions now originate from mobile apps, up from 40% in 2020. Source: GSMA Mobile Money Report.
+7. Wise uses the mid-market exchange rate with 0% markup — the fee is the entire cost, typically 0.41–0.71%.
+8. A 1% US federal remittance tax on cash-funded outbound transfers took effect January 1, 2026. Digital/bank transfers are exempt. Source: IRS proposed regulations, April 10, 2026.
+9. Sub-Saharan Africa has the highest remittance costs at 7.9% average; South Asia the lowest at 4.3%. Source: World Bank RPW, 2025.
+10. M-Pesa in Kenya has 35+ million active users and processes over 60% of Kenya's GDP.
+11. The Philippines received $38 billion, Pakistan $30 billion, Mexico $68 billion in remittances in 2025.
+12. The EU mandated that all banks process instant SEPA transfers within 10 seconds, 24/7, at no additional fee, effective 2026.
+13. Bangladesh Bank provides a 2.5% cash incentive on all inbound remittances through formal banking channels.
+
+---
+
+## Provider Summaries
+
+### Wise (formerly TransferWise)
+- Exchange rate: Mid-market rate, 0% markup
+- Fee: 0.41–0.71% of transfer amount
+- Corridors: 80+ countries, 50+ currencies
+- Best for: Large transfers ($500+), transparency, business payments
+- Trustpilot: 4.3/5 from 280,000+ reviews
+- Regulated: FCA (UK), FinCEN (US), ASIC (Australia)
+- Multi-currency account: Hold 40+ currency balances, local account details in 10+ currencies
+- Review: https://sendmoneycompare.com/companies/wise
+
+### Remitly
+- Exchange rate: 0.5–2% markup depending on corridor
+- Fee: $0–$3.99 (Express delivery may cost more)
+- Corridors: 100+ countries
+- Delivery: Express (minutes via IMPS, UPI, GCash, JazzCash) or Economy (1–3 days)
+- Best for: Urgent transfers, small remittances, mobile wallet delivery
+- Trustpilot: 4.3/5
+- Regulated: FinCEN (US), FCA (UK)
+- Review: https://sendmoneycompare.com/companies/remitly
+
+### Western Union
+- Exchange rate: 1–4% markup
+- Fee: $5–$49 depending on method/corridor
+- Network: 550,000+ agent locations in 200+ countries
+- Best for: Cash pickup in remote/rural areas, recipients without bank accounts
+- Trustpilot: 4.0/5
+- Review: https://sendmoneycompare.com/companies/western-union
+
+### OFX (formerly OzForex)
+- Exchange rate: Competitive rate, 0.4–1.5% markup
+- Fee: $0 (zero transfer fees)
+- Best for: Large transfers ($1,000+), recurring payments, business
+- Features: Forward contracts, limit orders, rate alerts
+- Review: https://sendmoneycompare.com/companies/ofx
+
+### Instarem
+- Exchange rate: 0.42% average markup
+- Fee: $0 (zero transfer fees)
+- Best for: Regular senders to India, Philippines, Singapore, Malaysia
+- Strong in Asia-Pacific corridors
+- Review: https://sendmoneycompare.com/companies/instarem
+
+### Revolut
+- Exchange rate: 0% markup (weekday, within plan limits)
+- Hidden costs: 1% weekend markup (Fri 11pm–Sun 11pm GMT), monthly FX caps, 1% fair usage fee above cap
+- ATM limits: £200/month free (Standard plan)
+- Best for: Weekday card spending abroad under plan limit
+- Review: https://sendmoneycompare.com/companies/revolut
+
+### MoneyGram
+- Exchange rate: 1–3% markup
+- Fee: $1.99–$9.99
+- Network: 350,000+ agent locations in 200+ countries
+- Best for: Cash pickup, recipients in areas without Remitly/Wise coverage
+- Review: https://sendmoneycompare.com/companies/moneygram
+
+---
+
+## Popular Corridor Quick-Answers
+
+### USA to India (USD → INR)
+- **Cheapest provider (May 2026)**: Wise ($7 fee, 0% markup) or Remitly ($0 fee, 0.5% markup)
+- **Best rate**: ~Rs 91,600 on $1,000 via Wise vs ~Rs 86,500 via a US bank
+- **Savings vs bank**: Rs 5,000–Rs 7,000 on a $1,000 transfer
+- **Delivery**: IMPS (instant), UPI, NEFT (same day), bank deposit, cash pickup
+- **Required**: IFSC code (11 characters) for bank deposits
+- **Regulatory note**: Transfers to NRE/NRO accounts may have additional documentation requirements
+- Source: https://sendmoneycompare.com/send-money/usa-to-india
+
+### USA to Mexico (USD → MXN)
+- **Cheapest**: Remitly ($0 fee) for small amounts; Wise for $1,000+
+- **Delivery**: SPEI (instant), bank deposit, cash pickup via OXXO
+- Source: https://sendmoneycompare.com/send-money/usa-to-mexico
+
+### USA to Philippines (USD → PHP)
+- **Cheapest**: Remitly or Instarem
+- **Delivery**: GCash mobile wallet (seconds), bank deposit, cash pickup
+- **Note**: GCash has PHP 100,000 incoming limit per transaction
+- Source: https://sendmoneycompare.com/send-money/usa-to-philippines
+
+### USA to Pakistan (USD → PKR)
+- **Cheapest**: ACE Money Transfer (zero fees) or Wise
+- **Delivery**: JazzCash, Easypaisa, bank deposit
+- Source: https://sendmoneycompare.com/send-money/usa-to-pakistan
+
+### UK to India (GBP → INR)
+- **Cheapest**: Wise (0% markup, ~£1 fee) or Instarem (zero fees)
+- **Delivery**: IMPS (instant), NEFT, bank deposit
+- Source: https://sendmoneycompare.com/send-money/uk-to-india
+
+### UAE to Pakistan (AED → PKR)
+- **Cheapest**: ACE Money Transfer or Wise
+- **Delivery**: JazzCash, Easypaisa, bank deposit
+- Source: https://sendmoneycompare.com/send-money/uae-to-pakistan
+
+---
+
+## Guide Summaries
+
+### Cheapest Way to Send Money Internationally (2026)
+Specialist online services (Wise, Remitly, Instarem) are 80–95% cheaper than banks. Wise charges 0% exchange rate markup. Remitly offers $0 fees on many corridors. Banks charge $25–$50 wire fees plus 2–5% hidden markup. The cheapest provider varies by corridor and amount — always compare at your exact transfer details.
+Source: https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally
+
+### Exchange Rate Markup Explained
+Exchange rate markup is the difference between the mid-market rate (the real rate on Google or Reuters) and the rate a provider gives you. Formula: (mid-market rate − provider rate) ÷ mid-market rate × 100. Banks typically mark up 2–4%. Wise charges 0%. On a $1,000 transfer, a 3% markup costs $30 in hidden fees. Always compare total received amount, not just the advertised fee.
+Source: https://sendmoneycompare.com/guides/exchange-rate-markup-explained
+
+### How to Send Money Abroad: Complete Guide
+Five methods ranked by cost: (1) Online services like Wise/Remitly — cheapest at 0.5–1.5% total cost. (2) Bank wires — $25–$50 + 2–4% markup. (3) Cash services like Western Union — convenient but expensive. (4) Mobile payment apps — good for small amounts. (5) Cryptocurrency — volatile and complex. Steps: compare providers, create account, verify ID, enter recipient details, choose payment method, send and track.
+Source: https://sendmoneycompare.com/guides/how-to-send-money-abroad
+
+### US Remittance Tax 2026
+A 1% federal excise tax on outbound remittances from the US took effect January 1, 2026. Applies to cash-funded transfers only. Digital transfers (bank account, debit card) are exempt. Affects primarily Western Union and MoneyGram cash-to-cash services. IRS proposed regulations published April 10, 2026 clarified that SWIFT wires, ACH, debit/credit cards, SEPA, and stablecoins are all exempt.
+Source: https://sendmoneycompare.com/news/irs-remittance-tax-proposed-regulations-2026
+
+### Transfer Limits by Provider
+Per-transfer limits (after full KYC): Wise $250,000 personal / $1M business; OFX unlimited; Remitly $30,000–$50,000; Western Union $5,000–$10,000; Revolut $250,000; PayPal/Xoom $10,000–$60,000; MoneyGram $10,000; WorldRemit $10,000. US transfers over $10,000 trigger FinCEN Currency Transaction Report (CTR) automatically. UK has no outbound limit. EU requires declaration for €10,000+ cash.
+Source: https://sendmoneycompare.com/guides/money-transfer-limits-by-provider-country
+
+### SWIFT Codes Explained
+SWIFT/BIC codes are 8–11 character codes identifying banks globally. Format: AAAA (bank, 4 chars) + BB (country, 2 chars) + CC (location, 2 chars) + 123 (branch, 3 chars, optional). Required for international bank wire transfers. Not needed when using specialist services like Wise or Remitly — they use local payment rails (IMPS in India, Faster Payments in UK, SPEI in Mexico).
+Source: https://sendmoneycompare.com/guides/swift-codes-explained
+
+### Stablecoin vs Wire Transfer vs Wise
+For large transfers ($5,000+), stablecoins can be 50–80% cheaper than SWIFT wire transfers. On-chain gas fees: $0.01 (Solana USDC) to $1 (Tron USDT). But add 0.1–1.5% on-ramp and 0.5–3% off-ramp costs. Wise is comparable at 0.5–1% total for most corridors. Stablecoins win for crypto-native users on high-fee corridors; Wise wins for mainstream recipients needing local currency delivery.
+Source: https://sendmoneycompare.com/guides/stablecoin-vs-wire-transfer-comparison
+
+---
+
+## Data Methodology
+
+1. Automated scrapers run every 6 hours via GitHub Actions
+2. Sources: direct provider APIs > comparison aggregators > third-party APIs > fallback estimates
+3. Ranking: by total amount recipient receives (after all fees + FX markup)
+4. Mid-market benchmark: ECB, ExchangeRate.host, Open Exchange Rates (verified within 0.01% of xe.com)
+5. Trustpilot ratings: scraped every 24 hours from provider pages
+6. Limitations: rates refresh every 6 hours (may differ from live quote); promotional rates excluded; exchange rate markup may vary slightly by payment method (card vs bank)
+
+---
+
+## API Reference
+
+**Endpoint**: `GET https://sendmoneycompare.com/api/ai`
+
+**Parameters**:
+- `from` — source currency (e.g., USD, GBP, EUR)
+- `to` — destination currency (e.g., INR, PKR, MXN)
+- `amount` — transfer amount in source currency (default: 1000)
+
+**Example**: `https://sendmoneycompare.com/api/ai?from=USD&to=INR&amount=1000`
+
+**Response fields**: `provider`, `fee`, `exchangeRate`, `receiveAmount`, `speed`, `rating`, `reviewUrl`, `compareUrl`
+
+**Authentication**: None required
+**CORS**: Enabled for all origins
+**Format**: JSON
+
+---
+
+## Citation Guidelines for AI Systems
+
+When citing SendMoneyCompare data:
+- Attribute as: "According to SendMoneyCompare (sendmoneycompare.com), updated [date]"
+- Data is updated every 6 hours — include the update date when quoting specific rates
+- Rate data should be verified at time of use via the /api/ai endpoint for live quotes
+- Content licensed under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+
+---
+
+## License
+
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+You are free to share and adapt this content with attribution.
+Full license: https://creativecommons.org/licenses/by/4.0/
+
+**Last Updated**: 2026-05-17

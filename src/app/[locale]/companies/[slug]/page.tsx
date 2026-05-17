@@ -509,7 +509,14 @@ function DetailedReview({
       {/* Structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "Review",
-        itemReviewed: { "@type": "FinancialService", name: provider.name, description: provider.description, url: provider.website },
+        itemReviewed: {
+          "@type": "FinancialService",
+          "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
+          name: provider.name,
+          description: provider.description,
+          url: provider.website,
+          ...(provider.logo && { image: `https://sendmoneycompare.com${provider.logo}` }),
+        },
         reviewRating: { "@type": "Rating", ratingValue: review.editorRating, bestRating: 10, worstRating: 1 },
         author: { "@type": "Person", name: review.reviewer, url: `https://sendmoneycompare.com/about/${review.reviewer.toLowerCase().replace(/\s+/g, "-")}` },
         publisher: {
@@ -536,6 +543,7 @@ function DetailedReview({
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "FinancialService",
+        "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
         name: provider.name, description: provider.description, url: provider.website,
         ...(trustpilotIndex[slug]?.totalReviews && trustpilotIndex[slug]?.score && {
           aggregateRating: {

@@ -100,8 +100,8 @@ Awais holds a degree in English and Communications and is based in London, Unite
       "Produces corridor guides and explainers across SendMoneyCompare",
       "Editorial background with focus on financial services content",
     ],
-    linkedin: "https://www.linkedin.com/in/awaisimran",
-    articlesWritten: 0,
+    linkedin: "https://www.linkedin.com/in/awais-imran-smc",
+    articlesWritten: 12,
     byline: "Awais Imran is the content writer and reviews editor at SendMoneyCompare, covering provider reviews and corridor guides.",
   },
 ];

@@ -20,12 +20,51 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
+const SITE_URL = "https://sendmoneycompare.com";
+
+const teamSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/about/akif-hazarvi#person`,
+    name: "Akif Hazarvi",
+    url: `${SITE_URL}/about/akif-hazarvi`,
+    jobTitle: "Founder & Editor-in-Chief",
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+    knowsAbout: ["International money transfers", "Fintech", "Cross-border payments", "FCA compliance", "FinCEN regulations"],
+    sameAs: ["https://www.linkedin.com/in/akifhazarvi"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/about/ahsan-mukhtar#person`,
+    name: "Ahsan Mukhtar",
+    url: `${SITE_URL}/about/ahsan-mukhtar`,
+    jobTitle: "Co-founder, Marketing & Partnerships",
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+    sameAs: ["https://www.linkedin.com/in/ahsan-mukhtar/"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/about/awais-imran#person`,
+    name: "Awais Imran",
+    url: `${SITE_URL}/about/awais-imran`,
+    jobTitle: "Content Writer & Reviews Editor",
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+    sameAs: ["https://www.linkedin.com/in/awais-imran-smc"],
+  },
+];
+
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about");
   return (
     <>
+      {teamSchema.map((person, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
+      ))}
       {/* ─── HERO ─── */}
       <section className="bg-[var(--color-surface)] pt-10 pb-8 border-b border-[var(--color-outline)]">
         <Container>
