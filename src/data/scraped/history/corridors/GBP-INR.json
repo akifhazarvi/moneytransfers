@@ -10065,7 +10065,7 @@
       "moneygram": {
         "rate": 128.0522,
         "fee": 1.49,
-        "markup": -0.02,
+        "markup": 0.01,
         "receiveAmount": 12614.42
       },
       "skrill": {
@@ -10081,10 +10081,10 @@
         "receiveAmount": 12800
       },
       "sbi": {
-        "rate": 124.5653,
+        "rate": 124.6093,
         "fee": 6.95,
         "markup": 2.7,
-        "receiveAmount": 11590.45
+        "receiveAmount": 11594.63
       },
       "western-union": {
         "rate": 127.9869,
@@ -10093,27 +10093,27 @@
         "receiveAmount": 12544
       },
       "profee": {
-        "rate": 128.0211,
+        "rate": 128.0671,
         "fee": 2.2,
         "markup": 0,
-        "receiveAmount": 12520.47
+        "receiveAmount": 12524.96
       },
       "dahabshiil": {
         "rate": 127.361,
         "fee": 1.79,
-        "markup": 0.52,
+        "markup": 0.55,
         "receiveAmount": 12508.12
       },
       "ofx": {
         "rate": 121.9192,
         "fee": 0,
-        "markup": 4.77,
+        "markup": 4.8,
         "receiveAmount": 12191.92
       },
       "currencyfair": {
         "rate": 126.8828,
         "fee": 0.95,
-        "markup": 0.89,
+        "markup": 0.92,
         "receiveAmount": 12567.74
       },
       "halifax": {
@@ -10125,7 +10125,7 @@
       "transfergo": {
         "rate": 126.6464,
         "fee": 0,
-        "markup": 1.07,
+        "markup": 1.11,
         "receiveAmount": 12664.64
       },
       "worldremit": {
@@ -10143,13 +10143,13 @@
       "mukuru": {
         "rate": 123.76,
         "fee": 2.99,
-        "markup": 3.33,
+        "markup": 3.36,
         "receiveAmount": 12005.96
       },
       "paysend": {
         "rate": 127.8417,
         "fee": 0,
-        "markup": 0.14,
+        "markup": 0.18,
         "receiveAmount": 12784.17
       },
       "remitly": {
@@ -10161,7 +10161,7 @@
       "revolut": {
         "rate": 127.1743,
         "fee": 1.5,
-        "markup": 0.66,
+        "markup": 0.7,
         "receiveAmount": 12526.67
       },
       "natwest": {

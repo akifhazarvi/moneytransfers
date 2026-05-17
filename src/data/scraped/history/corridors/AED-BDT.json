@@ -2005,10 +2005,10 @@
     "date": "2026-05-17",
     "providers": {
       "paysend": {
-        "rate": 32.8463,
+        "rate": 32.8449,
         "fee": 9,
-        "markup": 1.75,
-        "receiveAmount": 2989.01
+        "markup": 1.77,
+        "receiveAmount": 2988.89
       },
       "remitly": {
         "rate": 33.48,
@@ -2027,6 +2027,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 3341.95
+      },
+      "skrill": {
+        "rate": 32.5799,
+        "fee": 0,
+        "markup": 2.56,
+        "receiveAmount": 3257.99
       }
     }
   }
