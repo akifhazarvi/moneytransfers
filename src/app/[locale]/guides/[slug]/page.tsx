@@ -50,6 +50,7 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   "cheapest-way-to-send-money-internationally": { from: "USD", to: "INR", amount: 1000, heading: "Today's cheapest USD → INR providers" },
   "money-transfer-safety-guide": { from: "USD", to: "INR", amount: 1000, heading: "Top regulated USD → INR providers" },
   "pakistan-remittance-loss-2026": { from: "AED", to: "PKR", amount: 5000, heading: "Live AED → PKR rates — close your loss now" },
+  "taptap-send-vs-wise-remitly-usd-to-pkr": { from: "USD", to: "PKR", amount: 1000, heading: "Live USD → PKR rates right now — see where TapTap ranks today" },
 };
 
 const TAG_TO_CORRIDOR: Record<string, InlineQuoteCorridor> = {

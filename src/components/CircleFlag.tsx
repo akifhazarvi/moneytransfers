@@ -11,6 +11,14 @@ const CURRENCY_TO_COUNTRY: Record<string, string> = {
   MAD: "ma", MYR: "my", FJD: "fj", GTQ: "gt",
 };
 
+// Flags self-hosted in /public/flags/ for cache-control and to avoid
+// hatscripts.github.io's 10-minute CDN TTL on the critical-path homepage flags.
+const LOCAL_FLAGS = new Set([
+  "us", "gb", "eu", "ca", "au", "in", "ph", "mx", "ng", "pk",
+  "bd", "jp", "cn", "br", "ke", "gh", "za", "ae", "sg", "nz",
+  "co", "vn", "tr", "id", "ma", "my", "fj", "gt",
+]);
+
 const CURRENCY_NAMES: Record<string, string> = {
   USD: "United States", GBP: "United Kingdom", EUR: "European Union", CAD: "Canada",
   AUD: "Australia", INR: "India", PHP: "Philippines", MXN: "Mexico",
@@ -22,11 +30,12 @@ const CURRENCY_NAMES: Record<string, string> = {
 };
 
 export function getFlagUrl(code: string): string {
-  // If it's a 3-letter currency code, map it; otherwise treat as 2-letter country code
   const country = code.length === 3
     ? (CURRENCY_TO_COUNTRY[code.toUpperCase()] ?? code.slice(0, 2).toLowerCase())
     : code.toLowerCase();
-  return `https://hatscripts.github.io/circle-flags/flags/${country}.svg`;
+  return LOCAL_FLAGS.has(country)
+    ? `/flags/${country}.svg`
+    : `https://hatscripts.github.io/circle-flags/flags/${country}.svg`;
 }
 
 export default function CircleFlag({
