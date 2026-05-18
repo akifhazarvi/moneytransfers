@@ -13,6 +13,7 @@ export const sendCurrencies = [
   { code: "HKD", name: "Hong Kong Dollar", flag: "🇭🇰", symbol: "HK$" },
   { code: "JPY", name: "Japanese Yen", flag: "🇯🇵", symbol: "¥" },
   { code: "KRW", name: "South Korean Won", flag: "🇰🇷", symbol: "₩" },
+  { code: "CNY", name: "Chinese Yuan", flag: "🇨🇳", symbol: "¥" },
   // New: major remittance-sending currencies from Monito data
   { code: "INR", name: "Indian Rupee", flag: "🇮🇳", symbol: "₹" },
   { code: "MYR", name: "Malaysian Ringgit", flag: "🇲🇾", symbol: "RM" },

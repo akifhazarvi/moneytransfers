@@ -38,6 +38,7 @@ export const COUNTRY_TO_CURRENCY: Record<string, string> = {
   // Additional send currencies
   JP: "JPY",
   KR: "KRW",
+  CN: "CNY",
   HK: "HKD",
   NO: "NOK",
   SE: "SEK",
@@ -243,6 +244,17 @@ export const GEO_CORRIDORS: Record<string, GeoCurrencyConfig> = {
       { toCurrency: "KES", label: "Kenya", corridorSlug: "south-africa-to-kenya", flag: "🇰🇪", symbol: "KSh" },
       { toCurrency: "USD", label: "United States", corridorSlug: "zar-to-usd", flag: "🇺🇸", symbol: "$" },
       { toCurrency: "ZMW", label: "Zambia", corridorSlug: "zar-to-zmw", flag: "🇿🇲", symbol: "ZK" },
+    ],
+  },
+  CNY: {
+    defaultTo: "USD",
+    defaultAmount: 5000,
+    popularCorridors: [
+      { toCurrency: "USD", label: "United States", corridorSlug: "cny-to-usd", flag: "🇺🇸", symbol: "$" },
+      { toCurrency: "EUR", label: "Europe", corridorSlug: "cny-to-eur", flag: "🇪🇺", symbol: "€" },
+      { toCurrency: "GBP", label: "United Kingdom", corridorSlug: "cny-to-gbp", flag: "🇬🇧", symbol: "£" },
+      { toCurrency: "AUD", label: "Australia", corridorSlug: "cny-to-aud", flag: "🇦🇺", symbol: "A$" },
+      { toCurrency: "SGD", label: "Singapore", corridorSlug: "cny-to-sgd", flag: "🇸🇬", symbol: "S$" },
     ],
   },
   INR: {

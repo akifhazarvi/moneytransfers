@@ -80,6 +80,9 @@ const CORRIDORS = [
   { from: "HKD", to: "INR" }, { from: "HKD", to: "PHP" },
   { from: "JPY", to: "INR" }, { from: "JPY", to: "PHP" },
   { from: "KRW", to: "INR" }, { from: "KRW", to: "PHP" },
+  { from: "CNY", to: "USD" }, { from: "CNY", to: "EUR" },
+  { from: "CNY", to: "GBP" }, { from: "CNY", to: "AUD" },
+  { from: "CNY", to: "SGD" },
 ];
 
 const CURRENCY_TO_COUNTRY: Record<string, string> = {
