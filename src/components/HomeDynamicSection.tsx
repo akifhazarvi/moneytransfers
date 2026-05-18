@@ -131,10 +131,10 @@ export default function HomeDynamicSection() {
                 {tExample("badge")}
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[var(--color-on-surface)]">
-                {tExample("title")}
+                Send {amount.toLocaleString()} {fromCurrency} → {toCurrency}
               </h3>
               <p className="text-2sm sm:text-sm text-[var(--color-on-surface-variant)] mt-1 max-w-md mx-auto">
-                {tExample("subtitle")}
+                Here&apos;s what each provider delivers today for a {amount.toLocaleString()} {fromCurrency} transfer to {toCurrency}.
               </p>
             </div>
 
@@ -209,7 +209,7 @@ export default function HomeDynamicSection() {
                 href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
                 className="inline-block h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all leading-[44px] sm:leading-[48px]"
               >
-                {tExample("cta")}
+                See full {fromCurrency} → {toCurrency} comparison
               </Link>
             </div>
           </div>
