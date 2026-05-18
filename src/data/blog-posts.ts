@@ -15355,9 +15355,9 @@ export const blogPosts: BlogPost[] = [
     slug: "pakistan-remittance-loss-2026",
     title: "How Much Does Pakistan Lose on Remittances? $300M–$900M a Year (2026)",
     metaDescription:
-      "We modelled Pakistan's annual remittance loss using World Bank data + live AED, GBP, USD and EUR to PKR quotes from 15+ providers. Estimate: $300M–$900M/year leaks to FX markups and bank fees.",
+      "We modelled Pakistan's annual remittance loss using World Bank data + live AED, GBP and USD to PKR quotes from 15+ providers. Estimate: $300M–$900M/year leaks to FX markups and bank fees.",
     excerpt:
-      "Pakistan receives ~$30B/year in remittances. Our model — built on World Bank cost data and live AED/GBP/USD/EUR to PKR quotes — shows $300M to $900M of that leaks out every year through avoidable FX markups and bank fees.",
+      "Pakistan receives ~$30B/year in remittances. Our model — built on World Bank cost data and live AED/GBP/USD to PKR quotes — shows $300M to $900M of that leaks out every year through avoidable FX markups and bank fees.",
     category: "Research",
     readTime: "11 min read",
     publishedAt: "2026-05-14",
@@ -15371,7 +15371,6 @@ export const blogPosts: BlogPost[] = [
       "AED to PKR",
       "GBP to PKR",
       "USD to PKR",
-      "EUR to PKR",
       "exchange rate markup",
       "JazzCash",
       "Easypaisa",
@@ -15387,7 +15386,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How Much Does Pakistan Lose on Remittances Each Year?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Pakistan receives roughly <strong>$28–$30 billion in remittances per year</strong>, and we estimate <strong>$300 million to $900 million</strong> of that leaks out annually through avoidable exchange-rate markups, high-fee bank channels, and poor provider choice. The number is implicit — there is no official figure — but it is calculable from <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> data + live quote spreads on the AED→PKR, GBP→PKR, USD→PKR and EUR→PKR corridors. On a single AED 5,000 transfer the gap between the best and worst provider is about <strong>PKR 18,000 (~7.9%)</strong>. <a href="/send-money/uae-to-pakistan">Compare live AED→PKR rates →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Pakistan receives roughly <strong>$28–$30 billion in remittances per year</strong>, and we estimate <strong>$300 million to $900 million</strong> of that leaks out annually through avoidable exchange-rate markups, high-fee bank channels, and poor provider choice. The number is implicit — there is no official figure — but it is calculable from <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> data + live quote spreads on the AED→PKR, GBP→PKR and USD→PKR corridors. On a single AED 5,000 transfer the gap between the best and worst provider is about <strong>PKR 18,000 (~7.9%)</strong>. <a href="/send-money/uae-to-pakistan">Compare live AED→PKR rates →</a></p></div>
 <p>There is no official Pakistani statistic that says <em>"Pakistan loses $X per year because senders pick the wrong remittance channel."</em> That loss is implicit — it is the difference between the rate a sender actually got and the best rate that was available, multiplied across tens of millions of transactions.</p>
 <p>But it <strong>is</strong> estimable. Three inputs are enough to model it:</p>
 <ol>
@@ -15426,8 +15425,8 @@ export const blogPosts: BlogPost[] = [
 <p>If Pakistan ran at the UN Sustainable Development Goal target of 3% blended cost, the cost burden on $28B of inflows would be ~$840M/year. Today it sits closer to $1.1B–$1.5B/year. The "loss" we model below is the avoidable portion — the part that exists because senders choose suboptimal channels, not because remittance infrastructure inherently costs that much.</p>`,
       },
       {
-        heading: "The Live Spread: AED, GBP, USD & EUR → PKR (May 2026)",
-        content: `<p>To stress-test the model we pulled live quotes from 15+ providers on the four busiest send-currency corridors into Pakistan. All quotes are real, collected from provider APIs and sites on <strong>May 14, 2026</strong>.</p>
+        heading: "The Live Spread: AED, GBP & USD → PKR (May 2026)",
+        content: `<p>To stress-test the model we pulled live quotes from 15+ providers on the three busiest send-currency corridors into Pakistan. All quotes are real, collected from provider APIs and sites on <strong>May 14, 2026</strong>.</p>
 
 <h3>GBP → PKR (UK → Pakistan, £1,000)</h3>
 <table>
@@ -15459,20 +15458,6 @@ export const blogPosts: BlogPost[] = [
 </table>
 <p><strong>Spread:</strong> Best vs worst on $1,000 = <strong>PKR 5,619 (~2.0%)</strong>. The corridor is unusually tight because fintech competition is fierce, but bank wire quotes (not shown) widen this back to 4–6%.</p>
 
-<h3>EUR → PKR (Europe → Pakistan, €1,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Rate (PKR/EUR)</th><th>Recipient Gets</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td>🥇 <strong>TapTap Send</strong></td><td>€0</td><td>328.00</td><td><strong>PKR 328,000</strong></td></tr>
-<tr><td>🥈 <strong>MoneyGram</strong></td><td>€0</td><td>327.84</td><td>PKR 327,841</td></tr>
-<tr><td>🥉 <strong>Ria Money Transfer</strong></td><td>€0</td><td>327.43</td><td>PKR 327,426</td></tr>
-<tr><td>Wise</td><td>€8.15</td><td>325.59</td><td>PKR 322,933</td></tr>
-<tr><td>Remitly</td><td>€0</td><td>323.45</td><td>PKR 323,450</td></tr>
-<tr><td>Deutsche Bank</td><td>€28.65</td><td>322.56</td><td>PKR 313,314</td></tr>
-</tbody>
-</table>
-<p><strong>Spread:</strong> Best (TapTap Send) vs Deutsche Bank = <strong>PKR 14,686 (~4.5%)</strong> on €1,000.</p>
-
 <h3>AED → PKR (UAE → Pakistan, AED 1,000)</h3>
 <table>
 <thead><tr><th>Provider</th><th>Fee</th><th>Rate (PKR/AED)</th><th>Recipient Gets</th></tr></thead>
@@ -15499,7 +15484,7 @@ export const blogPosts: BlogPost[] = [
 
 <h3>Scenario B — Realistic blended (2% inefficiency)</h3>
 <p><code>2% × $28B = $560 million/year</code></p>
-<p>This is consistent with a mix of: (a) senders using competitive fintech (~1% loss), (b) senders using exchange houses with mid-tier rates (~2.5%), and (c) a long tail still using bank wires or informal hawala (4%+). The €1,000 EUR→PKR spread of 4.5% and AED 1,000 spread of 7.8% confirm there is substantial room above the floor.</p>
+<p>This is consistent with a mix of: (a) senders using competitive fintech (~1% loss), (b) senders using exchange houses with mid-tier rates (~2.5%), and (c) a long tail still using bank wires or informal hawala (4%+). The AED 1,000 spread of 7.8% and GBP→PKR spread of 6.4% confirm there is substantial room above the floor.</p>
 
 <h3>Scenario C — Upper bound (3% inefficiency)</h3>
 <p><code>3% × $28B = $840 million/year</code></p>
@@ -15561,11 +15546,11 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         question: "How much do remittances cost to send to Pakistan in 2026?",
-        answer: "Live quotes on May 14, 2026 show specialist fintech providers (Remitly, TapTap Send, Wise, Instarem, ACE Money Transfer, Ria) deliver all-in costs of roughly 0.5%–2% on the GBP→PKR, USD→PKR and EUR→PKR corridors. Bank wires (HSBC, Deutsche Bank, US bank wires) and some exchange houses run 4%–8% all-in once you factor in the exchange-rate markup. The World Bank Remittance Prices Worldwide global benchmark sits above 6%, well above the UN SDG target of 3%.",
+        answer: "Live quotes on May 14, 2026 show specialist fintech providers (Remitly, TapTap Send, Wise, Instarem, ACE Money Transfer, Ria) deliver all-in costs of roughly 0.5%–2% on the GBP→PKR, USD→PKR and AED→PKR corridors. Bank wires (HSBC, US bank wires) and some exchange houses run 4%–8% all-in once you factor in the exchange-rate markup. The World Bank Remittance Prices Worldwide global benchmark sits above 6%, well above the UN SDG target of 3%.",
       },
       {
         question: "How much does Pakistan lose on remittances every year?",
-        answer: "There is no official figure, but the loss is calculable. Multiplying Pakistan's ~$28 billion annual inflows by the observed avoidable spread between best and worst provider (1%–3% on most corridors) gives a range of $280 million to $840 million per year. A 2% blended inefficiency assumption — consistent with the live AED, GBP, USD and EUR spreads — yields roughly $560 million per year.",
+        answer: "There is no official figure, but the loss is calculable. Multiplying Pakistan's ~$28 billion annual inflows by the observed avoidable spread between best and worst provider (1%–3% on most corridors) gives a range of $280 million to $840 million per year. A 2% blended inefficiency assumption — consistent with the live AED, GBP and USD spreads — yields roughly $560 million per year.",
       },
       {
         question: "What is the cheapest way to send money to Pakistan right now?",
@@ -15573,7 +15558,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: "Why do banks like HSBC and Deutsche Bank cost so much more on Pakistan transfers?",
-        answer: "Banks make their money on the exchange-rate margin rather than visible fees. HSBC's GBP→PKR rate on £1,000 sat at 363.02 vs the best market rate of 380.11 — a 4.5% spread. Deutsche Bank's EUR→PKR was 322.56 vs the best of 328.00. Banks also charge $19–$29 wire fees on top. For most retail remittance amounts, specialist providers beat banks by 3–7%.",
+        answer: "Banks make their money on the exchange-rate margin rather than visible fees. HSBC's GBP→PKR rate on £1,000 sat at 363.02 vs the best market rate of 380.11 — a 6.4% spread, costing the recipient PKR 24,278 on a single transfer. Banks also charge $19–$29 wire fees on top. For most retail remittance amounts, specialist providers beat banks by 3–7%.",
       },
       {
         question: "Is hawala / hundi cheaper than legal remittance channels?",
@@ -15585,7 +15570,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: "How were these numbers calculated?",
-        answer: "Inflows: State Bank of Pakistan monthly remittance bulletins ($28B used as a conservative round figure across FY22–FY25). Cost benchmark: World Bank Remittance Prices Worldwide quarterly data. Spread estimates: live quotes scraped from 15+ providers (Wise, Remitly, TapTap Send, Instarem, Ria, ACE Money Transfer, Xoom, MoneyGram, OFX, Skrill, HSBC, Deutsche Bank, Paysend and others) on May 14, 2026 across AED, GBP, USD and EUR origin corridors. The 1%–3% inefficiency range is calibrated against the observed best-vs-worst spreads in those quotes.",
+        answer: "Inflows: State Bank of Pakistan monthly remittance bulletins ($28B used as a conservative round figure across FY22–FY25). Cost benchmark: World Bank Remittance Prices Worldwide quarterly data. Spread estimates: live quotes scraped from 15+ providers (Wise, Remitly, TapTap Send, Instarem, Ria, ACE Money Transfer, Xoom, MoneyGram, OFX, Skrill, HSBC, Paysend and others) on May 14, 2026 across AED, GBP and USD origin corridors. The 1%–3% inefficiency range is calibrated against the observed best-vs-worst spreads in those quotes.",
       },
     ],
     relatedSlugs: [
