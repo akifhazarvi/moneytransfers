@@ -192,7 +192,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const clientNamespaces = [
     "nav", "cookieConsent", "error", "languageSwitcher",  // layout-level
     "comparisonWidget", "providerCard",                    // shared across pages
-    "heroTabs", "homepageConverter", "newsTicker",         // homepage
+    "heroTabs", "homepageConverter", "newsTicker", "liveExample", "bestTransferToday",  // homepage
     "sendMoneyClient",                                     // send-money
     "currencyConverterClient",                             // currency-converter
   ];
