@@ -997,5 +997,28 @@
         "receiveAmount": 95984.93
       }
     }
+  },
+  {
+    "date": "2026-05-18",
+    "providers": {
+      "taptap-send": {
+        "rate": 1000,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 100000
+      },
+      "instarem": {
+        "rate": 988.4991,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 98849.91
+      },
+      "xoom": {
+        "rate": 960.1283,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 96012.83
+      }
+    }
   }
 ]

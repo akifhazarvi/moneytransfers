@@ -1867,5 +1867,40 @@
         "receiveAmount": 15477
       }
     }
+  },
+  {
+    "date": "2026-05-18",
+    "providers": {
+      "bank-of-america": {
+        "rate": 154.3114,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 15431
+      },
+      "wells-fargo": {
+        "rate": 153.8927,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 15389
+      },
+      "remitly": {
+        "rate": 155.0456,
+        "fee": 6.99,
+        "markup": null,
+        "receiveAmount": 14421
+      },
+      "xoom": {
+        "rate": 152.5586,
+        "fee": 9.99,
+        "markup": null,
+        "receiveAmount": 13732
+      },
+      "wise": {
+        "rate": 158.91,
+        "fee": 2.52,
+        "markup": null,
+        "receiveAmount": 15491
+      }
+    }
   }
 ]
