@@ -76,16 +76,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         {t("subtitle")}
       </p>
 
-      {/* Editorial Introduction */}
-      <div className="mb-8 text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">
-        <p>
-          Sending money internationally can be confusing — exchange rates fluctuate, fee structures vary between providers, and regulations differ by country. Our guides are written by researchers who track the money transfer industry daily, comparing real quotes from 16+ providers across 64+ currency corridors.
-        </p>
-        <p>
-          Whether you are sending a one-time payment or making regular transfers to family abroad, these guides cover everything from finding the cheapest provider for your specific route, to understanding hidden costs like exchange rate markups, to navigating compliance requirements for large transfers. Each guide includes up-to-date pricing data from our comparison engine.
-        </p>
-      </div>
-
       {/* Category tabs + featured post + grid — interactive, handled client-side */}
       <GuidesClientPage
         posts={blogPosts}
@@ -97,8 +87,18 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         }}
       />
 
+      {/* Editorial Introduction */}
+      <div className="mt-12 pt-8 border-t border-[var(--color-outline)] mb-8 text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">
+        <p>
+          Sending money internationally can be confusing — exchange rates fluctuate, fee structures vary between providers, and regulations differ by country. Our guides are written by researchers who track the money transfer industry daily, comparing real quotes from 16+ providers across 64+ currency corridors.
+        </p>
+        <p>
+          Whether you are sending a one-time payment or making regular transfers to family abroad, these guides cover everything from finding the cheapest provider for your specific route, to understanding hidden costs like exchange rate markups, to navigating compliance requirements for large transfers. Each guide includes up-to-date pricing data from our comparison engine.
+        </p>
+      </div>
+
       {/* Cross-links */}
-      <div className="mt-12 pt-8 border-t border-[var(--color-outline)]">
+      <div className="mt-12 pt-8">
         <div className="grid sm:grid-cols-3 gap-8">
           <div>
             <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">{t("crossLinkTools")}</h3>
