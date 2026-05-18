@@ -23,6 +23,7 @@ import aceQuotes from "@/data/scraped/ace-money-transfer-quotes.json";
 import riaQuotes from "@/data/scraped/ria-quotes.json";
 import remitlyQuotes from "@/data/scraped/remitly-quotes.json";
 import compareremitQuotes from "@/data/scraped/compareremit-quotes.json";
+import pandaremitQuotes from "@/data/scraped/pandaremit-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -116,6 +117,8 @@ const SLUG_ALIASES: Record<string, string> = {
   "starling-bank": "starling",
   "deutsche-bank": "deutsche-bank",
   "currencies-direct": "currencies-direct",
+  pandaremit: "panda-remit",
+  "panda-remit": "panda-remit",
 };
 
 function normalizeSlug(slug: string): string {
@@ -213,6 +216,7 @@ addQuotes(aceQuotes as unknown[], 1, "ace-direct");
 addQuotes(riaQuotes as unknown[], 1, "ria-browser");
 addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
 addQuotes(compareremitQuotes as unknown[], 1, "compareremit-browser");
+addQuotes(pandaremitQuotes as unknown[], 1, "pandaremit-api");
 
 // Priority 2: Wise Comparison API (8-18 competitors per corridor, pure REST API)
 addQuotes(wiseComparisonQuotes as unknown[], 2, "wise-comparison-api");

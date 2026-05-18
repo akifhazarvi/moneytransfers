@@ -71,6 +71,16 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
+      - name: Scrape PandaRemit (CNY corridors API)
+        run: npx tsx scripts/scrape-pandaremit.ts
+        timeout-minutes: 5
+        continue-on-error: true
+
+      - name: Scrape SkyRemit (CNY corridors API)
+        run: npx tsx scripts/scrape-skyremit.ts
+        timeout-minutes: 5
+        continue-on-error: true
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
