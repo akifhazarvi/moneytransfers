@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useId } from "react";
+import { useState, useId, useEffect, useContext } from "react";
 import { useRouter } from "next/navigation";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import { sendCurrencies } from "@/data/transfer-currencies";
 import { trackCompareSearch } from "@/lib/analytics";
 import { useTranslations } from "next-intl";
+import { useHomeSelection } from "@/components/HomeSelectionContext";
 
 const MIN_AMOUNT = 1;
 const MAX_AMOUNT = 1_000_000;
@@ -29,6 +30,13 @@ export default function ComparisonWidget({
   const [amountStr, setAmountStr] = useState(String(defaultAmount));
   const amount = Number(amountStr) || 0;
   const [amountError, setAmountError] = useState("");
+
+  // Broadcast changes to HomeSelectionContext (no-op outside home page)
+  const homeSelection = useHomeSelection();
+  useEffect(() => {
+    if (amount > 0) homeSelection.setSelection(fromCurrency, toCurrency, amount);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromCurrency, toCurrency, amount]);
   const id = useId();
   const t = useTranslations("comparisonWidget");
 

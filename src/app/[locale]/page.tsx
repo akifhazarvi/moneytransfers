@@ -2,14 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
-import PrimaryButton from "@/components/PrimaryButton";
 import RatingBadge from "@/components/RatingBadge";
-import BestTransferToday from "@/components/BestTransferToday";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import LazyNewsTicker from "@/components/LazyNewsTicker";
-import { providers, generateQuotes, getProviderName } from "@/data/providers";
+import HomeDynamicSection from "@/components/HomeDynamicSection";
+import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
+import { providers } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -48,33 +48,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   // Default to USD — geo personalization handled client-side via ComparisonWidget
   const geoConfig = DEFAULT_GEO_CONFIG;
-  const sendCurrency = "USD";
 
-  const [tHero, tTrust, tHow, tBest, tExample, tFaq, tWhy] = await Promise.all([
+  const [tHero, tTrust, tHow, tBest, tFaq, tWhy] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
     getTranslations({ locale, namespace: "trust" }),
     getTranslations({ locale, namespace: "howItWorks" }),
     getTranslations({ locale, namespace: "bestProviders" }),
-    getTranslations({ locale, namespace: "liveExample" }),
     getTranslations({ locale, namespace: "faq" }),
     getTranslations({ locale, namespace: "whyTrust" }),
   ]);
-
-  // Top providers for the user's geo currency — top 3 payout corridors
-  const topCorridorProviders = geoConfig.popularCorridors.slice(0, 3).map((c) => {
-    const quotes = generateQuotes(geoConfig.defaultAmount, sendCurrency, c.toCurrency);
-    const best = quotes[0];
-    const provider = best ? providers.find((p) => p.slug === best.providerSlug) : null;
-    return {
-      ...c,
-      providerName: best ? getProviderName(best.providerSlug) : null,
-      providerSlug: best?.providerSlug || null,
-      providerLogo: provider?.logo || (best ? `/logos/${best.providerSlug}.png` : null),
-      receiveAmount: best?.receiveAmount || 0,
-      exchangeRate: best?.exchangeRate || 0,
-      fee: best?.fee ?? 0,
-    };
-  }).filter((c) => c.providerName);
 
   const faqs = [
     { q: tFaq("q1"), a: tFaq("a1") },
@@ -168,23 +150,24 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeVideoSchema) }}
       />
-      {/* ─── HERO ─── widget-as-hero, single job: start a comparison */}
-      <section className="bg-[var(--color-surface)] pt-10 sm:pt-20 pb-10 sm:pb-16 border-b border-[var(--color-outline)]">
-        <Container>
-          <div className="text-center mb-8 sm:mb-10 max-w-2xl mx-auto">
-            <h1 className="text-[28px] sm:text-5xl font-semibold text-[var(--color-on-surface)] leading-[1.1] tracking-[-0.02em]">
-              {tHero("title")}{" "}
-              <span className="text-[var(--color-primary)]">{tHero("titleHighlight")}</span>
-            </h1>
-            <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
-              {tHero("subtitle")}
-            </p>
-          </div>
-          <div className="max-w-[720px] mx-auto">
-            <ComparisonWidget defaultFrom={sendCurrency} defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
-          </div>
-        </Container>
-      </section>
+      {/* ─── HERO + DYNAMIC SECTIONS ─── wrapped in shared selection context */}
+      <HomeSelectionProvider defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount}>
+        <section className="bg-[var(--color-surface)] pt-10 sm:pt-20 pb-10 sm:pb-16 border-b border-[var(--color-outline)]">
+          <Container>
+            <div className="text-center mb-8 sm:mb-10 max-w-2xl mx-auto">
+              <h1 className="text-[28px] sm:text-5xl font-semibold text-[var(--color-on-surface)] leading-[1.1] tracking-[-0.02em]">
+                {tHero("title")}{" "}
+                <span className="text-[var(--color-primary)]">{tHero("titleHighlight")}</span>
+              </h1>
+              <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
+                {tHero("subtitle")}
+              </p>
+            </div>
+            <div className="max-w-[720px] mx-auto">
+              <ComparisonWidget defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
+            </div>
+          </Container>
+        </section>
 
       {/* ─── LATEST NEWS ─── moved above the fold for freshness signal */}
       <LazyNewsTicker
@@ -197,82 +180,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         }))}
       />
 
-      {/* ─── BEST ROUTES + LIVE EXAMPLE (merged) ─── */}
-      {topCorridorProviders.length > 0 && (
-        <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
-          <Container>
-            <div className="text-center mb-6 sm:mb-10">
-              <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-                Best Provider for {sendCurrency} Transfers
-              </h2>
-              <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-                We compared {sendCurrency} transfers across providers to find the cheapest option for each route.
-              </p>
-            </div>
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-10">
-              {topCorridorProviders.map((c) => (
-                <Link
-                  key={c.toCurrency}
-                  href={`/send-money/${c.corridorSlug}`}
-                  className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] transition-all"
-                >
-                  <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-                    <span className="text-sm sm:text-lg">{c.flag}</span>
-                    <span className="text-[10px] sm:text-xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-                      {sendCurrency} → {c.toCurrency}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
-                    {c.providerLogo && (
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center relative border border-[var(--color-outline)]/50">
-                        <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="w-full h-full object-contain p-1" priority />
-                      </div>
-                    )}
-                    <p className="text-2sm sm:text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] truncate">
-                      {c.providerName}
-                    </p>
-                  </div>
-                  <div className="hidden sm:grid grid-cols-2 gap-2 text-xs">
-                    <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
-                      <span className="text-[var(--color-on-surface-variant)]">Rate </span>
-                      <span className="font-semibold text-[var(--color-on-surface)]">{c.exchangeRate.toFixed(2)}</span>
-                    </div>
-                    <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
-                      <span className="text-[var(--color-on-surface-variant)]">Fee </span>
-                      <span className="font-semibold text-[var(--color-success-dark)]">{c.fee === 0 ? "Free" : `$${c.fee.toFixed(2)}`}</span>
-                    </div>
-                  </div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-variant)] mt-1 sm:mt-2">
-                    <strong className="text-[var(--color-on-surface)]">{c.symbol}{c.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</strong>
-                    <span className="hidden sm:inline"> for {geoConfig.defaultAmount.toLocaleString()} {sendCurrency}</span>
-                  </p>
-                </Link>
-              ))}
-            </div>
-
-            {/* Featured live example — folded in from the old standalone section */}
-            <div className="max-w-3xl mx-auto bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-5 sm:p-7">
-              <div className="text-center mb-4">
-                <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-2xs sm:text-xs font-semibold uppercase tracking-wide px-2.5 py-0.5 rounded-full mb-2">
-                  {tExample("badge")}
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[var(--color-on-surface)]">
-                  {tExample("title")}
-                </h3>
-                <p className="text-2sm sm:text-sm text-[var(--color-on-surface-variant)] mt-1 max-w-md mx-auto">
-                  {tExample("subtitle")}
-                </p>
-              </div>
-              <BestTransferToday amount={geoConfig.defaultAmount} from={sendCurrency} to={geoConfig.defaultTo} symbol={geoConfig.popularCorridors[0]?.symbol || "₹"} />
-              <div className="text-center mt-5">
-                <PrimaryButton href={`/send-money?from=${sendCurrency}&to=${geoConfig.defaultTo}&amount=${geoConfig.defaultAmount}`}>
-                  {tExample("cta")}
-                </PrimaryButton>
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
+      {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
+        <HomeDynamicSection />
+      </HomeSelectionProvider>
 
       {/* ─── TRUST STRIP + WHY TRUST US (compressed) ─── */}
       <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)] py-6 sm:py-12">
