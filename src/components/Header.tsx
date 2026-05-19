@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useTheme } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
+import Image from "next/image";
 
 const navLinks = [
   {
@@ -114,17 +115,22 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
-          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-3 shrink-0 group">
-            {/* Icon: paper plane — adapts to light/dark via CSS vars */}
-            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200">
-              <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-primary)"/>
-              <path d="M14.5 19.5L26.5 4.5" stroke="var(--color-surface)" strokeWidth="0.8" opacity="0.8"/>
-              <path d="M14.5 19.5L21 27L18 20.5Z" fill="var(--color-primary)" opacity="0.45"/>
-            </svg>
-            {/* Wordmark */}
-            <span className="text-[20px] tracking-[-0.4px] text-[var(--color-on-surface)]">
-              <span className="font-extrabold">Send</span><span className="font-normal text-[var(--color-on-surface-variant)]">money</span>
-            </span>
+          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-2 shrink-0 group">
+            <Image
+              src="/logo-plane.png"
+              alt=""
+              width={56}
+              height={36}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200"
+              style={{ filter: 'drop-shadow(0px 1px 4px rgba(0,0,0,0.28))' }}
+              priority
+            />
+            <div className="leading-none">
+              <div className="text-[20px] tracking-[-0.4px] leading-none">
+                <span className="font-black text-[var(--color-primary)]">Send</span><span className="font-semibold text-[var(--color-on-surface)]">Money</span>
+              </div>
+              <div className="text-[8px] font-semibold tracking-[2.5px] uppercase text-[var(--color-on-surface-variant)] mt-[2px]">Compare</div>
+            </div>
           </Link>
 
           {/* Desktop nav */}

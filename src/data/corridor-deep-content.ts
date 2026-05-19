@@ -228,4 +228,116 @@ export const corridorDeepBlocks: Record<string, CorridorDeepBlock> = {
       },
     ],
   },
+
+  "china-to-australia": {
+    h2: "Sending CNY from China to Australia — everything expats and families need to know",
+    intro:
+      "Australia is the single largest destination for private outbound remittances from China — receiving USD $3.5 billion from Chinese senders in 2024 alone, representing 12.1% of Australia's entire inbound remittance volume. The 1.4 million Australians of Chinese heritage, combined with the world's highest proportion of Chinese international students (Australia hosts more Chinese students per capita than any other country), make CNY→AUD one of the world's most commercially significant bilateral corridors. Yet most senders still use Chinese bank SWIFT wires — paying ¥150–¥300 in fees plus 1.5–3% exchange rate markup — when specialist apps like SkyRemit (PBOC-licensed, ¥79 fixed fee) and Wise (0% markup, 0.41% fee) deliver the same funds to Commonwealth Bank, ANZ, Westpac, NAB, or Macquarie 1–2 business days faster and ¥500–¥1,500 cheaper on a ¥10,000 transfer. The PBOC's daily CNY/AUD fixing determines the starting rate; the gap between that rate and what your provider offers is where your money is lost or saved.",
+    faqs: [
+      {
+        q: "What is the real cost of sending ¥10,000 from China to Australia?",
+        a: "Using SkyRemit: ¥79 fixed fee + approximately 0.4–0.6% rate spread = total cost roughly ¥119–¥139. Using Wise: 0.41% fee (≈¥41) + 0% markup = ¥41 total. Using Chinese bank (e.g. Bank of China SWIFT): ¥200 fee + 1.5–2.5% markup = ¥350–¥450 total, plus a possible AUD-side correspondent charge of A$10–15 deducted from the received amount. On ¥10,000 the difference between SkyRemit/Wise and a bank wire is roughly A$50–80 per transfer — meaningful for regular senders. For ¥100,000 (e.g. student living expenses for a semester), the saving scales to A$500–800.",
+      },
+      {
+        q: "How does the SAFE $50,000 annual quota apply to China-to-Australia transfers?",
+        a: "Chinese nationals can purchase up to USD $50,000 equivalent of foreign currency per calendar year without SAFE pre-approval — this covers all outbound transfers combined, not just to Australia. At the May 2026 CNY/USD rate of approximately 7.25, that's roughly ¥362,500 per year. Above this, you must submit supporting documentation to your bank: a signed agreement, STA tax certificate, and purpose proof (property contract, university enrollment, medical invoice). Foreign nationals working in China (including those with Australian citizenship) are not subject to this quota but must provide payslips and a 纳税证明 (individual income tax certificate) to remit salary. The SAFE quota resets on January 1 each year.",
+      },
+      {
+        q: "Which Australian banks accept international transfers from China?",
+        a: "All major Australian banks accept inbound international wire transfers from China: Commonwealth Bank (BSB system, SWIFT: CTBAAU2S), ANZ (SWIFT: ANZBAU3M), Westpac (SWIFT: WPACAU2S), NAB (SWIFT: NATAAU3302S), Macquarie, and ING Australia. You need the recipient's BSB (6-digit branch code) and account number — Australia does not use IBANs. For SkyRemit and Wise deliveries, the funds are routed via Australia's Fast Payment network (NPP/Osko) where supported, meaning they can arrive in minutes rather than days. Confirm with your provider whether NPP routing is available for your specific receiving bank.",
+      },
+      {
+        q: "Are there tax implications in Australia for receiving money from China?",
+        a: "For Australian residents receiving personal remittances (family support, gifts): generally no Australian income tax applies. The ATO does not tax personal gifts or family transfers. However, if the transferred funds represent investment income, capital gains, or business revenue earned in China, Australian residents must declare global income to the ATO — Australia taxes residents on worldwide income. For Chinese-Australian families moving large amounts (property sale proceeds, inheritance), a tax adviser familiar with both Chinese capital controls and Australian tax law is worth engaging. The Australia-China Double Taxation Agreement (DTA) provides specific relief for avoiding double taxation on income types.",
+      },
+      {
+        q: "Why do transfers sometimes get delayed or returned when sending from China?",
+        a: "The most common causes of delays and rejections on CNY→AUD transfers: (1) Name mismatch — the name on the transfer must exactly match the Australian bank account holder's name, including middle names; (2) Exceeding SAFE quota — if the sender's $50,000 annual conversion limit is reached, the bank holds the transfer pending documentation; (3) Chinese public holidays — Chinese New Year (January/February, 7-day closure) and Golden Week (October 1–7) cause processing backlogs of up to a week; (4) Correspondent bank deductions — SWIFT transfers can pass through 1–2 intermediary banks, each deducting a fee from the transferred amount; (5) AUSTRAC compliance screening — Australian banks are required to screen inbound transfers under AML/CTF laws, which can add 1–2 business days for large or unusual transactions. Using SkyRemit or Wise avoids most of these issues by routing outside the traditional SWIFT correspondent system.",
+      },
+    ],
+  },
+
+  "china-to-canada": {
+    h2: "Sending CNY from China to Canada — the complete guide for students, workers, and families",
+    intro:
+      "Canada is home to over 1.7 million Canadians of Chinese descent — the largest overseas Chinese community in any non-Oceanic country outside Southeast Asia — concentrated in Vancouver, Toronto, Calgary, and Montreal. Chinese students represent 29% of all international students in Canada (approximately 230,000 students as of 2024), making tuition and living-expense remittances one of the dominant use-cases for CNY→CAD transfers. Annual tuition at top Canadian universities for Chinese students ranges from CAD $28,000–$52,000, meaning a single family may need to transfer ¥200,000–¥380,000 per academic year — well above the SAFE $50,000 annual quota, requiring SAFE documentation and bank processing. For amounts under the quota, SkyRemit (¥79 fixed fee, WeChat Pay funded) and Wise (0% markup, 0.41% fee) deliver to RBC, TD, Scotiabank, BMO, CIBC, and credit unions in 1–2 business days at a fraction of Chinese bank wire costs. For large transfers, Bank of China branches in Vancouver and Toronto — which serve as local CIPS participants — can sometimes settle CNY-denominated transfers faster than SWIFT.",
+    faqs: [
+      {
+        q: "How do Chinese families pay university tuition in Canada?",
+        a: "There are three practical routes: (1) Direct transfer to the university's bank account — most Canadian universities accept international wire transfers and provide a specific SWIFT code and account number on the fee invoice. You'll need the enrollment letter and fee invoice for SAFE documentation if the amount exceeds your $50,000 quota. (2) Transfer to the student's Canadian bank account — the student then pays via Interac online or cheque. (3) Pay via an FX specialist like Wise or OFX — some allow direct payment to institutional accounts. For amounts above ¥350,000 (≈CAD $70,000), Bank of China branches in Vancouver and Toronto accept foreign currency purchase applications with university documentation and can process above the standard quota limit. Always allow 7–10 business days before tuition deadlines.",
+      },
+      {
+        q: "Can I send CNY to a Canadian bank account using WeChat Pay?",
+        a: "Yes — SkyRemit accepts WeChat Pay as a funding source and delivers CAD to Canadian bank accounts (RBC, TD, Scotiabank, BMO, CIBC). The process: download SkyRemit app → verify ID (Chinese national ID or passport) → select CAD destination → enter recipient's Canadian bank account number, institution number, transit number, and full name → fund via WeChat Pay → delivery in 1–2 business days. The ¥79 fixed fee makes this particularly efficient for amounts above ¥20,000 where the fee-per-yuan is very low. For amounts under ¥10,000, Wise's percentage-based fee may be marginally cheaper.",
+      },
+      {
+        q: "What is FINTRAC and does it affect money received from China in Canada?",
+        a: "FINTRAC (Financial Transactions and Reports Analysis Centre of Canada) is Canada's financial intelligence agency. Canadian banks automatically report international wire transfers above CAD $10,000 to FINTRAC — this is a legal compliance requirement, not a tax, and does not create any liability for recipients of legitimate funds. For large transfers (tuition, property), the recipient's Canadian bank may ask for source-of-funds documentation. This is routine and easily satisfied with the transfer confirmation from SkyRemit or Wise, plus the context document (university offer letter, property agreement). There is no Canadian restriction on receiving funds from China.",
+      },
+      {
+        q: "Does the CNY/CAD rate change significantly and when is the best time to transfer?",
+        a: "The CNY/CAD rate is determined by two moving parts: the PBOC's daily CNY fixing rate (set at 9:15am Beijing time, ±2% band) and the CAD market rate (driven by oil prices, Bank of Canada policy, and USD/CAD flows). When CAD weakens against USD (typically when oil prices fall), CNY/CAD improves — meaning you receive more CAD per yuan. Conversely, when CAD strengthens, you receive less CAD. For tuition payments, SkyRemit and Wise show live rates; set a rate alert with your provider so you can transfer when the rate crosses your target. For amounts above ¥500,000, OFX's forward contract service (via their China-facing operations) lets you lock in today's rate for delivery up to 12 months out — protecting against rate movements before the next tuition deadline.",
+      },
+      {
+        q: "What documents do Chinese nationals need to send more than the SAFE quota to Canada?",
+        a: "For transfers exceeding the $50,000 USD-equivalent annual SAFE quota, you need: (1) A signed agreement between sender and recipient — this can be a family support declaration, a university financial guarantee form, or a property purchase contract; (2) Individual income tax payment certificate (个人所得税完税证明) from the State Taxation Administration (STA) or your employer's HR department — request it at your local tax bureau or online via the STA app; (3) The fee invoice or purpose document (university tuition invoice, hospital bill, property contract); (4) Your bank's SAFE foreign exchange purchase application form. Your Bank of China, ICBC, or CMB branch processes this — typically takes 1–3 business days for documentation review. Tip: since January 2026, companies (not individuals) making multiple payments under one contract need only one STA filing, but individual personal transfers still require per-transfer documentation above the quota.",
+      },
+    ],
+  },
+
+  "china-to-uk": {
+    h2: "Sending CNY from China to the UK — tuition, family support, and expat remittances",
+    intro:
+      "The United Kingdom is China's primary European destination for student remittances. Over 150,000 Chinese students study at UK universities (the largest non-EU international student group), paying £26,000–£45,000 per year in tuition fees — plus £12,000–£20,000 in living costs in London and other major cities. For a family supporting one student through a 3-year undergraduate degree at UCL or LSE, total CNY outflows can reach ¥1.5–2.5 million over the degree period. This is almost certainly above the SAFE annual quota, meaning most Chinese families are processing documentation with their bank every year. Separately, the 500,000+ British Chinese community generates family remittances and property-related transfers (UK property purchases by Chinese nationals averaged £385,000 per transaction in 2024). The cheapest route for regular personal transfers under the quota is SkyRemit (¥79 flat fee) or Wise (0% markup); for large tuition payments, Bank of China's UK branch — a direct CIPS participant — offers a bank-quality solution that processes above-quota documentation and delivers GBP same-day to most major UK banks.",
+    faqs: [
+      {
+        q: "How much does it cost to send ¥100,000 from China to a UK bank account?",
+        a: "SkyRemit: ¥79 fee + ~0.5% spread = total cost approximately ¥579 (you keep ¥99,421 working for the exchange). Wise: 0.41% fee (¥410) + 0% markup = ¥410 total cost. Chinese bank SWIFT (e.g. Bank of China Beijing SWIFT to Barclays): ¥200 fee + 1.5–2.5% markup = ¥1,700–¥2,700 total cost, plus a potential £10–20 correspondent charge deducted from the GBP received. On a ¥100,000 transfer, the gap between Wise and a bank wire is approximately £130–200 in GBP received. On a semester's living-cost transfer this compounds across four remittances a year — roughly £500–800/year saved by switching from bank to app.",
+      },
+      {
+        q: "Can I send directly to a UK university for tuition fees?",
+        a: "Yes — most UK universities publish international payment instructions (SWIFT code, sort code, account number, and payment reference) on their fees office website. You can send directly from China via your bank or SkyRemit to the university's Barclays, HSBC, or Lloyds account. For SAFE documentation purposes, a university payment is categorized as educational purpose (教育费用), which is one of the accepted purposes for above-quota transfers. You need the university's offer letter and tuition fee invoice. Processing time: allow 5–7 business days before the tuition deadline. Some universities also accept payment via Flywire or TransferMate, which accept CNY directly and handle the SAFE documentation process for you.",
+      },
+      {
+        q: "How does SAFE documentation work for UK tuition payments above ¥360,000 (~$50,000)?",
+        a: "If your annual tuition + living costs exceed the $50,000 SAFE quota equivalent (approximately ¥360,000 at 2026 rates), you submit to your Chinese bank: the university offer letter (conditional or unconditional), the official tuition fee invoice (showing GBP amount and payment details), your 纳税证明 (individual income tax certificate), and the bank's SAFE foreign exchange application form. The bank applies the transfer against your SAFE purpose-code 'S23' (教育服务 / educational services). Your bank processes the documentation within 1–3 business days. After approval, the SWIFT wire or CIPS transfer goes out the same day. Note: the SAFE quota tracks calendar year (January 1 reset) — if your first-semester payment in September does not fully exhaust the quota, plan the second-semester January payment around the January 1 reset.",
+      },
+      {
+        q: "What is the GBP/CNY rate and what drives it?",
+        a: "The GBP/CNY rate is a cross-rate derived from GBP/USD and USD/CNY. Key drivers: (1) Bank of England monetary policy — rate hikes strengthen GBP; (2) UK inflation data (CPI) and economic growth — strong UK data boosts GBP; (3) PBOC daily fixing — a weaker yuan fix means more CNY per GBP; (4) UK-China trade relations — trade tensions tend to weaken GBP for CNY senders (you get less GBP per yuan). Post-Brexit, GBP is more volatile than pre-2016 — swings of 2–3% within a semester are not unusual. For tuition payments, using a forward contract via OFX (available to Chinese institutions and large individual senders) can lock in the rate up to 12 months ahead. For regular living-cost transfers, setting a rate alert on Wise or SkyRemit costs nothing and can save ¥500–1,000 by timing your transfer to a rate peak.",
+      },
+      {
+        q: "What UK banks are best for receiving money from China?",
+        a: "All major UK banks accept international wire transfers from China. HSBC UK is particularly efficient because HSBC has its own China subsidiary (HSBC China) and can route some CNY transfers through internal accounts, reducing correspondent bank delays. Barclays, Lloyds, NatWest, and Santander UK all receive SWIFT wires from China with standard 2–4 day processing. For SkyRemit and Wise deliveries, the recipient bank needs a UK sort code and account number (not IBAN — UK banks use sort code/account number for domestic transfers). Opening a Wise account in the UK before the student arrives gives the family an immediate UK account number to send to, avoiding delays waiting for a UK bank account to be opened after arrival. Monzo and Starling (digital banks) also work with SkyRemit/Wise deliveries and can be opened with a UK address before arrival.",
+      },
+    ],
+  },
+
+  "china-to-usa": {
+    h2: "Sending CNY from China to the USA — the complete guide to regulations, costs, and the best providers",
+    intro:
+      "The China-to-USA corridor is one of the world's highest-value bilateral remittance routes. The United States is home to 5.4 million Americans of Chinese descent, and approximately 370,000 Chinese students study at American universities — more than from any other country. Families in China collectively send billions of dollars annually to fund tuition at MIT, Stanford, Columbia, NYU, and USC; support family members; and facilitate property purchases in cities like San Francisco, Los Angeles, New York, and Seattle. The corridor is uniquely complex: SAFE capital controls on the China side, FinCEN reporting requirements on the US side, heightened OFAC screening due to US-China geopolitical tensions, and a politically managed CNY/USD exchange rate all create friction that most bank-wire users simply overpay to navigate. The solution is straightforward: use PBOC-licensed specialist apps (SkyRemit, Wise) for amounts under the SAFE quota, and work with Bank of China's US branches for above-quota transfers that require SAFE documentation and full SWIFT compliance.",
+    faqs: [
+      {
+        q: "What are the China-side and US-side rules for sending money from China to the USA?",
+        a: "China side (SAFE): Chinese nationals can convert and remit up to USD $50,000 equivalent per year without prior approval — at the 2026 CNY/USD rate of approximately 7.25, that's roughly ¥362,500. Above this, you need supporting documentation (contract, STA tax certificate, purpose proof). Foreign nationals working in China can remit verified after-tax salary above this limit with payslips and 纳税证明 (tax certificate). Since January 2026, all transactions above RMB 5,000/USD 1,000 are flagged for large-value monitoring — a compliance note, not a restriction. US side (FinCEN): US banks automatically file a Currency Transaction Report (CTR) for incoming wires above $10,000. This is routine, legal, and creates no tax liability. The US recipient is not taxed on receiving a personal remittance. However, if the funds represent foreign gifts above $100,000 in a year, IRS Form 3520 must be filed (no tax owed, just a disclosure).",
+      },
+      {
+        q: "How do Chinese students pay US university tuition from China?",
+        a: "Most US universities (Harvard, MIT, Columbia, NYU, UCLA, etc.) provide international wire transfer instructions on their bursar's website: a US bank account (usually Wells Fargo, Bank of America, or JPMorgan Chase), routing number, and account number, plus a student ID reference. The two main routes: (1) Bank of China SWIFT wire — higher cost (¥200+ fee + 2–3% markup) but fully documented and accepted for above-quota SAFE processing; (2) Wise — 0% markup, 0.41% fee, 1–2 business days delivery to the university's US bank account. Wise is typically $300–600 cheaper on a $15,000 tuition wire. For above-quota amounts, your Chinese bank processes the SAFE documentation using the university's official enrollment letter and tuition invoice. Flywire and PayMyTuition also process directly from China and handle SAFE documentation internally.",
+      },
+      {
+        q: "How does US-China trade and tariff policy affect the CNY/USD rate?",
+        a: "The CNY/USD rate is the world's most politically sensitive exchange rate. The PBOC sets a daily fixing (中间价) at 9:15am Beijing time, and CNY trades within ±2% of this fix. When the US imposes tariffs on Chinese exports, downward pressure on CNY increases — the yuan typically weakens because Chinese export revenues fall. The PBOC intervenes through the fixing to prevent excessive depreciation. In 2025, the CNY weakened to approximately 7.3–7.4/USD during peak US tariff escalation, then recovered to approximately 7.2–7.25 as negotiations progressed. For senders in China: a weaker yuan means more CNY cost per dollar. For timing large US transfers, watch the PBOC fixing rate and US trade headlines — a tariff pause or trade deal can strengthen the yuan by 1–2% within days, saving ¥7,000–14,000 on a ¥700,000 transfer.",
+      },
+      {
+        q: "Does OFAC screening cause delays on China-to-USA transfers?",
+        a: "OFAC (the US Treasury's Office of Foreign Assets Control) requires all US financial institutions to screen incoming international transfers against sanctions lists. For standard personal and family remittances, OFAC screening causes no issues — it is automated and completes in seconds. Delays can occur if: (1) the sender's name matches or is similar to a name on OFAC's SDN (Specially Designated Nationals) list; (2) the payment contains a vague or incomplete purpose description; (3) the sending Chinese bank is not well-known to US correspondent banks. Using providers like Wise and SkyRemit that have established US compliance relationships reduces OFAC-related delays significantly versus ad-hoc Chinese bank wires. Always include a clear purpose description ('family living expenses', 'tuition payment for [student name]') in the transfer reference.",
+      },
+      {
+        q: "What if I need to send more than $50,000 from China to the US?",
+        a: "For above-quota transfers: go to your Chinese bank (Bank of China and ICBC are the most experienced) and submit the SAFE documentation pack: signed agreement between sender and recipient, STA individual income tax certificate (个人所得税完税证明), purpose document (university invoice, property contract, medical bills, employment agreement for foreign workers), and the bank's standard SAFE foreign exchange purchase application. Processing takes 1–3 business days. Bank of China has US branches in New York, Los Angeles, San Francisco, and Chicago that act as CIPS participants — they sometimes offer a faster, lower-cost path for CNY-denominated transfers above the quota. For property purchases (frequently above $1 million), Chinese buyers often work with an FX broker (OFX, XE) who manages the SAFE documentation process, can split transfers across calendar years to use multiple year quotas, and offers forward contracts to lock in the USD rate.",
+      },
+    ],
+  },
 };

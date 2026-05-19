@@ -15730,6 +15730,556 @@ export const blogPosts: BlogPost[] = [
       "how-to-send-large-amounts-internationally",
     ],
   },
+  // ============================
+  // How to Send Money FROM China (CNY as send currency)
+  // ============================
+  {
+    slug: "how-to-send-money-from-china",
+    title: "How to Send Money from China (CNY) Abroad in 2026: Complete Guide for Expats & Residents",
+    metaDescription:
+      "Sending money from China in 2026? Compare SkyRemit, Wise, UnionPay, WeChat Pay, and bank transfers for CNY outbound remittances. SAFE $50,000 quota, documentation, and cheapest methods explained.",
+    excerpt:
+      "Sending yuan (CNY) abroad from China is uniquely complex — SAFE capital controls, WeChat/Alipay limits, and a short list of licensed operators make it different from every other corridor. Here's how to do it cheaply and compliantly.",
+    category: "Corridors",
+    readTime: "14 min read",
+    publishedAt: "2026-05-19",
+    updatedAt: "2026-05-19",
+    author: "Akif Hazarvi",
+    tags: ["China", "CNY", "send from China", "CNY outbound", "SAFE quota", "expats in China", "SkyRemit", "WeChat Pay", "yuan transfer", "remittance from China"],
+    featuredImage: "/images/blog/send-money-from-china.jpg",
+    sections: [
+      {
+        heading: "Can You Send Money Abroad from China?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Yes — both Chinese residents and foreign nationals living in China can send money abroad. Chinese nationals are subject to SAFE's <strong>$50,000 USD-equivalent annual conversion quota</strong>. Foreign workers can remit their verified after-tax salary with no hard cap, provided they show payslips and tax records. The key difference: you must use a <strong>licensed operator</strong> (bank, Wise via partner, <a href="/companies/skyremit">SkyRemit</a>, or <a href="/companies/panda-remit">Panda Remit</a>) — unlicensed channels are illegal. <a href="/send-money">Compare live CNY outbound rates →</a></p></div>
+<div class="blog-callout-blue-sm"><p><strong>Key fact:</strong> China processed 409,000 overseas workers in 2024 (18% more than 2023). 37% of expats in China sent funds abroad in H1 2024, up from 28% in 2022. The outbound remittance market is growing rapidly — and so is the choice of licensed apps.</p></div>
+<p>China's foreign exchange system is managed by the <strong>State Administration of Foreign Exchange (SAFE)</strong>, a department of the People's Bank of China (PBOC). The rules differ significantly depending on <em>who you are</em>:</p>
+<ul>
+<li><strong>Chinese nationals:</strong> Subject to the annual $50,000 USD-equivalent individual conversion quota. Above this, SAFE approval and documentation (contracts, invoices, medical certificates) are required.</li>
+<li><strong>Foreign nationals (expats) working in China:</strong> Can remit after-tax legitimate income with no fixed annual cap, but must provide payslips, employment contracts, and tax payment certificates (纳税证明) to their bank.</li>
+<li><strong>Foreign students:</strong> Can remit living expenses and tuition refunds with supporting documents from their institution.</li>
+</ul>
+<p>This guide focuses on the practical steps, cheapest providers, and compliance rules for all three groups.</p>`,
+      },
+      {
+        heading: "What Is China's SAFE $50,000 Annual Quota and How Does It Work?",
+        content: `<p>The most misunderstood rule in CNY outbound transfers is the <strong>SAFE annual quota</strong>. Here's exactly how it works:</p>
+<ul>
+<li><strong>$50,000 USD equivalent per person, per calendar year</strong> — This is China's cap on how much foreign currency an individual Chinese citizen can purchase (convert from CNY) annually. It resets on January 1 each year.</li>
+<li><strong>Two separate sub-quotas:</strong> A <em>settlement quota</em> (converting incoming foreign currency to CNY) and a <em>purchase quota</em> (converting CNY to foreign currency for outbound transfers). Each is $50,000/year independently.</li>
+<li><strong>Documentation above $50,000:</strong> Transfers exceeding the quota require a signed contract between parties, tax certificates, invoices, proof of purpose (education, medical, trade), and SAFE registration. Chinese banks handle this process.</li>
+<li><strong>January 1, 2026 — new KYC rules:</strong> Reporting thresholds were lowered to RMB 5,000 (≈$700) and USD 1,000 for large-value transaction monitoring. Record retention was extended from 5 to 10 years.</li>
+</ul>
+<div class="blog-callout-blue-sm"><p><strong>Practical tip:</strong> For most families and expats sending under $50,000/year, the quota is not an obstacle. SAFE checks happen at the bank or app level — if you're within quota and your ID is verified, the transfer processes normally. The friction increases significantly above $50,000.</p></div>
+<p>Foreign nationals working in China are treated differently: they can remit legitimate after-tax income above $50,000 per year if they can document it as earned salary (payslips + tax proof). The quota is a constraint on <em>currency conversion</em> by Chinese nationals, not on legitimate foreign worker remittances.</p>`,
+      },
+      {
+        heading: "Which Providers Support CNY Outbound Transfers from China?",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Best Providers for Sending CNY from China</h3>
+<table>
+<thead><tr><th>Provider</th><th>Best For</th><th>Fee</th><th>Countries</th><th>Regulated By</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/skyremit">SkyRemit</a></strong></td><td>Chinese residents &amp; expats sending CNY out</td><td>Fixed ¥79/transfer</td><td>180+</td><td>PBOC + HK Customs &amp; Excise</td></tr>
+<tr><td><strong><a href="/companies/panda-remit">Panda Remit</a></strong></td><td>WeChat Pay &amp; Alipay top-ups, then send abroad</td><td>Low variable fee</td><td>30+</td><td>FCA, FinCEN, AUSTRAC</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Expats with verified Wise account sending CNY</td><td>From 0.41%</td><td>70+</td><td>FCA, FinCEN, MAS + PBOC partner</td></tr>
+<tr><td><strong>Chinese bank (ICBC/BOC/CMB)</strong></td><td>Large transfers, full SAFE documentation</td><td>¥150–¥300 + markup</td><td>Global</td><td>PBOC/SAFE</td></tr>
+<tr><td><strong>UnionPay + MoneyExpress</strong></td><td>UnionPay card holders sending to 80+ countries</td><td>Varies</td><td>80+</td><td>UnionPay International</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Rates and fees verified May 2026. <a href="/send-money">Compare live CNY outbound rates →</a></p>
+</div>
+<h3>SkyRemit — China's Leading Outbound App</h3>
+<p><a href="/companies/skyremit">SkyRemit</a> is powered by Skyee, a subsidiary of LAKALA (PBOC-licensed, A-share listed, stock: 300773). It specialises exclusively in <strong>sending CNY outbound</strong> — the only major operator on this platform built specifically for China-to-world transfers. Key facts:</p>
+<ul>
+<li>Fixed fee of just <strong>¥79 per transfer</strong> regardless of amount (up to limits)</li>
+<li>Delivers to <strong>180+ countries in 50 local currencies</strong> via bank deposit</li>
+<li>Funded via WeChat Pay or Alipay (both supported as payment source)</li>
+<li>Regulated by PBOC (mainland China) and Hong Kong Customs &amp; Excise Department</li>
+<li>No hidden exchange rate markup on popular corridors</li>
+</ul>
+<h3>Wise in China</h3>
+<p><a href="/companies/wise">Wise</a> is available in China through a licensed local partner. It supports CNY transfers to UnionPay bank accounts (CIPS member banks only). Per-transaction cap is 50,000 CNY; annual recipient limit is 500,000 CNY. As of January 2025, Wise enhanced its cross-border transfer services with higher limits for verified users.</p>`,
+      },
+      {
+        heading: "How Do Foreign Nationals (Expats) Send Money Home from China?",
+        content: `<p>If you're a foreign national living and working in China, the remittance process is more straightforward than for Chinese nationals — but requires documentation. Here's the step-by-step process via a Chinese bank:</p>
+<ol>
+<li><strong>Open a foreign currency account</strong> at Bank of China (BOC), ICBC, or China Merchants Bank — BOC is the most international-friendly. Bring your passport and work/residence permit.</li>
+<li><strong>Obtain your tax payment certificate (纳税证明)</strong> from your employer's HR department or directly from the local tax bureau. This proves your income was taxed in China.</li>
+<li><strong>Present payslips</strong> for the period you're remitting. Most banks require the last 3–6 months.</li>
+<li><strong>Fill in the forex purchase form</strong> at the bank counter. Declare the purpose as "salary remittance" or "personal income transfer".</li>
+<li><strong>Transfer is processed</strong> — typically 1–3 business days for SWIFT, same-day for CIPS where available.</li>
+</ol>
+<p>For smaller amounts (under ¥50,000 equivalent), apps like <a href="/companies/skyremit">SkyRemit</a> and <a href="/companies/wise">Wise</a> are faster and cheaper than going to a bank branch. You still need to verify your identity and income source, but the app handles the SAFE compliance documentation electronically.</p>
+<div class="blog-callout-blue-sm"><p><strong>Key data:</strong> 98% of expat transfers from China in early 2024 occurred via licensed financial institutions (People's Bank of China data). Using unlicensed channels (underground banking, unofficial hawala networks) is illegal under Chinese law and carries serious penalties including fines and deportation.</p></div>`,
+      },
+      {
+        heading: "What Does It Cost to Send CNY Abroad? Real Cost Comparison",
+        content: `<p>The true cost of sending CNY abroad has two components: the transfer fee and the exchange rate markup. Here's how the main channels compare on a ¥10,000 transfer to AUD (a major China-Australia corridor):</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">CNY Outbound Cost Comparison — ¥10,000 to AUD</h3>
+<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Est. AUD Received</th><th>Speed</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>SkyRemit</strong></td><td>¥79 fixed</td><td>~0.3–0.5%</td><td>Best estimate ~AUD 2,090</td><td>1–2 days</td></tr>
+<tr><td><strong>Wise</strong></td><td>~0.41% (≈¥41)</td><td>0%</td><td>~AUD 2,095</td><td>1–2 days</td></tr>
+<tr><td><strong>Chinese bank (SWIFT)</strong></td><td>¥150–¥300</td><td>1.5–3%</td><td>~AUD 1,980–2,020</td><td>3–5 days</td></tr>
+<tr><td><strong>UnionPay remittance</strong></td><td>Varies</td><td>0.5–1.5%</td><td>~AUD 2,050</td><td>1–3 days</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Illustrative figures — exchange rates move daily. <a href="/send-money">Compare live rates →</a></p>
+</div>
+<p>The <strong>real cost gap between apps and banks is approximately 1.5–2.5% on every transfer</strong>. On a ¥50,000 transfer (the annual SAFE quota limit), that's a difference of ¥750–¥1,250 going to your bank instead of your recipient.</p>
+<p>For the China-to-Australia corridor alone, Australia received <strong>USD $3.5 billion in remittances from China in 2024</strong> — representing 12.1% of Australia's total remittance inflows (source: MoneyTransfer.com.au). The cost savings from using apps over banks on this volume are enormous.</p>`,
+      },
+      {
+        heading: "Top Destination Countries for CNY Outbound Remittances",
+        content: `<p>China's outbound remittances follow the Chinese diaspora and international student/worker flows. The highest-volume CNY-to-foreign-currency corridors in 2024–2025:</p>
+<ul>
+<li><strong>CNY → AUD (China to Australia):</strong> Australia is home to 1.4 million people of Chinese heritage. Australia received $3.5 billion from China in 2024 — the single largest destination by volume for private remittances out of China.</li>
+<li><strong>CNY → CAD (China to Canada):</strong> Canada has one of the world's largest Chinese diaspora communities. The transfer cost from Canada to China averages 5.8% (Q3 2023, World Bank data). CNY outbound to CAD is similarly priced.</li>
+<li><strong>CNY → GBP (China to UK):</strong> Approximately 500,000+ British Chinese residents. UK universities receive significant tuition flows from mainland China — a key driver of large CNY → GBP transfers.</li>
+<li><strong>CNY → USD (China to USA):</strong> One of the world's largest bilateral remittance corridors. Chinese students studying in the US drive significant CNY → USD flows for living expenses and tuition.</li>
+<li><strong>CNY → EUR (China to Europe):</strong> Germany, France, and Spain have significant Chinese worker populations. Growing with China's BRI investment in European infrastructure.</li>
+<li><strong>CNY → JPY, KRW, SGD:</strong> Regional corridors for Chinese workers in Japan, South Korea, and Singapore — served well by SkyRemit and Wise.</li>
+</ul>
+<p>For all of these corridors, <a href="/send-money">our live comparison tool</a> shows real-time CNY outbound rates from all licensed operators.</p>`,
+      },
+      {
+        heading: "Using WeChat Pay and Alipay to Fund Outbound Transfers",
+        content: `<p>One of the most convenient features of apps like <a href="/companies/skyremit">SkyRemit</a> is the ability to fund transfers directly from your <strong>WeChat Pay or Alipay wallet</strong> — no bank branch required. Here's how it works:</p>
+<ol>
+<li><strong>Download SkyRemit or Wise app</strong> and complete identity verification (Chinese national ID or foreign passport + residence permit)</li>
+<li><strong>Select your destination country and currency</strong></li>
+<li><strong>Enter recipient bank details</strong> — account number, IBAN or SWIFT, full name</li>
+<li><strong>Select WeChat Pay or Alipay</strong> as your funding method</li>
+<li><strong>Confirm and pay</strong> — the CNY debit happens instantly from your wallet</li>
+<li><strong>Track delivery</strong> — typically 1–2 business days to most destinations</li>
+</ol>
+<h3>WeChat Pay International Expansion (2026)</h3>
+<p>As of April 2026, WeChat Pay expanded cross-border QR code payments to South Korea, Sri Lanka, Thailand, Malaysia, and Singapore. For these countries, Chinese visitors and residents can pay using WeChat Pay directly with local merchants — though this is different from remittance (it's point-of-sale payments, not bank-to-bank transfers).</p>
+<h3>Alipay Limit Increases</h3>
+<p>Alipay increased its single transaction limit from US$1,000 to US$5,000 in 2024–2025, and the annual cap from US$10,000 to US$50,000 per recipient. Fee exemptions apply for international card purchases under CNY 200 (3% fee waived).</p>`,
+      },
+      {
+        heading: "How Does CNY → CNH Affect Your Transfer?",
+        content: `<p>This is one of the most technically important concepts for anyone sending money from mainland China:</p>
+<ul>
+<li><strong>CNY (Renminbi, onshore yuan)</strong> — Traded within mainland China. Regulated by SAFE and the PBOC. Exchange rate is managed (not freely floating) within a daily band set by the PBOC fixing rate.</li>
+<li><strong>CNH (offshore yuan)</strong> — Traded freely in Hong Kong, Singapore, London, and other international markets. The same currency, but a separate, market-determined rate.</li>
+<li><strong>The spread:</strong> CNH typically trades within 0.3–0.8% of CNY in calm markets. During stress (e.g., US-China trade tensions), the gap can widen to 1–2%. This spread is important because some providers quote CNH rates, which may look better or worse than onshore CNY rates depending on market conditions.</li>
+</ul>
+<div class="blog-callout-blue-sm"><p><strong>Why it matters for senders:</strong> If you're sending CNY from a mainland bank account, you're selling CNY (onshore). Your provider should be quoting the CNY rate, not CNH. If they quote CNH and it's weaker, you receive fewer foreign currency units. Always verify which rate your provider is using before confirming.</p></div>
+<p>The PBOC sets a daily "fixing rate" (中间价) at 9:15am Beijing time, and CNY can trade within ±2% of this rate. In 2024–2025, the PBOC used the fixing mechanism to prevent excessive CNY depreciation during periods of US dollar strength and trade tariff escalation.</p>`,
+      },
+      {
+        heading: "What Documents Do You Need to Send Money from China?",
+        content: `<p>Documentation requirements vary by amount and sender type:</p>
+<h3>Under ¥50,000 equivalent (most standard transfers)</h3>
+<ul>
+<li><strong>Chinese nationals:</strong> Valid Chinese national ID card (已实名认证). SAFE quota consumed automatically from your annual $50,000 limit.</li>
+<li><strong>Foreign nationals:</strong> Passport + valid residence/work permit. Some apps require employment contract on first use.</li>
+</ul>
+<h3>Above ¥50,000 equivalent (or above $50,000 annual quota for Chinese nationals)</h3>
+<ul>
+<li>Signed contract between the two parties (notarized if large amount)</li>
+<li>Tax payment or exemption certificate from State Taxation Administration</li>
+<li>Invoice or proof of purpose (education enrollment letter, medical invoices, property purchase contract)</li>
+<li>Bank application form declaring purpose of transfer</li>
+</ul>
+<h3>Foreign workers remitting salary (no annual cap)</h3>
+<ul>
+<li>Employment contract showing salary amount</li>
+<li>Last 3–6 months of payslips</li>
+<li>Individual income tax payment certificate (个人所得税完税证明) from employer or local tax bureau</li>
+<li>Passport and valid work permit</li>
+</ul>
+<p>Since January 1, 2026, all financial institutions in China are required to flag transactions above RMB 5,000 (≈$700) or USD 1,000 for large-value monitoring. This is a reporting requirement — it does not block your transfer but adds a compliance audit trail.</p>`,
+      },
+      {
+        heading: "Common Mistakes When Sending CNY Abroad",
+        content: `<ol>
+<li><strong>Using an unlicensed channel:</strong> Underground banking networks ("地下钱庄") are illegal in China. Penalties include fines, asset seizure, and criminal charges. Always use PBOC-licensed operators or internationally regulated apps.</li>
+<li><strong>Not checking if Wise uses CNY or CNH:</strong> Wise routes CNY transfers via CIPS member banks — ensure your receiving bank is a CIPS participant if using Wise from China.</li>
+<li><strong>Forgetting the annual quota resets on January 1:</strong> Many people exhaust their $50,000 quota in November/December, then forget they have a fresh $50,000 available from January 1. Plan large transfers accordingly.</li>
+<li><strong>Sending during Chinese public holidays:</strong> Chinese New Year (typically January/February), Golden Week (October 1–7), and National Day create processing backlogs of up to a week at Chinese banks.</li>
+<li><strong>Entering recipient name incorrectly:</strong> Name must match the receiving bank's records exactly, including middle names and spacing. A mismatch causes delays or returns the transfer.</li>
+<li><strong>Assuming the PBOC fixing rate is the rate you get:</strong> Your provider adds a margin over the PBOC mid-market rate. This markup — not the headline rate — is where costs hide. Always compare the <em>total recipient amount</em>.</li>
+</ol>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "How much money can you send from China per year?",
+        answer: "Chinese nationals can purchase and remit up to $50,000 USD equivalent per year without SAFE approval. Foreign nationals working in China can remit legitimate after-tax salary above this limit with payslips, employment contracts, and tax certificates. The quota resets on January 1 each year.",
+      },
+      {
+        question: "What is the cheapest way to send money from China abroad?",
+        answer: "SkyRemit charges a fixed ¥79 per transfer with a competitive exchange rate — cheapest for mid-to-large CNY amounts. Wise offers 0% markup on the mid-market rate (from 0.41% fee) and is best for smaller amounts. Both are significantly cheaper than Chinese bank SWIFT wires, which add ¥150–¥300 in fees plus 1.5–3% markup.",
+      },
+      {
+        question: "Can foreigners send money out of China?",
+        answer: "Yes. Foreign nationals with a valid work permit and tax payment certificates can remit their after-tax salary abroad via any PBOC-licensed institution. There is no fixed annual cap for foreign workers, but banks require documentation proving the money is legitimate earned income.",
+      },
+      {
+        question: "Is Wise available in China for outbound CNY transfers?",
+        answer: "Yes. Wise operates in China through a licensed partner and supports CNY outbound transfers to UnionPay bank accounts at CIPS member banks. Per-transaction limit is 50,000 CNY and annual recipient limit is 500,000 CNY. Wise uses the mid-market rate with a small transparent fee — one of the cheapest options available.",
+      },
+      {
+        question: "What is the difference between SkyRemit and PandaRemit for China outbound transfers?",
+        answer: "SkyRemit is built specifically for outbound transfers FROM China — it's regulated by PBOC and funded via WeChat Pay or Alipay, serving 180+ countries at a fixed ¥79 fee. PandaRemit (based in Hong Kong) specialises in transfers TO China with WeChat Pay/Alipay delivery — it's better for receiving CNY from abroad, not for sending CNY out. For outbound from China, SkyRemit is the specialist.",
+      },
+      {
+        question: "Do I need to pay tax on money sent out of China?",
+        answer: "No personal remittance tax applies for transfers within the SAFE quota. However, China withholds 10% on dividends, interest, royalties, and service payments to overseas entities — this affects businesses more than personal remittances. Foreign workers must demonstrate their salary was taxed in China (via 纳税证明) to remit without issues.",
+      },
+    ],
+    relatedSlugs: [
+      "send-money-to-china-guide",
+      "business-payments-usa-to-china",
+      "best-money-transfer-apps-china-yuan",
+      "how-to-send-large-amounts-internationally",
+      "exchange-rate-markup-explained",
+    ],
+  },
+  // ============================
+  // Best Money Transfer Apps for CNY (China Yuan) — App-focused guide
+  // ============================
+  {
+    slug: "best-money-transfer-apps-china-yuan",
+    title: "Best Money Transfer Apps for Sending Yuan (CNY) from China in 2026",
+    metaDescription:
+      "Compare the best apps for sending CNY from China in 2026: SkyRemit, Wise, Panda Remit, WeChat Pay, and Alipay cross-border. Fees, limits, and real user experience reviewed.",
+    excerpt:
+      "Not all money transfer apps work in China, and not all that work are worth using. Here's our ranked comparison of every major app for CNY outbound transfers — with fees, limits, and what each one is actually good for.",
+    category: "Reviews",
+    readTime: "11 min read",
+    publishedAt: "2026-05-19",
+    updatedAt: "2026-05-19",
+    author: "Akif Hazarvi",
+    tags: ["China", "CNY", "best apps", "SkyRemit", "Panda Remit", "Wise China", "WeChat Pay international", "Alipay cross-border", "money transfer apps", "yuan outbound"],
+    featuredImage: "/images/blog/china-money-transfer-apps.jpg",
+    sections: [
+      {
+        heading: "Which Money Transfer Apps Work for Sending CNY from China?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best apps for sending CNY outbound from China in 2026 are: <strong>(1) <a href="/companies/skyremit">SkyRemit</a></strong> — China's specialist outbound app (¥79 fixed fee, 180+ countries, PBOC-licensed, WeChat/Alipay funded); <strong>(2) <a href="/companies/wise">Wise</a></strong> — available in China via licensed partner, 0% rate markup, best for UnionPay bank accounts; <strong>(3) Chinese bank apps (ICBC, BOC, CMB)</strong> — high fees but fully SAFE-compliant for large amounts; <strong>(4) UnionPay MoneyExpress</strong> — 80+ countries, integrates with 79 Chinese banks. Not all major global apps operate in mainland China due to licensing requirements. <a href="/send-money">Compare live CNY rates →</a></p></div>
+<p>The Chinese market is unique: most Western remittance apps (Remitly, WorldRemit, MoneyGram) focus on <em>receiving</em> in China, not sending <em>from</em> China. For CNY outbound transfers, the field narrows considerably to operators with PBOC licences or approved partnerships.</p>`,
+      },
+      {
+        heading: "SkyRemit — Best Overall for CNY Outbound",
+        content: `<h3>Overview</h3>
+<p><a href="/companies/skyremit">SkyRemit</a> is the most purpose-built app for sending CNY from China internationally. It's operated by Skyee, a wholly owned subsidiary of LAKALA (拉卡拉支付股份有限公司), China's first A-share listed third-party payment company (stock code: 300773). This matters: LAKALA holds a <strong>PBOC payment business licence</strong> and is subject to full Chinese financial regulation.</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">SkyRemit at a Glance</h3>
+<table>
+<thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Fee</strong></td><td>¥79 fixed per transfer</td></tr>
+<tr><td><strong>Countries</strong></td><td>180+ destinations</td></tr>
+<tr><td><strong>Currencies</strong></td><td>50 local currencies</td></tr>
+<tr><td><strong>Funding</strong></td><td>WeChat Pay, Alipay</td></tr>
+<tr><td><strong>Delivery</strong></td><td>Bank deposit (1–2 business days)</td></tr>
+<tr><td><strong>Regulated by</strong></td><td>PBOC (mainland China) + HK Customs &amp; Excise Dept</td></tr>
+<tr><td><strong>Parent company</strong></td><td>LAKALA (300773) — A-share listed, PBOC licensed</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Who it's best for</h3>
+<ul>
+<li>Chinese nationals sending CNY abroad within the $50,000 SAFE quota</li>
+<li>Expats in China who want to fund from WeChat Pay (no bank branch needed)</li>
+<li>Anyone sending to Australia, Canada, UK, USA, or Europe from China regularly</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+<li>Delivery is bank-to-bank only (no cash pickup, no mobile wallet delivery internationally)</li>
+<li>App primarily in Chinese — less accessible for non-Mandarin expats</li>
+<li>Per-transfer limits apply (verify in app for your specific corridor)</li>
+</ul>`,
+      },
+      {
+        heading: "Wise — Best for Transparent Rates from China",
+        content: `<h3>Overview</h3>
+<p><a href="/companies/wise">Wise</a> (formerly TransferWise) has operated in China since 2016 through a licensed local partner. It supports CNY outbound transfers to <strong>UnionPay bank accounts at CIPS member banks</strong>. Wise's defining feature is its use of the mid-market exchange rate with zero markup — you pay a transparent percentage fee (from 0.41%) and know exactly what your recipient gets.</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Wise China at a Glance</h3>
+<table>
+<thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Fee</strong></td><td>From 0.41% of transfer amount</td></tr>
+<tr><td><strong>Rate markup</strong></td><td>0% (mid-market rate)</td></tr>
+<tr><td><strong>Per-transaction limit</strong></td><td>50,000 CNY</td></tr>
+<tr><td><strong>Annual recipient limit</strong></td><td>500,000 CNY</td></tr>
+<tr><td><strong>Delivery</strong></td><td>Bank accounts at CIPS member banks only</td></tr>
+<tr><td><strong>Regulated by</strong></td><td>FCA (UK), FinCEN (US), MAS (SG), PBOC-approved partner</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Who it's best for</h3>
+<ul>
+<li>Expats in China who already have a Wise account from their home country</li>
+<li>Smaller regular transfers where percentage fee is low on an absolute basis</li>
+<li>Anyone who values full transparency and the mid-market rate guarantee</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+<li>50,000 CNY per-transaction cap limits its usefulness for large transfers</li>
+<li>Only works with CIPS member banks — not all Chinese banks qualify</li>
+<li>Some features unavailable in mainland China compared to global Wise</li>
+</ul>`,
+      },
+      {
+        heading: "Panda Remit — Best for WeChat/Alipay Delivery (Send TO China)",
+        content: `<h3>Important distinction</h3>
+<p><a href="/companies/panda-remit">Panda Remit</a> is designed for <strong>sending money TO China</strong> — not for sending CNY out of China. This is a common source of confusion. Panda Remit excels at delivering foreign currency (AUD, CAD, GBP, USD) directly to a Chinese recipient's WeChat Pay or Alipay wallet. It is based in Hong Kong (operated by Wo Transfer HK Ltd, MSO-licensed by HK Customs &amp; Excise Department).</p>
+<p>If your need is sending CNY <em>outbound</em> from mainland China, Panda Remit is not the right tool — use SkyRemit or Wise instead. If you're overseas and want to send money to someone in China with WeChat/Alipay delivery, Panda Remit is an excellent option.</p>
+<div class="blog-callout-blue-sm"><p><strong>Summary:</strong> PandaRemit = sending money INTO China (foreign → CNY). SkyRemit = sending money OUT of China (CNY → foreign). This is the key distinction for this corridor.</p></div>`,
+      },
+      {
+        heading: "Chinese Bank Apps — ICBC, Bank of China, China Merchants Bank",
+        content: `<p>Every major Chinese bank has a mobile app that supports international wire transfers. For Chinese nationals, bank transfers are the most legally straightforward channel — your SAFE quota consumption is tracked automatically against your national ID. But the cost is significantly higher than apps.</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Chinese Bank App Comparison for International Transfers</h3>
+<table>
+<thead><tr><th>Bank</th><th>App</th><th>Transfer Fee</th><th>Rate Markup</th><th>Best For</th></tr></thead>
+<tbody>
+<tr><td><strong>Bank of China (BOC)</strong></td><td>BOC Mobile Banking</td><td>¥150–¥300</td><td>1.5–2%</td><td>Most international-friendly, widest SWIFT network</td></tr>
+<tr><td><strong>ICBC</strong></td><td>ICBC Mobile</td><td>¥150–¥200</td><td>1.5–2%</td><td>Most branches, best for first-time senders</td></tr>
+<tr><td><strong>China Merchants Bank</strong></td><td>CMB One (招行)</td><td>¥100–¥200</td><td>1–1.5%</td><td>Best digital experience, popular with younger users</td></tr>
+<tr><td><strong>China Construction Bank</strong></td><td>CCB Mobile</td><td>¥150–¥250</td><td>1.5–2%</td><td>Property-related transfers, strong rural network</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Fees vary by branch and corridor. Always ask for the all-in cost including rate markup before confirming.</p>
+</div>
+<p>Bank apps are best used when: (1) you're transferring above the per-transaction limits of apps; (2) you need full SAFE documentation for amounts above the $50,000 quota; or (3) your destination bank requires a traditional SWIFT wire from a major Chinese bank.</p>`,
+      },
+      {
+        heading: "UnionPay International — Best for Cardholders Sending to 80+ Countries",
+        content: `<p><strong>UnionPay International</strong> offers remittance services through its MoneyExpress platform, which connects to 79 national and local Chinese banks and operates in 80+ countries. In February 2026, Visa and UnionPay announced a partnership enabling Visa Direct users to send remittances to 95%+ of UnionPay debit cardholders in mainland China — though this primarily facilitates inbound transfers to China rather than outbound.</p>
+<p>For CNY outbound, UnionPay cardholders can:</p>
+<ul>
+<li>Use the UnionPay app or partner bank apps to initiate international remittances</li>
+<li>Send to 80+ countries via the MoneyExpress network</li>
+<li>Use UnionPay cards abroad for POS purchases (accepted in 180+ countries)</li>
+</ul>
+<p>UnionPay is best suited for Chinese nationals who are already comfortable with their existing bank and want to use their UnionPay card as the funding source rather than switching to a new app.</p>`,
+      },
+      {
+        heading: "App Comparison: Which CNY Outbound App Should You Choose?",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">CNY Outbound App Decision Guide</h3>
+<table>
+<thead><tr><th>Your Situation</th><th>Best App</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td>Chinese resident sending under ¥50,000</td><td><a href="/companies/skyremit">SkyRemit</a></td><td>Cheapest fixed fee, WeChat/Alipay funded, PBOC licensed</td></tr>
+<tr><td>Expat with existing Wise account</td><td><a href="/companies/wise">Wise</a></td><td>0% markup, familiar interface, FCA-regulated</td></tr>
+<tr><td>Large transfer above ¥50,000</td><td>Chinese bank app (BOC/ICBC)</td><td>Full SAFE documentation support, no per-transfer limit</td></tr>
+<tr><td>Need fastest delivery</td><td><a href="/companies/skyremit">SkyRemit</a></td><td>1–2 days most corridors vs 3–5 days SWIFT</td></tr>
+<tr><td>Non-Mandarin speaker</td><td><a href="/companies/wise">Wise</a></td><td>English interface, established global support</td></tr>
+<tr><td>UnionPay cardholder, simple transfer</td><td>UnionPay MoneyExpress</td><td>Integrated with existing bank, 80+ countries</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote"><a href="/send-money">Compare live CNY rates across all providers →</a></p>
+</div>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the best app to send money from China abroad?",
+        answer: "SkyRemit is the best dedicated app for CNY outbound transfers — it's PBOC-licensed, funded via WeChat Pay or Alipay, covers 180+ countries, and charges a fixed ¥79 fee. Wise is the best alternative for expats who want 0% exchange rate markup and an English-language interface.",
+      },
+      {
+        question: "Does Remitly work for sending money FROM China?",
+        answer: "No. Remitly focuses on sending money TO China (and other Asian countries) — it does not support CNY as a send currency for outbound transfers from mainland China. For CNY outbound, use SkyRemit or Wise.",
+      },
+      {
+        question: "Can I use WeChat Pay to send money internationally from China?",
+        answer: "Indirectly, yes. Apps like SkyRemit accept WeChat Pay as a funding source — you pay in WeChat Pay and the app remits the money internationally via bank transfer. WeChat Pay itself expanded QR code payments to South Korea, Thailand, Malaysia, Singapore, and Sri Lanka for POS payments in April 2026, but bank-to-bank international remittance still requires a licensed remittance operator.",
+      },
+      {
+        question: "Is SkyRemit safe to use?",
+        answer: "Yes. SkyRemit is operated by Skyee, a subsidiary of LAKALA (stock: 300773) — a PBOC-licensed A-share listed payment company subject to full Chinese financial regulation. It is also regulated by the Hong Kong Customs and Excise Department as a licensed Money Service Operator. It's one of the most regulated outbound remittance apps available in China.",
+      },
+      {
+        question: "What money transfer apps are available in China?",
+        answer: "Licensed apps for CNY outbound include: SkyRemit (PBOC/HK licensed, specialist outbound), Wise (via licensed partner, CIPS bank accounts), Chinese bank apps (ICBC, BOC, CMB — highest fees but full SAFE compliance), and UnionPay MoneyExpress (80+ countries). Most global apps like Remitly and WorldRemit are available for receiving in China but not for outbound CNY transfers.",
+      },
+    ],
+    relatedSlugs: [
+      "how-to-send-money-from-china",
+      "send-money-to-china-guide",
+      "business-payments-usa-to-china",
+      "best-money-transfer-apps",
+      "exchange-rate-markup-explained",
+    ],
+  },
+  // ============================
+  // Large & Business Transfers from China — ¥50K+, corporate, CIPS
+  // ============================
+  {
+    slug: "large-business-transfers-from-china-cny",
+    title: "Sending Large Amounts from China (CNY): Business Transfers, CIPS, and the $50,000 SAFE Quota Explained (2026)",
+    metaDescription:
+      "How to send CNY above $50,000 from China for business, property, and corporate payments in 2026. SAFE documentation, CIPS vs SWIFT, withholding tax, and licensed operators compared.",
+    excerpt:
+      "Sending more than $50,000 worth of yuan out of China requires SAFE approval, proper documentation, and a clear understanding of CIPS versus SWIFT. This guide covers everything businesses and high-net-worth individuals need to know.",
+    category: "Business",
+    readTime: "13 min read",
+    publishedAt: "2026-05-19",
+    updatedAt: "2026-05-19",
+    author: "Akif Hazarvi",
+    tags: ["China", "CNY", "large transfers", "business payments", "CIPS", "SAFE", "SWIFT", "withholding tax", "corporate China", "CNY business transfer"],
+    featuredImage: "/images/blog/china-business-transfers.jpg",
+    sections: [
+      {
+        heading: "How Do You Send Large Amounts of CNY Out of China?",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Sending large CNY amounts abroad (above $50,000 USD equivalent) requires SAFE documentation and bank processing. Chinese nationals must exhaust their $50,000 annual quota first, then provide purpose documentation (property contracts, tuition invoices, trade contracts) to their bank for amounts above the quota. Businesses with approved FX registration can transfer larger amounts via SWIFT or CIPS with proper documentation. In 2024, CIPS processed <strong>RMB 175.49 trillion ($24.47 trillion)</strong> in transactions — growing 43% year-over-year. For business-to-business payments, China's SWIFT alternative is increasingly viable for CNY-denominated trade.</p></div>
+<p>The architecture of large CNY outbound transfers is fundamentally different from small personal remittances. Above certain thresholds, you move from app-based convenience into formal banking channels with SAFE oversight, withholding tax declarations, and (for business) transfer pricing scrutiny.</p>
+<p>This guide covers: the SAFE documentation process, CIPS vs SWIFT for large CNY transfers, business payment infrastructure, withholding tax rules, and how new 2025–2026 regulatory changes affect large CNY outbound flows.</p>`,
+      },
+      {
+        heading: "SAFE Documentation for Transfers Above $50,000",
+        content: `<p>When a Chinese national exceeds their $50,000 annual FX purchase quota, or when a business makes a capital account payment, the following documentation is typically required:</p>
+<h3>For individuals (above the $50,000 annual quota)</h3>
+<ul>
+<li><strong>Signed contract</strong> between the two parties — notarized for large amounts, particularly for property purchases</li>
+<li><strong>Tax payment/exemption certificate</strong> from the State Taxation Administration (STA) or local tax bureau</li>
+<li><strong>Purpose-specific proof:</strong>
+  <ul>
+    <li>Property purchase: property purchase agreement, notarized title documents</li>
+    <li>Education: university acceptance letter, tuition invoice, proof of enrollment</li>
+    <li>Medical: hospital treatment plan, medical invoices</li>
+    <li>Investment: SAFE-approved investment registration</li>
+  </ul>
+</li>
+<li><strong>Bank application form</strong> declaring transfer purpose (不可以填"投资" — investment is not a valid purpose for personal transfers)</li>
+</ul>
+<h3>For businesses (capital account and current account payments)</h3>
+<ul>
+<li><strong>Current account payments (trade in goods/services):</strong> Commercial contract, invoice, customs declaration, KYC documents for counterparty</li>
+<li><strong>Capital account payments (FDI, profit repatriation, loans):</strong> Prior SAFE registration, board approval documents, SAFE registration certificate (登记证)</li>
+<li>Since January 2026, <strong>companies making multiple overseas payments under one contract need only one record-filing</strong> (streamlined from previous multiple filings) — a significant compliance improvement</li>
+</ul>
+<div class="blog-callout-blue-sm"><p><strong>September 2025 reform:</strong> SAFE released the Notice on Deepening Reform of Foreign Exchange Administration for Cross-Border Investment and Financing (effective immediately), which eased control over FDI and cross-border capital account transactions. This reduces documentation burden for approved investment flows and simplifies repatriation of foreign direct investment profits.</p></div>`,
+      },
+      {
+        heading: "CIPS vs SWIFT: Which System Do Large CNY Transfers Use?",
+        content: `<p>China has built its own cross-border payment infrastructure — <strong>CIPS (Cross-Border Interbank Payment System, 人民币跨境支付系统)</strong> — as a complement (and in some cases alternative) to SWIFT. For large CNY transfers, understanding which system your bank uses matters for speed and cost.</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">CIPS vs SWIFT for Large CNY Outbound Transfers</h3>
+<table>
+<thead><tr><th>Feature</th><th>SWIFT</th><th>CIPS</th></tr></thead>
+<tbody>
+<tr><td><strong>Coverage</strong></td><td>200+ countries, 11,000+ institutions</td><td>110+ countries, 1,400+ participants (157 direct, 1,300+ indirect)</td></tr>
+<tr><td><strong>Currency</strong></td><td>Any major currency (USD, EUR, GBP, etc.)</td><td>CNY only</td></tr>
+<tr><td><strong>Speed</strong></td><td>1–5 business days (correspondent banking delays)</td><td>Minutes to same-day (direct CIPS participants)</td></tr>
+<tr><td><strong>Intermediary banks</strong></td><td>1–3 correspondent banks, each charging $15–$50</td><td>Fewer intermediaries for direct participants</td></tr>
+<tr><td><strong>2024 volume</strong></td><td>Global standard</td><td>RMB 175.49tn ($24.47tn) — +43% YoY</td></tr>
+<tr><td><strong>Best for</strong></td><td>USD/EUR/GBP denominated transfers</td><td>CNY-denominated trade payments, Belt &amp; Road settlements</td></tr>
+</tbody>
+</table>
+</div>
+<p>CIPS grew 24.25% in transaction volume and 42.60% in value in 2024, with annual volumes <strong>tripling since 2020</strong>. The system is increasingly used for China's Belt and Road Initiative payments and bilateral trade settlement with Middle East, ASEAN, and African counterparts that hold CNY reserves.</p>
+<p><strong>Practical impact for businesses:</strong> If your overseas counterpart's bank is a CIPS direct participant, a CNY-denominated payment via CIPS can arrive same-day with no correspondent bank fees. If they're SWIFT-only, you'll incur intermediary charges and 3–5 day delays. Ask your Chinese bank specifically whether they can route via CIPS for your target country.</p>`,
+      },
+      {
+        heading: "Withholding Tax on Business Payments from China",
+        content: `<p>Chinese companies making payments to overseas entities face <strong>withholding tax (WHT)</strong> obligations that personal remitters do not. Understanding this is critical for accurate cost modelling:</p>
+<ul>
+<li><strong>Standard rate: 10% WHT</strong> on dividends, interest, royalties, technical service fees, and rental income paid to overseas entities</li>
+<li><strong>Reduced rates:</strong> China's tax treaties reduce WHT for specific income types to 5–7.5% for qualifying residents of treaty countries (UK, Germany, Singapore, Australia, USA)</li>
+<li><strong>Trade payments (goods invoices):</strong> No WHT — standard commercial trade payments are not subject to withholding</li>
+<li><strong>Service payments:</strong> WHT applies if the service is deemed "China-sourced income." Pure offshore service fees may be exempt if the service provider has no China presence</li>
+</ul>
+<h3>State Taxation Administration (STA) filing</h3>
+<p>Since 2024 (streamlined process), companies making multiple overseas payments under the same contract need only <strong>one STA record-filing</strong> rather than a separate filing for each payment. The company must present: contract, invoice, proof of business purpose, and confirmation of counterparty tax status (whether they qualify for treaty benefits).</p>
+<div class="blog-callout-blue-sm"><p><strong>Transfer pricing:</strong> SAFE and STA scrutinize related-party payments carefully. All inter-company transactions must be at arm's length, documented with transfer pricing analysis. This is particularly relevant for multinational companies with China subsidiaries making management fee, royalty, or IP licensing payments to overseas parents.</p></div>`,
+      },
+      {
+        heading: "Business Payment Methods for CNY Outbound",
+        content: `<p>Chinese businesses have several channels for making overseas payments. The right choice depends on payment purpose, amount, and the counterparty's banking infrastructure:</p>
+<h3>1. SWIFT Bank Wire (most common)</h3>
+<p>Chinese companies use their PBOC-licensed bank (ICBC, Bank of China, CMB, CITIC, etc.) to send SWIFT wires to overseas accounts. Costs: ¥150–¥300 transfer fee + 0.5–1.5% FX markup + possible correspondent bank deductions of $15–$50. Speed: 2–5 business days. Documentation: commercial invoice, contract, customs clearance (for goods payments).</p>
+<h3>2. CIPS Direct Transfer</h3>
+<p>For CNY-denominated payments to CIPS participants, direct same-day settlement with lower fees. Best for: BRI supplier payments, trade with countries accumulating CNY reserves, Hong Kong financial transactions.</p>
+<h3>3. Letter of Credit (L/C)</h3>
+<p>Standard for large trade transactions (typically $100,000+). China is an ICC member (since 1995) and subject to UCP 600 rules. Major issuing banks: ICBC, Bank of China, Agricultural Bank, China Merchants Bank. L/C provides payment guarantee to overseas exporters — the bank pays when shipping documents are presented. Cost: typically 0.5–1.5% of L/C value as issuance fee.</p>
+<h3>4. FX Risk Management Tools</h3>
+<p>Chinese businesses with regular outbound payments can use:</p>
+<ul>
+<li><strong>Forward contracts:</strong> Lock in today's CNY/USD or CNY/EUR rate for future payments — available through major Chinese banks and regulated FX platforms</li>
+<li><strong>Options:</strong> Available to larger corporates through PBOC-licensed derivatives dealers</li>
+<li><strong>Cross-currency swaps:</strong> For companies with foreign currency liabilities and CNY revenues</li>
+</ul>
+<p>SAFE's September 2025 reform specifically eased restrictions on cross-border financing arrangements, making it easier for Chinese companies to access offshore funding and manage FX risk via hedging instruments.</p>`,
+      },
+      {
+        heading: "2024–2026 Regulatory Changes Affecting Large CNY Outbound Transfers",
+        content: `<p>The regulatory environment for large CNY outbound transfers has seen significant changes:</p>
+<h3>January 1, 2026: Stricter KYC Thresholds</h3>
+<p>New anti-money laundering rules lowered large-value transaction reporting thresholds to <strong>RMB 5,000 (≈$700) and USD 1,000</strong> (down from previous higher thresholds). Record retention was extended from 5 to 10 years. All financial institutions — banks, payment companies, and remittance operators — must flag and report transactions above these levels. This is a compliance requirement, not a cap on transfers.</p>
+<h3>September 12, 2025: SAFE FDI and Cross-Border Financing Reform</h3>
+<p>SAFE's Notice on Deepening Reform of Foreign Exchange Administration took immediate effect, covering:</p>
+<ul>
+<li>Simplified pre-approval for foreign direct investment flows</li>
+<li>Easier repatriation of FDI profits and dividends for qualified foreign investors</li>
+<li>Expanded pilot zones for cross-border financing with lower documentation burden</li>
+<li>Streamlined SAFE registration for new FDI projects</li>
+</ul>
+<h3>May 2025: Revised AML Rules</h3>
+<p>China's revised Anti-Money Laundering rules introduced significantly higher penalty ceilings for violations and required external compliance monitors for high-risk financial entities. This increases compliance costs for unlicensed operators but strengthens the position of regulated banks and apps.</p>
+<h3>CIPS Growth: +43% in 2024</h3>
+<p>CIPS processed RMB 175.49 trillion ($24.47 trillion) in 2024 — a 42.60% increase in value year-over-year. This reflects growing international adoption of CNY for trade settlement, particularly in ASEAN, Middle East, and Sub-Saharan Africa where CNY reserve accumulation is increasing.</p>`,
+      },
+      {
+        heading: "Cost Comparison: Large CNY Transfers via Different Channels",
+        content: `<p>For a ¥500,000 (≈$70,000) business payment from China to the UK:</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Cost Comparison — ¥500,000 CNY to GBP</h3>
+<table>
+<thead><tr><th>Channel</th><th>Fee</th><th>Rate Markup</th><th>Withholding Tax</th><th>Approx. GBP Received</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>CIPS (direct)</strong></td><td>¥200–¥500</td><td>0.3–0.5%</td><td>0% (trade)</td><td>Best rate, same-day</td></tr>
+<tr><td><strong>Bank of China SWIFT</strong></td><td>¥300 + $25 corr.</td><td>1–1.5%</td><td>0% (trade)</td><td>2–5 days</td></tr>
+<tr><td><strong>ICBC SWIFT</strong></td><td>¥200 + $25 corr.</td><td>1–1.5%</td><td>0% (trade)</td><td>2–5 days</td></tr>
+<tr><td><strong>FX broker (OFX/XE via China)</strong></td><td>¥0–¥200</td><td>0.3–0.6%</td><td>0% (trade)</td><td>Competitive rate</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">On a ¥500,000 transfer, a 1% markup difference = ¥5,000 more or less to your recipient. Always compare total received, not just fees.</p>
+</div>
+<p>For service payments (where 10% withholding tax applies), the effective cost structure changes entirely — the WHT on a ¥500,000 service payment is ¥50,000 before any transfer fees. Structuring payments correctly (confirming whether WHT applies, using applicable tax treaties) is critical for business transfers.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "How do I send more than $50,000 from China?",
+        answer: "Chinese nationals must first exhaust their $50,000 annual SAFE quota, then apply through their bank with supporting documentation: signed contract, STA tax certificate, and purpose-specific proof (property contract, tuition invoice, medical certificate). Businesses with approved FX registration can transfer larger amounts with commercial documentation (contracts, invoices, customs docs) via SWIFT or CIPS. The September 2025 SAFE reform also simplified FDI-related outbound flows.",
+      },
+      {
+        question: "What is CIPS and how is it different from SWIFT?",
+        answer: "CIPS (Cross-Border Interbank Payment System) is China's own international payment infrastructure for CNY-denominated transfers. It processed $24.47 trillion in 2024, growing 43% year-over-year. Unlike SWIFT (which handles any currency), CIPS handles only CNY — but does so faster (minutes to same-day) with fewer correspondent bank intermediaries. It's increasingly used for Belt and Road trade payments and bilateral settlements with countries holding CNY reserves.",
+      },
+      {
+        question: "Do I pay withholding tax when sending business payments from China?",
+        answer: "It depends on the payment type. Trade payments for goods (invoices for physical products) are not subject to withholding tax. Service fees, dividends, interest, and royalties are subject to 10% withholding tax (reduced to 5–7.5% under applicable tax treaties). Since 2024, multiple payments under one contract require only one STA record-filing rather than separate filings for each payment.",
+      },
+      {
+        question: "Can Chinese businesses use CIPS to pay overseas suppliers directly?",
+        answer: "Yes, if the overseas supplier's bank is a CIPS participant (direct or indirect). There are now 1,400+ CIPS participants in 110+ countries. For CNY-denominated trade, CIPS can provide same-day settlement with fewer fees than SWIFT. Ask your Chinese bank whether your supplier's country has accessible CIPS participants.",
+      },
+      {
+        question: "What changed in China's SAFE rules in 2025–2026?",
+        answer: "Key 2025–2026 changes: (1) January 2026 — KYC reporting thresholds lowered to RMB 5,000/$1,000, record retention extended to 10 years; (2) September 2025 — SAFE deepened reform of cross-border investment and financing, easing FDI flows and capital account transactions; (3) May 2025 — revised AML rules with higher penalties for violations; (4) 2024 streamlined STA process — one filing per contract instead of per payment.",
+      },
+    ],
+    relatedSlugs: [
+      "how-to-send-money-from-china",
+      "business-payments-usa-to-china",
+      "best-money-transfer-apps-china-yuan",
+      "how-to-send-large-amounts-internationally",
+      "wire-transfer-guide",
+    ],
+  },
 ];
 
 // Helper to get a blog post by slug

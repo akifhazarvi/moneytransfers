@@ -4221,6 +4221,135 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+  // ── CNY outbound corridors (China as send country) ──
+  {
+    slug: "china-to-australia",
+    fromCountry: "China",
+    toCountry: "Australia",
+    fromCurrency: "CNY",
+    toCurrency: "AUD",
+    fromFlag: "🇨🇳",
+    toFlag: "🇦🇺",
+    sampleAmount: 10000,
+    intro: "Sending yuan from China to Australia? Compare SkyRemit, Wise, and bank SWIFT transfers for the best CNY to AUD rate. Australia received $3.5 billion in remittances from China in 2024 — the largest single destination for Chinese outbound remittances. With 1.4 million people of Chinese heritage in Australia, this is one of the world's most important bilateral remittance corridors.",
+    context: "The CNY/AUD rate is managed by China's PBOC daily fixing mechanism, with the yuan trading within ±2% of the fix. SAFE's $50,000 USD-equivalent annual quota applies to Chinese nationals converting yuan. Foreign nationals working in China can remit verified after-tax salary without a fixed cap. SkyRemit (PBOC-licensed, ¥79 fixed fee) and Wise (0% markup, 0.41% fee) offer the best total value versus Chinese bank SWIFT wires, which add ¥150–¥300 in fees plus 1.5–3% exchange rate markup.",
+    feesNote: "SkyRemit charges ¥79 fixed fee regardless of amount. Wise charges from 0.41% with 0% exchange rate markup. Chinese bank SWIFT wires cost ¥150–¥300 in fees plus 1.5–3% markup — on ¥10,000 that's ¥300–¥600 more than specialist apps. Always compare total AUD received, not just the fee.",
+    deliveryNote: "SkyRemit delivers to Australian bank accounts in 1–2 business days. Wise delivers 1–2 business days. Chinese bank SWIFT wires take 3–5 business days, sometimes longer during Chinese New Year and Golden Week (October 1–7).",
+    faqs: [
+      {
+        q: "What is the cheapest way to send CNY to Australia?",
+        a: "SkyRemit (¥79 fixed fee, PBOC-licensed) and Wise (0% markup, 0.41% fee) are the cheapest options for CNY to AUD transfers. Both are significantly cheaper than Chinese bank SWIFT wires. Compare the total AUD received — not just the fee — to find the best deal for your amount.",
+      },
+      {
+        q: "How much can I send from China to Australia per year?",
+        a: "Chinese nationals can convert up to $50,000 USD equivalent per year under SAFE's annual quota. Foreign workers in China can remit verified after-tax salary above this limit with payslips and tax certificates. The quota resets on January 1 each year.",
+      },
+      {
+        q: "Does SAFE quota affect CNY to AUD transfers?",
+        a: "Yes for Chinese nationals — you can transfer up to $50,000 USD equivalent per year without SAFE approval. Above this, you need documentation (contract, tax certificate, proof of purpose). Foreign nationals working in China are not subject to this cap but need employment and tax documentation.",
+      },
+      {
+        q: "How long does a CNY to AUD transfer take?",
+        a: "SkyRemit and Wise both deliver in 1–2 business days to Australian bank accounts. Chinese bank SWIFT wires take 3–5 business days. Avoid sending during Chinese New Year (January/February) and Golden Week (October 1–7) when Chinese bank processing slows significantly.",
+      },
+    ],
+  },
+  {
+    slug: "china-to-canada",
+    fromCountry: "China",
+    toCountry: "Canada",
+    fromCurrency: "CNY",
+    toCurrency: "CAD",
+    fromFlag: "🇨🇳",
+    toFlag: "🇨🇦",
+    sampleAmount: 10000,
+    intro: "Compare the best ways to send yuan (CNY) from China to Canada. Canada is home to one of the world's largest Chinese diaspora communities, with over 1.7 million Canadians of Chinese descent. Chinese students at Canadian universities, workers, and families drive significant CNY to CAD remittance flows. SkyRemit, Wise, and bank transfers compared.",
+    context: "The CNY/CAD corridor is driven by Chinese students at Canadian universities (Toronto, UBC, McGill, McMaster), workers in Canada's resource and tech sectors, and family remittances. The World Bank estimates the cost of sending from Canada to China averages 5.8% — CNY-to-CAD outbound flows face similar pricing challenges unless specialist apps are used. SAFE's $50,000 annual quota applies to Chinese nationals; foreign workers can remit salary with documentation.",
+    feesNote: "SkyRemit charges ¥79 fixed fee. Wise charges from 0.41% fee with 0% markup on mid-market rate. Chinese bank SWIFT wires typically charge ¥150–¥300 in fees plus 1.5–2.5% exchange rate markup. On a ¥50,000 transfer, the markup difference alone can be ¥750–¥1,250.",
+    deliveryNote: "SkyRemit delivers to Canadian bank accounts (RBC, TD, Scotiabank, BMO, CIBC) in 1–2 business days. Wise delivers 1–2 business days. Chinese bank SWIFT wires take 3–5 business days via correspondent banking.",
+    faqs: [
+      {
+        q: "What is the best app to send CNY to Canada?",
+        a: "SkyRemit is the leading dedicated app for CNY outbound transfers — ¥79 fixed fee, PBOC-licensed, funded via WeChat Pay or Alipay. Wise is the best alternative for expats who want 0% exchange rate markup and an English-language interface. Both beat Chinese bank SWIFT wires on cost and speed.",
+      },
+      {
+        q: "Can Chinese students in China send money to Canada for tuition?",
+        a: "Yes. Chinese students can send tuition payments to Canadian universities directly. Amounts above $50,000 USD equivalent require SAFE documentation — a university acceptance letter and tuition invoice are the standard supporting documents. Many providers allow direct payment to institutional accounts, which may bypass the individual quota.",
+      },
+      {
+        q: "How does SAFE quota work for CNY to CAD transfers?",
+        a: "Chinese nationals have a $50,000 USD-equivalent annual SAFE quota for foreign exchange conversion. This covers all outbound transfers combined, not just to Canada. If you send ¥200,000 to Canada in one year, that consumes roughly $28,000 of your quota. Above $50,000, SAFE approval and documentation are required.",
+      },
+      {
+        q: "What documents do I need to send CNY to Canada?",
+        a: "Under the SAFE quota ($50,000 USD/year): just your Chinese national ID for residents, or passport + work permit for foreign nationals. Above the quota: signed contract, STA tax certificate, and purpose proof (tuition invoice, property contract, employment agreement).",
+      },
+    ],
+  },
+  {
+    slug: "china-to-uk",
+    fromCountry: "China",
+    toCountry: "United Kingdom",
+    fromCurrency: "CNY",
+    toCurrency: "GBP",
+    fromFlag: "🇨🇳",
+    toFlag: "🇬🇧",
+    sampleAmount: 10000,
+    intro: "Send yuan (CNY) from China to the UK cheaply and compliantly. Over 500,000 British Chinese residents and a large Chinese student population at UK universities (Oxford, Cambridge, LSE, Imperial, UCL) drive significant CNY to GBP remittance flows. Compare SkyRemit, Wise, and bank transfers for the best rate.",
+    context: "The CNY/GBP corridor is heavily influenced by UK tuition fee payments from mainland China — UK universities charge £26,000–£45,000/year for international students, making this one of the largest individual transfer use-cases. SAFE's $50,000 annual quota applies to Chinese nationals. The PBOC manages CNY within a daily ±2% band of the fixing rate, while GBP floats freely. Post-Brexit GBP volatility creates opportunities to lock in rates with forward contracts when sending large tuition amounts.",
+    feesNote: "SkyRemit charges ¥79 fixed fee with competitive CNY/GBP rate. Wise charges from 0.41% with 0% markup. Chinese bank SWIFT wires cost ¥150–¥300 fee plus 1.5–3% markup. For a £15,000 tuition payment (approximately ¥135,000), using Wise or SkyRemit over a bank wire saves approximately ¥2,000–¥4,000.",
+    deliveryNote: "SkyRemit delivers to UK bank accounts (Barclays, HSBC, Lloyds, NatWest, Santander UK) in 1–2 business days. Wise delivers same-day to 1 business day for GBP. Chinese bank SWIFT wires take 3–5 business days. University payments may require additional processing time at the institution.",
+    faqs: [
+      {
+        q: "What is the cheapest way to pay UK university tuition from China?",
+        a: "For tuition payments (large amounts up to £45,000+), Wise offers 0% markup on CNY/GBP with a transparent percentage fee — saving thousands versus Chinese bank wires. SkyRemit's ¥79 flat fee is very competitive for amounts above ¥30,000. For amounts above the $50,000 SAFE annual quota, your bank can process with a university acceptance letter and tuition invoice as documentation.",
+      },
+      {
+        q: "How long does it take to send CNY to a UK bank account?",
+        a: "Wise delivers to UK bank accounts same-day to 1 business day. SkyRemit delivers in 1–2 business days. Chinese bank SWIFT wires take 3–5 business days. For tuition payments, allow at least a week before the deadline to account for any compliance checks.",
+      },
+      {
+        q: "Does UK HMRC need to know about money received from China?",
+        a: "Personal gifts and family remittances from China to the UK are generally not subject to UK income tax. However, if you receive regular payments from China for services rendered or investments, HMRC may consider these taxable income. Large gifts may be relevant for Inheritance Tax purposes if the UK recipient dies within 7 years.",
+      },
+      {
+        q: "Can I use WeChat Pay to fund a transfer from China to the UK?",
+        a: "Yes, via apps like SkyRemit. SkyRemit accepts WeChat Pay and Alipay as funding sources — you pay in your WeChat wallet and SkyRemit delivers GBP to a UK bank account. This avoids the need to visit a bank branch and is typically faster and cheaper than a traditional SWIFT wire.",
+      },
+    ],
+  },
+  {
+    slug: "china-to-usa",
+    fromCountry: "China",
+    toCountry: "United States",
+    fromCurrency: "CNY",
+    toCurrency: "USD",
+    fromFlag: "🇨🇳",
+    toFlag: "🇺🇸",
+    sampleAmount: 10000,
+    intro: "Compare the best ways to send yuan (CNY) from China to the USA. The China-USA corridor is one of the world's largest bilateral money transfer routes, driven by 5.4 million Chinese diaspora in the US, Chinese students at American universities, and family remittances. Find the cheapest CNY to USD transfer with SkyRemit, Wise, and bank wire comparison.",
+    context: "The CNY/USD rate is the world's most politically watched exchange rate — the PBOC sets a daily fixing rate and CNY trades within ±2% of it. US tariff policy, Federal Reserve rate decisions, and PBOC interventions all affect the CNY/USD rate significantly. The best time to transfer depends on this rate — our comparison tool shows live rates from all providers. SAFE's $50,000 annual quota applies to Chinese nationals; US-based recipients face no restrictions on receiving funds.",
+    feesNote: "SkyRemit charges ¥79 fixed fee. Wise charges from 0.41% with 0% markup. Chinese bank SWIFT wires typically add ¥150–¥300 in fees plus 1.5–3% markup plus potential US correspondent bank charges of $15–$25. On a ¥100,000 transfer to the US, total bank costs can reach ¥2,500–¥4,000 versus ¥450–¥600 with Wise or SkyRemit.",
+    deliveryNote: "SkyRemit delivers to US bank accounts (Chase, Bank of America, Wells Fargo, Citibank, etc.) in 1–2 business days. Wise delivers 1–2 business days. Chinese bank SWIFT wires take 3–5 business days and may be subject to US bank OFAC compliance screening, which can add delays.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send CNY from China to the US?",
+        a: "SkyRemit (¥79 flat fee, PBOC-licensed) and Wise (0% markup, 0.41% fee) are cheapest. On a ¥100,000 transfer, each saves approximately ¥2,000–¥3,500 versus a Chinese bank SWIFT wire. Compare total USD received — not just the headline fee.",
+      },
+      {
+        q: "Do transfers from China to the USA get reported to the US government?",
+        a: "US banks automatically report incoming wire transfers over $10,000 to FinCEN (Currency Transaction Report). This is routine and legal — it's not a tax and doesn't create a tax liability. The US recipient may need to show the source of funds if the amount is large.",
+      },
+      {
+        q: "How does US-China trade tension affect the CNY/USD rate?",
+        a: "US tariffs and trade policy directly affect CNY/USD. When the US raises tariffs on Chinese goods, the yuan typically weakens against the dollar (making it cheaper to buy USD from China). The PBOC uses its daily fixing mechanism to prevent excessive depreciation. Tracking the PBOC daily fix rate helps time large transfers.",
+      },
+      {
+        q: "Can I send more than $50,000 from China to the USA?",
+        a: "Yes, but it requires documentation. Chinese nationals must provide a contract, STA tax certificate, and purpose proof to their bank for transfers above the $50,000 annual SAFE quota. Foreign workers can remit above this with payslips and tax certificates. There is no US-side restriction on receiving funds from China.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──
@@ -4230,7 +4359,7 @@ import { currencies } from "@/data/providers";
 /** Currencies that serve as "send from" origins for currency-pair pages */
 const SEND_CURRENCIES = [
   "USD", "GBP", "EUR", "CAD", "AUD", "NZD", "SGD", "AED", "SAR",
-  "CHF", "HKD", "JPY", "KRW", "INR", "MYR", "THB", "TRY", "BRL",
+  "CHF", "HKD", "JPY", "KRW", "CNY", "INR", "MYR", "THB", "TRY", "BRL",
   "MXN", "ZAR", "PLN", "CZK", "HUF", "RON", "NOK", "SEK", "DKK",
   "ILS", "KWD", "QAR", "BHD", "OMR", "KES", "IDR", "PHP", "CLP",
   "COP", "BGN", "EGP", "PKR",
