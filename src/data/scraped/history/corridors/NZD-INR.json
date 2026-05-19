@@ -3414,5 +3414,64 @@
         "receiveAmount": 5503.49
       }
     }
+  },
+  {
+    "date": "2026-05-19",
+    "providers": {
+      "moneygram": {
+        "rate": 54.164,
+        "fee": 4.99,
+        "markup": 3.59,
+        "receiveAmount": 5146.12
+      },
+      "skrill": {
+        "rate": 54.9861,
+        "fee": 0,
+        "markup": 2.13,
+        "receiveAmount": 5498.61
+      },
+      "western-union": {
+        "rate": 55.2975,
+        "fee": 1.2,
+        "markup": 1.57,
+        "receiveAmount": 5463.39
+      },
+      "remitly": {
+        "rate": 56.0374,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5603.74
+      },
+      "revolut": {
+        "rate": 55.923,
+        "fee": 0.8,
+        "markup": 0.46,
+        "receiveAmount": 5547.56
+      },
+      "auckland-savings-bank-nz": {
+        "rate": 55.5417,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 5276.46
+      },
+      "westpac-nz": {
+        "rate": 55.1121,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5511.21
+      },
+      "bank-of-new-zealand-nz": {
+        "rate": 55.5216,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5552.16
+      },
+      "wise": {
+        "rate": 56.5619,
+        "fee": 1.71,
+        "markup": null,
+        "receiveAmount": 5559.47
+      }
+    }
   }
 ]
