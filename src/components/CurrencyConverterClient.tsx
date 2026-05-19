@@ -13,6 +13,8 @@ import CircleFlag from "@/components/CircleFlag";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getRate } from "@/lib/rates-util";
 import { useConverterPagePrefs } from "@/lib/useConverterPrefs";
+import ConverterProviderQuotes from "@/components/ConverterProviderQuotes";
+import { trackConverterCTAClicked } from "@/lib/analytics";
 
 interface TargetCurrency {
   id: string;
@@ -80,8 +82,6 @@ export default function CurrencyConverterClient() {
   // Drag state
   const [dragId, setDragId] = useState<string | null>(null);
   const [dragOverId, setDragOverId] = useState<string | null>(null);
-  // Expanded row (shows Send CTA)
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   function formatCountdown(secs: number | null) {
     if (secs === null) return "";
@@ -101,7 +101,7 @@ export default function CurrencyConverterClient() {
 
   const removeTarget = useCallback((id: string) => {
     setTargets((prev) => prev.filter((t) => t.id !== id));
-    setExpandedId((prev) => (prev === id ? null : prev));
+    // expanded state removed — CTA is always visible
   }, []);
 
   const updateTargetCode = useCallback((id: string, code: string) => {
@@ -210,7 +210,6 @@ export default function CurrencyConverterClient() {
           const converted = amount * rate;
           const isDragging = dragId === target.id;
           const isDragOver = dragOverId === target.id && dragId !== target.id;
-          const isExpanded = expandedId === target.id;
           const isFirst = index === 0;
 
           return (
@@ -226,14 +225,7 @@ export default function CurrencyConverterClient() {
               {/* Blue separator */}
               <div className={`mx-5 md:mx-6 transition-all ${isDragOver ? "h-[3px] bg-[var(--color-primary)] rounded-full shadow-[0_0_8px_rgba(26,115,232,0.4)]" : `h-[2px] rounded-full ${isFirst ? "bg-[var(--color-primary)]" : "bg-[var(--color-primary)]/40"}`}`} />
 
-              <div
-                className={`px-5 md:px-6 py-3.5 cursor-pointer transition-all ${isExpanded ? "bg-[var(--color-primary-surface)]" : "bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)]/50"}`}
-                onClick={(e) => {
-                  const tag = (e.target as HTMLElement).closest("button, a, select, input, [role='listbox']");
-                  if (tag) return;
-                  setExpandedId(isExpanded ? null : target.id);
-                }}
-              >
+              <div className="px-5 md:px-6 py-3.5 bg-[var(--color-surface-dim)] transition-all">
                 <div className="flex items-center gap-3">
                   {/* Drag handle — visible dots */}
                   <div
@@ -288,25 +280,26 @@ export default function CurrencyConverterClient() {
                   </button>
                 </div>
 
-                {/* Send money CTA — only visible when expanded (click on row) */}
-                {isExpanded && (
+                {/* Compare providers CTA — always visible */}
+                <div className="mt-2.5 flex items-center gap-2">
                   <a
                     href={`/send-money?from=${fromCurrency}&to=${target.code}&amount=${amount}`}
-                    className="mt-3 flex items-center justify-between bg-[var(--color-primary)] text-white rounded-xl px-4 py-2.5 hover:bg-[var(--color-primary-dark)] transition-colors"
+                    onClick={() => trackConverterCTAClicked(`${fromCurrency}-${target.code}`, amount)}
+                    className="flex-1 flex items-center justify-between bg-[var(--color-primary)] text-white rounded-xl px-4 py-2.5 hover:bg-[var(--color-primary-dark)] transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                       </svg>
-                      <span className="text-2sm font-medium">
-                        {t("sendFromTo", { from: fromCurrency, to: target.code })}
+                      <span className="text-2sm font-semibold">
+                        Compare providers · {fromCurrency} → {target.code}
                       </span>
                     </div>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </a>
-                )}
+                </div>
               </div>
             </div>
           );
@@ -337,6 +330,15 @@ export default function CurrencyConverterClient() {
           </div>
         </div>
       </div>
+
+      {/* Live provider quotes — reacts to selected pair */}
+      {targets.length > 0 && (
+        <ConverterProviderQuotes
+          from={fromCurrency}
+          to={targets[0].code}
+          amount={amount}
+        />
+      )}
 
       {/* Popular Pairs */}
       <SectionHeader title={t("popularCurrencyPairs")} />

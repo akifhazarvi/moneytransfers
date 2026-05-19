@@ -138,15 +138,39 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               <span>{mobileSpeed}</span>
             </div>
           </div>
-          {/* Amount — right aligned with label */}
-          <div className="shrink-0 text-right">
-            <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-[17px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
-              {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-            </p>
-            <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
-            <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 ml-auto mt-1 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+          {/* Amount + collapsed CTA — right aligned */}
+          <div className="shrink-0 text-right flex flex-col items-end gap-1.5">
+            <div>
+              <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-[17px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
+                {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </p>
+              <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <a
+                href={providerWebsite}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank, "results_row_mobile");
+                }}
+                className={`inline-flex items-center gap-1 h-7 px-3 text-xs font-semibold rounded-full transition-colors ${
+                  isBest
+                    ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
+                    : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
+                }`}
+                aria-label={`Send with ${providerName}`}
+              >
+                Send
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+              <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
           </div>
         </div>
 
@@ -251,6 +275,28 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             </p>
             <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
           </div>
+
+          {/* Collapsed CTA — always visible, no expand needed */}
+          <a
+            href={providerWebsite}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              e.stopPropagation();
+              trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank, "results_row");
+            }}
+            className={`shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-2sm font-semibold rounded-full transition-all duration-150 shadow-sm hover:shadow ${
+              isBest
+                ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
+                : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
+            }`}
+            aria-label={`Send with ${providerName}`}
+          >
+            <span className="hidden lg:inline">Send</span>
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
 
           <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover/row:bg-[var(--color-surface-container)] transition-colors">
             <svg className={`w-5 h-5 text-[var(--color-on-surface-variant)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">

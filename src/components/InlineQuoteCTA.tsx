@@ -42,11 +42,18 @@ export default function InlineQuoteCTA({
       className={`inline-flex items-center justify-center gap-1.5 ${fullWidth ? "w-full h-10" : "h-9 px-4"} text-2sm font-semibold rounded-full transition-colors ${
         isBest
           ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
-          : "bg-[var(--color-surface-dim)] text-[var(--color-primary)] border border-[var(--color-outline)] hover:bg-[var(--color-primary-surface)]"
+          : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
       }`}
-      aria-label={`Get ${providerName} rate`}
+      aria-label={`Send with ${providerName}`}
     >
-      {isBest ? `Send with ${providerName}` : "Get rate"}
+      {fullWidth ? (
+        `Send with ${providerName}`
+      ) : (
+        <>
+          <span className="hidden sm:inline">Send with {providerName}</span>
+          <span className="sm:hidden">Send</span>
+        </>
+      )}
       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>

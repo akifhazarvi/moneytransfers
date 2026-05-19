@@ -210,3 +210,28 @@ export function trackAffiliateRedirect(provider: string, from?: string, to?: str
 export function trackComparisonCTA(providerA: string, providerB: string, action: string) {
   gtagEvent("comparison_cta", { provider_a: providerA, provider_b: providerB, action });
 }
+
+/** User clicks the sidebar "Compare Rates →" CTA on a guide page */
+export function trackGuideSidebarCTA(slug: string) {
+  dual("guide_sidebar_cta_clicked", { slug, source: "guide_sidebar" });
+}
+
+/** User clicks "Send with [Provider]" from the converter page */
+export function trackConverterProviderClicked(provider: string, corridor: string, rank: number) {
+  dual("provider_clicked", { provider, corridor, rank, source: "converter" });
+}
+
+/** User clicks "Compare providers" CTA row in the converter */
+export function trackConverterCTAClicked(corridor: string, amount: number) {
+  dual("converter_cta_clicked", { corridor, amount, source: "converter" });
+}
+
+/** User clicks "All 35+ providers →" link in the InlineProviderQuotes widget */
+export function trackSeeAllProviders(slug: string, corridor: string) {
+  dual("see_all_providers_clicked", { slug, corridor, source: "inline_quotes_footer" });
+}
+
+/** User clicks "All 35+ providers →" header link in the InlineProviderQuotes widget */
+export function trackSeeAllProvidersHeader(slug: string, corridor: string) {
+  dual("see_all_providers_clicked", { slug, corridor, source: "inline_quotes_header" });
+}

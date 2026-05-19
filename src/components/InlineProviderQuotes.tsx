@@ -3,6 +3,7 @@ import Link from "next/link";
 import { generateQuotes, getProviderName, providers, type TransferQuote } from "@/data/providers";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 import InlineQuoteCTA from "./InlineQuoteCTA";
+import SeeAllProvidersLink from "./SeeAllProvidersLink";
 
 interface Props {
   from?: string;
@@ -35,6 +36,9 @@ export default function InlineProviderQuotes({
   const sendSymbol = symbolFor(from);
   const recvSymbol = symbolFor(to);
   const seeAllHref = `/send-money?from=${from}&to=${to}&amount=${amount}`;
+  const corridor = `${from}-${to}`;
+  // source is "guide:<slug>" or a plain surface name — extract slug if present
+  const pageSlug = source.startsWith("guide:") ? source.slice(6) : source;
   const best = quotes[0];
   const worst = quotes[quotes.length - 1];
   const savings = best.receiveAmount - worst.receiveAmount;
@@ -55,12 +59,15 @@ export default function InlineProviderQuotes({
               <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">{subheading}</p>
             )}
           </div>
-          <Link
+          <SeeAllProvidersLink
             href={seeAllHref}
+            corridor={corridor}
+            source="header"
+            slug={pageSlug}
             className="shrink-0 text-2sm font-semibold text-[var(--color-primary)] hover:underline"
           >
             All 35+ providers →
-          </Link>
+          </SeeAllProvidersLink>
         </div>
       </header>
 
@@ -184,9 +191,15 @@ export default function InlineProviderQuotes({
       <footer className="px-5 sm:px-6 py-3 text-2xs text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
         Rates updated every 6 hours from provider APIs. We may earn a commission when you visit a provider — this never affects rankings.
         {" "}
-        <Link href={seeAllHref} className="text-[var(--color-primary)] font-medium hover:underline">
+        <SeeAllProvidersLink
+          href={seeAllHref}
+          corridor={corridor}
+          source="footer"
+          slug={pageSlug}
+          className="text-[var(--color-primary)] font-medium hover:underline"
+        >
           Compare all providers →
-        </Link>
+        </SeeAllProvidersLink>
       </footer>
     </aside>
   );

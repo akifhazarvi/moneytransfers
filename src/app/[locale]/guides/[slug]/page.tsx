@@ -17,6 +17,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 
 interface InlineQuoteCorridor {
   from: string;
@@ -28,6 +29,9 @@ interface InlineQuoteCorridor {
 const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   "send-money-to-philippines-guide": { from: "USD", to: "PHP", amount: 1000, heading: "Top USD → PHP providers right now" },
   "send-money-to-china-guide": { from: "USD", to: "CNY", amount: 1000, heading: "Top USD → CNY providers right now" },
+  "how-to-send-money-from-china": { from: "CNY", to: "AUD", amount: 10000, heading: "Live CNY → AUD rates — compare outbound providers" },
+  "best-money-transfer-apps-china-yuan": { from: "CNY", to: "GBP", amount: 10000, heading: "Live CNY → GBP rates from licensed operators" },
+  "large-business-transfers-from-china-cny": { from: "CNY", to: "USD", amount: 50000, heading: "Live CNY → USD rates for large transfers" },
   "send-money-to-colombia-guide": { from: "USD", to: "COP", amount: 1000, heading: "Top USD → COP providers right now" },
   "send-money-to-jamaica-guide": { from: "USD", to: "JMD", amount: 500, heading: "Top USD → JMD providers right now" },
   "send-money-to-ethiopia-guide": { from: "USD", to: "ETB", amount: 500, heading: "Top USD → ETB providers right now" },
@@ -584,31 +588,8 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               )}
 
-              {/* Comparison CTA */}
-              <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-sm)] border border-[var(--color-outline)]">
-                <div className="bg-[var(--color-primary)] px-5 py-4">
-                  <p className="text-md font-semibold text-white mb-1">Find the best rate today</p>
-                  <p className="text-2sm text-white/70">Compare 35+ providers in seconds</p>
-                </div>
-                <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
-                  <Link
-                    href="/send-money"
-                    className="flex items-center justify-center w-full h-10 bg-[var(--color-primary)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
-                  >
-                    Compare Rates →
-                  </Link>
-                  <div className="flex items-center justify-center gap-4">
-                    <span className="flex items-center gap-1 text-2xs text-[var(--color-on-surface-muted)]">
-                      <svg className="w-3 h-3 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-                      35+ providers
-                    </span>
-                    <span className="flex items-center gap-1 text-2xs text-[var(--color-on-surface-muted)]">
-                      <svg className="w-3 h-3 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-                      Live rates
-                    </span>
-                  </div>
-                </div>
-              </div>
+              {/* Comparison CTA — tracked */}
+              <GuideSidebarCTA slug={slug} />
 
               {/* Related Guides */}
               {relatedPosts.length > 0 && (
