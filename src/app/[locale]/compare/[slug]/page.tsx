@@ -654,14 +654,14 @@ function ArticleComparison({
                       Full review
                     </Link>
                     <span className="text-[var(--color-outline)]">|</span>
-                    <a
-                      href={provider.website}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
+                    <ProviderLink
+                      href={getGoUrl(provider.slug, { clickref: "compare_detail_card" })}
+                      provider={provider.slug}
+                      source="compare_detail_card"
                       className="text-xs text-[var(--color-primary)] font-medium hover:underline"
                     >
                       Visit site
-                    </a>
+                    </ProviderLink>
                   </div>
                 </Card>
               ))}
