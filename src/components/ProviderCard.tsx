@@ -41,6 +41,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
     sourceCurrency: quote.sendCurrency,
     targetCurrency: quote.receiveCurrency,
     sourceAmount: quote.sendAmount,
+    clickref: "results",
   });
 
   // Account-managed FX brokers charge zero fee — all cost is in the rate

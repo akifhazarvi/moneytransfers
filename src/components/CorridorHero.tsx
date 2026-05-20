@@ -195,7 +195,7 @@ export default function CorridorHero({
                 )}
 
                 <a
-                  href={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount })}
+                  href={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount, clickref: "corridor_hero" })}
                   target="_blank"
                   rel="noopener noreferrer sponsored"
                   onClick={() => trackProviderClicked(best.providerSlug, `${fromCurrency}-${toCurrency}`, 1, "corridor_hero")}

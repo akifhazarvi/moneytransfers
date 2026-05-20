@@ -833,7 +833,7 @@ function SendMoneyContent() {
                 {[{ q: quoteA, name: nameA }, { q: quoteB, name: nameB }].map(({ q, name }, i) => (
                   <div key={q.providerSlug} className={`px-5 py-4 flex justify-center ${i === 0 ? "border-r border-[var(--color-outline)]" : ""}`}>
                     <a
-                      href={getGoUrl(q.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: amount })}
+                      href={getGoUrl(q.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: amount, clickref: "comparison" })}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison")}

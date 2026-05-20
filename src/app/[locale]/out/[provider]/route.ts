@@ -20,6 +20,7 @@ export async function GET(
   const from = searchParams.get("from") || undefined;
   const to = searchParams.get("to") || undefined;
   const amount = searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined;
+  const src = searchParams.get("src") || undefined;
   const referer = request.headers.get("referer") || "";
 
   // Server-side GA4 event — always fires regardless of ad blockers / consent.
@@ -36,7 +37,7 @@ export async function GET(
   void track("affiliate_redirect", {
     provider,
     corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
-    source: "out_route",
+    source: src || "out_route",
   });
   void gaServerEvent(
     "affiliate_redirect",
@@ -47,7 +48,7 @@ export async function GET(
       referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
       page_referrer: referer.slice(0, 420),
       page_location: request.url,
-      source: "out_route",
+      source: src || "out_route",
     },
     clientId,
     geo,
@@ -57,6 +58,7 @@ export async function GET(
     sourceCurrency: from,
     targetCurrency: to,
     sourceAmount: amount,
+    clickref: src,
   });
 
   return NextResponse.redirect(url, {

@@ -3341,7 +3341,7 @@ export default async function CorridorPage({ params }: Props) {
           providerSlug={best.providerSlug}
           providerName={getProviderName(best.providerSlug)}
           providerLogo={providers.find((p) => p.slug === best.providerSlug)?.logo || `/logos/${best.providerSlug}.png`}
-          providerUrl={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount })}
+          providerUrl={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount, clickref: "sticky_cta" })}
           receiveAmount={best.receiveAmount}
           receiveSymbol={receiveSymbol}
           fee={best.fee}

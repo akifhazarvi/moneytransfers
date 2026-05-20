@@ -30,6 +30,7 @@ export default function InlineQuoteCTA({
     sourceCurrency: sendCurrency,
     targetCurrency: receiveCurrency,
     sourceAmount: sendAmount,
+    clickref: source,
   });
   const corridor = `${sendCurrency}-${receiveCurrency}`;
 

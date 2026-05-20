@@ -78,6 +78,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
             sourceCurrency: q.sendCurrency,
             targetCurrency: q.receiveCurrency,
             sourceAmount: q.sendAmount,
+            clickref: "converter",
           });
           const feeLabel = q.fee === 0 ? "No fee" : `${sendSymbol}${q.fee.toFixed(2)} fee`;
 

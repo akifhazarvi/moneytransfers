@@ -114,7 +114,7 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
     ?? (midMarketSparkline?.length || 0);
 
   const bestProviderUrl = providerInsight
-    ? getGoUrl(providerInsight.today.bestProvider, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: 1000 })
+    ? getGoUrl(providerInsight.today.bestProvider, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: 1000, clickref: "rate_widget" })
     : null;
 
   if (!chartSparklines && !currentRate) {

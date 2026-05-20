@@ -26,9 +26,14 @@ export default function ProviderLink({
   className,
   children,
 }: Props) {
+  // Append ?src= to the /go/ URL so the route can pass it as a Partnerize clickref
+  const hrefWithSrc = source && href.startsWith("/go/") && !href.includes("src=")
+    ? `${href}${href.includes("?") ? "&" : "?"}src=${encodeURIComponent(source)}`
+    : href;
+
   return (
     <a
-      href={href}
+      href={hrefWithSrc}
       target="_blank"
       rel="noopener noreferrer nofollow"
       onClick={() => trackProviderClicked(provider, corridor, rank, source)}

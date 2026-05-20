@@ -20,6 +20,7 @@ export async function GET(
   const from = searchParams.get("from") || undefined;
   const to = searchParams.get("to") || undefined;
   const amount = searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined;
+  const src = searchParams.get("src") || undefined; // source surface → Partnerize clickref
   const referer = request.headers.get("referer") || "";
 
   // Server-side tracking — fires even when the user has an ad blocker or
@@ -37,7 +38,7 @@ export async function GET(
   void track("affiliate_redirect", {
     provider,
     corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
-    source: "go_route",
+    source: src || "go_route",
   });
   void gaServerEvent(
     "affiliate_redirect",
@@ -46,7 +47,7 @@ export async function GET(
       corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
       amount: amount ?? 0,
       referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
-      source: "go_route",
+      source: src || "go_route",
     },
     clientId,
     geo,
@@ -56,6 +57,7 @@ export async function GET(
     sourceCurrency: from,
     targetCurrency: to,
     sourceAmount: amount,
+    clickref: src,
   });
 
   return NextResponse.redirect(url, {

@@ -9,6 +9,7 @@ export interface AffiliateParams {
   sourceCurrency?: string;
   targetCurrency?: string;
   sourceAmount?: number;
+  clickref?: string; // Partnerize sub-ID — appears as adref in the dashboard
 }
 
 const affiliateLinks: Record<string, string> = {
@@ -99,16 +100,28 @@ const affiliateLinks: Record<string, string> = {
   "hsbc-sg": "https://hsbc.com.sg/international-transfers/",
 };
 
+function appendClickref(url: string, clickref: string | undefined): string {
+  if (!clickref) return url;
+  // Partnerize links use path-style params: /clickref:VALUE
+  if (url.includes("prf.hn")) {
+    return `${url}/clickref:${encodeURIComponent(clickref)}`;
+  }
+  // All other links: append as query param
+  const u = new URL(url);
+  u.searchParams.set("clickref", clickref);
+  return u.toString();
+}
+
 function buildWiseDeepLink(params: AffiliateParams): string {
   const base = affiliateLinks.wise;
-  if (!params.sourceCurrency && !params.targetCurrency) return base;
 
   const dest = new URL("https://wise.com/us/pricing/send-money");
   if (params.sourceCurrency) dest.searchParams.set("sourceCurrency", params.sourceCurrency);
   if (params.targetCurrency) dest.searchParams.set("targetCurrency", params.targetCurrency);
   if (params.sourceAmount) dest.searchParams.set("sourceAmount", String(params.sourceAmount));
 
-  return `${base}/destination:${encodeURIComponent(dest.toString())}`;
+  const withDest = `${base}/destination:${encodeURIComponent(dest.toString())}`;
+  return appendClickref(withDest, params.clickref);
 }
 
 export function getAffiliateUrl(
@@ -121,21 +134,23 @@ export function getAffiliateUrl(
     return "https://sendmoneycompare.com/send-money";
   }
 
-  if (providerSlug === "wise" && params?.sourceCurrency) {
-    return buildWiseDeepLink(params);
+  if (providerSlug === "wise") {
+    if (params?.sourceCurrency || params?.targetCurrency) {
+      return buildWiseDeepLink(params ?? {});
+    }
+    return appendClickref(url, params?.clickref);
   }
 
-  return url;
+  return appendClickref(url, params?.clickref);
 }
 
 export function getGoUrl(providerSlug: string, params?: AffiliateParams): string {
   const base = `/go/${providerSlug}`;
-  if (!params?.sourceCurrency && !params?.targetCurrency) return base;
-
   const searchParams = new URLSearchParams();
-  if (params.sourceCurrency) searchParams.set("from", params.sourceCurrency);
-  if (params.targetCurrency) searchParams.set("to", params.targetCurrency);
-  if (params.sourceAmount) searchParams.set("amount", String(params.sourceAmount));
-
-  return `${base}?${searchParams.toString()}`;
+  if (params?.sourceCurrency) searchParams.set("from", params.sourceCurrency);
+  if (params?.targetCurrency) searchParams.set("to", params.targetCurrency);
+  if (params?.sourceAmount) searchParams.set("amount", String(params.sourceAmount));
+  if (params?.clickref) searchParams.set("src", params.clickref);
+  const qs = searchParams.toString();
+  return qs ? `${base}?${qs}` : base;
 }
