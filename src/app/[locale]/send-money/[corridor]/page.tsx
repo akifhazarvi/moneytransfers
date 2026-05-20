@@ -26,6 +26,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import CorridorHero from "@/components/CorridorHero";
 import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
+import ProviderLink from "@/components/ProviderLink";
 import CrossLinks from "@/components/CrossLinks";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 
@@ -2184,13 +2185,15 @@ export default async function CorridorPage({ params }: Props) {
                   <PrimaryButton href={`/companies/${best.providerSlug}`} size="sm">
                     Read full review
                   </PrimaryButton>
-                  <a
+                  <ProviderLink
                     href={getGoUrl(best.providerSlug, { sourceCurrency: corridor.fromCurrency, targetCurrency: corridor.toCurrency })}
-                    rel="noopener noreferrer nofollow"
+                    provider={best.providerSlug}
+                    corridor={`${corridor.fromCurrency}-${corridor.toCurrency}`}
+                    source="corridor_best_provider"
                     className="inline-flex items-center h-9 px-5 text-2sm font-medium text-[var(--color-primary)] border border-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-surface)] transition-colors"
                   >
                     Visit {getProviderName(best.providerSlug)}
-                  </a>
+                  </ProviderLink>
                 </div>
               )}
             </div>

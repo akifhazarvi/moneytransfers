@@ -8,6 +8,7 @@ import { providers, generateQuotes } from "@/data/providers";
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
 import { getGoUrl } from "@/lib/affiliate";
+import ProviderLink from "@/components/ProviderLink";
 import { getComparisonArticle } from "@/data/comparison-articles";
 import { generateComparisonContent } from "@/lib/comparison-content";
 import Container from "@/components/Container";
@@ -374,15 +375,15 @@ function ArticleComparison({
                       </p>
                     </div>
                   </div>
-                  <a
+                  <ProviderLink
                     href={getGoUrl(winner.slug, { sourceCurrency: "USD", targetCurrency: "INR", sourceAmount: 1000 })}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
+                    provider={winner.slug}
+                    source="compare_winner_hero"
                     className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-colors shadow-[var(--shadow-sm)] shrink-0 whitespace-nowrap"
                   >
                     Send with {winner.name}
                     <ArrowRight className="w-4 h-4" strokeWidth={2.25} />
-                  </a>
+                  </ProviderLink>
                 </div>
               </div>
             )}
@@ -871,14 +872,14 @@ function DefaultComparison({
                   <Link href={`/companies/${provider.slug}`} className="text-2sm text-[var(--color-primary)] font-medium hover:underline">
                     Full review
                   </Link>
-                  <a
+                  <ProviderLink
                     href={getGoUrl(provider.slug)}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    provider={provider.slug}
+                    source="compare_provider_card"
                     className="text-2sm text-[var(--color-primary)] font-medium hover:underline"
                   >
                     Visit site
-                  </a>
+                  </ProviderLink>
                 </div>
               </Card>
             ))}
@@ -1151,14 +1152,14 @@ function DefaultComparison({
                     Full review
                   </Link>
                   <span className="text-[var(--color-outline)]">|</span>
-                  <a
+                  <ProviderLink
                     href={getGoUrl(provider.slug)}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    provider={provider.slug}
+                    source="compare_provider_table"
                     className="text-xs text-[var(--color-primary)] font-medium hover:underline"
                   >
                     Visit site
-                  </a>
+                  </ProviderLink>
                 </div>
               </Card>
             ))}

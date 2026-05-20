@@ -14,6 +14,7 @@ import {
   type SparklinePoint,
 } from "@/lib/rate-history";
 import { getGoUrl } from "@/lib/affiliate";
+import { trackProviderClicked } from "@/lib/analytics";
 import HistoricalRateChart from "./HistoricalRateChart";
 
 function getCurrencyInfo(code: string) {
@@ -221,6 +222,7 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
               href={bestProviderUrl!}
               target="_blank"
               rel="noopener noreferrer nofollow"
+              onClick={() => providerInsight && trackProviderClicked(providerInsight.today.bestProvider, `${fromCurrency}-${toCurrency}`, 1, "rate_widget")}
               className="flex-1 text-center inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold hover:bg-[var(--color-primary-dark)] shadow-sm transition-all"
             >
               Send {fromCurrency} → {toCurrency}

@@ -13,6 +13,7 @@ import Card from "@/components/Card";
 import StatBox from "@/components/StatBox";
 import ProsConsList from "@/components/ProsConsList";
 import PrimaryButton from "@/components/PrimaryButton";
+import ProviderLink from "@/components/ProviderLink";
 import RatingBadge from "@/components/RatingBadge";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import ComparisonWidget from "@/components/ComparisonWidget";
@@ -202,9 +203,9 @@ function DetailedReview({
               </p>
             </div>
             <div className="flex gap-2 px-5 py-3 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
-              <PrimaryButton href={getGoUrl(provider.slug)} external size="sm" className="flex-1">
+              <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_hero" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-9 px-5 text-2sm flex-1">
                 Visit {provider.name} ↗
-              </PrimaryButton>
+              </ProviderLink>
               <Link
                 href="/send-money"
                 className="flex items-center justify-center flex-1 h-9 border border-[var(--color-outline)] rounded-full text-2sm font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors"
@@ -438,9 +439,9 @@ function DetailedReview({
                   ))}
                 </div>
                 <div className="p-4">
-                  <PrimaryButton href={getGoUrl(provider.slug)} external size="sm" className="w-full">
+                  <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_rates" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-9 px-5 text-2sm w-full">
                     Visit {provider.name}
-                  </PrimaryButton>
+                  </ProviderLink>
                 </div>
               </div>
 
@@ -619,7 +620,7 @@ function DefaultReview({
             <Card>
               <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-5">{provider.description}</p>
               <div className="flex gap-3">
-                <PrimaryButton href={getGoUrl(provider.slug)} external size="sm">Visit {provider.name}</PrimaryButton>
+                <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_sidebar" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-9 px-5 text-2sm">Visit {provider.name}</ProviderLink>
                 <Link href="/send-money" className="inline-flex items-center h-9 px-5 border border-[var(--color-outline)] rounded-full text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
                   Compare Rates
                 </Link>

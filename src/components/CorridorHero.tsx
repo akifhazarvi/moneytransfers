@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -5,6 +7,7 @@ import CircleFlag from "@/components/CircleFlag";
 import LiveTimestamp from "@/components/LiveTimestamp";
 import { getGoUrl } from "@/lib/affiliate";
 import { getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { trackProviderClicked } from "@/lib/analytics";
 
 interface Props {
   headingFrom: string;
@@ -195,6 +198,7 @@ export default function CorridorHero({
                   href={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount })}
                   target="_blank"
                   rel="noopener noreferrer sponsored"
+                  onClick={() => trackProviderClicked(best.providerSlug, `${fromCurrency}-${toCurrency}`, 1, "corridor_hero")}
                   className="flex items-center justify-center gap-2 w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-semibold text-sm py-3 rounded-full transition-colors shadow-[var(--shadow-sm)]"
                 >
                   Send with {bestName}

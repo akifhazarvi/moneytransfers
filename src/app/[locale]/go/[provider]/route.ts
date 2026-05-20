@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAffiliateUrl } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
+import { track } from "@vercel/analytics/server";
 
 export async function GET(
   request: Request,
@@ -31,8 +32,13 @@ export async function GET(
     city: decodeURIComponent(request.headers.get("x-vercel-ip-city") || "") || undefined,
   };
 
-  // Fire-and-forget so we don't delay the redirect. `keepalive` flag in the
-  // helper ensures the hit lands even though we return immediately.
+  // Fire both GA4 (server Measurement Protocol) and Vercel Analytics server-side.
+  // Both are fire-and-forget — keepalive ensures hits land before the redirect.
+  void track("affiliate_redirect", {
+    provider,
+    corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
+    source: "go_route",
+  });
   void gaServerEvent(
     "affiliate_redirect",
     {

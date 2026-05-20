@@ -10,6 +10,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
 import GA4PageviewTracker from "@/components/GA4PageviewTracker";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import LazySendMoneyBot from "@/components/LazySendMoneyBot";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -221,16 +222,20 @@ export default async function LocaleLayout({ children, params }: Props) {
   // in memory for the session instead of writing it to a cookie — so we
   // don't drop any _ga cookie on the user's browser.
   if(navigator.webdriver===true){window['ga-disable-G-HJH07QEJ30']=true;return;}
-  var cc=(document.cookie.match(/geo-country=([A-Z]{2})/)||[])[1]||'';
+  var geo=(document.cookie.match(/(?:^|; )geo-country=([A-Z]{2})/)||[])[1]||'';
+  // EU/UK/EEA/CH require consent — everyone else auto-granted.
+  var euUk={'AT':1,'BE':1,'BG':1,'HR':1,'CY':1,'CZ':1,'DK':1,'EE':1,'FI':1,'FR':1,'DE':1,'GR':1,'HU':1,'IE':1,'IT':1,'LV':1,'LT':1,'LU':1,'MT':1,'NL':1,'PL':1,'PT':1,'RO':1,'SK':1,'SI':1,'ES':1,'SE':1,'GB':1,'IS':1,'LI':1,'NO':1,'CH':1};
+  var storedConsent=(document.cookie.match(/(?:^|; )smc_consent=([^;]+)/)||[])[1]||'';
+  var analyticsStorage=euUk[geo]?(storedConsent==='granted'?'granted':'denied'):'granted';
   gtag('consent','default',{
-    'analytics_storage':'granted',
+    'analytics_storage':analyticsStorage,
     'ad_storage':'denied',
     'ad_user_data':'denied',
     'ad_personalization':'denied'
   });
   gtag('js',new Date());
   var cfg={send_page_view:true,client_storage:'none'};
-  if(cc){cfg.country=cc;gtag('set','user_properties',{geo_country:cc});}
+  if(geo){cfg.country=geo;gtag('set','user_properties',{geo_country:geo});}
   // AI-search referral attribution — ChatGPT, Perplexity, Copilot etc strip
   // the Referer header, so GA4 logs source='chatgpt.com' with medium=(not set)
   // and dumps those sessions into 'Unassigned'. Detect the host explicitly
@@ -303,6 +308,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LazyAnalytics />
           <GA4PageviewTracker />
           <LazySendMoneyBot />
+          <CookieConsentBanner />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>

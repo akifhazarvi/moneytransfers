@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAffiliateUrl } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
+import { track } from "@vercel/analytics/server";
 
 export async function GET(
   request: Request,
@@ -32,6 +33,11 @@ export async function GET(
     region: request.headers.get("x-vercel-ip-country-region") || undefined,
     city: decodeURIComponent(request.headers.get("x-vercel-ip-city") || "") || undefined,
   };
+  void track("affiliate_redirect", {
+    provider,
+    corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
+    source: "out_route",
+  });
   void gaServerEvent(
     "affiliate_redirect",
     {

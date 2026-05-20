@@ -27,6 +27,7 @@ import { providers } from "@/data/providers";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getGoUrl } from "@/lib/affiliate";
+import ProviderLink from "@/components/ProviderLink";
 
 export const revalidate = 21600;
 
@@ -342,14 +343,14 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                       >
                         Read review
                       </Link>
-                      <a
+                      <ProviderLink
                         href={getGoUrl(p.slug)}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        provider={p.slug}
+                        source="compare_all_mobile"
                         className="flex-1 text-center text-2sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full py-2 shadow-sm"
                       >
                         Visit {p.name}
-                      </a>
+                      </ProviderLink>
                     </div>
                   </div>
 
@@ -380,14 +381,14 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                       )}
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <a
+                      <ProviderLink
                         href={getGoUrl(p.slug)}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        provider={p.slug}
+                        source="compare_all_desktop"
                         className="text-center text-xs font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full py-1.5 px-3"
                       >
                         Visit
-                      </a>
+                      </ProviderLink>
                       <Link
                         href={`/companies/${p.slug}`}
                         className="text-center text-xs font-medium text-[var(--color-primary)] border border-[var(--color-outline)] rounded-full py-1.5 px-3 hover:bg-[var(--color-surface-dim)]"

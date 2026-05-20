@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { track } from "@vercel/analytics";
 import { providers, getProviderName, type TransferQuote } from "@/data/providers";
 import { trackProviderExpanded, trackProviderClicked, trackReviewClicked } from "@/lib/analytics";
 import { getGoUrl } from "@/lib/affiliate";
@@ -370,7 +369,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   href={providerWebsite}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => { track("provider_clicked", { provider: quote.providerSlug, corridor: `${quote.sendCurrency}-${quote.receiveCurrency}`, rank }); trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank); }}
+                  onClick={() => trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank)}
                   className={`inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full transition-all duration-150 ${
                     isBest
                       ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-sm hover:shadow"

@@ -3,7 +3,6 @@
 import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
-import { track } from "@vercel/analytics";
 import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { trackQuotesViewed, trackFilterApplied, trackSortChanged, trackCompareSelected, trackCurrencySwapped, trackProviderClicked } from "@/lib/analytics";
@@ -183,8 +182,6 @@ function SendMoneyContent() {
     const corridor = `${fromCurrency}-${toCurrency}`;
     if (corridor === prevCorridor.current || !quotes.length) return;
     prevCorridor.current = corridor;
-    track("corridor_selected", { from: fromCurrency, to: toCurrency, amount });
-    track("quotes_viewed", { from: fromCurrency, to: toCurrency, providers: quotes.length });
     trackQuotesViewed(fromCurrency, toCurrency, quotes.length);
   }, [fromCurrency, toCurrency, amount, quotes]);
 
@@ -839,7 +836,7 @@ function SendMoneyContent() {
                       href={getGoUrl(q.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: amount })}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => { track("provider_clicked", { provider: q.providerSlug, corridor: `${fromCurrency}-${toCurrency}`, source: "comparison" }); trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison"); }}
+                      onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison")}
                       className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow transition-all"
                     >
                       Visit {name}
