@@ -18,6 +18,7 @@ import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
+import GuidePageNudge from "@/components/GuidePageNudge";
 
 interface InlineQuoteCorridor {
   from: string;
@@ -491,6 +492,18 @@ export default async function BlogPostPage({ params }: Props) {
               </section>
             ))}
 
+            {/* Live quotes — at the end of all sections, before FAQs */}
+            {post.sections.length > 0 && (
+              <InlineProviderQuotes
+                from={inlineQuoteCorridor.from}
+                to={inlineQuoteCorridor.to}
+                amount={inlineQuoteCorridor.amount}
+                heading={`Don't overpay — here's the cheapest ${inlineQuoteCorridor.from} → ${inlineQuoteCorridor.to} provider right now`}
+                subheading={`Live rates for ${inlineQuoteCorridor.from} ${inlineQuoteCorridor.amount.toLocaleString()} — updated every 6 hours from 35+ services`}
+                source={`guide:${slug}:end`}
+              />
+            )}
+
             {/* HowTo Steps — visual rendering */}
             {post.howToSteps && post.howToSteps.length > 0 && (
               <section id="how-to-steps" className="mb-12">
@@ -636,6 +649,13 @@ export default async function BlogPostPage({ params }: Props) {
           </aside>
         </div>
       </Container>
+      {/* Sticky nudge — slides up after 30s or 50% scroll with live best quote */}
+      <GuidePageNudge
+        from={inlineQuoteCorridor.from}
+        to={inlineQuoteCorridor.to}
+        amount={inlineQuoteCorridor.amount}
+        slug={slug}
+      />
     </>
   );
 }

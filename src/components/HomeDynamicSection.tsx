@@ -6,6 +6,8 @@ import { useMemo } from "react";
 import { useHomeSelection } from "@/components/HomeSelectionContext";
 import { generateQuotes, getProviderName, providers } from "@/data/providers";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
+import { getGoUrl } from "@/lib/affiliate";
+import { trackProviderClicked } from "@/lib/analytics";
 import { useTranslations } from "next-intl";
 
 export default function HomeDynamicSection() {
@@ -75,113 +77,201 @@ export default function HomeDynamicSection() {
             Best Provider for {fromCurrency} → {toCurrency} Transfers
           </h2>
           <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-            We compared {fromCurrency} transfers across providers to find the cheapest option for each route.
+            Click any route to see live rates — or click <strong className="text-[var(--color-success-dark)]">Send</strong> on the best provider below to start your transfer now.
           </p>
         </div>
 
         {/* Top-3 corridor cards */}
         {corridors.length > 0 && (
           <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-10">
-            {corridors.map((c) => (
-              <Link
-                key={c.toCurrency}
-                href={`/send-money/${c.corridorSlug}`}
-                className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] transition-all"
-              >
-                <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-                  <span className="text-sm sm:text-lg">{c.flag}</span>
-                  <span className="text-[10px] sm:text-xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-                    {fromCurrency} → {c.toCurrency}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2 sm:mb-3">
-                  {c.providerLogo && (
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center relative border border-[var(--color-outline)]/50">
-                      <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
-                    </div>
+            {corridors.map((c, idx) => {
+              const isSelected = c.toCurrency === toCurrency;
+              return (
+                <Link
+                  key={c.toCurrency}
+                  href={`/send-money/${c.corridorSlug}`}
+                  className={`group relative flex flex-col p-3 sm:p-5 rounded-xl sm:rounded-2xl border transition-all ${
+                    isSelected
+                      ? "border-[var(--color-primary)] shadow-[0_0_0_1px_var(--color-primary)] bg-[var(--color-primary-surface)]"
+                      : "border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)]/60 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+                  }`}
+                >
+                  {idx === 0 && (
+                    <span className="absolute top-2 right-2 sm:top-3 sm:right-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded-full">
+                      Popular
+                    </span>
                   )}
-                  <p className="text-2sm sm:text-base font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] truncate">
-                    {c.providerName}
+                  <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                    <span className="text-sm sm:text-lg">{c.flag}</span>
+                    <span className={`text-[10px] sm:text-xs font-semibold uppercase tracking-wide ${isSelected ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                      {fromCurrency} → {c.toCurrency}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 sm:gap-2.5 mb-2.5 sm:mb-3">
+                    {c.providerLogo && (
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/50">
+                        <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
+                      </div>
+                    )}
+                    <p className={`text-2sm sm:text-sm font-bold truncate ${isSelected ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]"} transition-colors`}>
+                      {c.providerName}
+                    </p>
+                  </div>
+                  <p className="text-[11px] sm:text-xs font-semibold text-[var(--color-success-dark)] mb-2.5 sm:mb-3">
+                    {c.symbol}{c.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                    <span className="hidden sm:inline font-normal text-[var(--color-on-surface-variant)]"> for {amount.toLocaleString()} {fromCurrency}</span>
                   </p>
-                </div>
-                <div className="hidden sm:grid grid-cols-2 gap-2 text-xs">
-                  <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
-                    <span className="text-[var(--color-on-surface-variant)]">Rate </span>
-                    <span className="font-semibold text-[var(--color-on-surface)]">{c.exchangeRate.toFixed(2)}</span>
+                  {/* CTA — the action users need to see */}
+                  <div className={`mt-auto flex items-center justify-center gap-1 w-full h-8 sm:h-9 rounded-full text-[10px] sm:text-xs font-bold transition-all ${
+                    isSelected
+                      ? "bg-[var(--color-primary)] text-white shadow-[0_2px_8px_rgba(26,115,232,0.3)]"
+                      : "bg-[var(--color-surface-dim)] text-[var(--color-on-surface-variant)] group-hover:bg-[var(--color-primary)] group-hover:text-white"
+                  }`}>
+                    Compare rates
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
                   </div>
-                  <div className="bg-[var(--color-surface-dim)] rounded-lg px-2.5 py-1.5">
-                    <span className="text-[var(--color-on-surface-variant)]">Fee </span>
-                    <span className="font-semibold text-[var(--color-success-dark)]">{c.fee === 0 ? "Free" : `$${c.fee.toFixed(2)}`}</span>
-                  </div>
-                </div>
-                <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-variant)] mt-1 sm:mt-2">
-                  <strong className="text-[var(--color-on-surface)]">{c.symbol}{c.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</strong>
-                  <span className="hidden sm:inline"> for {amount.toLocaleString()} {fromCurrency}</span>
-                </p>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         )}
 
         {/* Live example table */}
         {liveQuotes.length > 0 && (
-          <div className="max-w-3xl mx-auto bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-5 sm:p-7">
-            <div className="text-center mb-4">
-              <div className="inline-block bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-2xs sm:text-xs font-semibold uppercase tracking-wide px-2.5 py-0.5 rounded-full mb-2">
-                {tExample("badge")}
+          <div className="max-w-3xl mx-auto bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] overflow-hidden">
+            {/* Urgency header */}
+            <div className="bg-gradient-to-r from-[var(--color-success-dark)] to-[#047857] px-5 sm:px-7 py-4">
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="relative flex h-2 w-2 shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                    </span>
+                    <span className="text-[10px] font-bold text-white/80 uppercase tracking-widest">Live rates · Updated 6h</span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                    Who gives the most for {amount.toLocaleString()} {fromCurrency} → {toCurrency}?
+                  </h3>
+                </div>
+                {best && worst && (
+                  <div className="bg-white/15 rounded-full px-3 py-1.5 flex items-center gap-1.5 shrink-0">
+                    <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                    <span className="text-xs font-semibold text-white">
+                      Up to {CURRENCY_SYMBOL[toCurrency] || toCurrency}{(best.receiveAmount - worst.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} difference
+                    </span>
+                  </div>
+                )}
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-[var(--color-on-surface)]">
-                Send {amount.toLocaleString()} {fromCurrency} → {toCurrency}
-              </h3>
-              <p className="text-2sm sm:text-sm text-[var(--color-on-surface-variant)] mt-1 max-w-md mx-auto">
-                Here&apos;s what each provider delivers today for a {amount.toLocaleString()} {fromCurrency} transfer to {toCurrency}.
-              </p>
             </div>
+            <div className="p-5 sm:p-7 pt-4 sm:pt-5">
 
             {/* Inline quotes table */}
             <div className="max-w-2xl mx-auto">
               <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[var(--shadow-sm)]">
-                <div className="grid grid-cols-[minmax(0,1fr)_60px_100px] sm:grid-cols-[minmax(0,1fr)_110px_100px_130px] gap-2 px-3 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                {/* Desktop header */}
+                <div className="hidden sm:grid sm:grid-cols-[minmax(0,1fr)_90px_80px_120px_auto] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                   <span>Provider</span>
-                  <span className="hidden sm:inline text-right">Rate</span>
+                  <span className="text-right">Rate</span>
                   <span className="text-right">Fee</span>
                   <span className="text-right">You Get</span>
+                  <span />
                 </div>
                 {liveQuotes.map((q, i) => {
                   const name = getProviderName(q.providerSlug);
                   const provider = providers.find((p) => p.slug === q.providerSlug);
                   const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
                   const isBest = i === 0;
+                  const sendUrl = getGoUrl(q.providerSlug, {
+                    sourceCurrency: q.sendCurrency,
+                    targetCurrency: q.receiveCurrency,
+                    sourceAmount: q.sendAmount,
+                    clickref: "home_live_example",
+                  });
                   return (
                     <div
                       key={q.providerSlug}
-                      className={`grid grid-cols-[minmax(0,1fr)_60px_100px] sm:grid-cols-[minmax(0,1fr)_110px_100px_130px] gap-2 items-center px-3 sm:px-6 py-3 border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface)]/40" : ""}`}
+                      className={`border-t border-[var(--color-outline)] ${isBest ? "bg-[var(--color-success-surface)]/40" : ""}`}
                     >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-xs font-medium text-[var(--color-on-surface-variant)] relative border border-[var(--color-outline)]/50">
-                          <Image src={logo} alt={`${name} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-2sm sm:text-sm font-medium text-[var(--color-on-surface)] truncate">
-                            {name}
-                            {isBest && (
-                              <span className="ml-1.5 text-2xs sm:text-2xs text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded font-semibold align-middle tracking-wide uppercase">
-                                Best
-                              </span>
-                            )}
+                      {/* Mobile layout */}
+                      <div className="sm:hidden px-4 py-3.5">
+                        <div className="flex items-center gap-3 mb-2.5">
+                          <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/50">
+                            <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-semibold text-[var(--color-on-surface)] truncate flex items-center gap-1.5">
+                              {name}
+                              {isBest && <span className="text-[10px] text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">Best</span>}
+                            </p>
+                            <p className="text-xs text-[var(--color-on-surface-variant)] mt-0.5">
+                              {q.fee === 0 ? <span className="text-[var(--color-success-dark)] font-medium">Free</span> : `$${q.fee.toFixed(2)} fee`}
+                              {" · "}{q.transferSpeed}
+                            </p>
+                          </div>
+                          <p className={`text-sm font-bold tabular-nums shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                            {toSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                           </p>
-                          <p className="text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</p>
                         </div>
+                        <a
+                          href={sendUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
+                          className={`flex items-center justify-center gap-1.5 w-full h-10 text-sm font-bold rounded-full transition-all active:scale-95 ${
+                            isBest
+                              ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_8px_rgba(5,150,105,0.35)]"
+                              : "bg-[var(--color-surface-container)] text-[var(--color-on-surface)] hover:bg-[var(--color-primary)] hover:text-white border border-[var(--color-outline)]"
+                          }`}
+                        >
+                          {isBest ? `Send with ${name}` : `Send →`}
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </a>
                       </div>
-                      <p className={`hidden sm:block text-2sm sm:text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)]" : "text-[var(--color-on-surface)]"}`}>
-                        {q.exchangeRate.toFixed(2)}{q.isIndicative ? <span className="ml-1 text-2xs italic text-[var(--color-on-surface-variant)]">est.</span> : null}
-                      </p>
-                      <p className={`text-2sm sm:text-sm text-right tabular-nums ${q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
-                        {q.fee === 0 ? "Free" : `$${q.fee.toFixed(2)}`}
-                      </p>
-                      <p className={`text-2sm sm:text-sm font-semibold text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
-                        {toSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                      </p>
+
+                      {/* Desktop layout */}
+                      <div className="hidden sm:grid sm:grid-cols-[minmax(0,1fr)_90px_80px_130px_auto] gap-2 items-center px-4 sm:px-6 py-3.5">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/50">
+                            <Image src={logo} alt={`${name} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-sm font-semibold text-[var(--color-on-surface)] truncate flex items-center gap-1.5">
+                              {name}
+                              {isBest && <span className="text-[10px] text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">Best</span>}
+                            </p>
+                            <p className="text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</p>
+                          </div>
+                        </div>
+                        <p className={`text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)]" : "text-[var(--color-on-surface)]"}`}>
+                          {q.exchangeRate.toFixed(2)}{q.isIndicative && <span className="ml-0.5 text-2xs italic">est.</span>}
+                        </p>
+                        <p className={`text-sm text-right tabular-nums ${q.fee === 0 ? "text-[var(--color-success-dark)] font-medium" : "text-[var(--color-on-surface)]"}`}>
+                          {q.fee === 0 ? "Free" : `$${q.fee.toFixed(2)}`}
+                        </p>
+                        <p className={`text-sm font-bold text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
+                          {toSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </p>
+                        <a
+                          href={sendUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
+                          className={`inline-flex items-center gap-1.5 h-10 px-4 text-xs font-bold rounded-full transition-all active:scale-95 whitespace-nowrap ${
+                            isBest
+                              ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_10px_rgba(5,150,105,0.35)]"
+                              : "bg-[var(--color-surface-container)] text-[var(--color-on-surface)] hover:bg-[var(--color-primary)] hover:text-white border border-[var(--color-outline)]"
+                          }`}
+                        >
+                          {isBest ? `Send with ${name}` : `Send →`}
+                        </a>
+                      </div>
                     </div>
                   );
                 })}
@@ -207,11 +297,16 @@ export default function HomeDynamicSection() {
             <div className="text-center mt-5">
               <Link
                 href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
-                className="inline-block h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all leading-[44px] sm:leading-[48px]"
+                className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_4px_14px_rgba(26,115,232,0.35)] active:shadow-none active:scale-[0.98] transition-all"
               >
-                See full {fromCurrency} → {toCurrency} comparison
+                Compare all 35+ providers
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
+              <p className="text-2xs text-[var(--color-on-surface-muted)] mt-2">Free · No signup required</p>
             </div>
+            </div>{/* end p-5 inner */}
           </div>
         )}
       </div>

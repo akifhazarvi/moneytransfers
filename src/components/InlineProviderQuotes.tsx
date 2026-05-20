@@ -45,18 +45,24 @@ export default function InlineProviderQuotes({
 
   return (
     <aside
-      className="my-10 border border-[var(--color-outline)] rounded-2xl overflow-hidden bg-[var(--color-surface)]"
+      className="my-10 rounded-2xl overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] border border-[var(--color-success-dark)]/20"
       aria-label="Live provider rate comparison"
     >
-      <header className="px-5 sm:px-6 py-4 bg-[var(--color-primary-surface)] border-b border-[var(--color-outline)]">
-        <div className="flex items-center justify-between gap-3 flex-wrap">
+      <header className="px-5 sm:px-6 py-5 bg-gradient-to-r from-[var(--color-success-dark)] to-[#047857] border-b border-white/10">
+        <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
-            <p className="text-overline text-[var(--color-primary)] mb-0.5">Live rates · {from} → {to}</p>
-            <h3 className="text-md font-semibold text-[var(--color-on-surface)] leading-snug">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+              </span>
+              <p className="text-xs font-bold text-white/80 uppercase tracking-widest">Live · {from} → {to} · Updated 6h</p>
+            </div>
+            <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
               {heading || `Best providers for ${sendSymbol}${amount.toLocaleString()} ${from} → ${to}`}
             </h3>
             {subheading && (
-              <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">{subheading}</p>
+              <p className="text-sm text-white/75 mt-1">{subheading}</p>
             )}
           </div>
           <SeeAllProvidersLink
@@ -64,11 +70,21 @@ export default function InlineProviderQuotes({
             corridor={corridor}
             source="header"
             slug={pageSlug}
-            className="shrink-0 text-2sm font-semibold text-[var(--color-primary)] hover:underline"
+            className="shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-xs font-bold bg-white text-[var(--color-success-dark)] rounded-full hover:bg-white/90 transition-colors whitespace-nowrap shadow-sm"
           >
-            All 35+ providers →
+            See all 35+ →
           </SeeAllProvidersLink>
         </div>
+        {savings > 0 && (
+          <div className="mt-3 inline-flex items-center gap-1.5 bg-white/15 rounded-full px-3 py-1">
+            <svg className="w-3.5 h-3.5 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            <p className="text-xs font-semibold text-white">
+              Best vs worst: {recvSymbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} difference on {sendSymbol}{amount.toLocaleString()} {from}
+            </p>
+          </div>
+        )}
       </header>
 
       <div className="divide-y divide-[var(--color-outline)]">

@@ -11,6 +11,8 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import GuidePageNudge from "@/components/GuidePageNudge";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -192,10 +194,46 @@ export default async function NewsArticlePage({ params }: Props) {
               </div>
             )}
 
-            {/* Content */}
-            <div
-              className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
-              dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.content) }}
+            {/* Content — split at midpoint with live quotes injected in the middle */}
+            {(() => {
+              const clean = sanitizeHtml(item.content);
+              // Split on </p> boundaries so we never cut mid-tag
+              const parts = clean.split(/(?<=<\/p>)/);
+              const mid = Math.ceil(parts.length / 2);
+              const firstHalf = parts.slice(0, mid).join("");
+              const secondHalf = parts.slice(mid).join("");
+              return (
+                <>
+                  <div
+                    className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
+                    dangerouslySetInnerHTML={{ __html: firstHalf }}
+                  />
+                  <InlineProviderQuotes
+                    from="USD"
+                    to="INR"
+                    amount={1000}
+                    source={`news:${slug}:mid`}
+                    heading="Don't overpay on your next transfer"
+                    subheading="Live rates from 35+ providers — see who's cheapest right now"
+                  />
+                  {secondHalf && (
+                    <div
+                      className="prose-custom text-md text-[var(--color-on-surface-variant)] leading-relaxed space-y-4"
+                      dangerouslySetInnerHTML={{ __html: secondHalf }}
+                    />
+                  )}
+                </>
+              );
+            })()}
+
+            {/* Live provider quotes — at the end */}
+            <InlineProviderQuotes
+              from="USD"
+              to="INR"
+              amount={1000}
+              source={`news:${slug}:end`}
+              heading="Ready to send? Here's the cheapest provider today"
+              subheading="Compare 35+ services — free, no signup required"
             />
 
             {/* Source */}
@@ -254,18 +292,30 @@ export default async function NewsArticlePage({ params }: Props) {
                 </div>
               )}
 
-              {/* CTA */}
-              <div className="bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-xl p-5 text-white">
-                <h3 className="text-md font-medium mb-2">Compare Providers Now</h3>
-                <p className="text-2sm text-white/80 mb-4">
-                  Find the cheapest way to send money with our real-time comparison tool.
-                </p>
-                <Link
-                  href="/send-money"
-                  className="block text-center bg-[var(--color-surface)] text-[var(--color-primary)] px-4 py-2.5 rounded-full text-2sm font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
-                >
-                  Compare Rates
-                </Link>
+              {/* Live rates CTA */}
+              <div className="overflow-hidden rounded-2xl border border-[var(--color-success-dark)]/20">
+                <div className="bg-[var(--color-success-dark)] px-5 py-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                    </span>
+                    <p className="text-xs font-bold text-white uppercase tracking-wide">Live rates</p>
+                  </div>
+                  <p className="text-md font-semibold text-white">Find the cheapest provider today</p>
+                  <p className="text-2sm text-white/75 mt-0.5">35+ services compared in real time</p>
+                </div>
+                <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
+                  <Link
+                    href="/send-money"
+                    className="flex items-center justify-center w-full h-11 bg-[var(--color-success-dark)] text-white text-sm font-bold rounded-full hover:bg-[var(--color-success-hover)] transition-colors shadow-[0_2px_8px_rgba(5,150,105,0.3)]"
+                  >
+                    Compare Rates Now →
+                  </Link>
+                  <p className="text-center text-2xs text-[var(--color-on-surface-muted)]">
+                    Free · No signup · Updated every 6h
+                  </p>
+                </div>
               </div>
 
               {/* Guides link */}
@@ -284,6 +334,8 @@ export default async function NewsArticlePage({ params }: Props) {
           </aside>
         </div>
       </Container>
+      {/* Sticky nudge — best live rate slides up after 30s or 50% scroll */}
+      <GuidePageNudge from="USD" to="INR" amount={1000} slug={slug} />
     </div>
   );
 }

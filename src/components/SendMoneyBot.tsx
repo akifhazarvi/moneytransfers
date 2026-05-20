@@ -220,13 +220,42 @@ export default function SendMoneyBot() {
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    const dismissed = typeof window !== "undefined" && sessionStorage.getItem("bot_dismissed");
+    if (typeof window === "undefined") return;
+    const dismissed = sessionStorage.getItem("bot_dismissed");
     if (dismissed) return;
-    const t = setTimeout(() => {
+
+    let timeReady = false;
+    let scrollReady = false;
+    let fired = false;
+
+    const fire = () => {
+      if (fired || !(timeReady || scrollReady)) return;
+      fired = true;
       setShowPulse(true);
       trackBotPreviewShown(pageType, corridorStr);
-    }, greeting.delayMs);
-    return () => clearTimeout(t);
+    };
+
+    // Time condition: minimum 30s before the bot ever appears
+    const t = setTimeout(() => {
+      timeReady = true;
+      fire();
+    }, Math.max(greeting.delayMs, 30_000));
+
+    // Scroll condition: fire earlier if user has already read 50% of page
+    const onScroll = () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      if (pct >= 0.5 && !scrollReady) {
+        scrollReady = true;
+        // Still require at least 15s even on deep scroll
+        setTimeout(() => fire(), Math.max(greeting.delayMs - 15_000, 5_000));
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("scroll", onScroll);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [greeting.delayMs, pageType, corridorStr]);
 

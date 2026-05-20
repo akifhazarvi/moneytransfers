@@ -32,7 +32,8 @@ function formatSavings(amount: number): string {
 }
 
 export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, extraReceiveVsWorst }: Props) {
-  const [expanded, setExpanded] = useState(false);
+  // Auto-expand #1 on mobile — it's the answer users came for
+  const [expanded, setExpanded] = useState(rank === 1);
   const t = useTranslations("providerCard");
   const provider = providers.find((p) => p.slug === quote.providerSlug);
   const providerName = provider?.name || getProviderName(quote.providerSlug);
@@ -87,6 +88,10 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
       {isBest && (
         <div className="absolute -top-px left-4 sm:left-6 z-10">
           <div className="bg-[var(--color-success-dark)] text-white text-2xs font-semibold tracking-wide uppercase px-3 py-1 rounded-b-lg shadow-sm flex items-center gap-1.5">
+            <span className="relative flex h-1.5 w-1.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white" />
+            </span>
             <span>{t("bestDeal")}</span>
             {extraReceiveVsWorst && extraReceiveVsWorst > 0 && (
               <>
@@ -139,12 +144,18 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             </div>
           </div>
           {/* Amount + collapsed CTA — right aligned */}
-          <div className="shrink-0 text-right flex flex-col items-end gap-1.5">
+          <div className="shrink-0 text-right flex flex-col items-end gap-2">
             <div>
-              <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-[17px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
+              <p className={`tabular-nums font-bold tracking-tight ${isBest ? "text-[18px] text-[var(--color-success-dark)]" : "text-[16px] text-[var(--color-on-surface)]"}`}>
                 {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
-              <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
+              {isBest && extraReceiveVsWorst && extraReceiveVsWorst > 0 ? (
+                <p className="text-[10px] font-semibold text-[var(--color-success-dark)] mt-0.5 tabular-nums">
+                  +{receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} vs worst
+                </p>
+              ) : (
+                <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
+              )}
             </div>
             <div className="flex items-center gap-1.5">
               <a
@@ -155,21 +166,24 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   e.stopPropagation();
                   trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank, "results_row_mobile");
                 }}
-                className={`inline-flex items-center gap-1 h-7 px-3 text-xs font-semibold rounded-full transition-colors ${
+                className={`inline-flex items-center gap-1.5 h-11 px-4 text-sm font-bold rounded-full transition-all active:scale-95 ${
                   isBest
-                    ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
-                    : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
+                    ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_8px_rgba(5,150,105,0.35)]"
+                    : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm"
                 }`}
                 aria-label={`Send with ${providerName}`}
               >
-                Send
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                {isBest ? "Send →" : "Send"}
               </a>
-              <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+              <button
+                onClick={(e) => { e.stopPropagation(); }}
+                className="w-8 h-8 flex items-center justify-center"
+                aria-label={expanded ? "Collapse" : "Expand"}
+              >
+                <svg className={`w-4 h-4 text-[var(--color-on-surface-muted)] transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -356,41 +370,40 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 shrink-0">
-                {provider && (
-                  <Link
-                    href={`/companies/${provider.slug}`}
-                    onClick={() => trackReviewClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`)}
-                    className="text-2sm font-medium text-[var(--color-primary)] hover:underline"
-                  >
-                    {t("fullReview")}
-                  </Link>
-                )}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto sm:shrink-0">
                 <a
                   href={providerWebsite}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank)}
-                  className={`inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full transition-all duration-150 ${
+                  className={`inline-flex items-center justify-center gap-2 h-12 px-6 text-sm font-bold rounded-full transition-all duration-150 active:scale-[0.98] w-full sm:w-auto ${
                     isBest
-                      ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-sm hover:shadow"
+                      ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_12px_rgba(5,150,105,0.4)] hover:shadow-[0_4px_16px_rgba(5,150,105,0.5)]"
                       : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow"
                   }`}
                 >
                   {isBest && extraReceiveVsWorst && extraReceiveVsWorst > 0 ? (
                     <>
-                      <span className="hidden sm:inline">{t("sendWith", { provider: providerName })}</span>
-                      <span className="sm:hidden">Send</span>
-                      <span className="text-white/75 text-xs font-normal">•</span>
-                      <span className="tabular-nums">+{receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} more</span>
+                      <span>{t("sendWith", { provider: providerName })}</span>
+                      <span className="text-white/60 font-normal">·</span>
+                      <span className="tabular-nums font-bold">+{receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} more</span>
                     </>
                   ) : (
                     t("sendWith", { provider: providerName })
                   )}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
+                {provider && (
+                  <Link
+                    href={`/companies/${provider.slug}`}
+                    onClick={() => trackReviewClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`)}
+                    className="inline-flex items-center justify-center h-12 px-4 text-2sm font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] rounded-full transition-colors border border-[var(--color-outline)] sm:border-0 sm:h-auto sm:px-0"
+                  >
+                    {t("fullReview")}
+                  </Link>
+                )}
               </div>
             </div>
 
