@@ -3478,16 +3478,16 @@
     "date": "2026-05-20",
     "providers": {
       "moneygram": {
-        "rate": 54.5464,
+        "rate": 54.5782,
         "fee": 4.99,
-        "markup": 3.3,
-        "receiveAmount": 5182.45
+        "markup": 3.35,
+        "receiveAmount": 5185.47
       },
       "western-union": {
-        "rate": 55.7494,
+        "rate": 55.7167,
         "fee": 1.2,
-        "markup": 1.16,
-        "receiveAmount": 5508.04
+        "markup": 1.33,
+        "receiveAmount": 5504.81
       },
       "remitly": {
         "rate": 55.6179,
@@ -3496,10 +3496,10 @@
         "receiveAmount": 5561.79
       },
       "revolut": {
-        "rate": 56.1624,
+        "rate": 56.2176,
         "fee": 0.8,
-        "markup": 0.43,
-        "receiveAmount": 5571.31
+        "markup": 0.45,
+        "receiveAmount": 5576.79
       },
       "auckland-savings-bank-nz": {
         "rate": 55.1655,
@@ -3524,6 +3524,12 @@
         "fee": 1.71,
         "markup": null,
         "receiveAmount": 5537.17
+      },
+      "xe": {
+        "rate": 56.0769,
+        "fee": 4,
+        "markup": 0.7,
+        "receiveAmount": 5383.38
       }
     }
   }

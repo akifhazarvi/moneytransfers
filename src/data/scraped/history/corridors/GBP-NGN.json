@@ -5068,10 +5068,10 @@
     "date": "2026-05-20",
     "providers": {
       "moneygram": {
-        "rate": 1849.0192,
+        "rate": 1852.3288,
         "fee": 0.99,
-        "markup": -0.56,
-        "receiveAmount": 183071.39
+        "markup": -0.75,
+        "receiveAmount": 183399.07
       },
       "taptap-send": {
         "rate": 1830,
@@ -5086,46 +5086,46 @@
         "receiveAmount": 175657.3
       },
       "profee": {
-        "rate": 1857.6122,
+        "rate": 1856.9943,
         "fee": 1.8,
-        "markup": -1.03,
-        "receiveAmount": 182417.51
+        "markup": -1,
+        "receiveAmount": 182356.84
       },
       "dahabshiil": {
-        "rate": 1845.5802,
+        "rate": 1844.4422,
         "fee": 0,
-        "markup": -0.37,
-        "receiveAmount": 184558.02
+        "markup": -0.32,
+        "receiveAmount": 184444.22
       },
       "transfergo": {
-        "rate": 1847.6454,
+        "rate": 1843.5757,
         "fee": 0,
-        "markup": -0.48,
-        "receiveAmount": 184764.54
+        "markup": -0.27,
+        "receiveAmount": 184357.57
       },
       "worldremit": {
-        "rate": 1833.9128,
+        "rate": 1838.9965,
         "fee": 0.99,
-        "markup": 0.26,
-        "receiveAmount": 181575.7
+        "markup": -0.03,
+        "receiveAmount": 182079.05
       },
       "mukuru": {
-        "rate": 1832.44,
+        "rate": 1831.52,
         "fee": 0,
-        "markup": 0.34,
-        "receiveAmount": 183244
+        "markup": 0.38,
+        "receiveAmount": 183152
       },
       "paysend": {
-        "rate": 1821.9301,
+        "rate": 1820.2304,
         "fee": 0,
-        "markup": 0.92,
-        "receiveAmount": 182193.01
+        "markup": 1,
+        "receiveAmount": 182023.04
       },
       "sendwave": {
-        "rate": 1833.9128,
+        "rate": 1838.9965,
         "fee": 0.99,
-        "markup": 0.26,
-        "receiveAmount": 181575.7
+        "markup": -0.03,
+        "receiveAmount": 182079.05
       },
       "remitly": {
         "rate": 1845.71,
@@ -5144,6 +5144,12 @@
         "fee": 1.23,
         "markup": null,
         "receiveAmount": 181864.21
+      },
+      "instarem": {
+        "rate": 1826.6267,
+        "fee": 0,
+        "markup": 0.65,
+        "receiveAmount": 182662.67
       }
     }
   }

@@ -357,58 +357,58 @@
     "date": "2026-05-20",
     "providers": {
       "moneygram": {
-        "rate": 76.9168,
+        "rate": 76.8389,
         "fee": 1.99,
-        "markup": 2.07,
-        "receiveAmount": 7538.62
+        "markup": 1.64,
+        "receiveAmount": 7530.98
       },
       "skrill": {
-        "rate": 77.5638,
+        "rate": 77.1657,
         "fee": 0,
-        "markup": 1.25,
-        "receiveAmount": 7756.38
+        "markup": 1.22,
+        "receiveAmount": 7716.57
       },
       "western-union": {
-        "rate": 77.1617,
+        "rate": 76.9448,
         "fee": 2.99,
-        "markup": 1.76,
-        "receiveAmount": 7485.46
+        "markup": 1.5,
+        "receiveAmount": 7464.41
       },
       "dahabshiil": {
-        "rate": 77.8629,
+        "rate": 77.926,
         "fee": 1.5,
-        "markup": 0.87,
-        "receiveAmount": 7669.5
+        "markup": 0.24,
+        "receiveAmount": 7675.71
       },
       "currencyfair": {
-        "rate": 78.03,
+        "rate": 77.595,
         "fee": 1.03,
-        "markup": 0.65,
-        "receiveAmount": 7722.63
+        "markup": 0.67,
+        "receiveAmount": 7679.58
       },
       "postfinance": {
-        "rate": 75.03,
-        "fee": 17.71,
-        "markup": 4.47,
-        "receiveAmount": 6174.06
+        "rate": 74.9963,
+        "fee": 17.8,
+        "markup": 4,
+        "receiveAmount": 6164.85
       },
       "paysend": {
-        "rate": 77.7201,
+        "rate": 77.3099,
         "fee": 2.9,
-        "markup": 1.05,
-        "receiveAmount": 7546.62
+        "markup": 1.03,
+        "receiveAmount": 7506.79
       },
       "revolut": {
-        "rate": 78.1639,
+        "rate": 77.7515,
         "fee": 1.4,
-        "markup": 0.48,
-        "receiveAmount": 7706.96
+        "markup": 0.47,
+        "receiveAmount": 7666.3
       },
       "wise": {
-        "rate": 78.4987,
+        "rate": 78.1213,
         "fee": 1.75,
-        "markup": 0.06,
-        "receiveAmount": 7712.5
+        "markup": -0.01,
+        "receiveAmount": 7675.42
       }
     }
   }

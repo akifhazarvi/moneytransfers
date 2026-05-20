@@ -93,16 +93,16 @@
     "date": "2026-05-20",
     "providers": {
       "skrill": {
-        "rate": 0.0087,
+        "rate": 0.0086,
         "fee": 0,
-        "markup": 2.45,
-        "receiveAmount": 0.87
+        "markup": 3.4,
+        "receiveAmount": 0.86
       },
       "western-union": {
-        "rate": 0.0088,
+        "rate": 0.0087,
         "fee": 0,
-        "markup": 1.79,
-        "receiveAmount": 0.88
+        "markup": 2.03,
+        "receiveAmount": 0.87
       }
     }
   }
