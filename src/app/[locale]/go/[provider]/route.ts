@@ -33,21 +33,28 @@ export async function GET(
     city: decodeURIComponent(request.headers.get("x-vercel-ip-city") || "") || undefined,
   };
 
-  // Fire both GA4 (server Measurement Protocol) and Vercel Analytics server-side.
-  // Both are fire-and-forget — keepalive ensures hits land before the redirect.
-  void track("affiliate_redirect", {
-    provider,
-    corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
-    source: src || "go_route",
-  });
+  const corridor = from && to ? `${from}-${to}`.toUpperCase() : "";
+  const source = src || "go_route";
+
+  // Fire provider_clicked + affiliate_redirect server-side on every /go/ hit.
+  // This is the single source of truth — covers React buttons, blog inline links,
+  // guide CTAs, and anything else that routes through here.
+  void track("provider_clicked", { provider, corridor, source });
+  void track("affiliate_redirect", { provider, corridor, source });
+  void gaServerEvent(
+    "provider_clicked",
+    { provider, corridor, amount: amount ?? 0, source },
+    clientId,
+    geo,
+  );
   void gaServerEvent(
     "affiliate_redirect",
     {
       provider,
-      corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
+      corridor,
       amount: amount ?? 0,
       referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
-      source: src || "go_route",
+      source,
     },
     clientId,
     geo,

@@ -4849,7 +4849,7 @@ export const blogPosts: BlogPost[] = [
         heading: "How Ria Cash Pickup Works: Step by Step",
         content: `<p>Sending money via Ria for cash pickup in India is straightforward. Here's the process:</p>
 <ol>
-<li><strong>Create your transfer on Ria.</strong> Sign up at <a href="/go/ria">riamoneytransfer.com</a> or download the Ria app. Select India as the destination country and choose "Cash Pickup" as the delivery method.</li>
+<li><strong>Create your transfer on Ria.</strong> Sign up at <a href="/go/ria?src=blog_content">riamoneytransfer.com</a> or download the Ria app. Select India as the destination country and choose "Cash Pickup" as the delivery method.</li>
 <li><strong>Enter recipient details.</strong> You'll need your recipient's full legal name (as it appears on their government-issued ID — Aadhaar card, PAN card, or passport) and their city.</li>
 <li><strong>Choose your payment method.</strong> Options include bank account (ACH), debit card, or credit card. Bank account is cheapest; credit card is fastest but most expensive.</li>
 <li><strong>Review and confirm.</strong> You'll see the exact exchange rate, fees, and the amount in INR your recipient will receive. Confirm to initiate the transfer.</li>

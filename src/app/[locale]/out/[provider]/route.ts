@@ -34,21 +34,27 @@ export async function GET(
     region: request.headers.get("x-vercel-ip-country-region") || undefined,
     city: decodeURIComponent(request.headers.get("x-vercel-ip-city") || "") || undefined,
   };
-  void track("affiliate_redirect", {
-    provider,
-    corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
-    source: src || "out_route",
-  });
+  const corridor = from && to ? `${from}-${to}`.toUpperCase() : "";
+  const source = src || "out_route";
+
+  void track("provider_clicked", { provider, corridor, source });
+  void track("affiliate_redirect", { provider, corridor, source });
+  void gaServerEvent(
+    "provider_clicked",
+    { provider, corridor, amount: amount ?? 0, source },
+    clientId,
+    geo,
+  );
   void gaServerEvent(
     "affiliate_redirect",
     {
       provider,
-      corridor: from && to ? `${from}-${to}`.toUpperCase() : "",
+      corridor,
       amount: amount ?? 0,
       referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
       page_referrer: referer.slice(0, 420),
       page_location: request.url,
-      source: src || "out_route",
+      source,
     },
     clientId,
     geo,
