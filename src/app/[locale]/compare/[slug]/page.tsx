@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Trophy, ArrowRight } from "lucide-react";
 import { providers, generateQuotes } from "@/data/providers";
 
@@ -1251,19 +1251,21 @@ export default async function ComparisonPage({ params }: Props) {
   const { a, b } = pair;
   const article = getComparisonArticle(slug);
 
-  // Canonicalize reverse pairs (e.g. /compare/remitly-vs-wise → /compare/wise-vs-remitly).
-  // Editorial articles pin their own slug direction, so only redirect when
-  // there is no editorial content and the current order isn't alphabetical.
-  // Without this, Google was clustering both directions and picking its own
-  // canonical, surfacing 94 "Duplicate, Google chose different canonical".
-  if (!article) {
-    const [first, second] = [a.slug, b.slug].sort();
-    const canonicalSlug = `${first}-vs-${second}`;
-    if (canonicalSlug !== slug && !getComparisonArticle(canonicalSlug)) {
-      const path = locale === "en" ? `/compare/${canonicalSlug}` : `/${locale}/compare/${canonicalSlug}`;
-      redirect(path);
-    }
-  }
+  // Note: an earlier version redirected non-alphabetical X-vs-Y URLs to their
+  // alphabetical canonical to avoid "Duplicate, Google chose different
+  // canonical" warnings. That redirect was buggy — Next.js App Router's
+  // `redirect()` doesn't always emit a real 30X here (sometimes serves a 200
+  // with an empty streaming shell, observed in the May 20 sitemap audit
+  // where 7 GSC-indexed slugs rendered as 248-word "Loading..." pages
+  // instead of the actual comparison content).
+  //
+  // Removed because the duplicate-content risk is mostly theoretical: the
+  // sitemap only submits the GSC-winning direction per pair, no internal
+  // links point at the alphabetical reverse, and the 90d GSC pull shows
+  // only 3 pairs ever had any signal in both directions (max 8 impressions).
+  // Letting both directions render the same content means the URLs Google
+  // has actually indexed serve their content instead of a redirect that
+  // doesn't fire.
 
   if (article) {
     return <ArticleComparison slug={slug} a={a} b={b} />;
