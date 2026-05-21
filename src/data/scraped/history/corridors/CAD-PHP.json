@@ -6279,28 +6279,28 @@
     "date": "2026-05-21",
     "providers": {
       "moneygram": {
-        "rate": 44.4953,
+        "rate": 44.3255,
         "fee": 3.49,
-        "markup": 0.79,
-        "receiveAmount": 4294.24
+        "markup": 0.97,
+        "receiveAmount": 4277.85
       },
       "western-union": {
-        "rate": 44.5494,
+        "rate": 44.4463,
         "fee": 0.99,
-        "markup": 0.67,
-        "receiveAmount": 4410.84
+        "markup": 0.7,
+        "receiveAmount": 4400.63
       },
       "dahabshiil": {
-        "rate": 44.7203,
+        "rate": 44.528,
         "fee": 1,
-        "markup": 0.29,
-        "receiveAmount": 4427.31
+        "markup": 0.51,
+        "receiveAmount": 4408.27
       },
       "worldremit": {
-        "rate": 44.3503,
+        "rate": 44.2571,
         "fee": 0,
         "markup": 1.12,
-        "receiveAmount": 4435.03
+        "receiveAmount": 4425.71
       },
       "instarem": {
         "rate": 44.5286,
@@ -6309,28 +6309,28 @@
         "receiveAmount": 4452.86
       },
       "xe": {
-        "rate": 44.4204,
+        "rate": 44.3412,
         "fee": 5,
-        "markup": 0.96,
-        "receiveAmount": 4219.94
+        "markup": 0.93,
+        "receiveAmount": 4212.41
       },
       "paysend": {
-        "rate": 44.6963,
+        "rate": 44.612,
         "fee": 3,
-        "markup": 0.34,
-        "receiveAmount": 4335.54
+        "markup": 0.33,
+        "receiveAmount": 4327.36
       },
       "koho": {
-        "rate": 44.8,
+        "rate": 44.74,
         "fee": 1.65,
-        "markup": 0.11,
-        "receiveAmount": 4406.08
+        "markup": 0.04,
+        "receiveAmount": 4400.18
       },
       "sendwave": {
-        "rate": 44.4175,
+        "rate": 44.3242,
         "fee": 0.99,
         "markup": 0.97,
-        "receiveAmount": 4397.78
+        "receiveAmount": 4388.53
       },
       "remitly": {
         "rate": 44.53,
@@ -6373,6 +6373,18 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4361.1
+      },
+      "skrill": {
+        "rate": 43.4593,
+        "fee": 0.5,
+        "markup": 2.9,
+        "receiveAmount": 4324.2
+      },
+      "ria": {
+        "rate": 44.028,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 4552.57
       }
     }
   }

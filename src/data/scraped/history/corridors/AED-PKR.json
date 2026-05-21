@@ -2163,10 +2163,10 @@
     "date": "2026-05-21",
     "providers": {
       "paysend": {
-        "rate": 74.95,
+        "rate": 74.948,
         "fee": 9,
-        "markup": 1.3,
-        "receiveAmount": 6820.45
+        "markup": 1.21,
+        "receiveAmount": 6820.27
       },
       "remitly": {
         "rate": 76.05,
@@ -2185,6 +2185,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 7584.59
+      },
+      "skrill": {
+        "rate": 73.5576,
+        "fee": 0,
+        "markup": 3.05,
+        "receiveAmount": 7355.76
       }
     }
   }

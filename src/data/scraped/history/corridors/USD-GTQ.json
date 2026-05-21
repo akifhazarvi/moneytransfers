@@ -2343,16 +2343,16 @@
     "date": "2026-05-21",
     "providers": {
       "moneygram": {
-        "rate": 7.5283,
+        "rate": 7.5317,
         "fee": 2.99,
-        "markup": 1.24,
-        "receiveAmount": 730.32
+        "markup": 1.21,
+        "receiveAmount": 730.65
       },
       "ria": {
-        "rate": 7.5303,
-        "fee": 1.9,
-        "markup": 1.21,
-        "receiveAmount": 738.72
+        "rate": 7.5328,
+        "fee": 2.9,
+        "markup": null,
+        "receiveAmount": 776.11
       },
       "taptap-send": {
         "rate": 7.6,
@@ -2361,28 +2361,28 @@
         "receiveAmount": 760
       },
       "boss-money": {
-        "rate": 7.5504,
+        "rate": 7.5529,
         "fee": 1.49,
-        "markup": 0.95,
-        "receiveAmount": 743.79
+        "markup": 0.93,
+        "receiveAmount": 744.04
       },
       "western-union": {
-        "rate": 7.5282,
+        "rate": 7.5316,
         "fee": 1.99,
-        "markup": 1.24,
-        "receiveAmount": 737.84
+        "markup": 1.21,
+        "receiveAmount": 738.17
       },
       "xoom": {
-        "rate": 7.7701,
+        "rate": 7.7712,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 738.24
+        "receiveAmount": 738.34
       },
       "worldremit": {
-        "rate": 7.5559,
+        "rate": 7.5568,
         "fee": 1.99,
         "markup": 0.88,
-        "receiveAmount": 740.55
+        "receiveAmount": 740.64
       },
       "instarem": {
         "rate": 7.5693,
@@ -2391,16 +2391,16 @@
         "receiveAmount": 756.93
       },
       "paysend": {
-        "rate": 7.5888,
+        "rate": 7.5909,
         "fee": 1.99,
-        "markup": 0.45,
-        "receiveAmount": 743.78
+        "markup": 0.43,
+        "receiveAmount": 743.98
       },
       "sendwave": {
-        "rate": 7.5597,
+        "rate": 7.5606,
         "fee": 1.99,
         "markup": 0.83,
-        "receiveAmount": 740.93
+        "receiveAmount": 741.01
       },
       "remitly": {
         "rate": 7.4595,
@@ -2409,10 +2409,10 @@
         "receiveAmount": 731.11
       },
       "revolut": {
-        "rate": 7.5633,
+        "rate": 7.5667,
         "fee": 0.75,
-        "markup": 0.78,
-        "receiveAmount": 750.65
+        "markup": 0.75,
+        "receiveAmount": 751
       },
       "wise": {
         "rate": 7.6216,
