@@ -200,18 +200,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       />
       {/* ─── HERO + DYNAMIC SECTIONS ─── wrapped in shared selection context */}
       <HomeSelectionProvider defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount}>
-        <section className="bg-[var(--color-surface)] pt-10 sm:pt-20 pb-10 sm:pb-16 border-b border-[var(--color-outline)]">
+        <section className="bg-[var(--color-surface)] pt-12 sm:pt-24 pb-8 sm:pb-16 border-b border-[var(--color-outline)]">
           <Container>
-            <div className="text-center mb-8 sm:mb-10 max-w-2xl mx-auto">
-              <h1 className="text-[28px] sm:text-5xl font-semibold text-[var(--color-on-surface)] leading-[1.1] tracking-[-0.02em]">
+            <div className="text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
+              <h1 className="text-[40px] sm:text-6xl font-semibold text-[var(--color-on-surface)] leading-[1.05] tracking-[-0.03em]">
                 {tHero("title")}{" "}
-                <span className="text-[var(--color-primary)]">{tHero("titleHighlight")}</span>
+                <span className="text-[var(--color-on-surface-variant)]">{tHero("titleHighlight")}</span>
               </h1>
-              <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-5">
                 {tHero("subtitle")}
               </p>
             </div>
-            <div className="max-w-[720px] mx-auto">
+            <div className="max-w-[640px] mx-auto">
               <ComparisonWidget defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
             </div>
           </Container>

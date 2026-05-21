@@ -8,11 +8,8 @@ import { generateQuotes, getProviderName, providers } from "@/data/providers";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked } from "@/lib/analytics";
-import { useTranslations } from "next-intl";
-
 export default function HomeDynamicSection() {
   const { fromCurrency, toCurrency, amount } = useHomeSelection();
-  const tExample = useTranslations("liveExample");
 
   const geoConfig = GEO_CORRIDORS[fromCurrency] ?? DEFAULT_GEO_CONFIG;
 
@@ -73,17 +70,17 @@ export default function HomeDynamicSection() {
     <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 sm:mb-10">
-          <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
-            Best Provider for {fromCurrency} → {toCurrency} Transfers
+          <h2 className="text-2xl sm:text-3xl md:text-h2 font-semibold text-[var(--color-on-surface)] tracking-[-0.02em]">
+            {amount.toLocaleString()} {fromCurrency} → {toCurrency}
           </h2>
-          <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
-            Click any route to see live rates — or click <strong className="text-[var(--color-success-dark)]">Send</strong> on the best provider below to start your transfer now.
+          <p className="text-sm text-[var(--color-on-surface-variant)] mt-2">
+            Live rates from {liveQuotes.length}+ providers.
           </p>
         </div>
 
-        {/* Top-3 corridor cards */}
+        {/* Top-3 corridor cards — desktop only; on mobile they're redundant after the widget selection */}
         {corridors.length > 0 && (
-          <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-10">
+          <div className="hidden sm:grid grid-cols-3 gap-4 max-w-4xl mx-auto mb-10">
             {corridors.map((c, idx) => {
               const isSelected = c.toCurrency === toCurrency;
               return (
@@ -138,35 +135,22 @@ export default function HomeDynamicSection() {
           </div>
         )}
 
-        {/* Live example table */}
+        {/* Live example table — Apple-quiet header. Surface bg, dark text, dot indicator. */}
         {liveQuotes.length > 0 && (
-          <div className="max-w-3xl mx-auto bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] overflow-hidden">
-            {/* Urgency header */}
-            <div className="bg-gradient-to-r from-[var(--color-success-dark)] to-[#047857] px-5 sm:px-7 py-4">
-              <div className="flex items-center justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="relative flex h-2 w-2 shrink-0">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
-                    </span>
-                    <span className="text-[10px] font-bold text-white/80 uppercase tracking-widest">Live rates · Updated 6h</span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
-                    Who gives the most for {amount.toLocaleString()} {fromCurrency} → {toCurrency}?
-                  </h3>
-                </div>
-                {best && worst && (
-                  <div className="bg-white/15 rounded-full px-3 py-1.5 flex items-center gap-1.5 shrink-0">
-                    <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                    <span className="text-xs font-semibold text-white">
-                      Up to {CURRENCY_SYMBOL[toCurrency] || toCurrency}{(best.receiveAmount - worst.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} difference
-                    </span>
-                  </div>
-                )}
+          <div className="max-w-3xl mx-auto bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] overflow-hidden">
+            <div className="px-5 sm:px-7 py-4 border-b border-[var(--color-outline)] flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">
+                <span className="relative flex h-1.5 w-1.5 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-60" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]" />
+                </span>
+                Live · Updated 6h ago
               </div>
+              {best && worst && (
+                <span className="text-[11px] text-[var(--color-on-surface-variant)] tabular-nums">
+                  Up to <span className="font-semibold text-[var(--color-on-surface)]">{CURRENCY_SYMBOL[toCurrency] || toCurrency}{(best.receiveAmount - worst.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span> difference
+                </span>
+              )}
             </div>
             <div className="p-5 sm:p-7 pt-4 sm:pt-5">
 
@@ -277,20 +261,15 @@ export default function HomeDynamicSection() {
                 })}
               </div>
 
-              {/* Savings callout */}
+              {/* Savings line — quiet, single sentence */}
               {liveQuotes.length >= 2 && best && worst && (
-                <div className="mt-4 bg-[var(--color-success-surface)] border border-[var(--color-success-dark)]/15 rounded-xl px-4 py-3 flex items-center gap-3">
-                  <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                  <p className="text-2sm text-[var(--color-success-dark)]">
-                    <strong>{getProviderName(best.providerSlug)}</strong> saves you{" "}
-                    <strong>
-                      {toSymbol}{(best.receiveAmount - worst.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                    </strong>{" "}
-                    vs {getProviderName(worst.providerSlug)}.
-                  </p>
-                </div>
+                <p className="mt-4 text-2sm text-[var(--color-on-surface-variant)] text-center">
+                  <span className="font-medium text-[var(--color-on-surface)]">{getProviderName(best.providerSlug)}</span> saves you{" "}
+                  <span className="font-medium tabular-nums text-[var(--color-on-surface)]">
+                    {toSymbol}{(best.receiveAmount - worst.receiveAmount).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                  </span>{" "}
+                  vs {getProviderName(worst.providerSlug)}.
+                </p>
               )}
             </div>
 
