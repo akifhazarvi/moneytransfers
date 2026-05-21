@@ -43,6 +43,7 @@ import {
 } from "@/data/providers";
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
+import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";
 import { swedishCorridorBlocks } from "@/data/sweden-content";
 import { corridorDeepBlocks } from "@/data/corridor-deep-content";
 import { getCountryDetails } from "@/data/corridor-details";
@@ -3154,13 +3155,34 @@ export default async function CorridorPage({ params }: Props) {
       })()}
 
       {/* ─── Cross-links ─── */}
+      {/* "More transfers from X" + "Other routes to Y" together form the horizontal
+         corridor graph — without them every /send-money/X-to-Y is a leaf node and
+         link equity from the hub can't flow laterally. Both axes are sorted to put
+         GSC-validated corridors (in SITEMAP_CORRIDOR_SLUGS) first so the link
+         targets are pages that have already shown ranking signal. */}
       <CrossLinks
         background="white"
         sections={[
           {
-            title: `Other routes to ${corridor.toCountry}`,
+            title: `More transfers from ${corridor.fromCountry}`,
+            // Match on fromCountry, not fromCurrency: Germany sender ≠ Belgium
+            // sender even though both use EUR. The label would otherwise lie.
             links: allCorridors
-              .filter((c) => c.toCurrency === toCurrency && c.fromCurrency !== fromCurrency && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
+              .filter((c) => c.fromCountry === corridor.fromCountry && c.toCountry !== corridor.toCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
+              .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
+              .slice(0, 5)
+              .map((c) => ({
+                href: `/send-money/${c.slug}`,
+                label: `${c.fromCountry} to ${c.toCountry}`,
+              })),
+          },
+          {
+            title: `Other routes to ${corridor.toCountry}`,
+            // Match on toCountry, not toCurrency: "routes to Germany" labelled
+            // as "France → Belgium" would be misleading even though both use EUR.
+            links: allCorridors
+              .filter((c) => c.toCountry === corridor.toCountry && c.fromCountry !== corridor.fromCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
+              .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
               .slice(0, 5)
               .map((c) => ({
                 href: `/send-money/${c.slug}`,
