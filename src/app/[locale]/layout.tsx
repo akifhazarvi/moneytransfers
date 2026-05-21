@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
+import { GTAG_INLINE, THEME_INLINE } from "@/lib/inline-scripts";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
@@ -181,9 +181,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  // CSP uses 'strict-dynamic' + per-request nonce. Inline/external scripts MUST
-  // carry the nonce or browsers block them (silently killing GA4, theme init, etc).
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  // CSP authorizes the two inline scripts below via SHA-256 hashes in
+  // src/middleware.ts — no per-request nonce, no `await headers()` call.
+  // That's deliberate: a dynamic API call here would force every page into
+  // dynamic rendering, which auto-injects `Cache-Control: no-store,
+  // must-revalidate` and overrides next.config.ts. Crawlers read that as
+  // "do not trust this response" and stop indexing (May 2026 incident).
 
   const messages = await getMessages();
 
@@ -209,78 +212,19 @@ export default async function LocaleLayout({ children, params }: Props) {
           are buffered. The 150 KB gtag.js library load is deferred until first
           user interaction (scroll/click/input/touch) or a 4 s idle fallback,
           whichever comes first. Shaves ~150 ms of main-thread parse off the
-          initial load without losing any events (queued calls flush on load). */}
+          initial load without losing any events (queued calls flush on load).
+          Script body is in src/lib/inline-scripts.ts and authorized via a
+          SHA-256 hash in middleware CSP — changing GTAG_INLINE breaks CSP. */}
       <script
-        nonce={nonce}
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
-(function(){
-  // Track everyone. No consent banner, no _ga cookie. Consent Mode is
-  // granted by default so GA4 actually records standard events and shows
-  // them in reports. client_storage:'none' tells GA4 to keep the client_id
-  // in memory for the session instead of writing it to a cookie — so we
-  // don't drop any _ga cookie on the user's browser.
-  if(navigator.webdriver===true){window['ga-disable-G-HJH07QEJ30']=true;return;}
-  var geo=(document.cookie.match(/(?:^|; )geo-country=([A-Z]{2})/)||[])[1]||'';
-  // EU/UK/EEA/CH require consent — everyone else auto-granted.
-  var euUk={'AT':1,'BE':1,'BG':1,'HR':1,'CY':1,'CZ':1,'DK':1,'EE':1,'FI':1,'FR':1,'DE':1,'GR':1,'HU':1,'IE':1,'IT':1,'LV':1,'LT':1,'LU':1,'MT':1,'NL':1,'PL':1,'PT':1,'RO':1,'SK':1,'SI':1,'ES':1,'SE':1,'GB':1,'IS':1,'LI':1,'NO':1,'CH':1};
-  var storedConsent=(document.cookie.match(/(?:^|; )smc_consent=([^;]+)/)||[])[1]||'';
-  var analyticsStorage=euUk[geo]?(storedConsent==='granted'?'granted':'denied'):'granted';
-  gtag('consent','default',{
-    'analytics_storage':analyticsStorage,
-    'ad_storage':'denied',
-    'ad_user_data':'denied',
-    'ad_personalization':'denied'
-  });
-  gtag('js',new Date());
-  var cfg={send_page_view:true,client_storage:'none'};
-  if(geo){cfg.country=geo;gtag('set','user_properties',{geo_country:geo});}
-  // AI-search referral attribution — ChatGPT, Perplexity, Copilot etc strip
-  // the Referer header, so GA4 logs source='chatgpt.com' with medium=(not set)
-  // and dumps those sessions into 'Unassigned'. Detect the host explicitly
-  // and inject campaign params so the very first pageview lands in Referral.
-  try{
-    var ref=document.referrer||'';
-    var refHost='';try{refHost=ref?new URL(ref).hostname.toLowerCase():'';}catch(e){}
-    var aiHosts={'chatgpt.com':'chatgpt','chat.openai.com':'chatgpt','perplexity.ai':'perplexity','www.perplexity.ai':'perplexity','copilot.microsoft.com':'copilot','gemini.google.com':'gemini','claude.ai':'claude','you.com':'you','phind.com':'phind'};
-    var aiSource=(refHost && aiHosts[refHost]!==undefined)?aiHosts[refHost]:null;
-    var stored=null;try{stored=sessionStorage.getItem('first_ai_src');}catch(e){}
-    if(aiSource){try{sessionStorage.setItem('first_ai_src',aiSource);}catch(e){}}
-    var src=aiSource||stored;
-    if(src){
-      cfg.campaign_source=src;
-      cfg.campaign_medium='referral';
-      cfg.campaign_name='ai_search';
-      gtag('set','user_properties',{ai_referrer:src});
-    }
-  }catch(e){}
-  gtag('config','G-HJH07QEJ30',cfg);
-  var loaded=false;
-  function loadGA(){
-    if(loaded)return;loaded=true;
-    var s=document.createElement('script');
-    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HJH07QEJ30';
-    ${nonce ? `s.setAttribute('nonce','${nonce}');` : ''}
-    document.head.appendChild(s);
-    evts.forEach(function(e){removeEventListener(e,loadGA,opts)});
-  }
-  var evts=['pointerdown','keydown','scroll','touchstart'];
-  var opts={passive:true,once:true};
-  evts.forEach(function(e){addEventListener(e,loadGA,opts)});
-  setTimeout(loadGA,4000);
-})();`,
-        }}
+        dangerouslySetInnerHTML={{ __html: GTAG_INLINE }}
       />
       {/* Plain <script> (not Next's <Script>) — theme init must run before paint.
-          We avoid next/script here because it re-renders client-side and drops the
-          SSR nonce, triggering a hydration mismatch on every page load. */}
+          Script body is in src/lib/inline-scripts.ts and authorized via a
+          SHA-256 hash in middleware CSP. */}
       <script
-        nonce={nonce}
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
-        }}
+        dangerouslySetInnerHTML={{ __html: THEME_INLINE }}
       />
       <script
         type="application/ld+json"

@@ -3,6 +3,7 @@ import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 import { COUNTRY_TO_CURRENCY } from "./data/geo-corridors";
 import { shouldNoindexPath } from "./lib/seo-indexing";
+import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -175,16 +176,20 @@ export default function middleware(request: NextRequest) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
   }
 
-  // CSP nonce — generate per request for strict CSP
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  // CSP uses SHA-256 hashes for the two inline scripts in [locale]/layout.tsx
+  // (gtag init + theme init). Hashes are static, so the layout no longer
+  // needs to read `headers()` for a per-request nonce — and that removal is
+  // what lets every page render statically and pick up the
+  // `stale-while-revalidate=300` Cache-Control from next.config.ts. Per-
+  // request nonces forced dynamic rendering, which auto-injected
+  // `no-store, must-revalidate` and contributed to the May 2026 deindex.
+  //
+  // The hash list MUST stay in sync with the inline script bodies in
+  // src/lib/inline-scripts.ts — scripts/check-inline-script-hashes.ts
+  // enforces this at build time.
   const csp = [
     `default-src 'self'`,
-    // 'strict-dynamic' removed: it ignores the host allowlist and requires every
-    // script tag to carry the per-request nonce. Next.js's App Router does not
-    // auto-propagate a nonce to <Script> tags nor to 20+ JSON-LD <script> blocks
-    // across page files, so enabling it silently blocked GA4 + all JSON-LD.
-    // The host allowlist below is precise enough to stand on its own.
-    `script-src 'self' 'nonce-${nonce}' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
+    `script-src 'self' 'sha256-${GTAG_INLINE_SHA256}' 'sha256-${THEME_INLINE_SHA256}' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.
@@ -203,7 +208,6 @@ export default function middleware(request: NextRequest) {
     `report-to csp-endpoint`,
   ].join("; ");
   response.headers.set("Content-Security-Policy", csp);
-  response.headers.set("x-nonce", nonce);
   // CSP violation reporting — violations are logged to /api/csp-report for visibility
   response.headers.set(
     "Report-To",
