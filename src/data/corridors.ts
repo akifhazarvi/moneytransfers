@@ -4350,6 +4350,50 @@ export const corridors: Corridor[] = [
       },
     ],
   },
+  {
+    slug: "aud-to-bdt",
+    fromCountry: "Australia",
+    toCountry: "Bangladesh",
+    fromCurrency: "AUD",
+    toCurrency: "BDT",
+    fromFlag: "🇦🇺",
+    toFlag: "🇧🇩",
+    sampleAmount: 1000,
+    intro:
+      "Australia is home to a Bangladeshi community of around 95,000 people (Australian Bureau of Statistics, 2021 census), and AUD-to-BDT is one of the more active South Asian remittance corridors out of Australia. Choosing the right provider can mean the difference between A$1,000 arriving as roughly BDT 70,000 with a bank wire vs. closer to BDT 73,000–74,000 with a specialist service.",
+    context:
+      "Bangladesh receives upwards of US$22 billion in remittances each year (World Bank annual remittances data), and the Bangladesh Bank applies a 2.5% government cash incentive on inward remittances received through official banking channels — paid by the receiving bank on disbursement. That incentive only applies if the money arrives through a regulated provider, not the informal hundi market, so it's a real reason to stick with a licensed transfer service even when the headline cost looks higher.",
+    feesNote:
+      "Most specialist providers on this corridor charge A$0–A$4 per transfer with exchange rate markups under 1%. Australian banks typically charge A$10–A$30 per international wire plus a 2.5–4% markup on the AUD/BDT rate. On a A$1,000 transfer, that bank markup alone can mean BDT 1,500–3,000 less reaching your recipient, which usually outweighs any flat-fee difference.",
+    deliveryNote:
+      "bKash, Nagad, and Rocket mobile-wallet transfers from Australia generally arrive within minutes once the provider has processed the transaction. Bank deposits to Bangladeshi banks (Dutch-Bangla Bank, Islami Bank, BRAC Bank, Bank Asia, Sonali, Janata) usually take 1–3 business days. Funding via PayID/Osko from your Australian bank account is near-instant; debit card funding is similarly fast.",
+    faqs: [
+      {
+        q: "What is the cheapest way to send money from Australia to Bangladesh?",
+        a: "Specialist providers — Wise, Remitly, WorldRemit, OFX, Western Union, and South Asian-focused services like IME and Prabhu Money Transfer — typically beat Australian bank rates by 2–4% on AUD-to-BDT. The biggest cost variable is the exchange rate markup, not the headline fee, so always compare the total BDT your recipient will receive across providers before sending. Wise uses the real mid-market rate with a small transparent fee; Remitly and WorldRemit often run promotional first-transfer offers worth checking on day one.",
+      },
+      {
+        q: "Can I send to bKash from Australia?",
+        a: "Yes — bKash is the most widely supported delivery method for inbound transfers to Bangladesh. Several Australian-licensed providers offer direct top-up to bKash wallets, with funds typically arriving in minutes. bKash has over 65 million registered accounts and a network of more than 300,000 agent points across Bangladesh where recipients can cash out. Your recipient only needs their bKash-registered mobile number to receive the funds. Nagad (the Bangladesh Post Office's mobile financial service, with 75+ million registered users) is supported by some providers as an alternative.",
+      },
+      {
+        q: "How long does an Australia to Bangladesh transfer take?",
+        a: "bKash, Nagad, and Rocket mobile-wallet transfers usually settle within minutes of the Australian provider releasing the payment. Bank deposits take 1–3 business days. Cash pickup at Western Union or MoneyGram partner branches in Bangladesh is typically available within 30–60 minutes. Funding from your Australian bank account via PayID/Osko is the fastest option — it settles in seconds from most Australian banks. Avoid SWIFT wires from your bank if speed matters: they add 2–4 days of correspondent-bank processing and incur fees of A$10–A$25 even after you've paid the provider.",
+      },
+      {
+        q: "Does Bangladesh tax money I send from Australia?",
+        a: "No. Bangladesh's National Board of Revenue (NBR) does not tax inward personal remittances. On top of that, the Bangladesh government pays a 2.5% cash incentive on remittances received through official banking and licensed mobile-wallet channels — this is credited to your recipient by the receiving bank on disbursement. The incentive is an explicit policy to encourage senders to use formal channels instead of hundi. On the Australia side, the ATO does not tax money you send as a personal remittance to family abroad.",
+      },
+      {
+        q: "What Australian regulations apply to money transfers to Bangladesh?",
+        a: "All money transfer providers operating in Australia must register with AUSTRAC as remittance service providers under the Anti-Money Laundering and Counter-Terrorism Financing Act 2006. Transfers over A$10,000 (or any pattern of smaller transfers structured to avoid the threshold) are automatically reported to AUSTRAC — this is routine compliance, not a tax. You can still send larger amounts; expect the provider to ask for identity verification and the purpose of the transfer. The AUSTRAC public register lets you confirm any provider's status before sending.",
+      },
+      {
+        q: "What details do I need to send money from Australia to a Bangladeshi bank account?",
+        a: "For a bank deposit, you need the recipient's full legal name as registered with the bank, their account number, and the bank's name and branch. SWIFT/BIC codes are used for traditional bank wires but most specialist providers don't require one. For bKash, Nagad, or Rocket delivery, you only need the recipient's mobile number registered with the wallet provider. Always confirm details directly with your recipient — a mistyped digit can cause a delay or, in rare cases, send funds to the wrong account.",
+      },
+    ],
+  },
 ];
 
 // ── Auto-generated currency-pair corridors ──
