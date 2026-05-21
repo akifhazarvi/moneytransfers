@@ -22,6 +22,7 @@ import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
@@ -96,6 +97,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         type: "article",
         modifiedTime: article.updatedAt,
       },
+      // Editorial articles are self-canonical — the editorial owner picked
+      // the slug deliberately (often the direction Google indexes).
       alternates: getAlternates(`compare/${slug}`, locale),
     };
   }
@@ -153,10 +156,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = custom?.title ?? `${a.name} vs ${b.name} ${year}: Fees, Rates & Which Sends More Money`;
   const desc = custom?.desc ?? `Compare ${a.name} vs ${b.name} fees, exchange rates, and delivery speed. We tested real transfers across 6 corridors — see which provider delivers more to your recipient in ${year}.`;
 
+  // Auto-generated comparison pages emit a canonical pointing at the
+  // GSC-winning direction for the pair (or alphabetical if no signal yet).
+  // Without this, /compare/wise-vs-ofx and /compare/ofx-vs-wise both self-
+  // canonical, and Google clusters them and picks a canonical itself.
+  // See src/lib/compare-canonical.ts.
+  const canonicalSlug = getCompareCanonicalSlug(slug);
+
   return {
     title,
     description: desc,
-    alternates: getAlternates(`compare/${slug}`, locale),
+    alternates: getAlternates(`compare/${canonicalSlug}`, locale),
     // Comparison content is English-only; noindex locale variants to avoid diluting the English page
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: {
