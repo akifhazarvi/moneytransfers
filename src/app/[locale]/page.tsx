@@ -35,6 +35,38 @@ const allReviewedProviders = providerReviews
   .filter((x) => x.provider)
   .sort((a, b) => b.review.editorRating - a.review.editorRating);
 
+// Comparison pages in SITEMAP_COMPARISON_SLUGS, formatted for the homepage rail.
+// Ordered roughly by GSC 90d impressions (wise-vs-paypal at 291 leads). 32 entries.
+// Labels are "<Provider> vs <Other>" so anchor text matches the exact query intent
+// ("wise vs paypal" → 291 impressions/90d) — same logic as the provider reviews rail.
+const POPULAR_COMPARISONS: { slug: string; label: string }[] = [
+  { slug: "wise-vs-paypal", label: "Wise vs PayPal" },
+  { slug: "remitly-vs-xoom", label: "Remitly vs Xoom" },
+  { slug: "wise-vs-revolut", label: "Wise vs Revolut" },
+  { slug: "remitly-vs-taptap-send", label: "Remitly vs TapTap Send" },
+  { slug: "remitly-vs-moneygram", label: "Remitly vs MoneyGram" },
+  { slug: "wise-vs-taptap-send", label: "Wise vs TapTap Send" },
+  { slug: "paypal-vs-xoom", label: "PayPal vs Xoom" },
+  { slug: "remitly-vs-revolut", label: "Remitly vs Revolut" },
+  { slug: "wise-vs-xoom", label: "Wise vs Xoom" },
+  { slug: "western-union-vs-moneygram", label: "Western Union vs MoneyGram" },
+  { slug: "remitly-vs-worldremit", label: "Remitly vs WorldRemit" },
+  { slug: "wise-vs-ofx", label: "Wise vs OFX" },
+  { slug: "wise-vs-worldremit", label: "Wise vs WorldRemit" },
+  { slug: "moneygram-vs-taptap-send", label: "MoneyGram vs TapTap Send" },
+  { slug: "remitly-vs-paypal", label: "Remitly vs PayPal" },
+  { slug: "western-union-vs-worldremit", label: "Western Union vs WorldRemit" },
+  { slug: "xoom-vs-taptap-send", label: "Xoom vs TapTap Send" },
+  { slug: "paypal-vs-moneygram", label: "PayPal vs MoneyGram" },
+  { slug: "worldremit-vs-revolut", label: "WorldRemit vs Revolut" },
+  { slug: "remitly-vs-xe", label: "Remitly vs XE" },
+  { slug: "ofx-vs-xe", label: "OFX vs XE" },
+  { slug: "revolut-vs-taptap-send", label: "Revolut vs TapTap Send" },
+  { slug: "worldremit-vs-taptap-send", label: "WorldRemit vs TapTap Send" },
+  { slug: "ofx-vs-moneygram", label: "OFX vs MoneyGram" },
+  { slug: "western-union-vs-paypal", label: "Western Union vs PayPal" },
+];
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
@@ -477,6 +509,40 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 className="text-sm font-medium text-[var(--color-primary)] hover:underline"
               >
                 Compare all providers side-by-side &rarr;
+              </Link>
+            </div>
+          </div>
+
+          {/* ── Popular comparisons — links each highest-GSC-signal /compare/[slug] ──
+              page directly from the homepage. Anchor text matches the exact query
+              ("wise vs paypal" → 291 impressions/90d at pos 11.7) so Google can
+              correlate inbound link signal with the query intent. */}
+          <div className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-[var(--color-outline)]">
+            <div className="text-center mb-5 sm:mb-8">
+              <h3 className="text-lg sm:text-xl font-semibold text-[var(--color-on-surface)]">
+                Popular head-to-head comparisons
+              </h3>
+              <p className="text-2sm sm:text-sm text-[var(--color-on-surface-variant)] mt-1.5 max-w-xl mx-auto">
+                The provider matchups people search most. Side-by-side fees, rates and speed.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5 max-w-5xl mx-auto">
+              {POPULAR_COMPARISONS.map(({ slug, label }) => (
+                <Link
+                  key={slug}
+                  href={`/compare/${slug}`}
+                  className="text-2sm sm:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-lg border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] transition-all text-center truncate"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-5 sm:mt-6">
+              <Link
+                href="/compare"
+                className="text-sm font-medium text-[var(--color-primary)] hover:underline"
+              >
+                See all head-to-head comparisons &rarr;
               </Link>
             </div>
           </div>
