@@ -1,9 +1,12 @@
 /**
  * GSC-validated slugs that earned ≥10 impressions in the 90-day window
- * Feb 18 – May 19, 2026. These are the URLs the sitemap submits.
+ * 2026-02-17 – 2026-05-18. These are the URLs the sitemap submits.
  *
- * Re-run scripts/regenerate-sitemap-allowlist.ts when the next GSC pull
- * is fresh enough to recalibrate.
+ * Regenerate via: npx tsx scripts/regen-sitemap-allowlists.ts
+ *
+ * The script overwrites this file; diff it before committing so reviewers can
+ * see which URLs are joining or leaving the sitemap instead of the change
+ * being silent.
  */
 
 export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
@@ -13,7 +16,6 @@ export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
   "aud-to-cop",
   "aud-to-eur",
   "aud-to-fjd",
-  "aud-to-gbp",
   "aud-to-idr",
   "aud-to-lkr",
   "aud-to-usd",
@@ -70,12 +72,10 @@ export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
   "denmark-to-china",
   "denmark-to-colombia",
   "germany-to-ghana",
+  "send-money-to-morocco",
+  "send-money-to-spain",
   "uk-to-bangladesh",
-  // Note: GSC also showed impressions on legacy /send-money/send-money-to-morocco
-  // and /send-money/send-money-to-spain (auto-generated dupes of /send-money/morocco
-  // and /send-money/spain). Those aren't in src/data/corridors.ts and shouldn't
-  // be submitted — they're a separate duplicate-content issue to fix later.
-]); // 64 URLs
+]); // 65 URLs
 
 export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "best-money-transfer-apps",
