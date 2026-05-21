@@ -4,6 +4,7 @@ import { routing } from "./i18n/routing";
 import { COUNTRY_TO_CURRENCY } from "./data/geo-corridors";
 import { shouldNoindexPath } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
+import { getCompareCanonicalSlug } from "./lib/compare-canonical";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -151,6 +152,23 @@ export default function middleware(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = request.nextUrl.pathname.replace(KILLED_LOCALE_PREFIXES, "/");
     return NextResponse.redirect(url, 301);
+  }
+
+  // 301 non-canonical /compare/X-vs-Y directions to the canonical direction.
+  // Previously both directions rendered 200 with a <link rel="canonical">
+  // pointing at the winner; that works for Google but is fragile for Bing
+  // and AI crawlers (Copilot, ChatGPT, Perplexity). Per Bing Webmaster Blog
+  // Dec 2025, "Use 301 redirects to consolidate URL variants" — a 301 is
+  // an unambiguous dedup signal that LLMs honor when picking grounding URLs.
+  const compareMatch = request.nextUrl.pathname.match(/^\/compare\/([a-z0-9-]+)$/);
+  if (compareMatch) {
+    const slug = compareMatch[1];
+    const canonicalSlug = getCompareCanonicalSlug(slug);
+    if (canonicalSlug !== slug) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/compare/${canonicalSlug}`;
+      return NextResponse.redirect(url, 301);
+    }
   }
 
   // Block spam bots at the edge — return 403 before any processing

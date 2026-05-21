@@ -172,7 +172,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: custom?.title ?? `${a.name} vs ${b.name}: Which Gives You More Money?`,
       description: custom?.desc ?? `We tested ${a.name} and ${b.name} side by side across 6 corridors. See which delivers more in ${year}.`,
-      url: `https://sendmoneycompare.com/compare/${slug}`,
+      // og:url must match the canonical, not the request slug. Bing and AI
+      // crawlers treat og:url as a secondary canonical hint; mismatching it
+      // with <link rel="canonical"> weakens both signals.
+      url: `https://sendmoneycompare.com/compare/${canonicalSlug}`,
     },
   };
 }
@@ -762,9 +765,33 @@ function DefaultComparison({
     { label: "Founded", valueA: String(a.founded), valueB: String(b.founded), winner: "tie" as const },
   ];
 
+  // Middleware 301s any non-canonical /compare/X-vs-Y to the canonical
+  // direction, so the slug we render here is always the canonical one.
+  const canonicalUrl = `https://sendmoneycompare.com/compare/${a.slug}-vs-${b.slug}`;
+
   return (
     <>
       <ScrollTracker slug={`${a.slug}-vs-${b.slug}`} contentType="comparison" />
+      {/* JSON-LD: WebPage with explicit canonical — reinforces <link rel="canonical">
+          for AI grounding (Bing/Copilot/Perplexity use schema as a secondary signal). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": canonicalUrl,
+            url: canonicalUrl,
+            name: `${a.name} vs ${b.name}`,
+            isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+            primaryImageOfPage: { "@type": "ImageObject", url: "https://sendmoneycompare.com/opengraph-image" },
+            about: [
+              { "@type": "FinancialService", name: a.name },
+              { "@type": "FinancialService", name: b.name },
+            ],
+          }),
+        }}
+      />
       {/* JSON-LD: BreadcrumbList */}
       <script
         type="application/ld+json"
@@ -775,7 +802,7 @@ function DefaultComparison({
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
               { "@type": "ListItem", position: 2, name: "Compare", item: "https://sendmoneycompare.com/compare" },
-              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://sendmoneycompare.com/compare/${a.slug}-vs-${b.slug}` },
+              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: canonicalUrl },
             ],
           }),
         }}

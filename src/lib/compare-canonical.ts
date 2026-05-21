@@ -204,12 +204,41 @@ const GSC_WINNING_SLUGS = new Set<string>([
 ]);
 
 /**
+ * Editorial article slugs from src/data/comparison-articles.ts. Maintained
+ * separately (rather than imported) so this module stays edge-runtime safe
+ * for middleware — comparison-articles.ts pulls in providers, scraped quote
+ * data, and ~7000 lines we don't want in the edge bundle.
+ *
+ * Editorial slugs are always canonical: the editorial owner deliberately
+ * picked the direction, often the one Google already indexes. Keep this list
+ * in sync when a new editorial article ships.
+ */
+const EDITORIAL_COMPARE_SLUGS = new Set<string>([
+  "wise-vs-remitly", "remitly-vs-xe", "wise-vs-western-union", "wise-vs-xe",
+  "wise-vs-paypal", "remitly-vs-western-union", "wise-vs-revolut",
+  "remitly-vs-xoom", "remitly-vs-taptap-send", "remitly-vs-revolut",
+  "remitly-vs-moneygram", "chase-vs-revolut", "wise-vs-westpac",
+  "chase-vs-hsbc", "boss-money-vs-remitly", "lloyds-vs-nationwide",
+  "western-union-vs-bank-of-america", "paypal-vs-xoom", "moneygram-vs-revolut",
+  "moneygram-vs-wise", "moneygram-vs-worldremit", "moneygram-vs-xoom",
+  "paypal-vs-revolut", "paypal-vs-western-union", "paypal-vs-worldremit",
+  "remitly-vs-worldremit", "revolut-vs-western-union", "revolut-vs-worldremit",
+  "revolut-vs-xoom", "western-union-vs-worldremit", "western-union-vs-xoom",
+  "wise-vs-worldremit", "wise-vs-moneygram", "wise-vs-xoom",
+  "worldremit-vs-xoom", "xe-vs-moneygram", "xe-vs-paypal", "xe-vs-revolut",
+  "xe-vs-western-union", "xe-vs-worldremit", "xe-vs-xoom",
+  "remitly-vs-paypal", "paypal-vs-moneygram",
+]);
+
+/**
  * Returns the canonical /compare/X-vs-Y slug for a given input.
  *
- * Rules:
- *  1. If the slug itself is the GSC-winning direction, it's canonical.
- *  2. If the reverse is the GSC-winning direction, return that.
- *  3. Otherwise (no GSC signal either direction yet), return alphabetical.
+ * Rules (first match wins):
+ *  1. If the slug is an editorial article, it's canonical.
+ *  2. If the reverse is an editorial article, return that.
+ *  3. If the slug is the GSC-winning direction, it's canonical.
+ *  4. If the reverse is the GSC-winning direction, return that.
+ *  5. Otherwise (no GSC signal either direction yet), return alphabetical.
  *
  * Returns the input unchanged if it doesn't match the X-vs-Y pattern
  * (let the page handle the 404 via parseSlug).
@@ -217,9 +246,11 @@ const GSC_WINNING_SLUGS = new Set<string>([
 export function getCompareCanonicalSlug(slug: string): string {
   const parts = slug.split("-vs-");
   if (parts.length !== 2) return slug;
-  if (GSC_WINNING_SLUGS.has(slug)) return slug;
   const [a, b] = parts;
   const reverse = `${b}-vs-${a}`;
+  if (EDITORIAL_COMPARE_SLUGS.has(slug)) return slug;
+  if (EDITORIAL_COMPARE_SLUGS.has(reverse)) return reverse;
+  if (GSC_WINNING_SLUGS.has(slug)) return slug;
   if (GSC_WINNING_SLUGS.has(reverse)) return reverse;
   // No GSC signal — default to alphabetical
   const [first, second] = [a, b].sort();
