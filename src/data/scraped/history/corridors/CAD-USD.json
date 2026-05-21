@@ -3466,58 +3466,64 @@
         "receiveAmount": 70
       },
       "worldremit": {
-        "rate": 0.7127,
+        "rate": 0.7121,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 68.42
+        "receiveAmount": 68.37
       },
       "instarem": {
-        "rate": 0.7234,
+        "rate": 0.723,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 72.34
+        "receiveAmount": 72.3
       },
       "bmo": {
-        "rate": 0.7003,
+        "rate": 0.6997,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 70.03
+        "receiveAmount": 69.97
       },
       "remitly": {
-        "rate": 0.7232,
+        "rate": 0.7229,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 72.32
+        "receiveAmount": 72.29
       },
       "td-bank": {
-        "rate": 0.7063,
+        "rate": 0.706,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 70.63
+        "receiveAmount": 70.6
       },
       "bnc": {
-        "rate": 0.7095,
+        "rate": 0.7093,
         "fee": 5.95,
         "markup": null,
-        "receiveAmount": 66.73
+        "receiveAmount": 66.71
       },
       "xoom": {
-        "rate": 0.6894,
+        "rate": 0.6908,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 66.88
+        "receiveAmount": 67.01
       },
       "rbc": {
-        "rate": 0.7114,
+        "rate": 0.7109,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 71.14
+        "receiveAmount": 71.09
       },
       "paypal": {
-        "rate": 0.6964,
+        "rate": 0.6966,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 67.56
+        "receiveAmount": 67.58
+      },
+      "lemfi": {
+        "rate": 0.723,
+        "fee": 0,
+        "markup": 0.5,
+        "receiveAmount": 72.3
       }
     }
   }

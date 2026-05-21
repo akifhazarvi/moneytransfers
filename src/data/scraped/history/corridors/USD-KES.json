@@ -4407,16 +4407,22 @@
         "receiveAmount": 12758.29
       },
       "remitly": {
-        "rate": 127.59,
+        "rate": 127.6,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 12759
+        "receiveAmount": 12760
       },
       "wise": {
         "rate": 129.5,
         "fee": 3.69,
         "markup": null,
         "receiveAmount": 12472
+      },
+      "lemfi": {
+        "rate": 128.2,
+        "fee": 0,
+        "markup": 0.96,
+        "receiveAmount": 12820
       }
     }
   }

@@ -6627,10 +6627,10 @@
     "date": "2026-05-21",
     "providers": {
       "moneygram": {
-        "rate": 71.3495,
+        "rate": 71.3661,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 7028.64
+        "receiveAmount": 7030.27
       },
       "taptap-send": {
         "rate": 70.9,
@@ -6669,16 +6669,16 @@
         "receiveAmount": 5070.88
       },
       "worldremit": {
-        "rate": 71.0481,
+        "rate": 71.0646,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 7104.81
+        "receiveAmount": 7106.46
       },
       "instarem": {
-        "rate": 71.3461,
+        "rate": 71.1908,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 7134.61
+        "receiveAmount": 7119.08
       },
       "xe": {
         "rate": 70.8689,
@@ -6699,10 +6699,10 @@
         "receiveAmount": 6977.95
       },
       "remitly": {
-        "rate": 70.0755,
+        "rate": 70.0828,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 6938.18
+        "receiveAmount": 6938.89
       },
       "revolut": {
         "rate": 71.1735,
@@ -6711,10 +6711,10 @@
         "receiveAmount": 7096
       },
       "wise": {
-        "rate": 71.5962,
+        "rate": 71.6046,
         "fee": 1.68,
         "markup": null,
-        "receiveAmount": 7039.34
+        "receiveAmount": 7040.16
       },
       "ria": {
         "rate": 71.3115,
@@ -6723,22 +6723,28 @@
         "receiveAmount": 7375.99
       },
       "monese": {
-        "rate": 71.4812,
+        "rate": 71.3957,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 6933.68
+        "receiveAmount": 6925.38
       },
       "xoom": {
-        "rate": 69.8284,
+        "rate": 69.7132,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 6774.05
+        "receiveAmount": 6762.88
       },
       "paypal": {
-        "rate": 68.2667,
+        "rate": 68.1705,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 6554.29
+        "receiveAmount": 6545.05
+      },
+      "lemfi": {
+        "rate": 70.92,
+        "fee": 0,
+        "markup": 0.95,
+        "receiveAmount": 7092
       }
     }
   }

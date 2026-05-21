@@ -4317,10 +4317,10 @@
         "receiveAmount": 136204.57
       },
       "remitly": {
-        "rate": 1362.76,
+        "rate": 1362.82,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 136276
+        "receiveAmount": 136282
       },
       "xoom": {
         "rate": 1343.2607,
@@ -4333,6 +4333,12 @@
         "fee": 1.71,
         "markup": null,
         "receiveAmount": 135157.6
+      },
+      "lemfi": {
+        "rate": 1365,
+        "fee": 0,
+        "markup": 0.45,
+        "receiveAmount": 136500
       }
     }
   }

@@ -6303,10 +6303,10 @@
     "date": "2026-05-21",
     "providers": {
       "instarem": {
-        "rate": 60.5924,
+        "rate": 60.4443,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6059.24
+        "receiveAmount": 6044.43
       },
       "moneygram": {
         "rate": 60.5918,
@@ -6375,16 +6375,16 @@
         "receiveAmount": 6025.31
       },
       "bank-of-america": {
-        "rate": 59.5503,
+        "rate": 59.5651,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5955.03
+        "receiveAmount": 5956.51
       },
       "remitly": {
-        "rate": 59.8242,
+        "rate": 59.8156,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5982.42
+        "receiveAmount": 5981.56
       },
       "revolut": {
         "rate": 61.2447,
@@ -6393,16 +6393,22 @@
         "receiveAmount": 6078.54
       },
       "wise": {
-        "rate": 61.6079,
+        "rate": 61.5996,
         "fee": 1.65,
         "markup": null,
-        "receiveAmount": 6059.14
+        "receiveAmount": 6058.32
       },
       "wells-fargo": {
-        "rate": 59.5971,
+        "rate": 59.6119,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5959.71
+        "receiveAmount": 5961.19
+      },
+      "lemfi": {
+        "rate": 61.69,
+        "fee": 0,
+        "markup": -0.15,
+        "receiveAmount": 6169
       }
     }
   }

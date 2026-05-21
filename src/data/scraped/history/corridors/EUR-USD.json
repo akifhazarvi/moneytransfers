@@ -3819,64 +3819,70 @@
         "receiveAmount": 113
       },
       "commerzbank": {
-        "rate": 1.1596,
+        "rate": 1.1593,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 101.46
+        "receiveAmount": 101.44
       },
       "worldremit": {
-        "rate": 1.137,
+        "rate": 1.1367,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 111.44
+        "receiveAmount": 111.41
       },
       "moneygram": {
-        "rate": 1.1452,
+        "rate": 1.1449,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 112.24
+        "receiveAmount": 112.21
       },
       "remitly": {
-        "rate": 1.146,
+        "rate": 1.1459,
         "fee": 2.99,
         "markup": null,
         "receiveAmount": 111.17
       },
       "skrill": {
-        "rate": 1.1288,
+        "rate": 1.1286,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 112.88
+        "receiveAmount": 112.86
       },
       "xoom": {
-        "rate": 1.0791,
+        "rate": 1.0784,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 105.76
+        "receiveAmount": 105.7
       },
       "paypal": {
-        "rate": 1.1118,
+        "rate": 1.1121,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 106.75
+        "receiveAmount": 106.78
       },
       "deutsche-bank": {
-        "rate": 1.1592,
+        "rate": 1.1589,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 73.55
+        "receiveAmount": 73.53
       },
       "monese": {
-        "rate": 1.1623,
+        "rate": 1.162,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 112.74
+        "receiveAmount": 112.72
       },
       "instarem": {
-        "rate": 1.1538,
+        "rate": 1.1535,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 115.38
+        "receiveAmount": 115.35
+      },
+      "lemfi": {
+        "rate": 1.161,
+        "fee": 0,
+        "markup": 0.11,
+        "receiveAmount": 116.1
       }
     }
   }

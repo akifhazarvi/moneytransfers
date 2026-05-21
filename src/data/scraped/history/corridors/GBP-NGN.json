@@ -5169,10 +5169,10 @@
         "receiveAmount": 183500
       },
       "western-union": {
-        "rate": 1816.6141,
+        "rate": 1816.142,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 176229.73
+        "receiveAmount": 176183.94
       },
       "profee": {
         "rate": 1859.659,
@@ -5223,28 +5223,34 @@
         "receiveAmount": 182445.93
       },
       "remitly": {
-        "rate": 1852.63,
+        "rate": 1852.71,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 185263
+        "receiveAmount": 185271
       },
       "xoom": {
-        "rate": 1811.8839,
+        "rate": 1812.3573,
         "fee": 0.89,
         "markup": null,
-        "receiveAmount": 179575.82
+        "receiveAmount": 179622.73
       },
       "wise": {
-        "rate": 1847.23,
+        "rate": 1846.81,
         "fee": 1.23,
         "markup": null,
-        "receiveAmount": 182450.91
+        "receiveAmount": 182409.42
       },
       "ria": {
         "rate": 1855,
         "fee": 1.99,
         "markup": null,
         "receiveAmount": 187774.58
+      },
+      "lemfi": {
+        "rate": 1835,
+        "fee": 0,
+        "markup": 0.36,
+        "receiveAmount": 183500
       }
     }
   }

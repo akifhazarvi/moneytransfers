@@ -6303,10 +6303,10 @@
         "receiveAmount": 4425.71
       },
       "instarem": {
-        "rate": 44.5286,
+        "rate": 44.3791,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4452.86
+        "receiveAmount": 4437.91
       },
       "xe": {
         "rate": 44.3412,
@@ -6333,16 +6333,16 @@
         "receiveAmount": 4388.53
       },
       "remitly": {
-        "rate": 44.53,
+        "rate": 44.47,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4453
+        "receiveAmount": 4447
       },
       "wise": {
-        "rate": 44.7658,
+        "rate": 44.7617,
         "fee": 2.58,
         "markup": null,
-        "receiveAmount": 4361.08
+        "receiveAmount": 4360.68
       },
       "taptap-send": {
         "rate": 44.4,
@@ -6351,28 +6351,28 @@
         "receiveAmount": 4440
       },
       "paypal": {
-        "rate": 42.8045,
+        "rate": 42.7085,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 4066.86
+        "receiveAmount": 4057.74
       },
       "xoom": {
-        "rate": 43.926,
+        "rate": 43.7825,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4392.6
+        "receiveAmount": 4378.25
       },
       "bmo": {
-        "rate": 41.5343,
+        "rate": 41.484,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4153.43
+        "receiveAmount": 4148.4
       },
       "rbc": {
-        "rate": 43.611,
+        "rate": 43.5581,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4361.1
+        "receiveAmount": 4355.81
       },
       "skrill": {
         "rate": 43.4593,
@@ -6385,6 +6385,12 @@
         "fee": 0.99,
         "markup": null,
         "receiveAmount": 4552.57
+      },
+      "lemfi": {
+        "rate": 44.67,
+        "fee": 0,
+        "markup": 0.21,
+        "receiveAmount": 4467
       }
     }
   }

@@ -1850,28 +1850,34 @@
         "receiveAmount": 373400
       },
       "remitly": {
-        "rate": 3678.66,
+        "rate": 3683.7743,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 356867
+        "receiveAmount": 357363
       },
       "xoom": {
-        "rate": 3594.2368,
+        "rate": 3597.278,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 345083
+        "receiveAmount": 345375
       },
       "instarem": {
-        "rate": 3736.6093,
+        "rate": 3741.8083,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 373661
+        "receiveAmount": 374181
       },
       "wise": {
-        "rate": 3766.05,
+        "rate": 3773.34,
         "fee": 3.22,
         "markup": null,
-        "receiveAmount": 364478
+        "receiveAmount": 365184
+      },
+      "lemfi": {
+        "rate": 3730,
+        "fee": 0,
+        "markup": 1.16,
+        "receiveAmount": 373000
       }
     }
   }

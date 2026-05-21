@@ -4893,10 +4893,10 @@
         "receiveAmount": 1146
       },
       "instarem": {
-        "rate": 11.4379,
+        "rate": 11.4355,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1143.79
+        "receiveAmount": 1143.55
       },
       "xe": {
         "rate": 11.4633,
@@ -4929,16 +4929,22 @@
         "receiveAmount": 1135.85
       },
       "wise": {
-        "rate": 11.5485,
-        "fee": 3.76,
+        "rate": 11.5438,
+        "fee": 3.78,
         "markup": null,
-        "receiveAmount": 1111.43
+        "receiveAmount": 1110.74
       },
       "xoom": {
         "rate": 11.4063,
         "fee": 0,
         "markup": null,
         "receiveAmount": 1140.63
+      },
+      "lemfi": {
+        "rate": 11.46,
+        "fee": 0,
+        "markup": 0.72,
+        "receiveAmount": 1146
       }
     }
   }

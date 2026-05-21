@@ -1671,10 +1671,10 @@
         "receiveAmount": 1316.89
       },
       "instarem": {
-        "rate": 13.0539,
+        "rate": 13.0466,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1305.39
+        "receiveAmount": 1304.66
       },
       "xe": {
         "rate": 13.286,
@@ -1695,10 +1695,10 @@
         "receiveAmount": 1330.06
       },
       "remitly": {
-        "rate": 13.301,
+        "rate": 13.2988,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 1316.93
+        "receiveAmount": 1316.72
       },
       "revolut": {
         "rate": 13.2988,
@@ -1707,16 +1707,22 @@
         "receiveAmount": 1325.89
       },
       "wise": {
-        "rate": 13.4269,
-        "fee": 2.97,
+        "rate": 13.4179,
+        "fee": 2.99,
         "markup": null,
-        "receiveAmount": 1302.81
+        "receiveAmount": 1301.67
       },
       "ria": {
         "rate": 13.2526,
         "fee": 0.9,
         "markup": null,
         "receiveAmount": 1325.26
+      },
+      "lemfi": {
+        "rate": 13.3006,
+        "fee": 0,
+        "markup": 0.87,
+        "receiveAmount": 1330.06
       }
     }
   }

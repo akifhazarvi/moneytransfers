@@ -3285,10 +3285,10 @@
     "date": "2026-05-21",
     "providers": {
       "moneygram": {
-        "rate": 5.6443,
+        "rate": 5.6421,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 553.19
+        "receiveAmount": 552.98
       },
       "taptap-send": {
         "rate": 5.7,
@@ -3315,10 +3315,10 @@
         "receiveAmount": 560.83
       },
       "instarem": {
-        "rate": 5.758,
+        "rate": 5.7564,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 575.8
+        "receiveAmount": 575.64
       },
       "paysend": {
         "rate": 5.772,
@@ -3333,10 +3333,10 @@
         "receiveAmount": 563.68
       },
       "remitly": {
-        "rate": 5.7066,
+        "rate": 5.7059,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 559.3
+        "receiveAmount": 559.23
       },
       "revolut": {
         "rate": 5.7771,
@@ -3345,34 +3345,40 @@
         "receiveAmount": 575.98
       },
       "skrill": {
-        "rate": 5.6168,
+        "rate": 5.615,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 561.68
+        "receiveAmount": 561.5
       },
       "paypal": {
-        "rate": 5.5552,
+        "rate": 5.5559,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 533.36
+        "receiveAmount": 533.43
       },
       "xoom": {
-        "rate": 5.6746,
+        "rate": 5.6449,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 550.49
+        "receiveAmount": 547.61
       },
       "wise": {
-        "rate": 5.8081,
+        "rate": 5.8066,
         "fee": 1.86,
         "markup": null,
-        "receiveAmount": 570
+        "receiveAmount": 569.86
       },
       "ria": {
         "rate": 5.6,
         "fee": 4.5,
         "markup": null,
         "receiveAmount": 565.25
+      },
+      "lemfi": {
+        "rate": 5.765,
+        "fee": 0,
+        "markup": 1.05,
+        "receiveAmount": 576.5
       }
     }
   }

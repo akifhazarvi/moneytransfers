@@ -6033,10 +6033,10 @@
         "receiveAmount": 4281.68
       },
       "instarem": {
-        "rate": 43.975,
+        "rate": 43.9064,
         "fee": 0.75,
         "markup": null,
-        "receiveAmount": 4364.52
+        "receiveAmount": 4357.71
       },
       "xe": {
         "rate": 43.7347,
@@ -6057,10 +6057,10 @@
         "receiveAmount": 4116.22
       },
       "remitly": {
-        "rate": 43.3225,
+        "rate": 43.1668,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4332.25
+        "receiveAmount": 4316.68
       },
       "revolut": {
         "rate": 43.6514,
@@ -6069,46 +6069,46 @@
         "receiveAmount": 4347.24
       },
       "wise": {
-        "rate": 43.9935,
+        "rate": 43.9108,
         "fee": 1.46,
         "markup": null,
-        "receiveAmount": 4335.12
+        "receiveAmount": 4326.97
       },
       "taptap-send": {
-        "rate": 43.3,
+        "rate": 43.5,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4330
+        "receiveAmount": 4350
       },
       "hsbc": {
-        "rate": 43.1041,
+        "rate": 43.0104,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4310.41
+        "receiveAmount": 4301.04
       },
       "commonwealth-bank": {
-        "rate": 42.2541,
+        "rate": 42.0147,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4225.41
+        "receiveAmount": 4201.47
       },
       "westpac": {
-        "rate": 42.2218,
+        "rate": 42.1301,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4222.18
+        "receiveAmount": 4213.01
       },
       "paypal": {
-        "rate": 41.7467,
+        "rate": 41.7413,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 3965.94
+        "receiveAmount": 3965.42
       },
       "xoom": {
-        "rate": 45.0453,
+        "rate": 45.0552,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4504.53
+        "receiveAmount": 4505.52
       },
       "skrill": {
         "rate": 42.6201,
@@ -6121,6 +6121,12 @@
         "fee": 2.89,
         "markup": null,
         "receiveAmount": 4512.21
+      },
+      "lemfi": {
+        "rate": 43.885,
+        "fee": 0,
+        "markup": 0.05,
+        "receiveAmount": 4388.5
       }
     }
   }

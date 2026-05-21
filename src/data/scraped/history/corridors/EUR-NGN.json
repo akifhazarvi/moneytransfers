@@ -4329,10 +4329,10 @@
         "receiveAmount": 157258.26
       },
       "instarem": {
-        "rate": 1582.4165,
+        "rate": 1581.582,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 158241.65
+        "receiveAmount": 158158.2
       },
       "paysend": {
         "rate": 1581.9055,
@@ -4347,10 +4347,10 @@
         "receiveAmount": 157258.26
       },
       "remitly": {
-        "rate": 1587.61,
+        "rate": 1587.14,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 158761
+        "receiveAmount": 158714
       },
       "ria": {
         "rate": 1576.5196,
@@ -4359,16 +4359,22 @@
         "receiveAmount": 158436.6
       },
       "xoom": {
-        "rate": 1549.3305,
+        "rate": 1551.8928,
         "fee": 0.49,
         "markup": null,
-        "receiveAmount": 154173.88
+        "receiveAmount": 154428.85
       },
       "wise": {
-        "rate": 1598.75,
+        "rate": 1598.34,
         "fee": 1.72,
         "markup": null,
-        "receiveAmount": 157125.15
+        "receiveAmount": 157084.86
+      },
+      "lemfi": {
+        "rate": 1605,
+        "fee": 0,
+        "markup": -0.71,
+        "receiveAmount": 160500
       }
     }
   }

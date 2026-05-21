@@ -2937,10 +2937,10 @@
         "receiveAmount": 1060
       },
       "deutsche-bank": {
-        "rate": 10.4729,
+        "rate": 10.4609,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 664.51
+        "receiveAmount": 663.74
       },
       "western-union": {
         "rate": 10.5871,
@@ -2973,10 +2973,10 @@
         "receiveAmount": 1042.5
       },
       "remitly": {
-        "rate": 10.4691,
+        "rate": 10.4808,
         "fee": 0.49,
         "markup": null,
-        "receiveAmount": 1041.78
+        "receiveAmount": 1042.94
       },
       "revolut": {
         "rate": 10.6109,
@@ -2985,22 +2985,22 @@
         "receiveAmount": 1057.91
       },
       "wise": {
-        "rate": 10.7218,
+        "rate": 10.7256,
         "fee": 6,
         "markup": null,
-        "receiveAmount": 1007.85
+        "receiveAmount": 1008.21
       },
       "xoom": {
-        "rate": 10.3794,
+        "rate": 10.3906,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 1022.47
+        "receiveAmount": 1023.58
       },
       "commerzbank": {
-        "rate": 10.3772,
+        "rate": 10.3653,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 908
+        "receiveAmount": 906.96
       },
       "skrill": {
         "rate": 10.4122,
@@ -3013,6 +3013,12 @@
         "fee": 0.49,
         "markup": null,
         "receiveAmount": 1098.36
+      },
+      "lemfi": {
+        "rate": 10.67,
+        "fee": 0,
+        "markup": 0.45,
+        "receiveAmount": 1067
       }
     }
   }

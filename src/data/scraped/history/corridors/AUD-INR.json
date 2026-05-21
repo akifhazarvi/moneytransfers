@@ -5883,10 +5883,10 @@
         "receiveAmount": 6676.69
       },
       "instarem": {
-        "rate": 69.221,
+        "rate": 68.4615,
         "fee": 0.6,
         "markup": null,
-        "receiveAmount": 6880.57
+        "receiveAmount": 6805.07
       },
       "paysend": {
         "rate": 67.1084,
@@ -5895,10 +5895,10 @@
         "receiveAmount": 6710.84
       },
       "remitly": {
-        "rate": 68.4672,
+        "rate": 67.7174,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 6778.94
+        "receiveAmount": 6704.7
       },
       "revolut": {
         "rate": 68.1646,
@@ -5913,34 +5913,34 @@
         "receiveAmount": 6860
       },
       "commonwealth-bank": {
-        "rate": 67.6922,
+        "rate": 67.0703,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6769.22
+        "receiveAmount": 6707.03
       },
       "westpac": {
-        "rate": 66.405,
+        "rate": 65.9103,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6640.5
+        "receiveAmount": 6591.03
       },
       "hsbc": {
-        "rate": 67.6362,
+        "rate": 67.1324,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6763.62
+        "receiveAmount": 6713.24
       },
       "xoom": {
-        "rate": 69.7882,
+        "rate": 69.0208,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 6978.82
+        "receiveAmount": 6902.08
       },
       "wise": {
-        "rate": 69.0843,
+        "rate": 68.6008,
         "fee": 1.41,
         "markup": null,
-        "receiveAmount": 6811.02
+        "receiveAmount": 6763.35
       },
       "skrill": {
         "rate": 66.802,
@@ -5953,6 +5953,12 @@
         "fee": 2.89,
         "markup": null,
         "receiveAmount": 6982.45
+      },
+      "lemfi": {
+        "rate": 68.544,
+        "fee": 0,
+        "markup": -0.02,
+        "receiveAmount": 6854.4
       }
     }
   }

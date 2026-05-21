@@ -1580,22 +1580,28 @@
         "receiveAmount": 907
       },
       "remitly": {
-        "rate": 9.1182,
+        "rate": 9.105,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 911.82
+        "receiveAmount": 910.5
       },
       "xoom": {
-        "rate": 8.8738,
+        "rate": 8.8814,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 843.1
+        "receiveAmount": 843.82
       },
       "wise": {
-        "rate": 9.215,
+        "rate": 9.2277,
         "fee": 6.19,
         "markup": null,
-        "receiveAmount": 864.46
+        "receiveAmount": 865.65
+      },
+      "lemfi": {
+        "rate": 9.31,
+        "fee": 0,
+        "markup": -0.96,
+        "receiveAmount": 931
       }
     }
   }
