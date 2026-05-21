@@ -10,6 +10,7 @@ import LazyNewsTicker from "@/components/LazyNewsTicker";
 import HomeDynamicSection from "@/components/HomeDynamicSection";
 import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
 import { providers } from "@/data/providers";
+import { providerReviews } from "@/data/provider-reviews";
 import { getLatestNews } from "@/data/news";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -19,6 +20,20 @@ const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", 
 const featuredProviders = featuredProviderSlugs
   .map((slug) => providers.find((p) => p.slug === slug)!)
   .filter(Boolean);
+
+// Every reviewed provider, ordered by editor rating descending. Surfaced on the
+// homepage as a dense link rail so internal link equity flows from the strongest
+// page (the homepage) directly to every /companies/[slug] review. As of the
+// May 20 audit, 9 of the 15 reviewed providers had 0 impressions in 28d
+// despite being valid pages — most likely "Crawled – not indexed" status,
+// which improves with stronger inbound link signal.
+const allReviewedProviders = providerReviews
+  .map((r) => ({
+    review: r,
+    provider: providers.find((p) => p.slug === r.slug)!,
+  }))
+  .filter((x) => x.provider)
+  .sort((a, b) => b.review.editorRating - a.review.editorRating);
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -412,10 +427,58 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
           </div>
 
-          <div className="text-center mt-6 sm:mt-8">
-            <Link href="/companies" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
-              {tBest("seeAll")} &rarr;
-            </Link>
+          {/* ── All provider reviews — every reviewed /companies/[slug] gets ──
+              an inbound link from the homepage so link equity flows down to
+              the leaf pages. Anchor text is "<Provider> review" so it matches
+              the exact query intent ("wise review", "xoom review", etc.). */}
+          <div className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-[var(--color-outline)]">
+            <div className="text-center mb-5 sm:mb-8">
+              <h3 className="text-lg sm:text-xl font-semibold text-[var(--color-on-surface)]">
+                All provider reviews
+              </h3>
+              <p className="text-2sm sm:text-sm text-[var(--color-on-surface-variant)] mt-1.5 max-w-xl mx-auto">
+                In-depth, independently rated reviews of every major money transfer service.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 max-w-5xl mx-auto">
+              {allReviewedProviders.map(({ provider, review }) => (
+                <Link
+                  key={provider.slug}
+                  href={`/companies/${provider.slug}`}
+                  className="group flex items-center gap-2.5 p-2.5 sm:p-3 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all"
+                  aria-label={`${provider.name} review`}
+                >
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0">
+                    <Image
+                      src={provider.logo}
+                      alt={`${provider.name} logo`}
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-contain p-1"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-sm font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] truncate">
+                      {provider.name} review
+                    </div>
+                    <div className="text-2xs text-[var(--color-on-surface-variant)] flex items-center gap-1">
+                      <span className="font-medium text-[var(--color-on-surface)]">
+                        {review.editorRating.toFixed(1)}
+                      </span>
+                      <span aria-hidden="true">/10</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-5 sm:mt-6">
+              <Link
+                href="/companies"
+                className="text-sm font-medium text-[var(--color-primary)] hover:underline"
+              >
+                Compare all providers side-by-side &rarr;
+              </Link>
+            </div>
           </div>
         </Container>
       </section>
