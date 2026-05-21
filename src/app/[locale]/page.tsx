@@ -9,6 +9,7 @@ import YouTubeEmbed from "@/components/YouTubeEmbed";
 import LazyNewsTicker from "@/components/LazyNewsTicker";
 import HomeDynamicSection from "@/components/HomeDynamicSection";
 import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
+import MobileDetailsRail from "@/components/MobileDetailsRail";
 import { providers } from "@/data/providers";
 import { providerReviews } from "@/data/provider-reviews";
 import { getLatestNews } from "@/data/news";
@@ -231,7 +232,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <HomeDynamicSection />
       </HomeSelectionProvider>
 
-      {/* ─── TRUST STRIP + WHY TRUST US (compressed) ─── */}
+      {/* ─── TRUST STRIP + WHY TRUST US — collapsed on mobile to keep Send CTAs near the fold ─── */}
+      <MobileDetailsRail label={`Why trust SendMoneyCompare`}>
       <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)] py-6 sm:py-12">
         <Container>
           {/* Top row — quick chips (mobile: scroll, desktop: row) */}
@@ -310,8 +312,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </Container>
       </section>
+      </MobileDetailsRail>
 
-      {/* ─── 3. HOW IT WORKS ─── */}
+      {/* ─── 3. HOW IT WORKS — collapsed on mobile ─── */}
+      <MobileDetailsRail label="How it works">
       <section id="how-it-works" className="py-6 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="text-center mb-4 sm:mb-10">
@@ -350,8 +354,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </Container>
       </section>
+      </MobileDetailsRail>
 
-      {/* ─── PROVIDERS — Top + By Use Case stacked, no JS tabs ─── */}
+      {/* ─── PROVIDERS — Top + By Use Case + All Reviewed + Comparisons.
+           Collapsed on mobile so live results stay closer to the fold;
+           preserved in DOM for internal link equity (per May 20 audit). ─── */}
+      <MobileDetailsRail label="Top providers, reviews & comparisons">
       <section id="providers" className="py-8 sm:py-14">
         <Container>
           <div className="text-center mb-6 sm:mb-10">
@@ -548,8 +556,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </Container>
       </section>
+      </MobileDetailsRail>
 
-      {/* ─── FAQ (collapsed by default) — video embedded in answer #6 ─── */}
+      {/* ─── FAQ — collapsed on mobile; FAQPage schema preserved in DOM ─── */}
+      <MobileDetailsRail label="Frequently asked questions">
       <section id="faq" className="py-8 sm:py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
@@ -603,6 +613,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </Container>
       </section>
+      </MobileDetailsRail>
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
 
