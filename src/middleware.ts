@@ -185,7 +185,20 @@ export default function middleware(request: NextRequest) {
   // enforces this at build time.
   const csp = [
     `default-src 'self'`,
-    `script-src 'self' 'sha256-${GTAG_INLINE_SHA256}' 'sha256-${THEME_INLINE_SHA256}' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
+    // Next.js App Router emits dozens of inline streaming RSC hydration
+    // scripts (<script>self.__next_f.push(...)) whose content varies per
+    // page and per render — static SHA-256 hashes cannot cover them, and
+    // per-request nonces would force every page into dynamic rendering
+    // (Cache-Control: no-store), which contributed to the May 2026 deindex.
+    //
+    // 'strict-dynamic' is the supported escape hatch: modern browsers
+    // (Chrome 52+, Firefox 53+, Safari 15.4+, Edge 79+) honor the hashes
+    // for the two scripts we control (gtag + theme) and let those trusted
+    // scripts dynamically load further scripts via 'strict-dynamic',
+    // ignoring 'unsafe-inline' entirely. Legacy browsers fall back to
+    // 'unsafe-inline'. Crawlers don't execute scripts under CSP, so this
+    // has no SEO impact.
+    `script-src 'self' 'strict-dynamic' 'unsafe-inline' 'sha256-${GTAG_INLINE_SHA256}' 'sha256-${THEME_INLINE_SHA256}' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.
