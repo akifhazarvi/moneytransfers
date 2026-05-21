@@ -1,36 +1,39 @@
 import type { MetadataRoute } from "next";
 import { allCorridors } from "@/data/corridors";
-import { getAllTravelGuideSlugs } from "@/data/travel-guides";
 import { providers } from "@/data/providers";
 import { blogPosts } from "@/data/blog-posts";
 import { newsItems } from "@/data/news";
 import { businessPages } from "@/data/business-pages";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
-import { authors } from "@/data/authors";
 import { providerReviews } from "@/data/provider-reviews";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { readdirSync, statSync } from "fs";
 import { join } from "path";
+import {
+  SITEMAP_CORRIDOR_SLUGS,
+  SITEMAP_GUIDE_SLUGS,
+  SITEMAP_IBAN_SLUGS,
+  SITEMAP_COMPARISON_SLUGS,
+  SITEMAP_PROVIDER_SLUGS,
+  SITEMAP_NEWS_SLUGS,
+  SITEMAP_RATE_PAIR_SLUGS,
+  SITEMAP_RATE_HISTORY_SLUGS,
+  SITEMAP_SWIFT_SLUGS,
+  SITEMAP_BUSINESS_SLUGS,
+} from "@/lib/sitemap-allowlists";
 
 const SITE_URL = "https://sendmoneycompare.com";
-import { shouldIncludeInSitemap } from "@/lib/corridor-tiers";
-import { INDEXED_HISTORY_SLUGS } from "@/lib/seo-indexing";
 
-// ── Issue 5 fix: Use stable dates for truly static content ──
-// Google's John Mueller recommends lastmod should reflect actual content changes,
-// not deploy timestamps. Using a fixed date for pages that rarely change prevents
-// Google from losing trust in the lastmod signal across the entire sitemap.
-// See: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 // Stable date for hub/static pages — only update when content actually changes.
-// Using new Date() here was inflating lastmod on every deploy, eroding Google's trust in the signal.
+// Google's John Mueller: lastmod should reflect actual content changes, not
+// deploy timestamps. Using `new Date()` here was inflating lastmod on every
+// deploy, eroding Google's trust in the signal sitewide.
 const STATIC_HUB_DATE = "2026-03-28";
-const STATIC_CONTENT_DATE = "2026-03-01"; // Hardcoded for legal/policy pages that rarely change
+const STATIC_CONTENT_DATE = "2026-03-01";
 
 // Dynamically derived from the most recently modified scraped quotes file.
-// This ensures lastmod reflects when live data actually changed, not the deploy date.
-// Scans every *-quotes.json so newly-added scrapers automatically flow through
-// without needing to update a hardcoded file list.
+// Ensures lastmod on data-driven pages reflects when live data actually changed.
 function getDataUpdatedDate(): string {
   const scrapedDir = join(process.cwd(), "src/data/scraped");
   let latest = new Date(0);
@@ -54,172 +57,117 @@ function getDataUpdatedDate(): string {
 
 const DATA_UPDATED = getDataUpdatedDate();
 
-// Non-English locales (es/fr/pt) were retired on 2026-04-27 — middleware
-// returns 410 Gone for those prefixes. Site is English-only; no locale fan-out.
-const INDEXED_IBAN_SLUGS = new Set([
-  "uk", "germany", "france", "netherlands", "spain",
-  "italy", "denmark", "belgium", "austria", "ireland",
-  "portugal", "sweden", "switzerland", "poland", "norway",
-  "pakistan",
-  "turkey", "romania", "czechia", "hungary", "croatia",
-  "finland", "greece", "cyprus", "luxembourg",
-  "united-arab-emirates", "saudi-arabia", "qatar", "kuwait", "bahrain",
-  "jordan", "egypt", "israel", "brazil", "ukraine", "georgia",
-]);
-
-const INDEXED_SWIFT_SLUGS = new Set([
-  "united-kingdom", "united-states", "india", "pakistan", "germany",
-  "france", "netherlands", "united-arab-emirates", "canada", "australia",
-  "hong-kong", "singapore", "south-africa", "ireland", "new-zealand",
-  "bangladesh", "philippines", "nigeria", "mexico", "china",
-  "japan", "south-korea", "thailand", "indonesia", "malaysia",
-  "brazil", "kenya", "ghana", "sri-lanka", "nepal",
-  "turkiye", "egypt", "morocco", "colombia", "peru",
-]);
-
-// Note: changeFrequency and priority are ignored by Google and have been removed.
-// See: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 function entry(path: string, lastModified: string): MetadataRoute.Sitemap[number] {
   const url = path ? `${SITE_URL}/${path}` : SITE_URL;
   return { url, lastModified };
 }
 
+/**
+ * Sitemap composition rule (re-curation May 20, 2026):
+ *
+ * After the May 8 deindex (420 submitted, 31 indexed = 7% acceptance rate),
+ * the sitemap is now gated on real GSC signal: every content URL must have
+ * earned ≥10 impressions in the 90-day window Feb 18 – May 19, 2026.
+ *
+ * The allowlists live in src/lib/sitemap-allowlists.ts and are mechanical —
+ * they don't try to predict what should rank, only report what already has.
+ * Regenerate them when a fresh GSC pull recalibrates the signal.
+ *
+ * Pages outside the allowlist stay live and crawlable via internal links;
+ * they just aren't actively submitted. The point is to stop telling Google
+ * "this is our recommended set" when 93% of the set hasn't earned its slot.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  // ── Static pages (EN) ──
+  // ── Static pages — always indexable, no GSC gating ──
   const staticPages: MetadataRoute.Sitemap = [
-    entry("", DATA_UPDATED), // Homepage has live comparison data
+    entry("", DATA_UPDATED),
     entry("send-money", DATA_UPDATED),
     entry("companies", DATA_UPDATED),
     entry("compare", DATA_UPDATED),
     entry("compare-money-transfer", DATA_UPDATED),
     entry("currency-converter", DATA_UPDATED),
     entry("guides", STATIC_HUB_DATE),
-    entry("travel", STATIC_HUB_DATE),
     entry("iban", STATIC_HUB_DATE),
     entry("swift-codes", STATIC_HUB_DATE),
-    entry("about", STATIC_HUB_DATE),  // No live data — static content
+    entry("about", STATIC_HUB_DATE),
     entry("contact", STATIC_HUB_DATE),
-    // Issue 5 fix: Legal/policy pages use stable date — content rarely changes
     entry("editorial-policy", STATIC_CONTENT_DATE),
     entry("how-we-review", STATIC_CONTENT_DATE),
     entry("methodology", STATIC_CONTENT_DATE),
     entry("privacy-policy", STATIC_CONTENT_DATE),
     entry("terms", STATIC_CONTENT_DATE),
-    entry("cookies", STATIC_CONTENT_DATE),
-    entry("disclaimer", STATIC_CONTENT_DATE),
-    entry("for-ai", DATA_UPDATED), // page lives under [locale]/for-ai/page.tsx
+    entry("for-ai", DATA_UPDATED),
+    entry("remittance-cost-index", DATA_UPDATED),
+    entry("exchange-rates", DATA_UPDATED),
+    entry("news", STATIC_HUB_DATE),
+    entry("business", STATIC_HUB_DATE),
   ];
 
-  // Corridor pages are English-only — locale variants were retired
-  // (middleware returns 410 Gone for /es/, /fr/, /pt/).
-  const indexedCorridors = allCorridors
-    .filter((c) => shouldIncludeInSitemap(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage));
-  const corridorPages: MetadataRoute.Sitemap = indexedCorridors.map((c) =>
-    entry(`send-money/${c.slug}`, DATA_UPDATED),
-  );
+  // ── Corridors: only those with ≥10 GSC impressions in 90d ──
+  const corridorPages: MetadataRoute.Sitemap = allCorridors
+    .filter((c) => SITEMAP_CORRIDOR_SLUGS.has(c.slug))
+    .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
 
-  // Travel guides are English-only editorial content. Locale variants are
-  // not currently translated; including them in the sitemap submits empty
-  // shells, so we emit English only.
-  const travelSlugs = getAllTravelGuideSlugs();
-  const travelPages: MetadataRoute.Sitemap = travelSlugs.map((slug) =>
-    entry(`travel/${slug}`, STATIC_HUB_DATE),
-  );
-
-  // Only include providers that have editorial reviews (others are noindexed).
-  // Company pages are English-only (locales are noindex'd in [locale]/companies/[slug])
-  // so we no longer emit locale variants here.
+  // ── Provider reviews ──
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));
   const reviewDateMap = new Map(providerReviews.map((r) => [r.slug, r.updatedAt || DATA_UPDATED]));
   const providerPages: MetadataRoute.Sitemap = providers
-    .filter((p) => reviewedSlugs.has(p.slug))
+    .filter((p) => reviewedSlugs.has(p.slug) && SITEMAP_PROVIDER_SLUGS.has(p.slug))
     .map((p) => entry(`companies/${p.slug}`, reviewDateMap.get(p.slug) || DATA_UPDATED));
 
-  // Only submit comparison pages where one side is Wise or Remitly. The full
-  // n×(n-1)/2 combinatorial set was 91 pages — most ("wise vs torfx" etc) had
-  // zero search demand and bloated the sitemap. The wise-vs-* and remitly-vs-*
-  // patterns capture nearly all of the comparison search volume per GSC.
-  // Other comparison pages stay live and are reachable via internal links.
-  const SITEMAP_COMPARISON_ANCHORS = new Set(["wise", "remitly"]);
-  const reviewedProviders = providers.filter((p) => reviewedSlugs.has(p.slug));
-  const comparisonPages: MetadataRoute.Sitemap = [];
-  for (let i = 0; i < reviewedProviders.length; i++) {
-    for (let j = i + 1; j < reviewedProviders.length; j++) {
-      const a = reviewedProviders[i].slug;
-      const b = reviewedProviders[j].slug;
-      if (!SITEMAP_COMPARISON_ANCHORS.has(a) && !SITEMAP_COMPARISON_ANCHORS.has(b)) continue;
-      comparisonPages.push(entry(`compare/${a}-vs-${b}`, DATA_UPDATED));
-    }
-  }
-
-  // Guide content is English-only — locale variants are noindexed, so exclude from sitemap
-  const guidePages: MetadataRoute.Sitemap = blogPosts.map((post) =>
-    entry(`guides/${post.slug}`, post.updatedAt),
+  // ── Head-to-head comparison pages ──
+  const comparisonPages: MetadataRoute.Sitemap = [...SITEMAP_COMPARISON_SLUGS].map((slug) =>
+    entry(`compare/${slug}`, DATA_UPDATED),
   );
 
-  // News content is English-only — locale variants are noindexed, so exclude from sitemap
-  const newsPages: MetadataRoute.Sitemap = [
-    entry("news", STATIC_HUB_DATE),
-    ...newsItems.map((item) =>
-      entry(`news/${item.slug}`, item.publishedAt),
-    ),
-  ];
+  // ── Editorial guides ──
+  const guidePages: MetadataRoute.Sitemap = blogPosts
+    .filter((post) => SITEMAP_GUIDE_SLUGS.has(post.slug))
+    .map((post) => entry(`guides/${post.slug}`, post.updatedAt));
 
-  const EXCHANGE_RATE_PAIRS = [
-    "usd-to-inr", "usd-to-pkr", "usd-to-php", "usd-to-mxn", "usd-to-ngn",
-    "gbp-to-eur", "gbp-to-inr", "gbp-to-usd", "gbp-to-pkr",
-    "eur-to-usd", "eur-to-gbp",
-    "cad-to-inr", "aud-to-inr",
-    "usd-to-gbp", "usd-to-eur", "usd-to-cad", "usd-to-aud", "usd-to-jpy",
-    "usd-to-brl", "usd-to-cny",
-  ];
+  // ── News articles ──
+  const newsPages: MetadataRoute.Sitemap = newsItems
+    .filter((item) => SITEMAP_NEWS_SLUGS.has(item.slug))
+    .map((item) => entry(`news/${item.slug}`, item.publishedAt));
 
-  const exchangeRatesPage: MetadataRoute.Sitemap = [
-    entry("exchange-rates", DATA_UPDATED),
-    entry("remittance-cost-index", DATA_UPDATED),
-    ...EXCHANGE_RATE_PAIRS.map((pair) => entry(`exchange-rates/${pair}`, DATA_UPDATED)),
-    // History hub + only the 12 GSC-validated history pages (≥10 impressions).
-    // The other 167 history pages are noindexed via middleware — submitting them
-    // wastes crawl budget and dilutes sitemap quality signals.
-    entry("exchange-rates/history", DATA_UPDATED),
-    ...getAllInsights(2)
-      .filter((i) => INDEXED_HISTORY_SLUGS.has(corridorToSlug(i.corridor)))
-      .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, DATA_UPDATED)),
-  ];
+  // ── Exchange-rate pages ──
+  const ratePages: MetadataRoute.Sitemap = [...SITEMAP_RATE_PAIR_SLUGS].map((pair) =>
+    entry(`exchange-rates/${pair}`, DATA_UPDATED),
+  );
 
+  // ── Rate history pages ──
+  const rateHistoryHub: MetadataRoute.Sitemap = [entry("exchange-rates/history", DATA_UPDATED)];
+  const rateHistoryPages: MetadataRoute.Sitemap = getAllInsights(2)
+    .filter((i) => SITEMAP_RATE_HISTORY_SLUGS.has(corridorToSlug(i.corridor)))
+    .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, DATA_UPDATED));
+
+  // ── IBAN country pages ──
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
-    .filter((c) => c.slug && INDEXED_IBAN_SLUGS.has(c.slug))
+    .filter((c) => c.slug && SITEMAP_IBAN_SLUGS.has(c.slug))
     .map((c) => entry(`iban/${c.slug}`, STATIC_HUB_DATE));
 
+  // ── SWIFT country pages ──
   const swiftPages: MetadataRoute.Sitemap = getSwiftCountries()
-    .filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug))
+    .filter((c) => SITEMAP_SWIFT_SLUGS.has(c.slug))
     .map((c) => entry(`swift-codes/${c.slug}`, STATIC_HUB_DATE));
 
-  // Business content is English-only — locale variants are noindexed
-  const businessHubPages: MetadataRoute.Sitemap = [
-    entry("business", STATIC_HUB_DATE),
-    ...businessPages.map((p) => entry(`business/${p.slug}`, STATIC_HUB_DATE)),
-  ];
-
-  const authorPages: MetadataRoute.Sitemap = authors.map((author) =>
-    entry(`about/${author.slug}`, STATIC_HUB_DATE)
-  );
-
-  const correctionsPage: MetadataRoute.Sitemap = [entry("corrections", STATIC_HUB_DATE)];
+  // ── B2B/business landing pages ──
+  const businessHubPages: MetadataRoute.Sitemap = businessPages
+    .filter((p) => SITEMAP_BUSINESS_SLUGS.has(p.slug))
+    .map((p) => entry(`business/${p.slug}`, STATIC_HUB_DATE));
 
   return [
     ...staticPages,
     ...corridorPages,
-    ...travelPages,
     ...providerPages,
     ...comparisonPages,
     ...guidePages,
     ...newsPages,
-    ...exchangeRatesPage,
-    ...businessHubPages,
+    ...ratePages,
+    ...rateHistoryHub,
+    ...rateHistoryPages,
     ...ibanPages,
     ...swiftPages,
-    ...authorPages,
-    ...correctionsPage,
+    ...businessHubPages,
   ];
 }

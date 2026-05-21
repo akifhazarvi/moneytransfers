@@ -10,6 +10,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
 import { getSwiftEditorial, getSwiftFaqs } from "@/data/swift-content";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { INDEXED_SWIFT_SLUGS as indexedSwiftCountries } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 
 interface Props {
@@ -167,16 +168,6 @@ const swiftToIbanSlug: Record<string, string> = {
   "israel": "israel",
   "ukraine": "ukraine",
 };
-
-const indexedSwiftCountries = new Set([
-  "united-kingdom", "united-states", "india", "pakistan", "germany",
-  "france", "netherlands", "united-arab-emirates", "canada", "australia",
-  "hong-kong", "singapore", "south-africa", "ireland", "new-zealand",
-  "bangladesh", "philippines", "nigeria", "mexico", "china",
-  "japan", "south-korea", "thailand", "indonesia", "malaysia",
-  "brazil", "kenya", "ghana", "sri-lanka", "nepal",
-  "turkiye", "egypt", "morocco", "colombia", "peru",
-]);
 
 export async function generateStaticParams() {
   return getSwiftCountries().map((c) => ({ country: c.slug }));

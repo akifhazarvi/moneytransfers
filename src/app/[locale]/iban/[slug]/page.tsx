@@ -15,23 +15,12 @@ import {
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getIbanEditorial, getIbanFaqs } from "@/data/iban-content";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { INDEXED_IBAN_SLUGS as indexedIbanCountries } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
 }
-
-const indexedIbanCountries = new Set([
-  "united-kingdom", "germany", "france", "netherlands", "spain",
-  "italy", "denmark", "belgium", "austria", "ireland",
-  "portugal", "sweden", "switzerland", "poland", "norway",
-  "pakistan",
-  // New additions
-  "turkey", "romania", "czechia", "hungary", "croatia",
-  "finland", "greece", "cyprus", "luxembourg",
-  "united-arab-emirates", "saudi-arabia", "qatar", "kuwait", "bahrain",
-  "jordan", "egypt", "israel", "brazil", "ukraine", "georgia",
-]);
 
 function getCountryName(code: string, slug: string): string {
   const country = getCountryByAlpha2(code);
