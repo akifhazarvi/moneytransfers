@@ -43,6 +43,7 @@ const PROVIDER_DOMAINS: Record<string, string> = {
   dahabshiil: "dahabshiil.com",
   "boss-money": "bossmoneytransfer.com",
   koho: "koho.ca",
+  lemfi: "lemfi.com",
 
   // Banks
   chase: "chase.com",

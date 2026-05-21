@@ -25,6 +25,7 @@ import remitlyQuotes from "@/data/scraped/remitly-quotes.json";
 import compareremitQuotes from "@/data/scraped/compareremit-quotes.json";
 import pandaremitQuotes from "@/data/scraped/pandaremit-quotes.json";
 import skyremitQuotes from "@/data/scraped/skyremit-quotes.json";
+import lemfiQuotes from "@/data/scraped/lemfi-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -221,6 +222,7 @@ addQuotes(remitlyQuotes as unknown[], 1, "remitly-browser");
 addQuotes(compareremitQuotes as unknown[], 1, "compareremit-browser");
 addQuotes(pandaremitQuotes as unknown[], 1, "pandaremit-api");
 addQuotes(skyremitQuotes as unknown[], 1, "skyremit-api");
+addQuotes(lemfiQuotes as unknown[], 1, "lemfi-api");
 
 // Priority 2: Wise Comparison API (8-18 competitors per corridor, pure REST API)
 addQuotes(wiseComparisonQuotes as unknown[], 2, "wise-comparison-api");

@@ -81,6 +81,11 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
+      - name: Scrape LemFi (direct API)
+        run: npx tsx scripts/scrape-lemfi.ts
+        timeout-minutes: 5
+        continue-on-error: true
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
