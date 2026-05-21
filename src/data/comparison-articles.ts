@@ -2491,7 +2491,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <p><strong>Use Chase for:</strong> Daily US banking, direct deposits, domestic bills, credit cards, mortgages, investment accounts, FDIC-insured deposits above £85,000, Zelle, US domestic Fedwire, and the Sapphire Reserve travel-rewards ecosystem.</p>
 <p><strong>Use Revolut for:</strong> All international transfers, foreign card spending (0% FX up to your tier limit), multi-currency wallet, crypto/stocks, instant Revolut-to-Revolut transfers anywhere in the world, and SEPA/Faster Payments to friends abroad.</p>
 <p><strong>Never use Chase for:</strong> Sending money abroad. Even Chase Sapphire Banking — which waives the $50 wire fee — still bakes 2-3% into the exchange rate. The wire fee was always the smaller cost. On a $5,000 transfer to Europe, Chase costs $100-250; Revolut costs $0-25.</p>
-<p>If you're comparing other options, see our <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> comparison (Wise is better for large transfers above $10,000), <a href="/compare/wise-vs-chase">Wise vs Chase</a>, or <a href="/guides/best-money-transfer-apps">best money transfer apps 2026</a>.</p>`,
+<p>If you're comparing other options, see our <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> comparison (Wise is better for large transfers above $10,000), <a href="/compare/chase-vs-wise">Chase vs Wise</a>, or <a href="/guides/best-money-transfer-apps">best money transfer apps 2026</a>.</p>`,
       },
     ],
     verdict: {

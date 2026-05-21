@@ -15221,7 +15221,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Multi-currency wallet for daily use</strong></td><td><a href="/companies/wise">Wise</a></td><td>More currencies (40+), local account details in 10+ currencies, debit card</td></tr>
 </tbody></table></div>
 <p><strong>Break-even math:</strong> On a typical major corridor (USD ↔ EUR/GBP/AUD), the cost crossover point where XE becomes cheaper than Wise is around $25,000. Below that, Wise's transparent 0.43-0.7% fee wins. Above that, XE's rate-based markup (0.5-2%) doesn't grow with transaction size the same way.</p>
-<p>For a detailed side-by-side, see our <a href="/compare/wise-vs-remitly-comparison">Wise comparison pages</a>.</p>`,
+<p>For a detailed side-by-side, see our <a href="/compare/wise-vs-remitly">Wise comparison pages</a>.</p>`,
       },
       {
         heading: "2026 US Remittance Tax: Why XE Users Are Exempt",

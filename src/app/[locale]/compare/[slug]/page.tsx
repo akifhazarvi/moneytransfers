@@ -260,7 +260,7 @@ function ArticleComparison({
               "@id": "https://sendmoneycompare.com/#organization",
               logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
             },
-            mainEntityOfPage: `https://sendmoneycompare.com/compare/${slug}`,
+            mainEntityOfPage: `https://sendmoneycompare.com/compare/${getCompareCanonicalSlug(slug)}`,
             isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/compare" },
             about: [
               { "@type": "Thing", name: "International Money Transfer" },
@@ -326,7 +326,7 @@ function ArticleComparison({
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
               { "@type": "ListItem", position: 2, name: "Compare", item: "https://sendmoneycompare.com/compare" },
-              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://sendmoneycompare.com/compare/${slug}` },
+              { "@type": "ListItem", position: 3, name: `${a.name} vs ${b.name}`, item: `https://sendmoneycompare.com/compare/${getCompareCanonicalSlug(slug)}` },
             ],
           }),
         }}
@@ -721,11 +721,12 @@ function getRelatedComparisons(a: (typeof providers)[number], b: (typeof provide
   const related: { slug: string; label: string }[] = [];
   for (const p of providers) {
     if (p.slug === a.slug || p.slug === b.slug) continue;
-    // Comparisons involving provider A
-    const slugA = [a.slug, p.slug].sort().join("-vs-");
+    // Route through getCompareCanonicalSlug so related-link slugs match the
+    // editorial/GSC-winning direction, not just alphabetical. Otherwise
+    // these links 301 on click and weaken the internal-link signal.
+    const slugA = getCompareCanonicalSlug(`${a.slug}-vs-${p.slug}`);
     related.push({ slug: slugA, label: `${a.name} vs ${p.name}` });
-    // Comparisons involving provider B
-    const slugB = [b.slug, p.slug].sort().join("-vs-");
+    const slugB = getCompareCanonicalSlug(`${b.slug}-vs-${p.slug}`);
     related.push({ slug: slugB, label: `${b.name} vs ${p.name}` });
   }
   // Deduplicate and limit

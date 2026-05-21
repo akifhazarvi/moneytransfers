@@ -24,6 +24,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
@@ -96,7 +97,7 @@ export default async function CompanyPage({ params }: Props) {
         {
           title: "Comparisons",
           links: otherProviders.slice(0, 4).map((other) => ({
-            href: `/compare/${provider.slug}-vs-${other.slug}`,
+            href: `/compare/${getCompareCanonicalSlug(`${provider.slug}-vs-${other.slug}`)}`,
             label: `${provider.name} vs ${other.name}`,
           })),
         },
@@ -368,7 +369,7 @@ function DetailedReview({
                         <Link href={`/companies/${alt.slug}`} className="text-xs font-semibold text-[var(--color-primary)] hover:underline">
                           Review
                         </Link>
-                        <Link href={`/compare/${slug}-vs-${alt.slug}`} className="text-xs font-semibold text-[var(--color-primary)] hover:underline">
+                        <Link href={`/compare/${getCompareCanonicalSlug(`${slug}-vs-${alt.slug}`)}`} className="text-xs font-semibold text-[var(--color-primary)] hover:underline">
                           Compare
                         </Link>
                       </div>
@@ -458,7 +459,7 @@ function DetailedReview({
                   {otherProviders.map((other) => (
                     <Link
                       key={other.slug}
-                      href={`/compare/${slug}-vs-${other.slug}`}
+                      href={`/compare/${getCompareCanonicalSlug(`${slug}-vs-${other.slug}`)}`}
                       className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] transition-colors group"
                     >
                       <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
@@ -695,7 +696,7 @@ function DefaultReview({
                 {otherProviders.map((other) => (
                   <Link
                     key={other.slug}
-                    href={`/compare/${provider.slug}-vs-${other.slug}`}
+                    href={`/compare/${getCompareCanonicalSlug(`${provider.slug}-vs-${other.slug}`)}`}
                     className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] transition-colors group"
                   >
                     <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">

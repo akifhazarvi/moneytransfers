@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import ComparisonTable from "@/components/ComparisonTable";
 import RatingBadge from "@/components/RatingBadge";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -58,7 +59,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
       "@type": "ListItem",
       position: i + 1,
       name: `${c.nameA} vs ${c.nameB}`,
-      url: `https://sendmoneycompare.com/compare/${c.slugA}-vs-${c.slugB}`,
+      url: `https://sendmoneycompare.com/compare/${getCompareCanonicalSlug(`${c.slugA}-vs-${c.slugB}`)}`,
     })),
   };
 
@@ -122,7 +123,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
             {comparisons.slice(0, 21).map((c) => (
               <Link
                 key={`${c.slugA}-${c.slugB}`}
-                href={`/compare/${c.slugA}-vs-${c.slugB}`}
+                href={`/compare/${getCompareCanonicalSlug(`${c.slugA}-vs-${c.slugB}`)}`}
                 className="group flex items-center justify-between p-3.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-on-surface)]/30 transition-colors"
               >
                 <div className="flex items-center gap-3 min-w-0">
