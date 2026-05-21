@@ -124,8 +124,15 @@ function isSpamBot(request: NextRequest): boolean {
 // data (Jan 28 → Apr 24, 2026) showed 0 clicks across /es/ + /pt/ and 2 clicks
 // from /fr/ across 390 URLs and 3,182 impressions — Google was burying them at
 // position 50–90 because the chrome was translated but the body stayed in
-// English. Returning 410 Gone evicts them from the index in 1–2 weeks and
-// recovers crawl budget for English pages.
+// English.
+//
+// We initially returned 410 Gone (retired 2026-04-27), but 3 weeks later GSC
+// still showed ~100 impressions/28d on these URLs with several ranking at
+// position 1–10. The 410 text body ("see English version at /iban/austria")
+// was giving Google a redirect hint without the redirect's strength, so the
+// URLs persisted. Switched to 301 — a definitive "URL moved" signal that
+// Google processes in 1–2 weeks and consolidates ranking equity onto the
+// English URL.
 const KILLED_LOCALE_PREFIXES = /^\/(es|fr|pt)(\/|$)/;
 
 export default function middleware(request: NextRequest) {
@@ -138,23 +145,12 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  // Hard-kill non-English locale URLs with 410 Gone. Must run BEFORE
+  // 301 retired-locale URLs to their English equivalent. Must run BEFORE
   // intlMiddleware so next-intl never sees the locale prefix.
   if (KILLED_LOCALE_PREFIXES.test(request.nextUrl.pathname)) {
-    return new NextResponse(
-      "Gone — this localized URL has been retired. The English version is at " +
-        request.nextUrl.pathname.replace(KILLED_LOCALE_PREFIXES, "/"),
-      {
-        status: 410,
-        headers: {
-          "Content-Type": "text/plain; charset=utf-8",
-          "X-Robots-Tag": "noindex",
-          // Tell shared caches not to memoize 410s — once we ever bring i18n
-          // back, we don't want stale gone-responses sticking around.
-          "Cache-Control": "private, no-cache, must-revalidate",
-        },
-      },
-    );
+    const url = request.nextUrl.clone();
+    url.pathname = request.nextUrl.pathname.replace(KILLED_LOCALE_PREFIXES, "/");
+    return NextResponse.redirect(url, 301);
   }
 
   // Block spam bots at the edge — return 403 before any processing
