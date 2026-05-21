@@ -185,20 +185,24 @@ export default function middleware(request: NextRequest) {
   // enforces this at build time.
   const csp = [
     `default-src 'self'`,
-    // Next.js App Router emits dozens of inline streaming RSC hydration
+    // Next.js App Router emits per-page inline streaming RSC hydration
     // scripts (<script>self.__next_f.push(...)) whose content varies per
-    // page and per render — static SHA-256 hashes cannot cover them, and
-    // per-request nonces would force every page into dynamic rendering
-    // (Cache-Control: no-store), which contributed to the May 2026 deindex.
+    // page and per render. Static SHA-256 hashes cannot cover them, and
+    // per-request nonces would force dynamic rendering (Cache-Control:
+    // no-store), which contributed to the May 2026 deindex.
     //
-    // 'strict-dynamic' is the supported escape hatch: modern browsers
-    // (Chrome 52+, Firefox 53+, Safari 15.4+, Edge 79+) honor the hashes
-    // for the two scripts we control (gtag + theme) and let those trusted
-    // scripts dynamically load further scripts via 'strict-dynamic',
-    // ignoring 'unsafe-inline' entirely. Legacy browsers fall back to
-    // 'unsafe-inline'. Crawlers don't execute scripts under CSP, so this
-    // has no SEO impact.
-    `script-src 'self' 'strict-dynamic' 'unsafe-inline' 'sha256-${GTAG_INLINE_SHA256}' 'sha256-${THEME_INLINE_SHA256}' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
+    // 'strict-dynamic' + hashes was attempted but contradictory: per the
+    // CSP3 spec, the presence of hashes/nonces makes the browser ignore
+    // 'unsafe-inline', re-blocking the dynamic RSC scripts. The only
+    // working policy that keeps static rendering is 'unsafe-inline'
+    // alone (no hashes, no 'strict-dynamic').
+    //
+    // Crawlers don't execute scripts under CSP, so 'unsafe-inline' has
+    // no SEO impact. The remaining XSS risk is mitigated by React's
+    // default escaping (we only use dangerouslySetInnerHTML for known
+    // static content) and by the rest of the CSP (no inline event
+    // handlers via attribute, no eval, strict frame-ancestors, etc).
+    `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.
