@@ -29,6 +29,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import CrossLinks from "@/components/CrossLinks";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+import MobileDetailsRail from "@/components/MobileDetailsRail";
 
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
@@ -2202,6 +2203,10 @@ export default async function CorridorPage({ params }: Props) {
         </section>
       )}
 
+      {/* ─── Guides, fees & details — collapsed on mobile so live results stay near the fold.
+           All content remains in the DOM for AI citation, FAQ schema, and link equity. ─── */}
+      <MobileDetailsRail label="Guides, fees & how it works">
+
       {editorialNote && (
         <section id="editorial-analysis" className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
@@ -2320,8 +2325,32 @@ export default async function CorridorPage({ params }: Props) {
       })()}
 
       {/* ─── How to Send Money ─── */}
-      {countryDetails && (
+      {countryDetails && (() => {
+        const howToSteps: { step: number; Icon: LucideIcon; title: string; description: string }[] = [
+          { step: 1, Icon: ClipboardList, title: "Enter your transfer details", description: `Choose how much ${fromCurrency} you want to send, compare providers above, and pick the one offering the best ${toCurrency} amount for your transfer to ${corridor.toCountry}.` },
+          { step: 2, Icon: UserPlus, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Most providers verify details instantly.` },
+          { step: 3, Icon: Rocket, title: "Send & track your transfer", description: `Pay using bank transfer, debit card, or credit card. Track your money in real-time until it arrives${countryDetails.deliveryMethods[0] ? ` — ${countryDetails.deliveryMethods[0].method.toLowerCase()} typically takes ${countryDetails.deliveryMethods[0].speed.toLowerCase()}` : ""}.` },
+        ];
+        return (
         <section className="py-10 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+          {/* HowTo structured data — matches the 3 visible steps. */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "HowTo",
+                name: `How to send money to ${corridor.toCountry}`,
+                description: `Send ${fromCurrency} to ${toCurrency} in 3 steps using a regulated money transfer provider.`,
+                step: howToSteps.map((s) => ({
+                  "@type": "HowToStep",
+                  position: s.step,
+                  name: s.title,
+                  text: s.description,
+                })),
+              }),
+            }}
+          />
           <Container>
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-2">
               How to send money to {corridor.toCountry}
@@ -2330,11 +2359,7 @@ export default async function CorridorPage({ params }: Props) {
               Sending money to {corridor.toCountry} is straightforward with the right provider. Here&apos;s how it works in 3 simple steps.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
-              {([
-                { step: 1, Icon: ClipboardList, title: "Enter your transfer details", description: `Choose how much ${fromCurrency} you want to send, compare providers above, and pick the one offering the best ${toCurrency} amount for your transfer to ${corridor.toCountry}.` },
-                { step: 2, Icon: UserPlus, title: "Add your recipient", description: `Enter your recipient's details in ${corridor.toCountry}${countryDetails.recipientRequirements[1] ? ` — you'll need their ${countryDetails.recipientRequirements[1].label.toLowerCase()}` : ""}. Most providers verify details instantly.` },
-                { step: 3, Icon: Rocket, title: "Send & track your transfer", description: `Pay using bank transfer, debit card, or credit card. Track your money in real-time until it arrives${countryDetails.deliveryMethods[0] ? ` — ${countryDetails.deliveryMethods[0].method.toLowerCase()} typically takes ${countryDetails.deliveryMethods[0].speed.toLowerCase()}` : ""}.` },
-              ] as { step: number; Icon: LucideIcon; title: string; description: string }[]).map(({ step, Icon, title, description }) => (
+              {howToSteps.map(({ step, Icon, title, description }) => (
                 <div key={step} className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-2xl bg-[var(--color-primary-surface)] flex items-center justify-center">
@@ -2349,7 +2374,8 @@ export default async function CorridorPage({ params }: Props) {
             </div>
           </Container>
         </section>
-      )}
+        );
+      })()}
 
       {/* ─── What You Need (Recipient Requirements) ─── */}
       {countryDetails && (
@@ -3057,7 +3083,10 @@ export default async function CorridorPage({ params }: Props) {
         </section>
       )}
 
-      {/* ─── FAQ ─── */}
+      </MobileDetailsRail>
+
+      {/* ─── FAQ — collapsed on mobile; FAQPage schema preserved in DOM ─── */}
+      <MobileDetailsRail label="Frequently asked questions">
       <section id="faq" className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl">
@@ -3085,6 +3114,11 @@ export default async function CorridorPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      </MobileDetailsRail>
+
+      {/* ─── Related: country sender list + country guide banner — collapsed on mobile ─── */}
+      <MobileDetailsRail label="More for this corridor">
 
       {/* ─── Send from Specific Countries (country pages only) ─── */}
       {isCountryPage && (() => {
@@ -3153,6 +3187,8 @@ export default async function CorridorPage({ params }: Props) {
           </section>
         );
       })()}
+
+      </MobileDetailsRail>
 
       {/* ─── Cross-links ─── */}
       {/* "More transfers from X" + "Other routes to Y" together form the horizontal
