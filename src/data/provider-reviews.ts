@@ -1150,7 +1150,7 @@ export const providerReviews: ProviderReview[] = [
     slug: "revolut",
     title: "Revolut Review 2026 — Fees, Multi-Currency Account & Transfers",
     metaDescription:
-      "In-depth Revolut review covering international transfers, exchange rates, multi-currency account, free tier limits, weekend markup, and how it compares to Wise and traditional banks.",
+      "Revolut review (2026): how the multi-currency account works, free vs Premium vs Metal tier limits, interbank exchange rate, international transfer fees, ATM withdrawal caps, and how Revolut compares to Wise and traditional banks for sending money abroad.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
@@ -1377,7 +1377,7 @@ export const providerReviews: ProviderReview[] = [
     slug: "xoom",
     title: "Xoom Review 2026 — Fees, Rates & Cash Pickup Options",
     metaDescription:
-      "In-depth Xoom review covering fees ($0–$4.99), exchange rates, cash pickup network, mobile reload, and delivery speed. Backed by PayPal, serving 130+ countries with 50 currencies.",
+      "Xoom is PayPal's international money transfer service: fees from $0–$4.99, exchange-rate markup, cash pickup, mobile reload, bank deposit and delivery speed for 130+ countries — plus how Xoom compares to Wise, Remitly and PayPal itself.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
@@ -2285,7 +2285,7 @@ export const providerReviews: ProviderReview[] = [
     slug: "ace-money-transfer",
     title: "ACE Money Transfer Review 2026 — Fees, PKR Rates & Loyalty Rewards",
     metaDescription:
-      "ACE Money Transfer review: competitive Pakistan/South Asia rates, loyalty program, first-transfer-free. FCA, FinCEN, AUSTRAC regulated. 100+ countries.",
+      "ACE Money Transfer review (2026): live PKR, INR, BDT and PHP rates, first-transfer-free, loyalty rewards, JazzCash and Easypaisa wallet payouts, plus 350,000+ agent pickup locations worldwide. FCA, FinCEN, AUSTRAC regulated.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
