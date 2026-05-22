@@ -70,7 +70,12 @@ export function trackProviderExpanded(provider: string, rank: number, corridorSt
   dual("provider_expanded", { provider, rank, corridor: corridorStr });
 }
 
-/** User clicks "Send with [Provider]" — PRIMARY CONVERSION */
+/** User clicks "Send with [Provider]" — PRIMARY CONVERSION
+ *
+ * Fires the client-side engagement event. The /go/ redirect that follows also
+ * fires `provider_clicked_server` (different event name) so the two sinks
+ * don't conflate. Dedup unique-session counts in GA4 Explorations / BigQuery,
+ * not at emit time — keeps the raw signal recoverable. */
 export function trackProviderClicked(provider: string, corridorStr: string, rank: number, source?: string) {
   dual("provider_clicked", { provider, corridor: corridorStr, rank, source: source || "results" });
 }

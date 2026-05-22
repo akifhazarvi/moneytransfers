@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { getAffiliateUrl } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
-import { track } from "@vercel/analytics/server";
 
 export async function GET(
   request: Request,
@@ -36,13 +35,13 @@ export async function GET(
   const corridor = from && to ? `${from}-${to}`.toUpperCase() : "";
   const source = src || "go_route";
 
-  // Fire provider_clicked + affiliate_redirect server-side on every /go/ hit.
-  // This is the single source of truth — covers React buttons, blog inline links,
-  // guide CTAs, and anything else that routes through here.
-  void track("provider_clicked", { provider, corridor, source });
-  void track("affiliate_redirect", { provider, corridor, source });
+  // Server-side counterpart to the client `provider_clicked` event. Distinct
+  // event name so the two sinks measure clean, separate things:
+  //   - provider_clicked (client, GA4 + Vercel) = UI button engagement
+  //   - provider_clicked_server (server, GA4 only) = the redirect actually ran
+  // The gap between the two = adblock + JS-failure rate.
   void gaServerEvent(
-    "provider_clicked",
+    "provider_clicked_server",
     { provider, corridor, amount: amount ?? 0, source },
     clientId,
     geo,

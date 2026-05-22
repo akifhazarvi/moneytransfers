@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { getAffiliateUrl } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
-import { track } from "@vercel/analytics/server";
 
 export async function GET(
   request: Request,
@@ -37,10 +36,10 @@ export async function GET(
   const corridor = from && to ? `${from}-${to}`.toUpperCase() : "";
   const source = src || "out_route";
 
-  void track("provider_clicked", { provider, corridor, source });
-  void track("affiliate_redirect", { provider, corridor, source });
+  // Server-side counterpart to the client `provider_clicked` event — see /go/
+  // for the naming rationale.
   void gaServerEvent(
-    "provider_clicked",
+    "provider_clicked_server",
     { provider, corridor, amount: amount ?? 0, source },
     clientId,
     geo,
