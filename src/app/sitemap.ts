@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { allCorridors } from "@/data/corridors";
+import { shouldNoindex } from "@/lib/corridor-tiers";
 import { providers } from "@/data/providers";
 import { blogPosts } from "@/data/blog-posts";
 import { newsItems } from "@/data/news";
@@ -104,8 +105,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // ── Corridors: only those with ≥10 GSC impressions in 90d ──
+  // ALSO filter out Tier-3 corridors (zero provider data → page noindexes
+  // and 404s). Google's canonical guide: never submit a URL in the sitemap
+  // while also serving noindex/404 — it's a contradictory signal. This
+  // catches stale allowlist entries where a slug earned GSC impressions
+  // before the provider data dried up.
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => SITEMAP_CORRIDOR_SLUGS.has(c.slug))
+    .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
     .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
 
   // ── Provider reviews ──

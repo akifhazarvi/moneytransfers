@@ -33,6 +33,7 @@
     "scrape:all": "npm run scrape:all-api && npm run scrape:all-browser && npx tsx scripts/scrape-reviews.ts",
     "ping:indexnow": "npx tsx scripts/ping-indexnow.ts",
     "seo:regen-sitemap-allowlists": "npx tsx scripts/regen-sitemap-allowlists.ts",
+    "seo:check-canonical": "npx tsx scripts/check-canonical-coverage.ts",
     "check:ai-citations": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts",
     "social:preview": "npx tsx scripts/social/generate-digest.ts",
     "social:dry-run": "npx tsx scripts/social/post-daily.ts --dry-run",

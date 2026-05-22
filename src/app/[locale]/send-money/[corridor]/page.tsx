@@ -1653,10 +1653,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { corridor: slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "corridor" });
   const corridor = getCorridor(slug);
-  if (!corridor) return {};
+  // Unknown slug — emit a self-canonical + noindex rather than returning empty
+  // metadata (which falls through to the layout's homepage canonical, leaving
+  // a soft-404 page that claims the homepage as canonical).
+  if (!corridor) {
+    return {
+      alternates: getAlternates(`send-money/${slug}`, locale),
+      robots: { index: false, follow: false },
+    };
+  }
 
-  // No metadata needed for Tier 3 corridors — they'll 404
-  if (getCorridorTier(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) === 3) return {};
+  // Tier 3 corridors still emit a self-canonical + noindex (was: returned empty
+  // metadata, which inherited the layout's homepage canonical — soft 404 risk).
+  if (getCorridorTier(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) === 3) {
+    return {
+      alternates: getAlternates(`send-money/${slug}`, locale),
+      robots: { index: false, follow: true },
+    };
+  }
 
   const override = locale === "en" ? corridorSeoOverrides[slug] : undefined;
   const isCurr = corridor.isCurrencyCorridor;
