@@ -186,7 +186,7 @@ export default function ComparisonWidget({
       {/* ── DESKTOP: existing two-half pill (unchanged) ── */}
       <div className="hidden lg:block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow">
         <div className="flex flex-row">
-          <div className="flex-1 border-r border-[var(--color-outline)] px-5 lg:pr-8 py-4 min-w-0">
+          <div className="flex-1 border-r border-[var(--color-outline)] px-5 lg:pr-12 py-4 min-w-0">
             <label htmlFor={`${id}-send`} className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
@@ -204,7 +204,7 @@ export default function ComparisonWidget({
                   onBlur={() => {
                     if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
                   }}
-                  className={`bg-transparent text-h4 font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[100px] tabular-nums ${amountError ? "text-[var(--color-error)]" : ""}`}
+                  className={`bg-transparent text-h4 font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[140px] tabular-nums ${amountError ? "text-[var(--color-error)]" : ""}`}
                   placeholder="1,000"
                   aria-describedby={amountError ? `${id}-send-error` : undefined}
                 />
