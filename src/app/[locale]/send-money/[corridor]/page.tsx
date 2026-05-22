@@ -1753,6 +1753,66 @@ function ibanSlugForCountry(country: string): string | undefined {
   return countryToIbanSlug[country];
 }
 
+// Map destination country → /guides/<slug> for the country-wide guide.
+// Only includes destinations that have a real published guide in src/data.
+const countryToGuideSlug: Record<string, { slug: string; label: string }> = {
+  "India": { slug: "send-money-to-india-guide", label: "Best ways to send money to India" },
+  "Pakistan": { slug: "send-money-to-pakistan-guide", label: "Best ways to send money to Pakistan" },
+  "Philippines": { slug: "send-money-to-philippines-guide", label: "Best ways to send money to the Philippines" },
+  "Mexico": { slug: "send-money-to-mexico-guide", label: "Cheapest way to send money to Mexico" },
+  "Nigeria": { slug: "send-money-to-nigeria-guide", label: "Best ways to send money to Nigeria" },
+  "Bangladesh": { slug: "send-money-to-bangladesh-guide", label: "Best ways to send money to Bangladesh" },
+  "Brazil": { slug: "send-money-to-brazil-guide", label: "Send money to Brazil — PIX, IOF, real cost" },
+  "China": { slug: "send-money-to-china-guide", label: "How to send money to China — Alipay, WeChat, capital controls" },
+  "Colombia": { slug: "send-money-to-colombia-guide", label: "Cheapest way to send money to Colombia" },
+  "Egypt": { slug: "send-money-to-egypt-guide", label: "Send money to Egypt — USD to EGP, providers compared" },
+  "Ethiopia": { slug: "send-money-to-ethiopia-guide", label: "Cheapest way to send money to Ethiopia" },
+  "Jamaica": { slug: "send-money-to-jamaica-guide", label: "Cheapest way to send money to Jamaica" },
+  "Kenya": { slug: "send-money-to-kenya-guide", label: "Cheapest way to send money to Kenya — M-Pesa & banks" },
+  "Morocco": { slug: "send-money-to-morocco-guide", label: "Cheapest way to send money to Morocco" },
+  "Nepal": { slug: "send-money-to-nepal-guide", label: "Cheapest way to send money to Nepal" },
+  "Poland": { slug: "send-money-to-poland-guide", label: "Cheapest way to send money to Poland — SEPA, PLN" },
+  "Romania": { slug: "send-money-to-romania-guide", label: "Cheapest way to send money to Romania" },
+  "South Africa": { slug: "send-money-to-south-africa-guide", label: "Cheapest way to send money to South Africa" },
+  "South Korea": { slug: "send-money-to-south-korea-guide", label: "Cheapest way to send money to South Korea" },
+  "Spain": { slug: "send-money-to-spain-guide", label: "Cheapest way to send money to Spain" },
+  "Sri Lanka": { slug: "send-money-to-sri-lanka-guide", label: "Send money to Sri Lanka — cheapest ways" },
+  "Turkey": { slug: "send-money-to-turkey-guide", label: "Send money to Turkey — EUR/USD/GBP to TRY" },
+  "United Kingdom": { slug: "send-money-to-uk-guide", label: "Cheapest way to send money to the UK" },
+  "Vietnam": { slug: "send-money-to-vietnam-guide", label: "Send money to Vietnam — cheapest ways" },
+  "Australia": { slug: "send-money-to-australia-guide", label: "Cheapest way to send money to Australia" },
+};
+
+// Corridor-specific guides — when one exists for the exact from→to pair, it's a
+// stronger ranking signal than the country-wide guide. Map by fromCountry+toCountry.
+const corridorSpecificGuide: Record<string, { slug: string; label: string }> = {
+  "USA|India": { slug: "send-money-to-india-from-usa-guide", label: "USA to India: complete guide (IFSC, rules, providers)" },
+  "UK|India": { slug: "send-money-uk-to-india-guide", label: "UK to India: complete guide" },
+  "Canada|India": { slug: "send-money-canada-to-india-guide", label: "Canada to India: complete guide" },
+  "UAE|India": { slug: "send-money-uae-to-india-guide", label: "UAE to India (AED to INR): complete guide" },
+  "UK|Bangladesh": { slug: "send-money-uk-to-bangladesh-guide", label: "UK to Bangladesh: complete guide" },
+  "UK|Nigeria": { slug: "send-money-uk-to-nigeria-guide", label: "UK to Nigeria: complete guide (CBN naira-only rule)" },
+  "UAE|Pakistan": { slug: "send-money-uae-to-pakistan-guide", label: "UAE to Pakistan: RAAST, JazzCash, RDA & 15 providers" },
+  "USA|Kenya": { slug: "send-money-to-kenya-from-usa-guide", label: "USA to Kenya: 6 cheapest options" },
+};
+
+/**
+ * Returns the single best guide link for a corridor, preferring the
+ * corridor-specific guide when one exists. This avoids cannibalization
+ * between corridor pages and generic country guides — Google sees one
+ * clear parent guide per corridor instead of two competing links.
+ */
+function getBestGuideLink(
+  fromCountry: string,
+  toCountry: string,
+): { href: string; label: string } | null {
+  const specific = corridorSpecificGuide[`${fromCountry}|${toCountry}`];
+  if (specific) return { href: `/guides/${specific.slug}`, label: specific.label };
+  const country = countryToGuideSlug[toCountry];
+  if (country) return { href: `/guides/${country.slug}`, label: country.label };
+  return null;
+}
+
 // ── Page ──
 
 export default async function CorridorPage({ params }: Props) {
@@ -3260,22 +3320,21 @@ export default async function CorridorPage({ params }: Props) {
             })),
           },
           {
+            // Prefer the corridor-specific guide (e.g. send-money-uk-to-india-guide)
+            // over the country-wide one (send-money-to-india-guide) — Google sees ONE
+            // clear parent guide per corridor instead of two competing links.
+            // Generic site-wide links (compare, business, wire-transfer) were
+            // duplicated across all 110 corridor pages, diluting equity; trimmed
+            // to a focused set of 3 topical guides + the corridor's best parent.
             title: "Useful guides",
             links: [
-              ...(corridor.toCountry === "India" ? [{ href: "/guides/send-money-to-india-guide", label: "Best ways to send money to India" }] : []),
-              ...(corridor.toCountry === "Pakistan" ? [{ href: "/guides/send-money-to-pakistan-guide", label: "Best ways to send money to Pakistan" }] : []),
-              ...(corridor.toCountry === "Philippines" ? [{ href: "/guides/send-money-to-philippines-guide", label: "Best ways to send money to Philippines" }] : []),
-              ...(corridor.toCountry === "Mexico" ? [{ href: "/guides/send-money-to-mexico-guide", label: "Best ways to send money to Mexico" }] : []),
-              ...(corridor.toCountry === "Nigeria" ? [{ href: "/guides/send-money-to-nigeria-guide", label: "Best ways to send money to Nigeria" }] : []),
-              ...(corridor.toCountry === "Bangladesh" ? [{ href: "/guides/send-money-to-bangladesh-guide", label: "Best ways to send money to Bangladesh" }] : []),
-              ...(corridor.fromCountry === "UK" && corridor.toCountry === "India" ? [{ href: "/guides/send-money-uk-to-india-guide", label: "UK to India: complete guide" }] : []),
+              ...(() => {
+                const best = getBestGuideLink(corridor.fromCountry, corridor.toCountry);
+                return best ? [best] : [];
+              })(),
               { href: "/guides/cheapest-way-to-send-money-internationally", label: "Cheapest way to send money" },
-              { href: "/guides/exchange-rate-markup-explained", label: "Exchange rates explained" },
+              { href: "/guides/exchange-rate-markup-explained", label: "Exchange rate markup explained" },
               { href: "/guides/money-transfer-safety-guide", label: "Are money transfer companies safe?" },
-              { href: "/guides/wire-transfer-guide", label: "Wire transfers: fees & alternatives" },
-              { href: "/compare-money-transfer", label: "Compare money transfer services" },
-              { href: "/compare", label: "Head-to-head provider comparisons" },
-              { href: "/business", label: "Business international payments" },
             ],
           },
           {
