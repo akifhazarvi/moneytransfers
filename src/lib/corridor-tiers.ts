@@ -19,6 +19,31 @@ export type CorridorTier = 1 | 2 | 3;
 const EDITORIAL_SLUGS = new Set(editorialCorridors.map((c) => c.slug));
 
 /**
+ * Wave 3 noindex override (added 2026-05-22).
+ *
+ * These corridors are in EDITORIAL_SLUGS (so the tier classifier would mark
+ * them Tier 1 = always indexable), but a 90-day GSC pull shows ZERO queries,
+ * ZERO impressions, ZERO clicks — pure demand failures. Leaving them indexable
+ * wastes crawl budget and adds noise to the brand's perceived topical focus.
+ *
+ * They stay in EDITORIAL_SLUGS (so the page still renders and the cross-link
+ * graph still works) but receive a noindex tag, matching the
+ * "kill thin pages, don't add new ones" directive from May 22 2026.
+ *
+ * Promote OUT of this set if any of them earns ≥5 GSC impressions in a
+ * 30-day window — same readmit policy as the auto-generated /compare pages.
+ */
+const WAVE3_NOINDEX_SLUGS = new Set<string>([
+  "denmark-to-philippines",
+  "finland-to-philippines",
+  "norway-to-philippines",
+  "netherlands-to-philippines",
+  "greece-to-poland",
+  "czech-republic-to-germany",
+  "aud-to-bdt",
+]);
+
+/**
  * Count unique providers with real scraped data for a currency pair.
  */
 function getProviderCount(fromCurrency: string, toCurrency: string): number {
@@ -83,6 +108,7 @@ export function shouldIncludeInSitemap(
 /**
  * Should this corridor page have a noindex meta tag?
  * Tier 3 pages get noindexed as defense in depth.
+ * Wave 3 demand-failure overrides also noindex even though they're editorial.
  */
 export function shouldNoindex(
   slug: string,
@@ -90,5 +116,6 @@ export function shouldNoindex(
   toCurrency: string,
   isCountryPage?: boolean,
 ): boolean {
+  if (WAVE3_NOINDEX_SLUGS.has(slug)) return true;
   return getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage) === 3;
 }

@@ -10,7 +10,8 @@
  */
 
 export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
-  "aud-to-bdt",
+  // aud-to-bdt removed 2026-05-22 — Wave 3 demand failure (0 impr / 90d).
+  // See WAVE3_NOINDEX_SLUGS in src/lib/corridor-tiers.ts.
   "aud-to-cad",
   "aud-to-cny",
   "aud-to-cop",
