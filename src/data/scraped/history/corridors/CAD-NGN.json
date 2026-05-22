@@ -1101,5 +1101,40 @@
         "receiveAmount": 100000
       }
     }
+  },
+  {
+    "date": "2026-05-22",
+    "providers": {
+      "lemfi": {
+        "rate": 995,
+        "fee": 0,
+        "markup": -0.14,
+        "receiveAmount": 99500
+      },
+      "ria": {
+        "rate": 990.2041,
+        "fee": 1.9,
+        "markup": null,
+        "receiveAmount": 99460.13
+      },
+      "taptap-send": {
+        "rate": 1000,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 100000
+      },
+      "xoom": {
+        "rate": 957.3096,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 95730.96
+      },
+      "instarem": {
+        "rate": 984.3373,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 98433.73
+      }
+    }
   }
 ]
