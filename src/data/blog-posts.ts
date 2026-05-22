@@ -804,7 +804,7 @@ export const blogPosts: BlogPost[] = [
     slug: "iban-numbers-explained",
     title: "IBAN Number Format Explained: Structure, Length & Country Examples (2026)",
     metaDescription:
-      "IBAN number format explained — full structure, length by country, and how many characters an IBAN has. With validated examples for 80+ countries including Germany, Italy, Spain, UAE and Luxembourg.",
+      "IBAN number format by country (2026): exact length and structure for 80+ countries — Germany 22, France 27, Italy 27, Spain 24, Belgium 16, Luxembourg 20, UAE 23. Validated examples.",
     excerpt:
       "An IBAN is a standardized international bank account number used in 80+ countries. Here's how it works and why it matters.",
     category: "Education",
@@ -8951,7 +8951,7 @@ export const blogPosts: BlogPost[] = [
     slug: "us-dollar-forecast-2026",
     title: "USD Dollar Index Outlook 2026: 5 Bank DXY Forecasts",
     metaDescription:
-      "USD dollar index (DXY) outlook for 2026: DXY at 98.49, full forecast with Fed rate path, named predictions from Goldman Sachs, Morgan Stanley, JPMorgan, ING & MUFG, plus what the dollar means for your international transfers.",
+      "USD Dollar Index outlook 2026: DXY at 98.49, down 2.4% YoY. End-2026 targets from Goldman Sachs, Morgan Stanley, JPMorgan, ING and MUFG — all see DXY lower. Fed rate path and transfer impact.",
     excerpt:
       "DXY sits at 98.49 in May 2026, down 2.4% over twelve months. Every major forecaster — Goldman Sachs, Morgan Stanley, JPMorgan, ING, MUFG — expects DXY to end 2026 below current levels, but the path is contested. Here's the multi-bank consensus, the contrarian view on Fed cuts, and what it means for your next transfer.",
     category: "Research",
