@@ -163,6 +163,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((p) => SITEMAP_BUSINESS_SLUGS.has(p.slug))
     .map((p) => entry(`business/${p.slug}`, STATIC_HUB_DATE));
 
+  // ── Bank international-transfer-cost pages (pilot set: 5 banks) ──
+  // Marketing surface backed by live Wise-comparison-API data. Submitted to
+  // sitemap from day one because each page is hand-curated metadata + live
+  // data, not auto-generated thin content; demand justifies inclusion before
+  // GSC impressions accumulate.
+  const bankPages: MetadataRoute.Sitemap = [
+    entry("banks", DATA_UPDATED),
+    ...["hsbc", "wells-fargo", "chase", "lloyds", "barclays"].map((slug) =>
+      entry(`banks/${slug}`, DATA_UPDATED),
+    ),
+  ];
+
   return [
     ...staticPages,
     ...corridorPages,
@@ -176,5 +188,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ibanPages,
     ...swiftPages,
     ...businessHubPages,
+    ...bankPages,
   ];
 }

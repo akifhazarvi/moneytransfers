@@ -3349,6 +3349,34 @@ export default async function CorridorPage({ params }: Props) {
               { href: "/guides/iban-numbers-explained", label: "IBAN numbers explained" },
             ].filter((l) => !l.href.includes("undefined")),
           },
+          {
+            // Bank comparison surface — surfaces relevant pilot banks based on
+            // the sending currency. The bank pages exist to capture branded
+            // queries (e.g. "wells fargo international transfer fee") while
+            // routing equity from corridor pages — a hub-and-spoke design.
+            title: "How does your bank compare?",
+            links: (() => {
+              const banksForCurrency: Record<string, { slug: string; name: string }[]> = {
+                USD: [
+                  { slug: "wells-fargo", name: "Wells Fargo" },
+                  { slug: "chase", name: "Chase" },
+                ],
+                GBP: [
+                  { slug: "hsbc", name: "HSBC" },
+                  { slug: "lloyds", name: "Lloyds Bank" },
+                  { slug: "barclays", name: "Barclays" },
+                ],
+              };
+              const banks = banksForCurrency[fromCurrency] || [];
+              return [
+                ...banks.map((b) => ({
+                  href: `/banks/${b.slug}`,
+                  label: `${b.name} international transfer fees`,
+                })),
+                { href: "/banks", label: "All bank transfer fees compared" },
+              ];
+            })(),
+          },
         ]}
       />
 

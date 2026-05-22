@@ -182,6 +182,12 @@ function generateUrls(): string[] {
     urls.push(`${SITE_URL}/guides/${slug}`);
   }
 
+  // 1d. Bank international-transfer-cost pages — live data, refresh every scrape
+  urls.push(`${SITE_URL}/banks`);
+  for (const slug of ["hsbc", "wells-fargo", "chase", "lloyds", "barclays"]) {
+    urls.push(`${SITE_URL}/banks/${slug}`);
+  }
+
   // 2. Corridor pages — only corridors that have scraped data
   for (const pair of corridorsWithData) {
     const [from, to] = pair.split("_");
