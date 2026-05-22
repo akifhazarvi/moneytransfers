@@ -24,6 +24,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },
+      // Claude.ai user-triggered fetches (when a user asks Claude about a URL)
+      {
+        userAgent: "Claude-Web",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
+      },
       {
         userAgent: "PerplexityBot",
         allow: "/",
