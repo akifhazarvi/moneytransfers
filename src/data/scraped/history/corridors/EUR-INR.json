@@ -6589,10 +6589,10 @@
         "receiveAmount": 10869.31
       },
       "moneygram": {
-        "rate": 109.6712,
+        "rate": 110.9554,
         "fee": 1.99,
-        "markup": 1.75,
-        "receiveAmount": 10748.87
+        "markup": 0.07,
+        "receiveAmount": 10874.74
       },
       "taptap-send": {
         "rate": 111,
@@ -6601,28 +6601,28 @@
         "receiveAmount": 11100
       },
       "western-union": {
-        "rate": 111.3657,
+        "rate": 110.5896,
         "fee": 0.99,
-        "markup": 0.23,
-        "receiveAmount": 11026.32
+        "markup": 0.4,
+        "receiveAmount": 10949.48
       },
       "profee": {
-        "rate": 111.6202,
+        "rate": 111.0342,
         "fee": 2.4,
         "markup": 0,
-        "receiveAmount": 10894.13
+        "receiveAmount": 10836.94
       },
       "dahabshiil": {
-        "rate": 111.4204,
+        "rate": 110.7577,
         "fee": 1.99,
-        "markup": 0.18,
-        "receiveAmount": 10920.31
+        "markup": 0.25,
+        "receiveAmount": 10855.36
       },
       "currencyfair": {
-        "rate": 110.8138,
-        "fee": 1.08,
-        "markup": 0.72,
-        "receiveAmount": 10961.7
+        "rate": 110.2117,
+        "fee": 1.09,
+        "markup": 0.74,
+        "receiveAmount": 10901.04
       },
       "worldremit": {
         "rate": 110.5722,
@@ -6637,10 +6637,10 @@
         "receiveAmount": 11027.62
       },
       "paysend": {
-        "rate": 110.8643,
+        "rate": 110.2859,
         "fee": 0,
-        "markup": 0.68,
-        "receiveAmount": 11086.43
+        "markup": 0.67,
+        "receiveAmount": 11028.59
       },
       "remitly": {
         "rate": 110.24,
@@ -6649,10 +6649,10 @@
         "receiveAmount": 10914.86
       },
       "revolut": {
-        "rate": 111.0965,
-        "fee": 0.3,
-        "markup": 0.47,
-        "receiveAmount": 11076.32
+        "rate": 110.4141,
+        "fee": 1.3,
+        "markup": 0.56,
+        "receiveAmount": 10897.88
       },
       "ria": {
         "rate": 111.63,
@@ -6683,6 +6683,12 @@
         "fee": 1.57,
         "markup": null,
         "receiveAmount": 10921.1
+      },
+      "deutsche-bank": {
+        "rate": 109.4364,
+        "fee": 28.79,
+        "markup": 1.44,
+        "receiveAmount": 7793.19
       }
     }
   }
