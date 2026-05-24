@@ -2696,5 +2696,94 @@
         "receiveAmount": 13505.06
       }
     }
+  },
+  {
+    "date": "2026-05-24",
+    "providers": {
+      "lemfi": {
+        "rate": 142.8,
+        "fee": 1.49,
+        "markup": -0.25,
+        "receiveAmount": 14067.23
+      },
+      "moneygram": {
+        "rate": 142.3546,
+        "fee": 1.99,
+        "markup": 0.19,
+        "receiveAmount": 13952.17
+      },
+      "taptap-send": {
+        "rate": 142.13,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14213
+      },
+      "western-union": {
+        "rate": 140.8263,
+        "fee": 0.99,
+        "markup": 1.26,
+        "receiveAmount": 13943.21
+      },
+      "dahabshiil": {
+        "rate": 141.2677,
+        "fee": 0,
+        "markup": 0.95,
+        "receiveAmount": 14126.77
+      },
+      "worldremit": {
+        "rate": 141.7906,
+        "fee": 0.99,
+        "markup": 0.58,
+        "receiveAmount": 14038.69
+      },
+      "instarem": {
+        "rate": 141.6447,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14164.47
+      },
+      "paysend": {
+        "rate": 141.3777,
+        "fee": 0,
+        "markup": 0.87,
+        "receiveAmount": 14137.77
+      },
+      "sendwave": {
+        "rate": 141.6767,
+        "fee": 0.99,
+        "markup": 0.66,
+        "receiveAmount": 14027.41
+      },
+      "remitly": {
+        "rate": 141.56,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 14015.86
+      },
+      "revolut": {
+        "rate": 141.2229,
+        "fee": 3.3,
+        "markup": 0.98,
+        "receiveAmount": 13656.26
+      },
+      "wise": {
+        "rate": 142.589,
+        "fee": 4.11,
+        "markup": null,
+        "receiveAmount": 13672.86
+      },
+      "skrill": {
+        "rate": 138.832,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13883.2
+      },
+      "xoom": {
+        "rate": 139.2131,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13505.06
+      }
+    }
   }
 ]

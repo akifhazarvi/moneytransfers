@@ -1976,5 +1976,40 @@
         "receiveAmount": 307.82
       }
     }
+  },
+  {
+    "date": "2026-05-24",
+    "providers": {
+      "paypal": {
+        "rate": 2.9621,
+        "fee": 6.39,
+        "markup": null,
+        "receiveAmount": 277.3
+      },
+      "instarem": {
+        "rate": 3.0952,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 307.82
+      },
+      "remitly": {
+        "rate": 3.0239,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 296.37
+      },
+      "hsbc-sg": {
+        "rate": 3.0905,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 309.05
+      },
+      "uob": {
+        "rate": 3.05,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 213.5
+      }
+    }
   }
 ]
