@@ -6650,19 +6650,19 @@
       "western-union": {
         "rate": 44.2591,
         "fee": 0.99,
-        "markup": 0.74,
+        "markup": 0.75,
         "receiveAmount": 4382.09
       },
       "dahabshiil": {
-        "rate": 44.4204,
+        "rate": 44.3957,
         "fee": 1,
-        "markup": 0.38,
-        "receiveAmount": 4397.62
+        "markup": 0.44,
+        "receiveAmount": 4395.17
       },
       "worldremit": {
         "rate": 44.0345,
         "fee": 0,
-        "markup": 1.24,
+        "markup": 1.25,
         "receiveAmount": 4403.45
       },
       "instarem": {
@@ -6674,13 +6674,13 @@
       "xe": {
         "rate": 44.2877,
         "fee": 5,
-        "markup": 0.68,
+        "markup": 0.69,
         "receiveAmount": 4207.33
       },
       "paysend": {
         "rate": 44.4655,
         "fee": 3,
-        "markup": 0.28,
+        "markup": 0.29,
         "receiveAmount": 4313.15
       },
       "koho": {
@@ -6736,6 +6736,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4132.06
+      },
+      "skrill": {
+        "rate": 43.3521,
+        "fee": 0.5,
+        "markup": 2.78,
+        "receiveAmount": 4313.53
       }
     }
   }

@@ -1548,15 +1548,15 @@
     "date": "2026-05-24",
     "providers": {
       "hsbc": {
-        "rate": 433.6418,
-        "fee": 19.89,
+        "rate": 428.7507,
+        "fee": 19.88,
         "markup": 3.5,
-        "receiveAmount": 34738.59
+        "receiveAmount": 34350.35
       },
       "moneygram": {
         "rate": 445.6104,
         "fee": 1.99,
-        "markup": 0.84,
+        "markup": -0.29,
         "receiveAmount": 43674.28
       },
       "skrill": {
@@ -1574,73 +1574,73 @@
       "western-union": {
         "rate": 447.7954,
         "fee": 0.99,
-        "markup": 0.35,
+        "markup": -0.79,
         "receiveAmount": 44336.22
       },
       "profee": {
-        "rate": 431.7942,
+        "rate": 432.0385,
         "fee": 1.1,
-        "markup": 3.91,
-        "receiveAmount": 42704.44
+        "markup": 2.76,
+        "receiveAmount": 42728.61
       },
       "dahabshiil": {
-        "rate": 437.9816,
+        "rate": 438.2907,
         "fee": 0,
-        "markup": 2.53,
-        "receiveAmount": 43798.16
+        "markup": 1.35,
+        "receiveAmount": 43829.07
       },
       "ofx": {
         "rate": 407.4458,
         "fee": 0,
-        "markup": 9.33,
+        "markup": 8.3,
         "receiveAmount": 40744.58
       },
       "transfergo": {
-        "rate": 436.6222,
+        "rate": 436.0619,
         "fee": 0,
-        "markup": 2.84,
-        "receiveAmount": 43662.22
+        "markup": 1.85,
+        "receiveAmount": 43606.19
       },
       "instarem": {
         "rate": 437.9838,
         "fee": 0,
-        "markup": 2.53,
+        "markup": 1.42,
         "receiveAmount": 43798.38
       },
       "xe": {
         "rate": 447.4894,
         "fee": 3,
-        "markup": 0.42,
+        "markup": -0.72,
         "receiveAmount": 43406.47
       },
       "paysend": {
         "rate": 458.5458,
         "fee": 1,
-        "markup": -2.04,
+        "markup": -3.21,
         "receiveAmount": 45396.03
       },
       "sendwave": {
         "rate": 398.1637,
         "fee": 0,
-        "markup": 11.4,
+        "markup": 10.38,
         "receiveAmount": 39816.37
       },
       "remitly": {
         "rate": 437.86,
         "fee": 1.49,
-        "markup": 2.56,
+        "markup": 1.45,
         "receiveAmount": 43133.59
       },
       "revolut": {
         "rate": 457.7805,
         "fee": 2.7,
-        "markup": -1.87,
+        "markup": -3.03,
         "receiveAmount": 44542.04
       },
       "wise": {
         "rate": 440.282,
         "fee": 2.43,
-        "markup": 2.02,
+        "markup": 0.9,
         "receiveAmount": 42958.31
       }
     }

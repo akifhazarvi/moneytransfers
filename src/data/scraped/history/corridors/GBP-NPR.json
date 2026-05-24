@@ -1376,13 +1376,13 @@
       "moneygram": {
         "rate": 204.9157,
         "fee": 0.99,
-        "markup": 0.41,
+        "markup": 0.5,
         "receiveAmount": 20288.7
       },
       "skrill": {
         "rate": 199.7111,
         "fee": 0,
-        "markup": 2.93,
+        "markup": 3.02,
         "receiveAmount": 19971.11
       },
       "taptap-send": {
@@ -1394,61 +1394,61 @@
       "western-union": {
         "rate": 204.4039,
         "fee": 0.5,
-        "markup": 0.65,
+        "markup": 0.74,
         "receiveAmount": 20338.19
       },
       "profee": {
-        "rate": 202.6646,
+        "rate": 202.8479,
         "fee": 1.1,
         "markup": 1.5,
-        "receiveAmount": 20043.53
+        "receiveAmount": 20061.66
       },
       "dahabshiil": {
         "rate": 211.0059,
         "fee": 0,
-        "markup": -2.55,
+        "markup": -2.46,
         "receiveAmount": 21100.59
       },
       "transfergo": {
         "rate": 170.6332,
         "fee": 0,
-        "markup": 17.07,
+        "markup": 17.14,
         "receiveAmount": 17063.32
       },
       "worldremit": {
         "rate": 203.9149,
         "fee": 0.99,
-        "markup": 0.89,
+        "markup": 0.98,
         "receiveAmount": 20189.62
       },
       "instarem": {
         "rate": 204.4368,
         "fee": 0,
-        "markup": 0.64,
+        "markup": 0.73,
         "receiveAmount": 20443.68
       },
       "paysend": {
         "rate": 203.4279,
         "fee": 1,
-        "markup": 1.13,
+        "markup": 1.22,
         "receiveAmount": 20139.36
       },
       "remitly": {
         "rate": 204.63,
         "fee": 3.99,
-        "markup": 0.54,
+        "markup": 0.63,
         "receiveAmount": 19646.53
       },
       "revolut": {
         "rate": 203.3027,
         "fee": 2.1,
-        "markup": 1.19,
+        "markup": 1.28,
         "receiveAmount": 19903.33
       },
       "wise": {
         "rate": 205.6393,
         "fee": 2.47,
-        "markup": 0.05,
+        "markup": 0.14,
         "receiveAmount": 20056
       }
     }
