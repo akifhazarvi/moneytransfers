@@ -3077,5 +3077,52 @@
         "receiveAmount": 3173.72
       }
     }
+  },
+  {
+    "date": "2026-05-25",
+    "providers": {
+      "remitly": {
+        "rate": 31.7409,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 3110.93
+      },
+      "taptap-send": {
+        "rate": 32.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3230
+      },
+      "xoom": {
+        "rate": 31.275,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 2971.44
+      },
+      "instarem": {
+        "rate": 32.2278,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3222.78
+      },
+      "worldremit": {
+        "rate": 31.9871,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 3103.07
+      },
+      "wells-fargo": {
+        "rate": 31.4292,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3142.92
+      },
+      "wise": {
+        "rate": 32.45,
+        "fee": 2.87,
+        "markup": null,
+        "receiveAmount": 3151.87
+      }
+    }
   }
 ]

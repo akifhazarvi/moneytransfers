@@ -2426,5 +2426,40 @@
         "receiveAmount": 42.35
       }
     }
+  },
+  {
+    "date": "2026-05-25",
+    "providers": {
+      "paypal": {
+        "rate": 0.4168,
+        "fee": 6.99,
+        "markup": null,
+        "receiveAmount": 38.76
+      },
+      "bank-of-new-zealand-nz": {
+        "rate": 0.4286,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 42.86
+      },
+      "auckland-savings-bank-nz": {
+        "rate": 0.4292,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 40.77
+      },
+      "remitly": {
+        "rate": 0.4287,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 41.16
+      },
+      "westpac-nz": {
+        "rate": 0.4272,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 42.72
+      }
+    }
   }
 ]
