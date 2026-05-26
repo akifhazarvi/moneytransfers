@@ -3862,10 +3862,10 @@
     "date": "2026-05-26",
     "providers": {
       "moneygram": {
-        "rate": 53.9652,
+        "rate": 53.9928,
         "fee": 4.99,
-        "markup": 3.69,
-        "receiveAmount": 5127.23
+        "markup": 3.33,
+        "receiveAmount": 5129.86
       },
       "xe": {
         "rate": 55.6066,
@@ -3874,10 +3874,10 @@
         "receiveAmount": 5338.24
       },
       "western-union": {
-        "rate": 54.9286,
+        "rate": 55.1253,
         "fee": 1.2,
-        "markup": 1.97,
-        "receiveAmount": 5426.94
+        "markup": 1.3,
+        "receiveAmount": 5446.38
       },
       "remitly": {
         "rate": 55.3514,
@@ -3886,10 +3886,10 @@
         "receiveAmount": 5535.14
       },
       "revolut": {
-        "rate": 55.782,
+        "rate": 55.6039,
         "fee": 0.8,
         "markup": 0.44,
-        "receiveAmount": 5533.58
+        "receiveAmount": 5515.91
       },
       "westpac-nz": {
         "rate": 54.4796,
@@ -3914,6 +3914,12 @@
         "fee": 1.72,
         "markup": null,
         "receiveAmount": 5488.05
+      },
+      "skrill": {
+        "rate": 54.6903,
+        "fee": 0,
+        "markup": 2.08,
+        "receiveAmount": 5469.03
       }
     }
   }
