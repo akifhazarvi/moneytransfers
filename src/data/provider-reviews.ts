@@ -29,8 +29,8 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "In-depth Wise review covering fees, exchange rates, transfer speed, supported countries, payment methods, pros and cons. Based on real transfer data and 280,000+ Trustpilot reviews.",
     publishedAt: "2026-02-15",
-    updatedAt: "2026-03-14",
-    lastVerified: "2026-03-17",
+    updatedAt: "2026-05-25",
+    lastVerified: "2026-05-25",
     readTime: "12 min read",
     editorRating: 9.2,
     reviewer: "Akif Hazarvi",
@@ -46,6 +46,8 @@ export const providerReviews: ProviderReview[] = [
         content: `<p>Wise (formerly TransferWise) was founded in 2011 by Kristo Käärmann and Taavet Hinrikus, two Estonian entrepreneurs frustrated by the hidden costs of international banking. Their core insight — that banks add a significant markup to the exchange rate on top of their transfer fee — became the foundation of a company now serving over 16 million customers.</p>
 
 <p>Wise is publicly traded on the London Stock Exchange and is regulated by financial authorities in every market it operates in, including the <a href="https://register.fca.org.uk/s/firm?id=001b000001EjC6SAAV" target="_blank" rel="noopener noreferrer">FCA</a> (UK), <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN</a> (US), ASIC (Australia), and MAS (Singapore). It holds customer funds in segregated accounts, meaning your money is protected even if Wise itself ran into financial difficulty.</p>
+
+<p><strong>May 2026 update:</strong> On <a href="/news/wise-nasdaq-dual-listing-may-2026">May 11, 2026 Wise completed its dual primary listing on Nasdaq</a> while keeping its LSE listing — a structural shift that exposes the business to a far wider pool of US institutional capital and increases the regulatory scrutiny under which it operates. For users, this changes nothing operationally; the dual-listing strengthens the long-term safety story by adding US SEC reporting standards on top of existing FCA, FinCEN, MAS and ASIC oversight. Separately, <a href="/news/fca-safeguarding-rules-money-transfer-2026">the FCA's new safeguarding rules (May 2026)</a> require Wise and other UK e-money institutions to keep customer funds in dedicated trust accounts with daily reconciliation — stronger protection than the segregated-account standard that previously applied.</p>
 
 <p><strong>What makes Wise different:</strong> Unlike most transfer services that make money from exchange rate markups, Wise uses the actual mid-market rate — the same rate you see on Google or Reuters — and charges a transparent, upfront fee. This means the fee you see is the total cost. There is no hidden spread.</p>
 
@@ -293,8 +295,8 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "Remitly review 2026: real fees, exchange rate markup, transfer speed, and delivery options (bank deposit, cash pickup, mobile money). Tested across 4 corridors. Compare Remitly to Wise, Western Union & more.",
     publishedAt: "2026-02-15",
-    updatedAt: "2026-03-17",
-    lastVerified: "2026-03-17",
+    updatedAt: "2026-05-25",
+    lastVerified: "2026-05-25",
     readTime: "11 min read",
     editorRating: 8.8,
     reviewer: "Akif Hazarvi",
@@ -313,7 +315,9 @@ export const providerReviews: ProviderReview[] = [
 
 <p><strong>What makes Remitly different:</strong> Remitly's key differentiator is its delivery options. While most competitors only offer bank deposits, Remitly supports cash pickup at retail locations, mobile money transfers (M-Pesa, GCash, bKash), home delivery in select countries, and airtime top-ups. The Express option delivers money in minutes — critical when families need funds urgently.</p>
 
-<p>Remitly also offers a unique satisfaction guarantee: if a transfer doesn't arrive within the promised delivery window, Remitly will refund the transfer fee. This is rare in the industry and demonstrates confidence in their delivery infrastructure.</p>`,
+<p>Remitly also offers a unique satisfaction guarantee: if a transfer doesn't arrive within the promised delivery window, Remitly will refund the transfer fee. This is rare in the industry and demonstrates confidence in their delivery infrastructure.</p>
+
+<p><strong>May 2026 update:</strong> The US <a href="/news/us-remittance-excise-tax-takes-effect-2026">1% remittance excise tax took effect on January 1, 2026</a>, applying to all outbound personal transfers from US senders regardless of provider. Remitly customers see this as a separate line item at checkout rather than absorbed into the headline fee — a transparency choice that mirrors Wise's approach and avoids the rate-margin obfuscation traditional banks have favoured. Separately, on the regulatory side, Remitly remains FinCEN-registered in the US and FCA-authorised in the UK; the May 2026 FCA safeguarding update strengthens consumer protection across all UK-licensed remitters, including Remitly. For corridor-specific 2026 movements, see our <a href="/guides/send-money-uae-to-pakistan-guide">UAE→Pakistan guide</a> (Pakistan recorded its highest-ever inbound remittance year in 2026 at $41B).</p>`,
       },
       {
         id: "fees",
@@ -1594,8 +1598,8 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "In-depth WorldRemit review covering fees ($0.99–$3.99), exchange rates, mobile money delivery, cash pickup, and airtime top-up across 130+ countries.",
     publishedAt: "2026-02-15",
-    updatedAt: "2026-03-21",
-    lastVerified: "2026-03-21",
+    updatedAt: "2026-05-25",
+    lastVerified: "2026-05-25",
     readTime: "11 min read",
     editorRating: 7.5,
     editorVerdict:
@@ -1609,7 +1613,9 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          `<p>WorldRemit was founded in 2010 by Ismail Ahmed, a Somali-born entrepreneur who experienced firsthand the high cost and inconvenience of sending money to East Africa. The company set out to replace the agent-based model with a fully digital service — no more queuing at physical locations to send money home.</p>\n\n<p>In 2020, WorldRemit acquired Sendwave, a zero-fee mobile money transfer app popular in West Africa. The combined company rebranded as Zepz in 2021 (the parent holding company), though the consumer-facing brand remains WorldRemit. The company is headquartered in London and is regulated by the <a href="https://register.fca.org.uk/s/firm?id=0010X00004D8FDGQA3" target="_blank" rel="noopener noreferrer">FCA</a> (UK) and FinCEN (US), among other regulators.</p>\n\n<p><strong>What makes WorldRemit different:</strong> While most transfer services focus on bank-to-bank transfers, WorldRemit was built around the reality that billions of people in developing countries don't have bank accounts. Its mobile money delivery — sending directly to M-Pesa in Kenya, MTN Mobile Money in Ghana, or GCash in the Philippines — fills a genuine gap. The airtime top-up feature (sending phone credit) is another option no major competitor offers at the same scale.</p>\n\n<p>WorldRemit serves over 5 million customers and processes over 1 million transfers per month across 130+ countries. The company has raised over $400 million in funding and was last valued at approximately $5 billion.</p>`,
+          `<p>WorldRemit was founded in 2010 by Ismail Ahmed, a Somali-born entrepreneur who experienced firsthand the high cost and inconvenience of sending money to East Africa. The company set out to replace the agent-based model with a fully digital service — no more queuing at physical locations to send money home.</p>\n\n<p>In 2020, WorldRemit acquired Sendwave, a zero-fee mobile money transfer app popular in West Africa. The combined company rebranded as Zepz in 2021 (the parent holding company), though the consumer-facing brand remains WorldRemit. The company is headquartered in London and is regulated by the <a href="https://register.fca.org.uk/s/firm?id=0010X00004D8FDGQA3" target="_blank" rel="noopener noreferrer">FCA</a> (UK) and FinCEN (US), among other regulators.</p>\n\n<p><strong>What makes WorldRemit different:</strong> While most transfer services focus on bank-to-bank transfers, WorldRemit was built around the reality that billions of people in developing countries don't have bank accounts. Its mobile money delivery — sending directly to M-Pesa in Kenya, MTN Mobile Money in Ghana, or GCash in the Philippines — fills a genuine gap. The airtime top-up feature (sending phone credit) is another option no major competitor offers at the same scale.</p>\n\n<p>WorldRemit serves over 5 million customers and processes over 1 million transfers per month across 130+ countries. The company has raised over $400 million in funding and was last valued at approximately $5 billion.</p>
+
+<p><strong>May 2026 update:</strong> The African remittance market — WorldRemit's strongest corridor cluster — has continued to consolidate around digital wallet rails. The <a href="/news/absa-thunes-global-pay-africa-remittances">Absa/Thunes Global Pay launch (March 2026)</a> opened a new B2B competitor targeting 18 African receive countries with bank-to-mobile-wallet integration. WorldRemit's response has been to deepen its Sendwave (the West Africa zero-fee app acquired in 2020) integrations and expand airtime top-up coverage — both differentiators few competitors match. For users, the practical 2026 shifts to note: M-Pesa Kenya, MTN Mobile Money Ghana, and GCash Philippines remain WorldRemit's three best-supported delivery rails; FCA safeguarding rules (May 2026) require WorldRemit and other UK e-money institutions to hold customer funds in dedicated trust accounts with daily reconciliation. UK→Nigeria transfers must now comply with the <a href="/news/nigeria-cbn-naira-only-remittance-rule-2026">Central Bank of Nigeria's naira-only inbound rule (March 2026)</a> — WorldRemit handles the conversion transparently at the bank-deposit settlement step.</p>`,
       },
       {
         id: "fees",
@@ -2155,8 +2161,8 @@ export const providerReviews: ProviderReview[] = [
     metaDescription:
       "TapTap Send review 2026: 0.09–0.7% markup on major corridors, 95% of transfers under 3 minutes, 80+ countries. App Store 4.8/5 (59K reviews). FCA regulated. Honest pros, cons & corridor data.",
     publishedAt: "2026-02-15",
-    updatedAt: "2026-05-01",
-    lastVerified: "2026-05-01",
+    updatedAt: "2026-05-25",
+    lastVerified: "2026-05-25",
     readTime: "12 min read",
     editorRating: 8.9,
     editorVerdict:
@@ -2170,7 +2176,9 @@ export const providerReviews: ProviderReview[] = [
         id: "overview",
         heading: "Overview",
         content:
-          `<p>TapTap Send was founded in 2018 by <strong>Michael Faye</strong>, who is also the founder of <a href="https://www.givedirectly.org/" target="_blank" rel="noopener noreferrer">GiveDirectly</a>, the pioneering direct cash transfer charity. The founding team includes veterans from <a href="/companies/worldremit">WorldRemit</a> and Wave — people who deeply understand the remittance market and its pain points.</p>\n\n<p><strong>Regulation:</strong> TapTap Send is authorised in every market it operates in:</p>\n<ul>\n<li><strong>UK:</strong> FCA-authorised Electronic Money Institution</li>\n<li><strong>US:</strong> FinCEN registered + licensed in 40+ states including NYDFS (New York)</li>\n<li><strong>EU:</strong> National Bank of Belgium</li>\n<li><strong>Canada:</strong> FINTRAC</li>\n<li><strong>UAE:</strong> DFSA</li>\n<li><strong>Australia:</strong> AFSL No. 559468</li>\n<li><strong>New Zealand:</strong> FSP1009831</li>\n</ul>\n<p>Customer funds are held separately from operational funds (standard EMI requirement). Card details are not stored by TapTap Send. TLS encryption throughout. Biometric authentication on app.</p>\n\n<p><strong>User ratings (May 2026):</strong></p>\n<ul>\n<li>Trustpilot: <strong>4.7/5</strong> from 32,000+ reviews — highest of any money transfer provider</li>\n<li>Apple App Store: <strong>4.8/5</strong> from 59,000 reviews</li>\n<li>Google Play: <strong>4.8/5</strong> from 262,000 reviews</li>\n</ul>\n\n<p><strong>What makes TapTap Send different:</strong> On its core corridors (India, Pakistan, Ghana, West Africa), TapTap Send's exchange rate markup is extraordinarily low — as little as 0.09% on INR. Zero fees on most routes. 95% of transfers land in under 3 minutes. The service accepts debit cards, bank transfers, Google Pay, Apple Pay, and UPI (India). For UK and EU users, TapTap Send also offers a multi-currency account and debit card. Coverage spans <strong>80+ receive countries across 65+ currencies</strong>, sending from 33 countries.</p>\n\n<p>The service is purpose-built for diaspora communities. It does not do same-currency transfers, business payments, or intra-Europe euro moves. That focus is a strength — it means the rates, speed, and UX are optimised for exactly the corridors where the diaspora community sends.</p>`,
+          `<p>TapTap Send was founded in 2018 by <strong>Michael Faye</strong>, who is also the founder of <a href="https://www.givedirectly.org/" target="_blank" rel="noopener noreferrer">GiveDirectly</a>, the pioneering direct cash transfer charity. The founding team includes veterans from <a href="/companies/worldremit">WorldRemit</a> and Wave — people who deeply understand the remittance market and its pain points.</p>\n\n<p><strong>Regulation:</strong> TapTap Send is authorised in every market it operates in:</p>\n<ul>\n<li><strong>UK:</strong> FCA-authorised Electronic Money Institution</li>\n<li><strong>US:</strong> FinCEN registered + licensed in 40+ states including NYDFS (New York)</li>\n<li><strong>EU:</strong> National Bank of Belgium</li>\n<li><strong>Canada:</strong> FINTRAC</li>\n<li><strong>UAE:</strong> DFSA</li>\n<li><strong>Australia:</strong> AFSL No. 559468</li>\n<li><strong>New Zealand:</strong> FSP1009831</li>\n</ul>\n<p>Customer funds are held separately from operational funds (standard EMI requirement). Card details are not stored by TapTap Send. TLS encryption throughout. Biometric authentication on app.</p>\n\n<p><strong>User ratings (May 2026):</strong></p>\n<ul>\n<li>Trustpilot: <strong>4.7/5</strong> from 32,000+ reviews — highest of any money transfer provider</li>\n<li>Apple App Store: <strong>4.8/5</strong> from 59,000 reviews</li>\n<li>Google Play: <strong>4.8/5</strong> from 262,000 reviews</li>\n</ul>\n\n<p><strong>What makes TapTap Send different:</strong> On its core corridors (India, Pakistan, Ghana, West Africa), TapTap Send's exchange rate markup is extraordinarily low — as little as 0.09% on INR. Zero fees on most routes. 95% of transfers land in under 3 minutes. The service accepts debit cards, bank transfers, Google Pay, Apple Pay, and UPI (India). For UK and EU users, TapTap Send also offers a multi-currency account and debit card. Coverage spans <strong>80+ receive countries across 65+ currencies</strong>, sending from 33 countries.</p>\n\n<p>The service is purpose-built for diaspora communities. It does not do same-currency transfers, business payments, or intra-Europe euro moves. That focus is a strength — it means the rates, speed, and UX are optimised for exactly the corridors where the diaspora community sends.</p>
+
+<p><strong>May 2026 update:</strong> TapTap Send remains one of the few money transfer apps that has progressively integrated with Pakistan's <a href="/guides/send-money-uae-to-pakistan-guide">RAAST instant payment system</a> (via the Arab Monetary Fund's Buna platform), enabling real-time SAR/AED→PKR settlement to the recipient's RAAST ID. <a href="/news/pakistan-record-41-billion-remittance-2026">Pakistan recorded a record $41 billion in inbound remittances in 2026</a> — the UAE→Pakistan corridor alone hit $7B+ year-to-date through April, with the March 2026 Ramadan/Eid window touching $823.7M from UAE senders (+18% MoM). On the West Africa side, TapTap Send continues to compete head-on with Wave Mobile Money on the XOF and XAF corridors, where both maintain effectively zero FX markup. Customer satisfaction metrics held steady through the spring 2026 wave of UK fintech regulatory updates (FCA safeguarding rules effective May 2026).</p>`,
       },
       {
         id: "fees",
