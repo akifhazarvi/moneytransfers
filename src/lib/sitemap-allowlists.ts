@@ -79,6 +79,7 @@ export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
 ]); // 65 URLs
 
 export const SITEMAP_GUIDE_SLUGS = new Set<string>([
+  // ── Original GSC-validated set (≥10 GSC impr in 90d ending 2026-05-18) ──
   "best-money-transfer-apps",
   "best-money-transfer-rates-eid-holi-2026",
   "best-money-transfer-services",
@@ -106,7 +107,35 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "swift-codes-explained",
   "us-dollar-forecast-2026",
   "wire-transfer-guide",
-]); // 27 URLs
+  // ── Added 2026-05-25 — Bing-validated (≥5 Bing impr per BWT page report) ──
+  // The site is winning on Bing/ChatGPT/DDG but Google is the underperforming
+  // channel. These guides are already earning real Bing rankings + clicks,
+  // so adding them to the Google sitemap gives Google a chance to discover
+  // them properly. Bing already ranks them = they're not thin pages.
+  // Comments show: Bing impressions / clicks / avg position (90d).
+  "money-transfer-limits-by-provider-country", // 999i 19c pos5.5
+  "revolut-foreign-transaction-fees-2026",     // 615i 27c pos3.4
+  "revolut-us-banking-license-2026",           // 251i 6c  pos4.6
+  "send-money-to-china-guide",                 // 185i 11c pos3.2
+  "how-to-send-money-abroad",                  // 83i 3c  pos4.2
+  "wise-vs-remitly-comparison",                // 50i 3c  pos4.4
+  "euro-forecast-2026",                        // 49i 7c  pos5.0
+  "exchange-rate-markup-explained",            // 34i 4c  pos3.0
+  "send-money-to-jamaica-guide",               // 20i 1c  pos4.7
+  "hidden-fees-international-transfers",       // 17i 2c  pos4.9
+  "multi-currency-account-wars-2026",          // 16i 0c  pos8.6
+  "cheapest-way-to-send-money-internationally", // 15i 0c pos9.1
+  "send-money-to-ethiopia-guide",              // 14i 0c  pos5.9
+  "send-money-to-kenya-guide",                 // 12i 0c  pos3.3
+  "send-money-uae-to-india-guide",             // 10i 1c  pos2.3
+  "send-money-canada-to-india-guide",          // 9i  2c  pos3.6
+  "how-to-send-money-from-china",              // 7i  1c  pos4.3
+  "send-money-to-sri-lanka-guide",             // 6i  0c  pos6.5
+  "send-money-to-poland-guide",                // 6i  1c  pos3.8
+  "send-money-uae-to-pakistan-guide",          // 5i  1c  pos2.2
+  "xe-tax-season-cross-border-money-2026",     // 5i  0c  pos3.6
+  "send-money-to-nepal-guide",                 // 5i  0c  pos7.2
+]); // 49 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
   "andorra",
