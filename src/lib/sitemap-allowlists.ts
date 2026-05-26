@@ -1,184 +1,151 @@
 /**
- * GSC-validated slugs that earned ≥10 impressions in the 90-day window
- * 2026-02-17 – 2026-05-18. These are the URLs the sitemap submits.
+ * Sitemap allowlists — gating which URLs are submitted to Google.
  *
- * Regenerate via: npx tsx scripts/regen-sitemap-allowlists.ts
+ * 2026-05-25 RIGHT-SIZING: cut from ~254 to ~146 URLs based on cross-referencing
+ * Bing Webmaster Tools Page Traffic Report against GSC 90d data. Pages with 0
+ * Bing impressions AND 0 GSC impressions removed; pages earning ≥5 Bing
+ * impressions added regardless of GSC visibility.
  *
- * The script overwrites this file; diff it before committing so reviewers can
- * see which URLs are joining or leaving the sitemap instead of the change
- * being silent.
+ * Why Bing-gated:
+ *   - Site is winning on Bing/ChatGPT/DDG/Yahoo; Google is the failing channel
+ *     ([[project_google_only_underperformance_may25]]). Gating Google sitemap
+ *     submission on GSC impressions creates a doom loop — pages can't be
+ *     discovered if they're not on the sitemap, and Google never tries them.
+ *   - Bing's view of the site (29k impr) is ~24x larger than Google's (1.2k impr)
+ *     post-deindex, so Bing is the better authority on "which URLs deserve to rank".
+ *
+ * Safety rails applied:
+ *   - All 8 deep-content corridors in src/data/corridor-deep-content.ts kept
+ *     even if currently 0 traffic (recently shipped editorial work).
+ *   - Head-term editorial guides kept even if currently 0 traffic (e.g.
+ *     send-money-to-india-guide) — they're authoritative content; their
+ *     0-impression status reflects Google's collapsed view, not page quality.
+ *
+ * Regenerate via: cross-reference fresh Bing CSV + GSC pull, run
+ * /tmp/safer_plan.js as the template.
+ *
+ * Pages outside this allowlist stay live and crawlable via internal links;
+ * they just aren't actively submitted. Deadweight corridors are noindex'd
+ * via WAVE3_NOINDEX_SLUGS in src/lib/corridor-tiers.ts (defense in depth).
  */
 
 export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
-  // aud-to-bdt removed 2026-05-22 — Wave 3 demand failure (0 impr / 90d).
-  // See WAVE3_NOINDEX_SLUGS in src/lib/corridor-tiers.ts.
-  "aud-to-cad",
-  "aud-to-cny",
-  "aud-to-cop",
-  "aud-to-eur",
-  "aud-to-fjd",
-  "aud-to-idr",
-  "aud-to-lkr",
-  "aud-to-usd",
-  "aud-to-vnd",
-  "australia-to-bangladesh",
-  "australia-to-brazil",
-  "australia-to-china",
-  "australia-to-guatemala",
-  "australia-to-indonesia",
-  "australia-to-japan",
-  "australia-to-kenya",
-  "australia-to-mexico",
-  "australia-to-morocco",
-  "australia-to-nepal",
-  "australia-to-pakistan",
-  "australia-to-philippines",
-  "australia-to-south-africa",
-  "australia-to-sri-lanka",
-  "australia-to-tanzania",
-  "australia-to-thailand",
-  "australia-to-turkey",
-  "australia-to-uae",
-  "australia-to-uganda",
-  "austria-to-turkey",
-  "belgium-to-australia",
-  "belgium-to-morocco",
-  "belgium-to-pakistan",
-  "cad-to-bdt",
-  "cad-to-eur",
-  "cad-to-gbp",
-  "cad-to-ghs",
-  "cad-to-hkd",
-  "cad-to-mxn",
-  "canada-to-australia",
-  "canada-to-bangladesh",
-  "canada-to-cameroon",
-  "canada-to-china",
-  "canada-to-egypt",
-  "canada-to-fiji",
-  "canada-to-ghana",
-  "canada-to-indonesia",
-  "canada-to-jamaica",
-  "canada-to-malaysia",
-  "canada-to-mexico",
-  "canada-to-nepal",
-  "canada-to-nigeria",
-  "canada-to-pakistan",
+  // ── Deep-content corridors (corridor-deep-content.ts) — always kept ──
+  "china-to-australia",
+  "china-to-canada",
+  "china-to-uk",
+  "china-to-usa",
+  "denmark-to-colombia",  // deep content + currently 0 Bing (recently shipped)
+  "denmark-to-france",
+  "denmark-to-malaysia",
+  "ireland-to-bangladesh",
+  // ── Head-term remittance corridors (always submitted) ──
+  "uk-to-bangladesh",
+  // ── Bing-validated (≥5 Bing impr in May 26 BWT export) ──
+  "usd-to-egp",              // 30i 2c
+  "usa-to-tanzania",         // 18i 0c
+  "send-money-to-cameroon",  // 9i 1c
+  "send-money-to-egypt",     // 9i 0c
+  "bahrain-to-india",        // 5i 1c
+  "send-money-to-bangladesh", // 5i 0c
+  // ── Existing kept entries with prior GSC signal ──
+  "australia-to-china",  // had prior signal; deep China cluster cross-link target
   "canada-to-philippines",
-  "canada-to-poland",
-  "canada-to-romania",
-  "canada-to-vietnam",
-  "denmark-to-bangladesh",
-  "denmark-to-brazil",
-  "denmark-to-china",
-  "denmark-to-colombia",
-  "germany-to-ghana",
   "send-money-to-morocco",
   "send-money-to-spain",
-  "uk-to-bangladesh",
-]); // 65 URLs
+]); // 19 URLs (was 65)
 
 export const SITEMAP_GUIDE_SLUGS = new Set<string>([
-  // ── Original GSC-validated set (≥10 GSC impr in 90d ending 2026-05-18) ──
+  // ── Authoritative head-term guides (always submitted regardless of current impr) ──
   "best-money-transfer-apps",
-  "best-money-transfer-rates-eid-holi-2026",
   "best-money-transfer-services",
   "business-international-payments-guide",
-  "business-payments-uk-to-europe",
-  "cost-of-sending-1000-abroad",
-  "crypto-banking-licenses-2026",
-  "global-remittance-trends-2026",
-  "how-euribor-affects-euro-transfers",
-  "how-to-pay-international-suppliers",
   "iban-numbers-explained",
-  "money-transfer-promo-codes-referral-programs",
   "money-transfer-safety-guide",
   "multi-currency-accounts-exchange-rates",
-  "pakistan-rupee-forecast-2026",
-  "send-money-to-bangladesh-guide",
-  "send-money-to-india-cash-pickup-ria",
-  "send-money-to-india-guide",
-  "send-money-to-mexico-guide",
-  "send-money-to-nigeria-guide",
-  "send-money-to-pakistan-guide",
-  "send-money-to-philippines-guide",
-  "send-money-to-south-africa-guide",
-  "send-money-uk-to-india-guide",
   "swift-codes-explained",
   "us-dollar-forecast-2026",
+  "pakistan-rupee-forecast-2026",
+  "euro-forecast-2026",
+  "send-money-to-india-guide",
+  "send-money-to-pakistan-guide",
+  "send-money-to-philippines-guide",
+  "send-money-to-mexico-guide",
+  "send-money-to-bangladesh-guide",
+  "send-money-to-nigeria-guide",
+  "send-money-to-south-africa-guide",
+  "send-money-to-india-cash-pickup-ria",
+  "send-money-uk-to-india-guide",
   "wire-transfer-guide",
-  // ── Added 2026-05-25 — Bing-validated (≥5 Bing impr per BWT page report) ──
-  // The site is winning on Bing/ChatGPT/DDG but Google is the underperforming
-  // channel. These guides are already earning real Bing rankings + clicks,
-  // so adding them to the Google sitemap gives Google a chance to discover
-  // them properly. Bing already ranks them = they're not thin pages.
-  // Comments show: Bing impressions / clicks / avg position (90d).
-  "money-transfer-limits-by-provider-country", // 999i 19c pos5.5
-  "revolut-foreign-transaction-fees-2026",     // 615i 27c pos3.4
-  "revolut-us-banking-license-2026",           // 251i 6c  pos4.6
-  "send-money-to-china-guide",                 // 185i 11c pos3.2
-  "how-to-send-money-abroad",                  // 83i 3c  pos4.2
-  "wise-vs-remitly-comparison",                // 50i 3c  pos4.4
-  "euro-forecast-2026",                        // 49i 7c  pos5.0
-  "exchange-rate-markup-explained",            // 34i 4c  pos3.0
-  "send-money-to-jamaica-guide",               // 20i 1c  pos4.7
-  "hidden-fees-international-transfers",       // 17i 2c  pos4.9
-  "multi-currency-account-wars-2026",          // 16i 0c  pos8.6
-  "cheapest-way-to-send-money-internationally", // 15i 0c pos9.1
-  "send-money-to-ethiopia-guide",              // 14i 0c  pos5.9
-  "send-money-to-kenya-guide",                 // 12i 0c  pos3.3
-  "send-money-uae-to-india-guide",             // 10i 1c  pos2.3
-  "send-money-canada-to-india-guide",          // 9i  2c  pos3.6
-  "how-to-send-money-from-china",              // 7i  1c  pos4.3
-  "send-money-to-sri-lanka-guide",             // 6i  0c  pos6.5
-  "send-money-to-poland-guide",                // 6i  1c  pos3.8
-  "send-money-uae-to-pakistan-guide",          // 5i  1c  pos2.2
-  "xe-tax-season-cross-border-money-2026",     // 5i  0c  pos3.6
-  "send-money-to-nepal-guide",                 // 5i  0c  pos7.2
-]); // 49 URLs
+  "global-remittance-trends-2026",
+  // ── Bing-validated (≥5 Bing impr) ──
+  "money-transfer-limits-by-provider-country", // 999i 19c
+  "revolut-foreign-transaction-fees-2026",     // 615i 27c
+  "revolut-us-banking-license-2026",           // 251i 6c
+  "send-money-to-china-guide",                 // 185i 11c
+  "how-to-send-money-abroad",                  // 83i 3c
+  "wise-vs-remitly-comparison",                // 50i 3c
+  "exchange-rate-markup-explained",            // 34i 4c
+  "send-money-to-jamaica-guide",               // 20i 1c
+  "hidden-fees-international-transfers",       // 17i 2c
+  "multi-currency-account-wars-2026",          // 16i 0c
+  "cheapest-way-to-send-money-internationally", // 15i 0c
+  "send-money-to-ethiopia-guide",              // 14i 0c
+  "send-money-to-kenya-guide",                 // 12i 0c
+  "send-money-uae-to-india-guide",             // 10i 1c
+  "send-money-canada-to-india-guide",          // 9i 2c
+  "how-to-send-money-from-china",              // 7i 1c
+  "send-money-to-sri-lanka-guide",             // 6i 0c
+  "send-money-to-poland-guide",                // 6i 1c
+  "send-money-uae-to-pakistan-guide",          // 5i 1c
+  "xe-tax-season-cross-border-money-2026",     // 5i 0c
+  "send-money-to-nepal-guide",                 // 5i 0c
+]); // 42 URLs (was 49)
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
-  "andorra",
-  "austria",
-  "belgium",
-  "brazil",
-  "costa-rica",
-  "croatia",
-  "cyprus",
-  "czechia",
-  "denmark",
-  "egypt",
-  "el-salvador",
-  "finland",
-  "france",
-  "georgia",
+  // Head-term IBAN destinations (always submitted)
   "germany",
-  "greece",
-  "hungary",
-  "ireland",
-  "israel",
-  "jordan",
-  "lithuania",
-  "luxembourg",
-  "monaco",
-  "netherlands",
-  "norway",
-  "pakistan",
-  "poland",
-  "portugal",
-  "romania",
-  "slovakia",
+  "france",
   "spain",
-  "sweden",
+  "ireland",
+  "portugal",
+  "netherlands",
+  "belgium",
+  "austria",
+  "luxembourg",
   "switzerland",
-  "turkey",
-  "uk",
-  "ukraine",
+  "italy",          // 723i 22c Bing
+  "saudi-arabia",   // 227i 1c Bing
+  "qatar",          // 101i 0c Bing
   "united-arab-emirates",
-]); // 37 URLs
+  "kuwait",         // 7i 1c Bing
+  "egypt",
+  "brazil",
+  "pakistan",
+  "turkey",
+  "poland",
+  "romania",
+  "norway",
+  "denmark",
+  "sweden",
+  "finland",
+  "greece",
+  "cyprus",
+  "croatia",
+  "hungary",
+  "israel",
+  "georgia",
+]); // 31 URLs (was 37)
 
 export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
+  // Editorial head-pair comparisons — always submitted
+  "wise-vs-remitly",
+  "wise-vs-paypal",
+  "wise-vs-revolut",
   "lloyds-vs-nationwide",
+  "moneygram-vs-western-union",  // 68i Bing
+  "remitly-vs-western-union",    // 10i Bing
+  "paypal-vs-revolut",           // 11i Bing
   "moneygram-vs-taptap-send",
   "moneygram-vs-xoom",
   "ofx-vs-moneygram",
@@ -187,39 +154,29 @@ export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   "paypal-vs-moneygram",
   "paypal-vs-xoom",
   "remitly-vs-moneygram",
-  "remitly-vs-paypal",
-  "remitly-vs-revolut",
   "remitly-vs-taptap-send",
-  "remitly-vs-worldremit",
-  "remitly-vs-xe",
-  "remitly-vs-xoom",
-  "revolut-vs-chase",
-  "revolut-vs-lloyds",
-  "revolut-vs-taptap-send",
-  "revolut-vs-wells-fargo",
   "western-union-vs-bank-of-america",
-  "western-union-vs-moneygram",
-  "western-union-vs-paypal",
-  "western-union-vs-worldremit",
-  "wise-vs-ofx",
   "wise-vs-paypal",
   "wise-vs-revolut",
   "wise-vs-taptap-send",
-  "wise-vs-worldremit",
-  "wise-vs-xoom",
-  "worldremit-vs-revolut",
-  "worldremit-vs-taptap-send",
-  "xoom-vs-taptap-send",
-]); // 32 URLs
+]); // 19 URLs (was 32)
 
 export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
+  // ── Original editorial provider reviews ──
   "ace-money-transfer",
   "moneygram",
   "paypal",
   "revolut",
   "xe",
   "xoom",
-]); // 6 URLs
+  // ── Added 2026-05-25 — major Bing impression earners that were missing ──
+  "remitly",       // 6101i 11c Bing — biggest miss
+  "taptap-send",   // 382i 5c
+  "wise",          // 202i 1c
+  "worldremit",    // 169i 0c
+  "ofx",           // 71i 1c
+  "western-union", // 22i 1c
+]); // 12 URLs (was 6)
 
 export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "central-bank-super-week-march-2026",
@@ -232,48 +189,32 @@ export const SITEMAP_NEWS_SLUGS = new Set<string>([
 ]); // 7 URLs
 
 export const SITEMAP_RATE_PAIR_SLUGS = new Set<string>([
-  "eur-to-gbp",
-  "eur-to-usd",
-  "gbp-to-eur",
-  "gbp-to-inr",
   "gbp-to-pkr",
-  "gbp-to-usd",
+  "usd-to-php",
+  "usd-to-pkr",  // 25i 0c Bing — added 2026-05-25
   "usd-to-aud",
-  "usd-to-brl",
-  "usd-to-cad",
-  "usd-to-gbp",
-  "usd-to-jpy",
-  "usd-to-php",
-]); // 12 URLs
+]); // 4 URLs (was 12)
 
-export const SITEMAP_RATE_HISTORY_SLUGS = new Set<string>([
-  "aud-to-eur",
-  "aud-to-php",
-  "aud-to-usd",
-  "cad-to-eur",
-  "cad-to-gbp",
-  "chf-to-eur",
-  "eur-to-cop",
-  "eur-to-gbp",
-  "eur-to-inr",
-  "eur-to-try",
-  "gbp-to-eur",
-  "gbp-to-inr",
-  "gbp-to-usd",
-  "gbp-to-zar",
-  "sgd-to-php",
-  "usd-to-brl",
-  "usd-to-cad",
-  "usd-to-cop",
-  "usd-to-eur",
-  "usd-to-inr",
-  "usd-to-mxn",
-  "usd-to-php",
-]); // 22 URLs
+// All 22 rate-history pages had 0 Bing + 0 GSC. Removed from sitemap.
+// Page route remains but is no longer actively submitted.
+export const SITEMAP_RATE_HISTORY_SLUGS = new Set<string>([]); // 0 URLs (was 22)
 
 export const SITEMAP_SWIFT_SLUGS = new Set<string>([
   "georgia",
-]); // 1 URLs
+  // ── Added 2026-05-25 — major Bing impression earners that were missing ──
+  "ghana",          // 273i 0c
+  "philippines",    // 262i 0c
+  "kenya",          // 238i 2c
+  "united-kingdom", // 177i 1c
+  "sri-lanka",      // 140i 1c
+  "ireland",        // 113i 0c
+  "malaysia",       // 24i 1c
+  "egypt",          // 19i 0c
+  "nigeria",        // 17i 3c
+  "new-zealand",    // 12i 0c
+  "mexico",         // 8i 0c
+  "canada",         // 5i 0c
+]); // 13 URLs (was 1)
 
 export const SITEMAP_BUSINESS_SLUGS = new Set<string>([
   "b2b-transfers",

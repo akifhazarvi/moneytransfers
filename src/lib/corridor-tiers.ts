@@ -34,6 +34,7 @@ const EDITORIAL_SLUGS = new Set(editorialCorridors.map((c) => c.slug));
  * 30-day window — same readmit policy as the auto-generated /compare pages.
  */
 const WAVE3_NOINDEX_SLUGS = new Set<string>([
+  // ── Original Wave 3 (2026-05-22) — editorial corridors with 0 90d GSC ──
   "denmark-to-philippines",
   "finland-to-philippines",
   "norway-to-philippines",
@@ -41,6 +42,31 @@ const WAVE3_NOINDEX_SLUGS = new Set<string>([
   "greece-to-poland",
   "czech-republic-to-germany",
   "aud-to-bdt",
+  // ── Wave 4 (2026-05-25) — corridors with 0 Bing AND 0 GSC over 90d ──
+  // Confirmed dead by cross-referencing Bing Webmaster Tools Page Traffic
+  // Report (5/26/2026) against GSC 90d data. These corridors don't earn
+  // impressions on either engine; they're auto-generated editorial slugs
+  // that haven't found demand. Excluded: 8 deep-content corridors
+  // (china-to-*, denmark-to-colombia/france/malaysia, ireland-to-bangladesh)
+  // because they have recently-shipped editorial content.
+  "aud-to-cad", "aud-to-cny", "aud-to-cop", "aud-to-eur", "aud-to-fjd",
+  "aud-to-idr", "aud-to-lkr", "aud-to-usd", "aud-to-vnd",
+  "australia-to-bangladesh", "australia-to-brazil", "australia-to-guatemala",
+  "australia-to-indonesia", "australia-to-japan", "australia-to-kenya",
+  "australia-to-mexico", "australia-to-morocco", "australia-to-nepal",
+  "australia-to-pakistan", "australia-to-philippines", "australia-to-south-africa",
+  "australia-to-sri-lanka", "australia-to-tanzania", "australia-to-thailand",
+  "australia-to-turkey", "australia-to-uae", "australia-to-uganda",
+  "austria-to-turkey",
+  "belgium-to-australia", "belgium-to-morocco", "belgium-to-pakistan",
+  "cad-to-bdt", "cad-to-eur", "cad-to-gbp", "cad-to-ghs", "cad-to-hkd", "cad-to-mxn",
+  "canada-to-australia", "canada-to-bangladesh", "canada-to-cameroon",
+  "canada-to-china", "canada-to-egypt", "canada-to-fiji", "canada-to-ghana",
+  "canada-to-indonesia", "canada-to-jamaica", "canada-to-malaysia",
+  "canada-to-mexico", "canada-to-nepal", "canada-to-nigeria", "canada-to-pakistan",
+  "canada-to-poland", "canada-to-romania", "canada-to-vietnam",
+  "denmark-to-bangladesh", "denmark-to-brazil", "denmark-to-china",
+  "germany-to-ghana",
 ]);
 
 /**
