@@ -2040,5 +2040,34 @@
         "receiveAmount": 212.99
       }
     }
+  },
+  {
+    "date": "2026-05-26",
+    "providers": {
+      "paypal": {
+        "rate": 2.9652,
+        "fee": 6.37,
+        "markup": null,
+        "receiveAmount": 277.62
+      },
+      "uob": {
+        "rate": 3.0467,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 213.27
+      },
+      "remitly": {
+        "rate": 3.0209,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 296.08
+      },
+      "instarem": {
+        "rate": 3.0959,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 307.89
+      }
+    }
   }
 ]
