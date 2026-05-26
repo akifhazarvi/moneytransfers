@@ -22,13 +22,21 @@ export default function Footer() {
       ],
     },
     {
+      // Resources column rebuilt 2026-05-25 from Bing data: replaced /guides
+      // hub (0 Bing impr) and /remittance-cost-index (0 Bing impr) with the
+      // two highest-traffic guides on the entire site:
+      //   - best-money-transfer-apps: 6,789 Bing impr
+      //   - money-transfer-limits-by-provider-country: 999 Bing impr
+      // Existing winning guides (cheapest-way 15 impr, safety-guide 3 impr,
+      // how-to-send 83 impr) retained. This is the always-visible Resources
+      // column — every additional link here costs equity from the 5 winners.
       titleKey: "resources",
       links: [
-        { href: "/guides", labelKey: "guidesLink" },
+        { href: "/guides/best-money-transfer-apps", labelKey: "bestAppsGuideLink" },
+        { href: "/guides/money-transfer-limits-by-provider-country", labelKey: "limitsGuideLink" },
         { href: "/guides/how-to-send-money-abroad", labelKey: "howToSendGuideLink" },
         { href: "/guides/cheapest-way-to-send-money-internationally", labelKey: "cheapestWayGuideLink" },
         { href: "/guides/money-transfer-safety-guide", labelKey: "safetyGuideLink" },
-        { href: "/remittance-cost-index", labelKey: "remittanceCostIndexLink" },
       ],
     },
     {
@@ -53,75 +61,76 @@ export default function Footer() {
     },
   ];
 
-  // ── Disclosure: full destinations list ──────────────────────────────────
-  const sendMoneyToLinks: StaticLink[] = [
-    { href: "/send-money/send-money-to-india", label: "India" },
-    { href: "/send-money/send-money-to-pakistan", label: "Pakistan" },
-    { href: "/send-money/send-money-to-philippines", label: "Philippines" },
-    { href: "/send-money/send-money-to-mexico", label: "Mexico" },
-    { href: "/send-money/send-money-to-nigeria", label: "Nigeria" },
-    { href: "/send-money/send-money-to-bangladesh", label: "Bangladesh" },
-    { href: "/send-money/send-money-to-kenya", label: "Kenya" },
-    { href: "/send-money/send-money-to-brazil", label: "Brazil" },
-    { href: "/send-money/send-money-to-ghana", label: "Ghana" },
-    { href: "/send-money/send-money-to-nepal", label: "Nepal" },
-    { href: "/send-money/send-money-to-uk", label: "United Kingdom" },
-    { href: "/send-money/send-money-to-australia", label: "Australia" },
-    { href: "/send-money/send-money-to-canada", label: "Canada" },
-    { href: "/send-money/send-money-to-uae", label: "UAE" },
-    { href: "/send-money/send-money-to-germany", label: "Germany" },
-    { href: "/send-money/send-money-to-france", label: "France" },
-    { href: "/send-money/send-money-to-colombia", label: "Colombia" },
-    { href: "/send-money/send-money-to-egypt", label: "Egypt" },
-    { href: "/send-money/send-money-to-vietnam", label: "Vietnam" },
-    { href: "/send-money/send-money-to-indonesia", label: "Indonesia" },
-    { href: "/send-money/send-money-to-sri-lanka", label: "Sri Lanka" },
-    { href: "/send-money/send-money-to-morocco", label: "Morocco" },
-    { href: "/send-money/send-money-to-thailand", label: "Thailand" },
-    { href: "/send-money/send-money-to-romania", label: "Romania" },
-    { href: "/send-money/send-money-to-turkey", label: "Turkey" },
-    { href: "/send-money/send-money-to-jamaica", label: "Jamaica" },
-    { href: "/send-money/send-money-to-japan", label: "Japan" },
-    { href: "/send-money/send-money-to-south-africa", label: "South Africa" },
-    { href: "/send-money/send-money-to-peru", label: "Peru" },
-    { href: "/send-money/send-money-to-fiji", label: "Fiji" },
+  // ── Top guides (Bing data, May 26 2026): 9 highest-traffic guides ──
+  // Total Bing impressions across these 9 ≈ 12,200/90d. Replaces the dead
+  // sendMoneyToLinks corridor list (42 corridors, 35 total Bing impr).
+  // Concentrates link equity on pages that actually earn organic rankings.
+  const topGuides: StaticLink[] = [
+    { href: "/guides/best-money-transfer-apps", label: "Best money transfer apps" },
+    { href: "/guides/us-dollar-forecast-2026", label: "USD forecast 2026" },
+    { href: "/guides/money-transfer-limits-by-provider-country", label: "Transfer limits by provider & country" },
+    { href: "/guides/iban-numbers-explained", label: "IBAN numbers explained" },
+    { href: "/guides/revolut-foreign-transaction-fees-2026", label: "Revolut foreign transaction fees" },
+    { href: "/guides/send-money-to-philippines-guide", label: "Send money to the Philippines" },
+    { href: "/guides/wire-transfer-guide", label: "Wire transfer fees & alternatives" },
+    { href: "/guides/send-money-to-china-guide", label: "Send money to China" },
+    { href: "/guides/how-to-send-money-abroad", label: "How to send money abroad" },
   ];
 
-  // ── Disclosure: popular corridor routes ─────────────────────────────────
-  const popularRoutes: StaticLink[] = [
-    { href: "/send-money/usa-to-india", label: "USA → India" },
-    { href: "/send-money/uk-to-india", label: "UK → India" },
-    { href: "/send-money/uae-to-india", label: "UAE → India" },
-    { href: "/send-money/usa-to-philippines", label: "USA → Philippines" },
-    { href: "/send-money/uk-to-philippines", label: "UK → Philippines" },
-    { href: "/send-money/usa-to-pakistan", label: "USA → Pakistan" },
-    { href: "/send-money/usa-to-mexico", label: "USA → Mexico" },
-    { href: "/send-money/usa-to-nigeria", label: "USA → Nigeria" },
-    { href: "/send-money/europe-to-india", label: "Europe → India" },
-    { href: "/send-money/uk-to-europe", label: "UK → Europe" },
-    { href: "/send-money/usa-to-ghana", label: "USA → Ghana" },
-    { href: "/send-money/usa-to-colombia", label: "USA → Colombia" },
+  // ── IBAN country pages (Bing data, May 26): 17 highest-impression IBANs ──
+  // Each earns 100-723 Bing impr. The /iban/* pattern accounts for ~6,000
+  // Bing impressions across 32 tracked pages — concentrating footer link
+  // equity here drives the proven-traffic surface.
+  const ibanCountries: StaticLink[] = [
+    { href: "/iban/italy", label: "Italy IBAN" },
+    { href: "/iban/germany", label: "Germany IBAN" },
+    { href: "/iban/spain", label: "Spain IBAN" },
+    { href: "/iban/poland", label: "Poland IBAN" },
+    { href: "/iban/united-arab-emirates", label: "UAE IBAN" },
+    { href: "/iban/ireland", label: "Ireland IBAN" },
+    { href: "/iban/belgium", label: "Belgium IBAN" },
+    { href: "/iban/france", label: "France IBAN" },
+    { href: "/iban/sweden", label: "Sweden IBAN" },
+    { href: "/iban/netherlands", label: "Netherlands IBAN" },
+    { href: "/iban/switzerland", label: "Switzerland IBAN" },
+    { href: "/iban/luxembourg", label: "Luxembourg IBAN" },
+    { href: "/iban/egypt", label: "Egypt IBAN" },
+    { href: "/iban/saudi-arabia", label: "Saudi Arabia IBAN" },
+    { href: "/iban/pakistan", label: "Pakistan IBAN" },
+    { href: "/iban/portugal", label: "Portugal IBAN" },
+    { href: "/iban/romania", label: "Romania IBAN" },
   ];
 
-  // ── Disclosure: provider reviews + comparisons ──────────────────────────
+  // ── SWIFT country pages (Bing data, May 26): 5 highest-impression SWIFTs ─
+  // Each earns 140-273 Bing impr. The /swift-codes/* pattern was barely
+  // present in footer (1 sitemap entry only) but earns 1,291 total Bing impr.
+  const swiftCountries: StaticLink[] = [
+    { href: "/swift-codes/ghana", label: "Ghana SWIFT codes" },
+    { href: "/swift-codes/philippines", label: "Philippines SWIFT codes" },
+    { href: "/swift-codes/kenya", label: "Kenya SWIFT codes" },
+    { href: "/swift-codes/united-kingdom", label: "UK SWIFT codes" },
+    { href: "/swift-codes/sri-lanka", label: "Sri Lanka SWIFT codes" },
+  ];
+
+  // ── Provider reviews (Bing-validated): drop revolut + xe (0 Bing impr) ───
   const providerReviews: StaticLink[] = [
-    { href: "/companies/wise", label: "Wise Review" },
     { href: "/companies/remitly", label: "Remitly Review" },
-    { href: "/companies/western-union", label: "Western Union Review" },
-    { href: "/companies/worldremit", label: "WorldRemit Review" },
     { href: "/companies/xoom", label: "Xoom Review" },
-    { href: "/companies/revolut", label: "Revolut Review" },
+    { href: "/companies/wise", label: "Wise Review" },
+    { href: "/companies/worldremit", label: "WorldRemit Review" },
     { href: "/companies/ofx", label: "OFX Review" },
-    { href: "/companies/xe", label: "Xe Review" },
+    { href: "/companies/taptap-send", label: "TapTap Send Review" },
+    { href: "/companies/western-union", label: "Western Union Review" },
   ];
 
+  // ── Popular comparisons (Bing-validated): drop xe pairs, add MG vs WU ────
   const popularComparisons: StaticLink[] = [
+    { href: "/compare/moneygram-vs-western-union", label: "MoneyGram vs Western Union" },
     { href: "/compare/wise-vs-remitly", label: "Wise vs Remitly" },
-    { href: "/compare/wise-vs-western-union", label: "Wise vs Western Union" },
     { href: "/compare/wise-vs-paypal", label: "Wise vs PayPal" },
-    { href: "/compare/wise-vs-xe", label: "Wise vs Xe" },
     { href: "/compare/remitly-vs-western-union", label: "Remitly vs Western Union" },
-    { href: "/compare/remitly-vs-xe", label: "Remitly vs Xe" },
+    { href: "/compare/wise-vs-western-union", label: "Wise vs Western Union" },
+    { href: "/compare/paypal-vs-revolut", label: "PayPal vs Revolut" },
   ];
 
   const legalLinks: TranslatedLink[] = [
@@ -159,10 +168,14 @@ export default function Footer() {
         </div>
 
         {/* ── Layer 2 — collapsed disclosures (links stay in DOM for SEO) ── */}
+        {/* Footer link sets rebuilt 2026-05-25 from Bing Page Traffic data:
+            replaced 42 dead corridor links (35 total Bing impr) with curated
+            sets of /iban/, /swift-codes/, /guides/ winners — concentrates
+            link equity on the pages that actually rank organically. */}
         <div className="border-t border-[var(--color-outline)] pt-6 mb-10 sm:mb-12 space-y-2">
-          <FooterDisclosure label={`Send money to popular countries (${sendMoneyToLinks.length})`}>
+          <FooterDisclosure label={`Top money transfer guides (${topGuides.length})`}>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
-              {sendMoneyToLinks.map((link) => (
+              {topGuides.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
                     {link.label}
@@ -172,9 +185,21 @@ export default function Footer() {
             </ul>
           </FooterDisclosure>
 
-          <FooterDisclosure label={`Popular send-money routes (${popularRoutes.length})`}>
+          <FooterDisclosure label={`IBAN formats by country (${ibanCountries.length})`}>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
-              {popularRoutes.map((link) => (
+              {ibanCountries.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FooterDisclosure>
+
+          <FooterDisclosure label={`SWIFT codes by country (${swiftCountries.length})`}>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
+              {swiftCountries.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
                     {link.label}
