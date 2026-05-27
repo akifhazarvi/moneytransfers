@@ -2571,10 +2571,10 @@
     "date": "2026-05-27",
     "providers": {
       "moneygram": {
-        "rate": 4226.1363,
+        "rate": 4226.4993,
         "fee": 0.99,
-        "markup": 0.13,
-        "receiveAmount": 418429.76
+        "markup": 1.14,
+        "receiveAmount": 418465.7
       },
       "taptap-send": {
         "rate": 4230,
@@ -2583,22 +2583,22 @@
         "receiveAmount": 423000
       },
       "western-union": {
-        "rate": 4194.9167,
+        "rate": 4146.8348,
         "fee": 0.99,
-        "markup": 0.87,
-        "receiveAmount": 415338.7
+        "markup": 3,
+        "receiveAmount": 410578.12
       },
       "dahabshiil": {
-        "rate": 4220.1198,
+        "rate": 4171.2022,
         "fee": 0,
-        "markup": 0.28,
-        "receiveAmount": 422011.98
+        "markup": 2.43,
+        "receiveAmount": 417120.22
       },
       "worldremit": {
-        "rate": 4149.4848,
+        "rate": 4124.9143,
         "fee": 2.99,
-        "markup": 1.95,
-        "receiveAmount": 402541.52
+        "markup": 3.51,
+        "receiveAmount": 400157.94
       },
       "instarem": {
         "rate": 4230.0241,
@@ -2607,16 +2607,16 @@
         "receiveAmount": 423002.41
       },
       "xe": {
-        "rate": 4213.6965,
+        "rate": 4187.8395,
         "fee": 4,
-        "markup": 0.43,
-        "receiveAmount": 404514.86
+        "markup": 2.04,
+        "receiveAmount": 402032.59
       },
       "paysend": {
-        "rate": 4180.201,
+        "rate": 4219.1164,
         "fee": 0,
-        "markup": 1.22,
-        "receiveAmount": 418020.1
+        "markup": 1.31,
+        "receiveAmount": 421911.64
       },
       "remitly": {
         "rate": 4170.7469,
@@ -2625,10 +2625,10 @@
         "receiveAmount": 412945.65
       },
       "revolut": {
-        "rate": 4173.0104,
+        "rate": 4206.033,
         "fee": 0.3,
-        "markup": 1.39,
-        "receiveAmount": 416049.14
+        "markup": 1.62,
+        "receiveAmount": 419341.49
       },
       "wise": {
         "rate": 4260.49,
