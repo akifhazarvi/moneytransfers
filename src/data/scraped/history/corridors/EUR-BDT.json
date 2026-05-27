@@ -2963,5 +2963,94 @@
         "receiveAmount": 13927.19
       }
     }
+  },
+  {
+    "date": "2026-05-27",
+    "providers": {
+      "lemfi": {
+        "rate": 143.15,
+        "fee": 1.49,
+        "markup": -0.23,
+        "receiveAmount": 14101.71
+      },
+      "moneygram": {
+        "rate": 140.0354,
+        "fee": 1.99,
+        "markup": 1.93,
+        "receiveAmount": 13724.87
+      },
+      "taptap-send": {
+        "rate": 142.52,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14252
+      },
+      "western-union": {
+        "rate": 141.305,
+        "fee": 0.99,
+        "markup": 1.04,
+        "receiveAmount": 13990.61
+      },
+      "dahabshiil": {
+        "rate": 141.6761,
+        "fee": 0,
+        "markup": 0.78,
+        "receiveAmount": 14167.61
+      },
+      "worldremit": {
+        "rate": 142.1685,
+        "fee": 0.99,
+        "markup": 0.43,
+        "receiveAmount": 14076.1
+      },
+      "instarem": {
+        "rate": 141.5626,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14156.26
+      },
+      "paysend": {
+        "rate": 141.7493,
+        "fee": 0,
+        "markup": 0.73,
+        "receiveAmount": 14174.93
+      },
+      "sendwave": {
+        "rate": 142.0543,
+        "fee": 0.99,
+        "markup": 0.51,
+        "receiveAmount": 14064.79
+      },
+      "remitly": {
+        "rate": 142.0239,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 14061.78
+      },
+      "revolut": {
+        "rate": 141.9094,
+        "fee": 2.3,
+        "markup": 0.62,
+        "receiveAmount": 13864.54
+      },
+      "wise": {
+        "rate": 142.784,
+        "fee": 4.41,
+        "markup": null,
+        "receiveAmount": 13648.72
+      },
+      "xoom": {
+        "rate": 139.6823,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13550.58
+      },
+      "skrill": {
+        "rate": 139.3472,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13934.72
+      }
+    }
   }
 ]
