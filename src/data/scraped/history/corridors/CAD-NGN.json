@@ -1287,5 +1287,34 @@
         "receiveAmount": 95884.83
       }
     }
+  },
+  {
+    "date": "2026-05-28",
+    "providers": {
+      "lemfi": {
+        "rate": 993,
+        "fee": 0,
+        "markup": -0.11,
+        "receiveAmount": 99300
+      },
+      "taptap-send": {
+        "rate": 995,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 99500
+      },
+      "instarem": {
+        "rate": 982.7371,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 98273.71
+      },
+      "xoom": {
+        "rate": 955.4469,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 95544.69
+      }
+    }
   }
 ]

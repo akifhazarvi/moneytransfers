@@ -2727,5 +2727,46 @@
         "receiveAmount": 1676.74
       }
     }
+  },
+  {
+    "date": "2026-05-28",
+    "providers": {
+      "skrill": {
+        "rate": 16.2766,
+        "fee": 0,
+        "markup": 2.93,
+        "receiveAmount": 1627.66
+      },
+      "currencyfair": {
+        "rate": 16.638,
+        "fee": 34.81,
+        "markup": 0.77,
+        "receiveAmount": 1084.63
+      },
+      "paysend": {
+        "rate": 16.5234,
+        "fee": 9,
+        "markup": 1.45,
+        "receiveAmount": 1503.63
+      },
+      "remitly": {
+        "rate": 16.64,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1580.8
+      },
+      "taptap-send": {
+        "rate": 16.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1630
+      },
+      "wise": {
+        "rate": 16.7378,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1673.78
+      }
+    }
   }
 ]
