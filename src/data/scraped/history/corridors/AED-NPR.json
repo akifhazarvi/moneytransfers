@@ -1257,22 +1257,22 @@
     "date": "2026-05-28",
     "providers": {
       "skrill": {
-        "rate": 40.4769,
+        "rate": 40.4541,
         "fee": 0,
-        "markup": 3.03,
-        "receiveAmount": 4047.69
+        "markup": 3.53,
+        "receiveAmount": 4045.41
       },
       "paysend": {
-        "rate": 40.6169,
+        "rate": 40.6208,
         "fee": 9,
-        "markup": 2.69,
-        "receiveAmount": 3696.14
+        "markup": 3.13,
+        "receiveAmount": 3696.49
       },
       "remitly": {
-        "rate": 41.5,
+        "rate": 41.47,
         "fee": 5,
-        "markup": 0.58,
-        "receiveAmount": 3942.5
+        "markup": 1.11,
+        "receiveAmount": 3939.65
       },
       "taptap-send": {
         "rate": 41.5,

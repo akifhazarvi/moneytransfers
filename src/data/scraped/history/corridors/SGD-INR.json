@@ -4820,22 +4820,22 @@
     "date": "2026-05-28",
     "providers": {
       "moneygram": {
-        "rate": 74.5163,
+        "rate": 74.301,
         "fee": 6,
-        "markup": 0.64,
-        "receiveAmount": 7004.53
+        "markup": 1.12,
+        "receiveAmount": 6984.29
       },
       "western-union": {
-        "rate": 74.5324,
+        "rate": 75.0253,
         "fee": 1.5,
-        "markup": 0.62,
-        "receiveAmount": 7341.44
+        "markup": 0.15,
+        "receiveAmount": 7389.99
       },
       "currencyfair": {
-        "rate": 74.4345,
+        "rate": 74.602,
         "fee": 1.61,
-        "markup": 0.75,
-        "receiveAmount": 7323.61
+        "markup": 0.72,
+        "receiveAmount": 7340.09
       },
       "instarem": {
         "rate": 74.8664,
@@ -4850,10 +4850,10 @@
         "receiveAmount": 7098.38
       },
       "revolut": {
-        "rate": 74.9118,
+        "rate": 75.05,
         "fee": 0.9,
-        "markup": 0.11,
-        "receiveAmount": 7423.76
+        "markup": 0.12,
+        "receiveAmount": 7437.46
       },
       "ocbc": {
         "rate": 73.6046,
@@ -4878,6 +4878,12 @@
         "fee": 1.05,
         "markup": null,
         "receiveAmount": 7426.59
+      },
+      "skrill": {
+        "rate": 72.5667,
+        "fee": 0,
+        "markup": 3.43,
+        "receiveAmount": 7256.67
       }
     }
   }

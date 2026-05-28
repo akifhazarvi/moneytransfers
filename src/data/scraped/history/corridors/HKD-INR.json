@@ -1392,28 +1392,28 @@
     "date": "2026-05-28",
     "providers": {
       "moneygram": {
-        "rate": 12.0874,
+        "rate": 12.0878,
         "fee": 8,
-        "markup": 1.09,
-        "receiveAmount": 1112.04
+        "markup": 1.55,
+        "receiveAmount": 1112.08
       },
       "xe": {
-        "rate": 12.046,
+        "rate": 12.1147,
         "fee": 30,
-        "markup": 1.43,
-        "receiveAmount": 843.22
+        "markup": 1.33,
+        "receiveAmount": 848.03
       },
       "western-union": {
-        "rate": 12.1622,
+        "rate": 12.2397,
         "fee": 5,
-        "markup": 0.48,
-        "receiveAmount": 1155.41
+        "markup": 0.32,
+        "receiveAmount": 1162.78
       },
       "currencyfair": {
-        "rate": 12.124,
-        "fee": 9.9,
-        "markup": 0.79,
-        "receiveAmount": 1092.37
+        "rate": 12.196,
+        "fee": 9.84,
+        "markup": 0.67,
+        "receiveAmount": 1099.59
       },
       "instarem": {
         "rate": 12.222,
@@ -1426,6 +1426,12 @@
         "fee": 8.37,
         "markup": null,
         "receiveAmount": 1121.99
+      },
+      "skrill": {
+        "rate": 11.9228,
+        "fee": 0,
+        "markup": 2.9,
+        "receiveAmount": 1192.28
       }
     }
   }
