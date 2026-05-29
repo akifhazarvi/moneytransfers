@@ -4418,5 +4418,70 @@
         "receiveAmount": 5986.06
       }
     }
+  },
+  {
+    "date": "2026-05-29",
+    "providers": {
+      "taptap-send": {
+        "rate": 61.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6150
+      },
+      "barclays": {
+        "rate": 59.9584,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5995.84
+      },
+      "nationwide": {
+        "rate": 60.2477,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 5121.06
+      },
+      "lloyds": {
+        "rate": 59.4492,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 5380.15
+      },
+      "western-union": {
+        "rate": 60.6964,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 5948.85
+      },
+      "natwest": {
+        "rate": 60.2933,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6029.33
+      },
+      "rbs": {
+        "rate": 60.2933,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6029.33
+      },
+      "instarem": {
+        "rate": 61.3354,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 6133.54
+      },
+      "santander": {
+        "rate": 59.3476,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 4451.07
+      },
+      "remitly": {
+        "rate": 61.5252,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 6030.09
+      }
+    }
   }
 ]
