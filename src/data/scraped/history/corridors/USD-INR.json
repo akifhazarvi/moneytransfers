@@ -6297,26 +6297,26 @@
       "xe": {
         "rate": 95.3431,
         "fee": 1,
-        "markup": 0.78,
+        "markup": 0.28,
         "receiveAmount": 9438.97
       },
       "western-union": {
-        "rate": 95.7935,
+        "rate": 95.0723,
         "fee": 1.99,
-        "markup": 0.32,
-        "receiveAmount": 9388.72
+        "markup": 0.56,
+        "receiveAmount": 9318.04
       },
       "xoom": {
-        "rate": 95.4491,
+        "rate": 95.4479,
         "fee": 4.29,
         "markup": null,
-        "receiveAmount": 9135.43
+        "receiveAmount": 9135.32
       },
       "currencyfair": {
-        "rate": 95.54,
+        "rate": 94.9195,
         "fee": 1.26,
-        "markup": 0.58,
-        "receiveAmount": 9433.62
+        "markup": 0.72,
+        "receiveAmount": 9372.35
       },
       "worldremit": {
         "rate": 95.1255,
@@ -6325,10 +6325,10 @@
         "receiveAmount": 9228.13
       },
       "paysend": {
-        "rate": 95.6809,
+        "rate": 95.5821,
         "fee": 0,
-        "markup": 0.43,
-        "receiveAmount": 9568.09
+        "markup": 0.03,
+        "receiveAmount": 9558.21
       },
       "remitly": {
         "rate": 95.357,
@@ -6347,6 +6347,12 @@
         "fee": 1.58,
         "markup": null,
         "receiveAmount": 9431.06
+      },
+      "revolut": {
+        "rate": 95.1674,
+        "fee": 0.75,
+        "markup": 0.46,
+        "receiveAmount": 9445.37
       }
     }
   }
