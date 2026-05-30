@@ -1560,16 +1560,16 @@
     "date": "2026-05-30",
     "providers": {
       "moneygram": {
-        "rate": 26.6572,
+        "rate": 26.6608,
         "fee": 1.99,
-        "markup": -0.33,
-        "receiveAmount": 2612.67
+        "markup": -0.28,
+        "receiveAmount": 2613.03
       },
       "ria": {
-        "rate": 26.65,
-        "fee": 4,
-        "markup": null,
-        "receiveAmount": 2665
+        "rate": 26.66,
+        "fee": 3,
+        "markup": -0.28,
+        "receiveAmount": 2586.02
       },
       "taptap-send": {
         "rate": 26.66,
@@ -1578,46 +1578,46 @@
         "receiveAmount": 2666
       },
       "boss-money": {
-        "rate": 26.6608,
+        "rate": 26.6562,
         "fee": 2.99,
-        "markup": -0.34,
-        "receiveAmount": 2586.36
+        "markup": -0.26,
+        "receiveAmount": 2585.92
       },
       "western-union": {
-        "rate": 26.6572,
+        "rate": 26.6608,
         "fee": 2.99,
-        "markup": -0.33,
-        "receiveAmount": 2586.01
+        "markup": -0.28,
+        "receiveAmount": 2586.36
       },
       "xoom": {
-        "rate": 26.7298,
+        "rate": 26.6608,
         "fee": 4.29,
-        "markup": -0.6,
-        "receiveAmount": 2558.31
+        "markup": -0.28,
+        "receiveAmount": 2551.71
       },
       "xe": {
-        "rate": 26.6038,
+        "rate": 26.6074,
         "fee": 4,
-        "markup": -0.13,
-        "receiveAmount": 2553.96
+        "markup": -0.08,
+        "receiveAmount": 2554.31
       },
       "paysend": {
-        "rate": 26.5272,
+        "rate": 26.4891,
         "fee": 1.99,
-        "markup": 0.16,
-        "receiveAmount": 2599.93
+        "markup": 0.37,
+        "receiveAmount": 2596.2
       },
       "remitly": {
         "rate": 26.66,
         "fee": 5.34,
-        "markup": -0.34,
+        "markup": -0.28,
         "receiveAmount": 2523.64
       },
       "wise": {
-        "rate": 26.6757,
+        "rate": 26.6407,
         "fee": 14.12,
-        "markup": -0.4,
-        "receiveAmount": 2290.91
+        "markup": -0.2,
+        "receiveAmount": 2287.9
       }
     }
   }
