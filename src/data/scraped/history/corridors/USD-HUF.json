@@ -1392,5 +1392,28 @@
         "receiveAmount": 29981
       }
     }
+  },
+  {
+    "date": "2026-05-30",
+    "providers": {
+      "remitly": {
+        "rate": 300.75,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 29777.26
+      },
+      "xoom": {
+        "rate": 291.3766,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 27683.69
+      },
+      "wise": {
+        "rate": 303.546,
+        "fee": 1.45,
+        "markup": null,
+        "receiveAmount": 29914
+      }
+    }
   }
 ]
