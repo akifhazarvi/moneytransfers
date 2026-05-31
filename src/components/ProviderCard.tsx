@@ -98,9 +98,11 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             </span>
             <span>{t("bestDeal")}</span>
             {extraReceiveVsWorst && extraReceiveVsWorst > 0 && (
-              <span className="normal-case tabular-nums font-normal text-white/90">
-                {" "}— use this app &amp; save {receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} vs other options
-              </span>
+              <>
+                {/* Mobile: short label so badge stays single-line and doesn't overlap card content */}
+                <span className="normal-case tabular-nums font-normal text-white/90 sm:hidden">— save {receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)}</span>
+                <span className="normal-case tabular-nums font-normal text-white/90 hidden sm:inline">— use this app &amp; save {receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} vs other options</span>
+              </>
             )}
           </div>
         </div>
