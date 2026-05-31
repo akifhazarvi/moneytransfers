@@ -298,25 +298,10 @@ export default async function BlogPostPage({ params }: Props) {
           }}
         />
       )}
-      {post.howToSteps && post.howToSteps.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "HowTo",
-              name: post.title,
-              description: post.metaDescription,
-              step: post.howToSteps.map((step, i) => ({
-                "@type": "HowToStep",
-                position: i + 1,
-                name: step.name,
-                text: step.text,
-              })),
-            }),
-          }}
-        />
-      )}
+      {/* HowTo JSON-LD removed: Google deprecated HowTo rich results in
+          September 2023, so it produced no SERP feature while adding
+          structured-data weight. The visual step-by-step render below
+          (driven by the same post.howToSteps) is unaffected. */}
 
       <ScrollTracker slug={slug} contentType="guide" />
 

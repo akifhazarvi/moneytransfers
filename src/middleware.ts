@@ -266,14 +266,22 @@ export default function middleware(request: NextRequest) {
     response.cookies.set("geo-default-amount", String(defaultAmount),  cookieOpts);
   }
 
-  // Refresh geo-country cookie on every request so consent logic
-  // always reflects the user's current location (not where they
-  // were 30 days ago).
-  response.cookies.set("geo-country", country || "US", {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 30,
-    sameSite: "lax",
-  });
+  // Set geo-country only when missing — NOT on every request. Setting a
+  // cookie on the response forces Next.js to mark the HTML uncacheable
+  // (Cache-Control: no-store), the exact signal that contributed to the
+  // May 2026 deindex. An unconditional refresh here (added in bf46ae49 to
+  // keep consent's country "current") silently reintroduced no-store on
+  // every page. The country only feeds the consent banner's EU/non-EU
+  // gate; a 30-day-old value is fine for that and not worth uncaching
+  // every page. Once all four geo cookies are present, this response
+  // stays cacheable.
+  if (!request.cookies.get("geo-country")) {
+    response.cookies.set("geo-country", country || "US", {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30,
+      sameSite: "lax",
+    });
+  }
 
   return response;
 }

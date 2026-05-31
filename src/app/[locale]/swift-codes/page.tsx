@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import PrimaryButton from "@/components/PrimaryButton";
 import CircleFlag from "@/components/CircleFlag";
 import { getSwiftCountries } from "@/data/swift-codes";
+import { INDEXED_SWIFT_SLUGS } from "@/lib/seo-indexing";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 
@@ -41,6 +42,11 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
   const countries = getSwiftCountries().sort((a, b) =>
     a.name.localeCompare(b.name)
   );
+  // Split into indexed (index-worthy, surfaced prominently) vs the long tail
+  // (noindex pages, collapsed). Keeps every link crawlable but stops the hub
+  // from flooding 100+ equal-weight links to mostly-noindexed country pages.
+  const indexedCountries = countries.filter((c) => INDEXED_SWIFT_SLUGS.has(c.slug));
+  const otherCountries = countries.filter((c) => !INDEXED_SWIFT_SLUGS.has(c.slug));
   const totalBanks = countries.reduce((s, c) => s + c.bankCount, 0);
   const totalBranches = countries.reduce((s, c) => s + c.branches.length, 0);
 
@@ -149,12 +155,12 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
         </Container>
       </section>
 
-      {/* All Countries */}
+      {/* Browse by country — indexed countries surfaced; long tail collapsed */}
       <section className="py-10">
         <Container>
           <SectionHeader title="Browse SWIFT codes by country" />
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {countries.map((country) => (
+            {indexedCountries.map((country) => (
               <Card
                 key={country.slug}
                 href={`/swift-codes/${country.slug}`}
@@ -172,6 +178,26 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
               </Card>
             ))}
           </div>
+
+          {otherCountries.length > 0 && (
+            <details className="group mt-6">
+              <summary className="flex items-center gap-2 cursor-pointer list-none text-sm font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors py-2">
+                <span>All other countries ({otherCountries.length})</span>
+                <svg className="w-4 h-4 shrink-0 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-4">
+                {otherCountries.map((country) => (
+                  <li key={country.slug}>
+                    <Link href={`/swift-codes/${country.slug}`} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                      {country.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
         </Container>
       </section>
 

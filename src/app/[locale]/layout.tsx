@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { GTAG_INLINE, THEME_INLINE } from "@/lib/inline-scripts";
+import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
@@ -154,7 +155,10 @@ const websiteSchema = {
   name: "SendMoneyCompare",
   url: SITE_URL,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  dateModified: "2026-04-10",
+  // Reflects when live comparison data last changed (shared source of truth
+  // with sitemap lastmod). Was hardcoded "2026-04-10" — a stale freshness
+  // signal emitted on every page that contradicted the 6-hourly scrape cycle.
+  dateModified: getDataUpdatedDate(),
   potentialAction: {
     "@type": "SearchAction",
     target: {
