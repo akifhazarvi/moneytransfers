@@ -291,9 +291,9 @@ export const providerReviews: ProviderReview[] = [
   },
   {
     slug: "remitly",
-    title: "Remitly Review 2026: Is It the Fastest? Real Fees Tested Across 4 Corridors",
+    title: "Remitly Review 2026: Fast — But Is It the Cheapest? We Tested 4 Corridors",
     metaDescription:
-      "Remitly review 2026: express transfers arrive in minutes to 170+ countries. We tested real fees and exchange rate markup across USD→INR, USD→PHP, USD→PKR and GBP→INR. See how it compares to Wise and Western Union.",
+      "Remitly is fast but charges a 0.5–2.5% exchange rate markup on top of its fee. We tested real costs across USD→INR, USD→PHP, USD→PKR and GBP→INR — and found cheaper alternatives for most transfers.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-05-25",
     lastVerified: "2026-05-25",

@@ -1042,9 +1042,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "wise-vs-remitly-comparison",
-    title: "Wise vs Remitly 2026: Detailed Comparison With Real Data",
+    title: "Wise vs Remitly 2026: Which Is Actually Cheaper? 80+ Corridors Tested",
     metaDescription:
-      "We compared Wise and Remitly across 80+ corridors using real fee and exchange rate data. See which provider is cheaper for your specific transfer amount.",
+      "Remitly has lower fees — but Wise has 0% exchange rate markup. We ran both through 80+ corridors to find who actually sends more money. The winner depends on your amount and destination.",
     excerpt:
       "Wise charges 0% markup with a fee. Remitly charges $0 fees with a markup. We compared them using thousands of real quotes to find which is actually cheaper.",
     category: "Reviews",
