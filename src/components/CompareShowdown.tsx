@@ -53,8 +53,25 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
   const [amountStr, setAmountStr] = useState("1000");
   const amount = Number(amountStr) || 0;
 
-  // ── Hydrate from URL (?a=&b=&amount=&from=&to=) so states are shareable/deep-linkable ──
+  // ── Hydrate currency/amount from geo cookies (set by middleware), then let URL
+  //    params override — same precedence as ComparisonWidget on home/send-money.
+  //    A shared ?from=&to= link should win over the visitor's geo. ──
   useEffect(() => {
+    function readCookie(name: string) {
+      return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
+    }
+    // 1. Geo cookies first
+    const geoCurrency = readCookie("geo-currency");
+    const geoDefaultTo = readCookie("geo-default-to");
+    const geoDefaultAmount = readCookie("geo-default-amount");
+    if (geoCurrency && sendCurrencies.some((c) => c.code === geoCurrency)) setFromCurrency(geoCurrency);
+    if (geoDefaultTo && currencies.some((c) => c.code === geoDefaultTo)) setToCurrency(geoDefaultTo);
+    if (geoDefaultAmount) {
+      const parsed = Math.round(parseFloat(geoDefaultAmount));
+      if (Number.isFinite(parsed) && parsed >= 1 && parsed <= 1_000_000) setAmountStr(String(parsed));
+    }
+
+    // 2. URL params override geo (shareable/deep-linkable state)
     const params = new URLSearchParams(window.location.search);
     const pa = params.get("a");
     const pb = params.get("b");
