@@ -641,23 +641,23 @@ function SendMoneyContent() {
               </div>
               <div className="min-w-0">
                 <p className="text-[11px] font-medium text-white/75 uppercase tracking-widest leading-none mb-0.5">
-                  Best vs worst provider
+                  Use {getProviderName(bestQuote.providerSlug)}, save
                 </p>
                 <p className="text-lg sm:text-xl font-bold text-white leading-tight truncate">
-                  Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                  {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} this transfer
                 </p>
                 <p className="text-[11px] text-white/80 mt-0.5 truncate">
-                  {getProviderName(bestQuote.providerSlug)} vs {getProviderName(worstQuote.providerSlug)}
+                  vs {getProviderName(worstQuote.providerSlug)}
                 </p>
               </div>
             </div>
-            {/* Right: big number treatment */}
+            {/* Right: annual savings estimate */}
             <div className="shrink-0 text-right hidden sm:block">
-              <p className="text-[10px] font-medium text-white/60 uppercase tracking-wider">Choose wisely</p>
+              <p className="text-[10px] font-medium text-white/60 uppercase tracking-wider">Est. annual savings</p>
               <p className="text-2xl font-black text-white tabular-nums">
-                {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                {receiveCurrency?.symbol}{(savings * 12).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
               </p>
-              <p className="text-[10px] text-white/60">more to recipient</p>
+              <p className="text-[10px] text-white/60">if you send monthly</p>
             </div>
           </div>
         </div>
