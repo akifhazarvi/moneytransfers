@@ -50,11 +50,35 @@ export default function CurrencyConverterClient() {
   ]);
   const { rates, isLive, lastUpdated, secondsUntilRefresh } = useExchangeRates();
 
-  // Hydrate state from localStorage once prefs are loaded
+  // Hydrate state from localStorage once prefs are loaded.
+  // If no saved prefs exist, fall back to geo cookies set by middleware.
   const hydratedRef = useRef(false);
   useEffect(() => {
     if (!prefs.loaded || hydratedRef.current) return;
     hydratedRef.current = true;
+
+    const hasSavedPrefs = typeof window !== "undefined" && localStorage.getItem("converter-prefs") !== null;
+
+    if (!hasSavedPrefs) {
+      function readCookie(name: string) {
+        return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
+      }
+      const geoCurrency = readCookie("geo-currency");
+      const geoDefaultTo = readCookie("geo-default-to");
+      const geoDefaultAmount = readCookie("geo-default-amount");
+
+      const validFrom = geoCurrency && currencies.some((c) => c.code === geoCurrency);
+      const validTo = geoDefaultTo && currencies.some((c) => c.code === geoDefaultTo);
+
+      if (validFrom) setFromCurrencyRaw(geoCurrency!);
+      if (validTo) setTargetsRaw([{ id: genId(), code: geoDefaultTo! }]);
+      if (geoDefaultAmount) {
+        const parsed = Math.round(parseFloat(geoDefaultAmount));
+        if (Number.isFinite(parsed) && parsed > 0) setAmountRaw(parsed);
+      }
+      return;
+    }
+
     setFromCurrencyRaw(prefs.from);
     setAmountRaw(prefs.amount);
     setTargetsRaw(prefs.targets.map((code) => ({ id: genId(), code })));
