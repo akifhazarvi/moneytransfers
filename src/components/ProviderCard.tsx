@@ -98,10 +98,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             </span>
             <span>{t("bestDeal")}</span>
             {extraReceiveVsWorst && extraReceiveVsWorst > 0 && (
-              <>
-                <span className="text-white/50">•</span>
-                <span className="normal-case tabular-nums">+{receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} more</span>
-              </>
+              <span className="normal-case tabular-nums font-normal text-white/90">
+                {" "}— use this app &amp; save {receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} vs other options
+              </span>
             )}
           </div>
         </div>
