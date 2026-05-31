@@ -210,11 +210,9 @@ export default function ComparisonWidget({
 
       {/* ── DESKTOP: existing two-half pill (unchanged) ── */}
       <div className="hidden lg:block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow">
-        <div className="flex flex-row items-stretch">
-          {/* You-send pill — right padding leaves a 40px void for the absolutely
-              positioned swap button to sit on the divider without overlapping
-              the amount input. */}
-          <div className="flex-1 border-r border-[var(--color-outline)] pl-5 pr-16 py-4 min-w-0">
+        <div className="relative flex flex-row items-stretch">
+          {/* You-send half — pr-8 reserves space so the amount input never slides under the swap button */}
+          <div className="flex-1 border-r border-[var(--color-outline)] pl-5 pr-8 py-4 min-w-0">
             <label htmlFor={`${id}-send`} className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
@@ -243,25 +241,19 @@ export default function ComparisonWidget({
             )}
           </div>
 
-          {/* Absolutely positioned swap button — centered on the divider.
-              Was previously inline with -mx-5 which made the layout reserve
-              space inconsistently and caused the amount input to render
-              under the button. Absolute positioning + 40px pr-16 reservation
-              guarantees no overlap regardless of input content width. */}
-          <div className="relative w-0 flex items-center justify-center">
-            <button
-              type="button"
-              onClick={swap}
-              className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm z-10"
-              aria-label={t("swapCurrencies")}
-            >
-              <svg className="w-[18px] h-[18px] text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-              </svg>
-            </button>
-          </div>
+          {/* Swap button — absolutely centered on the divider line */}
+          <button
+            type="button"
+            onClick={swap}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-outline)] flex items-center justify-center hover:bg-[var(--color-surface-dim)] active:scale-95 transition-all shadow-sm z-10"
+            aria-label={t("swapCurrencies")}
+          >
+            <svg className="w-[18px] h-[18px] text-[var(--color-on-surface-variant)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </button>
 
-          <div className="flex-1 pl-12 pr-5 py-4 min-w-0">
+          <div className="flex-1 pl-8 pr-5 py-4 min-w-0">
             <p className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("to")}</p>
             <div className="mt-1.5">
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="large" />
