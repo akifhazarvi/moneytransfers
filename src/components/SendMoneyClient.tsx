@@ -141,6 +141,25 @@ function SendMoneyContent() {
   const [toCurrency, setToCurrency] = useState(paramTo);
   const [amountStr, setAmountStr] = useState(String(paramAmount));
   const amount = Number(amountStr) || 0;
+
+  // Hydrate from geo cookies when no URL params are present (URL params take
+  // precedence — e.g. user arrived via the homepage ComparisonWidget).
+  useEffect(() => {
+    if (searchParams.get("from") || searchParams.get("to") || searchParams.get("amount")) return;
+    function readCookie(name: string) {
+      return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
+    }
+    const geoCurrency     = readCookie("geo-currency");
+    const geoDefaultTo    = readCookie("geo-default-to");
+    const geoDefaultAmount = readCookie("geo-default-amount");
+    if (geoCurrency    && sendCurrencies.some((c) => c.code === geoCurrency))    setFromCurrency(geoCurrency);
+    if (geoDefaultTo   && currencies.some((c) => c.code === geoDefaultTo))       setToCurrency(geoDefaultTo);
+    if (geoDefaultAmount) {
+      const parsed = Math.round(parseFloat(geoDefaultAmount));
+      if (Number.isFinite(parsed) && parsed >= 1 && parsed <= 1_000_000) setAmountStr(String(parsed));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [sortBy, setSortBy] = useState<SortBy>("receiveAmount");
   const { rates, isLive } = useExchangeRates();
 
