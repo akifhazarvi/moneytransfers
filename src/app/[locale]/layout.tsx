@@ -192,7 +192,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   // must-revalidate` and overrides next.config.ts. Crawlers read that as
   // "do not trust this response" and stop indexing (May 2026 incident).
 
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   // Only ship namespaces used by client components to reduce JS payload.
   // Server components use getTranslations() directly and don't need these.

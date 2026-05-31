@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,15 +58,18 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getLocale();
-
+  // Single-locale site: hardcode lang="en". Calling next-intl's getLocale()
+  // here reads the x-next-intl-locale request header, which opts the ENTIRE
+  // app into dynamic rendering — every route built as ƒ (Dynamic) and served
+  // Cache-Control: no-store. That was the real root cause of the May 2026
+  // deindex (not the geo cookies). With one locale there is nothing to read.
   return (
-    <html lang={locale} className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://widget.trustpilot.com" crossOrigin="anonymous" />
