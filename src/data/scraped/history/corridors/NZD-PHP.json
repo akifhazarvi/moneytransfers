@@ -4711,19 +4711,19 @@
       "moneygram": {
         "rate": 35.3057,
         "fee": 4.99,
-        "markup": 4.16,
+        "markup": 4.17,
         "receiveAmount": 3354.39
       },
       "western-union": {
         "rate": 36.2924,
         "fee": 2.2,
-        "markup": 1.48,
+        "markup": 1.49,
         "receiveAmount": 3549.39
       },
       "xe": {
         "rate": 36.5238,
         "fee": 5,
-        "markup": 0.85,
+        "markup": 0.86,
         "receiveAmount": 3469.76
       },
       "remitly": {
@@ -4735,7 +4735,7 @@
       "revolut": {
         "rate": 36.6199,
         "fee": 2.2,
-        "markup": 0.59,
+        "markup": 0.6,
         "receiveAmount": 3581.42
       },
       "wise": {
@@ -4779,6 +4779,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 3591.47
+      },
+      "skrill": {
+        "rate": 36.4204,
+        "fee": 0,
+        "markup": 1.14,
+        "receiveAmount": 3642.04
       }
     }
   }

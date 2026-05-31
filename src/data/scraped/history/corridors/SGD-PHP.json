@@ -5593,7 +5593,7 @@
       "currencyfair": {
         "rate": 47.88,
         "fee": 1.67,
-        "markup": 0.63,
+        "markup": 0.64,
         "receiveAmount": 4708.04
       },
       "instarem": {
@@ -5655,6 +5655,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4751.78
+      },
+      "skrill": {
+        "rate": 47.641,
+        "fee": 0,
+        "markup": 1.13,
+        "receiveAmount": 4764.1
       }
     }
   }
