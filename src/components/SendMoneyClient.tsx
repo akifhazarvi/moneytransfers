@@ -16,8 +16,6 @@ import { promos } from "@/data/promos";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
-import { getRateInsight, rateLevelConfig } from "@/lib/rate-history";
-import { Sparkline } from "@/components/RateInsight";
 
 type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
@@ -641,80 +639,6 @@ function SendMoneyContent() {
           </div>
         </div>
       )}
-
-      {/* Corridor Rate Insight — overall only */}
-      {(() => {
-        const insight = getRateInsight(fromCurrency, toCurrency);
-        if (!insight || insight.totalDays < 2) return null;
-        const lvl = rateLevelConfig(insight.level);
-        const filledDots = Math.round(insight.levelPct / 10);
-        // Build an overall corridor sparkline from daily best rates
-        const overallSparkline = Object.values(insight.sparklines)
-          .flat()
-          .reduce<Record<string, { date: string; rate: number; receiveAmount: number }>>((acc, p) => {
-            if (!acc[p.date] || p.rate > acc[p.date].rate) acc[p.date] = p;
-            return acc;
-          }, {});
-        const corridorSparkline = Object.values(overallSparkline).sort((a, b) => a.date.localeCompare(b.date));
-
-        return (
-          <div className="mb-3 rounded-xl border overflow-hidden" style={{ borderColor: lvl.bg, backgroundColor: lvl.bg }}>
-            <div className="px-4 py-3 sm:px-5 sm:py-4">
-              {/* Row 1: Level + sparkline */}
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="text-base font-semibold" style={{ color: lvl.color }}>{lvl.icon}</span>
-                    <h3 className="text-sm font-semibold" style={{ color: lvl.color }}>
-                      {fromCurrency} → {toCurrency} rates are {lvl.label.toLowerCase()}
-                    </h3>
-                  </div>
-                  <div className="flex items-center gap-1 mt-1">
-                    {Array.from({ length: 10 }, (_, i) => (
-                      <span key={i} className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: lvl.color, opacity: i < filledDots ? 1 : 0.2 }} />
-                    ))}
-                    <span className="ml-1.5 text-2xs font-medium" style={{ color: lvl.color }}>{insight.levelPct}th percentile</span>
-                  </div>
-                </div>
-                {corridorSparkline.length >= 2 && (
-                  <div className="shrink-0">
-                    <Sparkline data={corridorSparkline} width={80} height={28} />
-                    <p className="text-[10px] text-[var(--color-on-surface-muted)] text-center mt-0.5">{insight.totalDays}d trend</p>
-                  </div>
-                )}
-              </div>
-
-              {/* Row 2: Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-2 mt-3 pt-3 border-t border-[var(--color-outline)]">
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">Today&apos;s best</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">{insight.today.bestRate.toFixed(4)}</p>
-                  <p className="text-[10px] text-[var(--color-on-surface-muted)]">{getProviderName(insight.today.bestProvider)}</p>
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">{insight.totalDays}d average</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">{insight.stats.avgRate.toFixed(4)}</p>
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">Period best</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-success)] tabular-nums">{insight.stats.bestRate.toFixed(4)}</p>
-                  <p className="text-[10px] text-[var(--color-on-surface-muted)]">{insight.stats.bestRateDate}</p>
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">Period worst</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-danger)] tabular-nums">{insight.stats.worstRate.toFixed(4)}</p>
-                  <p className="text-[10px] text-[var(--color-on-surface-muted)]">{insight.stats.worstRateDate}</p>
-                </div>
-              </div>
-
-              {/* Row 3: Context line */}
-              <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] mt-2">
-                Based on {insight.totalDays} days of rate data across {Object.keys(insight.sparklines).length} providers · Updated every 6 hours
-              </p>
-            </div>
-          </div>
-        );
-      })()}
 
       {/* Results list */}
       <div className="mb-12">

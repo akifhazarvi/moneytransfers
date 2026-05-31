@@ -195,17 +195,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </Container>
         </section>
 
-      {/* ─── LATEST NEWS ─── moved above the fold for freshness signal */}
-      <LazyNewsTicker
-        items={getLatestNews(6).map((n) => ({
-          slug: n.slug,
-          title: n.title,
-          excerpt: n.excerpt,
-          category: n.category,
-          publishedAt: n.publishedAt,
-        }))}
-      />
-
       {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
         <HomeDynamicSection />
       </HomeSelectionProvider>
@@ -542,6 +531,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </MobileDetailsRail>
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
+
+      {/* ─── LATEST NEWS ─── moved to bottom (below FAQ) */}
+      <LazyNewsTicker
+        items={getLatestNews(6).map((n) => ({
+          slug: n.slug,
+          title: n.title,
+          excerpt: n.excerpt,
+          category: n.category,
+          publishedAt: n.publishedAt,
+        }))}
+      />
 
       {/* Mobile back-to-top + section label */}
       <MobileScrollNav
