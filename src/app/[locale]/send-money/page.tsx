@@ -8,103 +8,6 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getRateInsight, rateLevelConfig } from "@/lib/rate-history";
 
-const DESTINATION_REGIONS = [
-  {
-    region: "South Asia",
-    destinations: [
-      { name: "India", slug: "india", flag: "🇮🇳", currency: "INR" },
-      { name: "Pakistan", slug: "pakistan", flag: "🇵🇰", currency: "PKR" },
-      { name: "Bangladesh", slug: "bangladesh", flag: "🇧🇩", currency: "BDT" },
-      { name: "Nepal", slug: "nepal", flag: "🇳🇵", currency: "NPR" },
-      { name: "Sri Lanka", slug: "sri-lanka", flag: "🇱🇰", currency: "LKR" },
-    ],
-  },
-  {
-    region: "Southeast Asia",
-    destinations: [
-      { name: "Philippines", slug: "philippines", flag: "🇵🇭", currency: "PHP" },
-      { name: "Vietnam", slug: "vietnam", flag: "🇻🇳", currency: "VND" },
-      { name: "Indonesia", slug: "indonesia", flag: "🇮🇩", currency: "IDR" },
-      { name: "Thailand", slug: "thailand", flag: "🇹🇭", currency: "THB" },
-      { name: "Malaysia", slug: "malaysia", flag: "🇲🇾", currency: "MYR" },
-    ],
-  },
-  {
-    region: "East Asia",
-    destinations: [
-      { name: "China", slug: "china", flag: "🇨🇳", currency: "CNY" },
-      { name: "Japan", slug: "japan", flag: "🇯🇵", currency: "JPY" },
-      { name: "Taiwan", slug: "taiwan", flag: "🇹🇼", currency: "TWD" },
-    ],
-  },
-  {
-    region: "Latin America",
-    destinations: [
-      { name: "Mexico", slug: "mexico", flag: "🇲🇽", currency: "MXN" },
-      { name: "Brazil", slug: "brazil", flag: "🇧🇷", currency: "BRL" },
-      { name: "Colombia", slug: "colombia", flag: "🇨🇴", currency: "COP" },
-      { name: "Peru", slug: "peru", flag: "🇵🇪", currency: "PEN" },
-      { name: "Guatemala", slug: "guatemala", flag: "🇬🇹", currency: "GTQ" },
-      { name: "Dominican Republic", slug: "dominican-republic", flag: "🇩🇴", currency: "DOP" },
-      { name: "Jamaica", slug: "jamaica", flag: "🇯🇲", currency: "JMD" },
-    ],
-  },
-  {
-    region: "Africa",
-    destinations: [
-      { name: "Nigeria", slug: "nigeria", flag: "🇳🇬", currency: "NGN" },
-      { name: "Kenya", slug: "kenya", flag: "🇰🇪", currency: "KES" },
-      { name: "Ghana", slug: "ghana", flag: "🇬🇭", currency: "GHS" },
-      { name: "South Africa", slug: "south-africa", flag: "🇿🇦", currency: "ZAR" },
-      { name: "Egypt", slug: "egypt", flag: "🇪🇬", currency: "EGP" },
-      { name: "Morocco", slug: "morocco", flag: "🇲🇦", currency: "MAD" },
-      { name: "Ethiopia", slug: "ethiopia", flag: "🇪🇹", currency: "ETB" },
-      { name: "Uganda", slug: "uganda", flag: "🇺🇬", currency: "UGX" },
-      { name: "Tanzania", slug: "tanzania", flag: "🇹🇿", currency: "TZS" },
-      { name: "Senegal", slug: "senegal", flag: "🇸🇳", currency: "XOF" },
-      { name: "Rwanda", slug: "rwanda", flag: "🇷🇼", currency: "RWF" },
-      { name: "Zambia", slug: "zambia", flag: "🇿🇲", currency: "ZMW" },
-      { name: "Cameroon", slug: "cameroon", flag: "🇨🇲", currency: "XAF" },
-    ],
-  },
-  {
-    region: "Europe",
-    destinations: [
-      { name: "Europe (EUR)", slug: "europe", flag: "🇪🇺", currency: "EUR" },
-      { name: "Germany", slug: "germany", flag: "🇩🇪", currency: "EUR" },
-      { name: "France", slug: "france", flag: "🇫🇷", currency: "EUR" },
-      { name: "Spain", slug: "spain", flag: "🇪🇸", currency: "EUR" },
-      { name: "Turkey", slug: "turkey", flag: "🇹🇷", currency: "TRY" },
-      { name: "Poland", slug: "poland", flag: "🇵🇱", currency: "PLN" },
-      { name: "Romania", slug: "romania", flag: "🇷🇴", currency: "RON" },
-      { name: "Czech Republic", slug: "czech-republic", flag: "🇨🇿", currency: "CZK" },
-      { name: "Hungary", slug: "hungary", flag: "🇭🇺", currency: "HUF" },
-      { name: "Israel", slug: "israel", flag: "🇮🇱", currency: "ILS" },
-    ],
-  },
-  {
-    region: "Middle East & Gulf",
-    destinations: [
-      { name: "UAE", slug: "uae", flag: "🇦🇪", currency: "AED" },
-    ],
-  },
-  {
-    region: "English-Speaking Countries",
-    destinations: [
-      { name: "United Kingdom", slug: "uk", flag: "🇬🇧", currency: "GBP" },
-      { name: "Australia", slug: "australia", flag: "🇦🇺", currency: "AUD" },
-      { name: "Canada", slug: "canada", flag: "🇨🇦", currency: "CAD" },
-      { name: "New Zealand", slug: "new-zealand", flag: "🇳🇿", currency: "NZD" },
-    ],
-  },
-  {
-    region: "Pacific",
-    destinations: [
-      { name: "Fiji", slug: "fiji", flag: "🇫🇯", currency: "FJD" },
-    ],
-  },
-];
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "sendMoney" });
@@ -130,22 +33,36 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
     : `Compare exchange rates, fees, and delivery times from ${providers.length}+ providers to find the cheapest way to send money abroad.`;
   // Generate default quotes server-side so Google can see them
   const defaultQuotes = generateQuotes(1000, "USD", "INR");
-  const usdInfo = currencies.find((c) => c.code === "USD")!;
   const inrInfo = currencies.find((c) => c.code === "INR")!;
 
-  // Flatten all destinations for ItemList schema
-  const allDestinations = DESTINATION_REGIONS.flatMap((r) => r.destinations);
+  // ── Top 10 corridors by proven demand (Bing-validated + remittance volume) ──
+  // Only these are surfaced as visible links. Each resolves to a real
+  // /send-money/send-money-to-{slug} corridor page (verified live). The long
+  // tail of zero-traffic corridors is no longer linked from this hub — per the
+  // "concentrate equity on winners, kill thin internal links" directive.
+  const TOP_DESTINATIONS = [
+    { name: "India", slug: "india", flag: "🇮🇳", currency: "INR" },
+    { name: "Pakistan", slug: "pakistan", flag: "🇵🇰", currency: "PKR" },
+    { name: "Philippines", slug: "philippines", flag: "🇵🇭", currency: "PHP" },
+    { name: "Mexico", slug: "mexico", flag: "🇲🇽", currency: "MXN" },
+    { name: "Nigeria", slug: "nigeria", flag: "🇳🇬", currency: "NGN" },
+    { name: "Bangladesh", slug: "bangladesh", flag: "🇧🇩", currency: "BDT" },
+    { name: "China", slug: "china", flag: "🇨🇳", currency: "CNY" },
+    { name: "Kenya", slug: "kenya", flag: "🇰🇪", currency: "KES" },
+    { name: "United Kingdom", slug: "uk", flag: "🇬🇧", currency: "GBP" },
+    { name: "Vietnam", slug: "vietnam", flag: "🇻🇳", currency: "VND" },
+  ];
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Send Money Abroad — Destination Countries",
     description: "Compare the cheapest way to send money internationally across 40+ destination countries.",
-    numberOfItems: allDestinations.length,
-    itemListElement: allDestinations.slice(0, 15).map((d, i) => ({
+    numberOfItems: TOP_DESTINATIONS.length,
+    itemListElement: TOP_DESTINATIONS.map((d, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: `Send money to ${d.name}`,
-      url: `https://sendmoneycompare.com/send-money/usa-to-${d.slug}`,
+      url: `https://sendmoneycompare.com/send-money/send-money-to-${d.slug}`,
     })),
   };
 
@@ -221,46 +138,43 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
           {/* Popular Destinations grid */}
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
             <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
-              Send money to popular destinations
+              Top destinations to send money
             </h2>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
-              Compare rates, fees, delivery times, recipient requirements, and local payment methods for every country.
+              The 10 most popular corridors — compare rates, fees, delivery times, and local payment methods.
             </p>
-            <div className="space-y-6">
-              {DESTINATION_REGIONS.map((region) => (
-                <div key={region.region}>
-                  <h3 className="text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-3">
-                    {region.region}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {region.destinations.map((dest) => {
-                      const insight = getRateInsight("USD", dest.currency);
-                      const lvl = insight ? rateLevelConfig(insight.level) : null;
-                      return (
-                        <Link
-                          key={dest.slug}
-                          href={`/send-money/send-money-to-${dest.slug}`}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface-dim)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] text-2sm text-[var(--color-on-surface-variant)] transition-colors"
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {TOP_DESTINATIONS.map((dest) => {
+                const insight = getRateInsight("USD", dest.currency);
+                const lvl = insight ? rateLevelConfig(insight.level) : null;
+                return (
+                  <Link
+                    key={dest.slug}
+                    href={`/send-money/send-money-to-${dest.slug}`}
+                    className="flex flex-col gap-1 p-4 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors group"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">{dest.flag}</span>
+                      <span className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
+                        {dest.name}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-2xs text-[var(--color-on-surface-variant)]">USD → {dest.currency}</span>
+                      {lvl && (
+                        <span
+                          className="inline-flex items-center gap-0.5 text-2xs font-medium"
+                          style={{ color: lvl.color }}
+                          title={`USD→${dest.currency} rates are ${lvl.label.toLowerCase()} (${insight!.levelPct}th percentile)`}
                         >
-                          <span>{dest.flag}</span>
-                          <span>{dest.name}</span>
-                          <span className="text-2xs opacity-70">{dest.currency}</span>
-                          {lvl && (
-                            <span
-                              className="inline-flex items-center gap-0.5 text-2xs font-medium"
-                              style={{ color: lvl.color }}
-                              title={`USD→${dest.currency} rates are ${lvl.label.toLowerCase()} (${insight!.levelPct}th percentile)`}
-                            >
-                              <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: lvl.color }} />
-                              {lvl.label}
-                            </span>
-                          )}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
+                          <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: lvl.color }} />
+                          {lvl.label}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
