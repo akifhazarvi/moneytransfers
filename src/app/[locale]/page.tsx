@@ -185,7 +185,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 {tHero("subtitle")}
               </p>
             </div>
-            <div className="max-w-[640px] mx-auto">
+            <div className="max-w-[760px] mx-auto">
               <ComparisonWidget defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
             </div>
           </Container>
