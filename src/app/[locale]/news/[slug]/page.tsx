@@ -253,7 +253,10 @@ export default async function NewsArticlePage({ params }: Props) {
 
           {/* Sidebar */}
           <aside className="lg:w-[300px] shrink-0">
-            <div className="lg:sticky lg:top-24 space-y-6">
+            {/* Sticky container capped to the viewport height with internal
+                scroll, so a long sidebar doesn't wait for the article to
+                scroll to the bottom before its lower content is reachable. */}
+            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto space-y-6">
               {/* Latest news */}
               {related.length > 0 && (
                 <div>

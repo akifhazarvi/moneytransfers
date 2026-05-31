@@ -558,7 +558,11 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* ── Sidebar ── */}
           <aside className="lg:w-[300px] xl:w-[320px] shrink-0">
-            <div className="lg:sticky lg:top-24 space-y-6">
+            {/* Sticky container is capped to the viewport height and scrolls
+                internally when its content (TOC + CTA + related + explore) is
+                taller than one screen — otherwise the lower items only became
+                visible after scrolling the entire article. */}
+            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto space-y-6">
 
               {/* Desktop TOC — sticky in sidebar */}
               {post.sections.length > 0 && (
