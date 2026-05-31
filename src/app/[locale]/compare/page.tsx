@@ -189,18 +189,18 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
             {" / "}
             <span className="text-[var(--color-on-surface)]">Compare</span>
           </nav>
-          <div className="max-w-3xl mb-8 sm:mb-10">
+          <div className="mb-8 sm:mb-10">
             <h1 className="text-[34px] sm:text-5xl font-semibold text-[var(--color-on-surface)] leading-[1.06] tracking-[-0.03em]">
               {t("heading")}
             </h1>
-            <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-4 max-w-xl">
+            <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-4 max-w-2xl">
               Pick any two providers. See who delivers more — live rates, fees and features, side by side.
             </p>
           </div>
-          <div className="max-w-3xl">
+          <div>
             <CompareShowdown />
           </div>
-          <div className="max-w-3xl mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-2xs text-[var(--color-on-surface-variant)]">
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-2xs text-[var(--color-on-surface-variant)]">
             <span>
               Live rates updated{" "}
               <time dateTime={dataUpdated}>
@@ -218,7 +218,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
       {/* ─── How it works — researched, AI-citable passage (owns "exchange rate markup") ─── */}
       <section className="py-10 sm:py-14 border-b border-[var(--color-outline)]">
         <Container>
-          <div className="max-w-2xl">
+          <div className="max-w-4xl">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] tracking-[-0.025em] mb-4">
               How the comparison works
             </h2>
@@ -273,7 +273,7 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
       {/* ─── FAQ — question-format (Bing high-CTR pattern), deduped vs [slug] article FAQs ─── */}
       <section className="py-10 sm:py-14">
         <Container>
-          <div className="max-w-2xl">
+          <div className="max-w-4xl">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] tracking-[-0.025em] mb-6">
               Comparing money transfers: FAQ
             </h2>
