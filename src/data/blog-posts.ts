@@ -1285,9 +1285,9 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "business-international-payments-guide",
     title:
-      "International Business Payments for SMEs (2026) — Fees, FX & Best Providers",
+      "Best Ways to Pay International Clients & Suppliers (2026) — Low Fees Compared",
     metaDescription:
-      "Compare the cheapest ways to make international business payments in 2026. Wise Business vs OFX vs Revolut — batch payments, SWIFT vs SEPA rails, FX hedging, and real cost breakdowns.",
+      "Paying international clients costs 2–5% through banks. We compared Wise Business, OFX and Revolut on real B2B transfers — batch payments, SWIFT vs SEPA, FX fees and what actually saves the most.",
     excerpt:
       "International business payments cost 2–5% through banks. Specialist providers cut that to under 1%. Compare Wise Business, OFX, and Revolut for FX, batch payments, and compliance.",
     category: "Business",
@@ -1993,9 +1993,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-services",
-    title: "8 Best Money Transfer Services Compared (March 2026)",
+    title: "8 Best Money Transfer Services 2026 — Ranked by Real Cost (Not Just Fees)",
     metaDescription:
-      "Independent comparison of the 8 best money transfer services in 2026. Fees from $0, rates tested on real transfers, 80+ corridors. Wise vs Remitly vs XE vs Western Union — find your best fit.",
+      "Wise, Remitly, XE, Western Union and 5 more — ranked by the total amount your recipient actually receives. Fees from $0, exchange rates tested on real transfers across 80+ corridors.",
     excerpt:
       "From SoFi and XE to Western Union and Remitly, we break down the top-rated money transfer services — who they're best for, what they cost, and how they compare.",
     category: "Reviews",
@@ -5045,9 +5045,9 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-to-pay-international-suppliers",
-    title: "How to Pay International Suppliers: A Complete Guide for 2026",
+    title: "How to Pay International Suppliers in 2026 — Cheapest Methods Compared",
     metaDescription:
-      "Learn how to pay overseas suppliers efficiently. Compare B2B payment methods, reduce FX costs, and streamline your accounts payable with the best cross-border payment platforms.",
+      "Stop paying $25–$50 wire fees per supplier payment. We compared SWIFT, SEPA, Wise Business and OFX on real B2B transfers — see which method is cheapest for your payment size and destination.",
     excerpt:
       "Paying international suppliers doesn't have to be expensive or slow. We break down the best methods, platforms, and strategies to cut costs and speed up vendor payments.",
     category: "Business",

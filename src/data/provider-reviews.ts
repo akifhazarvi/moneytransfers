@@ -524,9 +524,9 @@ export const providerReviews: ProviderReview[] = [
   },
   {
     slug: "ofx",
-    title: "OFX Review 2026 — Fees, Rates & Large Transfers",
+    title: "OFX Review 2026: Best for Large Transfers? Zero Fees, Real Rates Tested",
     metaDescription:
-      "Comprehensive OFX review covering zero fees, exchange rates, forward contracts, and large transfer capabilities. Based on real quote data and independent analysis.",
+      "OFX charges zero transfer fees on all amounts — but is the exchange rate competitive? We tested OFX rates on $5,000–$50,000 transfers across 6 corridors and compared to Wise, Remitly and banks.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
@@ -1379,9 +1379,9 @@ export const providerReviews: ProviderReview[] = [
   },
   {
     slug: "xoom",
-    title: "Xoom Review 2026 — Fees, Rates & Cash Pickup Options",
+    title: "Xoom Review 2026: Is PayPal's Transfer App Worth It? Fees & Rates Tested",
     metaDescription:
-      "Xoom is PayPal's international money transfer service: fees from $0–$4.99, exchange-rate markup, cash pickup, mobile reload, bank deposit and delivery speed for 130+ countries — plus how Xoom compares to Wise, Remitly and PayPal itself.",
+      "Xoom is PayPal's money transfer app — but is it cheaper than Wise or Remitly? We tested real fees ($0–$4.99) and exchange rate markup across 130+ countries. See when Xoom wins and when to use an alternative.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-21",
     lastVerified: "2026-03-21",
@@ -1594,9 +1594,9 @@ export const providerReviews: ProviderReview[] = [
   },
   {
     slug: "worldremit",
-    title: "WorldRemit Review 2026 — Fees, Mobile Money & Delivery Options",
+    title: "WorldRemit Review 2026: Best for Mobile Money? Fees & Reach Tested",
     metaDescription:
-      "In-depth WorldRemit review covering fees ($0.99–$3.99), exchange rates, mobile money delivery, cash pickup, and airtime top-up across 130+ countries.",
+      "WorldRemit delivers to M-Pesa, MTN, GCash and 130+ countries via mobile money, cash pickup and bank deposit. We tested fees ($0.99–$3.99) and exchange rates — and compared to Remitly and Wise.",
     publishedAt: "2026-02-15",
     updatedAt: "2026-05-25",
     lastVerified: "2026-05-25",
