@@ -97,7 +97,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
               </span>
 
               {/* Logo */}
-              <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white border border-[var(--color-outline)]/40 flex items-center justify-center">
                 <Image
                   src={logo}
                   alt={`${name} logo`}

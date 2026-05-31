@@ -277,7 +277,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                   </span>
                   <div className="flex items-center gap-3 min-w-0">
                     {p.logo && (
-                      <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-lg shrink-0" />
+                      <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-full shrink-0 bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
                     )}
                     <div className="min-w-0">
                       <Link href={`/companies/${p.slug}`} className="text-sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
@@ -327,7 +327,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                       {i + 1}
                     </span>
                     {p.logo && (
-                      <Image src={p.logo} alt={p.name} width={32} height={32} className="rounded-lg" />
+                      <Image src={p.logo} alt={p.name} width={32} height={32} className="rounded-full bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
                     )}
                     <div>
                       <Link href={`/companies/${p.slug}`} className="text-md font-semibold text-[var(--color-on-surface)]">

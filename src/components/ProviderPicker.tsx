@@ -120,7 +120,7 @@ export default function ProviderPicker({
       >
         {selected ? (
           <>
-            <div className="w-10 h-10 rounded-full overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/60 shrink-0">
+            <div className="w-10 h-10 rounded-full overflow-hidden bg-white border border-[var(--color-outline)]/60 shrink-0">
               <Image src={selected.logo} alt="" width={40} height={40} className="w-full h-full object-contain p-1" />
             </div>
             <div className="min-w-0 flex-1">
@@ -164,7 +164,7 @@ export default function ProviderPicker({
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 text-left hover:bg-[var(--color-surface-dim)] transition-colors ${p.slug === value ? "bg-[var(--color-primary-surface)]" : ""}`}
               >
-                <div className="w-8 h-8 rounded-full overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/60 shrink-0">
+                <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[var(--color-outline)]/60 shrink-0">
                   <Image src={p.logo} alt="" width={32} height={32} className="w-full h-full object-contain p-1" />
                 </div>
                 <span className="text-sm font-medium text-[var(--color-on-surface)] flex-1 truncate">{p.name}</span>

@@ -343,7 +343,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {featuredProviders.map((provider) => (
               <Link key={provider.slug} href={`/companies/${provider.slug}`} className="snap-start shrink-0 w-[65vw] block p-3.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-all">
                 <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-9 h-9 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0">
                     <Image src={provider.logo} alt={`${provider.name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
                   </div>
                   <div>
@@ -365,7 +365,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {featuredProviders.map((provider) => (
               <Card key={provider.slug} href={`/companies/${provider.slug}`}>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-xl overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0 relative">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0 relative">
                     <Image
                       src={provider.logo}
                       alt={`${provider.name} logo`}

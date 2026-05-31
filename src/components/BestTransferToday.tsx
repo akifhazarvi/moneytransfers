@@ -83,7 +83,7 @@ export default async function BestTransferToday({
             >
               {/* Provider */}
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-xs font-medium text-[var(--color-on-surface-variant)] relative border border-[var(--color-outline)]/50">
+                <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-xs font-medium text-[var(--color-on-surface-variant)] relative border border-[var(--color-outline)]/50">
                   <Image
                     src={logo}
                     alt={`${name} logo`}

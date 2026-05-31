@@ -195,7 +195,7 @@ export default function HomeDynamicSection() {
                       {/* Mobile layout */}
                       <div className="sm:hidden px-4 py-3.5">
                         <div className="flex items-center gap-3 mb-2.5">
-                          <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/50">
+                          <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center border border-[var(--color-outline)]/50">
                             <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -233,7 +233,7 @@ export default function HomeDynamicSection() {
                       {/* Desktop layout */}
                       <div className="hidden sm:grid sm:grid-cols-[minmax(0,1fr)_90px_80px_130px_auto] gap-2 items-center px-4 sm:px-6 py-3.5">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/50">
+                          <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center border border-[var(--color-outline)]/50">
                             <Image src={logo} alt={`${name} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
                           </div>
                           <div className="min-w-0">

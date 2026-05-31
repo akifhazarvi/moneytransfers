@@ -126,7 +126,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             {rank}
           </span>
           {/* Logo */}
-          <div className="w-11 h-11 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/30 mt-0.5">
+          <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center border border-[var(--color-outline)]/30 mt-0.5">
             <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
           {/* Content */}
@@ -228,7 +228,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             )}
           </div>
 
-          <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
+          <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
             <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
 

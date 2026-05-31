@@ -563,7 +563,7 @@ function SendMoneyContent() {
                         : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
                     }`}
                   >
-                    <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)]">
+                    <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)]">
                       <img
                         src={logo}
                         alt={`${name} logo`}
@@ -852,7 +852,7 @@ function SendMoneyContent() {
         <div className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] border-t border-[var(--color-outline)] shadow-[0_-4px_16px_rgba(32,33,36,0.12)]">
           <div className="max-w-[1120px] mx-auto px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/50">
+              <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[var(--color-outline)]/50">
                 <img
                   src={providers.find((p) => p.slug === compareList[0])?.logo || `/logos/${compareList[0]}.png`}
                   alt={`${getProviderName(compareList[0])} logo`}

@@ -254,10 +254,10 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="flex -space-x-1.5 shrink-0">
-                    <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-[var(--color-surface)] bg-[var(--color-surface-dim)]">
+                    <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-[var(--color-surface)] bg-white">
                       <Image src={c.logoA} alt={c.nameA} width={32} height={32} className="w-full h-full object-contain p-1" />
                     </div>
-                    <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-[var(--color-surface)] bg-[var(--color-surface-dim)]">
+                    <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-[var(--color-surface)] bg-white">
                       <Image src={c.logoB} alt={c.nameB} width={32} height={32} className="w-full h-full object-contain p-1" />
                     </div>
                   </div>

@@ -62,7 +62,7 @@ const SPREADS: Record<string, number> = {
 };
 
 function flagUrl(iso2: string): string {
-  return `https://flagcdn.com/w80/${iso2}.png`;
+  return `https://hatscripts.github.io/circle-flags/flags/${iso2}.svg`;
 }
 
 /* ── component ────────────────────────────────────────────── */
@@ -386,10 +386,10 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                           <Image
                             src={flagUrl(r.iso2)}
                             alt={r.code}
-                            width={32}
+                            width={20}
                             height={20}
-                            className="flag-shadow rounded-[2px] object-cover"
-                            style={{ width: "auto", height: "18px" }}
+                            className="flag-shadow rounded-full object-cover"
+                            style={{ width: "18px", height: "18px" }}
                             unoptimized
                           />
                         </div>
