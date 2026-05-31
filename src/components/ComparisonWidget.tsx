@@ -211,7 +211,7 @@ export default function ComparisonWidget({
       {/* ── DESKTOP: existing two-half pill (unchanged) ── */}
       <div className="hidden lg:block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[0_1px_6px_rgba(32,33,36,0.1)] hover:shadow-[0_2px_12px_rgba(32,33,36,0.16)] transition-shadow">
         <div className="relative flex flex-row items-stretch">
-          {/* You-send half — pr-8 reserves space so the amount input never slides under the swap button */}
+          {/* You-send half — pr-14 reserves space so the amount input never slides under the swap button */}
           <div className="flex-1 border-r border-[var(--color-outline)] pl-5 pr-14 py-4 min-w-0">
             <label htmlFor={`${id}-send`} className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
