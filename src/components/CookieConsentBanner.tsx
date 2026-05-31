@@ -67,6 +67,17 @@ export default function CookieConsentBanner() {
     setConsent("granted");
     applyConsent("granted");
     setVisible(false);
+    // Fire the pageview that was suppressed at load time because consent was
+    // denied by default for EU/UK visitors. GA4 ignores events fired while
+    // analytics_storage is 'denied', so we must send this after the update.
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.search,
+        page_title: document.title,
+        page_referrer: document.referrer || "",
+      });
+    }
   }
 
   function decline() {

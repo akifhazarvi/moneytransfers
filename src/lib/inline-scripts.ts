@@ -42,7 +42,11 @@ export const GTAG_INLINE = `window.dataLayer=window.dataLayer||[];function gtag(
     'ad_personalization':'denied'
   });
   gtag('js',new Date());
-  var cfg={send_page_view:true,client_storage:'none'};
+  // EU/UK users start with analytics_storage:denied — suppress the automatic
+  // pageview so we don't fire it while consent is blocked. CookieConsentBanner
+  // fires a manual page_view event after the user clicks Accept.
+  var sendPV=(analyticsStorage==='granted');
+  var cfg={send_page_view:sendPV,client_storage:'none'};
   if(geo){cfg.country=geo;gtag('set','user_properties',{geo_country:geo});}
   // AI-search referral attribution — ChatGPT, Perplexity, Copilot etc strip
   // the Referer header, so GA4 logs source='chatgpt.com' with medium=(not set)
@@ -82,5 +86,5 @@ export const THEME_INLINE = `(function(){try{var t=localStorage.getItem('theme')
 
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
-export const GTAG_INLINE_SHA256 = "lpxFHJL8R8EEQCHO0I3jz5fYZgaZrczGiGJsuchcJ0c=";
+export const GTAG_INLINE_SHA256 = "qPXjxVNgJdwOQjpaoV0oAfKE/LkwfwRiGUZdEzQZ48I=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
