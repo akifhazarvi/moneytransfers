@@ -2406,5 +2406,40 @@
         "receiveAmount": 18506.65
       }
     }
+  },
+  {
+    "date": "2026-05-31",
+    "providers": {
+      "taptap-send": {
+        "rate": 203,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 20099.03
+      },
+      "rbc": {
+        "rate": 196.0784,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 19607.84
+      },
+      "remitly": {
+        "rate": 199.13,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 19715.86
+      },
+      "worldremit": {
+        "rate": 201.2128,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 20121.28
+      },
+      "xoom": {
+        "rate": 194.7863,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 18506.65
+      }
+    }
   }
 ]
