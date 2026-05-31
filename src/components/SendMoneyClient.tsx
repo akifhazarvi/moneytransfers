@@ -605,15 +605,40 @@ function SendMoneyContent() {
         </span>
       </div>
 
-      {/* Savings callout — compact */}
+      {/* Savings callout — hero treatment */}
       {savings > 100 && bestQuote && worstQuote && (
-        <div className="mb-2 bg-[var(--color-success-surface)] rounded-lg px-3 py-2 flex items-center gap-2">
-          <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
-          <p className="text-xs text-[var(--color-success-dark)]">
-            <strong>Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</strong> — {getProviderName(bestQuote.providerSlug)} vs {getProviderName(worstQuote.providerSlug)}
-          </p>
+        <div className="mb-3 relative overflow-hidden rounded-2xl bg-gradient-to-r from-[var(--color-success)] to-emerald-400 px-5 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
+          {/* Subtle radial glow for depth */}
+          <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+          <div className="relative flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              {/* Arrow icon */}
+              <div className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-white/20">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <p className="text-[11px] font-medium text-white/75 uppercase tracking-widest leading-none mb-0.5">
+                  Best vs worst provider
+                </p>
+                <p className="text-lg sm:text-xl font-bold text-white leading-tight truncate">
+                  Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                </p>
+                <p className="text-[11px] text-white/80 mt-0.5 truncate">
+                  {getProviderName(bestQuote.providerSlug)} vs {getProviderName(worstQuote.providerSlug)}
+                </p>
+              </div>
+            </div>
+            {/* Right: big number treatment */}
+            <div className="shrink-0 text-right hidden sm:block">
+              <p className="text-[10px] font-medium text-white/60 uppercase tracking-wider">Choose wisely</p>
+              <p className="text-2xl font-black text-white tabular-nums">
+                {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+              </p>
+              <p className="text-[10px] text-white/60">more to recipient</p>
+            </div>
+          </div>
         </div>
       )}
 
