@@ -55,7 +55,7 @@ import { statSync, readdirSync } from "fs";
 import { join } from "path";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
-import { RateInsightBanner, ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
+import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
 import StickyBestCTA from "@/components/StickyBestCTA";
 import LiveTimestamp from "@/components/LiveTimestamp";
 
@@ -1976,19 +1976,6 @@ export default async function CorridorPage({ params }: Props) {
           </div>
         </Container>
       </section>
-
-      {/* ─── Rate Insight Banner ─── */}
-      {rateInsight && (
-        <section className="py-6 bg-[var(--color-surface)]">
-          <Container>
-            <RateInsightBanner
-              insight={rateInsight}
-              toCurrencySymbol={receiveSymbol}
-              toCurrency={toCurrency}
-            />
-          </Container>
-        </section>
-      )}
 
       {/* ─── Comparison Table ─── */}
       <section id="compare-providers" className="py-10">
