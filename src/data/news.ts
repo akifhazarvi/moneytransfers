@@ -888,7 +888,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>Set a rate alert</strong> with <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, or <a href="/companies/revolut">Revolut</a> at your target rate. If post-decision volatility pushes rates in your favour, you'll be notified instantly.</li>
 <li><strong>For large transfers ($5,000+)</strong>, consider <a href="/companies/ofx">OFX</a> forward contracts to lock in rates for up to 12 months.</li>
 </ol>
-<p>For a deeper explanation of how interest rates move currencies, read our <a href="/news/central-bank-super-week-march-2026">guide to central bank decisions and transfer costs</a>. Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> helps you spot providers widening spreads during volatile periods. Our <a href="/send-money">comparison tool</a> shows live rates from 35+ providers.</p>`,
+<p>For a deeper explanation of how interest rates move currencies, read our <a href="/news/central-bank-super-week-march-2026">guide to central bank decisions and transfer costs</a>. Understanding <a href="/guides/exchange-rate-markup-explained">how exchange rate markups work</a> helps you spot providers widening spreads during volatile periods. Our <a href="/send-money">comparison tool</a> shows live rates from 50+ providers.</p>`,
     category: "Industry News",
     publishedAt: "2026-03-29",
     source: "ECB / Federal Reserve / Bank of Canada / RBA",
@@ -930,7 +930,7 @@ export const newsItems: NewsItem[] = [
 <h2>How to ensure you're below the average</h2>
 <p>The global average of 6.0% means <strong>most people are still overpaying</strong>. Banks and legacy providers are far above the average, while specialist digital providers are far below it. Here's how to stay on the cheap side:</p>
 <ul>
-<li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows the exact total cost across 35+ providers for your specific corridor and amount.</li>
+<li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows the exact total cost across 50+ providers for your specific corridor and amount.</li>
 <li><strong>Use digital providers.</strong> <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> are consistently below the global average on most corridors.</li>
 <li><strong>Avoid bank wires.</strong> The World Bank data confirms banks charge 2–3x more than specialist providers. Our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> explains why.</li>
 <li><strong>Fund digitally.</strong> Since the <a href="/guides/us-remittance-tax-2026">US 1% remittance tax</a> on cash transfers, digital funding is both cheaper AND tax-exempt.</li>
@@ -990,7 +990,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>Consider sending sooner rather than later.</strong> If the dollar continues weakening through 2026 as forecasters expect, today's rate may be better than next month's.</li>
 <li><strong>For large transfers, use forward contracts.</strong> <a href="/companies/ofx">OFX</a> lets you lock in today's rate for up to 12 months — protecting you from further dollar weakness.</li>
 <li><strong>Switch from cash to digital.</strong> Avoid the 1% remittance tax entirely by funding via bank transfer or debit card instead of cash. Read our <a href="/guides/us-remittance-tax-2026">remittance tax guide</a>.</li>
-<li><strong>Compare every time.</strong> Our <a href="/send-money">comparison tool</a> shows real-time rates from 35+ providers. In a volatile market, the cheapest provider can change daily.</li>
+<li><strong>Compare every time.</strong> Our <a href="/send-money">comparison tool</a> shows real-time rates from 50+ providers. In a volatile market, the cheapest provider can change daily.</li>
 </ol>
 <p>For broader context on how central bank decisions move exchange rates, read our <a href="/news/central-bank-super-week-march-2026">guide to central bank rate decisions and transfers</a>. For corridor-specific advice, see our <a href="/guides/send-money-to-india-guide">India</a>, <a href="/guides/send-money-to-pakistan-guide">Pakistan</a>, <a href="/guides/send-money-to-philippines-guide">Philippines</a>, and <a href="/guides/send-money-to-mexico-guide">Mexico</a> guides.</p>`,
     category: "Industry News",
@@ -1047,7 +1047,7 @@ export const newsItems: NewsItem[] = [
 <ol>
 <li><strong>Use specialist providers today.</strong> <a href="/companies/wise">Wise</a> (0% markup) and <a href="/companies/remitly">Remitly</a> (minutes delivery) already achieve 80-95% of the savings that stablecoins promise — without any crypto complexity.</li>
 <li><strong>Watch for PayPal/Xoom PYUSD offers.</strong> <a href="/companies/xoom">Xoom</a> already offers zero transfer fees when funded with PYUSD. If your corridor is supported, this is the closest thing to stablecoin remittances available today.</li>
-<li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows real-time costs from 35+ providers. As stablecoin competition heats up, fees are falling across the board.</li>
+<li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows real-time costs from 50+ providers. As stablecoin competition heats up, fees are falling across the board.</li>
 </ol>
 <p>For more on how payment technology is evolving, read our <a href="/guides/wire-transfer-guide">wire transfer guide</a> (SWIFT vs SEPA vs local rails), <a href="/guides/business-international-payments-guide">business payments guide</a>, and <a href="/compare/remitly-vs-xoom">Remitly vs Xoom comparison</a> (covers PYUSD).</p>`,
     category: "Industry News",
@@ -1104,7 +1104,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>2027 (estimated):</strong> First cross-border FedNow transactions go live</li>
 </ul>
 <p>The G20 has set targets of <strong>1% cost for retail payments and 3% for remittances</strong> — both still exceeded. FedNow's entry into cross-border payments brings the U.S. closer to these targets, joining the <a href="/news/eu-instant-payments-mandatory-2026">EU's instant payments mandate</a> and India's UPI international expansion as part of a global push toward faster, cheaper cross-border settlement.</p>
-<p>For the latest rates from providers already offering instant transfers, <a href="/send-money">compare live quotes</a> from 35+ providers.</p>`,
+<p>For the latest rates from providers already offering instant transfers, <a href="/send-money">compare live quotes</a> from 50+ providers.</p>`,
     category: "Regulatory",
     publishedAt: "2026-04-11",
     source: "Federal Reserve Board / PYMNTS / ABA Banking Journal",

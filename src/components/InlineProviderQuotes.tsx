@@ -72,7 +72,7 @@ export default function InlineProviderQuotes({
             slug={pageSlug}
             className="shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-xs font-bold bg-white text-[var(--color-success-dark)] rounded-full hover:bg-white/90 transition-colors whitespace-nowrap shadow-sm"
           >
-            See all 35+ →
+            See all 50+ →
           </SeeAllProvidersLink>
         </div>
         {savings > 0 && (

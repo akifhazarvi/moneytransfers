@@ -83,7 +83,7 @@ const organizationSchema = {
   logo: { "@type": "ImageObject", url: `${SITE_URL}/logos/sendmoneycompare-logo.png`, width: 512, height: 512 },
   image: `${SITE_URL}/opengraph-image`,
   description:
-    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from 60+ providers across 80+ currency corridors.",
+    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from 50+ apps across 80+ currency corridors.",
   foundingDate: "2024",
   founders: [
     { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder & Editor-in-Chief", url: `${SITE_URL}/about/akif-hazarvi` },
@@ -175,7 +175,7 @@ const financialServiceSchema = {
   "@id": `${SITE_URL}/#service`,
   name: "SendMoneyCompare",
   url: SITE_URL,
-  description: "Independent comparison platform for international money transfers. Compare fees, exchange rates and delivery times from 60+ providers.",
+  description: "Independent comparison platform for international money transfers. Compare fees, exchange rates and delivery times from 50+ apps.",
   serviceType: "Money Transfer Comparison",
   areaServed: "Worldwide",
   provider: { "@id": `${SITE_URL}/#organization` },

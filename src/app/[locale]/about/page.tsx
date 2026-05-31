@@ -97,7 +97,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 </p>
                 <p>
                   We built the comparison tool we wished existed: one that pulls real-time
-                  exchange rates and fees from 60+ providers, calculates exactly how much
+                  exchange rates and fees from 50+ providers, calculates exactly how much
                   your recipient receives, and ranks providers by who delivers the most
                   money. No sponsored placements, no hidden agendas — just transparent data.
                 </p>

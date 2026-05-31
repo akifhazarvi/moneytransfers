@@ -92,7 +92,7 @@ export default function ExchangeRatesPage() {
               Compare Transfer Rates
             </h2>
             <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
-              The mid-market rate above is the fairest rate — but providers add markups. Compare actual rates from 60+ services on these popular corridors.
+              The mid-market rate above is the fairest rate — but providers add markups. Compare actual rates from 50+ apps on these popular corridors.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {popularCorridors.map((c) => (

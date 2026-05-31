@@ -24,7 +24,7 @@
       "get": {
         "operationId": "getTransferQuotes",
         "summary": "Get live money transfer quotes or provider information",
-        "description": "When called with from, to, and amount parameters, returns live transfer quotes from 38+ providers ranked by best value (most money received). When called without parameters, returns provider summaries, supported currencies, and key facts about international money transfers.",
+        "description": "When called with from, to, and amount parameters, returns live transfer quotes from 50+ apps ranked by best value (most money received). When called without parameters, returns provider summaries, supported currencies, and key facts about international money transfers.",
         "parameters": [
           {
             "name": "from",

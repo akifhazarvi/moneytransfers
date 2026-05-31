@@ -2170,7 +2170,7 @@ export default async function CorridorPage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[var(--color-on-surface-muted)] mb-5">
               <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">Akif Hazarvi</Link></span>
               <span className="text-[var(--color-outline)]">·</span>
-              <span>Refreshed every 6 hours from 35+ provider APIs</span>
+              <span>Refreshed every 6 hours from 50+ provider APIs</span>
             </div>
             <div className="mb-5">
               <AffiliateDisclosure />

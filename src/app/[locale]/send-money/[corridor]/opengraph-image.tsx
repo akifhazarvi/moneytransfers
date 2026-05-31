@@ -156,7 +156,7 @@ export default async function Image({ params }: Props) {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", gap: "40px" }}>
             {[
-              { num: "60+", label: "Providers" },
+              { num: "50+", label: "Providers" },
               { num: "6hr", label: "Refresh" },
               { num: "$0", label: "Fee to compare" },
             ].map((stat) => (

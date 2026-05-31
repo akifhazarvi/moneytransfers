@@ -110,7 +110,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Compare Money Transfers — Best Rates & Lowest Fees",
-    description: "Compare fees, exchange rates, and delivery times from 60+ money transfer providers across 64+ corridors. Updated every 6 hours with live data.",
+    description: "Compare fees, exchange rates, and delivery times from 50+ money transfer apps across 64+ corridors. Updated every 6 hours with live data.",
     url: "https://sendmoneycompare.com",
     isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
     about: { "@id": "https://sendmoneycompare.com/#organization" },
@@ -182,7 +182,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <span className="text-[var(--color-on-surface-variant)]">{tHero("titleHighlight")}</span>
               </h1>
               <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-5">
-                60+ providers ranked by{" "}
+                50+ apps ranked by{" "}
                 <span className="font-semibold text-[var(--color-primary)]">real fees</span>
                 .{" "}
                 <span className="font-semibold text-[var(--color-primary)]">No signup</span>

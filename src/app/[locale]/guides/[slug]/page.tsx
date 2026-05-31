@@ -484,7 +484,7 @@ export default async function BlogPostPage({ params }: Props) {
                 to={inlineQuoteCorridor.to}
                 amount={inlineQuoteCorridor.amount}
                 heading={`Don't overpay — here's the cheapest ${inlineQuoteCorridor.from} → ${inlineQuoteCorridor.to} provider right now`}
-                subheading={`Live rates for ${inlineQuoteCorridor.from} ${inlineQuoteCorridor.amount.toLocaleString()} — updated every 6 hours from 35+ services`}
+                subheading={`Live rates for ${inlineQuoteCorridor.from} ${inlineQuoteCorridor.amount.toLocaleString()} — updated every 6 hours from 50+ apps`}
                 source={`guide:${slug}:end`}
               />
             )}

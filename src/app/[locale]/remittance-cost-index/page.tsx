@@ -162,7 +162,7 @@ const faqs = [
   },
   {
     q: "How is the data collected?",
-    a: "We collect live quotes from 60+ provider APIs and websites every 6 hours using automated scrapers. The data covers 300+ currency corridors. Each quote includes the exact fee, exchange rate, and receive amount. We then calculate the markup by comparing each provider's rate against the mid-market rate from XE.",
+    a: "We collect live quotes from 50+ provider APIs and websites every 6 hours using automated scrapers. The data covers 300+ currency corridors. Each quote includes the exact fee, exchange rate, and receive amount. We then calculate the markup by comparing each provider's rate against the mid-market rate from XE.",
   },
   {
     q: "Why are specialist providers cheaper than banks?",

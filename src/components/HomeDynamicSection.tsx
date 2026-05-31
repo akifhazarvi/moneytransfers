@@ -289,7 +289,7 @@ export default function HomeDynamicSection() {
                 href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
                 className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_4px_14px_rgba(26,115,232,0.35)] active:shadow-none active:scale-[0.98] transition-all"
               >
-                Compare all 35+ providers
+                Compare all 50+ apps
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

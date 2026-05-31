@@ -29,7 +29,7 @@ export const authors: Author[] = [
 
 His experience spans product management, regulatory compliance, and payment infrastructure across the UK, US, and South Asian markets. This firsthand industry experience informs SendMoneyCompare's methodology: every provider ranking is based on real transfer data collected from provider APIs and websites every 6 hours, with no sponsored placements or paid rankings.
 
-Akif personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He has conducted hundreds of test transfers across 35+ providers to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
+Akif personally oversees the editorial process for all provider reviews and corridor guides on SendMoneyCompare. He has conducted hundreds of test transfers across 50+ providers to validate fee structures, exchange rate markups, and delivery speeds. His goal is to bring the same level of transparency to international money transfers that price comparison sites brought to insurance and utilities.
 
 Before founding SendMoneyCompare, Akif held product and analytics roles at fintech companies focused on cross-border payments, currency exchange, and digital banking. He holds a degree in Computer Science and is based in Denver, Colorado.`,
     expertise: [
@@ -43,7 +43,7 @@ Before founding SendMoneyCompare, Akif held product and analytics roles at finte
     credentials: [
       "8+ years in fintech and international payments",
       "Managed cross-border payment products at scale",
-      "Conducted 500+ test transfers across 35+ providers",
+      "Conducted 500+ test transfers across 50+ providers",
       "Published research on remittance costs and market transparency",
     ],
     linkedin: "https://www.linkedin.com/in/akifhazarvi",
@@ -83,7 +83,7 @@ He also leads outreach with publishers, diaspora communities, and financial educ
     initials: "AI",
     bio: `Awais Imran is the content writer and reviews editor at SendMoneyCompare, responsible for the editorial side of the platform: provider reviews, comparison articles, corridor guides, and the blog.
 
-Awais writes and maintains the in-depth reviews of the 60+ providers featured on the site, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
+Awais writes and maintains the in-depth reviews of the 50+ providers featured on the site, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
 
 His editorial process involves running real test quotes against provider calculators, cross-referencing the platform's live scraped data, and updating reviews when providers change pricing, expand coverage, or launch new features. He coordinates closely with the editor-in-chief on editorial standards and with the technical team on fact-checking provider data.
 
@@ -96,7 +96,7 @@ Awais holds a degree in English and Communications and is based in London, Unite
       "Blog and SEO content production",
     ],
     credentials: [
-      "Writes and maintains reviews for 60+ money transfer providers",
+      "Writes and maintains reviews for 50+ money transfer providers",
       "Produces corridor guides and explainers across SendMoneyCompare",
       "Editorial background with focus on financial services content",
     ],
