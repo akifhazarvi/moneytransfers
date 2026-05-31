@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
-import { COUNTRY_TO_CURRENCY } from "./data/geo-corridors";
+import { getGeoDefaults } from "./data/geo-corridors";
 import { shouldNoindexPath } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
@@ -245,15 +245,18 @@ export default function middleware(request: NextRequest) {
     JSON.stringify({ group: "csp-endpoint", max_age: 86400, endpoints: [{ url: "/api/csp-report" }] }),
   );
 
-  // Set geo-currency cookie from Vercel's IP country header
+  // Set geo widget cookies from Vercel's IP country header.
+  // geo-currency    — "from" currency for the comparison widget
+  // geo-default-to  — "to" currency (diaspora-aware for receiver countries)
+  // geo-default-amount — default transfer amount in fromCurrency
+  // All three are set together on first visit so the widget hydrates correctly.
   const country = request.headers.get("x-vercel-ip-country") || "";
-  const currency = COUNTRY_TO_CURRENCY[country] || "USD";
   if (!request.cookies.get("geo-currency")) {
-    response.cookies.set("geo-currency", currency, {
-      path: "/",
-      maxAge: 60 * 60 * 24 * 30, // 30 days
-      sameSite: "lax",
-    });
+    const { fromCurrency, toCurrency, defaultAmount } = getGeoDefaults(country);
+    const cookieOpts = { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax" as const };
+    response.cookies.set("geo-currency",       fromCurrency,          cookieOpts);
+    response.cookies.set("geo-default-to",     toCurrency,            cookieOpts);
+    response.cookies.set("geo-default-amount", String(defaultAmount),  cookieOpts);
   }
 
   // Refresh geo-country cookie on every request so consent logic
