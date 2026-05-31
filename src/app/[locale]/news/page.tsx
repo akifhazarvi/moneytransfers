@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function NewsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("news");
+  const t = await getTranslations({ locale, namespace: "news" });
   const latest = getLatestNews(20);
   const featured = latest[0];
   const rest = latest.slice(1);

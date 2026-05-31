@@ -63,7 +63,7 @@ function getCountryName(code: string, slug: string): string {
 export default async function IbanPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("iban");
+  const t = await getTranslations({ locale, namespace: "iban" });
   const sepaCountries = getSepaCountries();
   const sorted = [...wiseCountries].sort((a, b) => {
     const nameA = getCountryName(a.countryCode, a.slug);

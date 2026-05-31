@@ -57,7 +57,7 @@ const popularPairs = [
 export default async function CurrencyConverterPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("currencyConverter");
+  const t = await getTranslations({ locale, namespace: "currencyConverter" });
 
   // Pre-compute static rates for SEO
   const defaultRate = getRate(exchangeRates, "USD", "EUR");

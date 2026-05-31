@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HowWeReviewPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("howWeReview");
+  const t = await getTranslations({ locale, namespace: "howWeReview" });
 
   const reviewCriteria = [
     {

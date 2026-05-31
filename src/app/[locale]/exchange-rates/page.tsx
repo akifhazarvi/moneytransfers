@@ -115,7 +115,7 @@ const SSR_CURRENCIES = [
 export default async function ExchangeRatesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("exchangeRates");
+  const t = await getTranslations({ locale, namespace: "exchangeRates" });
 
   const rates = await fetchExchangeRates();
 

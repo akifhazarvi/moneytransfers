@@ -225,7 +225,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("guidesSlug");
+  const t = await getTranslations({ locale, namespace: "guidesSlug" });
   const post = getBlogPost(slug);
   if (!post) notFound();
 

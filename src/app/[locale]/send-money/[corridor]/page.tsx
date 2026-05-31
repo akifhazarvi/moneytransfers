@@ -1818,8 +1818,8 @@ function getBestGuideLink(
 export default async function CorridorPage({ params }: Props) {
   const { corridor: slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("corridor");
-  const tSendMoney = await getTranslations("sendMoney");
+  const t = await getTranslations({ locale, namespace: "corridor" });
+  const tSendMoney = await getTranslations({ locale, namespace: "sendMoney" });
   const corridor = getCorridor(slug);
   if (!corridor) notFound();
 

@@ -3,6 +3,10 @@ import { generateQuotes, getProviderName, providers } from "@/data/providers";
 import { getTranslations } from "next-intl/server";
 
 interface BestTransferTodayProps {
+  // Required so getTranslations reads the locale from params, not headers() —
+  // a bare getTranslations("ns") here opted every page rendering this widget
+  // into dynamic/no-store rendering.
+  locale: string;
   amount?: number;
   from?: string;
   to?: string;
@@ -16,13 +20,14 @@ interface BestTransferTodayProps {
 }
 
 export default async function BestTransferToday({
+  locale,
   amount = 1000,
   from = "USD",
   to = "PKR",
   symbol = "Rs",
   highlightSlug,
 }: BestTransferTodayProps) {
-  const t = await getTranslations("bestTransferToday");
+  const t = await getTranslations({ locale, namespace: "bestTransferToday" });
   const all = generateQuotes(amount, from, to);
 
   // If a highlight slug is given, always include that provider's quote in the

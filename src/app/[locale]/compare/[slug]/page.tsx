@@ -1295,7 +1295,7 @@ function DefaultComparison({
 export default async function ComparisonPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("compareSlug");
+  const t = await getTranslations({ locale, namespace: "compareSlug" });
   const pair = parseSlug(slug);
   if (!pair) notFound();
 

@@ -39,7 +39,7 @@ const trackedProviders = [
 export default async function MethodologyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("methodology");
+  const t = await getTranslations({ locale, namespace: "methodology" });
 
   const lastUpdated = "March 2026";
 

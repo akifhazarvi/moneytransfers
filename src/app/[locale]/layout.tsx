@@ -27,6 +27,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  // Prime next-intl's request-locale cache BEFORE any other next-intl API so
+  // getRequestConfig (i18n/request.ts) reads the cached locale instead of
+  // calling headers() — calling headers() opts the route into dynamic
+  // rendering and serves no-store. Must run in generateMetadata too, not just
+  // the component body. See https://next-intl.dev/docs/routing/setup#static-rendering
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   const localeMap: Record<string, string> = { en: "en_US", es: "es_ES", fr: "fr_FR", pt: "pt_BR" };
@@ -242,7 +248,20 @@ export default async function LocaleLayout({ children, params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(financialServiceSchema) }}
       />
-      <NextIntlClientProvider locale={locale} messages={clientMessages}>
+      {/* Pass locale, messages, timeZone AND now explicitly. Omitting any of
+          these makes NextIntlClientProvider's server entry call getTimeZone()/
+          getConfigNow()/getFormats(), each of which reads getConfig() WITHOUT a
+          locale → next-intl falls back to headers() → the whole route renders
+          dynamically and is served Cache-Control: no-store. Supplying them all
+          keeps every page statically renderable (the real fix for the May 2026
+          deindex). timeZone is fixed (UTC) and now is build-time — neither
+          varies per request. */}
+      <NextIntlClientProvider
+        locale={locale}
+        messages={clientMessages}
+        timeZone="UTC"
+        now={new Date()}
+      >
         <ThemeProvider>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium focus:shadow-lg">
             Skip to main content

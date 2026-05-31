@@ -59,7 +59,7 @@ const teamSchema = [
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("about");
+  const t = await getTranslations({ locale, namespace: "about" });
   return (
     <>
       {teamSchema.map((person, i) => (

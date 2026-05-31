@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CompanyPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("companiesSlug");
+  const t = await getTranslations({ locale, namespace: "companiesSlug" });
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) notFound();
 
@@ -118,7 +118,7 @@ export default async function CompanyPage({ params }: Props) {
   );
 
   if (review) {
-    return <DetailedReview slug={slug} provider={provider} review={review} otherProviders={otherProviders} crossLinks={crossLinks} providerNews={providerNews} />;
+    return <DetailedReview slug={slug} locale={locale} provider={provider} review={review} otherProviders={otherProviders} crossLinks={crossLinks} providerNews={providerNews} />;
   }
 
   return <DefaultReview slug={slug} provider={provider} otherProviders={otherProviders} crossLinks={crossLinks} providerNews={providerNews} />;
@@ -134,6 +134,7 @@ function getScoreStyle(rating: number) {
 /* ─── Detailed editorial review ─── */
 function DetailedReview({
   slug,
+  locale,
   provider,
   review,
   otherProviders,
@@ -141,6 +142,7 @@ function DetailedReview({
   providerNews,
 }: {
   slug: string;
+  locale: string;
   provider: (typeof providers)[number];
   review: NonNullable<ReturnType<typeof getProviderReview>>;
   otherProviders: (typeof providers)[number][];
@@ -288,7 +290,7 @@ function DetailedReview({
                 const from = isUk ? "GBP" : "USD";
                 const to = isUk ? "EUR" : "INR";
                 const symbol = isUk ? "€" : "₹";
-                return <BestTransferToday amount={1000} from={from} to={to} symbol={symbol} highlightSlug={slug} />;
+                return <BestTransferToday locale={locale} amount={1000} from={from} to={to} symbol={symbol} highlightSlug={slug} />;
               })()}
             </Card>
 

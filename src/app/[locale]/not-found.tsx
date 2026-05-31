@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
-  const t = await getTranslations("notFound");
+  const t = await getTranslations({ locale: "en", namespace: "notFound" });
   return {
     title: t("description"),
     robots: { index: false, follow: false },
@@ -11,7 +11,7 @@ export async function generateMetadata() {
 }
 
 export default async function NotFound() {
-  const t = await getTranslations("notFound");
+  const t = await getTranslations({ locale: "en", namespace: "notFound" });
 
   return (
     <Container className="py-16 text-center">

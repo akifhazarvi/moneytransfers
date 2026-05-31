@@ -44,6 +44,7 @@ const TOP_CORRIDORS: { slug: string; label: string; flag: string }[] = [
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   const SITE_URL = "https://sendmoneycompare.com";

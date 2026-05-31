@@ -181,7 +181,7 @@ const faqs = [
 export default async function RemittanceCostIndexPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("remittanceCostIndex");
+  const t = await getTranslations({ locale, namespace: "remittanceCostIndex" });
   return (
     <>
       {/* Hero */}

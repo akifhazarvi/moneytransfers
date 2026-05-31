@@ -86,7 +86,7 @@ function CategoryBadge({ category }: { category: string }) {
 export default async function NewsArticlePage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("newsSlug");
+  const t = await getTranslations({ locale, namespace: "newsSlug" });
   const item = getNewsItem(slug);
   if (!item) notFound();
 

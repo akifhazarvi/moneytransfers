@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import { getTranslations } from "next-intl/server";
 
 export default async function Loading() {
-  const t = await getTranslations("loading");
+  const t = await getTranslations({ locale: "en", namespace: "loading" });
 
   return (
     <Container className="py-16">

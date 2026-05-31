@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function CompaniesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("companies");
+  const t = await getTranslations({ locale, namespace: "companies" });
   // Sort: specialist transfer providers first (higher rated), then banks
   const sorted = [...providers].sort((a, b) => {
     const aIsBank = a.paymentMethods.length === 1 && a.paymentMethods[0] === "Bank Transfer" && a.deliveryMethods.length === 1 && (a.exchangeRateMarkup.includes("3%") || a.exchangeRateMarkup.includes("4%") || a.exchangeRateMarkup.includes("5%"));

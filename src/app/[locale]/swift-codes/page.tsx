@@ -38,7 +38,7 @@ function getFlag(code: string): string {
 export default async function SwiftCodesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("swiftCodes");
+  const t = await getTranslations({ locale, namespace: "swiftCodes" });
   const countries = getSwiftCountries().sort((a, b) =>
     a.name.localeCompare(b.name)
   );

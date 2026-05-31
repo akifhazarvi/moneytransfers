@@ -201,7 +201,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SwiftCountryPage({ params }: Props) {
   const { country: slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("swiftCodesSlug");
+  const t = await getTranslations({ locale, namespace: "swiftCodesSlug" });
   const country = getSwiftCountryBySlug(slug);
   if (!country) notFound();
 
