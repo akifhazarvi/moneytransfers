@@ -13,6 +13,13 @@ export interface ProviderReview {
   readTime: string;
   editorRating: number; // out of 10
   editorVerdict: string;
+  /**
+   * "What they do uniquely well" — the provider's standout strengths, shown as a
+   * starred highlight block. `headline` is the one-line USP; `points` are 2–3
+   * concrete things this provider beats competitors at. Optional: pages without
+   * it simply omit the block.
+   */
+  usp?: { headline: string; points: string[] };
   reviewer: string;
   factChecker: string;
   howWeTested: string;
@@ -38,6 +45,14 @@ export const providerReviews: ProviderReview[] = [
     howWeTested: "We sent 12 test transfers through Wise across 6 corridors (USD→INR, USD→EUR, GBP→EUR, USD→PHP, AUD→INR, GBP→INR) between January and March 2026. Each transfer was funded via both bank transfer and debit card to verify fee differences. We confirmed that the exchange rate matched the mid-market rate on xe.com at the time of each transfer within a 0.01% tolerance. Delivery times were tracked from funding confirmation to recipient notification. Our automated scraping system also collects Wise quotes every 6 hours across all supported corridors, giving us over 10,000 data points per month to verify fee ranges and rate consistency.",
     editorVerdict:
       "Wise is the gold standard for transparent, low-cost international transfers. Its use of the mid-market exchange rate with zero markup sets it apart from virtually every competitor. The multi-currency account and debit card add genuine everyday utility. The main limitations are the lack of cash pickup options and slightly slower delivery compared to express-focused competitors like Remitly. For anyone who values knowing exactly what they're paying — and paying as little as possible — Wise is our top recommendation.",
+    usp: {
+      headline: "The cheapest, most transparent way to send money — with nothing hidden in the rate",
+      points: [
+        "Uses the real mid-market exchange rate with zero markup — the rate you see on Google is the rate you get",
+        "Upfront, itemised fee shown before you confirm — no surprises, no spread baked in",
+        "Multi-currency account holds 40+ currencies with local bank details in the US, UK, EU and beyond",
+      ],
+    },
 
     sections: [
       {
@@ -304,6 +319,14 @@ export const providerReviews: ProviderReview[] = [
     howWeTested: "We sent 8 test transfers through Remitly across 4 corridors (USD→INR, USD→PHP, USD→PKR, GBP→INR) between February and March 2026, testing both Express and Economy tiers. We verified cash pickup availability by having recipients collect funds at agent locations in India and the Philippines. Express transfers consistently arrived within 15 minutes for cash pickup and mobile money. Our automated system also scrapes Remitly quotes every 6 hours, collecting over 5,000 data points monthly to track fee and rate fluctuations across corridors.",
     editorVerdict:
       `Remitly is the best choice for personal remittances to developing countries. Its express delivery option — arriving in minutes via cash pickup or mobile money — is unmatched for urgency. The exchange rate markup means you pay more than Wise on a per-dollar basis, but the convenience of multiple delivery methods (bank deposit, cash pickup, mobile money, home delivery) makes Remitly the clear winner when your recipient doesn't have a bank account. First-time transfer promotions are generous, and the mobile app experience is excellent. For large or recurring transfers where cost matters most, <a href="/companies/wise">Wise</a> or <a href="/companies/ofx">OFX</a> may be better options.`,
+    usp: {
+      headline: "The fastest way to get cash to family in developing countries",
+      points: [
+        "Express delivery in minutes to most major remittance corridors — far quicker than bank-to-bank rivals",
+        "Huge cash-pickup and mobile-money network across Asia, Africa and Latin America",
+        "Promotional first-transfer rates and a polished app built specifically for recurring remittances",
+      ],
+    },
 
     sections: [
       {
@@ -537,6 +560,14 @@ export const providerReviews: ProviderReview[] = [
     howWeTested: "We obtained quotes from OFX for 6 corridors (USD→GBP, USD→EUR, AUD→GBP, GBP→AUD, USD→INR, AUD→INR) at multiple transfer amounts ($1,000, $10,000, $50,000) between January and March 2026. We verified that exchange rate margins tighten at higher amounts by comparing OFX's quoted rates against the mid-market rate at the time of each quote. Our automated scraping system collects OFX rates every 6 hours via their API. We also confirmed the zero-fee claim by completing test transfers and checking that no fees were deducted beyond the exchange rate spread.",
     editorVerdict:
       "OFX is the best option for large international transfers. With zero transfer fees and competitive exchange rates that improve as your transfer size increases, OFX consistently delivers more money on transfers above $5,000 than almost any competitor. The forward contract and limit order features are genuinely useful for anyone managing currency risk. The main drawbacks are the $100 minimum transfer, bank-transfer-only funding, and a less polished user experience compared to consumer-focused apps like <a href=\"/companies/wise\">Wise</a> or <a href=\"/companies/remitly\">Remitly</a>. For high-value personal transfers (property purchases, emigration funds) and business payments, OFX is our top recommendation.",
+    usp: {
+      headline: "Built for large transfers — zero fees and a personal currency dealer",
+      points: [
+        "No transfer fees on any amount, with rates that improve as the transfer size grows",
+        "A dedicated dealer you can phone — rare among app-only providers",
+        "Forward contracts and limit orders let you lock a rate for big future payments",
+      ],
+    },
 
     sections: [
       {
@@ -753,6 +784,14 @@ export const providerReviews: ProviderReview[] = [
     howWeTested: "We collected quotes from XE Transfer across 5 corridors (USD→GBP, USD→EUR, USD→INR, GBP→EUR, AUD→INR) between February and March 2026, comparing the transfer rate against the xe.com mid-market rate displayed at the same time to measure the actual markup. We verified the zero-fee claim on major corridors and confirmed that the exchange rate spread is XE's sole revenue source. Our automated scraping system collects XE Transfer quotes every 6 hours via browser automation, providing continuous monitoring of rate competitiveness across corridors.",
     editorVerdict:
       "XE combines the brand trust of the world's most recognised currency website with a genuine money transfer service. The zero-fee model, 130+ currency coverage, and user-friendly rate alert system make it a solid all-rounder. Exchange rates include a markup (0.5%–1.5%), so XE isn't the cheapest option for cost-sensitive senders — <a href=\"/companies/wise\">Wise</a> beats it on pure price. But for users who value brand trust, wide currency coverage, and useful tools like rate alerts and forward contracts, XE is a reliable and competent choice. It sits comfortably between Wise (cheapest) and traditional banks (most expensive).",
+    usp: {
+      headline: "The most trusted name in currency — with the widest currency coverage",
+      points: [
+        "Backed by the world's most-recognised currency brand (xe.com), so trust is built in",
+        "130+ currencies supported — including exotic pairs most rivals don't touch",
+        "Free rate alerts and forward contracts to time your transfer or lock a future rate",
+      ],
+    },
 
     sections: [
       {
@@ -955,6 +994,14 @@ export const providerReviews: ProviderReview[] = [
     howWeTested: "We sent 6 test transfers through Western Union across 3 corridors (USD→INR, USD→PKR, GBP→INR) between January and March 2026, testing both online and in-store pricing to verify the cost difference. Cash pickup transfers were collected at agent locations in Pakistan and India to confirm availability and speed. We compared Western Union's quoted exchange rates against the mid-market rate to measure the actual markup at different transfer amounts. Our automated scraping system collects Western Union quotes every 6 hours via browser automation, capturing both fee and exchange rate data across all supported corridors.",
     editorVerdict:
       "Western Union remains the undisputed leader for cash pickup transfers. With over 500,000 agent locations in 200+ countries, it reaches destinations that no digital-only service can match. However, this convenience comes at a significant cost — exchange rate markups of 1%–4% and fees of $0–$10+ make Western Union one of the more expensive options for standard bank-to-bank transfers. Our recommendation: use Western Union when you specifically need cash pickup in a remote location or when no other provider covers your corridor. For bank deposit transfers, <a href=\"/companies/wise\">Wise</a>, <a href=\"/companies/ofx\">OFX</a>, or <a href=\"/companies/remitly\">Remitly</a> will almost always deliver more money to your recipient.",
+    usp: {
+      headline: "Unmatched cash pickup — reach places no digital-only service can",
+      points: [
+        "500,000+ agent locations in 200+ countries for instant cash collection",
+        "Covers remote corridors and destinations most apps simply don't serve",
+        "Decades of brand trust and in-person support for recipients without bank accounts",
+      ],
+    },
 
     sections: [
       {
@@ -1165,6 +1212,14 @@ export const providerReviews: ProviderReview[] = [
     howWeTested: "We used a Revolut Standard (free) account to test currency exchanges across 4 pairs (GBP→EUR, GBP→USD, USD→INR, GBP→INR) on both weekdays and weekends between February and March 2026. We verified the weekend markup by comparing Saturday exchange rates against the Friday closing mid-market rate. We also tested the £1,000 free-tier monthly limit by tracking when the 0.5% fee kicked in. International SWIFT transfers were tested to verify delivery times and any intermediary fees. Our scraping system monitors Revolut's quoted rates every 6 hours for ongoing accuracy tracking.",
     editorVerdict:
       "Revolut offers an impressive multi-currency account with interbank exchange rates during market hours — a genuinely competitive alternative to <a href=\"/companies/wise\">Wise</a> for everyday currency needs. The free tier is generous enough for occasional senders, and the paid plans unlock unlimited fee-free exchanges. The main caveats: a 0.5%–1% markup applies on weekends and public holidays when currency markets are closed, the free tier has a monthly exchange limit, and transfers to non-Revolut users can take 1–3 days. Revolut is best for people who want a full digital banking experience with multi-currency capabilities built in, rather than a standalone transfer service.",
+    usp: {
+      headline: "A full digital bank with interbank exchange rates built in",
+      points: [
+        "Interbank (mid-market) exchange rates during market hours — 0% markup on weekdays",
+        "Hold and exchange 36+ currencies in one app, plus a card that spends abroad fee-free",
+        "Instant fee-free transfers to other Revolut users, anywhere in the world",
+      ],
+    },
 
     sections: [
       {
@@ -1392,6 +1447,14 @@ export const providerReviews: ProviderReview[] = [
     howWeTested: "We tested 6 corridors through Xoom (USD→INR, USD→PHP, USD→MXN, USD→BRL, USD→PKR, USD→COL) between February and March 2026. Each transfer was tested using both bank transfer and debit card funding to verify fee differences. We checked cash pickup availability in Mexico, the Philippines, and India, and verified mobile reload functionality for the Philippines. Exchange rates were compared against the mid-market rate at the time of each transfer to measure the actual markup. Our automated scraping system also collects Xoom quotes every 6 hours across supported corridors to track fee and rate fluctuations.",
     editorVerdict:
       "Xoom is a strong choice for cash pickup and mobile reload transfers, especially to Latin America, the Philippines, and India. The PayPal backing gives it a level of trust and security that few competitors match. However, the exchange rate markup of 1–3% above mid-market is its biggest weakness and makes it significantly more expensive than <a href=\"/companies/wise\">Wise</a> or <a href=\"/companies/ofx\">OFX</a> for large bank-to-bank transfers. If your recipient needs cash pickup or mobile airtime top-up and you value PayPal's ecosystem, Xoom delivers. For large transfers where the exchange rate matters most, look at Wise or <a href=\"/companies/remitly\">Remitly</a> instead.",
+    usp: {
+      headline: "PayPal-backed cash pickup and mobile reload, especially to LatAm & Asia",
+      points: [
+        "Cash pickup, bank deposit and mobile airtime top-up in one service",
+        "Strongest on Latin America, the Philippines and India corridors",
+        "Backed by PayPal — buyer-grade trust and security on every transfer",
+      ],
+    },
 
     sections: [
       {
@@ -1604,6 +1667,14 @@ export const providerReviews: ProviderReview[] = [
     editorRating: 7.5,
     editorVerdict:
       "WorldRemit is the go-to service for sending money to developing countries where recipients may not have traditional bank accounts. Its mobile money integration (M-Pesa, MTN Mobile Money, GCash) and airtime top-up are genuinely unique features that most competitors can't match. Exchange rates carry a 0.5–3% markup — not the cheapest, but competitive for the delivery options offered. The main limitation is a $10,000 transfer cap that rules it out for large or business transfers. For regular remittances to Africa, South Asia, and Southeast Asia, WorldRemit hits the sweet spot of convenience, speed, and fair pricing.",
+    usp: {
+      headline: "Mobile money and airtime top-up where recipients have no bank account",
+      points: [
+        "Direct integration with M-Pesa, MTN Mobile Money and GCash — features rivals can't match",
+        "Send airtime top-up alongside cash, ideal for family in developing countries",
+        "Fast, fairly priced delivery across Africa, South Asia and Southeast Asia",
+      ],
+    },
     reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
@@ -1723,6 +1794,14 @@ export const providerReviews: ProviderReview[] = [
     editorRating: 5.5,
     editorVerdict:
       "PayPal is one of the world's most recognized payment brands, and for domestic P2P payments it remains excellent. But for international money transfers, it is one of the most expensive options available. The 3–4% exchange rate markup plus a 5% transfer fee (min $0.99, max $4.99) means you lose significantly more money compared to specialist transfer services. On a $1,000 transfer to India, PayPal delivers roughly $40–50 less than Wise. The irony is that PayPal's own subsidiary, Xoom, offers better rates for international transfers. Unless you're transferring between existing PayPal accounts for convenience, we cannot recommend PayPal for international money transfers in 2026.",
+    usp: {
+      headline: "Unbeatable for instant transfers between existing PayPal accounts",
+      points: [
+        "Send to any of 430M+ PayPal accounts instantly, using just an email address",
+        "The default for freelancer payouts and e-commerce refunds worldwide",
+        "Strong buyer protection and a brand almost everyone already trusts",
+      ],
+    },
     reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
@@ -1836,6 +1915,14 @@ export const providerReviews: ProviderReview[] = [
     editorRating: 6.5,
     editorVerdict:
       "MoneyGram's strength is its massive 350,000+ agent network for cash-to-cash transfers — second only to Western Union. If your recipient needs physical cash and doesn't have a bank account, MoneyGram is one of very few reliable options. The fees are moderate ($1.99–$11.99) and exchange rates carry a 1–3% markup. It's not the cheapest option for bank-to-bank transfers — Wise, Remitly, and even MoneyGram's digital-first competitors beat it on price. But for cash pickup in remote locations across Latin America, Africa, and South Asia, MoneyGram fills a genuine need. The Stellar blockchain partnership is innovative but hasn't yet translated into meaningfully better pricing for consumers.",
+    usp: {
+      headline: "The second-largest cash network — physical money, almost anywhere",
+      points: [
+        "350,000+ agent locations for cash-to-cash transfers worldwide",
+        "Reliable cash pickup in remote areas of Latin America, Africa and South Asia",
+        "Pioneering Stellar blockchain settlement under the hood for faster rails",
+      ],
+    },
     reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
@@ -1949,6 +2036,14 @@ export const providerReviews: ProviderReview[] = [
     editorRating: 7.8,
     editorVerdict:
       "TorFX is the standout choice for large international transfers — property purchases, emigration funds, inheritance, or regular business payments. With zero transfer fees, dedicated account managers, and tools like forward contracts and limit orders, it's designed for people moving significant amounts of money who want personalized service. The exchange rate markup (0.3–1.5%) is competitive for the large-transfer segment and significantly cheaper than banks. The limitations are clear: £100 minimum transfer, bank transfer funding only, and slower delivery than instant-transfer providers. If you're sending under £5,000, Wise or Revolut will be cheaper. If you're sending £10,000+, TorFX's combination of zero fees, tight rates, and personal service is hard to beat.",
+    usp: {
+      headline: "The large-transfer specialist — zero fees and a named account manager",
+      points: [
+        "No transfer fees plus tight rates that beat banks comfortably on £10,000+",
+        "A dedicated account manager guides emigration, property and inheritance transfers",
+        "Forward contracts up to 24 months — the longest rate lock among UK specialists",
+      ],
+    },
     reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
@@ -2061,6 +2156,14 @@ export const providerReviews: ProviderReview[] = [
     editorRating: 7.2,
     editorVerdict:
       "InstaReM (part of the Nium group) is a solid choice for transfers involving Asia-Pacific currencies — particularly corridors like Singapore→India, Australia→India, and Hong Kong→Philippines. The transparent fee structure and InstaPoints rewards program add genuine value for regular senders. Exchange rates carry a 0.25–1% markup, which is competitive though not as cheap as Wise. The limitations are limited coverage outside Asia-Pacific, bank deposit delivery only, and a less well-known brand. For Asia-Pacific corridors, InstaReM often competes with or beats Wise on total cost when you factor in the rewards program.",
+    usp: {
+      headline: "Asia-Pacific value — competitive rates plus a rewards program",
+      points: [
+        "Often beats Wise on total cost across Singapore, Australia and Hong Kong corridors",
+        "InstaPoints rewards on every transfer add real value for regular senders",
+        "Transparent, low 0.25–1% rate markup with no surprise fees",
+      ],
+    },
     reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
@@ -2167,6 +2270,14 @@ export const providerReviews: ProviderReview[] = [
     editorRating: 8.9,
     editorVerdict:
       "TapTap Send earns its place at the top of any diaspora remittance shortlist. On major corridors — India, Pakistan, Ghana, West Africa — the exchange rate markup is extraordinarily low (as little as 0.09–0.20%), fees are zero on most routes, and 95% of transfers land in under 3 minutes. The app is one of the cleanest in the category, and the customer satisfaction numbers are simply unmatched: 4.7/5 on Trustpilot (32,000+ reviews), 4.8/5 on App Store (59,000 reviews), 4.8/5 on Google Play (262,000 reviews). But it's not perfect everywhere. Exotic corridors like Gambia (~10% markup) and Rwanda (~7.8% markup) are expensive — always compare before sending to less common destinations. Transfer limits are conservative until you reach the 'Super' tier. And it's mobile app only, with no web platform. For the core Africa and South Asia diaspora sending £100–£5,000 regularly, TapTap Send is an outstanding first choice. For large one-off transfers or unusual corridors, compare carefully.",
+    usp: {
+      headline: "Rock-bottom rates and near-instant delivery on core diaspora corridors",
+      points: [
+        "Markups as low as 0.09–0.20% with zero fees on most India, Pakistan and West Africa routes",
+        "95% of transfers land in under 3 minutes",
+        "Among the highest-rated apps in the category — 4.7–4.8/5 across 350,000+ reviews",
+      ],
+    },
     reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
@@ -2301,6 +2412,14 @@ export const providerReviews: ProviderReview[] = [
     editorRating: 7.5,
     editorVerdict:
       "ACE Money Transfer has built a strong reputation in the Pakistan and South Asia corridor — and our data confirms it. On GBP→PKR and EUR→PKR transfers, ACE consistently delivers among the most rupees of any provider we track. The combination of competitive exchange rates, a genuine loyalty rewards program, and frequent first-transfer-free promotions makes ACE particularly attractive for the Pakistani diaspora in the UK and Europe. The service extends to 100+ countries but is clearly strongest on South Asian corridors. For Pakistan specifically, ACE often beats Wise and Remitly on total receive amount — a rare achievement given Wise's zero-markup model.",
+    usp: {
+      headline: "Often the most rupees to Pakistan — a corridor specialist that beats Wise",
+      points: [
+        "Consistently among the top providers for GBP→PKR and EUR→PKR receive amounts",
+        "Loyalty rewards plus frequent first-transfer-free promotions for regular senders",
+        "Purpose-built for the UK and European Pakistani and South Asian diaspora",
+      ],
+    },
     reviewer: "Akif Hazarvi",
     factChecker: "Awais Imran",
     howWeTested:
@@ -2418,6 +2537,14 @@ export const providerReviews: ProviderReview[] = [
       "We requested live quotes from Regency FX across four corridors (GBP→EUR, GBP→AUD, GBP→ZAR, GBP→USD) in May 2026 at amounts of £2,000, £10,000 and £50,000. Quoted rates were benchmarked against the mid-market rate from CurrencyAPI and Open Exchange Rates at the moment of each enquiry, and cross-checked against our scraped quote data for TorFX, Currencies Direct, OFX and Wise on the same corridors. We reviewed Regency FX's FCA register entries (FRN 671508 for the Authorised Payment Institution, FRN 900199 for the linked e-money permission), their published terms, the Trustpilot review themes across their most recent 100 reviews, and the operational details disclosed on their personal-client and business-client pages. We did not test forward contracts directly but verified the published 12-month maximum tenor.",
     editorVerdict:
       "Regency FX is a credible, FCA-authorised UK foreign exchange specialist that targets the same segment as TorFX, Currencies Direct and Halo Financial: people moving £3,000+ for property purchases, emigration, regular overseas payments or business FX. The headline pitch — bank-beating rates with zero transfer fees and a named account manager — holds up. The 5-star Trustpilot rating (with reviewers consistently naming individual dealers like Jamie and Jack) suggests the personal-service model is more than marketing language. Where Regency FX is weaker than competitors: the forward contract tenor caps at 12 months versus TorFX's 24 months, the brand is smaller so you won't see them on every comparison site, and there is no public-facing rate engine — every quote requires a phone or web enquiry. For transfers under £3,000, Wise will almost always be cheaper. For £10,000+ where service and rate negotiation matter, Regency FX is genuinely competitive with the better-known UK specialists and worth requesting a quote alongside them.",
+    usp: {
+      headline: "Boutique UK FX broker with genuinely personal, 5-star-rated service",
+      points: [
+        "FCA-authorised, bank-beating rates with zero transfer fees on £3,000+",
+        "Named dealers reviewers praise by name — a true relationship, not a call centre",
+        "Hands-on guidance for property, emigration and recurring overseas payments",
+      ],
+    },
     sections: [
       {
         id: "overview",
@@ -2572,6 +2699,14 @@ export const providerReviews: ProviderReview[] = [
       "We pulled live LemFi quotes directly from their public exchange API (https://lemfi.com/api/lemonade/v2/exchange) across 138 corridor combinations in May 2026, covering six send currencies (USD, GBP, CAD, EUR, AUD, NZD) and 24 receive currencies spanning African, South Asian, Southeast Asian and selected Latin American markets. LemFi's API returns rates as a scaled BigInt string divided by the response ID's numeric digits — we reverse-engineered the decoder from their Nuxt frontend bundle (function `bt(rate, id)` in their JavaScript) to recover the true rate per quote. We then benchmarked each decoded rate against the mid-market rate from our XE rate feed at the moment of the request, recorded LemFi's published transaction fees and minimum transfer amounts per corridor, and compared the resulting receive amounts at $100, $1,000 and $5,000 send amounts against scraped data from Wise, Remitly, TapTap Send, WorldRemit, ACE Money Transfer and Western Union over the same week. We verified LemFi's regulatory standing through the UK FCA Register (RightCard Payment Services Limited, FRN 900424) and the US FinCEN MSB Registrant Search (MSB registration 31000256615720), reviewed Trustpilot themes across the most recent 200 reviews, and tested the LemFi mobile app's onboarding flow end-to-end on iOS. We did not actually settle a transfer — quote and rate testing only — and we note this honestly so you can weigh the verdict accordingly.",
     editorVerdict:
       "LemFi has built a credible, fast-growing remittance service for the African diaspora and connected emerging-market corridors. On the corridors LemFi actually competes in — USD/GBP/CAD → NGN, KES, GHS, INR, PHP, PKR — the rates we measured are genuinely strong and frequently beat Wise and the established remittance brands when the receive country is in LemFi's core network. The fee structure is honest: zero fees on most diaspora-favourite corridors, small fixed fees ($1.25–$2.99) where the cost of cash-out infrastructure makes free transfers uneconomic. Where LemFi is clearly weaker than the comparison set: it does not serve major-to-major corridors (no USD→GBP, no USD→EUR with broad coverage, no GBP→AUD), the app-only model rules out anyone who wants a web-only experience, and the brand recognition outside of African diaspora communities remains low even after the 2024 Series B funding round. If your sender and receiver currencies are inside LemFi's network, it deserves to be in your quote comparison every time. If you're sending between major currencies for a non-diaspora reason — moving funds for a property purchase, paying a foreign supplier in EUR, sending pension income to a Mediterranean retirement home — LemFi is the wrong product and Wise, TorFX, Currencies Direct or one of the regional specialists will serve you better.",
+    usp: {
+      headline: "Strong rates to Africa and emerging-market corridors the big names overlook",
+      points: [
+        "Frequently beats Wise to Nigeria, Kenya, Ghana, India, Philippines and Pakistan",
+        "Zero fees on most diaspora-favourite corridors, with honest small fixed fees elsewhere",
+        "Fast-growing, well-funded service built specifically for the African diaspora",
+      ],
+    },
     sections: [
       {
         id: "overview",

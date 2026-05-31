@@ -2,8 +2,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Check, X } from "lucide-react";
-import { providers, getProviderName } from "@/data/providers";
+import { Check, X, Star } from "lucide-react";
+import { providers } from "@/data/providers";
 
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
@@ -12,7 +12,6 @@ import Container from "@/components/Container";
 import Card from "@/components/Card";
 import StatBox from "@/components/StatBox";
 import ProsConsList from "@/components/ProsConsList";
-import PrimaryButton from "@/components/PrimaryButton";
 import ProviderLink from "@/components/ProviderLink";
 import RatingBadge from "@/components/RatingBadge";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
@@ -189,66 +188,123 @@ function DetailedReview({
       </div>
 
       <Container className="py-8">
-        {/* ── Verdict banner + Quick Stats ── */}
-        <div className="mb-6 space-y-4">
-          {/* Verdict — moved from hero, now full-width and readable */}
-          <div className="rounded-2xl border border-[var(--color-outline)] overflow-hidden">
-            <div className="flex items-center gap-4 px-5 py-4" style={{ background: score.bg }}>
-              <div className="shrink-0 text-center">
-                <span className="text-[2.5rem] font-bold leading-none tabular-nums" style={{ color: score.color }}>
-                  {review.editorRating}
-                </span>
-                <span className="text-[var(--color-on-surface-muted)] text-xs">/10</span>
-                <div className="text-xs font-bold mt-0.5" style={{ color: score.color }}>{score.label}</div>
+        {/* ── Two-column reading layout ──
+            Left: editorial content. Right: a conversion rail pinned to the top of
+            the viewport from first paint (self-start + sticky), so the score and the
+            primary "Visit {provider}" CTA — our north-star provider_clicked event —
+            stay visible the moment the page opens and remain glued while reading.
+            On mobile the rail renders first (order-first) as a compact verdict+CTA
+            block, then a sticky bottom bar keeps the action one tap away. */}
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10">
+
+          {/* ── Conversion rail (right on desktop, first on mobile) ── */}
+          <aside className="lg:order-2 lg:col-start-2 mb-8 lg:mb-0">
+            <div className="lg:sticky lg:top-20 lg:self-start space-y-4">
+              {/* Verdict + score + primary CTA — the conversion core */}
+              <div className="rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden">
+                <div className="px-6 pt-6 pb-5" style={{ background: score.bg }}>
+                  <div className="flex items-end gap-3">
+                    <span className="text-[3.25rem] font-bold leading-[0.85] tracking-[-0.03em] tabular-nums" style={{ color: score.color }}>
+                      {review.editorRating}
+                    </span>
+                    <div className="pb-1">
+                      <span className="text-[var(--color-on-surface-muted)] text-sm font-medium">/10</span>
+                      <div className="text-sm font-bold leading-tight" style={{ color: score.color }}>{score.label}</div>
+                    </div>
+                  </div>
+                  <p
+                    className="mt-3 text-2sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-5 [&_a]:text-[var(--color-primary)] [&_a]:font-medium [&_a:hover]:underline"
+                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(review.editorVerdict) }}
+                  />
+                </div>
+                <div className="p-4 space-y-2.5 border-t border-[var(--color-outline)]">
+                  <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_rail" className="flex items-center justify-center gap-1.5 font-semibold rounded-full transition-all duration-150 hover:shadow-[0_4px_14px_rgba(0,0,0,0.18)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-11 px-5 text-sm w-full">
+                    Visit {provider.name} ↗
+                  </ProviderLink>
+                  <Link
+                    href="/send-money"
+                    className="flex items-center justify-center w-full h-10 border border-[var(--color-outline)] rounded-full text-2sm font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors"
+                  >
+                    Compare live rates
+                  </Link>
+                </div>
+                {/* At a glance — key facts pinned beside the verdict */}
+                <div className="divide-y divide-[var(--color-outline)] border-t border-[var(--color-outline)]">
+                  {[
+                    { label: "Editor rating", value: `${review.editorRating}/10` },
+                    { label: "Trustpilot", value: `${provider.rating}/5 · ${provider.ratingLabel}` },
+                    { label: "Fees", value: provider.feeStructure },
+                    { label: "Speed", value: provider.transferSpeed },
+                    { label: "Rate markup", value: provider.exchangeRateMarkup },
+                    { label: "Countries", value: `${provider.supportedCountries}+` },
+                  ].map((row) => (
+                    <div key={row.label} className="flex justify-between items-center gap-3 px-5 py-2.5 text-2sm">
+                      <span className="text-[var(--color-on-surface-variant)] shrink-0">{row.label}</span>
+                      <span className="font-semibold text-[var(--color-on-surface)] text-right">{row.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="px-5 py-2.5 text-2xs text-[var(--color-on-surface-muted)] border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]">
+                  {provider.regulated ? `Regulated · ${provider.regulators.slice(0, 2).join(", ")}` : "See safety section below"}
+                </p>
               </div>
-              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-4">
-                &ldquo;{review.editorVerdict}&rdquo;
-              </p>
+
+              {/* What {provider} does best — the USP, starred for emphasis. Sits
+                  directly under the verdict so the unique strengths are visible from
+                  first paint, reinforcing the decision to convert. */}
+              {review.usp && (
+                <div className="rounded-3xl border border-[var(--color-outline)] bg-[var(--color-warning-surface)] overflow-hidden">
+                  <div className="flex items-center gap-2 px-5 pt-4 pb-2">
+                    <Star className="w-4 h-4 fill-[var(--color-warning)] text-[var(--color-warning)] shrink-0" strokeWidth={1.5} />
+                    <h3 className="text-overline text-[var(--color-warning-dark)]">What {provider.name} does best</h3>
+                  </div>
+                  <p className="px-5 text-sm font-semibold text-[var(--color-on-surface)] leading-snug">
+                    {review.usp.headline}
+                  </p>
+                  <ul className="px-5 pt-3 pb-4 space-y-2">
+                    {review.usp.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2 text-2sm text-[var(--color-on-surface-variant)] leading-snug">
+                        <Star className="mt-0.5 w-3.5 h-3.5 fill-[var(--color-warning)] text-[var(--color-warning)] shrink-0" strokeWidth={1.5} />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Affiliate disclosure — compact, beneath the CTA */}
+              <AffiliateDisclosure />
+
+              {/* Compare widget — keep the comparison tool within reach */}
+              <Card>
+                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
+                <ComparisonWidget compact />
+              </Card>
             </div>
-            <div className="flex gap-2 px-5 py-3 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
-              <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_hero" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-9 px-5 text-2sm flex-1">
-                Visit {provider.name} ↗
-              </ProviderLink>
-              <Link
-                href="/send-money"
-                className="flex items-center justify-center flex-1 h-9 border border-[var(--color-outline)] rounded-full text-2sm font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors"
-              >
-                Compare Rates
-              </Link>
+          </aside>
+
+          {/* ── Main Content (left) ── */}
+          <div className="lg:order-1 lg:col-start-1 space-y-8">
+
+            {/* Stats strip — scannable key facts in the reading flow */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden">
+              {[
+                { label: "Countries", value: `${provider.supportedCountries}+` },
+                { label: "Currencies", value: `${provider.supportedCurrencies}+` },
+                { label: "Speed", value: provider.transferSpeed },
+                { label: "Fees", value: provider.feeStructure },
+                { label: "Founded", value: String(provider.founded) },
+                { label: "Markup", value: provider.exchangeRateMarkup },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex flex-col items-center justify-center px-3 py-3 bg-[var(--color-surface)] text-center min-h-[72px]"
+                >
+                  <span className="text-overline text-[var(--color-on-surface-muted)] mb-1">{stat.label}</span>
+                  <span className="text-2sm font-semibold text-[var(--color-on-surface)] leading-snug">{stat.value}</span>
+                </div>
+              ))}
             </div>
-          </div>
-
-          {/* Stats grid — 2 cols on mobile for breathing room, 3 on sm, 6 on md */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden">
-            {[
-              { label: "Countries", value: `${provider.supportedCountries}+` },
-              { label: "Currencies", value: `${provider.supportedCurrencies}+` },
-              { label: "Speed", value: provider.transferSpeed },
-              { label: "Fees", value: provider.feeStructure },
-              { label: "Founded", value: String(provider.founded) },
-              { label: "Markup", value: provider.exchangeRateMarkup },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center justify-center px-3 py-3 bg-[var(--color-surface)] text-center min-h-[72px]"
-              >
-                <span className="text-overline text-[var(--color-on-surface-muted)] mb-1">{stat.label}</span>
-                <span className="text-2sm font-semibold text-[var(--color-on-surface)] leading-snug">{stat.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Disclosure — moved below the score/CTA block. Reviews lead with the verdict,
-            not with a disclaimer. A smaller inline treatment keeps it compliant without
-            undermining confidence. */}
-        <div className="max-w-3xl mb-8">
-          <AffiliateDisclosure />
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* ── Main Content ── */}
-          <div className="lg:col-span-2 space-y-8">
 
             {/* Table of Contents */}
             <Card>
@@ -416,97 +472,95 @@ function DetailedReview({
                 ))}
               </div>
             </Card>
-          </div>
 
-          {/* ── Sidebar ── */}
-          <div className="space-y-5">
-            {/* At a glance — sticky summary */}
-            <div className="lg:sticky lg:top-20 space-y-5">
-              <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)] overflow-hidden">
-                <div className="px-5 py-4 border-b border-[var(--color-outline)] bg-[var(--color-surface-dim)]">
-                  <h3 className="text-sm font-semibold text-[var(--color-on-surface)]">{provider.name} at a glance</h3>
-                </div>
-                <div className="divide-y divide-[var(--color-outline)]">
-                  {[
-                    { label: "Editor Rating", value: `${review.editorRating}/10` },
-                    { label: "Trustpilot", value: `${provider.rating}/5 (${provider.ratingLabel})` },
-                    { label: "Fees", value: provider.feeStructure },
-                    { label: "Speed", value: provider.transferSpeed },
-                    { label: "Countries", value: `${provider.supportedCountries}+` },
-                    { label: "Rate Markup", value: provider.exchangeRateMarkup },
-                  ].map((row) => (
-                    <div key={row.label} className="flex justify-between items-center px-5 py-2.5 text-2sm">
-                      <span className="text-[var(--color-on-surface-variant)]">{row.label}</span>
-                      <span className="font-semibold text-[var(--color-on-surface)]">{row.value}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="p-4">
-                  <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_rates" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-9 px-5 text-2sm w-full">
-                    Visit {provider.name}
-                  </ProviderLink>
-                </div>
+            {/* Closing CTA — re-surface the primary action at the end of the read,
+                where intent peaks after the FAQ. */}
+            <div className="rounded-3xl border border-[var(--color-outline)] bg-gradient-to-br from-[var(--color-primary-surface)] to-[var(--color-surface)] p-6 text-center">
+              <h2 className="text-lg font-bold text-[var(--color-on-surface)]" style={{ fontFamily: "var(--font-reading)" }}>
+                Ready to send with {provider.name}?
+              </h2>
+              <p className="mt-1.5 text-2sm text-[var(--color-on-surface-variant)] max-w-md mx-auto">
+                Compare {provider.name}&rsquo;s live rate against {otherProviders.length}+ other providers before you send — it takes seconds.
+              </p>
+              <div className="mt-4 flex flex-col sm:flex-row gap-2.5 justify-center">
+                <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_footer" className="inline-flex items-center justify-center gap-1.5 font-semibold rounded-full transition-all duration-150 hover:shadow-[0_4px_14px_rgba(0,0,0,0.18)] active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-11 px-6 text-sm">
+                  Visit {provider.name} ↗
+                </ProviderLink>
+                <Link href="/send-money" className="inline-flex items-center justify-center h-11 px-6 border border-[var(--color-outline)] rounded-full text-sm font-semibold text-[var(--color-primary)] hover:bg-[var(--color-surface)] transition-colors">
+                  Compare all providers
+                </Link>
               </div>
-
-              {/* Compare widget */}
-              <Card>
-                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
-                <ComparisonWidget compact />
-              </Card>
-
-              {/* Compare with */}
-              <Card>
-                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">Compare With</h3>
-                <div className="space-y-2">
-                  {otherProviders.map((other) => (
-                    <Link
-                      key={other.slug}
-                      href={`/compare/${getCompareCanonicalSlug(`${slug}-vs-${other.slug}`)}`}
-                      className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] transition-colors group"
-                    >
-                      <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
-                        {provider.name} vs {other.name}
-                      </span>
-                      <span className="text-xs text-[var(--color-primary)]">→</span>
-                    </Link>
-                  ))}
-                </div>
-              </Card>
-
-              {providerNews.length > 0 && (
-                <Card>
-                  <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">
-                    Latest on {provider.name}
-                  </h3>
-                  <ul className="space-y-3">
-                    {providerNews.map((n) => (
-                      <li key={n.slug}>
-                        <Link href={`/news/${n.slug}`} className="block group">
-                          <p className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] leading-snug">
-                            {n.title}
-                          </p>
-                          <time
-                            className="text-2xs text-[var(--color-on-surface-variant)] mt-1 block"
-                            dateTime={n.publishedAt}
-                          >
-                            {formatLocalDate(n.publishedAt, { month: "short", day: "numeric", year: "numeric" })}
-                          </time>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/news"
-                    className="text-2xs text-[var(--color-primary)] hover:underline mt-3 block"
-                  >
-                    All news →
-                  </Link>
-                </Card>
-              )}
             </div>
+
+            {/* Compare with — head-to-head links */}
+            <Card>
+              <h2 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">Compare {provider.name} head-to-head</h2>
+              <div className="grid sm:grid-cols-2 gap-2">
+                {otherProviders.map((other) => (
+                  <Link
+                    key={other.slug}
+                    href={`/compare/${getCompareCanonicalSlug(`${slug}-vs-${other.slug}`)}`}
+                    className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] transition-colors group"
+                  >
+                    <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
+                      {provider.name} vs {other.name}
+                    </span>
+                    <span className="text-xs text-[var(--color-primary)]">→</span>
+                  </Link>
+                ))}
+              </div>
+            </Card>
+
+            {providerNews.length > 0 && (
+              <Card>
+                <h2 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">
+                  Latest on {provider.name}
+                </h2>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                  {providerNews.map((n) => (
+                    <li key={n.slug}>
+                      <Link href={`/news/${n.slug}`} className="block group">
+                        <p className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] leading-snug">
+                          {n.title}
+                        </p>
+                        <time
+                          className="text-2xs text-[var(--color-on-surface-variant)] mt-1 block"
+                          dateTime={n.publishedAt}
+                        >
+                          {formatLocalDate(n.publishedAt, { month: "short", day: "numeric", year: "numeric" })}
+                        </time>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/news"
+                  className="text-2xs text-[var(--color-primary)] hover:underline mt-3 block"
+                >
+                  All news →
+                </Link>
+              </Card>
+            )}
           </div>
         </div>
       </Container>
+
+      {/* ── Mobile sticky CTA bar — keeps the primary conversion action one tap
+          away on small screens, where the rail has scrolled off. Hidden on lg. */}
+      <div className="lg:hidden sticky bottom-0 z-30 border-t border-[var(--color-outline)] bg-[var(--color-surface)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--color-surface)]/80 px-4 py-2.5">
+        <div className="flex items-center gap-3 max-w-[1200px] mx-auto">
+          <div className="shrink-0">
+            <div className="flex items-baseline gap-1">
+              <span className="text-lg font-bold tabular-nums" style={{ color: score.color }}>{review.editorRating}</span>
+              <span className="text-2xs text-[var(--color-on-surface-muted)]">/10</span>
+            </div>
+            <span className="text-2xs text-[var(--color-on-surface-variant)] leading-none">{provider.name}</span>
+          </div>
+          <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_sticky" className="flex items-center justify-center gap-1.5 font-semibold rounded-full active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-11 px-5 text-sm flex-1 transition-all">
+            Visit {provider.name} ↗
+          </ProviderLink>
+        </div>
+      </div>
 
       {crossLinks}
 
