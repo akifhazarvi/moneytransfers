@@ -172,7 +172,7 @@ export default function Footer() {
             replaced 42 dead corridor links (35 total Bing impr) with curated
             sets of /iban/, /swift-codes/, /guides/ winners — concentrates
             link equity on the pages that actually rank organically. */}
-        <div className="border-t border-[var(--color-outline)] pt-6 mb-10 sm:mb-12 space-y-2">
+        <div className="border-t border-[var(--color-outline)] pt-6 mb-10 sm:mb-12 grid sm:grid-cols-2 gap-x-8 sm:gap-y-0">
           <FooterDisclosure label={`Top money transfer guides (${topGuides.length})`}>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
               {topGuides.map((link) => (
@@ -210,7 +210,7 @@ export default function Footer() {
           </FooterDisclosure>
 
           <FooterDisclosure label={`Provider reviews & comparisons (${providerReviews.length + popularComparisons.length})`}>
-            <div className="pt-3 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+            <div className="pt-3 grid grid-cols-1 gap-y-4">
               <div>
                 <p className="text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">Reviews</p>
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
