@@ -5,7 +5,7 @@ import {
   type ProviderInsight,
   type SparklinePoint,
   rateLevelConfig,
-} from "@/lib/rate-history";
+} from "@/lib/rate-history-types";
 import { providers } from "@/data/providers";
 
 // ── Rate Insight Banner ────────────────────────────────────────

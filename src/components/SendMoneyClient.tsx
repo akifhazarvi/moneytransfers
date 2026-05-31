@@ -11,6 +11,7 @@ import ProviderCard from "@/components/ProviderCard";
 import TrustBadges from "@/components/TrustBadges";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import { generateQuotes, currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
+import type { RateInsight, ProviderInsight } from "@/lib/rate-history-types";
 import { sendCurrencies } from "@/data/transfer-currencies";
 import { promos } from "@/data/promos";
 import { useExchangeRates } from "@/lib/useExchangeRates";
@@ -193,6 +194,28 @@ function SendMoneyContent() {
     () => generateQuotes(amount, fromCurrency, toCurrency, rates),
     [amount, fromCurrency, toCurrency, rates]
   );
+
+  // ── Historical rate insights ──────────────────────────────────
+  // Fetched per-corridor from /api/rate-insight instead of statically importing
+  // the full multi-megabyte rate-insights dataset into this client bundle.
+  const [insight, setInsight] = useState<RateInsight | null>(null);
+  const [providerInsights, setProviderInsights] = useState<Record<string, ProviderInsight>>({});
+  useEffect(() => {
+    let cancelled = false;
+    setInsight(null);
+    setProviderInsights({});
+    fetch(`/api/rate-insight?from=${fromCurrency}&to=${toCurrency}`)
+      .then((r) => (r.ok ? r.json() : { insight: null, providerInsights: {} }))
+      .then((data) => {
+        if (cancelled) return;
+        setInsight(data.insight ?? null);
+        setProviderInsights(data.providerInsights ?? {});
+      })
+      .catch(() => {
+        if (!cancelled) { setInsight(null); setProviderInsights({}); }
+      });
+    return () => { cancelled = true; };
+  }, [fromCurrency, toCurrency]);
 
   // Track corridor selection & quotes viewed
   const prevCorridor = useRef("");
@@ -658,6 +681,9 @@ function SendMoneyContent() {
                   compareDisabled={compareList.length >= 2}
                   midMarketRate={midMarketRate ?? undefined}
                   extraReceiveVsWorst={index === 0 && filteredQuotes.length >= 2 ? quote.receiveAmount - worstReceive : undefined}
+                  providerInsight={providerInsights[quote.providerSlug] ?? null}
+                  sparklineData={insight?.sparklines[quote.providerSlug]}
+                  badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
                 />
               ));
             })()}
