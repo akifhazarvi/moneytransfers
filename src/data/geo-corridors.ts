@@ -2,6 +2,12 @@
  * Geo-aware corridor data — maps send currencies to their most popular
  * destination corridors, based on World Bank remittance data and actual
  * scraped provider coverage.
+ *
+ * Two modes:
+ *  - "Sender" countries (US, UK, Gulf, EU, etc.): from = local currency, to = top remittance destination
+ *  - "Receiver" countries (PK, PH, NG, etc.): from = dominant sending currency (e.g. USD/GBP/EUR),
+ *    to = local currency. Reflects that visitors from these countries are comparing services to
+ *    receive money, not send it.
  */
 
 /** Country code (ISO 3166-1 alpha-2) → default send currency */
@@ -268,7 +274,205 @@ export const GEO_CORRIDORS: Record<string, GeoCurrencyConfig> = {
       { toCurrency: "EUR", label: "Europe", corridorSlug: "inr-to-eur", flag: "🇪🇺", symbol: "€" },
     ],
   },
+  // Gulf sender currencies
+  // No editorial corridor pages exist for Kuwait/Qatar/Oman/Bahrain — use
+  // currency-code slugs throughout so all links resolve to auto-generated pages.
+  KWD: {
+    defaultTo: "INR",
+    defaultAmount: 200,
+    popularCorridors: [
+      { toCurrency: "INR", label: "India",        corridorSlug: "kwd-to-inr", flag: "🇮🇳", symbol: "₹"  },
+      { toCurrency: "PKR", label: "Pakistan",     corridorSlug: "kwd-to-pkr", flag: "🇵🇰", symbol: "Rs" },
+      { toCurrency: "PHP", label: "Philippines",  corridorSlug: "kwd-to-php", flag: "🇵🇭", symbol: "₱"  },
+      { toCurrency: "BDT", label: "Bangladesh",   corridorSlug: "kwd-to-bdt", flag: "🇧🇩", symbol: "৳"  },
+      { toCurrency: "EGP", label: "Egypt",        corridorSlug: "kwd-to-egp", flag: "🇪🇬", symbol: "E£" },
+    ],
+  },
+  QAR: {
+    defaultTo: "INR",
+    defaultAmount: 2000,
+    popularCorridors: [
+      { toCurrency: "INR", label: "India",        corridorSlug: "qar-to-inr", flag: "🇮🇳", symbol: "₹"  },
+      { toCurrency: "PKR", label: "Pakistan",     corridorSlug: "qar-to-pkr", flag: "🇵🇰", symbol: "Rs" },
+      { toCurrency: "PHP", label: "Philippines",  corridorSlug: "qar-to-php", flag: "🇵🇭", symbol: "₱"  },
+      { toCurrency: "BDT", label: "Bangladesh",   corridorSlug: "qar-to-bdt", flag: "🇧🇩", symbol: "৳"  },
+      { toCurrency: "EGP", label: "Egypt",        corridorSlug: "qar-to-egp", flag: "🇪🇬", symbol: "E£" },
+    ],
+  },
+  OMR: {
+    defaultTo: "INR",
+    defaultAmount: 300,
+    popularCorridors: [
+      { toCurrency: "INR", label: "India",        corridorSlug: "omr-to-inr", flag: "🇮🇳", symbol: "₹"  },
+      { toCurrency: "PKR", label: "Pakistan",     corridorSlug: "omr-to-pkr", flag: "🇵🇰", symbol: "Rs" },
+      { toCurrency: "PHP", label: "Philippines",  corridorSlug: "omr-to-php", flag: "🇵🇭", symbol: "₱"  },
+      { toCurrency: "BDT", label: "Bangladesh",   corridorSlug: "omr-to-bdt", flag: "🇧🇩", symbol: "৳"  },
+      { toCurrency: "EGP", label: "Egypt",        corridorSlug: "omr-to-egp", flag: "🇪🇬", symbol: "E£" },
+    ],
+  },
+  BHD: {
+    defaultTo: "INR",
+    defaultAmount: 300,
+    popularCorridors: [
+      { toCurrency: "INR", label: "India",        corridorSlug: "bhd-to-inr", flag: "🇮🇳", symbol: "₹"  },
+      { toCurrency: "PKR", label: "Pakistan",     corridorSlug: "bhd-to-pkr", flag: "🇵🇰", symbol: "Rs" },
+      { toCurrency: "PHP", label: "Philippines",  corridorSlug: "bhd-to-php", flag: "🇵🇭", symbol: "₱"  },
+      { toCurrency: "BDT", label: "Bangladesh",   corridorSlug: "bhd-to-bdt", flag: "🇧🇩", symbol: "৳"  },
+      { toCurrency: "EGP", label: "Egypt",        corridorSlug: "bhd-to-egp", flag: "🇪🇬", symbol: "E£" },
+    ],
+  },
 };
 
 /** Fallback config when geo-currency is unknown or not in our map */
 export const DEFAULT_GEO_CONFIG = GEO_CORRIDORS.USD;
+
+// ---------------------------------------------------------------------------
+// Receiver-country corridors
+// ---------------------------------------------------------------------------
+// Countries where visitors are primarily looking to RECEIVE money (diaspora
+// communities, migrant worker families, etc.). We show them the dominant
+// inbound remittance corridor instead of their local send currency.
+// Sources: World Bank Remittance Prices Worldwide, IFAD, UN migration data.
+
+export interface ReceiverCountryConfig {
+  /** Most common sending currency for remittances to this country */
+  fromCurrency: string;
+  /** Local receive currency */
+  toCurrency: string;
+  /** Sensible default amount in fromCurrency */
+  defaultAmount: number;
+}
+
+// All toCurrency values below are verified against live scraped provider data.
+// Currencies with zero provider coverage (AFN, MMK, SOS, SLL, LBP, IQD, YER,
+// SDG, MDL, BAM, ALL, MKD, BGN, AMD, AZN, TJS, CVE, ERN, NIO, GYD, SRD,
+// TTD, AOA, BIF, LRD) are intentionally excluded to avoid showing empty tables.
+export const RECEIVER_COUNTRY_CORRIDORS: Record<string, ReceiverCountryConfig> = {
+  // ── South Asia ───────────────────────────────────────────────────────────
+  // India: predominantly a receiver (USD→INR is world's largest corridor by volume)
+  IN:  { fromCurrency: "USD", toCurrency: "INR",  defaultAmount: 1000 },
+  // Pakistan: largest inbound from UAE, Saudi, UK, USA — USD is most universal
+  PK:  { fromCurrency: "USD", toCurrency: "PKR",  defaultAmount: 1000 },
+  BD:  { fromCurrency: "USD", toCurrency: "BDT",  defaultAmount: 1000 },
+  NP:  { fromCurrency: "USD", toCurrency: "NPR",  defaultAmount: 1000 },
+  LK:  { fromCurrency: "USD", toCurrency: "LKR",  defaultAmount: 1000 },
+
+  // ── Southeast Asia ───────────────────────────────────────────────────────
+  PH:  { fromCurrency: "USD", toCurrency: "PHP",  defaultAmount: 1000 },
+  VN:  { fromCurrency: "USD", toCurrency: "VND",  defaultAmount: 1000 },
+  ID:  { fromCurrency: "USD", toCurrency: "IDR",  defaultAmount: 1000 },
+  KH:  { fromCurrency: "USD", toCurrency: "KHR",  defaultAmount: 500  },
+  LA:  { fromCurrency: "USD", toCurrency: "LAK",  defaultAmount: 500  },
+
+  // ── Latin America & Caribbean ────────────────────────────────────────────
+  MX:  { fromCurrency: "USD", toCurrency: "MXN",  defaultAmount: 1000 },
+  CO:  { fromCurrency: "USD", toCurrency: "COP",  defaultAmount: 1000 },
+  DO:  { fromCurrency: "USD", toCurrency: "DOP",  defaultAmount: 500  },
+  GT:  { fromCurrency: "USD", toCurrency: "GTQ",  defaultAmount: 500  },
+  HN:  { fromCurrency: "USD", toCurrency: "HNL",  defaultAmount: 500  },
+  PE:  { fromCurrency: "USD", toCurrency: "PEN",  defaultAmount: 1000 },
+  BO:  { fromCurrency: "USD", toCurrency: "BOB",  defaultAmount: 500  },
+  PY:  { fromCurrency: "USD", toCurrency: "PYG",  defaultAmount: 500  },
+  BR:  { fromCurrency: "USD", toCurrency: "BRL",  defaultAmount: 1000 },
+  // Jamaica: UK is top sender
+  JM:  { fromCurrency: "GBP", toCurrency: "JMD",  defaultAmount: 500  },
+  HT:  { fromCurrency: "USD", toCurrency: "HTG",  defaultAmount: 300  },
+
+  // ── Sub-Saharan Africa ───────────────────────────────────────────────────
+  // Nigeria: UK is the dominant diaspora sender
+  NG:  { fromCurrency: "GBP", toCurrency: "NGN",  defaultAmount: 500  },
+  KE:  { fromCurrency: "USD", toCurrency: "KES",  defaultAmount: 500  },
+  GH:  { fromCurrency: "GBP", toCurrency: "GHS",  defaultAmount: 500  },
+  ET:  { fromCurrency: "USD", toCurrency: "ETB",  defaultAmount: 500  },
+  TZ:  { fromCurrency: "USD", toCurrency: "TZS",  defaultAmount: 500  },
+  UG:  { fromCurrency: "USD", toCurrency: "UGX",  defaultAmount: 500  },
+  RW:  { fromCurrency: "USD", toCurrency: "RWF",  defaultAmount: 300  },
+  // Gambia: UK diaspora dominant
+  GM:  { fromCurrency: "GBP", toCurrency: "GMD",  defaultAmount: 300  },
+  MZ:  { fromCurrency: "USD", toCurrency: "MZN",  defaultAmount: 300  },
+  // Francophone West Africa: France/EU dominant sender
+  SN:  { fromCurrency: "EUR", toCurrency: "XOF",  defaultAmount: 500  },
+  CI:  { fromCurrency: "EUR", toCurrency: "XOF",  defaultAmount: 500  },
+  ML:  { fromCurrency: "EUR", toCurrency: "XOF",  defaultAmount: 500  },
+  BF:  { fromCurrency: "EUR", toCurrency: "XOF",  defaultAmount: 500  },
+  BJ:  { fromCurrency: "EUR", toCurrency: "XOF",  defaultAmount: 300  },
+  TG:  { fromCurrency: "EUR", toCurrency: "XOF",  defaultAmount: 300  },
+  NE:  { fromCurrency: "EUR", toCurrency: "XOF",  defaultAmount: 300  },
+  GN:  { fromCurrency: "EUR", toCurrency: "GNF",  defaultAmount: 300  },
+  CM:  { fromCurrency: "EUR", toCurrency: "XAF",  defaultAmount: 500  },
+
+  // ── North Africa / MENA ──────────────────────────────────────────────────
+  EG:  { fromCurrency: "USD", toCurrency: "EGP",  defaultAmount: 1000 },
+  // Morocco, Tunisia, Algeria: France/EU diaspora dominant
+  MA:  { fromCurrency: "EUR", toCurrency: "MAD",  defaultAmount: 1000 },
+  TN:  { fromCurrency: "EUR", toCurrency: "TND",  defaultAmount: 1000 },
+  DZ:  { fromCurrency: "EUR", toCurrency: "DZD",  defaultAmount: 1000 },
+  JO:  { fromCurrency: "USD", toCurrency: "JOD",  defaultAmount: 1000 },
+
+  // ── Eastern Europe ───────────────────────────────────────────────────────
+  UA:  { fromCurrency: "EUR", toCurrency: "UAH",  defaultAmount: 1000 },
+  // Romania: large EU diaspora (Italy, Spain, Germany)
+  RO:  { fromCurrency: "EUR", toCurrency: "RON",  defaultAmount: 1000 },
+  // Serbia: RSD covered, significant EU diaspora
+  RS:  { fromCurrency: "EUR", toCurrency: "RSD",  defaultAmount: 500  },
+
+  // ── Caucasus & Central Asia ──────────────────────────────────────────────
+  GE:  { fromCurrency: "USD", toCurrency: "GEL",  defaultAmount: 500  },
+  UZ:  { fromCurrency: "USD", toCurrency: "UZS",  defaultAmount: 500  },
+  KG:  { fromCurrency: "USD", toCurrency: "KGS",  defaultAmount: 300  },
+  KZ:  { fromCurrency: "USD", toCurrency: "KZT",  defaultAmount: 500  },
+  MN:  { fromCurrency: "USD", toCurrency: "MNT",  defaultAmount: 300  },
+
+  // ── Pacific ──────────────────────────────────────────────────────────────
+  // Fiji: Australia is the top sender country
+  FJ:  { fromCurrency: "AUD", toCurrency: "FJD",  defaultAmount: 1000 },
+};
+
+// ---------------------------------------------------------------------------
+// Unified geo defaults helper
+// ---------------------------------------------------------------------------
+
+export interface GeoDefaults {
+  fromCurrency: string;
+  toCurrency: string;
+  defaultAmount: number;
+}
+
+/**
+ * Returns the best { fromCurrency, toCurrency, defaultAmount } for a given
+ * ISO 3166-1 alpha-2 country code.
+ *
+ * Priority:
+ *   1. Receiver-country override (diaspora-aware inbound corridor)
+ *   2. Sender-country: local currency + GEO_CORRIDORS default destination
+ *   3. Global fallback: USD → INR
+ */
+export function getGeoDefaults(country: string): GeoDefaults {
+  // Receiver-country override
+  const receiverConfig = RECEIVER_COUNTRY_CORRIDORS[country];
+  if (receiverConfig) {
+    return {
+      fromCurrency: receiverConfig.fromCurrency,
+      toCurrency: receiverConfig.toCurrency,
+      defaultAmount: receiverConfig.defaultAmount,
+    };
+  }
+
+  // Sender country: local currency + corridor defaultTo
+  const localCurrency = COUNTRY_TO_CURRENCY[country];
+  if (localCurrency) {
+    const corridorConfig = GEO_CORRIDORS[localCurrency];
+    if (corridorConfig) {
+      return {
+        fromCurrency: localCurrency,
+        toCurrency: corridorConfig.defaultTo,
+        defaultAmount: corridorConfig.defaultAmount,
+      };
+    }
+    // Local currency known but no corridor data — use USD→INR fallback to
+    return { fromCurrency: localCurrency, toCurrency: "INR", defaultAmount: 1000 };
+  }
+
+  // Global fallback
+  return { fromCurrency: "USD", toCurrency: "INR", defaultAmount: 1000 };
+}

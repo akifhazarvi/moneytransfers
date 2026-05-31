@@ -3,7 +3,7 @@
 import { useState, useId, useEffect, useContext } from "react";
 import { useRouter } from "next/navigation";
 import CurrencyPicker from "@/components/CurrencyPicker";
-import { sendCurrencies } from "@/data/transfer-currencies";
+import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { trackCompareSearch } from "@/lib/analytics";
 import { useTranslations } from "next-intl";
 import { useHomeSelection } from "@/components/HomeSelectionContext";
@@ -30,6 +30,31 @@ export default function ComparisonWidget({
   const [amountStr, setAmountStr] = useState(String(defaultAmount));
   const amount = Number(amountStr) || 0;
   const [amountError, setAmountError] = useState("");
+
+  // On mount: hydrate from geo cookies set by middleware.
+  // Only runs once; user's manual changes are not overridden.
+  useEffect(() => {
+    function readCookie(name: string) {
+      return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
+    }
+    const geoCurrency = readCookie("geo-currency");
+    const geoDefaultTo = readCookie("geo-default-to");
+    const geoDefaultAmount = readCookie("geo-default-amount");
+
+    // Validate that the geo-detected currency is in our send currencies list
+    const validFrom = geoCurrency && sendCurrencies.some((c) => c.code === geoCurrency);
+    const validTo   = geoDefaultTo && currencies.some((c) => c.code === geoDefaultTo);
+
+    if (validFrom) setFromCurrency(geoCurrency!);
+    if (validTo)   setToCurrency(geoDefaultTo!);
+    if (geoDefaultAmount) {
+      const parsed = Math.round(parseFloat(geoDefaultAmount));
+      if (Number.isFinite(parsed) && parsed >= MIN_AMOUNT && parsed <= MAX_AMOUNT) {
+        setAmountStr(String(parsed));
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Broadcast changes to HomeSelectionContext (no-op outside home page)
   const homeSelection = useHomeSelection();
