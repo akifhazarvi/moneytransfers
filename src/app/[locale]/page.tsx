@@ -182,7 +182,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <span className="text-[var(--color-on-surface-variant)]">{tHero("titleHighlight")}</span>
               </h1>
               <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-5">
-                {tHero("subtitle")}
+                60+ providers ranked by{" "}
+                <span className="font-semibold text-[var(--color-primary)]">real fees</span>
+                .{" "}
+                <span className="font-semibold text-[var(--color-primary)]">No signup</span>
+                .
               </p>
             </div>
             <div className="max-w-[760px] mx-auto">
