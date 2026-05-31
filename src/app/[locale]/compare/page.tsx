@@ -181,19 +181,19 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* ─── HERO + TOOL — the showdown is the product ─── */}
-      <section className="bg-[var(--color-surface)] pt-10 sm:pt-16 pb-12 sm:pb-16 border-b border-[var(--color-outline)]">
+      {/* ─── HERO + TOOL — the showdown is the product, kept above the fold ─── */}
+      <section className="bg-[var(--color-surface)] pt-5 sm:pt-8 pb-10 sm:pb-14 border-b border-[var(--color-outline)]">
         <Container>
-          <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
+          <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-3">
             <Link href="/" className="hover:text-[var(--color-on-surface)] transition-colors">Home</Link>
             {" / "}
             <span className="text-[var(--color-on-surface)]">Compare</span>
           </nav>
-          <div className="mb-8 sm:mb-10">
-            <h1 className="text-[34px] sm:text-5xl font-semibold text-[var(--color-on-surface)] leading-[1.06] tracking-[-0.03em]">
+          <div className="mb-5 sm:mb-6">
+            <h1 className="text-[28px] sm:text-4xl font-semibold text-[var(--color-on-surface)] leading-[1.08] tracking-[-0.03em]">
               {t("heading")}
             </h1>
-            <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-4 max-w-2xl">
+            <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-2 whitespace-normal sm:whitespace-nowrap">
               Pick any two providers. See who delivers more — live rates, fees and features, side by side.
             </p>
           </div>

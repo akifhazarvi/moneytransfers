@@ -197,7 +197,7 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
   );
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       {/* ── Selector bar: A · swap · B ── */}
       <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 items-center">
         <div>
@@ -224,7 +224,7 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
       <div className="relative overflow-hidden rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)]">
         <div className="absolute inset-x-0 top-0 h-1 bg-[var(--color-success)]" />
         {/* Amount + corridor control */}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-2 px-5 sm:px-7 pt-6 text-2sm text-[var(--color-on-surface-variant)]">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-2 px-5 sm:px-7 pt-5 text-2sm text-[var(--color-on-surface-variant)]">
           <span>Sending</span>
           <span className="inline-flex items-center gap-1 bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-full pl-3 pr-2 py-1">
             <span className="font-medium text-[var(--color-on-surface)]">{fromSym}</span>
@@ -253,7 +253,7 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
         </div>
 
         {/* Verdict line */}
-        <div className="px-5 sm:px-7 pt-4 pb-6">
+        <div className="px-5 sm:px-7 pt-3 pb-5">
           {headline && headline.winner ? (
             <>
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--color-success-dark)] uppercase tracking-wider mb-2">
@@ -283,7 +283,7 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
           )}
 
           {/* Two receive amounts side by side */}
-          <div className="grid grid-cols-2 gap-3 mt-5">
+          <div className="grid grid-cols-2 gap-3 mt-4">
             {([
               { p: provA, r: headline?.ra, win: headline?.winner?.slug === a, src: "showdown_card_a" },
               { p: provB, r: headline?.rb, win: headline?.winner?.slug === b, src: "showdown_card_b" },
