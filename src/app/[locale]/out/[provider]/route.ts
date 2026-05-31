@@ -23,11 +23,15 @@ export async function GET(
   const referer = request.headers.get("referer") || "";
 
   // Server-side GA4 event — always fires regardless of ad blockers / consent.
-  // The site runs cookieless (no _ga cookie), so we don't bother parsing one.
-  // page_referrer is what GA4 uses to derive Source/Medium for events that
-  // arrive without traffic-source dimensions on session_start — passing it
-  // here keeps affiliate_redirect events out of "(not set)".
-  const clientId = clientIdFromCookie(request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1]);
+  // The site runs cookieless (no _ga cookie), so AiSourceInjector forwards the
+  // live GA4 client_id as ?cid= — prefer it so the event stitches onto the
+  // originating session (and its real traffic source) instead of landing in
+  // GA4's "Unassigned" channel. Fall back to the _ga cookie, then to a
+  // fabricated id inside gaServerEvent. page_referrer (passed below) is the
+  // secondary signal GA4 uses to derive Source/Medium when no session matches.
+  const clientId =
+    searchParams.get("cid") ||
+    clientIdFromCookie(request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1]);
   const geo = {
     country: request.headers.get("x-vercel-ip-country") || undefined,
     region: request.headers.get("x-vercel-ip-country-region") || undefined,
