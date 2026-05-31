@@ -31,22 +31,23 @@ export const GTAG_INLINE = `window.dataLayer=window.dataLayer||[];function gtag(
   // don't drop any _ga cookie on the user's browser.
   if(navigator.webdriver===true){window['ga-disable-G-HJH07QEJ30']=true;return;}
   var geo=(document.cookie.match(/(?:^|; )geo-country=([A-Z]{2})/)||[])[1]||'';
-  // EU/UK/EEA/CH require consent — everyone else auto-granted.
-  var euUk={'AT':1,'BE':1,'BG':1,'HR':1,'CY':1,'CZ':1,'DK':1,'EE':1,'FI':1,'FR':1,'DE':1,'GR':1,'HU':1,'IE':1,'IT':1,'LV':1,'LT':1,'LU':1,'MT':1,'NL':1,'PL':1,'PT':1,'RO':1,'SK':1,'SI':1,'ES':1,'SE':1,'GB':1,'IS':1,'LI':1,'NO':1,'CH':1};
-  var storedConsent=(document.cookie.match(/(?:^|; )smc_consent=([^;]+)/)||[])[1]||'';
-  var analyticsStorage=euUk[geo]?(storedConsent==='granted'?'granted':'denied'):'granted';
+  // Cookieless GA4: client_storage:'none' keeps the client_id in memory and
+  // sets NO cookie / device storage on ANY visitor. With no storage written,
+  // the PECR/ePrivacy "consent to store" trigger never fires, so we grant
+  // analytics_storage for every geo — including UK/EU/EEA/CH. This is the
+  // Apr-24 "cookieless, no banner" posture. Previously UK/EU defaulted to
+  // 'denied' with a manual-accept pageview; GA4 Consent-Mode dropped the
+  // post-accept landing pageview, so UK sessions never appeared in reports.
   gtag('consent','default',{
-    'analytics_storage':analyticsStorage,
+    'analytics_storage':'granted',
     'ad_storage':'denied',
     'ad_user_data':'denied',
     'ad_personalization':'denied'
   });
   gtag('js',new Date());
-  // EU/UK users start with analytics_storage:denied — suppress the automatic
-  // pageview so we don't fire it while consent is blocked. CookieConsentBanner
-  // fires a manual page_view event after the user clicks Accept.
-  var sendPV=(analyticsStorage==='granted');
-  var cfg={send_page_view:sendPV,client_storage:'none'};
+  // Always fire the automatic landing pageview now that consent is granted
+  // everywhere. GA4PageviewTracker handles subsequent soft navigations.
+  var cfg={send_page_view:true,client_storage:'none'};
   if(geo){cfg.country=geo;gtag('set','user_properties',{geo_country:geo});}
   // AI-search referral attribution — ChatGPT, Perplexity, Copilot etc strip
   // the Referer header, so GA4 logs source='chatgpt.com' with medium=(not set)
@@ -86,5 +87,5 @@ export const THEME_INLINE = `(function(){try{var t=localStorage.getItem('theme')
 
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
-export const GTAG_INLINE_SHA256 = "qPXjxVNgJdwOQjpaoV0oAfKE/LkwfwRiGUZdEzQZ48I=";
+export const GTAG_INLINE_SHA256 = "IkBqaNNsoo7Vj5W03Ib1MmsFYpdnlvJEDr4o0epu7PU=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
