@@ -6,6 +6,13 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  // Text must paint immediately on the metric-matched system fallback rather
+  // than wait on the 84 KB Inter woff2, which Lighthouse showed at the END of
+  // a 741 ms critical chain (delaying LCP/FCP on Slow 4G). adjustFontFallback
+  // (on by default) size-adjusts the fallback so the swap is near-invisible.
+  // (Inter is a variable font — omitting `weight` loads one woff2 covering all
+  // weights, which is smaller than pinning multiple static instances.)
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
 });
 
 const SITE_URL = "https://sendmoneycompare.com";
