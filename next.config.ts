@@ -9,6 +9,22 @@ const nextConfig: NextConfig = {
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
+  turbopack: {
+    // Stub out Next.js's unconditional client polyfills. They are Baseline in
+    // every browser our browserslist targets, so shipping them is dead weight
+    // (Lighthouse "legacy JavaScript", ~14 KiB). See src/lib/modern-polyfill.js.
+    resolveAlias: {
+      // The polyfill-module chunk is loaded by MODERN browsers (the ESM build).
+      // Aliasing it to an empty stub removes the Baseline-supported polyfills
+      // that Lighthouse flags as "legacy JavaScript" from the bundle real users
+      // download. (The separate polyfill-nomodule/core-js chunk is injected by
+      // the build pipeline outside module resolution, so resolveAlias can't
+      // touch it — but it ships as <script noModule>, which modern browsers
+      // never fetch or run, so it costs real users nothing.)
+      "../build/polyfills/polyfill-module": "./src/lib/modern-polyfill.js",
+      "next/dist/build/polyfills/polyfill-module": "./src/lib/modern-polyfill.js",
+    },
+  },
   outputFileTracingExcludes: {
     "*": ["./src/data/scraped/history/**"],
   },

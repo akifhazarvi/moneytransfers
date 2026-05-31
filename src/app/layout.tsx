@@ -71,9 +71,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Only GTM is on the critical path (loads in the initial document).
+            Trustpilot's widget and the er-api forex fetch both fire after
+            hydration from useEffect, so preconnecting to them wastes a
+            connection slot and can delay genuinely critical requests
+            (Lighthouse flags them as "unused preconnect"). dns-prefetch is
+            the cheap hint that still warms DNS for those later requests. */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://widget.trustpilot.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://open.er-api.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://widget.trustpilot.com" />
+        <link rel="dns-prefetch" href="https://open.er-api.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://hatscripts.github.io" />
       </head>
