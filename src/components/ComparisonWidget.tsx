@@ -48,7 +48,7 @@ export default function ComparisonWidget({
     if (validFrom) setFromCurrency(geoCurrency!);
     if (validTo)   setToCurrency(geoDefaultTo!);
     if (geoDefaultAmount) {
-      const parsed = parseInt(geoDefaultAmount, 10);
+      const parsed = Math.round(parseFloat(geoDefaultAmount));
       if (Number.isFinite(parsed) && parsed >= MIN_AMOUNT && parsed <= MAX_AMOUNT) {
         setAmountStr(String(parsed));
       }

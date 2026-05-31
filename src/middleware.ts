@@ -251,7 +251,14 @@ export default function middleware(request: NextRequest) {
   // geo-default-amount — default transfer amount in fromCurrency
   // All three are set together on first visit so the widget hydrates correctly.
   const country = request.headers.get("x-vercel-ip-country") || "";
-  if (!request.cookies.get("geo-currency")) {
+  // Write all three geo cookies atomically — always together so the widget
+  // never hydrates with a partial set (e.g. geo-currency present but
+  // geo-default-to missing due to selective cookie clearing).
+  const hasAllGeoCookies =
+    request.cookies.get("geo-currency") &&
+    request.cookies.get("geo-default-to") &&
+    request.cookies.get("geo-default-amount");
+  if (!hasAllGeoCookies) {
     const { fromCurrency, toCurrency, defaultAmount } = getGeoDefaults(country);
     const cookieOpts = { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax" as const };
     response.cookies.set("geo-currency",       fromCurrency,          cookieOpts);
