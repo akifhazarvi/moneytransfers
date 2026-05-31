@@ -71,7 +71,7 @@ export default function HomeDynamicSection() {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-h2 font-semibold text-[var(--color-on-surface)] tracking-[-0.02em]">
-            Best way to send {amount.toLocaleString()} {fromCurrency} to {toCurrency}
+            Best app to send {amount.toLocaleString()} {fromCurrency} to {toCurrency}
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mt-2">
             {liveQuotes.length > 1 && best && worst ? (
