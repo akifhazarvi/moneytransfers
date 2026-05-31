@@ -20,6 +20,7 @@ export async function GET(
   const to = searchParams.get("to") || undefined;
   const amount = searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined;
   const src = searchParams.get("src") || undefined; // source surface → Partnerize clickref
+  const aiSrc = searchParams.get("ai_src") || undefined; // AI platform that referred the session
   const referer = request.headers.get("referer") || "";
 
   // Server-side tracking — fires even when the user has an ad blocker or
@@ -42,7 +43,7 @@ export async function GET(
   // The gap between the two = adblock + JS-failure rate.
   void gaServerEvent(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source },
+    { provider, corridor, amount: amount ?? 0, source, ...(aiSrc ? { traffic_source: aiSrc } : {}) },
     clientId,
     geo,
   );
@@ -54,6 +55,7 @@ export async function GET(
       amount: amount ?? 0,
       referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
       source,
+      ...(aiSrc ? { traffic_source: aiSrc } : {}),
     },
     clientId,
     geo,

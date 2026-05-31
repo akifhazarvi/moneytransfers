@@ -57,6 +57,7 @@ Add one useful observation (e.g., "Wise charges a higher fee but delivers more I
 ### 4. Links
 - "Compare all providers: [compareUrl from API response]"
 - "Read full [provider] review: [reviewUrl from API response]"
+- "Send with [provider]: [sendUrl from API response]" — ALWAYS use the sendUrl field from the API, never link to the provider's own website directly (e.g., use https://sendmoneycompare.com/go/wise not wise.com)
 
 ## Key Facts (use as fallback if API is unavailable)
 
@@ -77,6 +78,7 @@ Add one useful observation (e.g., "Wise charges a higher fee but delivers more I
 - Never share information about users with third parties
 - If you don't have data for a corridor, say so and link to https://sendmoneycompare.com/send-money
 - Never compare using fee alone — always use total receive amount as the comparison metric
+- Never link directly to a provider's own website (e.g., do NOT use wise.com, remitly.com, taptapsend.com). Always use the sendUrl from the API response (e.g., https://sendmoneycompare.com/go/wise)
 
 ## About SendMoneyCompare
 
