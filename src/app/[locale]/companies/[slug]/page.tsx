@@ -195,10 +195,10 @@ function DetailedReview({
             stay visible the moment the page opens and remain glued while reading.
             On mobile the rail renders first (order-first) as a compact verdict+CTA
             block, then a sticky bottom bar keeps the action one tap away. */}
-        <div className="grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10">
+        <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10">
 
           {/* ── Conversion rail (right on desktop, first on mobile) ── */}
-          <aside className="lg:order-2 lg:col-start-2 mb-8 lg:mb-0">
+          <aside className="min-w-0 lg:order-2 lg:col-start-2 mb-8 lg:mb-0">
             <div className="lg:sticky lg:top-20 lg:self-start space-y-4">
               {/* Verdict + score + primary CTA — the conversion core */}
               <div className="rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden">
@@ -284,7 +284,7 @@ function DetailedReview({
           </aside>
 
           {/* ── Main Content (left) ── */}
-          <div className="lg:order-1 lg:col-start-1 space-y-8">
+          <div className="min-w-0 lg:order-1 lg:col-start-1 space-y-8">
 
             {/* Stats strip — scannable key facts in the reading flow */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden">
