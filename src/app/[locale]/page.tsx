@@ -7,7 +7,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import LazyNewsTicker from "@/components/LazyNewsTicker";
-import HomeDynamicSection from "@/components/HomeDynamicSection";
+import LazyHomeDynamicSection from "@/components/LazyHomeDynamicSection";
 import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
 import { providers } from "@/data/providers";
@@ -197,7 +197,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </section>
 
       {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
-        <HomeDynamicSection />
+        <LazyHomeDynamicSection />
       </HomeSelectionProvider>
 
       {/* ─── TRUST STRIP + WHY TRUST US — collapsed on mobile to keep Send CTAs near the fold ─── */}
