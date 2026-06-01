@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useHomeSelection } from "@/components/HomeSelectionContext";
-import { generateQuotes, getProviderName, providers } from "@/data/providers";
+import { getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { fetchQuotesByCorridor } from "@/lib/fetch-quotes";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked } from "@/lib/analytics";
@@ -30,39 +31,81 @@ export default function HomeDynamicSection() {
     CURRENCY_SYMBOL[toCurrency] ??
     toCurrency;
 
-  // Top-3 corridors for the "Best Provider" cards — use the geo config for fromCurrency.
-  // If the user selected a specific toCurrency, show that corridor first.
-  const corridors = useMemo(() => {
+  // The top-3 corridor list (cards) and the selected corridor (live example)
+  // share fromCurrency + amount, so we fetch every corridor we render in one
+  // /api/quotes round-trip instead of importing the multi-megabyte dataset.
+  const topCorridors = useMemo(() => {
     const base = geoConfig.popularCorridors.slice(0, 5);
-    // Move the selected toCurrency corridor to the front if it exists
     const idx = base.findIndex((c) => c.toCurrency === toCurrency);
     let sorted = base;
     if (idx > 0) {
       sorted = [base[idx], ...base.slice(0, idx), ...base.slice(idx + 1)];
     }
-    return sorted.slice(0, 3).map((c) => {
-      const quotes = generateQuotes(amount, fromCurrency, c.toCurrency);
-      const best = quotes[0];
-      const provider = best ? providers.find((p) => p.slug === best.providerSlug) : null;
-      return {
-        ...c,
-        providerName: best ? getProviderName(best.providerSlug) : null,
-        providerSlug: best?.providerSlug || null,
-        providerLogo: provider?.logo || (best ? `/logos/${best.providerSlug}.png` : null),
-        receiveAmount: best?.receiveAmount || 0,
-        exchangeRate: best?.exchangeRate || 0,
-        fee: best?.fee ?? 0,
-      };
-    }).filter((c) => c.providerName);
-  }, [fromCurrency, toCurrency, amount, geoConfig]);
+    return sorted.slice(0, 3);
+  }, [toCurrency, geoConfig]);
 
-  // Live example quotes for the selected corridor
-  const liveQuotes = useMemo(() => {
-    return generateQuotes(amount, fromCurrency, toCurrency).slice(0, 5);
-  }, [fromCurrency, toCurrency, amount]);
+  // Map of `${from}_${to}` -> quotes, populated from the API. null = loading.
+  const [quotesByCorridor, setQuotesByCorridor] = useState<Record<
+    string,
+    TransferQuote[]
+  > | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setQuotesByCorridor(null);
+    // Every corridor we need: the selected one (live example) + the top-3 cards.
+    const tos = Array.from(
+      new Set([toCurrency, ...topCorridors.map((c) => c.toCurrency)])
+    );
+    fetchQuotesByCorridor(amount, fromCurrency, tos, controller.signal).then(
+      (map) => {
+        if (!controller.signal.aborted) setQuotesByCorridor(map);
+      }
+    );
+    return () => controller.abort();
+  }, [fromCurrency, toCurrency, amount, topCorridors]);
+
+  const corridors = useMemo(() => {
+    if (!quotesByCorridor) return [];
+    return topCorridors
+      .map((c) => {
+        const best = quotesByCorridor[`${fromCurrency}_${c.toCurrency}`]?.[0];
+        const provider = best
+          ? providers.find((p) => p.slug === best.providerSlug)
+          : null;
+        return {
+          ...c,
+          providerName: best ? getProviderName(best.providerSlug) : null,
+          providerSlug: best?.providerSlug || null,
+          providerLogo:
+            provider?.logo || (best ? `/logos/${best.providerSlug}.png` : null),
+          receiveAmount: best?.receiveAmount || 0,
+          exchangeRate: best?.exchangeRate || 0,
+          fee: best?.fee ?? 0,
+        };
+      })
+      .filter((c) => c.providerName);
+  }, [quotesByCorridor, topCorridors, fromCurrency]);
+
+  const liveQuotes = useMemo(
+    () => (quotesByCorridor?.[`${fromCurrency}_${toCurrency}`] || []).slice(0, 5),
+    [quotesByCorridor, fromCurrency, toCurrency]
+  );
 
   const best = liveQuotes[0];
   const worst = liveQuotes[liveQuotes.length - 1];
+
+  // Loading state — keep the section height stable (the lazy wrapper reserves
+  // space too) so there's no layout shift while quotes fetch.
+  if (quotesByCorridor === null) {
+    return (
+      <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
+        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto h-64 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] animate-pulse" />
+        </div>
+      </section>
+    );
+  }
 
   if (corridors.length === 0 && liveQuotes.length === 0) return null;
 

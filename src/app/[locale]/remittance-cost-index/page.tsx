@@ -6,7 +6,8 @@ import Container from "@/components/Container";
 import providerSummaryData from "@/data/scraped/provider-summary.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 import { corridors } from "@/data/corridors";
-import { providers, generateQuotes } from "@/data/providers";
+import { providers } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates } from "@/lib/i18n-metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

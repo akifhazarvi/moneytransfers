@@ -6,7 +6,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
-import { providers, generateQuotes, currencies } from "@/data/providers";
+import { providers, currencies } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 const SITE_URL = "https://sendmoneycompare.com";
 

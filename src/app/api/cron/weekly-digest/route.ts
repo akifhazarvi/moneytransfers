@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { render } from "@react-email/render";
 import { corridors, type Corridor } from "@/data/corridors";
-import { generateQuotes } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import WeeklyDigest from "@/emails/WeeklyDigest";
 
 // Vercel cron — runs weekly. Triggered by vercel.json crons schedule.

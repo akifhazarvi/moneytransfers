@@ -10,7 +10,8 @@ import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import TrustBadges from "@/components/TrustBadges";
 import CurrencyPicker from "@/components/CurrencyPicker";
-import { generateQuotes, currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
+import { currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
+import { fetchQuotes } from "@/lib/fetch-quotes";
 import type { RateInsight, ProviderInsight } from "@/lib/rate-history-types";
 import { sendCurrencies } from "@/data/transfer-currencies";
 import { promos } from "@/data/promos";
@@ -190,10 +191,26 @@ function SendMoneyContent() {
   const [referralFilter, setReferralFilter] = useState<ReferralFilter>("");
   const [selectedProviders, setSelectedProviders] = useState<string[]>([]);
 
-  const quotes = useMemo(
-    () => generateQuotes(amount, fromCurrency, toCurrency, rates),
-    [amount, fromCurrency, toCurrency, rates]
-  );
+  // Quotes are fetched from /api/quotes rather than computed via
+  // generateQuotes() in the browser — importing generateQuotes statically
+  // bundles the full scraped-quote dataset (~5 MB) into this page's JS. The
+  // live mid-market rates are forwarded so the server applies them, preserving
+  // the live-rate accuracy this page had. `quotesLoading` drives the skeleton.
+  const [quotes, setQuotes] = useState<TransferQuote[]>([]);
+  const [quotesLoading, setQuotesLoading] = useState(true);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setQuotesLoading(true);
+    fetchQuotes(amount, fromCurrency, toCurrency, controller.signal, rates).then(
+      (q) => {
+        if (controller.signal.aborted) return;
+        setQuotes(q);
+        setQuotesLoading(false);
+      }
+    );
+    return () => controller.abort();
+  }, [amount, fromCurrency, toCurrency, rates]);
 
   // ── Historical rate insights ──────────────────────────────────
   // Fetched per-corridor from /api/rate-insight instead of statically importing
@@ -628,7 +645,22 @@ function SendMoneyContent() {
 
       {/* Results list */}
       <div className="mb-12">
-        {filteredQuotes.length > 0 ? (
+        {quotesLoading ? (
+          // Skeleton while /api/quotes resolves — avoids flashing the
+          // "no providers match" empty state before the first fetch returns.
+          <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)] divide-y divide-[var(--color-outline)]">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="flex items-center gap-4 px-4 sm:px-6 py-5">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-surface-dim)] animate-pulse shrink-0" />
+                <div className="flex-1 space-y-2">
+                  <div className="h-4 w-32 rounded bg-[var(--color-surface-dim)] animate-pulse" />
+                  <div className="h-3 w-24 rounded bg-[var(--color-surface-dim)] animate-pulse" />
+                </div>
+                <div className="h-9 w-24 rounded-full bg-[var(--color-surface-dim)] animate-pulse shrink-0" />
+              </div>
+            ))}
+          </div>
+        ) : filteredQuotes.length > 0 ? (
           <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
             {(() => {
               const worstReceive = filteredQuotes[filteredQuotes.length - 1]?.receiveAmount ?? 0;

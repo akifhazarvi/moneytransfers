@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { generateQuotes, getProviderName, providers } from "@/data/providers";
+import { getProviderName, providers } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { getTranslations } from "next-intl/server";
 
 interface BestTransferTodayProps {

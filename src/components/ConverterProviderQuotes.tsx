@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { generateQuotes, getProviderName, providers } from "@/data/providers";
+import { useEffect, useState } from "react";
+import { getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { fetchQuotes } from "@/lib/fetch-quotes";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackConverterProviderClicked, trackConverterCTAClicked } from "@/lib/analytics";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
@@ -22,7 +24,24 @@ interface Props {
 }
 
 export default function ConverterProviderQuotes({ from, to, amount }: Props) {
-  const quotes = generateQuotes(amount, from, to).slice(0, 5);
+  // Fetched from /api/quotes rather than computed via generateQuotes() so the
+  // multi-megabyte scraped dataset never enters this client bundle.
+  const [quotes, setQuotes] = useState<TransferQuote[] | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setQuotes(null);
+    fetchQuotes(amount, from, to, controller.signal).then((q) => {
+      if (!controller.signal.aborted) setQuotes(q.slice(0, 5));
+    });
+    return () => controller.abort();
+  }, [from, to, amount]);
+
+  if (quotes === null) {
+    return (
+      <div className="mt-6 h-48 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] animate-pulse" />
+    );
+  }
   if (quotes.length === 0) return null;
 
   const recvSymbol = symbolFor(to);

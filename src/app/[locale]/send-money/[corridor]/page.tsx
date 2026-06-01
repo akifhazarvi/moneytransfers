@@ -36,12 +36,12 @@ export const revalidate = 21600;
 import CircleFlag from "@/components/CircleFlag";
 import {
   providers,
-  generateQuotes,
   getProviderName,
   getExchangeRate,
   currencies,
   popularCorridors,
 } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
 import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";

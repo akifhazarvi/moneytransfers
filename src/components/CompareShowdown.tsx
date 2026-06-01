@@ -4,7 +4,8 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Trophy, ArrowRight } from "lucide-react";
-import { providers, generateQuotes, type Provider } from "@/data/providers";
+import { providers, type Provider, type TransferQuote } from "@/data/providers";
+import { fetchQuotes } from "@/lib/fetch-quotes";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import ProviderPicker from "@/components/ProviderPicker";
@@ -35,8 +36,17 @@ function fmt(n: number): string {
   return n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function receiveFor(slug: string, amount: number, from: string, to: string): number | null {
-  const q = generateQuotes(amount, from, to).find((x) => x.providerSlug === slug);
+// Quotes are fetched from /api/quotes (keyed `${amount}|${from}|${to}`) rather
+// than computed via generateQuotes() in the browser, which would statically
+// bundle the multi-megabyte scraped dataset into this page's JS.
+type QuoteCache = Record<string, TransferQuote[]>;
+
+function corridorKey(amount: number, from: string, to: string): string {
+  return `${amount}|${from}|${to}`;
+}
+
+function receiveFrom(cache: QuoteCache, slug: string, amount: number, from: string, to: string): number | null {
+  const q = cache[corridorKey(amount, from, to)]?.find((x) => x.providerSlug === slug);
   return q ? q.receiveAmount : null;
 }
 
@@ -100,25 +110,55 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
   const provA = useMemo(() => providers.find((p) => p.slug === a), [a]);
   const provB = useMemo(() => providers.find((p) => p.slug === b), [b]);
 
+  // ── Fetch quotes for every corridor this view reads: the headline corridor
+  //    (user amount) + the sampled corridors (1,000 each). Each is an
+  //    independent /api/quotes call, run in parallel and merged into a cache. ──
+  const [quoteCache, setQuoteCache] = useState<QuoteCache>({});
+
+  useEffect(() => {
+    if (amount <= 0) return;
+    const controller = new AbortController();
+    const needed: { amount: number; from: string; to: string }[] = [
+      { amount, from: fromCurrency, to: toCurrency },
+      ...SAMPLE_CORRIDORS.map((c) => ({ amount: 1000, from: c.from, to: c.to })),
+    ];
+    Promise.all(
+      needed.map((n) =>
+        fetchQuotes(n.amount, n.from, n.to, controller.signal).then((q) => ({
+          key: corridorKey(n.amount, n.from, n.to),
+          q,
+        }))
+      )
+    ).then((results) => {
+      if (controller.signal.aborted) return;
+      setQuoteCache((prev) => {
+        const next = { ...prev };
+        for (const r of results) next[r.key] = r.q;
+        return next;
+      });
+    });
+    return () => controller.abort();
+  }, [amount, fromCurrency, toCurrency]);
+
   // ── Headline verdict on the user-chosen corridor ──
   const headline = useMemo(() => {
     if (!provA || !provB || amount <= 0) return null;
-    const ra = receiveFor(a, amount, fromCurrency, toCurrency);
-    const rb = receiveFor(b, amount, fromCurrency, toCurrency);
+    const ra = receiveFrom(quoteCache, a, amount, fromCurrency, toCurrency);
+    const rb = receiveFrom(quoteCache, b, amount, fromCurrency, toCurrency);
     if (ra == null || rb == null) return { winner: null as Provider | null, diff: 0, ra, rb };
     const winner = ra > rb ? provA : rb > ra ? provB : null;
     return { winner, diff: Math.abs(ra - rb), ra, rb };
-  }, [a, b, provA, provB, amount, fromCurrency, toCurrency]);
+  }, [a, b, provA, provB, amount, fromCurrency, toCurrency, quoteCache]);
 
   // ── Multi-corridor tally for the strip ──
   const corridorRows = useMemo(() => {
     return SAMPLE_CORRIDORS.map((c) => {
       const sym = symbolFor(c.to);
-      const ra = receiveFor(a, 1000, c.from, c.to);
-      const rb = receiveFor(b, 1000, c.from, c.to);
+      const ra = receiveFrom(quoteCache, a, 1000, c.from, c.to);
+      const rb = receiveFrom(quoteCache, b, 1000, c.from, c.to);
       return { ...c, sym, ra, rb };
     });
-  }, [a, b]);
+  }, [a, b, quoteCache]);
 
   const tally = useMemo(() => {
     let wa = 0,

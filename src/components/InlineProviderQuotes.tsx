@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { generateQuotes, getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 import InlineQuoteCTA from "./InlineQuoteCTA";
 import SeeAllProvidersLink from "./SeeAllProvidersLink";

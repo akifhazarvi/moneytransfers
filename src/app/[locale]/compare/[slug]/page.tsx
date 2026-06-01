@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Trophy, ArrowRight } from "lucide-react";
-import { providers, generateQuotes } from "@/data/providers";
+import { providers } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;

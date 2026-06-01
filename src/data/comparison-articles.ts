@@ -3,7 +3,8 @@
  * These overlay the auto-generated comparison pages with richer editorial content.
  */
 
-import { generateQuotes, providers, getExchangeRate } from "@/data/providers";
+import { providers, getExchangeRate } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 export interface ComparisonArticle {
   slug: string; // e.g. "wise-vs-remitly"

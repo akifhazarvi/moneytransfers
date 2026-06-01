@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { providers, generateQuotes, currencies, getProviderName } from "@/data/providers";
+import { providers, currencies, getProviderName } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 /** CORS origins allowed to call this API (ChatGPT Actions, etc.) */
 const ALLOWED_ORIGINS = [
