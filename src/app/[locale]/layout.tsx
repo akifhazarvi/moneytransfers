@@ -12,6 +12,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
 import GA4PageviewTracker from "@/components/GA4PageviewTracker";
 import AiSourceInjector from "@/components/AiSourceInjector";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -274,6 +275,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LazyAnalytics />
           <GA4PageviewTracker />
           <AiSourceInjector />
+          <CookieConsentBanner />
         </ThemeProvider>
       </NextIntlClientProvider>
     </>

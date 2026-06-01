@@ -10,7 +10,8 @@ import { useEffect } from "react";
 //     `first_ai_src` by the GTAG_INLINE bootstrap in layout.tsx.
 //
 //   - cid=<ga4_client_id>  the live GA4 client_id for this browser session.
-//     The site is cookieless (no _ga cookie), so the /go/ route otherwise
+//     Forwarding it is more reliable than the server parsing the _ga cookie
+//     (which a UK/EU user may not have accepted yet); without it the /go/ route
 //     fabricates a throwaway client_id per click — every server event lands
 //     in GA4's "Unassigned" channel with no traffic source, scattering
 //     affiliate conversions away from the channel that actually drove them

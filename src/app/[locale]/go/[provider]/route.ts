@@ -26,11 +26,10 @@ export async function GET(
   // Server-side tracking — fires even when the user has an ad blocker or
   // declined cookies, so we never miss an affiliate conversion.
   //
-  // The site is cookieless (no _ga cookie), so we can't recover the client_id
-  // from a cookie. AiSourceInjector forwards the live GA4 client_id as ?cid=
-  // — prefer it so the server event stitches onto the originating session
-  // (and its real traffic source) instead of GA4's "Unassigned" bucket. Fall
-  // back to the cookie for any non-injector caller, then to a fabricated id.
+  // AiSourceInjector forwards the live GA4 client_id as ?cid= — prefer it so
+  // the server event stitches onto the originating session (and its real
+  // traffic source) instead of GA4's "Unassigned" bucket. Fall back to the
+  // first-party _ga cookie for any non-injector caller, then to a fabricated id.
   const gaCookie = request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1];
   const clientId = searchParams.get("cid") || clientIdFromCookie(gaCookie);
   const geo = {

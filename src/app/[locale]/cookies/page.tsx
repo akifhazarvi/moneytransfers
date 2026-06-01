@@ -59,10 +59,11 @@ export default async function CookiePolicyPage({ params }: Props) {
                   localStorage and sessionStorage, which work similarly.
                 </p>
                 <p>
-                  We do not use advertising cookies, tracking cookies, or any storage
-                  that identifies you personally. We use Google Analytics in cookieless
-                  mode — it records anonymous pageview counts without storing anything
-                  on your device.
+                  We do not use advertising cookies, remarketing cookies, or any
+                  cross-site tracking. We use Google Analytics with a first-party
+                  analytics cookie to count visitors accurately. In the UK, EU, EEA
+                  and Switzerland this cookie is only set after you accept it via our
+                  consent banner; elsewhere it is enabled by default.
                 </p>
               </div>
             </div>
@@ -127,13 +128,44 @@ export default async function CookiePolicyPage({ params }: Props) {
                     {t("analyticsCookies")}
                   </h3>
                   <p>
-                    We use Google Analytics 4 in cookieless mode. It counts anonymous
-                    pageviews and events so we can understand what pages are useful, but
-                    it does not set any cookies (<span className="font-mono text-xs">_ga</span>,{" "}
-                    <span className="font-mono text-xs">_ga_*</span>) and does not store
-                    a visitor ID on your device. No advertising, remarketing, or
-                    cross-site tracking data is collected.
+                    We use Google Analytics 4 with first-party cookies
+                    (<span className="font-mono text-xs">_ga</span>,{" "}
+                    <span className="font-mono text-xs">_ga_*</span>) that store a
+                    randomly-generated visitor ID. This lets us count returning
+                    visitors accurately so the same person is not counted multiple
+                    times. The ID is not linked to your name or any personal
+                    information, and no advertising, remarketing, or cross-site
+                    tracking data is collected. In the UK, EU, EEA and Switzerland
+                    these cookies are only set after you accept them.
                   </p>
+                  <div className="overflow-x-auto mt-4">
+                    <table className="w-full text-2sm border border-[var(--color-outline)] rounded-lg overflow-hidden">
+                      <thead>
+                        <tr className="bg-[var(--color-surface-dim)]">
+                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("cookieName")}</th>
+                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("purpose")}</th>
+                          <th className="text-left px-4 py-3 font-medium text-[var(--color-on-surface)] border-b border-[var(--color-outline)]">{t("duration")}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-[var(--color-outline)]">
+                          <td className="px-4 py-3 font-mono text-xs">_ga</td>
+                          <td className="px-4 py-3">Google Analytics visitor ID, used to count unique visitors</td>
+                          <td className="px-4 py-3">2 years (cookie)</td>
+                        </tr>
+                        <tr className="border-b border-[var(--color-outline)]">
+                          <td className="px-4 py-3 font-mono text-xs">_ga_*</td>
+                          <td className="px-4 py-3">Google Analytics session state for the property</td>
+                          <td className="px-4 py-3">2 years (cookie)</td>
+                        </tr>
+                        <tr>
+                          <td className="px-4 py-3 font-mono text-xs">smc_consent</td>
+                          <td className="px-4 py-3">Remembers your analytics consent choice (UK/EU/EEA/CH)</td>
+                          <td className="px-4 py-3">1 year (cookie)</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
