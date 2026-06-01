@@ -821,5 +821,22 @@
         "receiveAmount": 38.63
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "instarem": {
+        "rate": 0.3833,
+        "fee": 0,
+        "markup": 0.77,
+        "receiveAmount": 38.33
+      },
+      "wise": {
+        "rate": 0.3859,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 38.59
+      }
+    }
   }
 ]
