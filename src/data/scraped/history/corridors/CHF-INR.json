@@ -2635,10 +2635,10 @@
     "date": "2026-06-02",
     "providers": {
       "moneygram": {
-        "rate": 118.576,
+        "rate": 118.5377,
         "fee": 1.99,
-        "markup": 2.07,
-        "receiveAmount": 11621.63
+        "markup": 2.02,
+        "receiveAmount": 11617.88
       },
       "skrill": {
         "rate": 120.22,
@@ -2653,16 +2653,16 @@
         "receiveAmount": 11928.15
       },
       "dahabshiil": {
-        "rate": 121.4772,
+        "rate": 120.2439,
         "fee": 1.99,
-        "markup": -0.33,
-        "receiveAmount": 11905.98
+        "markup": 0.61,
+        "receiveAmount": 11785.1
       },
       "currencyfair": {
-        "rate": 120.2805,
+        "rate": 120.135,
         "fee": 1,
-        "markup": 0.66,
-        "receiveAmount": 11907.77
+        "markup": 0.7,
+        "receiveAmount": 11893.37
       },
       "postfinance": {
         "rate": 116.4478,
@@ -2671,16 +2671,16 @@
         "receiveAmount": 9082.93
       },
       "paysend": {
-        "rate": 119.9063,
+        "rate": 120.2221,
         "fee": 2.9,
-        "markup": 0.97,
-        "receiveAmount": 11642.9
+        "markup": 0.63,
+        "receiveAmount": 11673.57
       },
       "revolut": {
-        "rate": 120.5014,
+        "rate": 120.4979,
         "fee": 1.1,
-        "markup": 0.48,
-        "receiveAmount": 11917.58
+        "markup": 0.4,
+        "receiveAmount": 11917.24
       },
       "raiffeisen-ch": {
         "rate": 118.7609,
