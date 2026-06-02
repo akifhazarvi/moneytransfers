@@ -207,5 +207,16 @@
         "receiveAmount": 100000
       }
     }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "taptap-send": {
+        "rate": 1000,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 100000
+      }
+    }
   }
 ]
