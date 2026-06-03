@@ -2489,5 +2489,46 @@
         "receiveAmount": 482.84
       }
     }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "instarem": {
+        "rate": 4.9252,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 492.52
+      },
+      "natwest": {
+        "rate": 4.837,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 483.7
+      },
+      "remitly": {
+        "rate": 4.9242,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 482.62
+      },
+      "western-union": {
+        "rate": 4.8424,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 460.08
+      },
+      "nationwide": {
+        "rate": 4.8391,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 411.32
+      },
+      "rbs": {
+        "rate": 4.837,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 483.7
+      }
+    }
   }
 ]
