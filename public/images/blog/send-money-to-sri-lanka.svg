@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a0a0f"/>
+      <stop offset="100%" stop-color="#2e0d14"/>
+    </linearGradient>
+    <linearGradient id="stupa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8c84a"/>
+      <stop offset="100%" stop-color="#c8a020"/>
+    </linearGradient>
+    <linearGradient id="hills" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a5c24"/>
+      <stop offset="100%" stop-color="#0f3a16"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark maroon background (Sri Lanka flag inspired) -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Green stripe accent (Sri Lanka flag) -->
+  <rect x="0" y="0" width="60" height="630" fill="#1a7c2a" opacity="0.7"/>
+  <!-- Orange stripe accent -->
+  <rect x="60" y="0" width="50" height="630" fill="#e87020" opacity="0.6"/>
+  <!-- Right accents -->
+  <rect x="1090" y="0" width="50" height="630" fill="#e87020" opacity="0.6"/>
+  <rect x="1140" y="0" width="60" height="630" fill="#1a7c2a" opacity="0.7"/>
+
+  <!-- Hill silhouettes (lush tea country) -->
+  <ellipse cx="150" cy="480" rx="220" ry="140" fill="url(#hills)" opacity="0.8"/>
+  <ellipse cx="400" cy="500" rx="280" ry="120" fill="#1a5c24" opacity="0.7"/>
+  <ellipse cx="800" cy="490" rx="260" ry="130" fill="url(#hills)" opacity="0.75"/>
+  <ellipse cx="1060" cy="485" rx="210" ry="135" fill="#1a5c24" opacity="0.7"/>
+
+  <!-- Ground -->
+  <rect x="0" y="540" width="1200" height="90" fill="#0f3a16" opacity="0.9"/>
+
+  <!-- Large stupa/dagoba (centre) -->
+  <!-- Base -->
+  <rect x="480" y="430" width="240" height="30" rx="4" fill="url(#stupa)" opacity="0.9"/>
+  <!-- Platform ring -->
+  <rect x="505" y="390" width="190" height="40" rx="6" fill="#e8c84a" opacity="0.85"/>
+  <!-- Dome body -->
+  <ellipse cx="600" cy="360" rx="95" ry="80" fill="url(#stupa)" opacity="0.95"/>
+  <!-- Spire layers -->
+  <rect x="582" y="200" width="36" height="160" rx="4" fill="#e8c84a" opacity="0.9"/>
+  <rect x="591" y="180" width="18" height="30" rx="2" fill="#f4d860" opacity="0.95"/>
+  <rect x="595" y="165" width="10" height="20" rx="1" fill="#f4d860"/>
+  <!-- Finial -->
+  <circle cx="600" cy="158" r="8" fill="#f4d860"/>
+  <!-- Decorative rings on spire -->
+  <rect x="576" y="260" width="48" height="8" rx="4" fill="#c8a020" opacity="0.7"/>
+  <rect x="579" y="240" width="42" height="7" rx="3.5" fill="#c8a020" opacity="0.7"/>
+  <rect x="582" y="223" width="36" height="6" rx="3" fill="#c8a020" opacity="0.65"/>
+
+  <!-- Small stupas on sides -->
+  <ellipse cx="330" cy="400" rx="42" ry="36" fill="#d4a828" opacity="0.6"/>
+  <rect x="322" y="370" width="16" height="30" rx="2" fill="#d4a828" opacity="0.65"/>
+  <rect x="318" y="430" width="24" height="12" rx="2" fill="#d4a828" opacity="0.55"/>
+
+  <ellipse cx="870" cy="405" rx="42" ry="36" fill="#d4a828" opacity="0.6"/>
+  <rect x="862" y="375" width="16" height="30" rx="2" fill="#d4a828" opacity="0.65"/>
+  <rect x="858" y="435" width="24" height="12" rx="2" fill="#d4a828" opacity="0.55"/>
+
+  <!-- Stars in sky -->
+  <circle cx="200" cy="80" r="2" fill="#ffffff" opacity="0.7"/>
+  <circle cx="380" cy="55" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="520" cy="90" r="2" fill="#e8c84a" opacity="0.8"/>
+  <circle cx="700" cy="60" r="1.5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="840" cy="80" r="2" fill="#ffffff" opacity="0.7"/>
+  <circle cx="1000" cy="55" r="1.5" fill="#e8c84a" opacity="0.6"/>
+  <circle cx="1100" cy="85" r="2" fill="#ffffff" opacity="0.8"/>
+
+  <!-- Title -->
+  <text x="600" y="575" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="38" font-weight="700">Send Money to Sri Lanka</text>
+  <text x="600" y="612" text-anchor="middle" fill="#e8c84a" font-family="system-ui,sans-serif" font-size="20">LKR · Sri Lankan Rupee · Compare live rates</text>
+
+  <!-- Brand -->
+  <text x="600" y="626" text-anchor="middle" fill="#ffffff35" font-family="system-ui,sans-serif" font-size="13">sendmoneycompare.com</text>
+</svg>
