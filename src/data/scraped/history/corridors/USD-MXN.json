@@ -7688,16 +7688,16 @@
         "receiveAmount": 1718.29
       },
       "moneygram": {
-        "rate": 16.9986,
+        "rate": 16.9743,
         "fee": 1.9,
-        "markup": 2.02,
-        "receiveAmount": 1667.56
+        "markup": 1.79,
+        "receiveAmount": 1665.18
       },
       "ria": {
-        "rate": 17.1,
+        "rate": 17.04,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 1770.39
+        "markup": 1.41,
+        "receiveAmount": 1670.09
       },
       "taptap-send": {
         "rate": 17.18,
@@ -7706,34 +7706,34 @@
         "receiveAmount": 1718
       },
       "boss-money": {
-        "rate": 17.1909,
+        "rate": 17.1017,
         "fee": 1.99,
-        "markup": 0.91,
-        "receiveAmount": 1684.88
+        "markup": 1.05,
+        "receiveAmount": 1676.14
       },
       "xe": {
-        "rate": 17.2124,
+        "rate": 17.1132,
         "fee": 4,
-        "markup": 0.79,
-        "receiveAmount": 1652.39
+        "markup": 0.99,
+        "receiveAmount": 1642.87
       },
       "western-union": {
-        "rate": 16.974,
+        "rate": 16.9178,
         "fee": 1.99,
-        "markup": 2.16,
-        "receiveAmount": 1663.62
+        "markup": 2.12,
+        "receiveAmount": 1658.11
       },
       "xoom": {
-        "rate": 17.5782,
+        "rate": 17.5115,
         "fee": 1.69,
         "markup": null,
-        "receiveAmount": 1728.11
+        "receiveAmount": 1721.56
       },
       "currencyfair": {
-        "rate": 17.154,
+        "rate": 17.1362,
         "fee": 4,
-        "markup": 1.12,
-        "receiveAmount": 1646.78
+        "markup": 0.85,
+        "receiveAmount": 1645.08
       },
       "worldremit": {
         "rate": 16.8936,
@@ -7742,16 +7742,16 @@
         "receiveAmount": 1655.74
       },
       "paysend": {
-        "rate": 17.3421,
+        "rate": 17.2767,
         "fee": 0.99,
         "markup": 0.04,
-        "receiveAmount": 1717.04
+        "receiveAmount": 1710.57
       },
       "sendwave": {
-        "rate": 17.2097,
+        "rate": 17.1438,
         "fee": 1.99,
-        "markup": 0.8,
-        "receiveAmount": 1686.72
+        "markup": 0.81,
+        "receiveAmount": 1680.26
       },
       "remitly": {
         "rate": 16.6189,
@@ -7782,6 +7782,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 1679.13
+      },
+      "revolut": {
+        "rate": 17.1878,
+        "fee": 0.75,
+        "markup": 0.55,
+        "receiveAmount": 1705.89
       }
     }
   }

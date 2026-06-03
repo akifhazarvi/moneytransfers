@@ -5270,22 +5270,22 @@
     "date": "2026-06-03",
     "providers": {
       "moneygram": {
-        "rate": 73.9604,
+        "rate": 74.1824,
         "fee": 6,
-        "markup": 0.61,
-        "receiveAmount": 6952.28
+        "markup": 0.77,
+        "receiveAmount": 6973.15
       },
       "western-union": {
-        "rate": 73.9895,
+        "rate": 74.3379,
         "fee": 1.5,
-        "markup": 0.57,
-        "receiveAmount": 7287.97
+        "markup": 0.56,
+        "receiveAmount": 7322.28
       },
       "currencyfair": {
-        "rate": 73.892,
+        "rate": 74.223,
         "fee": 1.62,
-        "markup": 0.7,
-        "receiveAmount": 7269.49
+        "markup": 0.71,
+        "receiveAmount": 7302.06
       },
       "instarem": {
         "rate": 74.487,
@@ -5300,16 +5300,16 @@
         "receiveAmount": 7063.51
       },
       "revolut": {
-        "rate": 74.3038,
+        "rate": 74.6712,
         "fee": 0.9,
-        "markup": 0.15,
-        "receiveAmount": 7363.51
+        "markup": 0.11,
+        "receiveAmount": 7399.92
       },
       "ria": {
-        "rate": 74.4671,
+        "rate": 74.64,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 7464.86
+        "receiveAmount": 7477.88
       },
       "uob": {
         "rate": 72.4496,
@@ -5334,6 +5334,12 @@
         "fee": 1.05,
         "markup": null,
         "receiveAmount": 7380.67
+      },
+      "skrill": {
+        "rate": 72.5836,
+        "fee": 0,
+        "markup": 2.91,
+        "receiveAmount": 7258.36
       }
     }
   }

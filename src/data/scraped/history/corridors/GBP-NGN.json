@@ -6440,10 +6440,10 @@
         "receiveAmount": 183000
       },
       "moneygram": {
-        "rate": 1854.6502,
+        "rate": 1854.1721,
         "fee": 0.99,
-        "markup": -0.62,
-        "receiveAmount": 183628.92
+        "markup": -0.85,
+        "receiveAmount": 183581.58
       },
       "taptap-send": {
         "rate": 1842,
@@ -6458,52 +6458,52 @@
         "receiveAmount": 175535.52
       },
       "dahabshiil": {
-        "rate": 1852.2881,
+        "rate": 1852.0637,
         "fee": 0,
-        "markup": -0.5,
-        "receiveAmount": 185228.81
+        "markup": -0.74,
+        "receiveAmount": 185206.37
       },
       "profee": {
-        "rate": 1849.1893,
+        "rate": 1845.851,
         "fee": 1.8,
-        "markup": -0.33,
-        "receiveAmount": 181590.39
+        "markup": -0.4,
+        "receiveAmount": 181262.57
       },
       "transfergo": {
-        "rate": 1843.134,
+        "rate": 1845.2501,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 184313.4
+        "markup": -0.37,
+        "receiveAmount": 184525.01
       },
       "worldremit": {
-        "rate": 1841.1595,
+        "rate": 1841.4433,
         "fee": 0.99,
-        "markup": 0.11,
-        "receiveAmount": 182293.2
+        "markup": -0.16,
+        "receiveAmount": 182321.31
       },
       "instarem": {
-        "rate": 1833.3023,
+        "rate": 1832.219,
         "fee": 0,
-        "markup": 0.53,
-        "receiveAmount": 183330.23
+        "markup": 0.34,
+        "receiveAmount": 183221.9
       },
       "mukuru": {
-        "rate": 1834.94,
+        "rate": 1836.16,
         "fee": 0,
-        "markup": 0.44,
-        "receiveAmount": 183494
+        "markup": 0.13,
+        "receiveAmount": 183616
       },
       "paysend": {
-        "rate": 1822.3907,
+        "rate": 1829.5465,
         "fee": 0,
-        "markup": 1.13,
-        "receiveAmount": 182239.07
+        "markup": 0.49,
+        "receiveAmount": 182954.65
       },
       "sendwave": {
-        "rate": 1841.1595,
+        "rate": 1841.4433,
         "fee": 0.99,
-        "markup": 0.11,
-        "receiveAmount": 182293.2
+        "markup": -0.16,
+        "receiveAmount": 182321.31
       },
       "remitly": {
         "rate": 1846.02,
@@ -6522,6 +6522,12 @@
         "fee": 1.23,
         "markup": null,
         "receiveAmount": 182217.81
+      },
+      "ria": {
+        "rate": 1852.9676,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 186432.11
       }
     }
   }
