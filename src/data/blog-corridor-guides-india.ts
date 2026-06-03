@@ -53,6 +53,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       "NRI remittance",
       "IFSC code",
     ],
+    featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       // ── Section 1: Intro + Answer Box ──
       {
@@ -547,6 +548,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       "cash pickup india",
       "cheapest way to send money to india",
     ],
+    featuredImage: "/images/blog/send-money-uae-to-india.jpg",
     sections: [
       // ── Section 1: Intro + Answer Box ──
       {

@@ -1685,6 +1685,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-31",
     author: "Akif Hazarvi",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
+    featuredImage: "/images/blog/wire-transfer-guide.jpg",
     sections: [
       {
         heading: "What Is a Wire Transfer?",
@@ -2731,6 +2732,7 @@ export const blogPosts: BlogPost[] = [
       "GBP to EUR",
       "international transfers",
     ],
+    featuredImage: "/images/blog/cheapest-way-to-send-money.jpg",
     sections: [
       {
         heading: "Why This Matters",
@@ -4342,6 +4344,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["India", "INR", "CAD to INR", "Canada", "remittance", "Interac", "corridor guide", "send money to India"],
+    featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       {
         heading: "Canada to India: One of the World's Busiest Remittance Corridors",
@@ -4526,6 +4529,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "B2B payments", "Wise Business", "OFX", "Revolut Business", "provider review", "batch payments", "FX management"],
+    featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
       {
         heading: "How We Evaluated Business Transfer Providers",
@@ -4837,6 +4841,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["Ria", "cash pickup", "India", "INR", "remittance", "expat", "money transfer", "USD to INR"],
+    featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       {
         heading: "Why Cash Pickup Still Matters for India Remittances",
@@ -5063,6 +5068,7 @@ export const blogPosts: BlogPost[] = [
       "international payments",
       "cross-border payments",
     ],
+    featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
       {
         heading: "Why Paying International Suppliers Is So Expensive",
@@ -5191,6 +5197,7 @@ export const blogPosts: BlogPost[] = [
       "global workforce",
       "cross-border payments",
     ],
+    featuredImage: "/images/blog/business-payment-mobile-app.jpg",
     sections: [
       {
         heading: "The Rise of International Payroll",
@@ -5325,6 +5332,7 @@ export const blogPosts: BlogPost[] = [
       "currency risk",
       "limit orders",
     ],
+    featuredImage: "/images/blog/business-fx-comparison-chart.jpg",
     sections: [
       {
         heading: "Why Exchange Rate Risk Matters for Your Business",
@@ -5455,6 +5463,7 @@ export const blogPosts: BlogPost[] = [
       "international clients",
       "freelancer payments",
     ],
+    featuredImage: "/images/blog/business-payment-mobile-app.jpg",
     sections: [
       {
         heading: "The Challenge of Cross-Border Invoicing",
@@ -5589,6 +5598,7 @@ export const blogPosts: BlogPost[] = [
       "cross-border payments",
       "CUSMA",
     ],
+    featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
       {
         heading: "US-Canada: The World's Largest Bilateral Trade Corridor",
@@ -5718,6 +5728,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "USA to UK", "USD to GBP", "B2B payments", "cross-border payments"],
+    featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
       {
         heading: "The USD-GBP Business Payment Corridor",
@@ -5838,6 +5849,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "USA to India", "USD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
+    featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       {
         heading: "The USD-INR Business Payment Corridor",
@@ -5965,6 +5977,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "USA to Mexico", "USD to MXN", "B2B payments", "nearshoring", "CUSMA"],
+    featuredImage: "/images/blog/send-money-to-mexico.jpg",
     sections: [
       {
         heading: "The USD-MXN Business Payment Corridor",
@@ -6087,6 +6100,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "USA to Europe", "USD to EUR", "B2B payments", "SEPA", "cross-border payments"],
+    featuredImage: "/images/blog/eu-instant-payments-2026.jpg",
     sections: [
       {
         heading: "The USD-EUR Business Payment Corridor",
@@ -6208,6 +6222,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "UK to Europe", "GBP to EUR", "B2B payments", "SEPA", "post-Brexit"],
+    featuredImage: "/images/blog/eu-instant-payments-2026.jpg",
     sections: [
       {
         heading: "The GBP-EUR Business Payment Corridor",
@@ -6328,6 +6343,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "UK to India", "GBP to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
+    featuredImage: "/images/blog/send-money-uk-to-india.jpg",
     sections: [
       {
         heading: "The GBP-INR Business Payment Corridor",
@@ -6449,6 +6465,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "USA to Philippines", "USD to PHP", "B2B payments", "BPO", "outsourcing"],
+    featuredImage: "/images/blog/send-money-to-philippines.jpg",
     sections: [
       {
         heading: "The USD-PHP Business Payment Corridor",
@@ -6571,6 +6588,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "USA to Australia", "USD to AUD", "B2B payments", "cross-border payments"],
+    featuredImage: "/images/blog/send-money-to-australia.jpg",
     sections: [
       {
         heading: "The USD-AUD Business Payment Corridor",
@@ -6690,6 +6708,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "USA to China", "USD to CNY", "B2B payments", "manufacturing", "supply chain"],
+    featuredImage: "/images/blog/china-business-transfers.jpg",
     sections: [
       {
         heading: "The USD-CNY Business Payment Corridor",
@@ -6818,6 +6837,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "Canada to USA", "CAD to USD", "B2B payments", "cross-border payments", "CUSMA"],
+    featuredImage: "/images/blog/business-fx-comparison-chart.jpg",
     sections: [
       {
         heading: "The CAD-USD Business Payment Corridor",
@@ -6938,6 +6958,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-16",
     author: "Akif Hazarvi",
     tags: ["business", "Australia to India", "AUD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
+    featuredImage: "/images/blog/send-money-uae-to-india.jpg",
     sections: [
       {
         heading: "The AUD-INR Business Payment Corridor",
@@ -8671,6 +8692,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-03-18",
     author: "Akif Hazarvi",
     tags: ["large transfers", "XE", "OFX", "forward contracts", "exchange rates", "property purchase", "business transfers", "comparison"],
+    featuredImage: "/images/blog/large-transfers-internationally.jpg",
     sections: [
       {
         heading: "Why Large Transfers Need a Different Approach",
@@ -9847,6 +9869,7 @@ export const blogPosts: BlogPost[] = [
       "send money to pakistan",
       "gbp to pkr forecast",
     ],
+    featuredImage: "/images/blog/pakistan-remittance-loss.jpg",
     sections: [
       {
         heading: "Pakistan Rupee Exchange Rate — Where Are We Now?",
@@ -10187,6 +10210,7 @@ export const blogPosts: BlogPost[] = [
       "international vendor payments",
       "make international business payments",
     ],
+    featuredImage: "/images/blog/lowest-fx-fees-business-2026.jpg",
     sections: [
       {
         heading: "What Are Bulk International Payments?",
@@ -10578,6 +10602,7 @@ export const blogPosts: BlogPost[] = [
       "erp payments",
       "xe review",
     ],
+    featuredImage: "/images/blog/xe-tax-season-2026.jpg",
     sections: [
       {
         heading: "What Makes Xe Stand Out for Business Payments?",
