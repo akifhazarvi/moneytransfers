@@ -5474,5 +5474,94 @@
         "receiveAmount": 157723.56
       }
     }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "lemfi": {
+        "rate": 1590,
+        "fee": 0,
+        "markup": -0.25,
+        "receiveAmount": 159000
+      },
+      "moneygram": {
+        "rate": 1574.4641,
+        "fee": 0.99,
+        "markup": 0.85,
+        "receiveAmount": 155887.69
+      },
+      "taptap-send": {
+        "rate": 1590,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 159000
+      },
+      "western-union": {
+        "rate": 1586.1666,
+        "fee": 0.99,
+        "markup": 0.11,
+        "receiveAmount": 157046.36
+      },
+      "dahabshiil": {
+        "rate": 1599.8121,
+        "fee": 0,
+        "markup": -0.75,
+        "receiveAmount": 159981.21
+      },
+      "profee": {
+        "rate": 1602.1938,
+        "fee": 2,
+        "markup": -0.9,
+        "receiveAmount": 157014.99
+      },
+      "worldremit": {
+        "rate": 1583.8177,
+        "fee": 0.99,
+        "markup": 0.26,
+        "receiveAmount": 156813.79
+      },
+      "instarem": {
+        "rate": 1582.7153,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 158271.53
+      },
+      "paysend": {
+        "rate": 1583.3245,
+        "fee": 0,
+        "markup": 0.29,
+        "receiveAmount": 158332.45
+      },
+      "sendwave": {
+        "rate": 1583.8177,
+        "fee": 0.99,
+        "markup": 0.26,
+        "receiveAmount": 156813.79
+      },
+      "remitly": {
+        "rate": 1577.09,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 157709
+      },
+      "ria": {
+        "rate": 1574.4658,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 157723.56
+      },
+      "xoom": {
+        "rate": 1549.6605,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 154206.71
+      },
+      "wise": {
+        "rate": 1590.98,
+        "fee": 1.72,
+        "markup": null,
+        "receiveAmount": 156361.51
+      }
+    }
   }
 ]

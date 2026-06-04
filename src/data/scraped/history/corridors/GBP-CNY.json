@@ -860,5 +860,22 @@
         "receiveAmount": 888
       }
     }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "pandaremit": {
+        "rate": 9.0596,
+        "fee": 5.99,
+        "markup": null,
+        "receiveAmount": 851.69
+      },
+      "taptap-send": {
+        "rate": 8.87,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 887
+      }
+    }
   }
 ]
