@@ -2629,16 +2629,16 @@
     "date": "2026-06-04",
     "providers": {
       "skrill": {
-        "rate": 32.6075,
+        "rate": 32.6127,
         "fee": 0,
-        "markup": 2.45,
-        "receiveAmount": 3260.75
+        "markup": 2.43,
+        "receiveAmount": 3261.27
       },
       "paysend": {
-        "rate": 32.8481,
+        "rate": 33.136,
         "fee": 9,
-        "markup": 1.73,
-        "receiveAmount": 2989.18
+        "markup": 0.86,
+        "receiveAmount": 3015.38
       },
       "remitly": {
         "rate": 33.48,

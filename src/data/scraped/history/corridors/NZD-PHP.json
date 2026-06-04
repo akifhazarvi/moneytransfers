@@ -5041,22 +5041,22 @@
     "date": "2026-06-04",
     "providers": {
       "moneygram": {
-        "rate": 35.2107,
+        "rate": 34.8195,
         "fee": 4.99,
-        "markup": 3.53,
-        "receiveAmount": 3345.37
+        "markup": 3.72,
+        "receiveAmount": 3308.2
       },
       "western-union": {
-        "rate": 35.9938,
+        "rate": 35.5506,
         "fee": 2.2,
-        "markup": 1.39,
-        "receiveAmount": 3520.2
+        "markup": 1.7,
+        "receiveAmount": 3476.85
       },
       "xe": {
-        "rate": 36.1928,
+        "rate": 35.8093,
         "fee": 5,
-        "markup": 0.84,
-        "receiveAmount": 3438.31
+        "markup": 0.98,
+        "receiveAmount": 3401.89
       },
       "remitly": {
         "rate": 35.8522,
@@ -5065,10 +5065,10 @@
         "receiveAmount": 3513.87
       },
       "revolut": {
-        "rate": 36.3102,
+        "rate": 35.9638,
         "fee": 1.2,
-        "markup": 0.52,
-        "receiveAmount": 3587.45
+        "markup": 0.55,
+        "receiveAmount": 3553.22
       },
       "wise": {
         "rate": 36.2441,
@@ -5105,6 +5105,12 @@
         "fee": 20,
         "markup": null,
         "receiveAmount": 2830.89
+      },
+      "skrill": {
+        "rate": 35.6983,
+        "fee": 0,
+        "markup": 1.29,
+        "receiveAmount": 3569.83
       }
     }
   }

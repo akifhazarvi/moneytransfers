@@ -1508,10 +1508,10 @@
     "date": "2026-06-04",
     "providers": {
       "paysend": {
-        "rate": 87.213,
+        "rate": 88.0963,
         "fee": 9,
-        "markup": 3.5,
-        "receiveAmount": 7936.38
+        "markup": 3,
+        "receiveAmount": 8016.76
       },
       "remitly": {
         "rate": 90.89,
@@ -1530,6 +1530,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 9114.78
+      },
+      "skrill": {
+        "rate": 88.5029,
+        "fee": 0,
+        "markup": 2.55,
+        "receiveAmount": 8850.29
       }
     }
   }
