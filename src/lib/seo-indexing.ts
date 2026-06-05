@@ -29,7 +29,9 @@ export const INDEXED_IBAN_SLUGS = new Set<string>([
   "pakistan",
   "turkey", "romania", "czechia", "hungary", "croatia",
   "finland", "greece", "cyprus", "luxembourg",
-  "united-arab-emirates", "saudi-arabia", "qatar", "kuwait", "bahrain",
+  // bahrain removed 2026-06-05: 3 GSC impr / 0 clicks in 90d, not a Bing
+  // winner — noindexed to concentrate crawl budget (Google: crawled-not-indexed).
+  "united-arab-emirates", "saudi-arabia", "qatar", "kuwait",
   "jordan", "egypt", "israel", "brazil", "ukraine", "georgia",
   // Added 2026-05-20: new GSC-validated sitemap entries that also need
   // to be indexable (otherwise they get submitted but blocked).
@@ -38,13 +40,19 @@ export const INDEXED_IBAN_SLUGS = new Set<string>([
 
 /** SWIFT country pages that should NOT be noindexed (broader than sitemap). */
 export const INDEXED_SWIFT_SLUGS = new Set<string>([
-  "united-kingdom", "united-states", "india", "pakistan", "germany",
-  "france", "netherlands", "united-arab-emirates", "canada", "australia",
+  // 2026-06-05: removed 8 SWIFT slugs (france, germany, nepal, colombia, peru,
+  // united-arab-emirates, china, bangladesh) — each <10 GSC impr / 0 clicks in
+  // 90d and not a Bing winner (not in SITEMAP_SWIFT_SLUGS). Noindexed to
+  // concentrate crawl/index budget on pages Google actually serves.
+  // NOTE: sri-lanka KEPT — 140 Bing impr/1 click (sitemap winner), Google-dead
+  // but valuable on Bing; noindex would kill it everywhere.
+  "united-kingdom", "united-states", "india", "pakistan",
+  "netherlands", "canada", "australia",
   "hong-kong", "singapore", "south-africa", "ireland", "new-zealand",
-  "bangladesh", "philippines", "nigeria", "mexico", "china",
+  "philippines", "nigeria", "mexico",
   "japan", "south-korea", "thailand", "indonesia", "malaysia",
-  "brazil", "kenya", "ghana", "sri-lanka", "nepal",
-  "turkiye", "egypt", "morocco", "colombia", "peru",
+  "brazil", "kenya", "ghana", "sri-lanka",
+  "turkiye", "egypt", "morocco",
   // GSC-validated for sitemap inclusion too:
   "georgia",
 ]);
