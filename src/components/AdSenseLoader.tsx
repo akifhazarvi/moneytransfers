@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { usePathname } from "next/navigation";
 
 const ADSENSE_CLIENT = "ca-pub-4359442444470890";
@@ -28,11 +27,13 @@ export default function AdSenseLoader() {
 
   if (isAdFreeRoute(pathname)) return null;
 
+  // Native <script> rather than next/script's <Script>: the latter stamps a
+  // `data-nscript` attribute that AdSense's loader rejects with a console
+  // warning ("AdSense head tag doesn't support data-nscript attribute"). A
+  // plain tag loads identically without the warning.
   return (
-    <Script
-      id="adsbygoogle-init"
+    <script
       async
-      strategy="afterInteractive"
       crossOrigin="anonymous"
       src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
     />
