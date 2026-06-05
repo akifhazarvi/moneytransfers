@@ -2634,10 +2634,10 @@
     "date": "2026-06-05",
     "providers": {
       "paysend": {
-        "rate": 75.706,
+        "rate": 75.0309,
         "fee": 9,
-        "markup": 0.32,
-        "receiveAmount": 6889.25
+        "markup": 1.02,
+        "receiveAmount": 6827.81
       },
       "remitly": {
         "rate": 76,

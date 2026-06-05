@@ -7752,10 +7752,10 @@
         "receiveAmount": 4400
       },
       "moneygram": {
-        "rate": 43.5259,
+        "rate": 43.3663,
         "fee": 0.99,
-        "markup": 0.87,
-        "receiveAmount": 4309.5
+        "markup": 1,
+        "receiveAmount": 4293.7
       },
       "skrill": {
         "rate": 42.6325,
@@ -7764,40 +7764,40 @@
         "receiveAmount": 4263.25
       },
       "western-union": {
-        "rate": 43.5579,
+        "rate": 43.552,
         "fee": 0,
-        "markup": 0.8,
-        "receiveAmount": 4355.79
+        "markup": 0.58,
+        "receiveAmount": 4355.2
       },
       "currencyfair": {
-        "rate": 43.605,
-        "fee": 1.83,
-        "markup": 0.69,
-        "receiveAmount": 4280.7
+        "rate": 43.535,
+        "fee": 1.84,
+        "markup": 0.62,
+        "receiveAmount": 4273.4
       },
       "instarem": {
         "rate": 44.248,
         "fee": 0.75,
-        "markup": -0.77,
+        "markup": -1.01,
         "receiveAmount": 4391.61
       },
       "xe": {
-        "rate": 43.6072,
+        "rate": 43.6024,
         "fee": 5,
-        "markup": 0.69,
-        "receiveAmount": 4142.69
+        "markup": 0.46,
+        "receiveAmount": 4142.23
       },
       "paysend": {
-        "rate": 43.5562,
+        "rate": 43.4626,
         "fee": 2.9,
-        "markup": 0.81,
-        "receiveAmount": 4229.31
+        "markup": 0.78,
+        "receiveAmount": 4220.22
       },
       "singx": {
-        "rate": 43.797,
+        "rate": 43.7032,
         "fee": 6,
-        "markup": 0.26,
-        "receiveAmount": 4116.92
+        "markup": 0.23,
+        "receiveAmount": 4108.1
       },
       "remitly": {
         "rate": 43.0507,
@@ -7806,10 +7806,10 @@
         "receiveAmount": 4305.07
       },
       "revolut": {
-        "rate": 43.6542,
+        "rate": 43.5742,
         "fee": 0.41,
-        "markup": 0.58,
-        "receiveAmount": 4347.53
+        "markup": 0.53,
+        "receiveAmount": 4339.55
       },
       "wise": {
         "rate": 43.8344,
