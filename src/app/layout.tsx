@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import AdSenseLoader from "@/components/AdSenseLoader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -89,13 +90,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://open.er-api.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://hatscripts.github.io" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4359442444470890"
-          crossOrigin="anonymous"
-        />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {/* AdSense loader — rendered on every page EXCEPT the home route, so
+            Auto Ads never run on the brand-defining homepage / comparison
+            widget. See AdSenseLoader.tsx for the route gate. */}
+        <AdSenseLoader />
+        {children}
+      </body>
     </html>
   );
 }

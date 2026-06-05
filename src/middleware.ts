@@ -231,7 +231,7 @@ export default function middleware(request: NextRequest) {
     // React apps — Next.js App Router does not support nonce-based inline styles.
     // See: https://csp.withgoogle.com/ and https://nextjs.org/docs/app/api-reference/config/next-config-js/headers#content-security-policy
     `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com`,
+    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google`,
     // GA4 routes EU/UK hits to region-specific collection endpoints
     // (region1.google-analytics.com etc) for data residency, NOT to
     // www.google-analytics.com. The narrow www-only allowlist silently
