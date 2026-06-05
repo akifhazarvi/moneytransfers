@@ -4088,5 +4088,70 @@
         "receiveAmount": 58.87
       }
     }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "lemfi": {
+        "rate": 0.613,
+        "fee": 0,
+        "markup": 0.99,
+        "receiveAmount": 61.3
+      },
+      "taptap-send": {
+        "rate": 0.61,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 61
+      },
+      "remitly": {
+        "rate": 0.6163,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 61.63
+      },
+      "instarem": {
+        "rate": 0.6172,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 61.72
+      },
+      "bnc": {
+        "rate": 0.6041,
+        "fee": 5.95,
+        "markup": null,
+        "receiveAmount": 56.81
+      },
+      "paypal": {
+        "rate": 0.5928,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 57.5
+      },
+      "td-bank": {
+        "rate": 0.6016,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 60.16
+      },
+      "bmo": {
+        "rate": 0.5879,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 58.79
+      },
+      "xoom": {
+        "rate": 0.5843,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 56.68
+      },
+      "rbc": {
+        "rate": 0.6,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 60
+      }
+    }
   }
 ]

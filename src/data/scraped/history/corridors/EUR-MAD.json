@@ -4345,5 +4345,100 @@
         "receiveAmount": 1021.68
       }
     }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "lemfi": {
+        "rate": 10.63,
+        "fee": 0,
+        "markup": 0.64,
+        "receiveAmount": 1063
+      },
+      "moneygram": {
+        "rate": 10.5443,
+        "fee": 0.8,
+        "markup": 1.42,
+        "receiveAmount": 1045.99
+      },
+      "taptap-send": {
+        "rate": 10.55,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1055
+      },
+      "deutsche-bank": {
+        "rate": 10.4397,
+        "fee": 28.78,
+        "markup": 2.4,
+        "receiveAmount": 743.54
+      },
+      "western-union": {
+        "rate": 10.5651,
+        "fee": 0.99,
+        "markup": 1.23,
+        "receiveAmount": 1046.05
+      },
+      "dahabshiil": {
+        "rate": 10.5984,
+        "fee": 0,
+        "markup": 0.92,
+        "receiveAmount": 1059.84
+      },
+      "worldremit": {
+        "rate": 10.4003,
+        "fee": 1.99,
+        "markup": 2.77,
+        "receiveAmount": 1019.33
+      },
+      "paysend": {
+        "rate": 10.6384,
+        "fee": 0,
+        "markup": 0.54,
+        "receiveAmount": 1063.84
+      },
+      "sendwave": {
+        "rate": 10.6001,
+        "fee": 1.99,
+        "markup": 0.9,
+        "receiveAmount": 1038.92
+      },
+      "remitly": {
+        "rate": 10.4715,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1042.02
+      },
+      "revolut": {
+        "rate": 10.5767,
+        "fee": 0.3,
+        "markup": 1.12,
+        "receiveAmount": 1054.49
+      },
+      "wise": {
+        "rate": 10.6992,
+        "fee": 6,
+        "markup": null,
+        "receiveAmount": 1005.72
+      },
+      "ria": {
+        "rate": 10.5361,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1094.13
+      },
+      "xoom": {
+        "rate": 10.3717,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 1021.71
+      },
+      "commerzbank": {
+        "rate": 10.3541,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 905.98
+      }
+    }
   }
 ]

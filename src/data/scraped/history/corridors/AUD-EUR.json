@@ -3944,5 +3944,70 @@
         "receiveAmount": 60.19
       }
     }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "lemfi": {
+        "rate": 0.6,
+        "fee": 0,
+        "markup": 2.24,
+        "receiveAmount": 60
+      },
+      "taptap-send": {
+        "rate": 0.604,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 60.4
+      },
+      "paypal": {
+        "rate": 0.5847,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 55.55
+      },
+      "remitly": {
+        "rate": 0.602,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 60.2
+      },
+      "hsbc": {
+        "rate": 0.601,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 60.1
+      },
+      "xoom": {
+        "rate": 0.6006,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 58.86
+      },
+      "nab": {
+        "rate": 0.5977,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.77
+      },
+      "anz": {
+        "rate": 0.5927,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.27
+      },
+      "instarem": {
+        "rate": 0.6155,
+        "fee": 0.5,
+        "markup": null,
+        "receiveAmount": 61.25
+      },
+      "commonwealth-bank": {
+        "rate": 0.5936,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.36
+      }
+    }
   }
 ]

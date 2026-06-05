@@ -2304,5 +2304,40 @@
         "receiveAmount": 4261.65
       }
     }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "taptap-send": {
+        "rate": 45.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4530
+      },
+      "remitly": {
+        "rate": 45.53,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 4416.87
+      },
+      "bank-of-america": {
+        "rate": 44.6673,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4466.73
+      },
+      "instarem": {
+        "rate": 45.5437,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4554.37
+      },
+      "wise": {
+        "rate": 46.0261,
+        "fee": 7.29,
+        "markup": null,
+        "receiveAmount": 4267.08
+      }
+    }
   }
 ]
