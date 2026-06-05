@@ -57,18 +57,32 @@ const popularPairs = [
 export default async function CurrencyConverterPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("currencyConverter");
+  const t = await getTranslations({ locale, namespace: "currencyConverter" });
 
   // Pre-compute static rates for SEO
   const defaultRate = getRate(exchangeRates, "USD", "EUR");
 
+  // Dynamic freshness signals — render the current month/year so the page reads
+  // as up-to-date for users and AI engines without hardcoding a year that goes
+  // stale. Matches the site-wide pattern (exchange-rates, banks, corridors).
+  const now = new Date();
+  const monthYear = now.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const fullDate = now.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
   return (
     <>
       {/* Server-rendered SEO heading */}
-      <Container className="py-8">
+      <Container className="pt-8 pb-0">
         <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">{t("heading")}</h1>
-        <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
+        <p className="text-sm text-[var(--color-on-surface-variant)] mb-3">
           {t("subheading")}
+        </p>
+        <p className="inline-flex items-center gap-1.5 text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface-dim)] rounded-full px-3 py-1.5 border border-[var(--color-outline)] mb-8">
+          <span className="relative flex h-1.5 w-1.5 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]" />
+          </span>
+          Live mid-market rates · Updated {fullDate}
         </p>
       </Container>
 
@@ -79,10 +93,10 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
       <Container className="py-12">
         <div className="max-w-[1000px]">
           <h2 className="font-display text-[clamp(1.5rem,3vw,2rem)] font-normal leading-[1.25] tracking-[-0.01em] text-[var(--color-on-surface)] mb-2">
-            Using the converter: travel, transfers & multi-currency
+            How banks hide their profit in the exchange rate
           </h2>
           <p className="text-md text-[var(--color-on-surface-variant)] mb-8 max-w-[720px]">
-            Three guides that go deeper on when and how to use a live mid-market rate — whether you&apos;re planning a multi-country trip, comparing providers, or checking what your bank is really charging.
+            The rate above is the mid-market rate — what banks charge each other. When you send money or spend abroad, your bank quotes a worse rate and keeps the difference, often advertising a &quot;$0 fee&quot; to hide it. These three guides show you how to spot the markup, what it costs, and which apps don&apos;t charge it.
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {converterGuides.map((guide) => (
@@ -104,13 +118,13 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
 
           <div className="mt-10 pt-8 border-t border-[var(--color-outline)]">
             <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal text-[var(--color-on-surface)] mb-3">
-              How to use the converter
+              The mid-market rate vs what you&apos;ll actually be charged
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4 max-w-[720px]">
-              The converter above shows the live mid-market rate — the midpoint between the buy and sell prices on the global currency market, and the rate banks use when trading with each other. It&apos;s the fairest benchmark you can find. When you send money, spend abroad, or withdraw cash overseas, your bank or provider adds a markup on top of this rate. Compare their quote to the mid-market rate here to see how much that markup is costing you.
+              The rate shown above is the mid-market rate as of {monthYear} — the midpoint between the buy and sell prices on the global currency market, and the rate banks use when trading with each other. It&apos;s never the rate they give you. Banks and most providers add a markup of 2–4% on top, then often advertise a &quot;$0 fee&quot; to make the transfer look free. On a $2,000 transfer, a 3% markup quietly costs $60 — invisible unless you compare the quote against the real rate.
             </p>
             <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed max-w-[720px]">
-              For multi-country trips, bookmark this page on your phone&apos;s home screen — you can switch between any of 150+ currencies in one tap, so checking &quot;what&apos;s this in USD?&quot; takes about five seconds at any restaurant, hotel, or ATM. To find the cheapest provider for an actual transfer, use our <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">live provider comparison tool</Link>. For market-wide context on which currencies are moving today, see our <Link href="/exchange-rates" className="text-[var(--color-primary)] hover:underline">live exchange rates dashboard</Link>.
+              To see which app charges the smallest markup for your transfer, use our <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">live provider comparison</Link> — it ranks 50+ apps by the true cost (markup + fee combined) so you can see exactly how much reaches your recipient. To understand how the markup works in detail, read our <Link href="/guides/exchange-rate-markup-explained" className="text-[var(--color-primary)] hover:underline font-medium">guide to exchange rate markup</Link>.
             </p>
           </div>
         </div>
@@ -119,8 +133,8 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
       {/* Server-rendered SEO content — visible to crawlers */}
       <Container>
         <div className="sr-only">
-          <h2>Live exchange rates</h2>
-          <p>1 USD = {defaultRate.toFixed(4)} EUR (mid-market rate)</p>
+          <h2>Live exchange rates ({monthYear})</h2>
+          <p>As of {fullDate}, 1 USD = {defaultRate.toFixed(4)} EUR (mid-market rate). Rates update every 60 seconds during market hours.</p>
 
           <h2>Popular currency pairs</h2>
           <table>
@@ -176,9 +190,9 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
           <h2>About our exchange rates</h2>
           <p>
             Exchange rates are sourced from leading financial data providers and updated every 60 seconds during
-            market hours. Rates shown are mid-market rates and may differ from the rates offered by individual
-            money transfer providers. Always check the exact rate and total cost with your chosen provider before
-            making a transfer.
+            market hours. The rates on this page reflect the live mid-market rate as of {fullDate}. Rates shown are
+            mid-market rates and may differ from the rates offered by individual money transfer providers. Always
+            check the exact rate and total cost with your chosen provider before making a transfer.
           </p>
         </div>
       </Container>

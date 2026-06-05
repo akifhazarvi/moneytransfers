@@ -929,5 +929,120 @@
         "receiveAmount": 59.63
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "instarem": {
+        "rate": 0.5911,
+        "fee": 0,
+        "markup": 0.57,
+        "receiveAmount": 59.11
+      },
+      "revolut": {
+        "rate": 0.5915,
+        "fee": 0,
+        "markup": 0.51,
+        "receiveAmount": 59.15
+      },
+      "wise": {
+        "rate": 0.5967,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.67
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "instarem": {
+        "rate": 0.5927,
+        "fee": 0,
+        "markup": 0.5,
+        "receiveAmount": 59.27
+      },
+      "revolut": {
+        "rate": 0.5925,
+        "fee": 0,
+        "markup": 0.54,
+        "receiveAmount": 59.25
+      },
+      "wise": {
+        "rate": 0.5964,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.64
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "instarem": {
+        "rate": 0.5928,
+        "fee": 0,
+        "markup": 0.96,
+        "receiveAmount": 59.28
+      },
+      "revolut": {
+        "rate": 0.5958,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 59.58
+      },
+      "wise": {
+        "rate": 0.5968,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.68
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "instarem": {
+        "rate": 0.5928,
+        "fee": 0,
+        "markup": 0.97,
+        "receiveAmount": 59.28
+      },
+      "revolut": {
+        "rate": 0.5955,
+        "fee": 0,
+        "markup": 0.53,
+        "receiveAmount": 59.55
+      },
+      "wise": {
+        "rate": 0.5996,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.96
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "instarem": {
+        "rate": 0.5928,
+        "fee": 0,
+        "markup": 0.93,
+        "receiveAmount": 59.28
+      },
+      "revolut": {
+        "rate": 0.5952,
+        "fee": 0,
+        "markup": 0.53,
+        "receiveAmount": 59.52
+      },
+      "wise": {
+        "rate": 0.5985,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.85
+      }
+    }
   }
 ]

@@ -628,5 +628,180 @@
         "receiveAmount": 4375
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "moneygram": {
+        "rate": 43.2912,
+        "fee": 1.99,
+        "markup": 2.22,
+        "receiveAmount": 4242.97
+      },
+      "western-union": {
+        "rate": 43.2719,
+        "fee": 11,
+        "markup": 2.26,
+        "receiveAmount": 3851.2
+      },
+      "paysend": {
+        "rate": 43.7596,
+        "fee": 1.99,
+        "markup": 1.16,
+        "receiveAmount": 4288.88
+      },
+      "wise": {
+        "rate": 43.97,
+        "fee": 7.94,
+        "markup": 0.68,
+        "receiveAmount": 4047.88
+      },
+      "taptap-send": {
+        "rate": 43.75,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4375
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "moneygram": {
+        "rate": 43.2951,
+        "fee": 1.99,
+        "markup": 2.32,
+        "receiveAmount": 4243.35
+      },
+      "western-union": {
+        "rate": 43.3054,
+        "fee": 11,
+        "markup": 2.3,
+        "receiveAmount": 3854.18
+      },
+      "paysend": {
+        "rate": 43.8593,
+        "fee": 1.99,
+        "markup": 1.05,
+        "receiveAmount": 4298.65
+      },
+      "wise": {
+        "rate": 44.03,
+        "fee": 7.94,
+        "markup": 0.66,
+        "receiveAmount": 4053.4
+      },
+      "taptap-send": {
+        "rate": 43.75,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4375
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "moneygram": {
+        "rate": 43.3268,
+        "fee": 1.99,
+        "markup": 2.24,
+        "receiveAmount": 4246.46
+      },
+      "western-union": {
+        "rate": 43.3422,
+        "fee": 11,
+        "markup": 2.2,
+        "receiveAmount": 3857.46
+      },
+      "paysend": {
+        "rate": 43.8965,
+        "fee": 1.99,
+        "markup": 0.95,
+        "receiveAmount": 4302.3
+      },
+      "wise": {
+        "rate": 44.05,
+        "fee": 7.94,
+        "markup": 0.61,
+        "receiveAmount": 4055.24
+      },
+      "taptap-send": {
+        "rate": 44.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4440
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "moneygram": {
+        "rate": 43.3652,
+        "fee": 1.99,
+        "markup": 2.23,
+        "receiveAmount": 4250.22
+      },
+      "western-union": {
+        "rate": 43.3515,
+        "fee": 11,
+        "markup": 2.26,
+        "receiveAmount": 3858.28
+      },
+      "paysend": {
+        "rate": 44.26,
+        "fee": 1.99,
+        "markup": 0.21,
+        "receiveAmount": 4337.92
+      },
+      "wise": {
+        "rate": 44.1,
+        "fee": 7.94,
+        "markup": 0.57,
+        "receiveAmount": 4059.85
+      },
+      "taptap-send": {
+        "rate": 44.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4440
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "moneygram": {
+        "rate": 43.3728,
+        "fee": 1.99,
+        "markup": 2.25,
+        "receiveAmount": 4250.97
+      },
+      "western-union": {
+        "rate": 43.3807,
+        "fee": 11,
+        "markup": 2.23,
+        "receiveAmount": 3860.88
+      },
+      "paysend": {
+        "rate": 44.2899,
+        "fee": 1.99,
+        "markup": 0.18,
+        "receiveAmount": 4340.85
+      },
+      "wise": {
+        "rate": 44.1,
+        "fee": 7.94,
+        "markup": 0.61,
+        "receiveAmount": 4059.85
+      },
+      "taptap-send": {
+        "rate": 44.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4430
+      }
+    }
   }
 ]

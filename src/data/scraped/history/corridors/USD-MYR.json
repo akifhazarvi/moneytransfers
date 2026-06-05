@@ -844,5 +844,90 @@
         "receiveAmount": 390.91
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "taptap-send": {
+        "rate": 3.97,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 397
+      },
+      "wise": {
+        "rate": 3.9669,
+        "fee": 1.39,
+        "markup": null,
+        "receiveAmount": 391.18
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "taptap-send": {
+        "rate": 3.96,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 396
+      },
+      "wise": {
+        "rate": 3.9648,
+        "fee": 1.39,
+        "markup": null,
+        "receiveAmount": 390.96
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "taptap-send": {
+        "rate": 3.97,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 397
+      },
+      "wise": {
+        "rate": 3.974,
+        "fee": 1.39,
+        "markup": null,
+        "receiveAmount": 391.88
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "taptap-send": {
+        "rate": 4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 400
+      },
+      "wise": {
+        "rate": 3.997,
+        "fee": 1.39,
+        "markup": null,
+        "receiveAmount": 394.14
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "taptap-send": {
+        "rate": 4.02,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 402
+      },
+      "wise": {
+        "rate": 4.022,
+        "fee": 1.39,
+        "markup": null,
+        "receiveAmount": 396.61
+      }
+    }
   }
 ]

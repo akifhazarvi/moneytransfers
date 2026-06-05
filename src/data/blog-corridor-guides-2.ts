@@ -27,6 +27,7 @@ export const corridorGuides2: BlogPost[] = [
     updatedAt: "2026-05-14",
     author: "Akif Hazarvi",
     tags: ["UAE", "Pakistan", "AED to PKR", "remittance", "corridor guide", "send money from UAE to Pakistan", "uae to pakistan money transfer", "JazzCash", "Easypaisa", "RDA", "Roshan Digital Account", "RAAST", "Buna", "2026"],
+    featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
       {
         heading: "Quick Answer: Cheapest Way to Send AED to PKR in May 2026",
@@ -233,6 +234,7 @@ export const corridorGuides2: BlogPost[] = [
     updatedAt: "2026-03-18",
     author: "Akif Hazarvi",
     tags: ["Kenya", "KES", "remittance", "USD to KES", "M-Pesa", "corridor guide", "send money to Kenya"],
+    featuredImage: "/images/blog/send-money-to-kenya.jpg",
     sections: [
       {
         heading: "Why M-Pesa Makes Kenya the Easiest Country to Send Money To",
@@ -349,6 +351,7 @@ export const corridorGuides2: BlogPost[] = [
     updatedAt: "2026-05-14",
     author: "Akif Hazarvi",
     tags: ["Egypt", "EGP", "remittance", "USD to EGP", "corridor guide", "send money to Egypt", "InstaPay", "Vodafone Cash", "IMF Egypt", "2026"],
+    featuredImage: "/images/blog/send-money-to-egypt.svg",
     sections: [
       {
         heading: "Quick Answer: Cheapest Way to Send USD to Egypt in 2026",
@@ -560,6 +563,7 @@ export const corridorGuides2: BlogPost[] = [
     updatedAt: "2026-03-18",
     author: "Akif Hazarvi",
     tags: ["Morocco", "MAD", "remittance", "EUR to MAD", "USD to MAD", "corridor guide", "send money to Morocco"],
+    featuredImage: "/images/blog/send-money-to-morocco.jpg",
     sections: [
       {
         heading: "Morocco: Why the Stable Dirham Makes Provider Choice Everything",
@@ -648,6 +652,7 @@ export const corridorGuides2: BlogPost[] = [
     updatedAt: "2026-03-18",
     author: "Akif Hazarvi",
     tags: ["Jamaica", "JMD", "remittance", "USD to JMD", "corridor guide", "send money to Jamaica", "cash pickup"],
+    featuredImage: "/images/blog/send-money-to-jamaica.svg",
     sections: [
       {
         heading: "Jamaica: Where Cash Pickup Still Beats Bank Transfers",
@@ -728,6 +733,7 @@ export const corridorGuides2: BlogPost[] = [
     updatedAt: "2026-03-18",
     author: "Akif Hazarvi",
     tags: ["Sri Lanka", "LKR", "remittance", "USD to LKR", "corridor guide", "send money to Sri Lanka"],
+    featuredImage: "/images/blog/send-money-to-sri-lanka.svg",
     sections: [
       {
         heading: "Sri Lanka: Why the 2022 Crisis Made Provider Comparison Essential",

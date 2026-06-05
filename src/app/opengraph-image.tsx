@@ -199,7 +199,7 @@ export default async function Image() {
           }}
         >
           <span style={{ fontSize: "16px", color: "#475569", fontWeight: 500, display: "flex" }}>
-            60+ providers · 64+ corridors · updated every 6 hours
+            50+ apps · 64+ corridors · updated every 6 hours
           </span>
           <span
             style={{

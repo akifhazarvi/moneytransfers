@@ -304,5 +304,90 @@
         "receiveAmount": 8319.15
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "worldremit": {
+        "rate": 80.5252,
+        "fee": 0.99,
+        "markup": 4.82,
+        "receiveAmount": 7972.8
+      },
+      "mukuru": {
+        "rate": 83.1904,
+        "fee": 0,
+        "markup": 1.67,
+        "receiveAmount": 8319.04
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "worldremit": {
+        "rate": 80.0554,
+        "fee": 0.99,
+        "markup": 4.89,
+        "receiveAmount": 7926.29
+      },
+      "mukuru": {
+        "rate": 82.6436,
+        "fee": 0,
+        "markup": 1.82,
+        "receiveAmount": 8264.36
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "worldremit": {
+        "rate": 80.2718,
+        "fee": 0.99,
+        "markup": 4.54,
+        "receiveAmount": 7947.71
+      },
+      "mukuru": {
+        "rate": 82.8882,
+        "fee": 0,
+        "markup": 1.42,
+        "receiveAmount": 8288.81
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "worldremit": {
+        "rate": 79.7854,
+        "fee": 0.99,
+        "markup": 4.62,
+        "receiveAmount": 7899.55
+      },
+      "mukuru": {
+        "rate": 82.3404,
+        "fee": 0,
+        "markup": 1.56,
+        "receiveAmount": 8234.04
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "worldremit": {
+        "rate": 79.7854,
+        "fee": 0.99,
+        "markup": 4.62,
+        "receiveAmount": 7899.55
+      },
+      "mukuru": {
+        "rate": 82.3404,
+        "fee": 0,
+        "markup": 1.56,
+        "receiveAmount": 8234.04
+      }
+    }
   }
 ]

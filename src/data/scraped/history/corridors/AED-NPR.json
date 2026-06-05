@@ -1392,5 +1392,180 @@
         "receiveAmount": 4138.47
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "paysend": {
+        "rate": 40.4969,
+        "fee": 9,
+        "markup": 1.97,
+        "receiveAmount": 3685.22
+      },
+      "remitly": {
+        "rate": 41.07,
+        "fee": 5,
+        "markup": 0.59,
+        "receiveAmount": 3901.65
+      },
+      "taptap-send": {
+        "rate": 41.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4150
+      },
+      "wise": {
+        "rate": 41.3858,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4138.58
+      },
+      "skrill": {
+        "rate": 40.1663,
+        "fee": 0,
+        "markup": 2.77,
+        "receiveAmount": 4016.63
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "skrill": {
+        "rate": 40.2151,
+        "fee": 0,
+        "markup": 3.03,
+        "receiveAmount": 4021.51
+      },
+      "paysend": {
+        "rate": 40.3902,
+        "fee": 9,
+        "markup": 2.61,
+        "receiveAmount": 3675.51
+      },
+      "remitly": {
+        "rate": 41.24,
+        "fee": 5,
+        "markup": 0.56,
+        "receiveAmount": 3917.8
+      },
+      "taptap-send": {
+        "rate": 41.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4150
+      },
+      "wise": {
+        "rate": 41.3837,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4138.37
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "skrill": {
+        "rate": 40.3406,
+        "fee": 0,
+        "markup": 3.29,
+        "receiveAmount": 4034.06
+      },
+      "paysend": {
+        "rate": 40.5296,
+        "fee": 9,
+        "markup": 2.83,
+        "receiveAmount": 3688.19
+      },
+      "remitly": {
+        "rate": 41.47,
+        "fee": 5,
+        "markup": 0.58,
+        "receiveAmount": 3939.65
+      },
+      "taptap-send": {
+        "rate": 41.25,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4125
+      },
+      "wise": {
+        "rate": 41.499,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4149.9
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "skrill": {
+        "rate": 40.4621,
+        "fee": 0,
+        "markup": 2.99,
+        "receiveAmount": 4046.21
+      },
+      "paysend": {
+        "rate": 41.1287,
+        "fee": 9,
+        "markup": 1.39,
+        "receiveAmount": 3742.71
+      },
+      "remitly": {
+        "rate": 41.48,
+        "fee": 5,
+        "markup": 0.54,
+        "receiveAmount": 3940.6
+      },
+      "taptap-send": {
+        "rate": 41.25,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4125
+      },
+      "wise": {
+        "rate": 41.6909,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4169.09
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "skrill": {
+        "rate": 40.4621,
+        "fee": 0,
+        "markup": 2.99,
+        "receiveAmount": 4046.21
+      },
+      "paysend": {
+        "rate": 41.1949,
+        "fee": 9,
+        "markup": 1.24,
+        "receiveAmount": 3748.74
+      },
+      "remitly": {
+        "rate": 41.52,
+        "fee": 5,
+        "markup": 0.46,
+        "receiveAmount": 3944.4
+      },
+      "taptap-send": {
+        "rate": 41.25,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4125
+      },
+      "wise": {
+        "rate": 41.7309,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4173.09
+      }
+    }
   }
 ]

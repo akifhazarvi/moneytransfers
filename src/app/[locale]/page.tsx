@@ -7,7 +7,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import LazyNewsTicker from "@/components/LazyNewsTicker";
-import HomeDynamicSection from "@/components/HomeDynamicSection";
+import LazyHomeDynamicSection from "@/components/LazyHomeDynamicSection";
 import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
 import { providers } from "@/data/providers";
@@ -44,6 +44,7 @@ const TOP_CORRIDORS: { slug: string; label: string; flag: string }[] = [
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   const SITE_URL = "https://sendmoneycompare.com";
@@ -110,7 +111,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Compare Money Transfers — Best Rates & Lowest Fees",
-    description: "Compare fees, exchange rates, and delivery times from 60+ money transfer providers across 64+ corridors. Updated every 6 hours with live data.",
+    description: "Compare fees, exchange rates, and delivery times from 50+ money transfer apps across 64+ corridors. Updated every 6 hours with live data.",
     url: "https://sendmoneycompare.com",
     isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
     about: { "@id": "https://sendmoneycompare.com/#organization" },
@@ -182,28 +183,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <span className="text-[var(--color-on-surface-variant)]">{tHero("titleHighlight")}</span>
               </h1>
               <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-5">
-                {tHero("subtitle")}
+                50+ apps ranked by{" "}
+                <span className="font-semibold text-[var(--color-primary)]">real fees</span>
+                .{" "}
+                <span className="font-semibold text-[var(--color-primary)]">No signup</span>
+                .
               </p>
             </div>
-            <div className="max-w-[640px] mx-auto">
+            <div className="max-w-[760px] mx-auto">
               <ComparisonWidget defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
             </div>
           </Container>
         </section>
 
-      {/* ─── LATEST NEWS ─── moved above the fold for freshness signal */}
-      <LazyNewsTicker
-        items={getLatestNews(6).map((n) => ({
-          slug: n.slug,
-          title: n.title,
-          excerpt: n.excerpt,
-          category: n.category,
-          publishedAt: n.publishedAt,
-        }))}
-      />
-
       {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
-        <HomeDynamicSection />
+        <LazyHomeDynamicSection />
       </HomeSelectionProvider>
 
       {/* ─── TRUST STRIP + WHY TRUST US — collapsed on mobile to keep Send CTAs near the fold ─── */}
@@ -349,7 +343,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {featuredProviders.map((provider) => (
               <Link key={provider.slug} href={`/companies/${provider.slug}`} className="snap-start shrink-0 w-[65vw] block p-3.5 rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-all">
                 <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-9 h-9 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0">
                     <Image src={provider.logo} alt={`${provider.name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
                   </div>
                   <div>
@@ -371,7 +365,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             {featuredProviders.map((provider) => (
               <Card key={provider.slug} href={`/companies/${provider.slug}`}>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-xl overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0 relative">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0 relative">
                     <Image
                       src={provider.logo}
                       alt={`${provider.name} logo`}
@@ -538,6 +532,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </MobileDetailsRail>
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
+
+      {/* ─── LATEST NEWS ─── moved to bottom (below FAQ) */}
+      <LazyNewsTicker
+        items={getLatestNews(6).map((n) => ({
+          slug: n.slug,
+          title: n.title,
+          excerpt: n.excerpt,
+          category: n.category,
+          publishedAt: n.publishedAt,
+        }))}
+      />
 
       {/* Mobile back-to-top + section label */}
       <MobileScrollNav

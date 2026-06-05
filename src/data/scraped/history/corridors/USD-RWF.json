@@ -904,5 +904,120 @@
         "receiveAmount": 134324
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "lemfi": {
+        "rate": 1444.95,
+        "fee": 0,
+        "markup": 1.47,
+        "receiveAmount": 144495
+      },
+      "taptap-send": {
+        "rate": 1453.86,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 145386
+      },
+      "wise": {
+        "rate": 1463.54,
+        "fee": 8.22,
+        "markup": null,
+        "receiveAmount": 134324
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "lemfi": {
+        "rate": 1440.504,
+        "fee": 0,
+        "markup": 1.87,
+        "receiveAmount": 144050.4
+      },
+      "taptap-send": {
+        "rate": 1456.55,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 145655
+      },
+      "wise": {
+        "rate": 1464.44,
+        "fee": 8.22,
+        "markup": null,
+        "receiveAmount": 134406
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "lemfi": {
+        "rate": 1441.314,
+        "fee": 0,
+        "markup": 1.43,
+        "receiveAmount": 144131.4
+      },
+      "taptap-send": {
+        "rate": 1451.28,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 145128
+      },
+      "wise": {
+        "rate": 1463.04,
+        "fee": 8.22,
+        "markup": null,
+        "receiveAmount": 134278
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "lemfi": {
+        "rate": 1440.01,
+        "fee": 0,
+        "markup": 1.59,
+        "receiveAmount": 144001
+      },
+      "taptap-send": {
+        "rate": 1450.24,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 145024
+      },
+      "wise": {
+        "rate": 1463.04,
+        "fee": 8.22,
+        "markup": null,
+        "receiveAmount": 134278
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "lemfi": {
+        "rate": 1441.512,
+        "fee": 0,
+        "markup": 1.61,
+        "receiveAmount": 144151.2
+      },
+      "taptap-send": {
+        "rate": 1454.59,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 145459
+      },
+      "wise": {
+        "rate": 1464.52,
+        "fee": 8.22,
+        "markup": null,
+        "receiveAmount": 134414
+      }
+    }
   }
 ]

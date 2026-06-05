@@ -2891,5 +2891,198 @@
         "receiveAmount": 1675.03
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "currencyfair": {
+        "rate": 16.7,
+        "fee": 34.79,
+        "markup": 0.66,
+        "receiveAmount": 1089.01
+      },
+      "paysend": {
+        "rate": 16.5252,
+        "fee": 9,
+        "markup": 1.7,
+        "receiveAmount": 1503.79
+      },
+      "remitly": {
+        "rate": 16.69,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1585.55
+      },
+      "taptap-send": {
+        "rate": 16.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1630
+      },
+      "wise": {
+        "rate": 16.7515,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1675.15
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "currencyfair": {
+        "rate": 16.676,
+        "fee": 34.8,
+        "markup": 0.76,
+        "receiveAmount": 1087.28
+      },
+      "paysend": {
+        "rate": 16.5626,
+        "fee": 9,
+        "markup": 1.44,
+        "receiveAmount": 1507.2
+      },
+      "remitly": {
+        "rate": 16.72,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1588.4
+      },
+      "taptap-send": {
+        "rate": 16.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1630
+      },
+      "wise": {
+        "rate": 16.8233,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1682.33
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "currencyfair": {
+        "rate": 16.676,
+        "fee": 34.8,
+        "markup": 0.73,
+        "receiveAmount": 1087.28
+      },
+      "paysend": {
+        "rate": 16.5567,
+        "fee": 9,
+        "markup": 1.44,
+        "receiveAmount": 1506.66
+      },
+      "remitly": {
+        "rate": 16.7,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1586.5
+      },
+      "taptap-send": {
+        "rate": 16.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1630
+      },
+      "wise": {
+        "rate": 16.7942,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1679.42
+      },
+      "skrill": {
+        "rate": 16.3055,
+        "fee": 0,
+        "markup": 2.94,
+        "receiveAmount": 1630.55
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "skrill": {
+        "rate": 16.2818,
+        "fee": 0,
+        "markup": 2.89,
+        "receiveAmount": 1628.18
+      },
+      "currencyfair": {
+        "rate": 16.634,
+        "fee": 34.81,
+        "markup": 0.79,
+        "receiveAmount": 1084.37
+      },
+      "paysend": {
+        "rate": 16.6441,
+        "fee": 9,
+        "markup": 0.73,
+        "receiveAmount": 1514.61
+      },
+      "remitly": {
+        "rate": 16.71,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1587.45
+      },
+      "taptap-send": {
+        "rate": 16.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1630
+      },
+      "wise": {
+        "rate": 16.8125,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1681.25
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "skrill": {
+        "rate": 16.253,
+        "fee": 0,
+        "markup": 2.9,
+        "receiveAmount": 1625.3
+      },
+      "currencyfair": {
+        "rate": 16.608,
+        "fee": 34.82,
+        "markup": 0.78,
+        "receiveAmount": 1082.51
+      },
+      "paysend": {
+        "rate": 16.6148,
+        "fee": 9,
+        "markup": 0.74,
+        "receiveAmount": 1511.95
+      },
+      "remitly": {
+        "rate": 16.66,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1582.7
+      },
+      "taptap-send": {
+        "rate": 16.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1630
+      },
+      "wise": {
+        "rate": 16.7465,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1674.65
+      }
+    }
   }
 ]

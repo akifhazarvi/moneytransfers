@@ -63,7 +63,7 @@ function getCountryName(code: string, slug: string): string {
 export default async function IbanPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("iban");
+  const t = await getTranslations({ locale, namespace: "iban" });
   const sepaCountries = getSepaCountries();
   const sorted = [...wiseCountries].sort((a, b) => {
     const nameA = getCountryName(a.countryCode, a.slug);
@@ -106,38 +106,32 @@ export default async function IbanPage({ params }: { params: Promise<{ locale: s
         </Container>
       </section>
 
-      {/* All Countries A-Z */}
+      {/* All Countries A-Z — collapsed: this is a flat duplicate of the
+          "Browse by region" section below (same country set, linked once
+          each there). Collapsing avoids linking every IBAN country page
+          twice from one hub while keeping the A–Z list crawlable. */}
       <section className="py-10">
         <Container>
-          <SectionHeader title="All countries A–Z" />
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {sorted.map((country) => {
-              const name = getCountryName(country.countryCode, country.slug);
-              return (
-                <Card
-                  key={country.countryCode}
-                  href={`/iban/${country.slug}`}
-                  className="!p-3 flex items-center gap-3"
-                >
-                  <CircleFlag code={country.countryCode} size={20} />
-                  <div className="min-w-0">
-                    <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">{name}</p>
-                    <div className="flex items-center gap-2 text-xs text-[var(--color-on-surface-variant)]">
-                      <span>{country.countryCode}</span>
-                      <span>·</span>
-                      <span>{country.ibanLength} chars</span>
-                      {country.sepa && (
-                        <>
-                          <span>·</span>
-                          <span className="text-[var(--color-primary)]">SEPA</span>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+          <details className="group">
+            <summary className="flex items-center gap-2 cursor-pointer list-none mb-2 hover:text-[var(--color-primary)] transition-colors">
+              <SectionHeader title="All countries A–Z" />
+              <svg className="w-5 h-5 shrink-0 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-4">
+              {sorted.map((country) => {
+                const name = getCountryName(country.countryCode, country.slug);
+                return (
+                  <li key={country.countryCode}>
+                    <Link href={`/iban/${country.slug}`} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                      {name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </details>
         </Container>
       </section>
 

@@ -150,12 +150,19 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
         </Container>
       </section>
 
-      {/* All corridors by source currency */}
+      {/* All corridors by source currency — collapsed by default so the
+          curated "Most tracked" grid above carries the primary link equity.
+          Links stay in the DOM (crawlable) but don't flood the page with
+          80-90 equal-weight links to pages not in the sitemap allowlist. */}
       <section className="py-10 bg-[var(--color-surface)]">
         <Container>
-          <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-6">
-            All currency corridors with rate history
-          </h2>
+          <details className="group">
+            <summary className="flex items-center justify-between cursor-pointer list-none text-h4 font-normal text-[var(--color-on-surface)] mb-6 hover:text-[var(--color-primary)] transition-colors">
+              <span>All currency corridors with rate history</span>
+              <svg className="w-5 h-5 shrink-0 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
           <div className="space-y-8">
             {sortedGroups.map(([from, insights]) => {
               const fromInfo = getCurrencyInfo(from);
@@ -231,6 +238,7 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
               );
             })}
           </div>
+          </details>
         </Container>
       </section>
 

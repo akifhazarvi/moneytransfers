@@ -3,7 +3,8 @@
  * These overlay the auto-generated comparison pages with richer editorial content.
  */
 
-import { generateQuotes, providers, getExchangeRate } from "@/data/providers";
+import { providers, getExchangeRate } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 export interface ComparisonArticle {
   slug: string; // e.g. "wise-vs-remitly"
@@ -48,9 +49,9 @@ export const comparisonArticles: ComparisonArticle[] = [
     slug: "wise-vs-remitly",
     providerA: "wise",
     providerB: "remitly",
-    title: "Wise vs Remitly 2026: Fees, Rates & Which Sends More Money",
+    title: "Wise vs Remitly 2026: Wise Sends More Money — Here's the Proof",
     metaDescription:
-      "We tested Wise vs Remitly across 6 corridors. Wise charges 0.33–0.63% with mid-market rates. Remitly offers express delivery in minutes. See who wins.",
+      "Wise charges 0% exchange rate markup. Remitly charges 0.5–2.5%. On a $1,000 transfer, that's $5–$25 more in your recipient's pocket with Wise. We tested 6 corridors — see the exact numbers.",
     updatedAt: "2026-03-14",
     readTime: "12 min read",
     intro:

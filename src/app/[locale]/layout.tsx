@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { GTAG_INLINE, THEME_INLINE } from "@/lib/inline-scripts";
+import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
@@ -10,8 +11,8 @@ import ThemeProvider from "@/components/ThemeProvider";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LazyAnalytics from "@/components/LazyAnalytics";
 import GA4PageviewTracker from "@/components/GA4PageviewTracker";
+import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
-import LazySendMoneyBot from "@/components/LazySendMoneyBot";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -26,6 +27,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  // Prime next-intl's request-locale cache BEFORE any other next-intl API so
+  // getRequestConfig (i18n/request.ts) reads the cached locale instead of
+  // calling headers() — calling headers() opts the route into dynamic
+  // rendering and serves no-store. Must run in generateMetadata too, not just
+  // the component body. See https://next-intl.dev/docs/routing/setup#static-rendering
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   const localeMap: Record<string, string> = { en: "en_US", es: "es_ES", fr: "fr_FR", pt: "pt_BR" };
@@ -82,7 +89,7 @@ const organizationSchema = {
   logo: { "@type": "ImageObject", url: `${SITE_URL}/logos/sendmoneycompare-logo.png`, width: 512, height: 512 },
   image: `${SITE_URL}/opengraph-image`,
   description:
-    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from 60+ providers across 80+ currency corridors.",
+    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from 50+ apps across 80+ currency corridors.",
   foundingDate: "2024",
   founders: [
     { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder & Editor-in-Chief", url: `${SITE_URL}/about/akif-hazarvi` },
@@ -154,7 +161,10 @@ const websiteSchema = {
   name: "SendMoneyCompare",
   url: SITE_URL,
   publisher: { "@id": `${SITE_URL}/#organization` },
-  dateModified: "2026-04-10",
+  // Reflects when live comparison data last changed (shared source of truth
+  // with sitemap lastmod). Was hardcoded "2026-04-10" — a stale freshness
+  // signal emitted on every page that contradicted the 6-hourly scrape cycle.
+  dateModified: getDataUpdatedDate(),
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -171,7 +181,7 @@ const financialServiceSchema = {
   "@id": `${SITE_URL}/#service`,
   name: "SendMoneyCompare",
   url: SITE_URL,
-  description: "Independent comparison platform for international money transfers. Compare fees, exchange rates and delivery times from 60+ providers.",
+  description: "Independent comparison platform for international money transfers. Compare fees, exchange rates and delivery times from 50+ apps.",
   serviceType: "Money Transfer Comparison",
   areaServed: "Worldwide",
   provider: { "@id": `${SITE_URL}/#organization` },
@@ -188,7 +198,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   // must-revalidate` and overrides next.config.ts. Crawlers read that as
   // "do not trust this response" and stop indexing (May 2026 incident).
 
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   // Only ship namespaces used by client components to reduce JS payload.
   // Server components use getTranslations() directly and don't need these.
@@ -238,7 +248,20 @@ export default async function LocaleLayout({ children, params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(financialServiceSchema) }}
       />
-      <NextIntlClientProvider locale={locale} messages={clientMessages}>
+      {/* Pass locale, messages, timeZone AND now explicitly. Omitting any of
+          these makes NextIntlClientProvider's server entry call getTimeZone()/
+          getConfigNow()/getFormats(), each of which reads getConfig() WITHOUT a
+          locale → next-intl falls back to headers() → the whole route renders
+          dynamically and is served Cache-Control: no-store. Supplying them all
+          keeps every page statically renderable (the real fix for the May 2026
+          deindex). timeZone is fixed (UTC) and now is build-time — neither
+          varies per request. */}
+      <NextIntlClientProvider
+        locale={locale}
+        messages={clientMessages}
+        timeZone="UTC"
+        now={new Date()}
+      >
         <ThemeProvider>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium focus:shadow-lg">
             Skip to main content
@@ -251,7 +274,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LazyForexTicker />
           <LazyAnalytics />
           <GA4PageviewTracker />
-          <LazySendMoneyBot />
+          <AiSourceInjector />
           <CookieConsentBanner />
         </ThemeProvider>
       </NextIntlClientProvider>

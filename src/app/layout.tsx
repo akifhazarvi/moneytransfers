@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  // Text must paint immediately on the metric-matched system fallback rather
+  // than wait on the 84 KB Inter woff2, which Lighthouse showed at the END of
+  // a 741 ms critical chain (delaying LCP/FCP on Slow 4G). adjustFontFallback
+  // (on by default) size-adjusts the fallback so the swap is near-invisible.
+  // (Inter is a variable font — omitting `weight` loads one woff2 covering all
+  // weights, which is smaller than pinning multiple static instances.)
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
 });
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Compare 35+ Money Transfer Services — Find the Cheapest Rate (2026)",
+      "Compare Money Transfer Apps — Find the Cheapest Rate in 2026",
     template: "%s | SendMoneyCompare",
   },
   robots: {
@@ -59,19 +65,28 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getLocale();
-
+  // Single-locale site: hardcode lang="en". Calling next-intl's getLocale()
+  // here reads the x-next-intl-locale request header, which opts the ENTIRE
+  // app into dynamic rendering — every route built as ƒ (Dynamic) and served
+  // Cache-Control: no-store. That was the real root cause of the May 2026
+  // deindex (not the geo cookies). With one locale there is nothing to read.
   return (
-    <html lang={locale} className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Only GTM is on the critical path (loads in the initial document).
+            Trustpilot's widget and the er-api forex fetch both fire after
+            hydration from useEffect, so preconnecting to them wastes a
+            connection slot and can delay genuinely critical requests
+            (Lighthouse flags them as "unused preconnect"). dns-prefetch is
+            the cheap hint that still warms DNS for those later requests. */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://widget.trustpilot.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://open.er-api.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://widget.trustpilot.com" />
+        <link rel="dns-prefetch" href="https://open.er-api.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://hatscripts.github.io" />
       </head>

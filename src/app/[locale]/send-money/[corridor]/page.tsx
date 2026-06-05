@@ -36,12 +36,12 @@ export const revalidate = 21600;
 import CircleFlag from "@/components/CircleFlag";
 import {
   providers,
-  generateQuotes,
   getProviderName,
   getExchangeRate,
   currencies,
   popularCorridors,
 } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
 import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";
@@ -55,7 +55,7 @@ import { statSync, readdirSync } from "fs";
 import { join } from "path";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
-import { RateInsightBanner, ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
+import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
 import StickyBestCTA from "@/components/StickyBestCTA";
 import LiveTimestamp from "@/components/LiveTimestamp";
 
@@ -1818,8 +1818,8 @@ function getBestGuideLink(
 export default async function CorridorPage({ params }: Props) {
   const { corridor: slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("corridor");
-  const tSendMoney = await getTranslations("sendMoney");
+  const t = await getTranslations({ locale, namespace: "corridor" });
+  const tSendMoney = await getTranslations({ locale, namespace: "sendMoney" });
   const corridor = getCorridor(slug);
   if (!corridor) notFound();
 
@@ -1977,19 +1977,6 @@ export default async function CorridorPage({ params }: Props) {
         </Container>
       </section>
 
-      {/* ─── Rate Insight Banner ─── */}
-      {rateInsight && (
-        <section className="py-6 bg-[var(--color-surface)]">
-          <Container>
-            <RateInsightBanner
-              insight={rateInsight}
-              toCurrencySymbol={receiveSymbol}
-              toCurrency={toCurrency}
-            />
-          </Container>
-        </section>
-      )}
-
       {/* ─── Comparison Table ─── */}
       <section id="compare-providers" className="py-10">
         <Container>
@@ -2037,7 +2024,7 @@ export default async function CorridorPage({ params }: Props) {
                         <span className={`text-2sm font-medium tabular-nums shrink-0 w-5 text-center mt-1.5 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                           {i + 1}
                         </span>
-                        <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40">
+                        <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white border border-[var(--color-outline)]/40">
                           <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" />
                         </div>
                         <div className="flex-1 min-w-0">
@@ -2091,7 +2078,7 @@ export default async function CorridorPage({ params }: Props) {
                         {i + 1}
                       </span>
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)] relative">
+                        <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)] relative">
                           <Image src={logo} alt={`${name} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
                         </div>
                         <div className="min-w-0">
@@ -2183,7 +2170,7 @@ export default async function CorridorPage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[var(--color-on-surface-muted)] mb-5">
               <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">Akif Hazarvi</Link></span>
               <span className="text-[var(--color-outline)]">·</span>
-              <span>Refreshed every 6 hours from 35+ provider APIs</span>
+              <span>Refreshed every 6 hours from 50+ provider APIs</span>
             </div>
             <div className="mb-5">
               <AffiliateDisclosure />
@@ -2216,7 +2203,7 @@ export default async function CorridorPage({ params }: Props) {
             </h2>
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-6 max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden bg-[var(--color-surface-dim)] flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0">
                   <Image
                     src={providers.find((p) => p.slug === best.providerSlug)?.logo || `/logos/${best.providerSlug}.png`}
                     alt={getProviderName(best.providerSlug)}
@@ -2793,7 +2780,7 @@ export default async function CorridorPage({ params }: Props) {
                           {i + 1}
                         </span>
 
-                        <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-sm font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
+                        <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-sm font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
                           {br.provider.charAt(0)}
                         </div>
 
@@ -2840,7 +2827,7 @@ export default async function CorridorPage({ params }: Props) {
                         <span className={`text-xs font-semibold tabular-nums w-4 text-center mt-1 shrink-0 ${isBestBank ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                           {i + 1}
                         </span>
-                        <div className="w-9 h-9 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2sm font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
+                        <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-2sm font-semibold text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50">
                           {br.provider.charAt(0)}
                         </div>
                         <div className="flex-1 min-w-0">

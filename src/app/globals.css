@@ -187,6 +187,25 @@ body {
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Prevent any child from creating horizontal overflow on mobile */
+  overflow-x: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure embedded media never exceeds container width */
+.prose-content img,
+.prose-content video,
+.prose-content iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Pre/code blocks scroll rather than overflow */
+.prose-content pre {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .prose-content p {

@@ -2244,5 +2244,168 @@
         "receiveAmount": 214.15
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "paypal": {
+        "rate": 2.9433,
+        "fee": 6.37,
+        "markup": null,
+        "receiveAmount": 275.57
+      },
+      "remitly": {
+        "rate": 3.0264,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 296.62
+      },
+      "instarem": {
+        "rate": 3.0997,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 308.26
+      },
+      "uob": {
+        "rate": 3.0597,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 214.18
+      },
+      "hsbc-sg": {
+        "rate": 3.104,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 310.4
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "instarem": {
+        "rate": 3.0969,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 307.99
+      },
+      "remitly": {
+        "rate": 3.0244,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 296.42
+      },
+      "hsbc-sg": {
+        "rate": 3.0985,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 309.85
+      },
+      "paypal": {
+        "rate": 2.9405,
+        "fee": 6.38,
+        "markup": null,
+        "receiveAmount": 275.29
+      },
+      "uob": {
+        "rate": 3.0543,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 213.8
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "instarem": {
+        "rate": 3.1111,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 309.4
+      },
+      "remitly": {
+        "rate": 3.0392,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 297.87
+      },
+      "paypal": {
+        "rate": 2.9493,
+        "fee": 6.39,
+        "markup": null,
+        "receiveAmount": 276.1
+      },
+      "uob": {
+        "rate": 3.06,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 214.2
+      },
+      "hsbc-sg": {
+        "rate": 3.0954,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 309.54
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "hsbc-sg": {
+        "rate": 3.1039,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 310.39
+      },
+      "paypal": {
+        "rate": 2.9575,
+        "fee": 6.39,
+        "markup": null,
+        "receiveAmount": 276.86
+      },
+      "instarem": {
+        "rate": 3.1011,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 308.4
+      },
+      "remitly": {
+        "rate": 3.0375,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 297.7
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "instarem": {
+        "rate": 3.1093,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 309.22
+      },
+      "remitly": {
+        "rate": 3.0614,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 300.05
+      },
+      "paypal": {
+        "rate": 2.9729,
+        "fee": 6.39,
+        "markup": null,
+        "receiveAmount": 278.31
+      },
+      "hsbc-sg": {
+        "rate": 3.1202,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 312.02
+      }
+    }
   }
 ]

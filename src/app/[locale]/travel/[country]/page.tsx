@@ -533,7 +533,7 @@ export default async function TravelCountryPage({ params }: Props) {
               Need to send money to or from {guide.countryName}?
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mb-6">
-              Compare live rates across 60+ providers in real time. We show you what {guide.currency} actually lands in the recipient's account — not just the advertised fee.
+              Compare live rates across 50+ apps in real time. We show you what {guide.currency} actually lands in the recipient's account — not just the advertised fee.
             </p>
             <Link
               href={guide.relatedCorridorSlug ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}

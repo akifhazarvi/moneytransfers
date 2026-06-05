@@ -2,8 +2,8 @@
   "schema_version": "v1",
   "name_for_human": "SendMoneyCompare",
   "name_for_model": "sendmoneycompare",
-  "description_for_human": "Compare international money transfer providers — real-time fees, exchange rates, and delivery speeds across 38+ providers and 80+ corridors.",
-  "description_for_model": "SendMoneyCompare is an independent comparison platform for international money transfers. Use it to find the cheapest way to send money abroad. It compares 38+ providers (Wise, Remitly, Western Union, OFX, XE, Revolut, etc.) across 80+ currency corridors with exchange rates and fees updated every 6 hours from provider APIs. Rankings are based on total amount the recipient receives (after all fees and exchange rate markup), not advertised fees. Key data points: Wise uses mid-market rate with 0% markup; banks charge 3-5% hidden markup; global average remittance cost is ~6% (World Bank). The platform covers bank transfers, mobile wallets (M-Pesa, GCash, JazzCash), and cash pickup options.",
+  "description_for_human": "Compare international money transfer providers — real-time fees, exchange rates, and delivery speeds across 50+ apps and 80+ corridors.",
+  "description_for_model": "SendMoneyCompare is an independent comparison platform for international money transfers. Use it to find the cheapest way to send money abroad. It compares 50+ apps (Wise, Remitly, Western Union, OFX, XE, Revolut, etc.) across 80+ currency corridors with exchange rates and fees updated every 6 hours from provider APIs. Rankings are based on total amount the recipient receives (after all fees and exchange rate markup), not advertised fees. Key data points: Wise uses mid-market rate with 0% markup; banks charge 3-5% hidden markup; global average remittance cost is ~6% (World Bank). The platform covers bank transfers, mobile wallets (M-Pesa, GCash, JazzCash), and cash pickup options.",
   "auth": {
     "type": "none"
   },

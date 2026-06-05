@@ -76,8 +76,8 @@ const POPULAR_CORRIDORS = [
 // Replaces the old 4-second rotating ticker with something scannable at a glance.
 const PROOF_STATS: { Icon: LucideIcon; label: string; value: string; sub: string }[] = [
   { Icon: PiggyBank, label: "avg saved", value: "$47", sub: "per $1K transfer" },
-  { Icon: TrendingUp, label: "providers tracked", value: "35+", sub: "live quotes" },
-  { Icon: Zap, label: "data refresh", value: "6h", sub: "from 35+ APIs" },
+  { Icon: TrendingUp, label: "providers tracked", value: "50+", sub: "live quotes" },
+  { Icon: Zap, label: "data refresh", value: "6h", sub: "from 50+ APIs" },
 ];
 
 interface Greeting {
@@ -160,7 +160,7 @@ function getContextualGreeting(pathname: string | null): Greeting {
   if (p.includes("/guides/") || p.includes("/news/")) {
     return {
       title: "Planning to send money soon?",
-      subtitle: "Get a weekly digest of the cheapest providers across 35+ services. Free.",
+      subtitle: "Get a weekly digest of the cheapest providers across 50+ apps. Free.",
       nudge: "Most readers save $50+ on $1,000 transfers",
       triggerLabel: "Get the weekly digest — free",
       teaserLead: "Planning a transfer?",
@@ -198,11 +198,11 @@ function getContextualGreeting(pathname: string | null): Greeting {
   // Homepage + default — low-intent browsing
   return {
     title: "Hi! I'm your money transfer assistant.",
-    subtitle: "I track 35+ providers and send you a free weekly digest of the cheapest options.",
-    nudge: "Compare 35+ providers in one place",
+    subtitle: "I track 50+ apps and send you a free weekly digest of the cheapest options.",
+    nudge: "Compare 50+ apps in one place",
     triggerLabel: "Save on transfers",
     teaserLead: "Save up to $80 per $1,000 transfer",
-    teaserSub: "Free weekly digest from 35+ providers →",
+    teaserSub: "Free weekly digest from 50+ apps →",
     delayMs: 8000,
   };
 }
@@ -432,7 +432,7 @@ export default function SendMoneyBot() {
             {/* Footer */}
             <div className="bg-[var(--color-surface)] border-t border-[var(--color-outline)] px-4 py-2 text-center">
               <p className="text-[10px] text-[var(--color-on-surface-muted)]">
-                Powered by real-time data from 35+ providers
+                Powered by real-time data from 50+ apps
               </p>
             </div>
           </div>

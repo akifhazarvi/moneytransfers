@@ -2915,5 +2915,204 @@
         "receiveAmount": 2585.42
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "currencyfair": {
+        "rate": 25.6284,
+        "fee": 34.68,
+        "markup": 0.7,
+        "receiveAmount": 1674.05
+      },
+      "paysend": {
+        "rate": 25.1338,
+        "fee": 0,
+        "markup": 2.61,
+        "receiveAmount": 2513.38
+      },
+      "remitly": {
+        "rate": 25.8,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 2451
+      },
+      "taptap-send": {
+        "rate": 25.85,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2585
+      },
+      "wise": {
+        "rate": 25.9021,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2590.21
+      },
+      "skrill": {
+        "rate": 25.1713,
+        "fee": 0,
+        "markup": 2.47,
+        "receiveAmount": 2517.13
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "skrill": {
+        "rate": 25.1713,
+        "fee": 0,
+        "markup": 2.47,
+        "receiveAmount": 2517.13
+      },
+      "currencyfair": {
+        "rate": 25.7112,
+        "fee": 34.67,
+        "markup": 0.75,
+        "receiveAmount": 1679.71
+      },
+      "paysend": {
+        "rate": 25.3184,
+        "fee": 0,
+        "markup": 2.27,
+        "receiveAmount": 2531.84
+      },
+      "remitly": {
+        "rate": 25.79,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 2450.05
+      },
+      "taptap-send": {
+        "rate": 25.85,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2585
+      },
+      "wise": {
+        "rate": 25.9326,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2593.26
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "currencyfair": {
+        "rate": 25.8652,
+        "fee": 34.64,
+        "markup": 0.73,
+        "receiveAmount": 1690.55
+      },
+      "paysend": {
+        "rate": 25.4624,
+        "fee": 0,
+        "markup": 2.28,
+        "receiveAmount": 2546.24
+      },
+      "remitly": {
+        "rate": 25.87,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 2457.65
+      },
+      "taptap-send": {
+        "rate": 25.9,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2590
+      },
+      "wise": {
+        "rate": 25.9868,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2598.68
+      },
+      "skrill": {
+        "rate": 25.416,
+        "fee": 0,
+        "markup": 2.45,
+        "receiveAmount": 2541.6
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "skrill": {
+        "rate": 25.416,
+        "fee": 0,
+        "markup": 2.45,
+        "receiveAmount": 2541.6
+      },
+      "currencyfair": {
+        "rate": 25.8652,
+        "fee": 34.64,
+        "markup": 0.73,
+        "receiveAmount": 1690.55
+      },
+      "paysend": {
+        "rate": 25.7522,
+        "fee": 0,
+        "markup": 1.16,
+        "receiveAmount": 2575.22
+      },
+      "remitly": {
+        "rate": 25.99,
+        "fee": 5,
+        "markup": 0.25,
+        "receiveAmount": 2469.05
+      },
+      "taptap-send": {
+        "rate": 26,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2600
+      },
+      "wise": {
+        "rate": 26.1026,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2610.26
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "currencyfair": {
+        "rate": 25.8652,
+        "fee": 34.64,
+        "markup": 0.73,
+        "receiveAmount": 1690.55
+      },
+      "paysend": {
+        "rate": 25.7522,
+        "fee": 0,
+        "markup": 1.16,
+        "receiveAmount": 2575.22
+      },
+      "remitly": {
+        "rate": 26.01,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 2470.95
+      },
+      "taptap-send": {
+        "rate": 26.25,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2625
+      },
+      "wise": {
+        "rate": 26.0696,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 2606.96
+      }
+    }
   }
 ]

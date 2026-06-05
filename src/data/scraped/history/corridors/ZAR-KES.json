@@ -352,5 +352,114 @@
         "receiveAmount": 528.41
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "worldremit": {
+        "rate": 7.6553,
+        "fee": 0,
+        "markup": 4.05,
+        "receiveAmount": 765.53
+      },
+      "mukuru": {
+        "rate": 7.5492,
+        "fee": 30,
+        "markup": 5.38,
+        "receiveAmount": 528.44
+      },
+      "skrill": {
+        "rate": 7.6748,
+        "fee": 0,
+        "markup": 3.81,
+        "receiveAmount": 767.48
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "skrill": {
+        "rate": 7.6748,
+        "fee": 0,
+        "markup": 3.81,
+        "receiveAmount": 767.48
+      },
+      "worldremit": {
+        "rate": 7.6188,
+        "fee": 0,
+        "markup": 4.27,
+        "receiveAmount": 761.88
+      },
+      "mukuru": {
+        "rate": 7.6039,
+        "fee": 30,
+        "markup": 4.46,
+        "receiveAmount": 532.27
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "worldremit": {
+        "rate": 7.6381,
+        "fee": 0,
+        "markup": 4.05,
+        "receiveAmount": 763.81
+      },
+      "mukuru": {
+        "rate": 7.6044,
+        "fee": 30,
+        "markup": 4.47,
+        "receiveAmount": 532.31
+      },
+      "skrill": {
+        "rate": 7.656,
+        "fee": 0,
+        "markup": 3.82,
+        "receiveAmount": 765.6
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "skrill": {
+        "rate": 7.656,
+        "fee": 0,
+        "markup": 3.82,
+        "receiveAmount": 765.6
+      },
+      "worldremit": {
+        "rate": 7.5915,
+        "fee": 0,
+        "markup": 4.14,
+        "receiveAmount": 759.15
+      },
+      "mukuru": {
+        "rate": 7.6047,
+        "fee": 30,
+        "markup": 3.97,
+        "receiveAmount": 532.33
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "worldremit": {
+        "rate": 7.5951,
+        "fee": 0,
+        "markup": 4.13,
+        "receiveAmount": 759.51
+      },
+      "mukuru": {
+        "rate": 7.6052,
+        "fee": 30,
+        "markup": 4.01,
+        "receiveAmount": 532.37
+      }
+    }
   }
 ]

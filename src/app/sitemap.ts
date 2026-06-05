@@ -9,8 +9,7 @@ import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 import { providerReviews } from "@/data/provider-reviews";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
-import { readdirSync, statSync } from "fs";
-import { join } from "path";
+import { getDataUpdatedDate } from "@/lib/data-freshness";
 import {
   SITEMAP_CORRIDOR_SLUGS,
   SITEMAP_GUIDE_SLUGS,
@@ -33,29 +32,10 @@ const SITE_URL = "https://sendmoneycompare.com";
 const STATIC_HUB_DATE = "2026-03-28";
 const STATIC_CONTENT_DATE = "2026-03-01";
 
-// Dynamically derived from the most recently modified scraped quotes file.
-// Ensures lastmod on data-driven pages reflects when live data actually changed.
-function getDataUpdatedDate(): string {
-  const scrapedDir = join(process.cwd(), "src/data/scraped");
-  let latest = new Date(0);
-  try {
-    const files = readdirSync(scrapedDir).filter((f) => f.endsWith("-quotes.json"));
-    for (const file of files) {
-      try {
-        const mtime = statSync(join(scrapedDir, file)).mtime;
-        if (mtime > latest) latest = mtime;
-      } catch {
-        // file may not exist — skip
-      }
-    }
-  } catch {
-    // scrapedDir missing — fall through to STATIC_HUB_DATE
-  }
-  return latest.getTime() > 0
-    ? latest.toISOString().split("T")[0]
-    : STATIC_HUB_DATE;
-}
-
+// Derived from the most recently modified scraped quotes file (shared with
+// the WebSite.dateModified schema in [locale]/layout.tsx — single source of
+// truth). Ensures lastmod on data-driven pages reflects when live data
+// actually changed, not deploy time.
 const DATA_UPDATED = getDataUpdatedDate();
 
 function entry(path: string, lastModified: string): MetadataRoute.Sitemap[number] {

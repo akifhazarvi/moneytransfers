@@ -28,7 +28,7 @@ const SITE_URL = "https://sendmoneycompare.com";
 export default async function GuidesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("guides");
+  const t = await getTranslations({ locale, namespace: "guides" });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

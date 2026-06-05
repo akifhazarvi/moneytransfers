@@ -219,5 +219,90 @@
         "receiveAmount": 14.28
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "pandaremit": {
+        "rate": 0.1877,
+        "fee": 80,
+        "markup": null,
+        "receiveAmount": 3.75
+      },
+      "wise": {
+        "rate": 0.1888,
+        "fee": 24.34,
+        "markup": null,
+        "receiveAmount": 14.28
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "pandaremit": {
+        "rate": 0.1879,
+        "fee": 80,
+        "markup": null,
+        "receiveAmount": 3.76
+      },
+      "wise": {
+        "rate": 0.189,
+        "fee": 24.34,
+        "markup": null,
+        "receiveAmount": 14.3
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "pandaremit": {
+        "rate": 0.1881,
+        "fee": 80,
+        "markup": null,
+        "receiveAmount": 3.76
+      },
+      "wise": {
+        "rate": 0.1892,
+        "fee": 24.34,
+        "markup": null,
+        "receiveAmount": 14.31
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "pandaremit": {
+        "rate": 0.1882,
+        "fee": 80,
+        "markup": null,
+        "receiveAmount": 3.76
+      },
+      "wise": {
+        "rate": 0.1893,
+        "fee": 24.34,
+        "markup": null,
+        "receiveAmount": 14.32
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "pandaremit": {
+        "rate": 0.1884,
+        "fee": 80,
+        "markup": null,
+        "receiveAmount": 3.77
+      },
+      "wise": {
+        "rate": 0.1897,
+        "fee": 24.34,
+        "markup": null,
+        "receiveAmount": 14.35
+      }
+    }
   }
 ]

@@ -225,7 +225,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("guidesSlug");
+  const t = await getTranslations({ locale, namespace: "guidesSlug" });
   const post = getBlogPost(slug);
   if (!post) notFound();
 
@@ -298,25 +298,10 @@ export default async function BlogPostPage({ params }: Props) {
           }}
         />
       )}
-      {post.howToSteps && post.howToSteps.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "HowTo",
-              name: post.title,
-              description: post.metaDescription,
-              step: post.howToSteps.map((step, i) => ({
-                "@type": "HowToStep",
-                position: i + 1,
-                name: step.name,
-                text: step.text,
-              })),
-            }),
-          }}
-        />
-      )}
+      {/* HowTo JSON-LD removed: Google deprecated HowTo rich results in
+          September 2023, so it produced no SERP feature while adding
+          structured-data weight. The visual step-by-step render below
+          (driven by the same post.howToSteps) is unaffected. */}
 
       <ScrollTracker slug={slug} contentType="guide" />
 
@@ -499,7 +484,7 @@ export default async function BlogPostPage({ params }: Props) {
                 to={inlineQuoteCorridor.to}
                 amount={inlineQuoteCorridor.amount}
                 heading={`Don't overpay — here's the cheapest ${inlineQuoteCorridor.from} → ${inlineQuoteCorridor.to} provider right now`}
-                subheading={`Live rates for ${inlineQuoteCorridor.from} ${inlineQuoteCorridor.amount.toLocaleString()} — updated every 6 hours from 35+ services`}
+                subheading={`Live rates for ${inlineQuoteCorridor.from} ${inlineQuoteCorridor.amount.toLocaleString()} — updated every 6 hours from 50+ apps`}
                 source={`guide:${slug}:end`}
               />
             )}
@@ -573,7 +558,11 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* ── Sidebar ── */}
           <aside className="lg:w-[300px] xl:w-[320px] shrink-0">
-            <div className="lg:sticky lg:top-24 space-y-6">
+            {/* Sticky container is capped to the viewport height and scrolls
+                internally when its content (TOC + CTA + related + explore) is
+                taller than one screen — otherwise the lower items only became
+                visible after scrolling the entire article. */}
+            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto space-y-6">
 
               {/* Desktop TOC — sticky in sidebar */}
               {post.sections.length > 0 && (

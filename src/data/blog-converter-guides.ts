@@ -26,6 +26,7 @@ export const converterGuides: BlogPost[] = [
     updatedAt: "2026-04-23",
     author: "Akif Hazarvi",
     tags: ["travel", "currency converter", "multi-currency", "exchange rates", "tourist FX", "travel money"],
+    featuredImage: "/images/blog/expat-money-transfer.jpg",
     sections: [
       {
         heading: "Why Multi-Country Travelers Need a Single-Source Rate Tracker",
@@ -148,6 +149,7 @@ export const converterGuides: BlogPost[] = [
     updatedAt: "2026-04-23",
     author: "Akif Hazarvi",
     tags: ["currency converter", "exchange rates", "multi-currency", "FX comparison", "rate monitoring"],
+    featuredImage: "/images/blog/exchange-rate-markup.jpg",
     sections: [
       {
         heading: "Why Checking One Pair at a Time Loses You Money",
@@ -262,6 +264,7 @@ export const converterGuides: BlogPost[] = [
     updatedAt: "2026-04-23",
     author: "Akif Hazarvi",
     tags: ["currency converter", "bank FX", "travel", "exchange rates", "hidden fees", "mid-market rate"],
+    featuredImage: "/images/blog/best-money-transfer-apps.jpg",
     sections: [
       {
         heading: "The Rate Your Bank Shows You Isn't the Real Rate",

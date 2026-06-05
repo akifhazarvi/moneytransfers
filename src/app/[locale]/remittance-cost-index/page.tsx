@@ -6,7 +6,8 @@ import Container from "@/components/Container";
 import providerSummaryData from "@/data/scraped/provider-summary.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 import { corridors } from "@/data/corridors";
-import { providers, generateQuotes } from "@/data/providers";
+import { providers } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates } from "@/lib/i18n-metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -162,7 +163,7 @@ const faqs = [
   },
   {
     q: "How is the data collected?",
-    a: "We collect live quotes from 60+ provider APIs and websites every 6 hours using automated scrapers. The data covers 300+ currency corridors. Each quote includes the exact fee, exchange rate, and receive amount. We then calculate the markup by comparing each provider's rate against the mid-market rate from XE.",
+    a: "We collect live quotes from 50+ provider APIs and websites every 6 hours using automated scrapers. The data covers 300+ currency corridors. Each quote includes the exact fee, exchange rate, and receive amount. We then calculate the markup by comparing each provider's rate against the mid-market rate from XE.",
   },
   {
     q: "Why are specialist providers cheaper than banks?",
@@ -181,7 +182,7 @@ const faqs = [
 export default async function RemittanceCostIndexPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("remittanceCostIndex");
+  const t = await getTranslations({ locale, namespace: "remittanceCostIndex" });
   return (
     <>
       {/* Hero */}
@@ -277,7 +278,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                   </span>
                   <div className="flex items-center gap-3 min-w-0">
                     {p.logo && (
-                      <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-lg shrink-0" />
+                      <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-full shrink-0 bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
                     )}
                     <div className="min-w-0">
                       <Link href={`/companies/${p.slug}`} className="text-sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
@@ -327,7 +328,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                       {i + 1}
                     </span>
                     {p.logo && (
-                      <Image src={p.logo} alt={p.name} width={32} height={32} className="rounded-lg" />
+                      <Image src={p.logo} alt={p.name} width={32} height={32} className="rounded-full bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
                     )}
                     <div>
                       <Link href={`/companies/${p.slug}`} className="text-md font-semibold text-[var(--color-on-surface)]">

@@ -250,5 +250,66 @@
         "receiveAmount": 0.76
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "skrill": {
+        "rate": 0.0076,
+        "fee": 0,
+        "markup": 2.85,
+        "receiveAmount": 0.76
+      },
+      "western-union": {
+        "rate": 0.0077,
+        "fee": 0,
+        "markup": 1.82,
+        "receiveAmount": 0.77
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "western-union": {
+        "rate": 0.0077,
+        "fee": 0,
+        "markup": 1.78,
+        "receiveAmount": 0.77
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "western-union": {
+        "rate": 0.0076,
+        "fee": 0,
+        "markup": 1.78,
+        "receiveAmount": 0.76
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "western-union": {
+        "rate": 0.0076,
+        "fee": 0,
+        "markup": 1.98,
+        "receiveAmount": 0.76
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "western-union": {
+        "rate": 0.0076,
+        "fee": 0,
+        "markup": 1.81,
+        "receiveAmount": 0.76
+      }
+    }
   }
 ]

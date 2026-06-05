@@ -2862,5 +2862,210 @@
         "receiveAmount": 410.07
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "monese": {
+        "rate": 4.2287,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 405.96
+      },
+      "paypal": {
+        "rate": 4.0485,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 388.69
+      },
+      "remitly": {
+        "rate": 4.1876,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 410.43
+      },
+      "skrill": {
+        "rate": 4.1918,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 419.18
+      },
+      "commerzbank": {
+        "rate": 4.1616,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 364.14
+      },
+      "xoom": {
+        "rate": 4.1477,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 406.52
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "remitly": {
+        "rate": 4.1925,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 410.9
+      },
+      "skrill": {
+        "rate": 4.1961,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 419.61
+      },
+      "paypal": {
+        "rate": 4.0464,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 388.49
+      },
+      "xoom": {
+        "rate": 4.1524,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 406.97
+      },
+      "monese": {
+        "rate": 4.2333,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 410.63
+      },
+      "commerzbank": {
+        "rate": 4.1667,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 364.59
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "commerzbank": {
+        "rate": 4.1675,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 364.65
+      },
+      "paypal": {
+        "rate": 4.0592,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 389.73
+      },
+      "skrill": {
+        "rate": 4.1967,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 419.67
+      },
+      "xoom": {
+        "rate": 4.1529,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 407.03
+      },
+      "monese": {
+        "rate": 4.2341,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 410.71
+      },
+      "remitly": {
+        "rate": 4.1939,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 411.05
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "skrill": {
+        "rate": 4.2026,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 420.26
+      },
+      "paypal": {
+        "rate": 4.0582,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 389.63
+      },
+      "xoom": {
+        "rate": 4.1584,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 407.57
+      },
+      "monese": {
+        "rate": 4.2399,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 411.27
+      },
+      "commerzbank": {
+        "rate": 4.1734,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 365.17
+      },
+      "remitly": {
+        "rate": 4.1991,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 411.55
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "commerzbank": {
+        "rate": 4.1681,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 364.71
+      },
+      "paypal": {
+        "rate": 4.0608,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 389.88
+      },
+      "remitly": {
+        "rate": 4.1948,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 411.13
+      },
+      "xoom": {
+        "rate": 4.1593,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 407.66
+      },
+      "monese": {
+        "rate": 4.2351,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 410.8
+      },
+      "skrill": {
+        "rate": 4.1978,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 419.78
+      }
+    }
   }
 ]

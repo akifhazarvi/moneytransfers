@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { generateQuotes, getProviderName, providers } from "@/data/providers";
+import { getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { fetchQuotes } from "@/lib/fetch-quotes";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked, trackStickyCtaShown, trackStickyCtaClicked, trackStickyCtaDismissed } from "@/lib/analytics";
 
@@ -27,8 +28,18 @@ export default function GuidePageNudge({ from, to, amount, slug }: Props) {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const corridor = `${from}-${to}`;
 
-  // Compute best quote once (server data, no re-render needed)
-  const quotes = generateQuotes(amount, from, to);
+  // Quotes fetched from /api/quotes rather than computed via generateQuotes(),
+  // which would statically bundle the multi-megabyte scraped dataset into every
+  // guide/news page. The nudge stays hidden until they arrive (return null
+  // below when !best), so there's no skeleton to show.
+  const [quotes, setQuotes] = useState<TransferQuote[]>([]);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchQuotes(amount, from, to, controller.signal).then((q) => {
+      if (!controller.signal.aborted) setQuotes(q);
+    });
+    return () => controller.abort();
+  }, [amount, from, to]);
   const best = quotes[0];
   const worst = quotes[quotes.length - 1];
 

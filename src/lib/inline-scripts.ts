@@ -24,25 +24,29 @@
 
 export const GTAG_INLINE = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 (function(){
-  // Track everyone. No consent banner, no _ga cookie. Consent Mode is
-  // granted by default so GA4 actually records standard events and shows
-  // them in reports. client_storage:'none' tells GA4 to keep the client_id
-  // in memory for the session instead of writing it to a cookie — so we
-  // don't drop any _ga cookie on the user's browser.
+  // Persistent first-party GA4 cookie (the _ga client_id) so the same human is
+  // counted as ONE user across page loads and return visits. Previously
+  // client_storage:'none' kept the id in memory only, which re-minted a new
+  // client_id constantly and inflated the user count (787 users / 31 sessions).
+  // Cookies are now allowed; consent is geo-gated (banner for UK/EU/EEA/CH).
   if(navigator.webdriver===true){window['ga-disable-G-HJH07QEJ30']=true;return;}
   var geo=(document.cookie.match(/(?:^|; )geo-country=([A-Z]{2})/)||[])[1]||'';
-  // EU/UK/EEA/CH require consent — everyone else auto-granted.
-  var euUk={'AT':1,'BE':1,'BG':1,'HR':1,'CY':1,'CZ':1,'DK':1,'EE':1,'FI':1,'FR':1,'DE':1,'GR':1,'HU':1,'IE':1,'IT':1,'LV':1,'LT':1,'LU':1,'MT':1,'NL':1,'PL':1,'PT':1,'RO':1,'SK':1,'SI':1,'ES':1,'SE':1,'GB':1,'IS':1,'LI':1,'NO':1,'CH':1};
-  var storedConsent=(document.cookie.match(/(?:^|; )smc_consent=([^;]+)/)||[])[1]||'';
-  var analyticsStorage=euUk[geo]?(storedConsent==='granted'?'granted':'denied'):'granted';
+  var consentCountries={AT:1,BE:1,BG:1,HR:1,CY:1,CZ:1,DK:1,EE:1,FI:1,FR:1,DE:1,GR:1,HU:1,IE:1,IT:1,LV:1,LT:1,LU:1,MT:1,NL:1,PL:1,PT:1,RO:1,SK:1,SI:1,ES:1,SE:1,GB:1,IS:1,LI:1,NO:1,CH:1};
+  // Honor a stored choice (smc_consent) if present; else default by geo.
+  // UK/EU/EEA/CH default to 'denied' until the CookieConsentBanner grants it;
+  // everyone else is 'granted' so analytics + the _ga cookie work immediately.
+  var stored=(document.cookie.match(/(?:^|; )smc_consent=(granted|denied)/)||[])[1]||'';
+  var analytics=stored||(consentCountries[geo]?'denied':'granted');
   gtag('consent','default',{
-    'analytics_storage':analyticsStorage,
+    'analytics_storage':analytics,
     'ad_storage':'denied',
     'ad_user_data':'denied',
     'ad_personalization':'denied'
   });
   gtag('js',new Date());
-  var cfg={send_page_view:true,client_storage:'none'};
+  // Fire the landing pageview. For UK/EU users defaulting to 'denied', GA4
+  // buffers/drops it; CookieConsentBanner re-sends it after they accept.
+  var cfg={send_page_view:true};
   if(geo){cfg.country=geo;gtag('set','user_properties',{geo_country:geo});}
   // AI-search referral attribution — ChatGPT, Perplexity, Copilot etc strip
   // the Referer header, so GA4 logs source='chatgpt.com' with medium=(not set)
@@ -82,5 +86,5 @@ export const THEME_INLINE = `(function(){try{var t=localStorage.getItem('theme')
 
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
-export const GTAG_INLINE_SHA256 = "lpxFHJL8R8EEQCHO0I3jz5fYZgaZrczGiGJsuchcJ0c=";
+export const GTAG_INLINE_SHA256 = "vFs8yu5/dujeSSGQ8vbhX1jCd1iZFizSLx6JM97qj8M=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";

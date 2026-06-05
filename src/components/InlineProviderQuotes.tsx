@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { generateQuotes, getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 import InlineQuoteCTA from "./InlineQuoteCTA";
 import SeeAllProvidersLink from "./SeeAllProvidersLink";
@@ -72,7 +73,7 @@ export default function InlineProviderQuotes({
             slug={pageSlug}
             className="shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-xs font-bold bg-white text-[var(--color-success-dark)] rounded-full hover:bg-white/90 transition-colors whitespace-nowrap shadow-sm"
           >
-            See all 35+ →
+            See all 50+ →
           </SeeAllProvidersLink>
         </div>
         {savings > 0 && (
@@ -107,7 +108,7 @@ export default function InlineProviderQuotes({
                 </span>
 
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white border border-[var(--color-outline)]/40 flex items-center justify-center">
                     <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" unoptimized={logo.endsWith(".svg")} />
                   </div>
                   <div className="min-w-0">
@@ -152,7 +153,7 @@ export default function InlineProviderQuotes({
                   <span className={`text-xs font-bold tabular-nums w-4 text-center shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-muted)]"}`}>
                     {i + 1}
                   </span>
-                  <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white border border-[var(--color-outline)]/40 flex items-center justify-center">
                     <Image src={logo} alt={`${name} logo`} width={36} height={36} className="w-full h-full object-contain p-1" unoptimized={logo.endsWith(".svg")} />
                   </div>
                   <div className="flex-1 min-w-0">

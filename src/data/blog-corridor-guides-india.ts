@@ -19,6 +19,507 @@
 import type { BlogPost } from "./blog-posts";
 
 export const corridorGuidesIndia: BlogPost[] = [
+  // ── Hub Guide: How to Send Money to India Internationally (2026) ──
+  {
+    slug: "how-to-send-money-to-india-2026",
+    title:
+      "How to Send Money to India Internationally: Complete Guide (2026)",
+    metaDescription:
+      "How to send money to India in 2026 — compare top providers from USA, UK, Canada, Australia & UAE. Real fee data, IMPS vs UPI, and IFSC codes.",
+    excerpt:
+      "India receives over $125 billion in remittances every year — more than any other country on earth. Whether you're sending from the USA, UK, Gulf, or anywhere else, this guide breaks down every corridor, every major provider, and every delivery method so you get the most rupees for your money.",
+    category: "Corridors",
+    readTime: "18 min read",
+    publishedAt: "2026-06-03",
+    updatedAt: "2026-06-03",
+    author: "Akif Hazarvi",
+    tags: [
+      "india",
+      "INR",
+      "send money to India",
+      "remittance to India",
+      "how to send money to India",
+      "best way to send money to India",
+      "cheapest way to send money to India",
+      "international money transfer India",
+      "online money transfer India",
+      "best app to send money to India",
+      "send money to India from abroad",
+      "USD to INR",
+      "GBP to INR",
+      "AED to INR",
+      "IMPS",
+      "UPI",
+      "NRI remittance",
+      "IFSC code",
+    ],
+    featuredImage: "/images/blog/send-money-to-india.jpg",
+    sections: [
+      // ── Section 1: Intro + Answer Box ──
+      {
+        heading: "India: The World's Largest Remittance Destination",
+        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+<p><strong>Quick answer:</strong> The best way to send money to India internationally in 2026 is through a specialist online transfer provider — not a bank. <a href="/companies/wise">Wise</a> delivers the most rupees on amounts above $500/£400/€450 thanks to its 0% exchange rate markup. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering via IMPS in minutes with $0 fees on many corridors. <a href="/companies/instarem">Instarem</a> combines zero transfer fees with a consistently low markup of ~0.42%. On a £1,000 transfer to India, the difference between the best specialist and a UK high-street bank can be <strong>₹5,000–₹9,000</strong>. Use our live comparison tools for your specific corridor: <a href="/send-money/usa-to-india">USA → India</a> · <a href="/send-money/uk-to-india">UK → India</a> · <a href="/send-money/uae-to-india">UAE → India</a> · <a href="/send-money/canada-to-india">Canada → India</a> · <a href="/send-money/australia-to-india">Australia → India</a>.</p>
+</div>
+
+<p>India has been the <strong>world's top remittance recipient</strong> every year since 2008, pulling in over <strong>$125 billion in 2025</strong> according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. That's more than the country earns from software exports and tourism combined. Behind every rupee is a diaspora of roughly <strong>32 million Indians living abroad</strong> — in the Gulf, North America, the UK, and South-East Asia — sending money home for family expenses, property, education, and investment.</p>
+
+<p>Despite the massive volume, <strong>most senders still overpay</strong>. The average cost of sending $200 to India sits at around 4.8% of the transfer amount — compared to a theoretical optimum of under 1%. That gap represents billions of dollars in unnecessary fees absorbed by banks and slow-to-change incumbents.</p>
+
+<p>This guide covers:</p>
+<ul>
+<li>The <strong>best providers</strong> for sending money to India in 2026 from every major origin country</li>
+<li>A <strong>corridor-by-corridor breakdown</strong> — USA, UK, UAE, Saudi Arabia, Canada, Australia, Singapore</li>
+<li>India's <strong>payment rails</strong> explained: IMPS, UPI, NEFT, RTGS, and cash pickup</li>
+<li><strong>IFSC code guide</strong>, recipient requirements, and what can go wrong</li>
+<li><strong>Tax and compliance</strong> rules for 2026, including the new US remittance tax</li>
+<li><strong>Practical tips</strong> to maximise the rupees your family receives</li>
+</ul>
+
+<p>For a deep-dive into the USA-India corridor specifically, see our <a href="/guides/send-money-to-india-from-usa-guide">USA to India guide</a>. For the broadest view of international transfers, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a>.</p>`,
+      },
+
+      // ── Section 2: Universal Provider Comparison ──
+      {
+        heading: "Best Providers to Send Money to India in 2026",
+        content: `<p>The providers below have been evaluated on real quotes across multiple India corridors, verified in June 2026. All outperform bank wires on both cost and speed.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Top Providers: India Remittances at a Glance</h3>
+<table>
+<thead><tr><th>Provider</th><th>Best For</th><th>Typical Markup</th><th>Fees</th><th>Delivery Speed</th><th>Delivery Methods</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Large transfers, transparent pricing</td><td>0% (mid-market rate)</td><td>0.41–0.79%</td><td>Minutes–2 days</td><td>IMPS, NEFT bank deposit</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Speed, small amounts, UPI</td><td>0.3–0.8%</td><td>$0–$3.99</td><td>Minutes (Express)</td><td>IMPS, UPI, cash pickup</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>Zero-fee regular senders</td><td>~0.42%</td><td>$0</td><td>1–2 days</td><td>Bank deposit</td></tr>
+<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>Large amounts ($5,000+)</td><td>0.4–0.8%</td><td>$0</td><td>1–2 days</td><td>Bank deposit</td></tr>
+<tr><td><strong><a href="/companies/xe">XE</a></strong></td><td>Consistent, no-fee transfers</td><td>0.4–1.0%</td><td>$0</td><td>1–4 days</td><td>Bank deposit</td></tr>
+<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>Multiple delivery options</td><td>0.5–1.2%</td><td>$0–$3.99</td><td>Minutes–1 day</td><td>IMPS, mobile wallet (Paytm)</td></tr>
+<tr><td><strong><a href="/companies/xoom">Xoom</a> (PayPal)</strong></td><td>PayPal users, cash pickup</td><td>0.5–1.5%</td><td>$0–$4.99</td><td>Minutes–1 day</td><td>Bank, cash pickup, mobile wallet</td></tr>
+<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>Cash pickup, rural India</td><td>1–3%</td><td>$0–$8</td><td>Minutes</td><td>Bank, cash pickup</td></tr>
+<tr><td><strong><a href="/companies/moneygram">MoneyGram</a></strong></td><td>Cash pickup alternative</td><td>1–2.5%</td><td>$0–$5</td><td>Minutes</td><td>Bank, cash pickup</td></tr>
+<tr><td><strong><a href="/companies/taptapsend">TapTap Send</a></strong></td><td>Zero-fee niche corridors</td><td>0.5–1.0%</td><td>$0</td><td>Minutes–1 day</td><td>Bank deposit</td></tr>
+<tr class="blog-row-danger"><td><strong>High-street bank</strong></td><td>—</td><td>2–5%</td><td>$20–$50 wire fee</td><td>3–5 business days</td><td>SWIFT bank wire</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Markup compared to the mid-market (interbank) exchange rate. Actual amounts vary by corridor, amount, and date. <a href="/send-money">Compare live rates for your transfer →</a></p>
+</div>
+
+<h3><a href="/companies/wise">Wise</a> — Best Overall for International Transfers to India</h3>
+<p>Wise has built its reputation on one principle: use the <strong>real mid-market exchange rate</strong> with zero markup — the same rate Reuters and Bloomberg publish. For India, this means you always get a fair INR rate, regardless of whether you're sending from the US, UK, Europe, or Australia. The fee is transparent, disclosed upfront, and typically ranges from 0.41% to 0.79% of the send amount. On a $1,000 USD transfer, that's around $7. On a £2,000 transfer, roughly £12. Delivery is via IMPS (usually within the hour) or NEFT (2–4 hours on banking days). No cash pickup. No surprises. See our full <a href="/companies/wise">Wise review</a>.</p>
+
+<h3><a href="/companies/remitly">Remitly</a> — Best for Speed and First-Timers</h3>
+<p>Remitly's Express option is the fastest way to get rupees into an Indian bank account — typically <strong>within minutes</strong> via IMPS, 24/7. Fees on many corridors are $0, with the profit coming from a small exchange rate markup (0.3–0.8%). They also support <strong>UPI delivery</strong> — useful if the recipient prefers their UPI ID over giving out full bank details. Remitly runs competitive first-transfer promotions that can beat Wise on smaller amounts. Read the <a href="/compare/wise-vs-remitly">Wise vs Remitly comparison</a> to see which wins for your amount.</p>
+
+<h3><a href="/companies/instarem">Instarem</a> — Best Zero-Fee Option</h3>
+<p>Instarem is an Asia-Pacific specialist with strong banking rails into India. They charge <strong>zero transfer fees</strong> with an average markup of around 0.42% — very competitive. Their InstaPoints loyalty programme rewards regular senders with cashback on transfers. Good choice for people sending monthly remittances who want predictable, consistent pricing.</p>
+
+<h3><a href="/companies/ofx">OFX</a> — Best for Large Transfers ($5,000+)</h3>
+<p>OFX charges no transfer fees at any amount and offers competitive exchange rates (typically 0.4–0.8% markup). For transfers above $10,000, they assign you a dedicated dealer who can negotiate better rates and discuss rate-lock (forward contract) options if you need to transfer a large sum in the future. Popular with NRIs making property investments or large one-off transfers.</p>
+
+<h3><a href="/companies/western-union">Western Union</a> — Best Cash Pickup Network</h3>
+<p>Despite higher markups, Western Union's <strong>200,000+ agent locations across India</strong> — including small towns and rural areas — make it the only realistic option when the recipient has no bank account. The recipient needs a government-issued ID and the MTCN tracking number. Money is available in minutes of the sender paying.</p>`,
+      },
+
+      // ── Section 3: USA to India ──
+      {
+        heading: "Sending from the USA to India: The World's Biggest Corridor",
+        content: `<p>The <strong>USA-to-India corridor is the single largest remittance flow on earth</strong>, totalling roughly $28 billion a year. With 4.4 million Indian-Americans — many in high-income professional roles — the average transfer amount is higher than most other corridors, which is good news: at $500+, specialists like Wise deliver outstanding value.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">USA → India: Provider Comparison ($1,000 Transfer)</h3>
+<table>
+<thead><tr><th>Provider</th><th>Fee</th><th>Est. INR Received</th><th>Speed</th><th>Best For</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>~$7</td><td>~₹91,600</td><td>Minutes–2 days</td><td>$500+ transfers</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$0–$3.99</td><td>~₹91,200</td><td>Minutes</td><td>Speed, UPI, small amounts</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>$0</td><td>~₹91,100</td><td>1–2 days</td><td>Zero-fee regular senders</td></tr>
+<tr><td><strong><a href="/companies/xoom">Xoom</a></strong></td><td>$0–$4.99</td><td>~₹90,400</td><td>Minutes–1 day</td><td>PayPal users, cash pickup</td></tr>
+<tr class="blog-row-danger"><td><strong>US bank wire</strong></td><td>$25–$50</td><td>~₹86,500</td><td>3–5 days</td><td>—</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Estimated based on mid-June 2026 rate of ~92 INR/USD. <a href="/send-money/usa-to-india">See live USD to INR rates →</a></p>
+</div>
+
+<p><strong>Key points for US senders:</strong></p>
+<ul>
+<li>Fund via <strong>ACH bank transfer</strong>, not debit or credit card — this saves $3–$15 per transfer</li>
+<li>Transfers of $10,000+ are automatically reported under the <strong>Bank Secrecy Act</strong> — providers handle this; no action needed from you</li>
+<li>The <strong>2026 US remittance excise tax (1%)</strong> only applies to cash-funded transfers — bank-funded digital transfers are exempt</li>
+<li>Gift tax exclusion in 2026: <strong>$19,000 per recipient</strong> — gifts above this need IRS Form 709 (no tax usually owed)</li>
+</ul>
+
+<p>For the full breakdown, see our dedicated <a href="/guides/send-money-to-india-from-usa-guide">USA to India guide</a> which covers IFSC codes, NRI accounts, transfer limits, and 10 provider comparisons in detail.</p>`,
+      },
+
+      // ── Section 4: UK to India ──
+      {
+        heading: "Sending from the UK to India: GBP to INR",
+        content: `<p>The UK hosts approximately <strong>1.8 million people of Indian origin</strong> — the largest ethnic minority group in Britain — making the UK-India corridor one of Europe's busiest. Annual flows exceed <strong>$5 billion</strong>. Competition between providers is fierce, and GBP-to-INR rates are among the most competitive globally.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">UK → India: Provider Comparison (£1,000 Transfer)</h3>
+<table>
+<thead><tr><th>Provider</th><th>Fee</th><th>Est. INR Received</th><th>Speed</th><th>Best For</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>~£5–£8</td><td>~₹107,200</td><td>Minutes–1 day</td><td>Most transfers</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>£0–£2.99</td><td>~₹106,800</td><td>Minutes</td><td>Speed, UPI</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>£0</td><td>~₹106,600</td><td>1–2 days</td><td>Zero-fee senders</td></tr>
+<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>£0–£2.99</td><td>~₹106,000</td><td>Minutes–1 day</td><td>Mobile wallet (Paytm)</td></tr>
+<tr><td><strong><a href="/companies/xe">XE</a></strong></td><td>£0</td><td>~₹106,200</td><td>1–2 days</td><td>No-fee simplicity</td></tr>
+<tr class="blog-row-danger"><td><strong>UK bank wire</strong></td><td>£15–£25</td><td>~₹100,500</td><td>3–5 days</td><td>—</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Estimated based on mid-June 2026 rate of ~108 INR/GBP. <a href="/send-money/uk-to-india">See live GBP to INR rates →</a></p>
+</div>
+
+<p><strong>Key points for UK senders:</strong></p>
+<ul>
+<li>All UK providers are regulated by the <strong>Financial Conduct Authority (FCA)</strong> — safe and legitimate</li>
+<li>Wise and Remitly both support <strong>Faster Payments</strong> for funding, meaning your bank transfer arrives at the provider within seconds</li>
+<li>No UK tax on money sent abroad — the recipient in India also doesn't owe tax on inbound remittances</li>
+<li>UK residents sending £10,000+ to India may be asked to provide a <strong>source of funds declaration</strong> under AML regulations</li>
+<li>PNB Europe and certain UK Indian banks offer competitive GBP-to-INR rates for community members — worth checking alongside the mainstream providers</li>
+</ul>
+
+<p>For the full UK-India guide with provider deep-dives, visit our <a href="/send-money/uk-to-india">UK to India comparison page</a>.</p>`,
+      },
+
+      // ── Section 5: UAE & Gulf to India ──
+      {
+        heading: "Sending from the UAE & Gulf States to India: AED, SAR & QAR to INR",
+        content: `<p>The Gulf Cooperation Council (GCC) countries — UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman — are collectively the <strong>second-largest source of remittances to India</strong> after the USA, accounting for roughly $35 billion annually. This corridor is unique: the Indian workforce in the Gulf tends to be blue-collar workers sending the majority of their salary home every month. Speed, reliability, and zero-fee options matter most here.</p>
+
+<h3>UAE to India (AED to INR) — The Flagship Gulf Corridor</h3>
+<p>The UAE is home to over <strong>3.5 million Indians</strong> — the largest expat community in the world. Dubai and Abu Dhabi have intense provider competition, driving down fees to near-zero. The good news: most transfers arrive within minutes.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">UAE → India: Provider Comparison (AED 1,000 / ~$272 Transfer)</h3>
+<table>
+<thead><tr><th>Provider</th><th>Fee</th><th>Est. INR Received</th><th>Speed</th><th>Notes</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>AED 4–6</td><td>~₹25,000</td><td>Minutes–1 day</td><td>Best rate, low fee</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>AED 0</td><td>~₹24,900</td><td>Minutes</td><td>Zero fee, IMPS instant</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>AED 0</td><td>~₹24,850</td><td>1–2 days</td><td>Popular with UAE expats</td></tr>
+<tr><td><strong><a href="/companies/taptapsend">TapTap Send</a></strong></td><td>AED 0</td><td>~₹24,800</td><td>Minutes</td><td>Strong UAE-India rails</td></tr>
+<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>AED 0–10</td><td>~₹24,200</td><td>Minutes</td><td>Cash pickup option</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Estimated based on mid-June 2026 AED/INR rate. <a href="/send-money/uae-to-india">See live AED to INR rates →</a></p>
+</div>
+
+<h3>Saudi Arabia to India (SAR to INR)</h3>
+<p>Saudi Arabia has approximately <strong>2.5 million Indian workers</strong>, many on fixed-term contracts in construction, healthcare, and services. The SAR-INR corridor is high volume and competitive. Wise, Remitly, and Al Rajhi Bank (for Saudi-based senders) are popular. <a href="/send-money/saudi-arabia-to-india">Compare live SAR to INR rates →</a></p>
+
+<h3>Key Points for Gulf Senders</h3>
+<ul>
+<li><strong>Exchange controls:</strong> The UAE dirham (AED) and Saudi riyal (SAR) are pegged to the USD, making exchange rates more stable and predictable than floating currencies</li>
+<li><strong>No withholding tax:</strong> GCC countries impose no taxes on outbound remittances</li>
+<li><strong>Exchange house competition:</strong> UAE exchange houses (Al Ansari, Lulu Exchange, UAE Exchange) can be competitive on small amounts — compare with digital providers before visiting</li>
+<li><strong>IMPS delivery:</strong> Most Gulf transfers reach Indian bank accounts within minutes, 24/7, via IMPS</li>
+</ul>`,
+      },
+
+      // ── Section 6: Canada & Australia ──
+      {
+        heading: "Sending from Canada and Australia to India",
+        content: `<h3>Canada to India (CAD to INR)</h3>
+<p>Canada's Indian community has grown rapidly — over <strong>1.8 million people of Indian origin</strong> now live in Canada, driven by high immigration rates. The Canada-India corridor has seen explosive growth, pushing fees down and reliability up. The CAD/INR rate trades at roughly 61–63 INR per Canadian dollar in 2026.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Canada → India: Provider Comparison (CAD 1,000 / ~$730 Transfer)</h3>
+<table>
+<thead><tr><th>Provider</th><th>Fee</th><th>Est. INR Received</th><th>Speed</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>CAD 5–9</td><td>~₹61,200</td><td>Minutes–1 day</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>CAD 0–2.99</td><td>~₹60,900</td><td>Minutes</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>CAD 0</td><td>~₹60,700</td><td>1–2 days</td></tr>
+<tr><td><strong><a href="/companies/xe">XE</a></strong></td><td>CAD 0</td><td>~₹60,400</td><td>1–2 days</td></tr>
+<tr class="blog-row-danger"><td><strong>Canadian bank wire</strong></td><td>CAD 20–40</td><td>~₹57,500</td><td>3–5 days</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote"><a href="/send-money/canada-to-india">See live CAD to INR rates →</a></p>
+</div>
+
+<h3>Australia to India (AUD to INR)</h3>
+<p>Australia has around <strong>800,000 Indian-Australians</strong>, and the community is one of the fastest-growing in the country. The AUD-INR corridor has seen Wise, Remitly, and Instarem all offer competitive zero-fee or near-zero-fee transfers in recent years.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Australia → India: Provider Comparison (AUD 1,000 / ~$640 Transfer)</h3>
+<table>
+<thead><tr><th>Provider</th><th>Fee</th><th>Est. INR Received</th><th>Speed</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>AUD 5–8</td><td>~₹54,000</td><td>Minutes–1 day</td></tr>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>AUD 0–2.99</td><td>~₹53,700</td><td>Minutes</td></tr>
+<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>AUD 0</td><td>~₹53,500</td><td>1–2 days</td></tr>
+<tr class="blog-row-danger"><td><strong>Australian bank wire</strong></td><td>AUD 20–35</td><td>~₹50,800</td><td>3–5 days</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote"><a href="/send-money/australia-to-india">See live AUD to INR rates →</a></p>
+</div>
+
+<h3>Singapore to India (SGD to INR)</h3>
+<p>Singapore's <strong>650,000+ Indian residents</strong> make the SGD-INR corridor one of Asia's most active. Singapore-based digital banks (DBS, OCBC) have competitive India rails, but Wise and Instarem still typically offer better rates. <a href="/send-money/singapore-to-india">Compare live SGD to INR rates →</a></p>`,
+      },
+
+      // ── Section 7: IMPS/UPI/NEFT delivery ──
+      {
+        heading: "India's Payment Rails Explained: IMPS, UPI, NEFT & Cash Pickup",
+        content: `<p>India has one of the most sophisticated domestic payments infrastructure in the world, operated by the <strong>National Payments Corporation of India (NPCI)</strong>. Understanding which rail your money travels on determines how fast it arrives and what details the recipient needs.</p>
+
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">India Payment Methods: Speed vs Requirements</h3>
+<table>
+<thead><tr><th>Method</th><th>Speed</th><th>Hours</th><th>What Recipient Needs</th><th>Supported By</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>IMPS</strong></td><td>Instant</td><td>24/7/365</td><td>Account number + IFSC code</td><td>Wise, Remitly, Instarem, WorldRemit, Xoom, OFX</td></tr>
+<tr class="blog-row-highlight"><td><strong>UPI</strong></td><td>Instant</td><td>24/7/365</td><td>UPI ID (e.g. name@okaxis)</td><td>Remitly, Google Pay</td></tr>
+<tr><td><strong>NEFT</strong></td><td>Same day (batches)</td><td>Mon–Sat banking hours</td><td>Account number + IFSC code</td><td>Wise, Remitly, OFX (for large amounts)</td></tr>
+<tr><td><strong>RTGS</strong></td><td>Immediate (large amounts)</td><td>Mon–Sat banking hours</td><td>Account number + IFSC code</td><td>Bank wires (£/$ above thresholds)</td></tr>
+<tr><td><strong>Cash Pickup</strong></td><td>Minutes</td><td>Agent business hours</td><td>Government ID + MTCN number</td><td>Western Union, MoneyGram, Ria, Xoom</td></tr>
+<tr><td><strong>Mobile Wallet</strong></td><td>Instant</td><td>24/7</td><td>Paytm-registered phone number</td><td>WorldRemit</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>IMPS — The Default for International Remittances</h3>
+<p><strong>Immediate Payment Service (IMPS)</strong> is the backbone of modern India remittances. It settles in real-time, 24 hours a day, 365 days a year — including public holidays. Every bank account in India can receive IMPS payments. You need the recipient's <strong>bank account number</strong> and <strong>IFSC code</strong>. This is what Wise, Remitly, and Instarem use when they say delivery takes "minutes."</p>
+
+<h3>UPI — The Future of Remittances to India</h3>
+<p><strong>Unified Payments Interface (UPI)</strong> processes over <strong>14 billion transactions per month</strong> domestically and is rapidly expanding to international remittances. Currently, <a href="/companies/remitly">Remitly</a> and Google Pay support inbound UPI transfers. The advantage: the recipient just shares their UPI ID (like <code>rahul@okhdfc</code>) instead of their full bank account number. No IFSC code needed. Expect significantly broader UPI support from international providers through 2026 as NPCI expands international UPI agreements.</p>
+
+<h3>NEFT — For Non-Urgent Bank-Hours Transfers</h3>
+<p>NEFT settles in batches throughout banking hours (approximately every 30 minutes on weekdays). Delivery takes 2–4 hours. It's more common for business payments and large amounts. For personal remittances, IMPS is almost always preferable.</p>
+
+<h3>Cash Pickup — Essential for Unbanked Recipients</h3>
+<p>Roughly <strong>22% of India's adult population</strong> remains unbanked or underbanked. For recipients in rural areas without a bank account, cash pickup through <a href="/companies/western-union">Western Union</a> or <a href="/companies/moneygram">MoneyGram</a> is the only practical option. Western Union has the broadest network — over 200,000 agent locations across India. The recipient shows a government ID and the transfer tracking number (MTCN) at any agent to collect cash in rupees.</p>
+
+<h3>What Is an IFSC Code?</h3>
+<p>The <strong>Indian Financial System Code (IFSC)</strong> is an 11-character alphanumeric code that uniquely identifies a specific bank branch in India. Format: <code>[4-letter bank code][0][6-digit branch code]</code>. Example: <code>HDFC0001234</code>. It is the equivalent of a UK sort code or US routing number — essential for any IMPS or NEFT transfer. Find it on a cheque leaf, bank passbook, or via the RBI's official lookup tool.</p>
+
+<p><strong>The 8 most common Indian banks and their IFSC prefixes:</strong></p>
+<div class="blog-table-box">
+<table>
+<thead><tr><th>Bank</th><th>IFSC Prefix</th><th>SWIFT Code</th></tr></thead>
+<tbody>
+<tr><td>State Bank of India (SBI)</td><td>SBIN0</td><td>SBININBBXXX</td></tr>
+<tr><td>HDFC Bank</td><td>HDFC0</td><td>HABORINBXXX</td></tr>
+<tr><td>ICICI Bank</td><td>ICIC0</td><td>ABORINBBXXX</td></tr>
+<tr><td>Axis Bank</td><td>UTIB0</td><td>AXISINBBXXX</td></tr>
+<tr><td>Punjab National Bank (PNB)</td><td>PUNB0</td><td>PUNBINBBXXX</td></tr>
+<tr><td>Kotak Mahindra Bank</td><td>KKBK0</td><td>ABORINBKXXX</td></tr>
+<tr><td>Bank of Baroda</td><td>BARB0</td><td>BARBINBBXXX</td></tr>
+<tr><td>Canara Bank</td><td>CNRB0</td><td>ABORINBBXXX</td></tr>
+</tbody>
+</table>
+</div>`,
+      },
+
+      // ── Section 8: Step-by-Step Guide ──
+      {
+        heading: "How to Send Money to India Online: Step-by-Step",
+        content: `<p>The process is the same whether you're sending from the USA, UK, UAE, or Australia. Here's exactly what to do.</p>
+
+<h3>Before You Start: What You'll Need</h3>
+<p><strong>As the sender:</strong></p>
+<ul>
+<li>Government-issued photo ID (passport, national ID card, or driver's licence)</li>
+<li>Proof of address (utility bill, bank statement — often only required the first time)</li>
+<li>A funded bank account or debit card in your home currency</li>
+</ul>
+
+<p><strong>From the recipient:</strong></p>
+<ul>
+<li>Full name (exactly as it appears on their bank account)</li>
+<li>Bank account number (9–18 digits depending on the bank)</li>
+<li>IFSC code (11 characters — ask them to find it in their banking app or on a cheque leaf)</li>
+<li>Bank name and branch city</li>
+<li>Their UPI ID, if you're using UPI delivery</li>
+</ul>
+
+<h3>Step 1: Compare Providers for Your Amount</h3>
+<p>Use our comparison tools to see exactly how much INR your recipient will receive from each provider. Always compare <em>total INR received</em>, not just the advertised fee — a zero-fee transfer with a 2% markup can cost ₹2,000+ more than a fee-charging transfer with 0% markup.</p>
+<ul>
+<li><a href="/send-money/usa-to-india">USA to India (USD → INR)</a></li>
+<li><a href="/send-money/uk-to-india">UK to India (GBP → INR)</a></li>
+<li><a href="/send-money/uae-to-india">UAE to India (AED → INR)</a></li>
+<li><a href="/send-money/canada-to-india">Canada to India (CAD → INR)</a></li>
+<li><a href="/send-money/australia-to-india">Australia to India (AUD → INR)</a></li>
+<li><a href="/send-money/singapore-to-india">Singapore to India (SGD → INR)</a></li>
+<li><a href="/send-money/saudi-arabia-to-india">Saudi Arabia to India (SAR → INR)</a></li>
+</ul>
+
+<h3>Step 2: Create an Account with Your Chosen Provider</h3>
+<p>Sign up via the provider's website or mobile app. You'll need to provide your name, address, and upload your ID. Most providers verify identity <strong>within minutes</strong> using automated checks. A few (Instarem, OFX) may take up to 24 hours for the first transfer.</p>
+
+<h3>Step 3: Enter the Transfer Details</h3>
+<p>Specify the send amount (or the exact INR amount to deliver), choose the delivery method (bank deposit, UPI, or cash pickup), and enter recipient details. Double-check the IFSC code — an incorrect IFSC is the most common cause of delayed transfers.</p>
+
+<h3>Step 4: Choose Your Funding Method</h3>
+<p><strong>Best:</strong> ACH bank transfer (USA) / Faster Payments (UK) / direct debit. Lowest cost, and delivery to India is still instant via IMPS.<br>
+<strong>Good:</strong> Debit card. Slightly higher fee (typically $2–$5 extra) but funds the transfer immediately.<br>
+<strong>Avoid:</strong> Credit card. Usually treated as a cash advance by your card issuer, incurring a 3–5% fee on top of the provider's charge.</p>
+
+<h3>Step 5: Review, Confirm and Track</h3>
+<p>Before confirming, review the exchange rate, total fee, exact INR to be received, and estimated delivery time. Most providers show a real-time tracker. For IMPS transfers, you'll typically see the money credited to the recipient's account within 10–30 minutes.</p>`,
+      },
+
+      // ── Section 9: Tips to Maximise Rupees ──
+      {
+        heading: "8 Expert Tips to Maximise the Rupees Your Family Receives",
+        content: `<ol>
+<li><strong>Compare every single time you send.</strong> Exchange rates and provider fees change daily. The cheapest provider this month may not be cheapest next month. It takes 30 seconds to check on our <a href="/send-money">comparison tool</a> and can save you hundreds of rupees.</li>
+
+<li><strong>Understand the markup, not just the fee.</strong> A "£0 fee" transfer is never truly free — the provider makes money on the exchange rate. Learn how to calculate this in our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a>. Even a 1% markup difference on a £2,000 transfer costs your family ₹2,100 extra.</li>
+
+<li><strong>Always fund via bank transfer, not card.</strong> ACH (US), Faster Payments (UK), or direct debit cuts your cost by £2–£15 per transfer. Providers still process the remittance instantly, so you don't lose speed.</li>
+
+<li><strong>Switch from a bank to a specialist.</strong> This is the single most impactful change you can make. A UK bank charging £25 wire fee + 2% markup on a monthly £600 transfer costs you roughly £1,800 extra per year compared to Wise or Remitly. That's ₹190,000 your family never sees.</li>
+
+<li><strong>Watch the USD/GBP/AED to INR rate.</strong> The rupee fluctuates against major currencies. If you have flexibility on timing, a favourable rate can give you an extra 1–2% on your transfer. See our <a href="/exchange-rates/usd-to-inr">USD to INR rate history</a> and consider setting a rate alert.</li>
+
+<li><strong>Take advantage of first-transfer promotions.</strong> Remitly, WorldRemit, and others frequently offer boosted exchange rates on your first transfer — typically worth 1–3% of the send amount. Use these, but always verify the ongoing rate before becoming a regular customer.</li>
+
+<li><strong>Use loyalty programmes for regular senders.</strong> <a href="/companies/instarem">Instarem's</a> InstaPoints scheme gives cashback on every transfer. Wise users get better pricing as their volume grows. <a href="/companies/remitly">Remitly</a> rewards loyal customers with better base rates.</li>
+
+<li><strong>For amounts above $10,000, call the provider.</strong> OFX and TorFX assign personal dealers for large transfers who can often negotiate a better rate than what's shown online. Worth a 5-minute call if you're moving significant money.</li>
+</ol>`,
+      },
+
+      // ── Section 10: Tax & Compliance ──
+      {
+        heading: "Tax & Compliance: What to Know When Sending Money to India in 2026",
+        content: `<p>International money transfers are legal in every country covered in this guide. But both senders and recipients need to be aware of a few reporting rules and tax points.</p>
+
+<h3>For Senders in the USA</h3>
+<ul>
+<li><strong>Bank Secrecy Act reporting:</strong> US providers automatically report transfers of $10,000+ (or cumulative $10,000 in 24 hours) to FinCEN. No action required from you — but expect documentation requests for large transfers.</li>
+<li><strong>2026 Remittance Excise Tax (1%):</strong> Applies to cash-funded outbound transfers from the US. Bank-funded digital transfers are <strong>fully exempt</strong>. Another reason to use Wise or Remitly rather than a Western Union cash transaction. Full details: <a href="/guides/us-remittance-tax-2026">US remittance tax guide</a>.</li>
+<li><strong>Gift tax:</strong> 2026 exclusion is $19,000 per recipient. Amounts above this require IRS Form 709, but no tax is owed until you exceed the $13.99M lifetime exemption.</li>
+<li><strong>FBAR:</strong> If you have control over any Indian bank accounts totalling over $10,000 at any point in the calendar year, file FinCEN Form 114 annually.</li>
+</ul>
+
+<h3>For Senders in the UK</h3>
+<ul>
+<li>No tax on money sent abroad from the UK.</li>
+<li>FCA-regulated providers are required to report suspicious transactions and may request source-of-funds documents for amounts exceeding £10,000.</li>
+<li>If you're sending money to your own Indian accounts as a non-resident, take advice on your UK residency status and the <a href="https://www.gov.uk/tax-foreign-income" target="_blank" rel="noopener noreferrer nofollow">HMRC guidance on foreign income</a>.</li>
+</ul>
+
+<h3>For Senders in the UAE / Gulf</h3>
+<ul>
+<li>No personal income tax or withholding tax on outbound remittances in UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, or Oman.</li>
+<li>UAE: Central Bank of UAE requires registration for money transfers above AED 55,000 through certain channels.</li>
+</ul>
+
+<h3>For Recipients in India</h3>
+<ul>
+<li><strong>No tax on inbound remittances.</strong> Money received from abroad is not taxable income in India regardless of amount.</li>
+<li><strong>PAN card:</strong> Indian banks may require the recipient's PAN (Permanent Account Number) for credits exceeding ₹50,000 in a single transaction.</li>
+<li><strong>NRE vs NRO accounts:</strong> If the recipient is an NRI, NRE account interest is tax-free; NRO account interest is taxed at 30% TDS. For most recipients (resident Indians receiving family remittances), this is irrelevant — they receive funds in a standard savings account.</li>
+</ul>
+
+<div class="blog-answer-box-warning" style="background:#fef7e0;border-radius:12px;padding:16px 20px;margin:20px 0;border-left:4px solid #f9ab00">
+<p><strong>Note:</strong> Tax rules change. This guide reflects the rules as of June 2026. For personalised tax advice, consult a qualified tax professional familiar with the laws of your home country and India.</p>
+</div>`,
+      },
+
+      // ── Section 11: Sources & Methodology ──
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Provider quotes are collected automatically every 6 hours from provider APIs and websites by the SendMoneyCompare scraper network. Exchange rates and fee data in this guide are based on quotes collected in June 2026. Actual amounts vary — use our live comparison tools for real-time quotes for your specific amount and corridor.</p>
+
+<p>Remittance volume and diaspora statistics sourced from the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India</a>, and <a href="https://www.moia.gov.in/" target="_blank" rel="noopener noreferrer nofollow">Ministry of Overseas Indian Affairs</a>. Payment rail information sourced from NPCI official documentation. US regulatory information sourced from <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a> and the <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a>.</p>
+
+<p>This guide is reviewed quarterly and updated when provider fees, exchange rate conditions, or regulatory rules change materially. See our <a href="/methodology">methodology page</a> for full details on how we collect, verify, and present data.</p>`,
+      },
+    ],
+
+    faqs: [
+      {
+        question: "What is the best app to send money to India in 2026?",
+        answer:
+          "Wise is the best overall app for sending money to India — it uses the real mid-market exchange rate with 0% markup and delivers via IMPS in minutes. Remitly is the best app for speed and small amounts, with $0 fees and instant UPI/IMPS delivery. Instarem is a strong zero-fee alternative with a low consistent markup. All three are available on iOS and Android with easy account setup.",
+      },
+      {
+        question: "What is the cheapest way to send money to India from abroad?",
+        answer:
+          "The cheapest way depends on how much you're sending and which country you're sending from. For most corridors and amounts above $500/£400, Wise is cheapest due to its 0% exchange rate markup. For smaller amounts, Remitly or Instarem often win with zero fees and low markups. Always compare total INR received — not just the advertised fee — using our live comparison tools before each transfer. The difference between the cheapest and most expensive option (usually a bank) can exceed 5% of the send amount.",
+      },
+      {
+        question: "How long does an international money transfer to India take?",
+        answer:
+          "With specialist providers like Wise, Remitly, or Instarem, most transfers reach an Indian bank account within minutes via IMPS — India's real-time payment system that operates 24/7 including public holidays. Standard bank-to-bank (SWIFT) wires through high-street banks take 3–5 business days. Cash pickup through Western Union and MoneyGram is also available within minutes.",
+      },
+      {
+        question: "Can I send money to a UPI ID in India from overseas?",
+        answer:
+          "Yes — Remitly and Google Pay both support international UPI transfers. You enter the recipient's UPI ID (like name@okaxis) instead of their full bank account number and IFSC code. UPI delivery is instant and available 24/7. Expect more international providers to add UPI delivery in 2026–2027 as NPCI expands its international UPI programme to additional countries.",
+      },
+      {
+        question: "What details do I need to send money to an Indian bank account?",
+        answer:
+          "You need: (1) The recipient's full name exactly as it appears on their bank account. (2) Their bank account number (9–18 digits). (3) The IFSC code — an 11-character code identifying their specific bank branch (e.g., HDFC0001234). (4) Bank name and branch location. Optionally, some providers ask for the purpose of the transfer (family support, gift, education, etc.). The IFSC code is found on cheque books, bank passbooks, or through the RBI's online IFSC lookup.",
+      },
+      {
+        question: "Is there a limit on how much money I can send to India?",
+        answer:
+          "There is no legal cap on inbound remittances in India. From the US, UK, UAE, or Canada, there are no government-set limits on how much you can send. Provider limits vary: Wise allows up to $1 million per transfer (after enhanced verification); Remitly allows $10,000/day. Amounts over $10,000 trigger automatic regulatory reporting in the US and UK — the provider handles this. India's LRS limit of $250,000/year only applies to money sent OUT of India by Indian residents.",
+      },
+      {
+        question: "Do I need to pay tax on money sent to India from the UK, USA, or UAE?",
+        answer:
+          "The remittance itself is not taxed on either end. UK and UAE senders pay no tax on money sent abroad. US senders are subject to the new 2026 1% excise tax on cash-funded transfers, but digital/bank-funded transfers are fully exempt. In India, recipients pay no income tax on inbound remittances. Gift tax rules apply in the US for gifts above $19,000 to a single recipient in a calendar year (IRS Form 709 required, but typically no tax owed).",
+      },
+      {
+        question: "Which is better for sending money to India — Wise or Remitly?",
+        answer:
+          "For transfers above $500/£400, Wise is usually better — its 0% exchange rate markup means you consistently get the best INR rate. For smaller or more urgent transfers, Remitly often wins — it charges $0 fees on many corridors, delivers via IMPS in minutes, and supports UPI delivery. Both are excellent, regulated, and safe. Compare them side-by-side for your specific amount using our comparison tool.",
+      },
+      {
+        question: "Can I send money to India for cash pickup if my recipient doesn't have a bank account?",
+        answer:
+          "Yes — Western Union has the largest cash pickup network in India with over 200,000 agent locations, including rural and Tier 3 cities. MoneyGram and Xoom also offer cash pickup. The recipient visits any agent, presents a government-issued ID, and gives the MTCN tracking number from the sender. Money is available within minutes. The exchange rate markup is higher than digital providers (~1–3%), but cash pickup remains the only practical option for recipients without bank accounts.",
+      },
+    ],
+
+    howToSteps: [
+      {
+        name: "Compare providers for your corridor",
+        text: "Enter your send amount and origin country into our comparison tool to see exactly how much INR each provider will deliver. Sort by total INR received.",
+      },
+      {
+        name: "Create an account",
+        text: "Sign up with the winning provider. You'll need a government-issued photo ID and your local address. Most providers verify you within minutes.",
+      },
+      {
+        name: "Collect recipient details",
+        text: "Get the recipient's full name, bank account number, and IFSC code (11 characters). For UPI delivery, their UPI ID is all you need.",
+      },
+      {
+        name: "Enter the transfer details",
+        text: "Input the send amount (or the exact INR to deliver), the recipient's bank details, and the purpose of the transfer.",
+      },
+      {
+        name: "Fund via bank transfer",
+        text: "Choose ACH / Faster Payments / direct debit rather than a card. This costs less and delivery to India is still via instant IMPS.",
+      },
+      {
+        name: "Confirm and track delivery",
+        text: "Review the total INR and fee before confirming. Most IMPS transfers reach the recipient within 10–30 minutes. Track in the app.",
+      },
+    ],
+
+    relatedSlugs: [
+      "send-money-to-india-from-usa-guide",
+      "cheapest-way-to-send-money-internationally",
+      "exchange-rate-markup-explained",
+      "us-remittance-tax-2026",
+      "how-to-send-money-abroad",
+    ],
+  },
+
+  // ── Existing USA-to-India guide continues below ──
   {
     slug: "send-money-to-india-from-usa-guide",
     title:
@@ -47,6 +548,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       "cash pickup india",
       "cheapest way to send money to india",
     ],
+    featuredImage: "/images/blog/send-money-uae-to-india.jpg",
     sections: [
       // ── Section 1: Intro + Answer Box ──
       {

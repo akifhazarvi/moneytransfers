@@ -141,5 +141,60 @@
         "receiveAmount": 1234.35
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "wise": {
+        "rate": 18.1062,
+        "fee": 31.76,
+        "markup": null,
+        "receiveAmount": 1235.57
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "wise": {
+        "rate": 18.1627,
+        "fee": 31.02,
+        "markup": null,
+        "receiveAmount": 1252.86
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "wise": {
+        "rate": 18.1497,
+        "fee": 31.46,
+        "markup": null,
+        "receiveAmount": 1243.98
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "wise": {
+        "rate": 18.1095,
+        "fee": 31.02,
+        "markup": null,
+        "receiveAmount": 1249.19
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "wise": {
+        "rate": 18.1202,
+        "fee": 31.02,
+        "markup": null,
+        "receiveAmount": 1249.93
+      }
+    }
   }
 ]

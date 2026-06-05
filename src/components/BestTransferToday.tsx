@@ -1,8 +1,13 @@
 import Image from "next/image";
-import { generateQuotes, getProviderName, providers } from "@/data/providers";
+import { getProviderName, providers } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import { getTranslations } from "next-intl/server";
 
 interface BestTransferTodayProps {
+  // Required so getTranslations reads the locale from params, not headers() —
+  // a bare getTranslations("ns") here opted every page rendering this widget
+  // into dynamic/no-store rendering.
+  locale: string;
   amount?: number;
   from?: string;
   to?: string;
@@ -16,13 +21,14 @@ interface BestTransferTodayProps {
 }
 
 export default async function BestTransferToday({
+  locale,
   amount = 1000,
   from = "USD",
   to = "PKR",
   symbol = "Rs",
   highlightSlug,
 }: BestTransferTodayProps) {
-  const t = await getTranslations("bestTransferToday");
+  const t = await getTranslations({ locale, namespace: "bestTransferToday" });
   const all = generateQuotes(amount, from, to);
 
   // If a highlight slug is given, always include that provider's quote in the
@@ -78,7 +84,7 @@ export default async function BestTransferToday({
             >
               {/* Provider */}
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-xs font-medium text-[var(--color-on-surface-variant)] relative border border-[var(--color-outline)]/50">
+                <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-xs font-medium text-[var(--color-on-surface-variant)] relative border border-[var(--color-outline)]/50">
                   <Image
                     src={logo}
                     alt={`${name} logo`}

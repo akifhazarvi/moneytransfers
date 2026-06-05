@@ -13,7 +13,7 @@
  */
 
 const HOST = "sendmoneycompare.com";
-const KEY = process.env.INDEXNOW_KEY || "504f73e915dcbe38e02c363c31409cad";
+const KEY = process.env.INDEXNOW_KEY || "";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = "https://api.indexnow.org/indexnow";
 

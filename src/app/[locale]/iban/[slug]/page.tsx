@@ -355,7 +355,7 @@ const bbanLabels: Record<string, string> = {
 export default async function IbanCountryPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("ibanSlug");
+  const t = await getTranslations({ locale, namespace: "ibanSlug" });
   const country = getWiseCountryBySlug(slug);
   if (!country) notFound();
 

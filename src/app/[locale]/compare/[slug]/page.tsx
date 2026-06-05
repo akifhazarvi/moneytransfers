@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Trophy, ArrowRight } from "lucide-react";
-import { providers, generateQuotes } from "@/data/providers";
+import { providers } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
@@ -697,7 +698,7 @@ function ArticleComparison({
                 <div className="bg-[var(--color-primary)] px-5 py-4">
                   <h3 className="text-md font-semibold text-white mb-1">Compare All Providers</h3>
                   <p className="text-2sm text-white/70">
-                    See how {a.name} and {b.name} stack up against 60+ others.
+                    See how {a.name} and {b.name} stack up against 50+ others.
                   </p>
                 </div>
                 <div className="bg-[var(--color-surface)] p-4">
@@ -1219,7 +1220,7 @@ function DefaultComparison({
             <div className="bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-xl p-5 text-white">
               <h3 className="text-md font-medium mb-2">Compare All Providers</h3>
               <p className="text-2sm text-white/80 mb-4">
-                See how {a.name} and {b.name} stack up against 60+ other providers on your corridor.
+                See how {a.name} and {b.name} stack up against 50+ other providers on your corridor.
               </p>
               <Link
                 href="/send-money"
@@ -1295,7 +1296,7 @@ function DefaultComparison({
 export default async function ComparisonPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("compareSlug");
+  const t = await getTranslations({ locale, namespace: "compareSlug" });
   const pair = parseSlug(slug);
   if (!pair) notFound();
 

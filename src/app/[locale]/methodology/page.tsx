@@ -39,7 +39,7 @@ const trackedProviders = [
 export default async function MethodologyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("methodology");
+  const t = await getTranslations({ locale, namespace: "methodology" });
 
   const lastUpdated = "March 2026";
 
@@ -102,7 +102,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="text-center">
                 <p className="text-2xl font-medium text-[var(--color-primary)]">
-                  60+
+                  50+
                 </p>
                 <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
                   Providers tracked
@@ -167,7 +167,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  We collect exchange rate and fee data from 60+ money transfer
+                  We collect exchange rate and fee data from 50+ money transfer
                   providers every 6 hours using a combination of:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
@@ -241,7 +241,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                 </div>
                 <p className="text-2sm">
                   This list represents our core tracked providers. In total, we
-                  aggregate data from 60+ providers across 64+ currency
+                  aggregate data from 50+ providers across 64+ currency
                   corridors including many regional and corridor-specific
                   services. See our full{" "}
                   <Link

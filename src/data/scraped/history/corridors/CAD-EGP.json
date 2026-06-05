@@ -262,5 +262,90 @@
         "receiveAmount": 3740
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "lemfi": {
+        "rate": 37.745,
+        "fee": 0,
+        "markup": 0.5,
+        "receiveAmount": 3774.5
+      },
+      "taptap-send": {
+        "rate": 37.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3740
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "lemfi": {
+        "rate": 37.557,
+        "fee": 0,
+        "markup": 0.05,
+        "receiveAmount": 3755.7
+      },
+      "taptap-send": {
+        "rate": 37.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3740
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "lemfi": {
+        "rate": 37.383,
+        "fee": 0,
+        "markup": 0.21,
+        "receiveAmount": 3738.3
+      },
+      "taptap-send": {
+        "rate": 37.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3740
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "lemfi": {
+        "rate": 37.25,
+        "fee": 0,
+        "markup": 0.38,
+        "receiveAmount": 3725
+      },
+      "taptap-send": {
+        "rate": 37.25,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3725
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "lemfi": {
+        "rate": 37.129,
+        "fee": 0,
+        "markup": 0.34,
+        "receiveAmount": 3712.9
+      },
+      "taptap-send": {
+        "rate": 37.15,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3715
+      }
+    }
   }
 ]

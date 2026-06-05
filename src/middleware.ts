@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
-import { COUNTRY_TO_CURRENCY } from "./data/geo-corridors";
+import { getGeoDefaults } from "./data/geo-corridors";
 import { shouldNoindexPath } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
@@ -220,14 +220,20 @@ export default function middleware(request: NextRequest) {
     // default escaping (we only use dangerouslySetInnerHTML for known
     // static content) and by the rest of the CSP (no inline event
     // handlers via attribute, no eval, strict frame-ancestors, etc).
-    `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
+    `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.
     // See: https://csp.withgoogle.com/ and https://nextjs.org/docs/app/api-reference/config/next-config-js/headers#content-security-policy
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com`,
-    `connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com`,
+    // GA4 routes EU/UK hits to region-specific collection endpoints
+    // (region1.google-analytics.com etc) for data residency, NOT to
+    // www.google-analytics.com. The narrow www-only allowlist silently
+    // CSP-blocked every UK/EU /g/collect request ("Refused to connect"),
+    // which is why all UK/EU sessions were missing from GA4 while US
+    // traffic recorded fine. Wildcard both GA hostname families.
+    `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com`,
     `font-src 'self'`,
     `frame-src https://widget.trustpilot.com https://www.youtube-nocookie.com https://www.youtube.com`,
     `object-src 'none'`,
@@ -245,25 +251,43 @@ export default function middleware(request: NextRequest) {
     JSON.stringify({ group: "csp-endpoint", max_age: 86400, endpoints: [{ url: "/api/csp-report" }] }),
   );
 
-  // Set geo-currency cookie from Vercel's IP country header
+  // Set geo widget cookies from Vercel's IP country header.
+  // geo-currency    — "from" currency for the comparison widget
+  // geo-default-to  — "to" currency (diaspora-aware for receiver countries)
+  // geo-default-amount — default transfer amount in fromCurrency
+  // All three are set together on first visit so the widget hydrates correctly.
   const country = request.headers.get("x-vercel-ip-country") || "";
-  const currency = COUNTRY_TO_CURRENCY[country] || "USD";
-  if (!request.cookies.get("geo-currency")) {
-    response.cookies.set("geo-currency", currency, {
+  // Write all three geo cookies atomically — always together so the widget
+  // never hydrates with a partial set (e.g. geo-currency present but
+  // geo-default-to missing due to selective cookie clearing).
+  const hasAllGeoCookies =
+    request.cookies.get("geo-currency") &&
+    request.cookies.get("geo-default-to") &&
+    request.cookies.get("geo-default-amount");
+  if (!hasAllGeoCookies) {
+    const { fromCurrency, toCurrency, defaultAmount } = getGeoDefaults(country);
+    const cookieOpts = { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax" as const };
+    response.cookies.set("geo-currency",       fromCurrency,          cookieOpts);
+    response.cookies.set("geo-default-to",     toCurrency,            cookieOpts);
+    response.cookies.set("geo-default-amount", String(defaultAmount),  cookieOpts);
+  }
+
+  // Set geo-country only when missing — NOT on every request. Setting a
+  // cookie on the response forces Next.js to mark the HTML uncacheable
+  // (Cache-Control: no-store), the exact signal that contributed to the
+  // May 2026 deindex. An unconditional refresh here (added in bf46ae49 to
+  // keep consent's country "current") silently reintroduced no-store on
+  // every page. The country only feeds the consent banner's EU/non-EU
+  // gate; a 30-day-old value is fine for that and not worth uncaching
+  // every page. Once all four geo cookies are present, this response
+  // stays cacheable.
+  if (!request.cookies.get("geo-country")) {
+    response.cookies.set("geo-country", country || "US", {
       path: "/",
-      maxAge: 60 * 60 * 24 * 30, // 30 days
+      maxAge: 60 * 60 * 24 * 30,
       sameSite: "lax",
     });
   }
-
-  // Refresh geo-country cookie on every request so consent logic
-  // always reflects the user's current location (not where they
-  // were 30 days ago).
-  response.cookies.set("geo-country", country || "US", {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 30,
-    sameSite: "lax",
-  });
 
   return response;
 }

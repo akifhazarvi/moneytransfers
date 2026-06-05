@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function CompaniesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("companies");
+  const t = await getTranslations({ locale, namespace: "companies" });
   // Sort: specialist transfer providers first (higher rated), then banks
   const sorted = [...providers].sort((a, b) => {
     const aIsBank = a.paymentMethods.length === 1 && a.paymentMethods[0] === "Bank Transfer" && a.deliveryMethods.length === 1 && (a.exchangeRateMarkup.includes("3%") || a.exchangeRateMarkup.includes("4%") || a.exchangeRateMarkup.includes("5%"));
@@ -67,30 +67,6 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
         {t("subheading")}
       </p>
 
-      {/* Editorial intro for SEO */}
-      <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mb-8">
-        <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">
-          How we review money transfer companies
-        </h2>
-        <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
-          <p>
-            We independently review every money transfer provider listed on this page. Each review covers exchange rate transparency, fee structures, transfer speed, supported corridors, regulatory status, and real customer ratings from Trustpilot. Our goal is to help you find the right provider for your specific needs — whether you send money regularly or just once.
-          </p>
-          <p>
-            Providers are ranked by their overall Trustpilot rating, which reflects real customer experiences. We also compare their live exchange rates against the mid-market rate to show the true cost of each service. Some providers offer the best rates on specific corridors, while others excel at speed, cash pickup availability, or coverage in emerging markets.
-          </p>
-          <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-4">What we evaluate</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Exchange rate markup vs. the mid-market rate</li>
-            <li>Fee transparency — flat fees, percentage-based, or hidden in the rate</li>
-            <li>Transfer speed — from instant to 3–5 business days</li>
-            <li>Coverage — number of countries and delivery methods supported</li>
-            <li>Regulation — FCA, FinCEN, ASIC, or equivalent licensing</li>
-            <li>Customer satisfaction — verified Trustpilot reviews and ratings</li>
-          </ul>
-        </div>
-      </div>
-
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {sorted.map((provider) => (
           <Card key={provider.slug} href={`/companies/${provider.slug}`} className="group">
@@ -125,6 +101,30 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
             </div>
           </Card>
         ))}
+      </div>
+
+      {/* Editorial intro for SEO — moved below the grid so the companies get top visibility */}
+      <div className="bg-[var(--color-surface-dim)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8 mt-12">
+        <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">
+          How we review money transfer companies
+        </h2>
+        <div className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3">
+          <p>
+            We independently review every money transfer provider listed on this page. Each review covers exchange rate transparency, fee structures, transfer speed, supported corridors, regulatory status, and real customer ratings from Trustpilot. Our goal is to help you find the right provider for your specific needs — whether you send money regularly or just once.
+          </p>
+          <p>
+            Providers are ranked by their overall Trustpilot rating, which reflects real customer experiences. We also compare their live exchange rates against the mid-market rate to show the true cost of each service. Some providers offer the best rates on specific corridors, while others excel at speed, cash pickup availability, or coverage in emerging markets.
+          </p>
+          <h3 className="text-md font-medium text-[var(--color-on-surface)] !mt-4">What we evaluate</h3>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Exchange rate markup vs. the mid-market rate</li>
+            <li>Fee transparency — flat fees, percentage-based, or hidden in the rate</li>
+            <li>Transfer speed — from instant to 3–5 business days</li>
+            <li>Coverage — number of countries and delivery methods supported</li>
+            <li>Regulation — FCA, FinCEN, ASIC, or equivalent licensing</li>
+            <li>Customer satisfaction — verified Trustpilot reviews and ratings</li>
+          </ul>
+        </div>
       </div>
 
       {/* Cross-links */}

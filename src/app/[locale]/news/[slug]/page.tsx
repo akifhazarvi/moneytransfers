@@ -86,7 +86,7 @@ function CategoryBadge({ category }: { category: string }) {
 export default async function NewsArticlePage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("newsSlug");
+  const t = await getTranslations({ locale, namespace: "newsSlug" });
   const item = getNewsItem(slug);
   if (!item) notFound();
 
@@ -214,7 +214,7 @@ export default async function NewsArticlePage({ params }: Props) {
                     amount={1000}
                     source={`news:${slug}:mid`}
                     heading="Don't overpay on your next transfer"
-                    subheading="Live rates from 35+ providers — see who's cheapest right now"
+                    subheading="Live rates from 50+ apps — see who's cheapest right now"
                   />
                   {secondHalf && (
                     <div
@@ -233,7 +233,7 @@ export default async function NewsArticlePage({ params }: Props) {
               amount={1000}
               source={`news:${slug}:end`}
               heading="Ready to send? Here's the cheapest provider today"
-              subheading="Compare 35+ services — free, no signup required"
+              subheading="Compare 50+ apps — free, no signup required"
             />
 
             {/* Source */}
@@ -253,7 +253,10 @@ export default async function NewsArticlePage({ params }: Props) {
 
           {/* Sidebar */}
           <aside className="lg:w-[300px] shrink-0">
-            <div className="lg:sticky lg:top-24 space-y-6">
+            {/* Sticky container capped to the viewport height with internal
+                scroll, so a long sidebar doesn't wait for the article to
+                scroll to the bottom before its lower content is reachable. */}
+            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto space-y-6">
               {/* Latest news */}
               {related.length > 0 && (
                 <div>
@@ -303,7 +306,7 @@ export default async function NewsArticlePage({ params }: Props) {
                     <p className="text-xs font-bold text-white uppercase tracking-wide">Live rates</p>
                   </div>
                   <p className="text-md font-semibold text-white">Find the cheapest provider today</p>
-                  <p className="text-2sm text-white/75 mt-0.5">35+ services compared in real time</p>
+                  <p className="text-2sm text-white/75 mt-0.5">50+ apps compared in real time</p>
                 </div>
                 <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
                   <Link

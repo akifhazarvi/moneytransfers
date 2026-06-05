@@ -197,7 +197,7 @@ export default function WeeklyDigest({ corridor, quotes, unsubscribeUrl }: Weekl
               {corridor.fromFlag} → {corridor.toFlag} The cheapest way to send {sym(corridor.fromCurrency)}{fmt(corridor.sampleAmount, 0)} this week
             </Heading>
             <Text style={subhead}>
-              We compared 60+ providers on the {corridor.fromCurrency} → {corridor.toCurrency} corridor. Here&apos;s what the data says right now.
+              We compared 50+ providers on the {corridor.fromCurrency} → {corridor.toCurrency} corridor. Here&apos;s what the data says right now.
             </Text>
           </Section>
 

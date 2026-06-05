@@ -4,7 +4,8 @@
  * and FAQs based on real provider attributes and scraped quote data.
  */
 
-import { type Provider, type TransferQuote, generateQuotes } from "@/data/providers";
+import { type Provider, type TransferQuote } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 // ── Types ──
 

@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { generateQuotes, getProviderName, providers } from "@/data/providers";
+import { useEffect, useState } from "react";
+import { getProviderName, providers, type TransferQuote } from "@/data/providers";
+import { fetchQuotes } from "@/lib/fetch-quotes";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackConverterProviderClicked, trackConverterCTAClicked } from "@/lib/analytics";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
@@ -22,7 +24,24 @@ interface Props {
 }
 
 export default function ConverterProviderQuotes({ from, to, amount }: Props) {
-  const quotes = generateQuotes(amount, from, to).slice(0, 5);
+  // Fetched from /api/quotes rather than computed via generateQuotes() so the
+  // multi-megabyte scraped dataset never enters this client bundle.
+  const [quotes, setQuotes] = useState<TransferQuote[] | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setQuotes(null);
+    fetchQuotes(amount, from, to, controller.signal).then((q) => {
+      if (!controller.signal.aborted) setQuotes(q.slice(0, 5));
+    });
+    return () => controller.abort();
+  }, [from, to, amount]);
+
+  if (quotes === null) {
+    return (
+      <div className="mt-6 h-48 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] animate-pulse" />
+    );
+  }
   if (quotes.length === 0) return null;
 
   const recvSymbol = symbolFor(to);
@@ -60,7 +79,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
           onClick={() => trackConverterCTAClicked(corridor, amount)}
           className="shrink-0 inline-flex items-center gap-1.5 h-9 px-4 bg-white/15 hover:bg-white/25 text-white text-2sm font-semibold rounded-full transition-colors border border-white/20"
         >
-          All 35+ providers
+          All 50+ apps
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
@@ -97,7 +116,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
               </span>
 
               {/* Logo */}
-              <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/40 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-white border border-[var(--color-outline)]/40 flex items-center justify-center">
                 <Image
                   src={logo}
                   alt={`${name} logo`}

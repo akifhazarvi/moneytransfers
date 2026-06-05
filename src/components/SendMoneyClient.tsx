@@ -10,14 +10,14 @@ import Container from "@/components/Container";
 import ProviderCard from "@/components/ProviderCard";
 import TrustBadges from "@/components/TrustBadges";
 import CurrencyPicker from "@/components/CurrencyPicker";
-import { generateQuotes, currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
+import { currencies, providers, getProviderName, type TransferQuote } from "@/data/providers";
+import { fetchQuotes } from "@/lib/fetch-quotes";
+import type { RateInsight, ProviderInsight } from "@/lib/rate-history-types";
 import { sendCurrencies } from "@/data/transfer-currencies";
 import { promos } from "@/data/promos";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
-import { getRateInsight, rateLevelConfig } from "@/lib/rate-history";
-import { Sparkline } from "@/components/RateInsight";
 
 type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
@@ -141,6 +141,26 @@ function SendMoneyContent() {
   const [toCurrency, setToCurrency] = useState(paramTo);
   const [amountStr, setAmountStr] = useState(String(paramAmount));
   const amount = Number(amountStr) || 0;
+
+  // Hydrate from geo cookies when no URL params are present (URL params take
+  // precedence — e.g. user arrived via the homepage ComparisonWidget).
+  useEffect(() => {
+    if (searchParams.get("from") || searchParams.get("to") || searchParams.get("amount")) return;
+    function readCookie(name: string) {
+      return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
+    }
+    const geoCurrency      = readCookie("geo-currency");
+    const geoDefaultTo     = readCookie("geo-default-to");
+    const geoDefaultAmount = readCookie("geo-default-amount");
+    if (geoCurrency  && sendCurrencies.some((c) => c.code === geoCurrency))  setFromCurrency(geoCurrency);
+    if (geoDefaultTo && currencies.some((c) => c.code === geoDefaultTo))     setToCurrency(geoDefaultTo);
+    if (geoDefaultAmount) {
+      const parsed = Math.round(parseFloat(geoDefaultAmount));
+      if (Number.isFinite(parsed) && parsed >= 1 && parsed <= 1_000_000) setAmountStr(String(parsed));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const [sortBy, setSortBy] = useState<SortBy>("receiveAmount");
   const { rates, isLive } = useExchangeRates();
 
@@ -171,10 +191,48 @@ function SendMoneyContent() {
   const [referralFilter, setReferralFilter] = useState<ReferralFilter>("");
   const [selectedProviders, setSelectedProviders] = useState<string[]>([]);
 
-  const quotes = useMemo(
-    () => generateQuotes(amount, fromCurrency, toCurrency, rates),
-    [amount, fromCurrency, toCurrency, rates]
-  );
+  // Quotes are fetched from /api/quotes rather than computed via
+  // generateQuotes() in the browser — importing generateQuotes statically
+  // bundles the full scraped-quote dataset (~5 MB) into this page's JS. The
+  // live mid-market rates are forwarded so the server applies them, preserving
+  // the live-rate accuracy this page had. `quotesLoading` drives the skeleton.
+  const [quotes, setQuotes] = useState<TransferQuote[]>([]);
+  const [quotesLoading, setQuotesLoading] = useState(true);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setQuotesLoading(true);
+    fetchQuotes(amount, fromCurrency, toCurrency, controller.signal, rates).then(
+      (q) => {
+        if (controller.signal.aborted) return;
+        setQuotes(q);
+        setQuotesLoading(false);
+      }
+    );
+    return () => controller.abort();
+  }, [amount, fromCurrency, toCurrency, rates]);
+
+  // ── Historical rate insights ──────────────────────────────────
+  // Fetched per-corridor from /api/rate-insight instead of statically importing
+  // the full multi-megabyte rate-insights dataset into this client bundle.
+  const [insight, setInsight] = useState<RateInsight | null>(null);
+  const [providerInsights, setProviderInsights] = useState<Record<string, ProviderInsight>>({});
+  useEffect(() => {
+    let cancelled = false;
+    setInsight(null);
+    setProviderInsights({});
+    fetch(`/api/rate-insight?from=${fromCurrency}&to=${toCurrency}`)
+      .then((r) => (r.ok ? r.json() : { insight: null, providerInsights: {} }))
+      .then((data) => {
+        if (cancelled) return;
+        setInsight(data.insight ?? null);
+        setProviderInsights(data.providerInsights ?? {});
+      })
+      .catch(() => {
+        if (!cancelled) { setInsight(null); setProviderInsights({}); }
+      });
+    return () => { cancelled = true; };
+  }, [fromCurrency, toCurrency]);
 
   // Track corridor selection & quotes viewed
   const prevCorridor = useRef("");
@@ -522,7 +580,7 @@ function SendMoneyContent() {
                         : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
                     }`}
                   >
-                    <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)]">
+                    <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-2xs font-medium text-[var(--color-on-surface-variant)]">
                       <img
                         src={logo}
                         alt={`${name} logo`}
@@ -585,95 +643,24 @@ function SendMoneyContent() {
         </span>
       </div>
 
-      {/* Savings callout — compact */}
-      {savings > 100 && bestQuote && worstQuote && (
-        <div className="mb-2 bg-[var(--color-success-surface)] rounded-lg px-3 py-2 flex items-center gap-2">
-          <svg className="w-4 h-4 text-[var(--color-success-dark)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
-          <p className="text-xs text-[var(--color-success-dark)]">
-            <strong>Save {receiveCurrency?.symbol}{savings.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</strong> — {getProviderName(bestQuote.providerSlug)} vs {getProviderName(worstQuote.providerSlug)}
-          </p>
-        </div>
-      )}
-
-      {/* Corridor Rate Insight — overall only */}
-      {(() => {
-        const insight = getRateInsight(fromCurrency, toCurrency);
-        if (!insight || insight.totalDays < 2) return null;
-        const lvl = rateLevelConfig(insight.level);
-        const filledDots = Math.round(insight.levelPct / 10);
-        // Build an overall corridor sparkline from daily best rates
-        const overallSparkline = Object.values(insight.sparklines)
-          .flat()
-          .reduce<Record<string, { date: string; rate: number; receiveAmount: number }>>((acc, p) => {
-            if (!acc[p.date] || p.rate > acc[p.date].rate) acc[p.date] = p;
-            return acc;
-          }, {});
-        const corridorSparkline = Object.values(overallSparkline).sort((a, b) => a.date.localeCompare(b.date));
-
-        return (
-          <div className="mb-3 rounded-xl border overflow-hidden" style={{ borderColor: lvl.bg, backgroundColor: lvl.bg }}>
-            <div className="px-4 py-3 sm:px-5 sm:py-4">
-              {/* Row 1: Level + sparkline */}
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="text-base font-semibold" style={{ color: lvl.color }}>{lvl.icon}</span>
-                    <h3 className="text-sm font-semibold" style={{ color: lvl.color }}>
-                      {fromCurrency} → {toCurrency} rates are {lvl.label.toLowerCase()}
-                    </h3>
-                  </div>
-                  <div className="flex items-center gap-1 mt-1">
-                    {Array.from({ length: 10 }, (_, i) => (
-                      <span key={i} className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: lvl.color, opacity: i < filledDots ? 1 : 0.2 }} />
-                    ))}
-                    <span className="ml-1.5 text-2xs font-medium" style={{ color: lvl.color }}>{insight.levelPct}th percentile</span>
-                  </div>
-                </div>
-                {corridorSparkline.length >= 2 && (
-                  <div className="shrink-0">
-                    <Sparkline data={corridorSparkline} width={80} height={28} />
-                    <p className="text-[10px] text-[var(--color-on-surface-muted)] text-center mt-0.5">{insight.totalDays}d trend</p>
-                  </div>
-                )}
-              </div>
-
-              {/* Row 2: Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-2 mt-3 pt-3 border-t border-[var(--color-outline)]">
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">Today&apos;s best</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">{insight.today.bestRate.toFixed(4)}</p>
-                  <p className="text-[10px] text-[var(--color-on-surface-muted)]">{getProviderName(insight.today.bestProvider)}</p>
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">{insight.totalDays}d average</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-on-surface)] tabular-nums">{insight.stats.avgRate.toFixed(4)}</p>
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">Period best</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-success)] tabular-nums">{insight.stats.bestRate.toFixed(4)}</p>
-                  <p className="text-[10px] text-[var(--color-on-surface-muted)]">{insight.stats.bestRateDate}</p>
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] uppercase tracking-wide">Period worst</p>
-                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-danger)] tabular-nums">{insight.stats.worstRate.toFixed(4)}</p>
-                  <p className="text-[10px] text-[var(--color-on-surface-muted)]">{insight.stats.worstRateDate}</p>
-                </div>
-              </div>
-
-              {/* Row 3: Context line */}
-              <p className="text-[10px] sm:text-2xs text-[var(--color-on-surface-muted)] mt-2">
-                Based on {insight.totalDays} days of rate data across {Object.keys(insight.sparklines).length} providers · Updated every 6 hours
-              </p>
-            </div>
-          </div>
-        );
-      })()}
-
       {/* Results list */}
       <div className="mb-12">
-        {filteredQuotes.length > 0 ? (
+        {quotesLoading ? (
+          // Skeleton while /api/quotes resolves — avoids flashing the
+          // "no providers match" empty state before the first fetch returns.
+          <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)] divide-y divide-[var(--color-outline)]">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="flex items-center gap-4 px-4 sm:px-6 py-5">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-surface-dim)] animate-pulse shrink-0" />
+                <div className="flex-1 space-y-2">
+                  <div className="h-4 w-32 rounded bg-[var(--color-surface-dim)] animate-pulse" />
+                  <div className="h-3 w-24 rounded bg-[var(--color-surface-dim)] animate-pulse" />
+                </div>
+                <div className="h-9 w-24 rounded-full bg-[var(--color-surface-dim)] animate-pulse shrink-0" />
+              </div>
+            ))}
+          </div>
+        ) : filteredQuotes.length > 0 ? (
           <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
             {(() => {
               const worstReceive = filteredQuotes[filteredQuotes.length - 1]?.receiveAmount ?? 0;
@@ -689,6 +676,9 @@ function SendMoneyContent() {
                   compareDisabled={compareList.length >= 2}
                   midMarketRate={midMarketRate ?? undefined}
                   extraReceiveVsWorst={index === 0 && filteredQuotes.length >= 2 ? quote.receiveAmount - worstReceive : undefined}
+                  providerInsight={providerInsights[quote.providerSlug] ?? null}
+                  sparklineData={insight?.sparklines[quote.providerSlug]}
+                  badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
                 />
               ));
             })()}
@@ -857,7 +847,7 @@ function SendMoneyContent() {
         <div className="fixed bottom-0 left-0 right-0 z-50 bg-[var(--color-surface)] border-t border-[var(--color-outline)] shadow-[0_-4px_16px_rgba(32,33,36,0.12)]">
           <div className="max-w-[1120px] mx-auto px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg overflow-hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)]/50">
+              <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[var(--color-outline)]/50">
                 <img
                   src={providers.find((p) => p.slug === compareList[0])?.logo || `/logos/${compareList[0]}.png`}
                   alt={`${getProviderName(compareList[0])} logo`}

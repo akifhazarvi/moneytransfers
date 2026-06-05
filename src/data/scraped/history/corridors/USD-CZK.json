@@ -1462,5 +1462,120 @@
         "receiveAmount": 2043.97
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "remitly": {
+        "rate": 20.7055,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 2029.35
+      },
+      "xoom": {
+        "rate": 20.0099,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1901.14
+      },
+      "wise": {
+        "rate": 20.8491,
+        "fee": 1.85,
+        "markup": null,
+        "receiveAmount": 2046.34
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "remitly": {
+        "rate": 20.7341,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 2032.15
+      },
+      "xoom": {
+        "rate": 20.0203,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1902.13
+      },
+      "wise": {
+        "rate": 20.8707,
+        "fee": 1.85,
+        "markup": null,
+        "receiveAmount": 2048.46
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "xoom": {
+        "rate": 20.0239,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1902.47
+      },
+      "remitly": {
+        "rate": 20.6616,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 2025.04
+      },
+      "wise": {
+        "rate": 20.8122,
+        "fee": 1.85,
+        "markup": null,
+        "receiveAmount": 2042.72
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "remitly": {
+        "rate": 20.7044,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 2029.24
+      },
+      "xoom": {
+        "rate": 20.03,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1903.05
+      },
+      "wise": {
+        "rate": 20.8466,
+        "fee": 1.85,
+        "markup": null,
+        "receiveAmount": 2046.09
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "xoom": {
+        "rate": 19.9974,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1899.96
+      },
+      "remitly": {
+        "rate": 20.6818,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 2027.02
+      },
+      "wise": {
+        "rate": 20.8375,
+        "fee": 1.85,
+        "markup": null,
+        "receiveAmount": 2045.2
+      }
+    }
   }
 ]

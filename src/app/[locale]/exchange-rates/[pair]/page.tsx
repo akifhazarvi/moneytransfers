@@ -6,7 +6,8 @@ import { fetchExchangeRates } from "@/lib/exchange-rates";
 
 // Revalidate every 6 hours — matches scraper cadence
 export const revalidate = 21600;
-import { providers, generateQuotes, getProviderName } from "@/data/providers";
+import { providers, getProviderName } from "@/data/providers";
+import { generateQuotes } from "@/lib/quotes-engine";
 import CircleFlag from "@/components/CircleFlag";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";

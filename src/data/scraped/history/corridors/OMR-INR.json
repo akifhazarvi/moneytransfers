@@ -780,5 +780,66 @@
         "receiveAmount": 24664.3
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "skrill": {
+        "rate": 240.7522,
+        "fee": 0,
+        "markup": 2.39,
+        "receiveAmount": 24075.22
+      },
+      "wise": {
+        "rate": 247.103,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 24710.3
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "wise": {
+        "rate": 247.364,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 24736.4
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "wise": {
+        "rate": 247.887,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 24788.7
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "wise": {
+        "rate": 249.013,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 24901.3
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "wise": {
+        "rate": 248.655,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 24865.5
+      }
+    }
   }
 ]

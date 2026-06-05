@@ -7,7 +7,7 @@ import { providers, getProviderName, type TransferQuote } from "@/data/providers
 import { trackProviderExpanded, trackProviderClicked, trackReviewClicked } from "@/lib/analytics";
 import { getGoUrl } from "@/lib/affiliate";
 import { promos, type PromoInfo } from "@/data/promos";
-import { getProviderInsight, getRateInsight } from "@/lib/rate-history";
+import type { ProviderInsight, ProviderBadge, SparklinePoint } from "@/lib/rate-history-types";
 import { Sparkline, ProviderBadgeTag, ProviderRateInsightLine } from "./RateInsight";
 import RatingBadge from "./RatingBadge";
 import { useTranslations } from "next-intl";
@@ -23,6 +23,12 @@ interface Props {
   midMarketRate?: number;
   /** Recipient-currency amount this provider delivers above the worst-ranked provider (only passed for rank 1). */
   extraReceiveVsWorst?: number;
+  /** Historical insight slices for this provider on the active corridor.
+   *  Fetched once per corridor by the parent (via /api/rate-insight) so the
+   *  multi-megabyte dataset never enters the client bundle. */
+  providerInsight?: ProviderInsight | null;
+  sparklineData?: SparklinePoint[];
+  badge?: ProviderBadge;
 }
 
 function formatSavings(amount: number): string {
@@ -31,7 +37,7 @@ function formatSavings(amount: number): string {
   return amount.toFixed(2).replace(/\.?0+$/, "");
 }
 
-export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, extraReceiveVsWorst }: Props) {
+export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, extraReceiveVsWorst, providerInsight, sparklineData, badge }: Props) {
   // Auto-expand #1 on mobile — it's the answer users came for
   const [expanded, setExpanded] = useState(rank === 1);
   const t = useTranslations("providerCard");
@@ -77,11 +83,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
     ? ((quote.exchangeRate - midMarketRate) / midMarketRate) * 100
     : null;
 
-  // Historical rate insight for this provider on this corridor
-  const providerInsight = getProviderInsight(quote.sendCurrency, quote.receiveCurrency, quote.providerSlug);
-  const corridorInsight = getRateInsight(quote.sendCurrency, quote.receiveCurrency);
-  const sparklineData = corridorInsight?.sparklines[quote.providerSlug];
-  const badge = corridorInsight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug);
+  // Historical rate insight for this provider on this corridor arrives as props
+  // (providerInsight / sparklineData / badge) — the parent fetches the corridor
+  // slice from /api/rate-insight so the full dataset stays out of this bundle.
 
   return (
     <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
@@ -95,8 +99,9 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             <span>{t("bestDeal")}</span>
             {extraReceiveVsWorst && extraReceiveVsWorst > 0 && (
               <>
-                <span className="text-white/50">•</span>
-                <span className="normal-case tabular-nums">+{receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} more</span>
+                {/* Mobile: short label so badge stays single-line and doesn't overlap card content */}
+                <span className="normal-case tabular-nums font-normal text-white/90 sm:hidden">— save {receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)}</span>
+                <span className="normal-case tabular-nums font-normal text-white/90 hidden sm:inline">— use this app &amp; save {receiveCurrencySymbol}{formatSavings(extraReceiveVsWorst)} vs other options</span>
               </>
             )}
           </div>
@@ -122,7 +127,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             {rank}
           </span>
           {/* Logo */}
-          <div className="w-11 h-11 rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center border border-[var(--color-outline)]/30 mt-0.5">
+          <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center border border-[var(--color-outline)]/30 mt-0.5">
             <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
           {/* Content */}
@@ -224,7 +229,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
             )}
           </div>
 
-          <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-xl overflow-hidden shrink-0 bg-[var(--color-surface-dim)] flex items-center justify-center text-sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
+          <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
             <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={providerLogo.endsWith(".svg")} />
           </div>
 

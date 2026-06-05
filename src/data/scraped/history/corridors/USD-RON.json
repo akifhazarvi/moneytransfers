@@ -1792,5 +1792,138 @@
         "receiveAmount": 442.12
       }
     }
+  },
+  {
+    "date": "2026-06-01",
+    "providers": {
+      "ria": {
+        "rate": 4.4325,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 453.38
+      },
+      "remitly": {
+        "rate": 4.4624,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 432.9
+      },
+      "xoom": {
+        "rate": 4.3135,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 409.82
+      },
+      "wise": {
+        "rate": 4.5073,
+        "fee": 1.84,
+        "markup": null,
+        "receiveAmount": 442.43
+      }
+    }
+  },
+  {
+    "date": "2026-06-02",
+    "providers": {
+      "ria": {
+        "rate": 4.4325,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 453.38
+      },
+      "remitly": {
+        "rate": 4.4694,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 433.58
+      },
+      "xoom": {
+        "rate": 4.3228,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 410.71
+      },
+      "wise": {
+        "rate": 4.5109,
+        "fee": 1.84,
+        "markup": null,
+        "receiveAmount": 442.79
+      }
+    }
+  },
+  {
+    "date": "2026-06-03",
+    "providers": {
+      "ria": {
+        "rate": 4.4325,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 453.38
+      },
+      "remitly": {
+        "rate": 4.4726,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 433.88
+      },
+      "xoom": {
+        "rate": 4.3357,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 411.93
+      },
+      "wise": {
+        "rate": 4.5188,
+        "fee": 1.84,
+        "markup": null,
+        "receiveAmount": 443.56
+      }
+    }
+  },
+  {
+    "date": "2026-06-04",
+    "providers": {
+      "xoom": {
+        "rate": 4.3453,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 412.85
+      },
+      "remitly": {
+        "rate": 4.4848,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 435.07
+      },
+      "wise": {
+        "rate": 4.5274,
+        "fee": 1.84,
+        "markup": null,
+        "receiveAmount": 444.41
+      }
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "providers": {
+      "remitly": {
+        "rate": 4.4846,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 435.05
+      },
+      "xoom": {
+        "rate": 4.3402,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 412.36
+      },
+      "wise": {
+        "rate": 4.5271,
+        "fee": 1.84,
+        "markup": null,
+        "receiveAmount": 444.38
+      }
+    }
   }
 ]
