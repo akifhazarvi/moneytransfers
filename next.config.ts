@@ -76,23 +76,23 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
         ],
       },
-      // HTML pages MUST NOT be CDN-cached because middleware.ts generates a
-      // per-request CSP nonce. If Vercel's edge cache serves cached HTML to
-      // user A while sending user B's response headers, the page's inline
-      // <script nonce="..."> tags carry user A's nonce but the CSP header
-      // declares user B's nonce — silently blocking gtag, theme-init, and
-      // every JSON-LD block. This was observed as intermittent GA blackouts
-      // and zero EU traffic in GA4 despite Vercel logs showing EU requests.
+      // HTML pages are CDN-cacheable. The old `private, max-age=0` here was a
+      // defense against a per-request CSP nonce (cached HTML for user A could
+      // carry user A's nonce while user B got user B's CSP header, breaking
+      // inline scripts). That nonce is GONE — the CSP now uses static SHA-256
+      // hashes + 'unsafe-inline' (see src/middleware.ts and
+      // src/lib/inline-scripts.ts), so the response is identical for every
+      // user and safe to share-cache. Leaving `private, max-age=0` in place
+      // made every page CDN-uncacheable for Googlebot — `private` tells
+      // shared caches not to store, which starved crawl budget and was the
+      // structural cause of `indexed: 0` in GSC (Jun 2026).
       //
-      // private = browser may cache, but no shared/CDN caching.
-      // max-age=0, stale-while-revalidate=300 lets the browser/Googlebot
-      // serve the response while revalidating in the background — softer
-      // than no-cache, must-revalidate which signals "do not trust this
-      // response" to crawlers and contributed to the May 2026 deindex.
+      // public + s-maxage lets Vercel's edge AND Google cache the HTML;
+      // stale-while-revalidate keeps it fresh via background revalidation.
       {
         source: "/((?!_next/|api/|go/|out/|logos/).*)",
         headers: [
-          { key: "Cache-Control", value: "private, max-age=0, stale-while-revalidate=300" },
+          { key: "Cache-Control", value: "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
         ],
       },
     ];
