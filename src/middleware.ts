@@ -10,7 +10,9 @@ const intlMiddleware = createMiddleware(routing);
 
 // Known spam bot user-agent fragments (NOT legitimate crawlers)
 const SPAM_UA_PATTERNS = [
-  "semrushbot", "ahrefsbot", "dotbot", "mj12bot", "blexbot",
+  // semrushbot + ahrefsbot intentionally allowed (own SEO tooling / chose to
+  // open them). The rest stay blocked: low-value scrapers and data brokers.
+  "dotbot", "mj12bot", "blexbot",
   "megaindex", "serpstatbot", "zoominfobot", "dataforseo",
   "bomborabot", "clickagy", "neevabot",
   "headlesschrome", "phantomjs", "selenium", "puppeteer", "playwright",
@@ -22,7 +24,8 @@ const SPAM_UA_PATTERNS = [
 const ALLOWED_BOTS = [
   "googlebot", "bingbot", "yandexbot", "duckduckbot", "baiduspider",
   "applebot", "chatgpt-user", "gptbot", "oai-searchbot",
-  "perplexitybot", "claudebot", "anthropic-ai",
+  "perplexitybot", "claudebot", "anthropic-ai", "ccbot", "cohere-ai",
+  "semrushbot", "ahrefsbot",
   "bytespider", "facebookexternalhit", "facebookcatalog", "meta-externalagent",
   "twitterbot", "linkedinbot", "whatsapp", "telegrambot", "discordbot",
   "slackbot", "slack-imgproxy", "redditbot", "pinterest",
@@ -67,6 +70,20 @@ const DATA_CENTER_CITIES = new Set([
   // (real residents). 13 sessions, 23% engagement is suspicious but mixed,
   // so we let UA/header heuristics handle it instead of blanket-blocking.
 ]);
+
+// True for any known legitimate crawler (search engines, AI bots, social
+// preview fetchers). These clients never return cookies, so setting geo
+// cookies on their response is pointless AND harmful: a Set-Cookie forces
+// Next.js to mark the HTML `Cache-Control: private, max-age=0` (uncacheable),
+// the exact no-store signal that contributed to the May 2026 deindex. Because
+// a crawler is always cookieless, the "only set when missing" guard below
+// never short-circuits for it — every crawl got the uncacheable variant.
+// Gating cookie-setting on `!isLegitBot` lets crawlers receive the clean,
+// cacheable response.
+function isLegitBot(request: NextRequest): boolean {
+  const ua = (request.headers.get("user-agent") || "").toLowerCase();
+  return !!ua && ALLOWED_BOTS.some((bot) => ua.includes(bot));
+}
 
 function isSpamBot(request: NextRequest): boolean {
   const ua = (request.headers.get("user-agent") || "").toLowerCase();
@@ -262,6 +279,13 @@ export default function middleware(request: NextRequest) {
   // geo-default-amount — default transfer amount in fromCurrency
   // All three are set together on first visit so the widget hydrates correctly.
   const country = request.headers.get("x-vercel-ip-country") || "";
+
+  // Legitimate crawlers must receive a cacheable response. Any Set-Cookie below
+  // would mark the HTML uncacheable (`private, max-age=0`) — the deindex
+  // signal. Bots never send cookies back and don't need widget/consent state,
+  // so skip all cookie writes for them. Real users still get geo cookies.
+  const isBot = isLegitBot(request);
+
   // Write all three geo cookies atomically — always together so the widget
   // never hydrates with a partial set (e.g. geo-currency present but
   // geo-default-to missing due to selective cookie clearing).
@@ -269,7 +293,7 @@ export default function middleware(request: NextRequest) {
     request.cookies.get("geo-currency") &&
     request.cookies.get("geo-default-to") &&
     request.cookies.get("geo-default-amount");
-  if (!hasAllGeoCookies) {
+  if (!isBot && !hasAllGeoCookies) {
     const { fromCurrency, toCurrency, defaultAmount } = getGeoDefaults(country);
     const cookieOpts = { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax" as const };
     response.cookies.set("geo-currency",       fromCurrency,          cookieOpts);
@@ -286,7 +310,7 @@ export default function middleware(request: NextRequest) {
   // gate; a 30-day-old value is fine for that and not worth uncaching
   // every page. Once all four geo cookies are present, this response
   // stays cacheable.
-  if (!request.cookies.get("geo-country")) {
+  if (!isBot && !request.cookies.get("geo-country")) {
     response.cookies.set("geo-country", country || "US", {
       path: "/",
       maxAge: 60 * 60 * 24 * 30,
