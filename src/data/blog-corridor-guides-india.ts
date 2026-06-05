@@ -23,9 +23,9 @@ export const corridorGuidesIndia: BlogPost[] = [
   {
     slug: "how-to-send-money-to-india-2026",
     title:
-      "How to Send Money to India Internationally: Best Providers, Cheapest Routes & Complete Guide (2026)",
+      "How to Send Money to India Internationally: Complete Guide (2026)",
     metaDescription:
-      "How to send money to India in 2026 — compare the best providers from USA, UK, Canada, Australia, UAE and more. Real fee data, IMPS vs UPI, IFSC codes, and expert tips to maximise every rupee.",
+      "How to send money to India in 2026 — compare top providers from USA, UK, Canada, Australia & UAE. Real fee data, IMPS vs UPI, and IFSC codes.",
     excerpt:
       "India receives over $125 billion in remittances every year — more than any other country on earth. Whether you're sending from the USA, UK, Gulf, or anywhere else, this guide breaks down every corridor, every major provider, and every delivery method so you get the most rupees for your money.",
     category: "Corridors",
@@ -523,9 +523,9 @@ export const corridorGuidesIndia: BlogPost[] = [
   {
     slug: "send-money-to-india-from-usa-guide",
     title:
-      "Send Money to India from USA: Cheapest Providers, IFSC Rules & Delivery Methods (2026)",
+      "Send Money from USA to India 2026: Cheapest Providers & Rates",
     metaDescription:
-      "Compare 10+ providers for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, NRI account rules, and tax requirements.",
+      "Compare 10+ providers for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, and NRI account rules.",
     excerpt:
       "India receives over $125 billion in remittances annually — yet most senders overpay by 3–5%. We compared 10+ providers on real USD-to-INR quotes to find the cheapest, fastest, and most reliable ways to send money to India from the US.",
     category: "Corridors",

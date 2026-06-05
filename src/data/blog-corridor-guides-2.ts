@@ -16,9 +16,9 @@ export const corridorGuides2: BlogPost[] = [
   // ── UAE to Pakistan ──
   {
     slug: "send-money-uae-to-pakistan-guide",
-    title: "Send Money UAE to Pakistan 2026: AED to PKR Rates, RDA, JazzCash & 15-Provider Comparison",
+    title: "Send Money from UAE to Pakistan 2026: AED to PKR Rates",
     metaDescription:
-      "Send AED to PKR in May 2026: live rates from Wise, Remitly, TapTap Send, ACE, Al Ansari, LuLu, Al Fardan, Western Union. Plus RDA, JazzCash/Easypaisa, RAAST + Buna integration, PRI 2025 changes & Ramadan/Eid timing.",
+      "Send AED to PKR in 2026: live rates from Wise, Remitly, TapTap Send, ACE, Al Ansari, LuLu, Western Union. Plus RDA, JazzCash, RAAST, and Buna integration.",
     excerpt:
       "Pakistanis in the UAE sent home $7B+ in 10 months of FY26 — second only to Saudi Arabia. On AED 3,000 the gap between cheapest and most expensive provider is roughly PKR 18,000 (7.9%). Here's the full 15-provider comparison, RDA explainer, RAAST/Buna update, and Eid timing guide.",
     category: "Corridors",
@@ -340,9 +340,9 @@ export const corridorGuides2: BlogPost[] = [
   // ── Egypt ──
   {
     slug: "send-money-to-egypt-guide",
-    title: "Send Money to Egypt 2026: USD to EGP Rates, Fees & Cheapest Providers Compared",
+    title: "Send Money to Egypt 2026: USD to EGP Rates & Cheapest Fees",
     metaDescription:
-      "Send USD to EGP in 2026 after Egypt's pound float. Live rates from Wise, Remitly, TapTap Send & 9 others on $1,000 — plus InstaPay delivery, IBAN format, IMF program update, and Ramadan/Eid timing.",
+      "Send USD to EGP in 2026 after Egypt's currency reforms. Compare fees and rates from 10+ providers — bank deposit, Vodafone Cash, and InstaPay options.",
     excerpt:
       "Two years after Egypt floated the pound, USD→EGP transfers are cheap, fast and legal. On $1,000 the cheapest provider delivers EGP 52,400 vs EGP 50,200 for the most expensive — here's how to keep every Egyptian pound.",
     category: "Corridors",
@@ -643,7 +643,7 @@ export const corridorGuides2: BlogPost[] = [
     slug: "send-money-to-jamaica-guide",
     title: "Send Money to Jamaica: Cheapest Ways in 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to Jamaica in 2026. USD, GBP, and CAD to JMD fees, rates, and delivery speed from 7+ providers. Cash pickup and bank transfer compared.",
+      "Compare cheapest ways to send money to Jamaica in 2026. USD, GBP, and CAD to JMD fees, rates, and delivery speed from 7+ providers. Cash pickup compared.",
     excerpt:
       "Jamaica depends heavily on remittances, and cash pickup is still king. We compared 7+ providers for USD to JMD transfers.",
     category: "Corridors",
@@ -724,7 +724,7 @@ export const corridorGuides2: BlogPost[] = [
     slug: "send-money-to-sri-lanka-guide",
     title: "Send Money to Sri Lanka: Cheapest Ways in 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to Sri Lanka in 2026. USD, GBP, and EUR to LKR fees, rates, and delivery speed from 7+ providers including Dialog eZ Cash.",
+      "Compare cheapest ways to send money to Sri Lanka in 2026. USD, GBP, EUR to LKR fees, rates, and delivery speed from 7+ providers including Dialog eZ Cash.",
     excerpt:
       "Sri Lanka's remittance corridor is critical for families across the island. We compared 7+ providers for USD, GBP, and EUR to LKR transfers.",
     category: "Corridors",
