@@ -22,9 +22,9 @@ export const corridorGuidesIndia: BlogPost[] = [
   {
     slug: "send-money-to-india-from-usa-guide",
     title:
-      "Send Money to India from USA: Cheapest Providers, IFSC Rules & Delivery Methods (2026)",
+      "Send Money from USA to India 2026: Cheapest Providers & Rates",
     metaDescription:
-      "Compare 10+ providers for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, NRI account rules, and tax requirements.",
+      "Compare 10+ providers for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, and NRI account rules.",
     excerpt:
       "India receives over $125 billion in remittances annually — yet most senders overpay by 3–5%. We compared 10+ providers on real USD-to-INR quotes to find the cheapest, fastest, and most reliable ways to send money to India from the US.",
     category: "Corridors",

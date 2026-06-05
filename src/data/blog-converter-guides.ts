@@ -15,9 +15,9 @@ export const converterGuides: BlogPost[] = [
   // ============================
   {
     slug: "traveling-multiple-countries-currency-guide",
-    title: "Traveling to Multiple Countries? How to Track All Your Exchange Rates in One Place",
+    title: "Multi-Country Travel: How to Track All Your Exchange Rates",
     metaDescription:
-      "Planning a multi-country trip? Learn how to monitor exchange rates for 5, 10, or 20 currencies at once — so you know exactly what your dollar, pound, or euro is worth everywhere you go.",
+      "Planning a multi-country trip? Learn how to monitor exchange rates for 5, 10, or 20 currencies at once — so you know what your dollar, pound, or euro is worth.",
     excerpt:
       "Multi-country trips mean juggling 5+ currencies at once. Here's how to track live rates, avoid tourist-trap FX markups, and know what your money is actually worth at every stop.",
     category: "Guides",
@@ -139,7 +139,7 @@ export const converterGuides: BlogPost[] = [
     slug: "compare-exchange-rates-multiple-currencies",
     title: "How to Compare Exchange Rates Across Multiple Currencies at Once",
     metaDescription:
-      "Stop checking rates one at a time. Learn how to compare exchange rates across 5, 10, or 150+ currencies simultaneously — and spot which pairs are moving in your favor today.",
+      "Stop checking rates one at a time. Learn to compare exchange rates across 5, 10, or 150+ currencies simultaneously — spot which pairs are moving in your favor.",
     excerpt:
       "Comparing FX rates one pair at a time is slow and misses the bigger picture. Here's how to scan multiple currencies at once and use the data to time transfers, trips, and multi-currency purchases.",
     category: "Guides",
@@ -253,7 +253,7 @@ export const converterGuides: BlogPost[] = [
     slug: "currency-converter-vs-bank-app-travel",
     title: "Why a Live Currency Converter Beats Your Bank's App When Traveling",
     metaDescription:
-      "Your bank's mobile app shows you a rate — but it's not the real one. See the hidden markup banks build into in-app FX quotes and how a live mid-market converter keeps you honest abroad.",
+      "Your bank's app shows a rate — but hides a 2–4% markup. A live mid-market converter reveals the real rate so you know what you pay before spending abroad.",
     excerpt:
       "Bank apps show exchange rates that already include 2–4% markup. A live mid-market converter reveals the real rate — and the gap is how much your bank is quietly taking.",
     category: "Education",
