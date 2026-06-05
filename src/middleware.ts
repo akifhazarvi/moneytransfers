@@ -223,8 +223,9 @@ export default function middleware(request: NextRequest) {
     // Google AdSense (adsbygoogle.js, loaded in app/layout.tsx) pulls ad
     // creatives and tag scripts from pagead2.googlesyndication.com and
     // *.googlesyndication.com. Without these, the CSP blocks the AdSense
-    // bootstrap script and no ads render.
-    `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com`,
+    // bootstrap script and no ads render. adtrafficquality.google is
+    // AdSense's SODAR ad-fraud/quality verifier that runs after ads load.
+    `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://*.adtrafficquality.google`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.
@@ -237,9 +238,9 @@ export default function middleware(request: NextRequest) {
     // CSP-blocked every UK/EU /g/collect request ("Refused to connect"),
     // which is why all UK/EU sessions were missing from GA4 while US
     // traffic recorded fine. Wildcard both GA hostname families.
-    `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com`,
+    `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google`,
     `font-src 'self'`,
-    `frame-src https://widget.trustpilot.com https://www.youtube-nocookie.com https://www.youtube.com https://*.googlesyndication.com https://*.g.doubleclick.net https://www.google.com`,
+    `frame-src https://widget.trustpilot.com https://www.youtube-nocookie.com https://www.youtube.com https://*.googlesyndication.com https://*.g.doubleclick.net https://www.google.com https://*.adtrafficquality.google`,
     `object-src 'none'`,
     `base-uri 'self'`,
     `form-action 'self'`,
