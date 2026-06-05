@@ -83,22 +83,28 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/go/", "/out/"],
       },
-      // Block training-only crawlers
+      // Previously training-only crawlers — now allowed full content access so
+      // nothing blocks AI/search ingestion. Still excludes /api/, /go/, /out/
+      // (affiliate redirects + internal endpoints) like every other bot.
       {
         userAgent: "CCBot",
-        disallow: "/",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
       },
       {
         userAgent: "anthropic-ai",
-        disallow: "/",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
       },
       {
         userAgent: "cohere-ai",
-        disallow: "/",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
       },
       {
         userAgent: "Bytespider",
-        disallow: "/",
+        allow: "/",
+        disallow: ["/api/", "/go/", "/out/"],
       },
       // General crawlers
       {
