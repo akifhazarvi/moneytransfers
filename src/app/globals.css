@@ -316,12 +316,35 @@ body {
   padding: 0.625rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
+  /* Headers must never wrap letter-by-letter: keep each header on one line so
+     the table grows wider than the viewport and triggers horizontal scroll. */
+  white-space: nowrap;
+  min-width: 7rem;
 }
 :is(.prose-content, .prose-custom) td {
   padding: 0.625rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--color-outline);
   color: var(--color-on-surface-variant);
+  min-width: 7rem;
+}
+/* The first column (usually a name/label) gets more room and may wrap normally. */
+:is(.prose-content, .prose-custom) th:first-child,
+:is(.prose-content, .prose-custom) td:first-child {
+  min-width: 9rem;
+  white-space: normal;
+}
+/* Desktop: no forced widths — let the table size naturally. */
+@media (min-width: 640px) {
+  :is(.prose-content, .prose-custom) th,
+  :is(.prose-content, .prose-custom) td,
+  :is(.prose-content, .prose-custom) th:first-child,
+  :is(.prose-content, .prose-custom) td:first-child {
+    min-width: 0;
+  }
+  :is(.prose-content, .prose-custom) th {
+    white-space: normal;
+  }
 }
 :is(.prose-content, .prose-custom) td strong {
   font-weight: 600;
@@ -404,9 +427,13 @@ body {
 .blog-table-box {
   background: var(--color-surface-container);
   border-radius: 16px;
-  padding: 24px;
+  padding: 12px;
   margin: 24px 0;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 640px) {
+  .blog-table-box { padding: 24px; }
 }
 .blog-row-highlight  { background: var(--color-success-surface-dim); }
 .blog-footnote       { font-size: 0.875rem; color: var(--color-on-surface-variant); margin-bottom: 0; }
