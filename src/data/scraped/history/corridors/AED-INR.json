@@ -3135,6 +3135,24 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 2596.24
+      },
+      "skrill": {
+        "rate": 25.2201,
+        "fee": 0,
+        "markup": 2.54,
+        "receiveAmount": 2522.01
+      },
+      "currencyfair": {
+        "rate": 25.778,
+        "fee": 34.66,
+        "markup": 0.39,
+        "receiveAmount": 1684.33
+      },
+      "paysend": {
+        "rate": 25.4744,
+        "fee": 0,
+        "markup": 1.56,
+        "receiveAmount": 2547.44
       }
     }
   }

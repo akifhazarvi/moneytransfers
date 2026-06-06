@@ -8163,6 +8163,54 @@
         "fee": 1.58,
         "markup": null,
         "receiveAmount": 10815.37
+      },
+      "moneygram": {
+        "rate": 108.2461,
+        "fee": 1.99,
+        "markup": 1.14,
+        "receiveAmount": 10609.2
+      },
+      "deutsche-bank": {
+        "rate": 107.8645,
+        "fee": 28.91,
+        "markup": 1.49,
+        "receiveAmount": 7668.22
+      },
+      "western-union": {
+        "rate": 108.8375,
+        "fee": 0.99,
+        "markup": 0.6,
+        "receiveAmount": 10776
+      },
+      "dahabshiil": {
+        "rate": 110.2545,
+        "fee": 1.99,
+        "markup": -0.69,
+        "receiveAmount": 10806.04
+      },
+      "profee": {
+        "rate": 109.5032,
+        "fee": 2.4,
+        "markup": -0.01,
+        "receiveAmount": 10687.51
+      },
+      "currencyfair": {
+        "rate": 109.1707,
+        "fee": 1.1,
+        "markup": 0.3,
+        "receiveAmount": 10796.98
+      },
+      "paysend": {
+        "rate": 108.6757,
+        "fee": 0,
+        "markup": 0.75,
+        "receiveAmount": 10867.57
+      },
+      "revolut": {
+        "rate": 108.8047,
+        "fee": 1.3,
+        "markup": 0.63,
+        "receiveAmount": 10739.03
       }
     }
   }

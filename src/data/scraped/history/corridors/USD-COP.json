@@ -5543,10 +5543,10 @@
         "receiveAmount": 353000
       },
       "xoom": {
-        "rate": 3282.9865,
+        "rate": 3275.6931,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 328298.65
+        "receiveAmount": 327569.31
       },
       "instarem": {
         "rate": 3567.9979,
@@ -5559,6 +5559,48 @@
         "fee": 4.61,
         "markup": null,
         "receiveAmount": 342970.93
+      },
+      "moneygram": {
+        "rate": 3489.9559,
+        "fee": 1.99,
+        "markup": 2.93,
+        "receiveAmount": 342050.58
+      },
+      "ria": {
+        "rate": 3490,
+        "fee": 1,
+        "markup": 2.92,
+        "receiveAmount": 345510
+      },
+      "boss-money": {
+        "rate": 3501.4977,
+        "fee": 1.99,
+        "markup": 2.6,
+        "receiveAmount": 343181.79
+      },
+      "western-union": {
+        "rate": 3492.7598,
+        "fee": 1.99,
+        "markup": 2.85,
+        "receiveAmount": 342325.39
+      },
+      "worldremit": {
+        "rate": 3483.3176,
+        "fee": 1.99,
+        "markup": 3.11,
+        "receiveAmount": 341399.96
+      },
+      "xe": {
+        "rate": 3514.227,
+        "fee": 4,
+        "markup": 2.25,
+        "receiveAmount": 337365.79
+      },
+      "paysend": {
+        "rate": 3579.9174,
+        "fee": 1.99,
+        "markup": 0.42,
+        "receiveAmount": 350867.7
       }
     }
   }

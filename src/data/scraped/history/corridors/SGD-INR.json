@@ -5523,6 +5523,36 @@
         "fee": 1.06,
         "markup": null,
         "receiveAmount": 7309.44
+      },
+      "moneygram": {
+        "rate": 73.552,
+        "fee": 6,
+        "markup": 0.32,
+        "receiveAmount": 6913.89
+      },
+      "skrill": {
+        "rate": 71.4234,
+        "fee": 0,
+        "markup": 3.21,
+        "receiveAmount": 7142.34
+      },
+      "western-union": {
+        "rate": 73.5007,
+        "fee": 1.5,
+        "markup": 0.39,
+        "receiveAmount": 7239.82
+      },
+      "currencyfair": {
+        "rate": 73.347,
+        "fee": 1.64,
+        "markup": 0.6,
+        "receiveAmount": 7214.41
+      },
+      "revolut": {
+        "rate": 73.4151,
+        "fee": 1.9,
+        "markup": 0.51,
+        "receiveAmount": 7202.02
       }
     }
   }

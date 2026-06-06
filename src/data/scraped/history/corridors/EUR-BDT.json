@@ -3882,10 +3882,10 @@
         "receiveAmount": 13988.42
       },
       "moneygram": {
-        "rate": 142.7181,
+        "rate": 140.1362,
         "fee": 1.99,
-        "markup": -0.03,
-        "receiveAmount": 13987.8
+        "markup": 1.04,
+        "receiveAmount": 13734.75
       },
       "skrill": {
         "rate": 138.0027,
@@ -3900,22 +3900,22 @@
         "receiveAmount": 14113
       },
       "western-union": {
-        "rate": 141.1108,
+        "rate": 139.8867,
         "fee": 0.99,
-        "markup": 1.1,
-        "receiveAmount": 13971.38
+        "markup": 1.22,
+        "receiveAmount": 13850.18
       },
       "dahabshiil": {
-        "rate": 141.4531,
+        "rate": 141.5062,
         "fee": 0,
-        "markup": 0.86,
-        "receiveAmount": 14145.31
+        "markup": 0.07,
+        "receiveAmount": 14150.62
       },
       "worldremit": {
-        "rate": 141.9396,
+        "rate": 140.761,
         "fee": 0.99,
-        "markup": 0.52,
-        "receiveAmount": 14053.44
+        "markup": 0.6,
+        "receiveAmount": 13936.75
       },
       "instarem": {
         "rate": 140.1157,
@@ -3924,16 +3924,16 @@
         "receiveAmount": 14011.57
       },
       "paysend": {
-        "rate": 142.0904,
+        "rate": 140.5179,
         "fee": 0,
-        "markup": 0.41,
-        "receiveAmount": 14209.04
+        "markup": 0.77,
+        "receiveAmount": 14051.79
       },
       "sendwave": {
-        "rate": 141.8256,
+        "rate": 140.6479,
         "fee": 0.99,
-        "markup": 0.6,
-        "receiveAmount": 14042.15
+        "markup": 0.68,
+        "receiveAmount": 13925.55
       },
       "remitly": {
         "rate": 140.56,
@@ -3942,10 +3942,10 @@
         "receiveAmount": 13916.85
       },
       "revolut": {
-        "rate": 141.664,
-        "fee": 2.3,
-        "markup": 0.71,
-        "receiveAmount": 13840.57
+        "rate": 140.4203,
+        "fee": 3.3,
+        "markup": 0.84,
+        "receiveAmount": 13578.64
       },
       "wise": {
         "rate": 141.457,
