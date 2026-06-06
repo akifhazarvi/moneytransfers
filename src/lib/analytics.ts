@@ -130,54 +130,6 @@ export function trackStickyCtaDismissed(corridorStr: string) {
 }
 
 // ═════════════════════════════════════════════════════════════════
-// STEP 3 — Bot widget (chat assistant engagement → alert/digest)
-// ═════════════════════════════════════════════════════════════════
-
-/** Page-aware preview teaser card appeared */
-export function trackBotPreviewShown(pageType: string, corridorStr?: string) {
-  gtagEvent("bot_preview_shown", { page_type: pageType, corridor: corridorStr });
-}
-
-/** User clicked the X on the preview (dismissed without opening) */
-export function trackBotPreviewDismissed(pageType: string) {
-  gtagEvent("bot_preview_dismissed", { page_type: pageType });
-}
-
-/** User clicked the preview card to open chat */
-export function trackBotPreviewClicked(pageType: string, corridorStr?: string) {
-  gtagEvent("bot_preview_clicked", { page_type: pageType, corridor: corridorStr });
-}
-
-/** Chat widget opened (via preview click OR direct trigger button click) */
-export function trackBotOpened(pageType: string, source: "preview" | "trigger", corridorStr?: string) {
-  dual("bot_opened", { page_type: pageType, source, corridor: corridorStr });
-}
-
-/** Chat widget closed */
-export function trackBotClosed(pageType: string) {
-  gtagEvent("bot_closed", { page_type: pageType });
-}
-
-/** User picked one of the quick-reply actions inside chat */
-export function trackBotActionSelected(action: "digest" | "question", pageType: string) {
-  gtagEvent("bot_action_selected", { action, page_type: pageType });
-}
-
-/** User subscribed to weekly digest from the bot — CONVERSION */
-export function trackBotDigestSubmitted(corridorStr: string) {
-  dual("bot_digest_submitted", { corridor: corridorStr, source: "bot_widget" });
-}
-
-// ═════════════════════════════════════════════════════════════════
-// STEP 4 — Email capture (page-embedded forms)
-// ═════════════════════════════════════════════════════════════════
-
-/** Newsletter signup from any page-embedded form */
-export function trackNewsletterSignup(source: string) {
-  dual("newsletter_signup", { source });
-}
-
-// ═════════════════════════════════════════════════════════════════
 // Content engagement (informational — GA4 only)
 // ═════════════════════════════════════════════════════════════════
 
