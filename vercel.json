@@ -1,10 +1,4 @@
 {
   "ignoreCommand": "bash vercel-ignore.sh",
-  "buildCommand": "NEXT_PUBLIC_BUILD_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ) npm run build",
-  "crons": [
-    {
-      "path": "/api/cron/weekly-digest",
-      "schedule": "0 9 * * 1"
-    }
-  ]
+  "buildCommand": "NEXT_PUBLIC_BUILD_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ) npm run build"
 }

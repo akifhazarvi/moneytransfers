@@ -2,15 +2,18 @@ import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   // Explicit per-bot groups (Bing-preferred): each major search + AI crawler is
-  // named so intent is unambiguous and individually auditable. Every group
-  // shares the same policy — full content access, only /api/, /go/, /out/
-  // disallowed (internal endpoints + affiliate redirects).
+  // named so intent is unambiguous and individually auditable.
+  //
+  // /api/ is now crawlable (per Semrush best practice: don't block resources
+  // crawlers may need). This also unblocks /api/ai — the public, CORS-enabled
+  // live-quotes endpoint built for AI assistants (see /for-ai), which the old
+  // blanket /api/ disallow contradicted.
   //
   // No `Host` directive: it's a non-standard Yandex-only extension that Google
   // never supported and Bing ignores — robots.txt validators flag it as an
   // error. Canonical domain is enforced via the www→non-www 301 in middleware
   // and <link rel="canonical">, which is the correct mechanism.
-  const standardRules = { allow: "/", disallow: ["/api/", "/go/", "/out/"] };
+  const standardRules = { allow: "/", disallow: ["/go/", "/out/"] };
 
   return {
     rules: [

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
-import NewsletterForm from "@/components/NewsletterForm";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -125,20 +124,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
             </ul>
           </div>
         </div>
-      </div>
-
-      {/* Newsletter CTA */}
-      <div className="bg-[var(--color-surface-dim)] rounded-2xl p-8 md:p-12 mt-12 text-center">
-        <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-3">
-          {t("stayUpdated")}
-        </h2>
-        <p className="text-sm text-[var(--color-on-surface-variant)] mb-6 max-w-lg mx-auto">
-          {t("stayUpdatedDesc")}
-        </p>
-        <NewsletterForm
-          placeholder={t("enterEmail")}
-          buttonLabel={t("subscribe")}
-        />
       </div>
     </Container>
     </>
