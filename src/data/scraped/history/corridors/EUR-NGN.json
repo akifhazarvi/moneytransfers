@@ -5652,5 +5652,94 @@
         "receiveAmount": 156247.51
       }
     }
+  },
+  {
+    "date": "2026-06-06",
+    "providers": {
+      "lemfi": {
+        "rate": 1585,
+        "fee": 0,
+        "markup": -1.01,
+        "receiveAmount": 158500
+      },
+      "moneygram": {
+        "rate": 1589.6318,
+        "fee": 0.99,
+        "markup": -0.5,
+        "receiveAmount": 157389.44
+      },
+      "taptap-send": {
+        "rate": 1580,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 158000
+      },
+      "western-union": {
+        "rate": 1583.4124,
+        "fee": 0.99,
+        "markup": -0.1,
+        "receiveAmount": 156773.66
+      },
+      "dahabshiil": {
+        "rate": 1599.3496,
+        "fee": 0,
+        "markup": -1.11,
+        "receiveAmount": 159934.96
+      },
+      "profee": {
+        "rate": 1593.5481,
+        "fee": 2,
+        "markup": -0.75,
+        "receiveAmount": 156167.72
+      },
+      "worldremit": {
+        "rate": 1582.1319,
+        "fee": 0.99,
+        "markup": -0.02,
+        "receiveAmount": 156646.88
+      },
+      "instarem": {
+        "rate": 1555.3143,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 155531.43
+      },
+      "paysend": {
+        "rate": 1583.6143,
+        "fee": 0,
+        "markup": -0.12,
+        "receiveAmount": 158361.43
+      },
+      "sendwave": {
+        "rate": 1582.1319,
+        "fee": 0.99,
+        "markup": -0.02,
+        "receiveAmount": 156646.88
+      },
+      "remitly": {
+        "rate": 1565.84,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 156584
+      },
+      "ria": {
+        "rate": 1574.4658,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 157723.56
+      },
+      "xoom": {
+        "rate": 1536.4824,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 152895.36
+      },
+      "wise": {
+        "rate": 1576.63,
+        "fee": 1.72,
+        "markup": null,
+        "receiveAmount": 154951.2
+      }
+    }
   }
 ]
