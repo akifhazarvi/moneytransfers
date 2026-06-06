@@ -58,6 +58,7 @@ export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
 export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   // ── Authoritative head-term guides (always submitted regardless of current impr) ──
   "best-money-transfer-apps",
+  "fastest-way-to-send-money-internationally", // speed/instant cluster — Bing "best send money apps" 5751i pos3, no prior speed-angle page
   "best-money-transfer-services",
   "business-international-payments-guide",
   "iban-numbers-explained",
