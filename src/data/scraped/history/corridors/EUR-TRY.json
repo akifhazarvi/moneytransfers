@@ -4410,26 +4410,26 @@
       "deutsche-bank": {
         "rate": 53.0233,
         "fee": 28.91,
-        "markup": 0.07,
-        "receiveAmount": 3769.49
+        "markup": 0.1,
+        "receiveAmount": 3769.66
       },
       "xe": {
         "rate": 52.536,
         "fee": 4,
-        "markup": 0.98,
+        "markup": 1.02,
         "receiveAmount": 5043.46
       },
       "western-union": {
         "rate": 52.2351,
         "fee": 0.99,
-        "markup": 1.55,
+        "markup": 1.58,
         "receiveAmount": 5171.8
       },
       "dahabshiil": {
-        "rate": 52.691,
+        "rate": 52.0344,
         "fee": 1,
-        "markup": 0.69,
-        "receiveAmount": 5216.41
+        "markup": 1.96,
+        "receiveAmount": 5151.41
       },
       "instarem": {
         "rate": 52.6905,
@@ -4440,7 +4440,7 @@
       "paysend": {
         "rate": 52.3983,
         "fee": 0,
-        "markup": 1.24,
+        "markup": 1.28,
         "receiveAmount": 5239.83
       },
       "remitly": {
@@ -4450,10 +4450,10 @@
         "receiveAmount": 5210.19
       },
       "revolut": {
-        "rate": 52.7057,
+        "rate": 52.7004,
         "fee": 1.3,
-        "markup": 0.66,
-        "receiveAmount": 5202.05
+        "markup": 0.71,
+        "receiveAmount": 5201.53
       },
       "wise": {
         "rate": 53.064,
