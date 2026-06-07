@@ -261,7 +261,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
         }
       `}</style>
 
-      <div className="min-h-screen bg-[#050505] py-6 sm:py-10">
+      <div className="bg-[#050505] py-6 sm:py-10">
         <div className="max-w-[1100px] mx-auto px-3 sm:px-6">
 
           {/* ── Top bar ── */}
