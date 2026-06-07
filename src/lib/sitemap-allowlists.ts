@@ -189,12 +189,20 @@ export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "us-remittance-excise-tax-takes-effect-2026",
 ]); // 7 URLs
 
+// All 20 built /exchange-rates/[pair] pages. These render index:follow (en),
+// so leaving most OUT of the sitemap created the "sitemap=no / robots=index"
+// contradiction that fed the May deindex. Each page is genuinely editorial
+// (unique intro + bullets + send-timing tip + FAQ per pair; live quotes where
+// a corridor exists), not thin — so the right fix is to make the sitemap match
+// robots, not to noindex them. Known impression-earners: usd-to-brl (232i),
+// gbp-to-eur (69i). The rest had ~0 Bing/GSC at the May-25 prune but are
+// substantive pages; re-prune via Bing data if they stay at 0 by next review.
 export const SITEMAP_RATE_PAIR_SLUGS = new Set<string>([
-  "gbp-to-pkr",
-  "usd-to-php",
-  "usd-to-pkr",  // 25i 0c Bing — added 2026-05-25
-  "usd-to-aud",
-]); // 4 URLs (was 12)
+  "usd-to-inr", "usd-to-pkr", "usd-to-php", "usd-to-mxn", "usd-to-ngn",
+  "gbp-to-eur", "gbp-to-inr", "gbp-to-usd", "gbp-to-pkr", "eur-to-usd",
+  "eur-to-gbp", "cad-to-inr", "aud-to-inr", "usd-to-gbp", "usd-to-eur",
+  "usd-to-cad", "usd-to-aud", "usd-to-jpy", "usd-to-brl", "usd-to-cny",
+]); // 20 URLs (was 4) — reconciled index:yes/sitemap:no contradiction 2026-06-07
 
 // All 22 rate-history pages had 0 Bing + 0 GSC. Removed from sitemap.
 // Page route remains but is no longer actively submitted.

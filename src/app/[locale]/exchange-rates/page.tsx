@@ -58,15 +58,21 @@ const popularCorridors = [
   { slug: "canada-to-india", from: "CAD", to: "INR", label: "Canada to India", flag: "\u{1F1EE}\u{1F1F3}" },
 ];
 
-// Link only to [pair] rate pages that are in the sitemap (SITEMAP_RATE_PAIR_SLUGS).
-// Linking the non-allowlisted pairs would point at "indexable-but-not-in-sitemap"
-// pages — the sitemap=no/robots=index contradiction that fed the May deindex.
-// Higher-intent overflow goes to /send-money corridors (indexed) instead.
+// All targets below are in SITEMAP_RATE_PAIR_SLUGS (index:yes + sitemap:yes),
+// so these links point only at consistent, indexable pages.
 const topRatePairs = [
+  { slug: "usd-to-inr", from: "USD", to: "INR", label: "USD to INR" },
+  { slug: "gbp-to-inr", from: "GBP", to: "INR", label: "GBP to INR" },
   { slug: "usd-to-php", from: "USD", to: "PHP", label: "USD to PHP" },
+  { slug: "usd-to-mxn", from: "USD", to: "MXN", label: "USD to MXN" },
   { slug: "usd-to-pkr", from: "USD", to: "PKR", label: "USD to PKR" },
-  { slug: "gbp-to-pkr", from: "GBP", to: "PKR", label: "GBP to PKR" },
-  { slug: "usd-to-aud", from: "USD", to: "AUD", label: "USD to AUD" },
+  { slug: "usd-to-brl", from: "USD", to: "BRL", label: "USD to BRL" },
+  { slug: "gbp-to-eur", from: "GBP", to: "EUR", label: "GBP to EUR" },
+  { slug: "eur-to-usd", from: "EUR", to: "USD", label: "EUR to USD" },
+  { slug: "usd-to-cad", from: "USD", to: "CAD", label: "USD to CAD" },
+  { slug: "usd-to-jpy", from: "USD", to: "JPY", label: "USD to JPY" },
+  { slug: "cad-to-inr", from: "CAD", to: "INR", label: "CAD to INR" },
+  { slug: "usd-to-ngn", from: "USD", to: "NGN", label: "USD to NGN" },
 ];
 
 const faqs = [
