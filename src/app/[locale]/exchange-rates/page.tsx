@@ -2,12 +2,40 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import LiveRatesBoard from "./LiveRatesBoard";
+import TodayRates from "./TodayRates";
 import LazyHistoricalRateWidget from "@/components/LazyHistoricalRateWidget";
+import LiveTimestamp from "@/components/LiveTimestamp";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
-
-// Revalidate every 6 hours — matches scraper cadence
-export const revalidate = 21600;
 import { getAlternates } from "@/lib/i18n-metadata";
+import { getPairRate, formatRate, RATES_AS_OF } from "@/lib/exchange-rates-today";
+
+// Revalidate hourly so "today's rate" + the as-of date stay fresh while the
+// page stays fully prerendered (no per-request no-store — that was the May
+// deindex root cause). The mid-market history dataset only changes daily.
+export const revalidate = 3600;
+
+// Human-readable "as of" date for the H1/intro, derived from the dataset.
+const AS_OF = RATES_AS_OF
+  ? new Date(RATES_AS_OF + "T00:00:00Z").toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    })
+  : "today";
+
+// Answer-first lead rates — the single most citable block for AI engines.
+const LEAD_PAIRS: [string, string][] = [
+  ["USD", "INR"],
+  ["USD", "PHP"],
+  ["USD", "MXN"],
+  ["GBP", "INR"],
+  ["USD", "PKR"],
+];
+const leadRates = LEAD_PAIRS.map(([from, to]) => {
+  const r = getPairRate(from, to);
+  return r ? { from, to, rate: formatRate(r.rate) } : null;
+}).filter((x): x is { from: string; to: string; rate: string } => x !== null);
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -33,32 +61,41 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const popularCorridors = [
-  { slug: "usa-to-india", from: "USD", to: "INR", label: "USA to India", flag: "\u{1F1EE}\u{1F1F3}", ratePair: "usd-to-inr" },
-  { slug: "usa-to-pakistan", from: "USD", to: "PKR", label: "USA to Pakistan", flag: "\u{1F1F5}\u{1F1F0}", ratePair: "usd-to-pkr" },
-  { slug: "usa-to-philippines", from: "USD", to: "PHP", label: "USA to Philippines", flag: "\u{1F1F5}\u{1F1ED}", ratePair: "usd-to-php" },
-  { slug: "usa-to-mexico", from: "USD", to: "MXN", label: "USA to Mexico", flag: "\u{1F1F2}\u{1F1FD}", ratePair: "usd-to-mxn" },
-  { slug: "usa-to-nigeria", from: "USD", to: "NGN", label: "USA to Nigeria", flag: "\u{1F1F3}\u{1F1EC}", ratePair: "usd-to-ngn" },
-  { slug: "uk-to-india", from: "GBP", to: "INR", label: "UK to India", flag: "\u{1F1EE}\u{1F1F3}", ratePair: "gbp-to-inr" },
-  { slug: "uk-to-europe", from: "GBP", to: "EUR", label: "UK to Europe", flag: "\u{1F1EA}\u{1F1FA}", ratePair: "gbp-to-eur" },
-  { slug: "canada-to-india", from: "CAD", to: "INR", label: "Canada to India", flag: "\u{1F1EE}\u{1F1F3}", ratePair: "cad-to-inr" },
+  { slug: "usa-to-india", from: "USD", to: "INR", label: "USA to India", flag: "\u{1F1EE}\u{1F1F3}" },
+  { slug: "usa-to-pakistan", from: "USD", to: "PKR", label: "USA to Pakistan", flag: "\u{1F1F5}\u{1F1F0}" },
+  { slug: "usa-to-philippines", from: "USD", to: "PHP", label: "USA to Philippines", flag: "\u{1F1F5}\u{1F1ED}" },
+  { slug: "usa-to-mexico", from: "USD", to: "MXN", label: "USA to Mexico", flag: "\u{1F1F2}\u{1F1FD}" },
+  { slug: "usa-to-nigeria", from: "USD", to: "NGN", label: "USA to Nigeria", flag: "\u{1F1F3}\u{1F1EC}" },
+  { slug: "uk-to-india", from: "GBP", to: "INR", label: "UK to India", flag: "\u{1F1EE}\u{1F1F3}" },
+  { slug: "uk-to-europe", from: "GBP", to: "EUR", label: "UK to Europe", flag: "\u{1F1EA}\u{1F1FA}" },
+  { slug: "canada-to-india", from: "CAD", to: "INR", label: "Canada to India", flag: "\u{1F1EE}\u{1F1F3}" },
 ];
 
 const topRatePairs = [
   { slug: "usd-to-inr", from: "USD", to: "INR", label: "USD to INR" },
-  { slug: "usd-to-eur", from: "USD", to: "EUR", label: "USD to EUR" },
-  { slug: "gbp-to-eur", from: "GBP", to: "EUR", label: "GBP to EUR" },
-  { slug: "gbp-to-usd", from: "GBP", to: "USD", label: "GBP to USD" },
-  { slug: "usd-to-gbp", from: "USD", to: "GBP", label: "USD to GBP" },
-  { slug: "eur-to-usd", from: "EUR", to: "USD", label: "EUR to USD" },
-  { slug: "usd-to-jpy", from: "USD", to: "JPY", label: "USD to JPY" },
-  { slug: "usd-to-cad", from: "USD", to: "CAD", label: "USD to CAD" },
+  { slug: "gbp-to-inr", from: "GBP", to: "INR", label: "GBP to INR" },
+  { slug: "usd-to-php", from: "USD", to: "PHP", label: "USD to PHP" },
   { slug: "usd-to-mxn", from: "USD", to: "MXN", label: "USD to MXN" },
   { slug: "usd-to-pkr", from: "USD", to: "PKR", label: "USD to PKR" },
-  { slug: "gbp-to-inr", from: "GBP", to: "INR", label: "GBP to INR" },
+  { slug: "usd-to-eur", from: "USD", to: "EUR", label: "USD to EUR" },
+  { slug: "gbp-to-usd", from: "GBP", to: "USD", label: "GBP to USD" },
+  { slug: "eur-to-usd", from: "EUR", to: "USD", label: "EUR to USD" },
+  { slug: "usd-to-cad", from: "USD", to: "CAD", label: "USD to CAD" },
+  { slug: "usd-to-jpy", from: "USD", to: "JPY", label: "USD to JPY" },
   { slug: "cad-to-inr", from: "CAD", to: "INR", label: "CAD to INR" },
+  { slug: "usd-to-ngn", from: "USD", to: "NGN", label: "USD to NGN" },
 ];
 
 const faqs = [
+  {
+    question: "What is today's exchange rate?",
+    answer:
+      `As of ${AS_OF}, the mid-market rates are` +
+      (leadRates.length
+        ? ` ${leadRates.map((r) => `1 ${r.from} = ${r.rate} ${r.to}`).join(", ")}. `
+        : " shown live above. ") +
+      "These are mid-market (interbank) rates — the fairest reference rate, before any provider adds a markup. The rate your bank or transfer service offers will be slightly lower.",
+  },
   {
     question: "What is the mid-market exchange rate?",
     answer:
@@ -67,165 +104,150 @@ const faqs = [
   {
     question: "How often are these exchange rates updated?",
     answer:
-      "Our rates are aggregated from 4 independent sources and refreshed every 60 seconds while you're on this page. The sources include ExchangeRate-API, Fawaz Ahmed CDN, FloatRates, and Currency-API Pages. We take the median value across all sources to ensure accuracy.",
+      "The headline rates and 12-month charts on this page use a daily mid-market history covering 60+ currencies. The live ticker at the bottom of the page refreshes every 60 seconds and aggregates the median of 4 independent free rate feeds (ExchangeRate-API, Fawaz Ahmed CDN, FloatRates, Currency-API Pages) to remove outliers.",
   },
   {
     question: "Why is my bank's exchange rate different from the mid-market rate?",
     answer:
-      "Banks and transfer services add a margin (markup) to the mid-market rate. This is one of the ways they make money on international transfers. The markup can range from 0.5% to 5% or more depending on the provider and currency corridor. Use our comparison tool to find providers offering rates closest to the mid-market rate.",
+      "Banks and transfer services add a margin (markup) to the mid-market rate. This is one of the main ways they make money on international transfers. The markup can range from 0.5% to 5% or more depending on the provider and currency corridor. Use our comparison tool to find providers offering rates closest to the mid-market rate.",
   },
   {
-    question: "What is the difference between buy and sell rates?",
+    question: "Which is the best provider to send money at the real exchange rate?",
     answer:
-      "The buy rate is what a bank pays you when you sell foreign currency to them. The sell rate is what the bank charges you when you buy foreign currency. The difference between these two rates is called the spread, and it represents the bank's profit margin on currency exchange.",
-  },
-  {
-    question: "Which currency pairs are most traded globally?",
-    answer:
-      "The most traded currency pairs are EUR/USD (Euro/US Dollar), USD/JPY (US Dollar/Japanese Yen), GBP/USD (British Pound/US Dollar), and USD/CHF (US Dollar/Swiss Franc). These are known as the 'major pairs' and account for the majority of forex trading volume worldwide.",
+      "Providers like Wise and Revolut advertise the mid-market rate with a transparent upfront fee, while banks and cash-payout services usually bake their profit into a worse rate. The cheapest option changes by corridor and amount, so compare live quotes for your exact route — our send-money pages rank every provider by how much the recipient actually receives.",
   },
 ];
 
-// FAQPage schema removed — Google restricted FAQ rich results to gov/health sites since Aug 2023.
-// FAQ content is still rendered on the page for users.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
-const SSR_CURRENCIES = [
-  { code: "EUR", name: "Euro" },
-  { code: "GBP", name: "Pound Sterling" },
-  { code: "JPY", name: "Japanese Yen" },
-  { code: "AUD", name: "Australian Dollar" },
-  { code: "CAD", name: "Canadian Dollar" },
-  { code: "CHF", name: "Swiss Franc" },
-  { code: "INR", name: "Indian Rupee" },
-  { code: "CNY", name: "Chinese Yuan" },
-  { code: "MXN", name: "Mexican Peso" },
-  { code: "SGD", name: "Singapore Dollar" },
-  { code: "HKD", name: "Hong Kong Dollar" },
-  { code: "KRW", name: "Korean Won" },
-  { code: "ZAR", name: "South African Rand" },
-  { code: "TRY", name: "Turkish Lira" },
-  { code: "AED", name: "UAE Dirham" },
-  { code: "PKR", name: "Pakistani Rupee" },
-  { code: "PHP", name: "Philippine Peso" },
-  { code: "NGN", name: "Nigerian Naira" },
-  { code: "BRL", name: "Brazilian Real" },
-  { code: "THB", name: "Thai Baht" },
-];
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Exchange Rates Today — Live Mid-Market Rates",
+  description:
+    "Live mid-market exchange rates for 60+ currencies with 12-month trend charts, plus the best provider rate and payout for popular remittance corridors.",
+  url: "https://sendmoneycompare.com/exchange-rates",
+  dateModified: RATES_AS_OF || undefined,
+  isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
+      { "@type": "ListItem", position: 2, name: "Exchange Rates", item: "https://sendmoneycompare.com/exchange-rates" },
+    ],
+  },
+};
+
+const rateSpecSchema = {
+  "@context": "https://schema.org",
+  "@graph": leadRates.map((r) => ({
+    "@type": "ExchangeRateSpecification",
+    currency: r.from,
+    currentExchangeRate: {
+      "@type": "UnitPriceSpecification",
+      price: r.rate,
+      priceCurrency: r.to,
+      unitText: `1 ${r.from} = ${r.rate} ${r.to}`,
+    },
+  })),
+};
+
+const datasetSchema = {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  name: "Live mid-market exchange rates",
+  description:
+    "Daily mid-market (interbank) exchange rates for 60+ world currencies with 12-month history, aggregated from multiple independent sources.",
+  url: "https://sendmoneycompare.com/exchange-rates",
+  temporalCoverage: RATES_AS_OF ? `2025-06-08/${RATES_AS_OF}` : undefined,
+  dateModified: RATES_AS_OF || undefined,
+  creator: { "@type": "Organization", name: "SendMoneyCompare", url: "https://sendmoneycompare.com" },
+  variableMeasured: "Mid-market exchange rate",
+  isAccessibleForFree: true,
+};
 
 export default async function ExchangeRatesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "exchangeRates" });
 
+  // Server-fetch live rates so the retro ticker pre-renders for crawlers too.
   const rates = await fetchExchangeRates();
-
-  // Build server-rendered rate rows for crawlers
-  const ssrRates = SSR_CURRENCIES
-    .map((c) => ({ ...c, rate: rates[c.code] }))
-    .filter((c) => c.rate && c.rate > 0);
-
-  // WebPage + BreadcrumbList schema
-  const today = new Date().toISOString().split("T")[0];
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Exchange Rates Today — Live Mid-Market Rates",
-    description: "Live exchange rates from 4 independent sources, updated every 60 seconds. Compare mid-market rates for 150+ currencies.",
-    url: "https://sendmoneycompare.com/exchange-rates",
-    dateModified: today,
-    isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
-        { "@type": "ListItem", position: 2, name: "Exchange Rates", item: "https://sendmoneycompare.com/exchange-rates" },
-      ],
-    },
-  };
-
-  // ExchangeRateSpecification JSON-LD for top 10 currencies
-  const rateSchemas = ssrRates.slice(0, 10).map((c) => ({
-    "@type": "ExchangeRateSpecification",
-    currency: "USD",
-    currentExchangeRate: {
-      "@type": "UnitPriceSpecification",
-      price: c.rate,
-      priceCurrency: c.code,
-      unitText: `1 USD = ${c.rate} ${c.code}`,
-    },
-  }));
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": rateSchemas }) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(rateSpecSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
 
-      {/* Server-rendered H1 for crawlers — LiveRatesBoard has a visual H1 but it's client-only */}
-      <h1 className="sr-only">{t("title")}</h1>
-
-      {/* Live Rates Board — pre-rendered with server-fetched rates for SEO */}
-      <LiveRatesBoard initialRates={rates} />
-
-      {/* Server-rendered rate table — visible to crawlers even without JS */}
-      <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)]">
+      <div className="bg-[var(--color-surface)]">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 py-10 sm:py-14">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
-            {t("todaysRatesHeading")}
-          </h2>
-          <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
-            {t("todaysRatesDesc")}
-          </p>
-          <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
-            <div className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs sm:text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
-              <span>{t("colCurrency")}</span>
-              <span className="text-right">{t("colCode")}</span>
-              <span className="text-right">{t("colRate")}</span>
-            </div>
-            {ssrRates.map((c) => (
-              <div
-                key={c.code}
-                className="grid grid-cols-[1fr_100px_140px] sm:grid-cols-[1fr_120px_160px] gap-2 items-center px-4 sm:px-6 py-2.5 border-t border-[var(--color-outline)]"
-              >
-                <span className="text-sm text-[var(--color-on-surface)]">{c.name}</span>
-                <span className="text-sm font-medium text-[var(--color-on-surface)] text-right">{c.code}</span>
-                <span className="text-sm font-medium text-[var(--color-on-surface)] text-right tabular-nums">
-                  {c.rate >= 1000 ? c.rate.toFixed(2) : c.rate >= 100 ? c.rate.toFixed(3) : c.rate.toFixed(4)}
-                </span>
-              </div>
-            ))}
-          </div>
-          <p className="text-xs text-[var(--color-on-surface-variant)] mt-3">
-            {t("ssrTableNote")}
-          </p>
-        </div>
-      </section>
 
-      {/* Historical rate trends widget (relocated from homepage) */}
-      <section className="bg-[var(--color-surface-dim)] py-10 sm:py-14">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
-          <div className="max-w-[860px] mx-auto">
+          {/* ── Hero / answer-first ── */}
+          <header className="mb-8 sm:mb-10">
+            <nav aria-label="Breadcrumb" className="text-xs text-[var(--color-on-surface-muted)] mb-3">
+              <Link href="/" className="hover:underline">Home</Link>
+              <span className="mx-1.5">/</span>
+              <span className="text-[var(--color-on-surface-variant)]">Exchange Rates</span>
+            </nav>
+            <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-on-surface)] tracking-tight">
+              Today&apos;s Exchange Rates
+            </h1>
+            <p className="mt-3 text-[15px] sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
+              Live <strong>mid-market exchange rates</strong> for 60+ currencies as of {AS_OF}.
+              {leadRates.length > 0 && (
+                <>
+                  {" "}Right now <strong className="text-[var(--color-on-surface)] tabular-nums">
+                    1 {leadRates[0].from} = {leadRates[0].rate} {leadRates[0].to}
+                  </strong>{leadRates[1] && (
+                    <>, <strong className="text-[var(--color-on-surface)] tabular-nums">
+                      1 {leadRates[1].from} = {leadRates[1].rate} {leadRates[1].to}
+                    </strong></>
+                  )}.
+                </>
+              )}{" "}
+              These are the real interbank rates — the fairest reference before banks and transfer
+              services add their markup. <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">Compare 50+ providers</Link> to
+              see what you actually receive.
+            </p>
+            <p className="mt-2 text-xs text-[var(--color-on-surface-muted)]">
+              <LiveTimestamp iso={`${RATES_AS_OF}T00:00:00Z`} prefix="Mid-market rates updated" /> · median of 4 independent sources
+            </p>
+          </header>
+
+          {/* ── Chart at top ── */}
+          <section className="mb-12 sm:mb-16" aria-labelledby="trends-heading">
+            <h2 id="trends-heading" className="sr-only">Exchange rate trend chart</h2>
             <LazyHistoricalRateWidget defaultCorridor="USD-INR" />
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* SEO Content Sections */}
-      <div className="bg-[var(--color-surface)] py-12 sm:py-16">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
+          {/* ── Today's rates (top 5 + expand) ── */}
+          <section className="mb-12 sm:mb-16" aria-labelledby="today-heading">
+            <h2 id="today-heading" className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
+              Today&apos;s Rates
+            </h2>
+            <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6 max-w-2xl">
+              The five most-sent corridors first — each shows the mid-market rate, the best provider today,
+              and what your recipient gets on a $1,000 send. Expand for the full list of 60+ currencies.
+            </p>
+            <TodayRates />
+          </section>
 
-          {/* Popular Corridors */}
+          {/* ── Compare corridors ── */}
           <section className="mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
-              {t("compareTransferRates")}
+              Compare Transfer Rates
             </h2>
-            <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
-              {t("compareTransferRatesDesc")}
+            <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
+              The mid-market rate is the fairest rate — but providers add markups. Compare actual rates from 50+ apps on these popular corridors.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {popularCorridors.map((c) => (
@@ -236,10 +258,10 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                 >
                   <span className="text-xl">{c.flag}</span>
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
+                    <div className="text-[14px] font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
                       {c.label}
                     </div>
-                    <div className="text-xs text-[var(--color-on-surface-variant)]">
+                    <div className="text-[12px] text-[var(--color-on-surface-variant)]">
                       {c.from} &rarr; {c.to}
                     </div>
                   </div>
@@ -251,55 +273,17 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             </div>
           </section>
 
-          {/* Understanding Exchange Rates */}
-          <section className="mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-4">
-              {t("understandingExchangeRates")}
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="rounded-2xl bg-[var(--color-surface-dim)] p-6">
-                <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
-                  {t("midMarketVsTransferRate")}
-                </h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  {t("midMarketVsTransferRateDesc")}
-                </p>
-              </div>
-              <div className="rounded-2xl bg-[var(--color-surface-dim)] p-6">
-                <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
-                  {t("howWeCalculateTheseRates")}
-                </h3>
-                <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                  {t("howWeCalculateTheseRatesDesc")}
-                </p>
-              </div>
-            </div>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mt-4">
-              Need to convert a specific amount? Try our{" "}
-              <Link href="/currency-converter" className="text-[var(--color-primary)] hover:underline font-medium">
-                currency converter
-              </Link>{" "}
-              with live mid-market rates, or{" "}
-              <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">
-                compare transfer providers
-              </Link>{" "}
-              to find the cheapest way to send money abroad.
-            </p>
-          </section>
-
-          {/* Popular Exchange Rate Pairs */}
+          {/* ── Popular rate pairs (deep dives) ── */}
           <section className="mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-2">
-              {t("popularExchangeRates")}
+              Popular Exchange Rate Pairs
             </h2>
-            <p className="text-[var(--color-on-surface-variant)] text-md mb-6">
-              {t("popularExchangeRatesDesc")}
+            <p className="text-[var(--color-on-surface-variant)] text-[15px] mb-6">
+              Full rate history, charts and provider rankings for the most-searched currency pairs.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {topRatePairs.map((pair) => {
-                const pairRate = rates[pair.to] && rates[pair.from]
-                  ? (pair.from === "USD" ? rates[pair.to] : rates[pair.to] / rates[pair.from])
-                  : rates[pair.to]; // fallback for USD base
+                const r = getPairRate(pair.from, pair.to);
                 return (
                   <Link
                     key={pair.slug}
@@ -309,9 +293,9 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                     <span className="text-sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
                       {pair.label}
                     </span>
-                    {pairRate && pairRate > 0 && (
-                      <span className="text-2sm text-[var(--color-on-surface-variant)] tabular-nums">
-                        1 {pair.from} = {pairRate >= 1000 ? pairRate.toFixed(2) : pairRate >= 100 ? pairRate.toFixed(3) : pairRate.toFixed(4)} {pair.to}
+                    {r && (
+                      <span className="text-[13px] text-[var(--color-on-surface-variant)] tabular-nums">
+                        1 {pair.from} = {formatRate(r.rate)} {pair.to}
                       </span>
                     )}
                   </Link>
@@ -320,29 +304,53 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             </div>
           </section>
 
-          {/* FAQ */}
-          <section>
+          {/* ── Understanding exchange rates ── */}
+          <section className="mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-4">
+              Understanding Exchange Rates
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="rounded-2xl bg-[var(--color-surface-dim)] p-6">
+                <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
+                  Mid-Market Rate vs. Transfer Rate
+                </h3>
+                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  The mid-market rate on this page is the &ldquo;real&rdquo; exchange rate — the midpoint between buy and sell prices on global currency markets. When you send money internationally, providers add a markup to this rate. That markup is their profit margin, and it can vary widely between services. Always compare the rate a provider offers against the mid-market rate to see the true cost.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-[var(--color-surface-dim)] p-6">
+                <h3 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">
+                  How We Calculate These Rates
+                </h3>
+                <p className="text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
+                  Headline rates and charts use a daily mid-market history for 60+ currencies. The live ticker aggregates 4 independent feeds and takes the median to eliminate outliers — more reliable than any single source. Buy/sell spreads on the trading board are simulated from typical banking margins.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mt-4">
+              Need to convert a specific amount? Try our{" "}
+              <Link href="/currency-converter" className="text-[var(--color-primary)] hover:underline font-medium">currency converter</Link>{" "}
+              with live mid-market rates, or{" "}
+              <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">compare transfer providers</Link>{" "}
+              to find the cheapest way to send money abroad.
+            </p>
+          </section>
+
+          {/* ── FAQ ── */}
+          <section className="mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-semibold text-[var(--color-on-surface)] mb-6">
-              {t("faqHeading")}
+              Frequently Asked Questions
             </h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
-                <details
-                  key={faq.question}
-                  className="group rounded-xl border border-[var(--color-outline)] overflow-hidden"
-                >
-                  <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-md font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
+                <details key={faq.question} className="group rounded-xl border border-[var(--color-outline)] overflow-hidden">
+                  <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-[15px] font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
                     {faq.question}
-                    <svg
-                      className="w-5 h-5 text-[var(--color-on-surface-variant)] shrink-0 ml-4 transition-transform group-open:rotate-180"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="w-5 h-5 text-[var(--color-on-surface-variant)] shrink-0 ml-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <div className="px-5 pb-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                  <div className="px-5 pb-4 text-[14px] text-[var(--color-on-surface-variant)] leading-relaxed">
                     {faq.answer}
                   </div>
                 </details>
@@ -350,11 +358,11 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             </div>
           </section>
 
-          {/* Rate history link */}
-          <section className="mt-10 bg-[var(--color-primary-surface)] rounded-2xl border border-[var(--color-primary)] border-opacity-20 p-6 md:p-8">
-            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-2">Historical Exchange Rates</h2>
-            <p className="text-sm text-[var(--color-on-surface-variant)] mb-4">
-              Track how provider exchange rates have changed over time across 90+ currency corridors. See which providers consistently offer the best rates and find the optimal time to send.
+          {/* ── Rate history CTA ── */}
+          <section className="mb-12 bg-[var(--color-primary-surface)] rounded-2xl border border-[var(--color-primary)]/20 p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-[var(--color-on-surface)] mb-2">Historical Exchange Rates</h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] mb-4 max-w-2xl">
+              Track how provider exchange rates have moved over time across 90+ corridors. See which providers consistently offer the best rates and find the optimal time to send.
             </p>
             <Link
               href="/exchange-rates/history"
@@ -367,9 +375,33 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             </Link>
           </section>
 
-          {/* Disclaimer */}
-          <p className="text-xs text-[var(--color-on-surface-variant)] mt-10 leading-relaxed">
-            {t("disclaimerFull")}
+          {/* ── Retro: Forex Trading Board (live ticker, demoted to bottom) ── */}
+          <section aria-labelledby="board-heading">
+            <details className="group rounded-2xl border border-[var(--color-outline)] overflow-hidden bg-[var(--color-surface-dim)]">
+              <summary className="flex items-center justify-between cursor-pointer px-5 py-4 select-none">
+                <div>
+                  <h2 id="board-heading" className="text-lg font-semibold text-[var(--color-on-surface)]">
+                    Live Forex Trading Board
+                  </h2>
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
+                    Retro airport-style ticker — TT/CHQ/Note buy &amp; sell rates, refreshing every 60s. For the curious.
+                  </p>
+                </div>
+                <svg className="w-5 h-5 text-[var(--color-on-surface-variant)] shrink-0 ml-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="border-t border-[var(--color-outline)]">
+                <LiveRatesBoard initialRates={rates} />
+              </div>
+            </details>
+          </section>
+
+          {/* ── Disclaimer ── */}
+          <p className="text-[12px] text-[var(--color-on-surface-variant)] mt-10 leading-relaxed">
+            Exchange rates shown are mid-market rates aggregated from multiple independent sources for informational purposes only.
+            Actual rates offered by money transfer providers, banks, and currency exchange services will differ.
+            These rates do not constitute financial advice and should not be relied upon for trading decisions.
           </p>
         </div>
       </div>
