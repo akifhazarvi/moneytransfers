@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAffiliateUrl } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
+import { classifyTrafficSource } from "@/lib/traffic-source";
 
 export async function GET(
   request: Request,
@@ -20,7 +21,10 @@ export async function GET(
   const to = searchParams.get("to") || undefined;
   const amount = searchParams.get("amount") ? Number(searchParams.get("amount")) : undefined;
   const src = searchParams.get("src") || undefined;
+  const aiSrc = searchParams.get("ai_src") || undefined;
   const referer = request.headers.get("referer") || "";
+  const userAgent = request.headers.get("user-agent") || "";
+  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc);
 
   // Server-side GA4 event — always fires regardless of ad blockers / consent.
   // Prefer the live GA4 client_id forwarded by AiSourceInjector as ?cid= so the
@@ -44,7 +48,7 @@ export async function GET(
   // for the naming rationale.
   void gaServerEvent(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source },
     clientId,
     geo,
   );
@@ -55,9 +59,12 @@ export async function GET(
       corridor,
       amount: amount ?? 0,
       referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
+      referer_host: trafficSource.refererHost,
       page_referrer: referer.slice(0, 420),
       page_location: request.url,
       source,
+      traffic_source: trafficSource.source,
+      is_bot: trafficSource.isBot,
     },
     clientId,
     geo,

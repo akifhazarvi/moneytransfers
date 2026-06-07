@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAffiliateUrl } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
+import { classifyTrafficSource } from "@/lib/traffic-source";
 
 export async function GET(
   request: Request,
@@ -22,6 +23,14 @@ export async function GET(
   const src = searchParams.get("src") || undefined; // source surface → Partnerize clickref
   const aiSrc = searchParams.get("ai_src") || undefined; // AI platform that referred the session
   const referer = request.headers.get("referer") || "";
+  const userAgent = request.headers.get("user-agent") || "";
+
+  // Resolve where this redirect actually came from. Server-side /go hits carry
+  // no GA session, so GA files them under "Unassigned" with no source. Most are
+  // AI assistants / AI-search engines fetching a cited link (real referrals) or
+  // crawlers — only the UA + referer host can tell them apart. ?ai_src= wins
+  // when present (set by the on-site injector for human AI-referred sessions).
+  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc);
 
   // Server-side tracking — fires even when the user has an ad blocker or
   // declined cookies, so we never miss an affiliate conversion.
@@ -48,7 +57,7 @@ export async function GET(
   // The gap between the two = adblock + JS-failure rate.
   void gaServerEvent(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, ...(aiSrc ? { traffic_source: aiSrc } : {}) },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source },
     clientId,
     geo,
   );
@@ -59,8 +68,10 @@ export async function GET(
       corridor,
       amount: amount ?? 0,
       referer_path: new URL(referer, "https://sendmoneycompare.com").pathname.slice(0, 200),
+      referer_host: trafficSource.refererHost,
       source,
-      ...(aiSrc ? { traffic_source: aiSrc } : {}),
+      traffic_source: trafficSource.source,
+      is_bot: trafficSource.isBot,
     },
     clientId,
     geo,
