@@ -40,6 +40,8 @@ interface Props {
   initial: VerdictData;
   /** Popular send→receive corridors offered as quick picks. */
   corridors: { from: string; to: string; label: string }[];
+  /** When true, drop the card chrome (border/shadow/rounding) — a parent owns it. */
+  embedded?: boolean;
 }
 
 const SYMBOLS: Record<string, string> = {
@@ -62,7 +64,7 @@ const VERDICT_COPY: Record<RateLevel, { head: string }> = {
   low: { head: "Rates are weak right now" },
 };
 
-export default function SendVerdictHero({ initial, corridors }: Props) {
+export default function SendVerdictHero({ initial, corridors, embedded = false }: Props) {
   const [from, setFrom] = useState(initial.from);
   const [to, setTo] = useState(initial.to);
   const [amount, setAmount] = useState(initial.amount);
@@ -135,7 +137,7 @@ export default function SendVerdictHero({ initial, corridors }: Props) {
   const moreThanWorst = data.receiveNow - data.receiveWorst;
 
   return (
-    <div className="rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden">
+    <div className={embedded ? "h-full" : "rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden"}>
       {/* Controls */}
       <div className="flex flex-col sm:flex-row sm:items-end gap-3 px-5 sm:px-7 pt-5 sm:pt-7">
         <CorridorPicker label="Send" value={from} onChange={setFrom} options={[...new Set(corridors.map((c) => c.from))]} />
