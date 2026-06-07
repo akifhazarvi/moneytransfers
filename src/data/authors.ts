@@ -73,7 +73,7 @@ He also leads outreach with publishers, diaspora communities, and financial educ
       "Drives growth strategy and provider acquisition for SendMoneyCompare",
     ],
     linkedin: "https://www.linkedin.com/in/ahsan-mukhtar/",
-    articlesWritten: 0,
+    articlesWritten: 1,
     byline: "Ahsan Mukhtar is co-founder of SendMoneyCompare and leads marketing and partnerships with money transfer providers.",
   },
   {

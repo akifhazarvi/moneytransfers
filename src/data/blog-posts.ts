@@ -3964,7 +3964,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     publishedAt: "2026-06-07",
     updatedAt: "2026-06-07",
-    author: "Akif Hazarvi",
+    author: "Ahsan Mukhtar",
     tags: [
       "Mexico",
       "USA to Mexico",
