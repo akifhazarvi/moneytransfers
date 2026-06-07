@@ -146,3 +146,66 @@ export function getBestProvider(from: string, to: string): BestProvider | null {
     level: insight.level,
   };
 }
+
+// ── "Good time to send?" verdict ───────────────────────────────
+
+export interface SendVerdict {
+  from: string;
+  to: string;
+  amount: number;
+  level: "low" | "typical" | "good" | "great";
+  levelPct: number;          // today's rate beats this % of tracked days
+  daysTracked: number;
+  bestProviderSlug: string;
+  bestRate: number;
+  receiveNow: number;        // payout for `amount` at today's best rate
+  receiveBest: number;       // payout if it were the best day in the window
+  receiveWorst: number;      // payout on the worst day in the window
+  rangePos: number;          // 0 (worst) .. 1 (best) — today's spot on the bar
+  bestRateDate: string;
+  worstRateDate: string;
+}
+
+/**
+ * The hero answer: is now a good time to send, how much you get, and how that
+ * compares to the best/worst day we've tracked. Pure longitudinal insight —
+ * the thing competitors can't show. Returns null if no provider history.
+ */
+export function getSendVerdict(from: string, to: string, amount: number): SendVerdict | null {
+  const insight = getRateInsight(from, to);
+  if (!insight) return null;
+
+  const { today, stats, level, levelPct, totalDays } = insight;
+  if (!today?.bestProvider || !today.bestRate) return null;
+
+  // Per-unit receive = today's payout on the standard send, scaled to `amount`.
+  const perUnit = today.bestReceiveAmount
+    ? today.bestReceiveAmount / SEND_AMOUNT
+    : today.bestRate;
+
+  const receiveNow = perUnit * amount;
+  // Scale the window's best/worst rate by the same fee-inclusive ratio.
+  const feeRatio = today.bestRate > 0 ? perUnit / today.bestRate : 1;
+  const receiveBest = stats.bestRate * feeRatio * amount;
+  const receiveWorst = stats.worstRate * feeRatio * amount;
+
+  const span = stats.bestRate - stats.worstRate;
+  const rangePos = span > 0 ? Math.min(1, Math.max(0, (today.bestRate - stats.worstRate) / span)) : 0.5;
+
+  return {
+    from,
+    to,
+    amount,
+    level,
+    levelPct,
+    daysTracked: totalDays,
+    bestProviderSlug: today.bestProvider,
+    bestRate: today.bestRate,
+    receiveNow: Math.round(receiveNow),
+    receiveBest: Math.round(receiveBest),
+    receiveWorst: Math.round(receiveWorst),
+    rangePos,
+    bestRateDate: stats.bestRateDate,
+    worstRateDate: stats.worstRateDate,
+  };
+}
