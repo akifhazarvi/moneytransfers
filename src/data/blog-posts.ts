@@ -3951,6 +3951,222 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   // ============================
+  // USA to Mexico Cost Comparison Guide
+  // ============================
+  {
+    slug: "send-money-usa-to-mexico-cost-guide",
+    title: "USA to Mexico Money Transfer: Cheapest Methods Compared (2026)",
+    metaDescription:
+      "Compare 6 ways to send money from the USA to Mexico in 2026 — apps, bank wires, cash pickup, SPEI deposits, debit cards, and mobile wallets by real cost.",
+    excerpt:
+      "Apps, bank wires, cash pickup, SPEI deposits, debit cards, mobile wallets — we compared the real cost of all six ways to send money from the USA to Mexico, including a dedicated look at Ria.",
+    category: "Corridors",
+    readTime: "12 min read",
+    publishedAt: "2026-06-07",
+    updatedAt: "2026-06-07",
+    author: "Akif Hazarvi",
+    tags: [
+      "Mexico",
+      "USA to Mexico",
+      "MXN",
+      "send money to Mexico",
+      "SPEI",
+      "CLABE",
+      "cash pickup",
+      "money transfer",
+      "remittance",
+      "cheapest way to send money",
+    ],
+    featuredImage: "/images/blog/send-money-to-mexico.jpg",
+    sections: [
+      {
+        heading: "USA to Mexico: A $63 Billion Corridor — Here's How to Send for Less",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For most people sending money from the USA to Mexico, a money transfer app like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> paired with a direct <strong>SPEI deposit</strong> to your recipient's CLABE number is the cheapest and fastest combination — often arriving in minutes for under $10 total cost on a $500 transfer. Bank-to-bank wires are the most expensive route, typically costing $50-$120 more for the same amount. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> from 10+ providers before you send.</p></div>
+<p>Mexico is the single largest remittance corridor in the world, receiving a record <strong>$63 billion</strong> from the United States in 2025 alone, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México (Banxico)</a>. With that much money moving between the two countries, senders have more options than almost any other corridor — and that's both an opportunity and a trap.</p>
+<p>The opportunity: competition keeps fees low and choice high. The trap: not every option is created equal, and the "convenient" choice — your bank, or the agent on the corner — is often the most expensive by a wide margin. This guide breaks down <strong>six real ways</strong> to send money from the US to Mexico, what each one actually costs on a typical $500 transfer, and how to pick the right one for your situation — whether your recipient has a bank account, a debit card, a smartphone, or none of the above.</p>`,
+      },
+      {
+        heading: "6 Ways to Send Money to Mexico — Compared on Real Cost",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Cost Comparison: Sending $500 from the USA to Mexico</h3>
+<table>
+<thead><tr><th>Method</th><th>Example Provider</th><th>Fee</th><th>FX Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Money transfer app + SPEI deposit</strong></td><td><a href="/companies/wise">Wise</a> / <a href="/companies/remitly">Remitly</a></td><td><strong>$0-$3.99</strong></td><td><strong>0-0.5%</strong></td><td><strong>~$2-$6</strong></td><td>Minutes, 24/7</td></tr>
+<tr><td>Cash pickup</td><td><a href="/companies/western-union">Western Union</a> / <a href="/companies/ria">Ria</a> / <a href="/companies/xoom">Xoom</a></td><td>$0-$5</td><td>1-2%</td><td>~$8-$15</td><td>Minutes</td></tr>
+<tr><td>Debit card deposit</td><td><a href="/companies/remitly">Remitly</a></td><td>$0-$3.99</td><td>0.5-1%</td><td>~$5-$9</td><td>Minutes-hours</td></tr>
+<tr><td>Mobile wallet top-up</td><td>Mercado Pago / Spin by OXXO</td><td>$0-$3.99</td><td>0.5-1%</td><td>~$5-$9</td><td>Minutes</td></tr>
+<tr><td>Bank-to-bank wire</td><td>Chase / Bank of America</td><td>$25-$50</td><td>2-5%</td><td>~$35-$75</td><td>1-3 business days</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Estimates based on real quotes from our comparison engine and published provider fee schedules for a $500 USD to MXN transfer. <a href="/send-money/usa-to-mexico">Compare live rates →</a></p>
+</div>
+<p>The pattern is consistent across every corridor we track: <strong>the exchange rate markup — not the upfront fee — is what really costs you money.</strong> A bank advertising "no transfer fee" can still take 3-5% off the exchange rate, which on $500 is $15-$25 quietly disappearing before your money even leaves the country. Below, we break down exactly how each method works, what it costs, and when it's the right choice.</p>`,
+      },
+      {
+        heading: "Method 1: Money Transfer Apps (Cheapest for Most People)",
+        content: `<p>Digital money transfer apps are built specifically for cross-border payments, and the USA-Mexico corridor is one of the most competitive routes they serve. You send from your phone or computer — funded by your US bank account or debit card — and the money lands in your recipient's Mexican bank account, debit card, or cash pickup location, often within minutes.</p>
+<h3>How Apps Price USA to Mexico Transfers</h3>
+<ul>
+<li><strong><a href="/companies/wise">Wise</a></strong>: Charges the real mid-market exchange rate with 0% markup, plus a transparent fee (typically around $5-$8 on a $500 transfer). Best for medium to large sends where the savings on the exchange rate add up.</li>
+<li><strong><a href="/companies/remitly">Remitly</a></strong>: Often runs $0 fee promotions for new users and offers an "Express" option with a small markup for delivery in minutes, or an "Economy" option with a better rate that takes a day or two.</li>
+<li><strong><a href="/companies/xoom">Xoom</a> (a PayPal service)</strong>: Frequently waives fees on debit card or bank-funded transfers, with a small built-in exchange rate markup.</li>
+<li><strong><a href="/companies/worldremit">WorldRemit</a></strong>: Competitive flat fees with multiple delivery options including bank deposit, cash pickup, and mobile wallet.</li>
+<li><strong><a href="/companies/instarem">Instarem</a></strong>: Low, transparent fees with rates close to the mid-market rate.</li>
+</ul>
+<p>On a $500 transfer, total cost across these apps typically lands between <strong>$2 and $10</strong> — a fraction of what a bank or cash agent would charge for the same amount. <a href="/send-money/usa-to-mexico">Compare live quotes from all of them</a> side by side, or read our <a href="/compare/wise-vs-remitly">Wise vs Remitly breakdown</a> for a detailed look at the two most popular options.</p>`,
+      },
+      {
+        heading: "Method 2: Direct Deposit to a Mexican Bank Account (SPEI)",
+        content: `<p>If your recipient has a Mexican bank account, a direct deposit via <strong>SPEI</strong> (Sistema de Pagos Electrónicos Interbancarios — Mexico's interbank electronic payment system) is usually the fastest and cheapest way to get money to them.</p>
+<h3>Why SPEI Is the Gold Standard</h3>
+<ul>
+<li><strong>Real-time, 24/7:</strong> SPEI processes payments instantly, including nights, weekends, and holidays — unlike US ACH or wire systems that only run on business days.</li>
+<li><strong>Low cost:</strong> Because providers route money through local Mexican banking rails instead of the international SWIFT network, there are no correspondent bank fees eating into the transfer.</li>
+<li><strong>Tight exchange rates:</strong> Apps offering SPEI deposits — including <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> — typically apply 0-0.5% markup on this route, the smallest of any delivery method.</li>
+</ul>
+<h3>What You Need: The CLABE Number</h3>
+<p>To send via SPEI, you need your recipient's <strong>CLABE</strong> (Clave Bancaria Estandarizada) — an 18-digit standardized account number that every Mexican bank account has. It functions like the <a href="/guides/iban-numbers-explained">IBAN numbers used in Europe</a>, except Mexico doesn't use IBANs at all — the CLABE is the only number you need (plus the recipient's full legal name). Your recipient can find their CLABE in their banking app, on a printed bank statement, or by asking a teller.</p>
+<p>On a $500 transfer, an app-to-SPEI deposit typically costs <strong>$2-$6 total</strong> — fee plus markup combined — and arrives within minutes. It's the single best combination of cost and speed available on this corridor.</p>`,
+      },
+      {
+        heading: "Method 3: Cash Pickup (No Bank Account Needed)",
+        content: `<p>Roughly a third of adults in Mexico don't have a bank account, according to the <a href="https://www.worldbank.org/en/publication/globalfindex" target="_blank" rel="noopener noreferrer">World Bank Global Findex database</a>. For these recipients — and for senders who simply want their family to have cash in hand — pickup locations remain essential.</p>
+<h3>Where to Pick Up Cash in Mexico</h3>
+<ul>
+<li><strong>OXXO</strong>: Mexico's largest convenience store chain, with over 20,000 locations open late into the night. <a href="/companies/moneygram">MoneyGram</a> and <a href="/companies/xoom">Xoom</a> both support OXXO pickup.</li>
+<li><strong>Elektra and Banco Azteca</strong>: A nationwide retail and banking network popular for cash pickup, especially in smaller towns.</li>
+<li><strong><a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a></strong>: The two largest global agent networks, with a combined 50,000+ pickup points across Mexico including bank branches, pharmacies, and supermarkets.</li>
+</ul>
+<h3>Ria: A Popular Specialist for the US-Mexico Corridor</h3>
+<p><a href="/companies/ria">Ria Money Transfer</a> has built a particularly strong reputation on Latin American routes, and the USA-Mexico corridor is one of its biggest markets — it's quietly become one of the most-used cash apps among senders on this route. Originally a Spanish-owned cash transfer specialist, Ria operates a dense agent network across Mexico — including its own branded locations plus partnerships with major retail chains — and is known for competitive, often lower, exchange rate markups than Western Union or MoneyGram on this specific corridor. Many senders who grew up using cash agents gravitate toward Ria because it pairs the familiarity of a walk-in cash transfer with pricing that's noticeably closer to app-level costs. On a $500 transfer, Ria's total cost (fee plus markup combined) often lands in the lower half of the cash-pickup range — roughly <strong>$6-$12</strong> — making it one of the more affordable agent options when your recipient needs cash in hand. <a href="/send-money/usa-to-mexico">Compare Ria's live rates against apps and other agents</a> before you send.</p>
+<h3>What Cash Pickup Costs Overall</h3>
+<p>Cash pickup is more expensive than a direct SPEI deposit because providers build a larger exchange rate markup (typically 1-2%) into the rate to cover the cost of running a physical agent network. On a $500 transfer, expect to pay roughly <strong>$8-$15 total</strong> with most agents — two to five times more than an app-to-bank transfer for the same amount, though specialists like Ria can come in toward the lower end of that range.</p>
+<h3>What the Recipient Needs</h3>
+<p>A valid government-issued ID — typically an INE/IFE voter credential or passport — and the transfer reference number provided by the sender. Most pickups are available within minutes of the transfer being sent.</p>`,
+      },
+      {
+        heading: "Method 4: Direct-to-Debit-Card Deposits",
+        content: `<p>Several providers can deposit funds directly onto a Mexican Visa or Mastercard debit card — a useful middle ground for recipients who have a card but don't know their CLABE, or who want instant access to funds without visiting a pickup location.</p>
+<ul>
+<li><strong><a href="/companies/remitly">Remitly</a></strong> offers debit card deposits in Mexico with delivery typically in minutes to a few hours.</li>
+<li><strong><a href="/companies/western-union">Western Union</a></strong> also supports direct-to-debit-card delivery on many Mexican bank cards.</li>
+</ul>
+<p>To send this way, you'll need the recipient's <strong>16-digit debit card number</strong> and full legal name — no CLABE or branch details required. Costs typically land between <strong>$5 and $9</strong> on a $500 transfer, slightly more than a SPEI deposit but still well below cash pickup or a bank wire. It's a solid option when your recipient is comfortable sharing their card number but doesn't have — or doesn't want to look up — their CLABE.</p>`,
+      },
+      {
+        heading: "Method 5: Mobile Wallets and Digital Payment Apps",
+        content: `<p>Mexico's mobile payments market has grown quickly, and several digital wallets now offer ways to receive money directly from US senders — particularly useful for younger or urban recipients who manage their finances primarily on their phones.</p>
+<ul>
+<li><strong>Mercado Pago</strong>: The wallet arm of e-commerce giant Mercado Libre, widely used across Latin America for both payments and receiving transfers, with funds available to spend online or withdraw to a linked bank account.</li>
+<li><strong>Spin by OXXO</strong>: A digital wallet from the operator of Mexico's largest convenience store chain — recipients can receive funds digitally and withdraw cash at any OXXO location.</li>
+<li><strong>BBVA México and Banorte mobile banking apps</strong>: Mexico's largest banks both offer full-featured apps that receive SPEI deposits instantly and let recipients manage money entirely from their phones.</li>
+</ul>
+<p>Sending to a mobile wallet usually works the same way as a bank deposit — your provider sends via SPEI to a linked account or CLABE — so the cost is comparable to a direct bank deposit: roughly <strong>$5-$9 total</strong> on a $500 transfer, depending on the provider and wallet. The main appeal isn't a lower cost, but convenience: your recipient gets a notification the moment funds arrive and can spend, save, or cash out instantly from one app.</p>`,
+      },
+      {
+        heading: "Method 6: Traditional Bank-to-Bank Wire Transfers (Most Expensive)",
+        content: `<p>Wiring money directly from your US bank to your recipient's Mexican bank feels like the obvious, "official" choice — but it's consistently the most expensive way to send money on this corridor, and often the slowest too.</p>
+<h3>How Bank Wires Are Priced</h3>
+<ul>
+<li><strong>Outgoing wire fee:</strong> US banks typically charge $25-$50 per international wire transfer.</li>
+<li><strong>Exchange rate markup:</strong> Banks routinely apply a 2-5% markup above the mid-market rate — this is where most of the real cost hides. Read our <a href="/guides/hidden-fees-international-transfers">hidden fees guide</a> to see exactly how banks build markup into the rate they show you.</li>
+<li><strong>Correspondent bank deductions:</strong> International wires often route through intermediary banks via the SWIFT network, each taking $15-$60 in transit.</li>
+<li><strong>Receiving bank fee:</strong> The Mexican bank may deduct another $0-$25 on arrival.</li>
+</ul>
+<p>Add it up, and a $500 wire transfer can easily cost <strong>$50-$120</strong> once you account for the fee and the hidden markup — sometimes more than the entire amount you'd pay through a specialist app for a $1,000 transfer. Wires also typically take <strong>1-3 business days</strong>, compared to minutes via SPEI. Read our full <a href="/guides/wire-transfer-guide">wire transfer guide</a> for more on how international wires work and when they're worth using.</p>
+<h3>When a Bank Wire Still Makes Sense</h3>
+<p>Almost never for routine family remittances. Bank wires are reasonable mainly for very large transfers — real estate purchases, business payments, inheritance — where you can negotiate a better rate directly with your bank's international desk, or where you specifically need the paper trail and protections of a traditional SWIFT wire.</p>`,
+      },
+      {
+        heading: "Which Method Is Right for You? A Decision Guide",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Match Your Recipient's Situation to the Best Method</h3>
+<table>
+<thead><tr><th>Your Recipient...</th><th>Best Method</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td>Has a Mexican bank account and knows their CLABE</td><td>App + SPEI deposit</td><td>Cheapest and fastest combination — minutes, near-zero markup</td></tr>
+<tr><td>Has a bank account but doesn't know their CLABE</td><td>Direct-to-debit-card deposit</td><td>Only needs a 16-digit card number, still low-cost and fast</td></tr>
+<tr><td>Doesn't have a bank account</td><td>Cash pickup (OXXO, Ria, Western Union, MoneyGram)</td><td>20,000+ OXXO stores plus 50,000+ agent locations nationwide</td></tr>
+<tr><td>Manages money primarily on a smartphone</td><td>Mobile wallet (Mercado Pago, Spin, bank apps)</td><td>Instant notifications, spend or cash out from one app</td></tr>
+<tr><td>Needs a very large or business-related transfer</td><td>Negotiated bank wire</td><td>Worth the cost only at scale, with a negotiated rate</td></tr>
+</tbody>
+</table>
+</div>
+<p>For the vast majority of people sending money home to Mexico, the answer is simple: if your recipient has any kind of bank account, ask for their CLABE and send via an app that supports SPEI. It's consistently the cheapest, fastest option — and it works around the clock, every day of the year.</p>`,
+      },
+      {
+        heading: "5 Ways to Cut Your Transfer Cost Further",
+        content: `<ol>
+<li><strong>Compare total pesos received, not the advertised fee.</strong> A "$0 fee" provider can still cost you more than a competitor charging $5, once the exchange rate markup is factored in. Always check the final MXN amount on <a href="/send-money/usa-to-mexico">our comparison tool</a> before confirming.</li>
+<li><strong>Choose SPEI over cash pickup whenever possible.</strong> Direct bank deposits carry the smallest markups on this corridor — often a third to a half of what cash pickup costs for the same transfer.</li>
+<li><strong>Fund your transfer from a bank account or debit card, not a credit card.</strong> Credit card funding typically adds 1.5-3% in cash-advance-style surcharges on top of whatever the provider already charges.</li>
+<li><strong>Send larger amounts less often.</strong> Many providers charge flat fees that matter more on small transfers. Combining two $250 sends into one $500 send can cut your relative cost significantly. See our guide on <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest ways to send money internationally</a> for more on this.</li>
+<li><strong>Watch the USD/MXN rate and time your transfer.</strong> The peso can move meaningfully within a single day. Set rate alerts with providers like Wise or Remitly, and avoid sending right after major US or Mexican economic announcements when spreads tend to widen. Our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> explains exactly how these spreads work.</li>
+</ol>`,
+      },
+      {
+        heading: "Rules, Taxes, and Safety to Know Before You Send",
+        content: `<p>A few rules and protections are worth knowing before you send money from the US to Mexico:</p>
+<ul>
+<li><strong>Mexico doesn't tax incoming remittances.</strong> Money sent home for family support isn't treated as taxable income for the recipient, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México</a>.</li>
+<li><strong>The new US remittance excise tax mostly won't apply to you.</strong> A 1% federal tax now applies to <em>cash-funded</em> transfers sent through money transmitters — but transfers funded from a US bank account, debit card, or credit card are exempt. Choosing an app and funding digitally avoids it entirely. Read our <a href="/guides/us-remittance-tax-2026">full breakdown of the US remittance tax</a> for the details.</li>
+<li><strong>Large transfers get reported, not blocked.</strong> US financial institutions report transfers over $10,000 to FinCEN under the Bank Secrecy Act. This is routine and legal — but deliberately splitting a transfer into smaller pieces to dodge the threshold ("structuring") is a federal offense.</li>
+<li><strong>Your recipient will need valid ID for cash pickup.</strong> For pickups above roughly $300, Mexican agents require a valid INE/IFE voter credential or passport. Larger monthly totals may trigger extra verification steps.</li>
+<li><strong>You're protected by US consumer rules.</strong> The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> requires licensed providers to disclose the exact fee, exchange rate, and total amount your recipient will get — before you confirm the transfer. If a provider won't show you that number upfront, that's a red flag. See our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> for more on spotting trustworthy providers.</li>
+</ul>
+<p>For more context on this corridor, see our dedicated <a href="/guides/send-money-to-mexico-guide">guide to sending money to Mexico</a>, which ranks providers head-to-head with live rate data.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What's the cheapest way to send money from the US to Mexico?",
+        answer:
+          "For most transfers, a money transfer app like Wise or Remitly that deposits directly to your recipient's Mexican bank account via SPEI is the cheapest option — typically $2-$6 total on a $500 transfer. Cash pickup, debit card deposits, and mobile wallets cost a bit more, while bank-to-bank wires are by far the most expensive, often $50-$120 on the same amount.",
+      },
+      {
+        question: "Is it cheaper to send to a bank account or pick up cash in Mexico?",
+        answer:
+          "Sending to a bank account via SPEI is almost always cheaper. Providers apply a much smaller exchange rate markup — often 0-0.5% — on direct bank deposits than they do on cash pickup, where markups of 1-2% are common to cover the cost of running physical agent networks. On a $500 transfer, that's the difference between paying roughly $2-$6 and $8-$15.",
+      },
+      {
+        question: "What is a CLABE number and do I need one?",
+        answer:
+          "A CLABE (Clave Bancaria Estandarizada) is the 18-digit standardized account number used by every bank in Mexico — the Mexican equivalent of an IBAN, since Mexico doesn't use IBANs at all. You'll need your recipient's CLABE to send a direct SPEI bank deposit, usually the cheapest and fastest delivery method. They can find it in their banking app or on a bank statement.",
+      },
+      {
+        question: "Can I send money to someone in Mexico who doesn't have a bank account?",
+        answer:
+          "Yes. Cash pickup is widely available through OXXO (20,000+ locations), Ria, Western Union, MoneyGram, and Elektra/Banco Azteca — together covering over 50,000 points across Mexico. Your recipient just needs a valid government ID, such as an INE/IFE credential or passport, and the transfer reference number to collect the funds.",
+      },
+      {
+        question: "How fast does money arrive when sent to Mexico?",
+        answer:
+          "It depends on the method. SPEI bank deposits and cash pickups at OXXO or Ria locations typically arrive within minutes, any time of day, including weekends. Debit card deposits and mobile wallet transfers usually take minutes to a few hours. Traditional bank-to-bank wires are the slowest option, taking 1-3 business days.",
+      },
+      {
+        question: "Why do banks offer worse exchange rates than money transfer apps?",
+        answer:
+          "Banks build a large markup — typically 2-5% — into the exchange rate they offer, on top of charging a flat wire fee. Specialist apps like Wise and Remitly operate on thinner margins and route money through local payment systems like SPEI instead of the costly SWIFT network, letting them offer rates close to the real mid-market rate. Our exchange rate markup guide explains how to spot and avoid this hidden cost.",
+      },
+    ],
+    howToSteps: [
+      { name: "Get your recipient's CLABE number", text: "Ask your recipient for their 18-digit CLABE — the standardized account number used by every Mexican bank. It's the single most useful piece of information for sending money the cheapest way: directly via SPEI." },
+      { name: "Compare total cost, not just the fee", text: "Use a comparison tool to check the actual pesos your recipient will receive after fees and exchange rate markup — not just the advertised transfer fee, which can hide a much larger cost in the rate." },
+      { name: "Fund from a bank account or debit card", text: "Pay for your transfer using your US bank account or debit card rather than a credit card, which typically adds 1.5-3% in extra surcharges on top of the provider's normal fees." },
+      { name: "Choose SPEI bank deposit over cash pickup when possible", text: "If your recipient has a bank account, send directly to their CLABE via SPEI. It carries the smallest exchange rate markup of any delivery method and arrives within minutes, any time of day." },
+      { name: "Send and track your transfer", text: "Confirm the final amount your recipient will receive, send the transfer, and use the provider's tracking tools to confirm it has arrived — most SPEI deposits and OXXO or Ria cash pickups complete within minutes." },
+    ],
+    relatedSlugs: [
+      "send-money-to-mexico-guide",
+      "bank-vs-app-vs-agent-cost-comparison",
+      "cheapest-way-to-send-money-internationally",
+      "wire-transfer-guide",
+      "exchange-rate-markup-explained",
+      "us-remittance-tax-2026",
+    ],
+  },
+  // ============================
   // Send Money to Nigeria Guide
   // ============================
   {
