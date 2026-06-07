@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useId, useEffect, useContext } from "react";
+import { useState, useId, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import CurrencyPicker from "@/components/CurrencyPicker";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { trackCompareSearch } from "@/lib/analytics";
 import { useTranslations } from "next-intl";
 import { useHomeSelection } from "@/components/HomeSelectionContext";
+import { useGeoSelection } from "@/lib/useGeoSelection";
 
 const MIN_AMOUNT = 1;
 const MAX_AMOUNT = 1_000_000;
@@ -25,36 +26,35 @@ export default function ComparisonWidget({
   compact = false,
 }: Props) {
   const router = useRouter();
-  const [fromCurrency, setFromCurrency] = useState(defaultFrom);
-  const [toCurrency, setToCurrency] = useState(defaultTo);
+
+  // Geo-aware, persisted selection (user choice > IP geo > caller default).
+  const validFrom = useCallback((c: string) => sendCurrencies.some((x) => x.code === c), []);
+  const validTo = useCallback((c: string) => currencies.some((x) => x.code === c), []);
+  const {
+    from: fromCurrency,
+    to: toCurrency,
+    amount: geoAmount,
+    loaded: geoLoaded,
+    setFrom: setFromCurrency,
+    setTo: setToCurrency,
+    setAmount: persistAmount,
+    setCorridor,
+  } = useGeoSelection({
+    defaults: { from: defaultFrom, to: defaultTo, amount: defaultAmount },
+    isValidFrom: validFrom,
+    isValidTo: validTo,
+  });
+
+  // Keep a string input for the amount UX; seed it from the geo-resolved amount.
   const [amountStr, setAmountStr] = useState(String(defaultAmount));
   const amount = Number(amountStr) || 0;
   const [amountError, setAmountError] = useState("");
 
-  // On mount: hydrate from geo cookies set by middleware.
-  // Only runs once; user's manual changes are not overridden.
+  // Once geo resolves, reflect the restored amount into the local input.
   useEffect(() => {
-    function readCookie(name: string) {
-      return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
-    }
-    const geoCurrency = readCookie("geo-currency");
-    const geoDefaultTo = readCookie("geo-default-to");
-    const geoDefaultAmount = readCookie("geo-default-amount");
-
-    // Validate that the geo-detected currency is in our send currencies list
-    const validFrom = geoCurrency && sendCurrencies.some((c) => c.code === geoCurrency);
-    const validTo   = geoDefaultTo && currencies.some((c) => c.code === geoDefaultTo);
-
-    if (validFrom) setFromCurrency(geoCurrency!);
-    if (validTo)   setToCurrency(geoDefaultTo!);
-    if (geoDefaultAmount) {
-      const parsed = Math.round(parseFloat(geoDefaultAmount));
-      if (Number.isFinite(parsed) && parsed >= MIN_AMOUNT && parsed <= MAX_AMOUNT) {
-        setAmountStr(String(parsed));
-      }
-    }
+    if (geoLoaded) setAmountStr(String(geoAmount));
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [geoLoaded]);
 
   // Broadcast changes to HomeSelectionContext (no-op outside home page)
   const homeSelection = useHomeSelection();
@@ -75,6 +75,10 @@ export default function ComparisonWidget({
     setAmountStr(raw);
     const value = Number(raw);
     setAmountError(validateAmount(value));
+    // Persist the user's chosen amount when it's a valid number.
+    if (Number.isFinite(value) && value >= MIN_AMOUNT && value <= MAX_AMOUNT) {
+      persistAmount(value);
+    }
   }
 
   function handleCompare(e: React.FormEvent) {
@@ -89,8 +93,7 @@ export default function ComparisonWidget({
   }
 
   function swap() {
-    setFromCurrency(toCurrency);
-    setToCurrency(fromCurrency);
+    setCorridor(toCurrency, fromCurrency);
   }
 
   if (compact) {

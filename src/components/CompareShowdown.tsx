@@ -14,6 +14,7 @@ import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { trackCompareSelected } from "@/lib/analytics";
+import { useGeoSelection } from "@/lib/useGeoSelection";
 
 /* Corridors sampled for the "who wins more often" strip. Kept short so the
    table stays scannable; the headline verdict uses the user-chosen corridor. */
@@ -58,30 +59,29 @@ interface Props {
 export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly" }: Props) {
   const [a, setA] = useState(defaultA);
   const [b, setB] = useState(defaultB);
-  const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("INR");
+
+  // Geo-aware, persisted currency selection (user choice > IP geo > default).
+  const validFrom = useCallback((c: string) => sendCurrencies.some((x) => x.code === c), []);
+  const validTo = useCallback((c: string) => currencies.some((x) => x.code === c), []);
+  const {
+    from: fromCurrency,
+    to: toCurrency,
+    setFrom: setFromCurrency,
+    setTo: setToCurrency,
+    setCorridor,
+  } = useGeoSelection({
+    defaults: { from: "USD", to: "INR", amount: 1000 },
+    isValidFrom: validFrom,
+    isValidTo: validTo,
+  });
+
   const [amountStr, setAmountStr] = useState("1000");
   const amount = Number(amountStr) || 0;
 
-  // ── Hydrate currency/amount from geo cookies (set by middleware), then let URL
-  //    params override — same precedence as ComparisonWidget on home/send-money.
-  //    A shared ?from=&to= link should win over the visitor's geo. ──
+  // ── URL params override geo/saved selection (shareable/deep-linkable state):
+  //    a shared ?from=&to=&a=&b= link should win over the visitor's geo. The
+  //    currency overrides are routed through the hook so they persist. ──
   useEffect(() => {
-    function readCookie(name: string) {
-      return (document.cookie.match(`(?:^|; )${name}=([^;]*)`) || [])[1];
-    }
-    // 1. Geo cookies first
-    const geoCurrency = readCookie("geo-currency");
-    const geoDefaultTo = readCookie("geo-default-to");
-    const geoDefaultAmount = readCookie("geo-default-amount");
-    if (geoCurrency && sendCurrencies.some((c) => c.code === geoCurrency)) setFromCurrency(geoCurrency);
-    if (geoDefaultTo && currencies.some((c) => c.code === geoDefaultTo)) setToCurrency(geoDefaultTo);
-    if (geoDefaultAmount) {
-      const parsed = Math.round(parseFloat(geoDefaultAmount));
-      if (Number.isFinite(parsed) && parsed >= 1 && parsed <= 1_000_000) setAmountStr(String(parsed));
-    }
-
-    // 2. URL params override geo (shareable/deep-linkable state)
     const params = new URLSearchParams(window.location.search);
     const pa = params.get("a");
     const pb = params.get("b");
@@ -91,8 +91,12 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
     if (amt && Number(amt) > 0) setAmountStr(String(Math.min(Number(amt), 1_000_000)));
     const f = params.get("from");
     const t = params.get("to");
-    if (f && sendCurrencies.some((c) => c.code === f)) setFromCurrency(f);
-    if (t && currencies.some((c) => c.code === t)) setToCurrency(t);
+    const fOk = f && sendCurrencies.some((c) => c.code === f);
+    const tOk = t && currencies.some((c) => c.code === t);
+    if (fOk && tOk) setCorridor(f!, t!);
+    else if (fOk) setFromCurrency(f!);
+    else if (tOk) setToCurrency(t!);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ── Reflect selection in the URL without a navigation (shareable, but no scroll jump) ──

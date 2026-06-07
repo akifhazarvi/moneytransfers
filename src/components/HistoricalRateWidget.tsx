@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useCallback } from "react";
 import Link from "next/link";
 import { getProviderName, currencies } from "@/data/providers";
+import { useGeoSelection } from "@/lib/useGeoSelection";
 import {
   getRateInsight,
   rateLevelConfig,
@@ -61,26 +62,44 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
     return [...popular, ...rest];
   }, [currencyMap]);
 
-  const [defaultFrom, defaultTo] = defaultCorridor.split("-");
-  const [fromCurrency, setFromCurrency] = useState(
-    sendCurrencies.includes(defaultFrom) ? defaultFrom : sendCurrencies[0] || "USD"
+  const [rawFrom, rawTo] = defaultCorridor.split("-");
+  // Clamp the caller defaults to what's actually available in the currencyMap.
+  const defaultFrom = sendCurrencies.includes(rawFrom) ? rawFrom : sendCurrencies[0] || "USD";
+  const defaultTo = currencyMap[defaultFrom]?.has(rawTo)
+    ? rawTo
+    : [...(currencyMap[defaultFrom] || [])].sort()[0] || "INR";
+
+  // Geo-aware, persisted selection. `from` must be a known send currency; `to`
+  // is permissive across any from (the from→to membership is enforced below in
+  // handleFromChange, which resets `to` when it's invalid for the new `from`).
+  const validFrom = useCallback((c: string) => !!currencyMap[c], [currencyMap]);
+  const validTo = useCallback(
+    (c: string) => Object.values(currencyMap).some((set) => set.has(c)),
+    [currencyMap],
   );
+  const {
+    from: fromCurrency,
+    to: toCurrency,
+    setTo: setToCurrency,
+    setCorridor,
+  } = useGeoSelection({
+    defaults: { from: defaultFrom, to: defaultTo, amount: 1000 },
+    isValidFrom: validFrom,
+    isValidTo: validTo,
+  });
 
   const payoutCurrencies = useMemo(() =>
     [...(currencyMap[fromCurrency] || [])].sort(),
   [currencyMap, fromCurrency]);
 
-  const [toCurrency, setToCurrency] = useState(() => {
-    const available = currencyMap[defaultFrom];
-    return available?.has(defaultTo) ? defaultTo : payoutCurrencies[0] || "INR";
-  });
-
   const handleFromChange = (newFrom: string) => {
-    setFromCurrency(newFrom);
     const available = currencyMap[newFrom];
-    if (!available?.has(toCurrency)) {
-      setToCurrency([...(available || [])].sort()[0] || "");
-    }
+    // Keep the current `to` if it's still valid for the new `from`; otherwise
+    // fall back to the first available payout. Persist both together.
+    const nextTo = available?.has(toCurrency)
+      ? toCurrency
+      : [...(available || [])].sort()[0] || "";
+    setCorridor(newFrom, nextTo);
   };
 
   // Get provider insight (if available) and mid-market data

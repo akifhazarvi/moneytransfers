@@ -18,6 +18,7 @@ import Link from "next/link";
 import CircleFlag from "./CircleFlag";
 import { getProviderName } from "@/data/providers";
 import { getGoUrl } from "@/lib/affiliate";
+import { useGeoSelection } from "@/lib/useGeoSelection";
 import { trackProviderClicked } from "@/lib/analytics";
 import { rateLevelConfig, type RateLevel } from "@/lib/rate-history-types";
 
@@ -65,9 +66,23 @@ const VERDICT_COPY: Record<RateLevel, { head: string }> = {
 };
 
 export default function SendVerdictHero({ initial, corridors, embedded = false }: Props) {
-  const [from, setFrom] = useState(initial.from);
-  const [to, setTo] = useState(initial.to);
-  const [amount, setAmount] = useState(initial.amount);
+  const fromOptions = [...new Set(corridors.map((c) => c.from))];
+  const validFrom = useCallback((c: string) => fromOptions.includes(c), [fromOptions]);
+  const validTo = useCallback(
+    (c: string) => corridors.some((x) => x.to === c),
+    [corridors],
+  );
+
+  // Geo-aware, persisted selection (user choice > IP geo > SSR default).
+  const {
+    from, to, amount, loaded: geoLoaded,
+    setFrom: persistFrom, setTo: persistTo, setAmount: persistAmount, setCorridor,
+  } = useGeoSelection({
+    defaults: { from: initial.from, to: initial.to, amount: initial.amount },
+    isValidFrom: validFrom,
+    isValidTo: validTo,
+  });
+
   const [data, setData] = useState<VerdictData>(initial);
   const [loading, setLoading] = useState(false);
   const reqId = useRef(0);
@@ -103,16 +118,27 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
     }
   }, []);
 
-  // Re-fetch when corridor changes; recompute amount locally (linear) for snappiness.
-  const isFirst = useRef(true);
+  // After geo resolves, if the restored corridor differs from the SSR default,
+  // fetch its verdict. Then re-fetch on any later corridor change.
+  const lastFetched = useRef(`${initial.from}-${initial.to}`);
   useEffect(() => {
-    if (isFirst.current) { isFirst.current = false; return; }
+    if (!geoLoaded) return;
+    const key = `${from}-${to}`;
+    if (key === lastFetched.current) return;
+    lastFetched.current = key;
     fetchVerdict(from, to, amount);
-  }, [from, to, fetchVerdict]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [geoLoaded, from, to, fetchVerdict]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Amount-only change: scale locally, no network round-trip.
+  // "Send" change: keep `to` valid for the new origin, persist the corridor.
+  const onFrom = (f: string) => {
+    const stillValid = corridors.some((c) => c.from === f && c.to === to);
+    const nextTo = stillValid ? to : (corridors.find((c) => c.from === f)?.to ?? to);
+    setCorridor(f, nextTo);
+  };
+
+  // Amount-only change: scale locally, no network round-trip; persist choice.
   const onAmount = (val: number) => {
-    setAmount(val);
+    persistAmount(val);
     setData((d) => {
       const perUnit = d.amount > 0 ? d.receiveNow / d.amount : d.bestRate;
       const perBest = d.amount > 0 ? d.receiveBest / d.amount : 0;
@@ -140,8 +166,8 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
     <div className={embedded ? "h-full" : "rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden"}>
       {/* Controls */}
       <div className="flex flex-col sm:flex-row sm:items-end gap-3 px-5 sm:px-7 pt-5 sm:pt-7">
-        <CorridorPicker label="Send" value={from} onChange={setFrom} options={[...new Set(corridors.map((c) => c.from))]} />
-        <CorridorPicker label="To" value={to} onChange={setTo} options={corridors.filter((c) => c.from === from).map((c) => c.to)} />
+        <CorridorPicker label="Send" value={from} onChange={onFrom} options={fromOptions} />
+        <CorridorPicker label="To" value={to} onChange={persistTo} options={corridors.filter((c) => c.from === from).map((c) => c.to)} />
         <div className="flex-1">
           <label htmlFor="verdict-amount" className="text-[11px] font-semibold text-[var(--color-on-surface-muted)] uppercase tracking-wide mb-1 block">Amount</label>
           <div className="flex items-center rounded-xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] px-3 py-2 focus-within:ring-2 focus-within:ring-[var(--color-primary)]">
