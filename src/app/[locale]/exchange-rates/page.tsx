@@ -58,19 +58,15 @@ const popularCorridors = [
   { slug: "canada-to-india", from: "CAD", to: "INR", label: "Canada to India", flag: "\u{1F1EE}\u{1F1F3}" },
 ];
 
+// Link only to [pair] rate pages that are in the sitemap (SITEMAP_RATE_PAIR_SLUGS).
+// Linking the non-allowlisted pairs would point at "indexable-but-not-in-sitemap"
+// pages — the sitemap=no/robots=index contradiction that fed the May deindex.
+// Higher-intent overflow goes to /send-money corridors (indexed) instead.
 const topRatePairs = [
-  { slug: "usd-to-inr", from: "USD", to: "INR", label: "USD to INR" },
-  { slug: "gbp-to-inr", from: "GBP", to: "INR", label: "GBP to INR" },
   { slug: "usd-to-php", from: "USD", to: "PHP", label: "USD to PHP" },
-  { slug: "usd-to-mxn", from: "USD", to: "MXN", label: "USD to MXN" },
   { slug: "usd-to-pkr", from: "USD", to: "PKR", label: "USD to PKR" },
-  { slug: "usd-to-eur", from: "USD", to: "EUR", label: "USD to EUR" },
-  { slug: "gbp-to-usd", from: "GBP", to: "USD", label: "GBP to USD" },
-  { slug: "eur-to-usd", from: "EUR", to: "USD", label: "EUR to USD" },
-  { slug: "usd-to-cad", from: "USD", to: "CAD", label: "USD to CAD" },
-  { slug: "usd-to-jpy", from: "USD", to: "JPY", label: "USD to JPY" },
-  { slug: "cad-to-inr", from: "CAD", to: "INR", label: "CAD to INR" },
-  { slug: "usd-to-ngn", from: "USD", to: "NGN", label: "USD to NGN" },
+  { slug: "gbp-to-pkr", from: "GBP", to: "PKR", label: "GBP to PKR" },
+  { slug: "usd-to-aud", from: "USD", to: "AUD", label: "USD to AUD" },
 ];
 
 const faqs = [
@@ -264,7 +260,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             {/* Popular rate pairs */}
             <details className="group rounded-2xl border border-[var(--color-outline)] overflow-hidden">
               <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-[15px] font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
-                Rate history by currency pair
+                Currency pair deep-dives
                 <Chevron />
               </summary>
               <div className="px-5 pb-5 pt-1 grid grid-cols-2 sm:grid-cols-3 gap-2.5">

@@ -20,6 +20,16 @@ const TIER1 = [
   "GBP-EUR", "GBP-INR", "GBP-USD", "GBP-PKR", "EUR-USD", "CAD-INR",
 ];
 
+// Map a corridor → an INDEXABLE destination (a real /send-money corridor page
+// that's in the sitemap). The history/[pair] pages themselves are noindex, so
+// we never link to them; instead the curated cards point to a page that earns
+// its crawl. Corridors without a send-money page render as non-linked cards.
+const CORRIDOR_TO_SENDMONEY: Record<string, string> = {
+  "USD-INR": "usa-to-india", "USD-PHP": "usa-to-philippines", "USD-MXN": "usa-to-mexico",
+  "USD-PKR": "usa-to-pakistan", "USD-NGN": "usa-to-nigeria", "GBP-EUR": "uk-to-europe",
+  "GBP-INR": "uk-to-india", "GBP-PKR": "uk-to-pakistan", "CAD-INR": "canada-to-india",
+};
+
 function getCurrencyInfo(code: string) {
   return currencies.find((c) => c.code === code);
 }
@@ -106,7 +116,7 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
               const fromInfo = getCurrencyInfo(from);
               const toInfo = getCurrencyInfo(to);
               const lvl = rateLevelConfig(insight.level);
-              const slug = corridorToSlug(insight.corridor);
+              const sendMoneySlug = CORRIDOR_TO_SENDMONEY[insight.corridor];
               // Build overall sparkline from best daily rate
               const bestDaily = Object.values(insight.sparklines)
                 .flat()
@@ -116,12 +126,11 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
                 }, {});
               const overallSparkline = Object.values(bestDaily).sort((a, b) => a.date.localeCompare(b.date));
 
-              return (
-                <Link
-                  key={insight.corridor}
-                  href={`/exchange-rates/history/${slug}`}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-sm)] transition-all"
-                >
+              // Link only to an indexable /send-money corridor; otherwise a
+              // plain card (never to the noindex history/[pair] page).
+              const cardClass = "flex items-center gap-3 p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)] transition-all";
+              const inner = (
+                <>
                   <div className="flex items-center gap-1 shrink-0">
                     <CircleFlag code={from} size={24} />
                     <span className="text-xs text-[var(--color-on-surface-muted)]">→</span>
@@ -143,17 +152,32 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
                   {overallSparkline.length >= 2 && (
                     <Sparkline data={overallSparkline} width={64} height={24} />
                   )}
+                </>
+              );
+
+              return sendMoneySlug ? (
+                <Link
+                  key={insight.corridor}
+                  href={`/send-money/${sendMoneySlug}`}
+                  className={`${cardClass} hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-sm)]`}
+                >
+                  {inner}
                 </Link>
+              ) : (
+                <div key={insight.corridor} className={cardClass}>
+                  {inner}
+                </div>
               );
             })}
           </div>
         </Container>
       </section>
 
-      {/* All corridors by source currency — collapsed by default so the
-          curated "Most tracked" grid above carries the primary link equity.
-          Links stay in the DOM (crawlable) but don't flood the page with
-          80-90 equal-weight links to pages not in the sitemap allowlist. */}
+      {/* All corridors by source currency — a DATA showcase, not a link farm.
+          Rows are plain text (no <a>): the per-corridor history pages are
+          noindex and absent from the sitemap, so linking 800+ of them would
+          burn crawl budget on dead ends. The table's value is the data itself
+          (current best, avg, trend, level), which crawlers read inline. */}
       <section className="py-10 bg-[var(--color-surface)]">
         <Container>
           <details className="group">
@@ -202,12 +226,16 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
 
                             return (
                               <tr key={insight.corridor} className="border-t border-[var(--color-outline)] hover:bg-[var(--color-surface-dim)] transition-colors">
+                                {/* Plain text, NOT a link: these history/[pair] pages
+                                    are noindex + absent from the sitemap, so linking
+                                    all 800+ would flood crawl budget with dead-end
+                                    paths. The data in this row IS the value. */}
                                 <td className="px-4 py-2.5">
-                                  <Link href={`/exchange-rates/history/${slug}`} className="flex items-center gap-2 text-[var(--color-primary)] hover:underline font-medium">
+                                  <span className="flex items-center gap-2 font-medium text-[var(--color-on-surface)]">
                                     <CircleFlag code={to} size={18} />
                                     {from} → {to}
                                     {toInfo && <span className="text-2xs text-[var(--color-on-surface-muted)] font-normal hidden sm:inline">({toInfo.name})</span>}
-                                  </Link>
+                                  </span>
                                 </td>
                                 <td className="px-4 py-2.5 text-right tabular-nums text-[var(--color-on-surface)]">
                                   {insight.today.bestRate.toFixed(4)}
