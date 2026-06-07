@@ -7991,5 +7991,130 @@
         "receiveAmount": 4208.17
       }
     }
+  },
+  {
+    "date": "2026-06-07",
+    "providers": {
+      "lemfi": {
+        "rate": 43.3,
+        "fee": 0,
+        "markup": 0.28,
+        "receiveAmount": 4330
+      },
+      "moneygram": {
+        "rate": 43.3999,
+        "fee": 0.99,
+        "markup": 0.14,
+        "receiveAmount": 4297.02
+      },
+      "skrill": {
+        "rate": 42.0817,
+        "fee": 0,
+        "markup": 3.18,
+        "receiveAmount": 4208.17
+      },
+      "western-union": {
+        "rate": 43.422,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4342.2
+      },
+      "currencyfair": {
+        "rate": 43.285,
+        "fee": 1.85,
+        "markup": 0.41,
+        "receiveAmount": 4248.42
+      },
+      "instarem": {
+        "rate": 43.4603,
+        "fee": 0.75,
+        "markup": 0,
+        "receiveAmount": 4313.43
+      },
+      "xe": {
+        "rate": 42.972,
+        "fee": 5,
+        "markup": 1.13,
+        "receiveAmount": 4082.34
+      },
+      "paysend": {
+        "rate": 43.0475,
+        "fee": 2.9,
+        "markup": 0.95,
+        "receiveAmount": 4179.91
+      },
+      "singx": {
+        "rate": 43.3516,
+        "fee": 6,
+        "markup": 0.25,
+        "receiveAmount": 4075.05
+      },
+      "remitly": {
+        "rate": 42.74,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4274
+      },
+      "revolut": {
+        "rate": 43.0305,
+        "fee": 1.41,
+        "markup": 0.99,
+        "receiveAmount": 4242.37
+      },
+      "wise": {
+        "rate": 43.5247,
+        "fee": 1.46,
+        "markup": null,
+        "receiveAmount": 4288.92
+      },
+      "ria": {
+        "rate": 43.79,
+        "fee": 2.89,
+        "markup": null,
+        "receiveAmount": 4532.39
+      },
+      "taptap-send": {
+        "rate": 43,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4300
+      },
+      "commonwealth-bank": {
+        "rate": 41.4753,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4147.53
+      },
+      "hsbc": {
+        "rate": 42.6549,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4265.49
+      },
+      "paypal": {
+        "rate": 41.5688,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 3949.04
+      },
+      "xoom": {
+        "rate": 44.5375,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4453.75
+      },
+      "anz": {
+        "rate": 41.6622,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4166.22
+      },
+      "nab": {
+        "rate": 42,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4200
+      }
+    }
   }
 ]
