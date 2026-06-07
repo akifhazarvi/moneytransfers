@@ -191,10 +191,10 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
 
       <div className="bg-[var(--color-surface)]">
-        <div className="max-w-[760px] mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 py-10 sm:py-14">
 
           {/* ── Hero ── */}
-          <header className="mb-8">
+          <header className="mb-6 max-w-[760px]">
             <nav aria-label="Breadcrumb" className="text-xs text-[var(--color-on-surface-muted)] mb-3">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-1.5">/</span>
@@ -209,9 +209,23 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             </p>
           </header>
 
-          {/* ── The one thing: send verdict ── */}
+          {/* ── Merged: verdict + trend chart, side by side (stack on mobile) ── */}
           {initialVerdict ? (
-            <SendVerdictHero initial={initialVerdict} corridors={HERO_CORRIDORS} />
+            <div className="rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+              {/* Left: the verdict (its own border removed so the wrapper owns it) */}
+              <div className="lg:border-r border-[var(--color-outline)]">
+                <SendVerdictHero initial={initialVerdict} corridors={HERO_CORRIDORS} embedded />
+              </div>
+              {/* Right: the trend chart */}
+              <div className="p-5 sm:p-6 border-t lg:border-t-0 border-[var(--color-outline)] flex flex-col">
+                <h2 id="trends-heading" className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">
+                  12-month trend
+                </h2>
+                <div className="flex-1">
+                  <LazyHistoricalRateWidget defaultCorridor="USD-INR" />
+                </div>
+              </div>
+            </div>
           ) : (
             <div className="rounded-2xl border border-[var(--color-outline)] p-6 text-center text-[var(--color-on-surface-variant)]">
               Live rate insight is warming up — check the rates below.
@@ -222,16 +236,8 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
             <LiveTimestamp iso={`${RATES_AS_OF}T00:00:00Z`} prefix="Updated" /> · mid-market, median of 4 sources
           </p>
 
-          {/* ── Trend chart ── */}
-          <section className="mt-12" aria-labelledby="trends-heading">
-            <h2 id="trends-heading" className="text-xl font-semibold text-[var(--color-on-surface)] mb-4">
-              How the rate has moved
-            </h2>
-            <LazyHistoricalRateWidget defaultCorridor="USD-INR" />
-          </section>
-
           {/* ── Compact rates ── */}
-          <section className="mt-12" aria-labelledby="rates-heading">
+          <section className="mt-12 max-w-[760px]" aria-labelledby="rates-heading">
             <h2 id="rates-heading" className="text-xl font-semibold text-[var(--color-on-surface)] mb-1">
               Today&apos;s rates
             </h2>
@@ -242,7 +248,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           </section>
 
           {/* ── Everything else: progressive disclosure ── */}
-          <section className="mt-12 space-y-3">
+          <section className="mt-12 space-y-3 max-w-[760px]">
             {/* Popular corridors */}
             <details className="group rounded-2xl border border-[var(--color-outline)] overflow-hidden">
               <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-[15px] font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
@@ -342,7 +348,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           </section>
 
           {/* ── Disclaimer ── */}
-          <p className="text-[12px] text-[var(--color-on-surface-muted)] mt-8 leading-relaxed">
+          <p className="text-[12px] text-[var(--color-on-surface-muted)] mt-8 leading-relaxed max-w-[760px]">
             Rates shown are mid-market rates aggregated from independent sources for informational purposes only. Provider
             payouts are indicative and based on recent tracking — confirm the live quote before sending. Not financial advice.
           </p>
