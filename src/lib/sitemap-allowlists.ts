@@ -144,7 +144,7 @@ export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   "wise-vs-paypal",
   "wise-vs-revolut",
   "lloyds-vs-nationwide",
-  "moneygram-vs-western-union",  // 68i Bing
+  "western-union-vs-moneygram",  // canonical target; moneygram-vs-western-union (68i Bing) 301s here via middleware getCompareCanonicalSlug — submit the 200, not the redirect
   "remitly-vs-western-union",    // 10i Bing
   "paypal-vs-revolut",           // 11i Bing
   "moneygram-vs-taptap-send",
@@ -157,10 +157,8 @@ export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   "remitly-vs-moneygram",
   "remitly-vs-taptap-send",
   "western-union-vs-bank-of-america",
-  "wise-vs-paypal",
-  "wise-vs-revolut",
   "wise-vs-taptap-send",
-]); // 19 URLs (was 32)
+]); // 17 URLs (was 32)
 
 export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
   // ── Original editorial provider reviews ──
