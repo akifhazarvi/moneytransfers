@@ -1122,7 +1122,7 @@ function DefaultComparison({
                 </p>
               </div>
               {/* Speed verdict */}
-              <div className={`rounded-xl p-5 ${verdict.speedWinner === "tie" ? "bg-[var(--color-surface-dim)]" : "bg-[#e8f0fe] border border-[#1a73e8]/20"}`}>
+              <div className={`rounded-xl p-5 ${verdict.speedWinner === "tie" ? "bg-[var(--color-surface-dim)]" : "bg-[var(--color-primary-surface)] border border-[var(--color-primary)]/20"}`}>
                 <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-2">
                   {verdict.speedWinner === "tie" ? "Speed: Similar delivery times" : `Faster: ${verdict.speedWinner === "a" ? a.name : b.name}`}
                 </h3>

@@ -58,7 +58,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       // ── Section 1: Intro + Answer Box ──
       {
         heading: "India: The World's Largest Remittance Destination",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+        content: `<div class="blog-answer-box">
 <p><strong>Quick answer:</strong> The best way to send money to India internationally in 2026 is through a specialist online transfer provider — not a bank. <a href="/companies/wise">Wise</a> delivers the most rupees on amounts above $500/£400/€450 thanks to its 0% exchange rate markup. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering via IMPS in minutes with $0 fees on many corridors. <a href="/companies/instarem">Instarem</a> combines zero transfer fees with a consistently low markup of ~0.42%. On a £1,000 transfer to India, the difference between the best specialist and a UK high-street bank can be <strong>₹5,000–₹9,000</strong>. Use our live comparison tools for your specific corridor: <a href="/send-money/usa-to-india">USA → India</a> · <a href="/send-money/uk-to-india">UK → India</a> · <a href="/send-money/uae-to-india">UAE → India</a> · <a href="/send-money/canada-to-india">Canada → India</a> · <a href="/send-money/australia-to-india">Australia → India</a>.</p>
 </div>
 
@@ -419,7 +419,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <li><strong>NRE vs NRO accounts:</strong> If the recipient is an NRI, NRE account interest is tax-free; NRO account interest is taxed at 30% TDS. For most recipients (resident Indians receiving family remittances), this is irrelevant — they receive funds in a standard savings account.</li>
 </ul>
 
-<div class="blog-answer-box-warning" style="background:#fef7e0;border-radius:12px;padding:16px 20px;margin:20px 0;border-left:4px solid #f9ab00">
+<div class="blog-answer-box-warning">
 <p><strong>Note:</strong> Tax rules change. This guide reflects the rules as of June 2026. For personalised tax advice, consult a qualified tax professional familiar with the laws of your home country and India.</p>
 </div>`,
       },
@@ -554,7 +554,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       {
         heading:
           "USA to India: The World's Largest Remittance Corridor",
-        content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+        content: `<div class="blog-answer-box">
 <p><strong>Quick answer:</strong> The cheapest way to send money to India from the USA in 2026 is through specialist online providers — not banks. <a href="/companies/wise">Wise</a> delivers the most INR on transfers above $500 thanks to its 0% exchange rate markup. <a href="/companies/remitly">Remitly</a> wins for smaller amounts with $0 fees and IMPS delivery in minutes. <a href="/companies/instarem">Instarem</a> combines zero fees with a low 0.42% markup. On a $1,000 transfer, the difference between the cheapest provider and a US bank can be <strong>₹2,000–₹4,500</strong> — that's real money your family never receives. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
 </div>
 <p>India is the <strong>world's largest remittance recipient</strong>, receiving over <strong>$125 billion annually</strong> according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. The USA-to-India corridor alone accounts for roughly <strong>$28 billion per year</strong> — driven by a 4.4-million-strong Indian diaspora in the United States.</p>
@@ -785,7 +785,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <li><strong>Best for:</strong> NRIs who want to avoid INR exchange rate risk on their savings</li>
 </ul>
 
-<div class="blog-callout-green-sm" style="background:#e6f4ea;border-radius:12px;padding:16px 20px;margin:20px 0;border-left:4px solid #34a853">
+<div class="blog-callout-green-sm">
 <p><strong>Which account should you send to?</strong> If you're sending money to a family member's regular savings account, this section doesn't apply — just use their standard bank account + IFSC. NRE/NRO accounts matter only if the recipient is classified as an NRI by their bank, or if you're sending to your own Indian account.</p>
 </div>`,
       },
@@ -814,7 +814,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <li><strong>Income tax on interest:</strong> If the money is deposited into an NRO account, interest earned is taxable at 30%. NRE account interest is tax-free.</li>
 </ul>
 
-<div class="blog-callout-warning-sm" style="background:#fef7e0;border-radius:12px;padding:16px 20px;margin:20px 0;border-left:4px solid #f9ab00">
+<div class="blog-callout-warning-sm">
 <p><strong>Important:</strong> While the remittance itself isn't taxed in India, the recipient may need to explain the source if the <strong>total credits to their account exceed ₹10 lakh ($12,000) in a financial year</strong> and they have no corresponding income source. Keeping records of the transfer purpose (family support, gift, education) is good practice.</p>
 </div>`,
       },

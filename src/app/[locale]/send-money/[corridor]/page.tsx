@@ -2654,7 +2654,7 @@ export default async function CorridorPage({ params }: Props) {
         const paymentMethods = Array.from(paymentMethodMap.entries());
         if (paymentMethods.length === 0) return null;
 
-        const costColors = { low: "text-[var(--color-success-dark)] bg-[var(--color-success-surface)]", medium: "text-[#b45309] bg-[#fef3c7]", high: "text-[#dc2626] bg-[#fef2f2]" };
+        const costColors = { low: "text-[var(--color-success-dark)] bg-[var(--color-success-surface)]", medium: "text-[var(--color-warning-dark)] bg-[var(--color-warning-surface)]", high: "text-[var(--color-danger)] bg-[var(--color-danger-surface)]" };
         const costLabels = { low: "Low cost", medium: "Medium cost", high: "Higher cost" };
 
         return (

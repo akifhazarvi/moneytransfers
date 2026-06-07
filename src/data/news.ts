@@ -367,7 +367,7 @@ export const newsItems: NewsItem[] = [
       "The Federal Reserve kept rates at 3.5–3.75% and the dot plot projects only one cut this year. Here's how the stronger dollar affects remittance costs across key corridors.",
     image: "/images/news/fed-holds-rates-march-2026.svg",
     imageAlt: "Chart showing Federal Reserve rate cut projections declining from 2 cuts to 1 cut between December 2025 and March 2026",
-    content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+    content: `<div class="blog-answer-box">
 <p><strong>Key takeaway:</strong> The Fed held rates at 3.5–3.75% and projects just one cut in 2026 (down from two in January). A stronger dollar means Americans sending money abroad get more local currency per dollar — but the window may narrow if oil prices push inflation higher. Compare rates from multiple providers before your next transfer.</p>
 </div>
 
@@ -407,7 +407,7 @@ export const newsItems: NewsItem[] = [
 <h2>The bigger picture: oil prices and inflation</h2>
 <p>Fed Chair Jerome Powell pointed to <strong>Middle East oil supply disruptions</strong> as a key inflation risk. Higher oil prices flow through to shipping costs, energy bills, and ultimately to the currencies of oil-importing nations like India, Pakistan, and the Philippines. If oil prices stay elevated, currencies in these countries may weaken further — which paradoxically benefits senders from the US (more local currency per dollar) but hurts local purchasing power.</p>
 
-<div style="background:#fff3e0;border-radius:12px;padding:16px 20px;margin:20px 0;border-left:4px solid #ff9800">
+<div class="blog-answer-box-warning">
 <p style="margin:0"><strong>Market speculation:</strong> If oil stays above $90/barrel through Q2, emerging market currencies (INR, PKR, PHP, NGN) could weaken a further 2–5% against the dollar. This would make Q2 an unusually favourable window for US senders — but a painful period for recipients' purchasing power. The <a href="/guides/how-euribor-affects-euro-transfers">Euribor guide</a> explains how European rate dynamics add another layer.</p>
 </div>
 
@@ -434,7 +434,7 @@ export const newsItems: NewsItem[] = [
       "GCash is offering zero-fee transfers to the UAE, Saudi Arabia, Qatar, and Oman through March 31. Meanwhile, the Philippine House passed a resolution urging all providers to waive OFW remittance fees.",
     image: "/images/news/gcash-ofw-fee-waiver-2026.svg",
     imageAlt: "Infographic showing GCash zero-fee transfer promotion to UAE, Saudi Arabia, Qatar and Oman for overseas Filipino workers, with key statistics: 10M+ OFWs, $40B+ annual remittances",
-    content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+    content: `<div class="blog-answer-box">
 <p><strong>Quick summary:</strong> GCash is offering zero-fee international transfers to the UAE, Saudi Arabia, Qatar, and Oman through March 31, 2026 — no minimum amount. Separately, the Philippine House of Representatives passed Resolution 905 urging all banks and remittance providers to waive OFW fees amid the Middle East crisis. If you're an OFW in the Gulf, act before March 31.</p>
 </div>
 
@@ -466,7 +466,7 @@ export const newsItems: NewsItem[] = [
 
 <p>The resolution is non-binding (it cannot force providers to comply), but it sends a strong signal. If major players like <a href="/companies/western-union">Western Union</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> follow GCash's lead, Filipino workers could save billions of pesos collectively.</p>
 
-<div style="background:#fff3e0;border-radius:12px;padding:16px 20px;margin:20px 0;border-left:4px solid #ff9800">
+<div class="blog-answer-box-warning">
 <p style="margin:0"><strong>Our prediction:</strong> GCash's zero-fee promotion is a land-grab for OFW market share, not charity. Expect <a href="/companies/remitly">Remitly</a> and <a href="/companies/worldremit">WorldRemit</a> to respond within weeks with competing offers. The congressional resolution gives them political cover to do so. Watch our <a href="/guides/money-transfer-promo-codes-referral-programs">promo codes page</a> — we'll track every new offer as it launches.</p>
 </div>
 
@@ -508,7 +508,7 @@ export const newsItems: NewsItem[] = [
       "SWIFT says three-quarters of international payments reach banks in under 10 minutes. Meanwhile, Thunes just connected 500 million stablecoin wallets to the SWIFT network. The race to eliminate slow, expensive transfers is accelerating.",
     image: "/images/news/swift-stablecoins-payments-2026.svg",
     imageAlt: "Chart comparing cross-border payment speeds from 2020 to 2026: bank wires went from 3-5 days to 10 minutes, while stablecoins settle in seconds",
-    content: `<div class="blog-answer-box" style="background:#e8f0fe;border-radius:12px;padding:16px 20px;margin-bottom:20px;border-left:4px solid #1a73e8">
+    content: `<div class="blog-answer-box">
 <p><strong>Key facts:</strong> SWIFT announced that 75% of cross-border payments now reach banks within 10 minutes (up from days just a few years ago). Separately, Thunes connected 500 million stablecoin wallets to the SWIFT network via USDC/USDT. And Wizz Financial completed the first US stablecoin remittance into 80 countries. The race to make international transfers instant and near-free is accelerating — but for consumers, specialist providers like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> remain the best option today.</p>
 </div>
 
@@ -565,7 +565,7 @@ export const newsItems: NewsItem[] = [
 <h2>Our take</h2>
 <p>The market is bifurcating. SWIFT is getting faster, but banks aren't passing the savings through to consumers. Stablecoins offer near-zero cost, but require both parties to be comfortable with crypto infrastructure. <strong>Specialist transfer providers sit in the sweet spot</strong> — fast, cheap, and no crypto knowledge required. We expect this to remain true through at least 2027, with stablecoins gradually eating into B2B corridors first and consumer remittances later.</p>
 
-<div style="background:#e8f5e9;border-radius:12px;padding:16px 20px;margin:20px 0;border-left:4px solid #4caf50">
+<div class="blog-callout-green-sm">
 <p style="margin:0"><strong>Bottom line for senders:</strong> You don't need to wait for stablecoins to save money today. Providers like <a href="/companies/wise">Wise</a> (0% markup), <a href="/companies/remitly">Remitly</a> (minutes delivery), and <a href="/companies/instarem">Instarem</a> (zero fees) already deliver 80–95% savings vs banks — with no crypto involved. Use our <a href="/send-money">live comparison tool</a> to find the best rate right now.</p>
 </div>
 
