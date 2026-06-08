@@ -8471,5 +8471,118 @@
         "receiveAmount": 127.95
       }
     }
+  },
+  {
+    "date": "2026-06-08",
+    "providers": {
+      "lemfi": {
+        "rate": 1.336,
+        "fee": 0,
+        "markup": -0.15,
+        "receiveAmount": 133.6
+      },
+      "taptap-send": {
+        "rate": 1.29,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 129
+      },
+      "moneygram": {
+        "rate": 1.3325,
+        "fee": 2.49,
+        "markup": null,
+        "receiveAmount": 129.93
+      },
+      "santander": {
+        "rate": 1.2933,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 97
+      },
+      "lloyds": {
+        "rate": 1.285,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 116.29
+      },
+      "remitly": {
+        "rate": 1.3266,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 131.35
+      },
+      "worldremit": {
+        "rate": 1.3166,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 129.04
+      },
+      "xoom": {
+        "rate": 1.257,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 123.2
+      },
+      "barclays": {
+        "rate": 1.2971,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 129.71
+      },
+      "western-union": {
+        "rate": 1.3282,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 130.18
+      },
+      "rbs": {
+        "rate": 1.3034,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 130.34
+      },
+      "hsbc": {
+        "rate": 1.3234,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 132.34
+      },
+      "halifax": {
+        "rate": 1.2854,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 116.33
+      },
+      "nationwide": {
+        "rate": 1.302,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 110.67
+      },
+      "natwest": {
+        "rate": 1.3034,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 130.34
+      },
+      "skrill": {
+        "rate": 1.2953,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 129.53
+      },
+      "instarem": {
+        "rate": 1.3261,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 132.61
+      },
+      "monese": {
+        "rate": 1.3338,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 128.04
+      }
+    }
   }
 ]
