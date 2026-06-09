@@ -59,6 +59,19 @@ function readPref(): StoredPref | null {
   return null;
 }
 
+// ── cross-instance broadcast ──────────────────────────────────
+// Every mounted useGeoSelection shares one source of truth. The cookie alone
+// only syncs on mount, so two widgets on the same page would drift apart when
+// one changes currency. This in-memory pub/sub keeps all live instances in
+// lockstep: when one persists a change, every other instance applies it
+// immediately (clamped to its own from/to validity rules).
+type GeoListener = (sel: GeoSelection) => void;
+const geoListeners = new Set<GeoListener>();
+
+function broadcastSelection(sel: GeoSelection) {
+  for (const listener of geoListeners) listener(sel);
+}
+
 /** Current IP-detected country (set by middleware), or "" if unknown. */
 export function getGeoCountry(): string {
   return readCookie("geo-country");
@@ -114,7 +127,8 @@ export function useGeoSelection({ defaults, isValidFrom, isValidTo }: Options) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Persist the user's full selection (called by setters below).
+  // Persist the user's full selection (called by setters below) and broadcast
+  // it so every other mounted instance updates live, not just on next mount.
   const persist = useCallback((next: Partial<GeoSelection>) => {
     hasChosen.current = true;
     const current = readPref() ?? { from: defaults.from, to: defaults.to, amount: defaults.amount };
@@ -125,8 +139,24 @@ export function useGeoSelection({ defaults, isValidFrom, isValidTo }: Options) {
       country: getGeoCountry() || current.country,
     };
     writeCookie(PREF_COOKIE, JSON.stringify(merged));
+    broadcastSelection({ from: merged.from, to: merged.to, amount: merged.amount });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Subscribe to changes from sibling instances. We apply incoming from/to/
+  // amount clamped to this instance's own validity rules, so a widget that
+  // only supports certain corridors never adopts an invalid one. We don't
+  // re-persist here — the originating instance already wrote the cookie.
+  useEffect(() => {
+    const listener: GeoListener = (sel) => {
+      hasChosen.current = true;
+      setFromState((prev) => (okFrom(sel.from) ? sel.from : prev));
+      setToState((prev) => (okTo(sel.to) ? sel.to : prev));
+      if (Number.isFinite(sel.amount) && sel.amount > 0) setAmountState(sel.amount);
+    };
+    geoListeners.add(listener);
+    return () => { geoListeners.delete(listener); };
+  }, [okFrom, okTo]);
 
   const setFrom = useCallback((code: string) => { setFromState(code); persist({ from: code }); }, [persist]);
   const setTo = useCallback((code: string) => { setToState(code); persist({ to: code }); }, [persist]);
