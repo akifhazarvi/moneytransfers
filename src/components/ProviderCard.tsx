@@ -254,6 +254,14 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   {promo.signUpBadge}
                 </span>
               )}
+              {quote.promoNote && (
+                <span
+                  className="text-2xs font-semibold tracking-wide text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-px rounded whitespace-nowrap"
+                  title={quote.promoNote}
+                >
+                  {quote.promoNote}
+                </span>
+              )}
             </div>
           </div>
 

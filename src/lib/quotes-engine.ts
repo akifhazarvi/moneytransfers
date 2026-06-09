@@ -106,6 +106,7 @@ export function generateQuotes(
         transferSpeed: sq.deliveryEstimate || provider?.transferSpeed || "1-3 business days",
         rating,
         ratingLabel,
+        ...(sq.promoNote ? { promoNote: sq.promoNote } : {}),
       });
     }
 

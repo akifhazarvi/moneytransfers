@@ -6,13 +6,18 @@
  *   body: { from, to, amount }
  *
  * The response carries Unplex's own quote inside `data.rateComparision.providers`
- * under `alias: "unplex"`. That entry has two receive amounts:
- *   - receivedAmount      → the first-time / promotional rate (capped at $100)
- *   - toOthersTransferAmount → the standard ongoing rate every user gets
+ * under `alias: "unplex"`. Rate fields:
+ *   - quote.receivedAmount / quote.rate → Unplex's STANDARD rate, matching the
+ *     top-level `data.Currency` headline. This is what every customer gets.
+ *   - quote.toOthersTransferAmount → a competitor-comparison figure, NOT
+ *     Unplex's own rate. (Using it understated Unplex — the original bug.)
+ *   - data.FirstTimeRate + data.FirstTimeTransferLimit → an enhanced first-
+ *     transfer rate that applies only up to a small send cap (~$100).
  *
- * We surface the STANDARD rate (toOthersTransferAmount) so Unplex is comparable
- * to other providers and never claims an undeserved "Best Deal" off a promo
- * that doesn't apply at typical transfer sizes.
+ * We surface the STANDARD rate at normal amounts, and the FIRST-TIME promo
+ * rate only when the send amount is within the cap (so we never overstate what
+ * a sender actually receives). Promo metadata is carried through so the UI can
+ * mention it.
  *
  * Unplex serves India-only corridors today: USD/GBP/EUR/CAD → INR.
  */
@@ -47,6 +52,12 @@ interface UnplexQuote {
   paymentMethod: string | null;
   deliveryEstimate: string | null;
   deliveryMethod: null;
+  /** Unplex's enhanced first-transfer rate (applies up to firstTimeLimit). */
+  firstTimeRate: number | null;
+  /** Max send amount (in send currency) the first-time rate applies to. */
+  firstTimeLimit: number | null;
+  /** True when this quote's receiveAmount was computed using the promo rate. */
+  isPromoRate: boolean;
   dateCollected: string;
   source: string;
 }
@@ -86,20 +97,39 @@ async function fetchUnplexQuote(
     const quote = unplex?.quotes?.[0];
     if (!quote) return null;
 
-    // Standard ongoing rate (what everyone gets), NOT the first-time promo.
-    const receiveAmount =
-      typeof quote.toOthersTransferAmount === "number"
-        ? quote.toOthersTransferAmount
-        : quote.receivedAmount;
-    if (!receiveAmount) return null;
+    // Unplex's STANDARD rate. `receivedAmount` (and the quote's `rate`) match
+    // Unplex's own headline `data.Currency` rate — this is what every customer
+    // actually gets. (`toOthersTransferAmount` is a competitor-comparison
+    // figure, NOT Unplex's rate — using it understated us, which is the bug
+    // Prashanth reported.)
+    const standardReceive = quote.receivedAmount;
+    if (!standardReceive) return null;
 
-    // Effective rate implied by the standard receive amount (Unplex charges no
-    // fee, so rate = receiveAmount / sendAmount).
+    // First-time promo: a higher rate that applies only up to a small send
+    // cap (FirstTimeTransferLimit, ~$100). data.FirstTimeRate is per-unit.
+    const firstTimeRate =
+      typeof data.FirstTimeRate === "string"
+        ? parseFloat(data.FirstTimeRate)
+        : typeof data.FirstTimeRate === "number"
+          ? data.FirstTimeRate
+          : (data.PromotionalTransferRate ?? null);
+    const firstTimeLimit =
+      typeof data.FirstTimeTransferLimit === "number"
+        ? data.FirstTimeTransferLimit
+        : null;
+
     const fee = quote.fee || 0;
+
+    // ALWAYS store the standard rate as the comparison quote — it's the rate a
+    // sender actually gets at any amount, so it never overstates the receive
+    // amount. The first-time promo is carried as metadata (firstTimeRate/
+    // firstTimeLimit) for the UI to MENTION, rather than baked into the
+    // comparison rate where the engine would scale it past its $100 cap.
+    const receiveAmount = standardReceive;
     const exchangeRate = receiveAmount / (amount - fee);
 
-    // Mid-market: the API's top-level `Currency` field is Unplex's headline
-    // rate, not mid-market; leave mid-market to the unified index's XE table.
+    // Mid-market is left to the unified index's XE table (data.Currency is
+    // Unplex's own rate, not mid-market).
     return {
       provider: "Unplex",
       providerSlug: "unplex",
@@ -115,6 +145,9 @@ async function fetchUnplexQuote(
       paymentMethod: null,
       deliveryEstimate: null,
       deliveryMethod: null,
+      firstTimeRate: firstTimeRate != null ? Math.round(firstTimeRate * 10000) / 10000 : null,
+      firstTimeLimit,
+      isPromoRate: false, // comparison rate is always the standard rate
       dateCollected: new Date().toISOString(),
       source: "unplex-api",
     };

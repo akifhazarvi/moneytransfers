@@ -45,6 +45,9 @@ export interface NormalizedQuote {
   deliveryEstimate: string | null;
   source: string;
   sourcePriority: number; // lower = better (1=direct, 2=monito, 3=wise)
+  /** Short promo note (e.g. a better first-transfer rate) to surface on the
+   * card. The comparison rate stays the standard rate; this only informs. */
+  promoNote?: string;
 }
 
 // --- Trustpilot ratings ---
@@ -155,6 +158,16 @@ function normalizeQuote(
     markup = Math.round(((midMarket - exchangeRate) / midMarket) * 10000) / 100;
   }
 
+  // First-transfer promo (e.g. Unplex): a better rate up to a small send cap.
+  // We carry it as an informational note only — the comparison rate above stays
+  // the standard rate so we never overstate what a sender actually receives.
+  const firstTimeRate = raw.firstTimeRate as number | null | undefined;
+  const firstTimeLimit = raw.firstTimeLimit as number | null | undefined;
+  let promoNote: string | undefined;
+  if (firstTimeRate && firstTimeRate > exchangeRate && firstTimeLimit) {
+    promoNote = `First transfer rate ${firstTimeRate} ${toCcy} (up to ${firstTimeLimit} ${fromCcy})`;
+  }
+
   return {
     provider: (raw.provider as string) || "",
     providerSlug: normalizeSlug(
@@ -173,6 +186,7 @@ function normalizeQuote(
       null,
     source: (raw.source as string) || defaultSource,
     sourcePriority,
+    ...(promoNote ? { promoNote } : {}),
   };
 }
 

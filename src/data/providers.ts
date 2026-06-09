@@ -40,6 +40,9 @@ export interface TransferQuote {
   // and route the user to the partner for an actual quote — same pattern
   // RemitFinder and other comparison sites use for account-managed FX brokers.
   isIndicative?: boolean;
+  /** Informational promo note (e.g. a better first-transfer rate). The
+   * comparison rate stays standard; this is surfaced as a small badge. */
+  promoNote?: string;
 }
 
 export const providers: Provider[] = [
