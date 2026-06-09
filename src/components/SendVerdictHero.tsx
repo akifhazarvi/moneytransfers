@@ -179,7 +179,7 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
               min={1}
               value={amount}
               onChange={(e) => onAmount(Math.max(1, Number(e.target.value) || 0))}
-              className="w-full bg-transparent text-sm text-[var(--color-on-surface)] focus:outline-none tabular-nums"
+              className="w-full bg-transparent text-sm text-[var(--color-on-surface)] focus:outline-none focus-visible:outline-none tabular-nums"
             />
           </div>
         </div>
@@ -308,7 +308,7 @@ function CorridorPicker({
           id={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="appearance-none bg-transparent text-sm font-medium text-[var(--color-on-surface)] focus:outline-none pl-2 pr-5 w-full cursor-pointer"
+          className="appearance-none bg-transparent text-sm font-medium text-[var(--color-on-surface)] focus:outline-none focus-visible:outline-none pl-2 pr-5 w-full cursor-pointer"
         >
           {options.map((o) => <option key={o} value={o}>{o}</option>)}
         </select>
