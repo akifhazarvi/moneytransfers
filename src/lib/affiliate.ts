@@ -25,7 +25,7 @@ const affiliateLinks: Record<string, string> = {
   moneygram: "https://moneygram.com/?ref=sendmoneycompare",
   xoom: "https://xoom.com/?ref=sendmoneycompare",
   torfx: "https://torfx.com/?ref=sendmoneycompare",
-  instarem: "https://instarem.com/?ref=sendmoneycompare",
+  instarem: "https://instarem.prf.hn/click/camref:1100l5Nn6Z",
   "taptap-send": "https://taptapsend.com/?ref=sendmoneycompare",
   "ace-money-transfer": "https://acemoneytransfer.com/?ref=sendmoneycompare",
   currencyfair: "https://currencyfair.com/?ref=sendmoneycompare",
