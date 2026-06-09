@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAffiliateUrl } from "@/lib/affiliate";
+import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
 import { classifyTrafficSource } from "@/lib/traffic-source";
@@ -16,6 +16,16 @@ export async function GET(
   }
 
   const { provider } = await params;
+
+  // Reject bare/garbage paths (e.g. crawlers hitting `/go/` with no provider)
+  // BEFORE firing any GA event — an empty provider otherwise pollutes the
+  // affiliate_redirect report with provider="" rows at the top of the list.
+  // NOTE: only empties/malformed slugs are rejected — unknown-but-valid slugs
+  // still redirect (via getAffiliateUrl's fallback), so real clicks survive.
+  if (!isValidProviderSlug(provider)) {
+    return new NextResponse("Not Found", { status: 404 });
+  }
+
   const { searchParams } = new URL(request.url);
   const from = searchParams.get("from") || undefined;
   const to = searchParams.get("to") || undefined;

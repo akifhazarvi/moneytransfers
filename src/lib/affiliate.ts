@@ -166,6 +166,19 @@ function buildWiseDeepLink(params: AffiliateParams): string {
   return appendClickref(withDest, params.clickref);
 }
 
+/**
+ * A provider slug is valid for redirect IFF it's a non-empty, well-formed
+ * slug. We deliberately do NOT require it to exist in `affiliateLinks`: many
+ * legitimate slugs (e.g. `lemfi`, `sbi`) have no dedicated affiliate URL yet
+ * and fall back to a generic destination — those are real clicks and must
+ * still redirect. The ONLY thing this rejects is the bare/garbage path (e.g.
+ * a crawler hitting `/go/` with no slug), which otherwise fires an
+ * affiliate_redirect GA event with provider="" and pollutes the report.
+ */
+export function isValidProviderSlug(providerSlug: string): boolean {
+  return /^[a-z0-9][a-z0-9-]*$/.test(providerSlug);
+}
+
 export function getAffiliateUrl(
   providerSlug: string,
   params?: AffiliateParams,
@@ -194,6 +207,14 @@ export function getAffiliateUrl(
 }
 
 export function getGoUrl(providerSlug: string, params?: AffiliateParams): string {
+  // Guard against empty/malformed slugs (e.g. a quote with no providerSlug,
+  // see unified-quotes.ts fallback to ""). Rendering `/go/` with no slug
+  // produces a live button that, when clicked, fires affiliate_redirect with
+  // provider="" — polluting the provider report. Returning the generic
+  // send-money page keeps the link working without emitting a junk redirect.
+  if (!isValidProviderSlug(providerSlug)) {
+    return "/send-money";
+  }
   const base = `/go/${providerSlug}`;
   const searchParams = new URLSearchParams();
   if (params?.sourceCurrency) searchParams.set("from", params.sourceCurrency);
