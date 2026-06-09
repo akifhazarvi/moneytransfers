@@ -26,6 +26,7 @@ const affiliateLinks: Record<string, string> = {
   xoom: "https://xoom.com/?ref=sendmoneycompare",
   torfx: "https://torfx.com/?ref=sendmoneycompare",
   instarem: "https://instarem.prf.hn/click/camref:1100l5Nn6Z",
+  unplex: "https://unplex.money/?utm_source=sendmoneycompare",
   "taptap-send": "https://taptapsend.com/?ref=sendmoneycompare",
   "ace-money-transfer": "https://acemoneytransfer.com/?ref=sendmoneycompare",
   currencyfair: "https://currencyfair.com/?ref=sendmoneycompare",

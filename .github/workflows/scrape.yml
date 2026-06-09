@@ -86,6 +86,11 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
+      - name: Scrape Unplex (direct API)
+        run: npx tsx scripts/scrape-unplex.ts
+        timeout-minutes: 5
+        continue-on-error: true
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

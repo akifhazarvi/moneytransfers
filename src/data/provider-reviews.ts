@@ -2845,6 +2845,124 @@ export const providerReviews: ProviderReview[] = [
       },
     ],
   },
+  {
+    slug: "unplex",
+    title: "Unplex Review 2026 — Zero-Fee Transfers to India",
+    metaDescription:
+      "Unplex review: zero-fee USD/GBP/EUR/CAD transfers to India, an enhanced first-time rate, NRE/NRO support and WhatsApp-based sending. FinCEN-registered. How it compares to Wise, Remitly and Instarem.",
+    publishedAt: "2026-06-09",
+    updatedAt: "2026-06-09",
+    lastVerified: "2026-06-09",
+    readTime: "8 min read",
+    editorRating: 7.0,
+    editorVerdict:
+      "Unplex is a newer, India-focused remittance service that does one thing and does it competitively: zero-fee transfers to Indian bank accounts from the US, UK, Europe and Canada. Our live rate tracking shows Unplex landing in the middle of the pack on USD→INR, GBP→INR, EUR→INR and CAD→INR — comparable to Instarem and the banks' digital arms, though not as cheap as Wise's mid-market rate or the very best app-first remitters like TapTap Send. The standout features are the enhanced first-time rate for new customers, NRE/NRO account support, and WhatsApp-based sending. The limitations are narrow: India is the only destination we track, the brand is young with a thin public review history, and there is no cash pickup. For NRIs sending to India who value zero fees and a simple flow, Unplex is worth adding to your comparison — just check the live receive amount against Wise and Instarem before you send.",
+    usp: {
+      headline: "Zero-fee India transfers with an enhanced first-time rate",
+      points: [
+        "No transfer fee on USD, GBP, EUR and CAD transfers to India",
+        "Higher exchange rate on your first transfer for new customers",
+        "NRE and NRO account support, plus WhatsApp-based sending",
+      ],
+    },
+    reviewer: "Akif Hazarvi",
+    factChecker: "Awais Imran",
+    howWeTested:
+      "We pull live Unplex quotes directly from its public currency-converter API every 6 hours across all four corridors it serves (USD→INR, GBP→INR, EUR→INR, CAD→INR) at $100 and $1,000. We use Unplex's standard ongoing rate — not the capped first-time promotional rate — and benchmark the total receive amount against Wise, Instarem, Remitly and the other providers in our index at the same moment, so the comparison reflects what a typical repeat sender actually gets.",
+    sections: [
+      {
+        id: "overview",
+        heading: "Overview",
+        content:
+          `<p>Unplex is a digital remittance service built specifically for sending money to India. It is a Delaware-registered fintech, FinCEN-registered as a money services business, with money transmission powered by licensed partners <strong>Cybrid Inc.</strong> (MSB license 31000246961737) and <strong>Bivo Inc.</strong> (NMLS 2572288), and a PCI-DSS certified payment processor. The company describes its team as IIT/IIM alumni backed by Silicon Valley venture investors.</p>\n\n<p><strong>What makes Unplex different:</strong> rather than chasing global coverage, Unplex concentrates on the India corridor and the needs of the Indian diaspora (NRIs), sending from the US, UK, Europe and Canada. It supports both <strong>NRE</strong> and <strong>NRO</strong> account deposits, offers an enhanced exchange rate on your first transfer, and lets you initiate transfers over <strong>WhatsApp</strong> as well as through its iOS and Android apps. It advertises zero transfer fees and free instant funding within the US via Visa.</p>\n\n<p>Because Unplex is a young brand, it does not yet have the multi-year track record or the tens of thousands of public reviews that established players like Wise or Remitly carry. That is the main trade-off to weigh: competitive India pricing and NRI-specific features against a shorter operating history.</p>`,
+      },
+      {
+        id: "fees",
+        heading: "Transfer fees",
+        content:
+          "<p>Unplex advertises <strong>zero transfer fees</strong> on its India corridors, and our live data confirms a $0 fee on every quote we collect.</p>\n\n<p><strong>Fee by corridor (as tracked):</strong></p>\n\n<table>\n<tr><th>Corridor</th><th>Fee</th></tr>\n<tr><td>USD → INR</td><td>$0</td></tr>\n<tr><td>GBP → INR</td><td>£0</td></tr>\n<tr><td>EUR → INR</td><td>€0</td></tr>\n<tr><td>CAD → INR</td><td>C$0</td></tr>\n</table>\n\n<p>As with most zero-fee remitters, Unplex makes its margin on the exchange rate rather than an upfront fee. That means the only number that matters for comparing cost is the <strong>total receive amount</strong> — which is exactly what SendMoneyCompare ranks on. A $0 fee does not automatically make a provider the cheapest; always check the rupees actually delivered.</p>",
+      },
+      {
+        id: "exchange-rates",
+        heading: "Exchange rates",
+        content:
+          `<p>Unplex quotes a single all-in rate to INR with no separate fee. Based on our live tracking, its <strong>standard ongoing rate</strong> sits mid-pack on the India corridors — competitive with <a href="/companies/instarem">Instarem</a> and well ahead of bank wires, but not as cheap as <a href="/companies/wise">Wise</a>'s mid-market rate or the leanest app-first remitters.</p>\n\n<p><strong>First-time rate:</strong> Unplex offers a noticeably better exchange rate on your <em>first</em> transfer. This promotional rate is capped at a small transfer size (around $100), so it is a genuine perk for trying the service but does not apply to a typical $1,000 remittance. We deliberately rank Unplex on its standard rate, not the first-time rate, so it is never credited with a "best deal" it cannot deliver at normal transfer amounts.</p>\n\n<p><strong>How to read it:</strong> on any given day Unplex may be the best, middle or back of the pack depending on how aggressively competitors are pricing the corridor. Because we collect quotes every 6 hours, the figure you see on our corridor and comparison pages is current — use it rather than the headline rate on Unplex's homepage, which may reflect the first-time rate.</p>`,
+      },
+      {
+        id: "speed",
+        heading: "Delivery speed",
+        content:
+          "<p>Unplex markets fast delivery to Indian bank accounts and offers free instant funding within the US via Visa. In practice, delivery to an Indian bank account typically completes within minutes to one business day, depending on the destination bank, the funding method, and whether your identity verification is complete.</p>\n\n<p>Unplex backs this with a service guarantee — it credits $10 if a transfer is delayed. For NRE/NRO deposits, timing also depends on the receiving bank's processing of inward remittances. If you need guaranteed same-hour delivery, compare against <a href=\"/companies/remitly\">Remitly</a>'s Express option before sending.</p>",
+      },
+      {
+        id: "countries",
+        heading: "Countries and coverage",
+        content:
+          `<p>Unplex's coverage is deliberately narrow. It sends <strong>to India only</strong>, from a small set of source markets:</p>\n\n<ul>\n<li><strong>USA → India</strong> (USD), with NRE and NRO account support</li>\n<li><strong>UK → India</strong> (GBP), NRO support</li>\n<li><strong>Europe → India</strong> (EUR), NRO support</li>\n<li><strong>Canada → India</strong> (CAD), NRO support</li>\n</ul>\n\n<p>Unplex also advertises a USA → Philippines corridor on its site, but our rate index currently tracks only the four INR corridors above.</p>\n\n<p><strong>Coverage gaps:</strong></p>\n<ul>\n<li>No destinations other than India (and Philippines) — for anywhere else, use <a href="/companies/wise">Wise</a>, <a href="/companies/xe">XE</a> or <a href="/companies/remitly">Remitly</a></li>\n<li>Bank deposit only — no cash pickup or mobile wallet delivery</li>\n<li>NRE deposits supported from the US only; NRO from US, UK, Europe and Canada</li>\n</ul>`,
+      },
+      {
+        id: "reviews",
+        heading: "User reviews and reputation",
+        content:
+          "<p>Unplex is an emerging brand and does not yet carry the large public review base of established remitters, so we treat its reputation cautiously rather than quoting a high score off a thin sample.</p>\n\n<p><strong>What stands out positively:</strong></p>\n<ul>\n<li>Zero fees and a real first-time rate incentive</li>\n<li>NRI-specific features — NRE/NRO support and WhatsApp sending</li>\n<li>Licensed money-transmission partners and PCI-DSS certified processing</li>\n<li>A delayed-transfer service guarantee</li>\n</ul>\n\n<p><strong>What to weigh:</strong></p>\n<ul>\n<li>Short operating history and limited independent review volume</li>\n<li>India-only focus — no use for non-India corridors</li>\n<li>No cash pickup or mobile money</li>\n</ul>\n\n<p><strong>Our assessment:</strong> Unplex is a focused, fee-free option for NRIs sending to India, with features (NRE/NRO, WhatsApp, first-time rate) that speak directly to that audience. The honest caveat is its youth — verify the live receive amount against Wise and Instarem on your corridor, and start with a smaller transfer to test the experience before committing larger sums.</p>",
+      },
+    ],
+    whoShouldUse: [
+      {
+        heading: "Unplex is ideal for",
+        items: [
+          "NRIs sending money from the US, UK, Europe or Canada to India",
+          "Transfers to NRE or NRO accounts (NRE from the US)",
+          "Senders who want zero fees and a simple WhatsApp or app flow",
+          "New customers who can take advantage of the enhanced first-time rate",
+          "People who prefer free instant Visa funding within the US",
+        ],
+      },
+      {
+        heading: "Unplex may not be the best choice for",
+        items: [
+          "Anyone sending to a destination other than India",
+          "Recipients who need cash pickup or mobile money — bank deposit only",
+          "Senders who want the lowest possible rate — compare Wise and Instarem first",
+          "Users who prefer a long, established public track record",
+          "Large transfers where a small rate difference outweighs the fee saving",
+        ],
+      },
+    ],
+    alternatives: [
+      { slug: "wise", reason: "Mid-market rate with a transparent fee — often the cheapest on India corridors once you compare the total receive amount" },
+      { slug: "instarem", reason: "Closest direct competitor on India corridors — transparent low markup plus InstaPoints rewards for regular senders" },
+      { slug: "remitly", reason: "Faster delivery with cash pickup and mobile options, and strong first-transfer promotions for India" },
+      { slug: "taptap-send", reason: "App-first, zero-fee remitter with very low markup — good for smaller India transfers" },
+      { slug: "xe", reason: "Zero-fee transfers with broad currency coverage if you also send outside India" },
+    ],
+    faqs: [
+      {
+        q: "Is Unplex safe and regulated?",
+        a: "Unplex is a Delaware-registered fintech and is registered with FinCEN as a money services business. Its money transmission is powered by licensed partners — Cybrid Inc. (MSB license 31000246961737) and Bivo Inc. (NMLS 2572288) — and it uses a PCI-DSS certified payment processor. That structure is common for newer fintechs, which operate on the licenses and rails of established, regulated partners rather than holding every license themselves. The main caveat is not regulatory but reputational: Unplex is a young brand without the multi-year track record of larger remitters, so it is sensible to start with a smaller test transfer.",
+      },
+      {
+        q: "Which countries and currencies does Unplex support?",
+        a: "Unplex is India-focused. We track four corridors: USA → India (USD), UK → India (GBP), Europe → India (EUR) and Canada → India (CAD), all delivering to Indian bank accounts. Unplex also advertises a USA → Philippines corridor on its site, but our live rate index currently covers only the four India corridors. There is no support for other destinations, so if you need to send anywhere outside India, you'll want a broader provider like Wise, XE or Remitly.",
+      },
+      {
+        q: "Does Unplex really charge zero fees?",
+        a: "Yes — our live data shows a $0 transfer fee on every Unplex quote across USD→INR, GBP→INR and EUR→INR. Like most zero-fee remitters, Unplex earns its margin in the exchange rate rather than an upfront charge. That's why a $0 fee doesn't automatically make a transfer the cheapest: the number that matters is the total rupees delivered. SendMoneyCompare ranks providers on that total receive amount, so you can see at a glance whether Unplex's no-fee rate actually beats a fee-charging competitor on your corridor.",
+      },
+      {
+        q: "What is the Unplex first-time rate, and why don't you rank on it?",
+        a: "Unplex offers a boosted exchange rate on your first transfer as a new-customer incentive. It's a genuine perk, but it's capped at a small transfer size (around $100), so it does not apply to a typical $1,000 remittance. To keep our comparison honest, we rank Unplex on its standard ongoing rate — the rate every customer gets on normal transfer amounts — rather than the capped promotional rate. This prevents Unplex (or any provider with a first-time offer) from being credited with a 'best deal' it can't actually deliver at the amount you're sending.",
+      },
+      {
+        q: "Can I send to NRE and NRO accounts with Unplex?",
+        a: "Yes. Unplex supports both NRE (Non-Resident External) and NRO (Non-Resident Ordinary) account deposits, which is a meaningful feature for NRIs managing money in India. Per Unplex, NRE deposits are supported when sending from the US, while NRO/savings deposits are supported from the US, UK, Europe and Canada. Timing for these inward remittances also depends on the receiving Indian bank's processing. If NRE/NRO support is central to your needs, Unplex is purpose-built for it — but still compare the delivered amount against Instarem and Wise, which also serve these corridors.",
+      },
+      {
+        q: "How do I send money with Unplex?",
+        a: "Unplex offers two routes: its iOS and Android apps, and a WhatsApp-based flow that lets you initiate transfers through chat. Within the US, it advertises free instant funding via Visa. After identity verification, you choose your recipient's Indian bank account (including NRE/NRO), confirm the rate and amount, and fund the transfer. Delivery is typically within minutes to one business day depending on the destination bank, and Unplex offers a service guarantee crediting $10 if a transfer is delayed.",
+      },
+    ],
+  },
 ];
 
 export function getProviderReview(slug: string): ProviderReview | undefined {
