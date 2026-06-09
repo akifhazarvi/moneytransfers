@@ -204,7 +204,7 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
             sparklines={chartSparklines}
             fromCurrency={fromCurrency}
             toCurrency={toCurrency}
-            maxProviders={4}
+            defaultVisible={5}
           />
         </div>
       )}

@@ -19,7 +19,9 @@ interface ChartProps {
   sparklines: Record<string, SparklinePoint[]>;
   fromCurrency: string;
   toCurrency: string;
-  maxProviders?: number;
+  /** How many provider lines are drawn by default. Users can change this via
+   * the "Show" control below the chart. All providers stay toggleable. */
+  defaultVisible?: number;
 }
 
 interface TooltipData {
@@ -34,21 +36,24 @@ export default function HistoricalRateChart({
   sparklines,
   fromCurrency,
   toCurrency,
-  maxProviders = 6,
+  defaultVisible = 8,
 }: ChartProps) {
   // Extract mid-market line (special key from build-rate-insights)
   const midMarketData = useMemo(() => sparklines["__mid-market__"] || [], [sparklines]);
 
-  // Sort providers by data points (most first), take top N (exclude mid-market)
+  // ALL providers with enough history, sorted by data density (most first).
+  // No load cap — every provider stays available to toggle on. Readability is
+  // managed by how many are *visible* by default (see enabledProviders below).
   const sortedProviders = useMemo(() =>
     Object.entries(sparklines)
       .filter(([slug, pts]) => slug !== "__mid-market__" && pts.length >= 2)
-      .sort((a, b) => b[1].length - a[1].length)
-      .slice(0, maxProviders),
-  [sparklines, maxProviders]);
+      .sort((a, b) => b[1].length - a[1].length),
+  [sparklines]);
 
+  // Show the top N (by data density) by default; the rest start hidden but are
+  // one tap away in the legend or via the "Show" control below the chart.
   const [enabledProviders, setEnabledProviders] = useState<Set<string>>(
-    () => new Set(sortedProviders.slice(0, 5).map(([slug]) => slug))
+    () => new Set(sortedProviders.slice(0, defaultVisible).map(([slug]) => slug))
   );
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -190,6 +195,20 @@ export default function HistoricalRateChart({
       return next;
     });
   }, []);
+
+  // "Show top N" control: enable the N most data-dense providers at once.
+  // Passing Infinity shows all of them.
+  const showTopN = useCallback((n: number) => {
+    setEnabledProviders(new Set(sortedProviders.slice(0, n).map(([slug]) => slug)));
+  }, [sortedProviders]);
+
+  // The how-many options we offer, clamped to how many providers actually exist.
+  const total = sortedProviders.length;
+  const showOptions = useMemo(() => {
+    const opts = [5, 10, 15].filter((n) => n < total);
+    return [...opts, total]; // always end with "All (total)"
+  }, [total]);
+  const visibleProviderCount = sortedProviders.filter(([slug]) => enabledProviders.has(slug)).length;
 
   const formatDate = (d: string) => {
     const date = new Date(d + "T00:00:00");
@@ -345,6 +364,34 @@ export default function HistoricalRateChart({
           );
         })}
       </div>
+
+      {/* "How many to show" control — only when there's more than one option */}
+      {total > 5 && (
+        <div className="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-[var(--color-outline)]">
+          <span className="text-2xs text-[var(--color-on-surface-muted)]">
+            Showing {visibleProviderCount} of {total} providers
+          </span>
+          <div className="flex items-center gap-1 ml-auto">
+            {showOptions.map((n) => {
+              const isAll = n === total;
+              const active = visibleProviderCount === n;
+              return (
+                <button
+                  key={n}
+                  onClick={() => showTopN(n)}
+                  className={`text-2xs px-2.5 py-1 rounded-full border font-medium transition-colors ${
+                    active
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary-surface)] text-[var(--color-primary)]"
+                      : "border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-primary)]"
+                  }`}
+                >
+                  {isAll ? `All ${total}` : `Top ${n}`}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
