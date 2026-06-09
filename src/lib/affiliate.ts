@@ -112,6 +112,47 @@ function appendClickref(url: string, clickref: string | undefined): string {
   return u.toString();
 }
 
+// Map a source currency to the ISO-3166 alpha-2 country code Instarem expects
+// in `country_code` (the sending country). Covers Instarem's supported send
+// markets; unknown currencies omit the param and let Instarem geo-default.
+const SEND_CURRENCY_TO_COUNTRY: Record<string, string> = {
+  USD: "US",
+  GBP: "GB",
+  EUR: "DE", // Instarem's primary EUR send market
+  AUD: "AU",
+  CAD: "CA",
+  SGD: "SG",
+  HKD: "HK",
+  MYR: "MY",
+  JPY: "JP",
+  NZD: "NZ",
+  CHF: "CH",
+};
+
+// Instarem's calculator reads source/destination currency, amount and the
+// sending country from query params, pre-filling the quote on landing.
+// Wrapped in Partnerize's `/destination:` segment like the Wise deep link.
+function buildInstaremDeepLink(params: AffiliateParams): string {
+  const base = affiliateLinks.instarem;
+
+  const dest = new URL("https://www.instarem.com/en-us/");
+  if (params.sourceCurrency) {
+    const src = params.sourceCurrency.toUpperCase();
+    dest.searchParams.set("source_currency", src);
+    const country = SEND_CURRENCY_TO_COUNTRY[src];
+    if (country) dest.searchParams.set("country_code", country);
+  }
+  if (params.targetCurrency) {
+    dest.searchParams.set("destination_currency", params.targetCurrency.toUpperCase());
+  }
+  if (params.sourceAmount) {
+    dest.searchParams.set("source_amount", String(params.sourceAmount));
+  }
+
+  const withDest = `${base}/destination:${encodeURIComponent(dest.toString())}`;
+  return appendClickref(withDest, params.clickref);
+}
+
 function buildWiseDeepLink(params: AffiliateParams): string {
   const base = affiliateLinks.wise;
 
@@ -137,6 +178,13 @@ export function getAffiliateUrl(
   if (providerSlug === "wise") {
     if (params?.sourceCurrency || params?.targetCurrency) {
       return buildWiseDeepLink(params ?? {});
+    }
+    return appendClickref(url, params?.clickref);
+  }
+
+  if (providerSlug === "instarem") {
+    if (params?.sourceCurrency || params?.targetCurrency) {
+      return buildInstaremDeepLink(params ?? {});
     }
     return appendClickref(url, params?.clickref);
   }
