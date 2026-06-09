@@ -5,21 +5,23 @@
  *   POST https://unplex.money/api-payment/currency-converter
  *   body: { from, to, amount }
  *
- * The response carries Unplex's own quote inside `data.rateComparision.providers`
- * under `alias: "unplex"`. Rate fields:
- *   - quote.receivedAmount / quote.rate → Unplex's STANDARD rate, matching the
- *     top-level `data.Currency` headline. This is what every customer gets.
- *   - quote.toOthersTransferAmount → a competitor-comparison figure, NOT
- *     Unplex's own rate. (Using it understated Unplex — the original bug.)
+ * Unplex's per-unit rates live at the TOP LEVEL of `data` (present for every
+ * corridor, including PHP where Unplex isn't in its own provider-comparison
+ * list):
+ *   - data.BlendedRate → the effective standard rate a typical sender gets.
+ *     This is what we compare on (per Unplex). Falls back to data.Currency.
+ *   - data.Currency → the visible headline rate (≈ BlendedRate, slightly lower).
  *   - data.FirstTimeRate + data.FirstTimeTransferLimit → an enhanced first-
- *     transfer rate that applies only up to a small send cap (~$100).
+ *     transfer rate applying only up to a per-corridor cap ($100 INR, $500 PHP).
  *
- * We surface the STANDARD rate at normal amounts, and the FIRST-TIME promo
- * rate only when the send amount is within the cap (so we never overstate what
- * a sender actually receives). Promo metadata is carried through so the UI can
- * mention it.
+ * The comparison rate is always the standard (Blended) rate, so we never
+ * overstate what a sender receives. The first-time promo is carried as metadata
+ * for the UI to MENTION as a badge, not baked into the comparison rate.
  *
- * Unplex serves India-only corridors today: USD/GBP/EUR/CAD → INR.
+ * (Earlier bug: we used quote.toOthersTransferAmount — a COMPETITOR-comparison
+ * figure, not Unplex's rate — which understated Unplex.)
+ *
+ * Unplex corridors today: USD/GBP/EUR/CAD → INR and → PHP.
  */
 import * as fs from "fs";
 import * as path from "path";
@@ -33,9 +35,16 @@ const CORRIDORS = [
   { from: "GBP", to: "INR" },
   { from: "EUR", to: "INR" },
   { from: "CAD", to: "INR" },
+  { from: "USD", to: "PHP" },
+  { from: "GBP", to: "PHP" },
+  { from: "EUR", to: "PHP" },
+  { from: "CAD", to: "PHP" },
 ];
 
-const SEND_AMOUNTS = [100, 1000];
+// One amount per corridor, chosen ABOVE every promo cap ($100 INR, $500 PHP) so
+// BlendedRate reflects the true standard rate, not the promo-inflated rate the
+// API returns at small amounts. The promo is captured separately as metadata.
+const SEND_AMOUNTS = [1000];
 
 interface UnplexQuote {
   provider: string;
@@ -87,49 +96,50 @@ async function fetchUnplexQuote(
     const json = await res.json();
     const data = json?.data;
     if (!data) return null;
+    // NOTE: don't bail on data.Enabled === false — Unplex returns valid rates
+    // for corridors flagged Enabled:false (it reflects geo-default state, not
+    // whether the corridor is served). We gate on the rate fields instead.
 
-    const providers = data?.rateComparision?.providers;
-    if (!Array.isArray(providers)) return null;
+    const num = (v: unknown): number | null => {
+      if (typeof v === "number" && Number.isFinite(v)) return v;
+      if (typeof v === "string") { const n = parseFloat(v); return Number.isFinite(n) ? n : null; }
+      return null;
+    };
 
-    const unplex = providers.find(
-      (p: { alias?: string }) => p?.alias === "unplex"
-    );
-    const quote = unplex?.quotes?.[0];
-    if (!quote) return null;
+    // Unplex's per-unit rate fields live at the TOP LEVEL of `data` and are
+    // present for every corridor (including PHP, where Unplex isn't listed in
+    // its own rateComparision.providers array). Per Unplex, BlendedRate is the
+    // effective standard rate a typical sender receives; Currency is the
+    // visible headline. We use BlendedRate, falling back to Currency.
+    const blended = num(data.BlendedRate);
+    const headline = num(data.Currency);
+    const standardRate = blended ?? headline;
+    if (!standardRate || standardRate <= 0) return null;
 
-    // Unplex's STANDARD rate. `receivedAmount` (and the quote's `rate`) match
-    // Unplex's own headline `data.Currency` rate — this is what every customer
-    // actually gets. (`toOthersTransferAmount` is a competitor-comparison
-    // figure, NOT Unplex's rate — using it understated us, which is the bug
-    // Prashanth reported.)
-    const standardReceive = quote.receivedAmount;
-    if (!standardReceive) return null;
-
-    // First-time promo: a higher rate that applies only up to a small send
-    // cap (FirstTimeTransferLimit, ~$100). data.FirstTimeRate is per-unit.
-    const firstTimeRate =
-      typeof data.FirstTimeRate === "string"
-        ? parseFloat(data.FirstTimeRate)
-        : typeof data.FirstTimeRate === "number"
-          ? data.FirstTimeRate
-          : (data.PromotionalTransferRate ?? null);
+    // First-time promo: a higher rate applying only up to a per-corridor send
+    // cap (FirstTimeTransferLimit — $100 for INR, $500 for PHP, etc.).
+    const firstTimeRate = num(data.FirstTimeRate) ?? num(data.PromotionalTransferRate);
     const firstTimeLimit =
       typeof data.FirstTimeTransferLimit === "number"
         ? data.FirstTimeTransferLimit
         : null;
 
-    const fee = quote.fee || 0;
+    // Unplex charges no transfer fee on these corridors.
+    const unplex = Array.isArray(data?.rateComparision?.providers)
+      ? data.rateComparision.providers.find((p: { alias?: string }) => p?.alias === "unplex")
+      : null;
+    const fee = unplex?.quotes?.[0]?.fee || 0;
 
     // ALWAYS store the standard rate as the comparison quote — it's the rate a
     // sender actually gets at any amount, so it never overstates the receive
     // amount. The first-time promo is carried as metadata (firstTimeRate/
     // firstTimeLimit) for the UI to MENTION, rather than baked into the
-    // comparison rate where the engine would scale it past its $100 cap.
-    const receiveAmount = standardReceive;
-    const exchangeRate = receiveAmount / (amount - fee);
+    // comparison rate where the engine would scale it past its cap.
+    const exchangeRate = standardRate;
+    const receiveAmount = standardRate * (amount - fee);
 
-    // Mid-market is left to the unified index's XE table (data.Currency is
-    // Unplex's own rate, not mid-market).
+    // Mid-market is left to the unified index's XE table (these are Unplex's
+    // own rates, not mid-market).
     return {
       provider: "Unplex",
       providerSlug: "unplex",
