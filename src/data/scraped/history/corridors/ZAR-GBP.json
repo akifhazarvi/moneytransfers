@@ -588,22 +588,22 @@
     "date": "2026-06-10",
     "providers": {
       "skrill": {
-        "rate": 0.0437,
+        "rate": 0.0434,
         "fee": 0,
         "markup": 3.81,
-        "receiveAmount": 4.37
+        "receiveAmount": 4.34
       },
       "worldremit": {
-        "rate": 0.0445,
+        "rate": 0.0443,
         "fee": 7.5,
-        "markup": 1.98,
-        "receiveAmount": 4.12
+        "markup": 1.89,
+        "receiveAmount": 4.09
       },
       "mukuru": {
         "rate": 0.0445,
         "fee": 25,
-        "markup": 1.98,
-        "receiveAmount": 3.34
+        "markup": 1.46,
+        "receiveAmount": 3.33
       }
     }
   }
