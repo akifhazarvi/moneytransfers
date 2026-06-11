@@ -83,6 +83,12 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           featuredGuide: t("featuredGuide"),
           readGuide: t("readGuide"),
           readMore: t("readMore"),
+          browseByCategory: t("browseByCategory"),
+          browseByCategoryDesc: t("browseByCategoryDesc"),
+          guidesCount: t.raw("guidesCount"),
+          previous: t("previous"),
+          next: t("next"),
+          pageOf: t.raw("pageOf"),
         }}
       />
 
