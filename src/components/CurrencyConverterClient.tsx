@@ -34,6 +34,46 @@ const popularPairs = [
   { from: "USD", to: "AUD" },
 ];
 
+// Top 10 most-used currencies shown in the main rate table (vs USD)
+const topCurrencyCodes = ["EUR", "GBP", "JPY", "AUD", "CAD", "CHF", "CNY", "HKD", "SGD", "INR"];
+
+// Region grouping for the remaining currencies (collapsible sections)
+const regionOrder = ["Europe & Central Asia", "Asia & Pacific", "Middle East", "Africa", "Americas", "Other"];
+
+const currencyRegionMap: Record<string, string> = {
+  // Europe & Central Asia
+  NOK: "Europe & Central Asia", SEK: "Europe & Central Asia", DKK: "Europe & Central Asia",
+  PLN: "Europe & Central Asia", RON: "Europe & Central Asia", CZK: "Europe & Central Asia",
+  HUF: "Europe & Central Asia", BGN: "Europe & Central Asia", RSD: "Europe & Central Asia",
+  BAM: "Europe & Central Asia", MKD: "Europe & Central Asia", ALL: "Europe & Central Asia",
+  ISK: "Europe & Central Asia", MDL: "Europe & Central Asia", UAH: "Europe & Central Asia",
+  BYN: "Europe & Central Asia", GEL: "Europe & Central Asia", AMD: "Europe & Central Asia",
+  KZT: "Europe & Central Asia", KGS: "Europe & Central Asia", UZS: "Europe & Central Asia",
+  TRY: "Europe & Central Asia",
+  // Asia & Pacific
+  KRW: "Asia & Pacific", TWD: "Asia & Pacific", PHP: "Asia & Pacific", PKR: "Asia & Pacific",
+  BDT: "Asia & Pacific", NPR: "Asia & Pacific", LKR: "Asia & Pacific", VND: "Asia & Pacific",
+  IDR: "Asia & Pacific", THB: "Asia & Pacific", MYR: "Asia & Pacific", NZD: "Asia & Pacific",
+  FJD: "Asia & Pacific", KHR: "Asia & Pacific", LAK: "Asia & Pacific", MMK: "Asia & Pacific",
+  MNT: "Asia & Pacific", MVR: "Asia & Pacific", BND: "Asia & Pacific",
+  // Middle East
+  AED: "Middle East", SAR: "Middle East", KWD: "Middle East", QAR: "Middle East",
+  BHD: "Middle East", OMR: "Middle East", ILS: "Middle East", JOD: "Middle East",
+  LBP: "Middle East", IQD: "Middle East",
+  // Africa
+  NGN: "Africa", KES: "Africa", GHS: "Africa", ZAR: "Africa", MAD: "Africa",
+  EGP: "Africa", ETB: "Africa", UGX: "Africa", TZS: "Africa", XOF: "Africa",
+  XAF: "Africa", RWF: "Africa", ZMW: "Africa", DZD: "Africa", MZN: "Africa",
+  MGA: "Africa", MUR: "Africa", GMD: "Africa", GNF: "Africa", AOA: "Africa",
+  SDG: "Africa", SOS: "Africa", BIF: "Africa", CVE: "Africa", SCR: "Africa",
+  ERN: "Africa",
+  // Americas
+  MXN: "Americas", BRL: "Americas", COP: "Americas", GTQ: "Americas", PEN: "Americas",
+  JMD: "Americas", DOP: "Americas", ARS: "Americas", CLP: "Americas", CRC: "Americas",
+  HNL: "Americas", NIO: "Americas", TTD: "Americas", HTG: "Americas", BOB: "Americas",
+  PYG: "Americas", UYU: "Americas", BZD: "Americas", GYD: "Americas", SRD: "Americas",
+};
+
 /* ─── Main Component ─── */
 export default function CurrencyConverterClient() {
   const t = useTranslations("currencyConverterClient");
@@ -178,6 +218,22 @@ export default function CurrencyConverterClient() {
     setDragId(null);
     setDragOverId(null);
   }, []);
+
+  function renderRateRow(c: (typeof currencies)[number]) {
+    return (
+      <tr key={c.code} className="hover:bg-[var(--color-surface-dim)]">
+        <td className="px-4 py-3 text-sm">
+          <CircleFlag code={c.code} size={16} className="mr-1" />
+          <span className="font-medium text-[var(--color-on-surface)]">{c.code}</span>
+          <span className="text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
+        </td>
+        <td className="px-4 py-3 text-sm text-right font-mono text-[var(--color-on-surface)]">{(rates[c.code] ?? 0).toFixed(4)}</td>
+        <td className="px-4 py-3 text-sm text-right font-mono font-medium text-[var(--color-on-surface)]">
+          {c.symbol}{(rates[c.code] ?? 0).toFixed(2)}
+        </td>
+      </tr>
+    );
+  }
 
   return (
     <Container className="py-8">
@@ -390,23 +446,70 @@ export default function CurrencyConverterClient() {
         })}
       </div>
 
-      {/* Rate Table */}
+      {/* Rate Table — top 10 most-used currencies */}
       <SectionHeader title={t("exchangeRatesTable")} />
       <ComparisonTable headers={["Currency", "Rate (vs USD)", "1 USD ="]}>
-        {currencies.filter((c) => c.code !== "USD").map((c) => (
-          <tr key={c.code} className="hover:bg-[var(--color-surface-dim)]">
-            <td className="px-4 py-3 text-sm">
-              <CircleFlag code={c.code} size={16} className="mr-1" />
-              <span className="font-medium text-[var(--color-on-surface)]">{c.code}</span>
-              <span className="text-[var(--color-on-surface-variant)] ml-2">{c.name}</span>
-            </td>
-            <td className="px-4 py-3 text-sm text-right font-mono text-[var(--color-on-surface)]">{(rates[c.code] ?? 0).toFixed(4)}</td>
-            <td className="px-4 py-3 text-sm text-right font-mono font-medium text-[var(--color-on-surface)]">
-              {c.symbol}{(rates[c.code] ?? 0).toFixed(2)}
-            </td>
-          </tr>
-        ))}
+        {topCurrencyCodes
+          .map((code) => currencies.find((c) => c.code === code))
+          .filter((c): c is (typeof currencies)[number] => c !== undefined)
+          .map((c) => renderRateRow(c))}
       </ComparisonTable>
+
+      {/* Remaining currencies, grouped by region in collapsible sections */}
+      <h3 className="text-md font-medium text-[var(--color-on-surface)] mt-8 mb-3">
+        More currencies by region
+      </h3>
+      <div className="space-y-3">
+        {regionOrder.map((region) => {
+          const regionCurrencies = currencies.filter(
+            (c) =>
+              c.code !== "USD" &&
+              !topCurrencyCodes.includes(c.code) &&
+              (currencyRegionMap[c.code] ?? "Other") === region
+          );
+          if (regionCurrencies.length === 0) return null;
+          return (
+            <details
+              key={region}
+              className="group bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] overflow-hidden"
+            >
+              <summary className="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden hover:bg-[var(--color-surface-dim)] transition-colors">
+                <span className="text-sm font-medium text-[var(--color-on-surface)]">{region}</span>
+                <span className="flex items-center gap-2 text-xs text-[var(--color-on-surface-variant)]">
+                  {regionCurrencies.length} currencies
+                  <svg
+                    className="w-4 h-4 transition-transform group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <div className="border-t border-[var(--color-outline)] overflow-x-auto -webkit-overflow-scrolling-touch">
+                <table className="w-full min-w-[560px] text-sm">
+                  <thead className="bg-[var(--color-surface-dim)] border-b border-[var(--color-outline)]">
+                    <tr>
+                      {["Currency", "Rate (vs USD)", "1 USD ="].map((header) => (
+                        <th
+                          key={header}
+                          className="px-4 py-3 text-left text-xs font-medium text-[var(--color-on-surface-variant)] whitespace-nowrap"
+                        >
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[var(--color-outline)]">
+                    {regionCurrencies.map((c) => renderRateRow(c))}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          );
+        })}
+      </div>
     </Container>
   );
 }
