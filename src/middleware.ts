@@ -206,7 +206,11 @@ export default function middleware(request: NextRequest) {
     // CSP-blocked every UK/EU /g/collect request ("Refused to connect"),
     // which is why all UK/EU sessions were missing from GA4 while US
     // traffic recorded fine. Wildcard both GA hostname families.
-    `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google`,
+    // csi.gstatic.com is Google's CSI (Client-Side Instrumentation) beacon used
+    // by AdSense + GA RUM. Without it allowlisted the browser blocks the beacon
+    // ("violates connect-src"), which disrupts measurement payloads — same
+    // failure class as the UK/EU GA gap above, different host. Wildcard gstatic.
+    `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.gstatic.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google`,
     `font-src 'self'`,
     `frame-src https://widget.trustpilot.com https://www.youtube-nocookie.com https://www.youtube.com https://*.googlesyndication.com https://*.g.doubleclick.net https://www.google.com https://*.adtrafficquality.google`,
     `object-src 'none'`,
