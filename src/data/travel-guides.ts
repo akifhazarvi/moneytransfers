@@ -347,6 +347,1188 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     relatedCorridorSlug: "usa-to-thailand",
   },
+
+  france: {
+    slug: "france",
+    countryName: "France",
+    countryCode: "fr",
+    region: "Western Europe",
+    currency: "EUR",
+    currencyName: "Euro",
+    currencySymbol: "€",
+    topSourceCurrencies: ["USD", "GBP", "AUD", "CAD"],
+    capital: "Paris",
+    languages: ["French"],
+    callingCode: "+33",
+    plugTypes: ["C", "E"],
+    voltage: "230V / 50Hz",
+    timezone: "CET (UTC+1, UTC+2 in summer)",
+
+    tldr:
+      "France uses the Euro (€, EUR) — as of June 2026, 1 EUR is worth roughly $1.15 USD. Contactless card payment is near-universal, even at bakeries and market stalls, so most visitors barely touch cash. Skip airport bureaux de change entirely: pay by a no-FX-fee card and withdraw small amounts of cash from bank-attached ATMs (never standalone Euronet machines). Restaurant service is included in the bill by law — tipping is a small round-up, not 20%.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "France is the world's most-visited country — around 100 million international arrivals a year — and remarkably easy to travel once you understand a few local systems. Paris gets the headlines, but the country rewards spreading out: the lavender plateaus of Provence, the D-Day beaches of Normandy, wine routes in Burgundy and Bordeaux, and the Alps within three hours of the capital by TGV. A croissant runs €1.30–€1.80, a Paris metro ride about €2.50 with a Navigo Easy card, and an excellent three-course lunch menu (the 'formule') can still be found for €18–€25 outside tourist zones.\n\nThis guide covers the money mechanics — why you should refuse Euronet ATMs, how the fixed airport taxi fares work, what each euro note looks like — plus eSIM options, cultural etiquette (greeting rituals matter here), and what France actually costs per day in 2026. If you're moving larger sums to or from France, our live comparison shows which providers land the most euros in a French account.",
+    keyStats: [
+      { label: "Currency", value: "Euro (€, EUR)" },
+      { label: "Typical daily cost (mid-range)", value: "$120–$200 USD" },
+      { label: "Best time to visit", value: "April – June & September – October" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "Schengen visa-free 90/180 days; ETIAS rolling out" },
+      { label: "Power", value: "230V / 50Hz, plug types C, E" },
+      { label: "Tipping", value: "Service included; round up €1–5 for good service" },
+    ],
+
+    culture: {
+      overview:
+        "French social life runs on politeness rituals. Every interaction — entering a shop, boarding a bus, asking directions — starts with 'Bonjour' (or 'Bonsoir' after ~6pm); skipping it is the single fastest way to get frosty service. Meals are events, not refueling stops: lunch is sacred (12–2pm), dinner starts around 7:30–8pm, and asking for the bill is something you do explicitly ('l'addition, s'il vous plaît') — servers consider it rude to rush you. A little French effort goes a very long way, even just bonjour, merci, au revoir.",
+      dos: [
+        "Say 'Bonjour Madame/Monsieur' before anything else — in shops, taxis, ticket counters. It's non-negotiable etiquette.",
+        "Greet with 'la bise' (cheek kisses) only if a French person initiates; a handshake is always safe.",
+        "Keep your hands on the table (not in your lap) at meals, and keep bread on the table or tablecloth, not on the plate.",
+        "Validate paper train tickets where machines are present, and keep your ticket until you exit the metro — inspections are common with on-the-spot fines.",
+        "Dress a notch smarter than you would at home — athleisure marks you as a tourist in Paris restaurants and shops.",
+      ],
+      donts: [
+        "Don't expect shops and many restaurants to open on Sundays or Monday mornings, especially outside Paris.",
+        "Don't ask for menu changes or substitutions — the chef's dish is the dish. Special requests are often politely refused.",
+        "Don't speak loudly in restaurants or on trains; ambient volume in France is noticeably lower than in the US.",
+        "Don't order a cappuccino after a meal — coffee after dinner means an espresso ('un café'). Milky coffee is a breakfast drink.",
+        "Don't assume English first — open in French ('Bonjour, parlez-vous anglais ?') and most people will happily switch.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash is accepted everywhere but needed almost nowhere. Outdoor markets, some bakeries with a €5–10 card minimum, and small village cafés are the main cash use-cases. €50 from an ATM lasts most visitors a week. Many Paris businesses are now happily card-only.",
+      cardAcceptance:
+        "Visa and Mastercard contactless are accepted virtually everywhere, including bakeries, metro ticket machines, taxis, and market stalls. American Express works at hotels and larger stores but is refused by many independent restaurants. Chip-and-PIN is standard; magnetic stripe is effectively dead.",
+      atmAvailability:
+        "Bank-attached ATMs (BNP Paribas, Société Générale, Crédit Agricole, LCL) are everywhere and most charge no local fee for foreign cards. Avoid the bright-blue standalone Euronet machines clustered in tourist areas — they push Dynamic Currency Conversion and poor rates worth 5–12% of your withdrawal. Always choose to be charged in EUR, never your home currency.",
+      tippingNorms:
+        "A 15% service charge ('service compris') is included in every restaurant bill by French law. Locals leave nothing or round up; €1–5 for genuinely good service in a nicer restaurant is generous. Taxi drivers: round up. Hotel porters: €1–2 per bag. Nobody expects American-style 20%.",
+      commonScams: [
+        "The gold ring trick — someone 'finds' a ring at your feet near the Seine and offers it for a reward. Walk on.",
+        "Petition clipboards around the Louvre and Eiffel Tower — signing distracts you while an accomplice picks your pocket, or ends in aggressive cash demands.",
+        "Friendship bracelets at Montmartre/Sacré-Cœur — once it's knotted on your wrist, you're pressured to pay. Keep hands in pockets and keep moving.",
+        "Cup-and-ball (bonneteau) games on bridges — the 'winners' in the crowd are accomplices. You cannot win.",
+        "Unofficial taxis at CDG/Orly — only use the official rank. Paris taxis have fixed airport fares (around €56 Right Bank / €65 Left Bank from CDG); anyone quoting more or 'negotiating' is not a real taxi.",
+      ],
+    },
+
+    notes: [
+      { denomination: "5 EUR", color: "Grey", figure: "Classical architecture — gateway (obverse), bridge (reverse)" },
+      { denomination: "10 EUR", color: "Red", figure: "Romanesque architecture — gateway and bridge" },
+      { denomination: "20 EUR", color: "Blue", figure: "Gothic architecture — windows and bridge" },
+      { denomination: "50 EUR", color: "Orange", figure: "Renaissance architecture — the workhorse note from ATMs" },
+      { denomination: "100 EUR", color: "Green", figure: "Baroque and Rococo architecture — small shops may refuse it" },
+      { denomination: "200 EUR", color: "Yellow", figure: "Art Nouveau architecture — rarely seen; many shops won't accept it" },
+    ],
+
+    exchangeGuide:
+      "Don't bring a stack of home currency to exchange — France is a card economy and Paris bureaux de change offer mediocre rates (airport counters are the worst, often 8–12% off mid-market). The cheapest setup is a no-foreign-fee debit card (Wise, Revolut, or a fee-free card from your home bank) used for everything, plus one small ATM withdrawal from a bank-attached machine for market days. French banks generally won't exchange cash for non-customers. For larger transfers — property, tuition, rent deposits — use a specialist like Wise or OFX to send EUR directly into a French IBAN at near mid-market rates instead of a bank wire.",
+
+    sports: {
+      overview:
+        "Football is the national game — Ligue 1 runs August to May and PSG's Parc des Princes is the marquee ticket — but France's sporting calendar is unusually rich for travelers. The Tour de France takes over the country every July, finishing on the Champs-Élysées; roadside viewing is free and a genuine cultural festival. Rugby is huge in the southwest (Toulouse, the Top 14 league), Roland-Garros brings clay-court tennis to Paris in late May, and on any village square you'll find locals playing pétanque with a glass of pastis.",
+      highlights: [
+        "Tour de France (July) — free roadside viewing; mountain stages in the Alps and Pyrenees are the most atmospheric.",
+        "Roland-Garros / French Open (late May – early June, Paris) — outer-court day passes are reasonably priced if booked early.",
+        "Ligue 1 football — PSG at Parc des Princes; Marseille's Stade Vélodrome is arguably the best atmosphere in the country.",
+        "Top 14 rugby (Sept–June) — Toulouse, La Rochelle, and Clermont offer big-crowd matchdays well under football prices.",
+      ],
+    },
+
+    bestTime:
+      "April to June and September to October are the sweet spots — mild weather, manageable crowds, and the countryside at its best (lavender in Provence peaks late June to mid-July). July and August are high season: hot, crowded, and expensive on the coast, while Paris partly empties in August as locals take their own holidays — some independent restaurants and shops close for weeks. December is excellent for Christmas markets (Strasbourg, Colmar) and the Alps ski season runs December through March.",
+    visa:
+      "France is in the Schengen Area: US, UK, Canadian, Australian, and NZ passport holders enter visa-free for up to 90 days in any 180-day period. Since October 2025 the EU's Entry/Exit System (EES) registers biometrics at the border — allow extra time on your first entry. The ETIAS travel authorisation (around €20, valid 3 years) is expected to become mandatory for visa-exempt visitors in late 2026 — check the official EU site before you fly. Stays beyond 90 days require a long-stay visa arranged in advance.",
+    safety:
+      "France is safe by global standards; the main tourist risk is pickpocketing on the Paris metro (especially line 1), at major sights, and around train stations — keep phones out of back pockets and bags zipped in front of you. Strikes and demonstrations are a regular feature of French life and can disrupt transport with little notice; check SNCF/RATP apps before travel days. The EU-wide emergency number is 112. Tap water is safe everywhere — ask for 'une carafe d'eau' (free) in restaurants.",
+    highlights: [
+      {
+        name: "Paris",
+        summary:
+          "The Louvre, Musée d'Orsay, Eiffel Tower, Montmartre, and the rebuilt Notre-Dame (reopened December 2024). Budget 4 days minimum. Museum Pass pays off at 3+ sights; many museums are free the first Sunday of the month.",
+      },
+      {
+        name: "Provence & the Luberon",
+        summary:
+          "Hilltop villages (Gordes, Roussillon), Roman ruins in Arles and the Pont du Gard, and lavender fields late June to mid-July. Rent a car — this is not train country.",
+      },
+      {
+        name: "French Riviera (Côte d'Azur)",
+        summary:
+          "Nice's old town and Promenade, Èze's clifftop village, Antibes, and day trips to Monaco. The coastal TER train linking the towns costs just a few euros and beats driving.",
+      },
+      {
+        name: "Normandy & Mont-Saint-Michel",
+        summary:
+          "The D-Day landing beaches and museums around Bayeux, Rouen's cathedral, and the tidal abbey of Mont-Saint-Michel — go early or stay overnight to beat the day-trip crowds.",
+      },
+      {
+        name: "Loire Valley",
+        summary:
+          "Renaissance châteaux — Chambord, Chenonceau, Villandry's gardens — strung along the river an hour from Paris by TGV. Bikeable between castles on the Loire à Vélo route.",
+      },
+      {
+        name: "Bordeaux & Dordogne",
+        summary:
+          "Wine capital with a walkable UNESCO center and the Cité du Vin museum; the Dordogne adds medieval towns, river castles, and the prehistoric Lascaux cave art.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$60–$90 USD per day",
+      midRange: "$120–$200 USD per day",
+      luxury: "$350+ USD per day",
+      note:
+        "Backpacker assumes hostel dorms, bakery/market meals, and metro travel. Mid-range covers a 3-star double, one restaurant meal a day with a lunchtime formule, and intercity trains booked ahead. Paris runs roughly 25% above the rest of the country; rural France and smaller cities (Lyon excepted) are notably cheaper.",
+    },
+
+    faqs: [
+      {
+        question: "Should I bring cash to France or just use a card?",
+        answer:
+          "Just use a card. Contactless Visa/Mastercard is accepted virtually everywhere in France, including bakeries, metro machines, and market stalls. Withdraw €50–100 from a bank-attached ATM for the rare cash-only stall and you're covered. Use a no-foreign-fee card (Wise, Revolut, or similar) and always choose to be charged in EUR, never your home currency.",
+      },
+      {
+        question: "How much do you tip in France?",
+        answer:
+          "Very little. A 15% service charge is legally included in every restaurant bill ('service compris'). Locals round up or leave €1–5 for good service in nicer restaurants. Taxis: round up to the nearest euro. There is no expectation of US-style 20% tipping anywhere in France.",
+      },
+      {
+        question: "What's the cheapest way to get euros in France?",
+        answer:
+          "Withdraw from a bank-attached ATM (BNP Paribas, Société Générale, Crédit Agricole) with a no-foreign-fee debit card, and decline Dynamic Currency Conversion by choosing to be charged in EUR. Avoid standalone Euronet machines and all airport exchange counters, which cost 5–12% more. For large amounts, send money to a French IBAN via Wise or OFX at near mid-market rates.",
+      },
+      {
+        question: "How much does a taxi from CDG airport to Paris cost?",
+        answer:
+          "Paris taxis charge a fixed fare from Charles de Gaulle: around €56 to the Right Bank and €65 to the Left Bank (slightly more from Orly rules apply in reverse). Only use the official taxi rank — ignore anyone soliciting inside the terminal. The RER B train (~€11.80) or Roissybus are the budget alternatives; G7 is the main reliable taxi app.",
+      },
+      {
+        question: "Is France expensive to visit in 2026?",
+        answer:
+          "Mid-range travelers should budget $120–$200 per day including a 3-star hotel, one restaurant meal, and local transport. Paris is roughly 25% pricier than the rest of the country. Big savings: lunch 'formules' (€18–25 for three courses), picnics from markets and bakeries, TGV tickets booked 2–3 months ahead, and free first-Sunday museum entry.",
+      },
+      {
+        question: "Do Americans need a visa for France in 2026?",
+        answer:
+          "No visa for stays up to 90 days in any 180-day period — this applies to US, UK, Canadian, Australian, and NZ passports. Two changes to know: the EES biometric border system (live since October 2025) adds time on first entry, and the ETIAS authorisation (~€20 online, valid 3 years) is expected to become mandatory in late 2026. Check the official EU ETIAS site before flying.",
+      },
+      {
+        question: "What eSIM should I get for France?",
+        answer:
+          "An eSIM from Airalo, Holafly, or Ubigi costs roughly $8–$35 depending on data needs and works on Orange/SFR networks. Because France is in the EU, a Europe-wide regional eSIM is often better value than a France-only one if you're visiting multiple countries — EU roaming rules mean one plan covers the whole Schengen area.",
+      },
+      {
+        question: "Is the Paris metro easy for tourists?",
+        answer:
+          "Yes — it's dense, frequent, and cheap. Buy a Navigo Easy card (€2) and load it with t+ tickets (about €2.50 a ride, cheaper in carnets) or use contactless bank-card tap-in on equipped lines. Keep your ticket until you exit — inspectors issue on-the-spot fines. Watch for pickpockets on line 1 and at major interchanges.",
+      },
+      {
+        question: "Is Paris safe for tourists?",
+        answer:
+          "Yes, by big-city standards. Violent crime against visitors is rare; the real risks are pickpocketing (metro, Montmartre, around the Eiffel Tower) and the classic street scams — gold rings, petitions, friendship bracelets. Keep bags zipped in front of you, ignore street solicitations, and you'll very likely have zero problems. Emergency number: 112.",
+      },
+      {
+        question: "Can I send money to or from France cheaply?",
+        answer:
+          "Yes. Specialists like Wise, OFX, and Instarem transfer EUR into or out of a French IBAN at near mid-market rates — typically 2–5% cheaper than a bank's international wire once you account for the exchange-rate markup. SEPA makes euro-zone transfers fast and free domestically; the cost battle is all in the currency conversion, which is where comparison pays.",
+      },
+    ],
+
+    relatedCorridorSlug: "usa-to-europe",
+  },
+
+  spain: {
+    slug: "spain",
+    countryName: "Spain",
+    countryCode: "es",
+    region: "Southern Europe",
+    currency: "EUR",
+    currencyName: "Euro",
+    currencySymbol: "€",
+    topSourceCurrencies: ["USD", "GBP", "AUD", "CAD"],
+    capital: "Madrid",
+    languages: ["Spanish", "Catalan", "Basque", "Galician"],
+    callingCode: "+34",
+    plugTypes: ["C", "F"],
+    voltage: "230V / 50Hz",
+    timezone: "CET (UTC+1, UTC+2 in summer)",
+
+    tldr:
+      "Spain uses the Euro (€, EUR) — as of June 2026, 1 EUR is worth roughly $1.15 USD. Cards are accepted almost everywhere, though small tapas bars and market stalls still appreciate cash. Tipping is minimal — round up or leave a euro or two. The biggest money traps are airport exchange counters, standalone Euronet ATMs, and tourist-strip paella; the biggest practical adjustment is the schedule — lunch at 2pm, dinner after 9pm.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "Spain trades places with France as one of the world's two most-visited countries — over 90 million arrivals a year — and remains one of Western Europe's best-value destinations. A caña of beer is €1.50–€3, a full menú del día (three courses with wine) runs €12–€16 in working neighborhoods, and Spain's high-speed AVE network makes Madrid–Barcelona or Madrid–Seville a 2.5-hour hop. The country packs remarkable variety: Moorish Andalusia, green Atlantic Galicia, Mediterranean beaches, two of Europe's great food cities (San Sebastián, Barcelona), and islands from Mallorca to Tenerife.\n\nThis guide covers money on the ground — where cash still matters, why you should refuse Euronet ATMs and dynamic currency conversion, what each euro note looks like — plus eSIM picks, the cultural rhythm (the late eating schedule is real), and honest daily budgets for 2026. Sending larger amounts to or from a Spanish account? Our live comparison shows which provider delivers the most euros.",
+    keyStats: [
+      { label: "Currency", value: "Euro (€, EUR)" },
+      { label: "Typical daily cost (mid-range)", value: "$100–$170 USD" },
+      { label: "Best time to visit", value: "April – June & September – October" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "Schengen visa-free 90/180 days; ETIAS rolling out" },
+      { label: "Power", value: "230V / 50Hz, plug types C, F" },
+      { label: "Tipping", value: "Not expected; round up or leave €1–2" },
+    ],
+
+    culture: {
+      overview:
+        "Spanish life runs two to three hours later than most of the world: lunch is 2–4pm, dinner rarely before 9pm, and restaurants that open at 7pm are doing so for tourists. The social fabric is built around bars — not for drinking heavily, but as the default living room for coffee, tapas, and conversation at any hour. Spaniards are direct, loud by northern European standards, and warm; service can feel brusque but isn't rude. Regional identity matters deeply: Catalonia, the Basque Country, and Galicia have their own languages, and acknowledging that (a 'bon dia' in Barcelona) lands well.",
+      dos: [
+        "Adapt to the schedule — lunch at 2pm, dinner at 9:30pm. Kitchens genuinely close mid-afternoon; a 6pm dinner search ends in tourist traps.",
+        "Order in rounds at tapas bars and keep the receipt tally going — paying at the end is normal, and standing at the bar is often cheaper than a table.",
+        "Greet with 'buenos días / buenas tardes' when entering small shops and bars, and say goodbye when leaving.",
+        "Try the menú del día (weekday fixed lunch, €12–16) — it's Spain's best food bargain and how locals actually eat out.",
+        "Dress for the occasion — Spaniards dress up to go out; beachwear away from the beach (especially in Barcelona) can draw fines.",
+      ],
+      donts: [
+        "Don't expect dinner before 8:30pm outside tourist zones, and don't expect shops to be open mid-afternoon — many small businesses close roughly 2–5pm.",
+        "Don't order sangría and expect local cred — Spaniards drink tinto de verano (red wine with lemon soda). It's also half the price.",
+        "Don't confuse regional identities — don't call Catalan or Basque 'dialects of Spanish', and read the room before discussing Catalan independence.",
+        "Don't rush meals or wave frantically for the bill — ask 'la cuenta, por favor' once; sobremesa (lingering after a meal) is the culture.",
+        "Don't leave valuables visible — bag snatching on Las Ramblas and beach theft are Barcelona's signature crimes.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash is fading but not dead. Small tapas bars, market stalls (Boquería, Mercado Central), some menú del día spots, and rural Spain still run partly on cash, and a few places set €5–10 card minimums. €50–100 in your pocket covers a week of edge cases for most travelers.",
+      cardAcceptance:
+        "Visa and Mastercard contactless work nearly everywhere — supermarkets, taxis, metro machines, chains, and most independent bars. American Express is patchier outside hotels. Spain moved heavily to contactless post-2020; even €1.50 coffees go on card without comment.",
+      atmAvailability:
+        "Bank ATMs (Santander, BBVA, CaixaBank, Sabadell) are everywhere. Some Spanish banks charge foreign cards a usage fee of €1.50–€6 — the screen discloses it before you commit, so try another bank if it's high (CaixaBank and Sabadell are often cheapest). Skip the orange/blue standalone Euronet machines in tourist areas, and always choose to be charged in EUR, declining the conversion 'offer'.",
+      tippingNorms:
+        "Tipping is not expected. Locals leave small change or round up — €1–2 on a nice dinner is plenty, nothing is normal at a bar. No service percentage is added to bills. Taxi: round up. Hotel porters: €1 per bag if you like.",
+      commonScams: [
+        "Pickpocketing on Las Ramblas, the Barcelona metro, and Madrid's Puerta del Sol — the gold standard of European pickpocket zones. Front pockets, zipped bags, phone away on metro platforms.",
+        "The rosemary/flower 'gift' from women outside churches in Seville and Granada — accepting it triggers aggressive palm-reading payment demands.",
+        "Tourist-strip paella — pre-cooked, microwaved, €18+. Real paella is lunch food, made to order (expect a 20+ minute wait), and rarely sold from photo menus on the beachfront.",
+        "Distraction thefts — the 'bird poop' cleanup, fake petitions, or someone 'helping' at the ATM. Any unsolicited touch or help near money is a setup.",
+        "Hire-car break-ins at beach and viewpoint car parks (especially around Barcelona and Cádiz) — leave absolutely nothing visible in the car.",
+      ],
+    },
+
+    notes: [
+      { denomination: "5 EUR", color: "Grey", figure: "Classical architecture — gateway (obverse), bridge (reverse)" },
+      { denomination: "10 EUR", color: "Red", figure: "Romanesque architecture — gateway and bridge" },
+      { denomination: "20 EUR", color: "Blue", figure: "Gothic architecture — windows and bridge" },
+      { denomination: "50 EUR", color: "Orange", figure: "Renaissance architecture — the standard ATM note" },
+      { denomination: "100 EUR", color: "Green", figure: "Baroque and Rococo architecture — fine in supermarkets, awkward in bars" },
+      { denomination: "200 EUR", color: "Yellow", figure: "Art Nouveau architecture — rarely circulates; many businesses refuse it" },
+    ],
+
+    exchangeGuide:
+      "Don't exchange cash for Spain — pay by card and pull euros from bank ATMs as needed. Airport counters and city-center 'change' shops run 6–12% off the mid-market rate, and Euronet ATMs layer poor rates on top of fees. A no-foreign-fee debit card (Wise, Revolut, or your bank's equivalent) plus an occasional withdrawal from CaixaBank or Sabadell covers everything; always press 'charge in EUR' when the screen offers your home currency. For bigger moves — buying property on the costas, paying Spanish tuition or rent — a specialist transfer via Wise or OFX into a Spanish IBAN beats a bank wire by several percent.",
+
+    sports: {
+      overview:
+        "Football isn't a sport in Spain; it's the second religion. La Liga's Real Madrid–Barcelona axis dominates, but matchday at Atlético, Sevilla, or Athletic Bilbao (a club fielding only Basque players) is arguably the purer experience, with tickets from €30–€40. Beyond fútbol, Spain is the world capital of padel — courts in every town, rackets rentable everywhere — and hosts Grand Slam tennis pedigree (Nadal's legacy, the Madrid Open in May). Basketball's Liga ACB is Europe's strongest league. Bullfighting still runs in Madrid and Seville seasons but is banned in Catalonia and declining nationally — it's a contested tradition, not a tourist must-do.",
+      highlights: [
+        "La Liga football (Aug–May) — Bernabéu and Camp Nou tours daily; non-Clásico tickets are easy to buy on official club sites from ~€30.",
+        "Padel — Spain's fastest-growing sport; courts rent for €10–20/hour and most clubs lend rackets. A genuinely local thing to do.",
+        "Madrid Open tennis (late April–early May) — clay-court warm-up for Roland-Garros at the Caja Mágica.",
+        "La Vuelta a España (late Aug–mid Sept) — Spain's grand tour, free to watch roadside, with summit finishes in Asturias and Andalusia.",
+      ],
+    },
+
+    bestTime:
+      "April to June and September to October are ideal nationwide — warm, lively, and out of peak crowds. July and August are brutal inland (Seville and Córdoba regularly hit 40°C+) and packed on the coasts; it's also when prices peak. Andalusia shines in spring (Semana Santa processions, Seville's Feria in April), the north (Basque Country, Galicia) is best June–September, and the Canary Islands are a legitimate 20°C+ winter escape. Note that Easter week and August coastal Spain book out months ahead.",
+    visa:
+      "Spain is in the Schengen Area: US, UK, Canadian, Australian, and NZ passports get 90 days visa-free in any 180-day period. The EES biometric border system (live since October 2025) registers fingerprints on first entry, and the ETIAS authorisation (~€20 online, valid 3 years) is expected to become mandatory for visa-exempt travelers in late 2026 — verify on the official EU site before flying. Spain's digital nomad visa remains a popular long-stay route for remote workers.",
+    safety:
+      "Spain is one of Europe's safest countries for violent crime, but Barcelona is genuinely Europe's pickpocketing capital — Las Ramblas, the metro, and the beach are the hotspots, and phone-snatching is common. Madrid's Sol and major festivals (San Fermín, Las Fallas) demand the same caution. Keep nothing in back pockets, nothing visible in parked cars, and nothing unattended on beaches. Tap water is safe everywhere (Madrid's is famously good). Emergency number: 112.",
+    highlights: [
+      {
+        name: "Barcelona",
+        summary:
+          "Gaudí's Sagrada Família (book weeks ahead) and Park Güell, the Gothic Quarter, Barceloneta beach, and the Boquería market. 3–4 days. Watch your pockets; skip Las Ramblas restaurants.",
+      },
+      {
+        name: "Madrid",
+        summary:
+          "The Prado–Reina Sofía–Thyssen art triangle, Retiro Park, the Royal Palace, and Europe's best tapas-bar nightlife in La Latina and Malasaña. Both big museums have free evening hours.",
+      },
+      {
+        name: "Seville & Andalusia",
+        summary:
+          "The Alcázar and cathedral, flamenco in Triana, plus Córdoba's Mezquita an AVE hop away. Spring or autumn only — summer is punishing. The Feria de Abril is peak Andalusia.",
+      },
+      {
+        name: "Granada",
+        summary:
+          "The Alhambra — Spain's most-visited monument; book tickets the moment dates open. Free tapas with every drink remains gloriously standard across the city's bars.",
+      },
+      {
+        name: "San Sebastián & the Basque Country",
+        summary:
+          "La Concha beach, the pintxo bars of the Parte Vieja, and more Michelin stars per capita than almost anywhere on Earth. Bilbao's Guggenheim is an hour west.",
+      },
+      {
+        name: "Valencia",
+        summary:
+          "The City of Arts and Sciences, Europe's largest urban park in a drained riverbed, the true home of paella, and Las Fallas festival (March) — Spain's most pyrotechnic week.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$50–$80 USD per day",
+      midRange: "$100–$170 USD per day",
+      luxury: "$300+ USD per day",
+      note:
+        "Backpacker assumes hostels, menú del día lunches, and metro/bus travel. Mid-range covers a 3-star double, tapas dinners, and AVE trains booked ahead. Barcelona, San Sebastián, and the Balearics in August skew 20–30% above the national baseline; inland cities (Zaragoza, Granada, Valencia) are notably cheaper.",
+    },
+
+    faqs: [
+      {
+        question: "Is Spain cheap to visit in 2026?",
+        answer:
+          "Spain remains one of Western Europe's best-value destinations. Mid-range travelers spend $100–$170 per day; backpackers manage on $50–$80. The menú del día (three-course weekday lunch with wine, €12–16) is the standout bargain, and a beer still costs €1.50–€3 in normal bars. Barcelona and San Sebastián are the priciest cities; Valencia, Granada, and Seville deliver the same quality for less.",
+      },
+      {
+        question: "Do I need cash in Spain or can I use a card everywhere?",
+        answer:
+          "Cards work almost everywhere, including for a €1.50 coffee. Keep €50–100 cash for market stalls, small tapas bars with card minimums, and rural areas. Withdraw from bank ATMs (CaixaBank and Sabadell often charge foreign cards the least), avoid Euronet machines, and always choose to be charged in EUR rather than your home currency.",
+      },
+      {
+        question: "How much do you tip in Spain?",
+        answer:
+          "Little to nothing. Spaniards round up or leave small change; €1–2 after a good restaurant meal is generous, and nothing is expected at bars or cafés. No service charge is added to bills, and no one will chase you for leaving zero. Taxis: round to the nearest euro.",
+      },
+      {
+        question: "What time do Spaniards eat dinner?",
+        answer:
+          "9pm to 11pm. Lunch — the main meal — runs 2–4pm. Most proper restaurant kitchens close mid-afternoon and reopen around 8–8:30pm; anywhere serving dinner at 6pm is catering to tourists. Bridge the gap like locals do: with a tapa or pintxo and a caña in the early evening.",
+      },
+      {
+        question: "Is Barcelona safe? What about pickpockets?",
+        answer:
+          "Barcelona is safe from violent crime but is Europe's most notorious pickpocketing city. Las Ramblas, the metro (especially L3), the Gothic Quarter, and Barceloneta beach are the hotspots. Use a front pocket or zipped crossbody bag, never leave a phone on a café table, and take nothing of value to the beach. Madrid requires the same care around Sol.",
+      },
+      {
+        question: "Do Americans need a visa for Spain in 2026?",
+        answer:
+          "No — US, UK, Canadian, Australian, and NZ passports enter Schengen visa-free for 90 days in any 180. Since October 2025, the EES biometric system registers you at the border on first entry. The ETIAS authorisation (~€20 online, 3-year validity) is expected to become mandatory in late 2026 — check the official EU site before your trip.",
+      },
+      {
+        question: "What's the best eSIM for Spain?",
+        answer:
+          "Airalo, Holafly, and Ubigi plans run roughly $7–$35 and ride on Movistar/Orange networks. If you're combining Spain with France, Italy, or Portugal, a Europe-region eSIM usually beats single-country plans on price per GB thanks to EU-wide roaming. Activate before departure and you'll have data at the gate.",
+      },
+      {
+        question: "AVE trains or flying within Spain?",
+        answer:
+          "Take the train. The AVE network links Madrid to Barcelona (2h30), Seville (2h30), Valencia (1h40), and Málaga (2h20) city-center to city-center, with fares from €20–40 if booked weeks ahead. Low-cost operators Ouigo, Iryo, and Avlo compete on the same routes, which keeps prices honest. Flying only wins for the islands.",
+      },
+      {
+        question: "Can I drink the tap water in Spain?",
+        answer:
+          "Yes, everywhere. Spanish tap water is safe and Madrid's (from the Sierra de Guadarrama) is considered among Europe's best. Restaurants must provide free tap water on request by law — ask for 'agua del grifo'. On the costas it's safe but sometimes mineral-heavy in taste, which is why locals there often buy bottled.",
+      },
+      {
+        question: "What's the cheapest way to send money to or from Spain?",
+        answer:
+          "Specialists like Wise, OFX, and Instarem move money into or out of a Spanish IBAN at near mid-market rates, typically saving 2–5% versus a bank's international wire once the exchange-rate markup is counted. Within the eurozone, SEPA transfers are free and fast — the cost is all in the currency conversion, so compare providers on the real EUR amount delivered.",
+      },
+    ],
+
+    relatedCorridorSlug: "usa-to-europe",
+  },
+
+  italy: {
+    slug: "italy",
+    countryName: "Italy",
+    countryCode: "it",
+    region: "Southern Europe",
+    currency: "EUR",
+    currencyName: "Euro",
+    currencySymbol: "€",
+    topSourceCurrencies: ["USD", "GBP", "AUD", "CAD"],
+    capital: "Rome",
+    languages: ["Italian"],
+    callingCode: "+39",
+    plugTypes: ["C", "F", "L"],
+    voltage: "230V / 50Hz",
+    timezone: "CET (UTC+1, UTC+2 in summer)",
+
+    tldr:
+      "Italy uses the Euro (€, EUR) — as of June 2026, 1 EUR is worth roughly $1.15 USD. Cards are accepted nearly everywhere by law, but Italy is still more cash-friendly than France or Spain: small trattorias, coffee bars, and southern towns appreciate euros in hand. Expect a €1–3 'coperto' cover charge on restaurant bills — it's legal and normal, not a scam. Tipping beyond that is not expected. Drink your espresso standing at the bar: it's often a third of the table price.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "Italy holds more UNESCO World Heritage sites than any other country, and the distance between them is mercifully short: Rome to Florence is 90 minutes on the high-speed Frecciarossa, Florence to Venice barely two hours. An espresso at the bar still costs €1.20–€1.50, a margherita in Naples — the city that invented it — runs €5–8, and regional trains cross half of Tuscany for under €15. The flip side: Venice now charges day-trippers an access fee on peak dates, rental cars rack up ZTL (limited-traffic-zone) fines by the bundle, and the gap between tourist-menu Italy and real Italy is wide. Knowing a handful of local rules saves real money.\n\nThis guide covers the money layer — where cash still rules, the coperto explained, which ATMs to use and which to refuse — plus eSIM picks, etiquette (coffee has rules here), regional budgets, and the scams that cluster around the Colosseum and Trevi. Moving larger sums to or from an Italian account? Our comparison shows what actually arrives after fees.",
+    keyStats: [
+      { label: "Currency", value: "Euro (€, EUR)" },
+      { label: "Typical daily cost (mid-range)", value: "$110–$190 USD" },
+      { label: "Best time to visit", value: "April – June & September – October" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "Schengen visa-free 90/180 days; ETIAS rolling out" },
+      { label: "Power", value: "230V / 50Hz, plug types C, F, L" },
+      { label: "Tipping", value: "Not expected; coperto €1–3 is already on the bill" },
+    ],
+
+    culture: {
+      overview:
+        "Italian daily life is governed by unwritten rules that locals follow instinctively: coffee has a clock (cappuccino before ~11am, espresso after meals), meals have a structure (antipasto, primo, secondo — though no one orders all of them), and the evening passeggiata (slow social stroll) is a national institution. 'Bella figura' — presenting yourself well — matters; Italians dress with care and notice when others don't. Family and region trump nation: cuisine, dialect, and pride are fiercely local, and suggesting all Italian food is the same is genuine heresy.",
+      dos: [
+        "Drink coffee at the bar ('al banco') — it's €1.20 standing versus €3–4 seated at a piazza table. Pay the cashier first in busy bars, then take the receipt to the barista.",
+        "Cover shoulders and knees for churches — St. Peter's, the Duomo in Milan, and most basilicas enforce it. Carry a scarf in summer.",
+        "Validate regional train tickets in the green machines before boarding (high-speed trains with seat reservations don't need it) — fines are issued on board.",
+        "Greet shopkeepers with 'buongiorno' or 'buonasera' and let waiters set the pace — Italian service is unhurried by design, and the table is yours for the evening.",
+        "Book major sights ahead — the Colosseum, Uffizi, Vatican Museums, and Last Supper sell out days to weeks in advance, and timed entry skips multi-hour lines.",
+      ],
+      donts: [
+        "Don't order a cappuccino after lunch or dinner — milk on a full stomach is considered indigestion in a cup. Espresso ('un caffè') is the after-meal coffee.",
+        "Don't ask for parmesan on seafood pasta, ketchup on anything, or 'fettuccine alfredo' — it barely exists in Italy. Trust the menu as written.",
+        "Don't drive into ZTL zones — the camera-enforced historic centers of Rome, Florence, Milan, and most towns. Rental companies forward the fines (€80+ each, and they multiply) months later.",
+        "Don't buy from street vendors selling 'designer' bags or sunglasses — purchasing counterfeits is itself finable in Italy, with penalties that can reach four figures.",
+        "Don't sit on monuments — eating on the Spanish Steps or wading into fountains draws on-the-spot fines from Rome's municipal police (€250+).",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash still matters more in Italy than in most of Western Europe, especially south of Rome. Coffee bars, small trattorias, market stalls, beach lidos, and taxis in smaller cities often prefer it, and a few 'forget' the card machine works until you ask twice. Keep €100 or so on hand; small notes make life easier.",
+      cardAcceptance:
+        "By law, Italian businesses must accept card payments, and compliance is now good — Visa/Mastercard contactless works in supermarkets, restaurants, trains, and most bars. American Express is accepted mainly at hotels and upscale spots. You may still meet the occasional 'macchina rotta' (broken machine) at small venues hoping for cash.",
+      atmAvailability:
+        "Bank ATMs ('bancomat' — Intesa Sanpaolo, UniCredit, BPER) are everywhere and typically charge no local fee for foreign cards. Avoid the blue-and-yellow Euronet and similar standalone machines around tourist sights — their rates and fees cost 5–12% extra. Always choose to be charged in EUR and decline the on-screen conversion.",
+      tippingNorms:
+        "Tipping is not expected. The €1–3 per-person 'coperto' (cover charge) on restaurant bills is legal and covers bread and the table; some tourist-area places add 'servizio' (10–15%) instead — check the bill so you don't double-tip. Locals leave coins or round up for excellent service. Taxis: round up.",
+      commonScams: [
+        "Costumed 'gladiators' at the Colosseum and characters near the Trevi who pose for a photo, then demand €10–20. Photos with strangers in costume are never free.",
+        "Taxi games at stations and airports — only board at official ranks, insist on the meter in cities, and know the fixed fares: Rome Fiumicino to the historic center is a flat ~€55, Ciampino ~€40 (posted on the cab door).",
+        "The friendship bracelet — knotted onto your wrist near the Duomo in Milan or the Spanish Steps, followed by payment demands. Keep walking, hands in pockets.",
+        "Restaurant padding near major sights — unpriced 'specials', fish billed per 100g (per l'etto) that becomes €90, and tourist menus with photos. Check prices on anything recommended verbally.",
+        "Fake petitions and 'deaf-mute' clipboard collectors around tourist squares — a distraction for pickpockets working the crowd.",
+      ],
+    },
+
+    notes: [
+      { denomination: "5 EUR", color: "Grey", figure: "Classical architecture — gateway (obverse), bridge (reverse)" },
+      { denomination: "10 EUR", color: "Red", figure: "Romanesque architecture — gateway and bridge" },
+      { denomination: "20 EUR", color: "Blue", figure: "Gothic architecture — windows and bridge" },
+      { denomination: "50 EUR", color: "Orange", figure: "Renaissance architecture — the standard ATM note" },
+      { denomination: "100 EUR", color: "Green", figure: "Baroque and Rococo architecture — fine in supermarkets, awkward in small bars" },
+      { denomination: "200 EUR", color: "Yellow", figure: "Art Nouveau architecture — rarely circulates; many businesses refuse it" },
+    ],
+
+    exchangeGuide:
+      "Skip currency exchange entirely — Italy is best handled with a no-foreign-fee card plus bank-ATM withdrawals. The 'cambio' shops around the Trevi Fountain, San Marco, and the Duomo advertise 'no commission' while burying an 8–15% spread in the rate; airport counters are no better. Withdraw from bank bancomats (Intesa Sanpaolo, UniCredit), decline dynamic currency conversion, and you'll pay within 1% of mid-market. For larger transfers — property in Puglia, tuition in Bologna, rent in Milan — Wise or OFX into an Italian IBAN beats a bank wire by several percent.",
+
+    sports: {
+      overview:
+        "Calcio (football) is Italy's heartbeat — Serie A runs August to May, and the Milan derby at San Siro or Napoli at the Maradona are bucket-list atmospheres, with tickets for ordinary fixtures from €25–40. Beyond football, Italy hosts Formula 1's most storied race at Monza every September (the 'tifosi' in red are a spectacle themselves), the Giro d'Italia cycles the entire country each May, and basketball and volleyball both run top-tier European leagues. In the north, world-class skiing spans the Dolomites and Alps — Cortina co-hosted the 2026 Winter Olympics with Milan in February.",
+      highlights: [
+        "Serie A football (Aug–May) — San Siro in Milan (AC Milan/Inter), Rome's Stadio Olimpico, and Napoli's Stadio Maradona; buy via official club channels with photo ID.",
+        "Italian Grand Prix at Monza (early September) — F1's fastest track and its most passionate crowd; general-admission park tickets are the budget way in.",
+        "Giro d'Italia (May) — three weeks of free roadside spectacle; the Dolomite mountain stages are the most dramatic.",
+        "Skiing the Dolomites (Dec–Mar) — the Sellaronda circuit and 2026 Olympic venues around Cortina d'Ampezzo.",
+      ],
+    },
+
+    bestTime:
+      "April to June and September to October are ideal almost everywhere — warm, long evenings, and crowds a notch below the summer peak. July and August are hot (Rome and Florence regularly exceed 35°C), crowded, and expensive, and around Ferragosto (August 15) many family-run businesses close while all of Italy heads to the coast. Winter is the quiet bargain season for cities — and the Dolomites ski season runs December to March. Venice is best in shoulder months; on peak spring/summer dates day-trippers must book the city's access fee (€5–10) in advance.",
+    visa:
+      "Italy is in the Schengen Area: US, UK, Canadian, Australian, and NZ passport holders enter visa-free for up to 90 days in any 180-day period. The EES biometric border system (live since October 2025) registers you on first Schengen entry, and the ETIAS authorisation (~€20 online, valid 3 years) is expected to become mandatory for visa-exempt visitors in late 2026 — verify on the official EU site before flying. Longer stays require a national visa arranged in advance.",
+    safety:
+      "Italy is safe; the realistic risks are pickpocketing and petty scams, concentrated around Termini station and metro line A in Rome, Naples' Centrale station, and the tourist cores of Florence and Venice. Violent crime against visitors is rare even in Naples, whose reputation outruns reality. Drive defensively in the south, never leave anything visible in a parked car, and treat anyone unusually helpful at a ticket machine as a red flag. Tap water is safe nationwide — Rome's free street fountains ('nasoni') are a feature, not a risk. Emergency number: 112.",
+    highlights: [
+      {
+        name: "Rome",
+        summary:
+          "The Colosseum and Forum, Pantheon, Trevi, and the Vatican Museums (book everything ahead). Budget 3–4 days. The €55 fixed taxi fare from Fiumicino is posted on the cab door — or take the Leonardo Express train (€14).",
+      },
+      {
+        name: "Florence & Tuscany",
+        summary:
+          "The Uffizi, Duomo dome climb, and Michelangelo's David, with Siena, San Gimignano, and the Chianti hills an hour out. Tuscany proper deserves a rental car — just never drive into the ZTL.",
+      },
+      {
+        name: "Venice",
+        summary:
+          "St. Mark's, the Rialto, and the quiet back canals of Cannaregio and Dorsoduro. Stay overnight — the city transforms after day-trippers leave, and overnight guests are exempt from the access fee.",
+      },
+      {
+        name: "Naples & the Amalfi Coast",
+        summary:
+          "Pizza's birthplace, Pompeii and Vesuvius, then Positano and Ravello along the coast road. Capri and Procida by ferry. Take the train to Naples and use ferries/buses — driving the Amalfi road in summer is gridlock.",
+      },
+      {
+        name: "Milan & the Lakes",
+        summary:
+          "The Duomo rooftop, The Last Supper (book weeks ahead), and Italy's fashion and aperitivo capital — with Lakes Como and Garda under an hour away by train.",
+      },
+      {
+        name: "Sicily",
+        summary:
+          "Greek temples at Agrigento, baroque Noto and Ortigia, Mount Etna, and Palermo's street-food markets. Italy at half the price of Tuscany — and arguably twice the intensity.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$55–$85 USD per day",
+      midRange: "$110–$190 USD per day",
+      luxury: "$350+ USD per day",
+      note:
+        "Backpacker assumes hostels, bar-counter meals and pizza al taglio, and regional trains. Mid-range covers a 3-star double, one sit-down meal a day, and Frecciarossa trains booked ahead. Venice, Capri, the Amalfi Coast, and Milan run 25–40% above the baseline; the south (Puglia, Sicily, Calabria) runs well below it.",
+    },
+
+    faqs: [
+      {
+        question: "Do I need cash in Italy or can I use a card?",
+        answer:
+          "Cards are legally required to be accepted and now work almost everywhere, but Italy is still more cash-friendly than France or Spain — small bars, market stalls, beach clubs, and southern towns often prefer euros. Carry €50–100, withdraw from bank ATMs (not Euronet machines), and always choose to be charged in EUR when the screen offers your home currency.",
+      },
+      {
+        question: "What is the coperto on my Italian restaurant bill?",
+        answer:
+          "The coperto is a legal per-person cover charge of €1–3 that pays for bread, the tablecloth, and your right to occupy the table all evening. It is not a scam and not a tip. Some tourist-area restaurants charge 'servizio' (10–15% service) instead or as well — check the bill, and if servizio is included, there's no reason to tip further.",
+      },
+      {
+        question: "How much do you tip in Italy?",
+        answer:
+          "Italians generally don't tip. The coperto is already on the bill, service is included in menu prices, and rounding up or leaving a few coins for excellent service is the local maximum. Nobody expects a percentage. Taxi drivers: round up to the nearest euro. Hotel porters: €1–2 per bag.",
+      },
+      {
+        question: "Is Italy expensive to visit in 2026?",
+        answer:
+          "Mid-range travelers should budget $110–$190 per day. The big variable is geography: Venice, Amalfi, and Milan are 25–40% above average, while Sicily, Puglia, and Naples deliver Italy's best food at the lowest prices. Big levers: coffee at the bar (€1.20 vs €4 seated), pizza al taglio lunches, regional trains, and museum bookings made directly on official sites.",
+      },
+      {
+        question: "What are the fixed taxi fares from Rome's airports?",
+        answer:
+          "From Fiumicino (FCO) to anywhere inside Rome's Aurelian Walls, licensed white taxis charge a flat fare of about €55, posted on the cab door — it covers luggage and up to four passengers. From Ciampino it's about €40. Only board at the official rank, ignore touts inside the terminal, and the Leonardo Express train (€14, 32 minutes to Termini) is the budget alternative.",
+      },
+      {
+        question: "Do Americans need a visa for Italy in 2026?",
+        answer:
+          "No — US, UK, Canadian, Australian, and NZ passports get 90 days visa-free in any 180-day Schengen period. The EES biometric system (live since October 2025) registers you at the border on first entry, and the ETIAS authorisation (~€20 online, valid 3 years) is expected to become mandatory in late 2026. Check the official EU site for current status before you travel.",
+      },
+      {
+        question: "What's the best eSIM for Italy?",
+        answer:
+          "Airalo, Holafly, and Ubigi plans for Italy run roughly $8–$35 on TIM/Vodafone networks. If your trip includes France, Switzerland, or Greece, a Europe-region eSIM usually wins on price per GB since EU roaming rules let one plan cover the continent. Activate before you fly and data works on landing.",
+      },
+      {
+        question: "Do I really need to validate train tickets in Italy?",
+        answer:
+          "Yes — for regional trains with open (non-reserved) paper tickets, stamp them in the green validation machines on the platform before boarding, or you risk a fine of €50+ on board even with a valid ticket. High-speed Frecciarossa/Italo tickets and digital QR tickets are tied to a specific train and need no validation.",
+      },
+      {
+        question: "What is a ZTL and why does it matter for rental cars?",
+        answer:
+          "ZTL (Zona a Traffico Limitato) zones are camera-enforced no-drive areas covering the historic centers of Rome, Florence, Milan, Pisa, and most Italian towns. Crossing the line triggers an automatic fine of €80+ per pass — and tourists routinely collect several in one wrong loop, delivered via the rental company months later with an admin fee on top. Park outside the center and walk or train in.",
+      },
+      {
+        question: "Is Venice's tourist entry fee still in effect?",
+        answer:
+          "Yes — on designated peak dates (mostly spring and summer weekends), day-trippers must book and pay an access fee of €5–10 before entering Venice's historic center, enforced with QR-code checks. Overnight visitors staying in registered accommodation are exempt but must still register. Check Venice's official access-fee calendar when planning your dates.",
+      },
+      {
+        question: "Can I send money to or from Italy at a good rate?",
+        answer:
+          "Yes. Wise, OFX, Instarem, and similar specialists move money into or out of an Italian IBAN at near mid-market rates — typically 2–5% better than a bank's international wire once the exchange-rate markup is counted. Within the eurozone, SEPA transfers are free; for USD/GBP conversions, compare on the actual EUR amount delivered, not the advertised fee.",
+      },
+    ],
+
+    relatedCorridorSlug: "usa-to-europe",
+  },
+
+  turkey: {
+    slug: "turkey",
+    countryName: "Turkey",
+    countryCode: "tr",
+    region: "Eurasia",
+    currency: "TRY",
+    currencyName: "Turkish Lira",
+    currencySymbol: "₺",
+    topSourceCurrencies: ["USD", "EUR", "GBP"],
+    capital: "Ankara",
+    languages: ["Turkish"],
+    callingCode: "+90",
+    plugTypes: ["C", "F"],
+    voltage: "230V / 50Hz",
+    timezone: "TRT (UTC+3)",
+
+    tldr:
+      "Turkey uses the Turkish Lira (₺, TRY) — as of June 2026, 1 USD is worth roughly 44 TRY, and with the lira's steady depreciation you should always check a live rate before you fly. Exchange cash at city-center döviz offices (not the airport, not hotels) — Istanbul's exchange bureaus offer some of the tightest spreads in the world. Cards work widely in cities, but bazaars, dolmuş minibuses, and small lokantas want cash. High inflation means menu prices change often; think in dollars or euros, not memorized lira prices.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "Turkey straddles two continents and delivers more variety per dollar than almost anywhere in Europe's orbit: Istanbul's imperial mosques and bazaars, the cave hotels and dawn balloon flights of Cappadocia, the turquoise coast around Fethiye, and the travertine terraces of Pamukkale. Years of lira depreciation have kept it firmly in the value category for anyone earning dollars, euros, or pounds — a full kebab meal runs the equivalent of $4–8, a Bosphorus public ferry crossing under a dollar, and a night in a good Cappadocia cave hotel a fraction of European boutique prices. The trade-off is volatility: with inflation still high, prices in lira move constantly, and quoting exact figures has a short shelf life.\n\nThis guide covers the money mechanics that matter here more than almost anywhere — why döviz exchange offices beat banks, which ATMs skim foreign cards, how the lira's denominations work — plus eSIM options, etiquette for mosques and bazaars, and the scams that work Istanbul's tourist districts. Sending money to or from Turkey? Our live comparison shows what actually lands in a Turkish account.",
+    keyStats: [
+      { label: "Currency", value: "Turkish Lira (₺, TRY)" },
+      { label: "Typical daily cost (mid-range)", value: "$60–$110 USD" },
+      { label: "Best time to visit", value: "April – June & September – October" },
+      { label: "Visa (US/UK/EU, 2026)", value: "Visa-free 90 days for most Western passports" },
+      { label: "Power", value: "230V / 50Hz, plug types C, F" },
+      { label: "Tipping", value: "5–10% in restaurants; round up taxis" },
+    ],
+
+    culture: {
+      overview:
+        "Turkish culture blends Mediterranean warmth with deep traditions of hospitality — expect to be offered çay (tea) constantly: in shops, during carpet negotiations, by strangers. Accepting it carries no purchase obligation; it's genuine custom. Turkey is a secular republic with a Muslim-majority population, so norms vary enormously between Istanbul's cosmopolitan districts, the religious heartland of Anatolia, and the beach resorts. Bargaining is expected in bazaars (start around half the opening price, stay friendly) but not in shops with marked prices. Respect for Atatürk, the republic's founder, is both heartfelt and legally protected.",
+      dos: [
+        "Accept tea when offered — refusing outright can seem cold; a polite sip and thanks is enough. 'Teşekkürler' (thanks) and 'merhaba' (hello) earn instant goodwill.",
+        "Dress appropriately for mosques: shoulders and knees covered for everyone, headscarves for women (lent at the door of major mosques), shoes off and carried in a bag.",
+        "Haggle in bazaars with humor and patience — it's a social ritual, not combat. Walking away politely is a legitimate move that often improves the price.",
+        "Carry small banknotes — taxi drivers and small vendors genuinely struggle to change a ₺1,000 note, and 'no change' can become a tip you didn't intend.",
+        "Use Istanbulkart for all Istanbul public transport — one card covers trams, ferries, metro, and buses at a fraction of single-ticket prices.",
+      ],
+      donts: [
+        "Don't disrespect Atatürk or national symbols — insulting the republic's founder is a criminal offense, and the reverence is genuine, not performative.",
+        "Don't photograph people praying, military installations, or anyone without asking — especially women in conservative areas.",
+        "Don't show public affection beyond hand-holding outside cosmopolitan Istanbul districts and beach resorts.",
+        "Don't blow your nose at the table, point your finger directly at people, or show the soles of your shoes when sitting — all read as rude.",
+        "Don't accept drink invitations from new 'friends' to bars in Taksim/Beyoğlu — the inflated-bill bar scam is Istanbul's most notorious tourist trap, ending in bills of hundreds of dollars.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash remains essential: bazaars, dolmuş shared minibuses, small lokantas, çay gardens, public toilets, and tips all run on lira notes. Cards cover the rest in cities. Because of inflation, carry modest amounts and top up often rather than exchanging a large sum that loses value in your pocket.",
+      cardAcceptance:
+        "Visa and Mastercard are widely accepted in city restaurants, hotels, supermarkets, and chain stores; contactless is standard. Amex is rare. Some shops quote a discount for cash ('nakit') — a legacy of card commissions. In bazaars, cash gives you real bargaining leverage even where cards are technically accepted.",
+      atmAvailability:
+        "ATMs are everywhere, but most Turkish banks now charge foreign cards withdrawal fees and some add poor exchange rates on top. Ziraat, Halkbank, and VakıfBank (state banks) have historically charged the least — compare the offered rate on screen, always decline currency conversion (choose TRY), and reject any 'rate guarantee' button. Withdrawing larger amounts less often limits the fee damage; better yet, exchange foreign cash at a döviz office instead.",
+      tippingNorms:
+        "Tip 5–10% in sit-down restaurants (cash preferred — hand it to the waiter or leave it in the folder; it often can't be added to the card). Round up taxi fares. ₺50–100 for hotel porters and housekeeping per stay, more in luxury hotels. Hamam attendants expect 10–20% of the treatment price.",
+      commonScams: [
+        "The Beyoğlu bar scam — a friendly stranger invites you for a drink; the bill arrives at $300–500 with intimidating staff. Decline bar invitations from new acquaintances, full stop.",
+        "Taxi tricks — 'broken' meters, the long way around, or sleight-of-hand with notes (you paid ₺200, driver shows ₺20). Use the BiTaksi or Uber app so the route and fare are logged, and state note denominations aloud as you hand them over.",
+        "The shoe-shine brush drop — a shiner drops his brush ahead of you; when you return it, you get a 'free' shine that ends in aggressive payment demands.",
+        "Restaurant bill padding in tourist districts — unordered mezes brought to the table aren't free, and unpriced fish can be astonishing. Confirm prices before accepting anything.",
+        "Counterfeit or short-changed currency at informal exchanges — only change money at licensed döviz offices with posted rates, and count notes before leaving the counter.",
+      ],
+    },
+
+    notes: [
+      { denomination: "5 TRY", color: "Brown / Amber", figure: "Atatürk (obverse), historian of science Aydın Sayılı (reverse)" },
+      { denomination: "10 TRY", color: "Red", figure: "Atatürk (obverse), mathematician Cahit Arf (reverse)" },
+      { denomination: "20 TRY", color: "Green", figure: "Atatürk (obverse), architect Mimar Kemaleddin (reverse)" },
+      { denomination: "50 TRY", color: "Orange", figure: "Atatürk (obverse), novelist Fatma Aliye (reverse)" },
+      { denomination: "100 TRY", color: "Blue", figure: "Atatürk (obverse), composer Buhurizade Itri (reverse)" },
+      { denomination: "200 TRY", color: "Pink / Purple", figure: "Atatürk (obverse), poet Yunus Emre (reverse)" },
+    ],
+
+    exchangeGuide:
+      "Turkey is one of the few destinations where bringing crisp USD or EUR cash to exchange locally is genuinely the best strategy. Licensed döviz (exchange) offices in Istanbul — clustered around the Grand Bazaar, Eminönü, and every commercial district — run spreads under 1%, dramatically better than airports (5–10% worse), hotels, or home-country banks. Rates are posted on electronic boards; they're competitive enough that shopping between two adjacent offices rarely pays. Exchange modest amounts at a time since the lira loses value steadily. Avoid airport exchange beyond taxi money (~$20 worth). For larger transfers into or out of Turkish banks, Wise and other specialists handle TRY with transparent rates — compare carefully, as TRY corridors carry wider margins than major currencies.",
+
+    sports: {
+      overview:
+        "Football is Turkey's consuming passion, and the Istanbul derbies between Galatasaray, Fenerbahçe, and Beşiktaş are among the most intense fixtures in world football — the noise at a sold-out derby is genuinely physical. Match tickets for ordinary fixtures are affordable, though derbies require the Passolig fan card system. Beyond football, Turkey's signature spectacle is oil wrestling (yağlı güreş): the Kırkpınar tournament near Edirne, held since 1346, is the world's oldest continuously running sporting competition. Basketball is strong (Anadolu Efes and Fenerbahçe contest the EuroLeague), and the Istanbul Marathon is the world's only race run across two continents.",
+      highlights: [
+        "Süper Lig football — Galatasaray's RAMS Park and Fenerbahçe's Şükrü Saracoğlu; buy through Passolig/official channels, never touts.",
+        "Kırkpınar Oil Wrestling Festival (late June/early July, Edirne) — 670+ years old and a UNESCO-listed cultural event.",
+        "EuroLeague basketball (Oct–May) — Anadolu Efes and Fenerbahçe Beko play at a level just below the NBA.",
+        "Istanbul Marathon (November) — the only marathon on earth that starts in Asia and finishes in Europe, crossing the Bosphorus bridge.",
+      ],
+    },
+
+    bestTime:
+      "April to June and September to October are ideal across the country — comfortable in Istanbul, warm on the coast, and prime flying weather for Cappadocia's balloons. July and August are hot (Istanbul humid, the southeast scorching) and peak-priced on the coast, though it's high beach season. Cappadocia is magical year-round — including under snow in winter, when hotel prices halve. Note Ramadan's dates (shifting earlier each year) if you want full restaurant access in conservative regions, though tourist areas operate normally.",
+    visa:
+      "As of 2026, most Western passports — including the US, UK, EU states, and Canada — enter Turkey visa-free for up to 90 days in any 180-day period, after Turkey lifted e-Visa requirements for US and Canadian citizens in late 2023. Australians and some other nationalities still need the e-Visa (about $50, instant online at evisa.gov.tr). Passports need 6 months' validity. Rules change with diplomatic weather — verify at the official e-Visa site before booking.",
+    safety:
+      "Turkey's tourist regions — Istanbul, Cappadocia, the Aegean and Mediterranean coasts — are statistically safe, with petty scams a far bigger risk than crime. Avoid the immediate Syrian border provinces (Western governments advise against travel there). Earthquakes are a real long-term risk in this seismic country; note your hotel's exits. Demonstrations occasionally flare in Istanbul and Ankara — steer around them. Tap water is technically treated but locals drink bottled, and you should too (a 5L bottle costs pennies). Emergency number: 112.",
+    highlights: [
+      {
+        name: "Istanbul",
+        summary:
+          "Hagia Sophia, the Blue Mosque, Topkapı Palace, the Grand Bazaar's 4,000 shops, and a public-ferry Bosphorus crossing between continents for under a dollar. 4 days minimum; stay in Sultanahmet for sights or Karaköy/Beyoğlu for food and nightlife.",
+      },
+      {
+        name: "Cappadocia",
+        summary:
+          "Dawn hot-air balloon flights over fairy-chimney valleys ($150–250, book ahead, weather-dependent), cave hotels in Göreme, and underground cities at Derinkuyu. Worth three nights to allow a balloon weather buffer.",
+      },
+      {
+        name: "Antalya & the Turquoise Coast",
+        summary:
+          "Roman harbor old town, beaches, and ancient cities (Perge, Aspendos) — then west to Kaş and Fethiye for the Blue Lagoon at Ölüdeniz and the Lycian Way coastal trail.",
+      },
+      {
+        name: "Ephesus & İzmir",
+        summary:
+          "The best-preserved Roman city in the Mediterranean — the Library of Celsus and terraced houses are extraordinary. Base in Selçuk or coastal Kuşadası; go at opening to beat cruise crowds.",
+      },
+      {
+        name: "Pamukkale",
+        summary:
+          "Blinding-white travertine terraces with warm spring pools, topped by the Roman spa city of Hierapolis — swim among submerged ancient columns in Cleopatra's Pool.",
+      },
+      {
+        name: "Bodrum & the Aegean",
+        summary:
+          "Turkey's stylish resort peninsula — the Castle of St. Peter, gulet boat trips, and whitewashed villages. Pricier than the Mediterranean coast but with Greek-island polish.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$30–$50 USD per day",
+      midRange: "$60–$110 USD per day",
+      luxury: "$200+ USD per day",
+      note:
+        "Backpacker assumes hostels/pensions, lokanta and street food (döner, simit), and intercity buses. Mid-range covers boutique hotels, restaurant meals, domestic flights, and a balloon-ride splurge spread across the trip. Istanbul and Bodrum are the priciest; Cappadocia hotels span every budget. Lira inflation means USD figures stay roughly stable while lira prices climb.",
+    },
+
+    faqs: [
+      {
+        question: "How much is the Turkish Lira worth in 2026?",
+        answer:
+          "As of June 2026, 1 USD buys roughly 44 TRY and 1 EUR roughly 50 TRY — but the lira depreciates steadily against major currencies, so check a live rate just before you travel. For sense of scale: a kebab meal runs ₺150–350, an Istanbul tram ride about ₺30, and a Bosphorus public ferry under ₺50. Think in your home currency rather than memorizing lira prices.",
+      },
+      {
+        question: "Where is the best place to exchange money in Turkey?",
+        answer:
+          "Licensed döviz (currency exchange) offices in city centers — around Istanbul's Grand Bazaar, Eminönü, and Taksim — offer spreads under 1%, among the best in the world. Bring clean USD or EUR notes. Avoid airport counters (5–10% worse) and hotels. Exchange modest amounts at a time: the lira in your pocket loses value week by week.",
+      },
+      {
+        question: "Should I use cash or card in Turkey?",
+        answer:
+          "Both. Cards work fine in city restaurants, hotels, and shops, but you need lira cash for bazaars, dolmuş minibuses, small eateries, tips, and public toilets. Cash also wins discounts and bargaining power. Use döviz offices rather than ATMs where possible — most Turkish bank ATMs now charge foreign cards fees, with state banks (Ziraat, VakıfBank) typically cheapest.",
+      },
+      {
+        question: "Is Turkey cheap for tourists in 2026?",
+        answer:
+          "Yes — for anyone earning dollars, euros, or pounds, Turkey is one of the best-value destinations in Europe's orbit. Mid-range travelers live well on $60–$110 a day including boutique hotels and restaurant meals; backpackers manage on $30–$50. The exceptions are imported goods, alcohol (heavily taxed), and headline experiences like Cappadocia balloon flights ($150–250).",
+      },
+      {
+        question: "Do Americans need a visa for Turkey?",
+        answer:
+          "No — since late 2023, US citizens (along with UK, EU, and Canadian passport holders) enter Turkey visa-free for up to 90 days in any 180-day period. Australians and some other nationalities still need the e-Visa, issued instantly online at the official evisa.gov.tr site for about $50. Ensure 6 months of passport validity, and re-verify rules before booking as they can change.",
+      },
+      {
+        question: "Is Istanbul safe for tourists?",
+        answer:
+          "Yes — Istanbul's tourist districts are statistically safer than most large European cities for violent crime. The real risks are scams: the notorious Beyoğlu bar scam (a new 'friend' invites you for drinks; the bill is $300+), taxi meter games, and bill padding in tourist restaurants. Use BiTaksi or Uber for taxis, decline drink invitations from strangers, and confirm prices before ordering.",
+      },
+      {
+        question: "How much does a Cappadocia balloon ride cost?",
+        answer:
+          "Standard dawn flights run $150–250 per person in 2026, depending on basket size and season; premium small-basket flights cost more. Book ahead and build at least one buffer day into your Cappadocia stay — flights are cancelled in wind or poor visibility (it happens regularly), and operators reschedule or refund. Flights are at sunrise only; pickups around 4:30–5am.",
+      },
+      {
+        question: "What's the best eSIM for Turkey?",
+        answer:
+          "Turkey is NOT covered by EU roaming, so a dedicated Turkey eSIM matters even if you have a Europe plan. Airalo, Holafly, and Nomad offer Turkey packages from roughly $10–$35 riding on Turkcell/Vodafone networks. Local SIMs from Turkcell shops are an alternative but involve passport registration and queues — the eSIM wins on convenience for stays under a month.",
+      },
+      {
+        question: "Do you tip in Turkey?",
+        answer:
+          "Yes, modestly: 5–10% in sit-down restaurants, ideally in cash since many card machines can't add tips. Round up taxi fares. In hamams, attendants expect 10–20% of the treatment price, and ₺50–100 for hotel staff per stay is appreciated. No tipping at street-food stands, kiosks, or for çay.",
+      },
+      {
+        question: "Can I drink tap water in Turkey?",
+        answer:
+          "Stick to bottled water, like the locals do. Turkish tap water is chlorinated and technically treated, but quality varies by city and building, and virtually all residents drink bottled or delivered spring water. Bottled water is extremely cheap (a half-liter costs pennies at markets). Brushing teeth with tap water is fine.",
+      },
+      {
+        question: "What's the cheapest way to send money to or from Turkey?",
+        answer:
+          "Specialist transfer services (Wise, Remitly, and others supporting TRY) beat bank wires substantially — Turkish banks layer wide FX margins onto international transfers. Because TRY is volatile, margins on lira corridors are wider than for EUR or GBP, so comparing on the final TRY amount delivered matters more here than almost anywhere. For receiving money in Turkey, transfers into a Turkish bank account in TRY usually beat USD-denominated accounts for spending purposes.",
+      },
+    ],
+  },
+
+  "united-kingdom": {
+    slug: "united-kingdom",
+    countryName: "United Kingdom",
+    countryCode: "gb",
+    region: "Northern Europe",
+    currency: "GBP",
+    currencyName: "British Pound",
+    currencySymbol: "£",
+    topSourceCurrencies: ["USD", "EUR", "AUD", "INR"],
+    capital: "London",
+    languages: ["English", "Welsh", "Scottish Gaelic"],
+    callingCode: "+44",
+    plugTypes: ["G"],
+    voltage: "230V / 50Hz",
+    timezone: "GMT (UTC+0, UTC+1 in summer)",
+
+    tldr:
+      "The UK uses the British Pound (£, GBP) — as of June 2026, £1 is worth roughly $1.33 USD. Britain is effectively cashless: contactless card or phone tap covers everything from the London Tube (which auto-caps your daily fare) to market stalls and pubs, and many visitors never touch a banknote. Don't buy pounds before you travel — just bring a no-foreign-fee card. One new admin item: visa-exempt visitors (including Americans and Europeans) now need an ETA (£16, online) before boarding their flight.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "The United Kingdom packs four nations into one island group: London's museums and theatre, Edinburgh's castle-topped skyline, the Lake District and Scottish Highlands, and a pub culture that doubles as the national living room. It's an expensive destination by global standards — London hotel prices rival New York — but it's also stacked with world-class free things: the British Museum, National Gallery, Tate Modern, and nearly every major national museum charge nothing for their permanent collections. A pub pint runs £5–7 in London (£4–5 elsewhere), a Tube ride caps at about £8.90 a day with contactless, and advance-booked trains can cross the country for a fraction of walk-up fares.\n\nThis guide covers money on the ground — why the UK is Europe's most card-first economy, what the polymer banknotes look like, how Scottish notes work — plus the ETA entry requirement, eSIM picks, etiquette (queueing is sacred), and realistic daily budgets. Moving larger sums to or from a UK account? Our live comparison shows which provider delivers the most pounds.",
+    keyStats: [
+      { label: "Currency", value: "British Pound (£, GBP)" },
+      { label: "Typical daily cost (mid-range)", value: "$140–$230 USD" },
+      { label: "Best time to visit", value: "May – September" },
+      { label: "Visa (US/EU/AU, 2026)", value: "Visa-free 6 months + ETA (£16, online)" },
+      { label: "Power", value: "230V / 50Hz, plug type G" },
+      { label: "Tipping", value: "10–12.5% in restaurants if no service charge; never in pubs" },
+    ],
+
+    culture: {
+      overview:
+        "British social life runs on understatement, politeness, and the queue. Jumping a queue — at a bus stop, bar, or ticket machine — is the closest thing to a national crime, while 'sorry' functions as greeting, apology, and objection alike. The pub is the social institution: order and pay at the bar (no table service for drinks), rounds are bought for the group in turn, and tipping the bartender isn't done. Conversation favors self-deprecation and weather; loud overt confidence reads as boasting. Each home nation — England, Scotland, Wales, Northern Ireland — has its own identity, and calling a Scot or Welsh person 'English' will not go well.",
+      dos: [
+        "Queue properly, everywhere — and on London escalators, stand on the right, walk on the left. This is enforced by collective glaring.",
+        "Order at the bar in pubs: drinks (and usually food) are ordered and paid for at the counter, and buying 'rounds' for your group in turn is the custom.",
+        "Book trains in advance on apps like Trainline or operator sites — advance fares can be a third of walk-up prices, and a Railcard (£30/year) cuts a third off most fares if you make multiple trips.",
+        "Say please and thank you liberally — transactional bluntness ('Give me a coffee') genuinely lands as rude.",
+        "Use contactless or phone tap for all London transport — it automatically calculates daily and weekly fare caps, always beating paper tickets.",
+      ],
+      donts: [
+        "Don't jump queues, ever — even informal ones at bus stops have an understood order.",
+        "Don't tip in pubs or for counter service — it's not done, and offering can cause mild embarrassment. 'And one for yourself' (buying the bartender a drink) is the traditional gesture instead.",
+        "Don't call Scottish, Welsh, or Northern Irish people 'English', and don't use 'England' to mean the whole UK.",
+        "Don't talk loudly on trains — the 'quiet coach' is enforced by passengers, and even regular carriages run hushed by international standards.",
+        "Don't block the doors on the Tube or try to board before passengers exit — London commuter etiquette is strict and time-pressed.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash is accepted almost everywhere but actively needed almost nowhere — the UK is Europe's most card-first economy, and some cafés and market stalls are now card-only. £20–40 covers a week of edge cases (the odd village shop, honesty boxes, some barbers). Don't pre-buy pounds at home; rates are poor and you won't need the cash.",
+      cardAcceptance:
+        "Contactless Visa/Mastercard or Apple/Google Pay works everywhere: pubs, buses, the Tube (with automatic fare capping), market stalls, taxis, churches' donation terminals. Amex acceptance is decent in cities but patchy at independents. The £100 contactless limit rarely bites since phone payments verify biometrically with no cap.",
+      atmAvailability:
+        "Free-to-use ATMs ('cash machines' or 'cashpoints') from major banks (Barclays, HSBC, Lloyds, NatWest) are widespread; avoid the paid machines in convenience stores (£1.50–2 fee, shown on screen). Link-network bank ATMs charge nothing locally. As everywhere: if the screen offers to charge you in your home currency, decline — choose GBP.",
+      tippingNorms:
+        "Restaurants: 10–12.5%, but check the bill first — a 'discretionary service charge' of 12.5% is now added by default at most London restaurants, in which case add nothing. Pubs and bars: no tipping. Taxis: round up. Hotel housekeeping: £1–2 a night if you wish. Counter-service coffee: no.",
+      commonScams: [
+        "Unlicensed minicab touts outside stations and clubs — only use black cabs (hailable, metered), pre-booked minicabs, or Uber/Bolt. Touts soliciting fares are illegal and uninsured.",
+        "Paid-entry 'ticket helpers' at Tube machines — staff in uniform never approach machines asking to handle your card. Politely decline anyone who does.",
+        "Pickpocketing and phone-snatching in central London — e-bike phone snatching around busy junctions (Oxford Street, Shoreditch) is the era's signature street crime. Keep phones away from the kerb.",
+        "Fake charity clipboard collectors and 'found gold ring' games around tourist hotspots — registered collectors carry visible ID and never take cash on the street aggressively.",
+        "Dynamic currency conversion at card terminals and ATMs — always pay in GBP, never accept the 'convert to your home currency' offer, which costs 3–6%.",
+      ],
+    },
+
+    notes: [
+      { denomination: "5 GBP", color: "Turquoise / Blue", figure: "King Charles III (obverse), Winston Churchill (reverse)" },
+      { denomination: "10 GBP", color: "Orange / Brown", figure: "King Charles III (obverse), Jane Austen (reverse)" },
+      { denomination: "20 GBP", color: "Purple", figure: "King Charles III (obverse), J.M.W. Turner (reverse)" },
+      { denomination: "50 GBP", color: "Red", figure: "King Charles III (obverse), Alan Turing (reverse) — shops outside London often eye it warily" },
+    ],
+
+    exchangeGuide:
+      "Don't exchange cash for a UK trip — bring a no-foreign-fee debit card (Wise, Revolut, or your bank's travel card) and tap your way through the country, withdrawing £20–40 from a bank cashpoint only if a specific need arises. Airport bureaux and high-street 'tourist rate' boards run 4–10% off mid-market. All UK notes are polymer (plastic); Scottish and Northern Irish banks issue their own designs, which are valid currency UK-wide, though some English shops hesitate — any bank will swap them for Bank of England notes free. For larger transfers — UK tuition (a major use-case), property, or salaries — Wise, OFX, and similar specialists deliver GBP into UK accounts at near mid-market rates, several percent better than international bank wires.",
+
+    sports: {
+      overview:
+        "Britain invented or codified most of the world's major sports and treats the sporting calendar as national heritage. Premier League football is the biggest show — tickets are hard but not impossible for non-derby fixtures via official club sites — while a cheaper, arguably more atmospheric alternative is a Championship or Scottish Premiership match. Summer brings Wimbledon (enter the public ballot or queue on the day — the Queue is itself an institution), Test cricket at Lord's, and golf's Open Championship. Six Nations rugby (Feb–Mar) takes over Twickenham, Cardiff, and Edinburgh's Murrayfield in turn.",
+      highlights: [
+        "Premier League football (Aug–May) — buy only through official club channels or member resale; street and online touts are both illegal and rife.",
+        "Wimbledon (late June–early July) — the public ballot opens the previous autumn; same-day Queue tickets for outer courts remain a genuine option.",
+        "Test cricket at Lord's or the Oval (summer) — a five-day match explained over beers is the most British initiation available.",
+        "Six Nations rugby (Feb–Mar) — international matchdays in Cardiff and Edinburgh transform the entire city into the stadium.",
+      ],
+    },
+
+    bestTime:
+      "May to September offers the longest days and warmest weather — June especially, when Scotland stays light past 10pm. July–August is peak season and peak pricing, with Edinburgh exploding in August for the Fringe (book that city a year out). British weather is changeable year-round: pack a rain layer in any month and treat any forecast over 22°C as a heatwave by local standards. Winter is short-dayed and grey but cheap, with excellent museum weather and Christmas markets; the Highlands under snow are spectacular if you're equipped.",
+    visa:
+      "US, EU, Canadian, Australian, and NZ passport holders don't need a visa for visits up to 6 months — but since 2025 they DO need an Electronic Travel Authorisation (ETA): £16, applied for via the official UK ETA app or gov.uk, usually approved within days, valid 2 years for unlimited visits. Airlines check it at boarding. Note the UK is NOT in Schengen — time here doesn't count against the EU's 90/180 rule, a useful fact for long European trips.",
+    safety:
+      "The UK is very safe by global standards; violent crime against tourists is rare. London's realistic risks are phone-snatching by riders on e-bikes (keep phones off the kerbside), pickpockets on the Tube and Oxford Street, and drink spiking in nightlife districts — watch your glass. Outside cities, the main hazard is hill weather: Scottish and Lake District conditions change fast, and mountain rescue callouts are mostly unprepared walkers. Emergency number: 999 (or 112).",
+    highlights: [
+      {
+        name: "London",
+        summary:
+          "The British Museum, Tower of London, West End theatre, Borough Market, and free national museums everywhere. Budget 4–5 days minimum, use contactless fare capping, and book big sights and shows ahead.",
+      },
+      {
+        name: "Edinburgh",
+        summary:
+          "The castle on its crag, the medieval Royal Mile, Arthur's Seat hike, and August's Fringe — the world's largest arts festival. Two days minimum; book August accommodation many months out.",
+      },
+      {
+        name: "Scottish Highlands & Isle of Skye",
+        summary:
+          "Glencoe, Loch Ness, the Fairy Pools, and the Old Man of Storr. Self-drive is the way (single-track-road etiquette: use passing places); midges bite June–August, so carry repellent.",
+      },
+      {
+        name: "Bath & the Cotswolds",
+        summary:
+          "Roman baths and Georgian crescents in Bath, then honey-stone villages (Bibury, Castle Combe, Bourton) across the Cotswolds. Doable by car or as structured day tours from London.",
+      },
+      {
+        name: "Lake District",
+        summary:
+          "England's walking heartland — Windermere, Keswick, and fells from gentle to serious. The UK's most popular national park; book summer weekends ahead and pack for four seasons in a day.",
+      },
+      {
+        name: "York",
+        summary:
+          "The Minster, the medieval Shambles, intact city walls, and the National Railway Museum (free) — England's best-preserved historic city, two hours from London by train.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$70–$100 USD per day",
+      midRange: "$140–$230 USD per day",
+      luxury: "$400+ USD per day",
+      note:
+        "Backpacker assumes hostels, supermarket meal deals (£3–4), free museums, and buses/advance trains. Mid-range covers a 3-star double, one restaurant meal plus a pub meal daily, and intercity trains booked ahead. London runs 30%+ above the national baseline — northern England, Wales, and much of Scotland are markedly cheaper.",
+    },
+
+    faqs: [
+      {
+        question: "Do I need cash in the UK?",
+        answer:
+          "Essentially no. The UK is Europe's most card-first economy — contactless or phone tap covers transport, pubs, market stalls, and even church donation boxes, and some venues are card-only. £20–40 from a bank cashpoint covers rare edge cases. Use a no-foreign-fee card and always choose to be charged in GBP when terminals offer your home currency.",
+      },
+      {
+        question: "What is the UK ETA and do Americans need it?",
+        answer:
+          "Yes. Since 2025, all visa-exempt visitors — including US, EU, Canadian, and Australian passport holders — need an Electronic Travel Authorisation before traveling to the UK. It costs £16, is applied for through the official UK ETA app or gov.uk in about 10 minutes, is usually approved within 3 working days, and is valid for two years of unlimited visits up to 6 months each. Airlines verify it at check-in.",
+      },
+      {
+        question: "How does paying for the London Tube work?",
+        answer:
+          "Just tap a contactless card or phone at the gates — no ticket needed. The system charges per ride and automatically caps your spending at the daily rate (about £8.90 for central zones) and weekly rate, so you can never overpay versus a travelcard. Use the same card/device every time so the caps track, and tap in AND out on rail services. Paper single tickets cost dramatically more.",
+      },
+      {
+        question: "How much do you tip in the UK?",
+        answer:
+          "Restaurants: 10–12.5% — but most London restaurants now add a 'discretionary service charge' of 12.5% automatically, in which case add nothing more. Never tip in pubs (offering can cause mild embarrassment; buy the bartender a drink instead with 'and one for yourself'). Taxis: round up. No tipping for counter service or coffee.",
+      },
+      {
+        question: "Are Scottish banknotes legal in England?",
+        answer:
+          "Yes — notes issued by Scottish and Northern Irish banks are legitimate sterling and valid throughout the UK, though some English shops hesitate over unfamiliar designs. If you collect Scottish notes and meet resistance, any bank branch will swap them for Bank of England notes for free, or just spend them at larger chains. ATMs in Scotland dispense Scottish notes as standard.",
+      },
+      {
+        question: "Is London expensive to visit in 2026?",
+        answer:
+          "London is one of Europe's priciest cities for accommodation — but unusually cheap for sights, because the major national museums (British Museum, National Gallery, Tate Modern, Natural History Museum, V&A) are all free for their permanent collections. Mid-range visitors should budget $180–$250 a day in London; the rest of the UK runs 30% or more below that. Supermarket meal deals, pub lunches, and theatre day-seats are the savings levers.",
+      },
+      {
+        question: "What's the cheapest way to travel between UK cities?",
+        answer:
+          "Book trains in advance — Advance fares released ~12 weeks out can be a third of walk-up prices (London–Edinburgh from ~£30 versus £150+ on the day). A £30 Railcard cuts a third off most fares and pays for itself in one or two trips. Coaches (National Express, Megabus, FlixBus) are slower but cheapest of all. Walk-up train tickets are among the most expensive per mile in Europe — never buy day-of for long routes.",
+      },
+      {
+        question: "What's the best eSIM for the UK?",
+        answer:
+          "Airalo, Holafly, and Ubigi offer UK eSIMs from roughly $7–$35 riding on EE/O2/Vodafone networks. Note that since Brexit, the UK is NOT included in many EU-region eSIM plans — check coverage lists carefully if you're combining the UK with continental Europe, or buy a plan that explicitly covers 'Europe including UK'.",
+      },
+      {
+        question: "Is the UK safe for tourists?",
+        answer:
+          "Very. The realistic London risks are phone-snatching by e-bike riders (keep your phone away from the kerb when texting), Tube pickpockets, and unlicensed minicab touts at night — use black cabs, Uber, or pre-booked cars only. Outside cities, the main danger is genuinely the weather on hills: Scottish mountain conditions turn fast. Emergency number: 999 or 112.",
+      },
+      {
+        question: "What's the cheapest way to send money to or from the UK?",
+        answer:
+          "Specialists like Wise, OFX, Revolut, and Instarem deliver GBP into UK accounts at near mid-market rates — typically 2–5% better than bank international wires once the exchange-rate markup is counted. The UK's Faster Payments system means incoming GBP transfers usually arrive within hours. For recurring needs like UK university tuition or rent, locking a rate with a specialist beats repeated bank wires substantially.",
+      },
+    ],
+
+    relatedCorridorSlug: "usa-to-uk",
+  },
+
+  india: {
+    slug: "india",
+    countryName: "India",
+    countryCode: "in",
+    region: "South Asia",
+    currency: "INR",
+    currencyName: "Indian Rupee",
+    currencySymbol: "₹",
+    topSourceCurrencies: ["USD", "GBP", "AED", "EUR"],
+    capital: "New Delhi",
+    languages: ["Hindi", "English", "and 20+ official regional languages"],
+    callingCode: "+91",
+    plugTypes: ["C", "D", "M"],
+    voltage: "230V / 50Hz",
+    timezone: "IST (UTC+5:30)",
+
+    tldr:
+      "India uses the Indian Rupee (₹, INR) — as of June 2026, 1 USD is worth roughly 89 INR. The rupee is a closed currency: you exchange after arrival, not before. Daily payments run on a three-layer system — UPI QR codes dominate for locals (tourists can join via prepaid UPI wallets issued at major airports), cards work in cities and hotels, and cash remains king for rickshaws, street food, and small towns. Carry small notes: nobody can ever change a ₹500.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "India is less a country than a continent compressed: 1.4 billion people, 22 official languages, and a span from Himalayan passes to tropical backwaters. It's also among the world's cheapest rewarding destinations — a thali lunch runs ₹100–250 ($1–3), an auto-rickshaw hop ₹50–150, and an overnight train across half the country costs less than a city taxi ride at home. The classic first-trip circuit is the Golden Triangle (Delhi, Agra's Taj Mahal, Jaipur), but Kerala's backwaters, Varanasi's ghats, and Goa's beaches are equally canonical. India rewards travelers who arrive with patience: the sensory volume, the bureaucracy, and the friendly chaos are all part of the deal.\n\nThis guide covers money in the world's most fascinating payments market — how tourists can now use UPI, why the rupee can't be exported, which notes look like what after the 2016 redesign — plus the e-Visa process, eSIM picks, cultural ground rules, and honest scam warnings for Delhi and the tourist trail. Sending money to or from India? It's the world's largest remittance corridor, and our comparison shows who delivers the most rupees.",
+    keyStats: [
+      { label: "Currency", value: "Indian Rupee (₹, INR)" },
+      { label: "Typical daily cost (mid-range)", value: "$40–$80 USD" },
+      { label: "Best time to visit", value: "October – March" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "e-Visa required — apply online, from ~$25" },
+      { label: "Power", value: "230V / 50Hz, plug types C, D, M" },
+      { label: "Tipping", value: "5–10% in restaurants; ₹50–100 for porters and drivers" },
+    ],
+
+    culture: {
+      overview:
+        "India's cultural rules vary by region and religion, but a few constants hold: the right hand is for eating and giving (the left is considered unclean), shoes come off at temples and homes, and modest dress earns respect everywhere outside Goa's beaches and upscale urban districts. The famous head wobble means anything from 'yes' to 'I acknowledge you' — context is everything. Hospitality is sincere and sometimes overwhelming ('Atithi Devo Bhava' — the guest is god); invitations to chai or family meals are usually genuine. Personal questions (your salary, marital status) are normal conversation, not rudeness.",
+      dos: [
+        "Eat and pass items with your right hand — the left hand is reserved for hygiene and using it for food or greetings is genuinely impolite.",
+        "Remove shoes at temples, mosques, gurdwaras, and private homes — and cover your head at Sikh gurdwaras (scarves provided). Many temples also ban leather items.",
+        "Dress modestly — covered shoulders and knees for everyone outside beach zones; women may want a scarf for temples. Lightweight cotton beats revealing gear on comfort anyway.",
+        "Negotiate auto-rickshaw fares before boarding, or insist on the meter where they exist — or skip the negotiation entirely with Uber/Ola, which India runs on.",
+        "Drink only bottled or filtered water (check the seal), eat hot, freshly cooked food, and ease into street food via busy stalls with high turnover — they're busy for a reason.",
+      ],
+      donts: [
+        "Don't use your left hand for eating, giving money, or shaking hands.",
+        "Don't show physical affection in public — even couples holding hands draws attention outside cosmopolitan areas; same-sex friends holding hands, conversely, is normal and platonic.",
+        "Don't point your feet at people, deities, or shrines, and don't touch anyone's head — feet are considered unclean, the head sacred.",
+        "Don't photograph people, ceremonies (especially cremations at Varanasi's ghats), or military sites without permission — at the burning ghats, cameras away entirely.",
+        "Don't accept tour, hotel, or 'official tourist office' redirections from helpful strangers at stations — the real government tourism offices don't recruit on platforms.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash remains essential — rickshaws, street food, chai stalls, small shops, temples, tips, and most of small-town India run on it. The critical skill is hoarding small notes (₹10, ₹20, ₹50, ₹100): drivers and vendors chronically 'have no change' for ₹500s. Break big notes at supermarkets, chain stores, and fuel stations whenever possible.",
+      cardAcceptance:
+        "Cards work at hotels, mid-range-and-up restaurants, malls, supermarkets, and chain stores in cities — Visa and Mastercard primarily, Amex at upscale venues only. But India's real payment revolution is UPI: QR codes at every stall and rickshaw. Foreign tourists can access UPI via prepaid wallets (UPI One World) issued against your passport at major airports and some banks — worth doing for a longer trip.",
+      atmAvailability:
+        "ATMs are abundant in cities and towns (SBI, HDFC, ICICI, Axis); expect a ₹200–500 foreign-card fee per withdrawal plus your bank's fees, and per-transaction caps around ₹10,000–25,000. Use machines attached to bank branches (skimming is rarer), withdraw larger amounts less often, and decline dynamic currency conversion — always choose INR. Carry a backup card; ATMs do run dry during festival weeks.",
+      tippingNorms:
+        "Tipping ('baksheesh') is customary but modest: 5–10% in restaurants (check whether a service charge is already added), ₹50–100 per bag for porters, ₹100–300/day for drivers, ₹50–100 for hotel housekeeping. Small tips smooth countless interactions, but never feel obligated by demanded baksheesh for unrequested 'help'.",
+      commonScams: [
+        "'Your hotel is closed / burned down / fully booked' from taxi and rickshaw drivers, who then deliver you to a commission-paying hotel. Your hotel is fine — insist, or call it on speaker.",
+        "Fake 'official tourist offices' around Delhi's New Delhi station and Connaught Place that rebook your entire trip at huge markups. Government offices don't have touts recruiting outside.",
+        "The Jaipur/Agra gem scam — 'export gems home and resell them for profit, just pay the duty.' The gems are glass; the courtship can take days of friendly hospitality first.",
+        "Inflated rickshaw fares and 'the meter is broken' — agree fares before boarding or use Uber/Ola; airport prepaid-taxi counters are the legitimate fixed-price option.",
+        "Unofficial 'guides' and queue-jumpers at the Taj Mahal and major forts selling 'skip the line' access that doesn't exist — buy tickets only from official counters or the ASI online portal.",
+      ],
+    },
+
+    notes: [
+      { denomination: "10 INR", color: "Chocolate Brown", figure: "Gandhi (obverse), Konark Sun Temple (reverse)" },
+      { denomination: "20 INR", color: "Greenish Yellow", figure: "Gandhi (obverse), Ellora Caves (reverse)" },
+      { denomination: "50 INR", color: "Fluorescent Blue", figure: "Gandhi (obverse), Hampi stone chariot (reverse)" },
+      { denomination: "100 INR", color: "Lavender", figure: "Gandhi (obverse), Rani ki Vav stepwell (reverse)" },
+      { denomination: "200 INR", color: "Bright Yellow", figure: "Gandhi (obverse), Sanchi Stupa (reverse)" },
+      { denomination: "500 INR", color: "Stone Grey", figure: "Gandhi (obverse), Red Fort (reverse) — the largest note in practical circulation" },
+    ],
+
+    exchangeGuide:
+      "The rupee is a closed currency — you can't legally import or export more than ₹25,000, so exchange happens after you land. Airport counters work but run 3–5% worse than city rates; change only arrival money there (₹2,000–3,000). In cities, RBI-licensed money changers (look for the license display) and banks give fair rates — count notes at the counter and keep encashment receipts, which you'll need to convert leftover rupees back on departure. ATMs are often simpler than carrying foreign cash. For real money movement — family support, property, NRI accounts — India is the world's largest remittance market, and specialists (Wise, Remitly, Instarem) deliver INR at rates 2–6% better than banks; compare on the final rupee amount.",
+
+    sports: {
+      overview:
+        "Cricket isn't India's national sport so much as its second religion — the IPL (March–May) is the world's richest cricket league, and match night in any city means packed streets and roaring TVs. Attending a game at Mumbai's Wankhede or Kolkata's 66,000-seat Eden Gardens is electric and cheap by Western sports standards (tickets from ₹500–1,000). Beyond cricket: kabaddi, the indigenous tag-wrestling hybrid, runs a glossy Pro Kabaddi League; field hockey carries Olympic heritage; and football has growing pockets of fervor in Kolkata, Kerala, and the northeast. Yoga, of course, is India's original export — Rishikesh is its self-styled world capital.",
+      highlights: [
+        "IPL cricket (March–May) — book via official team apps/BookMyShow; Eden Gardens in Kolkata and Wankhede in Mumbai are the cathedral experiences.",
+        "Pro Kabaddi League (varies, typically late year) — fast, gladiatorial, and a uniquely Indian arena night out.",
+        "International cricket (Oct–Mar) — Test matches and ODIs across the season; even neutral fixtures fill stadiums.",
+        "Yoga at the source — Rishikesh ashrams offer drop-in classes to month-long teacher trainings in the Himalayan foothills.",
+      ],
+    },
+
+    bestTime:
+      "October to March is the golden window for most of India — dry, sunny, and comfortable across the plains, Rajasthan, and the south (December–January can be genuinely cold in Delhi and foggy enough to delay trains and flights). April to June is brutally hot (45°C+ in the northern plains) — this is when you head to the Himalayan hill stations instead (Ladakh's roads open June–September). The southwest monsoon sweeps June to September: Kerala and Goa turn lush and quiet, but transport disruptions are real. Festival timing cuts both ways — Diwali (Oct/Nov) and Holi (March) are spectacular but booked solid.",
+    visa:
+      "Nearly all visitors — including US, UK, EU, and Australian passport holders — need a visa, and the e-Visa is the standard route: apply at the official indianvisaonline.gov.in (beware lookalike scam sites that charge double), at least 4–7 days before travel. The 30-day double-entry e-Tourist visa runs ~$25, the 1-year multiple-entry ~$40, and the 5-year ~$80. You'll need a passport photo and passport scan; approval comes by email and is verified on arrival at e-Visa-enabled airports. Japan and a handful of countries get visa-on-arrival; check current rules before booking.",
+    safety:
+      "India's headline risks for visitors are mundane: traffic (cross roads with locals, never assume right of way), food and water hygiene (bottled water with sealed caps, hot fresh food), and scams rather than crime. Violent crime against tourists is rare. Women travelers should take standard precautions amplified — modest dress, pre-booked transport at night (Uber/Ola with shared trip status), women-only train carriages and metro cars where offered. Air quality in Delhi and the northern plains is seriously poor November–January; sensitive travelers should pack masks. Emergency number: 112.",
+    highlights: [
+      {
+        name: "Delhi",
+        summary:
+          "Mughal Old Delhi (Jama Masjid, Red Fort, Chandni Chowk's food lanes) against imperial New Delhi (Humayun's Tomb, Qutub Minar). Chaotic, fascinating, and the usual landing point — give it 2–3 days and use the excellent metro.",
+      },
+      {
+        name: "Agra & the Taj Mahal",
+        summary:
+          "The Taj at sunrise justifies every cliché — book the first slot online, then add Agra Fort and (en route to Jaipur) the ghost city of Fatehpur Sikri. Doable as a day trip from Delhi by the Gatimaan Express, better overnight.",
+      },
+      {
+        name: "Rajasthan",
+        summary:
+          "Jaipur's pink old city and Amber Fort, blue-washed Jodhpur, romantic Udaipur on its lakes, and golden Jaisalmer at the Thar desert's edge — India's most-traveled circuit for good reason. Allow a week minimum.",
+      },
+      {
+        name: "Varanasi",
+        summary:
+          "Hinduism's holiest city — dawn boat rides past the ghats, the evening Ganga Aarti fire ceremony, and 3,000 years of continuous urban life. Intense, profound, and not a place for cameras at the cremation ghats.",
+      },
+      {
+        name: "Kerala",
+        summary:
+          "Houseboat nights on the Alleppey backwaters, tea plantations in Munnar, Fort Kochi's colonial lanes, and India at its most relaxed. The gentlest introduction to the country — many seasoned travelers start here.",
+      },
+      {
+        name: "Goa",
+        summary:
+          "Former Portuguese enclave with India's best beaches — quieter Palolem and Agonda in the south, livelier Anjuna and Vagator north — plus whitewashed churches and a distinct Indo-Portuguese food culture. Season: November–February.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$20–$35 USD per day",
+      midRange: "$40–$80 USD per day",
+      luxury: "$150+ USD per day",
+      note:
+        "Backpacker assumes guesthouses, thali meals and street food, sleeper-class trains, and rickshaws. Mid-range covers solid 3-star hotels, restaurant meals, AC train classes or domestic flights, and a private driver day or two. Luxury in India over-delivers — former palaces in Rajasthan cost what chain hotels cost elsewhere. Mumbai, Delhi, and Goa in season run well above the baseline.",
+    },
+
+    faqs: [
+      {
+        question: "How much is the Indian Rupee worth in 2026?",
+        answer:
+          "As of June 2026, 1 USD buys roughly 89 INR and £1 roughly 118 INR. For scale: a thali lunch costs ₹100–250, an auto-rickshaw hop ₹50–150, a Delhi metro ride ₹20–60, and a mid-range hotel double ₹2,500–5,000. The rupee is a closed currency — you exchange after arrival in India, not at home.",
+      },
+      {
+        question: "Can tourists use UPI in India?",
+        answer:
+          "Yes — since 2023–24, foreign visitors can get prepaid UPI wallets (the 'UPI One World' scheme) issued against their passport and visa at major international airports and selected bank counters, loadable with cash or card. It lets you scan the QR codes that dominate Indian payments, from rickshaws to chai stalls. For shorter trips, cash plus cards covers everything; for stays over a couple of weeks, UPI access is genuinely game-changing.",
+      },
+      {
+        question: "Do Americans need a visa for India?",
+        answer:
+          "Yes — virtually all Western passport holders need one, and the e-Visa is the standard route. Apply only at the official indianvisaonline.gov.in site (lookalike sites overcharge): ~$25 for the 30-day double-entry e-Tourist visa, ~$40 for 1 year, ~$80 for 5 years. Apply at least 4–7 days before flying; approval arrives by email and is checked on arrival at e-Visa-enabled airports.",
+      },
+      {
+        question: "Is India cheap to travel in 2026?",
+        answer:
+          "India is among the cheapest rewarding destinations on earth. Backpackers travel well on $20–$35 a day; mid-range travelers on $40–$80 get good 3-star hotels, restaurant meals, and AC trains. The luxury tier is the world's best value — Rajasthan palace hotels for the price of an airport chain elsewhere. Big cities and Goa in peak season cost meaningfully more than the small-town baseline.",
+      },
+      {
+        question: "How do I avoid getting scammed in Delhi?",
+        answer:
+          "Three rules cover most of it: never believe 'your hotel is closed/burned down' (it isn't — it's a commission redirect), never follow anyone to an 'official tourist office' (government offices don't recruit at stations), and use Uber/Ola or prepaid taxi counters instead of negotiating with touts. Around the big monuments, buy tickets only at official counters or the ASI online portal.",
+      },
+      {
+        question: "Is the water safe to drink in India?",
+        answer:
+          "No — drink only bottled water with an intact seal, filtered water from reputable hotels, or use a purifier bottle. Skip ice outside upscale establishments, peel fruit yourself, and ease into street food via the busiest stalls (high turnover means fresh food). Most 'Delhi belly' comes from water, raw items, and ambitious day-one street-food choices.",
+      },
+      {
+        question: "How much cash should I carry in India?",
+        answer:
+          "₹2,000–4,000 a day in mixed small denominations covers most mid-range travel needs, with cards/UPI handling hotels and bigger restaurants. The crucial habit is hoarding ₹10–100 notes — 'no change' for a ₹500 is a daily occurrence. ATMs charge foreign cards ₹200–500 per withdrawal, so pull out larger sums less often, from machines attached to bank branches.",
+      },
+      {
+        question: "What's the best eSIM for India?",
+        answer:
+          "Airalo, Holafly, and Nomad offer India eSIMs from roughly $10–$30 riding on Airtel/Jio networks — far simpler than the local-SIM route, which requires passport registration and can take hours. Note that data-only eSIMs don't give you an Indian number, which some services (and UPI apps) want — for long stays, an Airtel/Jio tourist SIM from an official airport counter is worth the paperwork.",
+      },
+      {
+        question: "Is India safe for solo female travelers?",
+        answer:
+          "Many thousands travel India solo successfully, with precautions dialed up: modest dress, pre-booked transport after dark (Uber/Ola with trip-sharing), women-only metro carriages and train compartments where offered, and accommodations chosen for reviews by other women travelers. Kerala, Himachal Pradesh, and the established Rajasthan circuit are commonly cited as gentler starting points than Delhi. Trust instincts over politeness, always.",
+      },
+      {
+        question: "What's the cheapest way to send money to India?",
+        answer:
+          "India is the world's largest remittance market — over $100 billion a year — and competition is fierce: Wise, Remitly, Instarem, and others deliver INR at 2–6% better than bank wire rates. Transfers typically land in Indian accounts within minutes to hours via IMPS/UPI rails. Compare on the final INR amount delivered, not the advertised fee — the exchange-rate margin is where the cost hides.",
+      },
+    ],
+
+    relatedCorridorSlug: "usa-to-india",
+  },
 };
 
 export function getTravelGuide(slug: string): TravelGuideContent | undefined {
