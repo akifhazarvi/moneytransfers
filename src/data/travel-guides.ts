@@ -1529,6 +1529,786 @@ export const travelGuides: Record<string, TravelGuideContent> = {
 
     relatedCorridorSlug: "usa-to-india",
   },
+
+  mexico: {
+    slug: "mexico",
+    countryName: "Mexico",
+    countryCode: "mx",
+    region: "North America",
+    currency: "MXN",
+    currencyName: "Mexican Peso",
+    currencySymbol: "$",
+    topSourceCurrencies: ["USD", "CAD", "EUR", "GBP"],
+    capital: "Mexico City",
+    languages: ["Spanish"],
+    callingCode: "+52",
+    plugTypes: ["A", "B"],
+    voltage: "127V / 60Hz",
+    timezone: "Mostly CST (UTC-6); no DST in most of the country",
+
+    tldr:
+      "Mexico uses the Mexican Peso ($, MXN) — as of June 2026, 1 USD is worth roughly 19 MXN. Watch the symbol: prices marked '$' are pesos, not dollars. Cards work in cities and resorts, but markets, street tacos, tips, and small towns run on cash — withdraw from bank ATMs inside branches (BBVA, Banorte, Santander), never standalone machines, and always choose to be charged in MXN. Tipping 10–15% in restaurants is genuinely expected, unlike much of Latin America.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "Mexico is in the global spotlight in 2026: it co-hosts the FIFA World Cup this June and July, with Mexico City's Estadio Azteca becoming the first stadium ever to open three World Cups (1970, 1986, 2026). Beyond the football, this is one of the world's great travel countries — Mexico City's museums and food scene rival any capital on earth, the Yucatán pairs Maya pyramids with Caribbean beaches, and Oaxaca may be the best eating city in the Americas. It's also excellent value: tacos al pastor run 15–25 pesos each, a Mexico City metro ride costs 5 pesos (about $0.25), and a good mid-range hotel room is $50–90.\n\nThis guide covers the money layer — the peso's '$' confusion trap, which ATMs skim tourists, why you should always pay in pesos rather than dollars — plus eSIM picks, tipping culture (it's real here), regional safety honestly addressed, and what Mexico costs per day in 2026. Sending money to or from Mexico? It's the world's second-largest remittance corridor, and our live comparison shows who delivers the most pesos.",
+    keyStats: [
+      { label: "Currency", value: "Mexican Peso ($, MXN)" },
+      { label: "Typical daily cost (mid-range)", value: "$60–$120 USD" },
+      { label: "Best time to visit", value: "November – April (dry season)" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "Visa-free up to 180 days" },
+      { label: "Power", value: "127V / 60Hz, plug types A, B (US-style)" },
+      { label: "Tipping", value: "10–15% in restaurants — expected" },
+    ],
+
+    culture: {
+      overview:
+        "Mexican culture is warm, unhurried, and deeply courteous — greetings matter ('buenos días' before any request), patience is a virtue, and directness without warmth reads as rude. Family is the central institution, lunch ('comida') is the main meal eaten around 2–4pm, and dinner runs late. National pride is strong and historically literate: Mexicans are warmly hospitable to visitors but sensitive to being treated as a backdrop — learn a few Spanish phrases and you'll be met more than halfway. Catholic tradition blends with indigenous heritage everywhere, most visibly in Día de Muertos (November 1–2), which is a family remembrance, not 'Mexican Halloween'.",
+      dos: [
+        "Open every interaction with a greeting — 'buenos días/tardes' before asking for anything. Transactional bluntness lands poorly.",
+        "Tip consistently: 10–15% in restaurants, 10–20 pesos for grocery baggers and gas-station attendants (they often work for tips alone), and small notes for porters and housekeeping.",
+        "Eat where the lines are — busy taquerías and market fondas with high turnover are both the best and the safest food in the country.",
+        "Use Uber, DiDi, or official 'sitio' taxis in cities, and authorized prepaid taxi counters at airports — it removes both haggling and safety doubt.",
+        "Carry small bills — breaking a 500-peso note at a market stall or taco stand is a genuine struggle; hoard 20s, 50s, and coins.",
+      ],
+      donts: [
+        "Don't assume '$' means US dollars — it's the peso sign. A '$250' meal is about $13 USD. Menus in Cancún sometimes price in USD to confuse exactly this; check which currency applies.",
+        "Don't pay in US dollars where pesos are accepted — the street-level conversion rate baked into dollar prices is usually 5–15% against you.",
+        "Don't drink tap water — locals don't either. Bottled or filtered ('agua purificada') everywhere; ice in established restaurants is commercially made and fine.",
+        "Don't flash valuables, leave phones on café tables, or wander unlit streets late at night — standard big-city rules apply with a bit more weight here.",
+        "Don't treat Día de Muertos as a costume party or photograph family altars and cemetery vigils without asking — it's an intimate family occasion.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash is essential outside hotels and malls: street food, markets, colectivos, tips, tolls, smaller towns, and many mom-and-pop restaurants are cash-only. Keep a daily float of 500–1,000 pesos in small denominations. Coins matter for buses, baggers, and propinas.",
+      cardAcceptance:
+        "Visa and Mastercard work in city restaurants, hotels, supermarkets, chains, and resort zones; contactless is now standard. Amex is limited to upscale venues. Card terminals sometimes 'helpfully' offer to charge in USD — always choose MXN. In Cancún and tourist corridors, confirm whether menu prices are MXN or USD before ordering.",
+      atmAvailability:
+        "Use bank ATMs (BBVA, Banorte, Santander, Banamex) physically attached to branches — skimming risk is real at standalone machines in convenience stores and tourist strips. Fees run 30–100 MXN per withdrawal plus your bank's cut, so withdraw larger amounts less often. Decline the machine's exchange-rate 'offer' (DCC) every time: choosing MXN saves 3–8%.",
+      tippingNorms:
+        "Tipping ('propina') is a real obligation here: 10–15% in restaurants (15% standard for good service — check the bill, service is occasionally added in resorts), 10–20 pesos for supermarket baggers and gas attendants, 20–50 pesos per bag for porters, 50–100 pesos/day for housekeeping and tour guides more. Taxi drivers aren't tipped unless they help with luggage.",
+      commonScams: [
+        "Taxi overcharging and unlicensed cabs — use Uber/DiDi (cheap, tracked) or authorized airport prepaid counters; never hail street cabs at night in unfamiliar cities.",
+        "The dollar-peso switcheroo — bills or change calculated 'in dollars' at terrible rates, or a $500 peso note you handed over 'becoming' a $50. State denominations aloud and count change.",
+        "Card skimming — at standalone ATMs and occasionally restaurants where the card disappears from view. Use branch ATMs and keep cards in sight; contactless avoids most of it.",
+        "Timeshare and 'free tour/breakfast' hustles in Cancún and Cabo — the free thing costs you a half-day of high-pressure sales. Just decline the clipboard people at the airport exit.",
+        "Inflated 'gringo pricing' at markets and for artisan goods — friendly bargaining is normal at markets (start around 60–70% of the ask); fixed-price shops are fixed.",
+      ],
+    },
+
+    notes: [
+      { denomination: "50 MXN", color: "Purple / Pink", figure: "Axolotl and Xochimilco canals — the polymer note that went viral for its design" },
+      { denomination: "100 MXN", color: "Red", figure: "Sor Juana Inés de la Cruz (obverse), monarch butterfly reserve (reverse)" },
+      { denomination: "200 MXN", color: "Green", figure: "Independence heroes Hidalgo and Morelos (obverse), El Pinacate desert (reverse)" },
+      { denomination: "500 MXN", color: "Blue", figure: "Benito Juárez (obverse), grey whale of the Pacific coast (reverse)" },
+      { denomination: "1,000 MXN", color: "Ochre / Brown", figure: "Revolution figures Madero, Galindo and Serdán (obverse), Calakmul jaguar (reverse) — rarely seen in daily use" },
+    ],
+
+    exchangeGuide:
+      "Skip exchanging cash at home or at airport counters (5–10% off mid-market). The efficient setup is a no-foreign-fee card for hotels and restaurants plus peso withdrawals from branch-attached bank ATMs — that combination lands within 1–2% of the real rate. If you do carry USD cash as backup, exchange at a casa de cambio in town rather than the airport, and always spend pesos, not dollars: dollar acceptance in tourist zones embeds a poor rate. For real transfers — the USA–Mexico corridor is the second-largest remittance flow on earth — Wise, Remitly, and similar specialists deliver MXN at rates 2–6% better than banks or cash-pickup counters; compare on the final peso amount.",
+
+    sports: {
+      overview:
+        "Fútbol rules Mexico, and in summer 2026 the country co-hosts the FIFA World Cup — matches run in Mexico City (Estadio Azteca, the first stadium to stage three World Cups), Guadalajara, and Monterrey through June and July, with prices and crowds to match in those cities. Year-round, Liga MX fills stadiums (the Clásico Nacional between Chivas and América is the fixture), and a night at Arena México for lucha libre — masked wrestling that's equal parts sport, theatre, and family night out — is the great Mexico City entertainment bargain. Boxing runs deep (Mexico has produced more world champions than almost any nation), baseball thrives in the north and Yucatán, and charrería — competitive horsemanship — is the official national sport.",
+      highlights: [
+        "FIFA World Cup 2026 (June–July) — Estadio Azteca, Guadalajara's Estadio Akron, and Monterrey's Estadio BBVA host matches; expect peak pricing in host cities.",
+        "Lucha libre at Arena México (Tuesdays and Fridays, CDMX) — tickets from a few hundred pesos; buy at the box office, masks sold outside.",
+        "Liga MX football (two short seasons, year-round) — Clásico fixtures sell out; ordinary matchdays are cheap and easy via official club sites.",
+        "Charrería and baseball — charreadas (rodeo-style competitions) on weekends around Guadalajara; Liga Mexicana baseball summers, winter league in the northwest.",
+      ],
+    },
+
+    bestTime:
+      "November to April is the dry season and the ideal window almost everywhere — warm days, cool highland nights (Mexico City sits at 2,240m; pack a layer), and Caribbean water at its clearest. May to October brings rain (usually afternoon bursts, not washouts) and hurricane risk on both coasts from June through November, peaking August–October. Summer 2026 is a special case: World Cup crowds and prices hit Mexico City, Guadalajara, and Monterrey in June–July. Día de Muertos (November 1–2, biggest in Oaxaca and Pátzcuaro) and Semana Santa are spectacular but book out months ahead.",
+    visa:
+      "US, UK, EU, Canadian, Australian, and most other Western passport holders need no visa for tourism — entry is granted on arrival for up to 180 days, though immigration officers now routinely stamp shorter periods (30–90 days) based on your stated plans, so have your return ticket and accommodation details ready. The old paper FMM tourist card has been phased out at most airports in favor of a passport stamp or digital record. Land entries from the US technically require the fee-paid permit for stays beyond 7 days. Overstays mean fines at departure.",
+    safety:
+      "Mexico requires honest nuance: the tourist economy — CDMX's central districts, Oaxaca, the Yucatán corridor, Baja's resorts — functions safely for millions of visitors a year, while specific states carry serious advisories (check your government's current list; the worst-affected areas are mostly far from tourist routes). Practical rules: use Uber/DiDi instead of street taxis, don't drive rural highways at night, keep flash low, and treat late-night solo wandering like you would in any unfamiliar big city. Petty theft outranks violent crime as the realistic tourist risk. Earthquakes are a fact of life in CDMX — note your hotel's evacuation route. Emergency number: 911.",
+    highlights: [
+      {
+        name: "Mexico City",
+        summary:
+          "The Zócalo and Templo Mayor, Chapultepec's museums (the Anthropology Museum is world-class), Frida Kahlo's Casa Azul (book ahead), Roma/Condesa food streets, and the Teotihuacán pyramids an hour out. 4 days minimum.",
+      },
+      {
+        name: "Oaxaca",
+        summary:
+          "Mexico's culinary capital — moles, tlayudas, mezcal palenques — plus the Monte Albán ruins, artisan villages, and the country's most intense Día de Muertos. Many travelers' favorite city in the country.",
+      },
+      {
+        name: "Yucatán Peninsula",
+        summary:
+          "Chichén Itzá and quieter Ek Balam, cenote swimming, colonial Mérida and Valladolid, flamingo lagoons at Celestún — with Tulum and Cancún's beaches as the Caribbean bookend.",
+      },
+      {
+        name: "Guadalajara & Tequila",
+        summary:
+          "Mexico's second city — mariachi's birthplace, the Hospicio Cabañas murals, and day trips to the blue-agave fields and distilleries of Tequila town (UNESCO-listed landscape). A 2026 World Cup host city.",
+      },
+      {
+        name: "San Miguel de Allende & the Bajío",
+        summary:
+          "Cobbled colonial streets, the pink Parroquia, and a thriving arts scene — with Guanajuato's tunnels and plazas nearby. Mexico's prettiest highland towns.",
+      },
+      {
+        name: "Baja California Sur",
+        summary:
+          "Cabo's resorts and marine life, La Paz's whale sharks (Oct–Apr), grey-whale encounters in the lagoons (Jan–Mar), and Todos Santos' surf-and-gallery scene.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$30–$50 USD per day",
+      midRange: "$60–$120 USD per day",
+      luxury: "$250+ USD per day",
+      note:
+        "Backpacker assumes hostels, street food and market fondas, and intercity buses (ADO's first-class buses are excellent). Mid-range covers boutique hotels, restaurant meals, domestic flights, and guided day trips. Cancún–Tulum, Los Cabos, and CDMX's top neighborhoods run 30–50% above the national baseline — and World Cup host cities will spike during June–July 2026.",
+    },
+
+    faqs: [
+      {
+        question: "How much is the Mexican Peso worth in 2026?",
+        answer:
+          "As of June 2026, 1 USD buys roughly 19 MXN. For scale: street tacos run 15–25 pesos each, a Mexico City metro ride is 5 pesos, a nice restaurant meal 250–500 pesos, and a mid-range hotel 1,000–1,800 pesos. Watch the symbol — '$' in Mexico means pesos. Always check whether tourist-zone menus are quoting MXN or USD.",
+      },
+      {
+        question: "Should I pay in pesos or US dollars in Mexico?",
+        answer:
+          "Always pesos. Dollars are accepted in Cancún and border zones, but the embedded exchange rate is typically 5–15% against you. The same applies at card terminals and ATMs: when offered a choice, always choose to be charged in MXN, never USD — that 'convenience' (dynamic currency conversion) costs 3–8% per transaction.",
+      },
+      {
+        question: "How much do you tip in Mexico?",
+        answer:
+          "Tipping is genuinely expected: 10–15% in restaurants (15% for good service), 10–20 pesos for supermarket baggers and gas-station attendants — many earn tips only — 20–50 pesos per bag for porters, and 50–100 pesos a day for housekeeping. Taxi drivers aren't tipped for the ride itself. Carry coins and small notes specifically for this.",
+      },
+      {
+        question: "Which ATMs should I use in Mexico?",
+        answer:
+          "Bank ATMs physically attached to branches — BBVA, Banorte, Santander, Banamex — ideally during business hours. Avoid standalone machines in convenience stores and tourist strips, where skimming and worst-case fees concentrate. Expect 30–100 MXN in machine fees, withdraw larger amounts less often, and always decline the offered conversion by choosing MXN.",
+      },
+      {
+        question: "Is Mexico safe for tourists in 2026?",
+        answer:
+          "The places tourists actually go — Mexico City's central districts, Oaxaca, the Yucatán, Baja's resorts — host millions of visitors safely each year, while some states carry genuine government advisories; check the current map before routing off the beaten path. The practical rules: Uber/DiDi over street taxis, no rural night driving, low flash, normal big-city awareness at night. Petty theft is the realistic risk, not the headlines. Emergency: 911.",
+      },
+      {
+        question: "Can I drink tap water in Mexico?",
+        answer:
+          "No — drink bottled or purified water ('agua purificada'), as locals do. Ice in established restaurants and bars is commercially produced from purified water and is fine; street-stall ice is a judgment call. Most hotels provide garrafón (filtered) water. Brushing teeth with tap water is generally fine for most travelers.",
+      },
+      {
+        question: "Is Mexico hosting the 2026 World Cup?",
+        answer:
+          "Yes — Mexico co-hosts with the USA and Canada in June–July 2026. Matches are played at Mexico City's Estadio Azteca (the first stadium ever to feature in three World Cups, having opened 1970 and 1986), Guadalajara's Estadio Akron, and Monterrey's Estadio BBVA. Expect hotel prices and crowds to spike in the three host cities during the tournament window.",
+      },
+      {
+        question: "What's the best eSIM for Mexico?",
+        answer:
+          "Airalo, Holafly, and Nomad sell Mexico eSIMs riding on Telcel's network (the best coverage nationally) — but note Mexico is one of the pricier eSIM markets, at roughly $15–35 depending on data. For US visitors, check your home plan first: many US carriers (T-Mobile, and most Verizon/AT&T plans) include Mexico roaming at no extra cost, which beats any eSIM.",
+      },
+      {
+        question: "How do I get around Mexico between cities?",
+        answer:
+          "First-class buses (ADO, ETN, Primera Plus) are the underrated answer — safe, comfortable, terminal-to-terminal, with assigned seats from roughly 300–800 pesos for major routes. Domestic flights (Aeroméxico, Volaris, VivaAerobus) are cheap if booked ahead and essential for long hops. The new Tren Maya loops the Yucatán's main sites. Avoid self-driving rural highways at night.",
+      },
+      {
+        question: "What's the cheapest way to send money to Mexico?",
+        answer:
+          "USA-to-Mexico is the world's second-largest remittance corridor (over $60 billion a year), and competition keeps it cheap: Wise, Remitly, and similar specialists deliver MXN at 2–6% better than banks or traditional cash-counter services, typically arriving in minutes to a Mexican account or for cash pickup at OXXO, Elektra, and bank branches. Compare on the final peso amount delivered — the margin hides in the rate, not the fee.",
+      },
+    ],
+
+    relatedCorridorSlug: "usa-to-mexico",
+  },
+
+  japan: {
+    slug: "japan",
+    countryName: "Japan",
+    countryCode: "jp",
+    region: "East Asia",
+    currency: "JPY",
+    currencyName: "Japanese Yen",
+    currencySymbol: "¥",
+    topSourceCurrencies: ["USD", "EUR", "GBP", "AUD"],
+    capital: "Tokyo",
+    languages: ["Japanese"],
+    callingCode: "+81",
+    plugTypes: ["A", "B"],
+    voltage: "100V / 50–60Hz",
+    timezone: "JST (UTC+9)",
+
+    tldr:
+      "Japan uses the Japanese Yen (¥, JPY) — as of June 2026, 1 USD is worth roughly 150 JPY, and the weak yen has made Japan better value than it's been in decades. The old 'cash-only Japan' is fading: cards and tap-to-pay IC cards (Suica/Pasmo, loadable on iPhones) now cover cities, but shrines, ramen ticket machines, and rural areas still want cash — which you pull fee-transparent from 7-Eleven or Japan Post ATMs. One rule above all: don't tip. It's not done, anywhere.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "Japan has been the world's trending destination since reopening — record-breaking visitor numbers year after year — and the weak yen is a big part of why: a bowl of world-class ramen is ¥900–1,300 ($6–9), a 7-Eleven meal that would embarrass most Western cafés is ¥500–800, and immaculate business hotels run $60–100 a night. Layer onto that the Shinkansen network (Tokyo–Kyoto in 2h15), cities that are simultaneously the world's largest and safest, and a culture of hospitality (omotenashi) with no tipping anywhere, and Japan over-delivers at every budget.\n\nThis guide covers the money reality of 2026 Japan — how far cards and Suica actually reach, where cash is still non-negotiable, what the 2024-redesigned banknotes look like, and why the JR Pass is no longer the automatic buy it once was — plus eSIM picks, etiquette that actually matters (trains, onsen, chopsticks), and honest daily budgets. Moving bigger sums to or from a Japanese account? Our comparison shows what actually arrives.",
+    keyStats: [
+      { label: "Currency", value: "Japanese Yen (¥, JPY)" },
+      { label: "Typical daily cost (mid-range)", value: "$90–$160 USD" },
+      { label: "Best time to visit", value: "March – May & October – November" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "Visa-free 90 days" },
+      { label: "Power", value: "100V / 50–60Hz, plug types A, B" },
+      { label: "Tipping", value: "Never — it can cause genuine confusion" },
+    ],
+
+    culture: {
+      overview:
+        "Japanese social life is built around consideration for the group: queues are immaculate, trains are silent, litter is carried home (public bins are rare — a surprise to most visitors), and causing inconvenience ('meiwaku') is the cardinal sin. None of this is hostile to outsiders — allowances are made for visitors constantly — but observing the basics earns real warmth. Politeness is structural: bowing is the default greeting (a nod suffices from foreigners), shoes come off at homes, temples, ryokan, and some restaurants, and money changes hands via the small tray at every register rather than hand-to-hand.",
+      dos: [
+        "Stay quiet on trains — phones on silent ('manner mode'), no calls, conversations at a murmur. The quiet is collective and sacred.",
+        "Carry your rubbish until you find a bin (convenience stores have them) — public bins are rare and streets are spotless anyway.",
+        "Take your shoes off where indicated — genkan entryways at homes, ryokan, temples, fitting rooms, and some izakaya. Slip-on shoes make life easier.",
+        "Use the cash tray at checkouts — place money on it rather than handing it over; your change arrives the same way, counted in front of you.",
+        "Learn onsen rules before bathing: wash thoroughly at the seated stations first, enter the bath naked (no swimsuits), keep the small towel out of the water, and tie up long hair.",
+      ],
+      donts: [
+        "Don't tip — not in restaurants, taxis, or hotels. It's not part of the culture and staff will often chase you down to return 'forgotten' money.",
+        "Don't stick chopsticks upright in rice or pass food chopstick-to-chopstick — both mirror funeral rites and genuinely jar.",
+        "Don't eat while walking in most contexts — eat at the stall, the konbini bench, or stand to the side. (Festival streets are the exception.)",
+        "Don't talk on your phone on trains or blast speakerphone anywhere public.",
+        "Don't expect tattoos to pass unnoticed at every onsen — acceptance is growing and many baths now allow them, but check policies or book a private bath ('kashikiri') if heavily inked.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash is no longer king but remains essential backup: shrine and temple offerings and goshuin stamps, ramen ticket-machine shops, older izakaya, market stalls, rural towns, and some taxis run cash-only. ¥10,000–20,000 in your wallet covers several days of gaps. The ¥500 coin (~$3.30) is real money — keep a coin pouch.",
+      cardAcceptance:
+        "Visa and Mastercard now work across city restaurants, hotels, department stores, chains, and taxis; contactless tap has spread fast since the pandemic. The parallel system is IC transit cards — Suica/Pasmo (and mobile Suica in Apple/Google Wallet, loadable with foreign cards) — which pay for trains, buses, vending machines, and convenience stores with a tap. Between a credit card and mobile Suica, city Japan is functionally cashless.",
+      atmAvailability:
+        "The reliable foreign-card ATMs are at 7-Eleven (Seven Bank, 24/7, English menus) and Japan Post offices — both accept nearly every international card with modest fees (¥110–220) and fair rates. Many regular Japanese bank ATMs still reject foreign cards entirely, so don't wait until rural Sunday night to find out. Decline any dynamic currency conversion; choose JPY.",
+      tippingNorms:
+        "Don't tip — anywhere, ever. Service is included in the price and delivered with pride; leaving money behind causes confusion, and staff will chase you to return it. The polite alternative is verbal: 'gochisousama deshita' (thank you for the meal) on the way out. High-end ryokan with private attendants are the one nuanced exception, and even there it's optional, given in an envelope, and never expected.",
+      commonScams: [
+        "Kabukicho/Roppongi bar touts in Tokyo — street invitations to 'free' or cheap bars that end in astronomical bills, with drink-spiking cases on record. Never follow a tout into a venue; this is Japan's one serious tourist trap.",
+        "Fake monks 'selling' golden amulets and demanding donations around tourist sites — real monks don't solicit aggressively.",
+        "Dynamic currency conversion at terminals and ATMs — choose yen, always.",
+        "Tax-free shopping confusion — the 10% consumption-tax waiver requires your passport at purchase and items technically sealed for export; rules tightened recently, so keep receipts with your passport.",
+        "Overpriced 'tourist information' tours near major stations — official tourist information centers are marked with the national 'i' logo and don't hard-sell.",
+      ],
+    },
+
+    notes: [
+      { denomination: "1,000 JPY", color: "Blue", figure: "Kitasato Shibasaburō, pioneer of bacteriology (obverse), Hokusai's Great Wave (reverse) — 2024 series" },
+      { denomination: "5,000 JPY", color: "Purple", figure: "Tsuda Umeko, women's-education pioneer (obverse), wisteria blooms (reverse) — 2024 series" },
+      { denomination: "10,000 JPY", color: "Brown", figure: "Shibusawa Eiichi, 'father of Japanese capitalism' (obverse), Tokyo Station (reverse) — 2024 series" },
+      { denomination: "2,000 JPY", color: "Green", figure: "Shureimon Gate, Okinawa — a rarity in circulation; vending machines often reject it" },
+    ],
+
+    exchangeGuide:
+      "Don't exchange cash at home — rates for yen outside Japan are consistently poor. The optimal setup: a no-foreign-fee credit/debit card for shops and hotels, mobile Suica for transit and small taps, and yen cash withdrawn from 7-Eleven or Japan Post ATMs as needed (fair rates, ¥110–220 fees, English menus). Airport exchange counters in Japan are actually reasonable by world standards if you want arrival cash, but the ATM in the arrivals hall beats them. Note that older paper-series notes remain fully valid alongside the 2024 redesigns. For larger transfers — tuition, property, salary repatriation — Wise and similar specialists handle JPY at near mid-market rates, several percent better than international bank wires, though Japanese banks' incoming-transfer compliance checks can add a day or two.",
+
+    sports: {
+      overview:
+        "Baseball, not sumo, is Japan's biggest spectator sport — NPB games are a carnival of coordinated chants, beer vendors with kegs on their backs, and team-specific rituals (Hiroshima and Hanshin fans are legendary), with tickets from ¥2,000. Sumo remains the iconic experience: six 15-day grand tournaments (basho) a year — Tokyo's Ryōgoku Kokugikan in January, May, and September; Osaka in March; Nagoya in July; Fukuoka in November — with same-day upper-deck tickets a viable option if you queue early. The J.League fills football weekends, and Japan's martial-arts traditions (kendo, judo, karate) can be watched or even sampled at local dojos and university practices.",
+      highlights: [
+        "Sumo basho (Jan/May/Sep in Tokyo, Mar Osaka, Jul Nagoya, Nov Fukuoka) — book via the official Oosumo site the moment sales open, or queue early for same-day seats.",
+        "NPB baseball (late March–October) — Hanshin Tigers at Koshien and Hiroshima Carp at home are the bucket-list atmospheres; konbini ticket machines and official sites sell seats.",
+        "Sumo morning practice (asageiko) — some stables and tour operators allow respectful visitors to watch training; book ahead and follow the silence rules.",
+        "J.League football (Feb–Dec) — Urawa Reds and Yokohama F. Marinos draw the biggest crowds; tickets are cheap and family-friendly.",
+      ],
+    },
+
+    bestTime:
+      "Late March to early April is cherry-blossom season — glorious and priced accordingly (Tokyo/Kyoto hotels can triple; book months out). May, and October–November (autumn foliage), are arguably better all-round: warm, clear, and slightly saner. Avoid Golden Week (April 29–May 5) and Obon (mid-August), when the entire country travels at once and trains/hotels max out. June is rainy season (hydrangeas and discounts), summer is hot and humid (but festival season), and winter means powder snow in Hokkaido and Nagano plus the year's clearest Mt. Fuji views.",
+    visa:
+      "US, UK, EU, Canadian, Australian, and NZ passport holders enter visa-free for up to 90 days — a stamp on arrival, no application needed as of 2026 (Japan has discussed a future ETA-style system, but it isn't in force; check before travel). Pre-register immigration and customs on the Visit Japan Web service to skip paper forms with a QR code. Passports must be valid for your stay; visa-free entries are for tourism and can't be converted to work status in-country.",
+    safety:
+      "Japan is one of the safest countries on earth — lost wallets famously return via police boxes (kōban) with cash intact, children commute alone, and violent crime against visitors is vanishingly rare. The actual risks are natural: earthquakes (know your hotel's exits; phones blare official alerts), typhoons August–October, and summer heatstroke. The one human hazard worth naming is the Kabukicho/Roppongi bar-tout scene in Tokyo. Emergency numbers: 110 (police), 119 (fire/ambulance).",
+    highlights: [
+      {
+        name: "Tokyo",
+        summary:
+          "Shibuya and Shinjuku's neon, Asakusa's Sensō-ji temple, Tsukiji's outer market, teamLab's digital art, and day trips to Kamakura or Nikko. Budget 4–5 days and let the train network do the work.",
+      },
+      {
+        name: "Kyoto",
+        summary:
+          "Fushimi Inari's torii gates at dawn, Kinkaku-ji, Arashiyama's bamboo grove, and 1,600 temples of varying fame — plus geisha district Gion at dusk. 3 days minimum; start early to beat the crowds everywhere.",
+      },
+      {
+        name: "Osaka & Nara",
+        summary:
+          "Japan's food capital — Dōtonbori's neon canyon, takoyaki and kushikatsu culture — with Nara's giant Buddha and bowing deer 45 minutes away. The locals are famously the country's most outgoing.",
+      },
+      {
+        name: "Hiroshima & Miyajima",
+        summary:
+          "The Peace Memorial Park and Museum — sobering and essential — then the floating torii gate of Itsukushima Shrine on Miyajima island, best at high tide and sunset.",
+      },
+      {
+        name: "Hakone & Mt. Fuji",
+        summary:
+          "Onsen ryokan, the open-air sculpture museum, and Fuji views across Lake Ashi (clearest in winter mornings). The Hakone Free Pass bundles the loop of trains, cable cars, and pirate ships.",
+      },
+      {
+        name: "Hokkaido",
+        summary:
+          "Sapporo's beer and February Snow Festival, Niseko and Furano's legendary powder skiing, summer lavender fields, and Japan's best seafood — a different Japan, best with a rental car outside winter.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$45–$70 USD per day",
+      midRange: "$90–$160 USD per day",
+      luxury: "$300+ USD per day",
+      note:
+        "Backpacker assumes hostels or capsule hotels, konbini and ticket-machine meals (excellent here), and regional trains. Mid-range covers business hotels (¥9,000–15,000), restaurant meals, and Shinkansen hops booked smartly. The weak yen has cut effective costs 20–30% versus a few years ago. Kyoto in cherry-blossom season and ski-season Niseko price like Switzerland; rural Japan is a bargain.",
+    },
+
+    faqs: [
+      {
+        question: "Is Japan expensive to visit in 2026?",
+        answer:
+          "Less than its reputation — the weak yen (roughly 150 to the US dollar in June 2026) has made Japan cheaper in real terms than it's been in decades. Mid-range travelers do well on $90–$160 a day: business hotels run $60–100, a superb ramen is $6–9, and a 7-Eleven meal under $6. The big-ticket items are Shinkansen rides and peak-season (cherry blossom, Golden Week) hotels.",
+      },
+      {
+        question: "Do I need cash in Japan or do cards work now?",
+        answer:
+          "Cards and tap-to-pay now cover most of urban Japan — the cash-only stereotype is years out of date — but you still need yen for shrines and temples, ramen ticket machines, market stalls, older izakaya, and rural areas. Carry ¥10,000–20,000 as a buffer and reload from 7-Eleven or Japan Post ATMs, which reliably accept foreign cards with English menus and small fees.",
+      },
+      {
+        question: "Do you tip in Japan?",
+        answer:
+          "No — never, anywhere. Tipping isn't part of Japanese culture; prices include service delivered with professional pride, and staff will often run after you to return money 'left behind'. Say 'gochisousama deshita' after a meal instead. The only nuanced exception is a high-end ryokan attendant, where an envelope-presented gratuity is acceptable but still never expected.",
+      },
+      {
+        question: "What is a Suica card and do I need one?",
+        answer:
+          "Suica (and Pasmo) are rechargeable tap-to-pay IC cards that cover virtually all trains, subways, and buses nationwide — plus vending machines, convenience stores, and lockers. The easiest version is mobile: add Suica to Apple Wallet or Google Wallet in seconds and top up with a foreign credit card, no physical card needed. Tourist 'Welcome Suica' physical cards are available at airports. It's the single biggest quality-of-life upgrade for a Japan trip.",
+      },
+      {
+        question: "Is the Japan Rail Pass still worth it?",
+        answer:
+          "Often not anymore — the JR Pass price rose roughly 70% in late 2023, so the 7-day national pass only pays off with heavy long-distance travel (think Tokyo–Kyoto–Hiroshima–Tokyo within a week). For a classic Tokyo–Kyoto–Osaka trip, individual Shinkansen tickets or regional passes (JR West, JR East area passes) are usually cheaper. Do the arithmetic on a fare calculator before buying.",
+      },
+      {
+        question: "Do Americans need a visa for Japan?",
+        answer:
+          "No — US, UK, EU, Canadian, Australian, and NZ passports get 90 days visa-free on arrival as of 2026. Pre-register on Visit Japan Web for QR-code immigration and customs to skip the paper forms. Japan has discussed introducing an ETA-style pre-authorisation in the future, so verify requirements close to your travel date.",
+      },
+      {
+        question: "What do the new Japanese banknotes look like?",
+        answer:
+          "Japan redesigned all notes in July 2024 — the first refresh in 20 years: the blue ¥1,000 (bacteriologist Kitasato Shibasaburō, with Hokusai's Great Wave on the back), purple ¥5,000 (educator Tsuda Umeko), and brown ¥10,000 (industrialist Shibusawa Eiichi, with Tokyo Station). Older notes (Noguchi, Higuchi, Fukuzawa) remain fully valid and circulate side by side. The green ¥2,000 note exists but is rare.",
+      },
+      {
+        question: "What's the best eSIM for Japan?",
+        answer:
+          "Airalo ('Moshi Moshi' plans), Ubigi (backed by NTT, Japan's main carrier — particularly strong here), and Holafly all work well, from roughly $9 for a week of moderate data to $27+ for unlimited. Japan's networks are excellent nationwide. Activate before you fly; pocket-WiFi rental, the old standby, now mainly makes sense for groups sharing one connection.",
+      },
+      {
+        question: "When is cherry blossom season in Japan?",
+        answer:
+          "Late March to early April for Tokyo and Kyoto in a typical year, sweeping north to Hokkaido by early May — but exact timing shifts annually with the weather, and full bloom lasts barely a week in each place. Hotels in Kyoto can triple in price and sell out months ahead. The pragmatic alternatives: plum blossoms (February–March) or autumn foliage (October–November), which is arguably Kyoto's most beautiful season anyway.",
+      },
+      {
+        question: "Can I send money to or from Japan at a good rate?",
+        answer:
+          "Yes — specialists like Wise deliver JPY at near mid-market rates, typically 2–4% better than international bank wires, which matters on big amounts like tuition or rent deposits. One Japan-specific note: incoming international transfers face strict bank compliance checks (expect questions about purpose), and recipient names must match bank records exactly — including the katakana rendering. Compare providers on the final yen amount delivered.",
+      },
+    ],
+
+    relatedCorridorSlug: "japan-to-usa",
+  },
+
+  uae: {
+    slug: "uae",
+    countryName: "United Arab Emirates",
+    countryCode: "ae",
+    region: "Middle East",
+    currency: "AED",
+    currencyName: "UAE Dirham",
+    currencySymbol: "د.إ",
+    topSourceCurrencies: ["USD", "GBP", "EUR", "INR"],
+    capital: "Abu Dhabi",
+    languages: ["Arabic", "English (universally spoken)"],
+    callingCode: "+971",
+    plugTypes: ["G"],
+    voltage: "230V / 50Hz",
+    timezone: "GST (UTC+4)",
+
+    tldr:
+      "The UAE uses the Dirham (د.إ, AED), pegged to the US dollar at exactly 3.6725 AED per USD since 1997 — so for Americans there's zero exchange-rate risk, ever. Dubai and Abu Dhabi are near-cashless: tap a card or phone for everything from the metro to mall food courts, keeping a little cash for souk haggling and tips. The money traps here aren't scams but premiums — alcohol markups, beach-club minimums, and dynamic currency conversion. Always pay in dirhams, never your home currency.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "The UAE compresses superlatives into a country smaller than Scotland: the world's tallest building, busiest international airport, and most multicultural society — nearly 90% of residents are expatriates, which is why English works everywhere and why Dubai doubles as the world's remittance crossroads. It's also two destinations in one: Dubai's vertical spectacle and beach clubs, and Abu Dhabi's statelier circuit of the Sheikh Zayed Grand Mosque, the Louvre Abu Dhabi, and Yas Island's theme parks — with dunes, oases, and serious mountains (Jebel Jais) within day-trip range of both.\n\nThis guide covers money in the Gulf's easiest destination — the dollar peg explained, where cash still matters, what the dirham notes look like, tipping in a service economy built on migrant labor — plus eSIM picks (and the VoIP quirk to know about), cultural ground rules that are stricter than the skyline suggests, and honest daily budgets from hostel to seven-star. Sending money from the UAE? It's one of the world's top remittance-sending nations, and our comparison shows who delivers the most on the other end.",
+    keyStats: [
+      { label: "Currency", value: "UAE Dirham (د.إ, AED) — pegged at 3.6725/USD" },
+      { label: "Typical daily cost (mid-range)", value: "$120–$220 USD" },
+      { label: "Best time to visit", value: "November – March" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "Free visa on arrival, 30–90 days" },
+      { label: "Power", value: "230V / 50Hz, plug type G (UK-style)" },
+      { label: "Tipping", value: "10–15% common; service charge often included" },
+    ],
+
+    culture: {
+      overview:
+        "The UAE runs on a practical compact: a deeply Muslim, traditionally conservative society that hosts a 90%-expat population and millions of tourists, with clear rules about where cosmopolitan norms apply (hotels, beach clubs, licensed venues) and where modesty and decorum are expected (malls, souks, public streets, government buildings, and everywhere in Sharjah). Emiratis themselves — recognizable in white kandura and black abaya — are a small minority and generally formal, courteous, and private. The legal system enforces what other countries leave to etiquette: public profanity, rude gestures, and posting insults online are actual offenses, not faux pas.",
+      dos: [
+        "Dress modestly in public spaces — shoulders and knees covered in malls and souks (signs say so explicitly); swimwear only at pools and beaches. Sharjah is stricter than Dubai.",
+        "Use your right hand for greetings, eating, and handing over items or money; wait for an Emirati woman to extend her hand before offering yours.",
+        "Drink only in licensed venues (hotel bars, restaurants, clubs) and take a taxi back — public drinking and visible drunkenness are offenses, and the UAE has zero tolerance for any alcohol before driving.",
+        "Be discreet and respectful during Ramadan — eating and drinking in public during fasting hours is now legally tolerated in most of Dubai, but doing it subtly is basic courtesy, and many restaurants screen daytime dining.",
+        "Carry your passport copy or Emirates ID equivalent, and ask before photographing people — especially Emirati women and anything government or military.",
+      ],
+      donts: [
+        "Don't show public affection beyond holding hands — kissing in public can genuinely escalate to a police matter.",
+        "Don't swear, make rude gestures, or get into traffic-rage theatrics — offensive language and gestures (including emojis in messages) are prosecutable offenses.",
+        "Don't carry any drugs — the UAE has among the world's strictest laws, covering trace amounts and several common prescription medicines (codeine, some ADHD and anxiety drugs); check the approved list and carry prescriptions.",
+        "Don't photograph government buildings, ports, or military sites, and don't post mocking content about the country or individuals — cybercrime laws cover social media.",
+        "Don't assume Dubai's norms apply everywhere — Sharjah (20 minutes away) is dry and conservative; rules and dress expectations tighten outside the tourist bubble.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash is optional in daily life — useful mainly for souk haggling (cash strengthens your position in the Gold and Spice Souks), small tips, and the odd cafeteria or karak tea stand. Keep AED 100–200 in small notes; everything else taps.",
+      cardAcceptance:
+        "Effectively universal: Visa, Mastercard, Apple/Google Pay work everywhere from the metro and taxis to food courts and corner stores. Amex is widely taken at hotels and malls, less so at independents. The UAE is one of the world's most card-saturated economies — many visitors never touch a banknote.",
+      atmAvailability:
+        "ATMs are everywhere (Emirates NBD, FAB, ADCB, Mashreq) and most charge no local fee for foreign cards — your home bank's fees are the main cost. The dirham's dollar peg means the rate is essentially fixed; the only way to lose is accepting dynamic currency conversion. Always choose AED on screen.",
+      tippingNorms:
+        "Tipping is customary in this service economy: 10–15% in restaurants where no service charge is added (many add 5–10% automatically — check the bill), AED 5–10 for valets, baggers, and delivery drivers, AED 10–20 per bag for porters, and rounding up taxi fares. Service staff are overwhelmingly migrant workers for whom tips matter — small notes are kind currency here.",
+      commonScams: [
+        "Dynamic currency conversion — the one near-universal trap in a low-scam country. At every terminal and ATM, choose AED, never your home currency; the peg means there's no 'rate risk' excuse.",
+        "Fake or low-purity gold outside the regulated souk — buy gold only from licensed Gold Souk dealers and ask for the hallmark and weight receipt; the souk itself is strictly regulated and safe.",
+        "Inflated bar tabs and 'ladies night' hustles in some hotel-district bars — confirm prices before ordering rounds; alcohol markups of 3–5x retail are legal and standard.",
+        "Unofficial 'taxis' touting at malls and tourist spots — use the cream Dubai Taxis, Careem, or Uber; all are metered/app-priced and cheap by Western standards.",
+        "Desert-safari undercutting — rock-bottom safari deals cut corners on insurance and vehicle quality; book mid-tier operators with named reviews for anything involving dune driving.",
+      ],
+    },
+
+    notes: [
+      { denomination: "5 AED", color: "Brown", figure: "Sharjah's Central Souk (older series); newer polymer notes circulate alongside" },
+      { denomination: "10 AED", color: "Green", figure: "Traditional khanjar dagger (older series)" },
+      { denomination: "20 AED", color: "Light Blue", figure: "Dubai Creek Golf & Yacht Club" },
+      { denomination: "50 AED", color: "Purple", figure: "Arabian oryx; newer polymer design honors the UAE's founding" },
+      { denomination: "100 AED", color: "Red / Pink", figure: "Al Fahidi Fort, Dubai's oldest building" },
+      { denomination: "500 AED", color: "Blue", figure: "Jumeirah Mosque — large note; fine in malls, awkward for taxis" },
+    ],
+
+    exchangeGuide:
+      "The dirham has been pegged at exactly 3.6725 to the US dollar since 1997, which removes all timing anxiety — the rate is the rate. Card payments plus fee-free ATM withdrawals cover virtually everything; if you do want cash exchanged, the UAE's exchange houses (Al Ansari, Al Fardan, Lulu Exchange — they're everywhere, serving the remittance economy) offer tight spreads that embarrass airport counters worldwide. The UAE is one of the planet's largest remittance-sending countries, and that competition is your friend: for sending money out — to India, Pakistan, the Philippines, or home — compare exchange houses against digital providers like Wise on the final amount delivered; rates on the big corridors (AED to INR especially) are among the most competitive anywhere.",
+
+    sports: {
+      overview:
+        "The UAE's sporting calendar is built for spectacle. The Formula 1 season finale at Abu Dhabi's Yas Marina Circuit (late November/early December) is the marquee event, with the Dubai Tennis Championships, DP World Tour golf, and world-title boxing and UFC cards filling the winter. The traditional side is more interesting than visitors expect: camel racing — with robot jockeys controlled from chase cars — runs October to April at tracks like Al Marmoom (free to watch at dawn), and falconry is so central to Emirati identity that Abu Dhabi runs the world's largest falcon hospital, which welcomes visitors. Horse racing peaks with the Dubai World Cup at Meydan in late March, one of the world's richest race days.",
+      highlights: [
+        "F1 Abu Dhabi Grand Prix (Yas Marina, late Nov/early Dec) — the season finale; after-race concerts are included with most tickets.",
+        "Camel racing at Al Marmoom and Al Wathba (Oct–Apr, early mornings, free) — robot jockeys, owners racing alongside in 4x4s; gloriously surreal.",
+        "Dubai World Cup at Meydan (late March) — one of horse racing's richest nights, and entry to the general enclosure is cheap.",
+        "Falcon Hospital tour, Abu Dhabi — the world's largest, with hands-on visits; book ahead.",
+      ],
+    },
+
+    bestTime:
+      "November to March is the season: 20–30°C, beach-perfect, with every headline event (F1, Dubai Shopping Festival, World Cup racing) packed into it — and hotel prices at their peak. April and October are shoulder months, hot but workable. June to September is extreme (45°C+ with humidity on the coast) — but the UAE has engineered around it with an entirely indoor summer life, and hotel rates drop 40–60%; a luxury-for-less play if you accept a pool-and-mall rhythm. Ramadan shifts the rhythm of the country (quieter days, festive nights); check dates when planning.",
+    visa:
+      "Easy for most: US, UK, EU, Australian, Canadian, and many other passports get a free visa on arrival — 30 days for most nationalities (extendable), 90 days within 180 for EU/EEA citizens under the standing arrangement. No pre-application, no fee; passports need 6 months' validity. Indian citizens with valid US visas or green cards also qualify for visa on arrival. Rules are generous but check the official ICP/GDRFA sites pre-travel, as allocations differ by passport.",
+    safety:
+      "The UAE is one of the safest countries on earth for visitors — street crime is near-nonexistent, solo female travelers consistently rate it among the most comfortable destinations, and lost property tends to come back. The risks are legal and environmental rather than criminal: strict laws cover alcohol outside licensed venues, drugs (including trace amounts and some prescription medicines — carry prescriptions and check the approved list), public behavior, and social-media posts. Summer heat is a genuine hazard — hydrate and treat midday outdoor plans seriously June–September. Emergency number: 999.",
+    highlights: [
+      {
+        name: "Dubai",
+        summary:
+          "Burj Khalifa's observation decks (book sunset slots ahead), the Dubai Mall and fountains, old Dubai's creek-side souks and abra boat crossings (AED 1), Jumeirah's beaches, and the Museum of the Future. 3–4 days covers the spread.",
+      },
+      {
+        name: "Abu Dhabi",
+        summary:
+          "The Sheikh Zayed Grand Mosque — one of the world's most beautiful buildings, free entry, dress code enforced — plus the Louvre Abu Dhabi, Qasr Al Watan palace, and the Corniche. An easy day trip from Dubai, better as an overnight.",
+      },
+      {
+        name: "Yas Island",
+        summary:
+          "Ferrari World (home of the world's fastest rollercoaster), Warner Bros. World, Yas Waterworld, and the F1 circuit — the Gulf's theme-park capital, with multi-park passes the economical play.",
+      },
+      {
+        name: "The desert",
+        summary:
+          "Dune-bashing safaris, sunrise hot-air ballooning, and overnight Bedouin-style camps in the Dubai Desert Conservation Reserve or Liwa's towering Empty Quarter dunes — the UAE beyond the skyline.",
+      },
+      {
+        name: "Sharjah",
+        summary:
+          "The UAE's culture capital — UNESCO-recognized heritage area, the Museum of Islamic Civilization, and the Rain Room — 20 minutes from Dubai and a window into the pre-boom Gulf. Conservative dress applies.",
+      },
+      {
+        name: "Jebel Jais & Ras Al Khaimah",
+        summary:
+          "The UAE's highest mountain, home to the world's longest zipline (1km of cable at 150km/h+), via ferrata routes, and cool-air hiking — proof the Emirates aren't all sand and glass.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$60–$90 USD per day",
+      midRange: "$120–$220 USD per day",
+      luxury: "$400+ USD per day",
+      note:
+        "Backpacker is viable (hostels exist in Dubai, the metro is cheap, and cafeteria/food-court meals run AED 15–30) but the city fights it. Mid-range covers a 4-star hotel (UAE hotel stock skews high, so stars come cheaper than in Europe), restaurant meals, and attraction tickets. Alcohol is the budget-killer at 3–5x Western prices. Summer rates drop 40–60% off winter peaks.",
+    },
+
+    faqs: [
+      {
+        question: "What is the UAE Dirham worth against the dollar?",
+        answer:
+          "Exactly 3.6725 AED per US dollar — the dirham has been hard-pegged to the USD since 1997, so the rate never moves. A quick mental shortcut: divide dirham prices by 3.7 (AED 100 ≈ $27). For other currencies the rate floats with the dollar: as of June 2026, £1 buys roughly 4.9 AED and €1 roughly 4.2 AED.",
+      },
+      {
+        question: "Do I need cash in Dubai?",
+        answer:
+          "Barely. Cards and phone payments work everywhere — metro, taxis, food courts, corner shops. Keep AED 100–200 in small notes for souk haggling (cash improves your bargaining position), tips for valets and porters, and the AED 1 abra boat across Dubai Creek. ATMs are everywhere and most charge no local fee; just always choose to be charged in AED.",
+      },
+      {
+        question: "How much do you tip in the UAE?",
+        answer:
+          "10–15% in restaurants where no service charge appears on the bill (many add 5–10% automatically — check). AED 5–10 for valets, baggers, and deliveries; AED 10–20 per bag for porters; round up taxis. Tips matter genuinely here — service staff are largely migrant workers supporting families abroad — so small notes are the kindest currency you'll carry.",
+      },
+      {
+        question: "Can you drink alcohol in Dubai?",
+        answer:
+          "Yes — in licensed venues: hotel bars, restaurants, clubs, and licensed stores (tourists can buy retail with a passport). Drinking in public places, public drunkenness, and any alcohol before driving (zero tolerance) are offenses. Prices are the real deterrent: expect AED 40–70 for a pint in a hotel bar. Sharjah, next door, is entirely dry.",
+      },
+      {
+        question: "What can't I do in Dubai? What are the rules?",
+        answer:
+          "The short list: no public affection beyond holding hands, no public swearing or rude gestures (legally enforceable, including online posts), modest dress in malls and public areas (shoulders/knees), no drinking outside licensed venues, no photographing people without consent or government/military sites, and absolute zero tolerance on drugs — including trace amounts and some common prescription medicines, so check the approved list and carry prescriptions.",
+      },
+      {
+        question: "Do Americans need a visa for the UAE?",
+        answer:
+          "No pre-arranged visa: US passport holders (along with UK, Canadian, Australian, and most European citizens) receive a free visa on arrival — 30 days for most, extendable, while EU/EEA citizens get 90 days in any 180. You need 6 months of passport validity. No fee, no application; you're stamped at the e-gates or counter and away.",
+      },
+      {
+        question: "When is the best (and cheapest) time to visit Dubai?",
+        answer:
+          "Best: November to March — 20–30°C, beach weather, and the full events calendar (F1 in Abu Dhabi, Dubai Shopping Festival in January). Cheapest: June to September, when 45°C heat cuts hotel rates by 40–60% and life moves indoors — a legitimate luxury-on-a-budget play if you're happy with pools, malls, and indoor attractions through midday.",
+      },
+      {
+        question: "What's the best eSIM for the UAE — and does WhatsApp calling work?",
+        answer:
+          "Airalo, Holafly, and Nomad sell UAE eSIMs (roughly $14–$35) on Etisalat/du networks — data is pricier here than in Europe or Asia. The crucial quirk: the UAE blocks VoIP calls on WhatsApp, FaceTime, and similar apps on local networks. Messaging works fine; for voice/video calls, use the licensed BOTIM app, your hotel WiFi (often unblocked), or a plan with international roaming rather than a local eSIM.",
+      },
+      {
+        question: "Is Dubai safe for tourists and solo female travelers?",
+        answer:
+          "Among the safest cities anywhere — street crime is near-zero, taxis and ride-hailing are tightly regulated, and solo female travelers consistently rank the UAE highly for comfort, including on public transport (the metro has women-and-children carriages if preferred). The realistic 'risks' are legal missteps (alcohol, behavior, content posted online) and summer heat rather than anything criminal. Emergency: 999.",
+      },
+      {
+        question: "What's the cheapest way to send money from the UAE?",
+        answer:
+          "The UAE is one of the world's top remittance-sending countries, and competition is ferocious: exchange houses (Al Ansari, Lulu, Al Fardan) and digital providers (Wise, Remitly, Instarem) fight over the AED–INR, AED–PKR, and AED–PHP corridors with some of the tightest margins on earth. Compare on the final amount delivered — digital providers usually win on rate, exchange houses on same-day cash pickup. Avoid bank wires, which layer fees on both ends.",
+      },
+    ],
+
+    relatedCorridorSlug: "uae-to-india",
+  },
+
+  "saudi-arabia": {
+    slug: "saudi-arabia",
+    countryName: "Saudi Arabia",
+    countryCode: "sa",
+    region: "Middle East",
+    currency: "SAR",
+    currencyName: "Saudi Riyal",
+    currencySymbol: "﷼",
+    topSourceCurrencies: ["USD", "GBP", "EUR", "INR"],
+    capital: "Riyadh",
+    languages: ["Arabic", "English (widely spoken in cities)"],
+    callingCode: "+966",
+    plugTypes: ["G"],
+    voltage: "230V / 60Hz",
+    timezone: "AST (UTC+3)",
+
+    tldr:
+      "Saudi Arabia uses the Saudi Riyal (﷼, SAR), pegged to the US dollar at 3.75 SAR per USD since 1986 — the rate never moves. The kingdom only opened to tourism in 2019, and it's modernizing fast: cards and contactless ('mada') work nearly everywhere, women can travel independently, and tourist dress codes are modest-but-practical (no abaya required). Alcohol remains completely unavailable to visitors. The headline draw is AlUla's Nabataean tombs — Petra's sister city, without Petra's crowds.",
+    authorSlug: "akif-hazarvi",
+    publishedDate: "2026-06-11",
+    updatedDate: "2026-06-11",
+
+    intro:
+      "Saudi Arabia is the world's newest major tourist destination — closed to leisure visitors until 2019, now spending historic sums to build a tourism economy by 2030. For travelers, that means a rare window: Hegra's 2,000-year-old Nabataean tombs at AlUla (the kingdom's answer to Petra) with a fraction of the visitors, Jeddah's coral-built old town of Al-Balad, the sandstone canyons of the Edge of the World outside Riyadh, and Red Sea diving that rivals Egypt's — all before the crowds arrive. The country has changed at speed: women drive, travel solo, and attend football matches; cinemas and concerts are back; and the religious-police era has receded.\n\nIt remains a conservative Muslim kingdom with absolute rules — zero alcohol, modest dress, and Mecca closed to non-Muslims — and this guide covers how to navigate it: the dollar-pegged riyal, the eVisa process, what the banknotes show, tipping norms, prayer-time rhythms, and where the genuinely world-class sights are. Sending money in or out? Saudi Arabia is one of the largest remittance-sending countries on earth, and our comparison shows who delivers the most.",
+    keyStats: [
+      { label: "Currency", value: "Saudi Riyal (﷼, SAR) — pegged at 3.75/USD" },
+      { label: "Typical daily cost (mid-range)", value: "$100–$180 USD" },
+      { label: "Best time to visit", value: "November – March" },
+      { label: "Visa (US/UK/EU/AU, 2026)", value: "eVisa online (~$143, 1 year, multi-entry)" },
+      { label: "Power", value: "230V / 60Hz, plug type G (UK-style)" },
+      { label: "Tipping", value: "10% appreciated, not obligatory" },
+    ],
+
+    culture: {
+      overview:
+        "Saudi Arabia is the birthplace of Islam and home to its two holiest cities, and religion structures daily life: prayer happens five times a day (many shops still pause briefly, though mandatory closures have relaxed), Friday is the holy day with a late, quiet start, and Ramadan reshapes the entire calendar. Within that frame, the social changes since 2017 have been dramatic — music, cinemas, mixed public events, and women's independence are all normal now in Riyadh and Jeddah. Saudis are strikingly hospitable hosts: expect Arabic coffee (gahwa) and dates offered ritually, genuine curiosity toward the new wave of visitors, and generosity that can be hard to politely refuse.",
+      dos: [
+        "Dress modestly — for men, long trousers and covered shoulders; for women, loose clothing covering shoulders and knees. The abaya is NOT required for visitors, and headscarves are optional except inside mosques.",
+        "Accept gahwa (cardamom coffee) and dates when offered — it's the hospitality ritual; take the cup with your right hand, and a gentle wiggle of the cup signals you're done.",
+        "Plan around prayer times — some shops and restaurants still pause for 10–20 minutes, especially outside the big cities; the Salah times are in every weather app.",
+        "Use your right hand for greetings, food, and handing over items; wait for a Saudi woman to extend her hand before offering yours.",
+        "Download the essential apps: Absher/Tawakkalna ecosystems aside, you mainly need Uber/Careem (the standard for getting around) and offline maps — distances are vast.",
+      ],
+      donts: [
+        "Don't bring or consume alcohol anywhere — Saudi Arabia is completely dry for visitors, with no licensed venues, and penalties are severe. The same absolute line applies to drugs and pork.",
+        "Don't attempt to enter Mecca as a non-Muslim — it's strictly prohibited and enforced at highway checkpoints. (Medina's central Haram area has restrictions too, though the city itself is open.)",
+        "Don't photograph people without consent — especially women — or government buildings, palaces, and security infrastructure.",
+        "Don't show public affection — holding hands is tolerated for married couples, anything more is not; and avoid public criticism of religion or the state, online included.",
+        "Don't schedule daytime restaurant plans during Ramadan without checking — eating in public during fasting hours is prohibited for everyone, though hotels serve visitors discreetly.",
+      ],
+    },
+
+    money: {
+      cashAcceptance:
+        "Cash is useful for souks (Jeddah's Al-Balad, Riyadh's Souq Al Zal), small tips, bakalas (corner shops), and rural stops, but no longer essential in cities. SAR 200–300 in mixed notes covers several days of incidentals. Bargaining in souks is expected and friendly.",
+      cardAcceptance:
+        "Excellent and improving fast — Vision 2030 pushed payments hard, and the domestic 'mada' network means contactless Visa/Mastercard works at nearly every business, including small restaurants and taxis. Apple Pay is ubiquitous. Amex is limited to hotels and malls. Card is now the default for locals everywhere.",
+      atmAvailability:
+        "ATMs are plentiful (Al Rajhi, SNB, Riyad Bank, Alinma) and most charge no local fee to foreign cards. The riyal's dollar peg keeps rates flat; the only loss vector is dynamic currency conversion — always choose SAR on screen. Machines dispense large notes; break them at supermarkets.",
+      tippingNorms:
+        "Tipping is appreciated but not institutionalized: 10% in restaurants (check whether a service charge is included — common at hotels), SAR 5–10 for porters and valets, round up taxis and deliveries. Guides on AlUla and desert tours expect SAR 20–50 per person per day. No one will chase you over a missing tip, but service workers — largely expatriates — genuinely value them.",
+      commonScams: [
+        "Scams against tourists are genuinely rare — Saudi Arabia polices commerce strictly. The realistic frictions are overcharging rather than fraud.",
+        "Unmetered airport taxis quoting flat 'tourist rates' — use Uber or Careem from every airport instead; they're cheap, tracked, and the local default.",
+        "Dynamic currency conversion at terminals and ATMs — choose SAR every time; the dollar peg means any 'conversion offer' is pure margin.",
+        "Souvenir markup in tourist souks — oud, dates, and gold are quality-graded; buy dates from proper date shops (ask to taste) and gold from licensed dealers with hallmark receipts.",
+        "Unofficial 'guides' at heritage sites — AlUla and Diriyah run on timed official tickets and licensed guides booked through the official platforms (Experience AlUla); freelancers at the gate can't get you in faster.",
+      ],
+    },
+
+    notes: [
+      { denomination: "5 SAR", color: "Violet / Brown", figure: "King Salman (obverse), Shaybah oil field (reverse); newer polymer versions circulate" },
+      { denomination: "10 SAR", color: "Green", figure: "King Salman (obverse), Murabba Palace, Riyadh (reverse)" },
+      { denomination: "50 SAR", color: "Dark Green", figure: "King Salman (obverse), Al-Aqsa Mosque and Dome of the Rock (reverse)" },
+      { denomination: "100 SAR", color: "Red", figure: "King Salman (obverse), the Prophet's Mosque, Medina (reverse)" },
+      { denomination: "500 SAR", color: "Blue", figure: "King Abdulaziz (obverse), the Holy Mosque and Kaaba, Mecca (reverse) — large note, break it early" },
+    ],
+
+    exchangeGuide:
+      "The riyal has been pegged at 3.75 to the US dollar since 1986 — divide any price by 3.75 and you have dollars; there is no timing, no spread anxiety, no 'good day' for the rate. Cards plus fee-free ATM withdrawals handle virtually everything; if you want cash exchanged, licensed exchange houses (Al Rajhi's Tahweel, Enjaz, and others built for the kingdom's enormous expat remittance market) beat airport counters comfortably. That remittance infrastructure is the story here: Saudi Arabia is consistently among the world's top three remittance-sending countries, and the SAR–INR, SAR–PKR, SAR–PHP, and SAR–EGP corridors are fiercely competitive — for sending money out, compare digital providers (Wise, Remitly) against the exchange houses on the final amount delivered; for transfers in, the peg makes USD-side comparisons straightforward.",
+
+    sports: {
+      overview:
+        "Saudi Arabia has spent the 2020s buying its way to the center of world sport, and visitors feel it: the Saudi Pro League's galaxy of imported stars (the Ronaldo-at-Al-Nassr era transformed it), Formula 1 under lights on the Jeddah Corniche — one of the fastest street circuits ever built — world-title boxing and WWE cards during Riyadh Season, LIV Golf, and the Dakar Rally, which has opened every year in the kingdom since 2020. The traditional layer endures alongside: the King Abdulaziz Camel Festival (with beauty contests carrying multimillion-riyal purses), falconry as living heritage, and horse racing crowned by the Saudi Cup — the world's richest single race.",
+      highlights: [
+        "Saudi Pro League football (Aug–May) — Al-Nassr and Al-Hilal in Riyadh, Al-Ittihad and Al-Ahli in Jeddah; tickets are cheap and bought via the league's official apps.",
+        "F1 Saudi Arabian Grand Prix (Jeddah Corniche Circuit, spring) — night racing at one of the calendar's fastest tracks.",
+        "The Saudi Cup (Riyadh, February) — the world's richest horse race, $20M+ in purse, at King Abdulaziz Racetrack.",
+        "King Abdulaziz Camel Festival (Jan–Feb, outside Riyadh) — camel racing and the famous beauty pageant; a genuine cultural spectacle, free to wander.",
+      ],
+    },
+
+    bestTime:
+      "November to March is the window: Riyadh and AlUla sit at a perfect 18–28°C by day (desert nights get genuinely cold — pack a jacket), Jeddah is warm and humid but pleasant, and the events calendar (Riyadh Season, AlUla's festivals, the camel festival, the Saudi Cup) is in full swing. April–May and October are hot but workable. June to September is extreme — 45°C+ inland — and only the elevated southwest (Abha and the Asir mountains, the kingdom's summer escape) stays comfortable. Ramadan inverts daily rhythms entirely; visiting then is culturally fascinating but logistically slower.",
+    visa:
+      "The tourist eVisa (launched 2019) covers some 60+ nationalities including the US, UK, EU, Canada, and Australia: apply online at the official visa.visitsaudi.com, pay roughly SAR 535 (~$143, including mandatory health insurance), and receive a one-year, multiple-entry visa allowing 90 days per visit — most approvals arrive within minutes to days. Eligible nationalities can alternatively get visa on arrival, and holders of valid US, UK, or Schengen visas qualify too. A free 96-hour stopover visa comes with Saudia and flynas tickets. Tourist visas cover Umrah (not Hajj) for Muslim travelers; Mecca remains closed to non-Muslims.",
+    safety:
+      "Saudi Arabia is statistically one of the safest countries a tourist can visit — violent crime is rare, theft rarer, and solo women travelers, while still a newer phenomenon, consistently report feeling secure; harassment is both socially condemned and legally punished. The risks are environmental and legal rather than criminal: extreme summer heat, vast empty driving distances (don't drive remote routes without water and a full tank; camels on night roads are a real hazard), and the kingdom's absolute red lines — alcohol, drugs, public criticism of religion or state, and Mecca for non-Muslims. Emergency number: 911.",
+    highlights: [
+      {
+        name: "AlUla & Hegra",
+        summary:
+          "Saudi Arabia's crown jewel — 100+ monumental Nabataean tombs carved into desert monoliths (Hegra was the kingdom's first UNESCO site), Elephant Rock at sunset, and Old Town's mudbrick maze. Book timed tickets via Experience AlUla; 2–3 days minimum.",
+      },
+      {
+        name: "Riyadh & Diriyah",
+        summary:
+          "The capital's Kingdom Centre Sky Bridge and National Museum, plus At-Turaif in Diriyah — the UNESCO-listed mudbrick birthplace of the Saudi state, restored into the country's flagship heritage district. Riyadh Season (Oct–Mar) adds concerts and events citywide.",
+      },
+      {
+        name: "Jeddah & Al-Balad",
+        summary:
+          "The Red Sea's historic port — Al-Balad's UNESCO old town of coral-stone tower houses and wooden rawashin balconies, the corniche's sculpture parks, and the gateway airport for AlUla and the coast.",
+      },
+      {
+        name: "Edge of the World",
+        summary:
+          "Jebel Fihrayn's sheer cliffs over an ancient seabed, 90 minutes from Riyadh — the kingdom's signature day trip. Go with a 4x4 tour for sunset; the final stretch is rough track.",
+      },
+      {
+        name: "The Red Sea coast",
+        summary:
+          "Pristine reef diving around Yanbu and Umluj ('the Maldives of Saudi') and the new ultra-luxury Red Sea resorts — coral on par with Egypt's, with a fraction of the divers.",
+      },
+      {
+        name: "Abha & the Asir mountains",
+        summary:
+          "The green, terraced, 2,000m-high southwest — juniper forests, baboons, hanging villages like Rijal Almaa, and 25°C summers while Riyadh bakes. The kingdom's least-expected landscape.",
+      },
+    ],
+
+    budget: {
+      backpacker: "$50–$80 USD per day",
+      midRange: "$100–$180 USD per day",
+      luxury: "$350+ USD per day",
+      note:
+        "Backpacker means budget hotels (hostels are scarce), shawarma and kabsa houses (excellent eating for SAR 15–35), and buses/shared rides. Mid-range covers good hotels, restaurant meals, Uber everywhere, and domestic flights (often cheaper than driving the distances). AlUla is the premium pocket — accommodation there runs double the national norm. No alcohol means one classic budget line simply doesn't exist.",
+    },
+
+    faqs: [
+      {
+        question: "What is the Saudi Riyal worth against the dollar?",
+        answer:
+          "Exactly 3.75 SAR per US dollar — the riyal has been hard-pegged since 1986 and the rate never moves. Divide any riyal price by 3.75 for dollars: a SAR 30 shawarma meal is $8, a SAR 400 hotel room ~$107. Other currencies float with the dollar: as of June 2026, £1 buys roughly 5.0 SAR and €1 roughly 4.3 SAR.",
+      },
+      {
+        question: "How do tourists get a Saudi Arabia visa?",
+        answer:
+          "Apply for the tourist eVisa at the official visa.visitsaudi.com — open to 60+ nationalities including the US, UK, EU, Canada, and Australia. It costs roughly SAR 535 (~$143) including mandatory health insurance, is usually approved within minutes to a few days, and gives one year of multiple entries with up to 90 days per visit. Visa on arrival and a free 96-hour stopover visa (with Saudia/flynas tickets) are alternatives for eligible passports.",
+      },
+      {
+        question: "Do women have to wear an abaya in Saudi Arabia?",
+        answer:
+          "No — since 2019, foreign women are not required to wear the abaya or cover their hair. The requirement is modest dress: loose clothing covering shoulders and knees. A headscarf is needed only inside mosques. Women travel independently, drive, stay in hotels alone, and attend events freely — the practical experience has transformed since the kingdom opened to tourism.",
+      },
+      {
+        question: "Can you drink alcohol in Saudi Arabia?",
+        answer:
+          "No — Saudi Arabia is completely dry for tourists. There are no licensed bars, restaurants, or shops for visitors, importing alcohol (including duty-free in transit) is prohibited, and penalties are severe. Hotels serve elaborate mocktails and excellent coffee culture fills the social gap. If a bar scene matters to your trip, neighboring UAE or Bahrain is the regional answer.",
+      },
+      {
+        question: "Can non-Muslims visit Mecca or Medina?",
+        answer:
+          "Mecca: no — entry is prohibited for non-Muslims, enforced at highway checkpoints, with no exceptions. Medina: yes, the city itself is open to all visitors, though the central Haram area immediately around the Prophet's Mosque is reserved for Muslims. Muslim travelers on tourist eVisas may perform Umrah (though not Hajj, which requires a dedicated visa).",
+      },
+      {
+        question: "Is Saudi Arabia safe for tourists?",
+        answer:
+          "Statistically among the safest destinations anywhere — violent crime and theft are rare, streets feel secure at night, and harassment is legally and socially condemned. The real cautions are legal red lines (alcohol, drugs, public criticism of religion or state, Mecca for non-Muslims), extreme summer heat, and long empty driving distances — camels on unlit night roads are a genuine hazard. Emergency number: 911.",
+      },
+      {
+        question: "What should I see in Saudi Arabia first?",
+        answer:
+          "AlUla — the Nabataean tombs of Hegra are the kingdom's Petra, with a fraction of the visitors, plus Elephant Rock and a restored mudbrick Old Town. Pair it with Jeddah's Al-Balad old town (the natural gateway) and Riyadh's Diriyah for the historical arc, with the Edge of the World cliffs as the capital's signature day trip. Two weeks covers all four comfortably; one week forces a choice between AlUla and the rest.",
+      },
+      {
+        question: "What's the best eSIM for Saudi Arabia?",
+        answer:
+          "Airalo, Holafly, and Nomad offer Saudi eSIMs from roughly $13–$35 on STC/Mobily networks — coverage is excellent in cities and along highways, patchier in deep desert. Unlike the UAE, VoIP calls (WhatsApp, FaceTime) work normally in Saudi Arabia. Local STC/Mobily tourist SIMs from airport counters are competitive for longer stays but involve passport registration queues.",
+      },
+      {
+        question: "How does Ramadan affect a trip to Saudi Arabia?",
+        answer:
+          "Significantly — eating, drinking, and smoking in public during daylight fasting hours are prohibited for everyone, most restaurants close until sunset (hotels serve guests discreetly), and business hours compress. The flip side: iftar at sunset is festive and hospitable, nights run late and lively, and experiencing Ramadan in Islam's birthplace is unique. Check the dates (they shift ~11 days earlier each year) and decide deliberately.",
+      },
+      {
+        question: "What's the cheapest way to send money from Saudi Arabia?",
+        answer:
+          "Saudi Arabia is consistently among the world's top three remittance-sending countries, so the corridors out — SAR to INR, PKR, PHP, EGP, BDT — are intensely competitive. Digital providers (Wise, Remitly, Instarem) usually beat the exchange houses (Tahweel Al Rajhi, Enjaz) on rate, while exchange houses win on instant cash pickup networks. The dollar peg makes comparison easy: check the final amount delivered against the mid-market rate.",
+      },
+    ],
+
+    relatedCorridorSlug: "saudi-arabia-to-india",
+  },
 };
 
 export function getTravelGuide(slug: string): TravelGuideContent | undefined {
