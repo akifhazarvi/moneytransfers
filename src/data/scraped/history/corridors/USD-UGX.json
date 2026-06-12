@@ -2770,10 +2770,10 @@
     "date": "2026-06-12",
     "providers": {
       "lemfi": {
-        "rate": 3736.61,
+        "rate": 3734.74,
         "fee": 0,
-        "markup": 0.91,
-        "receiveAmount": 373661
+        "markup": 0.48,
+        "receiveAmount": 373474
       },
       "taptap-send": {
         "rate": 3715,
@@ -2782,28 +2782,28 @@
         "receiveAmount": 371500
       },
       "instarem": {
-        "rate": 3741.1174,
+        "rate": 3721.7143,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 374112
+        "receiveAmount": 372171
       },
       "remitly": {
-        "rate": 3683.0988,
+        "rate": 3664,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 357297
+        "receiveAmount": 355445
       },
       "xoom": {
-        "rate": 3595.2031,
+        "rate": 3585.1209,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 345175
+        "receiveAmount": 344207
       },
       "wise": {
-        "rate": 3769.04,
+        "rate": 3757.09,
         "fee": 3.22,
         "markup": null,
-        "receiveAmount": 364768
+        "receiveAmount": 363611
       }
     }
   }

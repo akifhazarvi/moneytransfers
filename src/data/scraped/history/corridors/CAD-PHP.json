@@ -8711,10 +8711,10 @@
     "date": "2026-06-12",
     "providers": {
       "lemfi": {
-        "rate": 43.78,
+        "rate": 43.41,
         "fee": 2,
-        "markup": -0.01,
-        "receiveAmount": 4290.44
+        "markup": 0.07,
+        "receiveAmount": 4254.18
       },
       "moneygram": {
         "rate": 43.5513,
@@ -8747,10 +8747,10 @@
         "receiveAmount": 4331.25
       },
       "instarem": {
-        "rate": 43.474,
+        "rate": 43.0112,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4347.4
+        "receiveAmount": 4301.12
       },
       "xe": {
         "rate": 43.458,
@@ -8777,40 +8777,40 @@
         "receiveAmount": 4294.87
       },
       "remitly": {
-        "rate": 43.44,
+        "rate": 43.1,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4344
+        "receiveAmount": 4310
       },
       "wise": {
-        "rate": 43.7889,
+        "rate": 43.4009,
         "fee": 2.58,
         "markup": null,
-        "receiveAmount": 4265.91
+        "receiveAmount": 4228.12
       },
       "taptap-send": {
-        "rate": 43.5,
+        "rate": 43.3,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4350
+        "receiveAmount": 4330
       },
       "bmo": {
-        "rate": 40.8943,
+        "rate": 40.5034,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4089.43
+        "receiveAmount": 4050.34
       },
       "xoom": {
-        "rate": 42.7993,
+        "rate": 42.478,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4279.93
+        "receiveAmount": 4247.8
       },
       "rbc": {
-        "rate": 42.3549,
+        "rate": 42.2294,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 4235.49
+        "receiveAmount": 4222.94
       }
     }
   }

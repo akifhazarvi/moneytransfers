@@ -2357,28 +2357,28 @@
     "date": "2026-06-12",
     "providers": {
       "lemfi": {
-        "rate": 15.639,
+        "rate": 14.8313,
         "fee": 0,
-        "markup": -4.63,
-        "receiveAmount": 1563.9
+        "markup": 0.38,
+        "receiveAmount": 1483.13
       },
       "taptap-send": {
-        "rate": 15.64,
+        "rate": 14.83,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1564
+        "receiveAmount": 1483
       },
       "western-union": {
-        "rate": 14.7726,
+        "rate": 14.7686,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 1433.09
+        "receiveAmount": 1432.7
       },
       "instarem": {
-        "rate": 14.6518,
+        "rate": 14.6655,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1465.18
+        "receiveAmount": 1466.55
       }
     }
   }

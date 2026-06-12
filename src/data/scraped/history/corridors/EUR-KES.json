@@ -5057,10 +5057,10 @@
     "date": "2026-06-12",
     "providers": {
       "lemfi": {
-        "rate": 147.9,
+        "rate": 148.7,
         "fee": 0,
-        "markup": 1.32,
-        "receiveAmount": 14790
+        "markup": 0.77,
+        "receiveAmount": 14870
       },
       "moneygram": {
         "rate": 147.6823,
@@ -5105,10 +5105,10 @@
         "receiveAmount": 14713.61
       },
       "instarem": {
-        "rate": 146.6689,
+        "rate": 146.4878,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14666.89
+        "receiveAmount": 14648.78
       },
       "paysend": {
         "rate": 149.3858,
@@ -5123,10 +5123,10 @@
         "receiveAmount": 14787.91
       },
       "remitly": {
-        "rate": 146.5265,
+        "rate": 146.33,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 14361.06
+        "receiveAmount": 14341.8
       },
       "revolut": {
         "rate": 148.6854,
@@ -5135,10 +5135,10 @@
         "receiveAmount": 14526.56
       },
       "wise": {
-        "rate": 149.986,
+        "rate": 149.741,
         "fee": 3.63,
         "markup": null,
-        "receiveAmount": 14454
+        "receiveAmount": 14431
       },
       "ria": {
         "rate": 146.8435,
@@ -5147,16 +5147,16 @@
         "receiveAmount": 15134
       },
       "skrill": {
-        "rate": 145.7758,
+        "rate": 145.839,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14577.58
+        "receiveAmount": 14583.9
       },
       "xoom": {
-        "rate": 142.8039,
+        "rate": 143.0454,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 13853.41
+        "receiveAmount": 13876.83
       }
     }
   }

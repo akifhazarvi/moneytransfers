@@ -4971,7 +4971,7 @@
       "lemfi": {
         "rate": 0.71,
         "fee": 0,
-        "markup": -0.76,
+        "markup": -0.79,
         "receiveAmount": 71
       },
       "taptap-send": {
@@ -4981,52 +4981,52 @@
         "receiveAmount": 70
       },
       "remitly": {
-        "rate": 0.6946,
+        "rate": 0.6949,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 68.43
+        "receiveAmount": 68.45
       },
       "instarem": {
-        "rate": 0.704,
+        "rate": 0.7043,
         "fee": 0.5,
         "markup": null,
-        "receiveAmount": 70.05
+        "receiveAmount": 70.08
       },
       "hsbc": {
-        "rate": 0.6893,
+        "rate": 0.6897,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 68.93
+        "receiveAmount": 68.97
       },
       "nab": {
+        "rate": 0.683,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 68.3
+      },
+      "anz": {
+        "rate": 0.6868,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 68.68
+      },
+      "commonwealth-bank": {
         "rate": 0.686,
         "fee": 0,
         "markup": null,
         "receiveAmount": 68.6
       },
-      "anz": {
-        "rate": 0.6864,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 68.64
-      },
-      "commonwealth-bank": {
-        "rate": 0.6866,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 68.66
-      },
       "westpac": {
-        "rate": 0.6774,
+        "rate": 0.6778,
         "fee": 0.07,
         "markup": null,
-        "receiveAmount": 67.69
+        "receiveAmount": 67.73
       },
       "xoom": {
-        "rate": 0.6659,
+        "rate": 0.6665,
         "fee": 1.29,
         "markup": null,
-        "receiveAmount": 65.73
+        "receiveAmount": 65.79
       }
     }
   }
