@@ -23,7 +23,7 @@ export const corridorGuidesIndia: BlogPost[] = [
   {
     slug: "how-to-send-money-to-india-2026",
     title:
-      "How to Send Money to India Internationally: Complete Guide (2026)",
+      "How to Send Money to India Internationally (2026 Guide)",
     metaDescription:
       "How to send money to India in 2026 — compare top providers from USA, UK, Canada, Australia & UAE. Real fee data, IMPS vs UPI, and IFSC codes.",
     excerpt:
@@ -523,7 +523,7 @@ export const corridorGuidesIndia: BlogPost[] = [
   {
     slug: "send-money-to-india-from-usa-guide",
     title:
-      "Send Money from USA to India 2026: Cheapest Providers & Rates",
+      "Send Money from USA to India: Cheapest Providers 2026",
     metaDescription:
       "Compare 10+ providers for sending money from USA to India in 2026. Real fee data, IFSC code guide, IMPS vs UPI vs cash pickup, and NRI account rules.",
     excerpt:
