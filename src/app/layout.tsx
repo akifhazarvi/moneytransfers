@@ -45,6 +45,12 @@ export const metadata: Metadata = {
       "fo-verify": "77fb4b4b-5063-4b40-be91-b0a44a65eb39",
       // Revolut via Impact — requested by Ahsun 2026-05-12
       "impact-site-verification": "da153f9e-905b-492c-bbbf-d06ad999817e",
+      // AdSense site verification. The adsbygoogle.js snippet alone can't
+      // verify us because AdSenseLoader deliberately skips the home route
+      // (Google's verifier crawls the homepage). This meta tag verifies on
+      // every page WITHOUT loading the ad script, so the homepage stays
+      // ad-free. Must match ADSENSE_CLIENT in components/AdSenseLoader.tsx.
+      "google-adsense-account": "ca-pub-4359442444470890",
     },
   },
   icons: {
