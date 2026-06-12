@@ -204,16 +204,19 @@ const GSC_WINNING_SLUGS = new Set<string>([
 ]);
 
 /**
- * Editorial article slugs from src/data/comparison-articles.ts. Maintained
- * separately (rather than imported) so this module stays edge-runtime safe
- * for middleware — comparison-articles.ts pulls in providers, scraped quote
- * data, and ~7000 lines we don't want in the edge bundle.
+ * Former editorial article slugs (originally from src/data/comparison-articles.ts,
+ * which no longer drives rendering — all /compare/[slug] pages now use the
+ * uniform auto-generated template). Maintained inline so this module stays
+ * edge-runtime safe for middleware.
  *
- * Editorial slugs are always canonical: the editorial owner deliberately
- * picked the direction, often the one Google already indexes. Keep this list
- * in sync when a new editorial article ships.
+ * These slugs still matter for two signals:
+ *  1. Canonical direction — the direction was deliberately picked, often the
+ *     one Google already indexes.
+ *  2. Indexability — these pages were always indexable while editorial; they
+ *     keep that status after the template unification (see compare/[slug]
+ *     generateMetadata).
  */
-const EDITORIAL_COMPARE_SLUGS = new Set<string>([
+export const EDITORIAL_COMPARE_SLUGS = new Set<string>([
   "wise-vs-remitly", "remitly-vs-xe", "wise-vs-western-union", "wise-vs-xe",
   "wise-vs-paypal", "remitly-vs-western-union", "wise-vs-revolut",
   "remitly-vs-xoom", "remitly-vs-taptap-send", "remitly-vs-revolut",
