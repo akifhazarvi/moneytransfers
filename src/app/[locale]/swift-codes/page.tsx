@@ -89,7 +89,7 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
               <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">
                 Akif Hazarvi
               </Link>
-              {" · Updated March 2026 · Data verified from official bank records"}
+              {" · Updated June 2026 · Data verified from official bank records"}
             </p>
           </div>
 
