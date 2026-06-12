@@ -16341,12 +16341,12 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "SpaceX's record $1.75 trillion IPO has retail investors scrambling to buy in — and Anthropic and OpenAI could be next. Here's how to buy SpaceX, Nvidia, and other hot stocks using Revolut, Cash App, or M1 Finance, and why Revolut comes out on top.",
     category: "Guides",
-    readTime: "11 min read",
+    readTime: "10 min read",
     publishedAt: "2026-06-12",
     updatedAt: "2026-06-12",
     author: "Akif Hazarvi",
     tags: ["Revolut", "Cash App", "M1 Finance", "SpaceX IPO", "Nvidia stock", "buy stocks online", "Anthropic IPO", "OpenAI IPO", "investing apps 2026", "stock trading apps"],
-    featuredImage: "/images/blog/spacex-nvidia-revolut-stocks-2026.svg",
+    featuredImage: "/images/blog/spacex-revolut-stock-2026.svg",
     sections: [
       {
         heading: "SpaceX Just IPO'd at $1.75 Trillion — Here's How to Buy In",
@@ -16371,13 +16371,7 @@ export const blogPosts: BlogPost[] = [
 </table>
 <p class="blog-footnote">Figures based on publicly reported data as of June 12, 2026. Valuations and timelines for unlisted companies (Anthropic, OpenAI) can change before any listing is finalised.</p>
 </div>
-<h3>SpaceX (SPCX): The Biggest IPO Ever</h3>
-<p>SpaceX listed on the Nasdaq under the ticker <strong>SPCX</strong>, pricing its IPO at $135 per share — a valuation of roughly $1.75 trillion, making it one of the largest public debuts in history. Demand was strong enough that the offering was oversubscribed more than 4x, and shares closed the first day around $161, up about 19% from the IPO price. Unusually for a deal this size, SpaceX allocated <strong>30% of shares to retail investors</strong> through participating brokers and fintech apps — several times the typical retail slice on a mega-IPO.</p>
-<h3>Nvidia (NVDA): Still the AI Trade Everyone Watches</h3>
-<p>Nvidia remains the bellwether for the AI boom that underpins all of this — its chips power the data centres training models at Anthropic and OpenAI, and increasingly the compute behind SpaceX's Starlink and Starship software. Trading in the $205–220 range, Nvidia carries a <strong>Strong Buy</strong> consensus from 38 analysts, with average price targets near $300 — implying meaningful upside from current levels.</p>
-<h3>Anthropic and OpenAI: The Next Trillion-Dollar Listings?</h3>
-<p>Just days apart, Anthropic and OpenAI both confidentially filed paperwork for IPOs with the SEC. Anthropic — maker of the Claude models — raised $65 billion at a $965 billion valuation, with revenue reportedly running at roughly $47 billion annually, up from about $10 billion a year earlier. OpenAI filed shortly after, reportedly targeting a valuation between $730 billion and $852 billion with bankers Goldman Sachs and Morgan Stanley, and a possible debut later in 2026.</p>
-<p class="blog-callout-blue-sm"><strong>📈 What this means for you:</strong> Neither Anthropic nor OpenAI shares are available to buy yet — "confidentially filed" means the paperwork is private, with no ticker or listing date set. But the filings are a strong signal that 2026 could see a wave of AI mega-IPOs follow SpaceX's lead. Setting up a brokerage-enabled app now — and getting comfortable buying fractional shares of stocks like Nvidia — means you'll be ready the moment these (or the next big name) list.</p>`,
+<p>Neither Anthropic nor OpenAI shares are available to buy yet — "confidentially filed" means the paperwork is private, with no ticker or listing date set. But the filings are a strong signal that 2026 could see a wave of AI mega-IPOs follow SpaceX's lead, and Nvidia remains the easiest way to get exposure to the AI infrastructure behind all three companies today.</p>`,
       },
       {
         heading: "Revolut vs Cash App vs M1 Finance: Which Should You Use to Buy Stocks?",
@@ -16497,32 +16491,6 @@ export const blogPosts: BlogPost[] = [
         question: "Do Revolut, Cash App, and M1 Finance charge fees to buy fractional shares?",
         answer:
           "All three offer commission-free trading and fractional shares from $1. Revolut gives you a limited number of free trades per month (more on paid plans, with a small commission beyond that); Cash App and M1 Finance don't charge trading commissions at all, though M1 has a $3/month account fee below a $10,000 balance, and both Cash App ($75) and M1 ($100) charge a fee if you transfer shares out to another broker.",
-      },
-    ],
-    howToSteps: [
-      {
-        name: "Download Revolut and verify your identity",
-        text: "Sign up with your phone number and email, then verify your identity with a passport or driving licence. Approval is usually instant.",
-      },
-      {
-        name: "Fund your account",
-        text: "Transfer money from your bank, or use a balance you already hold in your Revolut multi-currency account.",
-      },
-      {
-        name: "Open the Stocks tab",
-        text: "Find Stocks alongside your currency accounts and crypto in the Revolut app — no separate app or login needed.",
-      },
-      {
-        name: "Search for the stock you want to buy",
-        text: "Type the ticker — SPCX for SpaceX or NVDA for Nvidia — to open the stock page with live pricing and company details.",
-      },
-      {
-        name: "Enter how much to invest",
-        text: "Enter a dollar or pound amount from $1/£1 instead of a share count — Revolut buys the equivalent fraction of a share automatically.",
-      },
-      {
-        name: "Review and confirm your order",
-        text: "Check the order summary, confirm with Face ID or a PIN, and your new position appears in your portfolio immediately.",
       },
     ],
     relatedSlugs: [
