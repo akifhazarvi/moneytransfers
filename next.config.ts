@@ -89,10 +89,18 @@ const nextConfig: NextConfig = {
       //
       // public + s-maxage lets Vercel's edge AND Google cache the HTML;
       // stale-while-revalidate keeps it fresh via background revalidation.
+      //
+      // max-age MUST be positive (not 0): `max-age=0` is the client/crawler-
+      // facing directive and tells Googlebot the HTML is stale the instant it
+      // arrives — a "don't hold onto this" hint that hurts crawl budget on a
+      // low-trust site and contributed to "Crawled – currently not indexed".
+      // s-maxage only governs shared caches (Vercel edge), not Googlebot's own
+      // fetch-and-store decision. The response is byte-identical per user (CSP
+      // nonce is gone — see comment above), so a real client cache is safe.
       {
         source: "/((?!_next/|api/|go/|out/|logos/).*)",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
+          { key: "Cache-Control", value: "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400" },
         ],
       },
     ];
