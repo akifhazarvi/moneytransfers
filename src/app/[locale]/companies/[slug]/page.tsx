@@ -1,8 +1,6 @@
-import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Check, X, Star } from "lucide-react";
 import { providers } from "@/data/providers";
 
 // Revalidate every 6 hours — matches scraper cadence
@@ -14,20 +12,17 @@ import StatBox from "@/components/StatBox";
 import ProsConsList from "@/components/ProsConsList";
 import ProviderLink from "@/components/ProviderLink";
 import RatingBadge from "@/components/RatingBadge";
-import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import CrossLinks from "@/components/CrossLinks";
-import BestTransferToday from "@/components/BestTransferToday";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import { getGoUrl } from "@/lib/affiliate";
-import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -39,16 +34,17 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
-  const t = await getTranslations({ locale, namespace: "companiesSlug" });
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) return {};
   const review = getProviderReview(slug);
   const year = new Date().getFullYear();
   const tp = trustpilotIndex[slug];
-  const ratingStr = tp?.score ? ` ★${tp.score.toFixed(1)}` : "";
-  const title = review?.title ?? `${provider.name} Review ${year}:${ratingStr} — Fees, Pros & Cons`;
-  const fallbackDesc = `${provider.name} review for ${year}${tp?.score ? ` — rated ${tp.score.toFixed(1)}/5 on Trustpilot` : ""}. We analyzed fees, exchange rates, speed, and coverage across real corridors. See if ${provider.name} is the cheapest for your transfer.`;
-  const description = review?.metaDescription ?? fallbackDesc;
+  // Uniform meta formula across the whole /companies category, sized to
+  // standard SEO limits (title ≲60 chars, description ≲160 chars). The long
+  // per-provider editorial titles/descriptions were retired when the category
+  // was unified on the compact profile template.
+  const title = `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Fees, Pros & Cons`;
+  const description = `${provider.name} review ${year}: fees, exchange rates, speed and safety tested${tp?.score ? `. Rated ${tp.score.toFixed(1)}/5 on Trustpilot` : ""}. See if it's the cheapest way to send money.`;
   return {
     title,
     description,
@@ -56,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // Company reviews are English-only; noindex locale variants to avoid diluting the English page
     ...(review && locale !== "en" && { robots: { index: false, follow: true } }),
     openGraph: {
-      title: `${provider.name} Review (${year}) — Is It the Cheapest? Real Data Inside`,
+      title,
       description,
       type: "article",
     },
@@ -67,11 +63,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CompanyPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "companiesSlug" });
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) notFound();
 
-  const review = getProviderReview(slug);
   const otherProviders = providers.filter((p) => p.slug !== slug).slice(0, 4);
 
   // News articles mentioning this provider — sorted newest first
@@ -116,518 +110,14 @@ export default async function CompanyPage({ params }: Props) {
     />
   );
 
-  if (review) {
-    return <DetailedReview slug={slug} locale={locale} provider={provider} review={review} otherProviders={otherProviders} crossLinks={crossLinks} providerNews={providerNews} />;
-  }
-
+  // Every provider renders the same compact profile template — the long
+  // editorial DetailedReview layout was retired when the category was
+  // shortened (its content lives on in src/data/provider-reviews.ts, no
+  // longer rendered; review existence still gates indexability above).
   return <DefaultReview slug={slug} provider={provider} otherProviders={otherProviders} crossLinks={crossLinks} providerNews={providerNews} />;
 }
 
-/* ─── Score color helper ─── */
-function getScoreStyle(rating: number) {
-  if (rating >= 8) return { color: "var(--color-success-dark)", bg: "var(--color-success-surface)", label: "Excellent" };
-  if (rating >= 6) return { color: "var(--color-accent-dark)", bg: "var(--color-accent-surface)", label: "Good" };
-  return { color: "var(--color-danger)", bg: "var(--color-danger-surface)", label: "Average" };
-}
-
-/* ─── Detailed editorial review ─── */
-function DetailedReview({
-  slug,
-  locale,
-  provider,
-  review,
-  otherProviders,
-  crossLinks,
-  providerNews,
-}: {
-  slug: string;
-  locale: string;
-  provider: (typeof providers)[number];
-  review: NonNullable<ReturnType<typeof getProviderReview>>;
-  otherProviders: (typeof providers)[number][];
-  crossLinks: React.ReactNode;
-  providerNews: (typeof newsItems)[number][];
-}) {
-  const score = getScoreStyle(review.editorRating);
-
-  return (
-    <>
-      <ScrollTracker slug={slug} contentType="review" />
-      {/* ── Review Hero ── */}
-      <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 md:py-10">
-          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Companies", href: "/companies" }, { label: provider.name }]} />
-
-          {/* Provider identity — full width, title is the hero */}
-          <div className="flex items-start gap-4 mb-6">
-            <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl overflow-hidden shrink-0 border border-[var(--color-outline)] shadow-[var(--shadow-xs)] bg-white flex items-center justify-center">
-              <Image src={provider.logo} alt={provider.name} width={64} height={64} className="object-contain p-1" />
-            </div>
-            <div className="min-w-0">
-              <div className="text-overline text-[var(--color-primary)] mb-1.5">Review</div>
-              <h1 className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--color-on-surface)]" style={{ fontFamily: "var(--font-reading)" }}>
-                {review.title}
-              </h1>
-            </div>
-          </div>
-
-          {/* Meta row — rating, date, credits */}
-          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[var(--color-outline)]">
-            <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />
-            <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-            <span className="text-2sm text-[var(--color-on-surface-variant)]">Updated {review.updatedAt}</span>
-            <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-            <span className="text-2sm text-[var(--color-on-surface-variant)]">{review.readTime}</span>
-          </div>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-2sm text-[var(--color-on-surface-muted)]">
-            <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline font-medium">{review.reviewer}</Link></span>
-            <span>Fact-checked by <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline font-medium">{review.factChecker}</Link></span>
-            <span>Verified {review.lastVerified}</span>
-          </div>
-        </div>
-      </div>
-
-      <Container className="py-8">
-        {/* ── Two-column reading layout ──
-            Left: editorial content. Right: a conversion rail pinned to the top of
-            the viewport from first paint (self-start + sticky), so the score and the
-            primary "Visit {provider}" CTA — our north-star provider_clicked event —
-            stay visible the moment the page opens and remain glued while reading.
-            On mobile the rail renders first (order-first) as a compact verdict+CTA
-            block, then a sticky bottom bar keeps the action one tap away. */}
-        <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10">
-
-          {/* ── Conversion rail (right on desktop, first on mobile) ── */}
-          <aside className="min-w-0 lg:order-2 lg:col-start-2 mb-8 lg:mb-0">
-            <div className="lg:sticky lg:top-20 lg:self-start space-y-4">
-              {/* Verdict + score + primary CTA — the conversion core */}
-              <div className="rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden">
-                <div className="px-6 pt-6 pb-5" style={{ background: score.bg }}>
-                  <div className="flex items-end gap-3">
-                    <span className="text-[3.25rem] font-bold leading-[0.85] tracking-[-0.03em] tabular-nums" style={{ color: score.color }}>
-                      {review.editorRating}
-                    </span>
-                    <div className="pb-1">
-                      <span className="text-[var(--color-on-surface-muted)] text-sm font-medium">/10</span>
-                      <div className="text-sm font-bold leading-tight" style={{ color: score.color }}>{score.label}</div>
-                    </div>
-                  </div>
-                  <p
-                    className="mt-3 text-2sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-5 [&_a]:text-[var(--color-primary)] [&_a]:font-medium [&_a:hover]:underline"
-                    dangerouslySetInnerHTML={{ __html: sanitizeHtml(review.editorVerdict) }}
-                  />
-                </div>
-                <div className="p-4 space-y-2.5 border-t border-[var(--color-outline)]">
-                  <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_rail" className="flex items-center justify-center gap-1.5 font-semibold rounded-full transition-all duration-150 hover:shadow-[0_4px_14px_rgba(0,0,0,0.18)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-11 px-5 text-sm w-full">
-                    Visit {provider.name} ↗
-                  </ProviderLink>
-                  <Link
-                    href="/send-money"
-                    className="flex items-center justify-center w-full h-10 border border-[var(--color-outline)] rounded-full text-2sm font-semibold text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors"
-                  >
-                    Compare live rates
-                  </Link>
-                </div>
-                {/* At a glance — key facts pinned beside the verdict */}
-                <div className="divide-y divide-[var(--color-outline)] border-t border-[var(--color-outline)]">
-                  {[
-                    { label: "Editor rating", value: `${review.editorRating}/10` },
-                    { label: "Trustpilot", value: `${provider.rating}/5 · ${provider.ratingLabel}` },
-                    { label: "Fees", value: provider.feeStructure },
-                    { label: "Speed", value: provider.transferSpeed },
-                    { label: "Rate markup", value: provider.exchangeRateMarkup },
-                    { label: "Countries", value: `${provider.supportedCountries}+` },
-                  ].map((row) => (
-                    <div key={row.label} className="flex justify-between items-center gap-3 px-5 py-2.5 text-2sm">
-                      <span className="text-[var(--color-on-surface-variant)] shrink-0">{row.label}</span>
-                      <span className="font-semibold text-[var(--color-on-surface)] text-right">{row.value}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className="px-5 py-2.5 text-2xs text-[var(--color-on-surface-muted)] border-t border-[var(--color-outline)] bg-[var(--color-surface-dim)]">
-                  {provider.regulated ? `Regulated · ${provider.regulators.slice(0, 2).join(", ")}` : "See safety section below"}
-                </p>
-              </div>
-
-              {/* What {provider} does best — the USP, starred for emphasis. Sits
-                  directly under the verdict so the unique strengths are visible from
-                  first paint, reinforcing the decision to convert. */}
-              {review.usp && (
-                <div className="rounded-3xl border border-[var(--color-outline)] bg-[var(--color-warning-surface)] overflow-hidden">
-                  <div className="flex items-center gap-2 px-5 pt-4 pb-2">
-                    <Star className="w-4 h-4 fill-[var(--color-warning)] text-[var(--color-warning)] shrink-0" strokeWidth={1.5} />
-                    <h3 className="text-overline text-[var(--color-warning-dark)]">What {provider.name} does best</h3>
-                  </div>
-                  <p className="px-5 text-sm font-semibold text-[var(--color-on-surface)] leading-snug">
-                    {review.usp.headline}
-                  </p>
-                  <ul className="px-5 pt-3 pb-4 space-y-2">
-                    {review.usp.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 text-2sm text-[var(--color-on-surface-variant)] leading-snug">
-                        <Star className="mt-0.5 w-3.5 h-3.5 fill-[var(--color-warning)] text-[var(--color-warning)] shrink-0" strokeWidth={1.5} />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Affiliate disclosure — compact, beneath the CTA */}
-              <AffiliateDisclosure />
-
-              {/* Compare widget — keep the comparison tool within reach */}
-              <Card>
-                <h3 className="text-sm font-semibold text-[var(--color-on-surface)] mb-4">Compare {provider.name}</h3>
-                <ComparisonWidget compact />
-              </Card>
-            </div>
-          </aside>
-
-          {/* ── Main Content (left) ── */}
-          <div className="min-w-0 lg:order-1 lg:col-start-1 space-y-8">
-
-            {/* Stats strip — scannable key facts in the reading flow */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px bg-[var(--color-outline)] border border-[var(--color-outline)] rounded-2xl overflow-hidden">
-              {[
-                { label: "Countries", value: `${provider.supportedCountries}+` },
-                { label: "Currencies", value: `${provider.supportedCurrencies}+` },
-                { label: "Speed", value: provider.transferSpeed },
-                { label: "Fees", value: provider.feeStructure },
-                { label: "Founded", value: String(provider.founded) },
-                { label: "Markup", value: provider.exchangeRateMarkup },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex flex-col items-center justify-center px-3 py-3 bg-[var(--color-surface)] text-center min-h-[72px]"
-                >
-                  <span className="text-overline text-[var(--color-on-surface-muted)] mb-1">{stat.label}</span>
-                  <span className="text-2sm font-semibold text-[var(--color-on-surface)] leading-snug">{stat.value}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Table of Contents */}
-            <Card>
-              <p className="text-overline text-[var(--color-on-surface-muted)] mb-4">In this review</p>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-0.5">
-                {review.sections.map((s, i) => (
-                  <a key={s.id} href={`#${s.id}`} className="flex items-center gap-2.5 text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] py-1.5 transition-colors leading-snug">
-                    <span className="w-5 h-5 rounded-md bg-[var(--color-surface-container)] text-[10px] font-bold text-[var(--color-on-surface-muted)] flex items-center justify-center shrink-0">{i + 1}</span>
-                    {s.heading}
-                  </a>
-                ))}
-                {[
-                  { id: "pros-cons", label: "Pros and Cons" },
-                  { id: "who-should-use", label: `Who Should Use ${provider.name}` },
-                  { id: "alternatives", label: "Alternatives" },
-                  { id: "how-we-tested", label: "How We Tested" },
-                  { id: "faq", label: "FAQ" },
-                ].map((item, i) => (
-                  <a key={item.id} href={`#${item.id}`} className="flex items-center gap-2.5 text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] py-1.5 transition-colors leading-snug">
-                    <span className="w-5 h-5 rounded-md bg-[var(--color-surface-container)] text-[10px] font-bold text-[var(--color-on-surface-muted)] flex items-center justify-center shrink-0">{review.sections.length + i + 1}</span>
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            </Card>
-
-            {/* Live corridor performance — pick a corridor the provider actually
-                serves and always include their row in the displayed set, so a
-                page about Provider X never headlines a competitor as "BEST". */}
-            <Card>
-              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
-                How {provider.name} compares today
-              </h2>
-              {(() => {
-                // UK FX brokers default to GBP→EUR (their core corridor); everyone
-                // else stays on USD→INR which is our highest-volume corridor.
-                const ukSpecialist = ["regencyfx", "torfx", "currencies-direct", "ofx", "xe", "halifax", "barclays", "lloyds", "nationwide", "natwest", "hsbc", "santander"];
-                const isUk = ukSpecialist.includes(slug);
-                const from = isUk ? "GBP" : "USD";
-                const to = isUk ? "EUR" : "INR";
-                const symbol = isUk ? "€" : "₹";
-                return <BestTransferToday locale={locale} amount={1000} from={from} to={to} symbol={symbol} highlightSlug={slug} />;
-              })()}
-            </Card>
-
-            {/* Article Sections */}
-            {review.sections.map((section) => (
-              <Card key={section.id} id={section.id}>
-                <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-4" style={{ fontFamily: "var(--font-reading)" }}>
-                  {section.heading}
-                </h2>
-                <div
-                  className="prose-content prose-custom"
-                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
-                />
-              </Card>
-            ))}
-
-            {/* Pros and Cons */}
-            <div id="pros-cons" className="grid md:grid-cols-2 gap-4">
-              <ProsConsList type="pros" items={provider.pros} />
-              <ProsConsList type="cons" items={provider.cons} />
-            </div>
-
-            {/* Who should use */}
-            <Card id="who-should-use">
-              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5" style={{ fontFamily: "var(--font-reading)" }}>
-                Who should use {provider.name}?
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {review.whoShouldUse.map((group) => {
-                  const isIdeal = group.heading.toLowerCase().includes("ideal");
-                  const Mark = isIdeal ? Check : X;
-                  return (
-                    <div key={group.heading}>
-                      <h3 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[var(--color-danger)]"}`}>
-                        <span className={`w-5 h-5 rounded-full flex items-center justify-center text-white ${isIdeal ? "bg-[var(--color-success)]" : "bg-[var(--color-danger)]"}`}>
-                          <Mark className="w-3 h-3" strokeWidth={3} />
-                        </span>
-                        {group.heading}
-                      </h3>
-                      <ul className="space-y-2">
-                        {group.items.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-on-surface-variant)]">
-                            <Mark className={`mt-0.5 shrink-0 w-4 h-4 ${isIdeal ? "text-[var(--color-success-dark)]" : "text-[var(--color-danger)]"}`} strokeWidth={2.5} />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
-
-            {/* Alternatives */}
-            <Card id="alternatives">
-              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5" style={{ fontFamily: "var(--font-reading)" }}>
-                {provider.name} alternatives
-              </h2>
-              <div className="space-y-3">
-                {review.alternatives.map((alt) => {
-                  const altProvider = providers.find((p) => p.slug === alt.slug);
-                  if (!altProvider) return null;
-                  return (
-                    <div
-                      key={alt.slug}
-                      className="flex items-center justify-between p-4 bg-[var(--color-surface-dim)] hover:bg-[var(--color-primary-surface)] rounded-xl border border-transparent hover:border-[var(--color-primary-light)] transition-all"
-                    >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-white border border-[var(--color-outline)] flex items-center justify-center">
-                          <Image src={altProvider.logo} alt={altProvider.name} width={40} height={40} className="object-contain p-0.5" />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-sm font-semibold text-[var(--color-on-surface)] truncate">{altProvider.name}</p>
-                          <p className="text-xs text-[var(--color-on-surface-variant)] truncate">{alt.reason}</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-3 shrink-0 ml-3">
-                        <Link href={`/companies/${alt.slug}`} className="text-xs font-semibold text-[var(--color-primary)] hover:underline">
-                          Review
-                        </Link>
-                        <Link href={`/compare/${getCompareCanonicalSlug(`${slug}-vs-${alt.slug}`)}`} className="text-xs font-semibold text-[var(--color-primary)] hover:underline">
-                          Compare
-                        </Link>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
-
-            {/* How we tested */}
-            <Card id="how-we-tested">
-              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-4" style={{ fontFamily: "var(--font-reading)" }}>
-                How we tested {provider.name}
-              </h2>
-              <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4">
-                {review.howWeTested}
-              </p>
-              <p className="text-xs text-[var(--color-on-surface-muted)] pt-3 border-t border-[var(--color-outline)]">
-                Last verified: {review.lastVerified} · Reviewed by{" "}
-                <Link href="/about/akif-hazarvi" className="text-[var(--color-primary)] hover:underline">{review.reviewer}</Link>
-                {" "}· Fact-checked by{" "}
-                <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">{review.factChecker}</Link>
-              </p>
-            </Card>
-
-            {/* FAQ */}
-            <Card id="faq">
-              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5" style={{ fontFamily: "var(--font-reading)" }}>
-                Frequently asked questions
-              </h2>
-              <div className="space-y-0 divide-y divide-[var(--color-outline)]">
-                {review.faqs.map((faq, i) => (
-                  <details key={i} className="group py-4 first:pt-0">
-                    <summary className="flex items-center justify-between cursor-pointer text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors select-none">
-                      {faq.q}
-                      <svg className="w-4 h-4 text-[var(--color-on-surface-muted)] group-open:rotate-180 transition-transform ml-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </summary>
-                    <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-6">{faq.a}</p>
-                  </details>
-                ))}
-              </div>
-            </Card>
-
-            {/* Closing CTA — re-surface the primary action at the end of the read,
-                where intent peaks after the FAQ. */}
-            <div className="rounded-3xl border border-[var(--color-outline)] bg-gradient-to-br from-[var(--color-primary-surface)] to-[var(--color-surface)] p-6 text-center">
-              <h2 className="text-lg font-bold text-[var(--color-on-surface)]" style={{ fontFamily: "var(--font-reading)" }}>
-                Ready to send with {provider.name}?
-              </h2>
-              <p className="mt-1.5 text-2sm text-[var(--color-on-surface-variant)] max-w-md mx-auto">
-                Compare {provider.name}&rsquo;s live rate against {otherProviders.length}+ other providers before you send — it takes seconds.
-              </p>
-              <div className="mt-4 flex flex-col sm:flex-row gap-2.5 justify-center">
-                <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_footer" className="inline-flex items-center justify-center gap-1.5 font-semibold rounded-full transition-all duration-150 hover:shadow-[0_4px_14px_rgba(0,0,0,0.18)] active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-11 px-6 text-sm">
-                  Visit {provider.name} ↗
-                </ProviderLink>
-                <Link href="/send-money" className="inline-flex items-center justify-center h-11 px-6 border border-[var(--color-outline)] rounded-full text-sm font-semibold text-[var(--color-primary)] hover:bg-[var(--color-surface)] transition-colors">
-                  Compare all providers
-                </Link>
-              </div>
-            </div>
-
-            {/* Compare with — head-to-head links */}
-            <Card>
-              <h2 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">Compare {provider.name} head-to-head</h2>
-              <div className="grid sm:grid-cols-2 gap-2">
-                {otherProviders.map((other) => (
-                  <Link
-                    key={other.slug}
-                    href={`/compare/${getCompareCanonicalSlug(`${slug}-vs-${other.slug}`)}`}
-                    className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] transition-colors group"
-                  >
-                    <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">
-                      {provider.name} vs {other.name}
-                    </span>
-                    <span className="text-xs text-[var(--color-primary)]">→</span>
-                  </Link>
-                ))}
-              </div>
-            </Card>
-
-            {providerNews.length > 0 && (
-              <Card>
-                <h2 className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">
-                  Latest on {provider.name}
-                </h2>
-                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
-                  {providerNews.map((n) => (
-                    <li key={n.slug}>
-                      <Link href={`/news/${n.slug}`} className="block group">
-                        <p className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)] leading-snug">
-                          {n.title}
-                        </p>
-                        <time
-                          className="text-2xs text-[var(--color-on-surface-variant)] mt-1 block"
-                          dateTime={n.publishedAt}
-                        >
-                          {formatLocalDate(n.publishedAt, { month: "short", day: "numeric", year: "numeric" })}
-                        </time>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/news"
-                  className="text-2xs text-[var(--color-primary)] hover:underline mt-3 block"
-                >
-                  All news →
-                </Link>
-              </Card>
-            )}
-          </div>
-        </div>
-      </Container>
-
-      {/* ── Mobile sticky CTA bar — keeps the primary conversion action one tap
-          away on small screens, where the rail has scrolled off. Hidden on lg. */}
-      <div className="lg:hidden sticky bottom-0 z-30 border-t border-[var(--color-outline)] bg-[var(--color-surface)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--color-surface)]/80 px-4 py-2.5">
-        <div className="flex items-center gap-3 max-w-[1200px] mx-auto">
-          <div className="shrink-0">
-            <div className="flex items-baseline gap-1">
-              <span className="text-lg font-bold tabular-nums" style={{ color: score.color }}>{review.editorRating}</span>
-              <span className="text-2xs text-[var(--color-on-surface-muted)]">/10</span>
-            </div>
-            <span className="text-2xs text-[var(--color-on-surface-variant)] leading-none">{provider.name}</span>
-          </div>
-          <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_sticky" className="flex items-center justify-center gap-1.5 font-semibold rounded-full active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-11 px-5 text-sm flex-1 transition-all">
-            Visit {provider.name} ↗
-          </ProviderLink>
-        </div>
-      </div>
-
-      {crossLinks}
-
-      {/* Structured data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "Review",
-        itemReviewed: {
-          "@type": "FinancialService",
-          "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
-          name: provider.name,
-          description: provider.description,
-          url: provider.website,
-          ...(provider.logo && { image: `https://sendmoneycompare.com${provider.logo}` }),
-        },
-        reviewRating: { "@type": "Rating", ratingValue: review.editorRating, bestRating: 10, worstRating: 1 },
-        author: { "@type": "Person", name: review.reviewer, url: `https://sendmoneycompare.com/about/${review.reviewer.toLowerCase().replace(/\s+/g, "-")}` },
-        publisher: {
-          "@type": "Organization",
-          name: "SendMoneyCompare",
-          "@id": "https://sendmoneycompare.com/#organization",
-          logo: { "@type": "ImageObject", url: "https://sendmoneycompare.com/logos/sendmoneycompare-logo.png", width: 512, height: 512 },
-        },
-        datePublished: review.publishedAt,
-        dateModified: review.updatedAt,
-        reviewBody: review.editorVerdict,
-        speakable: {
-          "@type": "SpeakableSpecification",
-          cssSelector: ["h1", ".editor-verdict", ".review-summary"],
-        },
-      }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://sendmoneycompare.com" },
-          { "@type": "ListItem", position: 2, name: "Companies", item: "https://sendmoneycompare.com/companies" },
-          { "@type": "ListItem", position: 3, name: provider.name, item: `https://sendmoneycompare.com/companies/${slug}` },
-        ],
-      }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "FinancialService",
-        "@id": `https://sendmoneycompare.com/companies/${slug}#financialservice`,
-        name: provider.name, description: provider.description, url: provider.website,
-        ...(trustpilotIndex[slug]?.totalReviews && trustpilotIndex[slug]?.score && {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: Number(trustpilotIndex[slug].score!.toFixed(1)),
-            bestRating: 5, worstRating: 1,
-            ratingCount: trustpilotIndex[slug].totalReviews,
-          },
-        }),
-      }) }} />
-      {review.faqs && review.faqs.length > 0 && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: review.faqs.map((faq) => ({
-            "@type": "Question",
-            name: faq.q,
-            acceptedAnswer: { "@type": "Answer", text: faq.a },
-          })),
-        }) }} />
-      )}
-    </>
-  );
-}
-
-/* ─── Default auto-generated review (fallback) ─── */
+/* ─── Compact profile template (all providers) ─── */
 function DefaultReview({
   slug,
   provider,
@@ -643,6 +133,7 @@ function DefaultReview({
 }) {
   return (
     <>
+      <ScrollTracker slug={slug} contentType="review" />
       {/* Hero */}
       <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8">
