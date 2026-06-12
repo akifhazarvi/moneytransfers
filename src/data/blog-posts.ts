@@ -9320,15 +9320,15 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "us-dollar-forecast-2026",
-    title: "USD Dollar Index Outlook 2026: 5 Bank DXY Forecasts",
+    title: "USD Dollar Index Forecast 2026: 6 Bank DXY Targets",
     metaDescription:
-      "USD Dollar Index outlook 2026: DXY at 98.49, down 2.4% YoY. End-2026 targets from Goldman Sachs, Morgan Stanley, JPMorgan, and ING — all see DXY lower.",
+      "USD Dollar Index forecast 2026: DXY at 98.49, down 2.4% YoY. Year-end targets from Goldman Sachs, Morgan Stanley, JPMorgan, ING and MUFG — all see DXY lower.",
     excerpt:
-      "DXY sits at 98.49 in May 2026, down 2.4% over twelve months. Every major forecaster — Goldman Sachs, Morgan Stanley, JPMorgan, ING, MUFG — expects DXY to end 2026 below current levels, but the path is contested. Here's the multi-bank consensus, the contrarian view on Fed cuts, and what it means for your next transfer.",
+      "DXY sits at 98.49, down 2.4% over twelve months. Goldman Sachs, Morgan Stanley, JPMorgan, ING and MUFG all expect the dollar index to end 2026 lower. See their targets charted, the five drivers behind the move, and what it means for your next transfer.",
     category: "Research",
-    readTime: "16 min read",
+    readTime: "7 min read",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-05-14",
+    updatedAt: "2026-06-12",
     author: "Akif Hazarvi",
     tags: [
       "US dollar forecast",
@@ -9343,279 +9343,174 @@ export const blogPosts: BlogPost[] = [
     featuredImage: "/images/blog/us-dollar-forecast-2026.jpg",
     sections: [
       {
-        heading: "Quick Answer: USD Dollar Index Outlook for the Rest of 2026",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The DXY traded at <strong>98.49</strong> on May 14, 2026 — down 2.4% over twelve months but up 0.4% in the past month, after April's <strong>3.8% CPI</strong> print forced markets to reprice the Fed's cutting path. Every major forecaster — Goldman Sachs, Morgan Stanley, JPMorgan, ING, MUFG, and Deutsche Bank — expects DXY to <strong>end 2026 below current levels</strong>, but the path is contested: Goldman targets the low-90s, Morgan Stanley calls for a V-shape (94 mid-year then back to 99), JPMorgan sees EUR/USD at 1.22 by March 2026. The Fed's March dot plot signals just one more 25bp cut in 2026. For senders, USD weakness through H1 hurts; possible Q4 recovery helps. <a href="/send-money">Compare live rates →</a></p></div>
+        heading: "Quick Answer: USD Outlook for the Rest of 2026",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The DXY traded at <strong>98.49</strong> on May 14, 2026 — down 2.4% over twelve months. Every major forecaster — Goldman Sachs, Morgan Stanley, JPMorgan, ING, MUFG and Deutsche Bank — expects DXY to <strong>end 2026 below current levels</strong>. Goldman targets the low-90s; Morgan Stanley calls a V-shape (94 mid-year, back to 99 by December). The Fed's March dot plot signals just one more 25bp cut in 2026, and April's hot 3.8% CPI print has bought the dollar a near-term reprieve. <a href="/send-money">Compare live rates →</a></p></div>
 
-<p>The US dollar is the world's most watched currency, and for good reason. It's the reserve currency held by central banks on every continent, the settlement currency for global oil markets, and the yardstick against which all other currencies are measured. When the dollar moves, it ripples through every international money transfer, every import bill, and every remittance home.</p>
-
-<p>This update pulls together the latest <a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer nofollow">Federal Reserve</a> SEP (March 18, 2026), April BLS data (CPI and NFP released May 8–12), <a href="https://home.treasury.gov/" target="_blank" rel="noopener noreferrer nofollow">US Treasury</a> auction stress signals, and named forecasts from six major banks to answer the question every USD-based sender is asking: <strong>where is the dollar headed for the rest of 2026?</strong></p>
+<p>When the dollar moves, it moves every international transfer and remittance with it. This update condenses the <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Fed's March 2026 projections</a>, April BLS data and six named bank forecasts into one answer: <strong>where is the dollar headed for the rest of 2026?</strong></p>
 
 <div class="blog-table-box">
-<h3 style="margin-top:0">Dollar Dashboard: Key Data Points (May 14, 2026)</h3>
+<h3 style="margin-top:0">Key Numbers (May 14, 2026)</h3>
 <table>
-<thead><tr><th>Metric</th><th>Current Value</th><th>Trend</th></tr></thead>
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>DXY (US Dollar Index)</strong></td><td>98.49</td><td>−2.4% over 12 months, +0.4% past month</td></tr>
-<tr><td><strong>EUR/USD</strong></td><td>~1.13</td><td>Euro firm on ECB-hold + Fed cuts narrative</td></tr>
-<tr><td><strong>USD/JPY</strong></td><td>~145</td><td>Yen recovered as BoJ-Fed gap narrows</td></tr>
-<tr><td><strong>GBP/USD</strong></td><td>~1.28</td><td>Sterling vulnerable on softer UK growth</td></tr>
-<tr><td><strong>Fed Funds Rate</strong></td><td>3.50–3.75%</td><td>Held at March 18-19, 2026 FOMC</td></tr>
-<tr><td><strong>Fed Long-Run Dot</strong></td><td>3.125%</td><td>Highest median estimate since 2016</td></tr>
-<tr><td><strong>April 2026 CPI (YoY)</strong></td><td>3.8% headline / 2.8% core</td><td>Hottest monthly print since Jan 2025</td></tr>
-<tr><td><strong>April 2026 NFP</strong></td><td>+115K / 4.3% unemployment</td><td>Beat consensus but down from 185K March</td></tr>
-<tr><td><strong>10-Year Treasury Yield</strong></td><td>4.46%</td><td>Spiked on hot CPI print May 12</td></tr>
-<tr><td><strong>30-Year Treasury Yield</strong></td><td>5.02%</td><td>Above 5% signals fiscal-stress premium</td></tr>
-<tr><td><strong>ECB Main Refi Rate</strong></td><td>2.15%</td><td>Held since March 19, 2026</td></tr>
-<tr><td><strong>BoE Bank Rate</strong></td><td>3.75%</td><td>Held April 30, 2026</td></tr>
+<tr class="blog-row-highlight"><td><strong>DXY (US Dollar Index)</strong></td><td>98.49 (−2.4% YoY)</td></tr>
+<tr><td><strong>Fed Funds Rate</strong></td><td>3.50–3.75%, one more 2026 cut signalled</td></tr>
+<tr><td><strong>April CPI (YoY)</strong></td><td>3.8% headline / 2.8% core — hottest since Jan 2025</td></tr>
+<tr><td><strong>EUR/USD</strong></td><td>~1.13 (euro is 57.6% of the DXY basket)</td></tr>
+<tr><td><strong>10Y / 30Y Treasury</strong></td><td>4.46% / 5.02% — fiscal-stress premium</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Sources: <a href="https://tradingeconomics.com/united-states/currency" target="_blank" rel="noopener noreferrer nofollow">TradingEconomics</a>, <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Fed SEP</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer nofollow">BLS CPI</a>, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView" target="_blank" rel="noopener noreferrer nofollow">US Treasury yield curve</a>. Data as of May 12–14, 2026.</p>
+<p class="blog-footnote">Sources: <a href="https://tradingeconomics.com/united-states/currency" target="_blank" rel="noopener noreferrer nofollow">TradingEconomics</a>, <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Fed SEP</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer nofollow">BLS CPI</a>. Data as of May 12–14, 2026.</p>
 </div>`,
       },
       {
-        heading: "What 6 Major Banks Predict for the Dollar in 2026",
-        content: `<p>This is where the dollar story actually gets interesting. While headline media often quote one or two banks, the full picture across major Wall Street and European forecasters reveals a consensus that's more nuanced than "dollar will fall."</p>
+        heading: "Where 6 Banks See the Dollar Index by End-2026",
+        content: `<p>Every major house expects DXY to finish 2026 below today's 98.49 — the disagreement is over the <em>path</em>, not the destination. No major bank has a base case above 103 or below 88.</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top:0">DXY / EUR-USD Forecasts: Year-End 2026</h3>
-<table>
-<thead><tr><th>House</th><th>DXY / EUR-USD Target</th><th>Time Horizon</th><th>Rationale</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong>Goldman Sachs</strong></td><td>DXY low-90s; EUR/USD 1.25</td><td>Q4 2026</td><td>Fading US exceptionalism, diversification out of dollar assets</td></tr>
-<tr><td><strong>Morgan Stanley</strong></td><td>DXY 94 mid-2026 → 99 year-end (V-shape)</td><td>H1 trough, H2 recovery</td><td>3 more Fed cuts in H1, then risk premium unwinds in H2</td></tr>
-<tr><td><strong>JPMorgan</strong></td><td>EUR/USD 1.22 by March 2026; USD/JPY 139</td><td>Mid-2026 then plateau</td><td>USD still 7% above fair value vs EUR; Fed easing while peers hold</td></tr>
-<tr><td><strong>ING</strong></td><td>EUR/USD 1.22 year-end; broad bearish USD</td><td>End 2026</td><td>Two more Fed cuts; eurozone growth surprise; US fiscal/midterm risk</td></tr>
-<tr><td><strong>MUFG</strong></td><td>DXY to weaken ~5% in 2026</td><td>Year-end</td><td>"Post-peak USD world" — structural diversification</td></tr>
-<tr><td><strong>Deutsche Bank / Bloomberg consensus</strong></td><td>DXY ~99 year-end (−3%)</td><td>Year-end</td><td>Aligned with consensus, modest weakness</td></tr>
-<tr><td><strong>Reuters FX Poll</strong></td><td>EUR/USD 1.17 (3m), 1.19 (6m), 1.20 (12m)</td><td>Rolling</td><td>Gradual Fed easing; central-bank independence concerns</td></tr>
-<tr><td><strong>Cambridge Currencies</strong></td><td>DXY 96–100 Q2, 94–98 Q3, 90–96 Q4</td><td>Quarterly path</td><td>Base case for sustained weakness</td></tr>
-</tbody>
-</table>
-<p class="blog-footnote">Forecasts compiled from public research notes and bank outlooks published between November 2025 and Q1 2026. <a href="https://www.goldmansachs.com/insights/goldman-sachs-research/global-fx-outlook-2026-different-dollar-downside" target="_blank" rel="noopener noreferrer nofollow">Goldman</a>, <a href="https://www.morganstanley.com/insights/articles/us-dollar-decline-continues-through-2026" target="_blank" rel="noopener noreferrer nofollow">Morgan Stanley</a>, <a href="https://www.jpmorgan.com/insights/global-research/currencies/currency-volatility-dollar-strength" target="_blank" rel="noopener noreferrer nofollow">JPMorgan</a>, <a href="https://think.ing.com/articles/fx-outlook-2026-our-main-calls/" target="_blank" rel="noopener noreferrer nofollow">ING</a>, <a href="https://www.mufgresearch.com/fx/fx-focus-g10-fx-2026-outlook-in-a-post-peak-usd-world-19-december-2025/" target="_blank" rel="noopener noreferrer nofollow">MUFG</a>.</p>
+<h3 style="margin-top:0">Year-End 2026 DXY Targets vs Today</h3>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:700">Today (May 14)</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:75%;background:var(--color-on-surface-variant);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 72px;font-size:13px;text-align:right;font-weight:700">98.49</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">Morgan Stanley</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:79%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 72px;font-size:13px;text-align:right">99*</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">Deutsche Bank</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:79%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 72px;font-size:13px;text-align:right">~99</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">MUFG</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:39%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 72px;font-size:13px;text-align:right">~93.5</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">Cambridge</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:36%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 72px;font-size:13px;text-align:right">90–96</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">Goldman Sachs</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:29%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 72px;font-size:13px;text-align:right">low-90s</span>
+</div>
+<p class="blog-footnote">*Morgan Stanley's path is a V-shape: 94 mid-year, then recovery to 99 by December. JPMorgan and ING express the same bearish-dollar view via EUR/USD targets of 1.22 (≈ DXY mid-90s). Bar scale: 88–102. Compiled from <a href="https://www.goldmansachs.com/insights/goldman-sachs-research/global-fx-outlook-2026-different-dollar-downside" target="_blank" rel="noopener noreferrer nofollow">Goldman</a>, <a href="https://www.morganstanley.com/insights/articles/us-dollar-decline-continues-through-2026" target="_blank" rel="noopener noreferrer nofollow">Morgan Stanley</a>, <a href="https://www.jpmorgan.com/insights/global-research/currencies/currency-volatility-dollar-strength" target="_blank" rel="noopener noreferrer nofollow">JPMorgan</a>, <a href="https://think.ing.com/articles/fx-outlook-2026-our-main-calls/" target="_blank" rel="noopener noreferrer nofollow">ING</a> and <a href="https://www.mufgresearch.com/fx/fx-focus-g10-fx-2026-outlook-in-a-post-peak-usd-world-19-december-2025/" target="_blank" rel="noopener noreferrer nofollow">MUFG</a> research published Nov 2025 – Q1 2026.</p>
 </div>
 
-<p><strong>The consensus takeaway:</strong> Every major forecaster expects DXY below current levels by year-end 2026. Disagreement is over the <em>path</em>, not the destination. No major bank has a base case for sustained DXY above 103 or below 88.</p>
-
-<p><strong>The contrarian within the consensus:</strong> Morgan Stanley's V-shape is the most useful story for senders. If they're right, the dollar gets weaker through summer (bad timing for transfers) and then recovers in autumn (good timing). That's the opposite of "wait and hope" — it suggests <strong>front-loading transfers if you must send by year-end</strong>.</p>`,
+<p><strong>The most useful call for senders is Morgan Stanley's V-shape:</strong> if they're right, the dollar weakens through summer (bad timing for transfers) and recovers in autumn (good timing) — an argument for front-loading transfers only if you must send by year-end.</p>`,
       },
       {
-        heading: "5 Drivers Moving the Dollar in 2026",
-        content: `<h3>1. The Fed Funds Path</h3>
-<p>The Fed's <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">March 18, 2026 dot plot</a> signals <strong>just one more 25bp cut in 2026</strong> (to 3.25–3.50%) and one more in 2027 (to 3.00–3.25%), then flat. The longer-run dot is <strong>3.125% — the highest median estimate from the FOMC since 2016</strong>. Markets currently price ~55% probability of a cut at the May 6–7 meeting; this drops fast if inflation stays hot.</p>
-<p><strong>Why it matters:</strong> Every cut narrows the dollar's yield advantage. But the dollar can rally on a hawkish Fed even mid-cycle — see the May 12 CPI reaction.</p>
-
-<h3>2. Inflation Re-Acceleration</h3>
-<p>April 2026 CPI came in at <strong>3.8% headline / 2.8% core YoY</strong> (released May 12) — the hottest monthly print since January 2025. Energy was +3.8% m/m on Middle East tension; housing utilities +38% YoY. This is well above the Fed's 2% target and tilts policy toward "higher for longer" — supportive of the dollar in the near term.</p>
-
-<h3>3. Trade Policy and Tariff Drag</h3>
-<p>The Supreme Court ruled 6–3 on <strong>February 20, 2026</strong> that IEEPA doesn't authorize presidential tariffs. The administration replaced these with 10% <strong>Section 122 global tariffs</strong> on February 24, 2026 (with a 150-day sunset clock — expires around July 24, 2026). On April 2, 2026, additional Section 232 tariffs hit (including up to 100% on patented pharma imports). Tax Foundation projects the 2026 average effective tariff rate at <strong>5.3% — the highest since 1972</strong>. Tariffs are short-term USD-positive (inflationary, plus import compression) but medium-term USD-negative (growth headwind).</p>
-
-<h3>4. US Fiscal Trajectory</h3>
-<p>US national debt sat at <strong>~$39 trillion in April 2026</strong>; the FY2026 cumulative deficit hit <strong>$1.2 trillion by end-March</strong>. More importantly, <strong>March 2026 Treasury auctions are flashing warning signs</strong>: 2-year, 5-year and 7-year notes all "tailed," and primary dealers were forced to absorb <strong>24% of the March 2026 2-year auction — roughly double their normal share</strong>. The 5-year tail was <strong>1.4bp versus a 0.3bp historical average</strong>. The 30-year above 5% is the loudest signal of fiscal stress and a structural reason for dollar weakness.</p>
-
-<h3>5. The DXY Basket: It's Mostly EUR/USD</h3>
-<p>The dollar index isn't a basket of "the world" — it's overwhelmingly the euro:</p>
-<ul>
-<li><strong>EUR — 57.6%</strong> (ECB done cutting; eurozone H2 growth picking up = strong euro = weak DXY)</li>
-<li>JPY — 13.6% (BoJ glacial normalization; carry-trade unwind is a tail risk)</li>
-<li>GBP — 11.9% (BoE held at 3.75%; sterling vulnerable on softer growth)</li>
-<li>CAD — 9.1% (USMCA-review risk, tariff exposure)</li>
-<li>SEK — 4.2%, CHF — 3.6% (defensive/safe-haven sensitive)</li>
-</ul>
-<p>Any bearish DXY call is fundamentally a bullish euro call. If you believe the eurozone has bottomed and the ECB is done easing, you're already long EUR/USD.</p>`,
-      },
-      {
-        heading: "Why Fed Cuts Don't Always Weaken the Dollar (The Contrarian View)",
-        content: `<p>The textbook story is simple: Fed cuts → lower US yields → less foreign capital → weaker dollar. The textbook is often wrong.</p>
-
-<p>The most recent counter-evidence is the <strong>2019 "mid-cycle adjustment"</strong>. The Fed cut three times in 2019 — and the dollar index <strong>rose</strong> modestly through the year (97 to 99). Why? Because peer central banks were also cutting aggressively (ECB into negative territory, BoJ pinned at the ZLB), so the Fed's relative yield advantage was actually <em>maintained</em>.</p>
-
-<p>The deeper-cycle 2007–08 episode is more nuanced. The Fed cut from 5.25% to 0.125%, and the dollar initially weakened — DXY hit a cycle low of <strong>70.70 on March 16, 2008</strong>. But once the financial crisis truly hit, panic flight-to-safety pushed DXY up sharply through 2009.</p>
-
-<p><strong>The pattern (per <a href="https://www.pimco.com/us/en/insights/cuts-and-consequences" target="_blank" rel="noopener noreferrer nofollow">PIMCO research</a> and <a href="https://www.cmegroup.com/insights/economic-research/2024/fed-easing-cycles-investors-initial-expectations-versus-final-outcomes.html" target="_blank" rel="noopener noreferrer nofollow">CME Group</a>):</strong> In past easing cycles, USD tends to fall and then recover. But the relationship is not consistent. Whether the dollar falls during a cutting cycle depends on:</p>
-<ul>
-<li>Whether peer central banks are also cutting (in 2019, yes — and dollar rose)</li>
-<li>Whether the US is heading into recession versus soft landing</li>
-<li>Whether global risk aversion spikes (panic = dollar buying)</li>
+        heading: "What's Driving the Dollar in 2026",
+        content: `<ul>
+<li><strong>The Fed path.</strong> The <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">March dot plot</a> signals just one more 25bp cut in 2026 and one in 2027; the long-run dot of 3.125% is the FOMC's highest since 2016. Every cut narrows the dollar's yield advantage.</li>
+<li><strong>Inflation re-acceleration.</strong> April CPI hit 3.8% headline / 2.8% core — well above target, tilting policy toward "higher for longer" and supporting the dollar near-term.</li>
+<li><strong>Tariffs.</strong> After the Supreme Court struck down IEEPA tariffs in February, 10% Section 122 tariffs (sunset ~July 24) and new Section 232 duties pushed the average effective rate to <a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank" rel="noopener noreferrer nofollow">5.3% — the highest since 1972</a>. Short-term USD-positive, medium-term a growth headwind.</li>
+<li><strong>Fiscal stress.</strong> Debt near $39T and <a href="https://www.crfb.org/blogs/weak-auctions-underscore-risks-our-growing-debt-burden" target="_blank" rel="noopener noreferrer nofollow">tailing Treasury auctions</a> (primary dealers absorbed 24% of the March 2-year sale — double normal) keep the 30-year above 5%. The loudest structural reason for dollar weakness.</li>
+<li><strong>The DXY basket is mostly the euro (57.6%).</strong> Any bearish DXY call is fundamentally a bullish EUR/USD call: the ECB is done cutting while the Fed still eases.</li>
 </ul>
 
-<p><strong>What this means for 2026:</strong> The ECB has signalled it's done cutting; the BoJ is still normalizing higher. That means the Fed is the <em>only</em> major central bank still easing — which is genuinely USD-negative on a relative basis. But if the April CPI print marks the start of a real inflation reflare, the Fed could stop cutting altogether, and the textbook "cuts weaken dollar" story breaks down entirely.</p>
-
-<div class="blog-answer-box"><p><strong>Bottom line:</strong> "Fed cuts → dollar falls" is a useful starting point but it's been wrong as recently as 2019. The relative-policy story (Fed vs ECB vs BoJ vs BoE) is more reliable than the absolute-Fed story.</p></div>`,
+<p><strong>One caveat the textbook misses:</strong> Fed cuts don't always weaken the dollar. In 2019 the Fed cut three times and DXY <em>rose</em> (97 → 99) because peers were cutting too. Per <a href="https://www.pimco.com/us/en/insights/cuts-and-consequences" target="_blank" rel="noopener noreferrer nofollow">PIMCO</a> and <a href="https://www.cmegroup.com/insights/economic-research/2024/fed-easing-cycles-investors-initial-expectations-versus-final-outcomes.html" target="_blank" rel="noopener noreferrer nofollow">CME Group</a>, the relative-policy story (Fed vs ECB vs BoJ) is more reliable than the absolute-Fed story. In 2026 the Fed is the only major central bank still easing — genuinely USD-negative — unless hot inflation stops the cuts altogether.</p>`,
       },
       {
-        heading: "What This Means for Your International Transfers",
-        content: `<p>If you send USD abroad regularly, dollar movements directly affect what your recipient gets. Here's the quant for the four largest USD-out corridors, using mid-May 2026 spot rates and the consensus 3–5% DXY decline.</p>
+        heading: "What This Means for Your Transfers",
+        content: `<p>Here's what the consensus 3–5% DXY decline would do to a $1,000 transfer on the four largest USD-out corridors:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top:0">$1,000 Transfer: Today vs. Consensus Year-End 2026</h3>
+<h3 style="margin-top:0">$1,000 Transfer: Today vs Consensus Year-End 2026</h3>
 <table>
-<thead><tr><th>Corridor</th><th>Current Rate</th><th>Today: $1,000 →</th><th>Year-End Forecast</th><th>Forecast: $1,000 →</th><th>Recipient Difference</th></tr></thead>
+<thead><tr><th>Corridor</th><th>Today</th><th>Year-End Forecast</th><th>Recipient Difference</th></tr></thead>
 <tbody>
-<tr><td><strong>USD → INR</strong></td><td>~84.5</td><td>₹84,500</td><td>~82.0 (per consensus, indirect via cross-rates)</td><td>₹82,000</td><td><strong>−₹2,500</strong></td></tr>
-<tr><td><strong>USD → MXN</strong></td><td>~17.0</td><td>MXN 17,000</td><td>~16.0 (post Goldman's USD weakness)</td><td>MXN 16,000</td><td><strong>−MXN 1,000</strong></td></tr>
-<tr><td><strong>USD → PHP</strong></td><td>~60.8</td><td>₱60,800</td><td>~57.0 (analyst low)</td><td>₱57,000</td><td><strong>−₱3,800</strong></td></tr>
-<tr><td><strong>USD → EUR</strong></td><td>~1.13</td><td>€885</td><td>1.22 (JPM/ING)</td><td>€820</td><td><strong>−€65</strong></td></tr>
-<tr><td><strong>USD → EUR</strong> (Goldman case)</td><td>~1.13</td><td>€885</td><td>1.25 (Goldman)</td><td>€800</td><td><strong>−€85</strong></td></tr>
+<tr><td><strong><a href="/send-money/usa-to-india">USD → INR</a></strong></td><td>₹84,500</td><td>₹82,000</td><td><strong>−₹2,500</strong></td></tr>
+<tr><td><strong><a href="/send-money/usa-to-mexico">USD → MXN</a></strong></td><td>MXN 17,000</td><td>MXN 16,000</td><td><strong>−MXN 1,000</strong></td></tr>
+<tr><td><strong><a href="/send-money/usa-to-philippines">USD → PHP</a></strong></td><td>₱60,800</td><td>₱57,000</td><td><strong>−₱3,800</strong></td></tr>
+<tr><td><strong><a href="/send-money/usa-to-europe">USD → EUR</a></strong></td><td>€885</td><td>€820 (€800 in Goldman's case)</td><td><strong>−€65 to −€85</strong></td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">USD→INR isn't in the DXY basket — the linkage is via cross-rates and capital flows, not a direct 1:1 move. Spot rates verified May 12–14, 2026.</p>
+<p class="blog-footnote">Spot rates verified May 12–14, 2026. USD→INR isn't in the DXY basket — linkage is via cross-rates, not 1:1.</p>
 </div>
 
-<p><strong>The remittance takeaway:</strong></p>
-<ul>
-<li><strong>USD → India</strong> ($129B annual, the largest USD-out corridor): a 3% USD/INR move = roughly ₹2,500 less per $1,000. <a href="/send-money/usa-to-india">See live USD to INR rates →</a></li>
-<li><strong>USD → Mexico</strong> ($68B annual): MXN strengthened 23% in 2025 already; further USD weakness compounds. <a href="/send-money/usa-to-mexico">See live USD to MXN rates →</a></li>
-<li><strong>USD → Philippines</strong> ($40B+ annual, US share ~40%): PHP under pressure from oil bill (Iran tensions) which mutes USD weakness. <a href="/send-money/usa-to-philippines">See live USD to PHP rates →</a></li>
-<li><strong>USD → Europe</strong> (expats, second homes, EU-based family): the most direct DXY exposure. <a href="/send-money/usa-to-europe">See live USD to EUR rates →</a></li>
-</ul>
-
-<p><strong>Practical: should I send now or wait?</strong></p>
-<ul>
-<li><strong>If Morgan Stanley's V-shape is right</strong> → USD gets weaker through summer, then stronger in Q4. Better to <strong>wait until autumn</strong> if you can.</li>
-<li><strong>If Goldman's linear-bear is right</strong> → USD keeps weakening. Better to <strong>send now</strong>.</li>
-<li><strong>If hot CPI forces Fed to stop cutting</strong> → USD rallies hard. Senders gain by waiting.</li>
-<li><strong>Realistic answer:</strong> nobody knows. Focus on what you control — <a href="/guides/cheapest-way-to-send-money-internationally">picking the cheapest provider</a> — which saves you 2–5% with certainty, more than any forecast move.</li>
-</ul>`,
+<p><strong>Send now or wait?</strong> If Morgan Stanley's V-shape is right, waiting until autumn pays; if Goldman's linear bear case is right, send now; if hot CPI stops the Fed cutting, the dollar rallies and waiting wins. The realistic answer: nobody knows. <a href="/guides/cheapest-way-to-send-money-internationally">Picking the cheapest provider</a> saves you 2–5% with certainty — more than any forecast move.</p>`,
       },
       {
-        heading: "The Powell-to-Warsh Transition: A Risk Most Pages Miss",
-        content: `<p>Jerome Powell's term as Fed Chair <strong>ends May 15, 2026</strong>. As of May 14, <strong>Kevin Warsh is widely expected to chair the June 16–17 FOMC meeting</strong> — the first major data point on Fed direction under new leadership.</p>
-
-<p>Why this matters for the dollar:</p>
-<ul>
-<li><strong>Warsh's historical track record</strong> is more hawkish than Powell's. As a Fed Governor (2006–2011), Warsh dissented against quantitative easing and argued for tighter policy</li>
-<li><strong>Markets price the chair</strong>. Even before the first Warsh-led FOMC, dollar strength has crept back into pricing on the assumption of a less-dovish bias</li>
-<li><strong>The June dot plot</strong> (released June 17, 2026) will be the first SEP under Warsh — if it shows fewer cuts than the March plot, expect a sharp dollar rally</li>
-<li><strong>Central bank independence questions</strong> have been raised by Reuters FX poll respondents as a top USD risk factor for 2026</li>
-</ul>
-
-<p>The Section 122 tariff sunset (~July 24, 2026, 150 days from February 24) is the other near-term USD catalyst. If tariffs roll off, import volumes normalize and inflation eases — opening room for the Fed to cut again. If they're extended, the inflation pressure that drove April CPI to 3.8% continues.</p>
-
-<p><strong>For senders:</strong> the late-June Warsh-Fed pivot is the single biggest near-term volatility event. Avoid sending large amounts in the week before and after the June 17 FOMC if you can.</p>`,
-      },
-      {
-        heading: "Historical Context: DXY Cycles 2022–2026",
-        content: `<p>To understand where we are, here's the recent dollar history:</p>
-
-<div class="blog-table-box">
-<h3 style="margin-top:0">DXY Range 2022–2026</h3>
-<table>
-<thead><tr><th>Period</th><th>DXY Level</th><th>Catalyst</th></tr></thead>
-<tbody>
-<tr><td><strong>September 2022</strong></td><td>114.78 (20-yr high)</td><td>4 consecutive 75bp Fed hikes + EU energy crisis</td></tr>
-<tr><td><strong>End-2022</strong></td><td>103.52</td><td>Already down 10% from peak</td></tr>
-<tr><td><strong>2023</strong></td><td>99–107 range</td><td>Range-bound during disinflation</td></tr>
-<tr><td><strong>Early 2024</strong></td><td>~109</td><td>Trump-trade re-pricing</td></tr>
-<tr><td><strong>May 2025</strong></td><td>101.98</td><td>52-week high</td></tr>
-<tr><td><strong>H1 2025</strong></td><td>−10.7%</td><td>Sharp drop on first Fed cuts of cycle</td></tr>
-<tr><td><strong>Jan 26, 2026</strong></td><td>95.55</td><td>Year-to-date trough</td></tr>
-<tr><td><strong>Spike (post-Iran)</strong></td><td>~103</td><td>Brief safe-haven rally</td></tr>
-<tr class="blog-row-highlight"><td><strong>May 14, 2026</strong></td><td>98.49</td><td>Hot CPI repricing</td></tr>
-</tbody>
-</table>
+        heading: "DXY Since 2022 — and What to Watch Next",
+        content: `<div class="blog-table-box">
+<h3 style="margin-top:0">DXY: From 2022 Peak to Today</h3>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">Sep 2022 peak</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:95%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 60px;font-size:13px;text-align:right">114.78</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">End-2022</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:52%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 60px;font-size:13px;text-align:right">103.52</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">May 2025 high</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:46%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 60px;font-size:13px;text-align:right">101.98</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:600">Jan 2026 trough</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:21%;background:var(--color-primary);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 60px;font-size:13px;text-align:right">95.55</span>
+</div>
+<div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+<span style="flex:0 0 128px;font-size:13px;font-weight:700">May 2026 (now)</span>
+<div style="flex:1;background:var(--color-surface-dim);border-radius:5px;height:18px"><div style="width:33%;background:var(--color-on-surface-variant);height:18px;border-radius:5px"></div></div>
+<span style="flex:0 0 60px;font-size:13px;text-align:right;font-weight:700">98.49</span>
+</div>
+<p class="blog-footnote">Bar scale: 90–116. The 95–103 band has held for nearly two years; the consensus 94–99 year-end call keeps DXY inside it, leaning toward the bottom.</p>
 </div>
 
-<p><strong>What this tells us:</strong> the dollar is mid-range — well off the 2022 panic high (114) but above the 2026 trough (95.55). The 95–103 band has held for nearly two years. Breaking below 95 would require a fundamental shift (a recession, an unanticipated Fed cut cycle); breaking above 103 would require a major geopolitical shock or hawkish Fed reset.</p>
-
-<p>The forecaster consensus that DXY ends 2026 around 94–99 effectively says: <strong>we stay inside the established range, leaning slightly toward the bottom of it</strong>.</p>`,
+<p><strong>What to watch next:</strong> Jerome Powell's term ends May 15, 2026, and Kevin Warsh — historically more hawkish — is widely expected to chair the June 16–17 FOMC. The June 17 dot plot is the single biggest near-term volatility event: fewer projected cuts would trigger a sharp dollar rally. Avoid sending large amounts in the week around it. The Section 122 tariff sunset (~July 24) is the other catalyst — a roll-off would ease inflation and reopen room for Fed cuts.</p>`,
       },
       {
-        heading: "How to Protect Yourself Regardless of Direction",
-        content: `<ol>
-<li><strong>Compare every transfer.</strong> A 3% currency move on $1,000 is worth ₹2,500 or €30 — far more than fee differences between providers, but the choice of provider can save you another 2–5% on top. <a href="/send-money">Compare 50+ providers live →</a></li>
-<li><strong>Set rate alerts.</strong> <a href="/companies/wise">Wise</a> and <a href="/companies/xe">Xe</a> let you set target USD/INR, USD/MXN, USD/EUR rates and notify you when hit. Read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> so you understand what you're really paying.</li>
-<li><strong>Dollar-cost average large transfers.</strong> Sending $10K+ over the next year? Split into monthly transfers. This smooths out volatility — the same logic financial advisors use for stock investing.</li>
-<li><strong>Use forward contracts for big moves.</strong> Buying property abroad, paying international tuition, or making business payments? <a href="/companies/ofx">OFX</a> and <a href="/companies/xe">Xe</a> offer forward contracts that lock today's rate for up to 12 months.</li>
-<li><strong>Watch the new US remittance tax.</strong> A <a href="/news/us-remittance-tax-2026">1% tax on cash-funded outbound remittances took effect January 1, 2026</a>. Digital/bank-funded transfers are exempt — meaning <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and bank-pull options are now even more cost-advantaged versus cash-based Western Union or MoneyGram retail.</li>
-<li><strong>Read our <a href="/guides/best-money-transfer-apps">best money transfer apps</a> ranking</strong> and our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a> for provider-specific tactics.</li>
-</ol>`,
-      },
-      {
-        heading: "Our Verdict: Where the Dollar Is Headed",
-        content: `<p>After synthesizing the Fed SEP, six major bank forecasts, April BLS data, Treasury auction stress, and the upcoming Powell/Warsh transition, here's our base case.</p>
+        heading: "Our Verdict — and How to Protect Yourself",
+        content: `<p><strong>Base case: moderate dollar weakening with an autumn recovery</strong> — DXY ends 2026 around 94–99, not a crash, not a crisis. Hot April inflation has bought the dollar a near-term reprieve, and a global recession or Middle East escalation could still spark a safe-haven rally above 103. Don't try to time it. Focus on what you control:</p>
 
-<div class="blog-table-box">
-<h3 style="margin-top:0">DXY Outlook Summary (May 14, 2026)</h3>
-<table>
-<thead><tr><th>Timeframe</th><th>Outlook</th><th>Confidence</th></tr></thead>
-<tbody>
-<tr><td><strong>Next 4 weeks (to mid-June)</strong></td><td>Range 97–100. Hawkish-Fed repricing keeps a floor; tariff sunset risk caps the top</td><td>Medium-high</td></tr>
-<tr><td><strong>June 17 FOMC week</strong></td><td>Volatility event — first SEP under (likely) Warsh. Skew is hawkish-USD-positive</td><td>Medium</td></tr>
-<tr class="blog-row-highlight"><td><strong>H2 2026</strong></td><td>Morgan Stanley V-shape most likely — drift to 95 by August, recovery to 99 by year-end</td><td>Medium</td></tr>
-<tr><td><strong>End-2026 target</strong></td><td>DXY 94–99 (consensus). Goldman bear case 90–93. No serious bull case above 103</td><td>Medium</td></tr>
-<tr><td><strong>Key risk to call</strong></td><td>Global recession or Iran escalation → sharp safe-haven dollar rally above 103</td><td>Always present</td></tr>
-</tbody>
-</table>
-</div>
+<ol>
+<li><strong>Compare every transfer.</strong> Provider choice saves 2–5% with certainty — more than most forecast moves. <a href="/send-money">Compare 50+ providers live →</a></li>
+<li><strong>Set rate alerts.</strong> <a href="/companies/wise">Wise</a> and <a href="/companies/xe">Xe</a> notify you when your target rate hits. Understand <a href="/guides/exchange-rate-markup-explained">what you're really paying</a> first.</li>
+<li><strong>Spread out large transfers.</strong> Dollar-cost average $10K+ over monthly sends, or lock today's rate for up to 12 months with a forward contract from <a href="/companies/ofx">OFX</a> or <a href="/companies/xe">Xe</a>.</li>
+<li><strong>Avoid the 1% cash remittance tax.</strong> Since January 1, 2026, cash-funded outbound remittances are taxed; <a href="/news/us-remittance-tax-2026">digital and bank-funded transfers are exempt</a>.</li>
+</ol>
 
-<p>The base case is <strong>moderate dollar weakening with autumn recovery</strong> — not a crash, not a crisis. Hot April inflation has bought the dollar a near-term reprieve from the consensus bearish call. The forecaster consensus that DXY ends 2026 around 94–99 says: stay inside the established range, leaning slightly toward the bottom of it.</p>
+<p style="text-align:center;margin-top:24px"><a href="/send-money" class="blog-cta-button">Compare 50+ Providers — Live Rates →</a></p>
 
-<p><strong>For senders:</strong> don't try to time the currency market. Focus on what you control — the provider you choose, the fee you pay, the rate alert you set. A 2–5% saving on every transfer compounds; a "correct" macro call once a year does not.</p>
-
-<p style="text-align:center;margin-top:24px"><a href="/send-money" class="blog-cta-button">Compare 50+ Providers — Live Rates →</a></p>`,
-      },
-      {
-        heading: "Sources & Methodology",
-        content: `<p>Macro data verified against <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Federal Reserve SEP (March 18, 2026)</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer nofollow">BLS CPI release</a> (April 2026, published May 12), <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener noreferrer nofollow">BLS Employment Situation</a> (April 2026, published May 8), and <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView" target="_blank" rel="noopener noreferrer nofollow">US Treasury Daily Yield Curve</a>. DXY level from <a href="https://tradingeconomics.com/united-states/currency" target="_blank" rel="noopener noreferrer nofollow">Trading Economics</a> as of May 14, 2026.</p>
-
-<p>Forecasts from <a href="https://www.goldmansachs.com/insights/goldman-sachs-research/global-fx-outlook-2026-different-dollar-downside" target="_blank" rel="noopener noreferrer nofollow">Goldman Sachs Global FX Outlook 2026</a>, <a href="https://www.morganstanley.com/insights/articles/us-dollar-decline-continues-through-2026" target="_blank" rel="noopener noreferrer nofollow">Morgan Stanley FX Research (Nov 2025)</a>, <a href="https://www.jpmorgan.com/insights/global-research/currencies/currency-volatility-dollar-strength" target="_blank" rel="noopener noreferrer nofollow">JPMorgan Currency Volatility note</a>, <a href="https://think.ing.com/articles/fx-outlook-2026-our-main-calls/" target="_blank" rel="noopener noreferrer nofollow">ING FX Outlook 2026</a>, and <a href="https://www.mufgresearch.com/fx/fx-focus-g10-fx-2026-outlook-in-a-post-peak-usd-world-19-december-2025/" target="_blank" rel="noopener noreferrer nofollow">MUFG G10 FX Post-Peak USD World (Dec 2025)</a>.</p>
-
-<p>Historical Fed-cycle analysis informed by <a href="https://www.pimco.com/us/en/insights/cuts-and-consequences" target="_blank" rel="noopener noreferrer nofollow">PIMCO research</a> and <a href="https://www.cmegroup.com/insights/economic-research/2024/fed-easing-cycles-investors-initial-expectations-versus-final-outcomes.html" target="_blank" rel="noopener noreferrer nofollow">CME Group's review of Fed easing cycles</a>. Tariff data from <a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank" rel="noopener noreferrer nofollow">Tax Foundation</a>. Auction-stress data from <a href="https://www.crfb.org/blogs/weak-auctions-underscore-risks-our-growing-debt-burden" target="_blank" rel="noopener noreferrer nofollow">CRFB</a>. Remittance corridor sizes from <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices Worldwide</a>.</p>
-
-<p>SendMoneyCompare's own scraped quote data (every 6 hours) anchors the remittance-corridor calculations. See our <a href="/methodology">full methodology</a>.</p>`,
+<p class="blog-footnote">Sources: <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Fed SEP (Mar 18, 2026)</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer nofollow">BLS CPI</a>, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView" target="_blank" rel="noopener noreferrer nofollow">US Treasury yield curve</a>, bank research notes linked above, and <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices Worldwide</a>. Corridor maths anchored by SendMoneyCompare's scraped quote data (refreshed every 6 hours) — see our <a href="/methodology">methodology</a>.</p>`,
       },
     ],
     faqs: [
       {
-        question: "What is the USD dollar index outlook for 2026?",
+        question: "What is the USD dollar index forecast for 2026?",
         answer:
-          "The DXY traded at 98.49 on May 14, 2026 — down 2.4% over twelve months. Every major forecaster expects DXY below current levels by year-end 2026: Goldman Sachs targets the low-90s, Morgan Stanley calls for a V-shape (94 mid-year, recovery to 99 by December), JPMorgan and ING see EUR/USD at 1.22, MUFG forecasts ~5% USD weakening. No major bank has a base case for sustained DXY above 103.",
+          "The DXY traded at 98.49 on May 14, 2026 — down 2.4% over twelve months. Every major forecaster expects DXY below current levels by year-end 2026: Goldman Sachs targets the low-90s, Morgan Stanley calls for a V-shape (94 mid-year, recovery to 99 by December), JPMorgan and ING see EUR/USD at 1.22, and MUFG forecasts ~5% USD weakening. No major bank has a base case for sustained DXY above 103.",
       },
       {
         question: "Will the US dollar go up or down in 2026?",
         answer:
-          "The consensus across Goldman, Morgan Stanley, JPMorgan, ING, MUFG and Deutsche Bank is moderate dollar weakness into year-end 2026 — but the path is disputed. Morgan Stanley's V-shape view (weaker mid-year, stronger Q4) is the most contrarian. Hot April CPI at 3.8% YoY has bought the dollar a near-term reprieve as markets reprice the Fed's cutting path. Sharp safe-haven rallies remain possible on Iran escalation or global recession.",
-      },
-      {
-        question: "How does the Federal Reserve affect the dollar in 2026?",
-        answer:
-          "The Fed's March 18, 2026 dot plot signals just one more 25bp cut in 2026 (to 3.25–3.50%) and one more in 2027. The long-run median dot at 3.125% is the highest from the FOMC since 2016. Markets price ~55% odds of a May 2026 cut, dropping fast on hot inflation prints. Powell's term ends May 15, 2026; Kevin Warsh is widely expected to chair the June 16–17 FOMC, which adds hawkish-skew volatility risk.",
+          "The consensus across Goldman, Morgan Stanley, JPMorgan, ING, MUFG and Deutsche Bank is moderate dollar weakness into year-end 2026 — but the path is disputed. Morgan Stanley's V-shape view (weaker mid-year, stronger Q4) is the most contrarian. Hot April CPI at 3.8% YoY has bought the dollar a near-term reprieve as markets reprice the Fed's cutting path.",
       },
       {
         question: "Do Fed rate cuts always weaken the dollar?",
         answer:
-          "No — and this is one of the most common misunderstandings. In the 2019 'mid-cycle adjustment' the Fed cut three times and DXY actually rose modestly (97 to 99), because peer central banks were also cutting. The 2007–08 episode saw initial USD weakness (DXY hit 70.70 in March 2008) but then a panic flight-to-safety rally. The relative-policy story (Fed vs ECB vs BoJ vs BoE) is more reliable than absolute Fed cuts.",
+          "No. In the 2019 'mid-cycle adjustment' the Fed cut three times and DXY actually rose modestly (97 to 99), because peer central banks were also cutting. The relative-policy story (Fed vs ECB vs BoJ vs BoE) is more reliable than absolute Fed cuts — and in 2026 the Fed is the only major central bank still easing, which is genuinely USD-negative unless inflation stops the cuts.",
       },
       {
         question: "How does a weaker dollar affect international money transfers?",
         answer:
-          "A weaker dollar means fewer foreign currency units per dollar sent. On a $1,000 transfer with a 3% USD/INR move (84.5 → 82.0), the recipient gets roughly ₹2,500 less. Goldman's 1.25 EUR/USD target would cost a USD→EUR sender about €85 per $1,000 versus today. The four largest USD-out corridors are India ($129B annual), Mexico ($68B), Philippines (~$40B, US share ~40%) and Europe (expats). Choice of provider can offset 2–5% of this with certainty — focus there.",
+          "A weaker dollar means fewer foreign currency units per dollar sent. On a $1,000 transfer, a 3% USD/INR move (84.5 → 82.0) costs the recipient roughly ₹2,500; Goldman's 1.25 EUR/USD target would cost a USD→EUR sender about €85 per $1,000 versus today. Choice of provider can offset 2–5% of this with certainty — focus there.",
       },
       {
         question: "Should I send money now or wait for a better rate in 2026?",
         answer:
-          "It depends on which forecast you believe. Morgan Stanley's V-shape (mid-year trough, autumn recovery) suggests waiting until Q4 if you can. Goldman's linear-bear view (sustained DXY weakness) says send sooner. If hot CPI forces the Fed to stop cutting, USD rallies and senders gain by waiting. The realistic answer: nobody knows. Focus on what you control — compare 50+ providers on every transfer, set rate alerts, and dollar-cost average large amounts over months.",
-      },
-      {
-        question: "What is the 'dollar smile' theory?",
-        answer:
-          "The dollar smile theory, popularized by former Morgan Stanley strategist Stephen Jen, says the dollar strengthens in two scenarios: when the US economy is outperforming the world (right side of the smile) AND when global risk aversion spikes and investors flee to safety (left side). The dollar only weakens in the middle Goldilocks zone where growth converges and risk is low. This is why a recession — even one originating in the US — can paradoxically push the dollar higher.",
-      },
-      {
-        question: "What is the new US remittance tax and does it affect my transfer?",
-        answer:
-          "Effective January 1, 2026, the US imposed a 1% tax on cash-funded outbound remittances. Digital/bank-funded transfers via Wise, Remitly, OFX, Xe, and similar providers are exempt. The tax mainly affects Western Union and MoneyGram retail cash transactions. This structural change has accelerated digital adoption across the 25+ million US-based remittance senders and made bank-pull options even more cost-advantaged.",
-      },
-      {
-        question: "Why is the DXY mostly about EUR/USD?",
-        answer:
-          "The US Dollar Index basket weights are: EUR 57.6%, JPY 13.6%, GBP 11.9%, CAD 9.1%, SEK 4.2%, CHF 3.6%. The euro alone is over half the basket — meaning any bearish DXY call is fundamentally a bullish EUR/USD call. If you believe the eurozone has bottomed and the ECB is done cutting (it held at 2.15% in March 2026), you're already implicitly long EUR/USD and short DXY.",
-      },
-      {
-        question: "What signals are US Treasury auctions sending about the dollar?",
-        answer:
-          "March 2026 Treasury auctions tailed across the 2-year, 5-year and 7-year notes — meaning yields had to rise above market expectations to clear. Primary dealers absorbed 24% of the 2-year auction (roughly double their normal share), and the 5-year auction tailed by 1.4 basis points versus a 0.3bp historical average. The 30-year above 5% is the loudest signal of fiscal-stress premium. These are structural reasons to expect medium-term USD weakness even if short-term hawkish-Fed rhetoric supports the dollar.",
+          "It depends on which forecast you believe. Morgan Stanley's V-shape suggests waiting until Q4 if you can; Goldman's sustained-weakness view says send sooner; if hot CPI forces the Fed to stop cutting, the dollar rallies and waiting wins. The realistic answer: nobody knows. Compare providers on every transfer, set rate alerts, and dollar-cost average large amounts over months.",
       },
     ],
     relatedSlugs: [
