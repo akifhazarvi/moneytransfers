@@ -225,7 +225,7 @@ export const corridorGuides2: BlogPost[] = [
     slug: "send-money-to-kenya-from-usa-guide",
     title: "Send Money to Kenya from USA: 6 Cheapest Options (2026)",
     metaDescription:
-      "Compare the cheapest and fastest ways to send money from USA to Kenya in 2026. Sendwave, Wise, Remitly, and WorldRemit compared for USD to KES M-Pesa transfers.",
+      "Compare the cheapest and fastest ways to send money from USA to Kenya in 2026. Sendwave, Wise, Remitly, and WorldRemit compared for USD to KES M-Pesa.",
     excerpt:
       "Kenya's M-Pesa makes mobile money delivery instant and cheap. We compared 6+ providers to find the best USD-to-KES rates.",
     category: "Corridors",
@@ -552,9 +552,9 @@ export const corridorGuides2: BlogPost[] = [
   // ── Morocco ──
   {
     slug: "send-money-to-morocco-guide",
-    title: "Send Money to Morocco: Cheapest Ways in 2026",
+    title: "Send Money to Morocco: Cheapest Ways & Rates in 2026",
     metaDescription:
-      "Compare the cheapest ways to send money to Morocco in 2026. Fees, exchange rates, and delivery speed for USD, EUR, and GBP to MAD transfers across 7+ providers.",
+      "Compare the cheapest ways to send money to Morocco in 2026. Fees, exchange rates, and delivery speed for USD, EUR, and GBP to MAD across 7+ providers.",
     excerpt:
       "Morocco is North Africa's top remittance destination. We compared 7+ providers to find the cheapest way to send MAD.",
     category: "Corridors",
@@ -641,7 +641,7 @@ export const corridorGuides2: BlogPost[] = [
   // ── Jamaica ──
   {
     slug: "send-money-to-jamaica-guide",
-    title: "Send Money to Jamaica: Cheapest Ways in 2026",
+    title: "Send Money to Jamaica: Cheapest Ways & Rates in 2026",
     metaDescription:
       "Compare cheapest ways to send money to Jamaica in 2026. USD, GBP, and CAD to JMD fees, rates, and delivery speed from 7+ providers. Cash pickup compared.",
     excerpt:
@@ -722,7 +722,7 @@ export const corridorGuides2: BlogPost[] = [
   // ── Sri Lanka ──
   {
     slug: "send-money-to-sri-lanka-guide",
-    title: "Send Money to Sri Lanka: Cheapest Ways in 2026",
+    title: "Send Money to Sri Lanka: Cheapest Ways & Rates in 2026",
     metaDescription:
       "Compare cheapest ways to send money to Sri Lanka in 2026. USD, GBP, EUR to LKR fees, rates, and delivery speed from 7+ providers including Dialog eZ Cash.",
     excerpt:
