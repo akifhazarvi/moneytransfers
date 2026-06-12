@@ -16330,6 +16330,208 @@ export const blogPosts: BlogPost[] = [
       "wire-transfer-guide",
     ],
   },
+  // ============================
+  // Buy SpaceX/Nvidia stock via Revolut, Cash App, M1 Finance (2026 IPO wave)
+  // ============================
+  {
+    slug: "buy-spacex-nvidia-stocks-revolut-cash-app-m1-finance",
+    title: "Buy SpaceX & Nvidia Stock: Revolut vs Cash App vs M1 Finance",
+    metaDescription:
+      "SpaceX's $1.75T IPO has investors buying in fast. Compare Revolut, Cash App, and M1 Finance to buy SpaceX, Nvidia, and IPO stocks from the US or UK.",
+    excerpt:
+      "SpaceX's record $1.75 trillion IPO has retail investors scrambling to buy in — and Anthropic and OpenAI could be next. Here's how to buy SpaceX, Nvidia, and other hot stocks using Revolut, Cash App, or M1 Finance, and why Revolut comes out on top.",
+    category: "Guides",
+    readTime: "11 min read",
+    publishedAt: "2026-06-12",
+    updatedAt: "2026-06-12",
+    author: "Akif Hazarvi",
+    tags: ["Revolut", "Cash App", "M1 Finance", "SpaceX IPO", "Nvidia stock", "buy stocks online", "Anthropic IPO", "OpenAI IPO", "investing apps 2026", "stock trading apps"],
+    featuredImage: "/images/blog/spacex-nvidia-revolut-stocks-2026.svg",
+    sections: [
+      {
+        heading: "SpaceX Just IPO'd at $1.75 Trillion — Here's How to Buy In",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Yes — you can buy SpaceX (SPCX), Nvidia (NVDA), and other hot stocks today using the investing tools built into <a href="/companies/revolut">Revolut</a>, Cash App, or M1 Finance — no separate brokerage account required. SpaceX debuted on the Nasdaq on June 12, 2026 at $135 a share (a $1.75 trillion valuation) and closed its first day up roughly 19%, near $161. <a href="/companies/revolut">Revolut</a> is the strongest all-round pick because it works for US, UK, and EU investors, supports fractional shares from $1, and doubles as the multi-currency account many of our readers already use for international transfers. Cash App and M1 Finance are solid $0-commission alternatives for US-based investors.</p></div>
+<p>If you opened your phone this morning to headlines about SpaceX going public at a $1.75 trillion valuation — one of the largest IPOs in history — you weren't alone. SpaceX's stock (ticker: <strong>SPCX</strong>) priced at $135 a share, raised roughly $75 billion, and was reportedly oversubscribed by more than 400%. In a move that's almost unheard of for a deal this size, SpaceX set aside <strong>30% of the offering for retail investors</strong> — typically retail gets just 5–10% of a mega-IPO.</p>
+<p>And SpaceX isn't the only mega-cap making headlines this month. <strong>Anthropic</strong> (maker of Claude, valued at $965 billion after a fresh $65 billion funding round) and <strong>OpenAI</strong> (valued at up to $852 billion) have both confidentially filed paperwork for stock market debuts — meaning three of the most closely watched private companies on the planet could all go public within months of each other. Add in <strong>Nvidia</strong>, the chipmaker powering the AI boom behind all three, sitting at a Strong Buy consensus with analyst price targets near $300, and it's easy to see why "how to buy stocks" is suddenly one of the most-searched phrases of 2026.</p>
+<p>The good news: you probably don't need to open a new brokerage account to get in on any of this. Apps like Revolut, Cash App, and M1 Finance — the same category of apps people use for international money transfers and multi-currency accounts — now let you buy fractional shares of US and UK stocks in a few taps. Here's how each one stacks up, and exactly how to place your first order.</p>`,
+      },
+      {
+        heading: "SpaceX, Nvidia, Anthropic, OpenAI: Why 2026 Is a Historic Year for IPOs",
+        content: `<p>Before we get into the apps, here's a quick rundown of what's driving the current wave of interest — and why it matters if you're thinking about investing.</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">The Big Four: What's Happening Right Now</h3>
+<table>
+<thead><tr><th>Company</th><th>Status</th><th>Key Numbers</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>SpaceX (SPCX)</strong></td><td>IPO'd June 12, 2026</td><td>$135 IPO price → ~$161 close (+19%), $1.75T valuation, $75B raised, 30% retail allocation</td></tr>
+<tr><td><strong>Nvidia (NVDA)</strong></td><td>Publicly traded</td><td>~$205–220/share, Strong Buy consensus (38 analysts), average target ~$300</td></tr>
+<tr><td><strong>Anthropic</strong></td><td>Confidential IPO filed June 1, 2026</td><td>$965B valuation, ~$47B revenue run-rate, possible debut as early as fall 2026</td></tr>
+<tr><td><strong>OpenAI</strong></td><td>Confidential IPO filed June 8, 2026</td><td>$730B–$852B valuation, working with Goldman Sachs &amp; Morgan Stanley, debut targeted for later in 2026</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Figures based on publicly reported data as of June 12, 2026. Valuations and timelines for unlisted companies (Anthropic, OpenAI) can change before any listing is finalised.</p>
+</div>
+<h3>SpaceX (SPCX): The Biggest IPO Ever</h3>
+<p>SpaceX listed on the Nasdaq under the ticker <strong>SPCX</strong>, pricing its IPO at $135 per share — a valuation of roughly $1.75 trillion, making it one of the largest public debuts in history. Demand was strong enough that the offering was oversubscribed more than 4x, and shares closed the first day around $161, up about 19% from the IPO price. Unusually for a deal this size, SpaceX allocated <strong>30% of shares to retail investors</strong> through participating brokers and fintech apps — several times the typical retail slice on a mega-IPO.</p>
+<h3>Nvidia (NVDA): Still the AI Trade Everyone Watches</h3>
+<p>Nvidia remains the bellwether for the AI boom that underpins all of this — its chips power the data centres training models at Anthropic and OpenAI, and increasingly the compute behind SpaceX's Starlink and Starship software. Trading in the $205–220 range, Nvidia carries a <strong>Strong Buy</strong> consensus from 38 analysts, with average price targets near $300 — implying meaningful upside from current levels.</p>
+<h3>Anthropic and OpenAI: The Next Trillion-Dollar Listings?</h3>
+<p>Just days apart, Anthropic and OpenAI both confidentially filed paperwork for IPOs with the SEC. Anthropic — maker of the Claude models — raised $65 billion at a $965 billion valuation, with revenue reportedly running at roughly $47 billion annually, up from about $10 billion a year earlier. OpenAI filed shortly after, reportedly targeting a valuation between $730 billion and $852 billion with bankers Goldman Sachs and Morgan Stanley, and a possible debut later in 2026.</p>
+<p class="blog-callout-blue-sm"><strong>📈 What this means for you:</strong> Neither Anthropic nor OpenAI shares are available to buy yet — "confidentially filed" means the paperwork is private, with no ticker or listing date set. But the filings are a strong signal that 2026 could see a wave of AI mega-IPOs follow SpaceX's lead. Setting up a brokerage-enabled app now — and getting comfortable buying fractional shares of stocks like Nvidia — means you'll be ready the moment these (or the next big name) list.</p>`,
+      },
+      {
+        heading: "Revolut vs Cash App vs M1 Finance: Which Should You Use to Buy Stocks?",
+        content: `<p>All three apps let you buy fractional shares of US-listed stocks with no trading commission — but they differ a lot on availability, fees, and what else the app does for you. Here's the full breakdown:</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Revolut vs Cash App vs M1 Finance: Stock Investing Compared</h3>
+<table>
+<thead><tr><th>Feature</th><th>Revolut</th><th>Cash App Investing</th><th>M1 Finance</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong>Where it's available</strong></td><td>US, UK, EU &amp; 30+ countries</td><td>US only</td><td>US only</td></tr>
+<tr><td><strong>Fractional shares</strong></td><td>From $1</td><td>From $1</td><td>From $1</td></tr>
+<tr><td><strong>Trading commission</strong></td><td>$0 (limited free trades/month, then ~0.25%)</td><td>$0</td><td>$0</td></tr>
+<tr><td><strong>Monthly account fee</strong></td><td>Free on Standard plan</td><td>Free</td><td>$3/mo (waived above $10,000 balance)</td></tr>
+<tr><td><strong>Access to new IPOs (e.g., SPCX)</strong></td><td>Yes — one of the fintech apps EU/UK retail investors used for SpaceX</td><td>Broker-dependent on launch day</td><td>Broker-dependent on launch day</td></tr>
+<tr><td><strong>Multi-currency / FX account</strong></td><td>Yes — 36+ currencies, same account used for transfers</td><td>No</td><td>No</td></tr>
+<tr><td><strong>Auto-invest / portfolios</strong></td><td>Recurring Buy</td><td>Round-ups, recurring buys</td><td>"Pies" — fully automated, up to 100 holdings</td></tr>
+<tr><td><strong>Crypto access</strong></td><td>Yes</td><td>Yes (Bitcoin only)</td><td>Yes</td></tr>
+<tr><td><strong>Outbound share transfer fee</strong></td><td>Standard transfer rules</td><td>$75</td><td>$100</td></tr>
+<tr class="blog-row-highlight"><td><strong>Best for</strong></td><td>International investors who want stocks + FX + transfers in one app</td><td>Simple, no-frills US stock buying</td><td>Hands-off, automated long-term portfolios</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Fees and features based on published rates as of June 2026 and subject to change. Always check the app for current terms before trading. <a href="/companies/revolut">Read our full Revolut review →</a></p>
+</div>
+<h3>Revolut: The All-Rounder — and Our Pick</h3>
+<p>Revolut is the only one of the three that works equally well whether you're in the US, the UK, or the EU — which matters this week, because European and UK retail investors are accessing SpaceX's offering specifically through fintech platforms like Revolut, alongside brokers such as Hargreaves Lansdown and eToro. On top of stock access, Revolut is also a full <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency account</a>: the same balance you use to hold GBP, EUR, or USD for international transfers can be used to buy stocks instantly, with no separate funding step. Paid plans (Plus, Premium, Metal, Ultra) unlock more commission-free trades per month, but the free Standard plan is enough for most casual investors getting started.</p>
+<h3>Cash App Investing: Simple and US-Only</h3>
+<p>Cash App keeps things minimal: no commissions, no account minimums, and fractional shares from $1. It's tightly integrated with Cash App's peer-to-peer payments, so if you already use it to split bills or send money to friends, your investing balance is one tap away. The catch is it's US-only, and if you ever want to move your shares to another broker, Cash App charges a $75 outbound transfer fee.</p>
+<h3>M1 Finance: Best for Hands-Off, Automated Investing</h3>
+<p>M1's standout feature is "Pies" — you build a portfolio (say, 40% Nvidia, 30% an S&amp;P 500 ETF, 30% cash) and every deposit is automatically split across it in those proportions, with no manual buying required. It's the closest thing to a robo-advisor that still lets you pick individual stocks like SpaceX or Nvidia yourself. The $3/month fee is waived once your balance passes $10,000, and like Cash App, it's US-only.</p>`,
+      },
+      {
+        heading: "How to Buy SpaceX, Nvidia, or Any Stock on Revolut (Step-by-Step)",
+        content: `<p>Here's exactly how easy it is to buy your first share on Revolut — most people can go from download to owning a slice of Nvidia or SpaceX in under five minutes:</p>
+<ol>
+<li><strong>Download Revolut and verify your identity.</strong> Sign up with your phone number and email, then verify with a passport or driving licence — approval is usually instant.</li>
+<li><strong>Fund your account.</strong> Transfer money from your bank, or use a balance you already hold in your Revolut multi-currency account. If you're converting from another currency first, Revolut's free monthly FX allowance covers most casual investors.</li>
+<li><strong>Open the "Stocks" tab.</strong> It sits alongside your currency accounts and crypto — no separate app, login, or paperwork needed.</li>
+<li><strong>Search for the stock.</strong> Type the ticker — <strong>SPCX</strong> for SpaceX or <strong>NVDA</strong> for Nvidia — to open the stock page, where you'll see the live price chart and company details.</li>
+<li><strong>Choose how much to invest.</strong> Enter a dollar or pound amount (from $1/£1) rather than a number of shares — Revolut buys the equivalent fraction of a share automatically.</li>
+<li><strong>Review and confirm.</strong> Check the order summary, confirm with Face ID or a PIN, and you're done. Your new position appears in your portfolio immediately.</li>
+</ol>
+<p>That's the entire process — no separate brokerage login and no minimum balance. You can set up a <strong>Recurring Buy</strong> afterwards if you'd rather invest a fixed amount automatically every week or month, which is a popular way to build a position in a volatile stock like SPCX without trying to time the market.</p>`,
+      },
+      {
+        heading: "Buying Stocks on Cash App and M1 Finance (US Investors)",
+        content: `<p>If you're in the US and prefer Cash App or M1 Finance, the process is similarly fast:</p>
+<h3>Cash App Investing</h3>
+<ol>
+<li>Open Cash App and tap the <strong>Investing</strong> tab.</li>
+<li>Search for the stock by ticker (e.g., NVDA or SPCX).</li>
+<li>Tap <strong>Buy</strong>, enter a dollar amount (from $1), and confirm with your PIN or Touch ID.</li>
+</ol>
+<p>Cash App also offers automatic round-ups: every card purchase rounds up to the nearest dollar, and the spare change is invested into a stock or ETF of your choice.</p>
+<h3>M1 Finance</h3>
+<ol>
+<li>Create an account and fund it via bank transfer (typically 1–3 business days for ACH).</li>
+<li>Build or edit a "Pie" — add individual stocks like Nvidia (and SpaceX, once tradable on the platform) alongside ETFs, and set target percentages.</li>
+<li>Deposit funds, and M1 automatically buys across your Pie to match your targets. One-off trades outside your Pie are also available.</li>
+</ol>
+<p>Both platforms are solid choices if you're US-based and don't need multi-currency features — but neither helps if you're sending or receiving money internationally, which is where Revolut's combined approach has an edge.</p>`,
+      },
+      {
+        heading: "Our Verdict: Revolut Wins for International Investors",
+        content: `<p>If you're choosing one app to ride this wave of IPOs and AI stocks, <strong><a href="/companies/revolut">Revolut</a></strong> comes out on top — and not by a small margin. Here's why:</p>
+<ul>
+<li><strong>It works wherever you are.</strong> US, UK, and EU investors can all use the same app — useful given that European access to SpaceX's offering is happening specifically through platforms like Revolut.</li>
+<li><strong>It's the account you might already have.</strong> If you use Revolut to send money abroad or hold a multi-currency balance, your stock purchases come straight out of that balance — no extra funding step, no separate FX conversion.</li>
+<li><strong>Fractional shares from $1</strong> mean you can build a position in SpaceX, Nvidia, or a future Anthropic/OpenAI listing gradually, without needing hundreds of dollars upfront.</li>
+<li><strong>One free trade a month, even on the Standard plan</strong> — and zero ongoing account fees if you stay within that.</li>
+</ul>
+<p class="blog-callout-green-sm"><strong>🏆 Bottom line:</strong> Cash App and M1 Finance are both excellent, low-cost choices if you're US-based and only need stock investing. But if you want stocks, multi-currency holding, and international transfers in one place — especially with more mega-IPOs likely on the way — Revolut is the easiest single app to set up today. <a href="/companies/revolut">Read our full Revolut review</a> or see how it compares for <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts</a>.</p>`,
+      },
+      {
+        heading: "Before You Buy: Know the Risks of IPO and Hype Stocks",
+        content: `<div class="blog-answer-box-warning"><p><strong>This is not financial advice.</strong> SendMoneyCompare is a money transfer comparison site, not a financial adviser or broker. The information in this guide is for general informational purposes only. Stock prices can fall as well as rise, and you can get back less than you invest. Always do your own research, and consider speaking to a regulated financial adviser before investing — especially around newly listed or high-momentum stocks.</strong></p></div>
+<p>SpaceX's 19% first-day pop and Nvidia's Strong Buy ratings make for exciting headlines, but newly listed and high-momentum stocks carry real risks that are easy to overlook in the excitement:</p>
+<ul>
+<li><strong>IPO volatility.</strong> Newly listed stocks can swing sharply in either direction in their first days and weeks of trading, as the market works out a "fair" price with limited trading history to go on.</li>
+<li><strong>Lock-up periods.</strong> Early investors and employees are often restricted from selling shares for a period after an IPO. When those lock-ups expire, a wave of selling can pressure the share price.</li>
+<li><strong>Concentration risk.</strong> Putting a large share of your portfolio into one or two hyped stocks — even ones you believe in — increases your exposure to a single company's bad news.</li>
+<li><strong>Currency risk.</strong> If you're a UK or EU investor buying US-listed stocks like SPCX or NVDA, movements in the GBP/USD or EUR/USD exchange rate affect your returns independently of the share price itself. Our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> explains how this works in practice.</li>
+</ul>
+<p>None of this means you shouldn't invest — it just means starting small, diversifying, and only investing money you can afford to have tied up (or lose) is generally a better approach than putting everything into the stock of the moment.</p>`,
+      },
+      {
+        heading: "Sources & Methodology",
+        content: `<p>Stock prices, valuations, and IPO details in this article reflect publicly reported figures as of June 12, 2026, and are subject to change. Sources include <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html" target="_blank" rel="noopener noreferrer nofollow">CNBC's live coverage of the SpaceX IPO</a>, <a href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/" target="_blank" rel="noopener noreferrer nofollow">Fortune's report on Anthropic's IPO filing</a>, <a href="https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html" target="_blank" rel="noopener noreferrer nofollow">CNBC's report on OpenAI's IPO filing</a>, and <a href="https://www.marketbeat.com/stocks/NASDAQ/NVDA/forecast/" target="_blank" rel="noopener noreferrer nofollow">MarketBeat's Nvidia analyst forecast</a>. App fees and features are based on each provider's published terms as of publication and may have changed — always check the app directly before investing.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I buy SpaceX (SPCX) stock right now?",
+        answer:
+          "Yes. SpaceX began trading on the Nasdaq under the ticker SPCX on June 12, 2026, after pricing its IPO at $135 a share. UK and EU retail investors can access it through fintech platforms including Revolut, while US investors can buy it through any broker or app offering Nasdaq-listed shares, including Cash App and M1 Finance, subject to each platform's own IPO-day trading rules.",
+      },
+      {
+        question: "Is Revolut available in the US for stock trading?",
+        answer:
+          "Revolut offers stock trading to customers in the US, UK, and across the EU, though exact stock availability and account features can vary slightly by region. Check the Stocks tab in your Revolut app to confirm what's available in your country.",
+      },
+      {
+        question: "What's the minimum amount needed to start investing with these apps?",
+        answer:
+          "Revolut, Cash App, and M1 Finance all support fractional shares from as little as $1, so there's no meaningful minimum to get started. M1 Finance charges a $3/month fee on balances under $10,000, but trading itself is commission-free on all three.",
+      },
+      {
+        question: "Can I buy Anthropic or OpenAI stock yet?",
+        answer:
+          "No. Both companies have only confidentially filed paperwork for a future IPO — Anthropic on June 1, 2026 (at a reported $965 billion valuation) and OpenAI on June 8, 2026 (targeting $730–$852 billion). Confidential filings are private, with no ticker symbol or listing date set, so shares won't be available to retail investors until — and unless — each company completes a public offering.",
+      },
+      {
+        question: "Is Nvidia a good stock to buy in 2026?",
+        answer:
+          "Nvidia carries a Strong Buy consensus from 38 analysts, with average price targets around $300 — above its trading range of roughly $205–$220. Nvidia remains central to the AI infrastructure used by Anthropic, OpenAI, and increasingly SpaceX. As with any stock, analyst optimism doesn't guarantee future returns, so do your own research before investing.",
+      },
+      {
+        question: "Do Revolut, Cash App, and M1 Finance charge fees to buy fractional shares?",
+        answer:
+          "All three offer commission-free trading and fractional shares from $1. Revolut gives you a limited number of free trades per month (more on paid plans, with a small commission beyond that); Cash App and M1 Finance don't charge trading commissions at all, though M1 has a $3/month account fee below a $10,000 balance, and both Cash App ($75) and M1 ($100) charge a fee if you transfer shares out to another broker.",
+      },
+    ],
+    howToSteps: [
+      {
+        name: "Download Revolut and verify your identity",
+        text: "Sign up with your phone number and email, then verify your identity with a passport or driving licence. Approval is usually instant.",
+      },
+      {
+        name: "Fund your account",
+        text: "Transfer money from your bank, or use a balance you already hold in your Revolut multi-currency account.",
+      },
+      {
+        name: "Open the Stocks tab",
+        text: "Find Stocks alongside your currency accounts and crypto in the Revolut app — no separate app or login needed.",
+      },
+      {
+        name: "Search for the stock you want to buy",
+        text: "Type the ticker — SPCX for SpaceX or NVDA for Nvidia — to open the stock page with live pricing and company details.",
+      },
+      {
+        name: "Enter how much to invest",
+        text: "Enter a dollar or pound amount from $1/£1 instead of a share count — Revolut buys the equivalent fraction of a share automatically.",
+      },
+      {
+        name: "Review and confirm your order",
+        text: "Check the order summary, confirm with Face ID or a PIN, and your new position appears in your portfolio immediately.",
+      },
+    ],
+    relatedSlugs: [
+      "multi-currency-accounts-exchange-rates",
+      "revolut-foreign-transaction-fees-2026",
+      "best-money-transfer-apps",
+      "exchange-rate-markup-explained",
+    ],
+  },
 ];
 
 // Helper to get a blog post by slug
