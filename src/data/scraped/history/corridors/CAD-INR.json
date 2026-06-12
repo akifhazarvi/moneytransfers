@@ -8465,34 +8465,34 @@
     "date": "2026-06-12",
     "providers": {
       "scotiabank": {
-        "rate": 66.3702,
-        "fee": 29.87,
-        "markup": 3.27,
-        "receiveAmount": 4654.7
+        "rate": 66.4011,
+        "fee": 29.94,
+        "markup": 2.61,
+        "receiveAmount": 4652.36
       },
       "moneygram": {
-        "rate": 68.1808,
+        "rate": 67.7436,
         "fee": 3.99,
-        "markup": 0.63,
-        "receiveAmount": 6546.04
+        "markup": 0.64,
+        "receiveAmount": 6504.06
       },
       "western-union": {
-        "rate": 68.2419,
+        "rate": 67.8526,
         "fee": 1.99,
-        "markup": 0.54,
-        "receiveAmount": 6688.38
+        "markup": 0.48,
+        "receiveAmount": 6650.24
       },
       "dahabshiil": {
-        "rate": 68.1449,
+        "rate": 68.0484,
         "fee": 2.69,
-        "markup": 0.68,
-        "receiveAmount": 6631.18
+        "markup": 0.19,
+        "receiveAmount": 6621.79
       },
       "worldremit": {
-        "rate": 67.5988,
+        "rate": 67.7648,
         "fee": 1.99,
-        "markup": 1.48,
-        "receiveAmount": 6625.36
+        "markup": 0.61,
+        "receiveAmount": 6641.63
       },
       "instarem": {
         "rate": 67.9031,
@@ -8501,16 +8501,16 @@
         "receiveAmount": 6790.31
       },
       "paysend": {
-        "rate": 68.5956,
+        "rate": 68.1532,
         "fee": 0,
-        "markup": 0.03,
-        "receiveAmount": 6859.56
+        "markup": 0.04,
+        "receiveAmount": 6815.32
       },
       "koho": {
-        "rate": 68.6052,
+        "rate": 68.1784,
         "fee": 1.25,
-        "markup": 0.01,
-        "receiveAmount": 6774.76
+        "markup": 0,
+        "receiveAmount": 6732.62
       },
       "remitly": {
         "rate": 68.0478,
@@ -8553,6 +8553,12 @@
         "fee": 2.57,
         "markup": null,
         "receiveAmount": 6645.68
+      },
+      "skrill": {
+        "rate": 67.4135,
+        "fee": 1,
+        "markup": 1.13,
+        "receiveAmount": 6673.94
       }
     }
   }
