@@ -221,7 +221,11 @@ export const SITEMAP_SWIFT_SLUGS = new Set<string>([
   "new-zealand",    // 12i 0c
   "mexico",         // 8i 0c
   "canada",         // 5i 0c
-]); // 13 URLs (was 1)
+  // ── Added 2026-06-13 — flagged by SEO audit as an important indexable page
+  //    missing from the sitemap. Already in INDEXED_SWIFT_SLUGS (serves no
+  //    noindex) with real bank data, so submitting it is consistent. ──
+  "south-korea",
+]); // 14 URLs (was 1)
 
 export const SITEMAP_BUSINESS_SLUGS = new Set<string>([
   "b2b-transfers",
