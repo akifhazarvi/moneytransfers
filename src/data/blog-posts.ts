@@ -16334,7 +16334,7 @@ export const blogPosts: BlogPost[] = [
   // Buy SpaceX/Nvidia stock via Revolut, Cash App, M1 Finance (2026 IPO wave)
   // ============================
   {
-    slug: "buy-spacex-nvidia-stocks-revolut-cash-app-m1-finance",
+    slug: "how-to-buy-spacex-nvidia-stock-using-revolut",
     title: "How to Buy SpaceX & Nvidia Stock using Revolut",
     metaDescription:
       "SpaceX's $1.75T IPO has investors rushing to buy in. Here's how to buy SpaceX and Nvidia stock using Revolut — and how it compares to Cash App and M1 Finance.",

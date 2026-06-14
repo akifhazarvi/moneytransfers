@@ -127,6 +127,11 @@ const nextConfig: NextConfig = {
         destination: "/openapi.json",
         permanent: true,
       },
+      {
+        source: "/guides/buy-spacex-nvidia-stocks-revolut-cash-app-m1-finance",
+        destination: "/guides/how-to-buy-spacex-nvidia-stock-using-revolut",
+        permanent: true,
+      },
     ];
   },
 };
