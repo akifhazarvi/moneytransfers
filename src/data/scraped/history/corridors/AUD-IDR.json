@@ -3120,5 +3120,46 @@
         "receiveAmount": 1247674.55
       }
     }
+  },
+  {
+    "date": "2026-06-14",
+    "providers": {
+      "taptap-send": {
+        "rate": 12580,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1258000
+      },
+      "xoom": {
+        "rate": 12321.4137,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1232141.37
+      },
+      "commonwealth-bank": {
+        "rate": 11911.8939,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1191189.39
+      },
+      "remitly": {
+        "rate": 12300.8385,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1217906.02
+      },
+      "nab": {
+        "rate": 12151.2,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1215120
+      },
+      "instarem": {
+        "rate": 12564.6984,
+        "fee": 0.7,
+        "markup": null,
+        "receiveAmount": 1247674.55
+      }
+    }
   }
 ]
