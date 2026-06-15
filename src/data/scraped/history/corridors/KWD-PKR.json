@@ -1036,5 +1036,22 @@
         "receiveAmount": 90581.9
       }
     }
+  },
+  {
+    "date": "2026-06-15",
+    "providers": {
+      "skrill": {
+        "rate": 867.929,
+        "fee": 0,
+        "markup": 3.93,
+        "receiveAmount": 86792.9
+      },
+      "wise": {
+        "rate": 905.819,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 90581.9
+      }
+    }
   }
 ]

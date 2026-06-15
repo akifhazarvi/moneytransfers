@@ -1814,5 +1814,28 @@
         "receiveAmount": 312.13
       }
     }
+  },
+  {
+    "date": "2026-06-15",
+    "providers": {
+      "taptap-send": {
+        "rate": 3.36,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 336
+      },
+      "instarem": {
+        "rate": 3.3761,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 337.61
+      },
+      "wise": {
+        "rate": 3.4007,
+        "fee": 8.22,
+        "markup": null,
+        "receiveAmount": 312.12
+      }
+    }
   }
 ]

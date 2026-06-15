@@ -9262,5 +9262,76 @@
         "receiveAmount": 111.24
       }
     }
+  },
+  {
+    "date": "2026-06-15",
+    "providers": {
+      "lemfi": {
+        "rate": 1.335,
+        "fee": 0,
+        "markup": 0.79,
+        "receiveAmount": 133.5
+      },
+      "taptap-send": {
+        "rate": 1.31,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 131
+      },
+      "xoom": {
+        "rate": 1.2642,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 123.9
+      },
+      "rbs": {
+        "rate": 1.3162,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 131.62
+      },
+      "natwest": {
+        "rate": 1.3162,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 131.62
+      },
+      "moneygram": {
+        "rate": 1.3334,
+        "fee": 2.49,
+        "markup": null,
+        "receiveAmount": 130.02
+      },
+      "remitly": {
+        "rate": 1.3393,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 131.27
+      },
+      "nationwide": {
+        "rate": 1.3137,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 111.66
+      },
+      "monese": {
+        "rate": 1.3463,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 129.24
+      },
+      "skrill": {
+        "rate": 1.3076,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 130.76
+      },
+      "instarem": {
+        "rate": 1.3388,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 133.88
+      }
+    }
   }
 ]

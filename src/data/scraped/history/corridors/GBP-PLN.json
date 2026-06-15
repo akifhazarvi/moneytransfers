@@ -7305,5 +7305,58 @@
         "receiveAmount": 473.36
       }
     }
+  },
+  {
+    "date": "2026-06-15",
+    "providers": {
+      "natwest": {
+        "rate": 4.8042,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 480.42
+      },
+      "xoom": {
+        "rate": 4.8225,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 472.65
+      },
+      "monese": {
+        "rate": 4.9138,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 471.72
+      },
+      "remitly": {
+        "rate": 4.9058,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 485.72
+      },
+      "rbs": {
+        "rate": 4.8042,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 480.42
+      },
+      "moneygram": {
+        "rate": 4.8269,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 482.69
+      },
+      "nationwide": {
+        "rate": 4.8042,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 408.36
+      },
+      "skrill": {
+        "rate": 4.8933,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 489.33
+      }
+    }
   }
 ]
