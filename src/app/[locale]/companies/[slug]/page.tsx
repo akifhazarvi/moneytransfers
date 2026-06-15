@@ -19,6 +19,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
+import { generateProviderProfile } from "@/lib/provider-profile";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
@@ -131,6 +132,11 @@ function DefaultReview({
   crossLinks: React.ReactNode;
   providerNews: (typeof newsItems)[number][];
 }) {
+  const tp = trustpilotIndex[slug];
+  const profile = generateProviderProfile(provider, {
+    score: tp?.score ?? undefined,
+    reviews: tp?.totalReviews ?? undefined,
+  });
   return (
     <>
       <ScrollTracker slug={slug} contentType="review" />
@@ -166,7 +172,7 @@ function DefaultReview({
           <div className="lg:col-span-2 space-y-8">
             {/* Header card */}
             <Card>
-              <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-5">{provider.description}</p>
+              <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-5">{profile.summary}</p>
               <div className="flex gap-3">
                 <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_sidebar" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-9 px-5 text-2sm">Visit {provider.name}</ProviderLink>
                 <Link href="/send-money" className="inline-flex items-center h-9 px-5 border border-[var(--color-outline)] rounded-full text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
@@ -186,6 +192,21 @@ function DefaultReview({
                 <StatBox key={stat.label} label={stat.label} value={stat.value} />
               ))}
             </div>
+
+            {/* Overview — ~300-500 word data-driven profile, kept current from
+                the provider's maintained fields (fees, markup, speed, coverage). */}
+            <Card>
+              <h2 className="text-base font-semibold text-[var(--color-on-surface)] mb-4">
+                {provider.name} overview
+              </h2>
+              <div className="space-y-4">
+                {profile.paragraphs.map((para, i) => (
+                  <p key={i} className="text-md text-[var(--color-on-surface-variant)] leading-relaxed">
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </Card>
 
             {/* Pros and Cons */}
             <div className="grid md:grid-cols-2 gap-4">
