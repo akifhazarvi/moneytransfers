@@ -7999,5 +7999,46 @@
         "receiveAmount": 73.27
       }
     }
+  },
+  {
+    "date": "2026-06-17",
+    "providers": {
+      "instarem": {
+        "rate": 0.7373,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 73.73
+      },
+      "remitly": {
+        "rate": 0.7393,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 73.93
+      },
+      "taptap-send": {
+        "rate": 0.738,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 73.8
+      },
+      "chase": {
+        "rate": 0.7213,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 68.53
+      },
+      "moneygram": {
+        "rate": 0.7352,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 72.06
+      },
+      "wise": {
+        "rate": 0.7432,
+        "fee": 1.42,
+        "markup": null,
+        "receiveAmount": 73.27
+      }
+    }
   }
 ]
