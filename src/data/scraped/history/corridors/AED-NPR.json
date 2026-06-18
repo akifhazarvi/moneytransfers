@@ -1968,16 +1968,16 @@
     "date": "2026-06-18",
     "providers": {
       "paysend": {
-        "rate": 40.706,
+        "rate": 40.6015,
         "fee": 9,
-        "markup": 1,
-        "receiveAmount": 3704.25
+        "markup": 1.36,
+        "receiveAmount": 3694.74
       },
       "remitly": {
-        "rate": 40.9,
+        "rate": 40.92,
         "fee": 5,
-        "markup": 0.53,
-        "receiveAmount": 3885.5
+        "markup": 0.59,
+        "receiveAmount": 3887.4
       },
       "taptap-send": {
         "rate": 41,
