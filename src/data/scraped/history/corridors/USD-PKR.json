@@ -7854,5 +7854,94 @@
         "receiveAmount": 27296.94
       }
     }
+  },
+  {
+    "date": "2026-06-18",
+    "providers": {
+      "instarem": {
+        "rate": 276.3022,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 27630.22
+      },
+      "moneygram": {
+        "rate": 279.6945,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 27692.55
+      },
+      "ria": {
+        "rate": 279.1197,
+        "fee": 1.5,
+        "markup": -0.3,
+        "receiveAmount": 27493.29
+      },
+      "taptap-send": {
+        "rate": 279.05,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 27349.69
+      },
+      "boss-money": {
+        "rate": 277.3023,
+        "fee": 2.49,
+        "markup": 0.35,
+        "receiveAmount": 27039.75
+      },
+      "western-union": {
+        "rate": 278.555,
+        "fee": 1.99,
+        "markup": -0.1,
+        "receiveAmount": 27301.18
+      },
+      "xoom": {
+        "rate": 265.2859,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 26528.59
+      },
+      "worldremit": {
+        "rate": 278.35,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 27835
+      },
+      "xe": {
+        "rate": 277.8268,
+        "fee": 1.5,
+        "markup": 0.16,
+        "receiveAmount": 27365.94
+      },
+      "paysend": {
+        "rate": 277.4889,
+        "fee": 1.99,
+        "markup": 0.28,
+        "receiveAmount": 27196.69
+      },
+      "sendwave": {
+        "rate": 279.2686,
+        "fee": 1.99,
+        "markup": -0.36,
+        "receiveAmount": 27371.11
+      },
+      "remitly": {
+        "rate": 277.34,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 26904.75
+      },
+      "chase": {
+        "rate": 267.002,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 25365.19
+      },
+      "wise": {
+        "rate": 278.263,
+        "fee": 1.92,
+        "markup": null,
+        "receiveAmount": 27292.04
+      }
+    }
   }
 ]
