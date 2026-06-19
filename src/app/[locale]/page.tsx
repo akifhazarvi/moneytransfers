@@ -131,7 +131,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     name: "Wise vs Remitly vs WorldRemit: Which is Actually Cheapest?",
     description: "Head-to-head comparison of Wise, Remitly, and WorldRemit on a $1,000 international transfer — real fees, exchange rates, and delivery times.",
     thumbnailUrl: ["https://img.youtube.com/vi/AKRQH9xbR18/hqdefault.jpg"],
-    uploadDate: "2026-04-19",
+    uploadDate: "2026-04-19T00:00:00+00:00",
     contentUrl: "https://www.youtube.com/shorts/AKRQH9xbR18",
     embedUrl: "https://www.youtube.com/embed/AKRQH9xbR18",
     duration: "PT1M",

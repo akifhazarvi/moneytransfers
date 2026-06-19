@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "SendMoneyCompare — Compare International Money Transfers";
+export const alt = "SendMoneyCompare — Is now a good time to send money? Live rate timing across 60+ providers.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -71,13 +71,13 @@ export default async function Image() {
           </span>
         </div>
 
-        {/* Main editorial headline — serif, confident */}
+        {/* Main editorial headline — the tool's actual question */}
         <div
           style={{
-            marginTop: "56px",
+            marginTop: "48px",
             fontFamily: "Instrument Serif",
-            fontSize: "84px",
-            lineHeight: 1.05,
+            fontSize: "82px",
+            lineHeight: 1.04,
             letterSpacing: "-1.5px",
             color: "#0F172A",
             display: "flex",
@@ -85,100 +85,107 @@ export default async function Image() {
             zIndex: 1,
           }}
         >
-          <span style={{ display: "flex" }}>The cheapest way to</span>
+          <span style={{ display: "flex" }}>Is now a good time</span>
           <span style={{ display: "flex" }}>
-            send money <span style={{ color: "#2D3A8C", fontStyle: "italic", marginLeft: "18px", display: "flex" }}>abroad.</span>
+            to <span style={{ color: "#2D3A8C", fontStyle: "italic", marginLeft: "18px", display: "flex" }}>send money?</span>
           </span>
         </div>
 
-        {/* Comparison card — shows the product */}
+        {/* Verdict pill — the unique hook */}
         <div
           style={{
-            marginTop: "56px",
+            marginTop: "40px",
             display: "flex",
             alignItems: "center",
-            gap: "24px",
+            gap: "16px",
+            padding: "18px 26px",
+            borderRadius: "999px",
+            background: "#ECFDF5",
+            border: "1px solid #A7F3D0",
+            alignSelf: "flex-start",
             zIndex: 1,
           }}
         >
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              padding: "26px 32px",
-              borderRadius: "20px",
-              background: "#FFFFFF",
-              border: "1px solid #E2E8F0",
-              boxShadow: "0 12px 32px rgba(15,23,42,0.08), 0 4px 8px rgba(15,23,42,0.04)",
-              minWidth: "380px",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "34px",
+              height: "34px",
+              borderRadius: "999px",
+              background: "#059669",
+              color: "#FFFFFF",
+              fontSize: "20px",
+              fontWeight: 700,
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "22px",
-                  height: "22px",
-                  borderRadius: "999px",
-                  background: "#FFFBEB",
-                  fontSize: "13px",
-                  color: "#D97706",
-                  fontWeight: 700,
-                }}
-              >
-                ★
-              </div>
-              <span
-                style={{
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  letterSpacing: "1.5px",
-                  textTransform: "uppercase",
-                  color: "#D97706",
-                  display: "flex",
-                }}
-              >
-                Best rate today
-              </span>
-            </div>
-            <div style={{ display: "flex", alignItems: "baseline", gap: "14px" }}>
-              <span
-                style={{
-                  fontFamily: "Instrument Serif",
-                  fontSize: "52px",
-                  lineHeight: 1,
-                  color: "#0F172A",
-                  letterSpacing: "-1px",
-                  display: "flex",
-                }}
-              >
-                Wise
-              </span>
-              <span style={{ fontSize: "18px", color: "#64748B", display: "flex" }}>
-                0.6% fee · arrives in seconds
-              </span>
-            </div>
+            ↗
           </div>
+          <span style={{ fontSize: "26px", fontWeight: 700, color: "#065F46", display: "flex" }}>
+            Good time to send
+          </span>
+          <span style={{ fontSize: "26px", color: "#047857", display: "flex" }}>
+            — today beats <span style={{ fontWeight: 700, marginLeft: "8px", display: "flex" }}>68%</span><span style={{ marginLeft: "8px", display: "flex" }}>of the last 80 days</span>
+          </span>
+        </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-            <span style={{ fontSize: "14px", color: "#64748B", display: "flex" }}>
-              You get
-            </span>
+        {/* Provider breadth row — conveys "we compare everyone" */}
+        <div
+          style={{
+            marginTop: "36px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            zIndex: 1,
+          }}
+        >
+          <span
+            style={{
+              fontSize: "13px",
+              fontWeight: 700,
+              letterSpacing: "1.6px",
+              textTransform: "uppercase",
+              color: "#94A3B8",
+              display: "flex",
+            }}
+          >
+            Compared live across every major provider
+          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+            {["Wise", "Xoom", "TapTap Send", "MoneyGram", "InstaReM", "Wells Fargo", "Western Union"].map(
+              (name) => (
+                <span
+                  key={name}
+                  style={{
+                    display: "flex",
+                    padding: "10px 20px",
+                    borderRadius: "999px",
+                    background: "#FFFFFF",
+                    border: "1px solid #E2E8F0",
+                    boxShadow: "0 2px 6px rgba(15,23,42,0.04)",
+                    fontSize: "20px",
+                    fontWeight: 600,
+                    color: "#334155",
+                  }}
+                >
+                  {name}
+                </span>
+              ),
+            )}
             <span
               style={{
-                fontFamily: "Instrument Serif",
-                fontSize: "44px",
-                lineHeight: 1,
-                color: "#059669",
                 display: "flex",
+                padding: "10px 20px",
+                borderRadius: "999px",
+                background: "#EEF2FF",
+                border: "1px solid #C7D2FE",
+                fontSize: "20px",
+                fontWeight: 700,
+                color: "#2D3A8C",
               }}
             >
-              ₹84,210
-            </span>
-            <span style={{ fontSize: "14px", color: "#059669", fontWeight: 600, display: "flex" }}>
-              ↑ ₹1,840 more than banks
+              +50 more
             </span>
           </div>
         </div>
@@ -189,7 +196,7 @@ export default async function Image() {
             position: "absolute",
             left: "88px",
             right: "88px",
-            bottom: "56px",
+            bottom: "48px",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -199,7 +206,7 @@ export default async function Image() {
           }}
         >
           <span style={{ fontSize: "16px", color: "#475569", fontWeight: 500, display: "flex" }}>
-            50+ apps · 64+ corridors · updated every 6 hours
+            Rates tracked daily across 800+ corridors · updated every 6 hours
           </span>
           <span
             style={{
