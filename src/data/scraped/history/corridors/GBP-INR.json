@@ -15926,6 +15926,66 @@
         "fee": 1.11,
         "markup": null,
         "receiveAmount": 12325.95
+      },
+      "moneygram": {
+        "rate": 124.7601,
+        "fee": 1.49,
+        "markup": -0.31,
+        "receiveAmount": 12290.12
+      },
+      "sbi": {
+        "rate": 121.0171,
+        "fee": 7.01,
+        "markup": 2.7,
+        "receiveAmount": 11253.38
+      },
+      "dahabshiil": {
+        "rate": 124.9442,
+        "fee": 1.79,
+        "markup": -0.46,
+        "receiveAmount": 12270.77
+      },
+      "profee": {
+        "rate": 124.4175,
+        "fee": 1.1,
+        "markup": -0.03,
+        "receiveAmount": 12304.89
+      },
+      "ofx": {
+        "rate": 119.0511,
+        "fee": 0,
+        "markup": 4.28,
+        "receiveAmount": 11905.11
+      },
+      "currencyfair": {
+        "rate": 123.4629,
+        "fee": 0.97,
+        "markup": 0.73,
+        "receiveAmount": 12226.53
+      },
+      "transfergo": {
+        "rate": 123.0971,
+        "fee": 0,
+        "markup": 1.03,
+        "receiveAmount": 12309.71
+      },
+      "mukuru": {
+        "rate": 120.25,
+        "fee": 2.99,
+        "markup": 3.32,
+        "receiveAmount": 11665.45
+      },
+      "paysend": {
+        "rate": 124.3707,
+        "fee": 0,
+        "markup": 0,
+        "receiveAmount": 12437.07
+      },
+      "revolut": {
+        "rate": 123.9543,
+        "fee": 0.5,
+        "markup": 0.34,
+        "receiveAmount": 12333.46
       }
     }
   }

@@ -8272,10 +8272,10 @@
         "receiveAmount": 8681.26
       },
       "xoom": {
-        "rate": 94.3223,
+        "rate": 94.1309,
         "fee": 4.29,
         "markup": null,
-        "receiveAmount": 9027.59
+        "receiveAmount": 9009.27
       },
       "worldremit": {
         "rate": 94.0365,
@@ -8300,6 +8300,36 @@
         "fee": 1.58,
         "markup": null,
         "receiveAmount": 9288.16
+      },
+      "xe": {
+        "rate": 93.9971,
+        "fee": 1,
+        "markup": 0.37,
+        "receiveAmount": 9305.71
+      },
+      "western-union": {
+        "rate": 93.8052,
+        "fee": 1.99,
+        "markup": 0.58,
+        "receiveAmount": 9193.85
+      },
+      "currencyfair": {
+        "rate": 93.7025,
+        "fee": 1.28,
+        "markup": 0.69,
+        "receiveAmount": 9250.31
+      },
+      "paysend": {
+        "rate": 94.3261,
+        "fee": 0,
+        "markup": 0.02,
+        "receiveAmount": 9432.61
+      },
+      "revolut": {
+        "rate": 94.1454,
+        "fee": 0.75,
+        "markup": 0.22,
+        "receiveAmount": 9343.93
       }
     }
   }

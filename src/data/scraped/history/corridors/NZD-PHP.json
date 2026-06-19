@@ -6002,6 +6002,30 @@
         "fee": 1.7,
         "markup": null,
         "receiveAmount": 3434.98
+      },
+      "moneygram": {
+        "rate": 33.6307,
+        "fee": 4.99,
+        "markup": 3.48,
+        "receiveAmount": 3195.25
+      },
+      "western-union": {
+        "rate": 34.3696,
+        "fee": 2.2,
+        "markup": 1.36,
+        "receiveAmount": 3361.35
+      },
+      "xe": {
+        "rate": 34.608,
+        "fee": 5,
+        "markup": 0.68,
+        "receiveAmount": 3287.76
+      },
+      "revolut": {
+        "rate": 34.659,
+        "fee": 1.2,
+        "markup": 0.53,
+        "receiveAmount": 3424.31
       }
     }
   }

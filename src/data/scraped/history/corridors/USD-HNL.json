@@ -2702,6 +2702,60 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 2671
+      },
+      "moneygram": {
+        "rate": 26.704,
+        "fee": 1.99,
+        "markup": 0.04,
+        "receiveAmount": 2617.26
+      },
+      "ria": {
+        "rate": 26.64,
+        "fee": 3,
+        "markup": 0.28,
+        "receiveAmount": 2584.08
+      },
+      "boss-money": {
+        "rate": 26.7074,
+        "fee": 2.99,
+        "markup": 0.03,
+        "receiveAmount": 2590.88
+      },
+      "western-union": {
+        "rate": 26.704,
+        "fee": 2.99,
+        "markup": 0.04,
+        "receiveAmount": 2590.56
+      },
+      "xoom": {
+        "rate": 26.6999,
+        "fee": 4.29,
+        "markup": 0.06,
+        "receiveAmount": 2555.45
+      },
+      "xe": {
+        "rate": 26.6505,
+        "fee": 4,
+        "markup": 0.24,
+        "receiveAmount": 2558.45
+      },
+      "paysend": {
+        "rate": 26.665,
+        "fee": 1.99,
+        "markup": 0.19,
+        "receiveAmount": 2613.44
+      },
+      "remitly": {
+        "rate": 26.7,
+        "fee": 5.34,
+        "markup": 0.06,
+        "receiveAmount": 2527.42
+      },
+      "wise": {
+        "rate": 26.7358,
+        "fee": 14.12,
+        "markup": -0.08,
+        "receiveAmount": 2296.07
       }
     }
   }

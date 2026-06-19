@@ -3594,6 +3594,36 @@
         "fee": 1.62,
         "markup": null,
         "receiveAmount": 11538.4
+      },
+      "moneygram": {
+        "rate": 114.847,
+        "fee": 1.99,
+        "markup": 1.7,
+        "receiveAmount": 11256.15
+      },
+      "skrill": {
+        "rate": 116.0567,
+        "fee": 0,
+        "markup": 0.67,
+        "receiveAmount": 11605.67
+      },
+      "dahabshiil": {
+        "rate": 117.446,
+        "fee": 1.99,
+        "markup": -0.52,
+        "receiveAmount": 11510.88
+      },
+      "paysend": {
+        "rate": 116.4192,
+        "fee": 2.9,
+        "markup": 0.36,
+        "receiveAmount": 11304.3
+      },
+      "revolut": {
+        "rate": 116.3179,
+        "fee": 1.1,
+        "markup": 0.44,
+        "receiveAmount": 11503.84
       }
     }
   }

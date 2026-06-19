@@ -8162,6 +8162,42 @@
         "fee": 1.42,
         "markup": null,
         "receiveAmount": 74.64
+      },
+      "boss-money": {
+        "rate": 0.737,
+        "fee": 2.49,
+        "markup": 2.84,
+        "receiveAmount": 71.86
+      },
+      "xe": {
+        "rate": 0.7508,
+        "fee": 3,
+        "markup": 1.02,
+        "receiveAmount": 72.83
+      },
+      "western-union": {
+        "rate": 0.7516,
+        "fee": 0.99,
+        "markup": 0.92,
+        "receiveAmount": 74.42
+      },
+      "currencyfair": {
+        "rate": 0.7538,
+        "fee": 3.32,
+        "markup": 0.63,
+        "receiveAmount": 72.88
+      },
+      "paysend": {
+        "rate": 0.756,
+        "fee": 1.99,
+        "markup": 0.33,
+        "receiveAmount": 74.1
+      },
+      "revolut": {
+        "rate": 0.7562,
+        "fee": 0.75,
+        "markup": 0.31,
+        "receiveAmount": 75.05
       }
     }
   }

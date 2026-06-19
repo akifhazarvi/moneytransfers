@@ -5025,6 +5025,48 @@
         "fee": 3.14,
         "markup": null,
         "receiveAmount": 13628.4
+      },
+      "moneygram": {
+        "rate": 138.5245,
+        "fee": 1.99,
+        "markup": 1.37,
+        "receiveAmount": 13576.79
+      },
+      "western-union": {
+        "rate": 139.6857,
+        "fee": 0.99,
+        "markup": 0.54,
+        "receiveAmount": 13830.28
+      },
+      "dahabshiil": {
+        "rate": 140.4385,
+        "fee": 0,
+        "markup": 0,
+        "receiveAmount": 14043.85
+      },
+      "worldremit": {
+        "rate": 140.1009,
+        "fee": 0.99,
+        "markup": 0.24,
+        "receiveAmount": 13871.39
+      },
+      "paysend": {
+        "rate": 140.2914,
+        "fee": 0,
+        "markup": 0.11,
+        "receiveAmount": 14029.14
+      },
+      "sendwave": {
+        "rate": 139.9884,
+        "fee": 0.99,
+        "markup": 0.32,
+        "receiveAmount": 13860.25
+      },
+      "revolut": {
+        "rate": 139.7177,
+        "fee": 2.3,
+        "markup": 0.52,
+        "receiveAmount": 13650.42
       }
     }
   }

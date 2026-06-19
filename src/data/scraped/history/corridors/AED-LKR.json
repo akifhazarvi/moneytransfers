@@ -2013,6 +2013,18 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 9077.49
+      },
+      "skrill": {
+        "rate": 88.122,
+        "fee": 0,
+        "markup": 2.95,
+        "receiveAmount": 8812.2
+      },
+      "paysend": {
+        "rate": 89.7127,
+        "fee": 9,
+        "markup": 1.2,
+        "receiveAmount": 8163.86
       }
     }
   }
