@@ -2694,5 +2694,28 @@
         "receiveAmount": 315.83
       }
     }
+  },
+  {
+    "date": "2026-06-19",
+    "providers": {
+      "remitly": {
+        "rate": 3.1159,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 305.39
+      },
+      "paypal": {
+        "rate": 3.0177,
+        "fee": 6.44,
+        "markup": null,
+        "receiveAmount": 282.34
+      },
+      "instarem": {
+        "rate": 3.1884,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 317.08
+      }
+    }
   }
 ]

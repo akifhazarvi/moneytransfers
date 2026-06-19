@@ -4307,5 +4307,52 @@
         "receiveAmount": 15855.82
       }
     }
+  },
+  {
+    "date": "2026-06-19",
+    "providers": {
+      "lemfi": {
+        "rate": 162.75,
+        "fee": 0.99,
+        "markup": -0.37,
+        "receiveAmount": 16113.88
+      },
+      "taptap-send": {
+        "rate": 162.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16250
+      },
+      "western-union": {
+        "rate": 162.1986,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 15734.89
+      },
+      "skrill": {
+        "rate": 160.6727,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16067.27
+      },
+      "instarem": {
+        "rate": 160.5855,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16058.55
+      },
+      "remitly": {
+        "rate": 162.4202,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 16081.22
+      },
+      "xoom": {
+        "rate": 158.6205,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 15387.77
+      }
+    }
   }
 ]

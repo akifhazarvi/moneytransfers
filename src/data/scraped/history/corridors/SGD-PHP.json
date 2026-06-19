@@ -6827,5 +6827,40 @@
         "receiveAmount": 4639.8
       }
     }
+  },
+  {
+    "date": "2026-06-19",
+    "providers": {
+      "ocbc": {
+        "rate": 45.5243,
+        "fee": 30,
+        "markup": null,
+        "receiveAmount": 3186.7
+      },
+      "remitly": {
+        "rate": 46.0562,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 4421.85
+      },
+      "instarem": {
+        "rate": 46.9927,
+        "fee": 0.65,
+        "markup": null,
+        "receiveAmount": 4668.73
+      },
+      "paypal": {
+        "rate": 44.8925,
+        "fee": 6.44,
+        "markup": null,
+        "receiveAmount": 4200.21
+      },
+      "wise": {
+        "rate": 47.0204,
+        "fee": 1.13,
+        "markup": null,
+        "receiveAmount": 4648.91
+      }
+    }
   }
 ]

@@ -8099,5 +8099,70 @@
         "receiveAmount": 74.08
       }
     }
+  },
+  {
+    "date": "2026-06-19",
+    "providers": {
+      "instarem": {
+        "rate": 0.7515,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 75.15
+      },
+      "lemfi": {
+        "rate": 0.752,
+        "fee": 0,
+        "markup": 0.69,
+        "receiveAmount": 75.2
+      },
+      "remitly": {
+        "rate": 0.7534,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 75.34
+      },
+      "taptap-send": {
+        "rate": 0.751,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 75.1
+      },
+      "moneygram": {
+        "rate": 0.7476,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 73.27
+      },
+      "chase": {
+        "rate": 0.7349,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 69.81
+      },
+      "wells-fargo": {
+        "rate": 0.7342,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 73.42
+      },
+      "worldremit": {
+        "rate": 0.736,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 72.13
+      },
+      "paypal": {
+        "rate": 0.72,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 68.4
+      },
+      "wise": {
+        "rate": 0.7572,
+        "fee": 1.42,
+        "markup": null,
+        "receiveAmount": 74.64
+      }
+    }
   }
 ]

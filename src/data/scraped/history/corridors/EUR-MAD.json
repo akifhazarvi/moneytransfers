@@ -5729,5 +5729,52 @@
         "receiveAmount": 904.7
       }
     }
+  },
+  {
+    "date": "2026-06-19",
+    "providers": {
+      "lemfi": {
+        "rate": 10.6,
+        "fee": 0,
+        "markup": 0.74,
+        "receiveAmount": 1060
+      },
+      "remitly": {
+        "rate": 10.4543,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1040.31
+      },
+      "taptap-send": {
+        "rate": 10.56,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1056
+      },
+      "xoom": {
+        "rate": 10.3474,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 1019.32
+      },
+      "deutsche-bank": {
+        "rate": 10.4296,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 661.76
+      },
+      "commerzbank": {
+        "rate": 10.3364,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 904.44
+      },
+      "wise": {
+        "rate": 10.6809,
+        "fee": 6,
+        "markup": null,
+        "receiveAmount": 1004
+      }
+    }
   }
 ]
