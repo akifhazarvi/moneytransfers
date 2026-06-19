@@ -101,7 +101,9 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "send-money-uae-to-pakistan-guide",          // 5i 1c
   "xe-tax-season-cross-border-money-2026",     // 5i 0c
   "send-money-to-nepal-guide",                 // 5i 0c
-]); // 42 URLs (was 49)
+  // ── Manually added (new content, not yet impression-validated) ──
+  "how-to-buy-spacex-nvidia-stock-using-revolut", // new guide, Revolut investing angle
+]); // 43 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
   // Head-term IBAN destinations (always submitted)
