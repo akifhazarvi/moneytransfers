@@ -14,15 +14,26 @@
  * "claude", "search", "bot", or "web" (a normal human browser referral).
  */
 
-// AI assistant / AI-search fetchers — matched against the User-Agent. These are
-// the official bots that fetch a page when an AI answer cites or previews it.
-const AI_UA_PATTERNS: Array<[RegExp, string]> = [
-  [/OAI-SearchBot|ChatGPT-User|GPTBot/i, "chatgpt"],
-  [/PerplexityBot|Perplexity-User/i, "perplexity"],
-  [/ClaudeBot|Claude-User|Anthropic/i, "claude"],
-  [/Google-Extended|GoogleOther|Googlebot.*AI/i, "google_ai"],
-  [/BingBot|BingPreview|msnbot|copilot/i, "bing_ai"],
-  [/Amazonbot|Applebot-Extended|Bytespider|Meta-ExternalAgent|cohere-ai|YouBot|DuckAssistBot/i, "ai_other"],
+// AI assistant / AI-search fetchers — matched against the User-Agent. Each
+// entry carries `human`: true when the UA fires because a REAL PERSON acted in
+// the assistant (clicked a citation, asked a question that fetched us live).
+// Those are genuine referral traffic and must NOT be counted as bots — they're
+// our most valuable channel. `human: false` are training/index crawlers
+// (GPTBot, ClaudeBot, Google-Extended…) that scrape with no person attached;
+// still stored, but flagged is_bot so reports can exclude them.
+const AI_UA_PATTERNS: Array<[RegExp, string, boolean]> = [
+  // User-initiated — a person is on the other end → real traffic.
+  [/OAI-SearchBot|ChatGPT-User/i, "chatgpt", true],
+  [/Perplexity-User/i, "perplexity", true],
+  [/Claude-User/i, "claude", true],
+  [/DuckAssistBot/i, "duckduckgo", true],
+  // Training / index crawlers — no person attached → keep flagged as bot.
+  [/GPTBot/i, "chatgpt", false],
+  [/PerplexityBot/i, "perplexity", false],
+  [/ClaudeBot|Anthropic/i, "claude", false],
+  [/Google-Extended|GoogleOther|Googlebot.*AI/i, "google_ai", false],
+  [/BingBot|BingPreview|msnbot|copilot/i, "bing_ai", false],
+  [/Amazonbot|Applebot-Extended|Bytespider|Meta-ExternalAgent|cohere-ai|YouBot/i, "ai_other", false],
 ];
 
 // Referer host → source. AI assistants that pass a referer use these domains.
@@ -43,7 +54,9 @@ const GENERIC_BOT_RE = /bot|crawler|spider|crawl|fetch|headless|python-requests|
 export type SourceClass = {
   /** Low-cardinality label for the GA4 traffic_source custom dimension. */
   source: string;
-  /** True when the request looks like an automated fetcher (AI or generic bot). */
+  /** True for automated fetchers with NO person attached (generic crawlers +
+   *  AI training/index bots). False for user-initiated AI fetches
+   *  (ChatGPT-User, Perplexity-User, Claude-User) — those are real traffic. */
   isBot: boolean;
   /** Referer host (or "" when none / same-origin). Stored for provability. */
   refererHost: string;
@@ -71,12 +84,15 @@ export function classifyTrafficSource(
     return { source: explicit, isBot: false, refererHost };
   }
 
-  for (const [re, label] of AI_UA_PATTERNS) {
-    if (re.test(ua)) return { source: label, isBot: true, refererHost };
+  for (const [re, label, human] of AI_UA_PATTERNS) {
+    if (re.test(ua)) return { source: label, isBot: !human, refererHost };
   }
+  // A referer from an AI assistant / search host means a real person clicked
+  // through from that platform — real traffic, not a bot (unless the UA itself
+  // is a crawler/preview fetcher).
   for (const [re, label] of REFERER_HOST_PATTERNS) {
     if (re.test(refererHost)) {
-      return { source: label, isBot: /bot|preview/i.test(ua), refererHost };
+      return { source: label, isBot: /bot|crawler|spider|preview/i.test(ua), refererHost };
     }
   }
   if (GENERIC_BOT_RE.test(ua)) {
