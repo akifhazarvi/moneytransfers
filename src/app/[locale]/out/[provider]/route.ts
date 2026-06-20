@@ -34,7 +34,6 @@ export async function GET(
   const aiSrc = searchParams.get("ai_src") || undefined;
   const referer = request.headers.get("referer") || "";
   const userAgent = request.headers.get("user-agent") || "";
-  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc);
 
   // Server-side GA4 event — always fires regardless of ad blockers / consent.
   // Prefer the live GA4 client_id forwarded by AiSourceInjector as ?cid= so the
@@ -64,6 +63,15 @@ export async function GET(
   const source = src || "out_route";
   const clickId = searchParams.get("click_id") || `smc_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 
+  // Classify + additive bot score (soft signal, never blocks) — see /go route.
+  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc, geo.country, corridor, {
+    hadCid: !!cidParam,
+    hadAiSrc: !!aiSrc,
+    hadVidCookie: !!existingVid,
+    accept: request.headers.get("accept"),
+    acceptLanguage: request.headers.get("accept-language"),
+  });
+
   // Server-side counterpart to the client `provider_clicked` event — see /go/
   // for the naming rationale.
   void serverTrack(
@@ -87,6 +95,7 @@ export async function GET(
       is_bot: trafficSource.isBot,
       id_source: idSource,
       click_id: clickId,
+      bot_score: trafficSource.botScore,
     },
     clientId,
     geo,
@@ -105,6 +114,8 @@ export async function GET(
     trafficSource: trafficSource.source,
     idSource,
     isBot: trafficSource.isBot,
+    botScore: trafficSource.botScore,
+    botReasons: trafficSource.botReasons.join("; "),
     refererHost: trafficSource.refererHost,
     country: geo.country,
     region: geo.region,

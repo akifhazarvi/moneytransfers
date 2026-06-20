@@ -37,12 +37,21 @@ function ensureTable(): Promise<void> {
       traffic_source TEXT,
       id_source   TEXT,
       is_bot      BOOLEAN,
+      bot_score   INTEGER,
+      bot_reasons TEXT,
       referer_host TEXT,
       country     TEXT,
       region      TEXT,
       city        TEXT
     );
   `.then(() => {
+    // Add columns to an already-created table (CREATE IF NOT EXISTS won't).
+    // Idempotent — safe to run every cold start.
+    return Promise.all([
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS bot_score INTEGER;`,
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS bot_reasons TEXT;`,
+    ]);
+  }).then(() => {
     // Indexes for the reports we actually run: by event+time, by provider, by
     // click_id (partner reconciliation). IF NOT EXISTS keeps this idempotent.
     return Promise.all([
@@ -70,6 +79,8 @@ export type StoredEvent = {
   trafficSource?: string;
   idSource?: string;
   isBot?: boolean;
+  botScore?: number;
+  botReasons?: string;
   refererHost?: string;
   country?: string;
   region?: string;
@@ -87,13 +98,14 @@ export async function storeEvent(e: StoredEvent): Promise<void> {
     await sql`
       INSERT INTO events
         (event, vid, client_id, click_id, provider, corridor, amount,
-         source, traffic_source, id_source, is_bot, referer_host,
-         country, region, city)
+         source, traffic_source, id_source, is_bot, bot_score, bot_reasons,
+         referer_host, country, region, city)
       VALUES
         (${e.event}, ${e.vid ?? null}, ${e.clientId ?? null}, ${e.clickId ?? null},
          ${e.provider ?? null}, ${e.corridor ?? null}, ${e.amount ?? null},
          ${e.source ?? null}, ${e.trafficSource ?? null}, ${e.idSource ?? null},
-         ${e.isBot ?? null}, ${e.refererHost ?? null},
+         ${e.isBot ?? null}, ${e.botScore ?? null}, ${e.botReasons ?? null},
+         ${e.refererHost ?? null},
          ${e.country ?? null}, ${e.region ?? null}, ${e.city ?? null});
     `;
   } catch {

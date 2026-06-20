@@ -52,7 +52,7 @@ export async function GET(request: Request) {
             AND ts > now() - (${days}||' days')::interval
           GROUP BY 1 ORDER BY 1 ASC`,
       sql`SELECT to_char(ts,'MM-DD HH24:MI') AS t, provider, corridor, click_id,
-                 id_source, is_bot, traffic_source, country
+                 id_source, is_bot, bot_score, bot_reasons, traffic_source, country
           FROM events WHERE event='affiliate_redirect'
             AND ts > now() - (${days}||' days')::interval
           ORDER BY ts DESC LIMIT 200`,
@@ -68,13 +68,16 @@ export async function GET(request: Request) {
       s === "fabricated" || s === "(none)" ? "var(--red)" : "var(--green)";
 
     const csvRows = [
-      "timestamp,provider,corridor,click_id,id_source,is_bot,traffic_source,country",
+      "timestamp,bot_score,bot_reasons,provider,corridor,click_id,id_source,is_bot,traffic_source,country",
       ...clicks.rows.map((r) =>
-        [r.t, r.provider, r.corridor, r.click_id, r.id_source, r.is_bot, r.traffic_source, r.country]
+        [r.t, r.bot_score, r.bot_reasons, r.provider, r.corridor, r.click_id, r.id_source, r.is_bot, r.traffic_source, r.country]
           .map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`)
           .join(","),
       ),
     ].join("\n");
+
+    // Score colour: high = likely bot (red), mid = suspicious (amber), low = real (green)
+    const scoreColor = (n: number) => (n >= 60 ? "var(--red)" : n >= 30 ? "var(--amber)" : "var(--green)");
 
     const html = `<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -152,8 +155,8 @@ export async function GET(request: Request) {
       <button class="btn" onclick="dl()">⬇ Export CSV</button>
     </div>
     <div class="scroll"><table>
-      <thead><tr><th>Time</th><th>Provider</th><th>Corridor</th><th>Click ID</th><th>ID src</th><th>Bot</th><th>Source</th><th>Country</th></tr></thead>
-      <tbody>${clicks.rows.map((r) => `<tr><td>${esc(r.t)}</td><td class="p">${esc(r.provider)}</td><td>${esc(r.corridor)}</td><td>${esc(r.click_id)}</td><td>${esc(r.id_source)}</td><td>${r.is_bot ? "y" : ""}</td><td>${esc(r.traffic_source)}</td><td>${esc(r.country)}</td></tr>`).join("")}</tbody>
+      <thead><tr><th>Score</th><th>Time</th><th>Provider</th><th>Corridor</th><th>Country</th><th>ID src</th><th>Source</th><th>Why flagged</th></tr></thead>
+      <tbody>${clicks.rows.map((r) => { const sc = Number(r.bot_score ?? 0); return `<tr><td style="color:${scoreColor(sc)};font-weight:600">${esc(r.bot_score ?? "-")}</td><td>${esc(r.t)}</td><td class="p">${esc(r.provider)}</td><td>${esc(r.corridor)}</td><td>${esc(r.country)}</td><td>${esc(r.id_source)}</td><td>${esc(r.traffic_source)}</td><td style="white-space:normal;max-width:340px;color:var(--faint)">${esc(r.bot_reasons)}</td></tr>`; }).join("")}</tbody>
     </table></div>
   </div>
 </div>

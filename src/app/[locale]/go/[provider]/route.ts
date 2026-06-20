@@ -37,13 +37,6 @@ export async function GET(
   const referer = request.headers.get("referer") || "";
   const userAgent = request.headers.get("user-agent") || "";
 
-  // Resolve where this redirect actually came from. Server-side /go hits carry
-  // no GA session, so GA files them under "Unassigned" with no source. Most are
-  // AI assistants / AI-search engines fetching a cited link (real referrals) or
-  // crawlers — only the UA + referer host can tell them apart. ?ai_src= wins
-  // when present (set by the on-site injector for human AI-referred sessions).
-  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc);
-
   // Server-side tracking — fires even when the user has an ad blocker or
   // declined cookies, so we never miss an affiliate conversion.
   //
@@ -85,6 +78,17 @@ export async function GET(
 
   const corridor = from && to ? `${from}-${to}`.toUpperCase() : "";
   const source = src || "go_route";
+
+  // Classify source + compute the additive bot SCORE (0–100). The score is a
+  // soft signal stored next to the row for the dashboard — it NEVER blocks or
+  // drops anyone (incl. CN); isBot stays conservative. ?ai_src= wins for source.
+  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc, geo.country, corridor, {
+    hadCid: !!cidParam,
+    hadAiSrc: !!aiSrc,
+    hadVidCookie: !!existingVid,
+    accept: request.headers.get("accept"),
+    acceptLanguage: request.headers.get("accept-language"),
+  });
   // Per-click id from the on-site injector (TapTap-style billing proof + ties
   // the client provider_clicked to this server event). Absent on raw external
   // hits; mint one so every redirect is still individually identifiable.
@@ -114,6 +118,7 @@ export async function GET(
       is_bot: trafficSource.isBot,
       id_source: idSource,
       click_id: clickId,
+      bot_score: trafficSource.botScore,
     },
     clientId,
     geo,
@@ -134,6 +139,8 @@ export async function GET(
     trafficSource: trafficSource.source,
     idSource,
     isBot: trafficSource.isBot,
+    botScore: trafficSource.botScore,
+    botReasons: trafficSource.botReasons.join("; "),
     refererHost: trafficSource.refererHost,
     country: geo.country,
     region: geo.region,
