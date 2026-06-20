@@ -29,6 +29,43 @@ export function getRateInsight(
   return insights[`${fromCurrency}-${toCurrency}`] ?? null;
 }
 
+/**
+ * Pick the single strongest corridor to feature in the "Rate of the Month" bar.
+ * Restricted to a caller-supplied allowlist of pairs that have a real, indexable
+ * /exchange-rates/[pair] page, so the link is always valid and SEO-safe.
+ * Ranks by rate level (great > good > typical > low) then by levelPct.
+ * Returns null if nothing qualifies (the bar then doesn't render).
+ *
+ * @param allowedPairs slugs like "usd-to-inr" (matching SITEMAP_RATE_PAIR_SLUGS)
+ * @param minLevel only feature corridors at this level or better (default "good")
+ */
+export function getRateOfTheMonth(
+  allowedPairs: string[],
+  minLevel: "good" | "great" = "good"
+): { pairSlug: string; corridor: string; from: string; to: string; insight: RateInsight } | null {
+  const rank: Record<string, number> = { great: 3, good: 2, typical: 1, low: 0 };
+  const threshold = rank[minLevel];
+
+  const candidates = allowedPairs
+    .map((slug) => {
+      const [from, to] = slug.split("-to-").map((s) => s.toUpperCase());
+      const insight = insights[`${from}-${to}`];
+      if (!insight) return null;
+      if (rank[insight.level] < threshold) return null;
+      return { pairSlug: slug, corridor: `${from}-${to}`, from, to, insight };
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null);
+
+  if (candidates.length === 0) return null;
+
+  candidates.sort(
+    (a, b) =>
+      rank[b.insight.level] - rank[a.insight.level] ||
+      b.insight.levelPct - a.insight.levelPct
+  );
+  return candidates[0];
+}
+
 // ── Per-provider insights ──────────────────────────────────────
 
 export function getProviderInsight(

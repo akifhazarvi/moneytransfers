@@ -7,7 +7,8 @@ import { providers, currencies, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getRateInsight, rateLevelConfig } from "@/lib/rate-history";
+import { getRateInsight, rateLevelConfig, getRateOfTheMonth } from "@/lib/rate-history";
+import { SITEMAP_RATE_PAIR_SLUGS } from "@/lib/sitemap-allowlists";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -35,6 +36,10 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
   // Generate default quotes server-side so Google can see them
   const defaultQuotes = generateQuotes(1000, "USD", "INR");
   const inrInfo = currencies.find((c) => c.code === "INR")!;
+
+  // ── Rate of the Month — feature the strongest sitemap-safe corridor right now ──
+  const rotm = getRateOfTheMonth([...SITEMAP_RATE_PAIR_SLUGS], "good");
+  const rotmLevel = rotm ? rateLevelConfig(rotm.insight.level) : null;
 
   // ── Top 10 corridors by proven demand (Bing-validated + remittance volume) ──
   // Only these are surfaced as visible links. Each resolves to a real
@@ -75,6 +80,33 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
       />
       {/* Server-rendered SEO content — visible to crawlers */}
       <Container>
+        {/* ── Rate of the Month — minimalist, links to the rate page ── */}
+        {rotm && rotmLevel && (
+          <Link
+            href={`/exchange-rates/${rotm.pairSlug}`}
+            className="group mt-4 flex items-center gap-3 rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] pl-4 pr-3 py-2 w-fit max-w-full hover:border-[var(--color-primary)] transition-colors"
+          >
+            <span className="relative flex h-2 w-2 shrink-0" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60" style={{ background: rotmLevel.color }} />
+              <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: rotmLevel.color }} />
+            </span>
+            <span className="text-2xs font-semibold uppercase tracking-widest" style={{ color: rotmLevel.color }}>
+              Rate of the month
+            </span>
+            <span className="hidden sm:inline text-2sm text-[var(--color-on-surface-variant)] truncate">
+              <span className="inline-flex items-center gap-1 font-medium text-[var(--color-on-surface)]">
+                <CircleFlag code={rotm.from} size={16} /> {rotm.from}
+                <span className="text-[var(--color-on-surface-muted)]">→</span>
+                <CircleFlag code={rotm.to} size={16} /> {rotm.to}
+              </span>{" "}
+              is at its best level this month
+            </span>
+            <span className="ml-auto shrink-0 text-2sm font-semibold text-[var(--color-primary)] group-hover:underline whitespace-nowrap">
+              See rates →
+            </span>
+          </Link>
+        )}
+
         <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] pt-6 mb-2">
           {heading}
         </h1>
