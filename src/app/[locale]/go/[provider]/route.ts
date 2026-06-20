@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
-import { gaServerEvent, clientIdFromCookie } from "@/lib/ga4-server";
+import { clientIdFromCookie } from "@/lib/ga4-server";
+import { serverTrack } from "@/lib/server-track";
 import { classifyTrafficSource } from "@/lib/traffic-source";
 
 export async function GET(
@@ -89,13 +90,13 @@ export async function GET(
   //   - provider_clicked (client, GA4 + Vercel) = UI button engagement
   //   - provider_clicked_server (server, GA4 only) = the redirect actually ran
   // The gap between the two = adblock + JS-failure rate.
-  void gaServerEvent(
+  void serverTrack(
     "provider_clicked_server",
     { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource },
     clientId,
     geo,
   );
-  void gaServerEvent(
+  void serverTrack(
     "affiliate_redirect",
     {
       provider,

@@ -7,7 +7,7 @@ International money transfer comparison platform at **sendmoneycompare.com**. He
 - **Next.js 16** (App Router, TypeScript, React 19)
 - **TailwindCSS 4** with CSS custom properties (Google-style design tokens)
 - **Playwright** + **Cheerio** for data scraping
-- Deployed on **Vercel** (Hobby plan)
+- Deployed on **Vercel** (Pro plan — Vercel Analytics custom events record, unlike Hobby where they were silently dropped)
 
 ## Project Structure
 
