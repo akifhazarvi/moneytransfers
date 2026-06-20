@@ -22,6 +22,7 @@
   /* ─── Brand Colors — Premium Indigo + Amber ─── */
   --color-primary:         #2D3A8C;   /* Deep indigo — authority, premium */
   --color-primary-dark:    #1E2761;   /* Deeper for hover states */
+  --color-primary-mid:     #3A5BA6;   /* Lighter indigo for hero gradients (white text safe) */
   --color-primary-light:   #C7D2F6;   /* Light tint for borders */
   --color-primary-surface: #EEF0FB;   /* Lightest tint for backgrounds */
 
@@ -82,6 +83,7 @@
   /* Brand — softer indigo, readable but not glowing */
   --color-primary:         #7C8FE8;
   --color-primary-dark:    #9AAAF0;
+  --color-primary-mid:     #5A6FC0;
   --color-primary-light:   #252D5C;
   --color-primary-surface: #1D2347;
 

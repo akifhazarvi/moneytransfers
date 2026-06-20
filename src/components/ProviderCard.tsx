@@ -205,7 +205,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   type="button"
                   onClick={(e) => { e.stopPropagation(); onCompareToggle(quote.providerSlug); }}
                   disabled={compareDisabled && !compareSelected}
-                  className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-all ${
+                  className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-all relative before:absolute before:-inset-3 before:content-[''] ${
                     compareSelected
                       ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
                       : compareDisabled

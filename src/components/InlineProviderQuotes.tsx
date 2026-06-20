@@ -49,7 +49,7 @@ export default function InlineProviderQuotes({
       className="my-10 rounded-2xl overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] border border-[var(--color-success-dark)]/20"
       aria-label="Live provider rate comparison"
     >
-      <header className="px-5 sm:px-6 py-5 bg-gradient-to-r from-[var(--color-success-dark)] to-[#047857] border-b border-white/10">
+      <header className="px-5 sm:px-6 py-5 bg-gradient-to-r from-[var(--color-success)] to-[var(--color-success-dark)] border-b border-white/10">
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
             <div className="flex items-center gap-2 mb-2">

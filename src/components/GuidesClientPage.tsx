@@ -125,7 +125,7 @@ export default function GuidesClientPage({ posts, categories, translations }: Pr
       {safePage === 1 && (
         <Link
           href={`/guides/${featured.slug}`}
-          className="block bg-gradient-to-br from-[var(--color-primary)] to-[#3a5ba6] rounded-2xl p-8 md:p-12 mb-8 text-white hover:shadow-lg transition-shadow"
+          className="block bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-mid)] rounded-2xl p-8 md:p-12 mb-8 text-white hover:shadow-lg transition-shadow"
         >
           <span className="text-xs font-medium bg-[var(--color-surface)]/20 px-3 py-1 rounded-full">
             {translations.featuredGuide}
