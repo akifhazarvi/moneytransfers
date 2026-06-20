@@ -1412,13 +1412,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "how-to-pay-international-freelancers-contractors",
     title:
-      "How to Pay International Freelancers in 2026 (Cheapest Method by Team Size)",
+      "How to Pay International Freelancers in 2026: A Simple Guide",
     metaDescription:
-      "The cheapest way to pay international freelancers and contractors in 2026 — by team size. The 5 hidden costs, how to pay someone with no bank account, batch payments, and the W-8BEN trap most payers miss.",
+      "How to pay overseas freelancers and contractors in 2026 without overpaying. What each method really costs, bank vs Wise vs XE vs OFX, paying people with no bank account, and the tax form US payers must collect.",
     excerpt:
-      "Paying freelancers in five countries shouldn't mean five bank wires and 4% in invisible FX. Here's the real cost of each method, the cheapest option by how many people you pay, and the classification trap that costs more than any fee.",
+      "Paying freelancers in five countries shouldn't mean five slow bank wires and a 4% cut you never see. Here's what each option actually costs, which to use for your situation, and the one paperwork mistake that costs more than any fee.",
     category: "Business",
-    readTime: "13 min read",
+    readTime: "12 min read",
     publishedAt: "2026-06-20",
     updatedAt: "2026-06-20",
     author: "Akif Hazarvi",
@@ -1433,121 +1433,143 @@ export const blogPosts: BlogPost[] = [
     featuredImage: "/images/blog/pay-international-freelancers.jpg",
     sections: [
       {
-        heading: "The Real Problem: Five Countries, Five Painful Bank Wires",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For most small businesses paying a handful of overseas freelancers, the cheapest reliable method in 2026 is a multi-currency business account that pays into the contractor's local bank for free — <a href="/companies/wise">Wise Business</a> (true mid-market rate, 0.33%–0.81% fee, batch up to 1,000 recipients) or Payoneer (mass payouts, good if your contractors already use it). Pay <strong>once a month in a single batch</strong>, not per invoice, to cut both fees and admin. A full HR/EOR platform like Deel only earns its $49+/contractor/month cost once you're paying many people across many countries <em>or</em> face real misclassification risk — for one or two freelancers it's overkill. <a href="/business">Compare live business transfer rates →</a></p></div>
-<p>Here is the situation almost every growing company hits. You have a designer in Poland, a developer in the Philippines, a writer in Argentina, and a virtual assistant in Kenya. Each one sends an invoice. Your bank charges you a flat wire fee — often £15–£30 — for each one, takes 1–4 working days to deliver, and quietly converts your money at a rate 2–4% worse than the real one. Your freelancer then gets dinged a <em>receiving</em> fee by their own bank, so the amount that lands is less than you both agreed. Then you do it all again next month.</p>
-<p>That is four wires, four fees, four FX markups, four delivery delays, and four slightly-annoyed contractors — every single month. The frustration you feel isn't imagined. <strong>Traditional bank transfers are the single worst way to pay international freelancers</strong>, and they remain the default only because nobody told you there was a better one.</p>
+        heading: "Just Tell Me What to Use",
+        content: `<div class="blog-answer-box"><p><strong>Short answer, by how many people you pay:</strong></p>
+<ul>
+<li><strong>1 to 5 freelancers?</strong> Open a <a href="/companies/wise">Wise Business</a> account (or Payoneer if your freelancers already use it). Pay everyone once a month in one batch. Done.</li>
+<li><strong>5 to 30, in several countries?</strong> Same tools, but lean on their batch/CSV upload so you pay the whole list in one go.</li>
+<li><strong>A big team you pay like staff every month?</strong> Now a platform like Deel or Remote starts to earn its fee, because it also handles contracts and tax forms.</li>
+<li><strong>Worried a "freelancer" is really an employee?</strong> That's the one case where you should pay for an Employer of Record. More on that below.</li>
+</ul>
+<p>Whatever you do, stop sending separate bank wires. <a href="/business">Compare live rates for your route →</a></p></div>
 <figure style="margin: 24px 0;">
   <img src="/images/blog/pay-international-freelancers.jpg"
        alt="A freelancer working at a laptop with a coffee, smartphone and notepad — the everyday reality of remote contractors a business pays across borders"
        width="1200" height="675" loading="eager" />
   <figcaption class="blog-footnote" style="text-align:center">
-    Pay the people, not the bank: the goal is to get the agreed amount to each freelancer's preferred account with the least fee, FX markup, and admin.
+    The goal is simple: get the agreed amount into each freelancer's account, with the least fee, the least FX loss, and the least hassle.
   </figcaption>
 </figure>
-<p>This guide is different from the dozens of "best ways to pay contractors" articles you'll find — most of which are published by a company selling the exact platform they recommend. We don't run payroll software. We compare 60+ money-transfer providers with live rate data updated every six hours, so we can do the thing the vendor blogs structurally can't: <strong>tell you honestly what each method really costs, and which one wins for <em>your</em> specific situation</strong> — not theirs.</p>
-<p class="blog-footnote">Last reviewed: June 2026 by Akif Hazarvi, founder of SendMoneyCompare. Figures reflect provider pricing and 2026 US tax thresholds current at that date.</p>`,
+<p class="blog-footnote">Last reviewed: June 2026 by Akif Hazarvi, founder of SendMoneyCompare. Fees and 2026 US tax figures are current as of that date.</p>
+<p>Here's the trap most businesses fall into. You've got a designer in Poland, a developer in the Philippines, a writer in Argentina, and a VA in Kenya. Four invoices come in. You log into your bank, send four separate wires, and pay a £15–£30 fee on each. The money takes a few days to land, and your bank quietly gives you an exchange rate that's 2–4% worse than the real one. Then your freelancer's own bank takes a cut on the way in, so they get less than you agreed. Next month, you do it all again.</p>
+<p>It's slow, it's expensive, and it annoys the people you're trying to keep happy. The good news: you don't have to do it this way. This guide walks through what actually works, what each option really costs, and how to set it up once so payday becomes a five-minute job.</p>
+<p>One thing up front: most "how to pay contractors" articles are written by the company selling the tool they recommend. We don't sell payroll software. We compare 60+ money-transfer providers and update the rates every few hours, so we can just tell you what's cheapest for your situation, even when that means "you don't need a fancy platform yet."</p>`,
       },
       {
-        heading: "The 5 Hidden Costs of Paying a Freelancer Abroad",
-        content: `<p class="citable-passage">When you pay an overseas freelancer, the "fee" you see is rarely the real cost. There are five separate costs, and the most expensive one is usually invisible. Understanding all five is the entire game — once you can see them, choosing the cheapest method becomes obvious.</p>
+        heading: "What It Actually Costs (and the One Cost You Can't See)",
+        content: `<p class="citable-passage">When you pay a freelancer abroad, the "fee" on the screen is rarely the real cost. There are really five costs, and the biggest one is usually hidden. Once you can spot all five, picking the cheapest option is easy.</p>
 <ol>
-<li><strong>The transfer fee</strong> — A flat per-payment charge (e.g. £4 for a SWIFT payment, £20+ for a bank wire). This dominates on <em>small</em> payments and is negligible on large ones. Batching multiple people into one payment run reduces it.</li>
-<li><strong>The exchange-rate markup</strong> — The big one. Your bank or PayPal shows you <em>a</em> rate, but hides how far below the real <a href="/guides/exchange-rate-markup-explained">mid-market rate</a> it sits. That gap — typically 2–4% at banks, and roughly 3–4.5% on PayPal once its conversion and cross-border fees combine — is pure margin, and it scales with the payment size. On a $3,000 invoice, a 3.5% markup is $105 you'll never see itemised.</li>
-<li><strong>The receiving fee</strong> — Charged to your <em>freelancer</em> by their bank or wallet when the money lands. SWIFT payments can lose $10–$30 to intermediary "correspondent" banks before arrival. This is why a contractor sometimes says "you sent $1,000 but I only got $965."</li>
-<li><strong>The platform / subscription fee</strong> — Monthly software costs (Deel ~$49/contractor/month, Revolut Business £10–£90/month, etc.). Worth it at scale; dead weight for two freelancers.</li>
-<li><strong>The hidden admin cost</strong> — Your time. Re-keying bank details, chasing payment confirmations, reconciling four separate transactions. A platform that lets you pre-save recipients and pay everyone in one batch can save more in hours than it costs in fees.</li>
+<li><strong>The transfer fee.</strong> A flat charge per payment, like £4 for a basic transfer or £20+ for a bank wire. It hurts most on small payments and barely matters on big ones. Paying everyone in one batch keeps it down.</li>
+<li><strong>The exchange-rate markup — this is the big one.</strong> Your bank shows you a rate but hides how far below the <a href="/guides/exchange-rate-markup-explained">real mid-market rate</a> it sits. That gap is their profit, and it grows with the payment. Banks tuck away 2–4% this way; PayPal can hit 3–4.5%. On a $3,000 invoice, a 3.5% markup is $105 you never see on a receipt.</li>
+<li><strong>The receiving fee.</strong> This one hits your freelancer, not you. Their bank (or the banks in between, on a wire) can skim $10–$30 off before it arrives. It's why a freelancer sometimes says "you sent $1,000 but I only got $965."</li>
+<li><strong>The subscription fee.</strong> Monthly software like Deel (~$49 per contractor) or Revolut Business (£10–£90). Great value at scale, pointless if you pay two people.</li>
+<li><strong>Your time.</strong> Re-typing bank details, chasing confirmations, reconciling a pile of separate transactions. A tool that saves payees and pays everyone at once can be worth more in saved hours than it costs in fees.</li>
 </ol>
 <blockquote class="blog-callout-blue-sm">
-<strong>The trap to avoid:</strong> A provider advertising "$0 transfer fee" while charging a 3% FX markup is <em>more</em> expensive than one charging a $5 fee plus the real mid-market rate, on any payment over ~$170. Always compare total cost = transfer fee + FX markup + receiving fee, not the headline number.
-<a href="/guides/hidden-fees-international-transfers">See how the headline-fee trick works →</a>
+<strong>The trick to watch for:</strong> "$0 transfer fee" sounds great, but if it comes with a 3% markup, it's more expensive than a $5 fee at the real rate on anything over about $170. Always add up the total: transfer fee + exchange markup + receiving fee. The headline number lies.
+<a href="/guides/hidden-fees-international-transfers">How the "free transfer" trick works →</a>
 </blockquote>`,
       },
       {
-        heading: "The Cheapest Method, by How Many People You Pay",
-        content: `<p class="citable-passage">There is no single "best" way to pay freelancers — the honest answer changes with how many people you pay, how often, and across how many countries. For one to five freelancers, a multi-currency account like Wise Business or Payoneer is cheapest; for large recurring rosters across many countries, a contractor-payment platform's automation starts to justify its per-seat fee; and only genuine misclassification risk justifies a full Employer of Record. Here is the decision matrix we'd give a founder asking us directly.</p>
+        heading: "Pick by How Many People You Pay",
+        content: `<p class="citable-passage">There's no single best way to pay freelancers. The right answer depends on how many people you pay, how often, and how spread out they are. Use the table to find your situation, then read the short note below it.</p>
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Match the method to your situation (2026)</h3>
+<h3 style="margin-top: 0;">Find your situation</h3>
 <table>
-<thead><tr><th>Your situation</th><th>Best method</th><th>Why</th></tr></thead>
+<thead><tr><th>If you pay…</th><th>Use this</th><th>Because</th></tr></thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong>1–5 freelancers, paid monthly</strong></td><td><a href="/companies/wise">Wise Business</a> or Payoneer</td><td>Mid-market FX, free local payout, batch up to 1,000. No subscription needed.</td></tr>
-<tr class="blog-row-alt"><td><strong>5–30 freelancers, several countries</strong></td><td>Wise Business batch, or a dedicated payouts platform (Payoneer mass payout)</td><td>Upload a CSV, pay everyone at once, pull recipient data via API into your accounting tool.</td></tr>
-<tr><td><strong>Large recurring payroll, many countries</strong></td><td>HR/contractor platform (Deel, Remote) <em>or</em> <a href="/companies/ofx">OFX</a> / <a href="/companies/currencies-direct">Currencies Direct</a> for FX-only</td><td>Automated contracts, tax forms, compliance monitoring — but you pay a per-seat fee for it.</td></tr>
-<tr class="blog-row-alt"><td><strong>One-off payment to one person</strong></td><td>Wise, or a specialist app the recipient already uses</td><td>Lowest total cost on a single transfer; no account setup overhead.</td></tr>
-<tr><td><strong>Misclassification or legal risk</strong></td><td>EOR (Employer of Record) — Deel, Remote, Gloroots</td><td>The platform becomes the legal employer in-country. This is the <em>only</em> situation where the high cost is clearly justified.</td></tr>
+<tr class="blog-row-highlight"><td><strong>1–5 freelancers a month</strong></td><td><a href="/companies/wise">Wise Business</a> or Payoneer</td><td>Real exchange rate, free payout to their local bank, no monthly fee.</td></tr>
+<tr class="blog-row-alt"><td><strong>5–30 across a few countries</strong></td><td>Wise or Payoneer, using batch upload</td><td>Pay the whole list from one spreadsheet instead of one at a time.</td></tr>
+<tr><td><strong>A big team, every month</strong></td><td>Deel or Remote (or <a href="/companies/ofx">OFX</a> for FX only)</td><td>You're now paying for contracts and tax forms too, not just the transfer.</td></tr>
+<tr class="blog-row-alt"><td><strong>One person, one time</strong></td><td>Wise, or whatever app they already use</td><td>Cheapest for a single payment, nothing to set up.</td></tr>
+<tr><td><strong>Someone who's basically an employee</strong></td><td>An EOR (Deel, Remote, Gloroots)</td><td>The only time the high cost is worth it. See the tax section.</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Recommendations are FX-method-neutral; we earn a commission only if you click through to a transfer provider, never on the EOR platforms. <a href="/business">Compare live business rates →</a></p>
+<p class="blog-footnote">We earn a commission only if you click through to a transfer provider, never on the EOR platforms. <a href="/business">Compare live rates for your route →</a></p>
 </div>
-<h3>Why we don't just say "use Deel" like everyone else</h3>
-<p>Search "how to pay international contractors" and the top results are nearly all published by HR platforms — Deel, Gusto, Remote, Tipalti, Gloroots — each recommending its own product. These are genuinely good tools. But an Employer of Record or contractor-management subscription costs roughly <strong>$49–$599 per contractor per month</strong>. For a company paying two freelancers $1,500 each, that's a platform fee larger than the FX savings it provides. <strong>You pay for compliance and automation, not for cheaper transfers.</strong> So the right question is never "which platform is best?" — it's "do I actually need a platform yet, or just a cheaper pipe?"</p>`,
+<p>Notice what's <em>not</em> the answer for most people: a full HR platform. Search this topic and nearly every result tells you to use Deel, Gusto, or Remote, because those companies wrote the articles. They're good tools, but they cost roughly $49 to $599 per contractor every month. If you're paying two freelancers $1,500 each, that subscription can cost more than the FX you'd save. You're paying for compliance and automation, not cheaper payments. So the real question isn't "which platform?" It's "do I even need one yet?" For most small teams, you don't.</p>`,
       },
       {
-        heading: "Wise Business & Payoneer: The Default for Small Teams",
-        content: `<p>For the overwhelming majority of businesses paying a handful of freelancers, a multi-currency business account is the answer — and the two names that come up are <a href="/companies/wise">Wise Business</a> and Payoneer. They solve the same problem differently.</p>
-<h3>Wise Business — best for transparent cost</h3>
-<ul>
-<li><strong>FX:</strong> True mid-market rate with a disclosed fee of 0.33%–0.81% — no spread. You see the exact cost before you confirm.</li>
-<li><strong>Payout:</strong> Money lands directly in your freelancer's local bank account. They don't need a Wise account, and in most local-currency corridors they pay no receiving fee.</li>
-<li><strong>Batch payments:</strong> Up to 1,000 recipients in a single upload — pay your whole roster at once.</li>
-<li><strong>Admin:</strong> Pre-save payees, sync to Xero/QuickBooks, give team members role-based access. One-time ~$31 setup, no monthly fee.</li>
-</ul>
-<h3>Payoneer — best when your contractors already use it</h3>
-<ul>
-<li><strong>FX:</strong> A currency-conversion fee that varies by operation and corridor — roughly 0.5% on high-volume business conversions, rising toward 2% on individual cross-currency withdrawals. Check Payoneer's current rate for your exact corridor before committing.</li>
-<li><strong>Mass payouts:</strong> Purpose-built for paying many freelancers; many contractors on Upwork/Fiverr already hold a Payoneer account, which makes onboarding frictionless.</li>
-<li><strong>Withdrawal options:</strong> Freelancers can withdraw to a local bank, a prepaid card, or hold a balance — useful in countries with weak banking access.</li>
-</ul>
+        heading: "The Setup Most Small Teams Should Use",
+        content: `<p>For almost anyone paying a handful of freelancers, the answer is a multi-currency business account. Two names come up: <a href="/companies/wise">Wise Business</a> and Payoneer. Here's the plain difference.</p>
+<p><strong>Pick Wise Business if you want the lowest, clearest cost.</strong> It uses the real exchange rate with a small, visible fee (about 0.33%–0.81%) shown before you confirm, so there's no hidden markup. The money goes straight into your freelancer's local bank account, they don't need a Wise account, and in most cases they pay nothing to receive it. You can pay up to 1,000 people in one upload, save everyone's details so you never re-type them, and connect it to Xero or QuickBooks. Setup is a one-off fee of roughly $20–$35, with no monthly charge.</p>
+<p><strong>Pick Payoneer if your freelancers already use it.</strong> Loads of people on Upwork and Fiverr already have a Payoneer account, which makes paying them painless. Its conversion fee runs higher than Wise (around 0.5% on big business conversions, up to about 2% on smaller withdrawals), so check the rate for your route first. Its upside is flexibility for the freelancer: they can take the money to a local bank, a prepaid card, or just hold a balance, which matters in countries where bank access is patchy.</p>
 <blockquote class="blog-callout-blue-sm">
-<strong>Rule of thumb:</strong> If you care most about the lowest, most transparent total cost, default to Wise Business. If your freelancers are concentrated on freelance marketplaces or in countries where they prefer holding a balance, Payoneer reduces friction. Many businesses end up using both. <a href="/send-money">Run your exact corridor to compare →</a>
+<strong>Simple rule:</strong> Want the cheapest, most transparent option? Use Wise Business. Most of your freelancers already on Payoneer? Use that. Plenty of businesses run both. <a href="/send-money">Check your exact route →</a>
 </blockquote>
-<p>Below are live rates for a typical $1,000 freelancer payment so you can see real costs rather than estimates:</p>`,
+<p>Here are live rates for a typical $1,000 freelancer payment, so you're looking at real numbers, not guesses:</p>`,
       },
       {
-        heading: "When a Bank Wire Is Actually the Wrong Tool — and When It Isn't",
-        content: `<p>Banks remain the default because they're already there — the account you run payroll from. But for routine freelancer payments they are the most expensive option on almost every axis. A traditional SWIFT wire carries a flat fee (often £15–£30), an FX markup of 2–4%, correspondent-bank deductions of $10–$30, and a 1–4 day delivery time. On a $1,500 monthly invoice across 12 months, switching from a bank to a mid-market provider can save roughly $400–$900 a year <em>per freelancer</em>, depending on the corridor and your bank's FX markup.</p>
-<p>There are narrow cases where a bank wire is still reasonable: a single very large one-off payment where your bank will negotiate the rate, a recipient whose only safe option is a traditional bank account in a corridor a fintech doesn't serve, or a jurisdiction with capital controls that require a documented bank channel. For everything else — and especially anything recurring — a specialist provider wins on every one of the five costs above. Our <a href="/guides/wire-transfer-guide">wire transfer guide</a> covers when wires genuinely make sense.</p>
-<p>What about PayPal? It's convenient and your freelancer probably has it — but it's frequently the <em>most</em> expensive option once you account for its FX markup (up to ~4.5%) layered on top of cross-border and currency-conversion fees. It's fine for an occasional small payment; it's a quiet money-leak for recurring payroll. See <a href="/companies/paypal">our PayPal review</a> for the fee breakdown.</p>`,
-      },
-      {
-        heading: "How to Pay a Freelancer Who Has No Bank Account",
-        content: `<p class="citable-passage">A surprising share of skilled freelancers — particularly in parts of Africa, South Asia, Southeast Asia, and Latin America — either have no bank account or have one that's slow, expensive, or unreliable to receive into. Paying them is entirely possible; you just route around the bank. Here are the four routes that work in 2026, cheapest-friction first.</p>
-<ol>
-<li><strong>Mobile wallet payout.</strong> In many countries the dominant way people hold money isn't a bank — it's a mobile wallet (M-Pesa in Kenya, GCash in the Philippines, bKash in Bangladesh). Several specialist providers deliver straight to these wallets, often in minutes. Ask your freelancer which wallet they use and check whether your provider supports it.</li>
-<li><strong>Payoneer balance or prepaid card.</strong> Payoneer lets a freelancer hold a balance and spend via a prepaid card without ever touching a local bank — useful where bank access is the bottleneck. This is a big reason marketplace freelancers default to it.</li>
-<li><strong>Cash pickup.</strong> For occasional payments, providers in our <a href="/send-money">comparison</a> deliver to physical agent locations the recipient collects from with ID. Higher fees, but no account of any kind required.</li>
-<li><strong>Stablecoin (USDC/USDT), with caveats.</strong> In countries with high inflation or capital controls, some freelancers specifically request payment in a dollar-pegged stablecoin to protect their earnings from local-currency devaluation. It settles fast and needs only a crypto wallet — but it shifts compliance, volatility-at-the-edges, and conversion responsibility onto the freelancer, and isn't right for every business. Treat it as an option a freelancer requests, not a default you impose.</li>
-</ol>
-<p>The practical move: ask <em>every</em> new freelancer at onboarding how they'd <em>prefer</em> to be paid, then check which of your candidate providers reaches that rail. Paying into the method someone already uses is almost always cheaper and faster than forcing them onto a bank account they don't have.</p>`,
-      },
-      {
-        heading: "The W-8BEN Trap: The Cost That Dwarfs Any Fee",
-        content: `<p class="citable-passage">The most expensive mistake in paying international freelancers isn't choosing the wrong transfer method — it's getting the tax and classification paperwork wrong. A 30% IRS withholding obligation or a misclassification penalty makes the difference between Wise and a bank wire look like a rounding error.</p>
-<p>Two pieces of compliance catch out almost every first-time payer:</p>
-<h3>1. Collect a W-8BEN <em>before</em> you pay (US businesses)</h3>
-<p>If your business is US-based and you pay a foreign contractor, the IRS generally treats them as subject to <strong>30% withholding</strong> unless you have a valid <strong><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener noreferrer nofollow">Form W-8BEN</a></strong> (for individuals) or <strong>W-8BEN-E</strong> (for foreign companies) on file. The form establishes that the payee is a non-US person and, where a tax treaty applies, can reduce withholding to zero. Collect it at onboarding — before the first payment — not at tax time. Separately, for paperwork on <em>US-based</em> contractors, the <strong>Form 1099-NEC</strong> reporting threshold rose from $600 to <strong>$2,000 for payments made on or after 1 January 2026</strong> under the <a href="https://www.irs.gov/newsroom" target="_blank" rel="noopener noreferrer nofollow">One Big Beautiful Bill Act</a> (signed July 2025), indexed to inflation from 2027 — though foreign contractors with a valid W-8BEN are generally reported on Form 1042-S, not 1099-NEC, so confirm the right form for each payee with your accountant.</p>
-<h3>2. Don't accidentally turn a contractor into an employee</h3>
-<p>"Misclassification" is when a worker you treat as a freelancer is, under local law, actually an employee — which exposes you to back taxes, benefits, and penalties in <em>their</em> country, not yours. The risk rises when the freelancer works full-time hours, only for you, on your equipment, under your direct control. If that describes the relationship, an <strong>Employer of Record</strong> (Deel, Remote, Gloroots) becomes worth its cost: the platform legally employs the person in-country and absorbs the compliance risk. This — not "cheaper transfers" — is the real reason to pay for an EOR.</p>
-<blockquote class="blog-callout-warning-sm">
-<strong>This is not tax advice.</strong> Thresholds, treaty rules, and classification tests vary by country and change yearly. The takeaway: build the paperwork into onboarding so a transfer method that saves you $30 doesn't expose you to a $3,000 liability. Confirm specifics with a cross-border accountant.
+        heading: "Bank vs Wise vs XE vs OFX: Pros and Cons",
+        content: `<p class="citable-passage">If you're choosing between your bank and a specialist provider, here's the honest trade-off. Your <strong>bank</strong> is convenient but the most expensive. <strong>Wise</strong> is cheapest and clearest for regular smaller payments. <strong>XE</strong> and <strong>OFX</strong> shine on larger transfers, where a human dealer and rate-locking matter more than a slick app. Use the table to compare at a glance, then read the quick verdicts below.</p>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Side by side, for paying freelancers</h3>
+<div style="overflow-x: auto;">
+<table>
+<thead><tr><th>&nbsp;</th><th>Your bank</th><th><a href="/companies/wise">Wise Business</a></th><th><a href="/companies/xe">XE</a></th><th><a href="/companies/ofx">OFX</a></th></tr></thead>
+<tbody>
+<tr><td><strong>Exchange markup</strong></td><td>High (2–4%)</td><td>Lowest (real rate + 0.33–0.81%)</td><td>Low–medium (~0.5–1%)</td><td>Low–medium (~0.4–1%)</td></tr>
+<tr class="blog-row-alt"><td><strong>Transfer fee</strong></td><td>£15–£30 per wire</td><td>Small, shown upfront</td><td>Often $0</td><td>$0 on most transfers</td></tr>
+<tr><td><strong>Best at</strong></td><td>Nothing, really</td><td>Regular small/medium payments</td><td>Bigger one-off transfers</td><td>Bigger + recurring transfers</td></tr>
+<tr class="blog-row-alt"><td><strong>Pay many at once</strong></td><td>One at a time</td><td>Up to 1,000 in a batch</td><td>Limited</td><td>Yes, recurring + bulk</td></tr>
+<tr><td><strong>Human help</strong></td><td>Branch/phone</td><td>App + chat</td><td>Phone dealer</td><td>Dedicated dealer</td></tr>
+<tr class="blog-row-alt"><td><strong>Lock a rate ahead</strong></td><td>No</td><td>No</td><td>Yes (forward contracts)</td><td>Yes (forward contracts)</td></tr>
+<tr><td><strong>Speed</strong></td><td>1–4 days</td><td>Often same day</td><td>1–2 days</td><td>1–2 days</td></tr>
+</tbody>
+</table>
+</div>
+<p class="blog-footnote">Rates and fees are typical 2026 figures; check your exact route. <a href="/business">Compare live business rates →</a></p>
+</div>
+<h3>Your bank</h3>
+<p><strong>Pros:</strong> Already set up, familiar, fine for a one-off if speed doesn't matter. <strong>Cons:</strong> The worst exchange rate of the four, a flat fee on every wire, slow, and your freelancer often loses more to receiving fees. For anything regular, it's the priciest option by a wide margin.</p>
+<h3>Wise Business</h3>
+<p><strong>Pros:</strong> The real mid-market rate with a small, visible fee, so no hidden markup. Pays straight into local bank accounts, batches up to 1,000 people, and connects to your accounting. <strong>Cons:</strong> No phone dealer and no way to lock a rate in advance, so it's less suited to very large transfers where you want to fix the rate. For most freelancer payments, it's the default winner.</p>
+<h3>XE</h3>
+<p><strong>Pros:</strong> Strong rates with usually no transfer fee, a trusted brand, and a phone dealer plus forward contracts if you want to lock a rate before a big payment. <strong>Cons:</strong> Less geared to paying lots of people in one batch, so it's better for larger single payments than a long monthly roster.</p>
+<h3>OFX</h3>
+<p><strong>Pros:</strong> No transfer fee on most payments, competitive rates that improve as amounts rise, a dedicated dealer, 24/7 support, and recurring/bulk payments plus rate-locking. <strong>Cons:</strong> Usually a minimum transfer (around $150), and the app is less slick than Wise's. A great fit once your payments get larger or more regular.</p>
+<blockquote class="blog-callout-blue-sm">
+<strong>Quick pick:</strong> Paying small-to-medium amounts to a handful of people? <a href="/companies/wise">Wise</a>. Sending larger amounts, or want to lock a rate and talk to a person? <a href="/companies/ofx">OFX</a> or <a href="/companies/xe">XE</a>. Using your bank? Almost always the most expensive choice. <a href="/send-money">See who's cheapest for your route →</a>
 </blockquote>`,
       },
       {
-        heading: "A Simple, Repeatable Monthly Payment Workflow",
-        content: `<p>Once the right method is chosen, the goal is to make paying everyone boring and fast. Here's the workflow we'd set up for a business paying 3–20 freelancers each month:</p>
+        heading: "Paying Someone Who Has No Bank Account",
+        content: `<p class="citable-passage">Plenty of skilled freelancers, especially in parts of Africa, South Asia, Southeast Asia, and Latin America, either have no bank account or one that's slow and expensive to receive into. You can still pay them easily, you just skip the bank. Four ways that work, easiest first:</p>
 <ol>
-<li><strong>Onboard once.</strong> Collect each freelancer's local bank details, a signed contract, and tax form (W-8BEN/W-8BEN-E for US payers) before the first payment. Save payees to your provider's address book so you never re-key details.</li>
-<li><strong>Standardise invoices.</strong> Ask for invoices in <em>their</em> local currency with a fixed due date. This lets you pay the agreed amount and absorb FX on your side predictably.</li>
-<li><strong>Pay in one monthly batch.</strong> Instead of paying each invoice as it arrives, run a single batch payment once a month (Wise Business supports up to 1,000 recipients via CSV). This minimises per-transfer fees and reconciliation work.</li>
-<li><strong>Reconcile automatically.</strong> Sync the payment run to Xero or QuickBooks so each payout maps to the right contractor and expense category.</li>
-<li><strong>Review the corridor twice a year.</strong> Rates and fees shift; a corridor that was cheapest on Wise last year may now favour a different provider. <a href="/send-money">Re-compare live rates</a> for your top corridors periodically.</li>
+<li><strong>Mobile wallet.</strong> In a lot of countries, people keep their money in a phone wallet, not a bank: M-Pesa in Kenya, GCash in the Philippines, bKash in Bangladesh. Several providers pay straight into these, often within minutes. Just ask which one they use.</li>
+<li><strong>Payoneer balance or card.</strong> Your freelancer can hold the money in Payoneer and spend it on a prepaid card without ever touching a bank. It's a big reason marketplace freelancers like it.</li>
+<li><strong>Cash pickup.</strong> For the odd payment, some providers in our <a href="/send-money">comparison</a> let the freelancer collect cash at a local agent with ID. Fees are higher, but they need no account at all.</li>
+<li><strong>Stablecoin (USDC/USDT), if they ask for it.</strong> In countries with high inflation, some freelancers want to be paid in a dollar-pegged crypto coin so their pay doesn't lose value overnight. It's fast and only needs a crypto wallet, but it puts the conversion and the risk on them, so treat it as something they request, not your default.</li>
 </ol>
-<p>This is the same discipline larger finance teams use for supplier payments — our <a href="/guides/business-international-payments-guide">international business payments guide</a> covers the supplier/vendor side, and <a href="/guides/lowest-fx-fees-business-payments-2026">lowest FX fees for business</a> ranks providers by markup if you're optimising a high payment volume.</p>`,
+<p>The simplest move: when you hire someone, just ask how they'd like to be paid, then pick a provider that reaches that. Paying into what they already use is almost always cheaper and faster than pushing them onto a bank account they don't have.</p>`,
       },
       {
-        heading: "How We Compared These Methods",
-        content: `<p>Cost figures in this guide are based on providers' published fee schedules and live quotes collected from provider APIs and websites via automated scraping every six hours, plus 2026 tax thresholds from US federal sources. Real costs vary by corridor, payment size, funding method, and your freelancer's receiving bank — always check the total quoted cost (fee + FX markup + any receiving fee) before you pay. We compare 60+ transfer providers and earn an affiliate commission only when you click through to a money-transfer provider; we are not affiliated with the EOR/HR platforms mentioned, which are included for neutral context only. Tax and classification points are general information, not professional advice.</p>`,
+        heading: "The Tax Mistake That Costs More Than Any Fee",
+        content: `<p class="citable-passage">The most expensive mistake here isn't picking the wrong app, it's getting the paperwork wrong. A surprise 30% tax withholding or a misclassification fine makes the difference between Wise and a bank wire look like loose change.</p>
+<p>Two things trip up almost everyone the first time:</p>
+<h3>1. If you're a US business, get a W-8BEN before you pay</h3>
+<p>When a US business pays a foreign freelancer, the IRS assumes you should hold back <strong>30%</strong> of the payment unless you have a signed <strong><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener noreferrer nofollow">Form W-8BEN</a></strong> (for a person) or W-8BEN-E (for a company) on file. The form proves they're not a US taxpayer and, in many countries, drops that withholding to zero. Collect it when you hire them, not at tax time. (One detail your accountant will care about: foreign freelancers usually go on a Form 1042-S, not the 1099-NEC you'd use for US-based contractors, whose reporting threshold rose to <a href="https://www.irs.gov/newsroom" target="_blank" rel="noopener noreferrer nofollow">$2,000 from 2026</a>. Confirm the right form per person.)</p>
+<h3>2. Don't let a "freelancer" quietly become an employee</h3>
+<p>This is "misclassification." If someone you treat as a freelancer is really an employee under their country's law, you can owe back taxes and penalties there. The risk goes up when they work full-time, only for you, on your schedule and your equipment. If that sounds like your situation, this is exactly when an <strong>Employer of Record</strong> (Deel, Remote, Gloroots) earns its fee: it legally employs the person in their country and takes the risk off you. That, not "cheaper transfers," is the real reason to pay for one.</p>
+<blockquote class="blog-callout-warning-sm">
+<strong>Not tax advice.</strong> The rules change by country and by year. The point is simple: sort the paperwork at onboarding so that saving $30 on a transfer doesn't land you a $3,000 bill later. Check the details with an accountant who knows cross-border work.
+</blockquote>`,
+      },
+      {
+        heading: "Set It Up Once, Then Payday Takes 5 Minutes",
+        content: `<p>The goal is to make paying everyone fast and dull. Here's the setup that works for a business paying anywhere from 3 to 20 freelancers a month:</p>
+<ol>
+<li><strong>Get everything once, at the start.</strong> When you hire someone, collect their bank or wallet details, a signed contract, and any tax form (W-8BEN if you're in the US). Save them as a payee so you never type those details again.</li>
+<li><strong>Ask for invoices in their currency.</strong> Have freelancers bill you in their own currency with a fixed due date. You pay the exact amount agreed and handle the conversion your side, so there are no surprises for either of you.</li>
+<li><strong>Pay everyone in one go, once a month.</strong> Don't pay invoices as they trickle in. Hold them and run one batch a month (Wise handles up to 1,000 at once from a spreadsheet). Fewer fees, far less admin.</li>
+<li><strong>Connect your accounting.</strong> Link the account to Xero or QuickBooks so each payment lands against the right person automatically.</li>
+<li><strong>Recheck twice a year.</strong> Rates move. Whoever was cheapest for a route last year might not be now, so <a href="/send-money">re-compare your main routes</a> every six months or so.</li>
+</ol>
+<p>This is the same routine bigger finance teams use to pay suppliers. If that's also you, our <a href="/guides/business-international-payments-guide">business payments guide</a> covers the supplier side, and <a href="/guides/lowest-fx-fees-business-payments-2026">lowest FX fees for business</a> ranks providers by markup for high volumes.</p>`,
+      },
+      {
+        heading: "How We Put This Together",
+        content: `<p>The fees and rates here come from providers' own pricing plus live quotes we pull from their sites and APIs every few hours, along with the 2026 US tax figures linked above. Your real cost depends on the route, the amount, and your freelancer's bank, so always check the full quote (fee + exchange markup + any receiving fee) before you send. We compare 60+ providers and only earn anything if you click through to a transfer provider. We're not paid by the EOR platforms named here, which we mention purely so the picture is honest. The tax notes are general information, not professional advice.</p>`,
       },
     ],
     faqs: [
