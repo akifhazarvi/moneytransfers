@@ -45,12 +45,36 @@ export async function GET(
   // Server-side tracking — fires even when the user has an ad blocker or
   // declined cookies, so we never miss an affiliate conversion.
   //
-  // AiSourceInjector forwards the live GA4 client_id as ?cid= — prefer it so
-  // the server event stitches onto the originating session (and its real
-  // traffic source) instead of GA4's "Unassigned" bucket. Fall back to the
-  // first-party _ga cookie for any non-injector caller, then to a fabricated id.
-  const gaCookie = request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1];
-  const clientId = searchParams.get("cid") || clientIdFromCookie(gaCookie);
+  // Resolve a STABLE id for this person, in priority order:
+  //  1. ?cid= — the live GA4 client_id forwarded by AiSourceInjector (best:
+  //     stitches the redirect onto the exact originating GA session).
+  //  2. smc_vid — our first-party stable visitor id (set in middleware for
+  //     ~everyone). This is what kills the fabricated-id leak: even when the
+  //     user blocks GA or hasn't accepted cookies, this id is present, so the
+  //     redirect attaches to a real person instead of GA4 "Unassigned".
+  //  3. _ga cookie — for any caller without the above.
+  //  4. fabricated id (inside gaServerEvent) — now a near-never last resort.
+  const cookieHeader = request.headers.get("cookie") || "";
+  const existingVid = cookieHeader.match(/smc_vid=([^;]+)/)?.[1];
+  const gaCookie = cookieHeader.match(/_ga=([^;]+)/)?.[1];
+  const cidParam = searchParams.get("cid");
+
+  // CRITICAL for external/direct clicks: many /go hits come straight from an
+  // AI assistant or a cited link — the person never loaded a page on our site,
+  // so middleware never set smc_vid, and there's no consent banner to accept.
+  // Previously these all got a fabricated throwaway id (the bulk of the 5,504
+  // "Unassigned" leak). Here we MINT a stable smc_vid when it's missing and set
+  // it on the redirect response below — so even a first-touch external clicker
+  // becomes a real, trackable person, and is recognized if they ever return.
+  // First-party, opaque, non-PII, functional to the redirect itself — no
+  // consent gate needed (same legitimate basis as running the redirect).
+  const vid = existingVid || crypto.randomUUID();
+  const mintedVid = !existingVid; // set the cookie on the response only if new
+  const clientId = cidParam || vid || clientIdFromCookie(gaCookie);
+
+  // How we identified this click — lets us MEASURE that the leak is closed
+  // (share of "fabricated" should approach zero).
+  const idSource = cidParam ? "cid" : existingVid ? "vid_cookie" : "vid_minted";
   const geo = {
     country: request.headers.get("x-vercel-ip-country") || undefined,
     region: request.headers.get("x-vercel-ip-country-region") || undefined,
@@ -67,7 +91,7 @@ export async function GET(
   // The gap between the two = adblock + JS-failure rate.
   void gaServerEvent(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource },
     clientId,
     geo,
   );
@@ -82,6 +106,7 @@ export async function GET(
       source,
       traffic_source: trafficSource.source,
       is_bot: trafficSource.isBot,
+      id_source: idSource,
     },
     clientId,
     geo,
@@ -94,8 +119,23 @@ export async function GET(
     clickref: src,
   });
 
-  return NextResponse.redirect(url, {
+  const redirect = NextResponse.redirect(url, {
     status: 302,
     headers: { "X-Robots-Tag": "noindex, nofollow" },
   });
+
+  // Persist a freshly-minted visitor id so this external/direct clicker is
+  // recognized on any future visit. Safe to Set-Cookie here: /go is a noindex
+  // 302 redirect, never an indexed/cacheable HTML page, so the May-2026
+  // cache-poisoning concern (Set-Cookie -> private,max-age=0 on crawled HTML)
+  // does not apply. Only set when minted, to avoid rewriting an existing id.
+  if (mintedVid && !trafficSource.isBot) {
+    redirect.cookies.set("smc_vid", vid, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+  }
+
+  return redirect;
 }

@@ -41,9 +41,18 @@ export async function GET(
   // cookie (now set first-party), then to a fabricated id inside gaServerEvent.
   // page_referrer (passed below) is the secondary signal GA4 uses to derive
   // Source/Medium when no session matches.
+  // Stable-id resolution + mint-if-missing for external/direct clicks — see
+  // the /go route for the full rationale. Minting here means a first-touch
+  // external clicker (e.g. from an AI assistant) becomes a real, trackable
+  // person instead of a fabricated throwaway id.
+  const cookieHeader = request.headers.get("cookie") || "";
+  const existingVid = cookieHeader.match(/smc_vid=([^;]+)/)?.[1];
+  const cidParam = searchParams.get("cid");
+  const vid = existingVid || crypto.randomUUID();
+  const mintedVid = !existingVid;
   const clientId =
-    searchParams.get("cid") ||
-    clientIdFromCookie(request.headers.get("cookie")?.match(/_ga=([^;]+)/)?.[1]);
+    cidParam || vid || clientIdFromCookie(cookieHeader.match(/_ga=([^;]+)/)?.[1]);
+  const idSource = cidParam ? "cid" : existingVid ? "vid_cookie" : "vid_minted";
   const geo = {
     country: request.headers.get("x-vercel-ip-country") || undefined,
     region: request.headers.get("x-vercel-ip-country-region") || undefined,
@@ -56,7 +65,7 @@ export async function GET(
   // for the naming rationale.
   void gaServerEvent(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource },
     clientId,
     geo,
   );
@@ -73,6 +82,7 @@ export async function GET(
       source,
       traffic_source: trafficSource.source,
       is_bot: trafficSource.isBot,
+      id_source: idSource,
     },
     clientId,
     geo,
@@ -85,8 +95,21 @@ export async function GET(
     clickref: src,
   });
 
-  return NextResponse.redirect(url, {
+  const redirect = NextResponse.redirect(url, {
     status: 302,
     headers: { "X-Robots-Tag": "noindex, nofollow" },
   });
+
+  // Persist a freshly-minted visitor id so a first-touch external clicker is
+  // recognized on return. Safe on /out: noindex 302 redirect, never cacheable
+  // HTML (see /go route for the full rationale).
+  if (mintedVid && !trafficSource.isBot) {
+    redirect.cookies.set("smc_vid", vid, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+  }
+
+  return redirect;
 }

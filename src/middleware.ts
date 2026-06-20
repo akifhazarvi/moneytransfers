@@ -273,6 +273,27 @@ export default function middleware(request: NextRequest) {
     });
   }
 
+  // First-party stable visitor id — the foundation of product/journey tracking
+  // and the fix for the fabricated-client_id leak in /go and /out (those routes
+  // minted a throwaway id per redirect, scattering ~45% of conversions into
+  // GA4 "Unassigned"). A single durable id lets every event — page views,
+  // funnel steps, and the server-side provider redirect — stitch onto one
+  // person, so no one going from our site to a provider is lost.
+  //
+  // It is NOT PII: an opaque random id with no personal data. Set only for
+  // non-bots and only when missing, on the exact same first-visit write as the
+  // geo cookies above — so it adds ZERO new uncacheable responses (that visit
+  // is already user-specific). Long-lived (1y) so returning visitors keep the
+  // same id and we can see repeat patterns. httpOnly:false so the client gtag
+  // and the /go injector can forward it as the GA4 client_id.
+  if (!isBot && !request.cookies.get("smc_vid")) {
+    response.cookies.set("smc_vid", crypto.randomUUID(), {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+  }
+
   return response;
 }
 
