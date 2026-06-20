@@ -1513,7 +1513,7 @@ export const newsItems: NewsItem[] = [
 </ul>
 
 <h3>Rule 3 — Use rate alerts instead of checking manually</h3>
-<p>Every major provider now offers rate alerts. Set a target that's 0.5–1% above today's rate, and you'll either hit it or learn that you overestimated the upside. <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, and <a href="/companies/revolut">Revolut</a> all have free alert features; <a href="/currency-converter">our currency converter</a> also shows the 30-day historical range so you can calibrate your target.</p>
+<p>Every major provider now offers rate alerts. Set a target that's 0.5–1% above today's rate, and you'll either hit it or learn that you overestimated the upside. <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, and <a href="/companies/revolut">Revolut</a> all have free alert features; our <a href="/exchange-rates">live exchange rates</a> also show the 30-day historical range so you can calibrate your target.</p>
 
 <h2>How much does a 1% rate move actually matter?</h2>
 <p>Put numbers on it. On a <strong>$5,000 transfer</strong> via Wise:</p>
@@ -1682,7 +1682,7 @@ export const newsItems: NewsItem[] = [
 <tr><td><strong>AED / INR</strong></td><td>~22.7</td><td>↓ Slight</td><td>UAE→India still among the cheapest corridors globally</td></tr>
 </tbody>
 </table></div>
-<p>For the live picture on any pair, use our <a href="/currency-converter">currency converter</a> — it shows 30-day history and the cheapest provider for each route. For broader macro context, our <a href="/news/inr-weakest-year-send-money-india-april-2026">April 2026 INR analysis</a> sets the baseline this article builds on.</p>
+<p>For the live picture on any pair, see our <a href="/exchange-rates">live exchange rates</a> — they show 30-day history and the cheapest provider for each route. For broader macro context, our <a href="/news/inr-weakest-year-send-money-india-april-2026">April 2026 INR analysis</a> sets the baseline this article builds on.</p>
 
 <h2>What's driving currencies in May 2026</h2>
 
@@ -1757,7 +1757,7 @@ export const newsItems: NewsItem[] = [
 
 <h2>Live rates and tools</h2>
 <ul>
-<li><a href="/currency-converter">Live currency converter</a> — all major pairs with 30-day history</li>
+<li><a href="/exchange-rates">Live exchange rates</a> — all major pairs with 30-day history</li>
 <li><a href="/send-money/usa-to-india">USA → India provider comparison</a></li>
 <li><a href="/send-money/uk-to-india">UK → India provider comparison</a></li>
 <li><a href="/send-money/uae-to-india">UAE → India provider comparison</a></li>

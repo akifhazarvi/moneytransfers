@@ -314,9 +314,9 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
                   independent feeds to remove outliers.
                 </p>
                 <p>
-                  Need to convert a specific amount? Try our{" "}
-                  <Link href="/currency-converter" className="text-[var(--color-primary)] hover:underline font-medium">currency converter</Link>, or{" "}
-                  <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">compare every provider</Link>.
+                  Sending money on this pair?{" "}
+                  <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">Compare every provider</Link>{" "}
+                  to find the best real rate.
                 </p>
               </div>
             </details>

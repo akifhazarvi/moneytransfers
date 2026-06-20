@@ -131,12 +131,6 @@ export default function TravelConverter({ destinationCurrency, corridorHref, cou
             >
               Compare providers for {countryName} &rarr;
             </Link>
-            <Link
-              href="/currency-converter"
-              className="text-2sm text-[var(--color-on-surface-variant)] hover:underline"
-            >
-              Full converter
-            </Link>
           </div>
         </div>
       </div>

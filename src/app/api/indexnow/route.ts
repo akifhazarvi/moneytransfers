@@ -47,7 +47,6 @@ export async function POST(request: Request) {
       `${SITE}/companies`,
       `${SITE}/compare`,
       `${SITE}/compare-money-transfer`,
-      `${SITE}/currency-converter`,
       `${SITE}/guides`,
       `${SITE}/iban`,
       `${SITE}/swift-codes`,

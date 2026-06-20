@@ -110,7 +110,6 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
             <ul className="space-y-2">
               <li><Link href="/send-money" className="text-sm text-[var(--color-primary)] hover:underline">{t("compareRatesCalculator")}</Link></li>
               <li><Link href="/compare" className="text-sm text-[var(--color-primary)] hover:underline">{t("headToHeadComparisons")}</Link></li>
-              <li><Link href="/currency-converter" className="text-sm text-[var(--color-primary)] hover:underline">{t("currencyConverter")}</Link></li>
             </ul>
           </div>
           <div>

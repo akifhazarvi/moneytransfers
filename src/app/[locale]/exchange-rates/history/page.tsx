@@ -326,7 +326,6 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
           title: "Tools",
           links: [
             { href: "/exchange-rates", label: "Exchange Rates" },
-            { href: "/currency-converter", label: "Currency Converter" },
             { href: "/send-money", label: "Compare Providers" },
             { href: "/remittance-cost-index", label: "Remittance Cost Index" },
           ],

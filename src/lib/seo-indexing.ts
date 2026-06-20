@@ -76,6 +76,12 @@ export function shouldNoindexPath(pathname: string): boolean {
   const top = parts[0];
   if (!top) return false;
 
+  // Currency converter: retired from nav/sitemap/links (Jun 2026). The page
+  // still works if reached directly, but is no longer promoted or indexed.
+  if (top === "currency-converter") {
+    return true;
+  }
+
   if (top === "iban" && parts[1] && !INDEXED_IBAN_SLUGS.has(parts[1])) {
     return true;
   }

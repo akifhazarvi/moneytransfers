@@ -17,7 +17,6 @@ export default function Footer() {
         { href: "/compare-money-transfer", labelKey: "compareMoneyTransfer" },
         { href: "/send-money", labelKey: "sendMoney" },
         { href: "/companies", labelKey: "allReviews" },
-        { href: "/currency-converter", labelKey: "currencyConverter" },
         { href: "/exchange-rates", labelKey: "exchangeRatesLink" },
       ],
     },

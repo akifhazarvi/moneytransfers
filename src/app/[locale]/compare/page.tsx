@@ -304,7 +304,6 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
               <h3 className="text-[11px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-3">Tools</h3>
               <ul className="space-y-2">
                 <li><Link href="/send-money" className="text-sm text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">Compare rates calculator</Link></li>
-                <li><Link href="/currency-converter" className="text-sm text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">Currency converter</Link></li>
                 <li><Link href="/companies" className="text-sm text-[var(--color-on-surface)] hover:text-[var(--color-primary)]">All provider reviews</Link></li>
               </ul>
             </div>

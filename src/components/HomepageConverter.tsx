@@ -144,13 +144,7 @@ export default function HomepageConverter() {
         )}
 
         {/* Convert Button */}
-        <div className="px-5 sm:px-6 py-4 flex items-center justify-between gap-4">
-          <Link
-            href="/currency-converter"
-            className="text-2sm text-[var(--color-primary)] hover:underline"
-          >
-            {t("advancedConverter")}
-          </Link>
+        <div className="px-5 sm:px-6 py-4 flex items-center justify-end gap-4">
           <button
             onClick={handleConvert}
             className="px-8 py-3 bg-[var(--color-primary)] text-white text-md font-medium rounded-full hover:bg-[var(--color-primary-dark)] transition-colors shadow-[var(--shadow-sm)]"

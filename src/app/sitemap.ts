@@ -66,7 +66,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("companies", DATA_UPDATED),
     entry("compare", DATA_UPDATED),
     entry("compare-money-transfer", DATA_UPDATED),
-    entry("currency-converter", DATA_UPDATED),
     entry("guides", STATIC_HUB_DATE),
     entry("iban", STATIC_HUB_DATE),
     entry("swift-codes", STATIC_HUB_DATE),
