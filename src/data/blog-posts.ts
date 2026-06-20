@@ -1442,14 +1442,6 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Worried a "freelancer" is really an employee?</strong> That's the one case where you should pay for an Employer of Record. More on that below.</li>
 </ul>
 <p>Whatever you do, stop sending separate bank wires. <a href="/business">Compare live rates for your route →</a></p></div>
-<figure style="margin: 24px 0;">
-  <img src="/images/blog/pay-international-freelancers.jpg"
-       alt="A freelancer working at a laptop with a coffee, smartphone and notepad — the everyday reality of remote contractors a business pays across borders"
-       width="1200" height="675" loading="eager" />
-  <figcaption class="blog-footnote" style="text-align:center">
-    The goal is simple: get the agreed amount into each freelancer's account, with the least fee, the least FX loss, and the least hassle.
-  </figcaption>
-</figure>
 <p class="blog-footnote">Last reviewed: June 2026 by Akif Hazarvi, founder of SendMoneyCompare. Fees and 2026 US tax figures are current as of that date.</p>
 <p>Here's the trap most businesses fall into. You've got a designer in Poland, a developer in the Philippines, a writer in Argentina, and a VA in Kenya. Four invoices come in. You log into your bank, send four separate wires, and pay a £15–£30 fee on each. The money takes a few days to land, and your bank quietly gives you an exchange rate that's 2–4% worse than the real one. Then your freelancer's own bank takes a cut on the way in, so they get less than you agreed. Next month, you do it all again.</p>
 <p>It's slow, it's expensive, and it annoys the people you're trying to keep happy. The good news: you don't have to do it this way. This guide walks through what actually works, what each option really costs, and how to set it up once so payday becomes a five-minute job.</p>

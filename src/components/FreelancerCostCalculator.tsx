@@ -188,7 +188,7 @@ export default function FreelancerCostCalculator({ source }: Props) {
       </div>
 
       {/* Result */}
-      <div className="px-5 sm:px-6 py-6 bg-gradient-to-br from-[var(--color-error-surface,#fce8e6)] to-[var(--color-surface)] border-t border-[var(--color-outline)]">
+      <div className="px-5 sm:px-6 py-6 bg-gradient-to-br from-[var(--color-danger-surface)] to-[var(--color-surface)] border-t border-[var(--color-outline)]">
         {loading && !result ? (
           <p className="text-2sm text-[var(--color-on-surface-variant)]">Fetching live rates…</p>
         ) : result && result.annual > 0 ? (
@@ -196,7 +196,7 @@ export default function FreelancerCostCalculator({ source }: Props) {
             <p className="text-2sm text-[var(--color-on-surface-variant)]">
               Paying {teamSize} {teamSize === 1 ? "person" : "people"} {fmtUSD(avgUsd)} each in {to} through a typical bank instead of the cheapest provider ({result.bestProvider}) could cost you about
             </p>
-            <p className="mt-2 text-[clamp(1.75rem,6vw,2.5rem)] font-bold leading-none text-[var(--color-error,#c5221f)]">
+            <p className="mt-2 text-[clamp(1.75rem,6vw,2.5rem)] font-bold leading-none text-[var(--color-danger)]">
               {fmtUSD(result.annual)}<span className="text-md font-semibold text-[var(--color-on-surface-variant)]"> / year</span>
             </p>
             <p className="mt-1 text-2sm text-[var(--color-on-surface-variant)]">
