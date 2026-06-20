@@ -19,7 +19,14 @@ const ENABLED = !!process.env.POSTGRES_URL;
 
 // Ensure the table once per warm lambda. A module-level promise dedupes
 // concurrent first-calls without re-running DDL on every event.
+// Exported so READERS (the dashboard) can run the migration too — otherwise a
+// reader that SELECTs a newly-added column (ip_class/asn/asn_org) 500s when no
+// writer has run since the column was introduced. No-ops when not provisioned.
 let ensured: Promise<void> | null = null;
+export async function ensureEventStore(): Promise<void> {
+  if (!ENABLED) return;
+  await ensureTable();
+}
 function ensureTable(): Promise<void> {
   if (ensured) return ensured;
   ensured = sql`

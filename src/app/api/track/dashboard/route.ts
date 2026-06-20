@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+import { ensureEventStore } from "@/lib/event-store";
 
 /**
  * Live tracking dashboard — a single HTML page rendering everything in the
@@ -28,6 +29,9 @@ export async function GET(request: Request) {
   if (!process.env.POSTGRES_URL) return new Response("store not provisioned", { status: 503 });
 
   try {
+    // Run the schema migration before reading — adds ip_class/asn/asn_org if a
+    // writer hasn't yet, so SELECTing those columns can't 500 on a fresh deploy.
+    await ensureEventStore();
     const [totals, byIdSource, providers, geo, daily, clicks] = await Promise.all([
       sql`SELECT count(*)::int AS total_redirects,
                  count(*) FILTER (WHERE is_bot IS NOT TRUE)::int AS non_bot,
