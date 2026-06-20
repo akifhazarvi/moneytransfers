@@ -3675,22 +3675,22 @@
     "date": "2026-06-20",
     "providers": {
       "skrill": {
-        "rate": 25.066,
+        "rate": 25.0584,
         "fee": 0,
-        "markup": 2.43,
-        "receiveAmount": 2506.6
+        "markup": 2.5,
+        "receiveAmount": 2505.84
       },
       "currencyfair": {
-        "rate": 25.5068,
+        "rate": 25.5198,
         "fee": 34.7,
-        "markup": 0.72,
-        "receiveAmount": 1665.59
+        "markup": 0.7,
+        "receiveAmount": 1666.44
       },
       "paysend": {
-        "rate": 25.3909,
+        "rate": 25.3848,
         "fee": 0,
-        "markup": 1.17,
-        "receiveAmount": 2539.09
+        "markup": 1.23,
+        "receiveAmount": 2538.48
       },
       "remitly": {
         "rate": 25.62,

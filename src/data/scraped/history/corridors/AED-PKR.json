@@ -3099,22 +3099,22 @@
     "date": "2026-06-20",
     "providers": {
       "skrill": {
-        "rate": 73.4421,
+        "rate": 73.4435,
         "fee": 0,
-        "markup": 3.1,
-        "receiveAmount": 7344.21
+        "markup": 3.08,
+        "receiveAmount": 7344.35
       },
       "paysend": {
-        "rate": 74.9158,
+        "rate": 74.9097,
         "fee": 9,
-        "markup": 1.16,
-        "receiveAmount": 6817.34
+        "markup": 1.14,
+        "receiveAmount": 6816.78
       },
       "remitly": {
-        "rate": 75.95,
+        "rate": 75.93,
         "fee": 7,
         "markup": -0.21,
-        "receiveAmount": 7063.35
+        "receiveAmount": 7061.49
       },
       "taptap-send": {
         "rate": 76,
