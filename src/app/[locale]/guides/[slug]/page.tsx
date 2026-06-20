@@ -235,6 +235,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const sectionIds = post.sections.map((s) => slugifyHeading(s.heading));
   const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags);
+  const author = getAuthorByName(post.author);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -246,9 +247,13 @@ export default async function BlogPostPage({ params }: Props) {
     ...(post.featuredImage && { image: `https://sendmoneycompare.com${post.featuredImage}` }),
     author: {
       "@type": "Person",
-      "@id": `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}#person`,
+      "@id": `https://sendmoneycompare.com/about/${author?.slug ?? post.author.toLowerCase().replace(/\s+/g, "-")}#person`,
       name: post.author,
-      url: `https://sendmoneycompare.com/about/${post.author.toLowerCase().replace(/\s+/g, "-")}`,
+      url: `https://sendmoneycompare.com/about/${author?.slug ?? post.author.toLowerCase().replace(/\s+/g, "-")}`,
+      ...(author?.role && { jobTitle: author.role }),
+      ...(author?.byline && { description: author.byline }),
+      ...(author?.expertise?.length && { knowsAbout: author.expertise }),
+      ...(author?.linkedin && { sameAs: [author.linkedin] }),
     },
     reviewedBy: {
       "@type": "Person",
@@ -544,6 +549,46 @@ export default async function BlogPostPage({ params }: Props) {
                 </span>
               ))}
             </div>
+
+            {/* About the author — E-E-A-T credential box */}
+            {author && (
+              <section className="mt-10 bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-6">
+                <p className="text-overline text-[var(--color-on-surface-muted)] mb-4">About the author</p>
+                <div className="flex items-start gap-4">
+                  {author.photo ? (
+                    <Image src={author.photo} alt={author.name} width={56} height={56} className="w-14 h-14 rounded-full object-cover shrink-0" />
+                  ) : (
+                    <span className="w-14 h-14 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-semibold text-base shrink-0">{author.initials}</span>
+                  )}
+                  <div className="min-w-0">
+                    <Link href={`/about/${author.slug}`} className="text-md font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                      {author.name}
+                    </Link>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)]">{author.role}</p>
+                    <p className="text-2sm text-[var(--color-on-surface-variant)] leading-relaxed mt-2">{author.byline}</p>
+                    {author.credentials?.length ? (
+                      <ul className="mt-3 flex flex-wrap gap-2">
+                        {author.credentials.slice(0, 3).map((cred) => (
+                          <li key={cred} className="text-2xs font-medium text-[var(--color-on-surface-variant)] bg-[var(--color-surface)] border border-[var(--color-outline)] px-2.5 py-1 rounded-full">
+                            {cred}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    <div className="mt-3 flex items-center gap-4 text-2sm">
+                      <Link href={`/about/${author.slug}`} className="text-[var(--color-primary)] font-medium hover:underline">
+                        Full profile ›
+                      </Link>
+                      {author.linkedin && (
+                        <a href={author.linkedin} target="_blank" rel="noopener noreferrer nofollow" className="text-[var(--color-primary)] font-medium hover:underline">
+                          LinkedIn ›
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
           </article>
 
           {/* ── Sidebar ── */}
