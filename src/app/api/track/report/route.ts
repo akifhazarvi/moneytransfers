@@ -47,6 +47,30 @@ export async function GET(request: Request) {
   const provider = searchParams.get("provider") || undefined;
 
   try {
+    if (view === "geo") {
+      const { rows } = await sql`
+        SELECT coalesce(country, '(none)') AS country, count(*)::int AS redirects
+        FROM events
+        WHERE event = 'affiliate_redirect'
+          AND ts > now() - (${days} || ' days')::interval
+        GROUP BY country ORDER BY redirects DESC LIMIT 20;
+      `;
+      return NextResponse.json({ view, days, geo: rows });
+    }
+
+    if (view === "daily") {
+      const { rows } = await sql`
+        SELECT to_char(date_trunc('day', ts), 'YYYY-MM-DD') AS day,
+               count(*)::int AS redirects,
+               count(*) FILTER (WHERE is_bot IS NOT TRUE)::int AS non_bot
+        FROM events
+        WHERE event = 'affiliate_redirect'
+          AND ts > now() - (${days} || ' days')::interval
+        GROUP BY 1 ORDER BY 1 ASC;
+      `;
+      return NextResponse.json({ view, days, daily: rows });
+    }
+
     if (view === "providers") {
       const { rows } = await sql`
         SELECT provider, count(*)::int AS redirects,
