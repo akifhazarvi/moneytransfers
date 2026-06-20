@@ -29,9 +29,13 @@ function gtagEvent(name: string, params?: EventParams) {
 }
 
 /**
- * Fire an event to BOTH GA4 and Vercel Analytics.
- * Use for: primary conversion events + high-signal funnel events.
- * Avoid: very noisy events like scroll_depth (GA4 only).
+ * Fire an event to BOTH GA4 and Vercel Analytics. This is the default for
+ * every meaningful interaction so the two tools stay at parity.
+ *
+ * The ONLY events kept GA4-only (via gtagEvent) are the genuinely high-volume
+ * ones — scroll_depth and internal_link_click — where mirroring to Vercel
+ * adds cost/noise on the Pro event quota without analytical value. Everything
+ * a person deliberately does goes dual.
  */
 function dual(name: string, params?: EventParams) {
   gtagEvent(name, params);
@@ -82,27 +86,27 @@ export function trackProviderClicked(provider: string, corridorStr: string, rank
 
 /** User clicks "Full review" on a provider */
 export function trackReviewClicked(provider: string, corridorStr: string) {
-  gtagEvent("review_clicked", { provider, corridor: corridorStr });
+  dual("review_clicked", { provider, corridor: corridorStr });
 }
 
 /** User applies a filter */
 export function trackFilterApplied(filterType: string, value: string) {
-  gtagEvent("filter_applied", { filter_type: filterType, value });
+  dual("filter_applied", { filter_type: filterType, value });
 }
 
 /** User changes the sort order */
 export function trackSortChanged(sortBy: string) {
-  gtagEvent("sort_changed", { sort_by: sortBy });
+  dual("sort_changed", { sort_by: sortBy });
 }
 
 /** User selects two providers for side-by-side compare */
 export function trackCompareSelected(providerA: string, providerB: string, corridorStr: string) {
-  gtagEvent("compare_selected", { provider_a: providerA, provider_b: providerB, corridor: corridorStr });
+  dual("compare_selected", { provider_a: providerA, provider_b: providerB, corridor: corridorStr });
 }
 
 /** User swaps from/to currencies */
 export function trackCurrencySwapped(from: string, to: string) {
-  gtagEvent("currency_swapped", { from, to });
+  dual("currency_swapped", { from, to });
 }
 
 // ═════════════════════════════════════════════════════════════════
@@ -111,7 +115,7 @@ export function trackCurrencySwapped(from: string, to: string) {
 
 /** Sticky best-provider bar became visible (user scrolled past threshold) */
 export function trackStickyCtaShown(provider: string, corridorStr: string) {
-  gtagEvent("sticky_cta_shown", { provider, corridor: corridorStr });
+  dual("sticky_cta_shown", { provider, corridor: corridorStr });
 }
 
 /** User clicked the sticky CTA (conversion via sticky surface) */
@@ -126,7 +130,7 @@ export function trackStickyCtaClicked(provider: string, corridorStr: string, sav
 
 /** User dismissed the sticky bar */
 export function trackStickyCtaDismissed(corridorStr: string) {
-  gtagEvent("sticky_cta_dismissed", { corridor: corridorStr });
+  dual("sticky_cta_dismissed", { corridor: corridorStr });
 }
 
 // ═════════════════════════════════════════════════════════════════
@@ -150,12 +154,12 @@ export function trackInternalLinkClick(from: string, to: string) {
 
 /** User expands an FAQ accordion */
 export function trackFAQExpanded(question: string, page: string) {
-  gtagEvent("faq_expanded", { question: question.slice(0, 100), page });
+  dual("faq_expanded", { question: question.slice(0, 100), page });
 }
 
 /** User copies IBAN/SWIFT reference data */
 export function trackDataCopied(dataType: string, country: string) {
-  gtagEvent("data_copied", { data_type: dataType, country });
+  dual("data_copied", { data_type: dataType, country });
 }
 
 /** Affiliate redirect fired (server-side beacon or client) */
@@ -165,7 +169,7 @@ export function trackAffiliateRedirect(provider: string, from?: string, to?: str
 
 /** User clicks CTA on a head-to-head comparison page */
 export function trackComparisonCTA(providerA: string, providerB: string, action: string) {
-  gtagEvent("comparison_cta", { provider_a: providerA, provider_b: providerB, action });
+  dual("comparison_cta", { provider_a: providerA, provider_b: providerB, action });
 }
 
 /** User clicks the sidebar "Compare Rates →" CTA on a guide page */
