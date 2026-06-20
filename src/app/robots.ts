@@ -28,6 +28,19 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/", "/api/ai"],
         disallow: ["/api/", "/go/", "/out/"],
       },
+      // AdSense crawler (Mediapartners-Google) — scope it to the pages that
+      // actually carry ads + assess quality on. AdSense flagged "low value
+      // content" because the bulk of the site is thin, template-driven pages
+      // (corridors/compare/iban/swift/banks/rate-history). Ads now render ONLY
+      // on /guides/* and /news/* articles (see AdSenseLoader), so we let the ad
+      // crawler see exactly those + the homepage, and keep it off the thin
+      // programmatic surface. This does NOT affect Google Search indexing —
+      // it's a separate crawler from Googlebot.
+      {
+        userAgent: "Mediapartners-Google",
+        allow: ["/guides/", "/news/", "/$"],
+        disallow: ["/send-money/", "/compare/", "/iban/", "/swift-codes/", "/banks/", "/exchange-rates/", "/companies/", "/api/", "/go/", "/out/"],
+      },
     ],
     sitemap: "https://sendmoneycompare.com/sitemap.xml",
   };
