@@ -6,6 +6,44 @@
 
 ---
 
+## ✅ PROGRESS LOG — what's shipped (updated Jun 20, 2026)
+
+**The entire Analytics Rebuild (§1) is DONE, live, and verified with real production data.** This was meant to be Weeks 1–4; completed in one session.
+
+| # | Shipped | Commit | Verified |
+|---|---------|--------|----------|
+| ✅ | **Stable first-party `smc_vid`** — set in middleware + minted on `/go`,`/out` for cookieless external/direct clicks. Fixes the 5,504 `(not set)` leak at the root. | `16aa4aa7` | Live: real redirects show `id_source=vid_minted` |
+| ✅ | **`click_id` per redirect** — TapTap-style per-click proof; ties client↔server. | `790f1598` | Live: 9/9 rows carry click_id |
+| ✅ | **GA4 + Vercel parity (server)** — `serverTrack()` fires both sinks for provider-exit events. | `8ffa5833` | Live (Pro plan; custom events record) |
+| ✅ | **GA4 + Vercel parity (client)** — 9 GA-only events promoted to dual. | `e72541cb` | Live |
+| ✅ | **First-party Postgres event store** — Neon `smc-events` provisioned; logs every `affiliate_redirect`. | `67758ffe` | Live: store reachable, rows writing |
+| ✅ | **Report API** `/api/track/report` — summary / providers / clicks / geo / daily, secret-gated. | `81327073`,`2809d061` | Live |
+| ✅ | **Live dashboard** `/api/track/dashboard?key=…` — KPIs, provider split, leak status, geo, daily, per-click log + CSV. | `98a3e378`,`03deeb4b` | Live (moved under /api to bypass i18n 404) |
+| ✅ | **AI clicks counted as real** — user-initiated AI (ChatGPT/Perplexity/Claude-User) = `is_bot=false`; training crawlers stay flagged. All AI stored + labeled. | `3664dccd` | Verified vs real UAs |
+| ✅ | **6 GA4 custom dimensions registered** — provider, traffic_source, corridor, is_bot, click_id, id_source. | (GA4 admin) | Confirmed via API |
+
+**E2E verified (Jun 20):** live store query — every redirect has a stable `vid` (9/9), a `click_id` (9/9), `id_source=vid_minted` (external clicks captured, not lost), `is_bot=false`, provider populated. The leak is closed, measurably.
+
+### Also shipped this session (design / SEO / fixes)
+- ✅ Design tokens: dark-mode gradient fix, `--color-primary-mid`, 44px tap target, `CurrencyAmountInput` extraction, accent-glow shadow tokens (`4cdde3cd`,`7eec375f`,`134b241f`)
+- ✅ SEO: VideoObject `uploadDate` schema fix; SpaceX/Nvidia guide → sitemap; sitemap resubmitted + IndexNow (`33beb1ee`,`01b71fe4`)
+- ✅ Empty-provider `/go` guard + CSP `gstatic` fix (earlier)
+
+### Decisions made (so they're not re-litigated)
+- **Analytics architecture:** keep GA4, add first-party Postgres store, one stable `smc_vid` feeding both. (Chose Postgres over KV/PostHog — SQL = auditable.)
+- **Identity:** first-party always-on `smc_vid` (no consent gate — opaque, non-PII, functional to the redirect).
+- **`/go` rate limit (20/min/IP):** left as-is — a single-IP burst skews bot, not real user; protection stays.
+- **Firewall:** left alone — Attack Mode is OFF; System Mitigations challenge automated requests (real browsers pass). Not touched.
+
+### Still open / next
+- ⏳ **Client funnel events → store** (full journey/product analytics): the store logs the billable redirect; `compare_search`/`quotes_viewed`/`content_view`/`provider_clicked` not yet written to Postgres. *This is the remaining analytics piece.*
+- ⏳ **TapTap outbound sub-id** — pass `click_id` TO TapTap once they confirm a tracked-link param (their link is plain `?ref=`).
+- ⏳ **Growth (§2)** — content engine for Bing/AI not started; recommended first move: deepen `best-money-transfer-apps` (top organic page, 70 sessions).
+- ⏳ **Stability (§3)** — scraper staleness alerts, cache-header centralization, dead-code delete, ISR→on-demand: not started.
+- 🔍 **Verify over coming days:** as real volume accumulates, `id_source` should show `vid_cookie`/`cid` appear alongside `vid_minted`, and `fabricated` stay absent = leak fully closed.
+
+---
+
 ## 0. The three things this quarter must deliver
 
 1. **Organic growth from content** — built for where we actually win (Bing + AI assistants), instrumented so we can *see* if Google ever rewards it. Evidenced demand exists: GSC shows `compare money transfer` (100 impr), `compare money transfer rates` (76), `compare international money transfer` (61) — we rank position 73–83 on all of them. The demand is real; the authority is the gap.
