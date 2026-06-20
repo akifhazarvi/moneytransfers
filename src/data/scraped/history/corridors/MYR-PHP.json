@@ -1173,5 +1173,34 @@
         "receiveAmount": 1391.5
       }
     }
+  },
+  {
+    "date": "2026-06-20",
+    "providers": {
+      "western-union": {
+        "rate": 14.7021,
+        "fee": 10,
+        "markup": -0.06,
+        "receiveAmount": 1323.19
+      },
+      "worldremit": {
+        "rate": 14.4616,
+        "fee": 5,
+        "markup": 1.57,
+        "receiveAmount": 1373.85
+      },
+      "instarem": {
+        "rate": 14.6591,
+        "fee": 0.65,
+        "markup": 0.23,
+        "receiveAmount": 1456.38
+      },
+      "wise": {
+        "rate": 14.6907,
+        "fee": 5.28,
+        "markup": 0.01,
+        "receiveAmount": 1391.5
+      }
+    }
   }
 ]
