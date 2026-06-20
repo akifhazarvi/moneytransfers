@@ -177,6 +177,16 @@ export function trackGuideSidebarCTA(slug: string) {
   dual("guide_sidebar_cta_clicked", { slug, source: "guide_sidebar" });
 }
 
+/** User interacts with the freelancer-cost calculator (debounced once per settle) */
+export function trackFreelancerCalcUsed(corridor: string, teamSize: number, avgUsd: number, annualLoss: number) {
+  dual("freelancer_calc_used", { corridor, team_size: teamSize, avg_usd: avgUsd, annual_loss: Math.round(annualLoss), source: "freelancer_guide" });
+}
+
+/** User clicks the "Compare live rates" CTA from the freelancer calculator */
+export function trackFreelancerCalcCTA(corridor: string, annualLoss: number) {
+  dual("freelancer_calc_cta_clicked", { corridor, annual_loss: Math.round(annualLoss), source: "freelancer_calc" });
+}
+
 /** User clicks "Send with [Provider]" from the converter page */
 export function trackConverterProviderClicked(provider: string, corridor: string, rank: number) {
   dual("provider_clicked", { provider, corridor, rank, source: "converter" });

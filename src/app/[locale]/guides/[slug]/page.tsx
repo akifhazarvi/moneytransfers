@@ -19,6 +19,7 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 import GuidePageNudge from "@/components/GuidePageNudge";
+import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 
 interface InlineQuoteCorridor {
   from: string;
@@ -470,6 +471,11 @@ export default async function BlogPostPage({ params }: Props) {
                   className="prose-content prose-custom"
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                 />
+
+                {/* Freelancer-cost calculator — only on the freelancer guide, after the "what it costs" section */}
+                {i === 1 && slug === "how-to-pay-international-freelancers-contractors" && (
+                  <FreelancerCostCalculator source={`guide:${slug}`} />
+                )}
 
                 {/* Inline live-quote widget after 2nd section — converts editorial readers */}
                 {i === 1 && (
