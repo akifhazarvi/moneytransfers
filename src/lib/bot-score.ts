@@ -37,6 +37,19 @@ export type BotScoreInput = {
   secChUaMobile?: string | null;
   secChUaPlatform?: string | null;
   priority?: string | null;
+  /** IP-network classification from src/lib/ip-intel.ts (offline ASN lookup).
+   *  "datacenter" = hosting/cloud/VPN/Tor ASN; "residential" = consumer ISP;
+   *  "unknown" = unresolved → treated as NEUTRAL, never penalized. */
+  ipClass?: "datacenter" | "residential" | "unknown";
+  /** Mixed CDN/cloud ASN (Microsoft/Cloudflare/GCP) — weak gated hint only. */
+  cloudEgress?: boolean;
+  /** ASN org string, for the audit trail only (never scored). */
+  asnOrg?: string | null;
+  /** True when the caller already classified this as a user-initiated AI fetch
+   *  (ChatGPT-User / Perplexity-User / Claude-User) OR an explicit ?ai_src=.
+   *  This is the FP guard: a real person arriving via an AI assistant legitimately
+   *  comes from a datacenter IP with no referer — we must NOT penalize that. */
+  aiUserTraffic?: boolean;
   /** Behavioral score (0–100) computed by the caller from the event store. */
   behavioralScore?: number;
   behavioralReasons?: string[];
@@ -83,6 +96,25 @@ const MAX_SAFARI = 27;
 const COMMON_SEND = new Set(["USD", "GBP", "EUR", "AUD", "CAD", "AED", "SAR", "SGD", "NZD", "CHF", "HKD", "QAR", "KWD", "NOK", "SEK", "DKK"]);
 const COMMON_RECV = new Set(["INR", "PHP", "PKR", "NGN", "BDT", "MXN", "NPR", "LKR", "EUR", "GBP", "USD", "VND", "KES", "GHS", "EGP", "CNY", "IDR", "BRL", "COP", "ZAR"]);
 
+// Geo-coherence: the currency a remitter in a given country actually SENDS.
+// A real sender's source currency is their country's home/working currency.
+// We only enforce this where the mapping is unambiguous (single-currency
+// economies + the big remittance hubs). Countries NOT in this map are skipped
+// entirely — absence is never penalized, so multi-currency / dollarized /
+// expat-heavy places can't false-positive. This catches the textbook tell:
+// a VN-geolocated click whose send currency is USD/anything-but-VND, walking
+// USD-CNY / USD-EUR / USD-INR — no real Vietnamese remitter does that.
+const COUNTRY_SEND_CCY: Record<string, string> = {
+  VN: "VND", GB: "GBP", US: "USD", CA: "CAD", AU: "AUD", NZ: "NZD",
+  IN: "INR", PH: "PHP", PK: "PKR", BD: "BDT", NP: "NPR", LK: "LKR",
+  ID: "IDR", TH: "THB", MY: "MYR", JP: "JPY", KR: "KRW", CN: "CNY",
+  AE: "AED", SA: "SAR", QA: "QAR", KW: "KWD", BR: "BRL", MX: "MXN",
+  NG: "NGN", KE: "KES", GH: "GHS", EG: "EGP", ZA: "ZAR", TR: "TRY",
+  CH: "CHF", NO: "NOK", SE: "SEK", DK: "DKK", RU: "RUB", PL: "PLN",
+};
+// Eurozone — many countries, one currency; a EUR send from any is coherent.
+const EUROZONE = new Set(["DE", "FR", "ES", "IT", "NL", "BE", "AT", "PT", "IE", "FI", "GR", "SK", "SI", "LT", "LV", "EE", "LU", "CY", "MT", "HR"]);
+
 export function scoreBotRequest(s: BotScoreInput): BotScoreResult {
   const ua = (s.ua || "").trim();
   const fam = uaFamily(ua);
@@ -93,6 +125,7 @@ export function scoreBotRequest(s: BotScoreInput): BotScoreResult {
   let cUa = 0;      // UA self-identification + plausibility
   let cAccept = 0;  // accept-* anomalies
   let cIntent = 0;  // implausible corridor / source shape
+  let cNet = 0;     // IP / network (datacenter ASN), gated by AI-user FP guard
 
   // --- A3. UA self-identification (strongest, cap 30) -----------------------
   if (RE_HEADLESS.test(ua)) { cUa = Math.max(cUa, 30); reasons.push("headless UA (+30)"); }
@@ -174,19 +207,71 @@ export function scoreBotRequest(s: BotScoreInput): BotScoreResult {
       let intent = 0;
       if (!COMMON_SEND.has(m[1])) { intent += 12; reasons.push(`odd send ccy ${m[1]} (+12)`); }
       if (!COMMON_RECV.has(m[2])) { intent += 12; reasons.push(`odd recv ccy ${m[2]} (+12)`); }
+
+      // Geo-coherence: does the send currency match the IP-country's home
+      // currency? Only enforced where the mapping is unambiguous; unknown
+      // countries are skipped (absence never penalized).
+      // RESERVE-CURRENCY EXEMPTION: USD/EUR/GBP are globally held — expats, USD
+      // savings accounts, freelancers paid in USD all legitimately send them
+      // from any country, so sending a reserve currency is NEVER a geo
+      // mismatch. We only flag sending an *odd* foreign currency (e.g. a VN IP
+      // sending NOK). The VN-cluster's bot signal comes from its datacenter IP
+      // + enumeration, NOT from the (plausible) USD send — flagging USD here
+      // would false-positive real diaspora users.
+      const cc = (s.country || "").toUpperCase();
+      const expected = cc === "" ? null
+        : EUROZONE.has(cc) ? "EUR"
+        : COUNTRY_SEND_CCY[cc] ?? null;
+      const RESERVE = m[1] === "USD" || m[1] === "EUR" || m[1] === "GBP";
+      if (expected && m[1] !== expected && !RESERVE) {
+        intent += 16; reasons.push(`geo mismatch: ${cc} sending ${m[1]} not ${expected} (+16)`);
+      }
       cIntent = Math.min(24, intent);
     }
   }
 
-  // --- Positive signal: well-formed Priority on Chromium → confidence -3 ----
-  let bonus = 0;
-  if (fam === "chromium" && s.priority && /u=\d/.test(s.priority)) { bonus -= 3; }
+  // --- A5. IP / network cluster (datacenter ASN; cap 34) --------------------
+  // The strongest single axis for catching scrapers: a hosting/cloud/VPN/Tor
+  // ASN. BUT it is also where our #2 channel lives — real people arriving from
+  // ChatGPT/Perplexity egress from Microsoft/Google/AWS datacenter IPs. So the
+  // datacenter penalty is GATED three ways and never fires standalone-high:
+  //   1. aiUserTraffic (a person acted in an AI assistant) → datacenter is
+  //      EXPECTED → score 0 on this axis entirely.
+  //   2. A datacenter IP carrying a fully coherent browser shape (real Chrome
+  //      headers + sec-ch-ua + sec-fetch) is weighted LOWER than one whose
+  //      header shape is ALSO broken — datacenter alone is suggestive, not
+  //      proof (corporate VPNs, cloud-desktop users exist).
+  //   3. cloudEgress (mixed Microsoft/Cloudflare/GCP) is a weak hint, not the
+  //      hard datacenter verdict.
+  if (!s.aiUserTraffic) {
+    if (s.ipClass === "datacenter") {
+      // Base datacenter weight. Combine with broken header shape for conviction.
+      const shapeBroken = cShape >= 15 || cUa >= 20;
+      if (shapeBroken) {
+        cNet = Math.max(cNet, 34); reasons.push("datacenter IP + broken header shape (+34)");
+      } else {
+        cNet = Math.max(cNet, 22); reasons.push(`datacenter IP${s.asnOrg ? ` (${s.asnOrg})` : ""} (+22)`);
+      }
+    } else if (s.cloudEgress) {
+      // Mixed CDN/cloud and NOT flagged as AI-user — weak, gated hint.
+      cNet = Math.max(cNet, 8); reasons.push(`cloud/CDN egress ASN${s.asnOrg ? ` (${s.asnOrg})` : ""} (+8)`);
+    }
+  }
 
   // Behavioral axis (computed by caller from Postgres). Capped contribution.
   const behavioral = Math.max(0, Math.min(100, s.behavioralScore ?? 0));
   if (behavioral > 0 && s.behavioralReasons?.length) reasons.push(...s.behavioralReasons);
 
-  let score = cShape + cUa + cAccept + cIntent + behavioral + bonus;
+  // --- Confidence bonuses (small, never below 0 overall) --------------------
+  let bonus = 0;
+  // Well-formed Priority on Chromium → a real browser detail bots rarely fake.
+  if (fam === "chromium" && s.priority && /u=\d/.test(s.priority)) { bonus -= 3; }
+  // Residential IP + coherent shape + NOT behaviorally enumerating → confident
+  // human. Gated on low behavioral so it can't cancel a real enumeration signal
+  // (a residential IP walking 8 providers is still a bot).
+  if (s.ipClass === "residential" && cShape < 15 && cUa < 20 && behavioral < 12) { bonus -= 4; }
+
+  let score = cShape + cUa + cAccept + cIntent + cNet + behavioral + bonus;
   score = Math.max(0, Math.min(100, Math.round(score)));
 
   const band: BotScoreResult["band"] =

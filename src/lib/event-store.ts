@@ -52,6 +52,9 @@ function ensureTable(): Promise<void> {
       sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS bot_score INTEGER;`,
       sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS bot_reasons TEXT;`,
       sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS ip_hash TEXT;`,
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS ip_class TEXT;`,
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS asn INTEGER;`,
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS asn_org TEXT;`,
     ]);
   }).then(() => {
     // Indexes for the reports we run + the behavioral IP lookup window.
@@ -60,6 +63,8 @@ function ensureTable(): Promise<void> {
       sql`CREATE INDEX IF NOT EXISTS events_provider_idx ON events (provider);`,
       sql`CREATE INDEX IF NOT EXISTS events_click_id_idx ON events (click_id);`,
       sql`CREATE INDEX IF NOT EXISTS events_iphash_ts_idx ON events (ip_hash, ts);`,
+      // Distributed-bot detection queries by (country, ts).
+      sql`CREATE INDEX IF NOT EXISTS events_country_ts_idx ON events (country, ts);`,
     ]).then(() => undefined);
   }).catch((e) => {
     // If DDL fails, reset so a later call can retry; never throw to caller.
@@ -84,6 +89,9 @@ export type StoredEvent = {
   botScore?: number;
   botReasons?: string;
   ipHash?: string;
+  ipClass?: string;
+  asn?: number;
+  asnOrg?: string;
   refererHost?: string;
   country?: string;
   region?: string;
@@ -145,7 +153,9 @@ export async function behavioralBotScore(
     // Enumeration — STRONGEST intent signal. Walking many providers from one IP.
     if (providers >= 8) { score += 22; reasons.push(`enumeration: ${providers} providers/1h (+22)`); }
     else if (providers >= 5) { score += 12; reasons.push(`enumeration: ${providers} providers/1h (+12)`); }
+    else if (providers >= 3 && hits >= 5) { score += 8; reasons.push(`enumeration: ${providers} providers/1h (+8)`); }
     if (corridors >= 10) { score += 10; reasons.push(`${corridors} corridors/1h (+10)`); }
+    else if (corridors >= 4 && hits >= 5) { score += 6; reasons.push(`${corridors} corridors/1h (+6)`); }
 
     // Cadence regularity — humans can't produce a near-constant gap.
     if (gapSd != null && gapAvg != null && gapAvg > 0 && hits >= 5) {
@@ -168,6 +178,82 @@ export async function behavioralBotScore(
 }
 
 /**
+ * Distributed-bot score — the answer to IP rotation. A bot that uses a fresh
+ * IP per hit makes the per-IP behavioralBotScore() blind (each IP looks quiet).
+ * But the AGGREGATE for that country in a short window still betrays it: many
+ * redirects, broad provider/corridor enumeration, a fresh visitor-id almost
+ * every hit (no session continuity), and a high share of datacenter IPs.
+ *
+ * The false-positive we must avoid is a GENUINE single-country traffic spike
+ * (e.g. we get cited and India lights up). A real spike looks different:
+ *  • vids are REUSED (people browse multiple pages/providers per session) →
+ *    vids/hits ratio well below 1;
+ *  • most clicks are residential IPs;
+ *  • providers-per-vid is low (a human compares a handful for ONE corridor).
+ * So we require BOTH breadth AND the no-session-continuity + datacenter shape
+ * before scoring — breadth alone (a popular corridor) never triggers it.
+ *
+ * Returns a capped contribution; gated to fire only with enough volume.
+ */
+export async function distributedBotScore(
+  country: string | null | undefined,
+): Promise<{ score: number; reasons: string[] }> {
+  if (!ENABLED || !country) return { score: 0, reasons: [] };
+  try {
+    const { rows } = await sql`
+      SELECT
+        count(*)::int                                   AS hits,
+        count(DISTINCT vid)::int                         AS vids,
+        count(DISTINCT provider)::int                    AS providers,
+        count(DISTINCT corridor)::int                    AS corridors,
+        count(DISTINCT ip_hash)::int                     AS ips,
+        count(*) FILTER (WHERE ip_class='datacenter')::int AS dc_hits
+      FROM events
+      WHERE event='affiliate_redirect' AND country=${country}
+        AND ts > now() - interval '30 minutes'`;
+    const r = rows[0] || {};
+    const hits = Number(r.hits) || 0;
+    const vids = Number(r.vids) || 0;
+    const providers = Number(r.providers) || 0;
+    const corridors = Number(r.corridors) || 0;
+    const dcHits = Number(r.dc_hits) || 0;
+
+    // Need real volume before judging a whole country — below this it's noise.
+    if (hits < 12) return { score: 0, reasons: [] };
+
+    let score = 0;
+    const reasons: string[] = [];
+
+    const freshRatio = vids / hits;        // ~1.0 = a new visitor every hit (bot)
+    const dcRatio = dcHits / hits;         // share of datacenter-IP clicks
+    const broad = providers >= 6 && corridors >= 6;
+
+    // Core distributed-enumeration signature: broad provider×corridor walk with
+    // no session continuity. Breadth alone is NOT enough (could be a real spike);
+    // the fresh-vid-per-hit is what makes it a bot.
+    if (broad && freshRatio >= 0.9) {
+      score += 24;
+      reasons.push(`distributed enum: ${country} ${providers}p×${corridors}c, ${vids}/${hits} fresh vids (+24)`);
+    } else if (broad && freshRatio >= 0.75) {
+      score += 12;
+      reasons.push(`distributed enum (soft): ${country} ${providers}p×${corridors}c (+12)`);
+    }
+
+    // High datacenter share at the country level corroborates automation —
+    // gated behind volume + the breadth signal so a few AI-assistant clicks
+    // from one country can't trip it.
+    if (broad && dcRatio >= 0.5 && hits >= 20) {
+      score += 12;
+      reasons.push(`${Math.round(dcRatio * 100)}% datacenter IPs in ${country} burst (+12)`);
+    }
+
+    return { score: Math.min(40, score), reasons };
+  } catch {
+    return { score: 0, reasons: [] };
+  }
+}
+
+/**
  * Write one event row. No-ops (resolves) when the store isn't provisioned, and
  * never throws — analytics must never break a redirect.
  */
@@ -179,13 +265,14 @@ export async function storeEvent(e: StoredEvent): Promise<void> {
       INSERT INTO events
         (event, vid, client_id, click_id, provider, corridor, amount,
          source, traffic_source, id_source, is_bot, bot_score, bot_reasons,
-         ip_hash, referer_host, country, region, city)
+         ip_hash, ip_class, asn, asn_org, referer_host, country, region, city)
       VALUES
         (${e.event}, ${e.vid ?? null}, ${e.clientId ?? null}, ${e.clickId ?? null},
          ${e.provider ?? null}, ${e.corridor ?? null}, ${e.amount ?? null},
          ${e.source ?? null}, ${e.trafficSource ?? null}, ${e.idSource ?? null},
          ${e.isBot ?? null}, ${e.botScore ?? null}, ${e.botReasons ?? null},
-         ${e.ipHash ?? null}, ${e.refererHost ?? null},
+         ${e.ipHash ?? null}, ${e.ipClass ?? null}, ${e.asn ?? null}, ${e.asnOrg ?? null},
+         ${e.refererHost ?? null},
          ${e.country ?? null}, ${e.region ?? null}, ${e.city ?? null});
     `;
   } catch {

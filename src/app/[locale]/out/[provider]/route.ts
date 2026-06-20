@@ -3,9 +3,10 @@ import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { clientIdFromCookie } from "@/lib/ga4-server";
 import { serverTrack } from "@/lib/server-track";
-import { storeEvent, behavioralBotScore } from "@/lib/event-store";
+import { storeEvent, behavioralBotScore, distributedBotScore } from "@/lib/event-store";
 import { classifyTrafficSource } from "@/lib/traffic-source";
 import { scoreBotRequest } from "@/lib/bot-score";
+import { classifyIp } from "@/lib/ip-intel";
 import { createHash } from "crypto";
 
 export async function GET(
@@ -76,7 +77,13 @@ export async function GET(
   const ipHash = ip && ip !== "unknown"
     ? createHash("sha256").update(ip).digest("hex").slice(0, 32)
     : undefined;
-  const behavioral = await behavioralBotScore(ipHash);
+  // Offline IP→ASN lookup (datacenter vs residential) — see /go route.
+  const ipIntel = classifyIp(ip);
+  const aiUserTraffic = !!aiSrc || (!trafficSource.isBot && /^(chatgpt|perplexity|claude|duckduckgo)$/.test(trafficSource.source));
+  const [behavioral, distributed] = await Promise.all([
+    behavioralBotScore(ipHash),
+    distributedBotScore(geo.country),
+  ]);
   const botResult = scoreBotRequest({
     ua: userAgent,
     refererHost: trafficSource.refererHost,
@@ -94,8 +101,12 @@ export async function GET(
     secChUaMobile: request.headers.get("sec-ch-ua-mobile"),
     secChUaPlatform: request.headers.get("sec-ch-ua-platform"),
     priority: request.headers.get("priority"),
-    behavioralScore: behavioral.score,
-    behavioralReasons: behavioral.reasons,
+    ipClass: ipIntel.class,
+    cloudEgress: ipIntel.cloudEgress,
+    asnOrg: ipIntel.asnOrg,
+    aiUserTraffic,
+    behavioralScore: behavioral.score + distributed.score,
+    behavioralReasons: [...behavioral.reasons, ...distributed.reasons],
   });
 
   // Server-side counterpart to the client `provider_clicked` event — see /go/
@@ -143,6 +154,9 @@ export async function GET(
     botScore: botResult.score,
     botReasons: botResult.reasons.join("; "),
     ipHash,
+    ipClass: ipIntel.class,
+    asn: ipIntel.asn ?? undefined,
+    asnOrg: ipIntel.asnOrg ?? undefined,
     refererHost: trafficSource.refererHost,
     country: geo.country,
     region: geo.region,

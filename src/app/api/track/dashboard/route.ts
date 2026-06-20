@@ -31,6 +31,8 @@ export async function GET(request: Request) {
     const [totals, byIdSource, providers, geo, daily, clicks] = await Promise.all([
       sql`SELECT count(*)::int AS total_redirects,
                  count(*) FILTER (WHERE is_bot IS NOT TRUE)::int AS non_bot,
+                 count(*) FILTER (WHERE ip_class='datacenter')::int AS datacenter,
+                 count(*) FILTER (WHERE coalesce(bot_score,0) >= 60)::int AS high_score,
                  count(DISTINCT vid)::int AS unique_visitors
           FROM events WHERE event='affiliate_redirect'
             AND ts > now() - (${days}||' days')::interval`,
@@ -52,7 +54,8 @@ export async function GET(request: Request) {
             AND ts > now() - (${days}||' days')::interval
           GROUP BY 1 ORDER BY 1 ASC`,
       sql`SELECT to_char(ts,'MM-DD HH24:MI') AS t, provider, corridor, click_id,
-                 id_source, is_bot, bot_score, bot_reasons, traffic_source, country
+                 id_source, is_bot, bot_score, bot_reasons, traffic_source, country,
+                 ip_class, asn, asn_org
           FROM events WHERE event='affiliate_redirect'
             AND ts > now() - (${days}||' days')::interval
           ORDER BY ts DESC LIMIT 200`,
@@ -68,9 +71,9 @@ export async function GET(request: Request) {
       s === "fabricated" || s === "(none)" ? "var(--red)" : "var(--green)";
 
     const csvRows = [
-      "timestamp,bot_score,bot_reasons,provider,corridor,click_id,id_source,is_bot,traffic_source,country",
+      "timestamp,bot_score,bot_reasons,provider,corridor,click_id,id_source,is_bot,traffic_source,country,ip_class,asn,asn_org",
       ...clicks.rows.map((r) =>
-        [r.t, r.bot_score, r.bot_reasons, r.provider, r.corridor, r.click_id, r.id_source, r.is_bot, r.traffic_source, r.country]
+        [r.t, r.bot_score, r.bot_reasons, r.provider, r.corridor, r.click_id, r.id_source, r.is_bot, r.traffic_source, r.country, r.ip_class, r.asn, r.asn_org]
           .map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`)
           .join(","),
       ),
@@ -90,7 +93,7 @@ export async function GET(request: Request) {
   .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
   h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
   .sub{color:var(--faint);font-family:var(--mono);font-size:12px;margin-bottom:24px}
-  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
   .kpi{border:1px solid var(--line);border-radius:6px;padding:18px;background:linear-gradient(180deg,var(--bg2),var(--bg))}
   .kpi .v{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--green)}
   .kpi .k{color:var(--dim);font-size:13px;margin-top:6px}
@@ -125,6 +128,8 @@ export async function GET(request: Request) {
   <div class="kpis">
     <div class="kpi"><div class="v">${esc(t.total_redirects)}</div><div class="k">Total redirects</div></div>
     <div class="kpi"><div class="v">${esc(t.non_bot)}</div><div class="k">Non-bot redirects</div></div>
+    <div class="kpi"><div class="v" style="color:var(--amber)">${esc(t.datacenter)}</div><div class="k">Datacenter-IP clicks</div></div>
+    <div class="kpi"><div class="v" style="color:var(--red)">${esc(t.high_score)}</div><div class="k">High bot score (≥60)</div></div>
     <div class="kpi"><div class="v">${esc(t.unique_visitors)}</div><div class="k">Unique visitors</div></div>
   </div>
 
@@ -155,8 +160,8 @@ export async function GET(request: Request) {
       <button class="btn" onclick="dl()">⬇ Export CSV</button>
     </div>
     <div class="scroll"><table>
-      <thead><tr><th>Score</th><th>Time</th><th>Provider</th><th>Corridor</th><th>Country</th><th>ID src</th><th>Source</th><th>Why flagged</th></tr></thead>
-      <tbody>${clicks.rows.map((r) => { const sc = Number(r.bot_score ?? 0); return `<tr><td style="color:${scoreColor(sc)};font-weight:600">${esc(r.bot_score ?? "-")}</td><td>${esc(r.t)}</td><td class="p">${esc(r.provider)}</td><td>${esc(r.corridor)}</td><td>${esc(r.country)}</td><td>${esc(r.id_source)}</td><td>${esc(r.traffic_source)}</td><td style="white-space:normal;max-width:340px;color:var(--faint)">${esc(r.bot_reasons)}</td></tr>`; }).join("")}</tbody>
+      <thead><tr><th>Score</th><th>Time</th><th>Provider</th><th>Corridor</th><th>Country</th><th>Network</th><th>ID src</th><th>Source</th><th>Why flagged</th></tr></thead>
+      <tbody>${clicks.rows.map((r) => { const sc = Number(r.bot_score ?? 0); const dc = r.ip_class === "datacenter"; const net = r.ip_class ? `${dc ? "🖥 " : ""}${esc(r.asn_org || r.ip_class)}` : "-"; return `<tr><td style="color:${scoreColor(sc)};font-weight:600">${esc(r.bot_score ?? "-")}</td><td>${esc(r.t)}</td><td class="p">${esc(r.provider)}</td><td>${esc(r.corridor)}</td><td>${esc(r.country)}</td><td style="color:${dc ? "var(--amber)" : "var(--dim)"};max-width:150px;overflow:hidden;text-overflow:ellipsis">${net}</td><td>${esc(r.id_source)}</td><td>${esc(r.traffic_source)}</td><td style="white-space:normal;max-width:300px;color:var(--faint)">${esc(r.bot_reasons)}</td></tr>`; }).join("")}</tbody>
     </table></div>
   </div>
 </div>

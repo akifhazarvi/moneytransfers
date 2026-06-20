@@ -6,9 +6,6 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   trailingSlash: false,
   productionBrowserSourceMaps: false,
-  experimental: {
-    turbopackUseSystemTlsCerts: true,
-  },
   turbopack: {
     // Stub out Next.js's unconditional client polyfills. They are Baseline in
     // every browser our browserslist targets, so shipping them is dead weight
@@ -27,6 +24,15 @@ const nextConfig: NextConfig = {
   },
   outputFileTracingExcludes: {
     "*": ["./src/data/scraped/history/**"],
+  },
+  // Force the offline IP-intelligence datasets into the /go and /out serverless
+  // function bundles. Next.js does NOT honor `includeFiles` in vercel.json —
+  // outputFileTracingIncludes is the supported mechanism. classifyIp() reads
+  // these at runtime via fs from process.cwd(); without this the ~9.5 MB MMDB
+  // is traced out and the lookup fails open to "unknown" in production.
+  outputFileTracingIncludes: {
+    "/[locale]/go/[provider]": ["./src/data/ip-intel/**"],
+    "/[locale]/out/[provider]": ["./src/data/ip-intel/**"],
   },
   images: {
     formats: ["image/avif", "image/webp"],
