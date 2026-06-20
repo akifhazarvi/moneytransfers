@@ -103,7 +103,8 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "send-money-to-nepal-guide",                 // 5i 0c
   // ── Manually added (new content, not yet impression-validated) ──
   "how-to-buy-spacex-nvidia-stock-using-revolut", // new guide, Revolut investing angle
-]); // 43 URLs
+  "how-to-pay-international-freelancers-contractors", // B2B freelancer-payment cluster, neutral cost-math angle
+]); // 44 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
   // Head-term IBAN destinations (always submitted)
