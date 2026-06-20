@@ -99,11 +99,21 @@ export async function GET(request: Request) {
         AND ts > now() - (${days} || ' days')::interval
       GROUP BY id_source ORDER BY n DESC;
     `;
+    // Top providers inline so the at-a-glance summary answers "who did they go
+    // to" without switching views. Full list is still in ?view=providers.
+    const topProviders = await sql`
+      SELECT coalesce(provider, '(none)') AS provider, count(*)::int AS n
+      FROM events
+      WHERE event = 'affiliate_redirect'
+        AND ts > now() - (${days} || ' days')::interval
+      GROUP BY provider ORDER BY n DESC LIMIT 15;
+    `;
     return NextResponse.json({
       view: "summary",
       days,
       totals: totals.rows[0] ?? {},
       by_id_source: byIdSource.rows,
+      top_providers: topProviders.rows,
     });
   } catch (e) {
     return NextResponse.json(
