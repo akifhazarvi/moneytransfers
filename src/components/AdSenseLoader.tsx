@@ -4,28 +4,35 @@ import { usePathname } from "next/navigation";
 
 const ADSENSE_CLIENT = "ca-pub-4359442444470890";
 
-// Routes that must stay 100% ad-free. With AdSense Auto Ads enabled in the
-// dashboard, Google injects ads on every page that loads adsbygoogle.js — so
-// the only reliable way to keep a page ad-free is to NOT load the script there.
-// usePathname() returns the raw path including any locale prefix, so we strip a
-// leading /xx locale segment before matching the home route.
+// ADS ONLY ON SUBSTANTIVE CONTENT (allowlist, not blocklist).
 //
-// Home page is deliberately excluded: it is the brand-defining first impression
-// and hosts the comparison widget + Send buttons (the provider_clicked
-// north-star conversion). An Auto-Ads anchor/in-content unit there would
-// cannibalize affiliate clicks and cheapen the premium feel.
+// AdSense flagged the site "low value content" (Jun 2026): with Auto Ads on,
+// adsbygoogle.js loaded site-wide — including the ~350 thin, template-driven
+// pages (corridors, compare, iban, swift, banks). A reviewer landing on a
+// sparse auto-generated page with ads = the textbook thin-content violation.
+//
+// Fix: load the ad script ONLY on our genuinely substantive editorial pages —
+// the long-form /guides/* and /news/* articles (1,500+ words, original POV).
+// Everywhere else (the programmatic surface, the homepage conversion path)
+// stays ad-free, so the only pages a reviewer ever sees ads on are real,
+// high-value content. Keeps the thin pages for SEO/affiliate, just ad-free.
 const LOCALE_PREFIX = /^\/[a-z]{2}(?=\/|$)/;
 
-function isAdFreeRoute(pathname: string): boolean {
+// Substantive content sections that may carry ads. A page qualifies only if
+// it's an ARTICLE within these (i.e. /guides/<slug>, not the /guides index).
+const AD_ALLOWED_SECTIONS = ["/guides/", "/news/"];
+
+function isAdAllowedRoute(pathname: string): boolean {
   const path = pathname.replace(LOCALE_PREFIX, "") || "/";
-  // Home page: "" (after stripping the locale root) or "/"
-  return path === "/" || path === "";
+  return AD_ALLOWED_SECTIONS.some(
+    (sec) => path.startsWith(sec) && path.length > sec.length,
+  );
 }
 
 export default function AdSenseLoader() {
   const pathname = usePathname();
 
-  if (isAdFreeRoute(pathname)) return null;
+  if (!isAdAllowedRoute(pathname)) return null;
 
   // Native <script> rather than next/script's <Script>: the latter stamps a
   // `data-nscript` attribute that AdSense's loader rejects with a console
