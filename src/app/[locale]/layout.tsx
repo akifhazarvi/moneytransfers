@@ -208,7 +208,6 @@ export default async function LocaleLayout({ children, params }: Props) {
     "comparisonWidget", "providerCard",                    // shared across pages
     "heroTabs", "homepageConverter", "newsTicker", "liveExample", "bestTransferToday",  // homepage
     "sendMoneyClient",                                     // send-money
-    "currencyConverterClient",                             // currency-converter
   ];
   for (const ns of clientNamespaces) {
     if ((messages as Record<string, unknown>)[ns]) {
