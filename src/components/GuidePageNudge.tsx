@@ -164,7 +164,7 @@ export default function GuidePageNudge({ from, to, amount, slug }: Props) {
                 trackProviderClicked(best.providerSlug, corridor, 1, `guide_nudge`);
                 trackStickyCtaClicked(best.providerSlug, corridor, savings > 0 ? savings : undefined);
               }}
-              className="shrink-0 inline-flex items-center gap-1.5 h-11 px-4 sm:px-5 rounded-full bg-[var(--color-success-dark)] hover:bg-[var(--color-success-hover)] text-white text-sm font-bold transition-all active:scale-95 shadow-[0_2px_10px_rgba(5,150,105,0.4)] whitespace-nowrap"
+              className="shrink-0 inline-flex items-center gap-1.5 h-11 px-4 sm:px-5 rounded-full bg-[var(--color-success-dark)] hover:bg-[var(--color-success-hover)] text-white text-sm font-bold transition-all active:scale-95 shadow-[var(--shadow-success)] whitespace-nowrap"
             >
               <span className="hidden sm:inline">Send with {name}</span>
               <span className="sm:hidden">Send →</span>

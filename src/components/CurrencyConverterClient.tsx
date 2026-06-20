@@ -303,7 +303,7 @@ export default function CurrencyConverterClient() {
               className={`transition-opacity ${isDragging ? "opacity-30" : ""}`}
             >
               {/* Blue separator */}
-              <div className={`mx-5 md:mx-6 transition-all ${isDragOver ? "h-[3px] bg-[var(--color-primary)] rounded-full shadow-[0_0_8px_rgba(26,115,232,0.4)]" : `h-[2px] rounded-full ${isFirst ? "bg-[var(--color-primary)]" : "bg-[var(--color-primary)]/40"}`}`} />
+              <div className={`mx-5 md:mx-6 transition-all ${isDragOver ? "h-[3px] bg-[var(--color-primary)] rounded-full shadow-[var(--shadow-primary)]" : `h-[2px] rounded-full ${isFirst ? "bg-[var(--color-primary)]" : "bg-[var(--color-primary)]/40"}`}`} />
 
               <div className="px-5 md:px-6 py-3.5 bg-[var(--color-surface-dim)] transition-all">
                 <div className="flex items-center gap-3">

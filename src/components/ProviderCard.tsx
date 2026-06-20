@@ -173,7 +173,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 }}
                 className={`inline-flex items-center gap-1.5 h-11 px-4 text-sm font-bold rounded-full transition-all active:scale-95 ${
                   isBest
-                    ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_8px_rgba(5,150,105,0.35)]"
+                    ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]"
                     : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm"
                 }`}
                 aria-label={`Send with ${providerName}`}
@@ -391,7 +391,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   onClick={() => trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank)}
                   className={`inline-flex items-center justify-center gap-2 h-12 px-6 text-sm font-bold rounded-full transition-all duration-150 active:scale-[0.98] w-full sm:w-auto ${
                     isBest
-                      ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_12px_rgba(5,150,105,0.4)] hover:shadow-[0_4px_16px_rgba(5,150,105,0.5)]"
+                      ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success-lg)] hover:shadow-[var(--shadow-success-lg)]"
                       : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow"
                   }`}
                 >

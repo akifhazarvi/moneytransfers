@@ -190,7 +190,7 @@ export default function ComparisonWidget({
         </div>
         <button
           type="submit"
-          className="mt-3 w-full h-12 bg-[var(--color-primary)] text-white rounded-full font-semibold text-sm hover:bg-[var(--color-primary-dark)] active:scale-[0.99] transition-all shadow-[0_2px_8px_rgba(26,115,232,0.25)]"
+          className="mt-3 w-full h-12 bg-[var(--color-primary)] text-white rounded-full font-semibold text-sm hover:bg-[var(--color-primary-dark)] active:scale-[0.99] transition-all shadow-[var(--shadow-primary)]"
         >
           {t("compareTransfers")}
         </button>
@@ -243,7 +243,7 @@ export default function ComparisonWidget({
       <div className="hidden lg:flex justify-center mt-6">
         <button
           type="submit"
-          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-md px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_2px_8px_rgba(26,115,232,0.3)] active:shadow-none transition-all"
+          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-md px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[var(--shadow-primary)] active:shadow-none transition-all"
         >
           {t("compareTransfers")}
         </button>

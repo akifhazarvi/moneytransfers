@@ -311,7 +311,7 @@ export default async function NewsArticlePage({ params }: Props) {
                 <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
                   <Link
                     href="/send-money"
-                    className="flex items-center justify-center w-full h-11 bg-[var(--color-success-dark)] text-white text-sm font-bold rounded-full hover:bg-[var(--color-success-hover)] transition-colors shadow-[0_2px_8px_rgba(5,150,105,0.3)]"
+                    className="flex items-center justify-center w-full h-11 bg-[var(--color-success-dark)] text-white text-sm font-bold rounded-full hover:bg-[var(--color-success-hover)] transition-colors shadow-[var(--shadow-success)]"
                   >
                     Compare Rates Now →
                   </Link>

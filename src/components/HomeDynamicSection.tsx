@@ -175,7 +175,7 @@ export default function HomeDynamicSection() {
                   {/* CTA — the action users need to see */}
                   <div className={`mt-auto flex items-center justify-center gap-1 w-full h-8 sm:h-9 rounded-full text-[10px] sm:text-xs font-bold transition-all ${
                     isSelected
-                      ? "bg-[var(--color-primary)] text-white shadow-[0_2px_8px_rgba(26,115,232,0.3)]"
+                      ? "bg-[var(--color-primary)] text-white shadow-[var(--shadow-primary)]"
                       : "bg-[var(--color-surface-dim)] text-[var(--color-on-surface-variant)] group-hover:bg-[var(--color-primary)] group-hover:text-white"
                   }`}>
                     Compare rates
@@ -262,7 +262,7 @@ export default function HomeDynamicSection() {
                           onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
                           className={`flex items-center justify-center gap-1.5 w-full h-10 text-sm font-bold rounded-full transition-all active:scale-95 ${
                             isBest
-                              ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_8px_rgba(5,150,105,0.35)]"
+                              ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]"
                               : "bg-[var(--color-surface-container)] text-[var(--color-on-surface)] hover:bg-[var(--color-primary)] hover:text-white border border-[var(--color-outline)]"
                           }`}
                         >
@@ -303,7 +303,7 @@ export default function HomeDynamicSection() {
                           onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, i + 1, "home_live_example")}
                           className={`inline-flex items-center gap-1.5 h-10 px-4 text-xs font-bold rounded-full transition-all active:scale-95 whitespace-nowrap ${
                             isBest
-                              ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[0_2px_10px_rgba(5,150,105,0.35)]"
+                              ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]"
                               : "bg-[var(--color-surface-container)] text-[var(--color-on-surface)] hover:bg-[var(--color-primary)] hover:text-white border border-[var(--color-outline)]"
                           }`}
                         >
@@ -330,7 +330,7 @@ export default function HomeDynamicSection() {
             <div className="text-center mt-5">
               <Link
                 href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
-                className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[0_4px_14px_rgba(26,115,232,0.35)] active:shadow-none active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[var(--shadow-primary-lg)] active:shadow-none active:scale-[0.98] transition-all"
               >
                 Compare all 50+ apps
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

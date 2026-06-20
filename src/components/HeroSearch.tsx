@@ -161,7 +161,7 @@ export default function HeroSearch({ compact = false }: { compact?: boolean }) {
           flex items-center bg-[var(--color-surface)] border rounded-full
           ${compact ? "px-3 py-1.5 gap-2" : "px-4 sm:px-5 py-2.5 sm:py-3 gap-3"} transition-all
           ${focused
-            ? "border-[var(--color-primary)] shadow-[0_1px_6px_rgba(26,115,232,0.2)]"
+            ? "border-[var(--color-primary)] shadow-[var(--shadow-primary)]"
             : "border-[var(--color-outline)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]"
           }
         `}
