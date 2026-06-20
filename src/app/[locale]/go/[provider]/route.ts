@@ -84,6 +84,10 @@ export async function GET(
 
   const corridor = from && to ? `${from}-${to}`.toUpperCase() : "";
   const source = src || "go_route";
+  // Per-click id from the on-site injector (TapTap-style billing proof + ties
+  // the client provider_clicked to this server event). Absent on raw external
+  // hits; mint one so every redirect is still individually identifiable.
+  const clickId = searchParams.get("click_id") || `smc_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 
   // Server-side counterpart to the client `provider_clicked` event. Distinct
   // event name so the two sinks measure clean, separate things:
@@ -92,7 +96,7 @@ export async function GET(
   // The gap between the two = adblock + JS-failure rate.
   void serverTrack(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource, click_id: clickId },
     clientId,
     geo,
   );
@@ -108,6 +112,7 @@ export async function GET(
       traffic_source: trafficSource.source,
       is_bot: trafficSource.isBot,
       id_source: idSource,
+      click_id: clickId,
     },
     clientId,
     geo,

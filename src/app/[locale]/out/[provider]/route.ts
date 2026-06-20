@@ -61,12 +61,13 @@ export async function GET(
   };
   const corridor = from && to ? `${from}-${to}`.toUpperCase() : "";
   const source = src || "out_route";
+  const clickId = searchParams.get("click_id") || `smc_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 
   // Server-side counterpart to the client `provider_clicked` event — see /go/
   // for the naming rationale.
   void serverTrack(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource, click_id: clickId },
     clientId,
     geo,
   );
@@ -84,6 +85,7 @@ export async function GET(
       traffic_source: trafficSource.source,
       is_bot: trafficSource.isBot,
       id_source: idSource,
+      click_id: clickId,
     },
     clientId,
     geo,

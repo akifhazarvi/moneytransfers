@@ -36,21 +36,28 @@ export default function AiSourceInjector() {
       if (!target) return;
 
       const href = target.getAttribute("href");
-      if (!href || !href.includes("/go/")) return;
+      if (!href || !href.includes("/go/") && !href.includes("/out/")) return;
+      // Already augmented (e.g. a second click on the same element) — skip.
+      if (href.includes("click_id=")) return;
 
       let aiSrc: string | null = null;
       try { aiSrc = sessionStorage.getItem("first_ai_src"); } catch { /* unavailable */ }
 
-      // Nothing to add — let the navigation proceed untouched.
-      if (!aiSrc && !clientId) return;
-
+      // Always add a unique click_id so the server affiliate_redirect event is
+      // individually identifiable — this is the per-click proof partners (e.g.
+      // TapTap, $1/click) can reconcile against, and it ties the client click
+      // to the server redirect. cid/ai_src are added only when available.
+      const clickId = `smc_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
       const extra = new URLSearchParams();
+      extra.set("click_id", clickId);
       if (aiSrc) extra.set("ai_src", aiSrc);
       if (clientId) extra.set("cid", clientId);
 
-      e.preventDefault();
+      // Mutate the href in place rather than forcing window.location — this
+      // preserves the anchor's native behavior (target="_blank", modifier-key
+      // open-in-new-tab, middle-click) instead of hijacking every navigation.
       const sep = href.includes("?") ? "&" : "?";
-      window.location.href = `${href}${sep}${extra.toString()}`;
+      target.setAttribute("href", `${href}${sep}${extra.toString()}`);
     }
 
     document.addEventListener("click", handleClick);
