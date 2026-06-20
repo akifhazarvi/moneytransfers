@@ -3,6 +3,7 @@ import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { clientIdFromCookie } from "@/lib/ga4-server";
 import { serverTrack } from "@/lib/server-track";
+import { storeEvent } from "@/lib/event-store";
 import { classifyTrafficSource } from "@/lib/traffic-source";
 
 export async function GET(
@@ -90,6 +91,25 @@ export async function GET(
     clientId,
     geo,
   );
+
+  // First-party auditable record — see /go route. No-ops until provisioned.
+  void storeEvent({
+    event: "affiliate_redirect",
+    vid,
+    clientId,
+    clickId,
+    provider,
+    corridor,
+    amount: amount ?? 0,
+    source,
+    trafficSource: trafficSource.source,
+    idSource,
+    isBot: trafficSource.isBot,
+    refererHost: trafficSource.refererHost,
+    country: geo.country,
+    region: geo.region,
+    city: geo.city,
+  });
 
   const url = getAffiliateUrl(provider, {
     sourceCurrency: from,
