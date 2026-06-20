@@ -3,6 +3,7 @@
 import { useState, useId, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import CurrencyPicker from "@/components/CurrencyPicker";
+import CurrencyAmountInput from "@/components/CurrencyAmountInput";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { trackCompareSearch } from "@/lib/analytics";
 import { useTranslations } from "next-intl";
@@ -177,31 +178,15 @@ export default function ComparisonWidget({
               </div>
             </div>
           </div>
-          <div className="border-t border-[var(--color-outline)] px-4 py-3 flex items-center gap-3">
-            <label htmlFor={`${id}-send-m`} className="text-[10px] font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider shrink-0">{t("youSend")}</label>
-            <div className="flex items-baseline gap-1 ml-auto">
-              <span className="text-h4 font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
-              <input
-                id={`${id}-send-m`}
-                type="text"
-                inputMode="decimal"
-                value={amountStr}
-                onChange={(e) => {
-                  const v = e.target.value;
-                  if (v === "" || /^\d*\.?\d*$/.test(v)) handleAmountChange(v);
-                }}
-                onBlur={() => {
-                  if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
-                }}
-                className={`bg-transparent text-h4 font-semibold text-[var(--color-on-surface)] focus:outline-none w-[150px] text-right tabular-nums ${amountError ? "text-[var(--color-error)]" : ""}`}
-                placeholder="1,000"
-                aria-describedby={amountError ? `${id}-send-m-error` : undefined}
-              />
-            </div>
-          </div>
-          {amountError && (
-            <p id={`${id}-send-m-error`} className="px-4 pb-2 text-2xs text-[var(--color-error)]">{amountError}</p>
-          )}
+          <CurrencyAmountInput
+            value={amountStr}
+            onValueChange={handleAmountChange}
+            symbol={sendCurrency?.symbol || "$"}
+            label={t("youSend")}
+            error={amountError}
+            size="compact"
+            idPrefix={`${id}-send-m`}
+          />
         </div>
         <button
           type="submit"
@@ -219,25 +204,15 @@ export default function ComparisonWidget({
             <label htmlFor={`${id}-send`} className="text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">{t("youSend")}</label>
             <div className="flex items-center gap-4 mt-1.5">
               <CurrencyPicker value={fromCurrency} onChange={setFromCurrency} currencyList={sendCurrencies} size="large" />
-              <div className="flex items-baseline gap-1 shrink-0 ml-auto border-l border-[var(--color-outline)] pl-4">
-                <span className="text-h4 font-medium text-[var(--color-on-surface)]">{sendCurrency?.symbol || "$"}</span>
-                <input
-                  id={`${id}-send`}
-                  type="text"
-                  inputMode="decimal"
-                  value={amountStr}
-                  onChange={(e) => {
-                    const v = e.target.value;
-                    if (v === "" || /^\d*\.?\d*$/.test(v)) handleAmountChange(v);
-                  }}
-                  onBlur={() => {
-                    if (!amountStr || Number(amountStr) <= 0) setAmountStr("1");
-                  }}
-                  className={`bg-transparent text-h4 font-medium text-[var(--color-on-surface)] focus:outline-none min-w-0 w-[120px] tabular-nums ${amountError ? "text-[var(--color-error)]" : ""}`}
-                  placeholder="1,000"
-                  aria-describedby={amountError ? `${id}-send-error` : undefined}
-                />
-              </div>
+              <CurrencyAmountInput
+                value={amountStr}
+                onValueChange={handleAmountChange}
+                symbol={sendCurrency?.symbol || "$"}
+                label={t("youSend")}
+                error={amountError}
+                size="large"
+                idPrefix={`${id}-send`}
+              />
             </div>
             {amountError && (
               <p id={`${id}-send-error`} className="text-2xs text-[var(--color-error)] mt-1">{amountError}</p>
