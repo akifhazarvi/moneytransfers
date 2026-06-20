@@ -3,8 +3,10 @@ import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { clientIdFromCookie } from "@/lib/ga4-server";
 import { serverTrack } from "@/lib/server-track";
-import { storeEvent } from "@/lib/event-store";
+import { storeEvent, behavioralBotScore } from "@/lib/event-store";
 import { classifyTrafficSource } from "@/lib/traffic-source";
+import { scoreBotRequest } from "@/lib/bot-score";
+import { createHash } from "crypto";
 
 export async function GET(
   request: Request,
@@ -89,6 +91,36 @@ export async function GET(
     accept: request.headers.get("accept"),
     acceptLanguage: request.headers.get("accept-language"),
   });
+
+  // Extensive bot score: request-shape (headers/UA/client-hints/fetch-metadata)
+  // + behavioral (enumeration/cadence/burst from the store, keyed on a hashed
+  // IP). Scores, never blocks — gates analytics/credit only. Hash the IP so we
+  // never store a raw address.
+  const ipHash = ip && ip !== "unknown"
+    ? createHash("sha256").update(ip).digest("hex").slice(0, 32)
+    : undefined;
+  const behavioral = await behavioralBotScore(ipHash);
+  const botResult = scoreBotRequest({
+    ua: userAgent,
+    refererHost: trafficSource.refererHost,
+    country: geo.country,
+    corridor,
+    hadCid: !!cidParam,
+    hadVidCookie: !!existingVid,
+    accept: request.headers.get("accept"),
+    acceptLanguage: request.headers.get("accept-language"),
+    acceptEncoding: request.headers.get("accept-encoding"),
+    secFetchMode: request.headers.get("sec-fetch-mode"),
+    secFetchDest: request.headers.get("sec-fetch-dest"),
+    secFetchSite: request.headers.get("sec-fetch-site"),
+    secChUa: request.headers.get("sec-ch-ua"),
+    secChUaMobile: request.headers.get("sec-ch-ua-mobile"),
+    secChUaPlatform: request.headers.get("sec-ch-ua-platform"),
+    priority: request.headers.get("priority"),
+    behavioralScore: behavioral.score,
+    behavioralReasons: behavioral.reasons,
+  });
+
   // Per-click id from the on-site injector (TapTap-style billing proof + ties
   // the client provider_clicked to this server event). Absent on raw external
   // hits; mint one so every redirect is still individually identifiable.
@@ -101,7 +133,7 @@ export async function GET(
   // The gap between the two = adblock + JS-failure rate.
   void serverTrack(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource, click_id: clickId },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score },
     clientId,
     geo,
   );
@@ -115,10 +147,10 @@ export async function GET(
       referer_host: trafficSource.refererHost,
       source,
       traffic_source: trafficSource.source,
-      is_bot: trafficSource.isBot,
+      is_bot: botResult.isBot,
       id_source: idSource,
       click_id: clickId,
-      bot_score: trafficSource.botScore,
+      bot_score: botResult.score,
     },
     clientId,
     geo,
@@ -138,9 +170,10 @@ export async function GET(
     source,
     trafficSource: trafficSource.source,
     idSource,
-    isBot: trafficSource.isBot,
-    botScore: trafficSource.botScore,
-    botReasons: trafficSource.botReasons.join("; "),
+    isBot: botResult.isBot,
+    botScore: botResult.score,
+    botReasons: botResult.reasons.join("; "),
+    ipHash,
     refererHost: trafficSource.refererHost,
     country: geo.country,
     region: geo.region,
