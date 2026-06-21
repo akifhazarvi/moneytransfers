@@ -14052,44 +14052,7 @@ export const blogPosts: BlogPost[] = [
         heading: "“Payment Approved” Is a Promise, Not a Payment",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> When your card flashes “Approved” in two seconds, no money has moved. That’s <strong>authorization</strong> — your bank just <em>promising</em> the funds exist and reserving them. The actual money movement, called <strong>settlement</strong>, happens 1–3 days later for cards and 2–5 days for an international <a href="/guides/wire-transfer-guide">wire transfer</a>. Stablecoins like <strong>USDC</strong> collapse authorization and settlement into a single step that finishes in seconds — which is why card networks, processors, and cross-border rails are racing to adopt them. <a href="/send-money">Compare how today’s transfer methods actually settle →</a></p></div>
 <p>Here’s a number that should bother you: a USDC transfer settles in about <strong>2 seconds</strong>. A traditional international wire takes about <strong>5 days</strong>. Same money, same destination — roughly <strong>216,000× slower</strong> on the old rails.</p>
-<p>The reason hides inside a word almost nobody explains to you: <em>settlement</em>. Watch the difference play out in real time:</p>
-
-<style>
-@keyframes smc-usdc-fill { 0% { width: 0; } 8% { width: 100%; } 92% { width: 100%; } 100% { width: 0; } }
-@keyframes smc-wire-fill { 0% { width: 0; } 75% { width: 100%; } 96% { width: 100%; } 100% { width: 0; } }
-@keyframes smc-usdc-check { 0%,7% { opacity: 0; transform: scale(0.6); } 12%,92% { opacity: 1; transform: scale(1); } 100% { opacity: 0; } }
-@keyframes smc-wire-check { 0%,74% { opacity: 0; transform: scale(0.6); } 80%,96% { opacity: 1; transform: scale(1); } 100% { opacity: 0; } }
-.smc-race { margin: 28px 0; border: 1px solid var(--color-outline); border-radius: 16px; padding: 20px; background: var(--color-surface); }
-.smc-track { margin: 14px 0; }
-.smc-track-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; font-size: 0.875rem; }
-.smc-track-label { font-weight: 600; color: var(--color-on-surface); }
-.smc-track-time { font-variant-numeric: tabular-nums; color: var(--color-on-surface-variant); font-size: 0.8125rem; }
-.smc-bar { position: relative; height: 16px; border-radius: 999px; background: var(--color-surface-dim); overflow: hidden; }
-.smc-fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; }
-.smc-fill-usdc { background: linear-gradient(90deg, var(--color-success), var(--color-success-dark)); animation: smc-usdc-fill 8s ease-in-out infinite; }
-.smc-fill-wire { background: linear-gradient(90deg, var(--color-warning), var(--color-warning-dark)); animation: smc-wire-fill 8s linear infinite; }
-.smc-check { display: inline-block; margin-left: 6px; font-weight: 700; }
-.smc-check-usdc { color: var(--color-success-dark); animation: smc-usdc-check 8s ease-in-out infinite; }
-.smc-check-wire { color: var(--color-warning-dark); animation: smc-wire-check 8s linear infinite; }
-@media (prefers-reduced-motion: reduce) { .smc-fill-usdc, .smc-fill-wire, .smc-check-usdc, .smc-check-wire { animation: none; } .smc-fill-usdc { width: 100%; } .smc-fill-wire { width: 100%; } .smc-check-usdc, .smc-check-wire { opacity: 1; } }
-</style>
-<div class="smc-race" role="img" aria-label="Animation: a USDC transfer settles in about 2 seconds while a wire transfer takes about 5 days.">
-  <div class="smc-track">
-    <div class="smc-track-top">
-      <span class="smc-track-label">🟢 USDC stablecoin<span class="smc-check smc-check-usdc">Settled ✓</span></span>
-      <span class="smc-track-time">~2 seconds</span>
-    </div>
-    <div class="smc-bar"><div class="smc-fill smc-fill-usdc"></div></div>
-  </div>
-  <div class="smc-track">
-    <div class="smc-track-top">
-      <span class="smc-track-label">🏦 International wire<span class="smc-check smc-check-wire">Settled ✓</span></span>
-      <span class="smc-track-time">~5 days</span>
-    </div>
-    <div class="smc-bar"><div class="smc-fill smc-fill-wire"></div></div>
-  </div>
-  <p class="blog-footnote" style="margin-top:14px;margin-bottom:0;text-align:center">Same $1,000, same destination. One settles before you put your phone down; the other before the end of the working week.</p>
-</div>
+<p>The reason hides inside a word almost nobody explains to you: <em>settlement</em>. Watch eight payment rails race to actually deliver $10,000 in the interactive below — USDC finishes before you can blink, while a wire is still crawling days later.</p>
 <p>That gap isn’t about technology being “slow.” It’s about a two-step process the old system was built around — and that stablecoins quietly delete.</p>`,
       },
       {

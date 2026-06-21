@@ -20,6 +20,7 @@ import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 import GuidePageNudge from "@/components/GuidePageNudge";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
+import SettlementRace from "@/components/SettlementRace";
 
 interface InlineQuoteCorridor {
   from: string;
@@ -475,6 +476,11 @@ export default async function BlogPostPage({ params }: Props) {
                 {/* Freelancer-cost calculator — only on the freelancer guide, after the "what it costs" section */}
                 {i === 1 && slug === "how-to-pay-international-freelancers-contractors" && (
                   <FreelancerCostCalculator source={`guide:${slug}`} />
+                )}
+
+                {/* Settlement race — only on the authorization-vs-settlement guide, after the intro */}
+                {i === 0 && slug === "authorization-vs-settlement-stablecoins" && (
+                  <SettlementRace />
                 )}
 
                 {/* Inline live-quote widget after 2nd section — converts editorial readers */}
