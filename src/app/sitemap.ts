@@ -79,6 +79,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("terms", STATIC_CONTENT_DATE),
     entry("for-ai", DATA_UPDATED),
     entry("remittance-cost-index", DATA_UPDATED),
+    // Flagship data-story (live-computed bank-vs-app cost index). Not a
+    // blog-posts.ts guide — it's a dedicated live route, so it's listed here
+    // explicitly. DATA_UPDATED because its figures refresh with each scrape.
+    entry("guides/bank-vs-app-transfer-cost-2026", DATA_UPDATED),
     entry("exchange-rates", DATA_UPDATED),
     entry("news", STATIC_HUB_DATE),
     entry("business", STATIC_HUB_DATE),
