@@ -8,6 +8,7 @@ import { businessPages, getBusinessPage } from "@/data/business-pages";
 export const revalidate = 86400;
 import { sanitizeHtml } from "@/lib/sanitize";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { SITEMAP_BUSINESS_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -30,6 +31,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: getAlternates(`business/${slug}`, locale),
     // Business content is English-only; noindex locale variants to avoid duplicate content
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
+    // Noindex 2026-06-21: business sub-pages outside the sitemap allowlist
+    // (small-business, bulk-payments) were emitting index:yes while sitting
+    // OFF the sitemap — the May-deindex contradiction. The real B2B organic
+    // surface is guides/business-international-payments-guide (88 Bing impr).
+    // In-sitemap slugs (vendor-payments) stay indexable; page still renders.
+    ...(locale === "en" && !SITEMAP_BUSINESS_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,

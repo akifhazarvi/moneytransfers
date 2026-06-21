@@ -134,6 +134,16 @@ export function getAllPilotBankSlugs(): string[] {
   return Object.keys(PILOT_BANKS);
 }
 
+// Bank pilot indexability (2026-06-21). The pilot's own readmit bar was
+// ≥5 impressions; after ~1 month wells-fargo/lloyds/barclays earn 0 on both
+// Google and Bing (no /banks/ rows exist in the Bing export at all), so they
+// are noindexed + dropped from the sitemap. hsbc + chase stay indexable on a
+// 30-day watch (highest brand-search potential). The hub still renders all
+// pilot cards via PILOT_BANKS, so dropped banks don't orphan. Single source of
+// truth — imported by both banks/[slug]/page.tsx and sitemap.ts so they never
+// drift.
+export const INDEXED_BANK_SLUGS = new Set<string>(["hsbc", "chase"]);
+
 /**
  * One quote row for a (bank, corridor, amount) combination plus the computed
  * "vs best digital provider" delta. The delta is what makes these pages

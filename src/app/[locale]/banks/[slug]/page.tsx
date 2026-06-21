@@ -31,6 +31,7 @@ import {
   getBankCorridorQuotes,
   getBankAggregateStats,
   getAllPilotBankSlugs,
+  INDEXED_BANK_SLUGS,
 } from "@/lib/bank-comparisons";
 import { getCorridorSlug } from "@/data/corridors";
 import { providers, getProviderName, currencies } from "@/data/providers";
@@ -101,6 +102,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: { card: "summary_large_image", title: bank.headline, description },
     alternates: getAlternates(`banks/${slug}`, locale),
+    // Noindex zero-traction pilots (off-sitemap) to match the sitemap and
+    // avoid the index:yes/sitemap:no contradiction. Page still renders.
+    ...(locale === "en" && !INDEXED_BANK_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
   };
 }
 

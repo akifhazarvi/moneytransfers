@@ -65,6 +65,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: getAlternates(`travel/${country}`, locale),
+    // Noindex 2026-06-21: the entire /travel/* family (11 pages) ships
+    // index:yes but is NOT in the sitemap and earns 0 Bing + 0 GSC impressions
+    // — the same "sitemap=no / robots=index" contradiction that contributed to
+    // the May 8 deindex. Pages still render and stay crawlable via internal
+    // links (follow:true); they're just no longer offered to the index.
+    // Promote out of noindex (and into sitemap) if any earns ≥5 impressions.
+    robots: { index: false, follow: true },
     openGraph: {
       title,
       description,

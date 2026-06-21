@@ -10,6 +10,7 @@ import { getSwiftCountries } from "@/data/swift-codes";
 import { providerReviews } from "@/data/provider-reviews";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
+import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
 import {
   SITEMAP_CORRIDOR_SLUGS,
   SITEMAP_GUIDE_SLUGS,
@@ -149,9 +150,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // GSC impressions accumulate.
   const bankPages: MetadataRoute.Sitemap = [
     entry("banks", DATA_UPDATED),
-    ...["hsbc", "wells-fargo", "chase", "lloyds", "barclays"].map((slug) =>
-      entry(`banks/${slug}`, DATA_UPDATED),
-    ),
+    // Only indexable pilots (hsbc, chase). wells-fargo/lloyds/barclays dropped
+    // 2026-06-21 — 0 traction on both engines, now noindexed (see
+    // banks/[slug]/page.tsx INDEXED_BANK_SLUGS — single source of truth).
+    ...[...INDEXED_BANK_SLUGS].map((slug) => entry(`banks/${slug}`, DATA_UPDATED)),
   ];
 
   return [
