@@ -85,6 +85,13 @@ const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: "SendMoneyCompare",
   alternateName: ["Send Money Compare", "SMC"],
+  // Explicit Wikidata entity binding (in addition to the sameAs link below) —
+  // an unambiguous machine-readable pointer to the Knowledge Graph item.
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "Wikidata",
+    value: "Q140310099",
+  },
   url: SITE_URL,
   logo: { "@type": "ImageObject", url: `${SITE_URL}/logos/sendmoneycompare-logo.png`, width: 512, height: 512 },
   image: `${SITE_URL}/opengraph-image`,
@@ -136,9 +143,11 @@ const organizationSchema = {
   ],
   sameAs: [
     // Brand entity graph — Google uses these to disambiguate us from other
-    // "send money compare" strings. The first two (Trustpilot + Crunchbase) are
-    // the ones that outrank our own homepage for the branded query — declaring
-    // them here tells Google they describe the same entity.
+    // "send money compare" strings. Wikidata leads: it's the structured feed
+    // into Google's Knowledge Graph (Q140310099, created 2026-06-21). Trustpilot
+    // + Crunchbase outrank our own homepage for the branded query — declaring
+    // them all here tells Google they describe the same entity.
+    "https://www.wikidata.org/wiki/Q140310099",
     "https://www.trustpilot.com/review/sendmoneycompare.com",
     "https://www.crunchbase.com/organization/send-money-compare",
     "https://www.linkedin.com/company/sendmoneycompare",
