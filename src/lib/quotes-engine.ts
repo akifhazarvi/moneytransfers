@@ -65,8 +65,15 @@ export function generateQuotes(
         providerQuoteMap.set(sq.providerSlug, sq);
       }
     }
+    // Prefer the nearest-amount quote, but never let a lower-quality source
+    // (e.g. Exiap, tier 4) overwrite a better one already chosen above.
+    // Without this guard an Exiap row scraped only at a far amount can clobber
+    // a Monito/Wise quote and surface its unreliable flat fee (see XE fee bug).
     for (const sq of nearestQuotes) {
-      providerQuoteMap.set(sq.providerSlug, sq);
+      const existing = providerQuoteMap.get(sq.providerSlug);
+      if (!existing || sq.sourcePriority <= existing.sourcePriority) {
+        providerQuoteMap.set(sq.providerSlug, sq);
+      }
     }
 
     const quotes: TransferQuote[] = [];

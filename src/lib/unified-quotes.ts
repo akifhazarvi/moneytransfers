@@ -1,11 +1,12 @@
 /**
  * Unified Quote Index
  *
- * Merges all scraped data sources into a single lookup with source priority:
- *   1. Direct provider scrape (OFX, Instarem, Xoom, TapTap Send, Wise, ACE)
+ * Merges all scraped data sources into a single lookup with source priority
+ * (lower number wins the dedup for the same provider+corridor+amount):
+ *   1. Direct provider scrape (OFX, Instarem, Xoom, TapTap Send, Wise, ACE, …)
  *   2. Wise Comparison API (8-18 competitors per corridor, pure API)
- *   2. Exiap / TheCurrencyShop (JSON-LD, US+UK+AU corridors)
- *   2. Monito comparison (covers 39 providers including Remitly, WU, Revolut, etc.)
+ *   3. Monito comparison (covers 39 providers including Remitly, WU, Revolut, etc.)
+ *   4. Rest — Exiap / TheCurrencyShop (JSON-LD, US+UK+AU corridors), gap-fill only
  *
  * Also loads XE mid-market rates and Trustpilot ratings.
  */
@@ -224,8 +225,16 @@ function addQuotes(
   }
 }
 
-// Load sources in priority order (lower priority number = preferred)
-// Priority 1: Direct provider scrapes (first-party, most accurate)
+// Load sources in priority order (lower priority number = preferred).
+// Four tiers, most-trusted first — a quote from a better tier always wins the
+// dedup for the same provider+corridor+amount:
+//
+//   1. Direct  — first-party scrapes (the provider's own API / calculator)
+//   2. Wise    — Wise Comparison API (Wise's own REST aggregator)
+//   3. Monito  — Monito comparison aggregator (39 providers)
+//   4. Rest    — everything else (Exiap etc.), gap-fill only
+//
+// TIER 1: Direct provider scrapes (first-party, most accurate)
 addQuotes(ofxQuotes as unknown[], 1, "ofx-api");
 addQuotes(instaremQuotes as unknown[], 1, "instarem-api");
 addQuotes(xoomQuotes as unknown[], 1, "xoom-browser");
@@ -240,14 +249,20 @@ addQuotes(skyremitQuotes as unknown[], 1, "skyremit-api");
 addQuotes(lemfiQuotes as unknown[], 1, "lemfi-api");
 addQuotes(unplexQuotes as unknown[], 1, "unplex-api");
 
-// Priority 2: Wise Comparison API (8-18 competitors per corridor, pure REST API)
+// TIER 2: Wise Comparison API (8-18 competitors per corridor, pure REST API)
 addQuotes(wiseComparisonQuotes as unknown[], 2, "wise-comparison-api");
 
-// Priority 2: Exiap / TheCurrencyShop (JSON-LD, US+UK+AU corridors)
-addQuotes(exiapQuotes as unknown[], 2, "exiap");
+// TIER 3: Monito comparison aggregator (covers 39 providers)
+addQuotes(monitoQuotes as unknown[], 3, "monito-comparison");
 
-// Priority 2: Monito comparison aggregator (covers 39 providers)
-addQuotes(monitoQuotes as unknown[], 2, "monito-comparison");
+// TIER 4: Everything else — gap-fill only.
+// Exiap / TheCurrencyShop (JSON-LD, US+UK+AU corridors). Demoted below
+// Wise/Monito because Exiap's "fee" field is unreliable — it reports XE (and
+// other fee-free providers) with spurious flat fees that are multiples of a
+// base number (e.g. 30.18 / 60.36 / 90.54 USD), inflating the effective cost
+// and producing wrong receive amounts. Only used where no better tier covers
+// the provider+corridor.
+addQuotes(exiapQuotes as unknown[], 4, "exiap");
 
 // --- Deduplicate: for the same provider+corridor+amount, keep highest priority ---
 function deduplicateQuotes(quotes: NormalizedQuote[]): NormalizedQuote[] {
