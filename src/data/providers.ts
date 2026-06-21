@@ -171,7 +171,7 @@ export const providers: Provider[] = [
   },
   {
     slug: "xe",
-    name: "XE",
+    name: "XE Money Transfer",
     logo: "/logos/xe.svg",
     rating: 4.3,
     ratingLabel: "Excellent",
