@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
+import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -28,6 +29,9 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "guides" });
+
+  // Live figures for the featured data-story banner below.
+  const bankVsApp = computeBankVsAppIndex();
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -74,6 +78,29 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
       <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
         {t("subtitle")}
       </p>
+
+      {/* Featured data-story — our flagship original-research asset. Server
+          component (not a blogPosts card) because it's a dedicated live route,
+          so it can't go through the [slug] grid without a route collision. */}
+      <Link
+        href="/guides/bank-vs-app-transfer-cost-2026"
+        className="group mb-8 block rounded-2xl border border-[var(--color-primary)] bg-[var(--color-primary-surface)] p-5 sm:p-6 transition hover:shadow-md"
+      >
+        <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-primary)]">
+          Original research · Updated every 6 hours
+        </span>
+        <h2 className="mt-1.5 text-xl sm:text-2xl font-normal text-[var(--color-on-surface)] leading-snug">
+          Banks cost {bankVsApp.bankVsAppMultiple}× more than apps to send money abroad
+        </h2>
+        <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+          Live data across {bankVsApp.corridorCount} corridors: sending ${bankVsApp.amount.toLocaleString()} via a
+          traditional bank costs {bankVsApp.bankAvgCostPct}% on average vs {bankVsApp.appAvgCostPct}% via a specialist
+          app. See the named bank leaderboard and download the dataset.
+        </p>
+        <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+          Read the Bank vs App Cost Index →
+        </span>
+      </Link>
 
       {/* Category tabs + featured post + grid — interactive, handled client-side */}
       <GuidesClientPage
