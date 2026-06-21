@@ -6982,7 +6982,7 @@
       "moneygram": {
         "rate": 46.4274,
         "fee": 6,
-        "markup": 1.25,
+        "markup": 1.26,
         "receiveAmount": 4364.18
       },
       "western-union": {
@@ -7044,6 +7044,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4630.32
+      },
+      "skrill": {
+        "rate": 46.4768,
+        "fee": 0,
+        "markup": 1.15,
+        "receiveAmount": 4647.68
       }
     }
   }
