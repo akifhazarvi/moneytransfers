@@ -287,7 +287,10 @@ function DefaultComparison({
               {a.name} vs {b.name}: Fees, Rates &amp; Speed Compared
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-2sm text-[var(--color-on-surface-variant)]">
-              <span>SendMoneyCompare Editorial</span>
+              <span>
+                SendMoneyCompare Editorial · Reviewed by{" "}
+                <Link href="/about/awais-imran" className="text-[var(--color-primary)] hover:underline">Awais Imran</Link>
+              </span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <time dateTime={dataUpdatedDate}>
                 Updated {new Date(dataUpdatedDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
