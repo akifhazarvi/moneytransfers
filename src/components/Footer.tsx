@@ -55,6 +55,11 @@ export default function Footer() {
         { href: "/methodology", labelKey: "methodologyLink" },
         { href: "/editorial-policy", labelKey: "editorialLink" },
         { href: "/how-we-review", labelKey: "howWeReview" },
+        // Corrections policy: indexable YMYL trust page that was effectively
+        // orphaned (only inbound was /for-ai). Sits with its natural E-E-A-T
+        // siblings here; surfaces the corrections-policy signal Google looks
+        // for on finance sites. Added 2026-06-21.
+        { href: "/corrections", labelKey: "correctionsLink" },
         { href: "/contact", labelKey: "contactLink" },
       ],
     },

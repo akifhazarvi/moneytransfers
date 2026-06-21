@@ -162,7 +162,17 @@ export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   "remitly-vs-taptap-send",
   "western-union-vs-bank-of-america",
   "wise-vs-taptap-send",
-]); // 17 URLs (was 32)
+  // ── Added 2026-06-21 — Bing click-earners that were live-noindexed because
+  // the allowlist drifted (they sat only in compare-canonical GSC_WINNING_SLUGS,
+  // which grants canonical direction but NOT indexability). Slugs here are the
+  // CANONICAL form (getCompareCanonicalSlug) so the noindex actually lifts:
+  //   revolut-vs-hsbc        (3i/1c Bing) — canonical = itself (GSC winner)
+  //   hsbc-vs-paypal         (2i/1c Bing) — canonical of paypal-vs-hsbc (alphabetical)
+  //   chase-vs-wells-fargo   (2i/1c Bing) — canonical = itself (alphabetical)
+  "revolut-vs-hsbc",
+  "hsbc-vs-paypal",
+  "chase-vs-wells-fargo",
+]); // 20 URLs (was 17)
 
 export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
   // ── Original editorial provider reviews ──
@@ -232,6 +242,10 @@ export const SITEMAP_SWIFT_SLUGS = new Set<string>([
 ]); // 14 URLs (was 1)
 
 export const SITEMAP_BUSINESS_SLUGS = new Set<string>([
-  "b2b-transfers",
+  // Cleaned 2026-06-21: removed phantom "b2b-transfers" (no such page in
+  // business-pages.ts — it was being submitted to the sitemap as a 404/noindex
+  // contradiction). Real slugs are vendor-payments (kept, indexable),
+  // small-business + bulk-payments (now noindexed off-sitemap — see
+  // business/[slug]/page.tsx).
   "vendor-payments",
-]); // 2 URLs
+]); // 1 URL

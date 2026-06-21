@@ -254,7 +254,7 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   "switzerland": [
     { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
-    { label: "CHF to EUR exchange rate", href: "/exchange-rates/chf-to-eur" },
+    { label: "EUR to GBP exchange rate", href: "/exchange-rates/eur-to-gbp" },
     { label: "Wise vs Revolut comparison", href: "/compare/wise-vs-revolut" },
     { label: "Multi-currency accounts guide", href: "/guides/multi-currency-accounts-exchange-rates" },
   ],
