@@ -104,7 +104,8 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   // ── Manually added (new content, not yet impression-validated) ──
   "how-to-buy-spacex-nvidia-stock-using-revolut", // new guide, Revolut investing angle
   "how-to-pay-international-freelancers-contractors", // B2B freelancer-payment cluster, neutral cost-math angle
-]); // 44 URLs
+  "authorization-vs-settlement-stablecoins", // settlement-mechanics angle, distinct from stablecoin-vs-wire cost guide
+]); // 45 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
   // Head-term IBAN destinations (always submitted)
