@@ -9901,10 +9901,10 @@
         "receiveAmount": 10599.78
       },
       "moneygram": {
-        "rate": 105.9726,
+        "rate": 105.9642,
         "fee": 1.99,
-        "markup": 2.23,
-        "receiveAmount": 10386.37
+        "markup": 2,
+        "receiveAmount": 10385.55
       },
       "taptap-send": {
         "rate": 108.11,
@@ -9919,46 +9919,46 @@
         "receiveAmount": 6762.88
       },
       "western-union": {
-        "rate": 107.6273,
+        "rate": 107.7218,
         "fee": 0.99,
-        "markup": 0.71,
-        "receiveAmount": 10656.17
+        "markup": 0.37,
+        "receiveAmount": 10665.53
       },
       "dahabshiil": {
-        "rate": 108.002,
+        "rate": 108.0562,
         "fee": 1.99,
-        "markup": 0.36,
-        "receiveAmount": 10585.28
+        "markup": 0.06,
+        "receiveAmount": 10590.59
       },
       "profee": {
-        "rate": 108.3941,
+        "rate": 108.1651,
         "fee": 2.4,
-        "markup": 0,
-        "receiveAmount": 10579.27
+        "markup": -0.04,
+        "receiveAmount": 10556.92
       },
       "currencyfair": {
-        "rate": 107.6106,
+        "rate": 107.4014,
         "fee": 1.12,
-        "markup": 0.72,
-        "receiveAmount": 10640.54
+        "markup": 0.67,
+        "receiveAmount": 10619.85
       },
       "worldremit": {
-        "rate": 107.416,
+        "rate": 107.2902,
         "fee": 1.99,
-        "markup": 0.9,
-        "receiveAmount": 10527.84
+        "markup": 0.77,
+        "receiveAmount": 10515.51
       },
       "instarem": {
-        "rate": 107.4413,
+        "rate": 107.4125,
         "fee": 0,
-        "markup": 0.88,
-        "receiveAmount": 10744.13
+        "markup": 0.66,
+        "receiveAmount": 10741.25
       },
       "paysend": {
-        "rate": 107.802,
+        "rate": 107.7711,
         "fee": 0,
-        "markup": 0.55,
-        "receiveAmount": 10780.2
+        "markup": 0.33,
+        "receiveAmount": 10777.11
       },
       "remitly": {
         "rate": 107.4115,
@@ -9967,10 +9967,10 @@
         "receiveAmount": 10634.82
       },
       "revolut": {
-        "rate": 107.6548,
-        "fee": 1.5,
-        "markup": 0.68,
-        "receiveAmount": 10604
+        "rate": 107.5956,
+        "fee": 0.5,
+        "markup": 0.49,
+        "receiveAmount": 10705.76
       },
       "monese": {
         "rate": 107.7623,
@@ -9995,6 +9995,12 @@
         "fee": 1.58,
         "markup": null,
         "receiveAmount": 10649.54
+      },
+      "ria": {
+        "rate": 107.78,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 11029.17
       }
     }
   }

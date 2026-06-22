@@ -9427,10 +9427,10 @@
     "date": "2026-06-22",
     "providers": {
       "moneygram": {
-        "rate": 66.2943,
+        "rate": 66.289,
         "fee": 3.99,
-        "markup": 0.62,
-        "receiveAmount": 6364.92
+        "markup": 0.37,
+        "receiveAmount": 6364.41
       },
       "skrill": {
         "rate": 65.8979,
@@ -9445,16 +9445,16 @@
         "receiveAmount": 6633.78
       },
       "dahabshiil": {
-        "rate": 66.5371,
+        "rate": 66.4746,
         "fee": 2.69,
-        "markup": 0.26,
-        "receiveAmount": 6474.73
+        "markup": 0.1,
+        "receiveAmount": 6468.64
       },
       "worldremit": {
-        "rate": 65.9638,
+        "rate": 65.7858,
         "fee": 1.99,
-        "markup": 1.11,
-        "receiveAmount": 6465.11
+        "markup": 1.13,
+        "receiveAmount": 6447.67
       },
       "instarem": {
         "rate": 66.1259,
@@ -9463,16 +9463,16 @@
         "receiveAmount": 6612.59
       },
       "paysend": {
-        "rate": 66.6231,
+        "rate": 66.5198,
         "fee": 0,
-        "markup": 0.13,
-        "receiveAmount": 6662.31
+        "markup": 0.03,
+        "receiveAmount": 6651.98
       },
       "koho": {
-        "rate": 66.6243,
+        "rate": 66.5204,
         "fee": 1.25,
-        "markup": 0.12,
-        "receiveAmount": 6579.15
+        "markup": 0.03,
+        "receiveAmount": 6568.89
       },
       "remitly": {
         "rate": 66.2587,
