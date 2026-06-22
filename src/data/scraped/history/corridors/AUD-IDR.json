@@ -3514,5 +3514,58 @@
         "receiveAmount": 1229376.41
       }
     }
+  },
+  {
+    "date": "2026-06-22",
+    "providers": {
+      "taptap-send": {
+        "rate": 12500,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1250000
+      },
+      "xoom": {
+        "rate": 12211.5096,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1221150.96
+      },
+      "paypal": {
+        "rate": 12044.547,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1144231.96
+      },
+      "nab": {
+        "rate": 12118.2695,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1211826.95
+      },
+      "remitly": {
+        "rate": 12179.4972,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1205892.02
+      },
+      "commonwealth-bank": {
+        "rate": 11805.382,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1180538.2
+      },
+      "western-union": {
+        "rate": 12479.5856,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1247958.56
+      },
+      "instarem": {
+        "rate": 12448.8932,
+        "fee": 0.7,
+        "markup": null,
+        "receiveAmount": 1236175.1
+      }
+    }
   }
 ]
