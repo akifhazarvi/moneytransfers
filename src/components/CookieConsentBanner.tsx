@@ -104,7 +104,7 @@ export default function CookieConsentBanner() {
         <div className="flex gap-2">
           <button
             onClick={accept}
-            className="flex-1 h-9 px-4 text-[13px] font-semibold bg-[var(--color-primary)] text-white rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+            className="flex-1 h-9 px-4 text-[13px] font-semibold bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full hover:bg-[var(--color-cta-hover)] transition-colors"
           >
             Accept
           </button>

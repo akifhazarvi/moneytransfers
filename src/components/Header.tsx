@@ -62,11 +62,14 @@ const navLinks = [
     ),
   },
   {
-    href: "/contact" as const,
-    labelKey: "contact" as const,
+    // Business hub — surfaces the live /business/compare provider tool.
+    // Replaced Contact in the top nav 2026-06-22 (Contact stays in the footer);
+    // business payments is the highest-AI-citation-share commercial cluster.
+    href: "/business" as const,
+    labelKey: "business" as const,
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     ),
   },
@@ -101,7 +104,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-[var(--color-surface)] sticky top-0 z-50 border-b border-[var(--color-outline)]">
+    <header className="sticky top-0 z-50 bg-[color-mix(in_srgb,var(--color-surface)_78%,transparent)] backdrop-blur-xl supports-[backdrop-filter]:bg-[color-mix(in_srgb,var(--color-surface)_72%,transparent)] shadow-[var(--shadow-xs)]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
@@ -127,10 +130,10 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`px-3 py-2 text-2sm font-medium rounded-lg transition-colors ${
+                  className={`px-3.5 py-2 text-2sm font-medium rounded-full transition-all duration-200 ${
                     active
-                      ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"
-                      : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
+                      ? "text-[var(--color-surface)] bg-[var(--color-on-surface)] shadow-[var(--shadow-sm)]"
+                      : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)]"
                   }`}
                 >
                   {t(link.labelKey)}
@@ -144,7 +147,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 h-12 px-2.5 rounded-full hover:bg-[var(--color-surface-container)] transition-colors text-2sm font-medium text-[var(--color-on-surface-variant)]"
+                className="flex items-center gap-1.5 h-11 px-3 rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]"
                 aria-label="Switch language"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,17 +158,17 @@ export default function Header() {
               {langOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
-                  <div className="absolute right-0 top-full mt-1 z-50 bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl shadow-lg py-1 min-w-[120px]">
+                  <div className="absolute right-0 top-full mt-2 z-50 bg-[var(--color-surface)] rounded-2xl shadow-[var(--shadow-lg)] p-1.5 min-w-[140px]">
                     {routing.locales.map((loc) => (
                       <button
                         key={loc}
                         onClick={() => switchLocale(loc)}
                         lang={loc}
                         aria-label={`Switch to ${localeNames[loc] ?? loc.toUpperCase()}`}
-                        className={`w-full text-left px-4 py-2 text-2sm transition-colors ${
+                        className={`w-full text-left px-3.5 py-2 rounded-xl text-2sm transition-all duration-150 ${
                           loc === locale
-                            ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)] font-medium"
-                            : "text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]"
+                            ? "text-[var(--color-surface)] bg-[var(--color-on-surface)] font-medium"
+                            : "text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)]"
                         }`}
                       >
                         {localeNames[loc] ?? loc.toUpperCase()}
@@ -179,7 +182,7 @@ export default function Header() {
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
-              className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container)] transition-colors"
+              className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200"
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
               {theme === "dark" ? (
@@ -195,7 +198,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container)] transition-colors"
+              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -212,7 +215,7 @@ export default function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <nav aria-label="Mobile navigation" className="lg:hidden py-3 border-t border-[var(--color-outline)]">
+          <nav aria-label="Mobile navigation" className="lg:hidden py-3 mt-1 border-t border-[color-mix(in_srgb,var(--color-on-surface)_8%,transparent)]">
             {navLinks.map((link) => {
               const active = link.href === "/" ? pathname === "/" : pathname === link.href || pathname.startsWith(link.href + "/");
               return (
@@ -220,10 +223,10 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-2 py-3 px-3 text-sm rounded-lg transition-colors ${
+                  className={`flex items-center gap-3 py-3 px-3.5 text-sm rounded-2xl transition-all duration-200 ${
                     active
-                      ? "text-[var(--color-primary)] bg-[var(--color-primary-surface)]"
-                      : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container)]"
+                      ? "text-[var(--color-surface)] bg-[var(--color-on-surface)] font-medium shadow-[var(--shadow-sm)]"
+                      : "text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)] hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)]"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >

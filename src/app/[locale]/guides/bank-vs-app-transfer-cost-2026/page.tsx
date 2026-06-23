@@ -175,7 +175,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
             </p>
             <a
               href="/api/data/bank-vs-app-cost"
-              className="mt-3 inline-block rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-medium text-white hover:opacity-90"
+              className="mt-3 inline-block rounded-full bg-[var(--color-cta)] px-5 py-2.5 text-sm font-semibold text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] transition-colors"
             >
               Download CSV ({idx.dataAsOf})
             </a>

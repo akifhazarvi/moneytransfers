@@ -5,7 +5,7 @@ interface BaseProps {
   children: ReactNode;
   className?: string;
   size?: "sm" | "md" | "lg";
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "gold";
 }
 
 interface ButtonProps extends BaseProps {
@@ -28,14 +28,19 @@ const sizeMap = {
 };
 
 const variantMap = {
-  primary:   "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]",
-  secondary: "border border-[var(--color-outline)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)]",
+  // Ink-filled in light, near-white pill in dark (Wealthsimple). Uses --color-cta
+  // so it never washes out to pale periwinkle on charcoal. Carries the brand shadow.
+  primary:   "bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)]",
+  // Floating white pill — what the screenshots actually use for secondary actions.
+  secondary: "bg-[var(--color-surface)] text-[var(--color-on-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]",
+  // Gold — reserved for the "best pick / apply" moment, the one warm accent.
+  gold:      "text-[#1A1916] hover:brightness-[1.04] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] [background:var(--gradient-gold)]",
 };
 
 export default function PrimaryButton(props: Props) {
   const { children, className = "", size = "md", variant = "primary" } = props;
   const base =
-    "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98]";
+    "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]";
 
   const classes = `${base} ${variantMap[variant]} ${sizeMap[size]} ${className}`.trim();
 

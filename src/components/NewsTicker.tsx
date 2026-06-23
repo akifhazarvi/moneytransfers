@@ -12,11 +12,13 @@ interface NewsTickerItem {
   publishedAt: string;
 }
 
+// Themed pastel chips (respect light/dark + the brand palette) instead of
+// hardcoded Tailwind colors that ignored the design tokens.
 const categoryColor: Record<string, string> = {
-  Regulatory: "bg-amber-100 text-amber-800",
-  "Industry News": "bg-blue-100 text-blue-800",
-  Announcement: "bg-green-100 text-green-800",
-  "Provider Update": "bg-purple-100 text-purple-800",
+  Regulatory: "bg-[var(--tile-butter-bg)] text-[var(--tile-butter-ink)]",
+  "Industry News": "bg-[var(--tile-sky-bg)] text-[var(--tile-sky-ink)]",
+  Announcement: "bg-[var(--tile-mint-bg)] text-[var(--tile-mint-ink)]",
+  "Provider Update": "bg-[var(--tile-lavender-bg)] text-[var(--tile-lavender-ink)]",
 };
 
 function formatDate(dateStr: string) {
@@ -43,10 +45,10 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
   const visible = items.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
 
   return (
-    <section className="bg-[var(--color-surface)] border-b border-[var(--color-outline)] py-8">
+    <section className="bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)] py-14 sm:py-20">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center justify-between mb-7">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-60" />
@@ -94,7 +96,7 @@ export default function NewsTicker({ items }: { items: NewsTickerItem[] }) {
             <Link
               key={item.slug}
               href={`/news/${item.slug}`}
-              className="flex flex-col bg-[var(--color-surface-dim)] rounded-2xl p-5 hover:shadow-[var(--shadow-md)] transition-shadow group"
+              className="flex flex-col bg-[var(--color-surface)] rounded-[20px] p-6 ring-1 ring-[var(--color-outline)]/70 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-0.5 transition-all duration-200 group"
             >
               <div className="flex items-center gap-2 mb-3">
                 <span

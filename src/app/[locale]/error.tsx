@@ -22,7 +22,7 @@ export default function Error({
       <div className="flex flex-wrap items-center justify-center gap-3">
         <button
           onClick={reset}
-          className="inline-flex items-center gap-2 h-10 px-6 text-sm font-medium rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors"
+          className="inline-flex items-center gap-2 h-10 px-6 text-sm font-medium rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] transition-colors"
         >
           {t("tryAgain")}
         </button>

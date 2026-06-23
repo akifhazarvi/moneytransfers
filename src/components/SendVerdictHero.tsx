@@ -163,7 +163,7 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
   const moreThanWorst = data.receiveNow - data.receiveWorst;
 
   return (
-    <div className={embedded ? "h-full" : "rounded-3xl border border-[var(--color-outline)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] overflow-hidden"}>
+    <div className={embedded ? "h-full" : "ws-card overflow-hidden"}>
       {/* Controls */}
       <div className="flex flex-col sm:flex-row sm:items-end gap-3 px-5 sm:px-7 pt-5 sm:pt-7">
         <CorridorPicker label="Send" value={from} onChange={onFrom} options={fromOptions} />
@@ -213,8 +213,8 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
                 {cfg.icon}
               </span>
               <div>
-                <p className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] leading-tight">{copy.head}</p>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)]">
+                <p className="font-display text-2xl sm:text-3xl font-normal text-[var(--color-on-surface)] leading-tight">{copy.head}</p>
+                <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
                   Today beats <strong className="text-[var(--color-on-surface)]">{data.levelPct}%</strong> of the last {data.daysTracked} days
                 </p>
               </div>
@@ -225,8 +225,8 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
               <p className="text-[13px] text-[var(--color-on-surface-variant)]">
                 Send {sym(from)}{fmtInt(amount)} {from}, your recipient gets
               </p>
-              <p className="text-4xl sm:text-5xl font-bold text-[var(--color-on-surface)] tabular-nums tracking-tight mt-1">
-                {fmtInt(data.receiveNow)} <span className="text-2xl sm:text-3xl text-[var(--color-on-surface-variant)] font-semibold">{to}</span>
+              <p className="font-display text-5xl sm:text-6xl font-normal text-[var(--color-on-surface)] tabular-nums tracking-tight mt-1 leading-none">
+                {fmtInt(data.receiveNow)} <span className="text-2xl sm:text-3xl text-[var(--color-on-surface-variant)] font-normal">{to}</span>
               </p>
               <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-1.5">
                 via <strong className="text-[var(--color-on-surface)]">{getProviderName(data.bestProviderSlug)}</strong>
@@ -257,7 +257,7 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
               target="_blank"
               rel="noopener noreferrer nofollow"
               onClick={() => trackProviderClicked(data.bestProviderSlug, `${from}-${to}`, 1, "verdict_hero")}
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[var(--color-primary)] text-white text-base font-semibold hover:bg-[var(--color-primary-dark)] shadow-sm transition-all"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-success-dark)] px-5 py-3.5 text-base font-semibold text-white shadow-[var(--shadow-success)] hover:bg-[var(--color-success-hover)] hover:shadow-[var(--shadow-success-lg)] active:scale-[0.99] transition-all"
             >
               Send with {getProviderName(data.bestProviderSlug)}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -272,10 +272,10 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
           </>
         ) : (
           <div className="py-6 text-center">
-            <p className="text-base font-semibold text-[var(--color-on-surface)]">
+            <p className="font-display text-xl font-normal text-[var(--color-on-surface)]">
               No rate history for {from} → {to} yet
             </p>
-            <Link href="/send-money" className="mt-3 inline-flex items-center justify-center px-5 py-3 rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold hover:bg-[var(--color-primary-dark)]">
+            <Link href="/send-money" className="ws-pill-ink mt-4 justify-center px-5 py-3 text-sm">
               Compare providers
             </Link>
           </div>

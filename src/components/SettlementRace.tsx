@@ -238,7 +238,7 @@ export default function SettlementRace() {
           <button
             onClick={play}
             disabled={running}
-            className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-4 py-1.5 text-2xs font-semibold uppercase tracking-wide text-white disabled:opacity-60 hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-cta)] px-4 py-1.5 text-2xs font-semibold uppercase tracking-wide text-[var(--color-cta-text)] disabled:opacity-60 hover:opacity-90 transition-opacity"
           >
             {running ? "Racing…" : "Replay ↺"}
           </button>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import AdSenseLoader from "@/components/AdSenseLoader";
 
@@ -14,6 +14,17 @@ const inter = Inter({
   // (Inter is a variable font — omitting `weight` loads one woff2 covering all
   // weights, which is smaller than pinning multiple static instances.)
   fallback: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+});
+
+// Display serif — the Wealthsimple-style confident headline face. Loaded
+// globally (single 400 weight, ~small woff2) so `--font-display` headings are
+// consistent on every route, not just /exchange-rates. Falls back to Georgia.
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-instrument-serif",
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -77,7 +88,7 @@ export default function RootLayout({
   // Cache-Control: no-store. That was the real root cause of the May 2026
   // deindex (not the geo cookies). With one locale there is nothing to read.
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`} suppressHydrationWarning>
       <head>
         {/* Only GTM is on the critical path (loads in the initial document).
             Trustpilot's widget and the er-api forex fetch both fire after

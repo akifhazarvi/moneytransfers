@@ -145,22 +145,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
-      <Container className="py-12 sm:py-16">
+    <footer className="ws-footer text-white">
+      <Container className="py-14 sm:py-20">
         {/* ── Layer 1 — 4 lean columns ─────────────────────────────────── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 mb-10 sm:mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 mb-10 sm:mb-14">
           {primaryColumns.map((section) => (
             <div key={section.titleKey}>
-              <p className="text-xs font-semibold text-[var(--color-on-surface)] uppercase tracking-wider mb-4">
+              <p className="text-xs font-semibold text-white/55 uppercase tracking-[0.12em] mb-5">
                 {t(section.titleKey)}
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-3.5">
                 {section.links.map((link) => (
                   <li key={link.labelKey}>
                     <Link
                       href={link.href}
                       {...(link.noFollow && { rel: "nofollow" })}
-                      className="text-sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors"
+                      className="text-sm text-white/70 hover:text-white transition-colors"
                     >
                       {t(link.labelKey)}
                     </Link>
@@ -176,12 +176,12 @@ export default function Footer() {
             replaced 42 dead corridor links (35 total Bing impr) with curated
             sets of /iban/, /swift-codes/, /guides/ winners — concentrates
             link equity on the pages that actually rank organically. */}
-        <div className="border-t border-[var(--color-outline)] pt-6 mb-10 sm:mb-12 grid sm:grid-cols-2 gap-x-8 sm:gap-y-0">
+        <div className="border-t border-white/10 pt-6 mb-10 sm:mb-12 grid sm:grid-cols-2 gap-x-8 sm:gap-y-0">
           <FooterDisclosure label={`Top money transfer guides (${topGuides.length})`}>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
               {topGuides.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                  <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -193,7 +193,7 @@ export default function Footer() {
             <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
               {ibanCountries.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                  <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -205,7 +205,7 @@ export default function Footer() {
             <ul className="flex flex-wrap gap-x-5 gap-y-2 pt-3">
               {swiftCountries.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                  <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -216,11 +216,11 @@ export default function Footer() {
           <FooterDisclosure label={`Provider reviews & comparisons (${providerReviews.length + popularComparisons.length})`}>
             <div className="pt-3 grid grid-cols-1 gap-y-4">
               <div>
-                <p className="text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">Reviews</p>
+                <p className="text-2xs font-semibold text-white/45 uppercase tracking-[0.12em] mb-2">Reviews</p>
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
                   {providerReviews.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                      <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
                         {link.label}
                       </Link>
                     </li>
@@ -228,11 +228,11 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <p className="text-2xs font-semibold text-[var(--color-on-surface-variant)] uppercase tracking-wider mb-2">Head-to-head</p>
+                <p className="text-2xs font-semibold text-white/45 uppercase tracking-[0.12em] mb-2">Head-to-head</p>
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
                   {popularComparisons.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className="text-2sm text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">
+                      <Link href={link.href} className="text-2sm text-white/65 hover:text-white transition-colors">
                         {link.label}
                       </Link>
                     </li>
@@ -244,33 +244,33 @@ export default function Footer() {
         </div>
 
         {/* ── Layer 3 — brand + legal + trust ──────────────────────────── */}
-        <div className="border-t border-[var(--color-outline)] pt-8">
+        <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             {/* Brand — matches Header */}
             <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-2.5 shrink-0">
               <svg width="26" height="26" viewBox="0 0 30 30" aria-hidden="true" focusable="false">
-                <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-primary)" />
+                <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-accent)" />
                 <path d="M14.5 19.5L26.5 4.5" stroke="var(--color-surface)" strokeWidth="0.8" opacity="0.8" />
-                <path d="M14.5 19.5L21 27L18 20.5Z" fill="var(--color-primary)" opacity="0.45" />
+                <path d="M14.5 19.5L21 27L18 20.5Z" fill="var(--color-accent)" opacity="0.45" />
               </svg>
-              <span className="text-[17px] tracking-[-0.4px] text-[var(--color-on-surface)]">
+              <span className="text-[17px] tracking-[-0.4px] text-white">
                 <span className="font-extrabold">Send</span>
-                <span className="font-normal text-[var(--color-on-surface-variant)]">money</span>
+                <span className="font-normal text-white/60">money</span>
               </span>
             </Link>
 
             {/* Legal — inline, separated by dots (Apple style) */}
-            <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-[var(--color-on-surface-variant)]">
+            <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-white/55">
               {legalLinks.map((link, i) => (
                 <span key={link.labelKey} className="flex items-center gap-1.5">
                   <Link
                     href={link.href}
                     rel="nofollow"
-                    className="hover:text-[var(--color-primary)] transition-colors"
+                    className="hover:text-white transition-colors"
                   >
                     {t(link.labelKey)}
                   </Link>
-                  {i < legalLinks.length - 1 && <span aria-hidden="true">·</span>}
+                  {i < legalLinks.length - 1 && <span aria-hidden="true" className="text-white/30">·</span>}
                 </span>
               ))}
             </nav>
@@ -278,7 +278,7 @@ export default function Footer() {
             {/* Trust + copyright */}
             <div className="flex items-center gap-4">
               <LazyTrustpilot />
-              <span className="text-xs text-[var(--color-on-surface-variant)] whitespace-nowrap">
+              <span className="text-xs text-white/55 whitespace-nowrap">
                 {t("copyright", { year: new Date().getFullYear() })}
               </span>
             </div>
@@ -286,7 +286,7 @@ export default function Footer() {
 
           {/* Disclaimer — single muted line, full width */}
           <p
-            className="text-2xs text-[var(--color-on-surface-variant)] leading-relaxed mt-6 max-w-3xl"
+            className="text-2xs text-white/45 leading-relaxed mt-6 max-w-3xl"
             data-nosnippet=""
           >
             {t("footerDisclaimer")}
@@ -301,10 +301,10 @@ export default function Footer() {
 function FooterDisclosure({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <details className="group">
-      <summary className="flex items-center justify-between cursor-pointer list-none py-2.5 text-2sm font-medium text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors min-h-[44px]">
+      <summary className="flex items-center justify-between cursor-pointer list-none py-2.5 text-2sm font-medium text-white/80 hover:text-white transition-colors min-h-[44px]">
         <span>{label}</span>
         <svg
-          className="w-4 h-4 shrink-0 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform"
+          className="w-4 h-4 shrink-0 text-white/45 group-open:rotate-180 transition-transform"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

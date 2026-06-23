@@ -145,9 +145,23 @@ export default async function BusinessHubPage({
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed max-w-2xl">
               Banks charge $25–$50 per wire plus 2–5% FX markup. Specialist
-              providers like Wise Business, OFX, and Revolut cut that by
+              providers like Wise Business, OFX, and Airwallex cut that by
               80–95%. Compare the best options for your business.
             </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                href="/business/compare"
+                className="inline-block rounded-full bg-[var(--color-cta)] px-5 py-2.5 text-sm font-semibold text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] transition-colors"
+              >
+                Compare 6 business providers →
+              </Link>
+              <Link
+                href="/send-money"
+                className="inline-block rounded-full border border-[var(--color-outline)] px-5 py-2.5 text-sm font-medium text-[var(--color-on-surface)] hover:border-[var(--color-primary)]"
+              >
+                Get a live quote
+              </Link>
+            </div>
           </div>
         </Container>
       </section>

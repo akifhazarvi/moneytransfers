@@ -10,10 +10,10 @@ export default function FilterPill({ label, active = false, dropdown = false, on
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-1.5 h-8 px-3 rounded-full text-2sm font-medium transition-colors ${
+      className={`flex items-center gap-1.5 h-8 px-3.5 rounded-full text-2sm font-medium transition-all ${
         active
-          ? "bg-[var(--color-primary-surface)] text-[var(--color-primary)] border border-[var(--color-primary)]"
-          : "border border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-container)]"
+          ? "bg-[var(--color-primary)] text-white border border-transparent shadow-[var(--shadow-primary)]"
+          : "bg-[var(--color-surface)] border border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-on-surface-variant)] hover:shadow-[var(--shadow-sm)] hover:-translate-y-px"
       }`}
     >
       {icon}

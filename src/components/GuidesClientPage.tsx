@@ -125,16 +125,16 @@ export default function GuidesClientPage({ posts, categories, translations }: Pr
       {safePage === 1 && (
         <Link
           href={`/guides/${featured.slug}`}
-          className="block bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-mid)] rounded-2xl p-8 md:p-12 mb-8 text-white hover:shadow-lg transition-shadow"
+          className="ws-card-interactive ws-hero block px-8 py-10 md:px-12 md:py-14 mb-8 text-white"
         >
-          <span className="text-xs font-medium bg-[var(--color-surface)]/20 px-3 py-1 rounded-full">
+          <span className="text-xs font-medium uppercase tracking-wide text-white/70 bg-white/10 px-3 py-1 rounded-full">
             {translations.featuredGuide}
           </span>
-          <h2 className="text-2xl md:text-3xl font-normal mt-4 mb-3">{featured.title}</h2>
-          <p className="text-sm text-white/80 mb-6 max-w-2xl">{featured.excerpt}</p>
+          <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] tracking-[-0.015em] mt-5 mb-4 max-w-3xl">{featured.title}</h2>
+          <p className="text-md text-white/70 leading-relaxed mb-7 max-w-2xl">{featured.excerpt}</p>
           <div className="flex items-center gap-4">
-            <span className="text-2sm text-white/60">{featured.readTime}</span>
-            <span className="bg-[var(--color-surface)] text-[var(--color-primary)] px-6 py-2 rounded-full text-2sm font-medium">
+            <span className="text-2sm text-white/55">{featured.readTime}</span>
+            <span className="ws-pill">
               {translations.readGuide}
             </span>
           </div>
@@ -235,11 +235,11 @@ export default function GuidesClientPage({ posts, categories, translations }: Pr
                       setPage(1);
                       topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
                     }}
-                    className="text-left bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl p-5 shadow-[var(--shadow-xs)] hover:shadow-[var(--shadow-md)] hover:border-[var(--color-on-surface-muted)] transition-all duration-200"
+                    className="ws-card ws-card-interactive text-left p-6"
                   >
                     <div className="flex items-center gap-3 mb-2">
                       {Icon && (
-                        <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] shrink-0">
+                        <span className="ws-tile ws-tile-sky w-9 h-9">
                           <Icon className="w-4 h-4" />
                         </span>
                       )}

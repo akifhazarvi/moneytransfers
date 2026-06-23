@@ -43,7 +43,7 @@ export default function InlineQuoteCTA({
       className={`inline-flex items-center justify-center gap-1.5 ${fullWidth ? "w-full h-10" : "h-9 px-4"} text-2sm font-semibold rounded-full transition-colors ${
         isBest
           ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
-          : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
+          : "bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)]"
       }`}
       aria-label={`Send with ${providerName}`}
     >
