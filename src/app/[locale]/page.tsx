@@ -179,20 +179,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             live converter card on the right. Balanced two-column, vertically centered. */}
         <section className="ws-hero-band relative overflow-hidden">
           <div className="ws-hero-grain" />
-          <div className="relative z-[1] mx-auto max-w-6xl px-6 sm:px-10 lg:px-12 py-16 sm:py-20 lg:py-24">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Left — the message (white on navy) */}
-              <div className="text-center lg:text-left">
+          <div className="relative z-[1] mx-auto max-w-6xl px-6 sm:px-10 lg:px-12 py-10 sm:py-20 lg:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+              {/* Left — the message (white on navy). Mobile is trimmed so the
+                  converter widget rises near the fold; full copy returns on lg. */}
+              <div className="min-w-0 text-center lg:text-left">
                 <span className="text-2sm font-semibold text-white/60">International money transfers</span>
-                <h1 className="text-[44px] sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0] tracking-[-0.03em] mt-3 text-balance">
+                <h1 className="text-[30px] sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] tracking-[-0.02em] mt-2 lg:mt-3 text-balance break-words">
                   {tHero("title")}{" "}
                   <span className="text-white/55">{tHero("titleHighlight")}</span>
                 </h1>
-                <p className="text-base sm:text-lg text-white/70 mt-5 max-w-md mx-auto lg:mx-0 leading-relaxed">
+                <p className="hidden sm:block text-base sm:text-lg text-white/70 mt-5 max-w-md mx-auto lg:mx-0 leading-relaxed">
                   Your money is going places. Keep more of it — compare <span className="font-semibold text-white">50+ apps</span> on real rates and fees across 64+ currencies. No signup.
                 </p>
-                {/* Trust row */}
-                <div className="flex items-center justify-center lg:justify-start gap-5 mt-7 text-white/55 text-xs font-medium">
+                {/* Trust row — hidden on the smallest screens to keep the widget high */}
+                <div className="hidden sm:flex items-center justify-center lg:justify-start gap-5 mt-7 text-white/55 text-xs font-medium">
                   <span className="flex items-center gap-1.5">
                     <svg className="w-4 h-4 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.8 4.7 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>
                     Trustpilot rated
@@ -205,7 +206,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
 
               {/* Right — live converter card */}
-              <div className="w-full max-w-[440px] mx-auto lg:ml-auto">
+              <div className="min-w-0 w-full max-w-[440px] mx-auto lg:ml-auto">
                 <HeroConverterCard defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
               </div>
             </div>

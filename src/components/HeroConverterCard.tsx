@@ -143,7 +143,7 @@ export default function HeroConverterCard({
               }}
               onBlur={() => { if (!amountStr || Number(amountStr) <= 0) setAmountStr("1"); }}
               aria-label="Amount to send"
-              className="min-w-0 flex-1 bg-transparent text-right text-3xl font-bold tabular-nums text-[var(--color-on-surface)] outline-none tracking-tight caret-[var(--color-primary)]"
+              className="min-w-0 flex-1 bg-transparent text-right text-2xl sm:text-3xl font-bold tabular-nums text-[var(--color-on-surface)] outline-none tracking-tight caret-[var(--color-primary)]"
             />
           </div>
           {/* Live rate — quiet line under the amount */}
@@ -177,7 +177,7 @@ export default function HeroConverterCard({
         type="submit"
         className="w-full h-12 rounded-[14px] bg-[var(--color-cta)] text-[var(--color-cta-text)] font-semibold text-sm hover:bg-[var(--color-cta-hover)] active:scale-[0.99] transition-all flex items-center justify-center gap-2"
       >
-        See all providers
+        Compare money transfer apps
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
       </button>
     </form>
