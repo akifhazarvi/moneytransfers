@@ -1927,16 +1927,16 @@
     "date": "2026-06-23",
     "providers": {
       "paysend": {
-        "rate": 13.3993,
+        "rate": 13.4112,
         "fee": 0,
-        "markup": 1.4,
-        "receiveAmount": 1339.93
+        "markup": 1.12,
+        "receiveAmount": 1341.12
       },
       "remitly": {
-        "rate": 13.44,
+        "rate": 13.45,
         "fee": 6,
-        "markup": 1.1,
-        "receiveAmount": 1263.36
+        "markup": 0.84,
+        "receiveAmount": 1264.3
       },
       "taptap-send": {
         "rate": 13.5,
