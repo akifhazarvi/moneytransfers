@@ -145,7 +145,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="ws-footer text-white">
+    <footer className="text-white [background:var(--gradient-hero)] dark:[background:var(--color-surface-dim)]">
       <Container className="py-14 sm:py-20">
         {/* ── Layer 1 — 4 lean columns ─────────────────────────────────── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 mb-10 sm:mb-14">
