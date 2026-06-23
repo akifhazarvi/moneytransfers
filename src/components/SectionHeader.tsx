@@ -24,21 +24,21 @@ export default function SectionHeader({
           className={`h-[3px] w-9 bg-[var(--color-accent)] rounded-full mb-4 ${centered ? "mx-auto" : ""}`}
         />
       )}
-      <div className={`flex items-center ${centered ? "justify-center" : "justify-between"}`}>
-        <h2 className="text-h4 font-semibold text-[var(--color-on-surface)] tracking-[-0.01em]">
+      <div className={`flex items-baseline ${centered ? "justify-center" : "justify-between"}`}>
+        <h2 className="font-display text-3xl sm:text-4xl font-normal text-[var(--color-on-surface)] leading-[1.1] tracking-[-0.01em]">
           {title}
         </h2>
         {viewAllHref && (
           <Link
             href={viewAllHref}
-            className="text-2sm font-medium text-[var(--color-primary)] hover:underline shrink-0 ml-4"
+            className="ws-pill shrink-0 ml-4"
           >
             {viewAllLabel} →
           </Link>
         )}
       </div>
       {subtitle && (
-        <p className="mt-1.5 text-md text-[var(--color-on-surface-variant)] max-w-[600px]">
+        <p className="mt-2.5 text-md text-[var(--color-on-surface-variant)] max-w-[600px] leading-relaxed">
           {subtitle}
         </p>
       )}

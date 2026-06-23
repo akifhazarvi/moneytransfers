@@ -88,7 +88,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   // slice from /api/rate-insight so the full dataset stays out of this bundle.
 
   return (
-    <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface-dim)] border-2 border-[var(--color-success-dark)]/20 rounded-2xl -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
+    <div className={`relative transition-all duration-200 ${isBest ? "bg-[var(--color-success-surface)] ring-1 ring-[var(--color-success-dark)]/25 rounded-[20px] shadow-[var(--shadow-md)] -mx-px -mt-px z-[1]" : "bg-[var(--color-surface)] border-b border-[var(--color-outline)] last:border-b-0"} ${expanded ? "" : "hover:bg-[var(--color-surface-dim)]"}`}>
       {isBest && (
         <div className="absolute -top-px left-4 sm:left-6 z-10">
           <div className="bg-[var(--color-success-dark)] text-white text-2xs font-semibold tracking-wide uppercase px-3 py-1 rounded-b-lg shadow-sm flex items-center gap-1.5">
@@ -171,11 +171,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   e.stopPropagation();
                   trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank, "results_row_mobile");
                 }}
-                className={`inline-flex items-center gap-1.5 h-11 px-4 text-sm font-bold rounded-full transition-all active:scale-95 ${
-                  isBest
-                    ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]"
-                    : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm"
-                }`}
+                className={`inline-flex items-center gap-1.5 h-11 px-4 text-sm font-bold rounded-full transition-all active:scale-95 bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]`}
                 aria-label={`Send with ${providerName}`}
               >
                 {isBest ? "Send →" : "Send"}
@@ -296,14 +292,17 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
 
           <div className="flex-1 min-w-0" />
 
-          <div className="text-right shrink-0 mr-1">
+          {/* Fixed-width amount column so amounts right-align on a consistent edge
+              and the Send button always starts at the same x across all rows. */}
+          <div className="text-right shrink-0 w-[150px]">
             <p className={`tabular-nums font-semibold tracking-tight ${isBest ? "text-h4 sm:text-2xl text-[var(--color-success-dark)]" : "text-lg sm:text-xl text-[var(--color-on-surface)]"}`}>
               {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
             <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
           </div>
 
-          {/* Collapsed CTA — always visible, no expand needed */}
+          {/* Collapsed CTA — always visible, no expand needed. Fixed width so the
+              pills line up vertically down the column. */}
           <a
             href={providerWebsite}
             target="_blank"
@@ -312,11 +311,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               e.stopPropagation();
               trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank, "results_row");
             }}
-            className={`shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-2sm font-semibold rounded-full transition-all duration-150 shadow-sm hover:shadow ${
-              isBest
-                ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
-                : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
-            }`}
+            className={`shrink-0 inline-flex items-center justify-center gap-1.5 h-9 w-[104px] text-2sm font-semibold rounded-full transition-all duration-150 bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]`}
             aria-label={`Send with ${providerName}`}
           >
             <span className="hidden lg:inline">Send</span>
@@ -389,11 +384,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank)}
-                  className={`inline-flex items-center justify-center gap-2 h-12 px-6 text-sm font-bold rounded-full transition-all duration-150 active:scale-[0.98] w-full sm:w-auto ${
-                    isBest
-                      ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success-lg)] hover:shadow-[var(--shadow-success-lg)]"
-                      : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow"
-                  }`}
+                  className={`inline-flex items-center justify-center gap-2 h-12 px-6 text-sm font-bold rounded-full transition-all duration-150 active:scale-[0.98] w-full sm:w-auto bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success-lg)]`}
                 >
                   {isBest && extraReceiveVsWorst && extraReceiveVsWorst > 0 ? (
                     <>

@@ -322,7 +322,7 @@ export default async function BlogPostPage({ params }: Props) {
 
           <div className="max-w-[720px]">
             {/* Category badge */}
-            <div className="inline-flex items-center gap-1.5 text-overline text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-3 py-1.5 rounded-full mb-5">
+            <div className="inline-flex items-center gap-1.5 text-overline text-[var(--tile-sky-ink)] bg-[var(--tile-sky-bg)] px-3 py-1.5 rounded-full mb-6">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
               </svg>
@@ -330,7 +330,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* H1 — Instrument Serif for editorial authority */}
-            <h1 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.18] tracking-[-0.02em] text-[var(--color-on-surface)] mb-4">
+            <h1 className="font-display text-[clamp(1.875rem,4.5vw,3rem)] font-normal leading-[1.12] tracking-[-0.02em] text-[var(--color-on-surface)] mb-5">
               {post.title}
             </h1>
 

@@ -242,7 +242,7 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
               target="_blank"
               rel="noopener noreferrer nofollow"
               onClick={() => providerInsight && trackProviderClicked(providerInsight.today.bestProvider, `${fromCurrency}-${toCurrency}`, 1, "rate_widget")}
-              className="flex-1 text-center inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold hover:bg-[var(--color-primary-dark)] shadow-sm transition-all"
+              className="flex-1 text-center inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] text-sm font-semibold hover:bg-[var(--color-cta-hover)] shadow-sm transition-all"
             >
               Send {fromCurrency} → {toCurrency}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -253,7 +253,7 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
         ) : (
           <Link
             href="/send-money"
-            className="flex-1 text-center px-4 py-2.5 rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold hover:bg-[var(--color-primary-dark)] shadow-sm transition-all"
+            className="flex-1 text-center px-4 py-2.5 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] text-sm font-semibold hover:bg-[var(--color-cta-hover)] shadow-sm transition-all"
           >
             Compare providers for {fromCurrency} → {toCurrency}
           </Link>

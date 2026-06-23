@@ -140,26 +140,28 @@ function DefaultReview({
     <>
       <ScrollTracker slug={slug} contentType="review" />
       {/* Hero */}
-      <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8">
-          <nav className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-muted)] mb-6">
-            <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/companies" className="hover:text-[var(--color-primary)] transition-colors">Companies</Link>
-            <span>/</span>
-            <span className="text-[var(--color-on-surface-variant)]">{provider.name}</span>
-          </nav>
-          <div className="flex items-start gap-4">
-            <div className="w-16 h-16 rounded-2xl overflow-hidden shrink-0 border border-[var(--color-outline)] shadow-[var(--shadow-xs)] bg-white flex items-center justify-center">
-              <Image src={provider.logo} alt={provider.name} width={64} height={64} className="object-contain p-1" />
-            </div>
-            <div>
-              <h1 className="font-display text-[clamp(1.5rem,3.5vw,2rem)] font-normal leading-[1.2] tracking-[-0.015em] text-[var(--color-on-surface)]">
-                {provider.name}
-              </h1>
-              <div className="flex items-center gap-3 mt-2">
-                <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />
-                <span className="text-2sm text-[var(--color-on-surface-variant)]">Est. {provider.founded}</span>
+      <div className="bg-[var(--color-surface-warm)]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-6 pb-8">
+          <div className="ws-hero px-6 sm:px-10 py-10 md:py-12">
+            <nav className="flex items-center gap-1.5 text-xs text-white/55 mb-8">
+              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <span>/</span>
+              <Link href="/companies" className="hover:text-white transition-colors">Companies</Link>
+              <span>/</span>
+              <span className="text-white/80">{provider.name}</span>
+            </nav>
+            <div className="flex items-start gap-5">
+              <div className="w-16 h-16 md:w-[72px] md:h-[72px] rounded-2xl overflow-hidden shrink-0 shadow-[var(--shadow-md)] bg-white flex items-center justify-center">
+                <Image src={provider.logo} alt={provider.name} width={72} height={72} className="object-contain p-1.5" />
+              </div>
+              <div>
+                <h1 className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-normal leading-[1.12] tracking-[-0.015em] text-white">
+                  {provider.name} <span className="italic text-white/55">review</span>
+                </h1>
+                <div className="flex items-center gap-3 mt-3">
+                  <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />
+                  <span className="text-2sm text-white/70">Est. {provider.founded}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -173,7 +175,7 @@ function DefaultReview({
             <Card>
               <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-5">{profile.summary}</p>
               <div className="flex gap-3">
-                <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_sidebar" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] h-9 px-5 text-2sm">Visit {provider.name}</ProviderLink>
+                <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_sidebar" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] h-9 px-5 text-2sm">Visit {provider.name}</ProviderLink>
                 <Link href="/send-money" className="inline-flex items-center h-9 px-5 border border-[var(--color-outline)] rounded-full text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
                   Compare Rates
                 </Link>

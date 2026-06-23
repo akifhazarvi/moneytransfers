@@ -3239,7 +3239,7 @@ export default async function CorridorPage({ params }: Props) {
                 </div>
                 <Link
                   href={`/send-money/${countryPageSlug}`}
-                  className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--color-primary)] text-white text-2sm font-medium hover:opacity-90 transition-opacity"
+                  className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] text-2sm font-medium hover:bg-[var(--color-cta-hover)] transition-opacity"
                 >
                   {corridor.toFlag} {corridor.toCountry} guide →
                 </Link>

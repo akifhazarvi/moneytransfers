@@ -19,64 +19,92 @@
 }
 
 :root {
-  /* ─── Brand Colors — Premium Indigo + Amber ─── */
-  --color-primary:         #2D3A8C;   /* Deep indigo — authority, premium */
-  --color-primary-dark:    #1E2761;   /* Deeper for hover states */
-  --color-primary-mid:     #3A5BA6;   /* Lighter indigo for hero gradients (white text safe) */
-  --color-primary-light:   #C7D2F6;   /* Light tint for borders */
-  --color-primary-surface: #EEF0FB;   /* Lightest tint for backgrounds */
+  /* ─── Brand Colors — Wealthsimple-inspired monochrome ink ─── */
+  /* The light UI is near-monochrome: near-black ink is the action color, on a
+     warm-grey canvas with pure-white floating cards. Navy lives in the hero
+     gradient + dark mode; indigo is a whisper accent; gold is the one material. */
+  --color-primary:         #14171C;   /* Near-black ink — the action/brand color */
+  --color-primary-dark:    #000000;   /* Pure black for hover/pressed */
+  --color-primary-mid:     #2E4570;   /* Navy mid-stop — only for hero gradients (white text safe) */
+  --color-primary-light:   #D5D8DD;   /* Neutral tint for borders */
+  --color-primary-surface: #EEF1F7;   /* Faint indigo-grey tint for backgrounds */
 
-  /* Accent — warm amber for CTAs, highlights, "best pick" */
-  --color-accent:          #F59E0B;
-  --color-accent-dark:     #D97706;
-  --color-accent-surface:  #FFFBEB;
+  /* Accent — muted gold (the only warmth, like the brand's coin imagery) */
+  --color-accent:          #C8893A;
+  --color-accent-dark:     #A66E27;
+  --color-accent-surface:  #FAF3E8;
+
+  /* CTA — filled primary buttons. Distinct from --color-primary (which is mostly
+     used as text/link ink, 405 uses). In light mode the CTA is near-black ink with
+     white text; in dark mode it flips to near-white with dark text (Wealthsimple's
+     white pill on charcoal) so a filled button never washes out to pale periwinkle. */
+  --color-cta:             #14171C;
+  --color-cta-hover:       #000000;
+  --color-cta-text:        #FFFFFF;
 
   /* ─── Semantic Colors ─── */
-  --color-success:         #059669;   /* Emerald — richer green */
-  --color-success-dark:    #047857;
-  --color-success-surface: #ECFDF5;
-  --color-success-surface-dim: #D1FAE5;
-  --color-success-hover:   #065F46;
+  /* Green retained for "cheapest pick" + Send — savings cue stays unmistakable. */
+  --color-success:         #1F7A4D;   /* Earthy, confident green */
+  --color-success-dark:    #166138;
+  --color-success-surface: #ECF6EF;
+  --color-success-surface-dim: #D4ECDC;
+  --color-success-hover:   #0F4F2C;
 
-  --color-danger:          #DC2626;
-  --color-danger-surface:  #FEF2F2;
+  --color-danger:          #C4452F;
+  --color-danger-surface:  #FBEEEA;
 
-  --color-warning:         #D97706;
-  --color-warning-dark:    #B45309;
-  --color-warning-surface: #FFFBEB;
+  --color-warning:         #B57A12;
+  --color-warning-dark:    #8F5F0D;
+  --color-warning-surface: #FBF3E2;
 
-  /* ─── Text Colors (Slate-based — more editorial) ─── */
-  --color-on-surface:         #0F172A;   /* Slate-950 — rich, not pure black */
-  --color-on-surface-variant: #475569;   /* Slate-600 */
-  --color-on-surface-muted:   #64748B;   /* Slate-500 — 4.6:1 contrast on white (AA) */
-  --color-outline:            #E2E8F0;   /* Slate-200 */
+  /* ─── Text Colors (warm near-black ink — editorial, restrained) ─── */
+  --color-on-surface:         #1A1916;   /* Warm near-black ink */
+  --color-on-surface-variant: #57544E;   /* Warm grey */
+  --color-on-surface-muted:   #837F77;   /* Warm muted grey — 4.5:1 on canvas (AA) */
+  --color-outline:            #E5E3DE;   /* Soft warm border */
 
-  /* ─── Surfaces ─── */
-  --color-surface:            #FFFFFF;
-  --color-surface-dim:        #F8FAFC;   /* Slate-50 */
-  --color-surface-container:  #F1F5F9;   /* Slate-100 */
-  --color-surface-warm:       #FAFAF8;   /* Warm off-white for article reading bg */
+  /* ─── Surfaces — warm-grey canvas, pure-white floating cards ─── */
+  --color-surface:            #FFFFFF;   /* Cards float as pure white */
+  --color-surface-dim:        #F2F1EE;   /* Warm-grey canvas (page background) */
+  --color-surface-container:  #ECEAE5;   /* Slightly deeper warm container */
+  --color-surface-warm:       #FAF8F4;   /* Article reading bg */
 
   /* ─── Legacy aliases (kept for backward compat with existing components) ─── */
-  --color-secondary:          #F59E0B;
+  --color-secondary:          #C8893A;
+
+  /* ─── Soft pastel accent set — for feature/category icon tiles ─── */
+  /* Low-saturation pastels (à la Wealthsimple's action menu). Each pairs a tile
+     background with an ink color that reads on it. Use for icon chips, never large fills. */
+  --tile-mint-bg:   #DCEDE2;  --tile-mint-ink:   #2E6B47;
+  --tile-lavender-bg:#E6E1F4; --tile-lavender-ink:#5A4B8A;
+  --tile-sage-bg:   #E4E9D4;  --tile-sage-ink:   #5C6B33;
+  --tile-butter-bg: #F4ECCF;  --tile-butter-ink: #8A6D1E;
+  --tile-sky-bg:    #DCE7F4;  --tile-sky-ink:    #355C8A;
+  --tile-blush-bg:  #F2E0DC;  --tile-blush-ink:  #8A4A3D;
+
+  /* ─── Gradients — the signature Wealthsimple hero look ─── */
+  /* Soft diagonal navy → lighter blue. Depth without noise; white text safe. */
+  --gradient-hero: linear-gradient(135deg, #11192E 0%, #1B2A4A 42%, #2E4570 100%);
+  --gradient-hero-soft: linear-gradient(160deg, #1B2A4A 0%, #233A63 100%);
+  --gradient-gold: linear-gradient(135deg, #D7A85A 0%, #C8893A 100%);
 
   /* ─── Ticker ─── */
-  --color-ticker-bg:    #0F172A;
-  --color-ticker-border:#1E293B;
+  --color-ticker-bg:    #11192E;
+  --color-ticker-border:#1F2C49;
 
-  /* ─── Shadows (more depth than before) ─── */
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-sm: 0 1px 4px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.10), 0 4px 8px rgba(15, 23, 42, 0.06);
-  --shadow-xl: 0 16px 40px rgba(15, 23, 42, 0.12), 0 8px 16px rgba(15, 23, 42, 0.07);
+  /* ─── Shadows — soft, the lift that makes white cards float on warm grey ─── */
+  --shadow-xs: 0 1px 2px rgba(26, 25, 22, 0.05);
+  --shadow-sm: 0 1px 3px rgba(26, 25, 22, 0.06), 0 1px 2px rgba(26, 25, 22, 0.04);
+  --shadow-md: 0 4px 14px rgba(26, 25, 22, 0.07), 0 2px 5px rgba(26, 25, 22, 0.04);
+  --shadow-lg: 0 10px 30px rgba(26, 25, 22, 0.09), 0 4px 10px rgba(26, 25, 22, 0.05);
+  --shadow-xl: 0 20px 48px rgba(26, 25, 22, 0.11), 0 8px 18px rgba(26, 25, 22, 0.06);
 
   /* Accent glows — the lift under conversion buttons. One value per accent so
-     the green "Send" and blue CTA shadows stay consistent everywhere. */
-  --shadow-success: 0 2px 10px rgba(5, 150, 105, 0.35);
-  --shadow-success-lg: 0 4px 16px rgba(5, 150, 105, 0.45);
-  --shadow-primary: 0 2px 10px rgba(45, 58, 140, 0.30);
-  --shadow-primary-lg: 0 4px 16px rgba(45, 58, 140, 0.40);
+     the green "Send" and ink CTA shadows stay consistent everywhere. */
+  --shadow-success: 0 2px 10px rgba(31, 122, 77, 0.35);
+  --shadow-success-lg: 0 4px 16px rgba(31, 122, 77, 0.45);
+  --shadow-primary: 0 2px 10px rgba(26, 25, 22, 0.22);
+  --shadow-primary-lg: 0 4px 16px rgba(26, 25, 22, 0.30);
 
   /* ─── Typography ─── */
   --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
@@ -87,17 +115,22 @@
 /* ─── Dark Mode ─── */
 /* Neutral dark — inspired by GitHub, Linear, Vercel. No cold blue tints, no neon. */
 .dark {
-  /* Brand — softer indigo, readable but not glowing */
-  --color-primary:         #7C8FE8;
-  --color-primary-dark:    #9AAAF0;
-  --color-primary-mid:     #5A6FC0;
-  --color-primary-light:   #252D5C;
-  --color-primary-surface: #1D2347;
+  /* Brand — lifted navy/periwinkle, readable on near-black but not glowing */
+  --color-primary:         #6E8CC8;
+  --color-primary-dark:    #92AAE0;
+  --color-primary-mid:     #4A6299;
+  --color-primary-light:   #1E2A45;
+  --color-primary-surface: #161E30;
 
-  /* Accent — warm amber, toned down */
-  --color-accent:          #F5A623;
-  --color-accent-dark:     #F7BC55;
-  --color-accent-surface:  #2A1F00;
+  /* Accent — muted gold, toned down for dark */
+  --color-accent:          #D6A85C;
+  --color-accent-dark:     #E2BD79;
+  --color-accent-surface:  #241B0C;
+
+  /* CTA — flips to a near-white pill with dark text on charcoal (Wealthsimple). */
+  --color-cta:             #F2F2F0;
+  --color-cta-hover:       #FFFFFF;
+  --color-cta-text:        #14171C;
 
   /* Success — muted green, not neon */
   --color-success:         #4CAF7D;
@@ -115,22 +148,35 @@
   --color-warning-dark:    #F0C060;
   --color-warning-surface: #201400;
 
-  /* Text — neutral, not blue-tinted */
-  --color-on-surface:         #E8E8E8;   /* off-white, not pure white */
-  --color-on-surface-variant: #A0A0A0;   /* mid gray */
-  --color-on-surface-muted:   #787878;   /* mid-dark gray — 4.5:1 contrast on #141414 (AA) */
-  --color-outline:            #2A2A2A;   /* subtle border */
+  /* Text — soft, faint cool cast */
+  --color-on-surface:         #ECEEF2;   /* off-white */
+  --color-on-surface-variant: #A2A8B4;   /* cool mid-grey */
+  --color-on-surface-muted:   #767D8A;   /* muted slate — 4.5:1 on #0B0C0E (AA) */
+  --color-outline:            #23262E;   /* subtle cool border */
 
-  /* Surfaces — neutral near-black, no blue tint */
-  --color-surface:            #141414;   /* main background */
-  --color-surface-dim:        #0F0F0F;   /* slightly darker (sidebars, inputs) */
-  --color-surface-container:  #1E1E1E;   /* cards, containers */
-  --color-surface-warm:       #161616;   /* article reading bg */
+  /* Surfaces — near-black with a faint cool cast, layered like the product UI */
+  --color-surface:            #0B0C0E;   /* main background (near-black) */
+  --color-surface-dim:        #060708;   /* darker (inputs, footer) */
+  --color-surface-container:  #16181D;   /* elevated cards */
+  --color-surface-warm:       #111317;   /* article reading bg */
 
-  --color-secondary:          #F5A623;
+  --color-secondary:          #D6A85C;
 
-  --color-ticker-bg:    #0A0A0A;
-  --color-ticker-border:#222222;
+  /* Soft pastel tiles — desaturated + darkened for near-black surfaces */
+  --tile-mint-bg:   #182A20;  --tile-mint-ink:   #7FC79B;
+  --tile-lavender-bg:#221E33; --tile-lavender-ink:#A99AD6;
+  --tile-sage-bg:   #20251A;  --tile-sage-ink:   #A6B57A;
+  --tile-butter-bg: #2A2410;  --tile-butter-ink: #D6BC6E;
+  --tile-sky-bg:    #15212F;  --tile-sky-ink:    #7FA6D6;
+  --tile-blush-bg:  #2A1C18;  --tile-blush-ink:  #D69A8A;
+
+  /* Gradients — deep navy hero on dark, same diagonal language as light */
+  --gradient-hero: linear-gradient(135deg, #0C1322 0%, #15233E 48%, #1E3257 100%);
+  --gradient-hero-soft: linear-gradient(160deg, #11192E 0%, #1A2B49 100%);
+  --gradient-gold: linear-gradient(135deg, #E0B86A 0%, #C8893A 100%);
+
+  --color-ticker-bg:    #060708;
+  --color-ticker-border:#1A1D24;
 
   /* Shadows — visible in dark mode */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -153,10 +199,30 @@
 }
 
 body {
-  background: var(--color-surface);
+  /* Warm-grey canvas so white cards float (Wealthsimple). Sections that want a
+     pure-white field opt in with bg-[var(--color-surface)]. */
+  background: var(--color-surface-dim);
   color: var(--color-on-surface);
   font-family: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
   line-height: 1.6;
+  letter-spacing: -0.006em;   /* faint negative tracking — tightens body to a premium read */
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── Type system ─── */
+/* One consistent voice site-wide: confident serif display, restrained weights,
+   tightened tracking on large sizes. Components opt into the serif via
+   .font-display; default headings get tight, well-tracked sans. */
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  text-wrap: balance;        /* avoid orphan words in headings */
+}
+h1 { letter-spacing: -0.028em; }
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;          /* the serif carries weight through its forms, not boldness */
+  letter-spacing: -0.012em;
 }
 
 /* ─── Focus ring ─── */
@@ -189,6 +255,205 @@ body {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Wealthsimple-inspired component kit
+   The "design" lives here: gradients, elevation, soft tiles, pill actions.
+   Build new sections from these primitives instead of one-off styling.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── Gradient hero panel ─── */
+/* The signature: a soft diagonal navy gradient with white text. Round it hard
+   (rounded-3xl) and give it room. Pair with .ws-hero-glow for the subtle light. */
+.ws-hero {
+  background: var(--gradient-hero);
+  color: #fff;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+/* Faint top-left light bloom so the gradient reads as lit, not flat */
+.ws-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 15% 0%, rgba(255,255,255,0.10) 0%, transparent 55%);
+  pointer-events: none;
+}
+.ws-hero > * { position: relative; z-index: 1; }
+
+/* ─── Rich hero — the homepage flagship ─── */
+/* Layered light (two glows: cool top-left, warm gold bottom-right) + faint grain
+   so the gradient has real depth, not a flat box. Plus a decorative ring set
+   bleeding off the right edge — the "something for the eye" (à la WS coins). */
+.ws-hero-rich {
+  background:
+    radial-gradient(90% 120% at 88% 18%, rgba(200, 137, 58, 0.16) 0%, transparent 45%),
+    radial-gradient(100% 90% at 12% 6%, rgba(120, 150, 220, 0.22) 0%, transparent 50%),
+    var(--gradient-hero);
+}
+/* Decorative concentric rings, low-opacity, anchored off the right edge.
+   Pure CSS so there's no asset to load and it scales crisply. */
+.ws-hero-rich::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -8%;
+  width: 620px;
+  height: 620px;
+  transform: translateY(-50%);
+  border-radius: 9999px;
+  background:
+    repeating-radial-gradient(circle at center,
+      rgba(255,255,255,0.05) 0px,
+      rgba(255,255,255,0.05) 1px,
+      transparent 1px,
+      transparent 46px);
+  -webkit-mask-image: radial-gradient(circle at center, #000 60%, transparent 72%);
+          mask-image: radial-gradient(circle at center, #000 60%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Faint grain — a tiny inline SVG noise tile kept very subtle (mix-blend soft) */
+.ws-hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+@media (max-width: 640px) {
+  .ws-hero-rich::after { width: 360px; height: 360px; right: -22%; }
+}
+
+/* ─── Full-bleed hero band ─── */
+/* Edge-to-edge gradient (no radius, no gutters) for the homepage flagship.
+   Same layered light + gold glow as ws-hero-rich, plus the ring motif anchored
+   to the right of the inner content. */
+.ws-hero-band {
+  color: #fff;
+  background:
+    radial-gradient(60% 120% at 82% 20%, rgba(200, 137, 58, 0.16) 0%, transparent 50%),
+    radial-gradient(70% 90% at 8% 4%, rgba(120, 150, 220, 0.20) 0%, transparent 55%),
+    var(--gradient-hero);
+}
+/* Dark mode — match Wealthsimple: flat near-black, NO blue gradient. */
+.dark .ws-hero-band {
+  background: var(--color-surface-dim);
+}
+
+/* ─── Footer band ─── */
+/* Navy gradient in light mode; flat near-black in dark (matches the hero so the
+   whole dark UI stays clean Wealthsimple-black, no muddy blue). */
+.ws-footer { background: var(--gradient-hero); }
+.dark .ws-footer { background: var(--color-surface-dim); }
+/* (Concentric-ring pseudo-element removed. Light keeps the navy gradient;
+   dark is pure near-black to match the rest of the dark UI.) */
+
+/* (Globe is now the real transcoded Revolut video — see HeroGlobe.tsx.) */
+
+/* ─── Floating white card ─── */
+/* Pure white surface that floats on the warm-grey canvas via soft shadow, not
+   a hard border. Lifts on hover. This is the default card on light backgrounds. */
+.ws-card {
+  background: var(--color-surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.ws-card-interactive:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ─── Hairline row ─── */
+/* Quiet list row: same fill as the canvas, 1px hairline, no shadow until hover.
+   Used for the "suggested" / list patterns where rows shouldn't shout. */
+.ws-row {
+  border: 1px solid var(--color-outline);
+  border-radius: 16px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.ws-row:hover {
+  background: var(--color-surface);
+  border-color: var(--color-primary-light);
+}
+
+/* ─── Soft-fill promo / editorial card ─── */
+/* Muted-fill tile (not white) for promos and feature highlights, with imagery
+   bleeding to the edge. Provide the fill via inline style or a variant class. */
+.ws-promo {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface-container);
+}
+.ws-promo-blue { background: color-mix(in srgb, var(--color-primary-mid) 14%, var(--color-surface)); }
+.ws-promo-gold { background: var(--color-accent-surface); }
+
+/* ─── Pastel icon tile ─── */
+/* The rounded-square colored chip behind a feature icon. Pick a hue class.
+   Keep these small (36–48px) — pastels are accents, never large surfaces. */
+.ws-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.ws-tile-mint    { background: var(--tile-mint-bg);    color: var(--tile-mint-ink); }
+.ws-tile-lavender{ background: var(--tile-lavender-bg);color: var(--tile-lavender-ink); }
+.ws-tile-sage    { background: var(--tile-sage-bg);    color: var(--tile-sage-ink); }
+.ws-tile-butter  { background: var(--tile-butter-bg);  color: var(--tile-butter-ink); }
+.ws-tile-sky     { background: var(--tile-sky-bg);     color: var(--tile-sky-ink); }
+.ws-tile-blush   { background: var(--tile-blush-bg);   color: var(--tile-blush-ink); }
+
+/* ─── Black circular "go" button ─── */
+/* The recurring affordance: a small filled ink circle holding an arrow icon.
+   Used bottom-left of promo cards and inline CTAs. */
+.ws-go {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  color: #fff;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.ws-go:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+
+/* ─── Soft pill button ─── */
+/* White (or ink) pill that floats above quiet rows. Default = white/elevated;
+   .ws-pill-ink = filled near-black primary action. */
+.ws-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.ws-pill:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.ws-pill-ink {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: var(--shadow-primary);
+}
+.ws-pill-ink:hover { background: var(--color-primary-dark); box-shadow: var(--shadow-primary-lg); }
 
 /* ─── Article / Prose Styles ─── */
 /* ─── Premium article reading experience ─── */

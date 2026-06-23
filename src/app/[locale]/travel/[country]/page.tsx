@@ -379,7 +379,7 @@ export default async function TravelCountryPage({ params }: Props) {
                       href={plan.affiliateUrl}
                       target="_blank"
                       rel="noopener noreferrer nofollow sponsored"
-                      className="mt-4 inline-flex w-full justify-center items-center px-4 py-2 bg-[var(--color-primary)] text-white text-2sm font-medium rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+                      className="mt-4 inline-flex w-full justify-center items-center px-4 py-2 bg-[var(--color-cta)] text-[var(--color-cta-text)] text-2sm font-medium rounded-full hover:bg-[var(--color-cta-hover)] transition-colors"
                     >
                       Check {plan.provider} &rarr;
                     </a>
@@ -544,7 +544,7 @@ export default async function TravelCountryPage({ params }: Props) {
             </p>
             <Link
               href={guide.relatedCorridorSlug ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}
-              className="inline-flex items-center px-6 py-3 bg-[var(--color-primary)] text-white text-md font-medium rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-[var(--color-cta)] text-[var(--color-cta-text)] text-md font-medium rounded-full hover:bg-[var(--color-cta-hover)] transition-colors"
             >
               Compare money transfers for {guide.countryName} &rarr;
             </Link>

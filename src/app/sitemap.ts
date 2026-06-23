@@ -84,8 +84,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // explicitly. DATA_UPDATED because its figures refresh with each scrape.
     entry("guides/bank-vs-app-transfer-cost-2026", DATA_UPDATED),
     entry("exchange-rates", DATA_UPDATED),
+    // Restored Jun 22 2026 — 1,410 Bing impr + 1,389 AI citations were landing
+    // on this URL while it 404'd after its Jun 20 retirement. Live-computed
+    // rates, statically prerendered (revalidate hourly), so DATA_UPDATED.
+    entry("currency-converter", DATA_UPDATED),
     entry("news", STATIC_HUB_DATE),
     entry("business", STATIC_HUB_DATE),
+    // Live Business/B2B payment-provider cost comparison tool. Added Jun 22 2026
+    // to capture the highest-AI-citation-share B2B query cluster ("lowest fees
+    // international business payments providers comparison" — 763 cites/79%
+    // share). Live-computed figures, statically prerendered (revalidate hourly).
+    entry("business/compare", DATA_UPDATED),
   ];
 
   // ── Corridors: only those with ≥10 GSC impressions in 90d ──

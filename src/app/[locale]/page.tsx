@@ -3,7 +3,7 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import RatingBadge from "@/components/RatingBadge";
-import ComparisonWidget from "@/components/ComparisonWidget";
+import HeroConverterCard from "@/components/HeroConverterCard";
 import MobileScrollNav from "@/components/MobileScrollNav";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import LazyNewsTicker from "@/components/LazyNewsTicker";
@@ -175,25 +175,41 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       />
       {/* ─── HERO + DYNAMIC SECTIONS ─── wrapped in shared selection context */}
       <HomeSelectionProvider defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount}>
-        <section className="bg-[var(--color-surface)] pt-12 sm:pt-24 pb-8 sm:pb-16 border-b border-[var(--color-outline)]">
-          <Container>
-            <div className="text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
-              <h1 className="text-[40px] sm:text-6xl font-semibold text-[var(--color-on-surface)] leading-[1.05] tracking-[-0.03em]">
-                {tHero("title")}{" "}
-                <span className="text-[var(--color-on-surface-variant)]">{tHero("titleHighlight")}</span>
-              </h1>
-              <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] mt-3 sm:mt-5">
-                50+ apps ranked by{" "}
-                <span className="font-semibold text-[var(--color-primary)]">real fees</span>
-                .{" "}
-                <span className="font-semibold text-[var(--color-primary)]">No signup</span>
-                .
-              </p>
+        {/* Hero — navy gradient band, bold headline + value props on the left, the
+            live converter card on the right. Balanced two-column, vertically centered. */}
+        <section className="ws-hero-band relative overflow-hidden">
+          <div className="ws-hero-grain" />
+          <div className="relative z-[1] mx-auto max-w-6xl px-6 sm:px-10 lg:px-12 py-16 sm:py-20 lg:py-24">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Left — the message (white on navy) */}
+              <div className="text-center lg:text-left">
+                <span className="text-2sm font-semibold text-white/60">International money transfers</span>
+                <h1 className="text-[44px] sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0] tracking-[-0.03em] mt-3 text-balance">
+                  {tHero("title")}{" "}
+                  <span className="text-white/55">{tHero("titleHighlight")}</span>
+                </h1>
+                <p className="text-base sm:text-lg text-white/70 mt-5 max-w-md mx-auto lg:mx-0 leading-relaxed">
+                  Your money is going places. Keep more of it — compare <span className="font-semibold text-white">50+ apps</span> on real rates and fees across 64+ currencies. No signup.
+                </p>
+                {/* Trust row */}
+                <div className="flex items-center justify-center lg:justify-start gap-5 mt-7 text-white/55 text-xs font-medium">
+                  <span className="flex items-center gap-1.5">
+                    <svg className="w-4 h-4 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.8 4.7 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>
+                    Trustpilot rated
+                  </span>
+                  <span className="h-3 w-px bg-white/20" />
+                  <span>64+ currencies</span>
+                  <span className="h-3 w-px bg-white/20" />
+                  <span>Updated every 6h</span>
+                </div>
+              </div>
+
+              {/* Right — live converter card */}
+              <div className="w-full max-w-[440px] mx-auto lg:ml-auto">
+                <HeroConverterCard defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
+              </div>
             </div>
-            <div className="max-w-[760px] mx-auto">
-              <ComparisonWidget defaultFrom="USD" defaultTo={geoConfig.defaultTo} defaultAmount={geoConfig.defaultAmount} />
-            </div>
-          </Container>
+          </div>
         </section>
 
       {/* ─── BEST ROUTES + LIVE EXAMPLE — reactive to widget selection ─── */}
@@ -297,9 +313,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           {/* Mobile: compact horizontal steps */}
           <div className="flex sm:hidden gap-3 overflow-x-auto -mx-4 px-4 scrollbar-hide snap-x snap-mandatory" style={{ WebkitOverflowScrolling: "touch" }}>
             {steps.map((item) => (
-              <div key={item.step} className="snap-start shrink-0 w-[75vw] bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] p-4 shadow-[var(--shadow-xs)]">
+              <div key={item.step} className="snap-start shrink-0 w-[75vw] ws-card p-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center shrink-0">
+                  <div className="ws-tile ws-tile-sky w-7 h-7 rounded-[9px] text-xs font-bold">
                     {item.step}
                   </div>
                   <h3 className="text-sm font-semibold text-[var(--color-on-surface)]">{item.title}</h3>
@@ -311,8 +327,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           {/* Desktop: card grid */}
           <div className="hidden sm:grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {steps.map((item) => (
-              <div key={item.step} className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-7 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white text-md font-bold flex items-center justify-center mb-5">
+              <div key={item.step} className="ws-card ws-card-interactive p-7">
+                <div className="ws-tile ws-tile-sky w-10 h-10 text-md font-bold mb-5">
                   {item.step}
                 </div>
                 <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-2">{item.title}</h3>
@@ -416,7 +432,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <Link
                   key={item.provider}
                   href={item.href}
-                  className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:shadow-[var(--shadow-md)] transition-all"
+                  className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-0.5 transition-all"
                 >
                   <span
                     className="inline-block text-[10px] sm:text-2xs font-semibold uppercase tracking-wide px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mb-2 sm:mb-3"
@@ -455,7 +471,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <Link
                   key={slug}
                   href={`/send-money/${slug}`}
-                  className="text-2sm sm:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-lg border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] hover:text-[var(--color-primary)] transition-all text-center truncate"
+                  className="text-2sm sm:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-full bg-[var(--color-surface)] shadow-[var(--shadow-xs)] text-[var(--color-on-surface)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 hover:text-[var(--color-primary)] transition-all text-center truncate"
                 >
                   <span className="mr-1.5" aria-hidden="true">{flag}</span>{label}
                 </Link>

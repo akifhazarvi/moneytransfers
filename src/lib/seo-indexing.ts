@@ -55,6 +55,11 @@ export const INDEXED_SWIFT_SLUGS = new Set<string>([
   "turkiye", "egypt", "morocco",
   // GSC-validated for sitemap inclusion too:
   "georgia",
+  // 2026-06-22: re-added united-arab-emirates — 49 Bing impr/1 click in the
+  // Jun 23 BWT Page Traffic export. Removed Jun 5 on GSC-only signal, but it's
+  // a live Bing earner; noindexing it would kill it on the channel that
+  // actually ranks the site (same rationale as sri-lanka above).
+  "united-arab-emirates",
 ]);
 
 /**
@@ -76,11 +81,9 @@ export function shouldNoindexPath(pathname: string): boolean {
   const top = parts[0];
   if (!top) return false;
 
-  // Currency converter: retired from nav/sitemap/links (Jun 2026). The page
-  // still works if reached directly, but is no longer promoted or indexed.
-  if (top === "currency-converter") {
-    return true;
-  }
+  // Currency converter: RESTORED Jun 22 2026 after the Bing/AI export showed
+  // 1,410 Bing impr + 1,389 AI citations landing on it post-retirement. Now
+  // promoted + indexed again, so no noindex rule here.
 
   if (top === "iban" && parts[1] && !INDEXED_IBAN_SLUGS.has(parts[1])) {
     return true;

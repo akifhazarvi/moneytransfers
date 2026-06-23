@@ -99,9 +99,9 @@ export default function HomeDynamicSection() {
   // space too) so there's no layout shift while quotes fetch.
   if (quotesByCorridor === null) {
     return (
-      <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
+      <section id="best-routes" className="py-16 sm:py-24 bg-[var(--color-surface)]">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto h-64 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] animate-pulse" />
+          <div className="max-w-3xl mx-auto h-64 rounded-[20px] bg-[var(--color-surface-dim)] animate-pulse" />
         </div>
       </section>
     );
@@ -110,13 +110,13 @@ export default function HomeDynamicSection() {
   if (corridors.length === 0 && liveQuotes.length === 0) return null;
 
   return (
-    <section id="best-routes" className="py-8 sm:py-14 bg-[var(--color-surface)]">
+    <section id="best-routes" className="py-16 sm:py-24 bg-[var(--color-surface)]">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-6 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-h2 font-semibold text-[var(--color-on-surface)] tracking-[-0.02em]">
+        <div className="text-center mb-10 sm:mb-14 max-w-2xl mx-auto">
+          <h2 className="font-display text-4xl sm:text-5xl font-normal text-[var(--color-on-surface)] leading-[1.05]">
             Best app to send {amount.toLocaleString()} {fromCurrency} to {toCurrency}
           </h2>
-          <p className="text-sm text-[var(--color-on-surface-variant)] mt-2">
+          <p className="text-base text-[var(--color-on-surface-variant)] mt-4">
             {liveQuotes.length > 1 && best && worst ? (
               <>
                 Save up to{" "}
@@ -134,27 +134,32 @@ export default function HomeDynamicSection() {
 
         {/* Top-3 corridor cards — desktop only; on mobile they're redundant after the widget selection */}
         {corridors.length > 0 && (
-          <div className="hidden sm:grid grid-cols-3 gap-4 max-w-4xl mx-auto mb-10">
+          <>
+          <div className="hidden sm:flex items-center gap-3 max-w-4xl mx-auto mb-4">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-on-surface-muted)]">Popular routes</span>
+            <span className="flex-1 h-px bg-[var(--color-outline)]" />
+          </div>
+          <div className="hidden sm:grid grid-cols-3 gap-5 max-w-4xl mx-auto mb-14">
             {corridors.map((c, idx) => {
               const isSelected = c.toCurrency === toCurrency;
               return (
                 <Link
                   key={c.toCurrency}
                   href={`/send-money/${c.corridorSlug}`}
-                  className={`group relative flex flex-col p-3 sm:p-5 rounded-xl sm:rounded-2xl border transition-all ${
+                  className={`group relative flex flex-col p-5 sm:p-6 rounded-2xl transition-all duration-200 ${
                     isSelected
-                      ? "border-[var(--color-primary)] shadow-[0_0_0_1px_var(--color-primary)] bg-[var(--color-primary-surface)]"
-                      : "border-[var(--color-outline)] bg-[var(--color-surface)] hover:border-[var(--color-primary)]/60 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+                      ? "bg-[var(--color-surface)] ring-2 ring-[var(--color-accent)] shadow-[var(--shadow-lg)] -translate-y-0.5"
+                      : "bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)]/70 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-0.5 hover:ring-[var(--color-primary-light)]"
                   }`}
                 >
                   {idx === 0 && (
-                    <span className="absolute top-2 right-2 sm:top-3 sm:right-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded-full">
+                    <span className="absolute top-3 right-3 sm:top-4 sm:right-4 text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-white bg-[var(--color-success-dark)] px-2 py-0.5 rounded-full">
                       Popular
                     </span>
                   )}
                   <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
                     <span className="text-sm sm:text-lg">{c.flag}</span>
-                    <span className={`text-[10px] sm:text-xs font-semibold uppercase tracking-wide ${isSelected ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface-variant)]"}`}>
+                    <span className={`text-[10px] sm:text-xs font-semibold uppercase tracking-wide ${isSelected ? "text-[var(--color-accent-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                       {fromCurrency} → {c.toCurrency}
                     </span>
                   </div>
@@ -164,7 +169,7 @@ export default function HomeDynamicSection() {
                         <Image src={c.providerLogo} alt={`${c.providerName} logo`} width={32} height={32} className="w-full h-full object-contain p-1" />
                       </div>
                     )}
-                    <p className={`text-2sm sm:text-sm font-bold truncate ${isSelected ? "text-[var(--color-primary)]" : "text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]"} transition-colors`}>
+                    <p className={`text-2sm sm:text-sm font-bold truncate text-[var(--color-on-surface)] transition-colors`}>
                       {c.providerName}
                     </p>
                   </div>
@@ -173,13 +178,13 @@ export default function HomeDynamicSection() {
                     <span className="hidden sm:inline font-normal text-[var(--color-on-surface-variant)]"> for {amount.toLocaleString()} {fromCurrency}</span>
                   </p>
                   {/* CTA — the action users need to see */}
-                  <div className={`mt-auto flex items-center justify-center gap-1 w-full h-8 sm:h-9 rounded-full text-[10px] sm:text-xs font-bold transition-all ${
+                  <div className={`mt-auto flex items-center justify-center gap-1.5 w-full h-9 sm:h-10 rounded-full text-xs font-semibold transition-all ${
                     isSelected
-                      ? "bg-[var(--color-primary)] text-white shadow-[var(--shadow-primary)]"
-                      : "bg-[var(--color-surface-dim)] text-[var(--color-on-surface-variant)] group-hover:bg-[var(--color-primary)] group-hover:text-white"
+                      ? "bg-[var(--color-on-surface)] text-[var(--color-surface)] shadow-[var(--shadow-primary)]"
+                      : "bg-[var(--color-surface-dim)] text-[var(--color-on-surface-variant)] group-hover:bg-[var(--color-on-surface)] group-hover:text-[var(--color-surface)]"
                   }`}>
                     Compare rates
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -187,11 +192,12 @@ export default function HomeDynamicSection() {
               );
             })}
           </div>
+          </>
         )}
 
         {/* Live example table — Apple-quiet header. Surface bg, dark text, dot indicator. */}
         {liveQuotes.length > 0 && (
-          <div className="max-w-3xl mx-auto bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] overflow-hidden">
+          <div className="max-w-3xl mx-auto bg-[var(--color-surface)] rounded-[20px] shadow-[var(--shadow-lg)] ring-1 ring-[var(--color-outline)]/60 overflow-hidden">
             <div className="px-5 sm:px-7 py-4 border-b border-[var(--color-outline)] flex items-center justify-between gap-3">
               <div className="flex items-center gap-2 text-[11px] font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wider">
                 <span className="relative flex h-1.5 w-1.5 shrink-0">
@@ -210,7 +216,7 @@ export default function HomeDynamicSection() {
 
             {/* Inline quotes table */}
             <div className="max-w-2xl mx-auto">
-              <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden shadow-[var(--shadow-sm)]">
+              <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
                 {/* Desktop header */}
                 <div className="hidden sm:grid sm:grid-cols-[minmax(0,1fr)_90px_80px_120px_auto] gap-2 px-4 sm:px-6 py-3 bg-[var(--color-surface-container)] text-2xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                   <span>Provider</span>
@@ -330,7 +336,7 @@ export default function HomeDynamicSection() {
             <div className="text-center mt-5">
               <Link
                 href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
-                className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-primary)] text-white rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[var(--shadow-primary-lg)] active:shadow-none active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-cta-hover)] shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)] active:shadow-none active:scale-[0.98] transition-all"
               >
                 Compare all 50+ apps
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

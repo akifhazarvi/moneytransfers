@@ -827,7 +827,7 @@ function SendMoneyContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackProviderClicked(q.providerSlug, `${fromCurrency}-${toCurrency}`, 0, "comparison")}
-                      className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm hover:shadow transition-all"
+                      className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] shadow-sm hover:shadow transition-all"
                     >
                       Visit {name}
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

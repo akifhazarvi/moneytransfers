@@ -347,7 +347,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                         href={getGoUrl(p.slug)}
                         provider={p.slug}
                         source="compare_all_mobile"
-                        className="flex-1 text-center text-2sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full py-2 shadow-sm"
+                        className="flex-1 text-center text-2sm font-semibold text-[var(--color-cta-text)] bg-[var(--color-cta)] hover:bg-[var(--color-cta-hover)] rounded-full py-2 shadow-sm"
                       >
                         Visit {p.name}
                       </ProviderLink>
@@ -385,7 +385,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                         href={getGoUrl(p.slug)}
                         provider={p.slug}
                         source="compare_all_desktop"
-                        className="text-center text-xs font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full py-1.5 px-3"
+                        className="text-center text-xs font-semibold text-[var(--color-cta-text)] bg-[var(--color-cta)] hover:bg-[var(--color-cta-hover)] rounded-full py-1.5 px-3"
                       >
                         Visit
                       </ProviderLink>

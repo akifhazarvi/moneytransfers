@@ -222,7 +222,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
                 href={bestProviderUrl}
                 provider={insight.today.bestProvider}
                 source="exchange_rate_history"
-                className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-sm transition-all"
+                className="inline-flex items-center gap-2 h-10 px-6 text-2sm font-semibold rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] shadow-sm transition-all"
               >
                 Send with {getProviderName(insight.today.bestProvider)}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

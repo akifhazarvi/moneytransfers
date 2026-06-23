@@ -205,7 +205,7 @@ export default function FreelancerCostCalculator({ source }: Props) {
             <Link
               href={compareHref}
               onClick={handleCTA}
-              className="inline-flex items-center gap-1.5 mt-4 px-5 py-2.5 rounded-full bg-[var(--color-primary)] text-white text-2sm font-semibold hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-1.5 mt-4 px-5 py-2.5 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] text-2sm font-semibold hover:bg-[var(--color-cta-hover)] transition-opacity"
             >
               See the cheapest provider for USD → {to} →
             </Link>

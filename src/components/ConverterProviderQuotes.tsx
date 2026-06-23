@@ -163,7 +163,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
                 className={`shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-2sm font-semibold rounded-full transition-all shadow-sm hover:shadow ${
                   isBest
                     ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
-                    : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]"
+                    : "bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)]"
                 }`}
               >
                 <span className="hidden sm:inline">Send</span>

@@ -359,7 +359,7 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
                   provider={p.slug}
                   source={src}
                   corridor={`${fromCurrency}_${toCurrency}`}
-                  className="mt-3 inline-flex items-center justify-center gap-1.5 w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-semibold text-sm px-4 py-2.5 rounded-full transition-colors"
+                  className="mt-3 inline-flex items-center justify-center gap-1.5 w-full bg-[var(--color-cta)] hover:bg-[var(--color-cta-hover)] text-[var(--color-cta-text)] font-semibold text-sm px-4 py-2.5 rounded-full transition-colors"
                 >
                   Send with {p.name}
                   <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.25} />

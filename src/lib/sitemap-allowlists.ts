@@ -105,7 +105,23 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "how-to-buy-spacex-nvidia-stock-using-revolut", // new guide, Revolut investing angle
   "how-to-pay-international-freelancers-contractors", // B2B freelancer-payment cluster, neutral cost-math angle
   "authorization-vs-settlement-stablecoins", // settlement-mechanics angle, distinct from stablecoin-vs-wire cost guide
-]); // 45 URLs
+  // ── Added 2026-06-22 — Jun 23 Bing Page Traffic + AI Page Stats export.
+  //    Two signals: Bing organic impr AND heavy AI (Copilot/ChatGPT) citation.
+  //    All exist in the merged blogPosts set and serve index:follow (en). The
+  //    AI-citation counts (cites) are why these matter despite thin Bing impr —
+  //    they're the pages AI engines actually ground answers on. ──
+  "send-money-to-india-from-usa-guide",   // 47i Bing / 5,395 AI cites — top stranded
+  "send-money-to-colombia-guide",         // 4,241 AI cites
+  "business-money-transfers-provider-review", // 4,204 AI cites
+  "how-to-pay-international-suppliers",    // 3,340 AI cites
+  "send-money-to-kenya-from-usa-guide",   // 3,069 AI cites
+  "send-money-to-brazil-guide",           // 13i Bing / 1,661 AI cites
+  "stablecoin-international-transfers-guide", // 1,525 AI cites
+  "invoicing-international-clients-multiple-currencies", // 910 AI cites
+  "best-money-transfer-apps-large-transfers", // 673 AI cites
+  "gbp-forecast-2026",                    // 35i Bing
+  "send-money-to-south-korea-guide",      // 9i Bing / AI cites
+]); // 56 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
   // Head-term IBAN destinations (always submitted)
@@ -140,7 +156,9 @@ export const SITEMAP_IBAN_SLUGS = new Set<string>([
   "hungary",
   "israel",
   "georgia",
-]); // 31 URLs (was 37)
+  // Added 2026-06-22 — 15i Bing (Jun 23 export); already in INDEXED_IBAN_SLUGS.
+  "czechia",
+]); // 32 URLs (was 37)
 
 export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   // Editorial head-pair comparisons — always submitted
@@ -172,7 +190,12 @@ export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   "revolut-vs-hsbc",
   "hsbc-vs-paypal",
   "chase-vs-wells-fargo",
-]); // 20 URLs (was 17)
+  // ── Added 2026-06-22 — Jun 23 Bing + AI Page Stats export. Allowlisting
+  //    these also lifts the thin-page noindex (compare/[slug] gates indexability
+  //    on SITEMAP_COMPARISON_SLUGS). Both are canonical form. ──
+  "remitly-vs-xoom", // 11i Bing
+  "remitly-vs-xe",   // 1,582 AI cites
+]); // 22 URLs (was 17)
 
 export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
   // ── Original editorial provider reviews ──
@@ -189,7 +212,10 @@ export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
   "worldremit",    // 169i 0c
   "ofx",           // 71i 1c
   "western-union", // 22i 1c
-]); // 12 URLs (was 6)
+  // ── Added 2026-06-22 — Bing Page Traffic export (Jun 23). Has provider
+  //    entry + editorial review, serves index:follow. ──
+  "instarem",      // 144i 3c Bing
+]); // 13 URLs (was 6)
 
 export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "central-bank-super-week-march-2026",
@@ -199,7 +225,13 @@ export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "revolut-files-us-bank-charter-2026",
   "stablecoins-cross-border-payments-2026",
   "us-remittance-excise-tax-takes-effect-2026",
-]); // 7 URLs
+  // ── Added 2026-06-22 — Bing Page Traffic export (Jun 23) Bing earners
+  //    missing from sitemap. All serve index:follow (en). ──
+  "april-2026-central-bank-calendar",       // 233i 3c Bing
+  "wise-nasdaq-dual-listing-may-2026",       // 210i 13c
+  "eu-instant-payments-mandatory-2026",      // 25i 1c (distinct from -mandate- above)
+  "fca-safeguarding-rules-money-transfer-2026", // 24i 0c
+]); // 11 URLs
 
 // All 20 built /exchange-rates/[pair] pages. These render index:follow (en),
 // so leaving most OUT of the sitemap created the "sitemap=no / robots=index"
@@ -239,7 +271,20 @@ export const SITEMAP_SWIFT_SLUGS = new Set<string>([
   //    missing from the sitemap. Already in INDEXED_SWIFT_SLUGS (serves no
   //    noindex) with real bank data, so submitting it is consistent. ──
   "south-korea",
-]); // 14 URLs (was 1)
+  // ── Added 2026-06-22 — Bing Page Traffic export (Jun 23) surfaced 9 SWIFT
+  //    pages earning ≥10 Bing impr that were missing from the sitemap. All
+  //    already in INDEXED_SWIFT_SLUGS (serve index:follow), so submitting is
+  //    consistent. UAE re-added to INDEXED_SWIFT_SLUGS in the same change. ──
+  "south-africa",   // 260i 3c Bing
+  "indonesia",      // 220i 3c
+  "australia",      // 214i 2c
+  "united-states",  // 209i 3c
+  "brazil",         // 103i 1c
+  "pakistan",       // 63i 1c
+  "united-arab-emirates", // 49i 1c (re-indexed 2026-06-22)
+  "thailand",       // 12i 0c
+  "netherlands",    // 11i 0c
+]); // 23 URLs (was 14)
 
 export const SITEMAP_BUSINESS_SLUGS = new Set<string>([
   // Cleaned 2026-06-21: removed phantom "b2b-transfers" (no such page in

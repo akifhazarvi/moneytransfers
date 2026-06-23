@@ -18,7 +18,7 @@ export default function GuideSidebarCTA({ slug }: Props) {
         <Link
           href="/send-money"
           onClick={() => trackGuideSidebarCTA(slug)}
-          className="flex items-center justify-center w-full h-10 bg-[var(--color-primary)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-primary-dark)] transition-colors"
+          className="flex items-center justify-center w-full h-10 bg-[var(--color-cta)] text-[var(--color-cta-text)] text-sm font-semibold rounded-full hover:bg-[var(--color-cta-hover)] transition-colors"
         >
           Compare Rates →
         </Link>

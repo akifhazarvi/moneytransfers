@@ -137,7 +137,7 @@ export default function ComparisonWidget({
               <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
             </div>
           </div>
-          <button type="submit" className="w-full h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-sm hover:bg-[var(--color-primary-dark)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.2)] active:shadow-none transition-all">
+          <button type="submit" className="w-full h-12 bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full font-semibold text-sm hover:bg-[var(--color-cta-hover)] shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)] active:scale-[0.99] transition-all">
             {t("compareTransfers")}
           </button>
         </div>
@@ -190,7 +190,7 @@ export default function ComparisonWidget({
         </div>
         <button
           type="submit"
-          className="mt-3 w-full h-12 bg-[var(--color-primary)] text-white rounded-full font-semibold text-sm hover:bg-[var(--color-primary-dark)] active:scale-[0.99] transition-all shadow-[var(--shadow-primary)]"
+          className="mt-3 w-full h-12 bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full font-semibold text-sm hover:bg-[var(--color-cta-hover)] active:scale-[0.99] transition-all shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)]"
         >
           {t("compareTransfers")}
         </button>
@@ -243,7 +243,7 @@ export default function ComparisonWidget({
       <div className="hidden lg:flex justify-center mt-6">
         <button
           type="submit"
-          className="h-12 bg-[var(--color-primary)] text-white rounded-full font-medium text-md px-10 hover:bg-[var(--color-primary-dark)] hover:shadow-[var(--shadow-primary)] active:shadow-none transition-all"
+          className="h-12 bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full font-semibold text-md px-10 hover:bg-[var(--color-cta-hover)] hover:shadow-[var(--shadow-primary)] active:shadow-none transition-all"
         >
           {t("compareTransfers")}
         </button>
