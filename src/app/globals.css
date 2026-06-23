@@ -67,6 +67,10 @@
   --color-surface:            #FFFFFF;   /* Cards float as pure white */
   --color-surface-dim:        #F2F1EE;   /* Warm-grey canvas (page background) */
   --color-surface-container:  #ECEAE5;   /* Slightly deeper warm container */
+
+  /* Footer — flat deep navy (white text). Solid, not a gradient, so links stay
+     high-contrast across the full width. */
+  --color-footer:             #11192E;
   --color-surface-warm:       #FAF8F4;   /* Article reading bg */
 
   /* ─── Legacy aliases (kept for backward compat with existing components) ─── */
@@ -159,6 +163,9 @@
   --color-surface-dim:        #060708;   /* darker (inputs, footer) */
   --color-surface-container:  #16181D;   /* elevated cards */
   --color-surface-warm:       #111317;   /* article reading bg */
+
+  /* Footer — same near-black as dark surfaces (unchanged dark look). */
+  --color-footer:             #060708;
 
   --color-secondary:          #D6A85C;
 
