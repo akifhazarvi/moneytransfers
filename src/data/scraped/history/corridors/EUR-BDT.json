@@ -5336,5 +5336,94 @@
         "receiveAmount": 13718.33
       }
     }
+  },
+  {
+    "date": "2026-06-23",
+    "providers": {
+      "lemfi": {
+        "rate": 140.45,
+        "fee": 1.49,
+        "markup": -0.03,
+        "receiveAmount": 13835.73
+      },
+      "moneygram": {
+        "rate": 141.0257,
+        "fee": 1.99,
+        "markup": -0.22,
+        "receiveAmount": 13821.93
+      },
+      "western-union": {
+        "rate": 139.5202,
+        "fee": 0.99,
+        "markup": 0.85,
+        "receiveAmount": 13813.89
+      },
+      "dahabshiil": {
+        "rate": 139.9466,
+        "fee": 0,
+        "markup": 0.54,
+        "receiveAmount": 13994.66
+      },
+      "worldremit": {
+        "rate": 140.2631,
+        "fee": 0.99,
+        "markup": 0.32,
+        "receiveAmount": 13887.45
+      },
+      "instarem": {
+        "rate": 139.0188,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13901.88
+      },
+      "paysend": {
+        "rate": 140.4876,
+        "fee": 0,
+        "markup": 0.16,
+        "receiveAmount": 14048.76
+      },
+      "sendwave": {
+        "rate": 140.1504,
+        "fee": 0.99,
+        "markup": 0.4,
+        "receiveAmount": 13876.29
+      },
+      "remitly": {
+        "rate": 139.6292,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 13824.68
+      },
+      "revolut": {
+        "rate": 139.7794,
+        "fee": 2.3,
+        "markup": 0.66,
+        "receiveAmount": 13656.45
+      },
+      "wise": {
+        "rate": 140.356,
+        "fee": 3.14,
+        "markup": null,
+        "receiveAmount": 13594.88
+      },
+      "taptap-send": {
+        "rate": 140.09,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14009
+      },
+      "skrill": {
+        "rate": 137.0144,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13701.44
+      },
+      "xoom": {
+        "rate": 137.2288,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13312.56
+      }
+    }
   }
 ]

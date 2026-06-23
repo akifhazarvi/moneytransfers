@@ -2844,5 +2844,34 @@
         "receiveAmount": 4306.56
       }
     }
+  },
+  {
+    "date": "2026-06-23",
+    "providers": {
+      "taptap-send": {
+        "rate": 46.15,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4615
+      },
+      "remitly": {
+        "rate": 45.9896,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 4461.45
+      },
+      "instarem": {
+        "rate": 46.1862,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4618.62
+      },
+      "wise": {
+        "rate": 46.4709,
+        "fee": 7.29,
+        "markup": null,
+        "receiveAmount": 4308.32
+      }
+    }
   }
 ]
