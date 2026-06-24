@@ -2094,5 +2094,40 @@
         "receiveAmount": 93550.53
       }
     }
+  },
+  {
+    "date": "2026-06-24",
+    "providers": {
+      "lemfi": {
+        "rate": 971,
+        "fee": 0,
+        "markup": -0.79,
+        "receiveAmount": 97100
+      },
+      "taptap-send": {
+        "rate": 970,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 97000
+      },
+      "xoom": {
+        "rate": 934.7203,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 93472.03
+      },
+      "instarem": {
+        "rate": 955.1975,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 95519.75
+      },
+      "western-union": {
+        "rate": 935.4907,
+        "fee": 19.99,
+        "markup": null,
+        "receiveAmount": 74848.61
+      }
+    }
   }
 ]
