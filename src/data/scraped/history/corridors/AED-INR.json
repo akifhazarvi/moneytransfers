@@ -3886,10 +3886,10 @@
         "receiveAmount": 2519.55
       },
       "paysend": {
-        "rate": 25.5248,
+        "rate": 25.36,
         "fee": 0,
-        "markup": 1.18,
-        "receiveAmount": 2552.48
+        "markup": 1.16,
+        "receiveAmount": 2536
       },
       "remitly": {
         "rate": 25.7,
@@ -3908,6 +3908,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 2568.02
+      },
+      "currencyfair": {
+        "rate": 25.4642,
+        "fee": 34.71,
+        "markup": 0.76,
+        "receiveAmount": 1662.56
       }
     }
   }

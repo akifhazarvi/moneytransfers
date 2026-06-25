@@ -3826,16 +3826,16 @@
     "date": "2026-06-25",
     "providers": {
       "paysend": {
-        "rate": 16.5866,
+        "rate": 16.5431,
         "fee": 9,
-        "markup": 0.86,
-        "receiveAmount": 1509.38
+        "markup": 0.76,
+        "receiveAmount": 1505.42
       },
       "remitly": {
-        "rate": 16.61,
+        "rate": 16.57,
         "fee": 5,
-        "markup": 0.72,
-        "receiveAmount": 1577.95
+        "markup": 0.6,
+        "receiveAmount": 1574.15
       },
       "taptap-send": {
         "rate": 16,
@@ -3848,6 +3848,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 1671.62
+      },
+      "currencyfair": {
+        "rate": 16.562,
+        "fee": 34.83,
+        "markup": 0.65,
+        "receiveAmount": 1079.35
       }
     }
   }

@@ -10198,40 +10198,40 @@
         "receiveAmount": 4173
       },
       "moneygram": {
-        "rate": 42.3008,
+        "rate": 42.0571,
         "fee": 0.99,
-        "markup": 0.33,
-        "receiveAmount": 4188.2
+        "markup": 0.55,
+        "receiveAmount": 4164.07
       },
       "western-union": {
-        "rate": 42.237,
+        "rate": 41.9847,
         "fee": 0,
-        "markup": 0.48,
-        "receiveAmount": 4223.7
+        "markup": 0.72,
+        "receiveAmount": 4198.47
       },
       "instarem": {
-        "rate": 42.34,
+        "rate": 42.19,
         "fee": 0.75,
         "markup": 0.24,
-        "receiveAmount": 4202.25
+        "receiveAmount": 4187.36
       },
       "xe": {
-        "rate": 42.2517,
+        "rate": 42.039,
         "fee": 5,
-        "markup": 0.44,
-        "receiveAmount": 4013.91
+        "markup": 0.59,
+        "receiveAmount": 3993.7
       },
       "paysend": {
-        "rate": 42.0543,
+        "rate": 41.9045,
         "fee": 2.9,
         "markup": 0.91,
-        "receiveAmount": 4083.47
+        "receiveAmount": 4068.93
       },
       "singx": {
-        "rate": 42.2518,
+        "rate": 42.1046,
         "fee": 6,
         "markup": 0.44,
-        "receiveAmount": 3971.67
+        "receiveAmount": 3957.83
       },
       "remitly": {
         "rate": 41.2562,
@@ -10240,10 +10240,10 @@
         "receiveAmount": 4125.62
       },
       "revolut": {
-        "rate": 41.9703,
+        "rate": 41.8334,
         "fee": 0.41,
-        "markup": 1.11,
-        "receiveAmount": 4179.82
+        "markup": 1.08,
+        "receiveAmount": 4166.19
       },
       "wise": {
         "rate": 42.3094,
@@ -10292,6 +10292,18 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4042.43
+      },
+      "currencyfair": {
+        "rate": 42.03,
+        "fee": 1.9,
+        "markup": 0.61,
+        "receiveAmount": 4123.14
+      },
+      "ria": {
+        "rate": 42.02,
+        "fee": 2.89,
+        "markup": null,
+        "receiveAmount": 4336.55
       }
     }
   }
