@@ -9,6 +9,36 @@ import { fetchQuotesByCorridor } from "@/lib/fetch-quotes";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked } from "@/lib/analytics";
+
+// Flag emoji (regional-indicator pairs) don't render on Windows/some Android —
+// they show as bare letters like "IN"/"EU". Decode the emoji to an ISO code so
+// we can render a real flag image that works on every platform.
+function flagToISO(flag: string): string | null {
+  const A = 0x1f1e6; // regional indicator "A"
+  const letters = Array.from(flag)
+    .map((ch) => ch.codePointAt(0) ?? 0)
+    .filter((cp) => cp >= A && cp <= A + 25)
+    .map((cp) => String.fromCharCode(cp - A + 65));
+  return letters.length >= 2 ? letters.slice(0, 2).join("").toLowerCase() : null;
+}
+
+function CorridorFlag({ flag }: { flag: string }) {
+  const iso = flagToISO(flag);
+  if (!iso) return <span className="text-sm sm:text-lg">{flag}</span>;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`https://flagcdn.com/h20/${iso}.png`}
+      srcSet={`https://flagcdn.com/h40/${iso}.png 2x`}
+      width={20}
+      height={15}
+      alt=""
+      loading="lazy"
+      className="h-3.5 sm:h-4 w-auto rounded-[2px] shrink-0 object-cover"
+    />
+  );
+}
+
 export default function HomeDynamicSection() {
   const { fromCurrency, toCurrency, amount } = useHomeSelection();
 
@@ -113,7 +143,7 @@ export default function HomeDynamicSection() {
     <section id="best-routes" className="py-16 sm:py-24 bg-[var(--color-surface)]">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-14 max-w-2xl mx-auto">
-          <h2 className="font-display text-4xl sm:text-5xl font-normal text-[var(--color-on-surface)] leading-[1.05]">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-on-surface)] leading-[1.1]">
             Best app to send {amount.toLocaleString()} {fromCurrency} to {toCurrency}
           </h2>
           <p className="text-base text-[var(--color-on-surface-variant)] mt-4">
@@ -158,7 +188,7 @@ export default function HomeDynamicSection() {
                     </span>
                   )}
                   <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-                    <span className="text-sm sm:text-lg">{c.flag}</span>
+                    <CorridorFlag flag={c.flag} />
                     <span className={`text-[10px] sm:text-xs font-semibold uppercase tracking-wide ${isSelected ? "text-[var(--color-accent-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                       {fromCurrency} → {c.toCurrency}
                     </span>

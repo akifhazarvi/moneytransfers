@@ -98,7 +98,7 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
       {/* Visible guides — builds topical depth and internal links for SEO */}
       <Container className="py-12">
         <div className="max-w-[1000px]">
-          <h2 className="font-display text-[clamp(1.5rem,3vw,2rem)] font-normal leading-[1.25] tracking-[-0.01em] text-[var(--color-on-surface)] mb-2">
+          <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-bold leading-[1.25] tracking-tight text-[var(--color-on-surface)] mb-2">
             How banks hide their profit in the exchange rate
           </h2>
           <p className="text-md text-[var(--color-on-surface-variant)] mb-8 max-w-[720px]">
@@ -123,7 +123,7 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
           </div>
 
           <div className="mt-10 pt-8 border-t border-[var(--color-outline)]">
-            <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.5rem)] font-normal text-[var(--color-on-surface)] mb-3">
+            <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold tracking-tight text-[var(--color-on-surface)] mb-3">
               The mid-market rate vs what you&apos;ll actually be charged
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-4 max-w-[720px]">

@@ -130,7 +130,7 @@ export default function GuidesClientPage({ posts, categories, translations }: Pr
           <span className="text-xs font-medium uppercase tracking-wide text-white/70 bg-white/10 px-3 py-1 rounded-full">
             {translations.featuredGuide}
           </span>
-          <h2 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] tracking-[-0.015em] mt-5 mb-4 max-w-3xl">{featured.title}</h2>
+          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-[1.15] tracking-tight mt-5 mb-4 max-w-3xl">{featured.title}</h2>
           <p className="text-md text-white/70 leading-relaxed mb-7 max-w-2xl">{featured.excerpt}</p>
           <div className="flex items-center gap-4">
             <span className="text-2sm text-white/55">{featured.readTime}</span>
