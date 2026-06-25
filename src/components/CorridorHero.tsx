@@ -95,10 +95,10 @@ export default function CorridorHero({
           {/* Title row */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
             <div className="max-w-2xl">
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-[60px] font-normal text-white leading-[1.04] tracking-[-0.01em]">
+              <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold text-white leading-[1.04] tracking-tight">
                 {isCountryPage ? `${headingPrefix} ${headingTo}` : `${headingPrefix} ${headingFrom} to ${headingTo}`}
                 {headingSuffix && (
-                  <span className="block text-white/55 text-2xl sm:text-3xl lg:text-4xl font-normal italic mt-2">
+                  <span className="block text-white/55 text-2xl sm:text-3xl lg:text-4xl font-medium mt-2">
                     {headingSuffix}
                   </span>
                 )}
@@ -178,7 +178,7 @@ export default function CorridorHero({
                   </div>
                   <div>
                     <p className="text-[11px] font-medium text-[var(--color-on-surface-muted)] uppercase tracking-wider">Recipient gets</p>
-                    <p className="font-display text-2xl font-normal text-[var(--color-success-dark)] tabular-nums mt-1 leading-none">
+                    <p className="text-2xl font-bold text-[var(--color-success-dark)] tabular-nums mt-1 leading-none">
                       {formatReceive(best.receiveAmount, receiveSymbol)}
                     </p>
                   </div>

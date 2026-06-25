@@ -303,7 +303,7 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--color-success-dark)] uppercase tracking-wider mb-2">
                 <Trophy className="w-3 h-3" strokeWidth={2.25} /> Live verdict
               </span>
-              <p className="font-display text-[clamp(1.5rem,4vw,2.25rem)] font-normal leading-[1.15] tracking-[-0.02em] text-[var(--color-on-surface)]">
+              <p className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold leading-[1.15] tracking-tight text-[var(--color-on-surface)]">
                 {headline.winner.name} sends{" "}
                 <span className="text-[var(--color-success-dark)] font-semibold tabular-nums">
                   {toSym}

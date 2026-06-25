@@ -25,7 +25,7 @@ export default function SectionHeader({
         />
       )}
       <div className={`flex items-baseline ${centered ? "justify-center" : "justify-between"}`}>
-        <h2 className="font-display text-3xl sm:text-4xl font-normal text-[var(--color-on-surface)] leading-[1.1] tracking-[-0.01em]">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-on-surface)] leading-[1.1] tracking-tight">
           {title}
         </h2>
         {viewAllHref && (
