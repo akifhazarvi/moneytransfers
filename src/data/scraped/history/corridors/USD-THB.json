@@ -4600,5 +4600,70 @@
         "receiveAmount": 3232.73
       }
     }
+  },
+  {
+    "date": "2026-06-25",
+    "providers": {
+      "remitly": {
+        "rate": 32.9736,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 3231.74
+      },
+      "ria": {
+        "rate": 32.0914,
+        "fee": 1.9,
+        "markup": null,
+        "receiveAmount": 3249.87
+      },
+      "taptap-send": {
+        "rate": 32.7,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3270
+      },
+      "worldremit": {
+        "rate": 32.9461,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 3196.1
+      },
+      "xoom": {
+        "rate": 31.955,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 3036.04
+      },
+      "bank-of-america": {
+        "rate": 32.4726,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3247.26
+      },
+      "paypal": {
+        "rate": 31.7714,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 3018.6
+      },
+      "wells-fargo": {
+        "rate": 32.3801,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3238.01
+      },
+      "instarem": {
+        "rate": 33.2154,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3321.54
+      },
+      "wise": {
+        "rate": 33.4525,
+        "fee": 2.87,
+        "markup": null,
+        "receiveAmount": 3249.24
+      }
+    }
   }
 ]

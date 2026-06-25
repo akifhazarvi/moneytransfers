@@ -5514,5 +5514,94 @@
         "receiveAmount": 13265.97
       }
     }
+  },
+  {
+    "date": "2026-06-25",
+    "providers": {
+      "lemfi": {
+        "rate": 139.5,
+        "fee": 1.49,
+        "markup": 0.05,
+        "receiveAmount": 13742.15
+      },
+      "moneygram": {
+        "rate": 140.3613,
+        "fee": 1.99,
+        "markup": -0.41,
+        "receiveAmount": 13756.81
+      },
+      "taptap-send": {
+        "rate": 139.35,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13935
+      },
+      "western-union": {
+        "rate": 138.9083,
+        "fee": 0.99,
+        "markup": 0.63,
+        "receiveAmount": 13753.31
+      },
+      "dahabshiil": {
+        "rate": 139.0309,
+        "fee": 0,
+        "markup": 0.54,
+        "receiveAmount": 13903.09
+      },
+      "worldremit": {
+        "rate": 139.3416,
+        "fee": 0.99,
+        "markup": 0.32,
+        "receiveAmount": 13796.21
+      },
+      "instarem": {
+        "rate": 138.5641,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13856.41
+      },
+      "paysend": {
+        "rate": 139.6165,
+        "fee": 0,
+        "markup": 0.12,
+        "receiveAmount": 13961.65
+      },
+      "sendwave": {
+        "rate": 139.2296,
+        "fee": 0.99,
+        "markup": 0.4,
+        "receiveAmount": 13785.12
+      },
+      "remitly": {
+        "rate": 138.7394,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 13736.59
+      },
+      "revolut": {
+        "rate": 138.8559,
+        "fee": 2.3,
+        "markup": 0.67,
+        "receiveAmount": 13566.22
+      },
+      "wise": {
+        "rate": 139.593,
+        "fee": 3.14,
+        "markup": null,
+        "receiveAmount": 13520.98
+      },
+      "xoom": {
+        "rate": 136.4159,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13233.71
+      },
+      "skrill": {
+        "rate": 136.0004,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13600.04
+      }
+    }
   }
 ]

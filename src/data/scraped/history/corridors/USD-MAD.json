@@ -2806,5 +2806,40 @@
         "receiveAmount": 880.24
       }
     }
+  },
+  {
+    "date": "2026-06-25",
+    "providers": {
+      "lemfi": {
+        "rate": 9.26,
+        "fee": 0,
+        "markup": 1.65,
+        "receiveAmount": 926
+      },
+      "taptap-send": {
+        "rate": 9.25,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 925
+      },
+      "remitly": {
+        "rate": 9.2952,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 929.52
+      },
+      "xoom": {
+        "rate": 9.0608,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 860.87
+      },
+      "wise": {
+        "rate": 9.4159,
+        "fee": 6.19,
+        "markup": null,
+        "receiveAmount": 883.31
+      }
+    }
   }
 ]
