@@ -283,7 +283,7 @@ function DefaultComparison({
             <div className="inline-flex items-center gap-1.5 text-overline text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-3 py-1.5 rounded-full mb-5">
               Comparison
             </div>
-            <h1 className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-normal leading-[1.18] tracking-[-0.02em] text-[var(--color-on-surface)] mb-4">
+            <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-[1.18] tracking-tight text-[var(--color-on-surface)] mb-4">
               {a.name} vs {b.name}: Fees, Rates &amp; Speed Compared
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-2sm text-[var(--color-on-surface-variant)]">

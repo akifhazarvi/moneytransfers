@@ -155,8 +155,8 @@ function DefaultReview({
                 <Image src={provider.logo} alt={provider.name} width={72} height={72} className="object-contain p-1.5" />
               </div>
               <div>
-                <h1 className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-normal leading-[1.12] tracking-[-0.015em] text-white">
-                  {provider.name} <span className="italic text-white/55">review</span>
+                <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-[1.12] tracking-tight text-white">
+                  {provider.name} <span className="font-medium text-white/55">review</span>
                 </h1>
                 <div className="flex items-center gap-3 mt-3">
                   <RatingBadge rating={provider.rating} label={provider.ratingLabel} size="md" />

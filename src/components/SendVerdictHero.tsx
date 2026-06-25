@@ -213,7 +213,7 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
                 {cfg.icon}
               </span>
               <div>
-                <p className="font-display text-2xl sm:text-3xl font-normal text-[var(--color-on-surface)] leading-tight">{copy.head}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-[var(--color-on-surface)] leading-tight tracking-tight">{copy.head}</p>
                 <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
                   Today beats <strong className="text-[var(--color-on-surface)]">{data.levelPct}%</strong> of the last {data.daysTracked} days
                 </p>
@@ -225,8 +225,8 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
               <p className="text-[13px] text-[var(--color-on-surface-variant)]">
                 Send {sym(from)}{fmtInt(amount)} {from}, your recipient gets
               </p>
-              <p className="font-display text-5xl sm:text-6xl font-normal text-[var(--color-on-surface)] tabular-nums tracking-tight mt-1 leading-none">
-                {fmtInt(data.receiveNow)} <span className="text-2xl sm:text-3xl text-[var(--color-on-surface-variant)] font-normal">{to}</span>
+              <p className="text-5xl sm:text-6xl font-bold text-[var(--color-on-surface)] tabular-nums tracking-tight mt-1 leading-none">
+                {fmtInt(data.receiveNow)} <span className="text-2xl sm:text-3xl text-[var(--color-on-surface-variant)] font-medium">{to}</span>
               </p>
               <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-1.5">
                 via <strong className="text-[var(--color-on-surface)]">{getProviderName(data.bestProviderSlug)}</strong>
@@ -272,7 +272,7 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
           </>
         ) : (
           <div className="py-6 text-center">
-            <p className="font-display text-xl font-normal text-[var(--color-on-surface)]">
+            <p className="text-xl font-bold text-[var(--color-on-surface)] tracking-tight">
               No rate history for {from} → {to} yet
             </p>
             <Link href="/send-money" className="ws-pill-ink mt-4 justify-center px-5 py-3 text-sm">

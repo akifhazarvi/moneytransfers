@@ -329,8 +329,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.category}
             </div>
 
-            {/* H1 — Instrument Serif for editorial authority */}
-            <h1 className="font-display text-[clamp(1.875rem,4.5vw,3rem)] font-normal leading-[1.12] tracking-[-0.02em] text-[var(--color-on-surface)] mb-5">
+            <h1 className="text-[clamp(1.875rem,4.5vw,3rem)] font-bold leading-[1.12] tracking-tight text-[var(--color-on-surface)] mb-5">
               {post.title}
             </h1>
 
@@ -465,7 +464,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Article Sections */}
             {post.sections.map((section, i) => (
               <section key={i} id={sectionIds[i]} className="mb-12">
-                <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
+                <h2 className="text-[clamp(1.375rem,3vw,1.625rem)] font-bold leading-[1.28] tracking-tight text-[var(--color-on-surface)] mb-5">
                   {section.heading}
                 </h2>
                 <div
@@ -499,7 +498,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* HowTo Steps — visual rendering */}
             {post.howToSteps && post.howToSteps.length > 0 && (
               <section id="how-to-steps" className="mb-12">
-                <h2 className="font-display text-[clamp(1.375rem,3vw,1.625rem)] font-normal leading-[1.28] tracking-[-0.01em] text-[var(--color-on-surface)] mb-5">
+                <h2 className="text-[clamp(1.375rem,3vw,1.625rem)] font-bold leading-[1.28] tracking-tight text-[var(--color-on-surface)] mb-5">
                   Step-by-Step Guide
                 </h2>
                 <ol className="space-y-4">

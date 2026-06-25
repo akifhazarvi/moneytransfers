@@ -506,11 +506,10 @@ h1 { letter-spacing: -0.028em; }
 }
 
 .prose-content h2 {
-  font-family: var(--font-display);
   font-size: 1.75rem;            /* 28px */
   line-height: 1.2;
-  font-weight: 400;
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--color-on-surface);
   margin-top: 3rem;
   margin-bottom: 1rem;
