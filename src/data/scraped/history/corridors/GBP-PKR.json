@@ -12208,5 +12208,130 @@
         "receiveAmount": 36089.67
       }
     }
+  },
+  {
+    "date": "2026-06-26",
+    "providers": {
+      "hsbc": {
+        "rate": 353.227,
+        "fee": 20.17,
+        "markup": 3.5,
+        "receiveAmount": 28198.69
+      },
+      "moneygram": {
+        "rate": 367.8687,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 36422.68
+      },
+      "skrill": {
+        "rate": 361.434,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 36143.4
+      },
+      "taptap-send": {
+        "rate": 366.5,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 36287.17
+      },
+      "western-union": {
+        "rate": 367.735,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 36773.5
+      },
+      "dahabshiil": {
+        "rate": 368.4072,
+        "fee": 0,
+        "markup": -0.65,
+        "receiveAmount": 36840.72
+      },
+      "profee": {
+        "rate": 368.7026,
+        "fee": 1,
+        "markup": -0.73,
+        "receiveAmount": 36501.56
+      },
+      "ofx": {
+        "rate": 343.7745,
+        "fee": 0,
+        "markup": 6.08,
+        "receiveAmount": 34377.45
+      },
+      "transfergo": {
+        "rate": 347.1325,
+        "fee": 0,
+        "markup": 5.16,
+        "receiveAmount": 34713.25
+      },
+      "worldremit": {
+        "rate": 367.8871,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 36788.71
+      },
+      "instarem": {
+        "rate": 364.4995,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 36449.95
+      },
+      "xe": {
+        "rate": 367.0054,
+        "fee": 1.5,
+        "markup": -0.26,
+        "receiveAmount": 36150.03
+      },
+      "mukuru": {
+        "rate": 345.78,
+        "fee": 0,
+        "markup": 5.53,
+        "receiveAmount": 34578
+      },
+      "paysend": {
+        "rate": 364.7158,
+        "fee": 1,
+        "markup": 0.36,
+        "receiveAmount": 36106.86
+      },
+      "sendwave": {
+        "rate": 366.4363,
+        "fee": 1.99,
+        "markup": -0.11,
+        "receiveAmount": 35914.42
+      },
+      "remitly": {
+        "rate": 367.0751,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 36344.1
+      },
+      "revolut": {
+        "rate": 364.7999,
+        "fee": 0.8,
+        "markup": 0.34,
+        "receiveAmount": 36188.15
+      },
+      "xoom": {
+        "rate": 358.6397,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 35863.97
+      },
+      "nationwide": {
+        "rate": 357.6772,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 30402.57
+      },
+      "wise": {
+        "rate": 366.925,
+        "fee": 1.4,
+        "markup": null,
+        "receiveAmount": 36178.81
+      }
+    }
   }
 ]
