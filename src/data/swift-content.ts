@@ -18,19 +18,13 @@ export interface SwiftContent {
 }
 
 import { swiftContentEn } from "./swift-content-en";
-import { swiftContentEs } from "./swift-content-es";
-import { swiftContentFr } from "./swift-content-fr";
 
-const localeMap: Record<string, SwiftContent> = {
-  en: swiftContentEn,
-  es: swiftContentEs,
-  fr: swiftContentFr,
-};
-
-export function getSwiftEditorial(locale: string, slug: string): EditorialNote | undefined {
-  return localeMap[locale]?.editorial[slug] || localeMap.en.editorial[slug];
+// Single-locale site (en only). The es/fr content modules were removed
+// 2026-06-25 along with the retired /es /fr /pt locale routes.
+export function getSwiftEditorial(_locale: string, slug: string): EditorialNote | undefined {
+  return swiftContentEn.editorial[slug];
 }
 
-export function getSwiftFaqs(locale: string, slug: string): FaqItem[] | undefined {
-  return localeMap[locale]?.faqs[slug] || localeMap.en.faqs[slug];
+export function getSwiftFaqs(_locale: string, slug: string): FaqItem[] | undefined {
+  return swiftContentEn.faqs[slug];
 }

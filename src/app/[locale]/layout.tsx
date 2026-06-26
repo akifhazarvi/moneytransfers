@@ -35,7 +35,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "metadata" });
 
-  const localeMap: Record<string, string> = { en: "en_US", es: "es_ES", fr: "fr_FR", pt: "pt_BR" };
+  // Single-locale site (en only) since the /es /fr /pt routes were retired.
+  const ogLocale = "en_US";
 
   return {
     // Title template runs on every child page that sets title: "Page Title".
@@ -56,8 +57,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     openGraph: {
       type: "website",
-      locale: localeMap[locale] || "en_US",
-      url: locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`,
+      locale: ogLocale,
+      url: SITE_URL,
       siteName: "SendMoneyCompare",
       title: t("title"),
       description: t("description"),
