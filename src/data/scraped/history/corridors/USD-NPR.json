@@ -4790,10 +4790,10 @@
     "date": "2026-06-26",
     "providers": {
       "moneygram": {
-        "rate": 149.8944,
+        "rate": 149.8382,
         "fee": 1.99,
-        "markup": 0.62,
-        "receiveAmount": 14691.15
+        "markup": 1.11,
+        "receiveAmount": 14685.64
       },
       "ria": {
         "rate": 149.8939,
@@ -4808,16 +4808,16 @@
         "receiveAmount": 14900
       },
       "western-union": {
-        "rate": 150.2806,
+        "rate": 149.655,
         "fee": 1.99,
-        "markup": 0.37,
-        "receiveAmount": 14729
+        "markup": 1.23,
+        "receiveAmount": 14667.69
       },
       "worldremit": {
-        "rate": 148.9335,
+        "rate": 148.9038,
         "fee": 0.99,
-        "markup": 1.26,
-        "receiveAmount": 14745.91
+        "markup": 1.73,
+        "receiveAmount": 14742.97
       },
       "instarem": {
         "rate": 149.5499,
@@ -4826,15 +4826,15 @@
         "receiveAmount": 14954.99
       },
       "xe": {
-        "rate": 149.9048,
+        "rate": 149.2802,
         "fee": 4,
-        "markup": 0.62,
-        "receiveAmount": 14390.86
+        "markup": 1.48,
+        "receiveAmount": 14330.9
       },
       "paysend": {
         "rate": 150.1153,
         "fee": 1.99,
-        "markup": 0.48,
+        "markup": 0.93,
         "receiveAmount": 14712.8
       },
       "remitly": {
