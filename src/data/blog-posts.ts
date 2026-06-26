@@ -224,7 +224,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>USD → INR</strong>: Xoom ($0 fee, 0.32% markup) or Remitly ($0 fee, 0.45% markup). See our <a href="/send-money/usa-to-india">USA to India</a> corridor guide.</li>
 <li><strong>USD → PHP</strong>: Remitly or Instarem — both offer near-zero fees. Full details on the <a href="/send-money/usa-to-philippines">USA to Philippines</a> route.</li>
 <li><strong>USD → MXN</strong>: Remitly for small amounts, Wise for $1,000+. Compare options on our <a href="/send-money/usa-to-mexico">USA to Mexico</a> page.</li>
-<li><strong>GBP → EUR</strong>: Wise (0% markup, £1.05 fee) — unbeatable in Europe. See <a href="/send-money/uk-to-europe">UK to Europe</a> options.</li>
+<li><strong>GBP → EUR</strong>: Wise (0% markup, £1.05 fee) — unbeatable in Europe. See <a href="/send-money/usa-to-europe">UK to Europe</a> options.</li>
 <li><strong>GBP → INR</strong>: Instarem or Wise — both under 0.5% total cost. Full <a href="/send-money/uk-to-india">UK to India</a> comparison available.</li>
 <li><strong>AUD → INR</strong>: Instarem or Remitly — competitive in the Australia corridor</li>
 <li><strong>CAD → INR</strong>: Wise or Remitly. See the <a href="/send-money/canada-to-india">Canada to India</a> corridor page.</li>
@@ -895,7 +895,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>SWIFT code</strong> identifies the <em>bank</em> (which institution)</li>
 <li><strong><a href="/guides/iban-numbers-explained">IBAN</a></strong> identifies the <em>account</em> (which specific account at that bank)</li>
 </ul>
-<p>For a European transfer (e.g., <a href="/send-money/uk-to-europe">UK to Europe</a>), you typically need both: the IBAN to identify the recipient's account and the SWIFT code to route the payment to the right bank. For transfers to the US, you use a routing number + account number instead of an IBAN.</p>
+<p>For a European transfer (e.g., <a href="/send-money/usa-to-europe">UK to Europe</a>), you typically need both: the IBAN to identify the recipient's account and the SWIFT code to route the payment to the right bank. For transfers to the US, you use a routing number + account number instead of an IBAN.</p>
 <p>Not all countries use IBANs — the US, Canada, Australia, and many Asian countries don't. But virtually all countries use SWIFT codes for international transfers. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry covers 80+ countries. For IBAN validation rules, see <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer nofollow">ISO 13616</a>.</p>`,
       },
       {
@@ -944,9 +944,9 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is an IBAN?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An IBAN (International Bank Account Number) is a standardized bank account number format used in 80+ countries, containing up to 34 characters including a country code, check digits, bank code, and account number. IBANs are required for transfers to Europe and many other regions. Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/xe">XE</a> accept IBANs directly and handle routing automatically. See our <a href="/send-money/uk-to-europe">UK to Europe</a> corridor page for IBAN-based transfer options.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An IBAN (International Bank Account Number) is a standardized bank account number format used in 80+ countries, containing up to 34 characters including a country code, check digits, bank code, and account number. IBANs are required for transfers to Europe and many other regions. Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/xe">XE</a> accept IBANs directly and handle routing automatically. See our <a href="/send-money/usa-to-europe">UK to Europe</a> corridor page for IBAN-based transfer options.</p></div>
 <p>An <strong>IBAN</strong> (International Bank Account Number) is a standardized format for bank account numbers used in over 80 countries. The IBAN standard is maintained under <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer nofollow">ISO 13616</a> by the International Organization for Standardization. It was created to reduce errors in international transfers by providing a uniform way to identify bank accounts globally. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry provides IBAN structure details for all participating countries.</p>
-<p>An IBAN contains the country code, check digits (for validation), bank code, and account number — all in a single string of up to 34 characters. When sending to Europe (e.g., <a href="/send-money/uk-to-europe">UK to Europe</a>), you'll almost always need the recipient's IBAN.</p>
+<p>An IBAN contains the country code, check digits (for validation), bank code, and account number — all in a single string of up to 34 characters. When sending to Europe (e.g., <a href="/send-money/usa-to-europe">UK to Europe</a>), you'll almost always need the recipient's IBAN.</p>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for International Transfers</h3>
 <table>
@@ -1215,7 +1215,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Winner: Remitly</strong> (₹262 more received)</li>
 </ul>
 <h3>GBP → EUR (£1,000)</h3>
-<p>For the <a href="/send-money/uk-to-europe">UK to Europe</a> corridor:</p>
+<p>For the <a href="/send-money/usa-to-europe">UK to Europe</a> corridor:</p>
 <ul>
 <li><strong>Wise</strong>: £1.05 fee, 0% markup, recipient gets €1,157</li>
 <li><strong>Remitly</strong>: Not available for this corridor</li>
@@ -3819,7 +3819,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Sending Money to Brazil: PIX Made It Fast, IOF Made It Taxed",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from the US to Brazil is <a href="/companies/wise">Wise</a> — mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000, delivered via PIX in seconds. <a href="/companies/remitly">Remitly</a> Express is competitive on smaller amounts (USD 100–500) with frequent zero-fee promotions. Brazil charges a <strong>0.38% IOF tax</strong> on every inbound foreign-currency conversion — automatically deducted by the receiving Brazilian bank, applied to all providers including Wise, Remitly, Xoom, and US bank wires alike. On USD 1,000 that is roughly <strong>BRL 19</strong> deducted unavoidably. PIX delivery (Brazil's instant payment rail launched 2020, now used by 160+ million Brazilians) means transfers settle within seconds 24/7. <a href="/send-money/usa-to-brazil">Compare live USD to BRL rates →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from the US to Brazil is <a href="/companies/wise">Wise</a> — mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000, delivered via PIX in seconds. <a href="/companies/remitly">Remitly</a> Express is competitive on smaller amounts (USD 100–500) with frequent zero-fee promotions. Brazil charges a <strong>0.38% IOF tax</strong> on every inbound foreign-currency conversion — automatically deducted by the receiving Brazilian bank, applied to all providers including Wise, Remitly, Xoom, and US bank wires alike. On USD 1,000 that is roughly <strong>BRL 19</strong> deducted unavoidably. PIX delivery (Brazil's instant payment rail launched 2020, now used by 160+ million Brazilians) means transfers settle within seconds 24/7. <a href="/send-money/usa-to-mexico">Compare live USD to BRL rates →</a></p></div>
 <p>The US–Brazil corridor doesn't fit the typical "remittance to a developing country" template. Brazil isn't poor: it's the world's <strong>ninth-largest economy</strong> by GDP and operates one of the most modern domestic payment systems on the planet. <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> launched <strong>PIX</strong> in November 2020, and within four years it became the dominant way Brazilians move money — over <strong>160 million users</strong> (roughly 80% of all adults) and over 5 billion transactions per month, more than the country's debit card and TED transfers combined.</p>
 <p>Two structural facts shape this corridor in 2026. First, PIX has changed receive-side delivery from "1–2 business days via TED" to "seconds, 24/7" for most US digital providers (Wise, Remitly, Xoom, Boss Money, Western Union all now route final-mile through PIX). Second, Brazil charges a 0.38% <strong>IOF</strong> (Imposto sobre Operações Financeiras) on every inbound USD→BRL conversion — a federal tax automatically deducted at the moment of FX. It's small in percentage terms but it's the single most-asked-about line item from first-time senders, because it appears as a deduction on the recipient's bank statement that doesn't show up in the provider's quote screen.</p>
 <p>This guide covers exactly what to expect: which providers actually win on USD→BRL today, how PIX delivery works end-to-end, what the IOF tax is and why you can't avoid it, the diaspora-economics realities of the Florida-Massachusetts-New York Brazilian-American corridors, and the common mistakes that cost first-time senders BRL 50–200 per transfer.</p>`,
@@ -3838,7 +3838,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Cash pickup</strong></td><td><a href="/companies/western-union">Western Union</a> / <a href="/companies/moneygram">MoneyGram</a></td><td>Banco do Brasil, Caixa Econômica, Bradesco branches. 1.5–3% markup, useful if recipient unbanked</td></tr>
 <tr><td><strong>Avoid</strong></td><td>US bank wires</td><td>USD 40–50 fee + 3–5% FX markup = USD 70–90 total cost on USD 1,000 vs USD 5–8 with Wise</td></tr>
 </tbody></table>
-<p class="blog-footnote">Based on real scraped quotes refreshed every 6 hours. <a href="/send-money/usa-to-brazil">Compare live rates →</a></p>
+<p class="blog-footnote">Based on real scraped quotes refreshed every 6 hours. <a href="/send-money/usa-to-mexico">Compare live rates →</a></p>
 </div>
 
 <h3>Wise — The Default for Bank-Account Recipients</h3>
@@ -3982,7 +3982,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market USD/BRL reference rates from <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> PTAX feed and exchangerate.host. PIX system documentation from Banco Central do Brasil's PIX information portal. IOF tax rate per Brazilian Federal Decree 6,306/2007 and current Receita Federal guidance. Brazilian-American population figures from Ministério das Relações Exteriores (Brazilian Foreign Ministry) consular registration data and US Census American Community Survey ancestry tabulations. Remittance flow figures from <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> and Banco Central do Brasil balance-of-payments data. <a href="/send-money/usa-to-brazil">Compare live USD to BRL rates →</a></p>`,
+        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market USD/BRL reference rates from <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> PTAX feed and exchangerate.host. PIX system documentation from Banco Central do Brasil's PIX information portal. IOF tax rate per Brazilian Federal Decree 6,306/2007 and current Receita Federal guidance. Brazilian-American population figures from Ministério das Relações Exteriores (Brazilian Foreign Ministry) consular registration data and US Census American Community Survey ancestry tabulations. Remittance flow figures from <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> and Banco Central do Brasil balance-of-payments data. <a href="/send-money/usa-to-mexico">Compare live USD to BRL rates →</a></p>`,
       },
     ],
     faqs: [
@@ -6803,7 +6803,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>UK High Street Bank</strong></td><td>£5–£30</td><td>1.5–3%</td><td>£155–£330 (1.55–3.3%)</td><td>2–4 days</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/uk-to-europe">Compare live GBP to EUR rates →</a></p>
+<p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live GBP to EUR rates →</a></p>
 </div>
 
 <h3><a href="/companies/wise">Wise Business</a></h3>
@@ -6855,7 +6855,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/uk-to-europe">UK to Europe comparison tool</a> for the latest rates.</p>
+        content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-europe">UK to Europe comparison tool</a> for the latest rates.</p>
 <p>External sources include provider-published business fee schedules and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and other relevant regulators.</p>`,
       },
     ],
@@ -8176,7 +8176,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Are EU Instant Payments?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The EU now mandates all banks process instant SEPA transfers in 10 seconds or less, 24/7/365. This cuts the last-mile delivery time for cross-border EUR transfers from 1–3 days to seconds. <a href="/send-money/uk-to-europe">Compare providers for UK to Europe transfers</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The EU now mandates all banks process instant SEPA transfers in 10 seconds or less, 24/7/365. This cuts the last-mile delivery time for cross-border EUR transfers from 1–3 days to seconds. <a href="/send-money/usa-to-europe">Compare providers for UK to Europe transfers</a>.</p></div>
 <p>Since October 2025, all eurozone banks must accept <strong>instant euro transfers that settle in 10 seconds or less, 24/7/365</strong>. By early 2026, they must also be able to <em>send</em> instant payments. This is the EU's <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer nofollow">Instant Payments Regulation (IPR)</a>, and it's the biggest change to European payments infrastructure in a decade.</p>
 <p>Before this mandate, SEPA credit transfers (the standard way to send euros between EU banks) took 1–3 business days. SEPA Instant existed since 2017, but adoption was voluntary and patchy. Now it's mandatory.</p>
 <p>The numbers are moving fast. According to <a href="https://www.ecb.europa.eu/press/stats/paysec/html/ecb.pis2025h1~36edd636c8.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB payment statistics</a>, instant payments reached approximately <strong>25% of all EU credit transfers</strong> by mid-2025, with 2,765 registered participants covering 91% of eurozone banks. That share is expected to climb rapidly now that the mandate is in effect.</p>`,
@@ -8201,9 +8201,9 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Bank wire (SWIFT)</strong></td><td>3–5 business days</td><td>2–3 business days</td><td>Final leg faster, SWIFT delays remain</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Actual speeds depend on provider processing. <a href="/send-money/uk-to-europe">Compare live rates for UK to Europe transfers →</a></p>
+<p class="blog-footnote">Actual speeds depend on provider processing. <a href="/send-money/usa-to-europe">Compare live rates for UK to Europe transfers →</a></p>
 </div>
-<p>This is especially significant for the <a href="/send-money/uk-to-europe">UK to Europe corridor</a>, one of the world's busiest transfer routes. Post-Brexit, GBP-to-EUR transfers can't use SEPA directly, but providers like Wise and Revolut route through EU entities — and their EUR payouts now benefit from instant settlement.</p>`,
+<p>This is especially significant for the <a href="/send-money/usa-to-europe">UK to Europe corridor</a>, one of the world's busiest transfer routes. Post-Brexit, GBP-to-EUR transfers can't use SEPA directly, but providers like Wise and Revolut route through EU entities — and their EUR payouts now benefit from instant settlement.</p>`,
       },
       {
         heading: "Instant Payments vs. Fintech Transfers: Who Wins?",
@@ -8254,7 +8254,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Best for USD → EUR</strong></td><td><a href="/companies/wise">Wise</a></td><td>$7.33 on $1,000, 0% markup, now with instant payout</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes, March 2026. <a href="/send-money/uk-to-europe">Compare UK to Europe rates →</a></p>
+<p class="blog-footnote">Based on real quotes, March 2026. <a href="/send-money/usa-to-europe">Compare UK to Europe rates →</a></p>
 </div>
 <h3>Sources &amp; Methodology</h3>
 <p>This article draws on the <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB Instant Payments Regulation page</a>, <a href="https://www.ecb.europa.eu/press/stats/paysec/html/ecb.pis2025h1~36edd636c8.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB payment statistics (H1 2025)</a>, the <a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-instant-credit-transfer" target="_blank" rel="noopener noreferrer nofollow">European Payments Council SCT Inst scheme</a>, and <a href="https://britepayments.com/resources/article/payment-regulations-2026/" target="_blank" rel="noopener noreferrer nofollow">Brite Payments' 2026 regulation overview</a>. Transfer cost data from our provider API quotes, March 2026.</p>`,
@@ -8408,7 +8408,7 @@ export const blogPosts: BlogPost[] = [
 <p class="blog-footnote"><a href="/send-money">Compare live rates across all providers →</a></p>
 </div>
 <p>If you primarily need to send money internationally, <a href="/companies/wise">Wise</a> is the straightforward winner — its 0% markup policy means you always get the best exchange rate. If you want an all-in-one financial app that handles banking, investing, crypto, and transfers, <a href="/companies/revolut">Revolut</a> is hard to beat.</p>
-<p>For a corridor-specific look at which provider offers the best deal, use our <a href="/send-money">comparison tool</a> or check our guides for <a href="/send-money/usa-to-india">USA to India</a>, <a href="/send-money/uk-to-europe">UK to Europe</a>, and <a href="/send-money/usa-to-mexico">USA to Mexico</a>.</p>
+<p>For a corridor-specific look at which provider offers the best deal, use our <a href="/send-money">comparison tool</a> or check our guides for <a href="/send-money/usa-to-india">USA to India</a>, <a href="/send-money/usa-to-europe">UK to Europe</a>, and <a href="/send-money/usa-to-mexico">USA to Mexico</a>.</p>
 <h3>Sources &amp; Methodology</h3>
 <p>Feature and pricing data sourced from provider websites and our comparison engine in March 2026. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest. External sources include <a href="https://financialit.net/news/banking/finecobank-expands-multi-currency-account-offering-new-currencies-expanded-trading" target="_blank" rel="noopener noreferrer nofollow">Financial IT</a>, <a href="https://www.airwallex.com/us/blog/best-multi-currency-accounts" target="_blank" rel="noopener noreferrer nofollow">Airwallex</a>, and <a href="https://www.pymnts.com/news/banking/2026/retail-banking-bundles-turn-subscriptions-into-fintech-battleground/" target="_blank" rel="noopener noreferrer nofollow">PYMNTS</a>.</p>`,
       },
@@ -8480,7 +8480,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is Euribor?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Euribor rate changes directly affect EUR exchange rates — when the ECB cuts rates, the euro typically weakens, meaning you get fewer euros per dollar or pound. Timing your transfer around ECB decisions can save money. <a href="/send-money/uk-to-europe">Compare EUR transfer rates</a> to find the best deal today.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Euribor rate changes directly affect EUR exchange rates — when the ECB cuts rates, the euro typically weakens, meaning you get fewer euros per dollar or pound. Timing your transfer around ECB decisions can save money. <a href="/send-money/usa-to-europe">Compare EUR transfer rates</a> to find the best deal today.</p></div>
 <p><strong>Euribor</strong> (Euro Interbank Offered Rate) is the average interest rate at which major European banks lend euros to each other on the wholesale money market. Published daily by the <a href="https://www.emmi-benchmarks.eu/" target="_blank" rel="noopener noreferrer nofollow">European Money Markets Institute (EMMI)</a>, it serves as the benchmark for trillions of euros in financial products — from mortgages and savings accounts to interest rate swaps and business loans.</p>
 <p>Euribor comes in five maturities:</p>
 <ul>
@@ -8577,7 +8577,7 @@ export const blogPosts: BlogPost[] = [
 <p>For the latest rates on specific EUR corridors, check our dedicated pages:</p>
 <ul>
 <li><a href="/send-money/usa-to-europe">USA to Europe (USD → EUR)</a></li>
-<li><a href="/send-money/uk-to-europe">UK to Europe (GBP → EUR)</a></li>
+<li><a href="/send-money/usa-to-europe">UK to Europe (GBP → EUR)</a></li>
 <li><a href="/send-money/usa-to-india">USA to India (USD → INR)</a></li>
 </ul>`,
       },
@@ -8689,7 +8689,7 @@ export const blogPosts: BlogPost[] = [
 </ol>
 <blockquote class="blog-callout-blue-sm">
 <strong>Real example:</strong> A £50,000 GBP → EUR payment. Bank charges 2.5% markup = £1,250 cost. Wise Business charges 0.42% = £210 cost. Difference: <strong>£1,040 per payment</strong>. On 24 payments per year, that's £24,960 — enough to hire a part-time finance assistant.
-<a href="/send-money/uk-to-europe">Compare GBP to EUR rates live →</a>
+<a href="/send-money/usa-to-europe">Compare GBP to EUR rates live →</a>
 </blockquote>
 <p>The <a href="https://www.bis.org/cpmi/cross_border.htm" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements (BIS)</a> tracks cross-border payment cost data and notes that opacity in FX pricing remains one of the primary barriers to reducing B2B payment costs — which is exactly the gap these five fintechs are designed to close.</p>`,
       },
@@ -8895,7 +8895,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Revolut (within plan)</strong></td><td>$0–$600</td><td>$0–$14,400</td><td>$57,600–$72,000</td></tr>
 </tbody>
 </table>
-<p>If you're making regular payments to suppliers in India, the <a href="/send-money/usa-to-india">USA to India corridor</a> comparison shows specific USD→INR rates per provider. For European supplier payments, check the <a href="/send-money/uk-to-europe">UK to Europe</a> corridor. Use our <a href="/send-money">comparison tool</a> to enter your exact amount and corridor for a real-time cost breakdown.</p>`,
+<p>If you're making regular payments to suppliers in India, the <a href="/send-money/usa-to-india">USA to India corridor</a> comparison shows specific USD→INR rates per provider. For European supplier payments, check the <a href="/send-money/usa-to-europe">UK to Europe</a> corridor. Use our <a href="/send-money">comparison tool</a> to enter your exact amount and corridor for a real-time cost breakdown.</p>`,
       },
       {
         heading: "Which Provider Is Right for Your Business?",
@@ -12737,12 +12737,12 @@ export const blogPosts: BlogPost[] = [
 <li><strong>OFX</strong> (Australian-founded) is strong for large AUD transfers</li>
 <li><strong>WorldRemit</strong> supports AUD→ZAR with multiple delivery options</li>
 </ul>
-<p>Check our <a href="/send-money/uk-to-south-africa">GBP to ZAR comparison</a> for UK rates. <a href="/compare/wise-vs-remitly">See how Wise compares to Remitly</a> side by side.</p>`,
+<p>Check our <a href="/send-money/usa-to-nigeria">GBP to ZAR comparison</a> for UK rates. <a href="/compare/wise-vs-remitly">See how Wise compares to Remitly</a> side by side.</p>`,
       },
       {
         heading: "Step-by-Step: How to Send Money to South Africa",
         content: `<ol>
-<li><strong>Choose a provider.</strong> Use our comparison tool (<a href="/send-money/usa-to-south-africa">USD to ZAR</a> or <a href="/send-money/uk-to-south-africa">GBP to ZAR</a>) to compare live rates. Focus on total Rand received.</li>
+<li><strong>Choose a provider.</strong> Use our comparison tool (<a href="/send-money/usa-to-south-africa">USD to ZAR</a> or <a href="/send-money/usa-to-nigeria">GBP to ZAR</a>) to compare live rates. Focus on total Rand received.</li>
 <li><strong>Create an account.</strong> You'll need your government-issued ID, address, and basic personal details. Most providers verify within minutes.</li>
 <li><strong>Choose a delivery method:</strong>
 <ul>
@@ -12983,7 +12983,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Watch the COP rate</strong> — The peso swings 5–15% annually. If you're sending regularly, consider using <a href="/guides/exchange-rate-markup-explained">rate alerts</a> to lock in favorable rates.</li>
 <li><strong>Be aware of the GMF tax</strong> — Colombia charges a 4×1,000 financial transaction tax (Gravamen a los Movimientos Financieros) on bank withdrawals. This is COP 4 per COP 1,000 deposited. One account per person is exempt up to COP 11.8 million/month — your recipient should designate their receiving account for the exemption.</li>
 </ol>
-<p>On a typical $1,000 USD transfer, the difference between the best and worst provider can be <strong>COP 50,000–200,000</strong> ($12–$50). <a href="/send-money/usa-to-colombia">Check live rates</a> before every transfer.</p>`,
+<p>On a typical $1,000 USD transfer, the difference between the best and worst provider can be <strong>COP 50,000–200,000</strong> ($12–$50). <a href="/send-money/usa-to-mexico">Check live rates</a> before every transfer.</p>`,
       },
       {
         heading: "Colombian Regulations and Tax",

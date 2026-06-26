@@ -142,7 +142,7 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
             <ul className="space-y-2">
               <li><Link href="/send-money/usa-to-india" className="text-sm text-[var(--color-primary)] hover:underline">USA to India</Link></li>
               <li><Link href="/send-money/usa-to-pakistan" className="text-sm text-[var(--color-primary)] hover:underline">USA to Pakistan</Link></li>
-              <li><Link href="/send-money/uk-to-europe" className="text-sm text-[var(--color-primary)] hover:underline">UK to Europe</Link></li>
+              <li><Link href="/send-money/usa-to-europe" className="text-sm text-[var(--color-primary)] hover:underline">USA to Europe</Link></li>
             </ul>
           </div>
           <div>

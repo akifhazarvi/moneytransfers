@@ -198,61 +198,61 @@ function formatIban(iban: string): string {
 const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   "united-kingdom": [
     { label: "UK to India transfers", href: "/send-money/uk-to-india" },
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
     { label: "UK to Bangladesh transfers", href: "/send-money/uk-to-bangladesh" },
   ],
   "germany": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
-    { label: "Europe to India transfers", href: "/send-money/europe-to-india" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+    { label: "UK to India transfers", href: "/send-money/uk-to-india" },
   ],
   "france": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
-    { label: "Europe to India transfers", href: "/send-money/europe-to-india" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
+    { label: "UK to India transfers", href: "/send-money/uk-to-india" },
     { label: "EUR to USD exchange rate", href: "/exchange-rates/eur-to-usd" },
     { label: "SEPA instant payments explained", href: "/news/eu-instant-payments-mandate-2026" },
     { label: "Wise vs Revolut for EUR", href: "/compare/wise-vs-revolut" },
   ],
   "netherlands": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "denmark": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "spain": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "italy": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "belgium": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "austria": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "ireland": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "portugal": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "sweden": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "switzerland": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "EUR to GBP exchange rate", href: "/exchange-rates/eur-to-gbp" },
     { label: "Wise vs Revolut comparison", href: "/compare/wise-vs-revolut" },
@@ -260,11 +260,11 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   ],
   "poland": [
     { label: "Send money to Poland", href: "/send-money/send-money-to-poland" },
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "SEPA instant payments guide", href: "/news/eu-instant-payments-mandate-2026" },
   ],
   "norway": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "pakistan": [
@@ -275,24 +275,24 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   ],
   "turkey": [
     { label: "Send money to Turkey", href: "/send-money/send-money-to-turkey" },
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "romania": [
     { label: "Send money to Romania", href: "/send-money/send-money-to-romania" },
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "Romania corridor guide", href: "/guides/send-money-to-romania-guide" },
     { label: "SEPA instant payments", href: "/news/eu-instant-payments-mandate-2026" },
   ],
   "hungary": [
     { label: "Send money to Hungary", href: "/send-money/send-money-to-hungary" },
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "croatia": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "greece": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "united-arab-emirates": [
@@ -302,8 +302,8 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "UAE to Pakistan transfers", href: "/send-money/uae-to-pakistan" },
     { label: "UAE to Philippines transfers", href: "/send-money/uae-to-philippines" },
     { label: "UAE to Bangladesh transfers", href: "/send-money/uae-to-bangladesh" },
-    { label: "UAE to Egypt transfers", href: "/send-money/uae-to-egypt" },
-    { label: "UAE to Nepal transfers", href: "/send-money/uae-to-nepal" },
+    { label: "Saudi Arabia to Egypt transfers", href: "/send-money/saudi-arabia-to-egypt" },
+    { label: "UK to India transfers", href: "/send-money/uk-to-india" },
     { label: "Best apps to send money from UAE", href: "/guides/best-money-transfer-apps" },
   ],
   "saudi-arabia": [
@@ -322,21 +322,21 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
   ],
   "egypt": [
     { label: "Send money to Egypt", href: "/send-money/send-money-to-egypt" },
-    { label: "UAE to Egypt transfers", href: "/send-money/uae-to-egypt" },
+    { label: "Saudi Arabia to Egypt transfers", href: "/send-money/saudi-arabia-to-egypt" },
   ],
   "brazil": [
     { label: "Send money to Brazil", href: "/send-money/send-money-to-brazil" },
-    { label: "USA to Brazil transfers", href: "/send-money/usa-to-brazil" },
+    { label: "USA to Mexico transfers", href: "/send-money/usa-to-mexico" },
     { label: "USD to BRL exchange rate", href: "/exchange-rates/usd-to-brl" },
     { label: "Best money transfer apps", href: "/guides/best-money-transfer-apps" },
   ],
   "ukraine": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "Wise vs Remitly comparison", href: "/compare/wise-vs-remitly" },
   ],
   "georgia": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "israel": [
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },

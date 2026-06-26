@@ -105,7 +105,7 @@ export async function GET(request: Request) {
       { from: "USD", to: "PKR", url: "https://sendmoneycompare.com/send-money/usa-to-pakistan" },
       { from: "USD", to: "NGN", url: "https://sendmoneycompare.com/send-money/usa-to-nigeria" },
       { from: "GBP", to: "INR", url: "https://sendmoneycompare.com/send-money/uk-to-india" },
-      { from: "GBP", to: "EUR", url: "https://sendmoneycompare.com/send-money/uk-to-europe" },
+      { from: "GBP", to: "EUR", url: "https://sendmoneycompare.com/send-money/usa-to-europe" },
       { from: "CAD", to: "INR", url: "https://sendmoneycompare.com/send-money/canada-to-india" },
       { from: "AED", to: "INR", url: "https://sendmoneycompare.com/send-money/uae-to-india" },
       { from: "AED", to: "PKR", url: "https://sendmoneycompare.com/send-money/uae-to-pakistan" },

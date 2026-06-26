@@ -196,7 +196,7 @@ export const newsItems: NewsItem[] = [
 <h2>Impact on international remittances</h2>
 <p>While the regulation directly covers euro-to-euro transfers within the EU, the ripple effects extend to international remittances. Providers like <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, and <a href="/companies/worldremit">WorldRemit</a> that hold European licences will benefit from faster settlement on the euro leg of cross-border corridors. A transfer from Germany to India, for example, could see faster processing on the European side even if the Indian payout timing remains unchanged. For a full breakdown of how international bank payments work end-to-end, see our <a href="/guides/wire-transfer-guide">wire transfer guide</a> and our explainer on <a href="/guides/swift-codes-explained">SWIFT codes</a>. To understand how interbank rates affect the cost of euro transfers, read our guide on <a href="/guides/how-euribor-affects-euro-transfers">how Euribor affects euro transfers</a>.</p>
 
-<p>The regulation also sets a precedent. The UK, Australia, and several Asian regulators are studying similar mandates for their domestic payment systems. Compare providers for <a href="/send-money/uk-to-europe">UK to Europe transfers</a> to see how these changes affect real costs.</p>`,
+<p>The regulation also sets a precedent. The UK, Australia, and several Asian regulators are studying similar mandates for their domestic payment systems. Compare providers for <a href="/send-money/usa-to-europe">UK to Europe transfers</a> to see how these changes affect real costs.</p>`,
     category: "Regulatory",
     publishedAt: "2026-03-11",
     source: "Sidley Austin / The Paypers",
@@ -878,7 +878,7 @@ export const newsItems: NewsItem[] = [
 
 <h3>ECB (April 17) — EUR Senders</h3>
 <p>The ECB is the most likely to cut rates in April, with markets pricing in a ~65% probability. European inflation has been falling faster than expected. A cut would weaken the euro against GBP and USD — bad for European senders but good for anyone sending <em>to</em> Europe. The press conference language matters as much as the decision itself.</p>
-<p><strong>Corridors to watch:</strong> <a href="/send-money/uk-to-europe">GBP to EUR</a>, <a href="/send-money/europe-to-india">EUR to INR</a>, <a href="/exchange-rates/eur-to-usd">EUR to USD rate</a></p>
+<p><strong>Corridors to watch:</strong> <a href="/send-money/usa-to-europe">GBP to EUR</a>, <a href="/send-money/uk-to-india">EUR to INR</a>, <a href="/exchange-rates/eur-to-usd">EUR to USD rate</a></p>
 
 <h2>How to protect your transfer</h2>
 <p>The same strategies apply every time central banks meet:</p>
@@ -1281,7 +1281,7 @@ export const newsItems: NewsItem[] = [
 <h2>UK senders: what changes?</h2>
 <p>The UK remains in the SEPA geographic scope (grandfathered post-Brexit) but is <strong>not bound by this regulation</strong>. UK banks can choose to adopt SEPA Instant voluntarily, but there is no legal deadline.</p>
 <p>However, UK-based providers like Wise and Revolut route transfers through their EU entities, meaning <strong>UK senders to Europe already benefit</strong> from SEPA Instant pricing and speed.</p>
-<p>For live rates from the UK to Europe, <a href="/send-money/uk-to-europe">compare GBP to EUR providers</a>.</p>`,
+<p>For live rates from the UK to Europe, <a href="/send-money/usa-to-europe">compare GBP to EUR providers</a>.</p>`,
     category: "Regulatory",
     publishedAt: "2026-04-11",
     source: "European Central Bank / European Commission",
@@ -1326,7 +1326,7 @@ export const newsItems: NewsItem[] = [
 <p>What changes over 12–24 months is where Wise invests. Three areas to watch:</p>
 <ul>
 <li><strong>USD rails</strong> — Expect deeper integration with FedNow and US bank-held accounts, which will tighten USD-funded corridor settlement from hours to seconds. See our coverage of <a href="/news/fednow-cross-border-payments-2026">FedNow's cross-border push</a>.</li>
-<li><strong>New currencies</strong> — Wise has historically added 4–6 currencies a year. Expect acceleration, particularly in Latin America and Africa where <a href="/send-money/uk-to-nigeria">GBP-to-NGN</a> and <a href="/send-money/uk-to-ghana">GBP-to-GHS</a> routes have high diaspora demand.</li>
+<li><strong>New currencies</strong> — Wise has historically added 4–6 currencies a year. Expect acceleration, particularly in Latin America and Africa where <a href="/send-money/uk-to-nigeria">GBP-to-NGN</a> and <a href="/send-money/usa-to-nigeria">GBP-to-GHS</a> routes have high diaspora demand.</li>
 <li><strong>Business banking</strong> — Wise Business is the fastest-growing segment. A US listing signals a push to compete directly with <a href="/business/b2b-transfers">B2B platforms</a> such as Airwallex and Payoneer.</li>
 </ul>
 
@@ -1574,7 +1574,7 @@ export const newsItems: NewsItem[] = [
     image: "/images/news/revolut-africa-corridors.svg",
     imageAlt:
       "Editorial card showing Revolut's 14 new African corridors across 9 countries, with MTN Mobile Money, Airtel Money, and Orange Money integration pills and Revolut's €5.2B 2025 revenue",
-    content: `<p><strong>TL;DR —</strong> <a href="/companies/revolut">Revolut</a> has gone live with <strong>14 new international transfer corridors into 9 African countries</strong>, plugging its Money product directly into <strong>Airtel Money, MTN Mobile Money, and Orange Money</strong>. For UK, EU, and US senders, this is the most material expansion of app-based remittance access to Africa since WorldRemit did the same in 2019. Below: the full corridor list, how Revolut compares to <a href="/companies/wise">Wise</a> and <a href="/companies/worldremit">WorldRemit</a>, and whether this moves the needle for your next <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/uk-to-kenya">UK→Kenya</a>, or <a href="/send-money/uk-to-ghana">UK→Ghana</a> transfer.</p>
+    content: `<p><strong>TL;DR —</strong> <a href="/companies/revolut">Revolut</a> has gone live with <strong>14 new international transfer corridors into 9 African countries</strong>, plugging its Money product directly into <strong>Airtel Money, MTN Mobile Money, and Orange Money</strong>. For UK, EU, and US senders, this is the most material expansion of app-based remittance access to Africa since WorldRemit did the same in 2019. Below: the full corridor list, how Revolut compares to <a href="/companies/wise">Wise</a> and <a href="/companies/worldremit">WorldRemit</a>, and whether this moves the needle for your next <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/uk-to-kenya">UK→Kenya</a>, or <a href="/send-money/usa-to-nigeria">UK→Ghana</a> transfer.</p>
 
 <h2>Which countries and wallets are live</h2>
 <div class="table-wrapper"><table>
@@ -1612,14 +1612,14 @@ export const newsItems: NewsItem[] = [
 <ol>
 <li><strong>Price pressure on Wise.</strong> Wise has historically been slower to add African corridors, relying on bank-rail delivery. A credible mobile-money competitor inside the Revolut app — already used by 45M+ European customers — changes the <a href="/compare/wise-vs-revolut">Wise vs Revolut</a> calculus on Africa routes specifically.</li>
 <li><strong>M-PESA remains the white space.</strong> Revolut's Kenya corridor supports Airtel Money but routes M-PESA via bank, which adds a step. Whoever cracks direct M-PESA API access (Safaricom partnerships are scarce) wins East Africa's largest wallet base.</li>
-<li><strong>Africa corridor competition is accelerating.</strong> In 12 months, <a href="/news/paypal-venmo-goes-global-remittances-2026">PayPal/Venmo launched cross-border</a>, <a href="/news/gcash-free-middle-east-transfers-philippines-ofw-2026">GCash went free for Middle East corridors</a>, and <a href="/news/absa-thunes-global-pay-africa-remittances">Absa/Thunes unified pan-African mobile money rails</a>. Expect prices on <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/uk-to-ghana">UK→Ghana</a>, and <a href="/send-money/uk-to-kenya">UK→Kenya</a> to keep compressing.</li>
+<li><strong>Africa corridor competition is accelerating.</strong> In 12 months, <a href="/news/paypal-venmo-goes-global-remittances-2026">PayPal/Venmo launched cross-border</a>, <a href="/news/gcash-free-middle-east-transfers-philippines-ofw-2026">GCash went free for Middle East corridors</a>, and <a href="/news/absa-thunes-global-pay-africa-remittances">Absa/Thunes unified pan-African mobile money rails</a>. Expect prices on <a href="/send-money/uk-to-nigeria">UK→Nigeria</a>, <a href="/send-money/usa-to-nigeria">UK→Ghana</a>, and <a href="/send-money/uk-to-kenya">UK→Kenya</a> to keep compressing.</li>
 </ol>
 
 <h2>Which corridor guide to read next</h2>
 <ul>
 <li><a href="/send-money/uk-to-nigeria">UK → Nigeria (GBP/NGN)</a> — highest-volume UK-to-Africa corridor</li>
 <li><a href="/send-money/uk-to-kenya">UK → Kenya (GBP/KES)</a> — M-PESA and Airtel Money delivery</li>
-<li><a href="/send-money/uk-to-ghana">UK → Ghana (GBP/GHS)</a> — MTN MoMo dominant</li>
+<li><a href="/send-money/usa-to-nigeria">UK → Ghana (GBP/GHS)</a> — MTN MoMo dominant</li>
 <li><a href="/send-money/send-money-to-nigeria">All corridors → Nigeria</a></li>
 <li><a href="/guides/send-money-to-nigeria-guide">Complete Nigeria guide</a> — banks, wallets, CBN rules</li>
 <li><a href="/companies/revolut">Full Revolut review</a> — fees, tiers, transfer limits</li>

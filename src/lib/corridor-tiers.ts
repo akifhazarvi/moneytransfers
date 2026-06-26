@@ -132,6 +132,21 @@ export function shouldIncludeInSitemap(
 }
 
 /**
+ * Should a zero-quote corridor still render (200) instead of 404?
+ *
+ * A corridor with no live provider quotes has no comparison table — rendering
+ * editorial prose alone is exactly the "thin page, no real content" shape Google
+ * flags as a soft 404 (562 such pages as of the 2026-06-25 audit). The default
+ * is therefore: zero quotes → 404.
+ *
+ * EXCEPTION: pages we deliberately keep indexed (head-terms, traffic earners,
+ * sitemap-allowlisted) may have a transient empty-quote moment between scrapes;
+ * 404ing them would yo-yo a page we're actively trying to get indexed. For those
+ * we keep the page live and let the existing "no quotes available yet" empty
+ * state show. This set is passed in by the page (it already knows the allowlists).
+ */
+
+/**
  * Should this corridor page have a noindex meta tag?
  * Tier 3 pages get noindexed as defense in depth.
  * Wave 3 demand-failure overrides also noindex even though they're editorial.

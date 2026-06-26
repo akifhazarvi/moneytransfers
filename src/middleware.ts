@@ -5,6 +5,7 @@ import { getGeoDefaults } from "./data/geo-corridors";
 import { shouldNoindexPath } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
+import { GONE_CORRIDOR_SLUGS } from "./lib/gone-corridors";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -120,6 +121,16 @@ export default function middleware(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = request.nextUrl.pathname.replace(KILLED_LOCALE_PREFIXES, "/");
     return NextResponse.redirect(url, 301);
+  }
+
+  // 410 Gone for retired corridor pages. Must run BEFORE intlMiddleware (the
+  // site is single-locale `as-needed`, so /send-money/<slug> is unprefixed) and
+  // before bot-blocking, so crawlers get the 410 with no rendered body — the
+  // cleanest signal that these thin pages are intentionally retired. See
+  // src/lib/gone-corridors.ts for why these 53 were chosen.
+  const goneMatch = request.nextUrl.pathname.match(/^\/send-money\/([a-z0-9-]+)$/);
+  if (goneMatch && GONE_CORRIDOR_SLUGS.has(goneMatch[1])) {
+    return new NextResponse("Gone", { status: 410 });
   }
 
   // 301 non-canonical /compare/X-vs-Y directions to the canonical direction.

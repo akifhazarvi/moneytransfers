@@ -520,7 +520,7 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>Fund from your US bank, not a card</strong> — ACH funding cuts fees ~50% vs debit-card funding</li>
 <li><strong>Use formal channels only</strong> — the parallel-market premium is now under 1%, so there's no rate advantage to hawala, and you lose all consumer protections</li>
 </ol>
-<p>For a broader strategy, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a> and our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>. Sister diaspora corridors: <a href="/send-money/saudi-arabia-to-egypt">Saudi Arabia to Egypt</a> and <a href="/send-money/uae-to-egypt">UAE to Egypt</a> — the Gulf accounts for the majority of inbound flows.</p>`,
+<p>For a broader strategy, see our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfers guide</a> and our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>. Sister diaspora corridors: <a href="/send-money/saudi-arabia-to-egypt">Saudi Arabia to Egypt</a> and <a href="/send-money/saudi-arabia-to-egypt">UAE to Egypt</a> — the Gulf accounts for the majority of inbound flows.</p>`,
       },
       {
         heading: "Sources & Methodology",

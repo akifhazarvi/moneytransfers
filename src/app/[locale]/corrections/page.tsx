@@ -27,7 +27,7 @@ const corrections = [
     type: "Content update" as const,
     description:
       "Expanded FAQ answers on top 6 corridor landing pages (USA→India, USA→Pakistan, USA→Philippines, USA→Mexico, UK→India, UK→Europe) from ~50 words to 134–170 words per answer for improved depth and accuracy.",
-    affectedPages: ["/send-money/usa-to-india", "/send-money/usa-to-pakistan", "/send-money/usa-to-philippines", "/send-money/usa-to-mexico", "/send-money/uk-to-india", "/send-money/uk-to-europe"],
+    affectedPages: ["/send-money/usa-to-india", "/send-money/usa-to-pakistan", "/send-money/usa-to-philippines", "/send-money/usa-to-mexico", "/send-money/uk-to-india", "/send-money/usa-to-europe"],
   },
   {
     date: "2026-03-17",

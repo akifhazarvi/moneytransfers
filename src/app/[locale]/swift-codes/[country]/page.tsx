@@ -22,7 +22,7 @@ const swiftCorridors: Record<string, { label: string; href: string }[]> = {
   "united-kingdom": [
     { label: "UK to India transfers", href: "/send-money/uk-to-india" },
     { label: "UK to Pakistan transfers", href: "/send-money/uk-to-pakistan" },
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "united-states": [
     { label: "USA to India transfers", href: "/send-money/usa-to-india" },
@@ -71,22 +71,22 @@ const swiftCorridors: Record<string, { label: string; href: string }[]> = {
   ],
   "brazil": [
     { label: "Send money to Brazil", href: "/send-money/send-money-to-brazil" },
-    { label: "USA to Brazil transfers", href: "/send-money/usa-to-brazil" },
+    { label: "USA to Mexico transfers", href: "/send-money/usa-to-mexico" },
   ],
   "colombia": [
     { label: "Send money to Colombia", href: "/send-money/send-money-to-colombia" },
-    { label: "USA to Colombia transfers", href: "/send-money/usa-to-colombia" },
+    { label: "USA to Mexico transfers", href: "/send-money/usa-to-mexico" },
   ],
   "united-arab-emirates": [
     { label: "UAE to India transfers", href: "/send-money/uae-to-india" },
     { label: "UAE to Pakistan transfers", href: "/send-money/uae-to-pakistan" },
   ],
   "germany": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "france": [
-    { label: "UK to Europe transfers", href: "/send-money/uk-to-europe" },
+    { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
     { label: "USA to Europe transfers", href: "/send-money/usa-to-europe" },
   ],
   "australia": [

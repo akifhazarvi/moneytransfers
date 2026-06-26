@@ -864,6 +864,8 @@ const corridorEditorialNotes: Record<
 };
 
 import { shouldNoindex, getCorridorTier } from "@/lib/corridor-tiers";
+import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
+import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 
 // ── Static generation ──
 // Only pre-render corridors with real data (Tier 1 & 2).
@@ -871,6 +873,7 @@ import { shouldNoindex, getCorridorTier } from "@/lib/corridor-tiers";
 
 export function generateStaticParams() {
   return allCorridors
+    .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
     .filter((c) => getCorridorTier(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2)
     .map((c) => ({ corridor: c.slug }));
 }
@@ -1826,9 +1829,17 @@ export default async function CorridorPage({ params }: Props) {
   const { fromCurrency, toCurrency, sampleAmount, isCurrencyCorridor, isCountryPage } = corridor;
   const quotes = generateQuotes(sampleAmount, fromCurrency, toCurrency);
 
-  // Return 404 for corridors with no quote data and no editorial content (Tier 3).
-  // This avoids soft-404 signals from thin auto-generated pages.
-  if (quotes.length === 0 && getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage) === 3) {
+  // Soft-404 guard. A corridor with zero provider quotes has no comparison table
+  // to show — editorial prose alone is exactly the thin shell Google flags as a
+  // soft 404 (562 such pages in the 2026-06-25 audit). So: zero quotes → 404.
+  //
+  // EXCEPTION: pages we deliberately keep indexed (head-terms + sitemap-allowlisted
+  // earners) may hit a transient empty-quote window between scrapes; 404ing them
+  // would yo-yo a page we're actively trying to get indexed. Those keep rendering
+  // the existing "no quotes available yet" empty state.
+  const isProtectedCorridor =
+    HEAD_CORRIDOR_SLUGS.has(slug) || SITEMAP_CORRIDOR_SLUGS.has(slug);
+  if (quotes.length === 0 && !isProtectedCorridor) {
     notFound();
   }
   const midRate = getExchangeRate(fromCurrency, toCurrency);

@@ -11,6 +11,8 @@ import { providerReviews } from "@/data/provider-reviews";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
+import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
+import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 import {
   SITEMAP_CORRIDOR_SLUGS,
   SITEMAP_GUIDE_SLUGS,
@@ -97,14 +99,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("business/compare", DATA_UPDATED),
   ];
 
-  // ── Corridors: only those with ≥10 GSC impressions in 90d ──
-  // ALSO filter out Tier-3 corridors (zero provider data → page noindexes
-  // and 404s). Google's canonical guide: never submit a URL in the sitemap
-  // while also serving noindex/404 — it's a contradictory signal. This
-  // catches stale allowlist entries where a slug earned GSC impressions
-  // before the provider data dried up.
+  // ── Corridors: GSC-allowlisted earners PLUS head-term flagships ──
+  // The allowlist gates on ≥10 GSC impressions in 90d. But head-terms (e.g.
+  // usa-to-india) were stuck in a chicken-and-egg trap: excluded from the
+  // sitemap for never earning impressions, and unable to earn impressions
+  // because Google never discovered them ("URL is unknown to Google", 2026-06).
+  // HEAD_CORRIDOR_SLUGS breaks that loop by submitting them on demand-merit —
+  // same rationale as bank pages below. They're force-Tier-1 so shouldNoindex
+  // is false. Also defensively exclude retired (410) slugs.
+  // Still filter Tier-3 (zero data → noindex/404) so we never submit a
+  // contradictory noindex/404 URL.
   const corridorPages: MetadataRoute.Sitemap = allCorridors
-    .filter((c) => SITEMAP_CORRIDOR_SLUGS.has(c.slug))
+    .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
+    .filter((c) => SITEMAP_CORRIDOR_SLUGS.has(c.slug) || HEAD_CORRIDOR_SLUGS.has(c.slug))
     .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
     .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
 

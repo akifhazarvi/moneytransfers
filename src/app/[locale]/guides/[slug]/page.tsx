@@ -117,8 +117,8 @@ const TAG_CORRIDOR_MAP: Record<string, { href: string; label: string }> = {
   mxn: { href: "/send-money/usa-to-mexico", label: "USA to Mexico transfers" },
   philippines: { href: "/send-money/usa-to-philippines", label: "USA to Philippines transfers" },
   php: { href: "/send-money/usa-to-philippines", label: "USA to Philippines transfers" },
-  europe: { href: "/send-money/uk-to-europe", label: "UK to Europe transfers" },
-  eur: { href: "/send-money/uk-to-europe", label: "UK to Europe transfers" },
+  europe: { href: "/send-money/usa-to-europe", label: "USA to Europe transfers" },
+  eur: { href: "/send-money/usa-to-europe", label: "USA to Europe transfers" },
   nigeria: { href: "/send-money/usa-to-nigeria", label: "USA to Nigeria transfers" },
   ngn: { href: "/send-money/usa-to-nigeria", label: "USA to Nigeria transfers" },
   bangladesh: { href: "/send-money/uk-to-bangladesh", label: "UK to Bangladesh transfers" },
@@ -136,7 +136,7 @@ const DEFAULT_CORRIDORS = [
   { href: "/send-money/usa-to-india", label: "USA to India transfers" },
   { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan transfers" },
   { href: "/send-money/usa-to-mexico", label: "USA to Mexico transfers" },
-  { href: "/send-money/uk-to-europe", label: "UK to Europe transfers" },
+  { href: "/send-money/usa-to-europe", label: "USA to Europe transfers" },
 ];
 
 function getExploreLinks(tags: string[], category: string): { href: string; label: string }[] {

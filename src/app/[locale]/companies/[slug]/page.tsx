@@ -83,7 +83,7 @@ export default async function CompanyPage({ params }: Props) {
           links: [
             { href: "/send-money/usa-to-india", label: "USA to India" },
             { href: "/send-money/usa-to-pakistan", label: "USA to Pakistan" },
-            { href: "/send-money/uk-to-europe", label: "UK to Europe" },
+            { href: "/send-money/usa-to-europe", label: "USA to Europe" },
             { href: "/send-money/usa-to-philippines", label: "USA to Philippines" },
             { href: "/send-money/usa-to-mexico", label: "USA to Mexico" },
           ],
