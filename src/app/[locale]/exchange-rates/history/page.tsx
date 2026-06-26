@@ -8,6 +8,7 @@ import {
   getAllInsights,
   corridorToSlug,
   rateLevelConfig,
+  KEEP_HISTORY_PAIRS,
   type RateInsight,
 } from "@/lib/rate-history";
 import { currencies } from "@/data/providers";
@@ -60,9 +61,12 @@ export default async function HistoryHubPage({ params }: { params: Promise<{ loc
     .map((key) => allInsights.find((i) => i.corridor === key))
     .filter(Boolean) as RateInsight[];
 
-  // Group remaining by source currency
+  // Group remaining by source currency. Only include pairs that still resolve
+  // (KEEP_HISTORY_PAIRS) — the route now 404s everything else, so listing a
+  // dead pair here would be a broken internal link.
   const grouped: Record<string, RateInsight[]> = {};
   for (const insight of allInsights) {
+    if (!KEEP_HISTORY_PAIRS.has(corridorToSlug(insight.corridor))) continue;
     const from = insight.corridor.split("-")[0];
     if (!grouped[from]) grouped[from] = [];
     grouped[from].push(insight);

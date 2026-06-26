@@ -14,6 +14,7 @@ import {
   getInsightBySlug,
   corridorToSlug,
   rateLevelConfig,
+  KEEP_HISTORY_PAIRS,
 } from "@/lib/rate-history";
 import { currencies, getProviderName } from "@/data/providers";
 import { getGoUrl } from "@/lib/affiliate";
@@ -26,8 +27,19 @@ function getCurrencyInfo(code: string) {
 }
 
 // ── Static params ─────────────────────────────────────────────
+// Scaled-content cleanup (2026-06-25): this route pre-rendered all ~851 rate-
+// history pairs as 200+noindex. None are in the sitemap and only usd-to-gbp drew
+// any Bing traffic (20 impr / 0 clicks / 90d) — the other 850 were pure crawl-
+// budget bloat that Google keeps recrawling and counting against the site.
+// Restrict to a small set of genuinely-major pairs; dynamicParams=false 404s the
+// rest instead of serving an endlessly-recrawled noindex shell.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return getAllInsights(2).map((i) => ({ pair: corridorToSlug(i.corridor) }));
+  return getAllInsights(2)
+    .map((i) => corridorToSlug(i.corridor))
+    .filter((slug) => KEEP_HISTORY_PAIRS.has(slug))
+    .map((pair) => ({ pair }));
 }
 
 // ── Metadata ──────────────────────────────────────────────────
@@ -85,13 +97,17 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
     clickref: "exchange_rate_history",
   });
 
-  // Related corridors (same source or same target)
+  // Related corridors (same source or same target). Only link to pairs that
+  // still resolve (KEEP_HISTORY_PAIRS) — dynamicParams=false 404s the rest, so
+  // surfacing links to them would create broken internal links.
   const allInsights = getAllInsights(2);
   const sameSource = allInsights
     .filter((i) => i.corridor.startsWith(from + "-") && i.corridor !== insight.corridor)
+    .filter((i) => KEEP_HISTORY_PAIRS.has(corridorToSlug(i.corridor)))
     .slice(0, 6);
   const sameTarget = allInsights
     .filter((i) => i.corridor.endsWith("-" + to) && i.corridor !== insight.corridor)
+    .filter((i) => KEEP_HISTORY_PAIRS.has(corridorToSlug(i.corridor)))
     .slice(0, 6);
 
   const breadcrumbSchema = {

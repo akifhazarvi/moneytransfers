@@ -56,25 +56,22 @@ function parseSlug(slug: string) {
 }
 
 // Only pre-render former-editorial pairs + top provider pairs.
-// All other valid pairs still work at runtime via ISR (dynamicParams = true by default).
-const TOP_PROVIDERS = ["wise", "remitly", "western-union", "moneygram", "revolut", "xe", "worldremit", "paypal", "xoom"];
+// Scaled-content cleanup (2026-06-25): the /compare/[slug] route is combinatorial
+// — C(61,2) ≈ 1,830 provider pairs all resolved to 200+noindex via on-demand ISR.
+// Google still CRAWLS every noindex page, so ~1,800 thin templated URLs were
+// burning crawl budget and dragging the site's quality average (a contributor to
+// the Mar 20 scaled-content suppression). dynamicParams=false collapses the route
+// to exactly the pages that earn/are indexable: any pair NOT pre-rendered below
+// now returns a real 404 instead of an endlessly-recrawled noindex shell.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const params = new Set<string>();
 
-  // 1. Former editorial slugs (high-traffic pairs — always pre-render)
-  for (const slug of EDITORIAL_COMPARE_SLUGS) {
-    params.add(slug);
-  }
-
-  // 2. Top provider pairs (high-traffic comparisons)
-  for (let i = 0; i < TOP_PROVIDERS.length; i++) {
-    for (let j = i + 1; j < TOP_PROVIDERS.length; j++) {
-      const a = providers.find((p) => p.slug === TOP_PROVIDERS[i]);
-      const b = providers.find((p) => p.slug === TOP_PROVIDERS[j]);
-      if (a && b) params.add(`${a.slug}-vs-${b.slug}`);
-    }
-  }
+  // The ONLY compare pages that should exist: editorial (hand-written) + the
+  // GSC/Bing-validated sitemap allowlist. Everything else 404s.
+  for (const slug of EDITORIAL_COMPARE_SLUGS) params.add(slug);
+  for (const slug of SITEMAP_COMPARISON_SLUGS) params.add(slug);
 
   return Array.from(params).map((slug) => ({ slug }));
 }
@@ -145,12 +142,14 @@ function getRelatedComparisons(a: (typeof providers)[number], b: (typeof provide
     const slugB = getCompareCanonicalSlug(`${b.slug}-vs-${p.slug}`);
     related.push({ slug: slugB, label: `${b.name} vs ${p.name}` });
   }
-  // Deduplicate and limit
+  // Deduplicate, drop links to pages that no longer exist (dynamicParams=false
+  // means only editorial + sitemap-allowlisted pairs resolve — everything else
+  // 404s, so don't surface internal links to them), and limit.
   const seen = new Set<string>();
   return related.filter((r) => {
     if (seen.has(r.slug)) return false;
     seen.add(r.slug);
-    return true;
+    return EDITORIAL_COMPARE_SLUGS.has(r.slug) || SITEMAP_COMPARISON_SLUGS.has(r.slug);
   }).slice(0, 8);
 }
 

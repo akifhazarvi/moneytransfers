@@ -151,3 +151,26 @@ export function hasMidMarketPair(from: string, to: string): boolean {
   const hasTo = to === "USD" || to in latestDay.rates;
   return hasFrom && hasTo;
 }
+
+/**
+ * The only exchange-rates/history/[pair] slugs that resolve (HTTP 200).
+ *
+ * Scaled-content cleanup (2026-06-25): the route previously rendered all ~851
+ * pairs as 200+noindex — none in the sitemap, only usd-to-gbp drawing any Bing
+ * traffic (20 impr / 0 clicks). Google kept recrawling 850 dead shells. The
+ * page now sets dynamicParams=false and generates only this major-pair set;
+ * everything else 404s. Both the [pair] related-links and the /history hub
+ * filter against this so no internal link points at a 404'd pair.
+ */
+export const KEEP_HISTORY_PAIRS = new Set<string>([
+  // Major, liquid FX pairs only. Standalone rate-history charts for diaspora
+  // corridors (NGN/INR/PKR/PHP/MXN etc.) were thin pages nothing organically
+  // links to — the real value for those routes is the /send-money/* comparison
+  // page, which carries its own live rate data. Those history charts 404.
+  "usd-to-gbp", "gbp-to-usd",
+  "eur-to-usd", "usd-to-eur",
+  "gbp-to-eur", "eur-to-gbp",
+  "aud-to-usd", "usd-to-aud",
+  "usd-to-cad", "cad-to-usd",
+  "usd-to-jpy", "eur-to-jpy",
+]);
