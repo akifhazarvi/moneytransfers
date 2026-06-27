@@ -1532,16 +1532,16 @@
     "date": "2026-06-27",
     "providers": {
       "instarem": {
-        "rate": 0.5812,
+        "rate": 0.58,
         "fee": 0,
-        "markup": 0.77,
-        "receiveAmount": 58.12
+        "markup": 0.63,
+        "receiveAmount": 58
       },
       "revolut": {
-        "rate": 0.5826,
-        "fee": 0,
-        "markup": 0.52,
-        "receiveAmount": 58.26
+        "rate": 0.5802,
+        "fee": 1,
+        "markup": 0.6,
+        "receiveAmount": 57.44
       },
       "wise": {
         "rate": 0.5835,

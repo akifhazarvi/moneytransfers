@@ -9878,10 +9878,10 @@
     "date": "2026-06-27",
     "providers": {
       "moneygram": {
-        "rate": 65.8389,
+        "rate": 65.9024,
         "fee": 3.99,
-        "markup": 1.26,
-        "receiveAmount": 6321.19
+        "markup": 0.91,
+        "receiveAmount": 6327.29
       },
       "western-union": {
         "rate": 66.034,
@@ -9890,10 +9890,10 @@
         "receiveAmount": 6603.4
       },
       "dahabshiil": {
-        "rate": 66.3581,
+        "rate": 66.4848,
         "fee": 2.69,
-        "markup": 0.48,
-        "receiveAmount": 6457.31
+        "markup": 0.03,
+        "receiveAmount": 6469.64
       },
       "worldremit": {
         "rate": 65.1544,
@@ -9908,16 +9908,16 @@
         "receiveAmount": 6600.05
       },
       "paysend": {
-        "rate": 66.4941,
+        "rate": 66.4565,
         "fee": 0,
-        "markup": 0.28,
-        "receiveAmount": 6649.41
+        "markup": 0.08,
+        "receiveAmount": 6645.65
       },
       "koho": {
-        "rate": 66.5035,
+        "rate": 66.4323,
         "fee": 1.26,
-        "markup": 0.26,
-        "receiveAmount": 6566.56
+        "markup": 0.11,
+        "receiveAmount": 6559.53
       },
       "remitly": {
         "rate": 66.13,
@@ -9960,6 +9960,12 @@
         "fee": 2.58,
         "markup": null,
         "receiveAmount": 6477.74
+      },
+      "skrill": {
+        "rate": 65.7479,
+        "fee": 1,
+        "markup": 1.14,
+        "receiveAmount": 6509.04
       }
     }
   }

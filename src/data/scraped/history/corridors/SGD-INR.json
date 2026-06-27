@@ -6836,22 +6836,22 @@
     "date": "2026-06-27",
     "providers": {
       "moneygram": {
-        "rate": 72.3611,
+        "rate": 72.5513,
         "fee": 6,
-        "markup": 0.9,
-        "receiveAmount": 6801.94
+        "markup": 0.53,
+        "receiveAmount": 6819.82
       },
       "western-union": {
-        "rate": 72.6321,
+        "rate": 72.5113,
         "fee": 1.5,
-        "markup": 0.53,
-        "receiveAmount": 7154.26
+        "markup": 0.58,
+        "receiveAmount": 7142.36
       },
       "currencyfair": {
-        "rate": 72.491,
+        "rate": 72.3855,
         "fee": 1.66,
-        "markup": 0.72,
-        "receiveAmount": 7128.76
+        "markup": 0.76,
+        "receiveAmount": 7118.39
       },
       "instarem": {
         "rate": 72.7826,
@@ -6866,10 +6866,10 @@
         "receiveAmount": 6907.92
       },
       "revolut": {
-        "rate": 72.916,
-        "fee": 0.9,
-        "markup": 0.14,
-        "receiveAmount": 7225.98
+        "rate": 72.743,
+        "fee": 1.9,
+        "markup": 0.27,
+        "receiveAmount": 7136.08
       },
       "hsbc-sg": {
         "rate": 72.2886,
@@ -6888,6 +6888,12 @@
         "fee": 1.06,
         "markup": null,
         "receiveAmount": 7216.07
+      },
+      "skrill": {
+        "rate": 70.836,
+        "fee": 0,
+        "markup": 2.88,
+        "receiveAmount": 7083.6
       }
     }
   }

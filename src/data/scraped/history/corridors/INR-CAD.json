@@ -627,8 +627,14 @@
       "western-union": {
         "rate": 0.0148,
         "fee": 0,
-        "markup": 1.46,
+        "markup": 1.72,
         "receiveAmount": 1.48
+      },
+      "skrill": {
+        "rate": 0.0145,
+        "fee": 0,
+        "markup": 3.56,
+        "receiveAmount": 1.45
       }
     }
   }

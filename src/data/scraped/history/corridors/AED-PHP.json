@@ -3902,27 +3902,27 @@
     "date": "2026-06-27",
     "providers": {
       "skrill": {
-        "rate": 16.2001,
+        "rate": 16.2072,
         "fee": 0,
-        "markup": 2.92,
-        "receiveAmount": 1620.01
+        "markup": 2.9,
+        "receiveAmount": 1620.72
       },
       "currencyfair": {
-        "rate": 16.564,
+        "rate": 16.566,
         "fee": 34.83,
-        "markup": 0.74,
-        "receiveAmount": 1079.48
+        "markup": 0.75,
+        "receiveAmount": 1079.61
       },
       "paysend": {
-        "rate": 16.5601,
+        "rate": 16.5599,
         "fee": 9,
-        "markup": 0.76,
-        "receiveAmount": 1506.97
+        "markup": 0.79,
+        "receiveAmount": 1506.95
       },
       "remitly": {
         "rate": 16.59,
         "fee": 5,
-        "markup": 0.58,
+        "markup": 0.61,
         "receiveAmount": 1576.05
       },
       "taptap-send": {
