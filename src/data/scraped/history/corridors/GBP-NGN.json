@@ -8673,5 +8673,100 @@
         "receiveAmount": 180842.93
       }
     }
+  },
+  {
+    "date": "2026-06-27",
+    "providers": {
+      "lemfi": {
+        "rate": 1830,
+        "fee": 0,
+        "markup": -0.58,
+        "receiveAmount": 183000
+      },
+      "moneygram": {
+        "rate": 1845.1336,
+        "fee": 0.99,
+        "markup": -1.55,
+        "receiveAmount": 182686.68
+      },
+      "taptap-send": {
+        "rate": 1838,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 183800
+      },
+      "western-union": {
+        "rate": 1811.3855,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 175722.51
+      },
+      "dahabshiil": {
+        "rate": 1825.6221,
+        "fee": 0,
+        "markup": -0.47,
+        "receiveAmount": 182562.21
+      },
+      "profee": {
+        "rate": 1839.4441,
+        "fee": 1.8,
+        "markup": -1.23,
+        "receiveAmount": 180633.41
+      },
+      "transfergo": {
+        "rate": 1831.38,
+        "fee": 0,
+        "markup": -0.79,
+        "receiveAmount": 183138
+      },
+      "worldremit": {
+        "rate": 1821.0897,
+        "fee": 0.99,
+        "markup": -0.22,
+        "receiveAmount": 180306.09
+      },
+      "instarem": {
+        "rate": 1806.5947,
+        "fee": 0,
+        "markup": 0.57,
+        "receiveAmount": 180659.47
+      },
+      "mukuru": {
+        "rate": 1827.21,
+        "fee": 0,
+        "markup": -0.56,
+        "receiveAmount": 182721
+      },
+      "paysend": {
+        "rate": 1815.1054,
+        "fee": 0,
+        "markup": 0.11,
+        "receiveAmount": 181510.54
+      },
+      "sendwave": {
+        "rate": 1821.0897,
+        "fee": 0.99,
+        "markup": -0.22,
+        "receiveAmount": 180306.09
+      },
+      "remitly": {
+        "rate": 1838.92,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 183892
+      },
+      "xoom": {
+        "rate": 1806.2145,
+        "fee": 0.89,
+        "markup": null,
+        "receiveAmount": 179013.92
+      },
+      "wise": {
+        "rate": 1832.55,
+        "fee": 1.23,
+        "markup": null,
+        "receiveAmount": 181000.96
+      }
+    }
   }
 ]

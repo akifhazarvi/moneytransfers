@@ -920,5 +920,22 @@
         "receiveAmount": 3.39
       }
     }
+  },
+  {
+    "date": "2026-06-27",
+    "providers": {
+      "worldremit": {
+        "rate": 0.0449,
+        "fee": 7.5,
+        "markup": 1.98,
+        "receiveAmount": 4.16
+      },
+      "mukuru": {
+        "rate": 0.0452,
+        "fee": 25,
+        "markup": 1.31,
+        "receiveAmount": 3.39
+      }
+    }
   }
 ]

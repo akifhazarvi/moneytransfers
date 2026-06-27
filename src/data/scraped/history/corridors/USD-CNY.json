@@ -3933,5 +3933,52 @@
         "receiveAmount": 649.91
       }
     }
+  },
+  {
+    "date": "2026-06-27",
+    "providers": {
+      "pandaremit": {
+        "rate": 6.7593,
+        "fee": 6.99,
+        "markup": null,
+        "receiveAmount": 628.68
+      },
+      "taptap-send": {
+        "rate": 6.63,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 663
+      },
+      "remitly": {
+        "rate": 6.7334,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 659.94
+      },
+      "xoom": {
+        "rate": 6.9278,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 672.07
+      },
+      "instarem": {
+        "rate": 6.7504,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 675.04
+      },
+      "bank-of-america": {
+        "rate": 6.5817,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 658.17
+      },
+      "wise": {
+        "rate": 6.8005,
+        "fee": 4.39,
+        "markup": null,
+        "receiveAmount": 650.2
+      }
+    }
   }
 ]
