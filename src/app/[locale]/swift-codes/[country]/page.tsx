@@ -216,6 +216,68 @@ export default async function SwiftCountryPage({ params }: Props) {
     bankBranches.get(key)!.push(branch);
   }
 
+  // Banks sorted alphabetically by name for predictable browsing.
+  const sortedBankEntries = Array.from(bankBranches.entries()).sort(
+    ([, a], [, b]) => (a[0]?.bankName || "").localeCompare(b[0]?.bankName || "")
+  );
+
+  // Long pages (lots of codes) become unwieldy as one flat list, so collapse
+  // banks into A–Z dropdown groups. The content stays in the DOM (just hidden
+  // via <details>), so it remains crawlable for SEO.
+  const useAlphaGroups = country.branches.length > 50;
+  const alphaGroups = new Map<string, typeof sortedBankEntries>();
+  for (const entry of sortedBankEntries) {
+    const first = (entry[1][0]?.bankName || "").charAt(0).toUpperCase();
+    const letter = /[A-Z]/.test(first) ? first : "#";
+    if (!alphaGroups.has(letter)) alphaGroups.set(letter, []);
+    alphaGroups.get(letter)!.push(entry);
+  }
+
+  // Shared renderer for a single bank's heading + branch table, used by both
+  // the flat list and the grouped dropdown layouts.
+  const renderBankBlock = (bankKey: string, branches: typeof country.branches) => (
+    <div key={bankKey}>
+      <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3 flex items-center gap-2">
+        <div className="w-7 h-7 bg-[var(--color-surface-container)] rounded-lg flex items-center justify-center text-2xs font-medium text-[var(--color-primary)] shrink-0">
+          {branches[0]?.bankName.charAt(0) || "?"}
+        </div>
+        {branches[0]?.bankName}
+      </h3>
+      <div className="overflow-x-auto">
+        <table className="w-full text-2sm">
+          <thead>
+            <tr className="border-b border-[var(--color-outline)]">
+              <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)]">{t("swiftBic")}</th>
+              <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)]">{t("city")}</th>
+              <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)] hidden sm:table-cell">{t("branch")}</th>
+              <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)] hidden md:table-cell">{t("address")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {branches.map((branch, i) => (
+              <tr key={i} className="border-b border-[var(--color-outline)] last:border-0">
+                <td className="py-2.5 px-3">
+                  <code className="text-2sm font-mono text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-0.5 rounded">
+                    {branch.bic11 || branch.bic8}
+                  </code>
+                </td>
+                <td className="py-2.5 px-3 text-[var(--color-on-surface)]">
+                  {branch.city || "—"}
+                </td>
+                <td className="py-2.5 px-3 text-[var(--color-on-surface-variant)] hidden sm:table-cell">
+                  {branch.headOffice ? t("headOffice") : branch.branchCode || "—"}
+                </td>
+                <td className="py-2.5 px-3 text-[var(--color-on-surface-variant)] hidden md:table-cell truncate max-w-[200px]">
+                  {branch.address || "—"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+
   // Related countries
   const allCountries = getSwiftCountries();
   const related = allCountries
@@ -272,50 +334,42 @@ export default async function SwiftCountryPage({ params }: Props) {
               <h2 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
                 {t("banksAndSwiftCodes", { country: country.name })}
               </h2>
-              <div className="space-y-6">
-                {Array.from(bankBranches.entries()).map(([bankKey, branches]) => (
-                  <div key={bankKey}>
-                    <h3 className="text-sm font-medium text-[var(--color-on-surface)] mb-3 flex items-center gap-2">
-                      <div className="w-7 h-7 bg-[var(--color-surface-container)] rounded-lg flex items-center justify-center text-2xs font-medium text-[var(--color-primary)] shrink-0">
-                        {branches[0]?.bankName.charAt(0) || "?"}
-                      </div>
-                      {branches[0]?.bankName}
-                    </h3>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-2sm">
-                        <thead>
-                          <tr className="border-b border-[var(--color-outline)]">
-                            <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)]">{t("swiftBic")}</th>
-                            <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)]">{t("city")}</th>
-                            <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)] hidden sm:table-cell">{t("branch")}</th>
-                            <th className="text-left py-2 px-3 font-medium text-[var(--color-on-surface-variant)] hidden md:table-cell">{t("address")}</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {branches.map((branch, i) => (
-                            <tr key={i} className="border-b border-[var(--color-outline)] last:border-0">
-                              <td className="py-2.5 px-3">
-                                <code className="text-2sm font-mono text-[var(--color-primary)] bg-[var(--color-primary-surface)] px-1.5 py-0.5 rounded">
-                                  {branch.bic11 || branch.bic8}
-                                </code>
-                              </td>
-                              <td className="py-2.5 px-3 text-[var(--color-on-surface)]">
-                                {branch.city || "—"}
-                              </td>
-                              <td className="py-2.5 px-3 text-[var(--color-on-surface-variant)] hidden sm:table-cell">
-                                {branch.headOffice ? t("headOffice") : branch.branchCode || "—"}
-                              </td>
-                              <td className="py-2.5 px-3 text-[var(--color-on-surface-variant)] hidden md:table-cell truncate max-w-[200px]">
-                                {branch.address || "—"}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+              {useAlphaGroups ? (
+                <>
+                  <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4">
+                    {t("groupedHint", { banks: sortedBankEntries.length })}
+                  </p>
+                  <div className="space-y-2">
+                    {Array.from(alphaGroups.entries()).map(([letter, entries]) => {
+                      const codeCount = entries.reduce((s, [, br]) => s + br.length, 0);
+                      return (
+                        <details key={letter} className="group border border-[var(--color-outline)] rounded-xl overflow-hidden">
+                          <summary className="flex items-center justify-between gap-2 cursor-pointer list-none px-4 py-3 hover:bg-[var(--color-surface-dim)] transition-colors">
+                            <span className="flex items-center gap-3 min-w-0">
+                              <span className="w-7 h-7 rounded-lg bg-[var(--color-primary-surface)] flex items-center justify-center text-2sm font-medium text-[var(--color-primary)] shrink-0">
+                                {letter}
+                              </span>
+                              <span className="text-sm font-medium text-[var(--color-on-surface)] truncate">
+                                {entries.length} {t("banks").toLowerCase()} · {codeCount} {t("swiftCodes").toLowerCase()}
+                              </span>
+                            </span>
+                            <svg className="w-4 h-4 shrink-0 text-[var(--color-on-surface-variant)] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </summary>
+                          <div className="px-4 pb-4 pt-2 space-y-6 border-t border-[var(--color-outline)]">
+                            {entries.map(([bankKey, branches]) => renderBankBlock(bankKey, branches))}
+                          </div>
+                        </details>
+                      );
+                    })}
                   </div>
-                ))}
-              </div>
+                </>
+              ) : (
+                <div className="space-y-6">
+                  {sortedBankEntries.map(([bankKey, branches]) => renderBankBlock(bankKey, branches))}
+                </div>
+              )}
             </Card>
           ) : (
             /* Bank list without branch data */
