@@ -60,6 +60,7 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   "taptap-send-vs-wise-remitly-usd-to-pkr": { from: "USD", to: "PKR", amount: 1000, heading: "Live USD → PKR rates right now — see where TapTap ranks today" },
   "how-to-buy-spacex-nvidia-stock-using-revolut": { from: "USD", to: "GBP", amount: 1000, heading: "Fund your Revolut account — top USD → GBP providers" },
   "how-to-pay-international-freelancers-contractors": { from: "USD", to: "PHP", amount: 1000, heading: "Live cost of a $1,000 freelancer payment (USD → PHP)" },
+  "top-money-transfer-apps-usa-to-india-2026": { from: "USD", to: "INR", amount: 1000, heading: "Live USD → INR rates — which app sends the most rupees today?" },
 };
 
 const TAG_TO_CORRIDOR: Record<string, InlineQuoteCorridor> = {
