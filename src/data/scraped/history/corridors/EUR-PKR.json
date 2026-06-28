@@ -7821,25 +7821,25 @@
       "western-union": {
         "rate": 316.9236,
         "fee": 0.99,
-        "markup": -0.02,
+        "markup": 0.04,
         "receiveAmount": 31378.6
       },
       "dahabshiil": {
         "rate": 316.9834,
         "fee": 0,
-        "markup": -0.04,
+        "markup": 0.02,
         "receiveAmount": 31698.34
       },
       "profee": {
-        "rate": 321.6287,
+        "rate": 321.8047,
         "fee": 1.2,
         "markup": -1.5,
-        "receiveAmount": 31776.92
+        "receiveAmount": 31794.3
       },
       "worldremit": {
         "rate": 313.7318,
         "fee": 2.99,
-        "markup": 0.99,
+        "markup": 1.05,
         "receiveAmount": 30435.12
       },
       "instarem": {
@@ -7851,19 +7851,19 @@
       "xe": {
         "rate": 315.9286,
         "fee": 1,
-        "markup": 0.3,
+        "markup": 0.35,
         "receiveAmount": 31276.93
       },
       "paysend": {
         "rate": 315.1326,
         "fee": 0,
-        "markup": 0.55,
+        "markup": 0.6,
         "receiveAmount": 31513.26
       },
       "sendwave": {
         "rate": 316.267,
         "fee": 1.99,
-        "markup": 0.19,
+        "markup": 0.25,
         "receiveAmount": 30997.33
       },
       "remitly": {
@@ -7875,7 +7875,7 @@
       "revolut": {
         "rate": 314.605,
         "fee": 2.75,
-        "markup": 0.72,
+        "markup": 0.77,
         "receiveAmount": 30595.34
       },
       "xoom": {

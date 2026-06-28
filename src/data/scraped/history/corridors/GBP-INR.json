@@ -17427,7 +17427,7 @@
       "moneygram": {
         "rate": 124.743,
         "fee": 1.49,
-        "markup": -0.14,
+        "markup": -0.03,
         "receiveAmount": 12288.43
       },
       "skrill": {
@@ -17443,10 +17443,10 @@
         "receiveAmount": 12475
       },
       "sbi": {
-        "rate": 121.2033,
-        "fee": 7.01,
+        "rate": 121.3347,
+        "fee": 7,
         "markup": 2.7,
-        "receiveAmount": 11271.06
+        "receiveAmount": 11283.55
       },
       "western-union": {
         "rate": 124.672,
@@ -17455,27 +17455,27 @@
         "receiveAmount": 12219.1
       },
       "dahabshiil": {
-        "rate": 124.5034,
+        "rate": 124.3354,
         "fee": 1.79,
-        "markup": 0.05,
-        "receiveAmount": 12227.48
+        "markup": 0.29,
+        "receiveAmount": 12210.98
       },
       "profee": {
-        "rate": 124.5694,
+        "rate": 124.7017,
         "fee": 1.1,
         "markup": 0,
-        "receiveAmount": 12319.91
+        "receiveAmount": 12333
       },
       "ofx": {
         "rate": 118.4972,
         "fee": 0,
-        "markup": 4.87,
+        "markup": 4.98,
         "receiveAmount": 11849.72
       },
       "currencyfair": {
         "rate": 123.6933,
         "fee": 0.97,
-        "markup": 0.7,
+        "markup": 0.81,
         "receiveAmount": 12249.35
       },
       "halifax": {
@@ -17485,10 +17485,10 @@
         "receiveAmount": 10838.43
       },
       "transfergo": {
-        "rate": 123.2253,
+        "rate": 123.258,
         "fee": 0,
-        "markup": 1.08,
-        "receiveAmount": 12322.53
+        "markup": 1.16,
+        "receiveAmount": 12325.8
       },
       "worldremit": {
         "rate": 122.294,
@@ -17505,13 +17505,13 @@
       "mukuru": {
         "rate": 120.59,
         "fee": 2.99,
-        "markup": 3.19,
+        "markup": 3.3,
         "receiveAmount": 11698.44
       },
       "paysend": {
         "rate": 124.5414,
         "fee": 0,
-        "markup": 0.02,
+        "markup": 0.13,
         "receiveAmount": 12454.14
       },
       "remitly": {
@@ -17523,7 +17523,7 @@
       "revolut": {
         "rate": 124.2088,
         "fee": 1.5,
-        "markup": 0.29,
+        "markup": 0.4,
         "receiveAmount": 12234.57
       },
       "ria": {

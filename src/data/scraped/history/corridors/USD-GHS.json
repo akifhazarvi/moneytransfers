@@ -8318,9 +8318,9 @@
       },
       "ria": {
         "rate": 11.1474,
-        "fee": 3,
-        "markup": null,
-        "receiveAmount": 1130
+        "fee": 1,
+        "markup": 1.14,
+        "receiveAmount": 1103.6
       },
       "taptap-send": {
         "rate": 11.3,
@@ -8355,7 +8355,7 @@
       "xe": {
         "rate": 11.2152,
         "fee": 4,
-        "markup": 0.54,
+        "markup": 0.53,
         "receiveAmount": 1076.66
       },
       "paysend": {
