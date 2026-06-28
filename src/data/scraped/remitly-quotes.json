@@ -5,22 +5,6 @@
     "providerType": "moneyTransferProvider",
     "sendCurrency": "USD",
     "receiveCurrency": "INR",
-    "sendAmount": 100,
-    "fee": 3.99,
-    "exchangeRate": 93.86,
-    "receiveAmount": 9011.5,
-    "paymentMethod": "Bank Transfer",
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:30.235Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "INR",
     "sendAmount": 1000,
     "fee": 0,
     "exchangeRate": 93.86,
@@ -28,7 +12,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:31.421Z",
+    "dateCollected": "2026-06-28T00:46:05.221Z",
     "source": "remitly-api"
   },
   {
@@ -44,39 +28,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "BANK_DEPOSIT",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:32.661Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "PHP",
-    "sendAmount": 1000,
-    "fee": 0,
-    "exchangeRate": 59.36,
-    "receiveAmount": 59360,
-    "paymentMethod": "DEBIT",
-    "deliveryMethod": "BANK_DEPOSIT",
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:33.906Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "USD",
-    "receiveCurrency": "MXN",
-    "sendAmount": 100,
-    "fee": 3.99,
-    "exchangeRate": 16.8,
-    "receiveAmount": 1612.97,
-    "paymentMethod": "DEBIT",
-    "deliveryMethod": "CASH_PICKUP",
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:35.123Z",
+    "dateCollected": "2026-06-28T00:46:06.525Z",
     "source": "remitly-api"
   },
   {
@@ -92,7 +44,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:36.356Z",
+    "dateCollected": "2026-06-28T00:46:20.184Z",
     "source": "remitly-api"
   },
   {
@@ -103,12 +55,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 100,
     "fee": 0,
-    "exchangeRate": 1376.81,
-    "receiveAmount": 137681,
+    "exchangeRate": 1377.9,
+    "receiveAmount": 137790,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:37.540Z",
+    "dateCollected": "2026-06-28T00:46:21.478Z",
     "source": "remitly-api"
   },
   {
@@ -119,12 +71,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 1000,
     "fee": 0,
-    "exchangeRate": 1376.81,
-    "receiveAmount": 1376810,
+    "exchangeRate": 1377.9,
+    "receiveAmount": 1377900,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:38.736Z",
+    "dateCollected": "2026-06-28T00:46:22.708Z",
     "source": "remitly-api"
   },
   {
@@ -140,7 +92,23 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:39.922Z",
+    "dateCollected": "2026-06-28T00:46:23.951Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "PKR",
+    "sendAmount": 1000,
+    "fee": 0,
+    "exchangeRate": 277.25,
+    "receiveAmount": 277250,
+    "paymentMethod": "Bank Transfer",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:46:25.169Z",
     "source": "remitly-api"
   },
   {
@@ -151,12 +119,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 100,
     "fee": 3.99,
-    "exchangeRate": 122.68,
-    "receiveAmount": 11778.51,
+    "exchangeRate": 122.71,
+    "receiveAmount": 11781.39,
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:47.350Z",
+    "dateCollected": "2026-06-28T00:46:26.409Z",
     "source": "remitly-api"
   },
   {
@@ -167,12 +135,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 1000,
     "fee": 3.99,
-    "exchangeRate": 122.68,
-    "receiveAmount": 122190.51,
+    "exchangeRate": 122.71,
+    "receiveAmount": 122220.39,
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:48.563Z",
+    "dateCollected": "2026-06-28T00:46:27.683Z",
     "source": "remitly-api"
   },
   {
@@ -183,12 +151,12 @@
     "receiveCurrency": "GHS",
     "sendAmount": 100,
     "fee": 0,
-    "exchangeRate": 10.9151,
-    "receiveAmount": 1091.51,
+    "exchangeRate": 10.9199,
+    "receiveAmount": 1091.99,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:49.737Z",
+    "dateCollected": "2026-06-28T00:46:28.910Z",
     "source": "remitly-api"
   },
   {
@@ -199,12 +167,12 @@
     "receiveCurrency": "GHS",
     "sendAmount": 1000,
     "fee": 0,
-    "exchangeRate": 11.1295,
-    "receiveAmount": 11129.5,
+    "exchangeRate": 11.1344,
+    "receiveAmount": 11134.4,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:50.914Z",
+    "dateCollected": "2026-06-28T00:46:30.139Z",
     "source": "remitly-api"
   },
   {
@@ -215,12 +183,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 100,
     "fee": 0,
-    "exchangeRate": 127.69,
-    "receiveAmount": 12769,
+    "exchangeRate": 127.68,
+    "receiveAmount": 12768,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:52.094Z",
+    "dateCollected": "2026-06-28T00:46:31.410Z",
     "source": "remitly-api"
   },
   {
@@ -231,12 +199,12 @@
     "receiveCurrency": "KES",
     "sendAmount": 1000,
     "fee": 0,
-    "exchangeRate": 127.69,
-    "receiveAmount": 127690,
+    "exchangeRate": 127.68,
+    "receiveAmount": 127680,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:53.277Z",
+    "dateCollected": "2026-06-28T00:46:32.650Z",
     "source": "remitly-api"
   },
   {
@@ -252,7 +220,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": "BANK_DEPOSIT",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:54.493Z",
+    "dateCollected": "2026-06-28T00:46:33.905Z",
     "source": "remitly-api"
   },
   {
@@ -268,7 +236,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": "BANK_DEPOSIT",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:55.714Z",
+    "dateCollected": "2026-06-28T00:46:35.229Z",
     "source": "remitly-api"
   },
   {
@@ -284,7 +252,23 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "TRANSFIYA",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:47:56.950Z",
+    "dateCollected": "2026-06-28T00:46:36.520Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "COP",
+    "sendAmount": 1000,
+    "fee": 0,
+    "exchangeRate": 3359.22,
+    "receiveAmount": 3359220,
+    "paymentMethod": "DEBIT",
+    "deliveryMethod": "TRANSFIYA",
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:46:37.814Z",
     "source": "remitly-api"
   },
   {
@@ -300,7 +284,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:04.456Z",
+    "dateCollected": "2026-06-28T00:46:39.078Z",
     "source": "remitly-api"
   },
   {
@@ -316,7 +300,55 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:05.678Z",
+    "dateCollected": "2026-06-28T00:46:40.358Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "EUR",
+    "sendAmount": 100,
+    "fee": 2.99,
+    "exchangeRate": 0.8732,
+    "receiveAmount": 84.71,
+    "paymentMethod": "Bank Transfer",
+    "deliveryMethod": "CASH_PICKUP",
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:46:41.619Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "EUR",
+    "sendAmount": 1000,
+    "fee": 2.99,
+    "exchangeRate": 0.8732,
+    "receiveAmount": 870.59,
+    "paymentMethod": "Bank Transfer",
+    "deliveryMethod": "CASH_PICKUP",
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:46:42.904Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "GBP",
+    "sendAmount": 100,
+    "fee": 2.99,
+    "exchangeRate": 0.754,
+    "receiveAmount": 73.15,
+    "paymentMethod": "Bank Transfer",
+    "deliveryMethod": "CASH_PICKUP",
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:46:44.177Z",
     "source": "remitly-api"
   },
   {
@@ -332,7 +364,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:25.285Z",
+    "dateCollected": "2026-06-28T00:46:45.423Z",
     "source": "remitly-api"
   },
   {
@@ -348,7 +380,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:26.460Z",
+    "dateCollected": "2026-06-28T00:46:46.652Z",
     "source": "remitly-api"
   },
   {
@@ -364,7 +396,23 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:27.639Z",
+    "dateCollected": "2026-06-28T00:46:47.879Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "USD",
+    "receiveCurrency": "IDR",
+    "sendAmount": 100,
+    "fee": 1.99,
+    "exchangeRate": 17797.57,
+    "receiveAmount": 1744339.84,
+    "paymentMethod": "Bank Transfer",
+    "deliveryMethod": "CASH_PICKUP",
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:46:49.150Z",
     "source": "remitly-api"
   },
   {
@@ -380,7 +428,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:34.996Z",
+    "dateCollected": "2026-06-28T00:46:50.400Z",
     "source": "remitly-api"
   },
   {
@@ -396,7 +444,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:36.234Z",
+    "dateCollected": "2026-06-28T00:46:51.623Z",
     "source": "remitly-api"
   },
   {
@@ -412,7 +460,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:37.409Z",
+    "dateCollected": "2026-06-28T00:46:52.838Z",
     "source": "remitly-api"
   },
   {
@@ -428,7 +476,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:38.580Z",
+    "dateCollected": "2026-06-28T00:46:54.263Z",
     "source": "remitly-api"
   },
   {
@@ -444,7 +492,7 @@
     "paymentMethod": "Bank Transfer",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:39.751Z",
+    "dateCollected": "2026-06-28T00:46:55.487Z",
     "source": "remitly-api"
   },
   {
@@ -460,7 +508,23 @@
     "paymentMethod": "OPEN_BANKING",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:40.928Z",
+    "dateCollected": "2026-06-28T00:46:56.711Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "INR",
+    "sendAmount": 1000,
+    "fee": 1.99,
+    "exchangeRate": 124.23,
+    "receiveAmount": 123982.78,
+    "paymentMethod": "OPEN_BANKING",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:46:57.940Z",
     "source": "remitly-api"
   },
   {
@@ -471,12 +535,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 100,
     "fee": 0,
-    "exchangeRate": 1838.92,
-    "receiveAmount": 183892,
+    "exchangeRate": 1840.92,
+    "receiveAmount": 184092,
     "paymentMethod": "OPEN_BANKING",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:48.214Z",
+    "dateCollected": "2026-06-28T00:46:59.173Z",
     "source": "remitly-api"
   },
   {
@@ -487,12 +551,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 1000,
     "fee": 0,
-    "exchangeRate": 1838.92,
-    "receiveAmount": 1838920,
+    "exchangeRate": 1840.92,
+    "receiveAmount": 1840920,
     "paymentMethod": "OPEN_BANKING",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:49.394Z",
+    "dateCollected": "2026-06-28T00:47:00.410Z",
     "source": "remitly-api"
   },
   {
@@ -508,7 +572,7 @@
     "paymentMethod": "OPEN_BANKING",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:50.589Z",
+    "dateCollected": "2026-06-28T00:47:01.660Z",
     "source": "remitly-api"
   },
   {
@@ -524,7 +588,23 @@
     "paymentMethod": "OPEN_BANKING",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:51.864Z",
+    "dateCollected": "2026-06-28T00:47:02.944Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PHP",
+    "sendAmount": 100,
+    "fee": 0,
+    "exchangeRate": 80.12,
+    "receiveAmount": 8012,
+    "paymentMethod": "OPEN_BANKING",
+    "deliveryMethod": "DIRECT_TO_PHONE",
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:47:04.203Z",
     "source": "remitly-api"
   },
   {
@@ -540,23 +620,7 @@
     "paymentMethod": "OPEN_BANKING",
     "deliveryMethod": "DIRECT_TO_PHONE",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:48:59.153Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "GBP",
-    "receiveCurrency": "EUR",
-    "sendAmount": 100,
-    "fee": 1.99,
-    "exchangeRate": 1.1478,
-    "receiveAmount": 112.5,
-    "paymentMethod": "OPEN_BANKING",
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:00.350Z",
+    "dateCollected": "2026-06-28T00:47:05.464Z",
     "source": "remitly-api"
   },
   {
@@ -572,7 +636,7 @@
     "paymentMethod": "OPEN_BANKING",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:01.525Z",
+    "dateCollected": "2026-06-28T00:47:12.970Z",
     "source": "remitly-api"
   },
   {
@@ -588,7 +652,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:02.750Z",
+    "dateCollected": "2026-06-28T00:47:14.289Z",
     "source": "remitly-api"
   },
   {
@@ -604,7 +668,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:03.972Z",
+    "dateCollected": "2026-06-28T00:47:15.581Z",
     "source": "remitly-api"
   },
   {
@@ -615,12 +679,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 100,
     "fee": 0,
-    "exchangeRate": 1567.54,
-    "receiveAmount": 156754,
+    "exchangeRate": 1568.82,
+    "receiveAmount": 156882,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:05.171Z",
+    "dateCollected": "2026-06-28T00:47:16.801Z",
     "source": "remitly-api"
   },
   {
@@ -631,12 +695,12 @@
     "receiveCurrency": "NGN",
     "sendAmount": 1000,
     "fee": 0,
-    "exchangeRate": 1567.54,
-    "receiveAmount": 1567540,
+    "exchangeRate": 1568.82,
+    "receiveAmount": 1568820,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:06.353Z",
+    "dateCollected": "2026-06-28T00:47:18.023Z",
     "source": "remitly-api"
   },
   {
@@ -652,7 +716,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:07.576Z",
+    "dateCollected": "2026-06-28T00:47:19.282Z",
     "source": "remitly-api"
   },
   {
@@ -668,7 +732,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:08.826Z",
+    "dateCollected": "2026-06-28T00:47:20.526Z",
     "source": "remitly-api"
   },
   {
@@ -684,39 +748,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:10.004Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "EUR",
-    "receiveCurrency": "GBP",
-    "sendAmount": 1000,
-    "fee": 1.99,
-    "exchangeRate": 0.8517,
-    "receiveAmount": 850.01,
-    "paymentMethod": "DEBIT",
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:11.188Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "EUR",
-    "receiveCurrency": "PKR",
-    "sendAmount": 100,
-    "fee": 1.99,
-    "exchangeRate": 314.96,
-    "receiveAmount": 30869.23,
-    "paymentMethod": "DEBIT",
-    "deliveryMethod": "BANK_DEPOSIT",
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:12.407Z",
+    "dateCollected": "2026-06-28T00:47:21.756Z",
     "source": "remitly-api"
   },
   {
@@ -732,7 +764,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "BANK_DEPOSIT",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:13.648Z",
+    "dateCollected": "2026-06-28T00:47:35.526Z",
     "source": "remitly-api"
   },
   {
@@ -748,7 +780,39 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:14.860Z",
+    "dateCollected": "2026-06-28T00:47:36.747Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "EUR",
+    "receiveCurrency": "MXN",
+    "sendAmount": 1000,
+    "fee": 1.99,
+    "exchangeRate": 19.8,
+    "receiveAmount": 19760.6,
+    "paymentMethod": "DEBIT",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:47:37.969Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "EUR",
+    "receiveCurrency": "BDT",
+    "sendAmount": 100,
+    "fee": 0.99,
+    "exchangeRate": 139.55,
+    "receiveAmount": 13816.85,
+    "paymentMethod": "DEBIT",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:47:39.207Z",
     "source": "remitly-api"
   },
   {
@@ -759,28 +823,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 1000,
     "fee": 0.99,
-    "exchangeRate": 139.5,
-    "receiveAmount": 139361.89,
+    "exchangeRate": 139.55,
+    "receiveAmount": 139411.85,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:28.359Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "EUR",
-    "receiveCurrency": "GHS",
-    "sendAmount": 100,
-    "fee": 0.99,
-    "exchangeRate": 12.7715,
-    "receiveAmount": 1264.51,
-    "paymentMethod": "DEBIT",
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:29.556Z",
+    "dateCollected": "2026-06-28T00:47:40.441Z",
     "source": "remitly-api"
   },
   {
@@ -791,12 +839,12 @@
     "receiveCurrency": "GHS",
     "sendAmount": 1000,
     "fee": 0.99,
-    "exchangeRate": 12.7715,
-    "receiveAmount": 12758.86,
+    "exchangeRate": 12.7772,
+    "receiveAmount": 12764.55,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:30.732Z",
+    "dateCollected": "2026-06-28T00:47:47.777Z",
     "source": "remitly-api"
   },
   {
@@ -812,7 +860,23 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:31.915Z",
+    "dateCollected": "2026-06-28T00:47:49.018Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "EUR",
+    "receiveCurrency": "KES",
+    "sendAmount": 1000,
+    "fee": 1.99,
+    "exchangeRate": 143.83,
+    "receiveAmount": 143543.78,
+    "paymentMethod": "DEBIT",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:47:50.237Z",
     "source": "remitly-api"
   },
   {
@@ -828,7 +892,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:39.294Z",
+    "dateCollected": "2026-06-28T00:47:51.470Z",
     "source": "remitly-api"
   },
   {
@@ -844,7 +908,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:40.476Z",
+    "dateCollected": "2026-06-28T00:47:52.698Z",
     "source": "remitly-api"
   },
   {
@@ -860,7 +924,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "BRE_B",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:41.697Z",
+    "dateCollected": "2026-06-28T00:47:53.975Z",
     "source": "remitly-api"
   },
   {
@@ -876,7 +940,23 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "BRE_B",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:42.925Z",
+    "dateCollected": "2026-06-28T00:47:55.235Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "EUR",
+    "receiveCurrency": "TRY",
+    "sendAmount": 100,
+    "fee": 1.99,
+    "exchangeRate": 52.36,
+    "receiveAmount": 5131.8,
+    "paymentMethod": "DEBIT",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:47:56.469Z",
     "source": "remitly-api"
   },
   {
@@ -892,7 +972,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:50.192Z",
+    "dateCollected": "2026-06-28T00:47:57.693Z",
     "source": "remitly-api"
   },
   {
@@ -908,7 +988,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:51.443Z",
+    "dateCollected": "2026-06-28T00:47:59.080Z",
     "source": "remitly-api"
   },
   {
@@ -924,7 +1004,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": "CASH_PICKUP",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:52.658Z",
+    "dateCollected": "2026-06-28T00:48:00.348Z",
     "source": "remitly-api"
   },
   {
@@ -940,7 +1020,23 @@
     "paymentMethod": "INTERAC",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:49:53.835Z",
+    "dateCollected": "2026-06-28T00:48:01.581Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "CAD",
+    "receiveCurrency": "INR",
+    "sendAmount": 1000,
+    "fee": 0,
+    "exchangeRate": 66.13,
+    "receiveAmount": 66130,
+    "paymentMethod": "INTERAC",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:48:02.816Z",
     "source": "remitly-api"
   },
   {
@@ -956,7 +1052,7 @@
     "paymentMethod": "INTERAC",
     "deliveryMethod": "BANK_DEPOSIT",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:07.265Z",
+    "dateCollected": "2026-06-28T00:48:10.369Z",
     "source": "remitly-api"
   },
   {
@@ -972,39 +1068,7 @@
     "paymentMethod": "PAYTO",
     "deliveryMethod": "UPI",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:08.490Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AUD",
-    "receiveCurrency": "INR",
-    "sendAmount": 1000,
-    "fee": 0.99,
-    "exchangeRate": 65.04,
-    "receiveAmount": 64975.61,
-    "paymentMethod": "PAYTO",
-    "deliveryMethod": "UPI",
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:09.696Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AUD",
-    "receiveCurrency": "PHP",
-    "sendAmount": 100,
-    "fee": 0,
-    "exchangeRate": 42.02,
-    "receiveAmount": 4202,
-    "paymentMethod": "PAYTO",
-    "deliveryMethod": "BANK_DEPOSIT",
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:10.898Z",
+    "dateCollected": "2026-06-28T00:48:11.707Z",
     "source": "remitly-api"
   },
   {
@@ -1020,7 +1084,7 @@
     "paymentMethod": "PAYTO",
     "deliveryMethod": "BANK_DEPOSIT",
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:12.111Z",
+    "dateCollected": "2026-06-28T00:48:25.257Z",
     "source": "remitly-api"
   },
   {
@@ -1036,7 +1100,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:13.294Z",
+    "dateCollected": "2026-06-28T00:48:26.484Z",
     "source": "remitly-api"
   },
   {
@@ -1052,23 +1116,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:14.466Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AED",
-    "receiveCurrency": "PKR",
-    "sendAmount": 100,
-    "fee": 7,
-    "exchangeRate": 75.8,
-    "receiveAmount": 7049.4,
-    "paymentMethod": "DEBIT",
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:15.648Z",
+    "dateCollected": "2026-06-28T00:48:27.703Z",
     "source": "remitly-api"
   },
   {
@@ -1084,7 +1132,39 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:16.842Z",
+    "dateCollected": "2026-06-28T00:48:35.041Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AED",
+    "receiveCurrency": "PHP",
+    "sendAmount": 100,
+    "fee": 5,
+    "exchangeRate": 16.59,
+    "receiveAmount": 1576.05,
+    "paymentMethod": "DEBIT",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:48:36.259Z",
+    "source": "remitly-api"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "AED",
+    "receiveCurrency": "PHP",
+    "sendAmount": 1000,
+    "fee": 5,
+    "exchangeRate": 16.59,
+    "receiveAmount": 16507.05,
+    "paymentMethod": "DEBIT",
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-06-28T00:48:37.492Z",
     "source": "remitly-api"
   },
   {
@@ -1095,12 +1175,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 100,
     "fee": 9,
-    "exchangeRate": 33.62,
-    "receiveAmount": 3059.42,
+    "exchangeRate": 33.63,
+    "receiveAmount": 3060.33,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:30.190Z",
+    "dateCollected": "2026-06-28T00:48:38.718Z",
     "source": "remitly-api"
   },
   {
@@ -1111,28 +1191,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 1000,
     "fee": 9,
-    "exchangeRate": 33.62,
-    "receiveAmount": 33317.42,
+    "exchangeRate": 33.63,
+    "receiveAmount": 33327.33,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:31.369Z",
-    "source": "remitly-api"
-  },
-  {
-    "provider": "Remitly",
-    "providerSlug": "remitly",
-    "providerType": "moneyTransferProvider",
-    "sendCurrency": "AED",
-    "receiveCurrency": "NGN",
-    "sendAmount": 100,
-    "fee": 5,
-    "exchangeRate": 374,
-    "receiveAmount": 35530,
-    "paymentMethod": "DEBIT",
-    "deliveryMethod": null,
-    "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:32.549Z",
+    "dateCollected": "2026-06-28T00:48:39.945Z",
     "source": "remitly-api"
   },
   {
@@ -1148,7 +1212,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:33.723Z",
+    "dateCollected": "2026-06-28T00:48:47.332Z",
     "source": "remitly-api"
   },
   {
@@ -1164,7 +1228,7 @@
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:34.896Z",
+    "dateCollected": "2026-06-28T00:48:48.561Z",
     "source": "remitly-api"
   },
   {
@@ -1172,15 +1236,15 @@
     "providerSlug": "remitly",
     "providerType": "moneyTransferProvider",
     "sendCurrency": "AED",
-    "receiveCurrency": "LKR",
+    "receiveCurrency": "EGP",
     "sendAmount": 1000,
-    "fee": 8,
-    "exchangeRate": 91.23,
-    "receiveAmount": 90500.16,
+    "fee": 6,
+    "exchangeRate": 13.37,
+    "receiveAmount": 13289.78,
     "paymentMethod": "DEBIT",
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-06-27T00:50:48.206Z",
+    "dateCollected": "2026-06-28T00:48:49.785Z",
     "source": "remitly-api"
   }
 ]
