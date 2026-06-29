@@ -4934,5 +4934,52 @@
         "receiveAmount": 1763478
       }
     }
+  },
+  {
+    "date": "2026-06-29",
+    "providers": {
+      "taptap-send": {
+        "rate": 17850,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1785000
+      },
+      "instarem": {
+        "rate": 17720.7833,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1772078.33
+      },
+      "xoom": {
+        "rate": 17486.3676,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 1661379.79
+      },
+      "moneygram": {
+        "rate": 17627.3497,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1727656.54
+      },
+      "remitly": {
+        "rate": 17786.6097,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1761052.22
+      },
+      "worldremit": {
+        "rate": 17576.2847,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1722651.66
+      },
+      "wise": {
+        "rate": 17880,
+        "fee": 1.86,
+        "markup": null,
+        "receiveAmount": 1754743
+      }
+    }
   }
 ]
