@@ -85,17 +85,15 @@ export function generateQuotes(
       const markupPct = sq.markup / 100;
       const providerRate = baseRate * (1 - markupPct);
 
-      let fee: number;
-      let receiveAmount: number;
-
-      if (isExactAmount) {
-        fee = sq.fee;
-        receiveAmount = (amount - fee) * providerRate;
-      } else {
-        const feeRatio = sq.fee / (sq.sendAmount || 1000);
-        fee = Math.max(feeRatio * amount, sq.fee * 0.5);
-        receiveAmount = (amount - fee) * providerRate;
-      }
+      // Transfer fees are essentially flat (or banded by amount tier), NOT
+      // proportional to the amount. Use the real fee scraped at the nearest
+      // amount bucket as-is — scaling it (old `feeRatio * amount`) invented
+      // fractional-cent fees on small sends and silly fees on large ones.
+      // The rate is a percentage, so it applies cleanly at any amount.
+      const fee = sq.fee;
+      // Clamp so a flat fee larger than a tiny send can't yield a negative
+      // payout — the recipient gets nothing, not a negative amount.
+      const receiveAmount = Math.max(0, amount - fee) * providerRate;
 
       // Use Trustpilot rating if available, otherwise provider default or 3.5
       const tp = trustpilotIndex[sq.providerSlug];
