@@ -117,12 +117,16 @@ export interface BestProvider {
   level: "low" | "typical" | "good" | "great";
 }
 
-/** Standard send amount used for "you receive" payout figures. */
-export const SEND_AMOUNT = 1000;
+/**
+ * Base send amount that rate-insights.json computes today.bestReceiveAmount on
+ * (rate × 100, fee-inclusive). Divide bestReceiveAmount by this for a per-unit
+ * payout. NOTE: this is the dataset's basis, not a UI default send amount.
+ */
+export const RECEIVE_BASE = 100;
 
 /**
  * Best provider for a corridor today, with the actual rate, payout on a
- * SEND_AMOUNT send, and how far that rate sits below the mid-market rate.
+ * RECEIVE_BASE send, and how far that rate sits below the mid-market rate.
  * Pulls from the pre-built rate-insights.json. Returns null if no provider
  * data exists for the pair.
  */
@@ -141,7 +145,7 @@ export function getBestProvider(from: string, to: string): BestProvider | null {
   return {
     slug: bestProvider,
     rate: bestRate,
-    receiveAmount: bestReceiveAmount || bestRate * SEND_AMOUNT,
+    receiveAmount: bestReceiveAmount || bestRate * RECEIVE_BASE,
     markupPct: Math.round(markupPct * 100) / 100,
     level: insight.level,
   };
@@ -178,14 +182,16 @@ export function getSendVerdict(from: string, to: string, amount: number): SendVe
   const { today, stats, level, levelPct, totalDays } = insight;
   if (!today?.bestProvider || !today.bestRate) return null;
 
-  // Per-unit receive = today's payout on the standard send, scaled to `amount`.
+  // today.bestReceiveAmount is the fee-inclusive payout on a RECEIVE_BASE (100)
+  // send, so per-unit = /100. Recover the fee drag as a ratio vs. the raw rate
+  // and apply it to the window's best/worst rates so all three stay consistent.
+  // (Bug fix: this previously divided by SEND_AMOUNT=1000, under-reporting 10×.)
   const perUnit = today.bestReceiveAmount
-    ? today.bestReceiveAmount / SEND_AMOUNT
+    ? today.bestReceiveAmount / RECEIVE_BASE
     : today.bestRate;
+  const feeRatio = today.bestRate > 0 ? perUnit / today.bestRate : 1;
 
   const receiveNow = perUnit * amount;
-  // Scale the window's best/worst rate by the same fee-inclusive ratio.
-  const feeRatio = today.bestRate > 0 ? perUnit / today.bestRate : 1;
   const receiveBest = stats.bestRate * feeRatio * amount;
   const receiveWorst = stats.worstRate * feeRatio * amount;
 
