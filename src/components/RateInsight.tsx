@@ -75,7 +75,7 @@ export function RateInsightBanner({
         {/* Right: stats grid */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-2sm sm:text-sm">
           <StatRow
-            label="Today's best"
+            label="Today's best (on 100)"
             value={`${toCurrencySymbol}${insight.today.bestReceiveAmount.toLocaleString()}`}
             sublabel={providerName(insight.today.bestProvider)}
             bold

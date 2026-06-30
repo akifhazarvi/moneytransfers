@@ -53,6 +53,10 @@ const sym = (c: string) => SYMBOLS[c] ?? "";
 
 const QUICK_AMOUNTS = [500, 1000, 2500, 5000];
 
+// rate-insights.json reports today.bestReceiveAmount as the payout on a fixed
+// 100-unit send (rate × 100, fee-inclusive). Divide by this to get per-unit.
+const RECEIVE_BASE = 100;
+
 function fmtInt(n: number) {
   return n.toLocaleString("en-US", { maximumFractionDigits: 0 });
 }
@@ -99,7 +103,13 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
         setData((d) => ({ ...d, from: f, to: t, amount: amt, bestProviderSlug: "" }));
         return;
       }
-      const perUnit = ins.today.bestReceiveAmount ? ins.today.bestReceiveAmount / 1000 : ins.today.bestRate;
+      // bestReceiveAmount is the payout on a fixed $100 base send (so per-unit =
+      // /100), and it bakes in the provider's fee — recover that fee drag as a
+      // ratio vs. the raw rate so best/worst payouts stay fee-consistent.
+      // (The old code divided by 1000, under-reporting the payout 10×.)
+      const perUnit = ins.today.bestReceiveAmount
+        ? ins.today.bestReceiveAmount / RECEIVE_BASE
+        : ins.today.bestRate;
       const feeRatio = ins.today.bestRate > 0 ? perUnit / ins.today.bestRate : 1;
       const span = ins.stats.bestRate - ins.stats.worstRate;
       setData({
