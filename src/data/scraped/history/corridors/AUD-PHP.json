@@ -10936,10 +10936,10 @@
         "receiveAmount": 4180
       },
       "moneygram": {
-        "rate": 41.5703,
+        "rate": 42.2823,
         "fee": 0.99,
-        "markup": 1.31,
-        "receiveAmount": 4115.88
+        "markup": 0.32,
+        "receiveAmount": 4186.37
       },
       "western-union": {
         "rate": 42.2883,
@@ -10948,34 +10948,34 @@
         "receiveAmount": 4228.83
       },
       "currencyfair": {
-        "rate": 41.855,
-        "fee": 1.91,
-        "markup": 0.63,
-        "receiveAmount": 4105.56
+        "rate": 42.165,
+        "fee": 1.9,
+        "markup": 0.6,
+        "receiveAmount": 4136.39
       },
       "instarem": {
-        "rate": 42.112,
+        "rate": 42.386,
         "fee": 0.75,
-        "markup": 0.02,
-        "receiveAmount": 4179.62
+        "markup": 0.07,
+        "receiveAmount": 4206.81
       },
       "xe": {
-        "rate": 41.9218,
+        "rate": 42.2357,
         "fee": 5,
-        "markup": 0.48,
-        "receiveAmount": 3982.57
+        "markup": 0.43,
+        "receiveAmount": 4012.39
       },
       "paysend": {
-        "rate": 41.804,
+        "rate": 42.0841,
         "fee": 2.9,
-        "markup": 0.76,
-        "receiveAmount": 4059.17
+        "markup": 0.79,
+        "receiveAmount": 4086.37
       },
       "singx": {
-        "rate": 42.0169,
+        "rate": 42.3057,
         "fee": 6,
-        "markup": 0.25,
-        "receiveAmount": 3949.59
+        "markup": 0.26,
+        "receiveAmount": 3976.74
       },
       "remitly": {
         "rate": 41.534,
@@ -10984,10 +10984,10 @@
         "receiveAmount": 4153.4
       },
       "revolut": {
-        "rate": 41.8768,
+        "rate": 42.1853,
         "fee": 0.41,
-        "markup": 0.58,
-        "receiveAmount": 4170.51
+        "markup": 0.55,
+        "receiveAmount": 4201.23
       },
       "wise": {
         "rate": 42.3757,
@@ -11042,6 +11042,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4335.98
+      },
+      "skrill": {
+        "rate": 41.8703,
+        "fee": 0,
+        "markup": 1.29,
+        "receiveAmount": 4187.03
       }
     }
   }

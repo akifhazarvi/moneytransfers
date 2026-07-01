@@ -2177,16 +2177,16 @@
     "date": "2026-07-01",
     "providers": {
       "paysend": {
-        "rate": 375.9471,
+        "rate": 375.497,
         "fee": 0,
-        "markup": -0.04,
-        "receiveAmount": 37594.71
+        "markup": 0.07,
+        "receiveAmount": 37549.7
       },
       "remitly": {
-        "rate": 370,
+        "rate": 365,
         "fee": 5,
-        "markup": 1.54,
-        "receiveAmount": 35150
+        "markup": 2.86,
+        "receiveAmount": 34675
       },
       "taptap-send": {
         "rate": 365,

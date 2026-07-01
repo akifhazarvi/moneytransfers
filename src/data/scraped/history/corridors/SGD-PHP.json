@@ -7732,22 +7732,22 @@
     "date": "2026-07-01",
     "providers": {
       "moneygram": {
-        "rate": 46.7874,
+        "rate": 46.9821,
         "fee": 6,
-        "markup": 1.22,
-        "receiveAmount": 4398.02
+        "markup": 1.09,
+        "receiveAmount": 4416.32
       },
       "western-union": {
-        "rate": 47.1234,
+        "rate": 47.2599,
         "fee": 3,
-        "markup": 0.51,
-        "receiveAmount": 4570.97
+        "markup": 0.5,
+        "receiveAmount": 4584.21
       },
       "currencyfair": {
-        "rate": 47.025,
+        "rate": 47.175,
         "fee": 1.7,
-        "markup": 0.72,
-        "receiveAmount": 4622.56
+        "markup": 0.68,
+        "receiveAmount": 4637.3
       },
       "instarem": {
         "rate": 47.3496,
@@ -7768,10 +7768,10 @@
         "receiveAmount": 4451.09
       },
       "revolut": {
-        "rate": 47.3335,
+        "rate": 47.49,
         "fee": 1.2,
-        "markup": 0.07,
-        "receiveAmount": 4676.55
+        "markup": 0.02,
+        "receiveAmount": 4692.01
       },
       "wise": {
         "rate": 47.3847,

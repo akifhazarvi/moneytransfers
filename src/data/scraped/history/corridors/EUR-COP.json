@@ -5236,10 +5236,10 @@
     "date": "2026-07-01",
     "providers": {
       "moneygram": {
-        "rate": 3885.8126,
+        "rate": 3883.0625,
         "fee": 0.99,
-        "markup": 1,
-        "receiveAmount": 384734.31
+        "markup": 0.72,
+        "receiveAmount": 384462.02
       },
       "taptap-send": {
         "rate": 3900,
@@ -5248,22 +5248,22 @@
         "receiveAmount": 390000
       },
       "western-union": {
-        "rate": 3844.3594,
+        "rate": 3870.2609,
         "fee": 0.99,
-        "markup": 2.06,
-        "receiveAmount": 380630.02
+        "markup": 1.05,
+        "receiveAmount": 383194.53
       },
       "dahabshiil": {
-        "rate": 3863.8146,
-        "fee": 0,
-        "markup": 1.56,
-        "receiveAmount": 386381.46
+        "rate": 3868.1597,
+        "fee": 2,
+        "markup": 1.1,
+        "receiveAmount": 379079.65
       },
       "worldremit": {
-        "rate": 3816.8996,
+        "rate": 3816.1841,
         "fee": 2.99,
-        "markup": 2.75,
-        "receiveAmount": 370277.43
+        "markup": 2.43,
+        "receiveAmount": 370208.02
       },
       "instarem": {
         "rate": 3844.1605,
@@ -5272,16 +5272,16 @@
         "receiveAmount": 384416.05
       },
       "xe": {
-        "rate": 3876.561,
+        "rate": 3870.594,
         "fee": 4,
-        "markup": 1.23,
-        "receiveAmount": 372149.86
+        "markup": 1.04,
+        "receiveAmount": 371577.02
       },
       "paysend": {
-        "rate": 3899.5367,
+        "rate": 3846.6379,
         "fee": 0,
-        "markup": 0.65,
-        "receiveAmount": 389953.67
+        "markup": 1.65,
+        "receiveAmount": 384663.79
       },
       "remitly": {
         "rate": 3847.6358,
@@ -5290,10 +5290,10 @@
         "receiveAmount": 380954.42
       },
       "revolut": {
-        "rate": 3875.5914,
+        "rate": 3822.5328,
         "fee": 1,
-        "markup": 1.26,
-        "receiveAmount": 383683.55
+        "markup": 2.27,
+        "receiveAmount": 378430.75
       },
       "wise": {
         "rate": 3873.86,

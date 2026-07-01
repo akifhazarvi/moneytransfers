@@ -4114,10 +4114,10 @@
     "date": "2026-07-01",
     "providers": {
       "paysend": {
-        "rate": 25.4676,
+        "rate": 25.477,
         "fee": 0,
-        "markup": 1.16,
-        "receiveAmount": 2546.76
+        "markup": 1.17,
+        "receiveAmount": 2547.7
       },
       "remitly": {
         "rate": 25.7,
@@ -4136,6 +4136,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 2574.28
+      },
+      "currencyfair": {
+        "rate": 25.5822,
+        "fee": 34.69,
+        "markup": 0.76,
+        "receiveAmount": 1670.77
       }
     }
   }
