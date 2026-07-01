@@ -85,6 +85,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // blog-posts.ts guide — it's a dedicated live route, so it's listed here
     // explicitly. DATA_UPDATED because its figures refresh with each scrape.
     entry("guides/bank-vs-app-transfer-cost-2026", DATA_UPDATED),
+    // Dedicated guide: best apps to send money from the US — standalone page
+    // with 4 schema types, OG image, and full FAQ (added 2026-06-30).
+    entry("guides/best-apps-to-send-money-from-us-2026", "2026-06-30"),
     entry("exchange-rates", DATA_UPDATED),
     // Restored Jun 22 2026 — 1,410 Bing impr + 1,389 AI citations were landing
     // on this URL while it 404'd after its Jun 20 retirement. Live-computed
