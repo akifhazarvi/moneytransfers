@@ -101,6 +101,27 @@ const affiliateLinks: Record<string, string> = {
   "hsbc-sg": "https://hsbc.com.sg/international-transfers/",
 };
 
+// UTM params appended to every destination URL so the provider's own
+// analytics (GA4, etc.) correctly attributes traffic to sendmoneycompare.com
+// even when noreferrer strips the Referer header.
+const UTM_PARAMS = {
+  utm_source: "sendmoneycompare",
+  utm_medium: "referral",
+  utm_campaign: "comparison",
+} as const;
+
+function appendUtms(url: string): string {
+  // Partnerize deep-link URLs are structured as path segments — don't mangle them.
+  // UTMs go on the inner destination URL (built by buildWiseDeepLink / buildInstaremDeepLink),
+  // not the prf.hn wrapper.
+  if (url.includes("prf.hn")) return url;
+  const u = new URL(url);
+  for (const [k, v] of Object.entries(UTM_PARAMS)) {
+    if (!u.searchParams.has(k)) u.searchParams.set(k, v);
+  }
+  return u.toString();
+}
+
 function appendClickref(url: string, clickref: string | undefined): string {
   if (!clickref) return url;
   // Partnerize links use path-style params: /clickref:VALUE
@@ -149,6 +170,10 @@ function buildInstaremDeepLink(params: AffiliateParams): string {
   if (params.sourceAmount) {
     dest.searchParams.set("source_amount", String(params.sourceAmount));
   }
+  // UTMs on the inner destination URL (prf.hn wrapper is left untouched)
+  for (const [k, v] of Object.entries(UTM_PARAMS)) {
+    if (!dest.searchParams.has(k)) dest.searchParams.set(k, v);
+  }
 
   const withDest = `${base}/destination:${encodeURIComponent(dest.toString())}`;
   return appendClickref(withDest, params.clickref);
@@ -161,6 +186,10 @@ function buildWiseDeepLink(params: AffiliateParams): string {
   if (params.sourceCurrency) dest.searchParams.set("sourceCurrency", params.sourceCurrency);
   if (params.targetCurrency) dest.searchParams.set("targetCurrency", params.targetCurrency);
   if (params.sourceAmount) dest.searchParams.set("sourceAmount", String(params.sourceAmount));
+  // UTMs on the inner destination URL (prf.hn wrapper is left untouched)
+  for (const [k, v] of Object.entries(UTM_PARAMS)) {
+    if (!dest.searchParams.has(k)) dest.searchParams.set(k, v);
+  }
 
   const withDest = `${base}/destination:${encodeURIComponent(dest.toString())}`;
   return appendClickref(withDest, params.clickref);
@@ -193,17 +222,17 @@ export function getAffiliateUrl(
     if (params?.sourceCurrency || params?.targetCurrency) {
       return buildWiseDeepLink(params ?? {});
     }
-    return appendClickref(url, params?.clickref);
+    return appendClickref(appendUtms(url), params?.clickref);
   }
 
   if (providerSlug === "instarem") {
     if (params?.sourceCurrency || params?.targetCurrency) {
       return buildInstaremDeepLink(params ?? {});
     }
-    return appendClickref(url, params?.clickref);
+    return appendClickref(appendUtms(url), params?.clickref);
   }
 
-  return appendClickref(url, params?.clickref);
+  return appendClickref(appendUtms(url), params?.clickref);
 }
 
 export function getGoUrl(providerSlug: string, params?: AffiliateParams): string {
