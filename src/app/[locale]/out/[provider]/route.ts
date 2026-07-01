@@ -168,6 +168,7 @@ export async function GET(
     targetCurrency: to,
     sourceAmount: amount,
     clickref: src,
+    clickId,
   });
 
   const redirect = NextResponse.redirect(url, {
