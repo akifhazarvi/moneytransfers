@@ -43,6 +43,7 @@ export async function GET(request: Request) {
   const filter = ["all", "human", "suspect", "bot", "datacenter"].includes(searchParams.get("filter") || "")
     ? (searchParams.get("filter") as string) : "all";
   const country = (searchParams.get("country") || "").toUpperCase().replace(/[^A-Z]/g, "").slice(0, 2);
+  const providerFilter = (searchParams.get("provider") || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 64) || null;
   const purge = searchParams.get("purge");
 
   try {
@@ -75,35 +76,39 @@ export async function GET(request: Request) {
                  count(*) FILTER (WHERE coalesce(bot_score,0) >= 60)::int AS bots,
                  count(DISTINCT vid)::int AS unique_visitors
           FROM events WHERE event='affiliate_redirect'
-            AND ts > now() - (${days}||' days')::interval`,
-      // Band breakdown — the headline bot/human clarity view.
+            AND ts > now() - (${days}||' days')::interval
+            AND (${providerFilter}::text IS NULL OR provider=${providerFilter})`,
       sql`SELECT
             count(*) FILTER (WHERE coalesce(bot_score,0) < 30)::int                              AS human,
             count(*) FILTER (WHERE coalesce(bot_score,0) >= 30 AND coalesce(bot_score,0) < 60)::int AS suspect,
             count(*) FILTER (WHERE coalesce(bot_score,0) >= 60 AND coalesce(bot_score,0) < 85)::int AS bot,
             count(*) FILTER (WHERE coalesce(bot_score,0) >= 85)::int                             AS certain
           FROM events WHERE event='affiliate_redirect'
-            AND ts > now() - (${days}||' days')::interval`,
+            AND ts > now() - (${days}||' days')::interval
+            AND (${providerFilter}::text IS NULL OR provider=${providerFilter})`,
       sql`SELECT coalesce(id_source,'(none)') AS id_source, count(*)::int AS n
           FROM events WHERE event='affiliate_redirect'
             AND ts > now() - (${days}||' days')::interval
+            AND (${providerFilter}::text IS NULL OR provider=${providerFilter})
           GROUP BY id_source ORDER BY n DESC`,
       sql`SELECT coalesce(provider,'(none)') AS provider, count(*)::int AS n,
                  count(*) FILTER (WHERE coalesce(bot_score,0) < 30)::int AS human
           FROM events WHERE event='affiliate_redirect'
             AND ts > now() - (${days}||' days')::interval
+            AND (${providerFilter}::text IS NULL OR provider=${providerFilter})
           GROUP BY provider ORDER BY n DESC LIMIT 25`,
-      // Per-country: volume + real-rate (human share) + datacenter share.
       sql`SELECT coalesce(country,'(none)') AS country, count(*)::int AS n,
                  count(*) FILTER (WHERE coalesce(bot_score,0) < 30)::int AS human,
                  count(*) FILTER (WHERE ip_class='datacenter')::int AS dc
           FROM events WHERE event='affiliate_redirect'
             AND ts > now() - (${days}||' days')::interval
+            AND (${providerFilter}::text IS NULL OR provider=${providerFilter})
           GROUP BY country ORDER BY n DESC LIMIT 15`,
       sql`SELECT to_char(date_trunc('day',ts),'MM-DD') AS day, count(*)::int AS n,
                  count(*) FILTER (WHERE coalesce(bot_score,0) >= 60)::int AS bots
           FROM events WHERE event='affiliate_redirect'
             AND ts > now() - (${days}||' days')::interval
+            AND (${providerFilter}::text IS NULL OR provider=${providerFilter})
           GROUP BY 1 ORDER BY 1 ASC`,
       sql`SELECT to_char(ts,'MM-DD HH24:MI') AS t, provider, corridor, click_id,
                  id_source, is_bot, bot_score, bot_reasons, traffic_source, country,
@@ -114,6 +119,7 @@ export async function GET(request: Request) {
             AND coalesce(bot_score,0) < ${scoreHi}
             AND (${dcOnly} = false OR ip_class='datacenter')
             AND (${ctry}::text IS NULL OR country=${ctry})
+            AND (${providerFilter}::text IS NULL OR provider=${providerFilter})
           ORDER BY ts DESC LIMIT 200`,
     ]);
 
@@ -142,7 +148,7 @@ export async function GET(request: Request) {
 
     // Build links that preserve key + the current selections.
     const link = (overrides: Record<string, string>) => {
-      const p = new URLSearchParams({ key: secret, days: String(days), filter, ...(country ? { country } : {}) });
+      const p = new URLSearchParams({ key: secret, days: String(days), filter, ...(country ? { country } : {}), ...(providerFilter ? { provider: providerFilter } : {}) });
       for (const [k, v] of Object.entries(overrides)) v ? p.set(k, v) : p.delete(k);
       return `?${p.toString()}`;
     };
@@ -209,8 +215,8 @@ export async function GET(request: Request) {
   @media(max-width:720px){.kpis,.grid{grid-template-columns:1fr}}
 </style></head><body>
 <div class="wrap">
-  <h1>Tracking Dashboard</h1>
-  <div class="sub">first-party event store · affiliate_redirect · last ${days} days · refreshes on reload</div>
+  <h1>Tracking Dashboard${providerFilter ? ` · ${esc(providerFilter)}` : ""}</h1>
+  <div class="sub">first-party event store · affiliate_redirect · last ${days} days · refreshes on reload${providerFilter ? ` · filtered to ${esc(providerFilter)}` : ""}</div>
 
   <div class="toolbar">
     <div class="tgroup"><span class="tlbl">Window</span>
@@ -221,6 +227,7 @@ export async function GET(request: Request) {
         .map(([f, l]) => chip(l, filter === f, link({ filter: f }))).join("")}
     </div>
     ${country ? `<div class="tgroup"><span class="tlbl">Country</span>${chip(`${country} ✕`, true, link({ country: "" }))}</div>` : ""}
+    ${providerFilter ? `<div class="tgroup"><span class="tlbl">Provider</span>${chip(`${providerFilter} ✕`, true, link({ provider: "" }))}</div>` : ""}
   </div>
 
   <div class="kpis">
@@ -250,7 +257,7 @@ export async function GET(request: Request) {
   <div class="grid">
     <div class="card">
       <h2>Providers — where they went</h2>
-      ${providers.rows.map((r) => { const n = Number(r.n), h = Number(r.human); return `<div class="bar"><span class="lbl">${esc(r.provider)}</span><div class="track"><div class="fill" style="width:${(h / maxProv) * 100}%;background:var(--green)"></div><div class="fill" style="width:${((n - h) / maxProv) * 100}%;background:var(--red);opacity:.7"></div></div><span class="n">${n}</span></div>`; }).join("")}
+      ${providers.rows.map((r) => { const n = Number(r.n), h = Number(r.human); return `<div class="bar"><a class="lbl" style="text-decoration:none;color:var(--blue)" href="${link({ provider: String(r.provider) })}">${esc(r.provider)}</a><div class="track"><div class="fill" style="width:${(h / maxProv) * 100}%;background:var(--green)"></div><div class="fill" style="width:${((n - h) / maxProv) * 100}%;background:var(--red);opacity:.7"></div></div><span class="n">${n} <small style="color:var(--green)">${h}h</small></span></div>`; }).join("")}
       <div style="margin-top:10px;font-size:11px;color:var(--faint);font-family:var(--mono)"><i style="display:inline-block;width:9px;height:9px;background:var(--green);border-radius:2px"></i> human · <i style="display:inline-block;width:9px;height:9px;background:var(--red);opacity:.7;border-radius:2px"></i> bot/suspect</div>
     </div>
     <div class="card">
