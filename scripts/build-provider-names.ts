@@ -15,17 +15,28 @@
  *
  *   npx tsx scripts/build-provider-names.ts
  */
-import { writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { providerNames } from "../src/lib/unified-quotes";
 
-// providerNames is populated as a side effect of importing unified-quotes
-// (it builds the index at module load). Sort keys for a stable diff.
+const outPath = join(process.cwd(), "src/data/provider-names.json");
+
+// MERGE, don't overwrite. providerNames only contains providers present in the
+// CURRENT scraped dataset, so a plain write drops any provider that happened to
+// be absent from the latest scrape batch (e.g. sbi-california, xpat) — leaving
+// getProviderName() blank for them until they reappear. Union with the existing
+// file so once a provider gets a name it keeps it, and fresh names win on
+// conflict (the scraper is the source of truth for current display names).
+const existing: Record<string, string> = existsSync(outPath)
+  ? JSON.parse(readFileSync(outPath, "utf8"))
+  : {};
+const merged = { ...existing, ...providerNames };
+
+// Sort keys for a stable diff.
 const sorted: Record<string, string> = {};
-for (const slug of Object.keys(providerNames).sort()) {
-  sorted[slug] = providerNames[slug];
+for (const slug of Object.keys(merged).sort()) {
+  sorted[slug] = merged[slug];
 }
 
-const outPath = join(process.cwd(), "src/data/provider-names.json");
 writeFileSync(outPath, JSON.stringify(sorted, null, 2) + "\n");
 console.log(`Wrote ${Object.keys(sorted).length} provider names to ${outPath}`);
