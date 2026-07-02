@@ -2229,5 +2229,34 @@
         "receiveAmount": 30746
       }
     }
+  },
+  {
+    "date": "2026-07-02",
+    "providers": {
+      "remitly": {
+        "rate": 309.0449,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 30598.53
+      },
+      "xoom": {
+        "rate": 299.3201,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 28438.41
+      },
+      "paypal": {
+        "rate": 298.5627,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 28366.44
+      },
+      "wise": {
+        "rate": 312.988,
+        "fee": 1.45,
+        "markup": null,
+        "receiveAmount": 30845
+      }
+    }
   }
 ]
