@@ -26,7 +26,7 @@ export const newGuidesJul2026: BlogPost[] = [
     updatedAt: "2026-07-01",
     author: "Akif Hazarvi",
     tags: ["UK to Nigeria", "GBP to NGN", "Nigerian transfer", "Lemfi", "TapTap Send", "Remitly", "best rates"],
-    featuredImage: "/images/blog/uk-to-nigeria.jpg",
+    featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
     sections: [
       {
         heading: "What Is the Cheapest Way to Send Money from the UK to Nigeria?",
@@ -179,7 +179,7 @@ export const newGuidesJul2026: BlogPost[] = [
     updatedAt: "2026-07-01",
     author: "Akif Hazarvi",
     tags: ["B2B payments", "international wire transfer", "business payments", "Wise Business", "Airwallex", "SWIFT alternative"],
-    featuredImage: "/images/blog/b2b-international-payments.jpg",
+    featuredImage: "/images/blog/business-international-payments.jpg",
     sections: [
       {
         heading: "Why Most Businesses Are Still Overpaying for International Transfers",
@@ -327,7 +327,7 @@ export const newGuidesJul2026: BlogPost[] = [
     updatedAt: "2026-07-01",
     author: "Akif Hazarvi",
     tags: ["wire transfer safety", "scam protection", "money transfer fraud", "are transfers safe", "FTC scams"],
-    featuredImage: "/images/blog/are-wire-transfers-safe.jpg",
+    featuredImage: "/images/blog/money-transfer-safety.jpg",
     sections: [
       {
         heading: "Are Wire Transfers Safe? The Short Answer Is: It Depends Who Initiates It",
@@ -472,7 +472,7 @@ export const newGuidesJul2026: BlogPost[] = [
     updatedAt: "2026-07-01",
     author: "Akif Hazarvi",
     tags: ["Australia to India", "AUD to INR", "send money to India", "Wise Australia", "Remitly Australia", "Indian remittance"],
-    featuredImage: "/images/blog/australia-to-india.jpg",
+    featuredImage: "/images/blog/send-money-to-india.jpg",
     sections: [
       {
         heading: "What's the Cheapest Way to Send Money from Australia to India?",
@@ -606,7 +606,7 @@ export const newGuidesJul2026: BlogPost[] = [
     updatedAt: "2026-07-01",
     author: "Akif Hazarvi",
     tags: ["remittance fees", "World Bank data", "average transfer cost", "2026 statistics", "cost comparison", "G20 SDG"],
-    featuredImage: "/images/blog/remittance-fees-2026.jpg",
+    featuredImage: "/images/blog/global-remittance-trends.jpg",
     sections: [
       {
         heading: "What Is the Average Cost to Send Money Internationally in 2026?",
@@ -740,7 +740,7 @@ export const newGuidesJul2026: BlogPost[] = [
     updatedAt: "2026-07-01",
     author: "Akif Hazarvi",
     tags: ["best money transfer to Nigeria", "NGN rate", "Nigerian remittance", "Lemfi", "TapTap Send", "USA to Nigeria", "UK to Nigeria"],
-    featuredImage: "/images/blog/best-transfer-nigeria.jpg",
+    featuredImage: "/images/blog/send-money-to-nigeria.jpg",
     sections: [
       {
         heading: "What's the Best App to Send Money to Nigeria?",

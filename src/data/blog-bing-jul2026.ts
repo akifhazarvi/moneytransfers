@@ -35,7 +35,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
       "international wire transfer",
       "comparing wire transfer fees",
     ],
-    featuredImage: "/images/blog/bank-wire-transfer-fees.jpg",
+    featuredImage: "/images/blog/wire-transfer-guide.jpg",
     sections: [
       {
         heading: "How Much Do Major Banks Charge for International Wire Transfers?",
@@ -247,7 +247,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
       "OFX safe",
       "OFX 2026",
     ],
-    featuredImage: "/images/blog/ofx-review.jpg",
+    featuredImage: "/images/blog/best-money-transfer-services.jpg",
     sections: [
       {
         heading: "OFX Review 2026: Our Verdict",
