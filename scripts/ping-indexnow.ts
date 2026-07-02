@@ -146,7 +146,14 @@ function generateUrls(): string[] {
   const corridorsWithData = getCorridorsWithData();
   const editorialSlugs = getEditorialCorridorSlugs();
   const newsSlugs = getEditorialSlugs("news.ts");
-  const guideSlugs = getEditorialSlugs("blog-posts.ts");
+  const guideSlugs = [
+    ...getEditorialSlugs("blog-posts.ts"),
+    ...getEditorialSlugs("blog-new-guides-jul2026.ts"),
+    ...getEditorialSlugs("blog-bing-jul2026.ts"),
+    ...getEditorialSlugs("blog-corridor-guides-2.ts"),
+    ...getEditorialSlugs("blog-corridor-guides-india.ts"),
+    ...getEditorialSlugs("blog-converter-guides.ts"),
+  ].filter((slug, i, arr) => arr.indexOf(slug) === i); // deduplicate
 
   // 1. Homepage + hub pages
   urls.push(

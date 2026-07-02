@@ -121,7 +121,16 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "best-money-transfer-apps-large-transfers", // 673 AI cites
   "gbp-forecast-2026",                    // 35i Bing
   "send-money-to-south-korea-guide",      // 9i Bing / AI cites
-]); // 56 URLs
+  // ── Added 2026-07-01 — 8 new articles targeting Bing keyword gaps + high-volume clusters ──
+  "best-apps-send-money-uk-to-nigeria-2026",            // UK→NG: Lemfi-first July 2026 ranking
+  "b2b-international-payments-guide",                   // $58.9T B2B market cluster, Wise Business/Airwallex
+  "are-wire-transfers-safe",                            // safety/scam cluster, 72-hr FBI recovery window
+  "send-money-australia-to-india",                      // AU→IN corridor, AUSTRAC, PayID, Instarem angle
+  "average-remittance-fees-2026",                       // World Bank data report, 6.49% global avg
+  "send-money-to-nigeria-from-usa-uk-canada-australia", // multi-origin NG hub, side-by-side table
+  "bank-wire-transfer-fees-2026",                       // Bing 638i: Chase $50 vs Wise cost tables
+  "ofx-review-2026",                                    // Bing 15.9K OFX keyword gap, independent review
+]); // 64 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
   // Head-term IBAN destinations (always submitted)

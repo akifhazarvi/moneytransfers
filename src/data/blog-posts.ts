@@ -22,8 +22,12 @@ export interface BlogPost {
 import { corridorGuides2 } from "./blog-corridor-guides-2";
 import { corridorGuidesIndia } from "./blog-corridor-guides-india";
 import { converterGuides } from "./blog-converter-guides";
+import { newGuidesJul2026 } from "./blog-new-guides-jul2026";
+import { bingKeywordArticlesJul2026 } from "./blog-bing-jul2026";
 
 export const blogPosts: BlogPost[] = [
+  ...bingKeywordArticlesJul2026,
+  ...newGuidesJul2026,
   ...converterGuides,
   ...corridorGuidesIndia,
   ...corridorGuides2,
@@ -2549,15 +2553,15 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "money-transfer-promo-codes-referral-programs",
     title:
-      "Money Transfer Promo Codes 2026: Deals & Referral Bonuses",
+      "Money Transfer Promo Codes July 2026: Best First-Time Deals Ranked",
     metaDescription:
-      "Compare 14 verified money transfer promo codes, first-time user offers, and referral bonuses. Updated March 2026 with Wise, Remitly, WorldRemit and more.",
+      "Best money transfer promo codes and first-time user deals in July 2026. Remitly ($25 off), WorldRemit (3FREE), ACE (fee-free first transfer), Wise, Ria and more — verified and ranked.",
     excerpt:
-      "Special rates for first-time users, promo codes, and referral bonuses from 14 money transfer providers — compiled and verified so you can save the most on your next transfer.",
+      "We verified every active money transfer promo code and first-time deal for July 2026 — Remitly's $25 bonus, WorldRemit's 3FREE code, Ria's HelloRia offer, ACE's fee-free first transfer, and more. Ranked by which saves you the most.",
     category: "Guides",
     readTime: "14 min read",
     publishedAt: "2026-03-14",
-    updatedAt: "2026-03-17",
+    updatedAt: "2026-07-01",
     author: "Akif Hazarvi",
     tags: [
       "promo codes",
@@ -2567,22 +2571,37 @@ export const blogPosts: BlogPost[] = [
       "free transfers",
       "refer a friend",
       "loyalty rewards",
+      "first-time deals",
+      "July 2026",
     ],
     featuredImage: "/images/blog/money-transfer-promo-codes.jpg",
     sections: [
       {
-        heading: "How to Save on International Money Transfers",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, <a href="/companies/worldremit">WorldRemit</a> and others offer referral bonuses and promo codes, typically $10–$30 per referral or fee-free first transfers. <a href="/send-money">Compare all providers</a> to find the best deal alongside these bonuses.</p></div>
-<p>Beyond comparing exchange rates and fees, you can save even more on international transfers by taking advantage of <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend programs</strong>. Most major providers offer at least one of these — and some offer all three.</p>
-<p>We researched all 14 providers on our platform to bring you every active deal in one place. Here's how each type of offer works:</p>
+        heading: "Best Money Transfer First-Time Deals — July 2026",
+        content: `<div class="blog-answer-box"><p><strong>Quick answer (July 2026):</strong> The most generous first-time deals right now are <strong><a href="/companies/remitly">Remitly</a> — $25 off your first transfer</strong> of $100+ (no code needed), <strong><a href="/companies/worldremit">WorldRemit</a> — code 3FREE</strong> for three fee-free transfers, <strong>Ria — code HelloRia</strong> for zero fees on first transfer of $50+, and <strong>ACE Money Transfer</strong> — first transfer fee-free on any corridor. <a href="/send-money">Compare live rates</a> before choosing — a promo is only valuable if the base rate is also competitive.</p></div>
+<div class="blog-table-box">
+<h3 style="margin-top: 0;">Best First-Time Money Transfer Deals — July 2026</h3>
+<table>
+<thead><tr><th>Provider</th><th>Deal</th><th>Code</th><th>Conditions</th></tr></thead>
+<tbody>
+<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$25 off first transfer</td><td>None (auto)</td><td>First transfer $100+; new users only</td></tr>
+<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>3 fee-free transfers</td><td>3FREE</td><td>Min first transfer ~$15; new users</td></tr>
+<tr><td><strong>Ria Money Transfer</strong></td><td>$0 fee on first transfer</td><td>HelloRia</td><td>Transfer $50+; one per person</td></tr>
+<tr><td><strong>ACE Money Transfer</strong></td><td>First transfer fee-free</td><td>Via ACE app</td><td>Any corridor; new customers only</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Fee-free first transfer</td><td>Via referral link</td><td>Up to ~$800/£500 equivalent</td></tr>
+<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>$20/£20/€20 bonus</td><td>Check app</td><td>First transfer; one code per user</td></tr>
+</tbody>
+</table>
+<p class="blog-footnote">Verified July 2026. Offers change — confirm on the provider's website before sending. <a href="/send-money">Compare live base rates →</a></p>
+</div>
+<p>Beyond comparing exchange rates and fees, you can save even more by taking advantage of <strong>promo codes</strong>, <strong>sign-up bonuses</strong>, and <strong>refer-a-friend programs</strong>. Most major providers offer at least one of these — and some offer all three.</p>
 <ul>
 <li><strong>Sign-up offers</strong> — One-time bonuses for new customers, like fee-free first transfers or cash bonuses.</li>
 <li><strong>Promo codes</strong> — Codes you enter at checkout for discounts. These change frequently.</li>
 <li><strong>Referral programs</strong> — Share your link with friends. You both earn rewards when they sign up and send money.</li>
 <li><strong>Loyalty programs</strong> — Ongoing rewards for repeat customers, like points, tier upgrades, or fee discounts.</li>
 </ul>
-<p>Provider terms and offer details verified directly from official provider websites as of March 2026.</p>
-<p><em>Last verified: March 14, 2026. Offers change frequently — always confirm on the provider's website before transferring.</em></p>
+<p><em>Last verified: July 1, 2026. Offers change frequently — always confirm on the provider's website before transferring.</em></p>
 <p>Remember: a promo code is only valuable if the base rate is also competitive. Always use our <a href="/send-money">comparison tool</a> to check the total cost — including exchange rate markup — before choosing a provider. Read our <a href="/guides/cheapest-way-to-send-money-internationally">guide to the cheapest ways to send money internationally</a> to understand what to look for.</p>
 <p>The practical rule is simple: treat bonuses as a tie-breaker, not the main reason to choose a provider. A $20 sign-up incentive can disappear quickly if the provider's FX rate is 1-2% worse than a competitor on the same route.</p>
 
