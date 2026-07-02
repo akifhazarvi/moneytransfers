@@ -159,7 +159,13 @@ export default function HeroConverterCard({
           <label className="block text-2sm font-medium text-[var(--color-on-surface-variant)] mb-2.5">They receive</label>
           <div className="flex items-center justify-between gap-3">
             <CurrencyPicker value={toCurrency} onChange={setToCurrency} size="compact" />
-            <span className="text-2sm text-[var(--color-on-surface-muted)] truncate">{toName}</span>
+            {best ? (
+              <span className="text-2xl sm:text-3xl font-bold tabular-nums text-[var(--color-on-surface)] tracking-tight">
+                {fmt(best.receiveAmount, best.receiveAmount < 100 ? 2 : 0)}
+              </span>
+            ) : (
+              <span className="text-2sm text-[var(--color-on-surface-muted)] truncate">{loading ? "…" : toName}</span>
+            )}
           </div>
         </div>
       </div>
