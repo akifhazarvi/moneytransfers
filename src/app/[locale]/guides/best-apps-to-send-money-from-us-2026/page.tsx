@@ -300,8 +300,8 @@ export async function generateMetadata({
 function Badge({ children, color = "blue" }: { children: React.ReactNode; color?: "blue" | "green" | "amber" }) {
   const styles = {
     blue: "bg-[var(--color-primary-surface)] text-[var(--color-primary)] border-[var(--color-primary)]",
-    green: "bg-green-50 text-green-700 border-green-200",
-    amber: "bg-amber-50 text-amber-700 border-amber-200",
+    green: "bg-[var(--color-success-surface)] text-[var(--color-success)] border-[var(--color-success)]",
+    amber: "bg-[var(--color-warning-surface,#fef3c7)] text-[var(--color-warning,#92400e)] border-[var(--color-warning,#d97706)]",
   };
   return (
     <span className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold ${styles[color]}`}>
@@ -317,7 +317,7 @@ function ProviderCard({ p }: { p: (typeof TOP_PICKS)[number] }) {
       className={`rounded-2xl border p-5 sm:p-6 ${
         p.highlight
           ? "border-[var(--color-primary)] bg-[var(--color-primary-surface)]"
-          : "border-[var(--color-outline)] bg-white"
+          : "border-[var(--color-outline)] bg-[var(--color-surface-container,var(--color-surface-dim))]"
       }`}
     >
       {/* Rank + verdict */}
@@ -431,6 +431,18 @@ export default async function BestAppsFromUSPage({
             <span className="mx-1.5">/</span>
             <span>Best Apps to Send Money from US 2026</span>
           </nav>
+
+          {/* Cover image */}
+          <div className="mb-6 overflow-hidden rounded-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/${PATH}/opengraph-image`}
+              alt="Best Apps to Send Money from the US 2026 — SendMoneyCompare independent rankings"
+              width={1200}
+              height={630}
+              className="w-full object-cover"
+            />
+          </div>
 
           {/* Hero */}
           <h1 className="text-[clamp(1.75rem,5vw,2.75rem)] font-normal leading-tight tracking-[-0.02em] text-[var(--color-on-surface)]">
@@ -747,7 +759,7 @@ export default async function BestAppsFromUSPage({
 
           <div className="mt-5 rounded-2xl bg-[var(--color-surface-dim)] p-5">
             <p className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">True cost formula</p>
-            <p className="font-mono text-sm bg-white rounded-xl px-4 py-3 border border-[var(--color-outline)] text-[var(--color-on-surface)]">
+            <p className="font-mono text-sm bg-[var(--color-surface-dim)] rounded-xl px-4 py-3 border border-[var(--color-outline)] text-[var(--color-on-surface)]">
               true cost % = (mid-market receive − actual receive) ÷ mid-market receive × 100
             </p>
             <p className="mt-3 text-sm text-[var(--color-on-surface-variant)]">

@@ -79,28 +79,44 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         {t("subtitle")}
       </p>
 
-      {/* Featured data-story — our flagship original-research asset. Server
-          component (not a blogPosts card) because it's a dedicated live route,
-          so it can't go through the [slug] grid without a route collision. */}
-      <Link
-        href="/guides/bank-vs-app-transfer-cost-2026"
-        className="group mb-8 block rounded-2xl border border-[var(--color-primary)] bg-[var(--color-primary-surface)] p-5 sm:p-6 transition hover:shadow-md"
-      >
-        <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-primary)]">
-          Original research · Updated every 6 hours
-        </span>
-        <h2 className="mt-1.5 text-xl sm:text-2xl font-normal text-[var(--color-on-surface)] leading-snug">
-          Banks cost {bankVsApp.bankVsAppMultiple}× more than apps to send money abroad
-        </h2>
-        <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-          Live data across {bankVsApp.corridorCount} corridors: sending ${bankVsApp.amount.toLocaleString()} via a
-          traditional bank costs {bankVsApp.bankAvgCostPct}% on average vs {bankVsApp.appAvgCostPct}% via a specialist
-          app. See the named bank leaderboard and download the dataset.
-        </p>
-        <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-          Read the Bank vs App Cost Index →
-        </span>
-      </Link>
+      {/* Featured standalone guides — dedicated live routes, not in blogPosts */}
+      <div className="mb-8 grid gap-4 sm:grid-cols-2">
+        <Link
+          href="/guides/best-apps-to-send-money-from-us-2026"
+          className="group block rounded-2xl border border-[var(--color-primary)] bg-[var(--color-primary-surface)] p-5 sm:p-6 transition hover:shadow-md"
+        >
+          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-primary)]">
+            Independent rankings · 2026
+          </span>
+          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
+            Best Apps to Send Money from the US (2026)
+          </h2>
+          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+            8 providers ranked by real transfer cost — Wise, Remitly, TorFX, OFX, TapTap Send and more. Live data, no paid placements.
+          </p>
+          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+            Read the rankings →
+          </span>
+        </Link>
+
+        <Link
+          href="/guides/bank-vs-app-transfer-cost-2026"
+          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
+        >
+          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+            Original research · Updated every 6 hours
+          </span>
+          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
+            Banks cost {bankVsApp.bankVsAppMultiple}× more than apps to send money abroad
+          </h2>
+          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+            Live data across {bankVsApp.corridorCount} corridors: banks cost {bankVsApp.bankAvgCostPct}% vs {bankVsApp.appAvgCostPct}% via a specialist app.
+          </p>
+          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+            Read the Bank vs App Cost Index →
+          </span>
+        </Link>
+      </div>
 
       {/* Category tabs + featured post + grid — interactive, handled client-side */}
       <GuidesClientPage
