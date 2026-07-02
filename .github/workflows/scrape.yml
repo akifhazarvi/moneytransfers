@@ -114,8 +114,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/scraped/ src/data/ip-intel/ public/llms.txt
-          git diff --staged --quiet || git commit -m "chore: update scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
+          # Stage ALL generated output. Build steps (historical aggregate, rate
+          # insights, mid-market history) can touch tracked files outside the
+          # three paths we used to add; any leftover unstaged change makes the
+          # `git pull --rebase` below abort with "cannot rebase: You have
+          # unstaged changes." after the commit has already been made.
+          git add -A
+          git diff --staged --quiet && echo "→ No changes to commit" && exit 0
+          git commit -m "chore: update scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
           # Prefer freshly-scraped output over divergent main (e.g. manual scrapes).
           git pull --rebase -X theirs
           git push
