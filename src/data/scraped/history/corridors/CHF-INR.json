@@ -4399,10 +4399,10 @@
     "date": "2026-07-02",
     "providers": {
       "moneygram": {
-        "rate": 114.4038,
+        "rate": 114.5523,
         "fee": 1.99,
-        "markup": 2.22,
-        "receiveAmount": 11212.72
+        "markup": 2.45,
+        "receiveAmount": 11227.27
       },
       "western-union": {
         "rate": 115.4032,
@@ -4411,16 +4411,16 @@
         "receiveAmount": 11540.32
       },
       "dahabshiil": {
-        "rate": 116.3555,
+        "rate": 116.4123,
         "fee": 1.99,
-        "markup": 0.55,
-        "receiveAmount": 11404
+        "markup": 0.87,
+        "receiveAmount": 11409.57
       },
       "currencyfair": {
-        "rate": 116.1755,
+        "rate": 116.5845,
         "fee": 1.03,
-        "markup": 0.7,
-        "receiveAmount": 11497.89
+        "markup": 0.72,
+        "receiveAmount": 11538.37
       },
       "postfinance": {
         "rate": 112.8727,
@@ -4429,16 +4429,16 @@
         "receiveAmount": 8804.07
       },
       "paysend": {
-        "rate": 116.616,
+        "rate": 117.0207,
         "fee": 2.9,
-        "markup": 0.33,
-        "receiveAmount": 11323.41
+        "markup": 0.35,
+        "receiveAmount": 11362.71
       },
       "revolut": {
-        "rate": 116.5038,
+        "rate": 116.9319,
         "fee": 1.1,
         "markup": 0.42,
-        "receiveAmount": 11522.23
+        "receiveAmount": 11564.56
       },
       "raiffeisen-ch": {
         "rate": 115.549,
@@ -4451,6 +4451,12 @@
         "fee": 1.62,
         "markup": null,
         "receiveAmount": 11569.49
+      },
+      "skrill": {
+        "rate": 116.6611,
+        "fee": 0,
+        "markup": 0.65,
+        "receiveAmount": 11666.11
       }
     }
   }

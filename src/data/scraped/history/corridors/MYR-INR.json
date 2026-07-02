@@ -1274,22 +1274,22 @@
     "date": "2026-07-02",
     "providers": {
       "western-union": {
-        "rate": 23.0787,
+        "rate": 23.0704,
         "fee": 5,
-        "markup": 0.21,
-        "receiveAmount": 2192.48
+        "markup": 0.78,
+        "receiveAmount": 2191.69
       },
       "worldremit": {
-        "rate": 22.5525,
+        "rate": 22.5816,
         "fee": 5,
-        "markup": 2.49,
-        "receiveAmount": 2142.48
+        "markup": 2.88,
+        "receiveAmount": 2145.25
       },
       "instarem": {
-        "rate": 23.0919,
+        "rate": 23.2128,
         "fee": 0.55,
-        "markup": 0.15,
-        "receiveAmount": 2296.49
+        "markup": 0.17,
+        "receiveAmount": 2308.51
       }
     }
   }

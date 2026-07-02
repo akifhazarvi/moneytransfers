@@ -2206,10 +2206,10 @@
     "date": "2026-07-02",
     "providers": {
       "paysend": {
-        "rate": 375.497,
+        "rate": 375.337,
         "fee": 0,
-        "markup": 0.07,
-        "receiveAmount": 37549.7
+        "markup": -0.31,
+        "receiveAmount": 37533.7
       },
       "remitly": {
         "rate": 365,

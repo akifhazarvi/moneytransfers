@@ -10743,10 +10743,10 @@
         "receiveAmount": 4214
       },
       "moneygram": {
-        "rate": 43.0145,
+        "rate": 42.9233,
         "fee": 3.49,
-        "markup": 0.68,
-        "receiveAmount": 4151.33
+        "markup": 0.92,
+        "receiveAmount": 4142.53
       },
       "western-union": {
         "rate": 43.3522,
@@ -10755,16 +10755,16 @@
         "receiveAmount": 4292.3
       },
       "dahabshiil": {
-        "rate": 42.9664,
+        "rate": 43.0582,
         "fee": 1.99,
-        "markup": 0.79,
-        "receiveAmount": 4211.14
+        "markup": 0.61,
+        "receiveAmount": 4220.13
       },
       "worldremit": {
-        "rate": 42.5757,
+        "rate": 42.78,
         "fee": 0,
-        "markup": 1.7,
-        "receiveAmount": 4257.57
+        "markup": 1.25,
+        "receiveAmount": 4278
       },
       "instarem": {
         "rate": 42.959,
@@ -10773,28 +10773,28 @@
         "receiveAmount": 4295.9
       },
       "xe": {
-        "rate": 42.8446,
+        "rate": 42.9001,
         "fee": 5,
-        "markup": 1.07,
-        "receiveAmount": 4070.24
+        "markup": 0.98,
+        "receiveAmount": 4075.51
       },
       "paysend": {
-        "rate": 43.2597,
+        "rate": 43.2515,
         "fee": 3,
-        "markup": 0.12,
-        "receiveAmount": 4196.19
+        "markup": 0.17,
+        "receiveAmount": 4195.4
       },
       "koho": {
         "rate": 43.28,
         "fee": 1.67,
-        "markup": 0.07,
+        "markup": 0.1,
         "receiveAmount": 4255.72
       },
       "sendwave": {
-        "rate": 42.6402,
+        "rate": 42.8448,
         "fee": 0.99,
-        "markup": 1.55,
-        "receiveAmount": 4221.81
+        "markup": 1.1,
+        "receiveAmount": 4242.06
       },
       "remitly": {
         "rate": 43.04,
@@ -10831,6 +10831,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4239.29
+      },
+      "skrill": {
+        "rate": 42.7736,
+        "fee": 0.5,
+        "markup": 1.27,
+        "receiveAmount": 4255.97
       }
     }
   }

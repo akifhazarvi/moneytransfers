@@ -7803,16 +7803,16 @@
     "date": "2026-07-02",
     "providers": {
       "moneygram": {
-        "rate": 46.9821,
+        "rate": 47.0268,
         "fee": 6,
-        "markup": 1.09,
-        "receiveAmount": 4416.32
+        "markup": 1.12,
+        "receiveAmount": 4420.52
       },
       "western-union": {
-        "rate": 47.2599,
+        "rate": 47.1968,
         "fee": 3,
-        "markup": 0.5,
-        "receiveAmount": 4584.21
+        "markup": 0.76,
+        "receiveAmount": 4578.09
       },
       "currencyfair": {
         "rate": 47.175,
@@ -7833,10 +7833,10 @@
         "receiveAmount": 4471.38
       },
       "revolut": {
-        "rate": 47.49,
+        "rate": 47.5413,
         "fee": 1.2,
-        "markup": 0.02,
-        "receiveAmount": 4692.01
+        "markup": 0.03,
+        "receiveAmount": 4697.08
       },
       "wise": {
         "rate": 47.5698,
@@ -7861,6 +7861,12 @@
         "fee": 30,
         "markup": null,
         "receiveAmount": 3223.43
+      },
+      "singx": {
+        "rate": 47.4579,
+        "fee": 3.75,
+        "markup": 0.21,
+        "receiveAmount": 4567.82
       }
     }
   }

@@ -5313,10 +5313,10 @@
     "date": "2026-07-02",
     "providers": {
       "moneygram": {
-        "rate": 3883.0625,
+        "rate": 3879.233,
         "fee": 0.99,
-        "markup": 0.72,
-        "receiveAmount": 384462.02
+        "markup": -0.36,
+        "receiveAmount": 384082.86
       },
       "taptap-send": {
         "rate": 3900,
@@ -5325,22 +5325,22 @@
         "receiveAmount": 390000
       },
       "western-union": {
-        "rate": 3870.2609,
+        "rate": 3822.456,
         "fee": 0.99,
-        "markup": 1.05,
-        "receiveAmount": 383194.53
+        "markup": 1.1,
+        "receiveAmount": 378461.37
       },
       "dahabshiil": {
-        "rate": 3868.1597,
+        "rate": 3791.7199,
         "fee": 2,
-        "markup": 1.1,
-        "receiveAmount": 379079.65
+        "markup": 1.9,
+        "receiveAmount": 371588.55
       },
       "worldremit": {
-        "rate": 3816.1841,
+        "rate": 3767.249,
         "fee": 2.99,
-        "markup": 2.43,
-        "receiveAmount": 370208.02
+        "markup": 2.53,
+        "receiveAmount": 365460.83
       },
       "instarem": {
         "rate": 3807.1015,
@@ -5349,16 +5349,16 @@
         "receiveAmount": 380710.15
       },
       "xe": {
-        "rate": 3870.594,
+        "rate": 3830.814,
         "fee": 4,
-        "markup": 1.04,
-        "receiveAmount": 371577.02
+        "markup": 0.89,
+        "receiveAmount": 367758.14
       },
       "paysend": {
-        "rate": 3846.6379,
+        "rate": 3804.6658,
         "fee": 0,
-        "markup": 1.65,
-        "receiveAmount": 384663.79
+        "markup": 1.56,
+        "receiveAmount": 380466.58
       },
       "remitly": {
         "rate": 3794.3844,
@@ -5367,10 +5367,10 @@
         "receiveAmount": 375682
       },
       "revolut": {
-        "rate": 3822.5328,
+        "rate": 3808.6211,
         "fee": 1,
-        "markup": 2.27,
-        "receiveAmount": 378430.75
+        "markup": 1.46,
+        "receiveAmount": 377053.48
       },
       "wise": {
         "rate": 3835.71,
