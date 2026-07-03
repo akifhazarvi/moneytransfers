@@ -272,7 +272,7 @@ export default function Footer() {
               href={WHATSAPP_CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow SendMoneyCompare on WhatsApp"
+              aria-label="Follow SendMoneyCompare on WhatsApp (footer)"
               className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1FBE5A] shrink-0"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
