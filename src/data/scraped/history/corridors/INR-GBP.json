@@ -709,10 +709,16 @@
     "date": "2026-07-03",
     "providers": {
       "western-union": {
-        "rate": 0.0078,
+        "rate": 0.0077,
         "fee": 0,
-        "markup": 1.49,
-        "receiveAmount": 0.78
+        "markup": 1.5,
+        "receiveAmount": 0.77
+      },
+      "skrill": {
+        "rate": 0.0077,
+        "fee": 0,
+        "markup": 1.9,
+        "receiveAmount": 0.77
       }
     }
   }

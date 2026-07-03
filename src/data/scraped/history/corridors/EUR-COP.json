@@ -5390,10 +5390,10 @@
     "date": "2026-07-03",
     "providers": {
       "moneygram": {
-        "rate": 3879.233,
+        "rate": 3793.2923,
         "fee": 0.99,
-        "markup": -0.36,
-        "receiveAmount": 384082.86
+        "markup": 1.68,
+        "receiveAmount": 375573.87
       },
       "taptap-send": {
         "rate": 3850,
@@ -5402,22 +5402,22 @@
         "receiveAmount": 385000
       },
       "western-union": {
-        "rate": 3822.456,
+        "rate": 3752.511,
         "fee": 0.99,
-        "markup": 1.1,
-        "receiveAmount": 378461.37
+        "markup": 2.74,
+        "receiveAmount": 371536.12
       },
       "dahabshiil": {
-        "rate": 3791.7199,
-        "fee": 2,
-        "markup": 1.9,
-        "receiveAmount": 371588.55
+        "rate": 3790.6338,
+        "fee": 0,
+        "markup": 1.75,
+        "receiveAmount": 379063.38
       },
       "worldremit": {
-        "rate": 3767.249,
+        "rate": 3738.4704,
         "fee": 2.99,
-        "markup": 2.53,
-        "receiveAmount": 365460.83
+        "markup": 3.1,
+        "receiveAmount": 362669.01
       },
       "instarem": {
         "rate": 3824.1215,
@@ -5426,16 +5426,16 @@
         "receiveAmount": 382412.15
       },
       "xe": {
-        "rate": 3830.814,
+        "rate": 3783.078,
         "fee": 4,
-        "markup": 0.89,
-        "receiveAmount": 367758.14
+        "markup": 1.94,
+        "receiveAmount": 363175.49
       },
       "paysend": {
-        "rate": 3804.6658,
+        "rate": 3817.002,
         "fee": 0,
-        "markup": 1.56,
-        "receiveAmount": 380466.58
+        "markup": 1.06,
+        "receiveAmount": 381700.2
       },
       "remitly": {
         "rate": 3769.3478,
@@ -5444,10 +5444,10 @@
         "receiveAmount": 373203.12
       },
       "revolut": {
-        "rate": 3808.6211,
+        "rate": 3802.3528,
         "fee": 1,
-        "markup": 1.46,
-        "receiveAmount": 377053.48
+        "markup": 1.44,
+        "receiveAmount": 376432.93
       },
       "wise": {
         "rate": 3848.21,

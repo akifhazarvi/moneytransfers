@@ -1609,28 +1609,28 @@
         "receiveAmount": 1488.75
       },
       "western-union": {
-        "rate": 15.0201,
+        "rate": 15.0556,
         "fee": 10,
-        "markup": 0.4,
-        "receiveAmount": 1351.81
+        "markup": 0.33,
+        "receiveAmount": 1355
       },
       "worldremit": {
-        "rate": 14.8893,
+        "rate": 14.972,
         "fee": 5,
-        "markup": 1.27,
-        "receiveAmount": 1414.48
+        "markup": 0.88,
+        "receiveAmount": 1422.34
       },
       "instarem": {
-        "rate": 15.0417,
+        "rate": 15.0729,
         "fee": 0.65,
-        "markup": 0.25,
-        "receiveAmount": 1494.39
+        "markup": 0.22,
+        "receiveAmount": 1497.49
       },
       "wise": {
-        "rate": 15.0792,
+        "rate": 15.1048,
         "fee": 5.28,
-        "markup": 0.01,
-        "receiveAmount": 1428.3
+        "markup": 0,
+        "receiveAmount": 1430.73
       }
     }
   }

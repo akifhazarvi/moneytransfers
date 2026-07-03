@@ -7058,16 +7058,16 @@
         "receiveAmount": 1065
       },
       "moneygram": {
-        "rate": 10.5828,
+        "rate": 10.576,
         "fee": 0.8,
-        "markup": 1.21,
-        "receiveAmount": 1049.81
+        "markup": 1.47,
+        "receiveAmount": 1049.14
       },
       "skrill": {
-        "rate": 10.3942,
+        "rate": 10.4147,
         "fee": 0,
         "markup": 2.98,
-        "receiveAmount": 1039.42
+        "receiveAmount": 1041.47
       },
       "taptap-send": {
         "rate": 10.57,
@@ -7082,34 +7082,34 @@
         "receiveAmount": 666.09
       },
       "western-union": {
-        "rate": 10.5902,
+        "rate": 10.576,
         "fee": 0.99,
-        "markup": 1.15,
-        "receiveAmount": 1048.54
+        "markup": 1.47,
+        "receiveAmount": 1047.13
       },
       "dahabshiil": {
-        "rate": 10.5732,
-        "fee": 2,
-        "markup": 1.3,
-        "receiveAmount": 1036.17
+        "rate": 10.6383,
+        "fee": 0,
+        "markup": 0.89,
+        "receiveAmount": 1063.83
       },
       "worldremit": {
-        "rate": 10.4176,
+        "rate": 10.4365,
         "fee": 1.99,
-        "markup": 2.76,
-        "receiveAmount": 1021.03
+        "markup": 2.77,
+        "receiveAmount": 1022.88
       },
       "paysend": {
-        "rate": 10.6555,
+        "rate": 10.6759,
         "fee": 0,
         "markup": 0.54,
-        "receiveAmount": 1065.55
+        "receiveAmount": 1067.59
       },
       "sendwave": {
-        "rate": 10.6177,
+        "rate": 10.637,
         "fee": 1.99,
-        "markup": 0.89,
-        "receiveAmount": 1040.65
+        "markup": 0.91,
+        "receiveAmount": 1042.53
       },
       "remitly": {
         "rate": 10.5367,
@@ -7118,10 +7118,10 @@
         "receiveAmount": 1048.51
       },
       "revolut": {
-        "rate": 10.5927,
+        "rate": 10.6149,
         "fee": 1.75,
-        "markup": 1.12,
-        "receiveAmount": 1040.74
+        "markup": 1.11,
+        "receiveAmount": 1042.92
       },
       "wise": {
         "rate": 10.7277,
@@ -7140,6 +7140,12 @@
         "fee": 1.49,
         "markup": null,
         "receiveAmount": 1025.53
+      },
+      "xe": {
+        "rate": 10.5609,
+        "fee": 4,
+        "markup": 1.61,
+        "receiveAmount": 1013.85
       }
     }
   }
