@@ -245,9 +245,6 @@ export async function GET(
     const html = interstitialHtml({
       providerName: providerDisplayName(provider),
       continueUrl,
-      // Everyone auto-continues (no real person is ever stranded); bot-scored
-      // hits just wait a little longer. See interstitialHtml for the guarantee.
-      fast: outcome === "interstitial",
     });
     return new NextResponse(html, {
       status: 200,

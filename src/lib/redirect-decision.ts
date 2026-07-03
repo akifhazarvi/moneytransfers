@@ -86,49 +86,52 @@ export function decideRedirect(input: {
  * The continue action navigates to the SAME redirect URL with `?continue=1`
  * appended, which the route honors with the actual provider 302 — so the click
  * is still recorded by our route as the source of truth, carrying all params.
+ *
+ * DELIBERATELY NO auto-forward and NO meta-refresh: an external/pasted/AI-cited
+ * hit MUST land on and SEE this page, then click Continue. That's the whole
+ * point — the visitor genuinely arrives on sendmoneycompare.com first. (Genuine
+ * on-site Send-button clicks carry a valid token and never reach this page —
+ * they get an instant 302, so this friction never touches our own conversion.)
  */
 export function interstitialHtml(opts: {
   providerName: string;
   continueUrl: string; // same route + &continue=1
-  fast: boolean;
 }): string {
-  const { providerName, continueUrl, fast } = opts;
+  const { providerName, continueUrl } = opts;
   const safeName = escapeHtml(providerName);
   const safeUrl = escapeHtml(continueUrl);
-  const delayMs = fast ? 1200 : 3500;
-  // JS auto-continue. location.replace so the interstitial doesn't sit in
-  // history (Back returns to the real referring page, not this transit page).
-  const autoScript = `<script>setTimeout(function(){location.replace(${JSON.stringify(continueUrl)})},${delayMs})</script>`;
-  // <noscript> meta-refresh so a JS-disabled human is ALSO never stranded.
-  const noscriptRefresh = `<noscript><meta http-equiv="refresh" content="${Math.ceil(delayMs / 1000)};url=${safeUrl}"></noscript>`;
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-${noscriptRefresh}
-<title>Redirecting to ${safeName}…</title>
+<title>Continue to ${safeName} — SendMoneyCompare</title>
 <style>
   :root{color-scheme:light dark}
-  body{margin:0;min-height:100vh;display:grid;place-items:center;
+  body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;
     font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     background:#f8f9fa;color:#202124}
   @media(prefers-color-scheme:dark){body{background:#202124;color:#e8eaed}}
-  .card{max-width:420px;padding:32px 28px;text-align:center}
-  .spinner{width:36px;height:36px;margin:0 auto 20px;border:3px solid #dadce0;
-    border-top-color:#1a73e8;border-radius:50%;animation:spin 1s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  h1{font-size:18px;font-weight:600;margin:0 0 8px}
-  p{margin:0 0 20px;color:#5f6368}
+  .card{max-width:460px;width:100%;padding:40px 32px;text-align:center;
+    background:#fff;border:1px solid #dadce0;border-radius:16px;
+    box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  @media(prefers-color-scheme:dark){.card{background:#2a2b2e;border-color:#3c4043}}
+  .brand{font-size:13px;font-weight:600;letter-spacing:.02em;color:#1a73e8;
+    text-transform:uppercase;margin:0 0 16px}
+  h1{font-size:22px;font-weight:700;margin:0 0 10px}
+  p{margin:0 0 24px;color:#5f6368}
   @media(prefers-color-scheme:dark){p{color:#9aa0a6}}
   a.btn{display:inline-block;background:#1a73e8;color:#fff;text-decoration:none;
-    padding:12px 24px;border-radius:9999px;font-weight:500}
+    padding:14px 32px;border-radius:9999px;font-weight:600;font-size:16px}
+  a.btn:hover{background:#1557b0}
+  .back{display:block;margin-top:16px;font-size:14px;color:#5f6368;text-decoration:none}
 </style></head>
 <body><div class="card">
-  <div class="spinner" aria-hidden="true"></div>
-  <h1>Taking you to ${safeName}…</h1>
-  <p>You're leaving sendmoneycompare.com.</p>
-  <a class="btn" href="${safeUrl}" rel="nofollow noopener">Continue to ${safeName}</a>
-</div>${autoScript}</body></html>`;
+  <p class="brand">SendMoneyCompare</p>
+  <h1>You're heading to ${safeName}</h1>
+  <p>You're about to leave sendmoneycompare.com and continue to ${safeName}'s website to complete your transfer.</p>
+  <a class="btn" href="${safeUrl}" rel="nofollow noopener">Continue to ${safeName} →</a>
+  <a class="back" href="/">← Back to SendMoneyCompare</a>
+</div></body></html>`;
 }
 
 function escapeHtml(s: string): string {
