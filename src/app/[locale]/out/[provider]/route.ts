@@ -8,7 +8,7 @@ import { classifyTrafficSource } from "@/lib/traffic-source";
 import { scoreBotRequest } from "@/lib/bot-score";
 import { classifyIp } from "@/lib/ip-intel";
 import { verifyClickToken } from "@/lib/click-token";
-import { decideRedirect, interstitialHtml, providerDisplayName } from "@/lib/redirect-decision";
+import { decideRedirect, interstitialHtml, providerDisplayName, buildCrossSell } from "@/lib/redirect-decision";
 import { createHash } from "crypto";
 
 export async function GET(
@@ -116,11 +116,11 @@ export async function GET(
   // signal; bot score splits the tokenless into human (interstitial) vs bot
   // (not forwarded). ?continue=1 is the interstitial's explicit human confirm.
   const tokenStatus = verifyClickToken(searchParams.get("t"), provider);
+  // `?continue=1` = explicit Continue-button click; honor it ALWAYS (even if
+  // bot-scored) so a false-positived human is never trapped. See /go route.
   const continued = searchParams.get("continue") === "1";
   const decision = decideRedirect({ tokenStatus, isBot: botResult.isBot });
-  const outcome = continued && decision.outcome !== "not_forwarded"
-    ? "redirect"
-    : decision.outcome;
+  const outcome = continued ? "redirect" : decision.outcome;
   const genuineClick = decision.genuineClick;
   const gated = decision.gated && !continued;
 
@@ -193,6 +193,9 @@ export async function GET(
     const html = interstitialHtml({
       providerName: providerDisplayName(provider),
       continueUrl,
+      corridorLabel: from && to ? `${from.toUpperCase()} → ${to.toUpperCase()}` : undefined,
+      receiveCurrency: to?.toUpperCase(),
+      crossSell: buildCrossSell({ targetSlug: provider, from, to, amount, src }),
     });
     return new NextResponse(html, {
       status: 200,

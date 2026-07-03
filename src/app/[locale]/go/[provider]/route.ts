@@ -8,7 +8,7 @@ import { classifyTrafficSource } from "@/lib/traffic-source";
 import { scoreBotRequest } from "@/lib/bot-score";
 import { classifyIp } from "@/lib/ip-intel";
 import { verifyClickToken } from "@/lib/click-token";
-import { decideRedirect, interstitialHtml, providerDisplayName } from "@/lib/redirect-decision";
+import { decideRedirect, interstitialHtml, providerDisplayName, buildCrossSell } from "@/lib/redirect-decision";
 import { createHash } from "crypto";
 
 export async function GET(
@@ -158,14 +158,16 @@ export async function GET(
   // tokenless bot-vs-human split.
   const tokenStatus = verifyClickToken(searchParams.get("t"), provider);
   // `?continue=1` is the explicit human confirmation from the interstitial's
-  // Continue button / auto-continue script — honor it as a real redirect.
+  // Continue button — a real click on a real button. Honor it as a redirect
+  // ALWAYS, even when the hit was bot-scored: otherwise a false-positived real
+  // human is trapped on a dead Continue button (infinite loop). The interstitial
+  // itself is the gate (a bare fetch that renders nothing never reaches this);
+  // once a visitor has actually clicked Continue, we must let them through.
   const continued = searchParams.get("continue") === "1";
   const decision = decideRedirect({ tokenStatus, isBot: botResult.isBot });
   // A continued interstitial becomes a real, forwarded redirect. A genuine
   // token is already "redirect". Everything else follows the decision.
-  const outcome = continued && decision.outcome !== "not_forwarded"
-    ? "redirect"
-    : decision.outcome;
+  const outcome = continued ? "redirect" : decision.outcome;
   const genuineClick = decision.genuineClick;
   const gated = decision.gated && !continued;
 
@@ -245,6 +247,9 @@ export async function GET(
     const html = interstitialHtml({
       providerName: providerDisplayName(provider),
       continueUrl,
+      corridorLabel: from && to ? `${from.toUpperCase()} → ${to.toUpperCase()}` : undefined,
+      receiveCurrency: to?.toUpperCase(),
+      crossSell: buildCrossSell({ targetSlug: provider, from, to, amount, src }),
     });
     return new NextResponse(html, {
       status: 200,
