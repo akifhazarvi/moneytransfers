@@ -7,6 +7,8 @@ import { storeEvent, behavioralBotScore, distributedBotScore } from "@/lib/event
 import { classifyTrafficSource } from "@/lib/traffic-source";
 import { scoreBotRequest } from "@/lib/bot-score";
 import { classifyIp } from "@/lib/ip-intel";
+import { verifyClickToken } from "@/lib/click-token";
+import { decideRedirect, interstitialHtml, providerDisplayName } from "@/lib/redirect-decision";
 import { createHash } from "crypto";
 
 export async function GET(
@@ -142,7 +144,30 @@ export async function GET(
   // Per-click id from the on-site injector (TapTap-style billing proof + ties
   // the client provider_clicked to this server event). Absent on raw external
   // hits; mint one so every redirect is still individually identifiable.
+  //
+  // NOTE: `genuine_click` (below) — NOT the presence of click_id — is now the
+  // truth of "was this a real on-site click", because we still mint a click_id
+  // here for record-keeping even on bare hits. Downstream reports must gate
+  // billable clicks on genuine_click / outcome, not on click_id existing.
   const clickId = searchParams.get("click_id") || `smc_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+
+  // --- Click binding: is this a genuine on-site click? -------------------
+  // The signed token (?t=) is minted by /api/click-token only for a real click
+  // on our own pages (AiSourceInjector). A pasted/scraped/AI-cited URL or a bot
+  // has no valid token. This is the one certain signal; bot score handles the
+  // tokenless bot-vs-human split.
+  const tokenStatus = verifyClickToken(searchParams.get("t"), provider);
+  // `?continue=1` is the explicit human confirmation from the interstitial's
+  // Continue button / auto-continue script — honor it as a real redirect.
+  const continued = searchParams.get("continue") === "1";
+  const decision = decideRedirect({ tokenStatus, isBot: botResult.isBot });
+  // A continued interstitial becomes a real, forwarded redirect. A genuine
+  // token is already "redirect". Everything else follows the decision.
+  const outcome = continued && decision.outcome !== "not_forwarded"
+    ? "redirect"
+    : decision.outcome;
+  const genuineClick = decision.genuineClick;
+  const gated = decision.gated && !continued;
 
   // Server-side counterpart to the client `provider_clicked` event. Distinct
   // event name so the two sinks measure clean, separate things:
@@ -151,7 +176,7 @@ export async function GET(
   // The gap between the two = adblock + JS-failure rate.
   void serverTrack(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score, genuine_click: genuineClick, gated, token_status: tokenStatus, outcome },
     clientId,
     geo,
   );
@@ -169,6 +194,10 @@ export async function GET(
       id_source: idSource,
       click_id: clickId,
       bot_score: botResult.score,
+      genuine_click: genuineClick,
+      gated,
+      token_status: tokenStatus,
+      outcome,
     },
     clientId,
     geo,
@@ -199,7 +228,36 @@ export async function GET(
     country: geo.country,
     region: geo.region,
     city: geo.city,
+    genuineClick,
+    gated,
+    tokenStatus,
+    outcome,
   });
+
+  // --- Route by outcome --------------------------------------------------
+  // "interstitial" / "not_forwarded": render an on-site page instead of an
+  // instant 302. The provider redirect only fires when the request comes back
+  // with ?continue=1 (auto-continue JS for plausible humans; no auto-continue
+  // for likely bots). This is what makes our site the last authority: a bare/
+  // scraped/bot hit never forwards to the provider on its own.
+  if (outcome !== "redirect") {
+    const continueUrl = buildContinueUrl(request.url);
+    const html = interstitialHtml({
+      providerName: providerDisplayName(provider),
+      continueUrl,
+      // Everyone auto-continues (no real person is ever stranded); bot-scored
+      // hits just wait a little longer. See interstitialHtml for the guarantee.
+      fast: outcome === "interstitial",
+    });
+    return new NextResponse(html, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "no-store",
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+    });
+  }
 
   const url = getAffiliateUrl(provider, {
     sourceCurrency: from,
@@ -207,6 +265,8 @@ export async function GET(
     sourceAmount: amount,
     clickref: src,
     clickId,
+    corridor,
+    source,
   });
 
   const redirect = NextResponse.redirect(url, {
@@ -228,4 +288,17 @@ export async function GET(
   }
 
   return redirect;
+}
+
+/**
+ * Build the URL the interstitial's Continue action navigates to: the same
+ * request URL with `continue=1` added, so the route re-runs and honors it as a
+ * confirmed human redirect. Preserves all existing params (from/to/amount/src/
+ * click_id/cid/ai_src) so attribution survives the round-trip. Returns a
+ * path+query (same-origin) so it works regardless of host.
+ */
+function buildContinueUrl(requestUrl: string): string {
+  const u = new URL(requestUrl);
+  u.searchParams.set("continue", "1");
+  return `${u.pathname}${u.search}`;
 }

@@ -7,6 +7,8 @@ import { storeEvent, behavioralBotScore, distributedBotScore } from "@/lib/event
 import { classifyTrafficSource } from "@/lib/traffic-source";
 import { scoreBotRequest } from "@/lib/bot-score";
 import { classifyIp } from "@/lib/ip-intel";
+import { verifyClickToken } from "@/lib/click-token";
+import { decideRedirect, interstitialHtml, providerDisplayName } from "@/lib/redirect-decision";
 import { createHash } from "crypto";
 
 export async function GET(
@@ -109,11 +111,24 @@ export async function GET(
     behavioralReasons: [...behavioral.reasons, ...distributed.reasons],
   });
 
+  // --- Click binding: genuine on-site click vs bare/scraped/bot hit --------
+  // See the /go route for the full rationale. Signed token (?t=) is the certain
+  // signal; bot score splits the tokenless into human (interstitial) vs bot
+  // (not forwarded). ?continue=1 is the interstitial's explicit human confirm.
+  const tokenStatus = verifyClickToken(searchParams.get("t"), provider);
+  const continued = searchParams.get("continue") === "1";
+  const decision = decideRedirect({ tokenStatus, isBot: botResult.isBot });
+  const outcome = continued && decision.outcome !== "not_forwarded"
+    ? "redirect"
+    : decision.outcome;
+  const genuineClick = decision.genuineClick;
+  const gated = decision.gated && !continued;
+
   // Server-side counterpart to the client `provider_clicked` event — see /go/
   // for the naming rationale.
   void serverTrack(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score, genuine_click: genuineClick, gated, token_status: tokenStatus, outcome },
     clientId,
     geo,
   );
@@ -133,6 +148,10 @@ export async function GET(
       id_source: idSource,
       click_id: clickId,
       bot_score: botResult.score,
+      genuine_click: genuineClick,
+      gated,
+      token_status: tokenStatus,
+      outcome,
     },
     clientId,
     geo,
@@ -161,7 +180,32 @@ export async function GET(
     country: geo.country,
     region: geo.region,
     city: geo.city,
+    genuineClick,
+    gated,
+    tokenStatus,
+    outcome,
   });
+
+  // Route by outcome — see /go route. Bare/scraped/bot hits get the on-site
+  // interstitial and never forward to the provider on their own.
+  if (outcome !== "redirect") {
+    const continueUrl = buildContinueUrl(request.url);
+    const html = interstitialHtml({
+      providerName: providerDisplayName(provider),
+      continueUrl,
+      // Everyone auto-continues; bot-scored hits just wait longer. No real
+      // person is ever stranded. See interstitialHtml.
+      fast: outcome === "interstitial",
+    });
+    return new NextResponse(html, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "no-store",
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+    });
+  }
 
   const url = getAffiliateUrl(provider, {
     sourceCurrency: from,
@@ -169,6 +213,8 @@ export async function GET(
     sourceAmount: amount,
     clickref: src,
     clickId,
+    corridor,
+    source,
   });
 
   const redirect = NextResponse.redirect(url, {
@@ -188,4 +234,11 @@ export async function GET(
   }
 
   return redirect;
+}
+
+// Same-origin continue URL for the interstitial — see /go route.
+function buildContinueUrl(requestUrl: string): string {
+  const u = new URL(requestUrl);
+  u.searchParams.set("continue", "1");
+  return `${u.pathname}${u.search}`;
 }

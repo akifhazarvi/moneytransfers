@@ -62,6 +62,14 @@ function ensureTable(): Promise<void> {
       sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS ip_class TEXT;`,
       sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS asn INTEGER;`,
       sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS asn_org TEXT;`,
+      // Click-binding attribution (Jul 2026): was this a genuine on-site click
+      // (valid signed token) vs a bare/scraped/AI-cited hit; whether it was
+      // routed through the on-site interstitial; the raw token verdict; and the
+      // final routing outcome (redirected / interstitial / not_forwarded).
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS genuine_click BOOLEAN;`,
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS gated BOOLEAN;`,
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS token_status TEXT;`,
+      sql`ALTER TABLE events ADD COLUMN IF NOT EXISTS outcome TEXT;`,
     ]);
   }).then(() => {
     // Indexes for the reports we run + the behavioral IP lookup window.
@@ -103,6 +111,10 @@ export type StoredEvent = {
   country?: string;
   region?: string;
   city?: string;
+  genuineClick?: boolean;
+  gated?: boolean;
+  tokenStatus?: string;
+  outcome?: string;
 };
 
 /**
@@ -272,7 +284,8 @@ export async function storeEvent(e: StoredEvent): Promise<void> {
       INSERT INTO events
         (event, vid, client_id, click_id, provider, corridor, amount,
          source, traffic_source, id_source, is_bot, bot_score, bot_reasons,
-         ip_hash, ip_class, asn, asn_org, referer_host, country, region, city)
+         ip_hash, ip_class, asn, asn_org, referer_host, country, region, city,
+         genuine_click, gated, token_status, outcome)
       VALUES
         (${e.event}, ${e.vid ?? null}, ${e.clientId ?? null}, ${e.clickId ?? null},
          ${e.provider ?? null}, ${e.corridor ?? null}, ${e.amount ?? null},
@@ -280,7 +293,8 @@ export async function storeEvent(e: StoredEvent): Promise<void> {
          ${e.isBot ?? null}, ${e.botScore ?? null}, ${e.botReasons ?? null},
          ${e.ipHash ?? null}, ${e.ipClass ?? null}, ${e.asn ?? null}, ${e.asnOrg ?? null},
          ${e.refererHost ?? null},
-         ${e.country ?? null}, ${e.region ?? null}, ${e.city ?? null});
+         ${e.country ?? null}, ${e.region ?? null}, ${e.city ?? null},
+         ${e.genuineClick ?? null}, ${e.gated ?? null}, ${e.tokenStatus ?? null}, ${e.outcome ?? null});
     `;
   } catch {
     // swallow — never let a logging failure affect the request

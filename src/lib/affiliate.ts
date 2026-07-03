@@ -11,6 +11,24 @@ export interface AffiliateParams {
   sourceAmount?: number;
   clickref?: string; // Partnerize sub-ID — appears as adref in the dashboard
   clickId?: string;  // Our smc_xxx click ID — appended as smc_click_id so providers can reconcile
+  corridor?: string; // e.g. "USD-INR" — stamped as smc_corridor
+  source?: string;   // originating surface — stamped as utm_content
+}
+
+// Extra tracking attributes we stamp on the outbound (non-Partnerize) URL so
+// the PROVIDER can see, on their side, exactly what we sent them: which
+// corridor, how much, from which surface, and a per-click id to reconcile
+// against. `subid`/`aff_sub` are the near-universal sub-id param names most
+// affiliate systems read; we set both plus our own `smc_*` namespace so nothing
+// is lost regardless of how the provider's tracking is wired.
+function appendTrackingAttrs(u: URL, clickId?: string): void {
+  if (clickId) {
+    if (!u.searchParams.has("smc_click_id")) u.searchParams.set("smc_click_id", clickId);
+    // Common sub-id param names — harmless if the provider ignores them, and it
+    // means our click id shows up in their reporting wherever they DO read one.
+    if (!u.searchParams.has("subid")) u.searchParams.set("subid", clickId);
+    if (!u.searchParams.has("aff_sub")) u.searchParams.set("aff_sub", clickId);
+  }
 }
 
 const affiliateLinks: Record<string, string> = {
@@ -111,7 +129,7 @@ const UTM_PARAMS = {
   utm_campaign: "comparison",
 } as const;
 
-function appendUtms(url: string, clickId?: string): string {
+function appendUtms(url: string, clickId?: string, extra?: { corridor?: string; amount?: number; source?: string }): string {
   // Partnerize deep-link URLs are structured as path segments — don't mangle them.
   // UTMs go on the inner destination URL (built by buildWiseDeepLink / buildInstaremDeepLink),
   // not the prf.hn wrapper.
@@ -120,7 +138,19 @@ function appendUtms(url: string, clickId?: string): string {
   for (const [k, v] of Object.entries(UTM_PARAMS)) {
     if (!u.searchParams.has(k)) u.searchParams.set(k, v);
   }
-  if (clickId) u.searchParams.set("smc_click_id", clickId);
+  // utm_content carries the source surface (which page/button sent them) so it
+  // shows up in the provider's own GA without needing a custom param.
+  if (extra?.source && !u.searchParams.has("utm_content")) {
+    u.searchParams.set("utm_content", extra.source);
+  }
+  // Extra attributes so the provider sees the full context of what we sent.
+  if (extra?.corridor && !u.searchParams.has("smc_corridor")) {
+    u.searchParams.set("smc_corridor", extra.corridor);
+  }
+  if (extra?.amount && !u.searchParams.has("smc_amount")) {
+    u.searchParams.set("smc_amount", String(extra.amount));
+  }
+  appendTrackingAttrs(u, clickId);
   return u.toString();
 }
 
@@ -226,17 +256,17 @@ export function getAffiliateUrl(
     if (params?.sourceCurrency || params?.targetCurrency) {
       return buildWiseDeepLink(params ?? {});
     }
-    return appendClickref(appendUtms(url, params?.clickId), params?.clickref);
+    return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source }), params?.clickref);
   }
 
   if (providerSlug === "instarem") {
     if (params?.sourceCurrency || params?.targetCurrency) {
       return buildInstaremDeepLink(params ?? {});
     }
-    return appendClickref(appendUtms(url, params?.clickId), params?.clickref);
+    return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source }), params?.clickref);
   }
 
-  return appendClickref(appendUtms(url, params?.clickId), params?.clickref);
+  return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source }), params?.clickref);
 }
 
 export function getGoUrl(providerSlug: string, params?: AffiliateParams): string {
