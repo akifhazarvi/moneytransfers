@@ -45,7 +45,7 @@ const affiliateLinks: Record<string, string> = {
   xoom: "https://xoom.com/?ref=sendmoneycompare",
   torfx: "https://torfx.com/?ref=sendmoneycompare",
   instarem: "https://instarem.prf.hn/click/camref:1100l5Nn6Z/[p_id:1011l637599]",
-  unplex: "https://unplex.money/?utm_source=sendmoneycompare",
+  unplex: "https://unplex.money/?ref=sendmoneycompare&utm_source=sendmoneycompare",
   "taptap-send": "https://taptapsend.com/?ref=sendmoneycompare",
   "ace-money-transfer": "https://acemoneytransfer.com/?ref=sendmoneycompare",
   currencyfair: "https://currencyfair.com/?ref=sendmoneycompare",
@@ -129,7 +129,7 @@ const UTM_PARAMS = {
   utm_campaign: "comparison",
 } as const;
 
-function appendUtms(url: string, clickId?: string, extra?: { corridor?: string; amount?: number; source?: string }): string {
+function appendUtms(url: string, clickId?: string, extra?: { corridor?: string; amount?: number; source?: string; from?: string; to?: string }): string {
   // Partnerize deep-link URLs are structured as path segments — don't mangle them.
   // UTMs go on the inner destination URL (built by buildWiseDeepLink / buildInstaremDeepLink),
   // not the prf.hn wrapper.
@@ -143,9 +143,17 @@ function appendUtms(url: string, clickId?: string, extra?: { corridor?: string; 
   if (extra?.source && !u.searchParams.has("utm_content")) {
     u.searchParams.set("utm_content", extra.source);
   }
-  // Extra attributes so the provider sees the full context of what we sent.
+  // Extra attributes so the provider sees the full context of what we sent —
+  // corridor both combined (smc_corridor) and split (smc_from/smc_to) so it's
+  // readable however the provider's system parses it, plus the amount.
   if (extra?.corridor && !u.searchParams.has("smc_corridor")) {
     u.searchParams.set("smc_corridor", extra.corridor);
+  }
+  if (extra?.from && !u.searchParams.has("smc_from")) {
+    u.searchParams.set("smc_from", extra.from.toUpperCase());
+  }
+  if (extra?.to && !u.searchParams.has("smc_to")) {
+    u.searchParams.set("smc_to", extra.to.toUpperCase());
   }
   if (extra?.amount && !u.searchParams.has("smc_amount")) {
     u.searchParams.set("smc_amount", String(extra.amount));
@@ -256,17 +264,17 @@ export function getAffiliateUrl(
     if (params?.sourceCurrency || params?.targetCurrency) {
       return buildWiseDeepLink(params ?? {});
     }
-    return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source }), params?.clickref);
+    return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source, from: params?.sourceCurrency, to: params?.targetCurrency }), params?.clickref);
   }
 
   if (providerSlug === "instarem") {
     if (params?.sourceCurrency || params?.targetCurrency) {
       return buildInstaremDeepLink(params ?? {});
     }
-    return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source }), params?.clickref);
+    return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source, from: params?.sourceCurrency, to: params?.targetCurrency }), params?.clickref);
   }
 
-  return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source }), params?.clickref);
+  return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source, from: params?.sourceCurrency, to: params?.targetCurrency }), params?.clickref);
 }
 
 export function getGoUrl(providerSlug: string, params?: AffiliateParams): string {
