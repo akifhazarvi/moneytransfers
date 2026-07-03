@@ -81,6 +81,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("terms", STATIC_CONTENT_DATE),
     entry("for-ai", DATA_UPDATED),
     entry("remittance-cost-index", DATA_UPDATED),
+    // Free tools hub + the two live calculators (added Jul 3 2026). Live: US
+    // remittance tax (new 1% excise, high-intent 2026 query) and the FX markup
+    // checker (live mid-market reference). The Fee Impact calculator at
+    // /tools/fee-impact is intentionally NOT listed — it ships dark (noindex)
+    // until we launch it. STATIC_CONTENT_DATE for the hub; DATA_UPDATED for the
+    // tools since their live-quote blocks refresh with each scrape.
+    entry("tools", STATIC_HUB_DATE),
+    entry("tools/us-remittance-tax", DATA_UPDATED),
+    entry("tools/fx-markup-checker", DATA_UPDATED),
+    // Crypto cash-out cluster (added Jul 3 2026). Hub + 6 GATED pilot country
+    // pages — each has live off-ramp data AND unique hand-authored editorial
+    // (local exchanges, cash-out method, tax reality), NOT programmatic shells.
+    // Deliberately small to avoid the scaled-content pattern that triggered the
+    // Mar 20 suppression. Expand only when a country has both data and substance.
+    entry("cash-out", STATIC_HUB_DATE),
+    entry("cash-out/india", DATA_UPDATED),
+    entry("cash-out/philippines", DATA_UPDATED),
+    entry("cash-out/nigeria", DATA_UPDATED),
+    entry("cash-out/mexico", DATA_UPDATED),
+    entry("cash-out/kenya", DATA_UPDATED),
+    entry("cash-out/brazil", DATA_UPDATED),
     // Flagship data-story (live-computed bank-vs-app cost index). Not a
     // blog-posts.ts guide — it's a dedicated live route, so it's listed here
     // explicitly. DATA_UPDATED because its figures refresh with each scrape.

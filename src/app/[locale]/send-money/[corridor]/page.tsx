@@ -58,6 +58,7 @@ import type { ProviderBadge } from "@/lib/rate-history";
 import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
 import StickyBestCTA from "@/components/StickyBestCTA";
 import LiveTimestamp from "@/components/LiveTimestamp";
+import CryptoRailSection from "@/components/CryptoRailSection";
 
 interface Props {
   params: Promise<{ corridor: string; locale: string }>;
@@ -2274,6 +2275,16 @@ export default async function CorridorPage({ params }: Props) {
           </Container>
         </section>
       )}
+
+      {/* ─── Crypto / stablecoin rails — secondary block below the affiliate
+           comparison. Renders only when we have rail data for this corridor;
+           its CTA is a "how it works" path, not an affiliate link, so it never
+           competes with provider_clicked. ─── */}
+      <section className="py-2 bg-[var(--color-surface-dim)]">
+        <Container>
+          <CryptoRailSection from={fromCurrency} to={toCurrency} amount={sampleAmount} />
+        </Container>
+      </section>
 
       {/* ─── Guides, fees & details — collapsed on mobile so live results stay near the fold.
            All content remains in the DOM for AI citation, FAQ schema, and link equity. ─── */}

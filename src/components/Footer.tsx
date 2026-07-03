@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 import { useTranslations } from "next-intl";
 import LazyTrustpilot from "@/components/LazyTrustpilot";
 
-type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean };
+type TranslatedLink = { href: string; labelKey: string; noFollow?: boolean; label?: string };
 type StaticLink = { href: string; label: string };
 
 export default function Footer() {
@@ -41,10 +41,17 @@ export default function Footer() {
     {
       titleKey: "tools",
       links: [
+        // Free calculators + crypto cash-out cluster (added 2026-07-03). Literal
+        // labels (no i18n key needed — site is EN-only). These are the only
+        // inbound links to the new /tools and /cash-out pages, so they anchor
+        // the cluster for crawl + equity; keep them here until they earn their
+        // own organic inbound and can stand alone.
+        { href: "/tools/us-remittance-tax", labelKey: "usRemittanceTax", label: "US remittance tax calculator" },
+        { href: "/tools/fx-markup-checker", labelKey: "fxMarkupChecker", label: "FX markup checker" },
+        { href: "/cash-out", labelKey: "cashOutCrypto", label: "Cash out crypto by country" },
         { href: "/iban", labelKey: "ibanLink" },
         { href: "/swift-codes", labelKey: "swiftLink" },
         { href: "/exchange-rates/history", labelKey: "rateHistoryLink" },
-        { href: "/travel", labelKey: "travelLink" },
         { href: "/business", labelKey: "businessLink" },
       ],
     },
@@ -162,7 +169,7 @@ export default function Footer() {
                       {...(link.noFollow && { rel: "nofollow" })}
                       className="text-sm text-white/70 hover:text-white transition-colors"
                     >
-                      {t(link.labelKey)}
+                      {link.label ?? t(link.labelKey)}
                     </Link>
                   </li>
                 ))}

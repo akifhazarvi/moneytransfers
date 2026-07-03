@@ -7,6 +7,9 @@
  *   2. Wise Comparison API (8-18 competitors per corridor, pure API)
  *   3. Monito comparison (covers 39 providers including Remitly, WU, Revolut, etc.)
  *   4. Rest — Exiap / TheCurrencyShop (JSON-LD, US+UK+AU corridors), gap-fill only
+ *   5. RemitRoutes bridge — extra banks (BNP Paribas, HSBC, Chase, Santander,
+ *      BMO, NAB, Crédit Agricole, …) on corridors we thinly cover, gap-fill only.
+ *      Crypto rails from the same source are handled separately in crypto-rails.ts.
  *
  * Also loads XE mid-market rates and Trustpilot ratings.
  */
@@ -28,6 +31,7 @@ import pandaremitQuotes from "@/data/scraped/pandaremit-quotes.json";
 import skyremitQuotes from "@/data/scraped/skyremit-quotes.json";
 import lemfiQuotes from "@/data/scraped/lemfi-quotes.json";
 import unplexQuotes from "@/data/scraped/unplex-quotes.json";
+import remitroutesQuotes from "@/data/scraped/remitroutes-quotes.json";
 import xeRatesData from "@/data/scraped/xe-midmarket-rates.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 
@@ -263,6 +267,12 @@ addQuotes(monitoQuotes as unknown[], 3, "monito-comparison");
 // and producing wrong receive amounts. Only used where no better tier covers
 // the provider+corridor.
 addQuotes(exiapQuotes as unknown[], 4, "exiap");
+
+// TIER 5: RemitRoutes bridge — traditional rows only (crypto rails are consumed
+// separately by crypto-rails.ts). Lowest priority so it never displaces a
+// first-party / Wise / Monito quote for a provider we already cover; it only
+// adds providers (mostly retail banks) on corridors we'd otherwise show thin.
+addQuotes(remitroutesQuotes as unknown[], 5, "remitroutes-bridge");
 
 // --- Deduplicate: for the same provider+corridor+amount, keep highest priority ---
 function deduplicateQuotes(quotes: NormalizedQuote[]): NormalizedQuote[] {

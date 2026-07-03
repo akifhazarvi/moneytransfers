@@ -206,3 +206,17 @@ export function trackSeeAllProviders(slug: string, corridor: string) {
 export function trackSeeAllProvidersHeader(slug: string, corridor: string) {
   dual("see_all_providers_clicked", { slug, corridor, source: "inline_quotes_header" });
 }
+
+// ═════════════════════════════════════════════════════════════════
+// Free tools (/tools/*) — calculators. `tool` names which calculator.
+// ═════════════════════════════════════════════════════════════════
+
+/** User interacts with a tool calculator (changes an input). */
+export function trackToolUsed(tool: string, params?: EventParams) {
+  dual("tool_used", { tool, ...params });
+}
+
+/** User clicks the tool's CTA into a live comparison. */
+export function trackToolCTA(tool: string, params?: EventParams) {
+  dual("tool_cta_clicked", { tool, ...params });
+}

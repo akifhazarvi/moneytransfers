@@ -9,6 +9,7 @@ import { corridors } from "@/data/corridors";
 import { providers } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates } from "@/lib/i18n-metadata";
+import CryptoVsBankIndexSection from "@/components/CryptoVsBankIndexSection";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -530,6 +531,9 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
           </div>
         </Container>
       </section>
+
+      {/* Crypto rails vs banks — live "beats mid-market" league table */}
+      <CryptoVsBankIndexSection />
 
       {/* CTA */}
       <section className="py-14 bg-[var(--color-primary)]">
