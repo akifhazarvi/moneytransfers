@@ -10,6 +10,7 @@ import LazyNewsTicker from "@/components/LazyNewsTicker";
 import LazyHomeDynamicSection from "@/components/LazyHomeDynamicSection";
 import { HomeSelectionProvider } from "@/components/HomeSelectionContext";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
+import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import { providers } from "@/data/providers";
 import { getLatestNews } from "@/data/news";
 import { getAlternates } from "@/lib/i18n-metadata";
@@ -582,6 +583,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </MobileDetailsRail>
 
       {/* FAQPage rich results restricted to government/healthcare since Aug 2023. FAQ content still rendered on page. */}
+
+      {/* ─── WhatsApp channel — near page end, after FAQ ─── */}
+      <section className="py-8 sm:py-12 bg-[var(--color-surface-dim)] border-t border-[var(--color-outline)]">
+        <Container>
+          <WhatsAppInlineCTA source="home_inline" />
+        </Container>
+      </section>
 
       {/* ─── LATEST NEWS ─── moved to bottom (below FAQ) */}
       <LazyNewsTicker

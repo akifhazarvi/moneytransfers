@@ -19,6 +19,7 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 import GuidePageNudge from "@/components/GuidePageNudge";
+import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 import SettlementRace from "@/components/SettlementRace";
 
@@ -601,6 +602,11 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               </section>
             )}
+
+            {/* WhatsApp channel — end-of-article, high dwell-time reader */}
+            <div className="mt-10">
+              <WhatsAppInlineCTA source="guide_article_end" />
+            </div>
           </article>
 
           {/* ── Sidebar ── */}
