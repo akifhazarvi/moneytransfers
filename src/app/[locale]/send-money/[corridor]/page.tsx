@@ -28,6 +28,7 @@ import RatingBadge from "@/components/RatingBadge";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import CrossLinks from "@/components/CrossLinks";
+import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import MobileDetailsRail from "@/components/MobileDetailsRail";
 
@@ -3272,6 +3273,11 @@ export default async function CorridorPage({ params }: Props) {
       })()}
 
       </MobileDetailsRail>
+
+      {/* ─── WhatsApp channel — high-intent, post-results ─── */}
+      <Container className="mt-8">
+        <WhatsAppInlineCTA source="corridor_results_inline" />
+      </Container>
 
       {/* ─── Cross-links ─── */}
       {/* "More transfers from X" + "Other routes to Y" together form the horizontal

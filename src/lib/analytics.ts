@@ -220,3 +220,14 @@ export function trackToolUsed(tool: string, params?: EventParams) {
 export function trackToolCTA(tool: string, params?: EventParams) {
   dual("tool_cta_clicked", { tool, ...params });
 }
+
+// ═════════════════════════════════════════════════════════════════
+// WhatsApp channel — follow/subscribe funnel. `source` names the surface
+// the click came from (float button, footer, inline CTA) so we can see
+// which placement drives the most channel follows.
+// ═════════════════════════════════════════════════════════════════
+
+/** User clicks through to follow the WhatsApp channel. */
+export function trackWhatsappFollow(source: string) {
+  dual("whatsapp_follow_clicked", { source });
+}
