@@ -202,13 +202,13 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
   };
 
   const ledStyle = (dir: RateRow["direction"], flash: boolean): React.CSSProperties => {
-    const c = flash && dir === "up" ? "#22ff77" : flash && dir === "down" ? "#ff3333" : "#e84020";
+    const c = flash && dir === "up" ? "#F5C97A" : flash && dir === "down" ? "#ff3333" : "#e84020";
     return { color: c, textShadow: `0 0 6px ${c}88, 0 0 2px ${c}44` };
   };
 
   // Confidence bar color
   const confidenceColor = (count: number) => {
-    if (count >= 4) return "#22ff77";
+    if (count >= 4) return "#F5C97A";
     if (count >= 3) return "#88cc44";
     if (count >= 2) return "#ccaa22";
     return "#ff6633";
@@ -268,8 +268,8 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <span className="relative flex h-3 w-3 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" style={{ boxShadow: "0 0 6px #22ff77" }} />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-60" />
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[var(--color-success)]" style={{ boxShadow: "0 0 6px #F5C97A" }} />
               </span>
               <h2 className="led-font text-lg sm:text-2xl font-bold text-[#e84020] tracking-widest uppercase"
                   style={{ textShadow: "0 0 15px rgba(232,64,32,0.6), 0 0 4px rgba(232,64,32,0.3)" }} aria-hidden="true">
@@ -290,8 +290,8 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                 <span
                   className="inline-block w-1.5 h-1.5 rounded-full"
                   style={{
-                    backgroundColor: s.status === "ok" ? "#22ff77" : "#ff3333",
-                    boxShadow: s.status === "ok" ? "0 0 4px #22ff77" : "0 0 4px #ff3333",
+                    backgroundColor: s.status === "ok" ? "#F5C97A" : "#ff3333",
+                    boxShadow: s.status === "ok" ? "0 0 4px #F5C97A" : "0 0 4px #ff3333",
                   }}
                 />
                 <span className="led-font text-2xs tracking-wider"
@@ -446,10 +446,10 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                             className="inline-block w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-500"
                             style={{
                               backgroundColor:
-                                r.flash && r.direction === "up" ? "#22ff77" :
+                                r.flash && r.direction === "up" ? "#F5C97A" :
                                 r.flash && r.direction === "down" ? "#ff3333" : "#333",
                               boxShadow:
-                                r.flash && r.direction === "up" ? "0 0 8px #22ff77, 0 0 2px #22ff77" :
+                                r.flash && r.direction === "up" ? "0 0 8px #F5C97A, 0 0 2px #F5C97A" :
                                 r.flash && r.direction === "down" ? "0 0 8px #ff3333, 0 0 2px #ff3333" : "none",
                             }}
                           />
@@ -477,7 +477,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                           ))}
                           <div className="mt-1.5 pt-1.5 border-t border-[#222] flex items-center justify-between">
                             <span className="led-font text-2xs text-[#555]">MEDIAN</span>
-                            <span className="led-font text-2xs text-[#22ff77] tabular-nums font-bold">
+                            <span className="led-font text-2xs text-[#F5C97A] tabular-nums font-bold">
                               {fmt(r.midRate)}
                             </span>
                           </div>
@@ -514,7 +514,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
           {/* ── Legend ── */}
           <div className="flex flex-wrap items-center gap-4 mt-3 px-1">
             <div className="flex items-center gap-1.5">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#22ff77]" style={{ boxShadow: "0 0 4px #22ff77" }} />
+              <span className="inline-block w-2 h-2 rounded-full bg-[#F5C97A]" style={{ boxShadow: "0 0 4px #F5C97A" }} />
               <span className="led-font text-[#555] text-2xs tracking-wider">RATE UP</span>
             </div>
             <div className="flex items-center gap-1.5">
