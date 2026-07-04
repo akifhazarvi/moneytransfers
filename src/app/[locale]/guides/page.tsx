@@ -116,6 +116,24 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
             Read the Bank vs App Cost Index →
           </span>
         </Link>
+
+        <Link
+          href="/guides/gbp-forecast-2026"
+          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
+        >
+          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+            Currency outlook · July 2026
+          </span>
+          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
+            How much can the pound move before your transfer clears?
+          </h2>
+          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+            Sterling swung ~5% in H1 2026, but the best-vs-worst provider gap on £1,000 to USD is bigger than the currency move. Data-led GBP outlook.
+          </p>
+          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+            Read the GBP outlook →
+          </span>
+        </Link>
       </div>
 
       {/* Category tabs + featured post + grid — interactive, handled client-side */}
