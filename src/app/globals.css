@@ -103,10 +103,9 @@
   --shadow-lg: 0 10px 30px rgba(26, 25, 22, 0.09), 0 4px 10px rgba(26, 25, 22, 0.05);
   --shadow-xl: 0 20px 48px rgba(26, 25, 22, 0.11), 0 8px 18px rgba(26, 25, 22, 0.06);
 
-  /* Accent glows — the lift under conversion buttons. One value per accent so
-     the green "Send" and ink CTA shadows stay consistent everywhere. */
-  --shadow-success: 0 2px 10px rgba(31, 122, 77, 0.35);
-  --shadow-success-lg: 0 4px 16px rgba(31, 122, 77, 0.45);
+  /* Subtle neutral lift under conversion buttons — a soft shadow, not a glow. */
+  --shadow-success: 0 1px 3px rgba(26, 25, 22, 0.10), 0 1px 2px rgba(26, 25, 22, 0.06);
+  --shadow-success-lg: 0 2px 6px rgba(26, 25, 22, 0.12), 0 1px 3px rgba(26, 25, 22, 0.08);
   --shadow-primary: 0 2px 10px rgba(26, 25, 22, 0.22);
   --shadow-primary-lg: 0 4px 16px rgba(26, 25, 22, 0.30);
 
@@ -192,9 +191,9 @@
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.4);
   --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.7);
 
-  /* Accent glows — brighter cores on dark so the lift still reads */
-  --shadow-success: 0 2px 12px rgba(5, 150, 105, 0.5);
-  --shadow-success-lg: 0 4px 18px rgba(5, 150, 105, 0.6);
+  /* Subtle neutral lift on dark — a soft shadow, not a glow. */
+  --shadow-success: 0 1px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-success-lg: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-primary: 0 2px 12px rgba(124, 143, 232, 0.45);
   --shadow-primary-lg: 0 4px 18px rgba(124, 143, 232, 0.55);
 }
