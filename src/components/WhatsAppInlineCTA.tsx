@@ -4,9 +4,9 @@ import { trackWhatsappFollow } from "@/lib/analytics";
 import { WHATSAPP_CHANNEL_URL } from "@/lib/whatsapp";
 
 // High-intent inline CTA — placed below comparison results and at the end of
-// guides/homepage, where the reader has just consumed value and is receptive
-// to "get alerts when rates drop". Tracks with `source` so each placement's
-// pull is measurable against the float button and footer.
+// guides/homepage. Themed to the site's design language: gold accent as the
+// "premium" material, ink/near-white CTA pill (matches Send buttons). Tracks
+// with `source` so each placement's pull is measurable.
 export default function WhatsAppInlineCTA({
   source = "results_inline",
   className = "",
@@ -16,11 +16,11 @@ export default function WhatsAppInlineCTA({
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-[#25D366]/25 bg-gradient-to-br from-[#25D366]/[0.07] to-[#25D366]/[0.02] p-6 sm:p-7 ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-[var(--color-accent)]/30 bg-[var(--color-accent-surface)] p-6 sm:p-7 ${className}`}
     >
-      {/* Decorative oversized glyph, bottom-right — adds depth without noise */}
+      {/* Decorative oversized glyph, bottom-right — gold, low opacity for depth */}
       <svg
-        className="pointer-events-none absolute -bottom-6 -right-4 h-40 w-40 text-[#25D366]/[0.06]"
+        className="pointer-events-none absolute -bottom-6 -right-4 h-40 w-40 text-[var(--color-accent)] opacity-[0.08]"
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden="true"
@@ -29,8 +29,9 @@ export default function WhatsAppInlineCTA({
       </svg>
 
       <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-6">
-        {/* Icon */}
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#25D366] shadow-[0_4px_14px_rgba(37,211,102,0.4)]">
+        {/* Icon tile — WhatsApp brand green so the glyph reads instantly as
+            WhatsApp, sitting inside the gold "premium" card chrome. */}
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#25D366] shadow-[var(--shadow-sm)]">
           <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.34c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z" />
           </svg>
@@ -38,8 +39,8 @@ export default function WhatsAppInlineCTA({
 
         {/* Copy */}
         <div className="min-w-0 flex-1">
-          <div className="mb-1.5 inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/12 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[#128C4A]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
+          <div className="mb-1.5 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-accent)]/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[var(--color-accent-dark)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
             Free channel
           </div>
           <p className="text-lg font-bold leading-tight text-[var(--color-on-surface)]">
@@ -50,13 +51,13 @@ export default function WhatsAppInlineCTA({
           </p>
         </div>
 
-        {/* CTA */}
+        {/* CTA — ink/near-white pill, same as the site's Send buttons */}
         <a
           href={WHATSAPP_CHANNEL_URL}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackWhatsappFollow(source)}
-          className="inline-flex shrink-0 items-center justify-center gap-2 self-stretch rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(37,211,102,0.4)] transition-all hover:bg-[#1FBE5A] hover:shadow-[0_6px_20px_rgba(37,211,102,0.5)] active:scale-[0.98] sm:self-auto"
+          className="inline-flex shrink-0 items-center justify-center gap-2 self-stretch rounded-full bg-[var(--color-cta)] px-6 py-3 text-sm font-bold text-[var(--color-cta-text)] shadow-[var(--shadow-primary)] transition-all hover:bg-[var(--color-cta-hover)] hover:shadow-[var(--shadow-primary-lg)] active:scale-[0.98] sm:self-auto"
         >
           Follow channel
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
