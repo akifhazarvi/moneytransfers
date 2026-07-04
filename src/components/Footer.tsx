@@ -267,7 +267,7 @@ export default function Footer() {
               </span>
             </Link>
 
-            {/* Follow — WhatsApp channel (branded green, always visible) */}
+            {/* Follow — WhatsApp channel (gold accent, matches site theme) */}
             <a
               href={WHATSAPP_CHANNEL_URL}
               target="_blank"
