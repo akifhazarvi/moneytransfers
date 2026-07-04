@@ -2001,8 +2001,8 @@ export default async function CorridorPage({ params }: Props) {
           </p>
           <p className="flex items-center gap-1.5 text-xs text-[var(--color-on-surface-variant)] mb-6">
             <span className="relative flex h-1.5 w-1.5 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-60" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
             </span>
             Source: SendMoneyCompare · Data updated every 6 hours from live provider APIs
           </p>

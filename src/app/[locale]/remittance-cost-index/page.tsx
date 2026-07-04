@@ -293,7 +293,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     </div>
                   </div>
                   <span className={`text-xs text-right ${
-                    p.type === "bank" ? "text-orange-600" : "text-[var(--color-success-dark)]"
+                    p.type === "bank" ? "text-orange-600" : "text-green-600"
                   }`}>
                     {p.type === "bank" ? "Bank" : "Specialist"}
                   </span>
@@ -304,7 +304,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     {p.avgMarkup.toFixed(2)}%
                   </span>
                   <span className={`text-sm font-semibold text-right tabular-nums ${
-                    p.totalCost < 15 ? "text-[var(--color-success-dark)]" : p.totalCost < 30 ? "text-[var(--color-on-surface)]" : "text-orange-600"
+                    p.totalCost < 15 ? "text-green-600" : p.totalCost < 30 ? "text-[var(--color-on-surface)]" : "text-orange-600"
                   }`}>
                     ${p.totalCost.toFixed(2)}
                   </span>
@@ -352,7 +352,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     <div className="bg-[var(--color-surface-dim)] rounded-lg px-2 py-2">
                       <div className="text-2xs text-[var(--color-on-surface-variant)]">Total</div>
                       <div className={`text-sm font-bold ${
-                        p.totalCost < 15 ? "text-[var(--color-success-dark)]" : p.totalCost < 30 ? "text-[var(--color-on-surface)]" : "text-orange-600"
+                        p.totalCost < 15 ? "text-green-600" : p.totalCost < 30 ? "text-[var(--color-on-surface)]" : "text-orange-600"
                       }`}>
                         ${p.totalCost.toFixed(2)}
                       </div>
@@ -380,8 +380,8 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               {/* Specialists card */}
               <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 shadow-[var(--shadow-sm)]">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[var(--color-success-surface)] flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[var(--color-success-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
@@ -405,7 +405,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-[var(--color-outline)]">
                     <span className="text-sm font-semibold text-[var(--color-on-surface)]">Total cost per $1,000</span>
-                    <span className="text-lg font-bold text-[var(--color-success-dark)] tabular-nums">
+                    <span className="text-lg font-bold text-green-600 tabular-nums">
                       ${avgSpecialistCost.toFixed(2)}
                     </span>
                   </div>
@@ -487,7 +487,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                     <span className="text-2sm text-[var(--color-primary)] font-medium">
                       {c.cheapestProvider}
                     </span>
-                    <span className="text-sm font-semibold text-[var(--color-success-dark)] sm:text-right tabular-nums">
+                    <span className="text-sm font-semibold text-green-600 sm:text-right tabular-nums">
                       ${c.cheapestCost.toFixed(2)}
                     </span>
                     <span className="text-2sm text-[var(--color-on-surface-variant)] sm:text-right">

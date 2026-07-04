@@ -255,8 +255,8 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
           <p className="text-xs text-[var(--color-on-surface-variant)] mt-3 max-w-2xl">
             <span className="inline-flex items-center gap-1.5">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-70" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-70" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
               </span>
               Rates updated every 6 hours · Compared across {providers.length} providers · Independent editorial reviews
             </span>

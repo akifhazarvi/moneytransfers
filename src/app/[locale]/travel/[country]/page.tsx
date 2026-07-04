@@ -411,7 +411,7 @@ export default async function TravelCountryPage({ params }: Props) {
                 <ul className="space-y-3">
                   {guide.culture.dos.map((d, i) => (
                     <li key={i} className="text-2sm text-[var(--color-on-surface-variant)] flex gap-2">
-                      <span className="text-[var(--color-success-dark)] font-bold shrink-0">✓</span>
+                      <span className="text-green-600 font-bold shrink-0">✓</span>
                       <span>{d}</span>
                     </li>
                   ))}
