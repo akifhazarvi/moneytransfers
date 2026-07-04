@@ -188,6 +188,17 @@ function generateUrls(): string[] {
   for (const slug of guideSlugs) {
     urls.push(`${SITE_URL}/guides/${slug}`);
   }
+  // Dedicated data-story guide routes — these are standalone /guides/* pages
+  // (their own page.tsx), NOT entries in the blog-*.ts editorial files, so the
+  // getEditorialSlugs() sweep above misses them. List them explicitly or they
+  // never get pinged. Keep in sync with src/app/[locale]/guides/*/page.tsx.
+  for (const slug of [
+    "bank-vs-app-transfer-cost-2026",
+    "best-apps-to-send-money-from-us-2026",
+    "gbp-forecast-2026",
+  ]) {
+    urls.push(`${SITE_URL}/guides/${slug}`);
+  }
 
   // 1d. Bank international-transfer-cost pages — live data, refresh every scrape
   urls.push(`${SITE_URL}/banks`);
