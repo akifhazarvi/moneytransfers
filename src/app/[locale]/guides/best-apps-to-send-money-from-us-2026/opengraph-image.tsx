@@ -80,8 +80,8 @@ export default async function Image() {
               gap: 6,
             }}
           >
-            <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#D6A85C", display: "flex" }} />
-            <span style={{ fontSize: 13, color: "#E2BD79", fontWeight: 600, display: "flex" }}>
+            <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#8B72FF", display: "flex" }} />
+            <span style={{ fontSize: 13, color: "#A38EFF", fontWeight: 600, display: "flex" }}>
               Live data · Updated every 6h
             </span>
           </div>
