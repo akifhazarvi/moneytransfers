@@ -2958,5 +2958,64 @@
         "receiveAmount": 7521.44
       }
     }
+  },
+  {
+    "date": "2026-07-05",
+    "providers": {
+      "moneygram": {
+        "rate": 74.9075,
+        "fee": 1.99,
+        "markup": 2.1,
+        "receiveAmount": 7341.68
+      },
+      "skrill": {
+        "rate": 75.4863,
+        "fee": 0,
+        "markup": 1.34,
+        "receiveAmount": 7548.63
+      },
+      "western-union": {
+        "rate": 75.1638,
+        "fee": 2.99,
+        "markup": 1.76,
+        "receiveAmount": 7291.64
+      },
+      "dahabshiil": {
+        "rate": 76.1903,
+        "fee": 1.5,
+        "markup": 0.42,
+        "receiveAmount": 7504.74
+      },
+      "currencyfair": {
+        "rate": 76.04,
+        "fee": 1.05,
+        "markup": 0.62,
+        "receiveAmount": 7524.16
+      },
+      "postfinance": {
+        "rate": 73.1689,
+        "fee": 18.06,
+        "markup": 4.37,
+        "receiveAmount": 5995.34
+      },
+      "paysend": {
+        "rate": 76.0129,
+        "fee": 2.9,
+        "markup": 0.65,
+        "receiveAmount": 7380.85
+      },
+      "revolut": {
+        "rate": 76.0824,
+        "fee": 2.4,
+        "markup": 0.56,
+        "receiveAmount": 7425.64
+      },
+      "wise": {
+        "rate": 76.5541,
+        "fee": 1.75,
+        "markup": -0.05,
+        "receiveAmount": 7521.44
+      }
+    }
   }
 ]
