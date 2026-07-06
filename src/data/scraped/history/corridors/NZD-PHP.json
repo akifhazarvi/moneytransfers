@@ -7272,5 +7272,82 @@
         "receiveAmount": 3418.07
       }
     }
+  },
+  {
+    "date": "2026-07-06",
+    "providers": {
+      "moneygram": {
+        "rate": 33.8245,
+        "fee": 4.99,
+        "markup": 3.39,
+        "receiveAmount": 3213.67
+      },
+      "western-union": {
+        "rate": 34.5482,
+        "fee": 2.2,
+        "markup": 1.32,
+        "receiveAmount": 3378.81
+      },
+      "xe": {
+        "rate": 34.7399,
+        "fee": 5,
+        "markup": 0.78,
+        "receiveAmount": 3300.29
+      },
+      "remitly": {
+        "rate": 34.5505,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 3386.3
+      },
+      "revolut": {
+        "rate": 34.8279,
+        "fee": 1.2,
+        "markup": 0.52,
+        "receiveAmount": 3441
+      },
+      "wise": {
+        "rate": 35.0869,
+        "fee": 1.7,
+        "markup": null,
+        "receiveAmount": 3449.04
+      },
+      "ria": {
+        "rate": 34.1976,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3419.76
+      },
+      "kiwibank": {
+        "rate": 34.2155,
+        "fee": 20,
+        "markup": null,
+        "receiveAmount": 2737.24
+      },
+      "bank-of-new-zealand-nz": {
+        "rate": 34.4624,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3446.24
+      },
+      "auckland-savings-bank-nz": {
+        "rate": 34.4072,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 3268.68
+      },
+      "paypal": {
+        "rate": 33.4013,
+        "fee": 6.99,
+        "markup": null,
+        "receiveAmount": 3106.65
+      },
+      "westpac-nz": {
+        "rate": 34.1807,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 3418.07
+      }
+    }
   }
 ]

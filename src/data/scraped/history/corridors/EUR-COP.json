@@ -5616,5 +5616,82 @@
         "receiveAmount": 365805.24
       }
     }
+  },
+  {
+    "date": "2026-07-06",
+    "providers": {
+      "moneygram": {
+        "rate": 3777.9988,
+        "fee": 0.99,
+        "markup": 1.1,
+        "receiveAmount": 374059.66
+      },
+      "taptap-send": {
+        "rate": 3850,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 385000
+      },
+      "western-union": {
+        "rate": 3741.6016,
+        "fee": 0.99,
+        "markup": 2.05,
+        "receiveAmount": 370455.98
+      },
+      "dahabshiil": {
+        "rate": 3755.1965,
+        "fee": 0,
+        "markup": 1.7,
+        "receiveAmount": 375519.65
+      },
+      "worldremit": {
+        "rate": 3704.4131,
+        "fee": 2.99,
+        "markup": 3.02,
+        "receiveAmount": 359365.11
+      },
+      "instarem": {
+        "rate": 3824.1215,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 382412.15
+      },
+      "xe": {
+        "rate": 3764.1825,
+        "fee": 4,
+        "markup": 1.46,
+        "receiveAmount": 361361.52
+      },
+      "paysend": {
+        "rate": 3777.2079,
+        "fee": 0,
+        "markup": 1.12,
+        "receiveAmount": 377720.79
+      },
+      "remitly": {
+        "rate": 3769.3478,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 373203.12
+      },
+      "revolut": {
+        "rate": 3763.695,
+        "fee": 1,
+        "markup": 1.47,
+        "receiveAmount": 372605.81
+      },
+      "wise": {
+        "rate": 3848.21,
+        "fee": 4.53,
+        "markup": null,
+        "receiveAmount": 367388.61
+      },
+      "xoom": {
+        "rate": 3770.7993,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 365805.24
+      }
+    }
   }
 ]
