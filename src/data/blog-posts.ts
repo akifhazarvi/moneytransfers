@@ -283,7 +283,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-to-send-money-abroad",
-    title: "How to Send Money Internationally (2026) — 5 Methods Ranked",
+    title: "How to Send Money Abroad: 5 Methods Ranked (2026)",
     metaDescription:
       "We ranked 5 ways to send money abroad by total cost: bank wires ($25–$50), digital apps (under $5), PayPal (3–4% hidden), crypto, and cash. Step-by-step.",
     excerpt:
@@ -430,7 +430,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "exchange-rate-markup-explained",
-    title: "Exchange Rate Markup Explained: How to Spot the Hidden Fee",
+    title: "Exchange Rate Markup Explained: Spot Hidden Fees",
     metaDescription:
       "Exchange rate markups are the hidden profit in every transfer. Learn to spot them, calculate the true cost, and find providers with near-zero markup.",
     excerpt:
@@ -1173,7 +1173,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "wise-vs-remitly-comparison",
-    title: "Wise vs Remitly 2026: Which Is Cheaper? 80+ Corridors",
+    title: "Wise vs Remitly 2026: Which Is Cheaper?",
     metaDescription:
       "Remitly has lower fees but Wise has a 0% rate markup. We tested both across 80+ corridors — the winner depends on your amount and destination.",
     excerpt:
@@ -1288,7 +1288,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-india-guide",
-    title: "Best Ways to Send Money to India 2026: Cheapest Providers",
+    title: "Best Ways to Send Money to India (2026)",
     metaDescription:
       "Compare the cheapest ways to send money to India in 2026. Real INR rates from 10+ providers — UPI, IMPS, bank deposit. USD, GBP, EUR, and AUD corridors.",
     excerpt:
@@ -2339,7 +2339,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-services",
-    title: "8 Best Money Transfer Services 2026 — Ranked by Real Cost",
+    title: "Best Money Transfer Services 2026: Ranked by Cost",
     metaDescription:
       "The 8 best money transfer services in 2026 compared. Fees from $0, rates tested on real transfers across 80+ corridors. Find your best fit fast.",
     excerpt:
@@ -3458,7 +3458,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "multi-currency-accounts-exchange-rates",
-    title: "Multi-Currency Accounts: Xe vs Wise vs Revolut (2026)",
+    title: "Multi-Currency Accounts: Xe vs Wise vs Revolut",
     metaDescription:
       "Compare multi-currency accounts from Xe, Wise, and Revolut. Learn how to hold, convert, and lock in the best exchange rates to save on transfers in 2026.",
     excerpt:
@@ -3655,7 +3655,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-philippines-guide",
-    title: "Send Money to the Philippines: Cheapest Ways in 2026",
+    title: "Send Money to the Philippines: Cheapest Ways 2026",
     metaDescription:
       "Compare the cheapest ways to send money to the Philippines. Real PHP rates from 10+ providers — GCash, bank deposit, and cash pickup options. Updated 2026.",
     excerpt:
@@ -4021,7 +4021,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-mexico-guide",
-    title: "Cheapest Way to Send Money to Mexico: 7 Providers (2026)",
+    title: "Cheapest Way to Send Money to Mexico (2026)",
     metaDescription:
       "Find the cheapest online money transfer to Mexico. Real MXN rates from 10+ providers — SPEI instant deposits, OXXO cash pickup, and bank transfer.",
     excerpt:
@@ -4404,7 +4404,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-nigeria-guide",
-    title: "Cheapest Way to Send Money to Nigeria: NGN Rates (2026)",
+    title: "Cheapest Way to Send Money to Nigeria (2026)",
     metaDescription:
       "Compare the cheapest ways to send money to Nigeria. Real USD to NGN rates from 10+ providers. Bank deposit, cash pickup, and mobile wallets compared.",
     excerpt:
@@ -4734,7 +4734,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-uk-to-india-guide",
-    title: "Send Money from UK to India: Best Ways & Rates in 2026",
+    title: "Send Money from UK to India: Best Ways 2026",
     metaDescription:
       "Compare the cheapest ways to send money from the UK to India. Real GBP to INR rates from 10+ providers — bank, UPI, and cash pickup options compared.",
     excerpt:
@@ -8026,7 +8026,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "revolut-us-banking-license-2026",
-    title: "Revolut US Banking License 2026: What Changes for You",
+    title: "Revolut US Banking License 2026: What It Means",
     metaDescription:
       "Revolut filed for a US banking license in March 2026. We break down what FDIC insurance, direct Fed access, and lending products mean for your transfers.",
     excerpt:
@@ -13224,7 +13224,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-uae-to-india-guide",
-    title: "Send Money from UAE to India: Best Ways in 2026 (AED to INR)",
+    title: "Send Money from UAE to India 2026 (AED to INR)",
     metaDescription:
       "Compare cheapest ways to send money from UAE to India. Real AED to INR rates from 10+ providers — bank deposit, UPI, and cash pickup options for NRIs.",
     excerpt:
@@ -13415,7 +13415,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-china-guide",
-    title: "How to Send Money to China from the USA 2026: Complete Guide",
+    title: "How to Send Money to China from the USA (2026)",
     metaDescription:
       "Compare cheapest ways to send money to China from the US. USD to CNY rates, Alipay & WeChat Pay delivery, SAFE capital controls, and provider costs.",
     excerpt:
@@ -14248,7 +14248,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "money-transfer-limits-by-provider-country",
-    title: "International Transfer Limits by Provider & Country (2026)",
+    title: "International Transfer Limits by Provider (2026)",
     metaDescription:
       "Guide to international money transfer limits in 2026. Per-transaction, daily, and annual limits for Wise, Remitly, Western Union, and 10+ providers.",
     excerpt:
@@ -15137,7 +15137,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "euro-forecast-2026",
-    title: "Euro Forecast 2026–2027: Will EUR Rise Against the Dollar?",
+    title: "Euro Forecast 2026–2027: EUR vs US Dollar",
     metaDescription:
       "Expert euro forecast for 2026–2027 with ECB rate data, major bank predictions from Goldman, Deutsche Bank, ING, JPMorgan, and what it means for transfers.",
     excerpt:
@@ -15380,7 +15380,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "revolut-foreign-transaction-fees-2026",
-    title: "Revolut Foreign Transaction Fees Explained (2026 Guide)",
+    title: "Revolut Foreign Transaction Fees Explained (2026)",
     metaDescription:
       "Complete guide to Revolut foreign transaction fees in 2026. Weekday vs weekend markups, FX limits by plan, card fees abroad, and how to avoid hidden costs.",
     excerpt:
@@ -16120,7 +16120,7 @@ export const blogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-to-send-money-from-china",
-    title: "How to Send Money from China (CNY) Abroad 2026: Expat Guide",
+    title: "How to Send Money from China (CNY) Abroad 2026",
     metaDescription:
       "Sending money from China in 2026? Compare SkyRemit, Wise, UnionPay, and WeChat Pay for CNY remittances. SAFE $50,000 quota, documents, and costs.",
     excerpt:

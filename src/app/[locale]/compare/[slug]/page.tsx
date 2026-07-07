@@ -88,7 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // description shape as paysend-vs-xoom, the page Google validated. Per-slug
   // custom titles and editorial article meta were removed when the category
   // was unified on the auto-generated template.
-  const title = `${a.name} vs ${b.name} ${year}: Fees, Rates & Which Sends More Money`;
+  const title = `${a.name} vs ${b.name} — Fees & Rates (${year})`;
   const desc = `Compare ${a.name} vs ${b.name} fees, exchange rates, and delivery speed. We tested real transfers across 6 corridors — see which provider delivers more to your recipient in ${year}.`;
 
   // Comparison pages emit a canonical pointing at the editorial/GSC-winning
