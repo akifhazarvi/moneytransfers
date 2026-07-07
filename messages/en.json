@@ -306,7 +306,7 @@
     "compareWith": "Compare with"
   },
   "compare": {
-    "metaTitle": "Compare Money Transfer Companies & Apps 2026 — Wise, Remitly & 30+",
+    "metaTitle": "Compare Money Transfer Companies & Apps (2026)",
     "metaDescription": "Compare money transfer companies and apps side-by-side — Wise, Remitly, Western Union, OFX & 30+ more. Pick any two, see who pays your recipient more. Live rates every 6 hours, no affiliate bias.",
     "metaKeywords": "compare money transfer rates, compare money transfer, compare remittance rates, money transfer comparison, cheapest money transfer, compare money transfer rates 2026, best money transfer rate, international money transfer fees, exchange rate comparison",
     "title": "Compare Money Transfer Rates",
@@ -421,7 +421,7 @@
     "source": "Source:"
   },
   "sendMoney": {
-    "indexMetaTitle": "Send Money Abroad — Compare 50+ Apps & Find the Cheapest (2026)",
+    "indexMetaTitle": "Send Money Abroad — Compare 50+ Apps (2026)",
     "indexMetaDescription": "Compare live exchange rates, fees, and delivery times from 50+ apps. Updated every 6 hours with real quotes. Find who delivers the most money to your recipient.",
     "heading": "Compare Money Transfer Providers",
     "subheading": "Compare exchange rates, fees, and delivery times from {count}+ providers to find the cheapest way to send money abroad.",
@@ -474,7 +474,7 @@
     "fallbackKeywordsCorridor": "send money {fromCountry} to {toCountry}, {from} to {to}, cheapest way to send money to {toCountry}, best way to send money from {fromCountry} to {toCountry}, money transfer {toCountry}, {toCurrency} exchange rate"
   },
   "currencyConverter": {
-    "metaTitle": "Exchange Rate Markup Checker — See What Your Bank Really Charges (2026)",
+    "metaTitle": "Currency Converter & Markup Checker (2026)",
     "metaDescription": "Banks hide a 2–4% markup inside the exchange rate. Check the live mid-market rate, then see what Wise, Remitly & 50+ apps actually charge. Spot the hidden fee before you transfer.",
     "title": "Exchange Rate Markup Checker",
     "liveExchangeRates": "Live exchange rates",
@@ -554,7 +554,7 @@
     "accountNumber": "Account number",
     "sepaCountry": "SEPA country",
     "characters": "characters",
-    "fallbackTitle": "{name} IBAN: {length}-Character Format, Example & Bank Code",
+    "fallbackTitle": "{name} IBAN: {length}-Char Format + Example ({year})",
     "fallbackDescriptionWithBanksSepa": "{name} IBANs are {length} characters and start with {code}. See the {name} IBAN format, example, BBAN structure, and codes for {bankCount}+ banks. SEPA member — fast EUR transfers.",
     "fallbackDescriptionWithBanksNonSepa": "{name} IBANs are {length} characters and start with {code}. See the {name} IBAN format, example, BBAN structure, and codes for {bankCount}+ banks. Used for {currency} transfers.",
     "fallbackDescriptionNoBanksSepa": "{name} IBANs are {length} characters and start with {code}. See the {name} IBAN format, example, and BBAN structure. SEPA member — fast EUR transfers.",
@@ -566,7 +566,7 @@
   },
   "swiftCodes": {
     "heading": "<highlight>SWIFT/BIC</highlight> code lookup by country",
-    "metaTitle": "SWIFT/BIC Code Lookup — 11,000+ Banks in 100+ Countries (2026)",
+    "metaTitle": "SWIFT/BIC Code Lookup — 11,000+ Banks (2026)",
     "metaDescription": "Free SWIFT/BIC code finder for 11,000+ banks in 100+ countries. Search by bank name or country — verified codes with branch details. Find the exact code you need for international wire transfers.",
     "metaKeywords": "SWIFT code, BIC code, SWIFT code lookup, bank SWIFT code, bank identifier code, international wire transfer, SWIFT/BIC finder, what is SWIFT code, find SWIFT code",
     "title": "SWIFT/BIC codes",
@@ -619,7 +619,7 @@
     "compareProviders": "Compare providers",
     "home": "Home",
     "swiftCodesLabel": "SWIFT Codes",
-    "fallbackTitle": "{name} SWIFT/BIC Codes — All {bankCount} Banks ({year})",
+    "fallbackTitle": "{name} SWIFT/BIC Codes ({year})",
     "fallbackDescription": "Find SWIFT/BIC codes for all {bankCount} banks in {name}. Free lookup with branch codes, city, and address — verified for international wire transfers to {name}.",
     "fallbackKeywords": "{name} SWIFT code, {name} BIC code, {code} SWIFT, banks in {name}, wire transfer {name}, bank swift code {name}, swift code for {name} banks",
     "fallbackOgTitle": "{name} SWIFT/BIC Codes — All {bankCount} Banks",

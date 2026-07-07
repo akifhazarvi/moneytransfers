@@ -1294,7 +1294,7 @@ export const newsItems: NewsItem[] = [
   {
     slug: "wise-nasdaq-dual-listing-may-2026",
     title:
-      "Wise Nasdaq Listing May 11, 2026: What the Dual-Listing Means for Your Transfers",
+      "Wise Nasdaq Dual-Listing (May 2026): What It Means",
     excerpt:
       "Wise confirms primary listing switch to Nasdaq on May 11, 2026 after moving £181.7B in FY26 for 18.9M customers. What changes for senders, and how it reshapes the Wise vs Revolut race.",
     image: "/images/news/wise-nasdaq-listing.svg",

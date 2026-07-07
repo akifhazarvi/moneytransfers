@@ -306,13 +306,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // (the SERP truncation point) so the highest-CTR phrase stays visible.
     // The richer detail after the cut still feeds AI/Bing snippet selection.
     "usd-to-brl": {
-      title: `1 USD to BRL Today — Live Dollar to Real Rate + Best Transfer Providers (${month} ${year})`,
+      title: `USD to BRL Today: Live Dollar to Real Rate (${year})`,
       description: `How much is 1 USD in Brazilian Real today? Find the cheapest USD→BRL transfer in seconds — live mid-market rate updated every 60s, plus the real reais Wise, Remitly, Xoom & 10+ providers deliver after markup.`,
       ogTitle: `1 USD to BRL Today — Live Dollar to Real Rate (${month} ${year})`,
       ogDesc: `Live USD to Brazilian Real rate + what 10+ providers actually pay. See who delivers the most reais per dollar today, plus PIX delivery options.`,
     },
     "gbp-to-eur": {
-      title: `GBP to EUR Today — How Much Is £1,000 in Euros? Live Rate + Best UK→Europe Providers (${month} ${year})`,
+      title: `GBP to EUR Today — How Much Is £1,000 in Euros?`,
       description: `How much is £1,000 in euros today? Compare the cheapest UK→Europe transfers — live GBP/EUR rate updated every 60s, plus what Wise, Revolut & 10+ providers actually deliver after FX markup.`,
       ogTitle: `GBP to EUR Today — Live Pound to Euro Rate + Cheapest UK→EU Providers`,
       ogDesc: `Live GBP/EUR mid-market rate + what UK-to-Europe transfer providers actually offer. Skip the 3% bank markup — see who gives you the most euros per pound.`,
@@ -320,7 +320,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 
   const override = pairOverrides[pair];
-  const title = override?.title ?? `${p.from} to ${p.to} Exchange Rate Today — Live ${p.fromName} to ${p.toName} (${year})`;
+  const title = override?.title ?? `Live ${p.from} to ${p.to} Exchange Rate Today (${year})`;
   const description = override?.description ?? `Live ${p.from}/${p.to} exchange rate updated every 60 seconds. Compare what ${providers.length}+ transfer providers actually offer vs. the mid-market rate — most add a 0.5–4% hidden markup. Find who gives you the most ${p.toName}.`;
 
   return {
