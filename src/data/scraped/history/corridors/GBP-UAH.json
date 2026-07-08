@@ -3153,5 +3153,64 @@
         "receiveAmount": 5810
       }
     }
+  },
+  {
+    "date": "2026-07-08",
+    "providers": {
+      "moneygram": {
+        "rate": 58.8494,
+        "fee": 0.99,
+        "markup": 0.9,
+        "receiveAmount": 5826.68
+      },
+      "skrill": {
+        "rate": 58.1682,
+        "fee": 0,
+        "markup": 2.05,
+        "receiveAmount": 5816.82
+      },
+      "western-union": {
+        "rate": 58.6329,
+        "fee": 1.99,
+        "markup": 1.27,
+        "receiveAmount": 5746.61
+      },
+      "profee": {
+        "rate": 58.4379,
+        "fee": 1.1,
+        "markup": 1.59,
+        "receiveAmount": 5779.51
+      },
+      "transfergo": {
+        "rate": 58.2646,
+        "fee": 0,
+        "markup": 1.89,
+        "receiveAmount": 5826.46
+      },
+      "paysend": {
+        "rate": 59.4298,
+        "fee": 1,
+        "markup": -0.08,
+        "receiveAmount": 5883.55
+      },
+      "revolut": {
+        "rate": 58.8177,
+        "fee": 0,
+        "markup": 0.95,
+        "receiveAmount": 5881.77
+      },
+      "wise": {
+        "rate": 59.1025,
+        "fee": 1.52,
+        "markup": 0.47,
+        "receiveAmount": 5820.41
+      },
+      "taptap-send": {
+        "rate": 58.1,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5810
+      }
+    }
   }
 ]
