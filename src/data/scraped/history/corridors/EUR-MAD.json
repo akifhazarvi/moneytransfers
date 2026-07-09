@@ -7641,5 +7641,100 @@
         "receiveAmount": 1025.53
       }
     }
+  },
+  {
+    "date": "2026-07-09",
+    "providers": {
+      "lemfi": {
+        "rate": 10.65,
+        "fee": 0,
+        "markup": 0.72,
+        "receiveAmount": 1065
+      },
+      "moneygram": {
+        "rate": 10.5621,
+        "fee": 0.8,
+        "markup": 1.35,
+        "receiveAmount": 1047.76
+      },
+      "skrill": {
+        "rate": 10.3872,
+        "fee": 0,
+        "markup": 2.99,
+        "receiveAmount": 1038.72
+      },
+      "taptap-send": {
+        "rate": 10.57,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1057
+      },
+      "deutsche-bank": {
+        "rate": 10.4978,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 666.09
+      },
+      "western-union": {
+        "rate": 10.5621,
+        "fee": 0.99,
+        "markup": 1.35,
+        "receiveAmount": 1045.75
+      },
+      "dahabshiil": {
+        "rate": 10.5299,
+        "fee": 0,
+        "markup": 1.65,
+        "receiveAmount": 1052.99
+      },
+      "worldremit": {
+        "rate": 10.407,
+        "fee": 1.99,
+        "markup": 2.8,
+        "receiveAmount": 1019.99
+      },
+      "paysend": {
+        "rate": 10.6247,
+        "fee": 0,
+        "markup": 0.77,
+        "receiveAmount": 1062.47
+      },
+      "sendwave": {
+        "rate": 10.6069,
+        "fee": 1.99,
+        "markup": 0.93,
+        "receiveAmount": 1039.58
+      },
+      "remitly": {
+        "rate": 10.5367,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1048.51
+      },
+      "revolut": {
+        "rate": 10.5928,
+        "fee": 0.3,
+        "markup": 1.07,
+        "receiveAmount": 1056.11
+      },
+      "wise": {
+        "rate": 10.7277,
+        "fee": 6,
+        "markup": null,
+        "receiveAmount": 1008.4
+      },
+      "commerzbank": {
+        "rate": 10.3749,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 907.8
+      },
+      "xoom": {
+        "rate": 10.4104,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 1025.53
+      }
+    }
   }
 ]
