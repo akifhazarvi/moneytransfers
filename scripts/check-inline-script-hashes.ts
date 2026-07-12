@@ -12,6 +12,8 @@ import {
   GTAG_INLINE_SHA256,
   THEME_INLINE,
   THEME_INLINE_SHA256,
+  CLARITY_INLINE,
+  CLARITY_INLINE_SHA256,
 } from "../src/lib/inline-scripts";
 
 function sha256Base64(input: string): string {
@@ -21,6 +23,7 @@ function sha256Base64(input: string): string {
 const checks: { name: string; body: string; expected: string }[] = [
   { name: "GTAG_INLINE", body: GTAG_INLINE, expected: GTAG_INLINE_SHA256 },
   { name: "THEME_INLINE", body: THEME_INLINE, expected: THEME_INLINE_SHA256 },
+  { name: "CLARITY_INLINE", body: CLARITY_INLINE, expected: CLARITY_INLINE_SHA256 },
 ];
 
 let failed = false;

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { GTAG_INLINE, THEME_INLINE } from "@/lib/inline-scripts";
+import { GTAG_INLINE, THEME_INLINE, CLARITY_INLINE } from "@/lib/inline-scripts";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -247,6 +247,15 @@ export default async function LocaleLayout({ children, params }: Props) {
       <script
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: THEME_INLINE }}
+      />
+      {/* Microsoft Clarity (session recordings + heatmaps, project x2rwjue57c).
+          Its own async loader fetches the tag from www.clarity.ms after this
+          runs, so it never blocks paint. Same string is embedded in the /go +
+          /out interstitials so those redirect landing pages are recorded too.
+          Authorized by 'unsafe-inline' + clarity.ms hosts in middleware CSP. */}
+      <script
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: CLARITY_INLINE }}
       />
       <script
         type="application/ld+json"

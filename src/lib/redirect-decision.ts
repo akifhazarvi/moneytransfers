@@ -30,6 +30,7 @@ import type { TokenStatus } from "@/lib/click-token";
 import providerNamesData from "@/data/provider-names.json";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getGoUrl } from "@/lib/affiliate";
+import { CLARITY_INLINE } from "@/lib/inline-scripts";
 
 const providerNames = providerNamesData as Record<string, string>;
 
@@ -252,7 +253,8 @@ export function interstitialHtml(opts: {
     color:var(--best);background:var(--best-bg);padding:2px 8px;border-radius:9999px}
   .you{font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
     color:var(--ink-muted);background:var(--outline);padding:2px 8px;border-radius:9999px}
-</style></head>
+</style>
+<script>${CLARITY_INLINE}</script></head>
 <body><div class="card">
   <p class="brand"><span class="dot"></span>SendMoneyCompare</p>
   <h1>You're heading to ${safeName}</h1>

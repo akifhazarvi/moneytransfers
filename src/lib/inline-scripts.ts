@@ -84,7 +84,17 @@ export const GTAG_INLINE = `window.dataLayer=window.dataLayer||[];function gtag(
 
 export const THEME_INLINE = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`;
 
+// Microsoft Clarity — session recordings + heatmaps (project x2rwjue57c). The
+// stock async loader, verbatim, so the SHA-256 below stays stable. Clarity is a
+// behavioral tool, not an ad tag: it needs no consent 'default' wiring and fires
+// on every rendered HTML page (including the /go + /out interstitials, which
+// embed the SAME string). Requires clarity.ms in the middleware CSP script-src,
+// connect-src (beacon) and img-src (1x1 pixel). Editing this string breaks CSP —
+// regenerate CLARITY_INLINE_SHA256 (scripts/check-inline-script-hashes.ts).
+export const CLARITY_INLINE = `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x2rwjue57c");`;
+
 // SHA-256 hashes of the strings above, base64-encoded. Used by middleware
 // CSP. Verified by scripts/check-inline-script-hashes.ts at build time.
 export const GTAG_INLINE_SHA256 = "vFs8yu5/dujeSSGQ8vbhX1jCd1iZFizSLx6JM97qj8M=";
 export const THEME_INLINE_SHA256 = "O2lh+6ke8O9D5iLJMhLaeqDtYz9aD/Bxt91b6GnUyRI=";
+export const CLARITY_INLINE_SHA256 = "iFSmoMFj82SS8nkpxuxb66/9ZMn1PaeAyBLnSLnjI+o=";

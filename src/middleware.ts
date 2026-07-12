@@ -204,13 +204,17 @@ export default function middleware(request: NextRequest) {
     // *.googlesyndication.com. Without these, the CSP blocks the AdSense
     // bootstrap script and no ads render. adtrafficquality.google is
     // AdSense's SODAR ad-fraud/quality verifier that runs after ads load.
-    `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://*.adtrafficquality.google`,
+    // Microsoft Clarity (session recordings/heatmaps): the inline loader runs
+    // under 'unsafe-inline'; it injects an external tag script from
+    // www.clarity.ms (script-src) that beacons to *.clarity.ms (connect-src)
+    // and drops a 1x1 pixel (img-src). All three families are allowlisted.
+    `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://*.adtrafficquality.google https://www.clarity.ms https://*.clarity.ms`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.
     // See: https://csp.withgoogle.com/ and https://nextjs.org/docs/app/api-reference/config/next-config-js/headers#content-security-policy
     `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google`,
+    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google https://*.clarity.ms`,
     // GA4 routes EU/UK hits to region-specific collection endpoints
     // (region1.google-analytics.com etc) for data residency, NOT to
     // www.google-analytics.com. The narrow www-only allowlist silently
@@ -221,7 +225,7 @@ export default function middleware(request: NextRequest) {
     // by AdSense + GA RUM. Without it allowlisted the browser blocks the beacon
     // ("violates connect-src"), which disrupts measurement payloads — same
     // failure class as the UK/EU GA gap above, different host. Wildcard gstatic.
-    `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.gstatic.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google`,
+    `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.gstatic.com https://vitals.vercel-insights.com https://open.er-api.com https://cdn.jsdelivr.net https://www.floatrates.com https://latest.currency-api.pages.dev https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google https://*.clarity.ms`,
     `font-src 'self'`,
     `frame-src https://widget.trustpilot.com https://www.youtube-nocookie.com https://www.youtube.com https://*.googlesyndication.com https://*.g.doubleclick.net https://www.google.com https://*.adtrafficquality.google`,
     `object-src 'none'`,
