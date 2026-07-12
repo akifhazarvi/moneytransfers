@@ -44,8 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // standard SEO limits (title ≲60 chars, description ≲160 chars). The long
   // per-provider editorial titles/descriptions were retired when the category
   // was unified on the compact profile template.
-  const title = `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Fees, Pros & Cons`;
-  const description = `${provider.name} review ${year}: fees, exchange rates, speed and safety tested${tp?.score ? `. Rated ${tp.score.toFixed(1)}/5 on Trustpilot` : ""}. See if it's the cheapest way to send money.`;
+  const title = `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Cheaper Options on Your Route?`;
+  const description = `${provider.name}${tp?.score ? ` rated ★${tp.score.toFixed(1)}/5` : " reviewed"}: real fees and FX markup on a $1,000 transfer — plus the apps that beat it right now for your corridor. Free, no signup.`;
   return {
     title,
     description,
