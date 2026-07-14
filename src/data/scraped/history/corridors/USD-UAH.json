@@ -2055,5 +2055,40 @@
         "receiveAmount": 4410
       }
     }
+  },
+  {
+    "date": "2026-07-14",
+    "providers": {
+      "moneygram": {
+        "rate": 43.5152,
+        "fee": 1.99,
+        "markup": 2.92,
+        "receiveAmount": 4264.92
+      },
+      "western-union": {
+        "rate": 43.6694,
+        "fee": 11,
+        "markup": 2.57,
+        "receiveAmount": 3886.58
+      },
+      "paysend": {
+        "rate": 44.5845,
+        "fee": 1.99,
+        "markup": 0.53,
+        "receiveAmount": 4369.73
+      },
+      "wise": {
+        "rate": 44.54,
+        "fee": 7.94,
+        "markup": 0.63,
+        "receiveAmount": 4100.35
+      },
+      "taptap-send": {
+        "rate": 44.1,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4410
+      }
+    }
   }
 ]
