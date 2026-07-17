@@ -7,12 +7,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 500,
     "fee": 3.99,
-    "exchangeRate": 17.74,
-    "receiveAmount": 8799.22,
+    "exchangeRate": 17.79,
+    "receiveAmount": 8824.02,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-07-16T05:41:31.154Z",
+    "dateCollected": "2026-07-17T05:43:23.118Z",
     "source": "compareremit"
   },
   {
@@ -23,12 +23,12 @@
     "receiveCurrency": "MXN",
     "sendAmount": 1000,
     "fee": 0,
-    "exchangeRate": 17.74,
-    "receiveAmount": 17740,
+    "exchangeRate": 17.79,
+    "receiveAmount": 17790,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-07-16T05:41:31.154Z",
+    "dateCollected": "2026-07-17T05:43:23.119Z",
     "source": "compareremit"
   },
   {
@@ -44,7 +44,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-07-16T05:41:36.103Z",
+    "dateCollected": "2026-07-17T05:43:27.493Z",
     "source": "compareremit"
   },
   {
@@ -60,7 +60,7 @@
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-07-16T05:41:36.103Z",
+    "dateCollected": "2026-07-17T05:43:27.493Z",
     "source": "compareremit"
   },
   {
@@ -71,12 +71,12 @@
     "receiveCurrency": "BDT",
     "sendAmount": 500,
     "fee": 3.99,
-    "exchangeRate": 123.03,
-    "receiveAmount": 61024.11,
+    "exchangeRate": 123.09,
+    "receiveAmount": 61053.87,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-07-16T05:41:36.104Z",
+    "dateCollected": "2026-07-17T05:43:27.493Z",
     "source": "compareremit"
   },
   {
@@ -87,12 +87,44 @@
     "receiveCurrency": "BDT",
     "sendAmount": 1000,
     "fee": 0,
-    "exchangeRate": 123.03,
-    "receiveAmount": 123030,
+    "exchangeRate": 123.09,
+    "receiveAmount": 123090,
     "paymentMethod": null,
     "deliveryMethod": null,
     "deliveryEstimate": null,
-    "dateCollected": "2026-07-16T05:41:41.126Z",
+    "dateCollected": "2026-07-17T05:43:31.791Z",
+    "source": "compareremit"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PKR",
+    "sendAmount": 500,
+    "fee": 0,
+    "exchangeRate": 377.1,
+    "receiveAmount": 188550,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-07-17T05:43:36.508Z",
+    "source": "compareremit"
+  },
+  {
+    "provider": "Remitly",
+    "providerSlug": "remitly",
+    "providerType": "moneyTransferProvider",
+    "sendCurrency": "GBP",
+    "receiveCurrency": "PKR",
+    "sendAmount": 1000,
+    "fee": 0,
+    "exchangeRate": 377.1,
+    "receiveAmount": 377100,
+    "paymentMethod": null,
+    "deliveryMethod": null,
+    "deliveryEstimate": null,
+    "dateCollected": "2026-07-17T05:43:36.508Z",
     "source": "compareremit"
   }
 ]
