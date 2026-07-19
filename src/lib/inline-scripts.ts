@@ -84,6 +84,35 @@ export const GTAG_INLINE = `window.dataLayer=window.dataLayer||[];function gtag(
 
 export const THEME_INLINE = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`;
 
+// Interstitial Continue-click tracker (injected ONLY into the /go + /out
+// interstitial HTML, not the app). The interstitial is standalone HTML with no
+// gtag, so a real click on Continue (or a cross-sell row) is beaconed to
+// /api/track/continue, which relays `interstitial_continue` to GA4. This is the
+// clean "genuine human proceeded to a provider" conversion — distinct from the
+// raw affiliate_redirect count, which fires on every hit incl. bots/gated.
+//
+// It reads provider/from/to/src/ai_src/cid off the clicked link's URL and off
+// the page's own /go URL so attribution matches the redirect. sendBeacon is
+// fire-and-forget and survives the navigation, so it never delays the click.
+// Same-origin POST → allowed by connect-src 'self'. No hash needed:
+// script-src includes 'unsafe-inline'.
+export const CONTINUE_INLINE = `(function(){
+  function param(u,k){try{return new URL(u,location.href).searchParams.get(k)||''}catch(e){return''}}
+  function cid(){try{var m=document.cookie.match(/_ga=([^;]+)/);if(m){var p=m[1].split('.');if(p.length>=4)return p[2]+'.'+p[3]}}catch(e){}return''}
+  function beacon(href){
+    try{
+      var q='provider='+encodeURIComponent(param(href,'provider')||(href.match(/\\/(?:go|out)\\/([^/?#]+)/)||[])[1]||'');
+      ['from','to','src','ai_src'].forEach(function(k){var v=param(href,k);if(v)q+='&'+k+'='+encodeURIComponent(v)});
+      var c=param(href,'cid')||cid();if(c)q+='&cid='+encodeURIComponent(c);
+      navigator.sendBeacon('/api/track/continue?'+q);
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a.btn,a.row'):null;
+    if(a&&a.getAttribute('href'))beacon(a.getAttribute('href'));
+  },true);
+})();`;
+
 // Microsoft Clarity — session recordings + heatmaps (project x2rwjue57c). The
 // stock async loader, verbatim, so the SHA-256 below stays stable. Clarity is a
 // behavioral tool, not an ad tag: it needs no consent 'default' wiring and fires
