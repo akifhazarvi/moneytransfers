@@ -31,7 +31,7 @@ import type { TokenStatus } from "@/lib/click-token";
 import providerNamesData from "@/data/provider-names.json";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getGoUrl } from "@/lib/affiliate";
-import { CLARITY_INLINE } from "@/lib/inline-scripts";
+import { CLARITY_INLINE, CONTINUE_INLINE } from "@/lib/inline-scripts";
 
 const providerNames = providerNamesData as Record<string, string>;
 
@@ -336,7 +336,8 @@ export function interstitialHtml(opts: {
   .trust span{display:flex;align-items:center;gap:6px}
   .trust svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
 </style>
-<script>${CLARITY_INLINE}</script></head>
+<script>${CLARITY_INLINE}</script>
+<script>${CONTINUE_INLINE}</script></head>
 <body>
 <div class="wrap">
   <div class="topbar">
