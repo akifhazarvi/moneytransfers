@@ -4167,5 +4167,52 @@
         "receiveAmount": 1111.73
       }
     }
+  },
+  {
+    "date": "2026-07-31",
+    "providers": {
+      "moneygram": {
+        "rate": 12.0289,
+        "fee": 8,
+        "markup": 1.05,
+        "receiveAmount": 1106.66
+      },
+      "skrill": {
+        "rate": 11.8613,
+        "fee": 0,
+        "markup": 2.43,
+        "receiveAmount": 1186.13
+      },
+      "xe": {
+        "rate": 11.9819,
+        "fee": 30,
+        "markup": 1.44,
+        "receiveAmount": 838.73
+      },
+      "western-union": {
+        "rate": 12.1049,
+        "fee": 5,
+        "markup": 0.42,
+        "receiveAmount": 1149.97
+      },
+      "currencyfair": {
+        "rate": 12.066,
+        "fee": 9.95,
+        "markup": 0.74,
+        "receiveAmount": 1086.54
+      },
+      "instarem": {
+        "rate": 12.1622,
+        "fee": 0.8,
+        "markup": null,
+        "receiveAmount": 1206.49
+      },
+      "wise": {
+        "rate": 12.1355,
+        "fee": 8.39,
+        "markup": null,
+        "receiveAmount": 1111.73
+      }
+    }
   }
 ]
