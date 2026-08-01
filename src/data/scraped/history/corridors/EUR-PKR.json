@@ -11122,5 +11122,94 @@
         "receiveAmount": 31209.48
       }
     }
+  },
+  {
+    "date": "2026-08-01",
+    "providers": {
+      "moneygram": {
+        "rate": 319.0485,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31588.99
+      },
+      "taptap-send": {
+        "rate": 318,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31485.18
+      },
+      "deutsche-bank": {
+        "rate": 315.6506,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 20028.03
+      },
+      "western-union": {
+        "rate": 320.2737,
+        "fee": 0.99,
+        "markup": -0.33,
+        "receiveAmount": 31710.29
+      },
+      "dahabshiil": {
+        "rate": 320.9694,
+        "fee": 1.99,
+        "markup": -0.55,
+        "receiveAmount": 31458.21
+      },
+      "profee": {
+        "rate": 317.3089,
+        "fee": 1.2,
+        "markup": 0.6,
+        "receiveAmount": 31350.12
+      },
+      "worldremit": {
+        "rate": 317.0872,
+        "fee": 2.99,
+        "markup": 0.67,
+        "receiveAmount": 30760.63
+      },
+      "instarem": {
+        "rate": 316.3909,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31639.09
+      },
+      "paysend": {
+        "rate": 317.4253,
+        "fee": 0,
+        "markup": 0.56,
+        "receiveAmount": 31742.53
+      },
+      "sendwave": {
+        "rate": 319.6495,
+        "fee": 1.99,
+        "markup": -0.13,
+        "receiveAmount": 31328.85
+      },
+      "remitly": {
+        "rate": 316.1877,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31305.74
+      },
+      "revolut": {
+        "rate": 318.575,
+        "fee": 2.75,
+        "markup": 0.2,
+        "receiveAmount": 30981.42
+      },
+      "xoom": {
+        "rate": 310.7913,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31079.13
+      },
+      "wise": {
+        "rate": 318.107,
+        "fee": 1.89,
+        "markup": null,
+        "receiveAmount": 31209.48
+      }
+    }
   }
 ]
