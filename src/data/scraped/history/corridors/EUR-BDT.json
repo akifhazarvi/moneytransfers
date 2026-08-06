@@ -9318,5 +9318,94 @@
         "receiveAmount": 13348.47
       }
     }
+  },
+  {
+    "date": "2026-08-06",
+    "providers": {
+      "lemfi": {
+        "rate": 141.25,
+        "fee": 1.49,
+        "markup": -0.41,
+        "receiveAmount": 13914.54
+      },
+      "moneygram": {
+        "rate": 140.1105,
+        "fee": 1.99,
+        "markup": 1.83,
+        "receiveAmount": 13732.23
+      },
+      "taptap-send": {
+        "rate": 140.48,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14048
+      },
+      "western-union": {
+        "rate": 141.2064,
+        "fee": 0.99,
+        "markup": 1.06,
+        "receiveAmount": 13980.85
+      },
+      "dahabshiil": {
+        "rate": 141.1025,
+        "fee": 1.99,
+        "markup": 1.14,
+        "receiveAmount": 13829.46
+      },
+      "worldremit": {
+        "rate": 142.3611,
+        "fee": 3.99,
+        "markup": 0.25,
+        "receiveAmount": 13668.09
+      },
+      "instarem": {
+        "rate": 140.0034,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14000.34
+      },
+      "paysend": {
+        "rate": 141.9692,
+        "fee": 0,
+        "markup": 0.53,
+        "receiveAmount": 14196.92
+      },
+      "sendwave": {
+        "rate": 142.2467,
+        "fee": 0.99,
+        "markup": 0.33,
+        "receiveAmount": 14083.85
+      },
+      "remitly": {
+        "rate": 140.6596,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 13926.71
+      },
+      "revolut": {
+        "rate": 142.4016,
+        "fee": 2.3,
+        "markup": 0.23,
+        "receiveAmount": 13912.64
+      },
+      "wise": {
+        "rate": 141.006,
+        "fee": 3.14,
+        "markup": null,
+        "receiveAmount": 13657.84
+      },
+      "skrill": {
+        "rate": 137.2352,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13723.52
+      },
+      "xoom": {
+        "rate": 137.5989,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13348.47
+      }
+    }
   }
 ]
