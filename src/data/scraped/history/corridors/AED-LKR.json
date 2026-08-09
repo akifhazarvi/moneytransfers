@@ -3597,5 +3597,40 @@
         "receiveAmount": 9121.08
       }
     }
+  },
+  {
+    "date": "2026-08-09",
+    "providers": {
+      "skrill": {
+        "rate": 86.9646,
+        "fee": 0,
+        "markup": 4.77,
+        "receiveAmount": 8696.46
+      },
+      "paysend": {
+        "rate": 88.8063,
+        "fee": 9,
+        "markup": 2.75,
+        "receiveAmount": 8081.37
+      },
+      "remitly": {
+        "rate": 91.1,
+        "fee": 8,
+        "markup": null,
+        "receiveAmount": 8381.2
+      },
+      "taptap-send": {
+        "rate": 91,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 9100
+      },
+      "wise": {
+        "rate": 91.2108,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 9121.08
+      }
+    }
   }
 ]
