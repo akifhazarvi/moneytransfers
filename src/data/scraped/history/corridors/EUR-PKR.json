@@ -12143,5 +12143,94 @@
         "receiveAmount": 31209.48
       }
     }
+  },
+  {
+    "date": "2026-08-12",
+    "providers": {
+      "moneygram": {
+        "rate": 319.0485,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31588.99
+      },
+      "taptap-send": {
+        "rate": 318,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31485.18
+      },
+      "deutsche-bank": {
+        "rate": 315.6506,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 20028.03
+      },
+      "western-union": {
+        "rate": 320.1668,
+        "fee": 0.99,
+        "markup": -0.04,
+        "receiveAmount": 31699.71
+      },
+      "dahabshiil": {
+        "rate": 320.9013,
+        "fee": 1.49,
+        "markup": -0.27,
+        "receiveAmount": 31611.99
+      },
+      "profee": {
+        "rate": 318.1292,
+        "fee": 1.2,
+        "markup": 0.6,
+        "receiveAmount": 31431.16
+      },
+      "worldremit": {
+        "rate": 317.168,
+        "fee": 2.99,
+        "markup": 0.9,
+        "receiveAmount": 30768.46
+      },
+      "instarem": {
+        "rate": 316.3909,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31639.09
+      },
+      "paysend": {
+        "rate": 317.5186,
+        "fee": 0,
+        "markup": 0.79,
+        "receiveAmount": 31751.86
+      },
+      "sendwave": {
+        "rate": 319.7317,
+        "fee": 1.99,
+        "markup": 0.1,
+        "receiveAmount": 31336.9
+      },
+      "remitly": {
+        "rate": 316.1877,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31305.74
+      },
+      "revolut": {
+        "rate": 318.666,
+        "fee": 1.75,
+        "markup": 0.43,
+        "receiveAmount": 31308.93
+      },
+      "xoom": {
+        "rate": 310.7913,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31079.13
+      },
+      "wise": {
+        "rate": 318.107,
+        "fee": 1.89,
+        "markup": null,
+        "receiveAmount": 31209.48
+      }
+    }
   }
 ]

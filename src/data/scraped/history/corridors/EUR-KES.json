@@ -11183,5 +11183,94 @@
         "receiveAmount": 13700.06
       }
     }
+  },
+  {
+    "date": "2026-08-12",
+    "providers": {
+      "lemfi": {
+        "rate": 146.55,
+        "fee": 0,
+        "markup": 0.89,
+        "receiveAmount": 14655
+      },
+      "moneygram": {
+        "rate": 146.0012,
+        "fee": 0.9,
+        "markup": 2.14,
+        "receiveAmount": 14468.72
+      },
+      "taptap-send": {
+        "rate": 146.5,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14650
+      },
+      "deutsche-bank": {
+        "rate": 145.6148,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 9239.26
+      },
+      "western-union": {
+        "rate": 145.7911,
+        "fee": 1.99,
+        "markup": 2.28,
+        "receiveAmount": 14288.98
+      },
+      "dahabshiil": {
+        "rate": 151.8859,
+        "fee": 0.99,
+        "markup": -1.8,
+        "receiveAmount": 15038.22
+      },
+      "profee": {
+        "rate": 148.4265,
+        "fee": 2.8,
+        "markup": 0.52,
+        "receiveAmount": 14427.06
+      },
+      "worldremit": {
+        "rate": 147.9891,
+        "fee": 0.99,
+        "markup": 0.81,
+        "receiveAmount": 14652.4
+      },
+      "instarem": {
+        "rate": 144.8716,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14487.16
+      },
+      "paysend": {
+        "rate": 148.1849,
+        "fee": 0,
+        "markup": 0.68,
+        "receiveAmount": 14818.49
+      },
+      "sendwave": {
+        "rate": 147.9891,
+        "fee": 0.49,
+        "markup": 0.81,
+        "receiveAmount": 14726.39
+      },
+      "remitly": {
+        "rate": 144.6858,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 14180.66
+      },
+      "wise": {
+        "rate": 147.753,
+        "fee": 3.63,
+        "markup": null,
+        "receiveAmount": 14239
+      },
+      "xoom": {
+        "rate": 141.2232,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13700.06
+      }
+    }
   }
 ]
