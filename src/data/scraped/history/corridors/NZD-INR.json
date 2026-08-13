@@ -8823,10 +8823,10 @@
         "receiveAmount": 5436.81
       },
       "remitly": {
-        "rate": 53.8649,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 5386.49
+        "rate": 54.9,
+        "fee": 2.99,
+        "markup": 1.25,
+        "receiveAmount": 5325.85
       },
       "revolut": {
         "rate": 55.3589,
@@ -8835,28 +8835,28 @@
         "receiveAmount": 5491.61
       },
       "bank-of-new-zealand-nz": {
-        "rate": 53.545,
+        "rate": 54.8024,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5354.5
+        "receiveAmount": 5480.24
       },
       "auckland-savings-bank-nz": {
-        "rate": 53.3628,
+        "rate": 54.7555,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 5069.47
+        "receiveAmount": 5201.77
       },
       "westpac-nz": {
-        "rate": 53.106,
+        "rate": 54.4134,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5310.6
+        "receiveAmount": 5441.34
       },
       "wise": {
-        "rate": 54.3609,
-        "fee": 1.73,
+        "rate": 55.8443,
+        "fee": 1.72,
         "markup": null,
-        "receiveAmount": 5342.05
+        "receiveAmount": 5488.38
       }
     }
   }

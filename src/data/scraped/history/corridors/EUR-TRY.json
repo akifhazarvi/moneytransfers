@@ -9621,22 +9621,22 @@
     "date": "2026-08-13",
     "providers": {
       "moneygram": {
-        "rate": 52.9909,
+        "rate": 54.4946,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 5220.13
+        "receiveAmount": 5368.27
       },
       "taptap-send": {
-        "rate": 53.05,
+        "rate": 54.74,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5305
+        "receiveAmount": 5474
       },
       "deutsche-bank": {
-        "rate": 53.528,
+        "rate": 55.002,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 3396.35
+        "receiveAmount": 3489.88
       },
       "xe": {
         "rate": 54.5111,
@@ -9657,10 +9657,10 @@
         "receiveAmount": 5301.69
       },
       "instarem": {
-        "rate": 53.1362,
+        "rate": 54.8033,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5313.62
+        "receiveAmount": 5480.33
       },
       "paysend": {
         "rate": 54.0716,
@@ -9669,10 +9669,10 @@
         "receiveAmount": 5407.16
       },
       "remitly": {
-        "rate": 52.7748,
+        "rate": 54.44,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 5172.46
+        "receiveAmount": 5335.66
       },
       "revolut": {
         "rate": 54.7114,
@@ -9681,16 +9681,28 @@
         "receiveAmount": 5416.42
       },
       "wise": {
-        "rate": 53.4667,
-        "fee": 7.58,
+        "rate": 55.1388,
+        "fee": 2.98,
         "markup": null,
-        "receiveAmount": 4941.39
+        "receiveAmount": 5349.57
       },
       "commerzbank": {
-        "rate": 51.9647,
+        "rate": 53.6459,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 4546.91
+        "receiveAmount": 4694.02
+      },
+      "sparkasse": {
+        "rate": 55.2035,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5106.32
+      },
+      "ing-de": {
+        "rate": 54.0197,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4213.53
       }
     }
   }

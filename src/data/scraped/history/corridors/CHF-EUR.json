@@ -6217,16 +6217,16 @@
     "date": "2026-08-13",
     "providers": {
       "paypal": {
-        "rate": 1.0396,
+        "rate": 1.0215,
         "fee": 2.49,
         "markup": null,
-        "receiveAmount": 101.37
+        "receiveAmount": 99.6
       },
       "western-union": {
-        "rate": 1.0635,
+        "rate": 1.0413,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 106.35
+        "receiveAmount": 104.13
       },
       "raiffeisen-ch": {
         "rate": 1.0693,
@@ -6241,22 +6241,22 @@
         "receiveAmount": 107.56
       },
       "migros": {
-        "rate": 1.0704,
+        "rate": 1.0486,
         "fee": 0.3,
         "markup": null,
-        "receiveAmount": 106.72
+        "receiveAmount": 104.55
       },
       "zkb": {
-        "rate": 1.0742,
+        "rate": 1.0519,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 107.42
+        "receiveAmount": 105.19
       },
       "wise": {
-        "rate": 1.0887,
+        "rate": 1.0652,
         "fee": 1.44,
         "markup": null,
-        "receiveAmount": 107.31
+        "receiveAmount": 104.99
       }
     }
   }

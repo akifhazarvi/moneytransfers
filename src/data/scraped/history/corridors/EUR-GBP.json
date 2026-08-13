@@ -10107,10 +10107,10 @@
     "date": "2026-08-13",
     "providers": {
       "taptap-send": {
-        "rate": 0.856,
+        "rate": 0.855,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 85.6
+        "receiveAmount": 85.5
       },
       "moneygram": {
         "rate": 0.8382,
@@ -10119,52 +10119,64 @@
         "receiveAmount": 82.15
       },
       "paypal": {
-        "rate": 0.8202,
+        "rate": 0.8191,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 78.75
+        "receiveAmount": 78.64
       },
       "xoom": {
-        "rate": 0.7834,
+        "rate": 0.7817,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 76.78
+        "receiveAmount": 76.62
       },
       "instarem": {
-        "rate": 0.8504,
+        "rate": 0.8491,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 85.04
+        "receiveAmount": 84.91
       },
       "remitly": {
-        "rate": 0.8464,
+        "rate": 0.8444,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 82.95
+        "receiveAmount": 82.76
       },
       "monese": {
-        "rate": 0.8562,
+        "rate": 0.8548,
         "fee": 3,
         "markup": null,
-        "receiveAmount": 83.05
+        "receiveAmount": 82.92
       },
       "deutsche-bank": {
-        "rate": 0.8529,
+        "rate": 0.8499,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 54.12
+        "receiveAmount": 53.93
       },
       "commerzbank": {
-        "rate": 0.8485,
+        "rate": 0.8471,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 74.25
+        "receiveAmount": 74.12
       },
       "wise": {
-        "rate": 0.8563,
+        "rate": 0.855,
         "fee": 1.45,
         "markup": null,
-        "receiveAmount": 84.38
+        "receiveAmount": 84.26
+      },
+      "sparkasse": {
+        "rate": 0.8525,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 78.86
+      },
+      "ing-de": {
+        "rate": 0.8464,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 66.02
       }
     }
   }

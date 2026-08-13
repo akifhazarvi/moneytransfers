@@ -6944,10 +6944,10 @@
     "date": "2026-08-13",
     "providers": {
       "lemfi": {
-        "rate": 158.657,
+        "rate": 161.58,
         "fee": 0,
-        "markup": 0.89,
-        "receiveAmount": 15865.7
+        "markup": -0.08,
+        "receiveAmount": 16158
       },
       "moneygram": {
         "rate": 155.0154,
@@ -6962,10 +6962,10 @@
         "receiveAmount": 17600
       },
       "taptap-send": {
-        "rate": 174,
+        "rate": 173,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17400
+        "receiveAmount": 17300
       },
       "boss-money": {
         "rate": 159.5691,
@@ -6992,16 +6992,16 @@
         "receiveAmount": 15691.37
       },
       "wise": {
-        "rate": 159.189,
+        "rate": 159.992,
         "fee": 8.21,
         "markup": null,
-        "receiveAmount": 14611.96
+        "receiveAmount": 14685.67
       },
       "xoom": {
-        "rate": 148.0727,
+        "rate": 148.2446,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 14364.53
+        "receiveAmount": 14381.21
       }
     }
   }

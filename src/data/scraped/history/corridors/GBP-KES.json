@@ -9711,10 +9711,10 @@
     "date": "2026-08-13",
     "providers": {
       "lemfi": {
-        "rate": 170,
+        "rate": 173.1,
         "fee": 0,
-        "markup": 1.55,
-        "receiveAmount": 17000
+        "markup": 0.77,
+        "receiveAmount": 17310
       },
       "ria": {
         "rate": 171.1066,
@@ -9723,46 +9723,46 @@
         "receiveAmount": 17154
       },
       "taptap-send": {
-        "rate": 170,
+        "rate": 173,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17000
+        "receiveAmount": 17300
       },
       "western-union": {
-        "rate": 168.2832,
+        "rate": 170.1323,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 16325.16
+        "receiveAmount": 16504.53
       },
       "barclays": {
-        "rate": 167.8071,
+        "rate": 169.682,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 16780.71
+        "receiveAmount": 16968.2
       },
       "xoom": {
-        "rate": 164.8745,
+        "rate": 166.43,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 15994.48
+        "receiveAmount": 16145.38
       },
       "natwest": {
-        "rate": 168.0199,
+        "rate": 169.7405,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 16801.99
+        "receiveAmount": 16974.05
       },
       "instarem": {
-        "rate": 171.7714,
+        "rate": 173.2199,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17177.14
+        "receiveAmount": 17321.99
       },
       "rbs": {
-        "rate": 168.0199,
+        "rate": 169.7405,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 16801.99
+        "receiveAmount": 16974.05
       },
       "remitly": {
         "rate": 169.9211,
@@ -9771,10 +9771,10 @@
         "receiveAmount": 16992.11
       },
       "hsbc": {
-        "rate": 167.7621,
+        "rate": 169.584,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 16776.21
+        "receiveAmount": 16958.4
       }
     }
   }

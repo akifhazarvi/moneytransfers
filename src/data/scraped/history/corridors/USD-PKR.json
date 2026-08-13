@@ -13173,16 +13173,16 @@
     "date": "2026-08-13",
     "providers": {
       "instarem": {
-        "rate": 275.7561,
+        "rate": 275.3291,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 27575.61
+        "receiveAmount": 27532.91
       },
       "moneygram": {
-        "rate": 278.7537,
+        "rate": 277.6605,
         "fee": 0.99,
-        "markup": null,
-        "receiveAmount": 27599.4
+        "markup": 0.05,
+        "receiveAmount": 27491.17
       },
       "ria": {
         "rate": 277.5452,
@@ -13191,10 +13191,10 @@
         "receiveAmount": 28156.98
       },
       "taptap-send": {
-        "rate": 278,
+        "rate": 278.22,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 27246.78
+        "receiveAmount": 27268.34
       },
       "boss-money": {
         "rate": 276.3947,
@@ -13215,10 +13215,10 @@
         "receiveAmount": 26494.27
       },
       "worldremit": {
-        "rate": 278.2,
+        "rate": 277.5051,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 27820
+        "receiveAmount": 27750.51
       },
       "xe": {
         "rate": 275.6026,
@@ -13239,10 +13239,10 @@
         "receiveAmount": 27275.46
       },
       "remitly": {
-        "rate": 277.25,
+        "rate": 276.71,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 26896.02
+        "receiveAmount": 26843.64
       },
       "bank-of-america": {
         "rate": 270.209,
@@ -13251,16 +13251,16 @@
         "receiveAmount": 27020.9
       },
       "chase": {
-        "rate": 266.896,
+        "rate": 266.3756,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 25355.12
+        "receiveAmount": 25305.69
       },
       "wise": {
-        "rate": 278.163,
+        "rate": 277.625,
         "fee": 1.92,
         "markup": null,
-        "receiveAmount": 27282.23
+        "receiveAmount": 27229.46
       }
     }
   }

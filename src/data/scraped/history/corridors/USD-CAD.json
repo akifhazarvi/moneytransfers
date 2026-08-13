@@ -961,10 +961,16 @@
     "date": "2026-08-13",
     "providers": {
       "lemfi": {
-        "rate": 1.409,
+        "rate": 1.384,
         "fee": 0,
-        "markup": 0.63,
-        "receiveAmount": 140.9
+        "markup": 0.65,
+        "receiveAmount": 138.4
+      },
+      "taptap-send": {
+        "rate": 1.386,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 138.6
       }
     }
   }

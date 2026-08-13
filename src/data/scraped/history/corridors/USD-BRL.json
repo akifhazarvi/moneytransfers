@@ -13161,22 +13161,22 @@
     "date": "2026-08-13",
     "providers": {
       "instarem": {
-        "rate": 5.1698,
+        "rate": 5.1435,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 516.98
+        "receiveAmount": 514.35
       },
       "lemfi": {
-        "rate": 5.154,
+        "rate": 5.21,
         "fee": 0,
-        "markup": 1.2,
-        "receiveAmount": 515.4
+        "markup": -0.27,
+        "receiveAmount": 521
       },
       "moneygram": {
-        "rate": 5.1874,
+        "rate": 5.0748,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 508.42
+        "markup": 2.23,
+        "receiveAmount": 497.38
       },
       "ria": {
         "rate": 5.0509,
@@ -13185,10 +13185,10 @@
         "receiveAmount": 521.79
       },
       "taptap-send": {
-        "rate": 5.21,
+        "rate": 5.2,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 515.84
+        "receiveAmount": 514.85
       },
       "boss-money": {
         "rate": 5.1093,
@@ -13227,10 +13227,10 @@
         "receiveAmount": 507.74
       },
       "remitly": {
-        "rate": 5.1619,
+        "rate": 5.1445,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 516.19
+        "receiveAmount": 514.45
       },
       "revolut": {
         "rate": 5.1515,
@@ -13239,10 +13239,10 @@
         "receiveAmount": 511.28
       },
       "paypal": {
-        "rate": 4.9517,
+        "rate": 4.9639,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 470.46
+        "receiveAmount": 471.62
       },
       "bank-of-america": {
         "rate": 4.9101,
@@ -13251,10 +13251,10 @@
         "receiveAmount": 491.01
       },
       "wise": {
-        "rate": 5.2063,
+        "rate": 5.1799,
         "fee": 1.82,
         "markup": null,
-        "receiveAmount": 511.15
+        "receiveAmount": 508.56
       }
     }
   }

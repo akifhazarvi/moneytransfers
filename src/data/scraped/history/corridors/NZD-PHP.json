@@ -10257,10 +10257,10 @@
         "receiveAmount": 3374.61
       },
       "remitly": {
-        "rate": 34.5505,
+        "rate": 35.33,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 3386.3
+        "markup": 1.04,
+        "receiveAmount": 3462.69
       },
       "revolut": {
         "rate": 35.4198,
@@ -10269,40 +10269,40 @@
         "receiveAmount": 3499.48
       },
       "wise": {
-        "rate": 35.0869,
-        "fee": 1.7,
+        "rate": 35.8995,
+        "fee": 1.62,
         "markup": null,
-        "receiveAmount": 3449.04
+        "receiveAmount": 3531.79
       },
       "kiwibank": {
-        "rate": 34.2155,
+        "rate": 35.0552,
         "fee": 20,
         "markup": null,
-        "receiveAmount": 2737.24
+        "receiveAmount": 2804.42
       },
       "bank-of-new-zealand-nz": {
-        "rate": 34.4624,
+        "rate": 35.209,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3446.24
+        "receiveAmount": 3520.9
       },
       "auckland-savings-bank-nz": {
-        "rate": 34.4072,
+        "rate": 35.2256,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 3268.68
+        "receiveAmount": 3346.43
       },
       "paypal": {
-        "rate": 33.4013,
+        "rate": 34.175,
         "fee": 6.99,
         "markup": null,
-        "receiveAmount": 3106.65
+        "receiveAmount": 3178.62
       },
       "westpac-nz": {
-        "rate": 34.1807,
+        "rate": 34.9819,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 3418.07
+        "receiveAmount": 3498.19
       }
     }
   }

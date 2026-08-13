@@ -2043,16 +2043,16 @@
     "date": "2026-08-13",
     "providers": {
       "lemfi": {
-        "rate": 211.589,
+        "rate": 218.22,
         "fee": 0,
-        "markup": 1.04,
-        "receiveAmount": 21158.9
+        "markup": -0.22,
+        "receiveAmount": 21822
       },
       "taptap-send": {
-        "rate": 220,
+        "rate": 225,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 22000
+        "receiveAmount": 22500
       }
     }
   }
