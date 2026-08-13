@@ -108,8 +108,12 @@ export function useGeoSelection({ defaults, isValidFrom, isValidTo }: Options) {
     if (pref) {
       // The user has chosen before → their choice wins regardless of current IP.
       hasChosen.current = true;
+      // Ignore a same-currency pair persisted before the setFrom/setTo swap
+      // guard existed — otherwise anyone who once landed on USD→USD keeps a
+      // permanently empty comparison, since the bad pair reloads every visit.
+      const samePair = pref.from && pref.from === pref.to;
       if (okFrom(pref.from)) setFromState(pref.from);
-      if (okTo(pref.to)) setToState(pref.to);
+      if (!samePair && okTo(pref.to)) setToState(pref.to);
       if (Number.isFinite(pref.amount) && pref.amount > 0) setAmountState(pref.amount);
     } else {
       // No saved choice → seed from middleware geo cookies (IP-based default).
@@ -158,11 +162,37 @@ export function useGeoSelection({ defaults, isValidFrom, isValidTo }: Options) {
     return () => { geoListeners.delete(listener); };
   }, [okFrom, okTo]);
 
-  const setFrom = useCallback((code: string) => { setFromState(code); persist({ from: code }); }, [persist]);
-  const setTo = useCallback((code: string) => { setToState(code); persist({ to: code }); }, [persist]);
+  // Picking the currency that's already on the other side SWAPS the pair rather
+  // than creating a same-currency corridor. USD→USD has no providers and no
+  // meaning, so it renders an empty comparison and the visitor sees a dead end
+  // — GA4 recorded 7 `quotes_viewed` on USD-USD and 3 on INR-INR over 60 days,
+  // every one of them a guaranteed no-result.
+  //
+  // Swapping (rather than rejecting the click) matches how flight/currency
+  // pickers behave and preserves the obvious intent: choosing USD as the
+  // destination when you're already sending USD→INR means you want INR→USD.
+  // Both halves persist in one write so the pair can never be stored equal.
+  const setFrom = useCallback((code: string) => {
+    if (code === to) {
+      setFromState(code); setToState(from); persist({ from: code, to: from });
+      return;
+    }
+    setFromState(code); persist({ from: code });
+  }, [persist, from, to]);
+
+  const setTo = useCallback((code: string) => {
+    if (code === from) {
+      setToState(code); setFromState(to); persist({ from: to, to: code });
+      return;
+    }
+    setToState(code); persist({ to: code });
+  }, [persist, from, to]);
   const setAmount = useCallback((n: number) => { setAmountState(n); persist({ amount: n }); }, [persist]);
   /** Set from+to together (e.g. corridor picker / swap) in one persisted write. */
   const setCorridor = useCallback((f: string, t: string) => {
+    // Never store a same-currency pair, whatever the caller passes (corridor
+    // links, deep links, swap on an already-equal pair).
+    if (f === t) return;
     setFromState(f); setToState(t); persist({ from: f, to: t });
   }, [persist]);
 
