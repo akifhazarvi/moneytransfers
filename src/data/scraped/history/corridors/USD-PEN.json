@@ -3315,5 +3315,34 @@
         "receiveAmount": 312.41
       }
     }
+  },
+  {
+    "date": "2026-08-13",
+    "providers": {
+      "ria": {
+        "rate": 3.32,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 337.32
+      },
+      "taptap-send": {
+        "rate": 3.35,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 335
+      },
+      "instarem": {
+        "rate": 3.394,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 339.4
+      },
+      "wise": {
+        "rate": 3.4035,
+        "fee": 8.21,
+        "markup": null,
+        "receiveAmount": 312.41
+      }
+    }
   }
 ]
