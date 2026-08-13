@@ -223,6 +223,11 @@ function aggregateCorridors(files: string[]): void {
 
 const MIDMARKET_HISTORY_PATH = path.join(HISTORY_DIR, "midmarket-daily.json");
 
+// How stale xe-midmarket-rates.json may be before we refuse to derive a new
+// day from it. scrape-xe.ts runs daily, so 2 days tolerates one missed run
+// (and CI clock skew) while still catching a genuinely dead upstream fast.
+const MAX_SOURCE_AGE_DAYS = 2;
+
 interface MidMarketDay {
   date: string;
   rates: Record<string, number>; // currency code → rate vs USD
@@ -244,6 +249,44 @@ function saveMidMarketSnapshot(): void {
   }
 
   if (!xeData.rates || Object.keys(xeData.rates).length < 10) return;
+
+  // STALENESS GUARD — do not fabricate a day from a stale source.
+  //
+  // This function used to check only "do we already have today's date?", never
+  // whether xe-midmarket-rates.json was itself current. scrape-xe.ts lives in
+  // the API workflow (.github/workflows/scrape.yml); when that workflow started
+  // timing out before its commit step on 2026-07-03, the XE file froze — but
+  // this function kept running daily from scrape-browsers.yml and kept pushing
+  // a NEW date carrying the OLD rates.
+  //
+  // Result: the final 42 days of midmarket-history.json were byte-identical, so
+  // /exchange-rates rendered "0.00 %" for every 24h and 7d cell across all 64
+  // currencies while claiming to be live, and the 90-day sparkline flat-lined.
+  // The file looked healthy the whole time — committed daily, dates advancing.
+  // Fresh commits of stale content are worse than an obvious gap, because
+  // nothing surfaces as broken.
+  //
+  // Now a stale source produces a GAP instead. RATES_AS_OF (exchange-rates-today.ts)
+  // reads the last day in the file, so the page visibly stops advancing its
+  // "as of" date — which is the honest signal, and self-surfacing.
+  //
+  // Deliberately fail-soft (return, don't throw): this runs immediately before
+  // the workflow's commit step, and a throw would skip that commit — recreating
+  // the exact class of silent-data-loss failure described above.
+  const sourceTs = Date.parse(xeData.timestamp ?? "");
+  if (!Number.isFinite(sourceTs)) {
+    console.warn(
+      "::warning file=scripts/aggregate-history.ts::xe-midmarket-rates.json has no parseable timestamp — skipping mid-market snapshot rather than writing rates of unknown age",
+    );
+    return;
+  }
+  const sourceAgeDays = (Date.now() - sourceTs) / 86_400_000;
+  if (sourceAgeDays > MAX_SOURCE_AGE_DAYS) {
+    console.warn(
+      `::warning file=scripts/aggregate-history.ts::xe-midmarket-rates.json is ${sourceAgeDays.toFixed(1)} days old (max ${MAX_SOURCE_AGE_DAYS}) — skipping mid-market snapshot. scrape-xe.ts is not running; check the API scrape workflow. Rate history will show a gap until it recovers.`,
+    );
+    return;
+  }
 
   const today = new Date().toISOString().slice(0, 10);
 
