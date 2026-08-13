@@ -203,6 +203,26 @@ jobs:
           git pull --rebase -X theirs
           git push
 
+      # REQUIRED for this data to actually reach production. vercel-ignore.sh
+      # cancels any build whose diff is entirely under src/data/scraped/, on the
+      # assumption that "the deploy hook will handle it" — but the hook used to
+      # live only in scrape.yml. When that workflow started timing out before its
+      # final steps (2026-07-03), every data-only commit from all three scrape
+      # workflows was committed and then silently never deployed: production
+      # served an Aug-10 build while main had Aug-13 data. Each workflow that
+      # commits data must trigger its own deploy so no single one is a chokepoint.
+      - name: Trigger Vercel deploy
+        run: |
+          if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
+            curl -s -X POST "$VERCEL_DEPLOY_HOOK"
+            echo "→ Deploy hook triggered"
+          else
+            echo "→ No deploy hook configured, skipping"
+          fi
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        continue-on-error: true
+
       - name: Ping IndexNow (Bing)
         run: npx tsx scripts/ping-indexnow.ts
         env:

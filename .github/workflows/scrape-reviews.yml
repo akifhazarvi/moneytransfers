@@ -43,3 +43,18 @@ jobs:
           # Trustpilot scrape is source of truth — prefer our version on conflict.
           git pull --rebase -X theirs
           git push
+
+      # See the matching note in scrape-browsers.yml: vercel-ignore.sh cancels
+      # data-only builds and defers to this hook, so a workflow that commits data
+      # without firing it leaves the new ratings sitting in main, undeployed.
+      - name: Trigger Vercel deploy
+        run: |
+          if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
+            curl -s -X POST "$VERCEL_DEPLOY_HOOK"
+            echo "→ Deploy hook triggered"
+          else
+            echo "→ No deploy hook configured, skipping"
+          fi
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        continue-on-error: true
