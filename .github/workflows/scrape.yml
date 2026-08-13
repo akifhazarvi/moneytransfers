@@ -12,7 +12,24 @@ permissions:
 jobs:
   scrape-api:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # INVARIANT: the sum of every step's timeout-minutes below MUST stay under
+    # this cap, or the job can be killed mid-run and the "Commit scraped data"
+    # step never executes — silently discarding a full night of scraping.
+    #
+    # That is exactly what happened from 2026-07-03 to 2026-08-13: the cap was
+    # 30 while the step budgets summed to ~99. Every scraper succeeded (~25m),
+    # then RemitRoutes started with 4.6m of job budget left, the job hit the
+    # wall, and the commit + aggregate + insights + IndexNow steps were all
+    # skipped. 41 days of Tier-1/Tier-2 quotes were thrown away nightly while
+    # the runs reported as "cancelled" (NOT "failure"), so no alert ever fired.
+    #
+    # Note `continue-on-error: true` does NOT protect against this, and neither
+    # would `if: always()` on the commit step — a job-level timeout cancels the
+    # job, so remaining steps are skipped regardless of their conditions. The
+    # only real protection is keeping the budget sum below the cap.
+    #
+    # Current budget: 67 (scrapers) + 16 (tail) + ~1 (npm ci) = ~84 < 90.
+    timeout-minutes: 90
 
     steps:
       - uses: actions/checkout@v4
@@ -24,76 +41,82 @@ jobs:
 
       - run: npm ci
 
+      # Per-step budgets are ~2x each scraper's observed runtime, so a slow day
+      # still finishes but a genuinely hung scraper is cut loose fast enough to
+      # leave room for the commit. Observed times are noted per step.
+
       - name: Scrape OFX (direct API)
         run: npx tsx scripts/scrape-ofx.ts
-        timeout-minutes: 8
+        timeout-minutes: 5 # observed ~2m10s
         continue-on-error: true
 
       - name: Scrape Instarem (direct API)
         run: npx tsx scripts/scrape-instarem.ts
-        timeout-minutes: 5
+        timeout-minutes: 4 # observed ~1m49s
         continue-on-error: true
 
       - name: Scrape XE mid-market rates
         run: npx tsx scripts/scrape-xe.ts
-        timeout-minutes: 5
+        timeout-minutes: 2 # observed ~1s
         continue-on-error: true
 
       - name: Scrape TapTap Send (Partner API)
         run: npx tsx scripts/scrape-taptapsend.ts
         env:
           TAPTAP_PARTNER_API_KEY: ${{ secrets.TAPTAP_PARTNER_API_KEY }}
-        timeout-minutes: 5
+        timeout-minutes: 2 # observed ~2s
         continue-on-error: true
 
       - name: Scrape Wise Direct (API)
         run: npx tsx scripts/scrape-wise-direct.ts
-        timeout-minutes: 8
+        timeout-minutes: 8 # observed ~5m45s
         continue-on-error: true
 
       - name: Scrape Wise Comparison — all providers (API)
         run: npx tsx scripts/scrape-wise-comparison.ts
-        timeout-minutes: 10
+        timeout-minutes: 7 # observed ~4m05s
         continue-on-error: true
 
       - name: Scrape Exiap / TheCurrencyShop (Cheerio JSON-LD)
         run: npx tsx scripts/scrape-exiap.ts
-        timeout-minutes: 8
+        timeout-minutes: 4 # observed ~1m40s
         continue-on-error: true
 
       - name: Scrape Remitly (direct API)
         run: npx tsx scripts/scrape-remitly.ts
-        timeout-minutes: 8
+        timeout-minutes: 5 # observed ~2m46s
         continue-on-error: true
 
       - name: Scrape ACE Money Transfer (HTML)
         run: npx tsx scripts/scrape-ace.ts
-        timeout-minutes: 5
+        timeout-minutes: 2 # observed ~16s (NOTE: output has been [] since May)
         continue-on-error: true
 
       - name: Scrape PandaRemit (CNY corridors API)
         run: npx tsx scripts/scrape-pandaremit.ts
-        timeout-minutes: 5
+        timeout-minutes: 3 # observed ~56s
         continue-on-error: true
 
+      # Was 5 and observed at 4m17s — close enough to its own cap that a slow
+      # day would silently truncate the CNY corridor set. Raised to 6.
       - name: Scrape SkyRemit (CNY corridors API)
         run: npx tsx scripts/scrape-skyremit.ts
-        timeout-minutes: 5
+        timeout-minutes: 6 # observed ~4m17s
         continue-on-error: true
 
       - name: Scrape LemFi (direct API)
         run: npx tsx scripts/scrape-lemfi.ts
-        timeout-minutes: 5
+        timeout-minutes: 3 # observed ~1m20s
         continue-on-error: true
 
       - name: Scrape Unplex (direct API)
         run: npx tsx scripts/scrape-unplex.ts
-        timeout-minutes: 5
+        timeout-minutes: 2 # observed ~15s
         continue-on-error: true
 
       - name: Scrape RemitRoutes bridge (extra banks + crypto/Bitcoin rails)
         run: npx tsx scripts/scrape-remitroutes.ts
-        timeout-minutes: 12
+        timeout-minutes: 10 # the step the old 30m cap always died inside
         continue-on-error: true
 
       - uses: actions/setup-node@v4
@@ -103,19 +126,30 @@ jobs:
 
       - name: Refresh IP-intelligence datasets (ASN MMDB + datacenter list)
         run: npx tsx scripts/fetch-ip-intel.ts
-        timeout-minutes: 5
+        timeout-minutes: 4
         continue-on-error: true
 
+      # The tail steps were previously unbounded. A hang in any of them would
+      # burn the whole remaining job budget and skip the commit just as surely
+      # as a slow scraper, so they are capped too and counted in the invariant.
       - name: Aggregate historical data
         run: npx tsx scripts/aggregate-history.ts
+        timeout-minutes: 5
 
       - name: Build rate insights
         run: npx tsx scripts/build-rate-insights.ts
+        timeout-minutes: 6
 
+      # Replaces the single date line that follows the heading. The previous
+      # version replaced the heading line and then *appended* today's date
+      # without removing the old one, so llms.txt accumulated one line per run
+      # (44 stale dates by 2026-08-13) in the file AI crawlers read to judge
+      # freshness. `n` advances to the line after the heading; `s` overwrites it.
       - name: Update llms.txt Last Updated date
-        run: sed -i "s/^## Last Updated.*/## Last Updated/" public/llms.txt && sed -i "/^## Last Updated$/a $(date -u +%Y-%m-%d)" public/llms.txt
+        run: sed -i "/^## Last Updated$/{n;s/^.*$/$(date -u +%Y-%m-%d)/;}" public/llms.txt
 
       - name: Commit scraped data
+        timeout-minutes: 5
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
