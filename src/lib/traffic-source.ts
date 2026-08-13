@@ -118,12 +118,25 @@ export function scoreBotSignals(s: BotSignalInput): { score: number; reasons: st
   if (s.country && SUSPECT_COUNTRIES.has(s.country.toUpperCase())) add(18, `country ${s.country}`);
   // 3. Implausible send currency (not a real human's chosen corridor).
   // 4. Implausible receive currency.
+  // 4b. NO corridor at all. The comparison widget always appends ?from=&to=,
+  //     so a bare /go/<slug> did not originate from an on-site click. Until
+  //     2026-08-13 this branch scored nothing AND skipped 3+4, so a slug-walking
+  //     crawler hitting bare /go/<slug> scored LOWER than a real user with an
+  //     unusual corridor — backwards. 28d GA4: 4,399 of 20,207 redirects (22%)
+  //     carried an empty corridor.
+  //
+  //     Deliberately modest (+10, less than one odd-currency hit): AI assistants
+  //     cite bare /go/<slug> URLs and the people who follow them are real, valued
+  //     traffic. This must never be decisive alone — it earns its keep stacked
+  //     with "no prior session", which is the actual crawler signature.
   if (s.corridor) {
     const m = s.corridor.toUpperCase().match(/^([A-Z]{3})-([A-Z]{3})$/);
     if (m) {
       if (!COMMON_SEND.has(m[1])) add(14, `odd send ccy ${m[1]}`);
       if (!COMMON_RECV.has(m[2])) add(14, `odd recv ccy ${m[2]}`);
     }
+  } else {
+    add(10, "no corridor");
   }
   // 5. No smc_vid cookie AND no cid — first-touch with zero session continuity.
   if (!s.hadVidCookie && !s.hadCid) add(6, "no prior session");
@@ -143,6 +156,31 @@ export function scoreBotSignals(s: BotSignalInput): { score: number; reasons: st
   if (!ua) add(25, "empty UA");
 
   return { score: Math.min(100, score), reasons };
+}
+
+/**
+ * Bucket the 0–100 score into a stable, low-cardinality label for GA4.
+ *
+ * `bot_score` has been sent as an event param on every /go + /out hit since
+ * Jun 2026, but it was never registered as a GA4 custom dimension — so
+ * `customEvent:bot_score` returns "not a valid dimension" and the score has
+ * been unqueryable the entire time. That is why the traffic-quality problem
+ * stayed invisible: reports could only see `traffic_source`, which by design
+ * labels a browser-UA-no-referer hit "direct" rather than "bot".
+ *
+ * A raw 0–100 integer is a poor dimension (101 values, no natural grouping).
+ * This emits the band instead, matching the thresholds already documented
+ * above: 60+ almost certainly automated, 30–59 suspicious, under 30 reads as
+ * a real user. Ordered prefixes keep GA4's alphabetical sort meaningful.
+ *
+ * Registering `bot_score_band` in GA4 Admin is a one-time manual step — the
+ * Admin API exposes no create-dimension tool. Not retroactive; it populates
+ * from creation forward.
+ */
+export function botScoreBand(score: number): string {
+  if (score >= 60) return "3_likely_bot_60plus";
+  if (score >= 30) return "2_suspicious_30_59";
+  return "1_likely_human_0_29";
 }
 
 /**

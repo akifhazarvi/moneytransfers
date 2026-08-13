@@ -4,7 +4,7 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { clientIdFromCookie } from "@/lib/ga4-server";
 import { serverTrack } from "@/lib/server-track";
 import { storeEvent, behavioralBotScore, distributedBotScore } from "@/lib/event-store";
-import { classifyTrafficSource } from "@/lib/traffic-source";
+import { classifyTrafficSource, botScoreBand } from "@/lib/traffic-source";
 import { scoreBotRequest } from "@/lib/bot-score";
 import { classifyIp } from "@/lib/ip-intel";
 import { verifyClickToken } from "@/lib/click-token";
@@ -128,7 +128,7 @@ export async function GET(
   // for the naming rationale.
   void serverTrack(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score, genuine_click: genuineClick, gated, token_status: tokenStatus, outcome },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score, bot_score_band: botScoreBand(botResult.score), genuine_click: genuineClick, gated, token_status: tokenStatus, outcome },
     clientId,
     geo,
   );
@@ -147,7 +147,7 @@ export async function GET(
       is_bot: botResult.isBot,
       id_source: idSource,
       click_id: clickId,
-      bot_score: botResult.score,
+      bot_score: botResult.score, bot_score_band: botScoreBand(botResult.score),
       genuine_click: genuineClick,
       gated,
       token_status: tokenStatus,
