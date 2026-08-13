@@ -19,7 +19,22 @@ import {
 
 const DELAY_MS = 600;
 
-// Comprehensive corridor list — includes all Wise-direct corridors plus extras
+// Comprehensive corridor list — includes all Wise-direct corridors plus extras.
+//
+// DO NOT re-add Gulf (AED/SAR/OMR/KWD/BHD/QAR) or KRW send corridors. The Wise
+// Comparison API only returns data for the 10 currencies Wise itself sends
+// FROM — USD, GBP, EUR, CAD, AUD, SGD, NZD, CHF, HKD, JPY — because Wise does
+// not operate out of those countries. 40 such corridors sat here until
+// 2026-08-13 issuing requests that could never return a row: verified across 5
+// runs spanning Jun 10 -> Aug 13, every one produced 0 rows for those send
+// currencies while total output held at ~1,050-1,190 rows. That was 29% of this
+// step's request budget spent on nothing, inside a 7-minute cap.
+//
+// Gulf outbound genuinely needs a different source — Monito is configured for
+// the same SAR corridors and its API returns an empty result set for them too
+// (SAR-INR providerQuotes = 299 bytes vs AED-INR = 15,158). Saudi outbound is
+// served by domestic players (STC Pay, Alrajhi Tahweel, Enjaz, Barq) that no
+// aggregator we use tracks, and their sites WAF-block datacenter IPs.
 const CORRIDORS: { from: string; to: string; country: string }[] = [
   // USD corridors (major remittance + developed)
   { from: "USD", to: "INR", country: "US" },
@@ -115,56 +130,6 @@ const CORRIDORS: { from: string; to: string; country: string }[] = [
   { from: "AUD", to: "CNY", country: "AU" },
   { from: "AUD", to: "THB", country: "AU" },
 
-  // AED corridors (Gulf remittances)
-  { from: "AED", to: "INR", country: "AE" },
-  { from: "AED", to: "PKR", country: "AE" },
-  { from: "AED", to: "PHP", country: "AE" },
-  { from: "AED", to: "BDT", country: "AE" },
-  { from: "AED", to: "NGN", country: "AE" },
-  { from: "AED", to: "EGP", country: "AE" },
-  { from: "AED", to: "LKR", country: "AE" },
-  { from: "AED", to: "NPR", country: "AE" },
-
-  // SAR corridors (Saudi remittances)
-  { from: "SAR", to: "INR", country: "SA" },
-  { from: "SAR", to: "PKR", country: "SA" },
-  { from: "SAR", to: "PHP", country: "SA" },
-  { from: "SAR", to: "BDT", country: "SA" },
-  { from: "SAR", to: "EGP", country: "SA" },
-  { from: "SAR", to: "IDR", country: "SA" },
-  { from: "SAR", to: "NGN", country: "SA" },
-  { from: "SAR", to: "NPR", country: "SA" },
-
-  // OMR corridors (Oman remittances)
-  { from: "OMR", to: "INR", country: "OM" },
-  { from: "OMR", to: "PKR", country: "OM" },
-  { from: "OMR", to: "PHP", country: "OM" },
-  { from: "OMR", to: "BDT", country: "OM" },
-  { from: "OMR", to: "NGN", country: "OM" },
-  { from: "OMR", to: "EGP", country: "OM" },
-
-  // KWD corridors (Kuwait remittances)
-  { from: "KWD", to: "INR", country: "KW" },
-  { from: "KWD", to: "PKR", country: "KW" },
-  { from: "KWD", to: "PHP", country: "KW" },
-  { from: "KWD", to: "BDT", country: "KW" },
-  { from: "KWD", to: "NGN", country: "KW" },
-  { from: "KWD", to: "EGP", country: "KW" },
-
-  // BHD corridors (Bahrain remittances)
-  { from: "BHD", to: "INR", country: "BH" },
-  { from: "BHD", to: "PKR", country: "BH" },
-  { from: "BHD", to: "PHP", country: "BH" },
-  { from: "BHD", to: "BDT", country: "BH" },
-
-  // QAR corridors (Qatar remittances)
-  { from: "QAR", to: "INR", country: "QA" },
-  { from: "QAR", to: "PKR", country: "QA" },
-  { from: "QAR", to: "PHP", country: "QA" },
-  { from: "QAR", to: "BDT", country: "QA" },
-  { from: "QAR", to: "NGN", country: "QA" },
-  { from: "QAR", to: "EGP", country: "QA" },
-
   // SGD corridors
   { from: "SGD", to: "INR", country: "SG" },
   { from: "SGD", to: "PHP", country: "SG" },
@@ -189,9 +154,6 @@ const CORRIDORS: { from: string; to: string; country: string }[] = [
   { from: "JPY", to: "INR", country: "JP" },
   { from: "JPY", to: "PHP", country: "JP" },
 
-  // KRW corridors
-  { from: "KRW", to: "INR", country: "KR" },
-  { from: "KRW", to: "PHP", country: "KR" },
 ];
 
 // Slug aliases to normalize Wise's provider aliases to our slugs
