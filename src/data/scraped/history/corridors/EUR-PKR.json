@@ -12321,5 +12321,94 @@
         "receiveAmount": 31407.86
       }
     }
+  },
+  {
+    "date": "2026-08-14",
+    "providers": {
+      "moneygram": {
+        "rate": 320.017,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31684.88
+      },
+      "taptap-send": {
+        "rate": 320.2,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 31703
+      },
+      "deutsche-bank": {
+        "rate": 316.5677,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 20086.22
+      },
+      "western-union": {
+        "rate": 320.139,
+        "fee": 0.99,
+        "markup": 0.02,
+        "receiveAmount": 31696.97
+      },
+      "dahabshiil": {
+        "rate": 320.5715,
+        "fee": 1.49,
+        "markup": -0.12,
+        "receiveAmount": 31579.5
+      },
+      "profee": {
+        "rate": 318.2722,
+        "fee": 1.2,
+        "markup": 0.6,
+        "receiveAmount": 31445.29
+      },
+      "worldremit": {
+        "rate": 316.7254,
+        "fee": 2.99,
+        "markup": 1.08,
+        "receiveAmount": 30725.53
+      },
+      "instarem": {
+        "rate": 318.2318,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31823.18
+      },
+      "paysend": {
+        "rate": 317.1184,
+        "fee": 0,
+        "markup": 0.96,
+        "receiveAmount": 31711.84
+      },
+      "sendwave": {
+        "rate": 319.2856,
+        "fee": 1.99,
+        "markup": 0.28,
+        "receiveAmount": 31293.18
+      },
+      "remitly": {
+        "rate": 318.53,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 31219.13
+      },
+      "revolut": {
+        "rate": 318.2274,
+        "fee": 1.75,
+        "markup": 0.61,
+        "receiveAmount": 31265.85
+      },
+      "xoom": {
+        "rate": 313.0122,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 31301.22
+      },
+      "wise": {
+        "rate": 320.24,
+        "fee": 1.89,
+        "markup": null,
+        "receiveAmount": 31418.75
+      }
+    }
   }
 ]
