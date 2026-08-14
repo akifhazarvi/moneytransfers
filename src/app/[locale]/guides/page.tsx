@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
+import { weekendMarkup } from "@/lib/weekend-markup";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -114,6 +115,24 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </p>
           <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
             Read the Bank vs App Cost Index →
+          </span>
+        </Link>
+
+        <Link
+          href="/guides/best-day-to-send-money-abroad"
+          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
+        >
+          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+            Original research · {weekendMarkup.observations.toLocaleString()} quotes analysed
+          </span>
+          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
+            Is it cheaper to send money on a weekday?
+          </h2>
+          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+            Weekends averaged {weekendMarkup.weekendMean}% FX markup vs {weekendMarkup.weekdayMean}% Mon–Fri — cheaper, not dearer. But some banks widen by over 1pp.
+          </p>
+          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+            Read the day-of-week analysis →
           </span>
         </Link>
 

@@ -28,8 +28,8 @@ jobs:
     # job, so remaining steps are skipped regardless of their conditions. The
     # only real protection is keeping the budget sum below the cap.
     #
-    # Current budget: 67 (scrapers) + 16 (tail) + ~1 (npm ci) = ~84 < 90.
-    timeout-minutes: 90
+    # Current budget: 67 (scrapers) + 22 (tail) + ~1 (npm ci) = ~90 < 105.
+    timeout-minutes: 105
 
     steps:
       - uses: actions/checkout@v4
@@ -138,6 +138,10 @@ jobs:
 
       - name: Build rate insights
         run: npx tsx scripts/build-rate-insights.ts
+        timeout-minutes: 6
+
+      - name: Build weekend-markup dataset
+        run: npx tsx scripts/build-weekend-markup.ts
         timeout-minutes: 6
 
       # Replaces the single date line that follows the heading. The previous

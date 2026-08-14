@@ -191,6 +191,10 @@ jobs:
       - name: Build rate insights
         run: npx tsx scripts/build-rate-insights.ts
 
+      - name: Build weekend-markup dataset
+        run: npx tsx scripts/build-weekend-markup.ts
+        timeout-minutes: 6
+
       - name: Commit scraped data
         run: |
           git config user.name "github-actions[bot]"
