@@ -5,7 +5,8 @@ import Container from "@/components/Container";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import FxBiteCharts, { type BiteRow } from "@/components/FxBiteCharts";
-import { rankDestinations, markupBounds, pppIndex, longDateFromIso } from "@/lib/ppp-index";
+import CostIncomeScatter from "@/components/CostIncomeScatter";
+import { rankDestinations, markupBounds, pppIndex, longDateFromIso, scatterData } from "@/lib/ppp-index";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/fx-cost-vs-purchasing-power";
@@ -43,6 +44,16 @@ const topBite = chartRows[0];
 const cheapest = deepArb[0];
 const spreadPp = Math.round((worst.pct - best.pct) * 100) / 100;
 const asOf = longDateFromIso(pppIndex.generatedAt);
+
+const scatter = scatterData();
+// How many countries beat the diagonal — cheaper than median AND earning above it.
+const cheapRich = scatter.points.filter(
+  (p) => p.priceLevel < scatter.medPrice && p.gni >= scatter.medGni,
+).length;
+// Direct-label only these; everything else is hover-only. The source chart's
+// author had to drop cities purely because labels collided — an interactive
+// chart has no such excuse, but a labelled dot per country is still unreadable.
+const LABELLED = ["US", "GB", "CH", "NO", "SG", "DE", "PT", "PL", "IN", "EG", "TR", "MX", "ZA", "JP", "AE"];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -160,6 +171,30 @@ export default async function FxCostVsPurchasingPowerPage({ params }: { params: 
               worstPct={worst.pct}
               salary={SALARY}
               currency={CURRENCY}
+            />
+          </div>
+
+          <h2 className="mt-12 text-2xl font-normal text-[var(--color-on-surface)]">
+            The map behind it: cost against what locals earn
+          </h2>
+          <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
+            All {scatter.points.length} countries, cost of living against income per person. This is
+            the familiar cost-versus-quality picture rebuilt on official World Bank statistics
+            instead of crowdsourced ratings — and it shows why the fee effect above happens.
+          </p>
+          <p className="mt-2 text-[var(--color-on-surface-variant)] leading-relaxed">
+            Note how tightly the dots hug a diagonal. Cost and income rise together almost
+            everywhere, which is exactly why <strong>&ldquo;cheap and high-earning&rdquo; is rare</strong>:
+            only {cheapRich} of {scatter.points.length} countries manage it. The genuinely
+            interesting places are the ones sitting off that diagonal.
+          </p>
+
+          <div className="mt-5">
+            <CostIncomeScatter
+              points={scatter.points}
+              medPrice={scatter.medPrice}
+              medGni={scatter.medGni}
+              labelled={LABELLED}
             />
           </div>
 

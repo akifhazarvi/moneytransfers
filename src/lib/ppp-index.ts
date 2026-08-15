@@ -38,6 +38,11 @@ export interface PppCountry {
   rate: number;
   /** >1 = income buys MORE there than in the US. */
   multiplier: number;
+  /** Price level, US = 1. Higher = more expensive. Inverse of multiplier. */
+  priceLevel: number;
+  /** GNI per capita, PPP int$ — what locals actually earn. Null if unreported. */
+  gni: number | null;
+  gniYear: string | null;
 }
 
 export interface PppIndex {
@@ -47,6 +52,8 @@ export interface PppIndex {
   rateDate: string;
   pppYears: { from: string; to: string };
   countryCount: number;
+  withGni: number;
+  gniIndicator: string;
   countries: PppCountry[];
 }
 
@@ -184,4 +191,21 @@ export function longDateFromIso(iso: string): string {
   return new Date(iso + "T00:00:00Z").toLocaleDateString("en-GB", {
     day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
   });
+}
+
+/**
+ * Points for the cost-vs-income scatter, plus the medians that draw its
+ * quadrant dividers. Only countries reporting both axes are plotted — a
+ * missing GNI cannot be imputed without inventing data.
+ */
+export function scatterData(): {
+  points: { iso2: string; name: string; priceLevel: number; gni: number; currency: string }[];
+  medPrice: number;
+  medGni: number;
+} {
+  const pts = pppIndex.countries
+    .filter((c): c is PppCountry & { gni: number } => typeof c.gni === "number" && c.gni > 0)
+    .map((c) => ({ iso2: c.iso2, name: c.name, priceLevel: c.priceLevel, gni: c.gni, currency: c.currency }));
+  const mid = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+  return { points: pts, medPrice: mid(pts.map((p) => p.priceLevel)), medGni: mid(pts.map((p) => p.gni)) };
 }

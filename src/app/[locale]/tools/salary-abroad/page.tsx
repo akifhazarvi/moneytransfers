@@ -131,6 +131,15 @@ export default async function SalaryAbroadPage({ params }: { params: Promise<{ l
                 salary moved abroad every year it compounds into thousands, for identical money and
                 identical timing.
               </p>
+              <p>
+                It also matters far more than most people expect on moves between similarly priced
+                countries.{" "}
+                <Link href="/guides/fx-cost-vs-purchasing-power" className="text-[var(--color-primary)] hover:underline">
+                  We charted it across {pppIndex.countryCount} countries
+                </Link>
+                : a US-to-UK move lifts buying power about 6%, and the wrong provider takes roughly
+                84% of that gain back.
+              </p>
             </div>
           </section>
 

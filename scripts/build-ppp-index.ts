@@ -41,6 +41,14 @@ const WB_INDICATOR = "PA.NUS.PRVT.PP"; // household + NPISH final consumption PP
 // whose most recent year happens to be unreported.
 const WB_URL = `https://api.worldbank.org/v2/country/all/indicator/${WB_INDICATOR}?format=json&per_page=1000&mrv=5`;
 
+// Second axis for the quadrant scatter: GNI per capita at PPP — what locals
+// actually earn in comparable terms. Price level alone says a country is cheap;
+// it cannot say whether that is a bargain or just poverty. Pairing the two
+// reproduces the structure of the well-known cost-vs-quality scatter using
+// official statistics instead of crowdsourced survey entries.
+const WB_GNI = "NY.GNP.PCAP.PP.CD";
+const WB_GNI_URL = `https://api.worldbank.org/v2/country/all/indicator/${WB_GNI}?format=json&per_page=1000&mrv=3`;
+
 // ISO2 -> currency, restricted to currencies we actually hold mid-market rates
 // for. Eurozone members all map to EUR. Anything not listed is dropped rather
 // than guessed: a wrong currency here silently produces a wrong multiplier.
@@ -69,6 +77,26 @@ interface WBRow {
   value?: number | null;
 }
 
+/** Paginated fetch, collapsed to each country's most recent non-null value. */
+async function fetchLatestByCountry(url: string): Promise<Map<string, WBRow>> {
+  const out = new Map<string, WBRow>();
+  let page = 1, pages = 1;
+  do {
+    const res = await fetch(`${url}&page=${page}`);
+    if (!res.ok) throw new Error(`World Bank API ${res.status} on page ${page}`);
+    const json = (await res.json()) as [{ pages?: number }, WBRow[]];
+    pages = json[0]?.pages ?? 1;
+    for (const r of json[1] ?? []) {
+      const id = r.country?.id;
+      if (!id || typeof r.value !== "number") continue;
+      const prev = out.get(id);
+      if (!prev || (r.date ?? "") > (prev.date ?? "")) out.set(id, r);
+    }
+    page++;
+  } while (page <= pages);
+  return out;
+}
+
 async function main(): Promise<void> {
   // Latest mid-market rates (base USD, units per USD).
   const hist = JSON.parse(fs.readFileSync(MIDMARKET, "utf-8")) as { date: string; rates: Record<string, number> }[];
@@ -77,33 +105,15 @@ async function main(): Promise<void> {
 
   process.stdout.write(`Mid-market base: ${latest.date} (${Object.keys(latest.rates).length} currencies)\n`);
 
-  // Paginate — mrv=5 across ~265 countries exceeds one page.
-  const allRows: WBRow[] = [];
-  let page = 1;
-  let pages = 1;
-  do {
-    const res = await fetch(`${WB_URL}&page=${page}`);
-    if (!res.ok) throw new Error(`World Bank API ${res.status} on page ${page}`);
-    const json = (await res.json()) as [{ pages?: number }, WBRow[]];
-    pages = json[0]?.pages ?? 1;
-    allRows.push(...(json[1] ?? []));
-    page++;
-  } while (page <= pages);
-
-  // Collapse to one row per country: the most recent year with a real value.
-  const latestByCountry = new Map<string, WBRow>();
-  for (const r of allRows) {
-    const id = r.country?.id;
-    if (!id || typeof r.value !== "number") continue;
-    const prev = latestByCountry.get(id);
-    if (!prev || (r.date ?? "") > (prev.date ?? "")) latestByCountry.set(id, r);
-  }
-  const rows = [...latestByCountry.values()];
-  process.stdout.write(`World Bank: ${allRows.length} rows over ${pages} page(s) -> ${rows.length} countries with a value\n`);
+  const ppRows = await fetchLatestByCountry(WB_URL);
+  const gniRows = await fetchLatestByCountry(WB_GNI_URL);
+  const rows = [...ppRows.values()];
+  process.stdout.write(`World Bank: ${rows.length} countries with PPP, ${gniRows.size} with GNI per capita\n`);
 
   const countries: {
     iso2: string; iso3: string; name: string; currency: string;
     ppp: number; pppYear: string; rate: number; multiplier: number;
+    priceLevel: number; gni: number | null; gniYear: string | null;
   }[] = [];
   const skipped: string[] = [];
 
@@ -138,6 +148,10 @@ async function main(): Promise<void> {
       pppYear: r.date ?? "",
       rate: Math.round(rate * 1e6) / 1e6,
       multiplier: Math.round(multiplier * 1000) / 1000,
+      // Price level relative to the US (US = 1). Higher = more expensive.
+      priceLevel: Math.round((1 / multiplier) * 1000) / 1000,
+      gni: typeof gniRows.get(iso2)?.value === "number" ? Math.round(gniRows.get(iso2)!.value as number) : null,
+      gniYear: gniRows.get(iso2)?.date ?? null,
     });
   }
 
@@ -151,6 +165,8 @@ async function main(): Promise<void> {
     rateDate: latest.date,
     pppYears: { from: years[0], to: years[years.length - 1] },
     countryCount: countries.length,
+    withGni: countries.filter((c) => c.gni != null).length,
+    gniIndicator: WB_GNI,
     countries,
   };
 
