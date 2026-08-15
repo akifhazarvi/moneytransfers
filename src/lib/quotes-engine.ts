@@ -159,6 +159,18 @@ const INDICATIVE_PROVIDERS: {
       "TND", "TRY", "AED", "UGX", "XOF",
     ]),
   },
+  {
+    // Korea-outbound only. GME sends FROM South Korea (KRW) to its migrant-worker
+    // corridors. `to` covers the receive currencies of the KRW corridors the site
+    // runs plus GME's documented destinations (Nepal, Vietnam, Philippines,
+    // Indonesia, India, Thailand, Sri Lanka, Pakistan, Bangladesh, China, Cambodia).
+    // No public rate feed — surfaced as indicative until a quotes integration lands.
+    slug: "gme-remit",
+    from: new Set(["KRW"]),
+    to: new Set([
+      "NPR", "VND", "PHP", "IDR", "INR", "THB", "LKR", "PKR", "BDT", "CNY", "KHR", "USD",
+    ]),
+  },
 ];
 
 // Currencies that broker desks treat as majors — tighter spreads, ~0.5%.
