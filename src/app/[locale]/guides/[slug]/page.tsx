@@ -184,6 +184,20 @@ function getExploreLinks(tags: string[], category: string): { href: string; labe
   return [...fixed, ...dynamic.slice(0, 5)];
 }
 
+// SOFT-404 FIX. With ISR (`revalidate` above) and dynamicParams defaulting to
+// true, an unknown slug was rendered on demand and the notFound() result got
+// cached and served as HTTP **200** carrying the "Not Found" body — a soft 404,
+// on the one path we are actively building authority in. Verified live:
+// /guides/this-page-does-not-exist-xyz returned 200 while /tools/nonexistent
+// and other unmatched paths correctly returned 404.
+//
+// Guides are a fixed editorial set, so there is no case for on-demand slugs.
+// dynamicParams = false makes anything outside generateStaticParams a real 404
+// without invoking the component — the same allowlist pattern already used for
+// corridor and compare routes. Coverage is complete: the [locale] layout
+// generates every routing.locale and this generates every blogPosts slug.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
