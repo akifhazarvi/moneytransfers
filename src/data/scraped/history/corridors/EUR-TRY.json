@@ -9794,5 +9794,94 @@
         "receiveAmount": 4218.29
       }
     }
+  },
+  {
+    "date": "2026-08-15",
+    "providers": {
+      "moneygram": {
+        "rate": 54.7261,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5391.07
+      },
+      "taptap-send": {
+        "rate": 54.74,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5474
+      },
+      "deutsche-bank": {
+        "rate": 55.4007,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3515.17
+      },
+      "xe": {
+        "rate": 54.4773,
+        "fee": 4,
+        "markup": 1.35,
+        "receiveAmount": 5229.82
+      },
+      "western-union": {
+        "rate": 54.2788,
+        "fee": 0.99,
+        "markup": 1.71,
+        "receiveAmount": 5374.15
+      },
+      "dahabshiil": {
+        "rate": 54.0237,
+        "fee": 1.99,
+        "markup": 2.18,
+        "receiveAmount": 5294.86
+      },
+      "instarem": {
+        "rate": 55.017,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5501.7
+      },
+      "paysend": {
+        "rate": 54.2708,
+        "fee": 0,
+        "markup": 1.73,
+        "receiveAmount": 5427.08
+      },
+      "remitly": {
+        "rate": 54.66,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 5357.23
+      },
+      "revolut": {
+        "rate": 54.9047,
+        "fee": 1,
+        "markup": 0.58,
+        "receiveAmount": 5435.57
+      },
+      "wise": {
+        "rate": 55.4001,
+        "fee": 2.97,
+        "markup": null,
+        "receiveAmount": 5375.47
+      },
+      "ing-de": {
+        "rate": 54.2313,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4230.04
+      },
+      "sparkasse": {
+        "rate": 55.2367,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5109.4
+      },
+      "commerzbank": {
+        "rate": 53.8974,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4716.02
+      }
+    }
   }
 ]
