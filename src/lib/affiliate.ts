@@ -43,14 +43,23 @@ const affiliateLinks: Record<string, string> = {
   paypal: "https://paypal.com/?ref=sendmoneycompare",
   moneygram: "https://moneygram.com/?ref=sendmoneycompare",
   xoom: "https://xoom.com/?ref=sendmoneycompare",
-  torfx: "https://torfx.com/?ref=sendmoneycompare",
+  // Direct affiliate deal — same partner group as currencies-direct (TorFX is
+  // their second consumer brand), hence the near-identical afflno. This is the
+  // CLIENT referral link (/affiliate/quote/) which lands on a quote form; do NOT
+  // swap it for the /refer-a-partner/ or partner.torfx.com/register links — those
+  // recruit affiliates, not customers, and would send our senders to a signup form.
+  torfx: "https://www.torfx.com/affiliate/quote/?afflno=0301110000955438",
   instarem: "https://instarem.prf.hn/click/camref:1100l5Nn6Z/[p_id:1011l637599]",
   unplex: "https://unplex.money/?ref=sendmoneycompare&utm_source=sendmoneycompare",
   "taptap-send": "https://taptapsend.com/?ref=sendmoneycompare",
   "ace-money-transfer": "https://acemoneytransfer.com/?ref=sendmoneycompare",
   currencyfair: "https://currencyfair.com/?ref=sendmoneycompare",
   skrill: "https://skrill.com/?ref=sendmoneycompare",
-  "currencies-direct": "https://currenciesdirect.com/?ref=sendmoneycompare",
+  // Direct affiliate deal — `afflno` is Currencies Direct's own partner ID and
+  // is what they reconcile commission against, so it must survive untouched.
+  // Verified Aug 2026: /en/ 301s to /en-gb and carries every query param
+  // through, so our UTM + smc_click_id stamping doesn't break attribution.
+  "currencies-direct": "https://www.currenciesdirect.com/en/?afflno=0201110000955421",
   monese: "https://monese.com/?ref=sendmoneycompare",
   chase: "https://chase.com/personal/international-transfers",
   "bank-of-america": "https://bankofamerica.com/foreign-exchange/",
@@ -91,6 +100,10 @@ const affiliateLinks: Record<string, string> = {
   koho: "https://koho.ca/?ref=sendmoneycompare",
   fairfx: "https://fairfx.com/?ref=sendmoneycompare",
   regencyfx: "https://www.regencyfx.com/partner/sendmoneycompare",
+  // Direct-deal placeholder — GME has no affiliate-network programme yet.
+  // Swap for the negotiated tracking link once terms are agreed (BD contact:
+  // corporate@gmeremit.com). Korea-outbound (KRW) only; see INDICATIVE_PROVIDERS.
+  "gme-remit": "https://www.gmeremit.com/?ref=sendmoneycompare",
   "pnb-europe": "https://pnbeuropebank.com/?ref=sendmoneycompare",
   starling: "https://starlingbank.com/?ref=sendmoneycompare",
   halifax: "https://halifax.co.uk/?ref=sendmoneycompare",
