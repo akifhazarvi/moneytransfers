@@ -43,6 +43,12 @@ const TOOLS = [
     tag: "Live rates",
     desc: "Paste any quoted rate and see the hidden exchange-rate markup in real money.",
   },
+  {
+    href: "/tools/salary-abroad",
+    name: "Salary Abroad Calculator",
+    tag: "World Bank data",
+    desc: "What your income is really worth in 83 countries — including the FX cost every other calculator ignores.",
+  },
 ];
 
 export default async function ToolsPage({

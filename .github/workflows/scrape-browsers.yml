@@ -195,6 +195,11 @@ jobs:
         run: npx tsx scripts/build-weekend-markup.ts
         timeout-minutes: 6
 
+      - name: Build PPP index (World Bank)
+        run: npx tsx scripts/build-ppp-index.ts
+        timeout-minutes: 4
+        continue-on-error: true
+
       - name: Commit scraped data
         run: |
           git config user.name "github-actions[bot]"

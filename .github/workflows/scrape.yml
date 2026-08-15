@@ -144,6 +144,11 @@ jobs:
         run: npx tsx scripts/build-weekend-markup.ts
         timeout-minutes: 6
 
+      - name: Build PPP index (World Bank)
+        run: npx tsx scripts/build-ppp-index.ts
+        timeout-minutes: 4
+        continue-on-error: true
+
       # Replaces the single date line that follows the heading. The previous
       # version replaced the heading line and then *appended* today's date
       # without removing the old one, so llms.txt accumulated one line per run

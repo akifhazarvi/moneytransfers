@@ -90,6 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("tools", STATIC_HUB_DATE),
     entry("tools/us-remittance-tax", DATA_UPDATED),
     entry("tools/fx-markup-checker", DATA_UPDATED),
+    entry("tools/salary-abroad", DATA_UPDATED),
     // Crypto cash-out cluster (added Jul 3 2026). Hub + 6 GATED pilot country
     // pages — each has live off-ramp data AND unique hand-authored editorial
     // (local exchanges, cash-out method, tax reality), NOT programmatic shells.
