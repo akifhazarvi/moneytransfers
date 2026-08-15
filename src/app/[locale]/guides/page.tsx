@@ -137,6 +137,24 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         </Link>
 
         <Link
+          href="/guides/fx-cost-vs-purchasing-power"
+          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
+        >
+          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+            Original research · World Bank + 2.37M quotes
+          </span>
+          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
+            The cheaper the move, the less your transfer fee matters
+          </h2>
+          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+            Moving US→UK lifts buying power 6% — and the wrong provider eats 84% of it. Moving to Egypt it eats 0.9%.
+          </p>
+          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+            See the charts →
+          </span>
+        </Link>
+
+        <Link
           href="/guides/gbp-forecast-2026"
           className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
         >

@@ -178,3 +178,10 @@ export function corridorSlugByPair(): Record<string, string> {
   }
   return out;
 }
+
+/** "15 August 2026" from a YYYY-MM-DD string. */
+export function longDateFromIso(iso: string): string {
+  return new Date(iso + "T00:00:00Z").toLocaleDateString("en-GB", {
+    day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+  });
+}
