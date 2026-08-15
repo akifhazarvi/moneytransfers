@@ -25633,16 +25633,16 @@
         "receiveAmount": 111.57
       },
       "dahabshiil": {
-        "rate": 1.1345,
+        "rate": 1.1355,
         "fee": 0.99,
-        "markup": 3.01,
-        "receiveAmount": 112.33
+        "markup": 2.92,
+        "receiveAmount": 112.43
       },
       "currencies-direct": {
-        "rate": 1.153,
+        "rate": 1.1531,
         "fee": 0,
-        "markup": 1.43,
-        "receiveAmount": 115.3
+        "markup": 1.41,
+        "receiveAmount": 115.31
       },
       "rbs": {
         "rate": 1.1428,
@@ -25651,10 +25651,10 @@
         "receiveAmount": 114.28
       },
       "ofx": {
-        "rate": 1.1697,
+        "rate": 1.163,
         "fee": 0,
-        "markup": 0,
-        "receiveAmount": 116.97
+        "markup": 0.57,
+        "receiveAmount": 116.3
       },
       "halifax": {
         "rate": 1.1298,
@@ -25663,10 +25663,10 @@
         "receiveAmount": 112.98
       },
       "transfergo": {
-        "rate": 1.1511,
+        "rate": 1.1509,
         "fee": 0,
         "markup": 1.6,
-        "receiveAmount": 115.11
+        "receiveAmount": 115.09
       },
       "instarem": {
         "rate": 1.1631,
@@ -25675,16 +25675,16 @@
         "receiveAmount": 116.31
       },
       "mukuru": {
-        "rate": 1.1587,
+        "rate": 1.1628,
         "fee": 1.89,
-        "markup": 0.94,
-        "receiveAmount": 113.68
+        "markup": 0.59,
+        "receiveAmount": 114.08
       },
       "paysend": {
-        "rate": 1.1551,
+        "rate": 1.1553,
         "fee": 1,
-        "markup": 1.26,
-        "receiveAmount": 114.35
+        "markup": 1.23,
+        "receiveAmount": 114.37
       },
       "remitly": {
         "rate": 1.1578,
@@ -25751,6 +25751,24 @@
         "fee": 4,
         "markup": null,
         "receiveAmount": 112.2
+      },
+      "xe": {
+        "rate": 1.1618,
+        "fee": 3,
+        "markup": 0.67,
+        "receiveAmount": 112.69
+      },
+      "currencyfair": {
+        "rate": 1.1632,
+        "fee": 2.58,
+        "markup": 0.55,
+        "receiveAmount": 113.32
+      },
+      "revolut": {
+        "rate": 1.167,
+        "fee": 20.52,
+        "markup": 0.23,
+        "receiveAmount": 92.75
       }
     }
   }

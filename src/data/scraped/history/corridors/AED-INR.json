@@ -5767,16 +5767,16 @@
     "date": "2026-08-15",
     "providers": {
       "currencyfair": {
-        "rate": 25.7912,
-        "fee": 34.65,
-        "markup": 0.72,
-        "receiveAmount": 1685.45
+        "rate": 25.8516,
+        "fee": 34.64,
+        "markup": 0.71,
+        "receiveAmount": 1689.66
       },
       "paysend": {
-        "rate": 25.2055,
+        "rate": 25.2173,
         "fee": 0,
-        "markup": 2.97,
-        "receiveAmount": 2520.55
+        "markup": 3.14,
+        "receiveAmount": 2521.73
       },
       "remitly": {
         "rate": 25.92,
@@ -5795,6 +5795,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 2603.01
+      },
+      "skrill": {
+        "rate": 25.3523,
+        "fee": 0,
+        "markup": 2.62,
+        "receiveAmount": 2535.23
       }
     }
   }

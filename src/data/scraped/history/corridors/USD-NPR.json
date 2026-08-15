@@ -8208,10 +8208,10 @@
     "date": "2026-08-15",
     "providers": {
       "moneygram": {
-        "rate": 150.9103,
+        "rate": 151.0032,
         "fee": 1.99,
-        "markup": 1.17,
-        "receiveAmount": 14790.72
+        "markup": 1.34,
+        "receiveAmount": 14799.82
       },
       "ria": {
         "rate": 150.7849,
@@ -8226,16 +8226,16 @@
         "receiveAmount": 15070
       },
       "western-union": {
-        "rate": 151.3629,
+        "rate": 151.4126,
         "fee": 1.99,
-        "markup": 0.88,
-        "receiveAmount": 14835.08
+        "markup": 1.07,
+        "receiveAmount": 14839.95
       },
       "worldremit": {
-        "rate": 150.6049,
+        "rate": 150.6544,
         "fee": 0.99,
-        "markup": 1.37,
-        "receiveAmount": 14911.39
+        "markup": 1.57,
+        "receiveAmount": 14916.29
       },
       "instarem": {
         "rate": 151.1837,
@@ -8246,7 +8246,7 @@
       "paysend": {
         "rate": 149.9883,
         "fee": 1.99,
-        "markup": 1.78,
+        "markup": 2,
         "receiveAmount": 14700.35
       },
       "remitly": {
@@ -8266,6 +8266,12 @@
         "fee": 4.99,
         "markup": null,
         "receiveAmount": 14137.73
+      },
+      "xe": {
+        "rate": 151.0351,
+        "fee": 4,
+        "markup": 1.32,
+        "receiveAmount": 14499.37
       }
     }
   }
