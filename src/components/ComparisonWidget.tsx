@@ -13,6 +13,13 @@ import { useGeoSelection } from "@/lib/useGeoSelection";
 const MIN_AMOUNT = 1;
 const MAX_AMOUNT = 1_000_000;
 
+// Quick-select amounts. The widget defaults to 1,000, which sits in the band
+// where flat-fee apps are cheapest — so every comparison was implicitly framed
+// as a small-remittance question, and the large-transfer specialists (which
+// only get competitive well above it) rendered near the bottom of the table.
+// These let a user jump to the amount they actually care about in one tap.
+const AMOUNT_PRESETS = [1_000, 5_000, 10_000, 50_000] as const;
+
 interface Props {
   defaultFrom?: string;
   defaultTo?: string;
@@ -147,6 +154,31 @@ export default function ComparisonWidget({
 
   const sendCurrency = sendCurrencies.find((c) => c.code === fromCurrency);
 
+  // Rendered in both the mobile and desktop layouts below.
+  const presetRow = (
+    <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t("youSend")}>
+      {AMOUNT_PRESETS.map((preset) => {
+        const active = amount === preset;
+        return (
+          <button
+            key={preset}
+            type="button"
+            onClick={() => handleAmountChange(String(preset))}
+            aria-pressed={active}
+            className={`h-8 px-3.5 rounded-full text-xs font-medium border transition-colors ${
+              active
+                ? "bg-[var(--color-primary-surface)] border-[var(--color-primary)] text-[var(--color-primary)]"
+                : "bg-[var(--color-surface)] border-[var(--color-outline)] text-[var(--color-on-surface-variant)] hover:bg-[var(--color-surface-dim)]"
+            }`}
+          >
+            {sendCurrency?.symbol || "$"}
+            {preset.toLocaleString()}
+          </button>
+        );
+      })}
+    </div>
+  );
+
   return (
     <form onSubmit={handleCompare}>
       {/* ── MOBILE: Google-Flights pill — From | swap | To, then amount, then full-width CTA ── */}
@@ -188,6 +220,7 @@ export default function ComparisonWidget({
             idPrefix={`${id}-send-m`}
           />
         </div>
+        <div className="mt-3">{presetRow}</div>
         <button
           type="submit"
           className="mt-3 w-full h-12 bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full font-semibold text-sm hover:bg-[var(--color-cta-hover)] active:scale-[0.99] transition-all shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)]"
@@ -239,6 +272,8 @@ export default function ComparisonWidget({
           </div>
         </div>
       </div>
+
+      <div className="hidden lg:flex justify-center mt-4">{presetRow}</div>
 
       <div className="hidden lg:flex justify-center mt-6">
         <button
