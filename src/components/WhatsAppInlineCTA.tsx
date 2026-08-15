@@ -1,11 +1,56 @@
 "use client";
 
-import { trackWhatsappFollow } from "@/lib/analytics";
+import { useEffect, useRef } from "react";
+import { trackWhatsappFollow, trackWhatsappImpression } from "@/lib/analytics";
 import { WHATSAPP_CHANNEL_URL } from "@/lib/whatsapp";
+import { WhatsAppGlyph, WhatsAppTile } from "./WhatsAppMark";
 
-// Inline "follow the channel" CTA — plain white card, gold accent icon, ink
-// pill button. Same visual language as the rest of the site (no gradients, no
-// decorative glyphs). Tracks with `source` so each placement is measurable.
+// Inline "follow the channel" card.
+//
+// The old version told people they'd get "rate-drop alerts" and asked them to
+// take it on trust. The standard play for channel growth — and the one thing
+// that reliably moves follow rate — is to SHOW the message they'll receive, in
+// the chat UI they already recognise, and to pre-empt the objection that stops
+// most people: "am I handing a stranger my phone number?" (On WhatsApp
+// Channels, no: follows are one-way and admins never see follower numbers.)
+//
+// So the card is: real brand mark → sample alert rendered as a chat bubble →
+// three concrete reassurances → one green button. Impressions are tracked so
+// follow-rate has a denominator.
+
+// Illustrative only — labelled "Example alert" in the UI, and deliberately
+// phrased so nothing here reads as a live quote. Two bubbles rather than one:
+// it fills the panel and makes the "about 2 messages a week" promise concrete.
+const SAMPLE_MESSAGES = [
+  {
+    time: "09:12",
+    title: "GBP → INR · cheapest just changed",
+    body: "Sending £1,000 today? The top provider on this corridor now lands about ₹1,180 more than yesterday’s best — the bank wire is still ₹9,400 behind.",
+    link: "sendmoneycompare.com/send-money/uk-to-india",
+  },
+  {
+    time: "Thu 16:40",
+    title: "USD → PHP · watch the funding fee",
+    body: "Two providers added a card-funding fee this morning. Paying by bank transfer is now the cheaper route on this corridor.",
+    link: null,
+  },
+];
+
+const CHECKS = [
+  {
+    title: "Only when it matters",
+    body: "A message when the cheapest provider on a major corridor actually changes — not a daily rate dump.",
+  },
+  {
+    title: "Your number stays private",
+    body: "Channels are one-way. We can't see your number, message you directly, or add you to a group.",
+  },
+  {
+    title: "No signup, no email",
+    body: "One tap to follow inside WhatsApp, one tap to unfollow. Nothing to fill in.",
+  },
+];
+
 export default function WhatsAppInlineCTA({
   source = "results_inline",
   className = "",
@@ -13,40 +58,137 @@ export default function WhatsAppInlineCTA({
   source?: string;
   className?: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const fired = useRef(false);
+
+  // Impression = the card genuinely reached the viewport. Without this we can't
+  // tell a copy problem from a reach problem.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && !fired.current) {
+            fired.current = true;
+            trackWhatsappImpression(source);
+            io.disconnect();
+          }
+        }
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [source]);
+
   return (
     <div
-      className={`flex flex-col gap-4 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] p-5 sm:flex-row sm:items-center sm:gap-5 sm:p-6 ${className}`}
+      ref={ref}
+      className={`overflow-hidden rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface)] ${className}`}
     >
-      {/* Icon — gold accent, matches the site's single warm material */}
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--color-accent-surface)]">
-        <svg className="h-7 w-7 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.34c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z" />
-        </svg>
-      </div>
+      <div className="grid gap-6 p-5 sm:p-6 lg:grid-cols-[1.15fr_1fr] lg:gap-8">
+        {/* ── Left: the pitch ───────────────────────────────────────────── */}
+        <div className="min-w-0">
+          <div className="flex items-center gap-3">
+            <WhatsAppTile className="h-11 w-11 rounded-[13px]" glyphClassName="h-6 w-6" />
+            <div className="min-w-0">
+              <p className="truncate text-[15px] font-bold leading-tight text-[var(--color-on-surface)]">
+                SendMoneyCompare
+              </p>
+              <p className="text-xs font-medium text-[var(--color-on-surface-muted)]">
+                WhatsApp Channel · Free
+              </p>
+            </div>
+          </div>
 
-      {/* Copy */}
-      <div className="min-w-0 flex-1">
-        <p className="text-base font-semibold text-[var(--color-on-surface)]">
-          Get rate-drop alerts on WhatsApp
-        </p>
-        <p className="mt-0.5 text-sm text-[var(--color-on-surface-variant)]">
-          Follow our free channel for a heads-up when transfer rates move in your favour. No spam, unsubscribe anytime.
-        </p>
-      </div>
+          <h3 className="mt-4 text-xl font-bold leading-snug tracking-[-0.01em] text-[var(--color-on-surface)] sm:text-[22px]">
+            Know who&rsquo;s cheapest before you send
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--color-on-surface-variant)]">
+            We track 60+ providers across 64 corridors every few hours. When the
+            cheapest way to send changes, you get one short message — not a
+            newsletter.
+          </p>
 
-      {/* CTA — ink pill, identical to the site's Send buttons */}
-      <a
-        href={WHATSAPP_CHANNEL_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackWhatsappFollow(source)}
-        className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[var(--color-cta)] px-6 py-3 text-sm font-semibold text-[var(--color-cta-text)] transition-colors hover:bg-[var(--color-cta-hover)]"
-      >
-        Follow channel
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
+          <ul className="mt-4 space-y-2.5">
+            {CHECKS.map((item) => (
+              <li key={item.title} className="flex gap-2.5">
+                <svg
+                  className="mt-[3px] h-4 w-4 shrink-0 text-[var(--wa-teal)]"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <p className="text-sm leading-snug text-[var(--color-on-surface-variant)]">
+                  <span className="font-semibold text-[var(--color-on-surface)]">
+                    {item.title}.
+                  </span>{" "}
+                  {item.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={WHATSAPP_CHANNEL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsappFollow(source)}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-[var(--wa-green)] px-6 py-3.5 text-[15px] font-bold text-[var(--wa-on-green)] transition-colors hover:bg-[var(--wa-green-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wa-teal)] sm:w-auto"
+          >
+            <WhatsAppGlyph className="h-5 w-5" />
+            Follow on WhatsApp
+          </a>
+          {/* Deliberately no "N messages a week" number here: the frequency
+              expectation is set qualitatively in the first bullet, and a
+              countable promise is one the channel would have to keep. */}
+          <p className="mt-2.5 text-xs text-[var(--color-on-surface-muted)]">
+            Free · one tap to follow · unfollow any time
+          </p>
+        </div>
+
+        {/* ── Right: the actual message they'll receive ─────────────────── */}
+        <div className="min-w-0">
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-on-surface-muted)]">
+            Example alert
+          </p>
+          <div className="flex flex-col gap-2 rounded-xl border border-[var(--color-outline)] bg-[var(--wa-chat-canvas)] p-3.5">
+            {SAMPLE_MESSAGES.map((msg) => (
+              <div
+                key={msg.time}
+                className="ml-auto max-w-[19rem] rounded-xl rounded-tr-sm bg-[var(--wa-bubble)] px-3 py-2 text-[13px] leading-relaxed text-[var(--wa-bubble-ink)] shadow-sm"
+              >
+                <p className="font-bold">{msg.title}</p>
+                <p className="mt-1.5">{msg.body}</p>
+                {msg.link && (
+                  <p className="mt-1.5 break-words text-[var(--wa-link)] underline decoration-[var(--wa-link)]/40">
+                    {msg.link}
+                  </p>
+                )}
+                <span className="mt-1 flex items-center justify-end gap-1 text-[10px] text-[var(--wa-bubble-ink)] opacity-70">
+                  {msg.time}
+                  <svg className="h-3.5 w-3.5 text-[var(--wa-tick)]" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                    <path
+                      d="M1.5 9.5 4.6 12.6 10.7 5.4M7 9.5l3.1 3.1L16.5 5.4"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

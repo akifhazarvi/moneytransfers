@@ -34,6 +34,28 @@
   --color-accent-dark:     #A66E27;
   --color-accent-surface:  #FAF3E8;
 
+  /* ─── WhatsApp — a THIRD-PARTY brand mark, deliberately outside our palette ───
+     Recognition beats palette purity here: a WhatsApp glyph tinted in our gold
+     reads as a generic "chat" icon and nobody clicks it. These are WhatsApp's
+     own published colours and must not be swapped for site tokens.
+       --wa-green        #25D366  the logo green (buttons, knockout tiles)
+       --wa-teal         #128C7E  secondary brand green
+       --wa-on-green     near-black label ink — 7.7:1 on #25D366, so a green
+                                  button still clears WCAG AA for its text
+       --wa-bubble       outgoing-message bubble, matching the real chat UI
+       --wa-chat-canvas  chat wallpaper behind the preview bubbles */
+  --wa-green:        #25D366;
+  --wa-green-hover:  #1FBB59;
+  --wa-teal:         #128C7E;
+  --wa-on-green:     #08261D;
+  --wa-bubble:       #D9FDD3;
+  --wa-bubble-ink:   #111B21;
+  --wa-chat-canvas:  #EFE7DE;
+  --wa-tick:         #53BDEB;
+  /* Link inside a bubble. WhatsApp's own #53BDEB only reaches 3.7:1 on the
+     bubble greens, so each theme takes the nearest shade that clears AA. */
+  --wa-link:         #075E54;
+
   /* CTA — filled primary buttons. Distinct from --color-primary (which is mostly
      used as text/link ink, 405 uses). In light mode the CTA is near-black ink with
      white text; in dark mode it flips to near-white with dark text (Wealthsimple's
@@ -129,6 +151,18 @@
   --color-accent:          #D6A85C;
   --color-accent-dark:     #E2BD79;
   --color-accent-surface:  #241B0C;
+
+  /* WhatsApp — brand green holds (that's the whole point of a brand mark); only
+     the chat-preview surfaces flip to WhatsApp's own dark-theme values. */
+  --wa-green:        #25D366;
+  --wa-green-hover:  #3BE07A;
+  --wa-teal:         #1DA192;
+  --wa-on-green:     #08261D;
+  --wa-bubble:       #005C4B;
+  --wa-bubble-ink:   #E9EDEF;
+  --wa-chat-canvas:  #0B141A;
+  --wa-tick:         #53BDEB;
+  --wa-link:         #8ED8F8;
 
   /* CTA — flips to a near-white pill with dark text on charcoal (Wealthsimple). */
   --color-cta:             #F2F2F0;
@@ -812,4 +846,14 @@ h1 { letter-spacing: -0.028em; }
 }
 .animate-ticker { animation: ticker 35s linear infinite; }
 .animate-ticker:hover { animation-play-state: paused; }
+
+/* ─── WhatsApp follow pill — one quiet entrance, no pulse, no loop ─── */
+@keyframes wa-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-wa-rise { animation: wa-rise 0.35s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-wa-rise { animation: none; }
+}
 

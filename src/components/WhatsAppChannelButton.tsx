@@ -1,35 +1,124 @@
 "use client";
 
-import { trackWhatsappFollow } from "@/lib/analytics";
+import { useEffect, useState } from "react";
+import {
+  trackWhatsappDismiss,
+  trackWhatsappFollow,
+  trackWhatsappImpression,
+} from "@/lib/analytics";
 import { WHATSAPP_CHANNEL_URL } from "@/lib/whatsapp";
+import { WhatsAppGlyph } from "./WhatsAppMark";
 
-// Persistent "Follow on WhatsApp" button — always visible, quiet, on-theme.
-// Ink pill matching the site's Send buttons, gold WhatsApp glyph. No popup
-// bubble, no pulse, no glow — it just sits there and expands its label on
-// hover/focus. Bottom-left on mobile (clear of the MobileScrollNav pill at
-// bottom-right and the StickyBestCTA bar); bottom-right on desktop.
+// Persistent "follow the channel" pill.
+//
+// What was wrong with the previous version, and why it converted at ~nothing:
+//   • The glyph was tinted gold on an ink circle, so it read as a generic chat
+//     bubble rather than WhatsApp. No recognition, no click.
+//   • The label only expanded on `group-hover`. On touch devices there is no
+//     hover — mobile visitors saw an unlabelled black circle and had no idea
+//     what it did. That is most of our traffic.
+//   • There was no impression event, so a 4-follower channel gave us no way to
+//     tell whether the problem was reach or copy.
+//
+// Now: WhatsApp's own green, the real mark, a label that is always readable,
+// a dismiss affordance (so being visible isn't hostile), and both halves of
+// the funnel instrumented.
+
+const STORAGE_KEY = "smc_wa_pill";
+const DISMISS_DAYS = 30;
+const FOLLOWED_DAYS = 120;
+
+function suppressedUntil(): number {
+  if (typeof window === "undefined") return 0;
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    return raw ? Number(raw) || 0 : 0;
+  } catch {
+    return 0;
+  }
+}
+
+function suppressFor(days: number) {
+  try {
+    window.localStorage.setItem(
+      STORAGE_KEY,
+      String(Date.now() + days * 24 * 60 * 60 * 1000),
+    );
+  } catch {
+    // Private mode / storage disabled — the pill simply returns next visit.
+  }
+}
+
 export default function WhatsAppChannelButton() {
+  const [state, setState] = useState<"hidden" | "shown">("hidden");
+
+  useEffect(() => {
+    if (Date.now() < suppressedUntil()) return;
+
+    // Hold off until the visitor has engaged a little. Landing straight into a
+    // floating CTA is what trains people to dismiss on sight.
+    let done = false;
+    const reveal = () => {
+      if (done) return;
+      done = true;
+      window.removeEventListener("scroll", onScroll);
+      setState("shown");
+      trackWhatsappImpression("float_pill");
+    };
+    const onScroll = () => {
+      if (window.scrollY > 500) reveal();
+    };
+
+    const timer = window.setTimeout(reveal, 12000);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  if (state === "hidden") return null;
+
   return (
-    <div className="fixed bottom-32 left-3 right-auto sm:bottom-6 sm:left-auto sm:right-6 z-40">
-      <a
-        href={WHATSAPP_CHANNEL_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackWhatsappFollow("float_button")}
-        aria-label="Follow SendMoneyCompare on WhatsApp"
-        className="group flex h-14 items-center rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] shadow-[var(--shadow-md)] transition-colors hover:bg-[var(--color-cta-hover)]"
-      >
-        {/* Icon — fixed 56px square, always centred */}
-        <span className="flex h-14 w-14 shrink-0 items-center justify-center">
-          <svg className="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.34c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z" />
+    <div
+      className="animate-wa-rise fixed bottom-32 left-3 right-auto z-40 sm:bottom-6 sm:left-auto sm:right-6"
+      // Sits clear of MobileScrollNav (bottom-right) and StickyBestCTA (bottom bar).
+    >
+      <div className="relative">
+        <a
+          href={WHATSAPP_CHANNEL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            trackWhatsappFollow("float_pill");
+            // They've gone to the channel — stop asking for a good while.
+            suppressFor(FOLLOWED_DAYS);
+          }}
+          aria-label="Follow SendMoneyCompare on WhatsApp for rate alerts"
+          className="flex h-12 items-center gap-2 rounded-full bg-[var(--wa-green)] pl-3.5 pr-4 text-[var(--wa-on-green)] shadow-[var(--shadow-md)] transition-colors hover:bg-[var(--wa-green-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wa-teal)]"
+        >
+          <WhatsAppGlyph className="h-[22px] w-[22px] shrink-0" />
+          <span className="whitespace-nowrap text-sm font-bold leading-tight">
+            Rate alerts
+          </span>
+        </a>
+
+        {/* Dismiss — small, outside the tap target of the main action */}
+        <button
+          type="button"
+          onClick={() => {
+            suppressFor(DISMISS_DAYS);
+            trackWhatsappDismiss("float_pill");
+            setState("hidden");
+          }}
+          aria-label="Hide the WhatsApp follow button"
+          className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full border border-[var(--color-outline)] bg-[var(--color-surface)] text-[var(--color-on-surface-variant)] shadow-sm transition-colors hover:text-[var(--color-on-surface)]"
+        >
+          <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} aria-hidden="true">
+            <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
           </svg>
-        </span>
-        {/* Label — expands to the side on hover/focus */}
-        <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-all duration-200 group-hover:max-w-[150px] group-hover:pr-5 group-hover:opacity-100 group-focus-visible:max-w-[150px] group-focus-visible:pr-5 group-focus-visible:opacity-100">
-          Follow us
-        </span>
-      </a>
+        </button>
+      </div>
     </div>
   );
 }

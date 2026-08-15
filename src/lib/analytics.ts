@@ -231,3 +231,18 @@ export function trackToolCTA(tool: string, params?: EventParams) {
 export function trackWhatsappFollow(source: string) {
   dual("whatsapp_follow_clicked", { source });
 }
+
+/**
+ * A WhatsApp CTA actually entered the viewport. Without this the follow rate
+ * is unknowable — 4 follows out of an unknown denominator tells us nothing
+ * about whether the problem is reach or copy. Fires at most once per surface
+ * per page view.
+ */
+export function trackWhatsappImpression(source: string) {
+  dual("whatsapp_cta_viewed", { source });
+}
+
+/** User dismissed the floating follow pill. High dismiss rate = wrong moment. */
+export function trackWhatsappDismiss(source: string) {
+  dual("whatsapp_cta_dismissed", { source });
+}
