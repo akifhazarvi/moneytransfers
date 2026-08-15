@@ -81,8 +81,12 @@ export default function WhatsAppChannelButton() {
 
   return (
     <div
-      className="animate-wa-rise fixed bottom-32 left-3 right-auto z-40 sm:bottom-6 sm:left-auto sm:right-6"
-      // Sits clear of MobileScrollNav (bottom-right) and StickyBestCTA (bottom bar).
+      // Must clear all three other bottom-fixed elements. Mobile: bottom-32 sits
+      // above StickyBestCTA and left of MobileScrollNav's bottom-right pill.
+      // Desktop: StickyBestCTA's card runs to right-6, so bottom-6 put this pill
+      // directly on top of the Send button — bottom-28 lifts it clear. Never
+      // overlap the affiliate bar; provider_clicked is the north-star event.
+      className="animate-wa-rise fixed bottom-32 left-3 right-auto z-40 sm:bottom-28 sm:left-auto sm:right-6"
     >
       <div className="relative">
         <a

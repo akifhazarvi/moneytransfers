@@ -20,7 +20,8 @@ import { WhatsAppGlyph, WhatsAppTile } from "./WhatsAppMark";
 
 // Illustrative only — labelled "Example alert" in the UI, and deliberately
 // phrased so nothing here reads as a live quote. Two bubbles rather than one:
-// it fills the panel and makes the "about 2 messages a week" promise concrete.
+// it fills the panel and shows the channel isn't one-note, without committing
+// the channel to a countable weekly cadence.
 const SAMPLE_MESSAGES = [
   {
     time: "09:12",
