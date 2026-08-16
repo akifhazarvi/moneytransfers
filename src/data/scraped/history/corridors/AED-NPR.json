@@ -3843,13 +3843,13 @@
       "paysend": {
         "rate": 40.5567,
         "fee": 9,
-        "markup": 2.69,
+        "markup": 2.62,
         "receiveAmount": 3690.66
       },
       "remitly": {
         "rate": 41.36,
         "fee": 5,
-        "markup": 0.76,
+        "markup": 0.69,
         "receiveAmount": 3929.2
       },
       "taptap-send": {
@@ -3863,6 +3863,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4157.43
+      },
+      "skrill": {
+        "rate": 39.5911,
+        "fee": 0,
+        "markup": 4.94,
+        "receiveAmount": 3959.11
       }
     }
   }

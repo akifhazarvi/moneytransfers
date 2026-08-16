@@ -8996,31 +8996,31 @@
       "moneygram": {
         "rate": 54.0071,
         "fee": 4.99,
-        "markup": 4.13,
+        "markup": 4.07,
         "receiveAmount": 5131.21
       },
       "xe": {
         "rate": 55.8064,
         "fee": 4,
-        "markup": 0.94,
+        "markup": 0.87,
         "receiveAmount": 5357.41
       },
       "western-union": {
         "rate": 55.3449,
         "fee": 1.2,
-        "markup": 1.76,
+        "markup": 1.69,
         "receiveAmount": 5468.08
       },
       "remitly": {
         "rate": 55.53,
         "fee": 2.99,
-        "markup": 1.43,
+        "markup": 1.36,
         "receiveAmount": 5386.97
       },
       "revolut": {
         "rate": 55.974,
         "fee": 1.8,
-        "markup": 0.64,
+        "markup": 0.57,
         "receiveAmount": 5496.65
       },
       "westpac-nz": {
@@ -9046,6 +9046,12 @@
         "fee": 1.71,
         "markup": null,
         "receiveAmount": 5536.02
+      },
+      "skrill": {
+        "rate": 54.8712,
+        "fee": 0,
+        "markup": 2.53,
+        "receiveAmount": 5487.12
       }
     }
   }
