@@ -2180,5 +2180,28 @@
         "receiveAmount": 16091.03
       }
     }
+  },
+  {
+    "date": "2026-08-16",
+    "providers": {
+      "skrill": {
+        "rate": 160.9103,
+        "fee": 0,
+        "markup": 1.57,
+        "receiveAmount": 16091.03
+      },
+      "taptap-send": {
+        "rate": 164.6,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16460
+      },
+      "wise": {
+        "rate": 163.059,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16305.9
+      }
+    }
   }
 ]

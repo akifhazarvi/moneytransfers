@@ -5844,5 +5844,70 @@
         "receiveAmount": 19028.64
       }
     }
+  },
+  {
+    "date": "2026-08-16",
+    "providers": {
+      "moneygram": {
+        "rate": 212.5341,
+        "fee": 2.49,
+        "markup": 0.8,
+        "receiveAmount": 20724.2
+      },
+      "hsbc": {
+        "rate": 206.7445,
+        "fee": 19.78,
+        "markup": 3.5,
+        "receiveAmount": 16585.45
+      },
+      "taptap-send": {
+        "rate": 212.69,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 21269
+      },
+      "western-union": {
+        "rate": 210.1516,
+        "fee": 2.99,
+        "markup": 1.91,
+        "receiveAmount": 20386.8
+      },
+      "transfergo": {
+        "rate": 210.348,
+        "fee": 0,
+        "markup": 1.82,
+        "receiveAmount": 21034.8
+      },
+      "xe": {
+        "rate": 211.2957,
+        "fee": 3,
+        "markup": 1.38,
+        "receiveAmount": 20495.68
+      },
+      "paysend": {
+        "rate": 209.6909,
+        "fee": 1,
+        "markup": 2.12,
+        "receiveAmount": 20759.4
+      },
+      "remitly": {
+        "rate": 208.32,
+        "fee": 1.99,
+        "markup": 2.76,
+        "receiveAmount": 20417.44
+      },
+      "revolut": {
+        "rate": 211.9067,
+        "fee": 3.3,
+        "markup": 1.09,
+        "receiveAmount": 20491.38
+      },
+      "wise": {
+        "rate": 213.877,
+        "fee": 11.03,
+        "markup": 0.17,
+        "receiveAmount": 19028.64
+      }
+    }
   }
 ]
