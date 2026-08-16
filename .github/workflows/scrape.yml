@@ -87,10 +87,18 @@ jobs:
         timeout-minutes: 5 # observed ~2m46s
         continue-on-error: true
 
-      - name: Scrape ACE Money Transfer (HTML)
-        run: npx tsx scripts/scrape-ace.ts
-        timeout-minutes: 2 # observed ~16s (NOTE: output has been [] since May)
-        continue-on-error: true
+      # ACE REMOVED 2026-08-15. acemoneytransfer.com returns HTTP 403 to
+      # GitHub Actions runners (datacenter IPs) — every corridor fails, the step
+      # writes [], and it emits a misleading "may have changed their site
+      # structure" warning. The scraper itself is fine: run from a residential
+      # IP it returns 46 quotes at a 95.8% success rate, verified 2026-08-15.
+      # Nothing to fix in scripts/scrape-ace.ts; the block is at their edge.
+      #
+      # Deliberately NOT committing a manual snapshot instead: ace-direct sits
+      # in Tier 1 of unified-quotes, so a frozen file would outrank the daily
+      # Monito feed for those corridors — the same stale-beats-fresh failure
+      # that froze Tier 1/2 for 41 days. An empty [] is a harmless no-op.
+      # Re-enable only behind a residential proxy.
 
       - name: Scrape PandaRemit (CNY corridors API)
         run: npx tsx scripts/scrape-pandaremit.ts
