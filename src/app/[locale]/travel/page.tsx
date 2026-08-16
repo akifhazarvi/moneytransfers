@@ -42,7 +42,7 @@ export default async function TravelHubPage({ params }: Props) {
             Travel guides: money, eSIM & culture
           </h1>
           <p className="text-md text-[var(--color-on-surface-variant)] max-w-2xl">
-            Plan a smarter trip. For each country we cover the currency (with note images), where to exchange at the best rate, eSIM options with current prices, cultural dos and don'ts, visa rules, and typical daily budgets. Built by the team behind SendMoneyCompare — so the money advice is grounded in real rate data, not travel-guide boilerplate.
+            Plan a smarter trip. For each country we cover the currency (with note images), where to exchange at the best rate, eSIM options with current prices, cultural dos and don&rsquo;ts, visa rules, and typical daily budgets. Built by the team behind SendMoneyCompare — so the money advice is grounded in real rate data, not travel-guide boilerplate.
           </p>
         </Container>
       </section>

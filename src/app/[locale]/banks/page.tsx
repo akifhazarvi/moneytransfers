@@ -57,7 +57,7 @@ export default async function BanksHubPage() {
               We continuously scrape live international transfer quotes from major banks and
               compare them against Wise, Remitly, OFX, and 30+ specialist providers on the same
               corridor, same amount, same day. Pick your bank to see exactly what it costs you to
-              send money abroad — and how much you'd save by switching.
+              send money abroad — and how much you&rsquo;d save by switching.
             </p>
           </div>
         </Container>
@@ -129,7 +129,7 @@ export default async function BanksHubPage() {
               publishes alongside its competitors for regulatory transparency. We scrape it every
               6 hours and store the result. Digital-provider quotes come from a combination of
               direct provider APIs (Wise, OFX, TapTap Send, Instarem, Xoom, Remitly, ACE) and the
-              same Wise feed for everything else. The "loss vs cheapest" calculation is a
+              same Wise feed for everything else. The &ldquo;loss vs cheapest&rdquo; calculation is a
               like-for-like compare: same corridor, same amount, same day. We do not edit, smooth,
               or selectively present the numbers.
             </p>

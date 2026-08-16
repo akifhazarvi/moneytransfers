@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const COOKIE_NAME = "smc_consent";
 const COOKIE_DAYS = 365;
@@ -97,9 +98,9 @@ export default function CookieConsentBanner() {
       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] shadow-[0_4px_24px_rgba(0,0,0,0.12)] rounded-none sm:rounded-2xl p-4 sm:p-5">
         <p className="text-[13px] text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
           We use cookies to understand how visitors use our site and improve your experience.{" "}
-          <a href="/cookies" className="text-[var(--color-primary)] underline underline-offset-2">
+          <Link href="/cookies" className="text-[var(--color-primary)] underline underline-offset-2">
             Cookie policy
-          </a>
+          </Link>
         </p>
         <div className="flex gap-2">
           <button

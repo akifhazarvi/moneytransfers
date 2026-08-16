@@ -254,7 +254,7 @@ export default async function TravelCountryPage({ params }: Props) {
               <Banknote className="w-6 h-6 text-[var(--color-primary)]" /> What {guide.currencyName} notes look like
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mb-6 max-w-3xl">
-              Quick colour reference so you can recognize denominations at a glance. {guide.currencyName} notes are standardized by colour — memorize these before you land and you'll never hand over the wrong note.
+              Quick colour reference so you can recognize denominations at a glance. {guide.currencyName} notes are standardized by colour — memorize these before you land and you&rsquo;ll never hand over the wrong note.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {guide.notes.map((n) => {
@@ -401,7 +401,7 @@ export default async function TravelCountryPage({ params }: Props) {
         <Container>
           <div className="max-w-4xl">
             <h2 className="text-h2 font-semibold text-[var(--color-on-surface)] mb-3">
-              Culture & etiquette: dos and don'ts
+              Culture & etiquette: dos and don&rsquo;ts
             </h2>
             <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-6">{guide.culture.overview}</p>
 
@@ -418,7 +418,7 @@ export default async function TravelCountryPage({ params }: Props) {
                 </ul>
               </Card>
               <Card>
-                <h3 className="font-semibold text-[var(--color-on-surface)] mb-3 text-lg">Don't</h3>
+                <h3 className="font-semibold text-[var(--color-on-surface)] mb-3 text-lg">Don&rsquo;t</h3>
                 <ul className="space-y-3">
                   {guide.culture.donts.map((d, i) => (
                     <li key={i} className="text-2sm text-[var(--color-on-surface-variant)] flex gap-2">
@@ -540,7 +540,7 @@ export default async function TravelCountryPage({ params }: Props) {
               Need to send money to or from {guide.countryName}?
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mb-6">
-              Compare live rates across 50+ apps in real time. We show you what {guide.currency} actually lands in the recipient's account — not just the advertised fee.
+              Compare live rates across 50+ apps in real time. We show you what {guide.currency} actually lands in the recipient&rsquo;s account — not just the advertised fee.
             </p>
             <Link
               href={guide.relatedCorridorSlug ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}

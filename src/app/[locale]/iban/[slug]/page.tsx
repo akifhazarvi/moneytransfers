@@ -457,7 +457,7 @@ export default async function IbanCountryPage({ params }: Props) {
               {" "}{country.sepa
                 ? `As a SEPA member, ${name} supports low-cost euro transfers across 36+ European countries using the ${country.currency} currency.`
                 : `International transfers to ${name} are processed in ${country.currency} via SWIFT, typically taking 1–3 business days.`}
-              {" "}Always include the full {country.ibanLength}-character IBAN together with the bank's BIC/SWIFT code when making or receiving international payments.
+              {" "}Always include the full {country.ibanLength}-character IBAN together with the bank&rsquo;s BIC/SWIFT code when making or receiving international payments.
             </p>
           </Card>
 

@@ -380,6 +380,9 @@ export default async function BusinessComparePage({ params }: { params: Promise<
             <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
               The full per-corridor cost table behind these figures, as a CSV. Free to use with attribution to SendMoneyCompare.
             </p>
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages --
+                This targets an /api/data CSV endpoint, not a page. next/link would
+                client-side navigate instead of letting the browser download it. */}
             <a
               href="/api/data/business-fx-cost"
               className="mt-3 inline-block rounded-full bg-[var(--color-surface)] ring-1 ring-[var(--color-outline)] px-5 py-2.5 text-sm font-semibold text-[var(--color-on-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-all"

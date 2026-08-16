@@ -593,7 +593,7 @@ export default async function BestAppsFromUSPage({
               <span className="flex-none w-7 h-7 rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)] text-sm font-bold flex items-center justify-center">3</span>
               <div>
                 <strong className="text-[var(--color-on-surface)]">Regulatory status</strong> — We verify each
-                provider's FinCEN Money Services Business (MSB) registration and state money transmitter licences
+                provider&rsquo;s FinCEN Money Services Business (MSB) registration and state money transmitter licences
                 via the NMLS Consumer Access database.
               </div>
             </li>

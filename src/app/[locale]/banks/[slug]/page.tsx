@@ -264,7 +264,7 @@ export default async function BankPage({ params }: Props) {
                   rel="noopener noreferrer nofollow"
                   className="text-[var(--color-primary)] hover:underline"
                 >
-                  {bank.name}'s own international transfer page
+                  {bank.name}&rsquo;s own international transfer page
                 </a>
                 {" · "}
                 Quotes scraped via the Wise comparison feed (a regulated, public price-comparison
