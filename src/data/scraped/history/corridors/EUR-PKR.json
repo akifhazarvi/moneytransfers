@@ -12631,26 +12631,26 @@
       "western-union": {
         "rate": 320.6235,
         "fee": 0.99,
-        "markup": 0.14,
+        "markup": 0.13,
         "receiveAmount": 31744.93
       },
       "dahabshiil": {
-        "rate": 321.7587,
+        "rate": 322.0992,
         "fee": 1.49,
-        "markup": -0.21,
-        "receiveAmount": 31696.45
+        "markup": -0.33,
+        "receiveAmount": 31729.99
       },
       "profee": {
-        "rate": 319.4672,
+        "rate": 319.4999,
         "fee": 1.2,
-        "markup": 0.5,
-        "receiveAmount": 31563.35
+        "markup": 0.48,
+        "receiveAmount": 31566.59
       },
       "worldremit": {
-        "rate": 317.8905,
+        "rate": 317.809,
         "fee": 2.99,
-        "markup": 0.99,
-        "receiveAmount": 30838.56
+        "markup": 1.01,
+        "receiveAmount": 30830.65
       },
       "instarem": {
         "rate": 319.6466,
@@ -12659,16 +12659,16 @@
         "receiveAmount": 31964.66
       },
       "paysend": {
-        "rate": 318.3983,
+        "rate": 318.7424,
         "fee": 0,
-        "markup": 0.83,
-        "receiveAmount": 31839.83
+        "markup": 0.72,
+        "receiveAmount": 31874.24
       },
       "sendwave": {
-        "rate": 320.4601,
+        "rate": 320.378,
         "fee": 1.99,
-        "markup": 0.19,
-        "receiveAmount": 31408.3
+        "markup": 0.21,
+        "receiveAmount": 31400.24
       },
       "remitly": {
         "rate": 319.69,
@@ -12677,10 +12677,10 @@
         "receiveAmount": 31332.82
       },
       "revolut": {
-        "rate": 318.9706,
-        "fee": 2.75,
-        "markup": 0.65,
-        "receiveAmount": 31019.89
+        "rate": 319.1371,
+        "fee": 1.75,
+        "markup": 0.59,
+        "receiveAmount": 31355.22
       },
       "xoom": {
         "rate": 314.1996,
@@ -12693,6 +12693,12 @@
         "fee": 1.89,
         "markup": null,
         "receiveAmount": 31541.38
+      },
+      "skrill": {
+        "rate": 317.3938,
+        "fee": 0,
+        "markup": 1.14,
+        "receiveAmount": 31739.38
       }
     }
   }
