@@ -10309,5 +10309,94 @@
         "receiveAmount": 13493.85
       }
     }
+  },
+  {
+    "date": "2026-08-17",
+    "providers": {
+      "lemfi": {
+        "rate": 142.4,
+        "fee": 1.49,
+        "markup": -0.21,
+        "receiveAmount": 14027.82
+      },
+      "moneygram": {
+        "rate": 139.2599,
+        "fee": 1.99,
+        "markup": 2.36,
+        "receiveAmount": 13648.86
+      },
+      "skrill": {
+        "rate": 138.7282,
+        "fee": 0,
+        "markup": 2.73,
+        "receiveAmount": 13872.82
+      },
+      "taptap-send": {
+        "rate": 140.88,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14088
+      },
+      "western-union": {
+        "rate": 140.7617,
+        "fee": 0.99,
+        "markup": 1.3,
+        "receiveAmount": 13936.81
+      },
+      "dahabshiil": {
+        "rate": 140.5231,
+        "fee": 1.99,
+        "markup": 1.47,
+        "receiveAmount": 13772.67
+      },
+      "worldremit": {
+        "rate": 141.5726,
+        "fee": 3.99,
+        "markup": 0.73,
+        "receiveAmount": 13592.38
+      },
+      "instarem": {
+        "rate": 141.0795,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14107.95
+      },
+      "paysend": {
+        "rate": 141.0944,
+        "fee": 0,
+        "markup": 1.07,
+        "receiveAmount": 14109.44
+      },
+      "sendwave": {
+        "rate": 141.4588,
+        "fee": 0.99,
+        "markup": 0.81,
+        "receiveAmount": 14005.84
+      },
+      "remitly": {
+        "rate": 141.58,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 14017.84
+      },
+      "revolut": {
+        "rate": 141.1646,
+        "fee": 3.3,
+        "markup": 1.02,
+        "receiveAmount": 13650.62
+      },
+      "wise": {
+        "rate": 142.132,
+        "fee": 3.51,
+        "markup": null,
+        "receiveAmount": 13714.32
+      },
+      "xoom": {
+        "rate": 139.218,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 13505.53
+      }
+    }
   }
 ]
