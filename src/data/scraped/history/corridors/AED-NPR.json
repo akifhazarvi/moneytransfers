@@ -3911,16 +3911,16 @@
     "date": "2026-08-18",
     "providers": {
       "paysend": {
-        "rate": 40.56,
+        "rate": 40.6505,
         "fee": 9,
-        "markup": 2.65,
-        "receiveAmount": 3690.96
+        "markup": 2.51,
+        "receiveAmount": 3699.2
       },
       "remitly": {
-        "rate": 41.36,
+        "rate": 41.44,
         "fee": 5,
-        "markup": 0.73,
-        "receiveAmount": 3929.2
+        "markup": 0.61,
+        "receiveAmount": 3936.8
       },
       "taptap-send": {
         "rate": 41.45,
@@ -3933,6 +3933,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4164.72
+      },
+      "skrill": {
+        "rate": 39.6553,
+        "fee": 0,
+        "markup": 4.9,
+        "receiveAmount": 3965.53
       }
     }
   }

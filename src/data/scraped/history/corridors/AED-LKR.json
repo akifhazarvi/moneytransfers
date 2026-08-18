@@ -3881,10 +3881,10 @@
     "date": "2026-08-18",
     "providers": {
       "paysend": {
-        "rate": 88.3126,
+        "rate": 88.0742,
         "fee": 9,
-        "markup": 2.36,
-        "receiveAmount": 8036.45
+        "markup": 2.57,
+        "receiveAmount": 8014.75
       },
       "remitly": {
         "rate": 90.22,
@@ -3903,6 +3903,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 9035.12
+      },
+      "skrill": {
+        "rate": 86.0697,
+        "fee": 0,
+        "markup": 4.79,
+        "receiveAmount": 8606.97
       }
     }
   }

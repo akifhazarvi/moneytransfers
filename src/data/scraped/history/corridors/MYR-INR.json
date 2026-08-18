@@ -2457,22 +2457,22 @@
     "date": "2026-08-18",
     "providers": {
       "western-union": {
-        "rate": 23.2242,
+        "rate": 23.435,
         "fee": 5,
-        "markup": 0.91,
-        "receiveAmount": 2206.3
+        "markup": 0.67,
+        "receiveAmount": 2226.32
       },
       "worldremit": {
-        "rate": 22.7669,
+        "rate": 23.0197,
         "fee": 5,
-        "markup": 2.87,
-        "receiveAmount": 2162.85
+        "markup": 2.43,
+        "receiveAmount": 2186.87
       },
       "instarem": {
-        "rate": 23.3966,
+        "rate": 23.5554,
         "fee": 0.55,
-        "markup": 0.18,
-        "receiveAmount": 2326.79
+        "markup": 0.16,
+        "receiveAmount": 2342.58
       }
     }
   }

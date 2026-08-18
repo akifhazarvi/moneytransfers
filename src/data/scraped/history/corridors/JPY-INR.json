@@ -2884,22 +2884,22 @@
     "date": "2026-08-18",
     "providers": {
       "xe": {
-        "rate": 0.5945,
+        "rate": 0.5931,
         "fee": 0,
-        "markup": 0.9,
-        "receiveAmount": 59.45
+        "markup": 1.08,
+        "receiveAmount": 59.31
       },
       "instarem": {
-        "rate": 0.5966,
+        "rate": 0.5955,
         "fee": 0,
-        "markup": 0.55,
-        "receiveAmount": 59.66
+        "markup": 0.68,
+        "receiveAmount": 59.55
       },
       "revolut": {
-        "rate": 0.5975,
+        "rate": 0.5964,
         "fee": 0,
-        "markup": 0.4,
-        "receiveAmount": 59.75
+        "markup": 0.53,
+        "receiveAmount": 59.64
       },
       "wise": {
         "rate": 0.6005,
