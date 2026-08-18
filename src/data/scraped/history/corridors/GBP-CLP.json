@@ -53,5 +53,16 @@
         "receiveAmount": 123321
       }
     }
+  },
+  {
+    "date": "2026-08-18",
+    "providers": {
+      "taptap-send": {
+        "rate": 1234.19,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 123419
+      }
+    }
   }
 ]

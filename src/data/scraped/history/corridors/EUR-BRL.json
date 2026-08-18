@@ -11897,5 +11897,100 @@
         "receiveAmount": 593.62
       }
     }
+  },
+  {
+    "date": "2026-08-18",
+    "providers": {
+      "lemfi": {
+        "rate": 6.03,
+        "fee": 0,
+        "markup": -0.05,
+        "receiveAmount": 603
+      },
+      "moneygram": {
+        "rate": 5.868,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 575.13
+      },
+      "taptap-send": {
+        "rate": 6.03,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 597.03
+      },
+      "western-union": {
+        "rate": 5.887,
+        "fee": 1.99,
+        "markup": 2.57,
+        "receiveAmount": 576.99
+      },
+      "profee": {
+        "rate": 6.0615,
+        "fee": 1.3,
+        "markup": -0.31,
+        "receiveAmount": 598.27
+      },
+      "worldremit": {
+        "rate": 5.9552,
+        "fee": 1.99,
+        "markup": 1.45,
+        "receiveAmount": 583.67
+      },
+      "instarem": {
+        "rate": 5.9742,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 597.42
+      },
+      "paysend": {
+        "rate": 5.9909,
+        "fee": 0,
+        "markup": 0.85,
+        "receiveAmount": 599.09
+      },
+      "sendwave": {
+        "rate": 5.9854,
+        "fee": 1.99,
+        "markup": 0.95,
+        "receiveAmount": 586.63
+      },
+      "remitly": {
+        "rate": 5.9904,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 587.11
+      },
+      "revolut": {
+        "rate": 5.9919,
+        "fee": 1,
+        "markup": 0.84,
+        "receiveAmount": 593.2
+      },
+      "paypal": {
+        "rate": 5.7471,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 551.78
+      },
+      "xoom": {
+        "rate": 5.8344,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 565.99
+      },
+      "sparkasse": {
+        "rate": 5.739,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 530.86
+      },
+      "wise": {
+        "rate": 6.0239,
+        "fee": 1.86,
+        "markup": null,
+        "receiveAmount": 591.19
+      }
+    }
   }
 ]
