@@ -101,8 +101,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // indexability they had before the template unification; other pages must
   // EARN indexability by being promoted into SITEMAP_COMPARISON_SLUGS once
   // they show GSC signal.
-  const isAllowlisted =
-    SITEMAP_COMPARISON_SLUGS.has(canonicalSlug) || EDITORIAL_COMPARE_SLUGS.has(canonicalSlug);
+  // Indexability gates on SITEMAP MEMBERSHIP ALONE. It used to also accept
+  // EDITORIAL_COMPARE_SLUGS, which quietly defeated the rule sitemap-allowlists.ts
+  // documents ("compare/[slug] gates indexability on SITEMAP_COMPARISON_SLUGS"):
+  // that set has 43 entries against the sitemap's 23, so 29 pages emitted
+  // `index, follow` while absent from the sitemap — the same contradictory signal
+  // this guard exists to prevent. Gating on one set makes the contradiction
+  // structurally impossible rather than something to re-fix when the lists drift.
+  //
+  // EDITORIAL_COMPARE_SLUGS still drives generateStaticParams and canonical
+  // direction, so these pages keep building and keep their inbound internal
+  // links — they are noindexed, not removed. Promote into the sitemap allowlist
+  // to make one indexable.
+  const isAllowlisted = SITEMAP_COMPARISON_SLUGS.has(canonicalSlug);
   const shouldNoindexThin = !isAllowlisted;
 
   return {

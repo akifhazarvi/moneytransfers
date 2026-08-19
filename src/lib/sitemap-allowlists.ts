@@ -204,7 +204,23 @@ export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
   //    on SITEMAP_COMPARISON_SLUGS). Both are canonical form. ──
   "remitly-vs-xoom", // 11i Bing
   "remitly-vs-xe",   // 1,582 AI cites
-]); // 22 URLs (was 17)
+  // ── Added 2026-08-19 — pages that were EARNING Google traffic in the 90d to
+  //    Jul 3 while sitting off the sitemap. They were indexable only via the
+  //    EDITORIAL_COMPARE_SLUGS disjunct in compare/[slug], which has now been
+  //    removed; without listing them here that fix would have noindexed live
+  //    earners. Listing resolves the sitemap/robots contradiction in the
+  //    direction the traffic data supports. All are canonical form (each is in
+  //    EDITORIAL_COMPARE_SLUGS, so getCompareCanonicalSlug returns itself). ──
+  "wise-vs-western-union",
+  "wise-vs-xe",
+  "wise-vs-westpac",
+  "chase-vs-hsbc",
+  "moneygram-vs-wise",
+  "moneygram-vs-worldremit",
+  "remitly-vs-worldremit",
+  "wise-vs-worldremit",
+  "remitly-vs-paypal",
+]); // 32 URLs
 
 export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
   // ── Original editorial provider reviews ──
