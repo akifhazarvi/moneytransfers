@@ -37,10 +37,21 @@ export const viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  // No `template` here. It appended " | SendMoneyCompare" (19 chars) to every
+  // child page title, which pushed 82 indexable pages past Bing's ~85-char
+  // limit — reported as "Title too long", High severity, 79 pages. On a title
+  // that long the SERP truncates before the brand is ever shown, so the suffix
+  // cost length without being seen, and the truncation cut the informative tail
+  // instead. Bing CTR has halved over the same period (1.41% in June to 0.72% in
+  // August) while impressions rose, which is the shape you get when titles rank
+  // but read badly. Pages that want the brand can add it themselves; `default`
+  // below still carries it for the homepage.
   title: {
     default:
       "Compare Money Transfer Apps — Find the Cheapest Rate in 2026",
-    template: "%s | SendMoneyCompare",
+    // Identity template: child titles pass through untouched. Next requires a
+    // `template` whenever `default` is used, so "%s" is how you opt out.
+    template: "%s",
   },
   robots: {
     index: true,

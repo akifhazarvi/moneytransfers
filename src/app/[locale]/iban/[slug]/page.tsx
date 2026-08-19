@@ -48,6 +48,17 @@ export async function generateStaticParams() {
 // Adds: year freshness, front-loaded query, bank names as CTR magnets,
 // concrete format breakdown users see straight in the SERP.
 const ibanMetaOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDesc?: string }> = {
+  // Added 2026-08-19. Without an override this page fell back to the formal
+  // country name from getCountryByAlpha2 — "United Kingdom Of Great Britain And
+  // Northern Ireland IBAN: 22-Char Format + Example (2026)", 90 chars, over
+  // Bing's ~85 limit, with the description repeating that mouthful twice. This
+  // is the site's largest market and the page was just submitted to the sitemap.
+  uk: {
+    title: "UK IBAN: 22-Char Format + Example (2026)",
+    description: "UK IBAN = 22 chars: GB + 2 check digits + 4-letter bank code + 6-digit sort code + 8-digit account. See a real example and sort codes for Barclays, HSBC, Lloyds.",
+    ogTitle: "UK IBAN: 22-Character Format, Example + Sort Codes (2026)",
+    ogDesc: "GB IBAN in 30 seconds: 22-char structure, a real example, how your sort code and account number map into it, and Faster Payments rules.",
+  },
   germany: {
     title: "German IBAN: 22-Char Format + Example (2026)",
     description: "German IBAN = 22 chars: DE + 2 check digits + 8-digit BLZ + 10-digit account. See a real example, BLZ codes for Deutsche Bank, Commerzbank, Sparkasse, N26.",

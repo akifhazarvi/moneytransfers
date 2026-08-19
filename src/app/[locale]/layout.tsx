@@ -40,12 +40,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const ogLocale = "en_US";
 
   return {
-    // Title template runs on every child page that sets title: "Page Title".
-    // Child pages can still bypass via title: { absolute: "..." } when they
-    // need full control (e.g. the homepage, where the brand already leads).
+    // No `template` — see the note in src/app/layout.tsx. It appended a 19-char
+    // brand suffix to every child title and pushed 82 pages past Bing's ~85-char
+    // limit, where the SERP truncates before the brand shows anyway. `default`
+    // still carries the brand for the locale root.
     title: {
       default: t("title"),
-      template: "%s | SendMoneyCompare",
+      // Identity template — Next requires `template` alongside `default`.
+      template: "%s",
     },
     description: t("description"),
     keywords: t("keywords"),
