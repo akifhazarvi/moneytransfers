@@ -1,5 +1,37 @@
 "use client";
 
+/**
+ * Live mid-market rates board.
+ *
+ * DELIBERATELY off the design tokens. This is a simulated LED
+ * departure-board display (see `led-font`), so it is always dark and paints its
+ * own near-black ground rather than following the light/dark theme. Mapping its
+ * palette onto var(--color-*) would destroy the effect: the LED green #22ff77
+ * has no token equivalent, and --color-success (#1F7A4D) reads as flat paint.
+ * A colour audit will flag this file as the site's biggest token offender — that
+ * is expected. Leave it skinned.
+ *
+ * What the palette DOES have to respect is contrast. The dim greys were
+ * previously well below WCAG AA against the board's own background:
+ *
+ *   #282828  1.38:1   the source/abbreviation/disclaimer paragraph
+ *   #333     1.49:1   ONLINE, UPD, BASE, MEDIAN OF n SOURCES, NEXT UPDATE
+ *   #444     1.79:1   per-row source counts
+ *   #555     2.33:1   legend + column labels
+ *   #666     3.03:1   base-currency label
+ *
+ * The 1.38:1 paragraph was the worst of it, because it carries the material
+ * disclosure — the four data sources, the TT/CHQ/NOTE definitions, "Buy/Sell
+ * spreads are simulated" and "not financial advice" — effectively invisible on a
+ * financial comparison page. Greys were raised to #8a8a8a / #9a9a9a / #a8a8a8,
+ * which keeps the three-step dim hierarchy while clearing 4.5:1 on every
+ * background the board uses, and the amber was lifted #e84020 -> #e94c2e (same
+ * hue and saturation, +3% lightness) to clear AA at 2xs sizes.
+ *
+ * If you add a colour here, check it against #050505, #0a0a0a, #0f0f0f, #111 and
+ * #1a1a1a — the board's five backgrounds — not against the page canvas.
+ */
+
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import {
@@ -202,7 +234,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
   };
 
   const ledStyle = (dir: RateRow["direction"], flash: boolean): React.CSSProperties => {
-    const c = flash && dir === "up" ? "#22ff77" : flash && dir === "down" ? "#ff3333" : "#e84020";
+    const c = flash && dir === "up" ? "#22ff77" : flash && dir === "down" ? "#ff3333" : "#e94c2e";
     return { color: c, textShadow: `0 0 6px ${c}88, 0 0 2px ${c}44` };
   };
 
@@ -271,12 +303,12 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" style={{ boxShadow: "0 0 6px #22ff77" }} />
               </span>
-              <h2 className="led-font text-lg sm:text-2xl font-bold text-[#e84020] tracking-widest uppercase"
+              <h2 className="led-font text-lg sm:text-2xl font-bold text-[#e94c2e] tracking-widest uppercase"
                   style={{ textShadow: "0 0 15px rgba(232,64,32,0.6), 0 0 4px rgba(232,64,32,0.3)" }} aria-hidden="true">
                 Foreign Exchange Rates
               </h2>
             </div>
-            <div className="led-font text-[#e84020] text-sm sm:text-lg tracking-wider"
+            <div className="led-font text-[#e94c2e] text-sm sm:text-lg tracking-wider"
                  style={{ textShadow: "0 0 8px rgba(232,64,32,0.5)" }}>
               {now ? now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "--:--:--"}
             </div>
@@ -284,7 +316,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
 
           {/* ── Source status panel ── */}
           <div className="flex flex-wrap items-center gap-2 mb-4 px-1">
-            <span className="led-font text-[#555] text-2xs tracking-wider mr-1">FEEDS:</span>
+            <span className="led-font text-[#9a9a9a] text-2xs tracking-wider mr-1">FEEDS:</span>
             {sources.map((s) => (
               <div key={s.name} className="flex items-center gap-1.5 bg-[#111] border border-[#222] rounded px-2 py-1">
                 <span
@@ -299,14 +331,14 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                   {s.shortName}
                 </span>
                 {s.status === "ok" && (
-                  <span className="led-font text-2xs text-[#444]">
+                  <span className="led-font text-2xs text-[#8a8a8a]">
                     {s.currencyCount} &middot; {s.latency}ms
                   </span>
                 )}
               </div>
             ))}
             {sources.length > 0 && (
-              <span className="led-font text-2xs text-[#333] ml-auto">
+              <span className="led-font text-2xs text-[#8a8a8a] ml-auto">
                 {sources.filter((s) => s.status === "ok").length}/{sources.length} ONLINE
               </span>
             )}
@@ -314,7 +346,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
 
           {/* ── Base selector ── */}
           <div className="flex items-center gap-3 mb-4">
-            <span className="led-font text-[#666] text-xs tracking-wider uppercase">Base:</span>
+            <span className="led-font text-[#9a9a9a] text-xs tracking-wider uppercase">Base:</span>
             <div className="flex gap-1">
               {BASE_OPTIONS.map((b) => (
                 <button
@@ -322,8 +354,8 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                   onClick={() => setBase(b)}
                   className={`led-font text-xs px-2.5 py-1 rounded transition-all ${
                     base === b
-                      ? "bg-[#e84020] text-black font-bold"
-                      : "bg-[#1a1a1a] text-[#666] hover:text-[#e84020] border border-[#222]"
+                      ? "bg-[#e94c2e] text-black font-bold"
+                      : "bg-[#1a1a1a] text-[#9a9a9a] hover:text-[#e94c2e] border border-[#222]"
                   }`}
                   style={base === b ? { boxShadow: "0 0 10px rgba(232,64,32,0.5)" } : {}}
                 >
@@ -332,7 +364,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
               ))}
             </div>
             {lastUpdated && (
-              <span className="led-font text-[#333] text-2xs ml-auto hidden sm:block">
+              <span className="led-font text-[#8a8a8a] text-2xs ml-auto hidden sm:block">
                 UPD {lastUpdated.toLocaleTimeString("en-GB")}
               </span>
             )}
@@ -350,21 +382,21 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
             {/* Column headers */}
             <div className={`grid ${gridCols} ${gridColsSm} items-center px-3 sm:px-5 py-2.5 bg-[#0f0f0f] border-b-2 border-[#222]`}>
               <span />
-              <span className="led-font text-[#777] text-2xs sm:text-2xs tracking-widest uppercase">Code</span>
+              <span className="led-font text-[#a8a8a8] text-2xs sm:text-2xs tracking-widest uppercase">Code</span>
               {["TT Buy", "TT Sell", "CHQ Buy", "Note Buy"].map((h) => (
                 <span key={h} className="led-font text-2xs sm:text-2xs tracking-widest uppercase text-right"
                       style={{ color: "#c0935a", textShadow: "0 0 4px rgba(192,147,90,0.3)" }}>
                   {h}
                 </span>
               ))}
-              <span className="led-font text-[#555] text-3xs sm:text-2xs tracking-wider text-center">SRC</span>
-              <span className="led-font text-[#555] text-3xs sm:text-2xs tracking-wider text-center" />
+              <span className="led-font text-[#9a9a9a] text-3xs sm:text-2xs tracking-wider text-center">SRC</span>
+              <span className="led-font text-[#9a9a9a] text-3xs sm:text-2xs tracking-wider text-center" />
             </div>
 
             {loading ? (
               <div className="px-6 py-24 text-center">
-                <div className="inline-block w-6 h-6 border-2 border-[#222] border-t-[#e84020] rounded-full animate-spin" />
-                <p className="led-font text-[#333] text-xs mt-4 tracking-wider">AGGREGATING 4 FEEDS...</p>
+                <div className="inline-block w-6 h-6 border-2 border-[#222] border-t-[#e94c2e] rounded-full animate-spin" />
+                <p className="led-font text-[#8a8a8a] text-xs mt-4 tracking-wider">AGGREGATING 4 FEEDS...</p>
               </div>
             ) : (
               <div>
@@ -396,7 +428,7 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
 
                         {/* Code */}
                         <span className="led-font led-digit text-sm sm:text-base font-bold tracking-widest"
-                              style={{ color: "#e84020", textShadow: "0 0 8px rgba(232,64,32,0.5)" }}>
+                              style={{ color: "#e94c2e", textShadow: "0 0 8px rgba(232,64,32,0.5)" }}>
                           {r.code}
                         </span>
 
@@ -463,27 +495,27 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                             <span className="led-font text-2xs text-[#888] tracking-wider">
                               {r.code} — SOURCE BREAKDOWN
                             </span>
-                            <button onClick={() => setShowSourceDetail(null)} className="led-font text-[#555] text-xs hover:text-[#e84020]">
+                            <button onClick={() => setShowSourceDetail(null)} className="led-font text-[#9a9a9a] text-xs hover:text-[#e94c2e]">
                               X
                             </button>
                           </div>
                           {r.perSource.map((ps) => (
                             <div key={ps.name} className="flex items-center justify-between py-0.5">
-                              <span className="led-font text-2xs text-[#666]">{ps.name}</span>
-                              <span className="led-font text-2xs text-[#e84020] tabular-nums" style={{ textShadow: "0 0 4px rgba(232,64,32,0.3)" }}>
+                              <span className="led-font text-2xs text-[#9a9a9a]">{ps.name}</span>
+                              <span className="led-font text-2xs text-[#e94c2e] tabular-nums" style={{ textShadow: "0 0 4px rgba(232,64,32,0.3)" }}>
                                 {fmt(ps.rate)}
                               </span>
                             </div>
                           ))}
                           <div className="mt-1.5 pt-1.5 border-t border-[#222] flex items-center justify-between">
-                            <span className="led-font text-2xs text-[#555]">MEDIAN</span>
+                            <span className="led-font text-2xs text-[#9a9a9a]">MEDIAN</span>
                             <span className="led-font text-2xs text-[#22ff77] tabular-nums font-bold">
                               {fmt(r.midRate)}
                             </span>
                           </div>
                           {r.crossSourceSpread > 0 && (
                             <div className="flex items-center justify-between">
-                              <span className="led-font text-2xs text-[#555]">SPREAD</span>
+                              <span className="led-font text-2xs text-[#9a9a9a]">SPREAD</span>
                               <span className="led-font text-2xs text-[#ccaa22] tabular-nums">
                                 {r.crossSourceSpread.toFixed(6)}
                               </span>
@@ -499,13 +531,13 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
 
             {/* Bottom bar */}
             <div className="flex items-center justify-between px-3 sm:px-5 py-2 bg-[#0a0a0a] border-t border-[#1a1a1a]">
-              <span className="led-font text-[#333] text-2xs sm:text-2xs tracking-wider">
+              <span className="led-font text-[#8a8a8a] text-2xs sm:text-2xs tracking-wider">
                 BASE: 1.0000 {base}
               </span>
-              <span className="led-font text-[#333] text-2xs sm:text-2xs tracking-wider">
+              <span className="led-font text-[#8a8a8a] text-2xs sm:text-2xs tracking-wider">
                 MEDIAN OF {sources.filter((s) => s.status === "ok").length} SOURCES
               </span>
-              <span className="led-font text-[#333] text-2xs sm:text-2xs tracking-wider hidden sm:block">
+              <span className="led-font text-[#8a8a8a] text-2xs sm:text-2xs tracking-wider hidden sm:block">
                 NEXT UPDATE: 60s
               </span>
             </div>
@@ -515,15 +547,15 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
           <div className="flex flex-wrap items-center gap-4 mt-3 px-1">
             <div className="flex items-center gap-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-[#22ff77]" style={{ boxShadow: "0 0 4px #22ff77" }} />
-              <span className="led-font text-[#555] text-2xs tracking-wider">RATE UP</span>
+              <span className="led-font text-[#9a9a9a] text-2xs tracking-wider">RATE UP</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-[#ff3333]" style={{ boxShadow: "0 0 4px #ff3333" }} />
-              <span className="led-font text-[#555] text-2xs tracking-wider">RATE DOWN</span>
+              <span className="led-font text-[#9a9a9a] text-2xs tracking-wider">RATE DOWN</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-[#333]" />
-              <span className="led-font text-[#555] text-2xs tracking-wider">NO CHANGE</span>
+              <span className="led-font text-[#9a9a9a] text-2xs tracking-wider">NO CHANGE</span>
             </div>
             <div className="flex items-center gap-1 ml-2">
               {[1, 2, 3, 4].map((n) => (
@@ -534,14 +566,14 @@ export default function LiveRatesBoard({ initialRates }: LiveRatesBoardProps = {
                             style={{ backgroundColor: idx < n ? confidenceColor(n) : "#1a1a1a" }} />
                     ))}
                   </div>
-                  <span className="led-font text-[#444] text-2xs">{n}src</span>
+                  <span className="led-font text-[#8a8a8a] text-2xs">{n}src</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* ── Disclaimer ── */}
-          <p className="led-font text-[#282828] text-2xs mt-4 leading-relaxed tracking-wider">
+          <p className="led-font text-[#8a8a8a] text-2xs mt-4 leading-relaxed tracking-wider">
             Mid rates aggregated (median) from 4 independent sources: ExchangeRate-API, Fawaz Ahmed CDN,
             FloatRates, Currency-API Pages. TT = Telegraphic Transfer. CHQ = Cheque. NOTE = Cash notes.
             Buy/Sell spreads are simulated. Click the source bars on any row to see per-source breakdown.
