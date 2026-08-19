@@ -16,6 +16,7 @@
 
 // --- Raw data imports ---
 import monitoQuotes from "@/data/scraped/monito-quotes.json";
+import { implausibilityReason, isSelfConsistent, dropRateOutliers } from "@/lib/quote-integrity";
 import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
 import exiapQuotes from "@/data/scraped/exiap-quotes.json";
 import ofxQuotes from "@/data/scraped/ofx-quotes.json";
@@ -202,6 +203,8 @@ function normalizeQuote(
 export const quotesByCorridor: Record<string, NormalizedQuote[]> = {};
 export const quotesByCorridorAmount: Record<string, NormalizedQuote[]> = {};
 export const allProviderSlugs = new Set<string>();
+/** Rows rejected by the integrity guards, by reason — surfaced for /scrape-debug. */
+export const quarantineCounts: Record<string, number> = {};
 export const providerNames: Record<string, string> = {};
 
 function addQuotes(
@@ -213,6 +216,15 @@ function addQuotes(
     const q = normalizeQuote(raw as Record<string, unknown>, sourcePriority, defaultSource);
     if (!q.sendCurrency || !q.receiveCurrency || !q.providerSlug) continue;
     if (q.receiveAmount <= 0 && q.exchangeRate <= 0) continue;
+
+    // Quarantine rows that cannot be true (a rate beating interbank on a freely
+    // floating currency, an absurd markup or fee). See quote-integrity.ts for
+    // why self-inconsistent rows are deliberately NOT dropped here.
+    const reason = implausibilityReason(q);
+    if (reason) {
+      quarantineCounts[reason] = (quarantineCounts[reason] ?? 0) + 1;
+      continue;
+    }
 
     allProviderSlugs.add(q.providerSlug);
     if (q.provider && !providerNames[q.providerSlug]) {
@@ -282,19 +294,28 @@ function deduplicateQuotes(quotes: NormalizedQuote[]): NormalizedQuote[] {
     const existing = best.get(key);
     if (!existing || q.sourcePriority < existing.sourcePriority) {
       best.set(key, q);
+    } else if (
+      q.sourcePriority === existing.sourcePriority &&
+      isSelfConsistent(q) &&
+      !isSelfConsistent(existing)
+    ) {
+      // Same tier: prefer the row whose own fee/rate/receive figures reconcile.
+      best.set(key, q);
     }
   }
   return Array.from(best.values());
 }
 
-// Deduplicate corridor-level index
+// Deduplicate corridor-level index. dropRateOutliers runs FIRST so that a lone
+// source contradicting two that agree is discarded before the priority rule gets
+// a chance to prefer it for being "direct" — that ordering is the whole point.
 for (const key of Object.keys(quotesByCorridor)) {
-  quotesByCorridor[key] = deduplicateQuotes(quotesByCorridor[key]);
+  quotesByCorridor[key] = deduplicateQuotes(dropRateOutliers(quotesByCorridor[key]));
 }
 
 // Deduplicate corridor+amount index
 for (const key of Object.keys(quotesByCorridorAmount)) {
-  quotesByCorridorAmount[key] = deduplicateQuotes(quotesByCorridorAmount[key]);
+  quotesByCorridorAmount[key] = deduplicateQuotes(dropRateOutliers(quotesByCorridorAmount[key]));
 }
 
 // --- Available scraped amounts (for nearest-match lookup) ---
