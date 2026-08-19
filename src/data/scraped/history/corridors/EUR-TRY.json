@@ -10173,22 +10173,22 @@
         "receiveAmount": 3513.81
       },
       "xe": {
-        "rate": 54.9489,
+        "rate": 54.8764,
         "fee": 4,
-        "markup": 0.91,
-        "receiveAmount": 5275.09
+        "markup": 1.17,
+        "receiveAmount": 5268.13
       },
       "western-union": {
-        "rate": 54.6896,
+        "rate": 54.6542,
         "fee": 0.99,
-        "markup": 1.38,
-        "receiveAmount": 5414.82
+        "markup": 1.57,
+        "receiveAmount": 5411.31
       },
       "dahabshiil": {
-        "rate": 54.4747,
+        "rate": 54.4018,
         "fee": 1.99,
-        "markup": 1.77,
-        "receiveAmount": 5339.07
+        "markup": 2.02,
+        "receiveAmount": 5331.92
       },
       "instarem": {
         "rate": 55.1435,
@@ -10197,22 +10197,22 @@
         "receiveAmount": 5514.35
       },
       "paysend": {
-        "rate": 55.2236,
+        "rate": 55.2894,
         "fee": 0,
         "markup": 0.42,
-        "receiveAmount": 5522.36
+        "receiveAmount": 5528.94
       },
       "remitly": {
-        "rate": 54.73,
+        "rate": 54.79,
         "fee": 1.99,
-        "markup": 1.31,
-        "receiveAmount": 5364.09
+        "markup": 1.32,
+        "receiveAmount": 5369.97
       },
       "revolut": {
-        "rate": 55.109,
+        "rate": 55.1768,
         "fee": 1,
-        "markup": 0.62,
-        "receiveAmount": 5455.79
+        "markup": 0.63,
+        "receiveAmount": 5462.5
       },
       "wise": {
         "rate": 55.4772,
@@ -10237,6 +10237,12 @@
         "fee": 22,
         "markup": null,
         "receiveAmount": 4240.78
+      },
+      "ria": {
+        "rate": 54.4892,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5637
       }
     }
   }

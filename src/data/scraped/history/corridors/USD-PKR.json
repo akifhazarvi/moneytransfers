@@ -13719,16 +13719,16 @@
         "receiveAmount": 27535.89
       },
       "moneygram": {
-        "rate": 277.6228,
+        "rate": 277.6122,
         "fee": 0.99,
-        "markup": 0.04,
-        "receiveAmount": 27487.43
+        "markup": -0.02,
+        "receiveAmount": 27486.38
       },
       "ria": {
         "rate": 277.2263,
-        "fee": 1.5,
-        "markup": 0.18,
-        "receiveAmount": 27306.79
+        "fee": 1.9,
+        "markup": null,
+        "receiveAmount": 28114.58
       },
       "taptap-send": {
         "rate": 278.55,
@@ -13737,22 +13737,22 @@
         "receiveAmount": 27300.69
       },
       "boss-money": {
-        "rate": 276.4301,
+        "rate": 276.413,
         "fee": 2.49,
-        "markup": 0.47,
-        "receiveAmount": 26954.7
+        "markup": 0.41,
+        "receiveAmount": 26953.03
       },
       "western-union": {
-        "rate": 277.7621,
+        "rate": 277.7601,
         "fee": 1.99,
-        "markup": -0.01,
-        "receiveAmount": 27223.46
+        "markup": -0.08,
+        "receiveAmount": 27223.27
       },
       "xoom": {
-        "rate": 264.8335,
+        "rate": 264.7303,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 26483.35
+        "receiveAmount": 26473.03
       },
       "worldremit": {
         "rate": 277.692,
@@ -13761,22 +13761,22 @@
         "receiveAmount": 27769.2
       },
       "xe": {
-        "rate": 275.6026,
+        "rate": 275.5532,
         "fee": 1.5,
-        "markup": 0.77,
-        "receiveAmount": 27146.86
+        "markup": 0.72,
+        "receiveAmount": 27141.99
       },
       "paysend": {
         "rate": 274.725,
         "fee": 1.99,
-        "markup": 1.08,
+        "markup": 1.02,
         "receiveAmount": 26925.8
       },
       "sendwave": {
-        "rate": 278.4422,
+        "rate": 278.5527,
         "fee": 1.99,
-        "markup": -0.26,
-        "receiveAmount": 27290.12
+        "markup": -0.36,
+        "receiveAmount": 27300.95
       },
       "remitly": {
         "rate": 276.66,

@@ -12015,22 +12015,22 @@
         "receiveAmount": 597.03
       },
       "western-union": {
-        "rate": 5.8847,
+        "rate": 5.8961,
         "fee": 1.99,
-        "markup": 2.29,
-        "receiveAmount": 576.76
+        "markup": 2.38,
+        "receiveAmount": 577.87
       },
       "profee": {
-        "rate": 6.0409,
+        "rate": 6.0566,
         "fee": 1.3,
-        "markup": -0.3,
-        "receiveAmount": 596.24
+        "markup": -0.28,
+        "receiveAmount": 597.78
       },
       "worldremit": {
-        "rate": 5.9334,
+        "rate": 5.9542,
         "fee": 1.99,
-        "markup": 1.48,
-        "receiveAmount": 581.53
+        "markup": 1.41,
+        "receiveAmount": 583.58
       },
       "instarem": {
         "rate": 5.9852,
@@ -12039,16 +12039,16 @@
         "receiveAmount": 598.52
       },
       "paysend": {
-        "rate": 6.0125,
+        "rate": 6.0268,
         "fee": 0,
-        "markup": 0.17,
-        "receiveAmount": 601.25
+        "markup": 0.21,
+        "receiveAmount": 602.68
       },
       "sendwave": {
-        "rate": 5.9635,
+        "rate": 5.9845,
         "fee": 1.99,
-        "markup": 0.98,
-        "receiveAmount": 584.49
+        "markup": 0.91,
+        "receiveAmount": 586.54
       },
       "remitly": {
         "rate": 6.001,
@@ -12057,10 +12057,10 @@
         "receiveAmount": 588.16
       },
       "revolut": {
-        "rate": 5.9742,
+        "rate": 5.9972,
         "fee": 1,
-        "markup": 0.81,
-        "receiveAmount": 591.44
+        "markup": 0.7,
+        "receiveAmount": 593.72
       },
       "sparkasse": {
         "rate": 5.7631,
@@ -12085,6 +12085,18 @@
         "fee": 1.86,
         "markup": null,
         "receiveAmount": 592.31
+      },
+      "skrill": {
+        "rate": 5.8407,
+        "fee": 0,
+        "markup": 3.29,
+        "receiveAmount": 584.07
+      },
+      "ria": {
+        "rate": 5.79,
+        "fee": 4.5,
+        "markup": null,
+        "receiveAmount": 579
       }
     }
   }
