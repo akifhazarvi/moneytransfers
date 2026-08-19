@@ -11,6 +11,8 @@
  */
 
 import { quotesByCorridor } from "@/lib/unified-quotes";
+import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";
+import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 import { corridors as editorialCorridors } from "@/data/corridors";
 
 export type CorridorTier = 1 | 2 | 3;
@@ -148,8 +150,25 @@ export function shouldIncludeInSitemap(
 
 /**
  * Should this corridor page have a noindex meta tag?
- * Tier 3 pages get noindexed as defense in depth.
- * Wave 3 demand-failure overrides also noindex even though they're editorial.
+ *
+ * Indexability is ALLOWLIST-GATED: a corridor is indexable only if it appears in
+ * SITEMAP_CORRIDOR_SLUGS or HEAD_CORRIDOR_SLUGS — the same two sets the sitemap
+ * builds from. Anything else is noindexed.
+ *
+ * The tier rule alone left 1,176 of 8,574 corridors indexable while the sitemap
+ * listed 44, so 1,132 corridor pages emitted `index, follow` from off the
+ * sitemap. That is the contradictory signal implicated in the May 8 deindex,
+ * across a templated family measured at 32% shared boilerplate — the largest
+ * remaining scaled-content surface on the site.
+ *
+ * Gating on the sitemap sets makes the contradiction structurally impossible
+ * instead of something to re-fix whenever the lists drift, and it means a
+ * corridor EARNS indexability by being promoted on demand evidence rather than
+ * receiving it by default. Pages stay built and internally linked either way —
+ * this is noindex, not removal, so nothing 404s and no link equity is dropped.
+ *
+ * Tier 3 and the Wave-3 demand-failure overrides still force noindex, so an
+ * allowlisted corridor that loses its data does not become indexable by accident.
  */
 export function shouldNoindex(
   slug: string,
@@ -158,5 +177,6 @@ export function shouldNoindex(
   isCountryPage?: boolean,
 ): boolean {
   if (WAVE3_NOINDEX_SLUGS.has(slug)) return true;
-  return getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage) === 3;
+  if (getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage) === 3) return true;
+  return !(SITEMAP_CORRIDOR_SLUGS.has(slug) || HEAD_CORRIDOR_SLUGS.has(slug));
 }

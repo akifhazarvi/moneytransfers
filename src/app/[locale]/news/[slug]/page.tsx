@@ -1,4 +1,5 @@
 import Breadcrumb from "@/components/Breadcrumb";
+import { SITEMAP_NEWS_SLUGS } from "@/lib/sitemap-allowlists";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -66,6 +67,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: getAlternates(`news/${slug}`, locale),
     // News content is English-only; noindex locale variants to avoid duplicate content
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
+    // Thin-page guard, matching /compare and /send-money: a news article is indexable
+    // only if the sitemap lists it. Without this, every news article emitted
+    // `index, follow` while the sitemap carried a subset — the contradictory
+    // signal implicated in the May 8 deindex. Pages stay built and internally
+    // linked; promote into SITEMAP_NEWS_SLUGS to make one indexable.
+    ...(locale === "en" && !SITEMAP_NEWS_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
   };
 }
 

@@ -53,7 +53,73 @@ export const SITEMAP_CORRIDOR_SLUGS = new Set<string>([
   "canada-to-philippines",
   "send-money-to-morocco",
   "send-money-to-spain",
-]); // 19 URLs (was 65)
+  // ── Added 2026-08-19 — demand-evidenced corridors that were emitting `index, follow` while off
+  //    the sitemap. Corridor indexability is now allowlist-gated (see
+  //    corridor-tiers.shouldNoindex), so listing these is what keeps live
+  //    earners indexed; everything unlisted is noindexed rather than
+  //    contradicting the sitemap. Evidence: 90d Google traffic to Jul 3, or
+  //    Bing impressions/clicks in the May 26 BWT export. ──
+  "usa-to-nigeria",
+  "usa-to-europe",
+  "usa-to-kenya",
+  "saudi-arabia-to-bangladesh",
+  "saudi-arabia-to-egypt",
+  "europe-to-pakistan",
+  "usa-to-ghana",
+  "australia-to-uk",
+  "usa-to-vietnam",
+  "usa-to-ethiopia",
+  "japan-to-india",
+  "hong-kong-to-philippines",
+  "uk-to-nepal",
+  "usa-to-sri-lanka",
+  "usa-to-thailand",
+  "usa-to-peru",
+  "usa-to-south-africa",
+  "usa-to-poland",
+  "usa-to-israel",
+  "usa-to-uae",
+  "usa-to-south-korea",
+  "usa-to-argentina",
+  "canada-to-germany",
+  "canada-to-spain",
+  "uk-to-vietnam",
+  "uk-to-china",
+  "uk-to-mexico",
+  "uk-to-egypt",
+  "uk-to-france",
+  "uk-to-zimbabwe",
+  "germany-to-china",
+  "germany-to-turkey",
+  "france-to-pakistan",
+  "france-to-uk",
+  "italy-to-brazil",
+  "portugal-to-bangladesh",
+  "australia-to-france",
+  "australia-to-zimbabwe",
+  "gbp-to-cad",
+  "eur-to-usd",
+  "eur-to-gbp",
+  "aud-to-zar",
+  "send-money-to-pakistan",
+  "send-money-to-vietnam",
+  "send-money-to-thailand",
+  "send-money-to-china",
+  "send-money-to-japan",
+  "send-money-to-guatemala",
+  "send-money-to-dominican-republic",
+  "send-money-to-nigeria",
+  "send-money-to-ethiopia",
+  "send-money-to-uganda",
+  "send-money-to-fiji",
+  "send-money-to-taiwan",
+  "send-money-to-rwanda",
+  "send-money-to-europe",
+  "send-money-to-germany",
+  "send-money-to-paraguay",
+  "send-money-to-kazakhstan",
+  "send-money-to-uzbekistan",
+]); // 79 URLs
 
 export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   // ── Authoritative head-term guides (always submitted regardless of current impr) ──
@@ -130,6 +196,17 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "send-money-to-nigeria-from-usa-uk-canada-australia", // multi-origin NG hub, side-by-side table
   "bank-wire-transfer-fees-2026",                       // Bing 638i: Chase $50 vs Wise cost tables
   "ofx-review-2026",                                    // Bing 15.9K OFX keyword gap, independent review
+  // ── Added 2026-08-19 — guides with Bing demand that sat off the sitemap while indexable. Guides
+  //    now carry a thin-page guard gating indexability on this list. ──
+  "send-money-to-egypt-guide",
+  "eu-instant-payments-2026",
+  "send-money-uk-to-nigeria-guide",
+  "send-money-to-vietnam-guide",
+  "send-money-to-turkey-guide",
+  "stablecoin-vs-wire-transfer-comparison",
+  "send-money-to-spain-guide",
+  "send-money-to-uk-guide",
+  "send-money-to-australia-guide",
 ]); // 64 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
@@ -256,6 +333,11 @@ export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "wise-nasdaq-dual-listing-may-2026",       // 210i 13c
   "eu-instant-payments-mandatory-2026",      // 25i 1c (distinct from -mandate- above)
   "fca-safeguarding-rules-money-transfer-2026", // 24i 0c
+  // ── Added 2026-08-19 — news articles with Bing demand that sat off the sitemap while indexable.
+  //    News now carries the same thin-page guard as guides. ──
+  "fed-holds-rates-march-2026-one-cut-dot-plot",
+  "swift-75-percent-payments-ten-minutes-fsb-stablecoins-thunes-2026",
+  "revolut-africa-14-corridors-airtel-mtn-orange-money-2026",
 ]); // 11 URLs
 
 // All 20 built /exchange-rates/[pair] pages. These render index:follow (en),

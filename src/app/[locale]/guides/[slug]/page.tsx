@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -239,6 +240,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: getAlternates(`guides/${slug}`, locale),
     // Guide content is English-only; noindex locale variants to avoid duplicate content
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
+    // Thin-page guard, matching /compare and /send-money: a guide is indexable
+    // only if the sitemap lists it. Without this, every guide emitted
+    // `index, follow` while the sitemap carried a subset — the contradictory
+    // signal implicated in the May 8 deindex. Pages stay built and internally
+    // linked; promote into SITEMAP_GUIDE_SLUGS to make one indexable.
+    ...(locale === "en" && !SITEMAP_GUIDE_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
   };
 }
 
