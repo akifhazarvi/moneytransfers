@@ -12,9 +12,7 @@ import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
-import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 import {
-  SITEMAP_CORRIDOR_SLUGS,
   SITEMAP_GUIDE_SLUGS,
   SITEMAP_IBAN_SLUGS,
   SITEMAP_COMPARISON_SLUGS,

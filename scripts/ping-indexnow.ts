@@ -8,270 +8,30 @@
  * Run: npx tsx scripts/ping-indexnow.ts
  * Env: INDEXNOW_KEY (optional override, defaults to key in public/)
  */
-import * as fs from "fs";
-import * as path from "path";
-import { getSwiftCountries } from "../src/data/swift-codes";
+import sitemap from "../src/app/sitemap";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY || "504f73e915dcbe38e02c363c31409cad";
-const SCRAPED_DIR = path.join(__dirname, "..", "src", "data", "scraped");
 
-// ── IBAN country slugs that are indexed (must match indexedIbanCountries in iban/[slug]/page.tsx) ──
-const INDEXED_IBAN_SLUGS = [
-  "united-kingdom", "germany", "france", "netherlands", "spain",
-  "italy", "denmark", "belgium", "austria", "ireland",
-  "portugal", "sweden", "switzerland", "poland", "norway",
-  "pakistan",
-  "turkey", "romania", "czechia", "hungary", "croatia",
-  "finland", "greece", "cyprus", "luxembourg",
-  "united-arab-emirates", "saudi-arabia", "qatar", "kuwait", "bahrain",
-  "jordan", "egypt", "israel", "brazil", "ukraine", "georgia",
-];
-
-// ── Provider slugs (must match src/data/providers.ts) ──
-const PROVIDER_SLUGS = [
-  "wise", "remitly", "ofx", "xe", "western-union", "worldremit",
-  "revolut", "paypal", "moneygram", "xoom", "torfx", "instarem",
-  "taptap-send", "ace-money-transfer",
-];
-
-// ── Exchange rate pairs (must match sitemap.ts) ──
-const EXCHANGE_RATE_PAIRS = [
-  "usd-to-inr", "usd-to-pkr", "usd-to-php", "usd-to-mxn", "usd-to-ngn",
-  "gbp-to-eur", "gbp-to-inr", "gbp-to-usd", "gbp-to-pkr",
-  "eur-to-usd", "eur-to-gbp",
-  "cad-to-inr", "aud-to-inr",
-  "usd-to-gbp", "usd-to-eur", "usd-to-cad", "usd-to-aud", "usd-to-jpy",
-  "usd-to-brl", "usd-to-cny",
-];
-
-// ── Currency → country slug mapping for corridor URL generation ──
-const CURRENCY_TO_SLUG: Record<string, string> = {
-  USD: "usa", GBP: "uk", EUR: "europe", CAD: "canada", AUD: "australia",
-  NZD: "new-zealand", SGD: "singapore", AED: "uae", SAR: "saudi-arabia",
-  CHF: "switzerland", HKD: "hong-kong", JPY: "japan", KRW: "south-korea",
-  INR: "india", PKR: "pakistan", BDT: "bangladesh", NPR: "nepal", LKR: "sri-lanka",
-  PHP: "philippines", VND: "vietnam", IDR: "indonesia", THB: "thailand",
-  CNY: "china", MXN: "mexico", BRL: "brazil", COP: "colombia", PEN: "peru",
-  GTQ: "guatemala", DOP: "dominican-republic", JMD: "jamaica",
-  NGN: "nigeria", KES: "kenya", GHS: "ghana", ZAR: "south-africa",
-  ETB: "ethiopia", UGX: "uganda", TZS: "tanzania", XOF: "senegal",
-  EGP: "egypt", MAD: "morocco", TRY: "turkey", PLN: "poland", RON: "romania",
-  FJD: "fiji", MYR: "malaysia", CZK: "czech-republic", HUF: "hungary",
-  ILS: "israel", TWD: "taiwan", RWF: "rwanda", ZMW: "zambia", XAF: "cameroon",
-  NOK: "norway", SEK: "sweden", DKK: "denmark",
-  KWD: "kuwait", QAR: "qatar", BHD: "bahrain", OMR: "oman",
-  BGN: "bulgaria", CLP: "chile", ISK: "iceland",
-};
-
-interface Quote {
-  sendCurrency: string;
-  receiveCurrency: string;
-}
+// The hardcoded allowlists and scraped-file readers that used to live here are
+// gone — generateUrls() now derives every URL from src/app/sitemap.ts, so there is
+// no second copy to keep in sync. See the note on generateUrls below.
 
 /**
- * Read all scraped quote files and extract unique currency pairs with data.
- */
-function getCorridorsWithData(): Set<string> {
-  const pairs = new Set<string>();
-  const files = fs.readdirSync(SCRAPED_DIR).filter((f) => f.endsWith("-quotes.json"));
-
-  for (const file of files) {
-    try {
-      const raw = fs.readFileSync(path.join(SCRAPED_DIR, file), "utf-8");
-      const quotes: Quote[] = JSON.parse(raw);
-      for (const q of quotes) {
-        if (q.sendCurrency && q.receiveCurrency) {
-          pairs.add(`${q.sendCurrency}_${q.receiveCurrency}`);
-        }
-      }
-    } catch {
-      // Skip unreadable files
-    }
-  }
-  return pairs;
-}
-
-/**
- * Read the editorial corridor list directly from the source so newly added
- * corridors (e.g. ireland-to-bangladesh, denmark-to-france) get pinged even
- * when no scraped quote file references them yet.
- */
-function getEditorialCorridorSlugs(): string[] {
-  try {
-    const corridorsTs = fs.readFileSync(
-      path.join(__dirname, "..", "src", "data", "corridors.ts"),
-      "utf-8"
-    );
-    const slugs = new Set<string>();
-    const re = /slug:\s*"([a-z0-9-]+)"/g;
-    let m: RegExpExecArray | null;
-    while ((m = re.exec(corridorsTs))) {
-      slugs.add(m[1]);
-    }
-    return [...slugs];
-  } catch {
-    return [];
-  }
-}
-
-/**
- * Read editorial slugs from a data file using the same `slug: "..."` pattern
- * used elsewhere in src/data. Used for /news and /guides so newly published
- * articles get pinged on the next scrape/deploy run.
- */
-function getEditorialSlugs(relativeDataPath: string): string[] {
-  try {
-    const src = fs.readFileSync(
-      path.join(__dirname, "..", "src", "data", relativeDataPath),
-      "utf-8"
-    );
-    const slugs = new Set<string>();
-    const re = /slug:\s*"([a-z0-9-]+)"/g;
-    let m: RegExpExecArray | null;
-    while ((m = re.exec(src))) {
-      slugs.add(m[1]);
-    }
-    return [...slugs];
-  } catch {
-    return [];
-  }
-}
-
-/**
- * Generate all data-driven URLs that change when scraped data updates.
+ * URLs to submit, derived from the sitemap.
+ *
+ * This used to rebuild the list from its own hardcoded copies of the allowlists —
+ * a fourth source of truth alongside sitemap-allowlists.ts, seo-indexing.ts and the
+ * page files. It had already drifted: it submitted /iban/united-kingdom while the
+ * route slug is /iban/uk, so every run pushed a 404 to Bing. Submitting URLs that
+ * do not resolve is the opposite of the signal this script exists to send.
+ *
+ * Importing the sitemap makes the two agree by construction — IndexNow submits
+ * exactly what we claim is indexable, with nothing left to keep in sync.
  */
 function generateUrls(): string[] {
-  const urls: string[] = [];
-  const corridorsWithData = getCorridorsWithData();
-  const editorialSlugs = getEditorialCorridorSlugs();
-  const newsSlugs = getEditorialSlugs("news.ts");
-  const guideSlugs = [
-    ...getEditorialSlugs("blog-posts.ts"),
-    ...getEditorialSlugs("blog-new-guides-jul2026.ts"),
-    ...getEditorialSlugs("blog-bing-jul2026.ts"),
-    ...getEditorialSlugs("blog-corridor-guides-2.ts"),
-    ...getEditorialSlugs("blog-corridor-guides-india.ts"),
-    ...getEditorialSlugs("blog-converter-guides.ts"),
-  ].filter((slug, i, arr) => arr.indexOf(slug) === i); // deduplicate
-
-  // 1. Homepage + hub pages
-  urls.push(
-    `${SITE_URL}/`,
-    `${SITE_URL}/send-money`,
-    `${SITE_URL}/companies`,
-    `${SITE_URL}/compare`,
-    `${SITE_URL}/compare-money-transfer`,
-    `${SITE_URL}/exchange-rates`,
-    `${SITE_URL}/currency-converter`,
-    `${SITE_URL}/remittance-cost-index`,
-    `${SITE_URL}/guides`,
-    `${SITE_URL}/iban`,
-    `${SITE_URL}/swift-codes`,
-  );
-
-  // 1a. IBAN country pages (indexed subset)
-  for (const slug of INDEXED_IBAN_SLUGS) {
-    urls.push(`${SITE_URL}/iban/${slug}`);
-  }
-
-  // 1b. Every editorial corridor (always indexed regardless of scrape data)
-  for (const slug of editorialSlugs) {
-    urls.push(`${SITE_URL}/send-money/${slug}`);
-  }
-
-  // 1c. News and guides — editorial articles freshly published or revised
-  urls.push(`${SITE_URL}/news`);
-  for (const slug of newsSlugs) {
-    urls.push(`${SITE_URL}/news/${slug}`);
-  }
-  for (const slug of guideSlugs) {
-    urls.push(`${SITE_URL}/guides/${slug}`);
-  }
-  // Dedicated data-story guide routes — these are standalone /guides/* pages
-  // (their own page.tsx), NOT entries in the blog-*.ts editorial files, so the
-  // getEditorialSlugs() sweep above misses them. List them explicitly or they
-  // never get pinged. Keep in sync with src/app/[locale]/guides/*/page.tsx.
-  for (const slug of [
-    "bank-vs-app-transfer-cost-2026",
-    "best-apps-to-send-money-from-us-2026",
-    "gbp-forecast-2026",
-  ]) {
-    urls.push(`${SITE_URL}/guides/${slug}`);
-  }
-
-  // 1d. Bank international-transfer-cost pages — live data, refresh every scrape
-  urls.push(`${SITE_URL}/banks`);
-  for (const slug of ["hsbc", "wells-fargo", "chase", "lloyds", "barclays"]) {
-    urls.push(`${SITE_URL}/banks/${slug}`);
-  }
-
-  // 2. Corridor pages — only corridors that have scraped data
-  for (const pair of corridorsWithData) {
-    const [from, to] = pair.split("_");
-    const fromSlug = CURRENCY_TO_SLUG[from];
-    const toSlug = CURRENCY_TO_SLUG[to];
-    if (fromSlug && toSlug && fromSlug !== toSlug) {
-      urls.push(`${SITE_URL}/send-money/${fromSlug}-to-${toSlug}`);
-    }
-  }
-
-  // 3. Country pages (send-money-to-X) — destinations that appear in receive data
-  const receiveCurrencies = new Set<string>();
-  for (const pair of corridorsWithData) {
-    receiveCurrencies.add(pair.split("_")[1]);
-  }
-  for (const currency of receiveCurrencies) {
-    const slug = CURRENCY_TO_SLUG[currency];
-    if (slug) {
-      urls.push(`${SITE_URL}/send-money/send-money-to-${slug}`);
-    }
-  }
-
-  // 4. Currency-pair pages (usd-to-inr style)
-  for (const pair of corridorsWithData) {
-    const [from, to] = pair.split("_");
-    urls.push(`${SITE_URL}/send-money/${from.toLowerCase()}-to-${to.toLowerCase()}`);
-  }
-
-  // 5. Provider review pages (rates change with data)
-  for (const slug of PROVIDER_SLUGS) {
-    urls.push(`${SITE_URL}/companies/${slug}`);
-  }
-
-  // 6. Comparison pages (all pairs of providers)
-  for (let i = 0; i < PROVIDER_SLUGS.length; i++) {
-    for (let j = i + 1; j < PROVIDER_SLUGS.length; j++) {
-      urls.push(`${SITE_URL}/compare/${PROVIDER_SLUGS[i]}-vs-${PROVIDER_SLUGS[j]}`);
-    }
-  }
-
-  // 7. Exchange rate pages
-  for (const pair of EXCHANGE_RATE_PAIRS) {
-    urls.push(`${SITE_URL}/exchange-rates/${pair}`);
-  }
-
-  // 8. Retired locale URLs (410 Gone) — ping so Bing recrawls and deindexes them.
-  // The middleware returns 410 for /fr/, /es/, /pt/ prefixes. Submitting these
-  // to IndexNow tells Bing to revisit and drop them from the index.
-  const KILLED_LOCALES = ["fr", "es", "pt"];
-  for (const locale of KILLED_LOCALES) {
-    // Swift-codes country pages that were previously indexed under /fr/
-    for (const country of getSwiftCountries().map((c) => c.slug)) {
-      urls.push(`${SITE_URL}/${locale}/swift-codes/${country}`);
-    }
-    // IBAN country pages
-    for (const slug of INDEXED_IBAN_SLUGS) {
-      urls.push(`${SITE_URL}/${locale}/iban/${slug}`);
-    }
-    // Top-level hub pages
-    for (const hub of ["", "send-money", "companies", "swift-codes", "iban", "exchange-rates"]) {
-      urls.push(`${SITE_URL}/${locale}${hub ? `/${hub}` : ""}`);
-    }
-  }
-
-  // Deduplicate
-  return [...new Set(urls)];
+  const entries = sitemap() as unknown as { url: string }[];
+  return entries.map((e) => e.url).filter((u, i, arr) => arr.indexOf(u) === i);
 }
 
 /**
@@ -327,7 +87,7 @@ async function submitToIndexNow(urls: string[]): Promise<void> {
 
 async function main() {
   const urls = generateUrls();
-  console.log(`IndexNow: Generated ${urls.length} data-driven URLs from scraped quote files`);
+  console.log(`IndexNow: ${urls.length} URLs derived from sitemap.ts`);
 
   if (urls.length === 0) {
     console.log("No URLs to submit — check that scraped data exists in src/data/scraped/");
