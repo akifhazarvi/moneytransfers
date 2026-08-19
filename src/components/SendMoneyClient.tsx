@@ -244,6 +244,15 @@ function SendMoneyContent() {
     trackQuotesViewed(fromCurrency, toCurrency, quotes.length);
   }, [fromCurrency, toCurrency, amount, quotes]);
 
+  // When we hold no quote at the requested size, offer the largest step below it
+  // that we do cover. Every corridor in the dataset returns real quotes at 10,000
+  // and below, so these are safe to suggest without another round-trip; above it
+  // coverage drops to ~43% of corridors as provider caps bite.
+  const fallbackAmount = useMemo(() => {
+    const covered = [10_000, 5_000, 1_000, 500];
+    return covered.find((c) => c < amount) ?? null;
+  }, [amount]);
+
   const filteredQuotes = useMemo(() => {
     let result = [...quotes];
 
@@ -684,9 +693,38 @@ function SendMoneyContent() {
               ));
             })()}
           </div>
+        ) : quotes.length === 0 ? (
+          // NO DATA for this corridor+amount — a different failure from "your
+          // filters excluded everything", and the two must not share a message.
+          // Telling someone to clear filters when we simply hold no quote at
+          // this size sends them to fix something that was never the problem.
+          // Above ~10,000 most providers hit their transfer cap and thin
+          // corridors run out of scraped data, so this is reachable in normal
+          // use — deliberately saying so beats estimating a number.
+          <div className="py-16 text-center bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)]">
+            <svg className="w-12 h-12 text-[var(--color-outline)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="text-base text-[var(--color-on-surface)] mb-2">{t("noQuotesForAmount")}</p>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-4 max-w-md mx-auto">
+              {t("noQuotesForAmountHelp", {
+                amount: `${sendCurrency?.symbol || ""}${amount.toLocaleString()}`,
+              })}
+            </p>
+            {fallbackAmount !== null && (
+              <button
+                onClick={() => setAmountStr(String(fallbackAmount))}
+                className="text-2sm text-[var(--color-primary)] font-medium hover:underline"
+              >
+                {t("tryLowerAmount", {
+                  amount: `${sendCurrency?.symbol || ""}${fallbackAmount.toLocaleString()}`,
+                })}
+              </button>
+            )}
+          </div>
         ) : (
           <div className="py-16 text-center bg-[var(--color-surface)] rounded-xl border border-[var(--color-outline)] shadow-[var(--shadow-sm)]">
-            <svg className="w-12 h-12 text-[var(--color-outline)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 text-[var(--color-outline)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <p className="text-base text-[var(--color-on-surface)] mb-2">{t("noProvidersMatch")}</p>
