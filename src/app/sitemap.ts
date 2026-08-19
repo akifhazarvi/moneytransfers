@@ -140,9 +140,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // is false. Also defensively exclude retired (410) slugs.
   // Still filter Tier-3 (zero data → noindex/404) so we never submit a
   // contradictory noindex/404 URL.
+  // Submit EVERY indexable corridor, not a subset of them. shouldNoindex is the
+  // single authority (Tier 1 indexable; Tier 2 only once allowlisted; Tier 3
+  // never), so filtering on it alone guarantees sitemap membership and robots
+  // agree in both directions — no page claiming `index, follow` from off the
+  // sitemap, and no submitted URL that serves noindex.
+  //
+  // Previously this AND-ed the allowlist on top, which submitted 44 of 1,176
+  // indexable corridors. A sitemap that omits pages you want indexed is a signal
+  // you do not want them indexed; listing them is how you ask.
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
-    .filter((c) => SITEMAP_CORRIDOR_SLUGS.has(c.slug) || HEAD_CORRIDOR_SLUGS.has(c.slug))
     .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
     .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
 

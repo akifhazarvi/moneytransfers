@@ -852,6 +852,20 @@ import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 // Only pre-render corridors with real data (Tier 1 & 2).
 // Tier 3 (zero quotes, non-editorial) returns 404 at runtime.
 
+// dynamicParams=false: any slug outside generateStaticParams (i.e. every Tier-3
+// corridor) is a real 404 rather than being rendered on demand.
+//
+// This route had no setting, so it defaulted to true and the entire Tier-3 tail —
+// 7,346 corridors of the 8,574 defined — could be materialised by any crawler
+// hitting the URL. The June 2026 pruning set the guardrail explicitly: "new
+// combinatorial routes must be allowlisted not on-demand-ISR". /compare/[slug] and
+// /guides/[slug] both honour it; this route was the last one that did not, and it
+// is the largest combinatorial space on the site.
+//
+// Tier 1 and 2 are still built and served (Tier 2 noindexed unless allowlisted),
+// so nothing with real comparison data 404s — only the 0-1 provider shells.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))

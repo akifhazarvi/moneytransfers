@@ -177,6 +177,22 @@ export function shouldNoindex(
   isCountryPage?: boolean,
 ): boolean {
   if (WAVE3_NOINDEX_SLUGS.has(slug)) return true;
-  if (getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage) === 3) return true;
+  const tier = getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage);
+
+  // Tier 3 (0-1 providers) is never indexable — a one-row comparison table reads
+  // as a soft 404, which is what Google flagged ~400 of these as.
+  if (tier === 3) return true;
+
+  // Tier 1 IS indexable. Tier 1 means editorial, or 5+ providers quoting the
+  // corridor — a genuinely comparative page with real data, which is the whole
+  // product. Gating these on the demand allowlist took indexable corridors from
+  // 1,176 to 100 and suppressed 827 pages that earn their place on data richness
+  // rather than on having already been discovered. That is the chicken-and-egg
+  // trap this file's own HEAD_CORRIDOR_SLUGS comment describes: excluded for never
+  // earning impressions, unable to earn impressions because Google never saw them.
+  if (tier === 1) return false;
+
+  // Tier 2 (2-4 providers) is thinner: indexable only once it shows demand, via
+  // the sitemap allowlist or the head-term list.
   return !(SITEMAP_CORRIDOR_SLUGS.has(slug) || HEAD_CORRIDOR_SLUGS.has(slug));
 }
