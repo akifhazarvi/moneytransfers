@@ -43,23 +43,26 @@ const affiliateLinks: Record<string, string> = {
   paypal: "https://paypal.com/?ref=sendmoneycompare",
   moneygram: "https://moneygram.com/?ref=sendmoneycompare",
   xoom: "https://xoom.com/?ref=sendmoneycompare",
-  // Direct affiliate deal — same partner group as currencies-direct (TorFX is
-  // their second consumer brand), hence the near-identical afflno. This is the
-  // CLIENT referral link (/affiliate/quote/) which lands on a quote form; do NOT
-  // swap it for the /refer-a-partner/ or partner.torfx.com/register links — those
-  // recruit affiliates, not customers, and would send our senders to a signup form.
-  torfx: "https://www.torfx.com/affiliate/quote/?afflno=0301110000955438",
+  // Dedicated partner landing page issued Aug 2026, same partner group as
+  // currencies-direct. Attribution lives in the PATH segment (/partner/<no>),
+  // not a query param — which is what makes it robust. Do NOT swap this for the
+  // /refer-a-partner/ or partner.torfx.com/register links: those recruit
+  // affiliates, not customers, and would land our senders on a signup form.
+  // The utm_* values are the partner's own; passed through verbatim. See
+  // buildPartnerGroupLink for how aff_own_client_id is populated.
+  torfx: "https://www.torfx.com/partner/0301110000955438?utm_id=0301110000955438&utm_source=https://sendmoneycompare.com/&utm_medium=affiliate&utm_campaign=cc_sendmoneycompare&utm_content=comparison_cpa&utm_term=table&aff_own_client_id=1234",
   instarem: "https://instarem.prf.hn/click/camref:1100l5Nn6Z/[p_id:1011l637599]",
   unplex: "https://unplex.money/?ref=sendmoneycompare&utm_source=sendmoneycompare",
   "taptap-send": "https://taptapsend.com/?ref=sendmoneycompare",
   "ace-money-transfer": "https://acemoneytransfer.com/?ref=sendmoneycompare",
   currencyfair: "https://currencyfair.com/?ref=sendmoneycompare",
   skrill: "https://skrill.com/?ref=sendmoneycompare",
-  // Direct affiliate deal — `afflno` is Currencies Direct's own partner ID and
-  // is what they reconcile commission against, so it must survive untouched.
-  // Verified Aug 2026: /en/ 301s to /en-gb and carries every query param
-  // through, so our UTM + smc_click_id stamping doesn't break attribution.
-  "currencies-direct": "https://www.currenciesdirect.com/en/?afflno=0201110000955421",
+  // Dedicated partner landing page issued Aug 2026. This REPLACES the earlier
+  // /en/?afflno= link, which was silently broken: every locale ignored the
+  // afflno param and set a house code instead (/en/ -> A00A0399 with our id,
+  // with a bogus id, and with no id at all). The /partner/<no> path is honoured
+  // — verified setting AFFILIATE + afflno to our own partner number.
+  "currencies-direct": "https://www.currenciesdirect.com/partner/0201110000955421?utm_id=0201110000955421&utm_source=https://sendmoneycompare.com/&utm_medium=affiliate&utm_campaign=cc_sendmoneycompare&utm_content=comparison_cpa&utm_term=table&aff_own_client_id=1234",
   monese: "https://monese.com/?ref=sendmoneycompare",
   chase: "https://chase.com/personal/international-transfers",
   "bank-of-america": "https://bankofamerica.com/foreign-exchange/",
@@ -233,6 +236,41 @@ function buildInstaremDeepLink(params: AffiliateParams): string {
   return appendClickref(withDest, params.clickref);
 }
 
+// TorFX and Currencies Direct are the same partner group and share a landing-page
+// shape: the attribution lives in the /partner/<partnerNo> PATH segment, and
+// `aff_own_client_id` is the partner's slot for OUR click id — it's what they
+// expose in the portal so we can reconcile leads back to a click. The links they
+// issued ship it as the literal placeholder `1234`; left alone, every lead we
+// ever send would arrive under the same client id and be impossible to match.
+// So we overwrite it per click, and drop the param entirely when we have no id
+// rather than sending a fake one.
+//
+// Their own utm_* values are deliberately preserved: appendUtms only fills
+// params that are ABSENT, so utm_source/utm_campaign/utm_content/utm_term stay
+// exactly as issued. That means our `source` surface doesn't reach their
+// reporting — it doesn't need to, since we log it against click_id on our side.
+const PARTNER_GROUP_SLUGS = new Set(["torfx", "currencies-direct"]);
+const PARTNER_GROUP_CLIENT_ID_PARAM = "aff_own_client_id";
+
+function buildPartnerGroupLink(providerSlug: string, params: AffiliateParams): string {
+  const u = new URL(affiliateLinks[providerSlug]);
+  if (params.clickId) {
+    u.searchParams.set(PARTNER_GROUP_CLIENT_ID_PARAM, params.clickId);
+  } else {
+    u.searchParams.delete(PARTNER_GROUP_CLIENT_ID_PARAM);
+  }
+  return appendClickref(
+    appendUtms(u.toString(), params.clickId, {
+      corridor: params.corridor,
+      amount: params.sourceAmount,
+      source: params.source,
+      from: params.sourceCurrency,
+      to: params.targetCurrency,
+    }),
+    params.clickref,
+  );
+}
+
 function buildWiseDeepLink(params: AffiliateParams): string {
   const base = affiliateLinks.wise;
 
@@ -278,6 +316,10 @@ export function getAffiliateUrl(
       return buildWiseDeepLink(params ?? {});
     }
     return appendClickref(appendUtms(url, params?.clickId, { corridor: params?.corridor, amount: params?.sourceAmount, source: params?.source, from: params?.sourceCurrency, to: params?.targetCurrency }), params?.clickref);
+  }
+
+  if (PARTNER_GROUP_SLUGS.has(providerSlug)) {
+    return buildPartnerGroupLink(providerSlug, params ?? {});
   }
 
   if (providerSlug === "instarem") {
