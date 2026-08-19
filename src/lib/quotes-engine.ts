@@ -19,6 +19,7 @@ import {
   trustpilotIndex,
   type NormalizedQuote,
 } from "@/lib/unified-quotes";
+import { buildPricePoints, estimatePricing, feeModelFor } from "@/lib/fee-model";
 
 // exchangeRates / getExchangeRate live in @/data/providers (client-safe, sourced
 // from the small XE rates file). generateQuotes uses getExchangeRate for its
@@ -32,6 +33,17 @@ function toRatingLabel(score: number): Provider["ratingLabel"] {
   if (score >= 3.5) return "Good";
   if (score >= 2.5) return "Fair";
   return "Poor";
+}
+
+/**
+ * Whether a provider's published headline limits allow this send amount.
+ * Unknown provider (no static record) or no stated maximum => allowed.
+ */
+function withinTransferLimits(provider: Provider | undefined, amount: number): boolean {
+  if (!provider) return true;
+  if (provider.maxTransfer != null && amount > provider.maxTransfer) return false;
+  if (provider.minTransfer != null && amount < provider.minTransfer) return false;
+  return true;
 }
 
 export function generateQuotes(
@@ -78,19 +90,42 @@ export function generateQuotes(
 
     const quotes: TransferQuote[] = [];
 
+    // Every price point we hold for this corridor, per provider — the basis for
+    // pricing each provider AT the requested amount instead of reusing whatever
+    // bucket happened to be nearest corridor-wide.
+    const pricePoints = buildPricePoints(corridorQuotes);
+
     for (const sq of providerQuoteMap.values()) {
       const provider = providers.find((p) => p.slug === sq.providerSlug);
 
-      // Use real markup from scraped data, apply to live or static base rate
-      const markupPct = sq.markup / 100;
-      const providerRate = baseRate * (1 - markupPct);
+      // Fees are NOT uniformly flat: ~45% of provider+corridor pairs are flat
+      // (TapTap Send, LemFi, Paysend, Ria) but ~36% scale with the amount (Wise,
+      // OFX, Western Union, Remitly, Instarem). Treating every fee as flat let a
+      // fee scraped at $100 stand in at $50,000 and understated the cheapest-
+      // looking providers by up to ~100x. estimatePricing derives both fee and
+      // markup from the provider's own observed curve at THIS amount.
+      const points = pricePoints.get(sq.providerSlug) ?? [];
+      const estimate = estimatePricing(points, amount, feeModelFor(sq.providerSlug));
 
-      // Transfer fees are essentially flat (or banded by amount tier), NOT
-      // proportional to the amount. Use the real fee scraped at the nearest
-      // amount bucket as-is — scaling it (old `feeRatio * amount`) invented
-      // fractional-cent fees on small sends and silly fees on large ones.
-      // The rate is a percentage, so it applies cleanly at any amount.
-      const fee = sq.fee;
+      // No defensible number for this amount — drop the provider rather than
+      // show a fabricated price. Better a shorter honest table than a wrong
+      // "cheapest" badge.
+      if (!estimate || estimate.confidence === "unsupported") continue;
+
+      // Don't recommend a provider that would refuse the transfer. These limits
+      // were previously only used in editorial copy, so the table happily
+      // crowned TapTap Send (max $10k), Remitly ($10k) and WorldRemit ($10k) as
+      // "cheapest" for a $50,000 send the user could never actually make.
+      // Only filter on an explicit published limit — null means no stated cap,
+      // and providers with no record at all (aggregator-only slugs) are left
+      // alone since we have nothing to judge them by. Real limits also vary by
+      // corridor and verification level, so this is a headline-limit guard, not
+      // a precise eligibility check.
+      if (!withinTransferLimits(provider, amount)) continue;
+
+      const markupPct = estimate.markup / 100;
+      const providerRate = baseRate * (1 - markupPct);
+      const fee = estimate.fee;
       // Clamp so a flat fee larger than a tiny send can't yield a negative
       // payout — the recipient gets nothing, not a negative amount.
       const receiveAmount = Math.max(0, amount - fee) * providerRate;
@@ -108,10 +143,10 @@ export function generateQuotes(
         exchangeRate: Math.round(providerRate * 10000) / 10000,
         fee: Math.round(fee * 100) / 100,
         receiveAmount: Math.round(receiveAmount * 100) / 100,
-        transferSpeed: sq.deliveryEstimate || provider?.transferSpeed || "1-3 business days",
+        transferSpeed: estimate.deliveryEstimate || sq.deliveryEstimate || provider?.transferSpeed || "1-3 business days",
         rating,
         ratingLabel,
-        ...(sq.promoNote ? { promoNote: sq.promoNote } : {}),
+        ...(estimate.promoNote || sq.promoNote ? { promoNote: estimate.promoNote ?? sq.promoNote } : {}),
       });
     }
 
