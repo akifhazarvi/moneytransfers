@@ -14,6 +14,7 @@
  * Google rewards.
  */
 import Image from "next/image";
+import { getDataUpdatedISO } from "@/lib/data-freshness";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, AlertCircle, TrendingDown } from "lucide-react";
@@ -36,8 +37,6 @@ import {
 import { getCorridorSlug } from "@/data/corridors";
 import { providers, getProviderName, currencies } from "@/data/providers";
 import { getAlternates } from "@/lib/i18n-metadata";
-import { statSync, readdirSync } from "fs";
-import { join } from "path";
 import type { Metadata } from "next";
 
 // Revalidate every 6 hours to match scraper cadence — these pages are
@@ -56,29 +55,6 @@ function getCurrencySymbol(code: string): string {
   return currencies.find((c) => c.code === code)?.symbol || code;
 }
 
-function getDataFreshnessISO(): string {
-  const VERCEL_SENTINEL = new Date("2018-10-20").getTime();
-  const scrapedDir = join(process.cwd(), "src/data/scraped");
-  let latest = new Date(0);
-  try {
-    const files = readdirSync(scrapedDir);
-    for (const file of files) {
-      if (!/(quotes|rates)\.json$/.test(file)) continue;
-      try {
-        const mtime = statSync(join(scrapedDir, file)).mtime;
-        if (mtime > latest) latest = mtime;
-      } catch {
-        /* skip */
-      }
-    }
-  } catch {
-    /* dir may be missing in dev */
-  }
-  if (latest.getTime() <= VERCEL_SENTINEL) {
-    return process.env.NEXT_PUBLIC_BUILD_TIME ?? new Date().toISOString();
-  }
-  return latest.toISOString();
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
@@ -116,7 +92,7 @@ export default async function BankPage({ params }: Props) {
   const quotes = getBankCorridorQuotes(slug);
   const stats = getBankAggregateStats(slug);
   const recommendedProvider = providers.find((p) => p.slug === bank.recommendedAlternative.slug);
-  const dataFreshness = getDataFreshnessISO();
+  const dataFreshness = getDataUpdatedISO();
 
   // Pick the most "headline-worthy" loss row for the hero callout
   const heroExample = stats.largestLossExample;

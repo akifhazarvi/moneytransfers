@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getDataUpdatedISO } from "@/lib/data-freshness";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -52,8 +53,6 @@ import { getCountryDetails } from "@/data/corridor-details";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { statSync, readdirSync } from "fs";
-import { join } from "path";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
 import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
@@ -67,7 +66,7 @@ interface Props {
 
 /** Returns the most recent mtime of scraped quote files as an ISO date string. */
 function getDataFreshnessDate(): string {
-  return getDataFreshnessISO().split("T")[0];
+  return getDataUpdatedISO().split("T")[0];
 }
 
 /** Full ISO timestamp of most recent scrape — used by <LiveTimestamp /> for relative "X mins ago" rendering.
@@ -76,26 +75,6 @@ function getDataFreshnessDate(): string {
  *  Vercel normalises all file mtimes to 2018-10-20T00:00:00Z in build containers for reproducibility.
  *  We detect this sentinel and fall back to NEXT_PUBLIC_BUILD_TIME (injected at build time via vercel.json)
  *  so schemas always show a realistic date rather than one that predates the site by 6 years. */
-function getDataFreshnessISO(): string {
-  const VERCEL_SENTINEL = new Date("2018-10-20").getTime();
-  const scrapedDir = join(process.cwd(), "src/data/scraped");
-  let latest = new Date(0);
-  try {
-    const files = readdirSync(scrapedDir);
-    for (const file of files) {
-      if (!/(quotes|rates)\.json$/.test(file)) continue;
-      try {
-        const mtime = statSync(join(scrapedDir, file)).mtime;
-        if (mtime > latest) latest = mtime;
-      } catch { /* skip unreadable */ }
-    }
-  } catch { /* scraped dir may be missing in dev */ }
-  // Vercel zeroes mtimes to 2018-10-20 — detect and override with build timestamp.
-  if (latest.getTime() <= VERCEL_SENTINEL) {
-    return process.env.NEXT_PUBLIC_BUILD_TIME ?? new Date().toISOString();
-  }
-  return latest.toISOString();
-}
 
 const corridorEditorialNotes: Record<
   string,
@@ -1907,7 +1886,7 @@ export default async function CorridorPage({ params }: Props) {
     ? `Everything you need to know about sending money to ${corridor.toCountry}. Compare live ${toCurrency} exchange rates, fees, delivery times, recipient requirements, and find the cheapest provider today.`
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency}).`;
   const dataUpdatedDate = getDataFreshnessDate();
-  const dataUpdatedISO = getDataFreshnessISO();
+  const dataUpdatedISO = getDataUpdatedISO();
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",

@@ -66,21 +66,47 @@ export async function GET() {
       source: "https://www.iban.com/exchange-rates",
     });
   } catch (error) {
-    // Fallback to cached file if scraping fails
+    // Scrape failed — fall back to our own mid-market history rather than the old
+    // exchange-rates.json snapshot, which was last written in March and would have
+    // served five-month-old FX rates to anyone hitting this route on a bad day.
+    // midmarket-history.json is refreshed daily by the scrape workflow, so the
+    // worst case here is roughly a day stale instead of a season.
+    //
+    // It is USD-based, so EUR-based rates are derived as USD_X / USD_EUR to match
+    // the success path's shape. usdBasedRates is returned too — the previous
+    // fallback omitted it entirely, so any caller depending on it got undefined
+    // whenever the scrape was down.
     const fs = await import("fs");
     const path = await import("path");
     try {
-      const cached = JSON.parse(
+      const history = JSON.parse(
         fs.readFileSync(
-          path.join(process.cwd(), "src/data/scraped/exchange-rates.json"),
+          path.join(process.cwd(), "src/data/scraped/midmarket-history.json"),
           "utf-8"
         )
-      );
+      ) as { days: { date: string; rates: Record<string, number> }[] };
+
+      const latest = history.days?.[history.days.length - 1];
+      const usdRates = latest?.rates;
+      const usdToEur = usdRates?.EUR;
+      if (!usdRates || !usdToEur) throw new Error("no usable mid-market history");
+
+      const rates: ExchangeRate[] = Object.entries(usdRates)
+        .filter(([code]) => code !== "EUR")
+        .map(([code, perUsd]) => ({
+          currencyCode: code,
+          currencyName: code,
+          ratePerEur: perUsd / usdToEur,
+        }));
+      rates.unshift({ currencyCode: "USD", currencyName: "US dollar", ratePerEur: 1 / usdToEur });
+
       return NextResponse.json({
         baseCurrency: "EUR",
-        rates: cached,
+        rates,
+        usdBasedRates: { USD: 1, ...usdRates },
         cached: true,
-        source: "https://www.iban.com/exchange-rates",
+        dataDate: latest.date,
+        source: "sendmoneycompare mid-market history",
       });
     } catch {
       return NextResponse.json(
