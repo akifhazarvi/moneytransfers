@@ -85,7 +85,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // custom titles and editorial article meta were removed when the category
   // was unified on the auto-generated template.
   const title = `${a.name} vs ${b.name} — Fees & Rates (${year})`;
-  const desc = `Compare ${a.name} vs ${b.name} fees, exchange rates, and delivery speed. We tested real transfers across 6 corridors — see which provider delivers more to your recipient in ${year}.`;
+  // Kept under 160 chars so the SERP shows the whole line. The previous wording
+  // ran 168-180 depending on provider names, so every compare page was truncated
+  // mid-sentence — 33 of 32 indexable pages flagged over-length.
+  const desc = `Compare ${a.name} vs ${b.name} on fees, rate and speed. We tested real transfers across 6 corridors — see which delivers more in ${year}.`;
 
   // Comparison pages emit a canonical pointing at the editorial/GSC-winning
   // direction for the pair (or alphabetical if no signal yet). Without this,

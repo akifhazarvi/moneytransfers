@@ -55,7 +55,7 @@ const ibanMetaOverrides: Record<string, { title: string; description: string; og
   // is the site's largest market and the page was just submitted to the sitemap.
   uk: {
     title: "UK IBAN: 22-Char Format + Example (2026)",
-    description: "UK IBAN = 22 chars: GB + 2 check digits + 4-letter bank code + 6-digit sort code + 8-digit account. See a real example and sort codes for Barclays, HSBC, Lloyds.",
+    description: "UK IBAN = 22 chars: GB + 2 check digits + 4-letter bank code + 6-digit sort code + 8-digit account. See a real example plus Barclays, HSBC, Lloyds codes.",
     ogTitle: "UK IBAN: 22-Character Format, Example + Sort Codes (2026)",
     ogDesc: "GB IBAN in 30 seconds: 22-char structure, a real example, how your sort code and account number map into it, and Faster Payments rules.",
   },

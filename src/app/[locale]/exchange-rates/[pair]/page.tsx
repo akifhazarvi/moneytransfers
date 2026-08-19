@@ -321,7 +321,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const override = pairOverrides[pair];
   const title = override?.title ?? `Live ${p.from} to ${p.to} Exchange Rate Today (${year})`;
-  const description = override?.description ?? `Live ${p.from}/${p.to} exchange rate updated every 60 seconds. Compare what ${providers.length}+ transfer providers actually offer vs. the mid-market rate — most add a 0.5–4% hidden markup. Find who gives you the most ${p.toName}.`;
+  // Trimmed to fit under 160 chars — the previous wording ran ~230, so all 21
+  // rate pages were truncated in the SERP before reaching the payoff.
+  const description = override?.description ?? `Live ${p.from}/${p.to} rate, updated every 60s. See what ${providers.length}+ providers really pay after markup — most add 0.5–4%. Who delivers the most ${p.toName}?`;
 
   return {
     title,
