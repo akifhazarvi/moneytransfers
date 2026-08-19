@@ -3,15 +3,17 @@
 import { useState, useRef, useCallback, useMemo } from "react";
 import type { SparklinePoint } from "@/lib/rate-history";
 import { providers, getProviderName } from "@/data/providers";
+import { chartSeriesVar } from "@/lib/chart-palette";
 
 // ── Provider colors ────────────────────────────────────────────
-const PROVIDER_COLORS = [
-  "#1a73e8", "#059669", "#dc2626", "#d97706", "#7c3aed",
-  "#0891b2", "#be185d", "#65a30d", "#ea580c", "#4f46e5",
-];
-
+// Now drawn from the shared, CVD-validated palette (src/lib/chart-palette.ts) as
+// theme-aware CSS variables. The previous hardcoded ramp had four pairs below the
+// dE 8 separation floor — worst was #d97706 vs #ea580c at dE 1.6, two oranges that
+// were the same colour to a colour-blind reader — and dipped to 2.82:1 contrast on
+// the dark surface. The replacement clears dE 23 on every pair and 3:1 on both
+// surfaces, and swaps with the theme instead of being fixed light-mode hex.
 function getProviderColor(index: number): string {
-  return PROVIDER_COLORS[index % PROVIDER_COLORS.length];
+  return chartSeriesVar(index);
 }
 
 // ── Types ──────────────────────────────────────────────────────

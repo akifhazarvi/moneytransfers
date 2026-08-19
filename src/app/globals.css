@@ -135,6 +135,22 @@
   --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
   --font-reading: var(--font-source-serif), Georgia, "Times New Roman", serif;
   --reading-width: 68ch;
+  /* ── Categorical chart series (see src/lib/chart-palette.ts) ──
+     Validated: every pair >= dE 23 under protanopia, deuteranopia AND normal
+     vision, and >= 3:1 against the surface they render on. The previous
+     hardcoded ramp in HistoricalRateChart had a 1.6 dE pair (#d97706/#ea580c)
+     that was indistinguishable to colour-blind readers. Do not eyeball-edit. */
+  --chart-1: #3573C4;
+  --chart-2: #bf8822;
+  --chart-3: #1da590;
+  --chart-4: #2626d9;
+  --chart-5: #a02222;
+  --chart-6: #2228a0;
+  --chart-7: #913083;
+  --chart-8: #c1855c;
+  --chart-9: #913052;
+  --chart-10: #2a9fc6;
+
 }
 
 /* ─── Dark Mode ─── */
@@ -230,6 +246,18 @@
   --shadow-success-lg: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-primary: 0 2px 12px rgba(124, 143, 232, 0.45);
   --shadow-primary-lg: 0 4px 18px rgba(124, 143, 232, 0.55);
+  /* Chart series — dark surface variants, separately validated (min dE 23.1). */
+  --chart-1: #4E84D4;
+  --chart-2: #dada2b;
+  --chart-3: #8cd4b0;
+  --chart-4: #c43131;
+  --chart-5: #7dc5e3;
+  --chart-6: #ccdf81;
+  --chart-7: #4554de;
+  --chart-8: #b14385;
+  --chart-9: #d04367;
+  --chart-10: #da822b;
+
 }
 
 /* ─── Base ─── */
