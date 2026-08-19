@@ -207,6 +207,12 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "send-money-to-spain-guide",
   "send-money-to-uk-guide",
   "send-money-to-australia-guide",
+  // ── Added 2026-08-19 — the large-transfer guide. No historical traffic, promoted on forward-looking
+  //    merit: it is the landing page for the TorFX / Currencies Direct
+  //    partnership (both are large-transfer brokers, paid per lead over 2k),
+  //    and BWT reports 'how to send money internationally' at 33.8K impressions
+  //    on a RISING trend. Revisit against the next Bing export ──
+  "how-to-send-large-amounts-internationally",
 ]); // 64 URLs
 
 export const SITEMAP_IBAN_SLUGS = new Set<string>([
@@ -244,6 +250,9 @@ export const SITEMAP_IBAN_SLUGS = new Set<string>([
   "georgia",
   // Added 2026-06-22 — 15i Bing (Jun 23 export); already in INDEXED_IBAN_SLUGS.
   "czechia",
+  // ── Added 2026-08-19 — UK IBAN — was in INDEXED_IBAN_SLUGS but never submitted, and IBAN_SLUGS now
+  //    derives from this set. UK is the site's largest market ──
+  "uk",
 ]); // 32 URLs (was 37)
 
 export const SITEMAP_COMPARISON_SLUGS = new Set<string>([
@@ -317,6 +326,15 @@ export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
   // ── Added 2026-06-22 — Bing Page Traffic export (Jun 23). Has provider
   //    entry + editorial review, serves index:follow. ──
   "instarem",      // 144i 3c Bing
+  // ── Added 2026-08-19 — provider reviews that were indexable but unsubmitted. All four have full
+  //    editorial reviews in provider-reviews.ts, so they are the opposite of
+  //    thin, and companies/[slug] now gates indexability on this set rather
+  //    than on review existence alone. torfx especially: live affiliate
+  //    partner, 4.9 Trustpilot from 10,033 reviews ──
+  "torfx",
+  "regencyfx",
+  "lemfi",
+  "unplex",
 ]); // 13 URLs (was 6)
 
 export const SITEMAP_NEWS_SLUGS = new Set<string>([
@@ -391,6 +409,17 @@ export const SITEMAP_SWIFT_SLUGS = new Set<string>([
   "united-arab-emirates", // 49i 1c (re-indexed 2026-06-22)
   "thailand",       // 12i 0c
   "netherlands",    // 11i 0c
+  // ── Added 2026-08-19 — core-corridor SWIFT pages that were indexable but unsubmitted.
+  //    INDEXED_SWIFT_SLUGS now derives from this set, so listing is what keeps
+  //    them indexed. No Bing data yet in the May export, but India, Singapore,
+  //    Hong Kong and Japan are among the site's core corridors and BWT lists
+  //    'swift code' at 33.8K impressions — this is the discovery loop the
+  //    corridor allowlist already breaks deliberately. morocco and turkiye were
+  //    left off and are now noindexed ──
+  "india",
+  "singapore",
+  "hong-kong",
+  "japan",
 ]); // 23 URLs (was 14)
 
 export const SITEMAP_BUSINESS_SLUGS = new Set<string>([
