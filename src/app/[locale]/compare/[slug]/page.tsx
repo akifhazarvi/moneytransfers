@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { providers } from "@/data/providers";
@@ -25,25 +26,20 @@ import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 
-import { statSync } from "fs";
-import { join } from "path";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
 }
 
-/** Returns the most recent mtime of scraped quote files as an ISO date string. */
+/**
+ * The date our quote data was actually collected — an E-E-A-T freshness signal.
+ *
+ * Derived from the quotes themselves. This used to stat() three filenames, one of
+ * which does not exist and two of which were last written in March, so the page
+ * told readers the data was five months stale while the quotes were same-day.
+ */
 function getDataFreshnessDate(): string {
-  const scrapedDir = join(process.cwd(), "src/data/scraped");
-  const quoteFiles = ["provider-quotes.json", "mid-market-rates.json", "exchange-rates.json"];
-  let latest = new Date(0);
-  for (const file of quoteFiles) {
-    try {
-      const mtime = statSync(join(scrapedDir, file)).mtime;
-      if (mtime > latest) latest = mtime;
-    } catch { /* file may not exist */ }
-  }
-  return latest.getTime() > 0 ? latest.toISOString().split("T")[0] : new Date().toISOString().split("T")[0];
+  return quoteDataDate ?? new Date().toISOString().split("T")[0];
 }
 
 function parseSlug(slug: string) {

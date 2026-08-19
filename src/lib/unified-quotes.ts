@@ -146,9 +146,20 @@ function normalizeQuote(
   defaultSource: string
 ): NormalizedQuote {
   const sendAmount = (raw.sendAmount as number) || 0;
-  const fee = (raw.fee as number) || 0;
+  let fee = (raw.fee as number) || 0;
+  // A negative fee is never real pricing. 42 remitroutes-bridge rows (all ARS
+  // corridors) carried values like -55.80, which through (sendAmount - fee) would
+  // INFLATE the payout and could hand the provider a "cheapest" badge it has not
+  // earned. Clamping to 0 is also what the source's own numbers support: that Western
+  // Union AUD->ARS row states 223,460.90 received, and 200 * 1117.3045 reproduces it
+  // exactly with no fee at all. Clamp rather than drop, and never in the direction
+  // that overstates what the recipient gets.
+  if (fee < 0) {
+    fee = 0;
+    restatedCounts.negativeFee = (restatedCounts.negativeFee ?? 0) + 1;
+  }
   const exchangeRate = (raw.exchangeRate as number) || 0;
-  const receiveAmount = (raw.receiveAmount as number) || 0;
+  let receiveAmount = (raw.receiveAmount as number) || 0;
   const fromCcy = (raw.sendCurrency as string) || "";
   const toCcy = (raw.receiveCurrency as string) || "";
 
@@ -162,6 +173,44 @@ function normalizeQuote(
   let markup = (raw.markup as number) || 0;
   if (!markup && midMarket > 0 && exchangeRate > 0) {
     markup = Math.round(((midMarket - exchangeRate) / midMarket) * 10000) / 100;
+  }
+
+  // --- Normalize the fee convention so every row means the same thing. ---
+  // Sources disagree about whether the transfer fee comes OUT of the send amount
+  // or is charged ON TOP of it. All 4,716 remitroutes rows satisfy
+  // receiveAmount == sendAmount * exchangeRate exactly, i.e. the sender pays
+  // (sendAmount + fee) and the recipient gets the full sendAmount converted.
+  // Other sources deduct the fee first.
+  //
+  // The site asks "you send X", so the comparable answer is what the recipient
+  // gets for a total outlay of X — which is (X - fee) * rate under EITHER
+  // convention. The engine already computes that, so rankings were never wrong;
+  // but the stored receiveAmount was left in the source's own convention, making
+  // 16.2% of rows disagree with their own fee/rate pair and any consumer that
+  // reads the field directly (studies, exports) silently inconsistent.
+  // Restate fee-on-top rows into the deducted convention here, so the dataset is
+  // internally consistent rather than requiring every reader to know the source.
+  if (fee > 0 && exchangeRate > 0 && sendAmount > 0 && receiveAmount > 0) {
+    const feeOnTop = Math.abs(sendAmount * exchangeRate - receiveAmount) / receiveAmount <= 0.005;
+    if (feeOnTop) {
+      receiveAmount = Math.max(0, sendAmount - fee) * exchangeRate;
+      restatedCounts.feeOnTop = (restatedCounts.feeOnTop ?? 0) + 1;
+    }
+  }
+
+  // A residual few rows contradict themselves under BOTH conventions — e.g. a Ria
+  // USD->INR row whose receive amount implies a rate of 96.33 against its own
+  // stated 95.36. One of the fields is stale and we cannot tell which from the
+  // row alone, but the engine prices from fee and rate, so those are the fields
+  // that matter. Derive the receive amount from them rather than keep a stored
+  // contradiction that any direct reader would surface as wrong data. Counted, not
+  // silent, so a scraper regression still shows up in /scrape-debug.
+  if (fee >= 0 && exchangeRate > 0 && sendAmount > 0 && receiveAmount > 0) {
+    const expected = Math.max(0, sendAmount - fee) * exchangeRate;
+    if (Math.abs(expected - receiveAmount) / receiveAmount > 0.02) {
+      receiveAmount = expected;
+      restatedCounts.contradictory = (restatedCounts.contradictory ?? 0) + 1;
+    }
   }
 
   // First-transfer promo (e.g. Unplex): a better rate up to a small send cap.
@@ -205,6 +254,27 @@ export const quotesByCorridorAmount: Record<string, NormalizedQuote[]> = {};
 export const allProviderSlugs = new Set<string>();
 /** Rows rejected by the integrity guards, by reason — surfaced for /scrape-debug. */
 export const quarantineCounts: Record<string, number> = {};
+
+/**
+ * The most recent `dateCollected` across every quote we loaded, as YYYY-MM-DD.
+ *
+ * Pages that show users a "data updated" date MUST derive it from this, not from
+ * file mtimes. The /compare templates previously stat()'d three filenames —
+ * provider-quotes.json (which does not exist), mid-market-rates.json and
+ * exchange-rates.json (both last written in March) — and so told readers the
+ * comparison data was five months old while the quotes were same-day. On a fresh
+ * deploy the same code reports the BUILD time instead, which is not the data date
+ * either. Neither is a freshness signal; both are wrong data on the page.
+ */
+export let quoteDataDate: string | null = null;
+
+/**
+ * Rows whose stored receive amount we restated to keep the dataset internally
+ * consistent, by reason. Exposed so a scraper regression is visible rather than
+ * quietly absorbed — a jump here means a source changed its fee convention or
+ * started emitting contradictory fields.
+ */
+export const restatedCounts: Record<string, number> = {};
 export const providerNames: Record<string, string> = {};
 
 function addQuotes(
@@ -230,6 +300,11 @@ function addQuotes(
     if (q.provider && !providerNames[q.providerSlug]) {
       providerNames[q.providerSlug] = q.provider;
     }
+
+    const collected = typeof (raw as Record<string, unknown>).dateCollected === "string"
+      ? ((raw as Record<string, unknown>).dateCollected as string).slice(0, 10)
+      : null;
+    if (collected && (!quoteDataDate || collected > quoteDataDate)) quoteDataDate = collected;
 
     const corridorKey = `${q.sendCurrency}_${q.receiveCurrency}`;
     if (!quotesByCorridor[corridorKey]) quotesByCorridor[corridorKey] = [];
