@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { trackWhatsappFollow, trackWhatsappImpression } from "@/lib/analytics";
-import { WHATSAPP_CHANNEL_URL } from "@/lib/whatsapp";
+import { trackWhatsappImpression } from "@/lib/analytics";
 import { WhatsAppGlyph, WhatsAppTile } from "./WhatsAppMark";
+import WhatsAppFollowLink from "./WhatsAppFollowLink";
 
 // Inline "follow the channel" card.
 //
@@ -22,20 +22,44 @@ import { WhatsAppGlyph, WhatsAppTile } from "./WhatsAppMark";
 // phrased so nothing here reads as a live quote. Two bubbles rather than one:
 // it fills the panel and shows the channel isn't one-note, without committing
 // the channel to a countable weekly cadence.
-const SAMPLE_MESSAGES = [
-  {
-    time: "09:12",
-    title: "GBP → INR · cheapest just changed",
-    body: "Sending £1,000 today? The top provider on this corridor now lands about ₹1,180 more than yesterday’s best — the bank wire is still ₹9,400 behind.",
-    link: "sendmoneycompare.com/send-money/uk-to-india",
-  },
-  {
-    time: "Thu 16:40",
-    title: "USD → PHP · watch the funding fee",
-    body: "Two providers added a card-funding fee this morning. Paying by bank transfer is now the cheaper route on this corridor.",
-    link: null,
-  },
-];
+type SampleMessage = {
+  time: string;
+  title: string;
+  body: string;
+  link: string | null;
+};
+
+// When the host page knows the corridor, the first bubble names it. A visitor
+// on the UK-to-India page seeing "GBP -> INR" is being shown the alert they
+// would actually receive; the same person seeing a hardcoded foreign corridor
+// is being shown someone else's. Amounts stay relative rather than absolute so
+// no illustrative figure is ever implausible for the corridor it's shown on.
+function buildSamples(from?: string, to?: string, slug?: string): SampleMessage[] {
+  const headline =
+    from && to
+      ? {
+          time: "09:12",
+          title: `${from} \u2192 ${to} \u00b7 cheapest just changed`,
+          body: `Sending 1,000 ${from} today? The cheapest provider on this corridor changed overnight \u2014 same money in, more ${to} out. A bank wire is still the most expensive way to send it.`,
+          link: slug ? `sendmoneycompare.com/send-money/${slug}` : null,
+        }
+      : {
+          time: "09:12",
+          title: "GBP \u2192 INR \u00b7 cheapest just changed",
+          body: "Sending \u00a31,000 today? The cheapest provider on this corridor changed overnight \u2014 same money in, more rupees out. A bank wire is still the most expensive way to send it.",
+          link: "sendmoneycompare.com/send-money/uk-to-india",
+        };
+
+  return [
+    headline,
+    {
+      time: "Thu 16:40",
+      title: "Watch the card-funding fee",
+      body: "Two providers added a card-funding fee this morning. Paying by bank transfer is the cheaper route today.",
+      link: null,
+    },
+  ];
+}
 
 const CHECKS = [
   {
@@ -55,10 +79,19 @@ const CHECKS = [
 export default function WhatsAppInlineCTA({
   source = "results_inline",
   className = "",
+  from,
+  to,
+  corridorSlug,
 }: {
   source?: string;
   className?: string;
+  /** Currency codes of the corridor being viewed, e.g. "GBP" / "INR". */
+  from?: string;
+  to?: string;
+  /** Corridor slug, e.g. "uk-to-india", used for the link in the sample alert. */
+  corridorSlug?: string;
 }) {
+  const samples = buildSamples(from, to, corridorSlug);
   const ref = useRef<HTMLDivElement>(null);
   const fired = useRef(false);
 
@@ -104,7 +137,9 @@ export default function WhatsAppInlineCTA({
           </div>
 
           <h3 className="mt-4 text-xl font-bold leading-snug tracking-[-0.01em] text-[var(--color-on-surface)] sm:text-[22px]">
-            Know who&rsquo;s cheapest before you send
+            {from && to
+              ? `Get ${from} \u2192 ${to} alerts on WhatsApp`
+              : "Know who\u2019s cheapest before you send"}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-[var(--color-on-surface-variant)]">
             We track 60+ providers across 64 corridors every few hours. When the
@@ -137,16 +172,13 @@ export default function WhatsAppInlineCTA({
             ))}
           </ul>
 
-          <a
-            href={WHATSAPP_CHANNEL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsappFollow(source)}
+          <WhatsAppFollowLink
+            source={source}
             className="mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-[var(--wa-green)] px-6 py-3.5 text-[15px] font-bold text-[var(--wa-on-green)] transition-colors hover:bg-[var(--wa-green-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wa-teal)] sm:w-auto"
           >
             <WhatsAppGlyph className="h-5 w-5" />
             Follow on WhatsApp
-          </a>
+          </WhatsAppFollowLink>
           {/* Deliberately no "N messages a week" number here: the frequency
               expectation is set qualitatively in the first bullet, and a
               countable promise is one the channel would have to keep. */}
@@ -161,7 +193,7 @@ export default function WhatsAppInlineCTA({
             Example alert
           </p>
           <div className="flex flex-col gap-2 rounded-xl border border-[var(--color-outline)] bg-[var(--wa-chat-canvas)] p-3.5">
-            {SAMPLE_MESSAGES.map((msg) => (
+            {samples.map((msg) => (
               <div
                 key={msg.time}
                 className="ml-auto max-w-[19rem] rounded-xl rounded-tr-sm bg-[var(--wa-bubble)] px-3 py-2 text-[13px] leading-relaxed text-[var(--wa-bubble-ink)] shadow-sm"

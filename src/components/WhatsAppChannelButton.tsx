@@ -1,13 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  trackWhatsappDismiss,
-  trackWhatsappFollow,
-  trackWhatsappImpression,
-} from "@/lib/analytics";
-import { WHATSAPP_CHANNEL_URL } from "@/lib/whatsapp";
+import { trackWhatsappDismiss, trackWhatsappImpression } from "@/lib/analytics";
 import { WhatsAppGlyph } from "./WhatsAppMark";
+import WhatsAppFollowLink from "./WhatsAppFollowLink";
 
 // Persistent "follow the channel" pill.
 //
@@ -66,10 +62,10 @@ export default function WhatsAppChannelButton() {
       trackWhatsappImpression("float_pill");
     };
     const onScroll = () => {
-      if (window.scrollY > 500) reveal();
+      if (window.scrollY > 300) reveal();
     };
 
-    const timer = window.setTimeout(reveal, 12000);
+    const timer = window.setTimeout(reveal, 8000);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.clearTimeout(timer);
@@ -89,23 +85,20 @@ export default function WhatsAppChannelButton() {
       className="animate-wa-rise fixed bottom-32 left-3 right-auto z-40 sm:bottom-28 sm:left-auto sm:right-6"
     >
       <div className="relative">
-        <a
-          href={WHATSAPP_CHANNEL_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => {
-            trackWhatsappFollow("float_pill");
-            // They've gone to the channel — stop asking for a good while.
-            suppressFor(FOLLOWED_DAYS);
-          }}
-          aria-label="Follow SendMoneyCompare on WhatsApp for rate alerts"
+        <WhatsAppFollowLink
+          source="float_pill"
+          ariaLabel="Follow SendMoneyCompare on WhatsApp for rate alerts"
+          // Only fires on the phone path, where the tap really does land on the
+          // channel's Follow button. A desktop click opens the QR instead, and
+          // that isn't a follow yet, so it must not suppress the pill.
+          onNavigate={() => suppressFor(FOLLOWED_DAYS)}
           className="flex h-12 items-center gap-2 rounded-full bg-[var(--wa-green)] pl-3.5 pr-4 text-[var(--wa-on-green)] shadow-[var(--shadow-md)] transition-colors hover:bg-[var(--wa-green-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--wa-teal)]"
         >
           <WhatsAppGlyph className="h-[22px] w-[22px] shrink-0" />
           <span className="whitespace-nowrap text-sm font-bold leading-tight">
             Rate alerts
           </span>
-        </a>
+        </WhatsAppFollowLink>
 
         {/* Dismiss — small, outside the tap target of the main action */}
         <button

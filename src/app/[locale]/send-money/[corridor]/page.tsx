@@ -2287,7 +2287,12 @@ export default async function CorridorPage({ params }: Props) {
            and like CryptoRailSection it is not an affiliate link, so it never
            competes with provider_clicked. ─── */}
       <Container className="py-6">
-        <WhatsAppInlineCTA source="corridor_results_inline" />
+        <WhatsAppInlineCTA
+          source="corridor_results_inline"
+          from={fromCurrency}
+          to={toCurrency}
+          corridorSlug={slug}
+        />
       </Container>
 
       {/* ─── Guides, fees & details — collapsed on mobile so live results stay near the fold.

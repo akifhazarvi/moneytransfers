@@ -227,9 +227,23 @@ export function trackToolCTA(tool: string, params?: EventParams) {
 // which placement drives the most channel follows.
 // ═════════════════════════════════════════════════════════════════
 
-/** User clicks through to follow the WhatsApp channel. */
-export function trackWhatsappFollow(source: string) {
-  dual("whatsapp_follow_clicked", { source });
+/**
+ * User clicks through to follow the WhatsApp channel. `method` records how they
+ * were sent there, because the two paths convert very differently: on a phone
+ * the link opens the WhatsApp app on the channel's Follow button, whereas on
+ * desktop whatsapp.com/channel/* is largely a "Download WhatsApp" page, so
+ * desktop visitors get a QR to scan instead.
+ */
+export function trackWhatsappFollow(
+  source: string,
+  method: "direct" | "qr_scan_prompt" | "desktop_web" = "direct",
+) {
+  dual("whatsapp_follow_clicked", { source, method });
+}
+
+/** Desktop visitor was shown the scan-to-follow QR instead of a dead link. */
+export function trackWhatsappQrShown(source: string) {
+  dual("whatsapp_qr_shown", { source });
 }
 
 /**
