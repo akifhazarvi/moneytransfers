@@ -3091,28 +3091,28 @@
     "date": "2026-08-20",
     "providers": {
       "western-union": {
-        "rate": 4370.7959,
+        "rate": 4378.9292,
         "fee": 10,
-        "markup": 0.46,
-        "receiveAmount": 393371.63
+        "markup": 0.42,
+        "receiveAmount": 394103.63
       },
       "worldremit": {
-        "rate": 4327.1048,
+        "rate": 4341.2344,
         "fee": 7.5,
-        "markup": 1.45,
-        "receiveAmount": 400257.19
+        "markup": 1.27,
+        "receiveAmount": 401564.18
       },
       "instarem": {
-        "rate": 4381.9836,
+        "rate": 4393.1824,
         "fee": 0.65,
-        "markup": 0.2,
-        "receiveAmount": 435350.07
+        "markup": 0.09,
+        "receiveAmount": 436462.67
       },
       "wise": {
-        "rate": 4391.7509,
+        "rate": 4399.7552,
         "fee": 6.05,
-        "markup": -0.02,
-        "receiveAmount": 412605
+        "markup": -0.06,
+        "receiveAmount": 413357
       }
     }
   }
