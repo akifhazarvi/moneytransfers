@@ -12229,22 +12229,22 @@
         "receiveAmount": 599.01
       },
       "western-union": {
-        "rate": 5.861,
+        "rate": 5.9352,
         "fee": 1.99,
-        "markup": 3.1,
-        "receiveAmount": 574.44
+        "markup": 2.3,
+        "receiveAmount": 581.71
       },
       "profee": {
-        "rate": 6.0643,
+        "rate": 6.0938,
         "fee": 1.3,
-        "markup": -0.27,
-        "receiveAmount": 598.55
+        "markup": -0.31,
+        "receiveAmount": 601.46
       },
       "worldremit": {
-        "rate": 5.9526,
+        "rate": 5.9878,
         "fee": 1.99,
-        "markup": 1.58,
-        "receiveAmount": 583.41
+        "markup": 1.43,
+        "receiveAmount": 586.86
       },
       "instarem": {
         "rate": 6.0206,
@@ -12253,16 +12253,16 @@
         "receiveAmount": 602.06
       },
       "paysend": {
-        "rate": 6.038,
+        "rate": 6.0618,
         "fee": 0,
-        "markup": 0.17,
-        "receiveAmount": 603.8
+        "markup": 0.22,
+        "receiveAmount": 606.18
       },
       "sendwave": {
-        "rate": 5.9828,
+        "rate": 6.0182,
         "fee": 1.99,
-        "markup": 1.08,
-        "receiveAmount": 586.38
+        "markup": 0.93,
+        "receiveAmount": 589.84
       },
       "remitly": {
         "rate": 6.0344,
@@ -12271,16 +12271,16 @@
         "receiveAmount": 591.43
       },
       "revolut": {
-        "rate": 5.9973,
+        "rate": 6.0223,
         "fee": 1,
-        "markup": 0.84,
-        "receiveAmount": 593.73
+        "markup": 0.87,
+        "receiveAmount": 596.21
       },
       "ria": {
-        "rate": 5.77,
+        "rate": 5.82,
         "fee": 4.5,
         "markup": null,
-        "receiveAmount": 577
+        "receiveAmount": 582
       },
       "xoom": {
         "rate": 5.8829,
@@ -12305,6 +12305,12 @@
         "fee": 1.86,
         "markup": null,
         "receiveAmount": 595.49
+      },
+      "skrill": {
+        "rate": 5.8719,
+        "fee": 0,
+        "markup": 3.34,
+        "receiveAmount": 587.19
       }
     }
   }

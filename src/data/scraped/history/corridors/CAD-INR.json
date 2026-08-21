@@ -14695,16 +14695,16 @@
     "date": "2026-08-21",
     "providers": {
       "moneygram": {
-        "rate": 68.1812,
+        "rate": 68.655,
         "fee": 3.99,
-        "markup": 1.59,
-        "receiveAmount": 6546.08
+        "markup": 1.24,
+        "receiveAmount": 6591.57
       },
       "scotiabank": {
-        "rate": 67.2631,
-        "fee": 29.59,
-        "markup": 2.91,
-        "receiveAmount": 4735.96
+        "rate": 67.4036,
+        "fee": 29.52,
+        "markup": 3.04,
+        "receiveAmount": 4750.54
       },
       "western-union": {
         "rate": 69.1264,
@@ -14713,10 +14713,10 @@
         "receiveAmount": 6912.64
       },
       "dahabshiil": {
-        "rate": 68.3998,
+        "rate": 68.848,
         "fee": 2.99,
-        "markup": 1.27,
-        "receiveAmount": 6635.46
+        "markup": 0.97,
+        "receiveAmount": 6678.94
       },
       "worldremit": {
         "rate": 69.019,
@@ -14731,16 +14731,16 @@
         "receiveAmount": 6899.15
       },
       "paysend": {
-        "rate": 69.2731,
+        "rate": 69.4997,
         "fee": 0,
-        "markup": 0.01,
-        "receiveAmount": 6927.31
+        "markup": 0.03,
+        "receiveAmount": 6949.97
       },
       "koho": {
-        "rate": 69.2834,
+        "rate": 69.5104,
         "fee": 1.26,
-        "markup": 0,
-        "receiveAmount": 6841.04
+        "markup": 0.01,
+        "receiveAmount": 6863.46
       },
       "remitly": {
         "rate": 69.1793,
@@ -14749,10 +14749,10 @@
         "receiveAmount": 6780.26
       },
       "ria": {
-        "rate": 68.6477,
+        "rate": 68.8541,
         "fee": 1.9,
         "markup": null,
-        "receiveAmount": 7037.5
+        "receiveAmount": 7087.44
       },
       "taptap-send": {
         "rate": 69.6,

@@ -3656,10 +3656,10 @@
     "date": "2026-08-21",
     "providers": {
       "paysend": {
-        "rate": 366.6707,
+        "rate": 366.6907,
         "fee": 0,
-        "markup": -0.1,
-        "receiveAmount": 36667.07
+        "markup": 0.24,
+        "receiveAmount": 36669.07
       },
       "remitly": {
         "rate": 374.41,
