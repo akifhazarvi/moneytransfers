@@ -10076,5 +10076,76 @@
         "receiveAmount": 106.66
       }
     }
+  },
+  {
+    "date": "2026-08-21",
+    "providers": {
+      "lemfi": {
+        "rate": 1.15,
+        "fee": 0,
+        "markup": 1.58,
+        "receiveAmount": 115
+      },
+      "taptap-send": {
+        "rate": 1.12,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 112
+      },
+      "moneygram": {
+        "rate": 1.1543,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 113.13
+      },
+      "ing-de": {
+        "rate": 1.1568,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 90.23
+      },
+      "xoom": {
+        "rate": 1.0847,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 106.31
+      },
+      "paypal": {
+        "rate": 1.1199,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 107.53
+      },
+      "deutsche-bank": {
+        "rate": 1.1619,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 73.72
+      },
+      "instarem": {
+        "rate": 1.1601,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 116.01
+      },
+      "monese": {
+        "rate": 1.1683,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 113.33
+      },
+      "commerzbank": {
+        "rate": 1.1583,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 101.35
+      },
+      "sparkasse": {
+        "rate": 1.1629,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 107.57
+      }
+    }
   }
 ]

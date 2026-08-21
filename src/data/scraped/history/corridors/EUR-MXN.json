@@ -13371,5 +13371,112 @@
         "receiveAmount": 1805.51
       }
     }
+  },
+  {
+    "date": "2026-08-21",
+    "providers": {
+      "moneygram": {
+        "rate": 19.4228,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1903.63
+      },
+      "taptap-send": {
+        "rate": 19.63,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1963
+      },
+      "deutsche-bank": {
+        "rate": 19.4596,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 1234.71
+      },
+      "xe": {
+        "rate": 19.5594,
+        "fee": 4,
+        "markup": 1.24,
+        "receiveAmount": 1877.7
+      },
+      "western-union": {
+        "rate": 19.4468,
+        "fee": 0.99,
+        "markup": 1.81,
+        "receiveAmount": 1925.43
+      },
+      "currencyfair": {
+        "rate": 19.6968,
+        "fee": 3,
+        "markup": 0.54,
+        "receiveAmount": 1910.59
+      },
+      "worldremit": {
+        "rate": 19.551,
+        "fee": 0.99,
+        "markup": 1.28,
+        "receiveAmount": 1935.75
+      },
+      "paysend": {
+        "rate": 19.7795,
+        "fee": 0,
+        "markup": 0.13,
+        "receiveAmount": 1977.95
+      },
+      "sendwave": {
+        "rate": 19.6797,
+        "fee": 1.99,
+        "markup": 0.63,
+        "receiveAmount": 1928.81
+      },
+      "remitly": {
+        "rate": 19.68,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1928.84
+      },
+      "revolut": {
+        "rate": 19.6938,
+        "fee": 0.5,
+        "markup": 0.56,
+        "receiveAmount": 1959.53
+      },
+      "wise": {
+        "rate": 19.7996,
+        "fee": 1.71,
+        "markup": null,
+        "receiveAmount": 1946.1
+      },
+      "ria": {
+        "rate": 19.18,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 1918
+      },
+      "commerzbank": {
+        "rate": 19.1792,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 1678.18
+      },
+      "paypal": {
+        "rate": 18.9578,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 1820.13
+      },
+      "monese": {
+        "rate": 19.7949,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 1920.11
+      },
+      "xoom": {
+        "rate": 19.3324,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 1875.44
+      }
+    }
   }
 ]
