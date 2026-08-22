@@ -1993,5 +1993,22 @@
         "receiveAmount": 4.45
       }
     }
+  },
+  {
+    "date": "2026-08-22",
+    "providers": {
+      "skrill": {
+        "rate": 0.0441,
+        "fee": 0,
+        "markup": 1.16,
+        "receiveAmount": 4.41
+      },
+      "wise": {
+        "rate": 0.0445,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 4.45
+      }
+    }
   }
 ]
