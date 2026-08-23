@@ -10338,5 +10338,64 @@
         "receiveAmount": 17159.27
       }
     }
+  },
+  {
+    "date": "2026-08-23",
+    "providers": {
+      "lemfi": {
+        "rate": 174.6,
+        "fee": 0,
+        "markup": 1.13,
+        "receiveAmount": 17460
+      },
+      "ria": {
+        "rate": 174.1855,
+        "fee": 4.5,
+        "markup": null,
+        "receiveAmount": 17445
+      },
+      "taptap-send": {
+        "rate": 174.65,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17465
+      },
+      "natwest": {
+        "rate": 171.5927,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17159.27
+      },
+      "hsbc": {
+        "rate": 171.5629,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17156.29
+      },
+      "instarem": {
+        "rate": 175.1403,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17514.03
+      },
+      "rbs": {
+        "rate": 171.5927,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17159.27
+      },
+      "barclays": {
+        "rate": 171.7552,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17175.52
+      },
+      "xoom": {
+        "rate": 168.386,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 16335.13
+      }
+    }
   }
 ]

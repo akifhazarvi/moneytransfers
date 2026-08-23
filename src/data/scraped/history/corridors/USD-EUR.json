@@ -15870,5 +15870,112 @@
         "receiveAmount": 79.06
       }
     }
+  },
+  {
+    "date": "2026-08-23",
+    "providers": {
+      "instarem": {
+        "rate": 0.8501,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 85.01
+      },
+      "lemfi": {
+        "rate": 0.8521,
+        "fee": 0,
+        "markup": 0.45,
+        "receiveAmount": 85.21
+      },
+      "moneygram": {
+        "rate": 0.8419,
+        "fee": 1.99,
+        "markup": 1.7,
+        "receiveAmount": 82.51
+      },
+      "ria": {
+        "rate": 0.8351,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 84.88
+      },
+      "taptap-send": {
+        "rate": 0.843,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 84.3
+      },
+      "boss-money": {
+        "rate": 0.838,
+        "fee": 2.49,
+        "markup": 2.15,
+        "receiveAmount": 81.71
+      },
+      "xe": {
+        "rate": 0.8374,
+        "fee": 0,
+        "markup": 2.22,
+        "receiveAmount": 83.74
+      },
+      "western-union": {
+        "rate": 0.8522,
+        "fee": 0.99,
+        "markup": 0.5,
+        "receiveAmount": 84.38
+      },
+      "xoom": {
+        "rate": 0.7773,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 77.73
+      },
+      "currencyfair": {
+        "rate": 0.8511,
+        "fee": 3.52,
+        "markup": 0.63,
+        "receiveAmount": 82.11
+      },
+      "paysend": {
+        "rate": 0.8454,
+        "fee": 1.99,
+        "markup": 1.29,
+        "receiveAmount": 82.86
+      },
+      "remitly": {
+        "rate": 0.8508,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 85.08
+      },
+      "revolut": {
+        "rate": 0.8546,
+        "fee": 1.75,
+        "markup": 0.21,
+        "receiveAmount": 83.97
+      },
+      "wise": {
+        "rate": 0.8564,
+        "fee": 1.35,
+        "markup": null,
+        "receiveAmount": 84.49
+      },
+      "chase": {
+        "rate": 0.8322,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 79.06
+      },
+      "wells-fargo": {
+        "rate": 0.8304,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 83.04
+      },
+      "paypal": {
+        "rate": 0.8197,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 77.88
+      }
+    }
   }
 ]

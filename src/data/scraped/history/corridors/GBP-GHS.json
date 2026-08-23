@@ -4614,5 +4614,34 @@
         "receiveAmount": 1491.71
       }
     }
+  },
+  {
+    "date": "2026-08-23",
+    "providers": {
+      "lemfi": {
+        "rate": 15.1997,
+        "fee": 0,
+        "markup": -0.16,
+        "receiveAmount": 1519.97
+      },
+      "ria": {
+        "rate": 15.19,
+        "fee": 1.5,
+        "markup": null,
+        "receiveAmount": 1519
+      },
+      "taptap-send": {
+        "rate": 15.2,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1520
+      },
+      "instarem": {
+        "rate": 14.9171,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1491.71
+      }
+    }
   }
 ]
