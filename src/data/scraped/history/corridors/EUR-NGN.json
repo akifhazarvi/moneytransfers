@@ -12197,5 +12197,94 @@
         "receiveAmount": 159696.15
       }
     }
+  },
+  {
+    "date": "2026-08-24",
+    "providers": {
+      "lemfi": {
+        "rate": 1615,
+        "fee": 0,
+        "markup": -2.37,
+        "receiveAmount": 161500
+      },
+      "moneygram": {
+        "rate": 1595.903,
+        "fee": 0.99,
+        "markup": -1.02,
+        "receiveAmount": 158010.36
+      },
+      "taptap-send": {
+        "rate": 1600,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 160000
+      },
+      "western-union": {
+        "rate": 1606.8704,
+        "fee": 0.99,
+        "markup": -1.72,
+        "receiveAmount": 159096.24
+      },
+      "dahabshiil": {
+        "rate": 1611.8087,
+        "fee": 1.99,
+        "markup": -2.03,
+        "receiveAmount": 157973.37
+      },
+      "profee": {
+        "rate": 1639.0172,
+        "fee": 2,
+        "markup": -3.75,
+        "receiveAmount": 160623.69
+      },
+      "worldremit": {
+        "rate": 1594.0592,
+        "fee": 0.99,
+        "markup": -0.9,
+        "receiveAmount": 157827.8
+      },
+      "instarem": {
+        "rate": 1563.7701,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 156377.01
+      },
+      "paysend": {
+        "rate": 1623.2047,
+        "fee": 0,
+        "markup": -2.75,
+        "receiveAmount": 162320.47
+      },
+      "sendwave": {
+        "rate": 1594.0592,
+        "fee": 0.99,
+        "markup": -0.9,
+        "receiveAmount": 157827.8
+      },
+      "remitly": {
+        "rate": 1620.65,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 162065
+      },
+      "ria": {
+        "rate": 1592.2476,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 159224.76
+      },
+      "xoom": {
+        "rate": 1556.1075,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 154848.26
+      },
+      "wise": {
+        "rate": 1625.89,
+        "fee": 1.72,
+        "markup": null,
+        "receiveAmount": 159792.47
+      }
+    }
   }
 ]

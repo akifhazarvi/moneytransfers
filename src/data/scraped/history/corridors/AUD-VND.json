@@ -5419,5 +5419,46 @@
         "receiveAmount": 1906689
       }
     }
+  },
+  {
+    "date": "2026-08-24",
+    "providers": {
+      "taptap-send": {
+        "rate": 18600,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1860000
+      },
+      "commonwealth-bank": {
+        "rate": 17596.7403,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1759674
+      },
+      "remitly": {
+        "rate": 18668.29,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 1829679
+      },
+      "instarem": {
+        "rate": 18759.4829,
+        "fee": 0.5,
+        "markup": null,
+        "receiveAmount": 1866569
+      },
+      "western-union": {
+        "rate": 19102.5126,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1910251
+      },
+      "xoom": {
+        "rate": 19083.8992,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1908390
+      }
+    }
   }
 ]
