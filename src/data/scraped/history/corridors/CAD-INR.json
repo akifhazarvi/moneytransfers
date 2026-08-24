@@ -14999,15 +14999,15 @@
     "providers": {
       "moneygram": {
         "rate": 68.7647,
-        "fee": 3.99,
-        "markup": 1.07,
-        "receiveAmount": 6602.1
+        "fee": 4.49,
+        "markup": 0.86,
+        "receiveAmount": 6567.72
       },
       "scotiabank": {
         "rate": 66.9658,
-        "fee": 29.53,
-        "markup": 3.66,
-        "receiveAmount": 4719.41
+        "fee": 29.57,
+        "markup": 3.45,
+        "receiveAmount": 4716.3
       },
       "western-union": {
         "rate": 68.9241,
@@ -15016,10 +15016,10 @@
         "receiveAmount": 6892.41
       },
       "dahabshiil": {
-        "rate": 68.8939,
+        "rate": 68.7639,
         "fee": 2.99,
-        "markup": 0.89,
-        "receiveAmount": 6683.4
+        "markup": 0.86,
+        "receiveAmount": 6670.79
       },
       "worldremit": {
         "rate": 68.8903,
@@ -15034,16 +15034,16 @@
         "receiveAmount": 6898.14
       },
       "paysend": {
-        "rate": 69.4957,
+        "rate": 69.3422,
         "fee": 0,
         "markup": 0.02,
-        "receiveAmount": 6949.57
+        "receiveAmount": 6934.22
       },
       "koho": {
-        "rate": 69.4967,
+        "rate": 69.3486,
         "fee": 1.26,
-        "markup": 0.02,
-        "receiveAmount": 6862.1
+        "markup": 0.01,
+        "receiveAmount": 6847.48
       },
       "remitly": {
         "rate": 69.1467,
@@ -15092,6 +15092,12 @@
         "fee": 2.56,
         "markup": null,
         "receiveAmount": 6762.48
+      },
+      "skrill": {
+        "rate": 67.3349,
+        "fee": 1,
+        "markup": 2.92,
+        "receiveAmount": 6666.16
       }
     }
   }
