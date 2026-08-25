@@ -6118,5 +6118,40 @@
         "receiveAmount": 1679.73
       }
     }
+  },
+  {
+    "date": "2026-08-25",
+    "providers": {
+      "currencyfair": {
+        "rate": 16.686,
+        "fee": 34.79,
+        "markup": 0.73,
+        "receiveAmount": 1088.09
+      },
+      "paysend": {
+        "rate": 16.568,
+        "fee": 9,
+        "markup": 1.43,
+        "receiveAmount": 1507.69
+      },
+      "remitly": {
+        "rate": 16.71,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 1587.45
+      },
+      "taptap-send": {
+        "rate": 16.35,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1635
+      },
+      "wise": {
+        "rate": 16.8031,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1680.31
+      }
+    }
   }
 ]
