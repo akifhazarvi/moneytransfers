@@ -6679,5 +6679,40 @@
         "receiveAmount": 105.28
       }
     }
+  },
+  {
+    "date": "2026-08-26",
+    "providers": {
+      "zkb": {
+        "rate": 1.0558,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 105.58
+      },
+      "migros": {
+        "rate": 1.0499,
+        "fee": 0.3,
+        "markup": null,
+        "receiveAmount": 104.67
+      },
+      "paypal": {
+        "rate": 1.0234,
+        "fee": 2.49,
+        "markup": null,
+        "receiveAmount": 99.79
+      },
+      "western-union": {
+        "rate": 1.0436,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 104.36
+      },
+      "wise": {
+        "rate": 1.0686,
+        "fee": 1.44,
+        "markup": null,
+        "receiveAmount": 105.32
+      }
+    }
   }
 ]

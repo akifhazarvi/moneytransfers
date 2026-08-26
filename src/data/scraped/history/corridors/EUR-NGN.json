@@ -12375,5 +12375,94 @@
         "receiveAmount": 159593.94
       }
     }
+  },
+  {
+    "date": "2026-08-26",
+    "providers": {
+      "lemfi": {
+        "rate": 1610,
+        "fee": 0,
+        "markup": -2.4,
+        "receiveAmount": 161000
+      },
+      "moneygram": {
+        "rate": 1588.8701,
+        "fee": 0.99,
+        "markup": -1.14,
+        "receiveAmount": 157314.03
+      },
+      "taptap-send": {
+        "rate": 1590,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 159000
+      },
+      "western-union": {
+        "rate": 1605.4353,
+        "fee": 0.99,
+        "markup": -2.2,
+        "receiveAmount": 158954.15
+      },
+      "dahabshiil": {
+        "rate": 1607.9824,
+        "fee": 5,
+        "markup": -2.36,
+        "receiveAmount": 152758.33
+      },
+      "profee": {
+        "rate": 1633.7794,
+        "fee": 2,
+        "markup": -4,
+        "receiveAmount": 160110.38
+      },
+      "worldremit": {
+        "rate": 1599.5031,
+        "fee": 0.99,
+        "markup": -1.82,
+        "receiveAmount": 158366.8
+      },
+      "instarem": {
+        "rate": 1560.497,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 156049.7
+      },
+      "paysend": {
+        "rate": 1620.3559,
+        "fee": 0,
+        "markup": -3.15,
+        "receiveAmount": 162035.59
+      },
+      "sendwave": {
+        "rate": 1599.5031,
+        "fee": 0.99,
+        "markup": -1.82,
+        "receiveAmount": 158366.8
+      },
+      "remitly": {
+        "rate": 1612.16,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 161216
+      },
+      "ria": {
+        "rate": 1591.0198,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 159101.98
+      },
+      "xoom": {
+        "rate": 1556.5376,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 154891.06
+      },
+      "wise": {
+        "rate": 1624.7,
+        "fee": 1.72,
+        "markup": null,
+        "receiveAmount": 159675.52
+      }
+    }
   }
 ]
