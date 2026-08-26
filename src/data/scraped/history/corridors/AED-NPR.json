@@ -4187,14 +4187,14 @@
       "paysend": {
         "rate": 40.6921,
         "fee": 9,
-        "markup": 2.48,
+        "markup": 2.04,
         "receiveAmount": 3702.98
       },
       "remitly": {
-        "rate": 41.5,
+        "rate": 41.35,
         "fee": 5,
-        "markup": 0.54,
-        "receiveAmount": 3942.5
+        "markup": 0.46,
+        "receiveAmount": 3928.25
       },
       "taptap-send": {
         "rate": 41.45,
@@ -4207,6 +4207,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 4156.64
+      },
+      "skrill": {
+        "rate": 39.6237,
+        "fee": 0,
+        "markup": 4.62,
+        "receiveAmount": 3962.37
       }
     }
   }

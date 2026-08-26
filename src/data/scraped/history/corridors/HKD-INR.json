@@ -5310,28 +5310,28 @@
     "date": "2026-08-26",
     "providers": {
       "moneygram": {
-        "rate": 12.083,
+        "rate": 12.0447,
         "fee": 8,
-        "markup": 1.05,
-        "receiveAmount": 1111.64
+        "markup": 0.88,
+        "receiveAmount": 1108.11
       },
       "xe": {
-        "rate": 12.0368,
+        "rate": 11.9772,
         "fee": 30,
-        "markup": 1.43,
-        "receiveAmount": 842.58
+        "markup": 1.44,
+        "receiveAmount": 838.4
       },
       "western-union": {
-        "rate": 12.1646,
+        "rate": 12.1338,
         "fee": 5,
-        "markup": 0.38,
-        "receiveAmount": 1155.64
+        "markup": 0.15,
+        "receiveAmount": 1152.71
       },
       "currencyfair": {
-        "rate": 12.121,
-        "fee": 9.9,
-        "markup": 0.74,
-        "receiveAmount": 1092.1
+        "rate": 12.06,
+        "fee": 9.95,
+        "markup": 0.76,
+        "receiveAmount": 1086
       },
       "instarem": {
         "rate": 12.1699,
