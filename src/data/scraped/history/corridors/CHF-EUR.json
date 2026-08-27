@@ -6714,5 +6714,34 @@
         "receiveAmount": 105.32
       }
     }
+  },
+  {
+    "date": "2026-08-27",
+    "providers": {
+      "paypal": {
+        "rate": 1.0221,
+        "fee": 2.49,
+        "markup": null,
+        "receiveAmount": 99.67
+      },
+      "zkb": {
+        "rate": 1.0522,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 105.22
+      },
+      "migros": {
+        "rate": 1.0478,
+        "fee": 0.3,
+        "markup": null,
+        "receiveAmount": 104.47
+      },
+      "wise": {
+        "rate": 1.0649,
+        "fee": 1.44,
+        "markup": null,
+        "receiveAmount": 104.96
+      }
+    }
   }
 ]
