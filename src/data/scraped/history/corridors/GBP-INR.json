@@ -27781,10 +27781,10 @@
     "date": "2026-08-27",
     "providers": {
       "moneygram": {
-        "rate": 130.1524,
+        "rate": 129.6866,
         "fee": 1.49,
-        "markup": -0.18,
-        "receiveAmount": 12821.31
+        "markup": 0.08,
+        "receiveAmount": 12775.43
       },
       "hsbc": {
         "rate": 128.4157,
@@ -27805,34 +27805,34 @@
         "receiveAmount": 13025
       },
       "sbi": {
-        "rate": 126.4152,
-        "fee": 6.92,
+        "rate": 126.2885,
+        "fee": 6.93,
         "markup": 2.7,
-        "receiveAmount": 11766.19
+        "receiveAmount": 11754.15
       },
       "western-union": {
-        "rate": 130.0864,
+        "rate": 129.4171,
         "fee": 1.99,
-        "markup": -0.13,
-        "receiveAmount": 12749.77
+        "markup": 0.29,
+        "receiveAmount": 12684.17
       },
       "dahabshiil": {
-        "rate": 129.1185,
+        "rate": 128.5003,
         "fee": 1.99,
-        "markup": 0.62,
-        "receiveAmount": 12654.9
+        "markup": 1,
+        "receiveAmount": 12594.31
       },
       "ofx": {
-        "rate": 124.206,
+        "rate": 124.2838,
         "fee": 0,
-        "markup": 4.4,
-        "receiveAmount": 12420.6
+        "markup": 4.24,
+        "receiveAmount": 12428.38
       },
       "currencyfair": {
-        "rate": 128.9401,
+        "rate": 128.8566,
         "fee": 0.93,
-        "markup": 0.76,
-        "receiveAmount": 12774.1
+        "markup": 0.72,
+        "receiveAmount": 12765.82
       },
       "halifax": {
         "rate": 124.9002,
@@ -27841,10 +27841,10 @@
         "receiveAmount": 11303.47
       },
       "transfergo": {
-        "rate": 129.6622,
+        "rate": 129.5787,
         "fee": 0,
-        "markup": 0.2,
-        "receiveAmount": 12966.22
+        "markup": 0.17,
+        "receiveAmount": 12957.87
       },
       "worldremit": {
         "rate": 128.8698,
@@ -27853,22 +27853,22 @@
         "receiveAmount": 12630.53
       },
       "instarem": {
-        "rate": 129.2955,
+        "rate": 129.0689,
         "fee": 0,
-        "markup": 0.48,
-        "receiveAmount": 12929.55
+        "markup": 0.56,
+        "receiveAmount": 12906.89
       },
       "mukuru": {
-        "rate": 125.96,
+        "rate": 125.76,
         "fee": 2.99,
-        "markup": 3.05,
-        "receiveAmount": 12219.38
+        "markup": 3.11,
+        "receiveAmount": 12199.98
       },
       "paysend": {
-        "rate": 130.0866,
+        "rate": 129.8115,
         "fee": 0,
-        "markup": -0.13,
-        "receiveAmount": 13008.66
+        "markup": -0.01,
+        "receiveAmount": 12981.15
       },
       "remitly": {
         "rate": 129.5388,
@@ -27877,16 +27877,16 @@
         "receiveAmount": 12696.1
       },
       "revolut": {
-        "rate": 129.4369,
+        "rate": 129.433,
         "fee": 0.5,
-        "markup": 0.37,
-        "receiveAmount": 12878.97
+        "markup": 0.28,
+        "receiveAmount": 12878.58
       },
       "ria": {
-        "rate": 130.21,
+        "rate": 129.5,
         "fee": 1.5,
         "markup": null,
-        "receiveAmount": 13213.77
+        "receiveAmount": 13131.77
       },
       "paypal": {
         "rate": 124.49,
@@ -27953,6 +27953,12 @@
         "fee": 1.03,
         "markup": null,
         "receiveAmount": 12838.59
+      },
+      "xe": {
+        "rate": 129.2055,
+        "fee": 2,
+        "markup": 0.45,
+        "receiveAmount": 12662.14
       }
     }
   }
