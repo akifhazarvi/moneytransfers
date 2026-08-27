@@ -24,6 +24,13 @@ import { sql } from "@vercel/postgres";
 
 const ENABLED = !!process.env.POSTGRES_URL;
 
+/**
+ * Whether the app backend has a database behind it. Routes check this to return
+ * an honest 503 rather than a confusing empty success, since every store call
+ * silently no-ops when unprovisioned.
+ */
+export const alertStoreEnabled = ENABLED;
+
 let ensured: Promise<void> | null = null;
 
 /**
