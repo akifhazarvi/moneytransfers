@@ -23,9 +23,14 @@ const FALLBACK_DATE = "2026-03-28";
  * Evaluated at build time on the server (uses `fs`). Do not import into a
  * client component.
  */
-function latestCollectedDate(): string | null {
+function latestCollectedTimestamp(): string | null {
   const scrapedDir = join(process.cwd(), "src/data/scraped");
-  const DATE_RE = /"dateCollected"\s*:\s*"(\d{4}-\d{2}-\d{2})/g;
+  // Captures the FULL timestamp ("2026-08-20T00:44:13.231Z"), not just the
+  // date. getDataUpdatedDate() slices it back down, so sitemap lastmod and
+  // schema dateModified are unaffected — but getDataVersion() needs the
+  // sub-day precision, because three scrape workflows land on the same date
+  // and the alert evaluator must tell them apart.
+  const DATE_RE = /"dateCollected"\s*:\s*"(\d{4}-\d{2}-\d{2}[^"]*)"/g;
   let latest: string | null = null;
   try {
     for (const file of readdirSync(scrapedDir)) {
@@ -48,14 +53,48 @@ function latestCollectedDate(): string | null {
 }
 
 let cached: string | null | undefined;
-function collectedDate(): string | null {
-  if (cached === undefined) cached = latestCollectedDate();
+function collectedTimestamp(): string | null {
+  if (cached === undefined) cached = latestCollectedTimestamp();
   return cached;
+}
+
+/** Date portion only, for the callers that want YYYY-MM-DD. */
+function collectedDate(): string | null {
+  return collectedTimestamp()?.slice(0, 10) ?? null;
 }
 
 /** Data collection date as YYYY-MM-DD, for schema dateModified and sitemap lastmod. */
 export function getDataUpdatedDate(): string {
   return collectedDate() ?? FALLBACK_DATE;
+}
+
+/**
+ * Precise version stamp for the currently-deployed quote dataset.
+ *
+ * Exists because quote data is build-time embedded: quotes-engine.ts statically
+ * imports the whole dataset, so generateQuotes() only ever sees what shipped
+ * with this deployment. Fresh numbers arrive when a deploy completes — the three
+ * scrape workflows each fire VERCEL_DEPLOY_HOOK, since vercel-ignore.sh skips
+ * the normal build for data-only commits — and never on a schedule we control.
+ *
+ * So the alert evaluator cannot run on a wall clock without racing the deploy.
+ * Instead it stores this value per alert and skips any alert already evaluated
+ * at the deployment's current version. That makes an hourly cron harmless (real
+ * work happens only on the ~3 runs a day that carry new numbers), a late deploy
+ * self-healing, and a half-finished run resumable.
+ *
+ * Unlike getDataUpdatedDate() this keeps sub-day precision, which is required:
+ * all three daily scrapes share a calendar date.
+ *
+ * Falls back to the build time, then the static fallback date, so the value is
+ * never empty — an empty version would make every alert look unevaluated.
+ */
+export function getDataVersion(): string {
+  return (
+    collectedTimestamp() ??
+    process.env.NEXT_PUBLIC_BUILD_TIME ??
+    `${FALLBACK_DATE}T00:00:00.000Z`
+  );
 }
 
 /**
