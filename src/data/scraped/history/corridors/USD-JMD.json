@@ -8044,10 +8044,10 @@
     "date": "2026-08-29",
     "providers": {
       "moneygram": {
-        "rate": 156.149,
+        "rate": 156.0315,
         "fee": 1.9,
-        "markup": 1.38,
-        "receiveAmount": 15318.22
+        "markup": 1.31,
+        "receiveAmount": 15306.69
       },
       "taptap-send": {
         "rate": 157,
@@ -8058,7 +8058,7 @@
       "boss-money": {
         "rate": 155.9361,
         "fee": 1.49,
-        "markup": 1.52,
+        "markup": 1.37,
         "receiveAmount": 15361.27
       },
       "western-union": {
@@ -8074,21 +8074,21 @@
         "receiveAmount": 14603.11
       },
       "xe": {
-        "rate": 156.4496,
+        "rate": 156.3508,
         "fee": 4,
-        "markup": 1.19,
-        "receiveAmount": 15019.16
+        "markup": 1.11,
+        "receiveAmount": 15009.68
       },
       "paysend": {
         "rate": 155.5578,
         "fee": 1.99,
-        "markup": 1.76,
+        "markup": 1.61,
         "receiveAmount": 15246.22
       },
       "remitly": {
         "rate": 153,
         "fee": 2.99,
-        "markup": 3.37,
+        "markup": 3.23,
         "receiveAmount": 14842.53
       },
       "wise": {
@@ -8098,10 +8098,10 @@
         "receiveAmount": 14120.8
       },
       "ria": {
-        "rate": 154.07,
+        "rate": 153.97,
         "fee": 2.9,
         "markup": null,
-        "receiveAmount": 15779.31
+        "receiveAmount": 15769.07
       }
     }
   }

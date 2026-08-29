@@ -6275,22 +6275,22 @@
     "date": "2026-08-29",
     "providers": {
       "currencyfair": {
-        "rate": 16.852,
+        "rate": 16.856,
         "fee": 34.75,
-        "markup": 0.73,
-        "receiveAmount": 1099.59
+        "markup": 0.59,
+        "receiveAmount": 1099.85
       },
       "paysend": {
-        "rate": 16.7387,
+        "rate": 16.714,
         "fee": 9,
-        "markup": 1.4,
-        "receiveAmount": 1523.22
+        "markup": 1.42,
+        "receiveAmount": 1520.97
       },
       "remitly": {
-        "rate": 16.88,
+        "rate": 16.86,
         "fee": 5,
         "markup": 0.56,
-        "receiveAmount": 1603.6
+        "receiveAmount": 1601.7
       },
       "taptap-send": {
         "rate": 16.5,
@@ -6303,6 +6303,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 1696.5
+      },
+      "skrill": {
+        "rate": 16.7356,
+        "fee": 0,
+        "markup": 1.3,
+        "receiveAmount": 1673.56
       }
     }
   }
