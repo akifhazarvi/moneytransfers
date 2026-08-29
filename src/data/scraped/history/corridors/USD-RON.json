@@ -4115,5 +4115,40 @@
         "receiveAmount": 443.22
       }
     }
+  },
+  {
+    "date": "2026-08-29",
+    "providers": {
+      "ria": {
+        "rate": 4.4473,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 454.89
+      },
+      "xoom": {
+        "rate": 4.3281,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 411.21
+      },
+      "western-union": {
+        "rate": 4.5042,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 441.46
+      },
+      "remitly": {
+        "rate": 4.4938,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 435.94
+      },
+      "wise": {
+        "rate": 4.5387,
+        "fee": 1.84,
+        "markup": null,
+        "receiveAmount": 445.51
+      }
+    }
   }
 ]

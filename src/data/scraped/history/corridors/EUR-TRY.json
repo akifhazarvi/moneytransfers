@@ -11100,5 +11100,100 @@
         "receiveAmount": 5186.35
       }
     }
+  },
+  {
+    "date": "2026-08-29",
+    "providers": {
+      "moneygram": {
+        "rate": 55.2225,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5439.97
+      },
+      "taptap-send": {
+        "rate": 55.92,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5592
+      },
+      "deutsche-bank": {
+        "rate": 55.5027,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3521.64
+      },
+      "xe": {
+        "rate": 55.601,
+        "fee": 4,
+        "markup": 0.82,
+        "receiveAmount": 5337.7
+      },
+      "western-union": {
+        "rate": 54.9913,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 5444.69
+      },
+      "dahabshiil": {
+        "rate": 54.9066,
+        "fee": 1.99,
+        "markup": 2.06,
+        "receiveAmount": 5381.4
+      },
+      "instarem": {
+        "rate": 55.4969,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5549.69
+      },
+      "paysend": {
+        "rate": 55.7972,
+        "fee": 0,
+        "markup": 0.47,
+        "receiveAmount": 5579.72
+      },
+      "remitly": {
+        "rate": 55.13,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 5403.29
+      },
+      "revolut": {
+        "rate": 55.7236,
+        "fee": 1,
+        "markup": 0.6,
+        "receiveAmount": 5516.63
+      },
+      "wise": {
+        "rate": 55.8714,
+        "fee": 2.95,
+        "markup": null,
+        "receiveAmount": 5422.32
+      },
+      "ria": {
+        "rate": 55.2087,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5711.44
+      },
+      "commerzbank": {
+        "rate": 54.3775,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4758.04
+      },
+      "ing-de": {
+        "rate": 54.7511,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4270.59
+      },
+      "sparkasse": {
+        "rate": 55.7517,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5157.03
+      }
+    }
   }
 ]

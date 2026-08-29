@@ -3192,5 +3192,28 @@
         "receiveAmount": 59.79
       }
     }
+  },
+  {
+    "date": "2026-08-29",
+    "providers": {
+      "instarem": {
+        "rate": 0.5927,
+        "fee": 0,
+        "markup": 0.76,
+        "receiveAmount": 59.27
+      },
+      "revolut": {
+        "rate": 0.5945,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 59.45
+      },
+      "wise": {
+        "rate": 0.5972,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 59.72
+      }
+    }
   }
 ]
