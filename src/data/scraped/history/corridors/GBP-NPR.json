@@ -9048,7 +9048,7 @@
       "moneygram": {
         "rate": 206.3906,
         "fee": 0,
-        "markup": 0.16,
+        "markup": 0.25,
         "receiveAmount": 20639.06
       },
       "taptap-send": {
@@ -9060,62 +9060,68 @@
       "western-union": {
         "rate": 205.0775,
         "fee": 0.5,
-        "markup": 0.8,
+        "markup": 0.88,
         "receiveAmount": 20405.22
       },
       "dahabshiil": {
-        "rate": 211.4719,
+        "rate": 211.667,
         "fee": 1.99,
-        "markup": -2.29,
-        "receiveAmount": 20726.36
+        "markup": -2.31,
+        "receiveAmount": 20745.48
       },
       "transfergo": {
-        "rate": 201.9943,
+        "rate": 203.2463,
         "fee": 0,
-        "markup": 2.29,
-        "receiveAmount": 20199.43
+        "markup": 1.76,
+        "receiveAmount": 20324.63
       },
       "worldremit": {
         "rate": 205.4458,
         "fee": 0.99,
-        "markup": 0.62,
+        "markup": 0.7,
         "receiveAmount": 20341.19
       },
       "instarem": {
         "rate": 205.3609,
         "fee": 0,
-        "markup": 0.66,
+        "markup": 0.74,
         "receiveAmount": 20536.09
       },
       "xe": {
         "rate": 205.8339,
         "fee": 3,
-        "markup": 0.43,
+        "markup": 0.51,
         "receiveAmount": 19965.89
       },
       "paysend": {
         "rate": 205.6246,
         "fee": 1,
-        "markup": 0.53,
+        "markup": 0.62,
         "receiveAmount": 20356.84
       },
       "remitly": {
         "rate": 205.57,
         "fee": 0,
-        "markup": 0.56,
+        "markup": 0.64,
         "receiveAmount": 20557
       },
       "revolut": {
-        "rate": 204.0354,
+        "rate": 203.913,
         "fee": 2.1,
-        "markup": 1.3,
-        "receiveAmount": 19975.06
+        "markup": 1.44,
+        "receiveAmount": 19963.08
       },
       "wise": {
         "rate": 206.5389,
         "fee": 2.43,
-        "markup": 0.09,
+        "markup": 0.17,
         "receiveAmount": 20152
+      },
+      "skrill": {
+        "rate": 202.7321,
+        "fee": 0,
+        "markup": 2.01,
+        "receiveAmount": 20273.21
       }
     }
   }
