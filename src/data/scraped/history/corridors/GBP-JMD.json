@@ -6826,14 +6826,14 @@
       "moneygram": {
         "rate": 213.3679,
         "fee": 2.49,
-        "markup": 0.25,
+        "markup": 1.1,
         "receiveAmount": 20805.5
       },
       "hsbc": {
-        "rate": 206.4067,
+        "rate": 208.1901,
         "fee": 19.77,
         "markup": 3.5,
-        "receiveAmount": 16559.04
+        "receiveAmount": 16703.37
       },
       "taptap-send": {
         "rate": 212.69,
@@ -6842,46 +6842,46 @@
         "receiveAmount": 21269
       },
       "western-union": {
-        "rate": 210.8234,
+        "rate": 210.8027,
         "fee": 2.99,
-        "markup": 1.44,
-        "receiveAmount": 20451.98
+        "markup": 2.29,
+        "receiveAmount": 20449.97
       },
       "transfergo": {
-        "rate": 212.0393,
+        "rate": 211.8648,
         "fee": 0,
-        "markup": 0.87,
-        "receiveAmount": 21203.93
+        "markup": 1.8,
+        "receiveAmount": 21186.48
       },
       "xe": {
-        "rate": 212.9391,
+        "rate": 211.9194,
         "fee": 3,
-        "markup": 0.45,
-        "receiveAmount": 20655.09
+        "markup": 1.77,
+        "receiveAmount": 20556.18
       },
       "paysend": {
-        "rate": 212.5435,
+        "rate": 212.7006,
         "fee": 1,
-        "markup": 0.63,
-        "receiveAmount": 21041.81
+        "markup": 1.41,
+        "receiveAmount": 21057.36
       },
       "remitly": {
-        "rate": 208.73,
+        "rate": 208.9,
         "fee": 1.99,
-        "markup": 2.41,
-        "receiveAmount": 20457.63
+        "markup": 3.17,
+        "receiveAmount": 20474.29
       },
       "revolut": {
-        "rate": 211.9432,
-        "fee": 3.3,
-        "markup": 0.91,
-        "receiveAmount": 20494.91
+        "rate": 212.6093,
+        "fee": 2.3,
+        "markup": 1.45,
+        "receiveAmount": 20771.92
       },
       "wise": {
-        "rate": 213.986,
+        "rate": 214.128,
         "fee": 9.99,
-        "markup": -0.04,
-        "receiveAmount": 19260.88
+        "markup": 0.75,
+        "receiveAmount": 19273.66
       }
     }
   }

@@ -2816,22 +2816,22 @@
     "date": "2026-08-31",
     "providers": {
       "western-union": {
-        "rate": 23.5207,
+        "rate": 23.5535,
         "fee": 5,
-        "markup": 0.72,
-        "receiveAmount": 2234.46
+        "markup": 0.29,
+        "receiveAmount": 2237.58
       },
       "worldremit": {
-        "rate": 23.1093,
+        "rate": 23.0585,
         "fee": 5,
-        "markup": 2.46,
-        "receiveAmount": 2195.38
+        "markup": 2.39,
+        "receiveAmount": 2190.56
       },
       "instarem": {
-        "rate": 23.6413,
+        "rate": 23.6084,
         "fee": 0.55,
-        "markup": 0.21,
-        "receiveAmount": 2351.13
+        "markup": 0.06,
+        "receiveAmount": 2347.86
       }
     }
   }
