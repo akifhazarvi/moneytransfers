@@ -76,9 +76,33 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
       <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">
         {t("title")}
       </h1>
-      <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
+      <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
         {t("subtitle")}
       </p>
+
+      {/* Downloadable Word doc — full text of every guide on this page, offline-friendly */}
+      <a
+        href="/downloads/sendmoneycompare-guides.docx"
+        download
+        className="group mb-8 flex items-center gap-4 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 transition hover:shadow-md hover:border-[var(--color-primary)]"
+      >
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-surface)] text-[var(--color-primary)]">
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
+          </svg>
+        </span>
+        <span className="min-w-0">
+          <span className="block text-sm font-medium text-[var(--color-on-surface)]">
+            Download all guides as a Word document
+          </span>
+          <span className="block text-xs text-[var(--color-on-surface-variant)] mt-0.5">
+            Every guide on this page, offline-friendly — .docx, ~440 KB
+          </span>
+        </span>
+        <span className="ml-auto shrink-0 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+          Download →
+        </span>
+      </a>
 
       {/* Featured standalone guides — dedicated live routes, not in blogPosts */}
       <div className="mb-8 grid gap-4 sm:grid-cols-2">
