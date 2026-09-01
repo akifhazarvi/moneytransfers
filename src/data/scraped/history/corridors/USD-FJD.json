@@ -2396,5 +2396,22 @@
         "receiveAmount": 198.21
       }
     }
+  },
+  {
+    "date": "2026-09-01",
+    "providers": {
+      "taptap-send": {
+        "rate": 2.07,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 207
+      },
+      "wise": {
+        "rate": 2.2131,
+        "fee": 10.44,
+        "markup": null,
+        "receiveAmount": 198.21
+      }
+    }
   }
 ]

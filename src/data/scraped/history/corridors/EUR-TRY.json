@@ -11385,5 +11385,70 @@
         "receiveAmount": 4763.11
       }
     }
+  },
+  {
+    "date": "2026-09-01",
+    "providers": {
+      "ria": {
+        "rate": 55.0134,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5713.58
+      },
+      "taptap-send": {
+        "rate": 55.37,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5537
+      },
+      "sparkasse": {
+        "rate": 55.8111,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5162.53
+      },
+      "moneygram": {
+        "rate": 55.6315,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5480.26
+      },
+      "western-union": {
+        "rate": 54.992,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 5444.76
+      },
+      "instarem": {
+        "rate": 55.5645,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5556.45
+      },
+      "ing-de": {
+        "rate": 54.8095,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4275.14
+      },
+      "deutsche-bank": {
+        "rate": 55.5619,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3525.4
+      },
+      "commerzbank": {
+        "rate": 54.4355,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4763.11
+      },
+      "wise": {
+        "rate": 55.9337,
+        "fee": 2.95,
+        "markup": null,
+        "receiveAmount": 5428.37
+      }
+    }
   }
 ]

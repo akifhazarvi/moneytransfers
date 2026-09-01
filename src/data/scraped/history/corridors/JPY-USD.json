@@ -1448,5 +1448,22 @@
         "receiveAmount": 0.63
       }
     }
+  },
+  {
+    "date": "2026-09-01",
+    "providers": {
+      "xe": {
+        "rate": 0.0062,
+        "fee": 0,
+        "markup": 1.45,
+        "receiveAmount": 0.62
+      },
+      "instarem": {
+        "rate": 0.0062,
+        "fee": 0,
+        "markup": 0.81,
+        "receiveAmount": 0.62
+      }
+    }
   }
 ]

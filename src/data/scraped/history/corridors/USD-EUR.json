@@ -16833,5 +16833,76 @@
         "receiveAmount": 83.69
       }
     }
+  },
+  {
+    "date": "2026-09-01",
+    "providers": {
+      "instarem": {
+        "rate": 0.8566,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 85.66
+      },
+      "lemfi": {
+        "rate": 0.859,
+        "fee": 0,
+        "markup": 0.43,
+        "receiveAmount": 85.9
+      },
+      "ria": {
+        "rate": 0.8429,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 85.67
+      },
+      "taptap-send": {
+        "rate": 0.85,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 85
+      },
+      "xoom": {
+        "rate": 0.7832,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 78.32
+      },
+      "paypal": {
+        "rate": 0.8232,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 78.21
+      },
+      "chase": {
+        "rate": 0.8376,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 79.58
+      },
+      "wells-fargo": {
+        "rate": 0.8369,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 83.69
+      },
+      "remitly": {
+        "rate": 0.8573,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 85.73
+      },
+      "western-union": {
+        "rate": 0.8549,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 84.65
+      },
+      "wise": {
+        "rate": 0.8627,
+        "fee": 1.35,
+        "markup": null,
+        "receiveAmount": 85.1
+      }
+    }
   }
 ]
