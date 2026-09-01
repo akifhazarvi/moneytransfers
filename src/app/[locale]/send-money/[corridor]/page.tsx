@@ -3216,6 +3216,7 @@ export default async function CorridorPage({ params }: Props) {
       {isCountryPage && (() => {
         const relatedCorridors = allCorridors
           .filter((c) => !c.isCurrencyCorridor && !c.isCountryPage && c.toCountry === corridor.toCountry)
+          .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
           .slice(0, 8);
         if (relatedCorridors.length === 0) return null;
         return (
@@ -3297,6 +3298,7 @@ export default async function CorridorPage({ params }: Props) {
             // sender even though both use EUR. The label would otherwise lie.
             links: allCorridors
               .filter((c) => c.fromCountry === corridor.fromCountry && c.toCountry !== corridor.toCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
+              .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
               .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
               .slice(0, 5)
               .map((c) => ({
@@ -3310,6 +3312,7 @@ export default async function CorridorPage({ params }: Props) {
             // as "France → Belgium" would be misleading even though both use EUR.
             links: allCorridors
               .filter((c) => c.toCountry === corridor.toCountry && c.fromCountry !== corridor.fromCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
+              .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
               .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
               .slice(0, 5)
               .map((c) => ({
