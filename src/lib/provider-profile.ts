@@ -8,9 +8,26 @@
  * Mirrors the established data-driven pattern in src/lib/comparison-content.ts.
  * Sentence variants are selected deterministically from the slug so each
  * provider reads differently but the output is stable across builds.
+ *
+ * 2026-09-01 — de-duplication pass, after AdSense flagged "Low value content".
+ * Any two /companies pages shared a median 44% of their 10-grams. Three fixes,
+ * in descending order of how much identical text they removed:
+ *
+ *   1. The overview no longer re-prints p.description. The page renders it in
+ *      the header card already, so it appeared verbatim twice on every page.
+ *   2. The verdict's fixed closing CTA sentence is gone (55/55 identical).
+ *   3. Where our scrapers cover the provider, the generic pricing takeaway
+ *      (one of two fixed strings) is replaced by the markup we actually
+ *      measured, over a named corridor count — see src/lib/provider-measured.ts.
+ *
+ * Note the deliberate non-fix: no new sentence variants were added. More
+ * skeletons filled from the same fields is the same scaled-content signal in a
+ * different costume, which is what the site's own SEO action plan warns against.
+ * Only (3) adds text, and only because it is a fact nobody else has.
  */
 
 import { type Provider } from "@/data/providers";
+import { getMeasuredMarkup } from "@/lib/provider-measured";
 
 export interface ProviderProfile {
   /** 4 paragraphs, ~300–500 words total, ready to render one <p> each. */
@@ -62,7 +79,17 @@ function usesMidMarket(p: Provider): boolean {
 
 function chargesNoFee(p: Provider): boolean {
   const f = p.feeStructure.toLowerCase();
-  return f.includes("no transfer fee") || f.includes("$0") || f.startsWith("no ") || f.includes("zero");
+  // "$0" must be the whole amount, not the start of a larger one. A bare
+  // includes("$0") also matched "$0.99", so PayPal ("5% with $0.99 min, $4.99
+  // max") and WorldRemit ("From $0.99 to $3.99") were both described as
+  // charging "nothing upfront on the majority of corridors" — a false fee
+  // claim on a YMYL page. Those two are the only providers this changes.
+  return (
+    f.includes("no transfer fee") ||
+    /\$0(?![\d.])/.test(f) ||
+    f.startsWith("no ") ||
+    f.includes("zero")
+  );
 }
 
 /**
@@ -106,13 +133,13 @@ function overviewParagraph(p: Provider, tp?: { score?: number; reviews?: number 
   const article = /^[aeiou]/i.test(type) ? "an" : "a";
   const hq = p.headquarters ? ` and based in ${p.headquarters}` : "";
 
-  // Lead with the existing one-line description (a clean full sentence that
-  // usually opens with the provider name), then add company context as a fresh
-  // sentence — avoids two consecutive "Name is a…" sentence starts.
-  const desc = p.description.trim().replace(/\.$/, "");
+  // Opens on company context, NOT p.description. The page already renders
+  // p.description verbatim in the header card above this block, so leading with
+  // it here printed the same sentence twice on all 55 pages — the single
+  // largest chunk of duplicated text in the category.
   const context = pick(p.slug, "ctx", [
-    ` Founded in ${p.founded}${hq}, ${p.name} is ${article} ${type}.`,
-    ` ${p.name} is ${article} ${type}, founded in ${p.founded}${hq}.`,
+    `Founded in ${p.founded}${hq}, ${p.name} is ${article} ${type}.`,
+    `${p.name} is ${article} ${type}, founded in ${p.founded}${hq}.`,
   ]);
 
   const regList = p.regulators.slice(0, 3).join(", ");
@@ -129,7 +156,7 @@ function overviewParagraph(p: Provider, tp?: { score?: number; reviews?: number 
     ? ` It currently holds a Trustpilot score of ${tp.score.toFixed(1)} out of 5${tp.reviews ? ` from roughly ${tp.reviews.toLocaleString()} reviews` : ""}, which we rate ${p.ratingLabel.toLowerCase()}.`
     : "";
 
-  return `${desc}.${context}${reg}${ratingSentence}`;
+  return `${context}${reg}${ratingSentence}`;
 }
 
 function pricingParagraph(p: Provider): string {
@@ -154,11 +181,29 @@ function pricingParagraph(p: Provider): string {
     return ` The minimum transfer is ${min}, with no fixed upper limit on most corridors.`;
   })();
 
-  const takeaway = usesMidMarket(p)
-    ? " For senders that makes the true cost easy to verify against the rate you see on Google."
-    : " Because that markup scales with the amount you send, it is worth comparing the final receive amount rather than the fee alone.";
+  // The one fact on this page that is ours rather than the provider's: what we
+  // actually observed the rate doing, across a corridor count we can name. Where
+  // we have it, it replaces the generic takeaway — a fixed pair of sentences that
+  // otherwise printed verbatim across all 55 pages.
+  const measured = (() => {
+    const m = getMeasuredMarkup(p.slug);
+    if (!m) return "";
+    const corridors = `${m.corridors.toLocaleString()} corridor${m.corridors === 1 ? "" : "s"}`;
+    // Mid-market pricing lands fractionally either side of zero; printing
+    // "-0.00%" would be false precision.
+    if (Math.abs(m.markupPct) < 0.05) {
+      return ` In our own rate collection, across the ${corridors} we track for ${p.name}, its rate has sat effectively at the mid-market rate.`;
+    }
+    return ` In our own rate collection, across the ${corridors} we track for ${p.name}, its exchange rate has averaged ${m.markupPct.toFixed(2)}% from the mid-market rate.`;
+  })();
 
-  return `${feeSentence}${rateSentence}${limits}${takeaway}`;
+  const takeaway = measured
+    ? ""
+    : usesMidMarket(p)
+      ? " For senders that makes the true cost easy to verify against the rate you see on Google."
+      : " Because that markup scales with the amount you send, it is worth comparing the final receive amount rather than the fee alone.";
+
+  return `${feeSentence}${rateSentence}${limits}${measured}${takeaway}`;
 }
 
 function coverageParagraph(p: Provider): string {
@@ -196,8 +241,10 @@ function verdictParagraph(p: Provider): string {
         ` Worth keeping in mind: ${proseList(p.cons, 2)}.`,
       ])
     : "";
-  const close = " As always, run your exact amount and currency through a live comparison before sending — the provider you pick usually affects the final amount more than any single fee.";
-  return `${strengths}${bestFor}${watchOut}${close}`;
+  // No fixed closing line here. The previous one ("As always, run your exact
+  // amount…") was a 30-word CTA printed identically on all 55 pages, and the
+  // page already carries two live comparison CTAs above this block.
+  return `${strengths}${bestFor}${watchOut}`;
 }
 
 // ── Public API ──
