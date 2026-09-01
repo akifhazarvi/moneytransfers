@@ -8,6 +8,7 @@ import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
+import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { getSwiftEditorial, getSwiftFaqs } from "@/data/swift-content";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { INDEXED_SWIFT_SLUGS as indexedSwiftCountries } from "@/lib/seo-indexing";
@@ -170,7 +171,9 @@ const swiftToIbanSlug: Record<string, string> = {
 };
 
 export async function generateStaticParams() {
-  return getSwiftCountries().map((c) => ({ country: c.slug }));
+  return getSwiftCountries()
+    .filter((c) => !GONE_SWIFT_SLUGS.has(c.slug))
+    .map((c) => ({ country: c.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -278,8 +281,9 @@ export default async function SwiftCountryPage({ params }: Props) {
     </div>
   );
 
-  // Related countries
-  const allCountries = getSwiftCountries();
+  // Related countries. Excludes retired slugs so the rail never links to a 410
+  // — the same dead-internal-link bug the corridor retirement had to fix.
+  const allCountries = getSwiftCountries().filter((c) => !GONE_SWIFT_SLUGS.has(c.slug));
   const related = allCountries
     .filter((c) => c.slug !== slug)
     .sort((a, b) => b.branches.length - a.branches.length)

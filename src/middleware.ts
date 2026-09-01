@@ -6,6 +6,7 @@ import { shouldNoindexPath } from "./lib/seo-indexing";
 import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
 import { GONE_CORRIDOR_SLUGS } from "./lib/gone-corridors";
+import { GONE_SWIFT_SLUGS } from "./lib/gone-swift";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -130,6 +131,14 @@ export default function middleware(request: NextRequest) {
   // src/lib/gone-corridors.ts for why these 53 were chosen.
   const goneMatch = request.nextUrl.pathname.match(/^\/send-money\/([a-z0-9-]+)$/);
   if (goneMatch && GONE_CORRIDOR_SLUGS.has(goneMatch[1])) {
+    return new NextResponse("Gone", { status: 410 });
+  }
+
+  // 410 Gone for retired SWIFT country pages — same rationale and placement as
+  // the corridor block above. See src/lib/gone-swift.ts for the selection rule
+  // (noindexed AND under 600 rendered words); 57 of 107 retired.
+  const goneSwift = request.nextUrl.pathname.match(/^\/swift-codes\/([a-z0-9-]+)$/);
+  if (goneSwift && GONE_SWIFT_SLUGS.has(goneSwift[1])) {
     return new NextResponse("Gone", { status: 410 });
   }
 

@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import PrimaryButton from "@/components/PrimaryButton";
 import CircleFlag from "@/components/CircleFlag";
 import { getSwiftCountries } from "@/data/swift-codes";
+import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { INDEXED_SWIFT_SLUGS } from "@/lib/seo-indexing";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -39,9 +40,11 @@ export default async function SwiftCodesPage({ params }: { params: Promise<{ loc
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "swiftCodes" });
-  const countries = getSwiftCountries().sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+  // Retired slugs are excluded so the hub never links to a 410 (see
+  // src/lib/gone-swift.ts).
+  const countries = getSwiftCountries()
+    .filter((c) => !GONE_SWIFT_SLUGS.has(c.slug))
+    .sort((a, b) => a.name.localeCompare(b.name));
   // Split into indexed (index-worthy, surfaced prominently) vs the long tail
   // (noindex pages, collapsed). Keeps every link crawlable but stops the hub
   // from flooding 100+ equal-weight links to mostly-noindexed country pages.
