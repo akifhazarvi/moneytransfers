@@ -4,7 +4,7 @@ import { sql } from "@vercel/postgres";
  * Schema for the app backend: rate alerts, push delivery, and self-reported
  * transfer history.
  *
- * Follows the same contract as event-store.ts, deliberately:
+ * Follows the no-op-until-provisioned contract, deliberately:
  *   - one module-level promise dedupes concurrent first-calls, so DDL runs once
  *     per warm lambda rather than on every request
  *   - CREATE TABLE IF NOT EXISTS for new deployments, plus idempotent
@@ -37,7 +37,7 @@ let ensured: Promise<void> | null = null;
  * Create/upgrade the app schema. Callers should await this before their first
  * query — readers included, since a reader that SELECTs a newly-added column
  * 500s if no writer has run since that column was introduced (the exact trap
- * event-store.ts documents). No-ops when not provisioned.
+ * documented below). No-ops when not provisioned.
  */
 export async function ensureAlertStore(): Promise<void> {
   if (!ENABLED) return;
@@ -189,7 +189,7 @@ function ensureTables(): Promise<void> {
       ]).then(() => undefined)
     )
     .catch((e) => {
-      // Reset so a later call can retry, then rethrow — unlike event-store's
+      // Reset so a later call can retry, then rethrow — unlike a fire-and-forget
       // write path, a caller here needs to know the schema isn't ready.
       ensured = null;
       throw e;

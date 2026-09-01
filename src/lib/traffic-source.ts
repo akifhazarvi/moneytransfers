@@ -60,141 +60,21 @@ export type SourceClass = {
   isBot: boolean;
   /** Referer host (or "" when none / same-origin). Stored for provability. */
   refererHost: string;
-  /** Additive 0–100 bot-likelihood score (NEVER alters isBot or drops data —
-   *  it's attached to each row so real-vs-bot can be judged without guessing). */
-  botScore: number;
-  /** Human-readable signals that contributed, for auditability. */
-  botReasons: string[];
 };
-
-// ── Bot scoring ────────────────────────────────────────────────────────────
-// A weighted, additive 0–100 score over ~12 independent signals. This is the
-// safe design the user asked for: we SCORE and store it next to each row — we
-// do NOT mutate isBot, drop, or filter anyone on the score alone. Real users
-// keep their data; the score just lets us SEE which clicks look automated
-// (e.g. the Jun 20 Beijing scraper: browser-UA, no referer, fresh visitor each
-// time, nonsensical corridors NOK→MXN/AUD→UZS on a ~90s cadence).
-//
-// Higher = more bot-like. ~60+ is "almost certainly automated"; 30–60 is
-// "suspicious, worth a look"; under 30 reads as a real user.
-
-const COMMON_SEND = new Set(["USD", "GBP", "EUR", "AUD", "CAD", "AED", "SAR", "SGD", "NZD", "CHF", "HKD"]);
-const COMMON_RECV = new Set(["INR", "PHP", "PKR", "NGN", "BDT", "MXN", "NPR", "LKR", "EUR", "GBP", "USD", "VND", "KES", "GHS", "EGP"]);
-// Datacenter/scraper-leaning origins for a referer-less browser hit (weighted,
-// never decisive alone — a real diaspora user can be here).
-const SUSPECT_COUNTRIES = new Set(["CN", "HK", "RU"]);
-
-export type BotSignalInput = {
-  ua: string;
-  refererHost: string;
-  country?: string | null;
-  corridor?: string | null;
-  /** Did the on-site injector forward a live GA client id? (real-session signal) */
-  hadCid?: boolean;
-  /** Was an explicit AI source set by the injector? (real-session signal) */
-  hadAiSrc?: boolean;
-  /** Did the request carry an smc_vid cookie already? (returning real visitor) */
-  hadVidCookie?: boolean;
-  /** Accept header (browsers send text/html; many bots send */ /* or nothing) */
-  accept?: string | null;
-  /** Accept-Language header (real browsers almost always send one) */
-  acceptLanguage?: string | null;
-};
-
-/**
- * Compute the additive bot score (0–100) + the reasons. Pure signal scoring;
- * callers decide what to do with it (we only store + display it).
- */
-export function scoreBotSignals(s: BotSignalInput): { score: number; reasons: string[] } {
-  let score = 0;
-  const reasons: string[] = [];
-  const add = (pts: number, why: string) => { score += pts; reasons.push(`${why} (+${pts})`); };
-  const ua = s.ua || "";
-
-  // 1. No referer at all — direct hits to /go are common for AI/cited links,
-  //    so weak on its own, but a real on-site click usually has one.
-  if (!s.refererHost) add(8, "no referer");
-  // 2. Suspect datacenter-leaning country (only meaningful with #1).
-  if (s.country && SUSPECT_COUNTRIES.has(s.country.toUpperCase())) add(18, `country ${s.country}`);
-  // 3. Implausible send currency (not a real human's chosen corridor).
-  // 4. Implausible receive currency.
-  // 4b. NO corridor at all. The comparison widget always appends ?from=&to=,
-  //     so a bare /go/<slug> did not originate from an on-site click. Until
-  //     2026-08-13 this branch scored nothing AND skipped 3+4, so a slug-walking
-  //     crawler hitting bare /go/<slug> scored LOWER than a real user with an
-  //     unusual corridor — backwards. 28d GA4: 4,399 of 20,207 redirects (22%)
-  //     carried an empty corridor.
-  //
-  //     Deliberately modest (+10, less than one odd-currency hit): AI assistants
-  //     cite bare /go/<slug> URLs and the people who follow them are real, valued
-  //     traffic. This must never be decisive alone — it earns its keep stacked
-  //     with "no prior session", which is the actual crawler signature.
-  if (s.corridor) {
-    const m = s.corridor.toUpperCase().match(/^([A-Z]{3})-([A-Z]{3})$/);
-    if (m) {
-      if (!COMMON_SEND.has(m[1])) add(14, `odd send ccy ${m[1]}`);
-      if (!COMMON_RECV.has(m[2])) add(14, `odd recv ccy ${m[2]}`);
-    }
-  } else {
-    add(10, "no corridor");
-  }
-  // 5. No smc_vid cookie AND no cid — first-touch with zero session continuity.
-  if (!s.hadVidCookie && !s.hadCid) add(6, "no prior session");
-  // 6. Missing Accept-Language — real browsers nearly always send it.
-  if (!s.acceptLanguage) add(12, "no accept-language");
-  // 7. Accept header doesn't want HTML — automated fetchers often omit it.
-  if (s.accept && !/text\/html|\*\/\*/i.test(s.accept)) add(10, "no html accept");
-  // 8. Forged Chrome (claims Chrome but no Safari token — real Chrome always has it).
-  if (/chrome\//i.test(ua) && !/safari\//i.test(ua)) add(20, "forged chrome UA");
-  // 9. Very short UA — truncated/synthetic.
-  if (ua && ua.length < 40) add(10, "short UA");
-  // 10. Headless / automation fingerprints in UA.
-  if (/headless|phantom|selenium|puppeteer|playwright|electron/i.test(ua)) add(30, "headless UA");
-  // 11. Old/unusual engine markers common in scraping stacks.
-  if (/python|java|go-http|okhttp|libwww|httpclient|axios|node-fetch/i.test(ua)) add(30, "http-lib UA");
-  // 12. No UA at all.
-  if (!ua) add(25, "empty UA");
-
-  return { score: Math.min(100, score), reasons };
-}
-
-/**
- * Bucket the 0–100 score into a stable, low-cardinality label for GA4.
- *
- * `bot_score` has been sent as an event param on every /go + /out hit since
- * Jun 2026, but it was never registered as a GA4 custom dimension — so
- * `customEvent:bot_score` returns "not a valid dimension" and the score has
- * been unqueryable the entire time. That is why the traffic-quality problem
- * stayed invisible: reports could only see `traffic_source`, which by design
- * labels a browser-UA-no-referer hit "direct" rather than "bot".
- *
- * A raw 0–100 integer is a poor dimension (101 values, no natural grouping).
- * This emits the band instead, matching the thresholds already documented
- * above: 60+ almost certainly automated, 30–59 suspicious, under 30 reads as
- * a real user. Ordered prefixes keep GA4's alphabetical sort meaningful.
- *
- * Registering `bot_score_band` in GA4 Admin is a one-time manual step — the
- * Admin API exposes no create-dimension tool. Not retroactive; it populates
- * from creation forward.
- */
-export function botScoreBand(score: number): string {
-  if (score >= 60) return "3_likely_bot_60plus";
-  if (score >= 30) return "2_suspicious_30_59";
-  return "1_likely_human_0_29";
-}
 
 /**
  * Resolve the traffic source from request headers. `explicit` (the ?ai_src=
- * query param) always wins when present. Optional signal inputs feed the
- * additive bot score, which is returned alongside (never used to drop data).
+ * query param) always wins when present.
+ *
+ * Classification is UA/Referer-based only: it answers "which channel sent
+ * this", not "how bot-like does this request look". The additive 0–100
+ * bot-likelihood scorer that used to run here was removed — see
+ * src/lib/redirect-decision.ts for what now gates the affiliate forward.
  */
 export function classifyTrafficSource(
   userAgent: string | null | undefined,
   referer: string | null | undefined,
   explicit?: string,
-  country?: string | null,
-  corridor?: string | null,
-  signals?: Partial<BotSignalInput>,
 ): SourceClass {
   const ua = userAgent || "";
   let refererHost = "";
@@ -204,35 +84,22 @@ export function classifyTrafficSource(
     refererHost = "";
   }
 
-  // Compute the additive score ONCE. It's attached to every result but never
-  // flips isBot or drops anyone — it's a soft signal for the dashboard so we
-  // can see what looks automated without ever blocking a real user (incl. CN).
-  const { score: botScore, reasons: botReasons } = scoreBotSignals({
-    ua, refererHost, country, corridor,
-    hadCid: signals?.hadCid,
-    hadAiSrc: signals?.hadAiSrc,
-    hadVidCookie: signals?.hadVidCookie,
-    accept: signals?.accept,
-    acceptLanguage: signals?.acceptLanguage,
-  });
-
   if (explicit) {
-    return { source: explicit, isBot: false, refererHost, botScore, botReasons };
+    return { source: explicit, isBot: false, refererHost };
   }
   for (const [re, label, human] of AI_UA_PATTERNS) {
-    if (re.test(ua)) return { source: label, isBot: !human, refererHost, botScore, botReasons };
+    if (re.test(ua)) return { source: label, isBot: !human, refererHost };
   }
   // A referer from an AI assistant / search host means a real person clicked
   // through from that platform — real traffic (unless the UA is a crawler).
   for (const [re, label] of REFERER_HOST_PATTERNS) {
     if (re.test(refererHost)) {
-      return { source: label, isBot: /bot|crawler|spider|preview/i.test(ua), refererHost, botScore, botReasons };
+      return { source: label, isBot: /bot|crawler|spider|preview/i.test(ua), refererHost };
     }
   }
   if (GENERIC_BOT_RE.test(ua)) {
-    return { source: "bot", isBot: true, refererHost, botScore, botReasons };
+    return { source: "bot", isBot: true, refererHost };
   }
-  // A real browser referral, or a direct hit with no referer. isBot stays
-  // conservative (false) — the score above is the soft signal, not this.
-  return { source: refererHost ? "web" : "direct", isBot: false, refererHost, botScore, botReasons };
+  // A real browser referral, or a direct hit with no referer.
+  return { source: refererHost ? "web" : "direct", isBot: false, refererHost };
 }

@@ -16,15 +16,16 @@
  *                    button is a deliberate click, which is exactly what keeps a
  *                    JS-less bare fetch from ever forwarding on its own.
  *
- *   "not_forwarded"  Confidently a bot (isBot) — bad UA/headers/datacenter IP,
- *                    or enumeration behavior. We render the same interstitial
+ *   "not_forwarded"  A self-identifying automated client (isBot from the UA /
+ *                    Referer classifier). We render the same interstitial
  *                    HTML (so nothing 500s and a mislabeled human isn't stranded
  *                    — they can still click Continue), but we DON'T count it as a
  *                    genuine click.
  *
  * This is the honest ceiling of what's provable on a stateless GET: the token
- * gives certainty for "came from our site"; bot score gives best-effort for
- * bot-vs-human among the tokenless. Rendering the page for everyone makes the
+ * gives certainty for "came from our site"; among the tokenless we only
+ * distinguish self-identifying crawlers (the additive bot scorer that used to
+ * grade tokenless hits was removed). Rendering the page for everyone makes the
  * on-site review the mandatory step before any provider forward.
  */
 import type { TokenStatus } from "@/lib/click-token";

@@ -3,13 +3,9 @@ import { getAffiliateUrl, isValidProviderSlug } from "@/lib/affiliate";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { clientIdFromCookie } from "@/lib/ga4-server";
 import { serverTrack } from "@/lib/server-track";
-import { storeEvent, behavioralBotScore, distributedBotScore } from "@/lib/event-store";
-import { classifyTrafficSource, botScoreBand } from "@/lib/traffic-source";
-import { scoreBotRequest } from "@/lib/bot-score";
-import { classifyIp } from "@/lib/ip-intel";
+import { classifyTrafficSource } from "@/lib/traffic-source";
 import { verifyClickToken } from "@/lib/click-token";
 import { decideRedirect, interstitialHtml, providerDisplayName, buildCrossSell } from "@/lib/redirect-decision";
-import { createHash } from "crypto";
 
 export async function GET(
   request: Request,
@@ -68,58 +64,20 @@ export async function GET(
   const source = src || "out_route";
   const clickId = searchParams.get("click_id") || `smc_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 
-  // Classify (source/isBot label) + extensive bot score — see /go route.
-  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc, geo.country, corridor, {
-    hadCid: !!cidParam,
-    hadAiSrc: !!aiSrc,
-    hadVidCookie: !!existingVid,
-    accept: request.headers.get("accept"),
-    acceptLanguage: request.headers.get("accept-language"),
-  });
-  const ipHash = ip && ip !== "unknown"
-    ? createHash("sha256").update(ip).digest("hex").slice(0, 32)
-    : undefined;
-  // Offline IP→ASN lookup (datacenter vs residential) — see /go route.
-  const ipIntel = classifyIp(ip);
-  const aiUserTraffic = !!aiSrc || (!trafficSource.isBot && /^(chatgpt|perplexity|claude|duckduckgo)$/.test(trafficSource.source));
-  const [behavioral, distributed] = await Promise.all([
-    behavioralBotScore(ipHash),
-    distributedBotScore(geo.country),
-  ]);
-  const botResult = scoreBotRequest({
-    ua: userAgent,
-    refererHost: trafficSource.refererHost,
-    country: geo.country,
-    corridor,
-    hadCid: !!cidParam,
-    hadVidCookie: !!existingVid,
-    accept: request.headers.get("accept"),
-    acceptLanguage: request.headers.get("accept-language"),
-    acceptEncoding: request.headers.get("accept-encoding"),
-    secFetchMode: request.headers.get("sec-fetch-mode"),
-    secFetchDest: request.headers.get("sec-fetch-dest"),
-    secFetchSite: request.headers.get("sec-fetch-site"),
-    secChUa: request.headers.get("sec-ch-ua"),
-    secChUaMobile: request.headers.get("sec-ch-ua-mobile"),
-    secChUaPlatform: request.headers.get("sec-ch-ua-platform"),
-    priority: request.headers.get("priority"),
-    ipClass: ipIntel.class,
-    cloudEgress: ipIntel.cloudEgress,
-    asnOrg: ipIntel.asnOrg,
-    aiUserTraffic,
-    behavioralScore: behavioral.score + distributed.score,
-    behavioralReasons: [...behavioral.reasons, ...distributed.reasons],
-  });
+  // Classify the referring channel — see /go route. Channel attribution only;
+  // the bot scorer and its Postgres behavioral axis were removed, so
+  // `trafficSource.isBot` is the sole automated-client signal.
+  const trafficSource = classifyTrafficSource(userAgent, referer, aiSrc);
 
   // --- Click binding: genuine on-site click vs bare/scraped/bot hit --------
   // See the /go route for the full rationale. Signed token (?t=) is the certain
-  // signal; bot score splits the tokenless into human (interstitial) vs bot
-  // (not forwarded). ?continue=1 is the interstitial's explicit human confirm.
+  // signal. Tokenless hits fall back to the UA-based isBot only (the bot scorer
+  // is gone). ?continue=1 is the interstitial's explicit human confirm.
   const tokenStatus = verifyClickToken(searchParams.get("t"), provider);
   // `?continue=1` = explicit Continue-button click; honor it ALWAYS (even if
-  // bot-scored) so a false-positived human is never trapped. See /go route.
+  // flagged as a bot) so a false-positived human is never trapped. See /go route.
   const continued = searchParams.get("continue") === "1";
-  const decision = decideRedirect({ tokenStatus, isBot: botResult.isBot });
+  const decision = decideRedirect({ tokenStatus, isBot: trafficSource.isBot });
   const outcome = continued ? "redirect" : decision.outcome;
   const genuineClick = decision.genuineClick;
   const gated = decision.gated && !continued;
@@ -128,7 +86,7 @@ export async function GET(
   // for the naming rationale.
   void serverTrack(
     "provider_clicked_server",
-    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: botResult.isBot, id_source: idSource, click_id: clickId, bot_score: botResult.score, bot_score_band: botScoreBand(botResult.score), genuine_click: genuineClick, gated, token_status: tokenStatus, outcome },
+    { provider, corridor, amount: amount ?? 0, source, traffic_source: trafficSource.source, is_bot: trafficSource.isBot, id_source: idSource, click_id: clickId, genuine_click: genuineClick, gated, token_status: tokenStatus, outcome },
     clientId,
     geo,
   );
@@ -144,10 +102,9 @@ export async function GET(
       page_location: request.url,
       source,
       traffic_source: trafficSource.source,
-      is_bot: botResult.isBot,
+      is_bot: trafficSource.isBot,
       id_source: idSource,
       click_id: clickId,
-      bot_score: botResult.score, bot_score_band: botScoreBand(botResult.score),
       genuine_click: genuineClick,
       gated,
       token_status: tokenStatus,
@@ -156,35 +113,6 @@ export async function GET(
     clientId,
     geo,
   );
-
-  // First-party auditable record — see /go route. No-ops until provisioned.
-  void storeEvent({
-    event: "affiliate_redirect",
-    vid,
-    clientId,
-    clickId,
-    provider,
-    corridor,
-    amount: amount ?? 0,
-    source,
-    trafficSource: trafficSource.source,
-    idSource,
-    isBot: botResult.isBot,
-    botScore: botResult.score,
-    botReasons: botResult.reasons.join("; "),
-    ipHash,
-    ipClass: ipIntel.class,
-    asn: ipIntel.asn ?? undefined,
-    asnOrg: ipIntel.asnOrg ?? undefined,
-    refererHost: trafficSource.refererHost,
-    country: geo.country,
-    region: geo.region,
-    city: geo.city,
-    genuineClick,
-    gated,
-    tokenStatus,
-    outcome,
-  });
 
   // Route by outcome — see /go route. Bare/scraped/bot hits get the on-site
   // interstitial and never forward to the provider on their own.

@@ -24,7 +24,7 @@
  *  - FAILS OPEN when CLICK_TOKEN_SECRET is unset: verify returns "absent" (not
  *    an error), so a missing secret never breaks the redirect path — it just
  *    means nothing is treated as a genuine on-site click until the secret is
- *    provisioned. Mirrors the no-op-until-provisioned pattern in event-store.
+ *    provisioned. Mirrors the no-op-until-provisioned pattern in alert-store.
  */
 import { createHmac, timingSafeEqual } from "crypto";
 

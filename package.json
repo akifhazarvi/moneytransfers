@@ -34,7 +34,6 @@
     "scrape:all-browser": "npx tsx scripts/scrape-monito.ts && npx tsx scripts/scrape-xoom.ts && npx tsx scripts/scrape-compareremit.ts && npx tsx scripts/scrape-ria.ts",
     "scrape:all": "npm run scrape:all-api && npm run scrape:all-browser && npx tsx scripts/scrape-reviews.ts",
     "ping:indexnow": "npx tsx scripts/ping-indexnow.ts",
-    "fetch:ip-intel": "npx tsx scripts/fetch-ip-intel.ts",
     "seo:regen-sitemap-allowlists": "npx tsx scripts/regen-sitemap-allowlists.ts",
     "seo:check-canonical": "npx tsx scripts/check-canonical-coverage.ts",
     "check:ai-citations": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts",
