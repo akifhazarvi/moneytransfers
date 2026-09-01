@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { submitUrls } from "@/lib/indexnow";
 import { allCorridors } from "@/data/corridors";
+import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 
 /**
  * POST /api/indexnow — push URLs to IndexNow.
@@ -52,7 +53,11 @@ export async function POST(request: Request) {
       `${SITE}/swift-codes`,
       `${SITE}/exchange-rates`,
       `${SITE}/remittance-cost-index`,
-      ...allCorridors.map((c) => `${SITE}/send-money/${c.slug}`),
+      // Never submit retired (410) corridors — IndexNow was previously pushing
+      // every slug including the ones middleware answers with 410.
+      ...allCorridors
+        .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
+        .map((c) => `${SITE}/send-money/${c.slug}`),
     ];
   }
 
