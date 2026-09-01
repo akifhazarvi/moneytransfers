@@ -110,10 +110,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Dedicated guide: best apps to send money from the US — standalone page
     // with 4 schema types, OG image, and full FAQ (added 2026-06-30).
     entry("guides/best-apps-to-send-money-from-us-2026", "2026-06-30"),
-    // GBP outlook data-story: live provider-spread chart (GBP→USD) tied to the
-    // 2026 Labour leadership contest. Provider figures refresh with each scrape
-    // → DATA_UPDATED. Added 2026-07-03.
-    entry("guides/gbp-forecast-2026", DATA_UPDATED),
     entry("exchange-rates", DATA_UPDATED),
     // Restored Jun 22 2026 — 1,410 Bing impr + 1,389 AI citations were landing
     // on this URL while it 404'd after its Jun 20 retirement. Live-computed
