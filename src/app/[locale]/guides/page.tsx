@@ -74,11 +74,16 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
       name: "SendMoneyCompare",
       url: SITE_URL,
     },
+    // Article requires headline + author; `name` alone left ten items failing
+    // validation on this page (2026-09-02 audit).
     hasPart: blogPosts.slice(0, 10).map((post) => ({
       "@type": "Article",
+      headline: post.title,
       name: post.title,
       url: `${SITE_URL}/guides/${post.slug}`,
       datePublished: post.publishedAt,
+      dateModified: post.updatedAt,
+      author: { "@type": "Person", name: post.author },
     })),
   };
 

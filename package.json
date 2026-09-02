@@ -42,7 +42,8 @@
     "social:dry-run": "npx tsx scripts/social/post-daily.ts --dry-run",
     "social:post": "npx tsx scripts/social/post-daily.ts",
     "check:ranking": "tsx scripts/check-ranking-urls.ts",
-    "check:assets": "tsx scripts/check-assets.ts"
+    "check:assets": "tsx scripts/check-assets.ts",
+    "check:links": "tsx scripts/check-links.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

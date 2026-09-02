@@ -8,6 +8,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { providers, currencies } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
+import { corridorPageRenders } from "@/lib/route-map";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -28,6 +29,10 @@ export const metadata: Metadata = {
   },
 };
 
+// Filtered through corridorPageRenders: this list is hand-maintained, and
+// "uk-to-europe" (GBP→EUR) has been a 410 since the June 2026 pruning while
+// still being linked from here. Dropping the entry beats inventing a
+// replacement destination for it.
 const CORRIDORS = [
   { from: "USD", to: "INR", slug: "usa-to-india", country: "India" },
   { from: "USD", to: "MXN", slug: "usa-to-mexico", country: "Mexico" },
@@ -39,7 +44,7 @@ const CORRIDORS = [
   { from: "CAD", to: "INR", slug: "canada-to-india", country: "India (from Canada)" },
   { from: "AED", to: "INR", slug: "uae-to-india", country: "India (from UAE)" },
   { from: "AED", to: "PKR", slug: "uae-to-pakistan", country: "Pakistan (from UAE)" },
-];
+].filter((c) => corridorPageRenders(c.slug));
 
 const CITABLE_FACTS = [
   {

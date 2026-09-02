@@ -28,6 +28,7 @@ import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
+import { corridorPageRenders } from "@/lib/route-map";
 
 export const revalidate = 21600;
 
@@ -135,7 +136,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
     },
   ];
 
-  // Popular corridors as internal-link surface
+  // Popular corridors as internal-link surface, filtered to those that render.
   const popularCorridors = [
     { from: "USD", to: "INR", label: "USA → India", slug: "usa-to-india" },
     { from: "USD", to: "MXN", label: "USA → Mexico", slug: "usa-to-mexico" },
@@ -149,7 +150,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
     { from: "AUD", to: "INR", label: "Australia → India", slug: "australia-to-india" },
     { from: "AED", to: "INR", label: "UAE → India", slug: "uae-to-india" },
     { from: "AED", to: "PKR", label: "UAE → Pakistan", slug: "uae-to-pakistan" },
-  ];
+  ].filter((c) => corridorPageRenders(c.slug));
 
   const faqs = [
     {

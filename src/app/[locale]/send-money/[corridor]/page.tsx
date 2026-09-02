@@ -848,6 +848,7 @@ const corridorEditorialNotes: Record<
 
 import { shouldNoindex, getCorridorTier } from "@/lib/corridor-tiers";
 import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
+import { corridorPageRenders, companyPageRenders, rateHistoryHref } from "@/lib/route-map";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 
@@ -3127,9 +3128,12 @@ export default async function CorridorPage({ params }: Props) {
               fromCurrency={fromCurrency}
               toCurrency={toCurrency}
             />
-            <div className="mt-4">
+            {/* /exchange-rates/history/[pair] sets dynamicParams=false and keeps a
+                small allowlist, so this link only exists for pairs that render —
+                it was unconditional, producing 620 links to 404s. */}
+            <div className="mt-4" hidden={!rateHistoryHref(`${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`)}>
               <Link
-                href={`/exchange-rates/history/${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`}
+                href={rateHistoryHref(`${fromCurrency.toLowerCase()}-to-${toCurrency.toLowerCase()}`) ?? "/exchange-rates/history"}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary)] hover:underline"
               >
                 See full {fromCurrency}/{toCurrency} rate history and charts
@@ -3257,7 +3261,11 @@ export default async function CorridorPage({ params }: Props) {
       {isCountryPage && (() => {
         const relatedCorridors = allCorridors
           .filter((c) => !c.isCurrencyCorridor && !c.isCountryPage && c.toCountry === corridor.toCountry)
-          .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
+          // corridorPageRenders, not just !GONE: Tier 3 corridors are outside
+          // generateStaticParams and the route sets dynamicParams=false, so
+          // linking one is a link to a 404. This rail alone accounted for a
+          // large share of the 2,100 corridor→404 links found on 2026-09-02.
+          .filter((c) => corridorPageRenders(c.slug))
           .slice(0, 8);
         if (relatedCorridors.length === 0) return null;
         return (
@@ -3296,8 +3304,8 @@ export default async function CorridorPage({ params }: Props) {
           .replace(/\s+/g, "-")
           .replace(/[^a-z0-9-]/g, "");
         const countryPageSlug = `send-money-to-${countrySlug}`;
-        const countryPageExists = allCorridors.some((c) => c.slug === countryPageSlug);
-        if (!countryPageExists) return null;
+        // Defined in the corridor data is not the same as prerendered.
+        if (!corridorPageRenders(countryPageSlug)) return null;
         return (
           <section className="py-6 bg-[var(--color-primary-surface)] border-t border-[var(--color-outline)]">
             <Container>
@@ -3339,7 +3347,7 @@ export default async function CorridorPage({ params }: Props) {
             // sender even though both use EUR. The label would otherwise lie.
             links: allCorridors
               .filter((c) => c.fromCountry === corridor.fromCountry && c.toCountry !== corridor.toCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
-              .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
+              .filter((c) => corridorPageRenders(c.slug))
               .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
               .slice(0, 5)
               .map((c) => ({
@@ -3353,7 +3361,7 @@ export default async function CorridorPage({ params }: Props) {
             // as "France → Belgium" would be misleading even though both use EUR.
             links: allCorridors
               .filter((c) => c.toCountry === corridor.toCountry && c.fromCountry !== corridor.fromCountry && !c.isCurrencyCorridor && !c.isCountryPage && c.slug !== slug)
-              .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
+              .filter((c) => corridorPageRenders(c.slug))
               .sort((a, b) => Number(SITEMAP_CORRIDOR_SLUGS.has(b.slug)) - Number(SITEMAP_CORRIDOR_SLUGS.has(a.slug)))
               .slice(0, 5)
               .map((c) => ({
@@ -3369,14 +3377,19 @@ export default async function CorridorPage({ params }: Props) {
               .map((c) => {
                 const seoSlug = getCorridorSlug(c.from, c.to);
                 return {
-                  href: seoSlug ? `/send-money/${seoSlug}` : `/send-money?from=${c.from}&to=${c.to}&amount=1000`,
+                  href: seoSlug && corridorPageRenders(seoSlug)
+                    ? `/send-money/${seoSlug}`
+                    : `/send-money?from=${c.from}&to=${c.to}&amount=1000`,
                   label: c.label,
                 };
               }),
           },
           {
             title: "Top provider reviews",
-            links: quotes.slice(0, 5).map((q) => ({
+            // Scraped providerSlugs include banks with no review page; the
+            // route renders them on demand, which is how 1,340 links pointed at
+            // pages for slugs like "z-rcher-kantonalbank".
+            links: quotes.filter((q) => companyPageRenders(q.providerSlug)).slice(0, 5).map((q) => ({
               href: `/companies/${q.providerSlug}`,
               label: `${getProviderName(q.providerSlug)} review`,
             })),

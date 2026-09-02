@@ -17,6 +17,7 @@ import {
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked } from "@/lib/analytics";
 import HistoricalRateChart from "./HistoricalRateChart";
+import { rateHistoryHref } from "@/lib/route-map";
 
 function getCurrencyInfo(code: string) {
   return currencies.find((c) => c.code === code);
@@ -232,7 +233,7 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
         {hasProviderData ? (
           <>
             <Link
-              href={`/exchange-rates/history/${slug}`}
+              href={rateHistoryHref(slug) ?? "/exchange-rates/history"}
               className="flex-1 text-center px-4 py-2.5 rounded-full border border-[var(--color-primary)] text-[var(--color-primary)] text-sm font-medium hover:bg-[var(--color-primary-surface)] transition-colors"
             >
               See full {fromCurrency}/{toCurrency} history

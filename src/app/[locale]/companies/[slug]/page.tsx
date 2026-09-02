@@ -26,6 +26,7 @@ import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { fitTitle } from "@/lib/seo-title";
+import { comparePageHref } from "@/lib/route-map";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -77,7 +78,13 @@ export default async function CompanyPage({ params }: Props) {
   const provider = providers.find((p) => p.slug === slug);
   if (!provider) notFound();
 
-  const otherProviders = providers.filter((p) => p.slug !== slug).slice(0, 4);
+  // Only pairings whose compare page actually renders. /compare/[slug] sets
+  // dynamicParams=false and allows only the editorial + sitemap slugs, so
+  // "any four other providers" produced 370 links to 404s across these pages.
+  const otherProviders = providers
+    .filter((p) => p.slug !== slug)
+    .filter((p) => comparePageHref(`${slug}-vs-${p.slug}`))
+    .slice(0, 4);
 
   // News articles mentioning this provider — sorted newest first
   const providerNews = newsItems
@@ -101,7 +108,7 @@ export default async function CompanyPage({ params }: Props) {
         {
           title: "Comparisons",
           links: otherProviders.slice(0, 4).map((other) => ({
-            href: `/compare/${getCompareCanonicalSlug(`${provider.slug}-vs-${other.slug}`)}`,
+            href: comparePageHref(`${provider.slug}-vs-${other.slug}`) as string,
             label: `${provider.name} vs ${other.name}`,
           })),
         },
@@ -275,7 +282,7 @@ function DefaultReview({
                 {otherProviders.map((other) => (
                   <Link
                     key={other.slug}
-                    href={`/compare/${getCompareCanonicalSlug(`${provider.slug}-vs-${other.slug}`)}`}
+                    href={comparePageHref(`${provider.slug}-vs-${other.slug}`) as string}
                     className="flex items-center justify-between p-3 bg-[var(--color-surface-dim)] rounded-xl hover:bg-[var(--color-primary-surface)] transition-colors group"
                   >
                     <span className="text-2sm font-medium text-[var(--color-on-surface)] group-hover:text-[var(--color-primary)]">

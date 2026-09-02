@@ -9,6 +9,7 @@ import SendVerdictHero, { type VerdictData } from "@/components/SendVerdictHero"
 import { fetchExchangeRates } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getPairRate, formatRate, getSendVerdict, RATES_AS_OF } from "@/lib/exchange-rates-today";
+import { corridorPageRenders } from "@/lib/route-map";
 
 // Revalidate hourly so "today's rate" + the as-of date stay fresh while the
 // page stays fully prerendered (no per-request no-store — the May deindex
@@ -416,7 +417,7 @@ const popularCorridors = [
   { slug: "uk-to-india", from: "GBP", to: "INR", label: "UK to India", flag: "\u{1F1EE}\u{1F1F3}" },
   { slug: "uk-to-europe", from: "GBP", to: "EUR", label: "UK to Europe", flag: "\u{1F1EA}\u{1F1FA}" },
   { slug: "canada-to-india", from: "CAD", to: "INR", label: "Canada to India", flag: "\u{1F1EE}\u{1F1F3}" },
-];
+].filter((c) => corridorPageRenders(c.slug));
 
 // All targets below are in SITEMAP_RATE_PAIR_SLUGS (index:yes + sitemap:yes),
 // so these links point only at consistent, indexable pages.

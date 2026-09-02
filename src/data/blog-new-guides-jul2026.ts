@@ -112,7 +112,7 @@ export const newGuidesJul2026: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>GBP→NGN rate data is sourced from live provider quotes scraped every 6 hours by our comparison engine. Rate markups are calculated against the mid-market rate at time of comparison. All providers listed are FCA-regulated. World Bank Remittance Prices Worldwide data is referenced for global average cost benchmarks.</p>
-<p>Related comparisons: <a href="/send-money/uk-to-nigeria">Live UK to Nigeria rates</a> · <a href="/guides/send-money-to-nigeria-from-usa-uk-canada-australia">Best money transfer to Nigeria (all origins)</a> · <a href="/guides/are-money-transfer-companies-safe">Are money transfer companies safe?</a></p>`,
+<p>Related comparisons: <a href="/send-money/uk-to-nigeria">Live UK to Nigeria rates</a> · <a href="/guides/send-money-to-nigeria-from-usa-uk-canada-australia">Best money transfer to Nigeria (all origins)</a> · <a href="/guides/money-transfer-safety-guide">Are money transfer companies safe?</a></p>`,
       },
     ],
     faqs: [
@@ -235,7 +235,7 @@ export const newGuidesJul2026: BlogPost[] = [
 <p>If you're paying remote contractors or receiving from Amazon, Upwork, or Fiverr, Payoneer is the ecosystem play. Mass payouts to 150+ countries at low cost. The 2% FX markup is higher than Wise, but if your payees already use Payoneer (very common among freelancers), peer-to-peer transfers within the network are often free.</p>
 
 <h3>OFX — Best for Large Business Transfers</h3>
-<p>OFX has no transfer fees and negotiates better FX rates for high-volume clients. If your business regularly transfers $50,000+ per month, OFX's dedicated FX dealers can set rate alerts, forward contracts, and batch payment solutions that save thousands annually. See our <a href="/guides/fx-hedging-for-small-business">FX hedging guide</a> for businesses managing currency risk.</p>`,
+<p>OFX has no transfer fees and negotiates better FX rates for high-volume clients. If your business regularly transfers $50,000+ per month, OFX's dedicated FX dealers can set rate alerts, forward contracts, and batch payment solutions that save thousands annually. See our <a href="/guides/business-international-payments-guide">FX hedging guide</a> for businesses managing currency risk.</p>`,
       },
       {
         heading: "SWIFT vs. Local Rails: What's the Difference?",
@@ -254,9 +254,9 @@ export const newGuidesJul2026: BlogPost[] = [
 <li><strong>Check what the recipient needs</strong> — IBAN for Europe, sort code + account for UK, IFSC + account for India, routing + account for US, CLABE for Mexico. Wise Business handles all of these natively.</li>
 <li><strong>Set up a multi-currency account</strong> — Hold USD, EUR, GBP, INR in one account. This lets you pay in the recipient's currency without a live FX conversion, reducing urgency and letting you time conversions when rates are favourable.</li>
 <li><strong>Automate repeating payments</strong> — Wise Business, Airwallex, and Payoneer all support scheduled batch payments. Eliminate manual wires for payroll and recurring supplier invoices.</li>
-<li><strong>Use forward contracts for large FX exposure</strong> — If you have a large payable in EUR or GBP 3+ months out, lock in today's rate. OFX and specialist FX brokers offer this; most banks charge a premium for it. See our <a href="/guides/fx-hedging-for-small-business">FX hedging guide</a>.</li>
+<li><strong>Use forward contracts for large FX exposure</strong> — If you have a large payable in EUR or GBP 3+ months out, lock in today's rate. OFX and specialist FX brokers offer this; most banks charge a premium for it. See our <a href="/guides/business-international-payments-guide">FX hedging guide</a>.</li>
 </ol>
-<p>For a detailed walkthrough of each payment type, see our <a href="/guides/how-to-pay-international-suppliers">how to pay international suppliers guide</a>, <a href="/guides/international-payroll-guide">international payroll guide</a>, and <a href="/guides/how-to-invoice-international-clients">how to invoice international clients</a>.</p>`,
+<p>For a detailed walkthrough of each payment type, see our <a href="/guides/how-to-pay-international-suppliers">how to pay international suppliers guide</a>, <a href="/guides/how-to-pay-international-freelancers-contractors">international payroll guide</a>, and <a href="/guides/invoicing-international-clients-multiple-currencies">how to invoice international clients</a>.</p>`,
       },
       {
         heading: "Compliance: What Businesses Need to Know",
@@ -272,7 +272,7 @@ export const newGuidesJul2026: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Business payment cost data sourced from live platform quotes and published fee schedules (Q2 2026). World Bank Remittance Prices Worldwide Q1 2025 report used for global average benchmarks. B2B payment volume ($58.9T) from FXC Intelligence 2026 Cross-Border Payments Report. All platforms listed are regulated in their operating jurisdictions.</p>
-<p>Related guides: <a href="/guides/international-payroll-guide">International payroll</a> · <a href="/guides/fx-hedging-for-small-business">FX hedging for SMBs</a> · <a href="/guides/how-to-invoice-international-clients">Invoicing international clients</a> · <a href="/guides/bank-vs-app-transfer-cost-2026">Bank vs app cost study</a></p>`,
+<p>Related guides: <a href="/guides/how-to-pay-international-freelancers-contractors">International payroll</a> · <a href="/guides/business-international-payments-guide">FX hedging for SMBs</a> · <a href="/guides/invoicing-international-clients-multiple-currencies">Invoicing international clients</a> · <a href="/guides/bank-vs-app-transfer-cost-2026">Bank vs app cost study</a></p>`,
       },
     ],
     faqs: [
@@ -396,7 +396,7 @@ export const newGuidesJul2026: BlogPost[] = [
 <li>Compliant with <strong>CFPB remittance disclosure rules</strong> — they must tell you the exact amount the recipient will receive, the fees, and the exchange rate before you confirm</li>
 </ul>
 <p>The fraud risk with apps is the same as with banks: being tricked into initiating a transfer yourself. Wise, Remitly, and similar platforms have sophisticated fraud detection that may flag unusual transfers, but they cannot stop you if you willingly send money to a scammer's account.</p>
-<p>For a full ranking of the safest providers, see our <a href="/guides/are-money-transfer-companies-safe">are money transfer companies safe?</a> guide. To compare providers on cost, use our <a href="/send-money">live comparison tool</a>.</p>`,
+<p>For a full ranking of the safest providers, see our <a href="/guides/money-transfer-safety-guide">are money transfer companies safe?</a> guide. To compare providers on cost, use our <a href="/send-money">live comparison tool</a>.</p>`,
       },
       {
         heading: "5 Rules That Will Keep You Safe",
@@ -432,7 +432,7 @@ export const newGuidesJul2026: BlogPost[] = [
       {
         question: "Are money transfer apps like Wise and Remitly safe?",
         answer:
-          "Yes — for transfers you initiate yourself. They are regulated by the FCA (UK) or FinCEN (US), use bank-level encryption, and keep customer funds in safeguarded accounts. The fraud risk is the same as banks: being socially engineered into sending money to a fraudster's account. See our <a href=\"/guides/are-money-transfer-companies-safe\">full safety guide</a>.",
+          "Yes — for transfers you initiate yourself. They are regulated by the FCA (UK) or FinCEN (US), use bank-level encryption, and keep customer funds in safeguarded accounts. The fraud risk is the same as banks: being socially engineered into sending money to a fraudster's account. See our <a href=\"/guides/money-transfer-safety-guide\">full safety guide</a>.",
       },
       {
         question: "How do I know if a money transfer request is a scam?",
@@ -538,7 +538,7 @@ export const newGuidesJul2026: BlogPost[] = [
 <li><strong>Set a rate alert</strong> — Wise, Remitly, and XE all offer free rate alerts by email or SMS. Set a target rate and transfer when it's hit.</li>
 <li><strong>Avoid RBA decision days</strong> — Australian interest rate decisions (first Tuesday of each month) can cause AUD to move sharply. If the decision is uncertain, wait until the announcement.</li>
 <li><strong>Avoid major Indian economic data days</strong> — RBI policy meetings, Indian CPI releases, and Indian GDP data can move INR materially.</li>
-<li><strong>Regular senders: consider a forward contract</strong> — If you send a fixed monthly amount to India, locking in today's rate for 3–6 months via OFX or a specialist FX broker removes timing risk entirely. See our <a href="/guides/fx-hedging-for-small-business">FX hedging guide</a>.</li>
+<li><strong>Regular senders: consider a forward contract</strong> — If you send a fixed monthly amount to India, locking in today's rate for 3–6 months via OFX or a specialist FX broker removes timing risk entirely. See our <a href="/guides/business-international-payments-guide">FX hedging guide</a>.</li>
 </ul>`,
       },
       {

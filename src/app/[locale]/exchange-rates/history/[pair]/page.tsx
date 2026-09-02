@@ -21,6 +21,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { rateHistoryPageRenders } from "@/lib/route-map";
 
 function getCurrencyInfo(code: string) {
   return currencies.find((c) => c.code === code);
@@ -310,7 +311,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
             ...(sameSource.length > 0
               ? [{
                   title: `More ${from} corridors`,
-                  links: sameSource.map((i) => ({
+                  links: sameSource.filter((i) => rateHistoryPageRenders(corridorToSlug(i.corridor))).map((i) => ({
                     href: `/exchange-rates/history/${corridorToSlug(i.corridor)}`,
                     label: `${i.corridor.split("-")[0]} → ${i.corridor.split("-")[1]} history`,
                   })),
@@ -319,7 +320,7 @@ export default async function CorridorHistoryPage({ params }: { params: Promise<
             ...(sameTarget.length > 0
               ? [{
                   title: `More ${to} corridors`,
-                  links: sameTarget.map((i) => ({
+                  links: sameTarget.filter((i) => rateHistoryPageRenders(corridorToSlug(i.corridor))).map((i) => ({
                     href: `/exchange-rates/history/${corridorToSlug(i.corridor)}`,
                     label: `${i.corridor.split("-")[0]} → ${i.corridor.split("-")[1]} history`,
                   })),

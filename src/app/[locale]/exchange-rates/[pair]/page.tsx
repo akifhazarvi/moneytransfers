@@ -15,6 +15,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
+import { rateHistoryHref } from "@/lib/route-map";
 
 // Pair slug → most relevant news article for context-sensitive callouts
 const pairRelatedNews: Record<string, string> = {
@@ -657,7 +658,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   </p>
                 </div>
                 <Link
-                  href={`/exchange-rates/history/${corridorToSlug(`${p.from}-${p.to}`)}`}
+                  href={rateHistoryHref(corridorToSlug(`${p.from}-${p.to}`)) ?? "/exchange-rates/history"}
                   className="self-start sm:self-auto shrink-0 inline-flex items-center gap-2 bg-[var(--color-cta)] text-[var(--color-cta-text)] text-sm font-medium px-5 py-2.5 rounded-full hover:bg-[var(--color-cta-hover)] transition-colors"
                 >
                   View history

@@ -59,7 +59,7 @@ interface Matchup {
  */
 const BING_PRIORITY_PAIRS = [
   "wise-vs-remitly",
-  "moneygram-vs-western-union",
+  "western-union-vs-moneygram",
   "remitly-vs-western-union",
   "wise-vs-revolut",
   "paypal-vs-revolut",

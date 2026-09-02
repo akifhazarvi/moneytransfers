@@ -146,7 +146,10 @@ export default function Footer() {
 
   // ── Popular comparisons (Bing-validated): drop xe pairs, add MG vs WU ────
   const popularComparisons: StaticLink[] = [
-    { href: "/compare/moneygram-vs-western-union", label: "MoneyGram vs Western Union" },
+    // Canonical ordering. The reverse slug 301s here via getCompareCanonicalSlug,
+    // and this link sits in the footer of every page — 1,330 internal links into
+    // a redirect hop in the 2026-09-02 crawl.
+    { href: "/compare/western-union-vs-moneygram", label: "MoneyGram vs Western Union" },
     { href: "/compare/wise-vs-remitly", label: "Wise vs Remitly" },
     { href: "/compare/wise-vs-paypal", label: "Wise vs PayPal" },
     { href: "/compare/remitly-vs-western-union", label: "Remitly vs Western Union" },

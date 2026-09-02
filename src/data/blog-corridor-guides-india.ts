@@ -683,7 +683,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 </tbody>
 </table>
 </div>
-<p><strong>Key takeaway:</strong> If you're using a specialist provider like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>, you need the <strong>IFSC code</strong>. If you're sending via a US bank wire, you need the <strong>SWIFT code</strong>. Most people should use IFSC (through a specialist provider) — it's faster and cheaper. For more on international codes, see our <a href="/guides/iban-guide">IBAN guide</a> and <a href="/guides/swift-codes-guide">SWIFT code guide</a>.</p>
+<p><strong>Key takeaway:</strong> If you're using a specialist provider like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>, you need the <strong>IFSC code</strong>. If you're sending via a US bank wire, you need the <strong>SWIFT code</strong>. Most people should use IFSC (through a specialist provider) — it's faster and cheaper. For more on international codes, see our <a href="/guides/iban-numbers-explained">IBAN guide</a> and <a href="/guides/swift-codes-explained">SWIFT code guide</a>.</p>
 
 <h3>Full Recipient Details Checklist</h3>
 <p>Gather these before starting your transfer:</p>

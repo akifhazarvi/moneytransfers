@@ -26,6 +26,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+import { rateHistoryHref } from "@/lib/route-map";
 
 
 interface Props {
@@ -672,7 +673,7 @@ function DefaultComparison({
                   { corridor: "GBP-PKR", label: "GBP → PKR history" },
                 ].map((c) => (
                   <li key={c.corridor}>
-                    <Link href={`/exchange-rates/history/${corridorToSlug(c.corridor)}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                    <Link href={rateHistoryHref(corridorToSlug(c.corridor)) ?? "/exchange-rates/history"} className="text-2sm text-[var(--color-primary)] hover:underline">
                       {c.label}
                     </Link>
                   </li>

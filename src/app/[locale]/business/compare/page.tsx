@@ -56,6 +56,9 @@ const articleSchema = {
   "@type": "Article",
   headline: `Best international business payment providers compared (${idx.dataAsOf})`,
   description: `Feature-by-feature comparison of ${PROVIDER_COUNT} business payment providers across bulk payments, approvals, multi-currency accounts, API, KYC and live FX cost.`,
+  // datePublished is required alongside dateModified; the page shipped only
+  // the latter, so the Article item failed validation.
+  datePublished: "2026-06-22",
   dateModified: idx.dataAsOf,
   author: { "@type": "Person", name: "Akif Hazarvi", url: `${SITE_URL}/about/akif-hazarvi` },
   publisher: { "@id": `${SITE_URL}/#organization` },
