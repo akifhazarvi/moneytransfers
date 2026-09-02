@@ -21,6 +21,7 @@ import {
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
+import { corridorPageRenders } from "@/lib/route-map";
 import Card from "@/components/Card";
 import CircleFlag from "@/components/CircleFlag";
 import TravelConverter from "@/components/TravelConverter";
@@ -124,7 +125,7 @@ export default async function TravelCountryPage({ params }: Props) {
       ? {
           "@type": "Person",
           name: author.name,
-          url: `https://sendmoneycompare.com/authors/${author.slug}`,
+          url: `https://sendmoneycompare.com/about/${author.slug}`,
         }
       : undefined,
     about: {
@@ -187,7 +188,7 @@ export default async function TravelCountryPage({ params }: Props) {
               </h1>
               <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
                 Updated {guide.updatedDate}
-                {author ? <> · By <Link href={`/authors/${author.slug}`} className="underline hover:text-[var(--color-primary)]">{author.name}</Link>, {author.role}</> : null}
+                {author ? <> · By <Link href={`/about/${author.slug}`} className="underline hover:text-[var(--color-primary)]">{author.name}</Link>, {author.role}</> : null}
               </p>
             </div>
           </div>
@@ -240,12 +241,12 @@ export default async function TravelCountryPage({ params }: Props) {
               Convert to {guide.currencyName} ({guide.currencySymbol} {guide.currency})
             </h2>
             <p className="text-2sm text-[var(--color-on-surface-variant)]">
-              Live mid-market rate. Planning a bigger transfer? <Link href={guide.relatedCorridorSlug ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"} className="text-[var(--color-primary)] underline">Compare money transfer providers for {guide.countryName}</Link>.
+              Live mid-market rate. Planning a bigger transfer? <Link href={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"} className="text-[var(--color-primary)] underline">Compare money transfer providers for {guide.countryName}</Link>.
             </p>
           </div>
           <TravelConverter
             destinationCurrency={guide.currency}
-            corridorHref={guide.relatedCorridorSlug ? `/send-money/${guide.relatedCorridorSlug}` : undefined}
+            corridorHref={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : undefined}
             countryName={guide.countryName}
           />
         </Container>
@@ -548,7 +549,7 @@ export default async function TravelCountryPage({ params }: Props) {
               Compare live rates across 50+ apps in real time. We show you what {guide.currency} actually lands in the recipient&rsquo;s account — not just the advertised fee.
             </p>
             <Link
-              href={guide.relatedCorridorSlug ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}
+              href={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}
               className="inline-flex items-center px-6 py-3 bg-[var(--color-cta)] text-[var(--color-cta-text)] text-md font-medium rounded-full hover:bg-[var(--color-cta-hover)] transition-colors"
             >
               Compare money transfers for {guide.countryName} &rarr;
@@ -574,7 +575,7 @@ export default async function TravelCountryPage({ params }: Props) {
               <div>
                 <p className="text-2xs uppercase tracking-wide text-[var(--color-on-surface-variant)]">About the author</p>
                 <p className="font-semibold text-[var(--color-on-surface)] mt-1">
-                  <Link href={`/authors/${author.slug}`} className="hover:underline">{author.name}</Link>, {author.role}
+                  <Link href={`/about/${author.slug}`} className="hover:underline">{author.name}</Link>, {author.role}
                 </p>
                 <p className="text-2sm text-[var(--color-on-surface-variant)] mt-2">{author.byline}</p>
               </div>

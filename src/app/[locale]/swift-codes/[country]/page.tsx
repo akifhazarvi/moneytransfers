@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
+import { ibanPageRenders } from "@/lib/route-map";
 import Card from "@/components/Card";
 import StatBox from "@/components/StatBox";
 import CircleFlag from "@/components/CircleFlag";
@@ -144,7 +145,7 @@ const swiftCorridors: Record<string, { label: string; href: string }[]> = {
 
 /* Maps SWIFT country slugs to matching IBAN slugs */
 const swiftToIbanSlug: Record<string, string> = {
-  "united-kingdom": "united-kingdom",
+  "united-kingdom": "uk",
   "germany": "germany",
   "france": "france",
   "netherlands": "netherlands",
@@ -560,10 +561,10 @@ export default async function SwiftCountryPage({ params }: Props) {
               {t("ibanDescription", { country: country.name })}
             </p>
             <Link
-              href={swiftToIbanSlug[slug] ? `/iban/${swiftToIbanSlug[slug]}` : "/iban"}
+              href={ibanPageRenders(swiftToIbanSlug[slug]) ? `/iban/${swiftToIbanSlug[slug]}` : "/iban"}
               className="text-2sm text-[var(--color-primary)] hover:underline"
             >
-              {swiftToIbanSlug[slug] ? `${country.name} IBAN format` : t("findIbanFormats")} &rarr;
+              {ibanPageRenders(swiftToIbanSlug[slug]) ? `${country.name} IBAN format` : t("findIbanFormats")} &rarr;
             </Link>
           </Card>
         </div>

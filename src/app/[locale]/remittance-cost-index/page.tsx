@@ -10,6 +10,7 @@ import { providers } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates } from "@/lib/i18n-metadata";
 import CryptoVsBankIndexSection from "@/components/CryptoVsBankIndexSection";
+import { companyPageRenders, corridorPageRenders } from "@/lib/route-map";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -282,7 +283,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                       <Image src={p.logo} alt={`${p.name} logo`} width={28} height={28} className="rounded-full shrink-0 bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
                     )}
                     <div className="min-w-0">
-                      <Link href={`/companies/${p.slug}`} className="text-sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
+                      <Link href={companyPageRenders(p.slug) ? `/companies/${p.slug}` : "/companies"} className="text-sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                         {p.name}
                       </Link>
                       {p.rating && (
@@ -332,7 +333,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                       <Image src={p.logo} alt={p.name} width={32} height={32} className="rounded-full bg-white object-contain p-0.5 border border-[var(--color-outline)]/40" />
                     )}
                     <div>
-                      <Link href={`/companies/${p.slug}`} className="text-md font-semibold text-[var(--color-on-surface)]">
+                      <Link href={companyPageRenders(p.slug) ? `/companies/${p.slug}` : "/companies"} className="text-md font-semibold text-[var(--color-on-surface)]">
                         {p.name}
                       </Link>
                       <div className="text-2xs text-[var(--color-on-surface-variant)]">
@@ -473,7 +474,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                 {corridorCosts.map((c) => (
                   <Link
                     key={c.slug}
-                    href={`/send-money/${c.slug}`}
+                    href={corridorPageRenders(c.slug) ? `/send-money/${c.slug}` : "/send-money"}
                     className="grid sm:grid-cols-[1fr_140px_100px_80px] gap-1 sm:gap-2 items-center px-6 py-3 border-t border-[var(--color-outline)] hover:bg-[var(--color-surface-dim)] transition-colors"
                   >
                     <div className="flex items-center gap-2">

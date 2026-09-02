@@ -1,3 +1,4 @@
+import { internalPathRenders } from "@/lib/route-map";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -327,12 +328,6 @@ const ibanCorridors: Record<string, { label: string; href: string }[]> = {
     { label: "Saudi to India transfers", href: "/send-money/saudi-arabia-to-india" },
     { label: "Saudi to Pakistan transfers", href: "/send-money/saudi-arabia-to-pakistan" },
     { label: "Saudi to Philippines transfers", href: "/send-money/saudi-arabia-to-philippines" },
-  ],
-  "qatar": [
-    { label: "Send money from Qatar", href: "/send-money/send-money-to-qatar" },
-  ],
-  "kuwait": [
-    { label: "Send money from Kuwait", href: "/send-money/send-money-to-kuwait" },
   ],
   "jordan": [
     { label: "Send money to Jordan", href: "/send-money/send-money-to-jordan" },
@@ -783,13 +778,13 @@ export default async function IbanCountryPage({ params }: Props) {
           </Card>
 
           {/* Popular corridors for this country */}
-          {ibanCorridors[slug] && (
+          {ibanCorridors[slug] && ibanCorridors[slug].some((c) => internalPathRenders(c.href)) && (
             <Card>
               <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
                 Popular money transfers
               </h3>
               <ul className="space-y-2">
-                {ibanCorridors[slug].map((corridor) => (
+                {ibanCorridors[slug].filter((c) => internalPathRenders(c.href)).map((corridor) => (
                   <li key={corridor.href}>
                     <Link
                       href={corridor.href}

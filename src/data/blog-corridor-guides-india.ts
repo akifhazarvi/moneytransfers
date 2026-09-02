@@ -98,7 +98,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <tr><td><strong><a href="/companies/xoom">Xoom</a> (PayPal)</strong></td><td>PayPal users, cash pickup</td><td>0.5–1.5%</td><td>$0–$4.99</td><td>Minutes–1 day</td><td>Bank, cash pickup, mobile wallet</td></tr>
 <tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>Cash pickup, rural India</td><td>1–3%</td><td>$0–$8</td><td>Minutes</td><td>Bank, cash pickup</td></tr>
 <tr><td><strong><a href="/companies/moneygram">MoneyGram</a></strong></td><td>Cash pickup alternative</td><td>1–2.5%</td><td>$0–$5</td><td>Minutes</td><td>Bank, cash pickup</td></tr>
-<tr><td><strong><a href="/companies/taptapsend">TapTap Send</a></strong></td><td>Zero-fee niche corridors</td><td>0.5–1.0%</td><td>$0</td><td>Minutes–1 day</td><td>Bank deposit</td></tr>
+<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>Zero-fee niche corridors</td><td>0.5–1.0%</td><td>$0</td><td>Minutes–1 day</td><td>Bank deposit</td></tr>
 <tr class="blog-row-danger"><td><strong>High-street bank</strong></td><td>—</td><td>2–5%</td><td>$20–$50 wire fee</td><td>3–5 business days</td><td>SWIFT bank wire</td></tr>
 </tbody>
 </table>
@@ -201,7 +201,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>AED 4–6</td><td>~₹25,000</td><td>Minutes–1 day</td><td>Best rate, low fee</td></tr>
 <tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>AED 0</td><td>~₹24,900</td><td>Minutes</td><td>Zero fee, IMPS instant</td></tr>
 <tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>AED 0</td><td>~₹24,850</td><td>1–2 days</td><td>Popular with UAE expats</td></tr>
-<tr><td><strong><a href="/companies/taptapsend">TapTap Send</a></strong></td><td>AED 0</td><td>~₹24,800</td><td>Minutes</td><td>Strong UAE-India rails</td></tr>
+<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>AED 0</td><td>~₹24,800</td><td>Minutes</td><td>Strong UAE-India rails</td></tr>
 <tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>AED 0–10</td><td>~₹24,200</td><td>Minutes</td><td>Cash pickup option</td></tr>
 </tbody>
 </table>

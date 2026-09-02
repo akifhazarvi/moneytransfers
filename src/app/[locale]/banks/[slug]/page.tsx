@@ -19,6 +19,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, AlertCircle, TrendingDown } from "lucide-react";
 import Container from "@/components/Container";
+import { corridorPageRenders } from "@/lib/route-map";
 import Card from "@/components/Card";
 import PrimaryButton from "@/components/PrimaryButton";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -338,7 +339,7 @@ export default async function BankPage({ params }: Props) {
                               </span>
                             </td>
                             <td className="p-4 text-right">
-                              {corridorSlug && (
+                              {corridorPageRenders(corridorSlug) && (
                                 <Link
                                   href={`/send-money/${corridorSlug}`}
                                   className="text-[var(--color-primary)] text-2sm hover:underline whitespace-nowrap"
@@ -438,7 +439,7 @@ export default async function BankPage({ params }: Props) {
             links: corridorRows.slice(0, 5).map((q) => {
               const cs = getCorridorSlug(q.sendCurrency, q.receiveCurrency);
               return {
-                href: cs ? `/send-money/${cs}` : "/send-money",
+                href: corridorPageRenders(cs) ? `/send-money/${cs}` : "/send-money",
                 label: `${q.sendCurrency} → ${q.receiveCurrency} compared`,
               };
             }),

@@ -9739,7 +9739,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Compare every transfer.</strong> Provider choice saves 2–5% with certainty — more than most forecast moves. <a href="/send-money">Compare 50+ providers live →</a></li>
 <li><strong>Set rate alerts.</strong> <a href="/companies/wise">Wise</a> and <a href="/companies/xe">Xe</a> notify you when your target rate hits. Understand <a href="/guides/exchange-rate-markup-explained">what you're really paying</a> first.</li>
 <li><strong>Spread out large transfers.</strong> Dollar-cost average $10K+ over monthly sends, or lock today's rate for up to 12 months with a forward contract from <a href="/companies/ofx">OFX</a> or <a href="/companies/xe">Xe</a>.</li>
-<li><strong>Avoid the 1% cash remittance tax.</strong> Since January 1, 2026, cash-funded outbound remittances are taxed; <a href="/news/us-remittance-tax-2026">digital and bank-funded transfers are exempt</a>.</li>
+<li><strong>Avoid the 1% cash remittance tax.</strong> Since January 1, 2026, cash-funded outbound remittances are taxed; <a href="/guides/us-remittance-tax-2026">digital and bank-funded transfers are exempt</a>.</li>
 </ol>
 
 <p style="text-align:center;margin-top:24px"><a href="/send-money" class="blog-cta-button">Compare 50+ Providers — Live Rates →</a></p>
@@ -10294,7 +10294,7 @@ export const blogPosts: BlogPost[] = [
 <h3>US/UK to Egypt</h3>
 <p><a href="/companies/worldremit">WorldRemit</a> is running zero-fee promotions for mobile wallet delivery to Egypt. <a href="/companies/western-union">Western Union</a> has reduced agent pickup fees. See our <a href="/send-money/usa-to-egypt">USA to Egypt</a> corridor page.</p>
 <h3>Middle East to Philippines</h3>
-<p>GCash recently dropped all fees for Filipino transfers from the Middle East. Combined with <a href="/companies/remitly">Remitly's</a> zero-fee express delivery, this is one of the cheapest corridors this Ramadan. Compare on our <a href="/send-money/qatar-to-philippines">Qatar to Philippines</a> page.</p>`,
+<p>GCash recently dropped all fees for Filipino transfers from the Middle East. Combined with <a href="/companies/remitly">Remitly's</a> zero-fee express delivery, this is one of the cheapest corridors this Ramadan. Compare on our <a href="/send-money/send-money-to-philippines">send money to the Philippines</a> page.</p>`,
       },
       {
         heading: "Why Remittances Spike During Ramadan",
@@ -11378,7 +11378,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Best for Mobile Wallet</strong></td><td><a href="/companies/remitly">Remitly</a></td><td>Direct eSewa delivery — funds arrive in seconds</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Based on real quotes from our comparison engine, updated every 6 hours. <a href="/send-money/australia-to-nepal">Compare live rates →</a></p>
+<p class="blog-footnote">Based on real quotes from our comparison engine, updated every 6 hours. <a href="/send-money/send-money-to-nepal">Compare live rates →</a></p>
 </div>
 
 <h3>From Australia (AUD → NPR)</h3>
@@ -11957,7 +11957,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Best USD→RON</strong></td><td><a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a></td><td>Wise wins on rate, Remitly on speed</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote"><a href="/send-money/canada-to-romania">Compare live RON rates →</a></p>
+<p class="blog-footnote"><a href="/send-money/send-money-to-romania">Compare live RON rates →</a></p>
 </div>
 
 <h3>From Italy, Spain, Germany (EUR → RON or EUR → EUR)</h3>
@@ -14632,7 +14632,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>BIC / SWIFT code</strong> — 8 or 11 characters (e.g., BARCGB22 for Barclays)</li>
 <li><strong>Recipient's full name</strong></li>
 </ul>
-<p>Many EU and non-UK providers require the full IBAN. The UK IBAN encodes the sort code + account number inside it, so either format ultimately reaches the same account. See our <a href="/iban/united-kingdom">UK IBAN guide</a> for how to derive an IBAN from sort code + account number, or <a href="/swift-codes/united-kingdom">UK SWIFT codes</a> for major bank BICs.</p>
+<p>Many EU and non-UK providers require the full IBAN. The UK IBAN encodes the sort code + account number inside it, so either format ultimately reaches the same account. See our <a href="/iban/uk">UK IBAN guide</a> for how to derive an IBAN from sort code + account number, or <a href="/swift-codes/united-kingdom">UK SWIFT codes</a> for major bank BICs.</p>
 
 <h3>Confirmation of Payee (CoP)</h3>
 <p>Since 2023, UK banks run <strong>Confirmation of Payee</strong>: the recipient's name you enter is checked against the actual account holder name before the transfer goes through. Mismatches return a warning ("name doesn't match" / "close match"). If you ignore the warning and the money goes to the wrong account, your bank may not reimburse you under the new APP fraud rules. Always type the recipient's name exactly as it appears on their bank statement.</p>
@@ -14865,7 +14865,7 @@ export const blogPosts: BlogPost[] = [
 <p>Card funding adds 0.5–1% on top of the regular fee. For non-urgent transfers, ACH (US) or SEPA (EU) funding is cheaper. Save card funding for genuine emergencies.</p>
 
 <h3>5. Ignoring the KRW Mid-Market Rate</h3>
-<p>KRW is volatile — it can move 0.5–1% in a single day on US Federal Reserve news or Korean current account data. Always check the live mid-market rate at <a href="/exchange-rates/usd-to-krw">/exchange-rates/usd-to-krw</a> before initiating, and avoid locking in a rate during periods of high volatility unless you're using OFX's rate-lock feature. For more on how providers mark up the rate, see <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
+<p>KRW is volatile — it can move 0.5–1% in a single day on US Federal Reserve news or Korean current account data. Always check the <a href="/send-money/usd-to-krw">live USD to KRW rate</a> before initiating, and avoid locking in a rate during periods of high volatility unless you're using OFX's rate-lock feature. For more on how providers mark up the rate, see <a href="/guides/exchange-rate-markup-explained">how exchange rate markup works</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",
@@ -14934,7 +14934,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong><a href="/companies/remitly">Remitly</a></strong>: $0–3.99 fee, 0.5–1% markup → competitive on smaller transfers</li>
 <li><strong>UK bank wires</strong> (Barclays, HSBC, Lloyds): £15–25 fee + 2–4% markup → avoid for routine transfers</li>
 </ul>
-<p>For genuinely large amounts (£10,000+ for a deposit, school fees, or repatriation), <a href="/companies/ofx">OFX</a> is typically cheapest. See our deeper analysis in <a href="/compare/wise-vs-ofx">Wise vs OFX</a>.</p>
+<p>For genuinely large amounts (£10,000+ for a deposit, school fees, or repatriation), <a href="/companies/ofx">OFX</a> is typically cheapest. See <a href="/guides/best-money-transfer-apps">how OFX compares to Wise and the rest</a>.</p>
 
 <h3>From the US (USD → AUD)</h3>
 <p>For a $1,000 transfer to an Australian account:</p>

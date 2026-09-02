@@ -15,7 +15,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
-import { rateHistoryHref } from "@/lib/route-map";
+import { rateHistoryHref, corridorPageRenders } from "@/lib/route-map";
 
 // Pair slug → most relevant news article for context-sensitive callouts
 const pairRelatedNews: Record<string, string> = {
@@ -609,10 +609,10 @@ export default async function ExchangeRatePairPage({ params }: Props) {
                   </tbody>
                 </table>
               </div>
-              {p.corridor && (
+              {p.corridor && corridorPageRenders(p.corridor) && (
                 <div className="mt-4 pt-4 border-t border-[var(--color-outline)]">
                   <Link
-                    href={`/send-money/${p.corridor}`}
+                    href={corridorPageRenders(p.corridor) ? `/send-money/${p.corridor}` : "/send-money"}
                     className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:underline"
                   >
                     Compare all providers for {p.fromName} to {p.toName}

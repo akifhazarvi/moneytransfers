@@ -27,7 +27,7 @@ const TIER1 = [
 // its crawl. Corridors without a send-money page render as non-linked cards.
 const CORRIDOR_TO_SENDMONEY: Record<string, string> = {
   "USD-INR": "usa-to-india", "USD-PHP": "usa-to-philippines", "USD-MXN": "usa-to-mexico",
-  "USD-PKR": "usa-to-pakistan", "USD-NGN": "usa-to-nigeria", "GBP-EUR": "uk-to-europe",
+  "USD-PKR": "usa-to-pakistan", "USD-NGN": "usa-to-nigeria", "GBP-EUR": "uk-to-germany",
   "GBP-INR": "uk-to-india", "GBP-PKR": "uk-to-pakistan", "CAD-INR": "canada-to-india",
 };
 

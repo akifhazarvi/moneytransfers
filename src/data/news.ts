@@ -1546,7 +1546,7 @@ export const newsItems: NewsItem[] = [
 <li><a href="/send-money/uk-to-india">UK → India provider comparison</a></li>
 <li><a href="/send-money/send-money-to-india">All corridors into India</a></li>
 <li><a href="/guides/send-money-to-india-guide">Complete India guide</a> — UPI, IMPS, NEFT, banks, KYC</li>
-<li><a href="/iban/india">India IBAN / IFSC lookup</a></li>
+<li><a href="/swift-codes/india">India SWIFT / IFSC lookup</a></li>
 </ul>
 
 <h2>Frequently asked questions</h2>

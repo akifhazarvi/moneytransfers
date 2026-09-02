@@ -1768,7 +1768,7 @@ const countryToSwiftSlug: Record<string, string> = {
 };
 
 const countryToIbanSlug: Record<string, string> = {
-  "United Kingdom": "united-kingdom", "Germany": "germany", "France": "france",
+  "United Kingdom": "uk", "Germany": "germany", "France": "france",
   "Netherlands": "netherlands", "Spain": "spain", "Italy": "italy",
   "Belgium": "belgium", "Austria": "austria", "Ireland": "ireland",
   "Portugal": "portugal", "Sweden": "sweden", "Denmark": "denmark",
@@ -2077,7 +2077,9 @@ export default async function CorridorPage({ params }: Props) {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">
-                            <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)]">{name}</Link>
+                            {companyPageRenders(q.providerSlug)
+                              ? <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)]">{name}</Link>
+                              : name}
                           </p>
                           <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 truncate">{q.transferSpeed}</p>
                           {isBest && (
@@ -2131,7 +2133,9 @@ export default async function CorridorPage({ params }: Props) {
                         </div>
                         <div className="min-w-0">
                           <p className="text-sm font-medium text-[var(--color-on-surface)] truncate">
-                            <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)] hover:underline">{name}</Link>
+                            {companyPageRenders(q.providerSlug)
+                              ? <Link href={`/companies/${q.providerSlug}`} className="hover:text-[var(--color-primary)] hover:underline">{name}</Link>
+                              : name}
                             {isBest && (
                               <span className="ml-1.5 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
                                 Best value
@@ -2293,7 +2297,7 @@ export default async function CorridorPage({ params }: Props) {
 
               {providers.find((p) => p.slug === best.providerSlug) && (
                 <div className="flex gap-3">
-                  <PrimaryButton href={`/companies/${best.providerSlug}`} size="sm">
+                  <PrimaryButton href={companyPageRenders(best.providerSlug) ? `/companies/${best.providerSlug}` : "/companies"} size="sm">
                     Read full review
                   </PrimaryButton>
                   <ProviderLink
@@ -3556,11 +3560,16 @@ export default async function CorridorPage({ params }: Props) {
               name: `Best Ways to Send Money ${corridor.fromCountry ? `from ${corridor.fromCountry} ` : ""}to ${corridor.toCountry || toCurrency} ${new Date().getFullYear()}`,
               itemListOrder: "https://schema.org/ItemListOrderDescending",
               numberOfItems: Math.min(quotes.length, 10),
+              // Only cite a url for providers that have a review page. A
+              // ListItem url pointing at a 404 is a broken structured-data
+              // reference, and scraped bank slugs have no page.
               itemListElement: quotes.slice(0, 10).map((q, i) => ({
                 "@type": "ListItem",
                 position: i + 1,
                 name: getProviderName(q.providerSlug),
-                url: `https://sendmoneycompare.com/companies/${q.providerSlug}`,
+                ...(companyPageRenders(q.providerSlug) && {
+                  url: `https://sendmoneycompare.com/companies/${q.providerSlug}`,
+                }),
               })),
             }),
           }}
