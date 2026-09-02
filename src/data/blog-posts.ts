@@ -92,7 +92,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Cut-off times &amp; weekends</strong> — Transfers initiated late Friday may not settle until Monday if either end relies on bank processing.</li>
 <li><strong>Destination rails</strong> — India (<a href="/send-money/usa-to-india">UPI</a>), the Philippines (InstaPay), the EU (instant SEPA — see our <a href="/guides/eu-instant-payments-2026">EU Instant Payments 2026</a> guide), and the UK (Faster Payments) are among the fastest receiving markets.</li>
 </ul>
-<p>According to the <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer nofollow">Consumer Financial Protection Bureau (CFPB)</a>, providers must disclose the date funds will be available before you pay — always check that estimate, not just the headline "instant" claim.</p>`,
+<p>According to the <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a>, providers must disclose the date funds will be available before you pay — always check that estimate, not just the headline "instant" claim.</p>`,
       },
       {
         heading: "Fastest Way to Send Money by Corridor (US-Led)",
@@ -120,7 +120,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Speed estimates in this article are based on providers' published delivery times and real quotes collected from provider APIs and websites via automated scraping every 6 hours. Actual delivery times vary by corridor, funding method, verification status, and bank processing — always check the provider's stated availability date before you pay.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer nofollow">CFPB remittance disclosure rules</a>, and provider-published delivery commitments. Use our <a href="/send-money">comparison tool</a> for live rates and speed.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">CFPB remittance disclosure rules</a>, and provider-published delivery commitments. Use our <a href="/send-money">comparison tool</a> for live rates and speed.</p>`,
       },
     ],
     faqs: [
@@ -252,7 +252,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Time your transfer</strong> — Exchange rates fluctuate based on central bank decisions and interbank rates like <a href="/guides/how-euribor-affects-euro-transfers">Euribor</a>. Set a rate alert to transfer when the rate is favorable.</li>
 <li><strong>Send larger amounts less frequently</strong> — Some providers have minimum fees, so sending $2,000 once is cheaper than $500 four times.</li>
 </ol>
-<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer nofollow">Consumer Financial Protection Bureau (CFPB)</a> recommends always comparing the total cost, including exchange rate markup. The <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank's remittances research</a> consistently shows that using specialist transfer services instead of banks saves consumers billions annually.</p>`,
+<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> recommends always comparing the total cost, including exchange rate markup. The <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank's remittances research</a> consistently shows that using specialist transfer services instead of banks saves consumers billions annually.</p>`,
       },
       {
         heading: "Sources & Methodology",
@@ -347,13 +347,13 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Recipient's full legal name</strong> — Must match their bank account exactly</li>
 <li><strong>Bank name and branch</strong></li>
 <li><strong>Account number</strong> — Or <a href="/guides/iban-numbers-explained">IBAN</a> for European and many other countries</li>
-<li><strong>SWIFT/BIC code</strong> — An 8–11 character code identifying the bank internationally. Read <a href="/guides/swift-codes-explained">our guide to SWIFT codes</a> for full details. SWIFT codes are standardised by the <a href="https://www.swift.com/standards/iso-9362" target="_blank" rel="noopener noreferrer nofollow">ISO 9362 standard maintained by SWIFT</a>.</li>
+<li><strong>SWIFT/BIC code</strong> — An 8–11 character code identifying the bank internationally. Read <a href="/guides/swift-codes-explained">our guide to SWIFT codes</a> for full details. SWIFT codes are standardised by the <a href="https://www.swift.com/standards/iso-9362" target="_blank" rel="noopener noreferrer">ISO 9362 standard maintained by SWIFT</a>.</li>
 <li><strong>Routing number</strong> — For US bank accounts (9 digits)</li>
 <li><strong>IFSC code</strong> — For Indian bank accounts</li>
 <li><strong>BSB number</strong> — For Australian bank accounts</li>
 </ul>
 <p>For cash pickup, you usually just need the recipient's name and phone number. For mobile wallet transfers, you need their phone number.</p>
-<p>The <a href="https://www.swift.com/about-us" target="_blank" rel="noopener noreferrer nofollow">SWIFT network</a> connects over 11,000 financial institutions in 200+ countries to facilitate these transfers.</p>`,
+<p>The <a href="https://www.swift.com/about-us" target="_blank" rel="noopener noreferrer">SWIFT network</a> connects over 11,000 financial institutions in 200+ countries to facilitate these transfers.</p>`,
       },
       {
         heading: "How Long Do International Transfers Take?",
@@ -375,7 +375,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Ignoring exchange rate timing</strong> — Rates change constantly. If you're not in a rush, set a rate alert for a better rate.</li>
 <li><strong>Not verifying your account first</strong> — Complete ID verification before you need to send money. Rush verification can delay urgent transfers.</li>
 </ul>
-<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer nofollow">Consumer Financial Protection Bureau (CFPB)</a> and the <a href="https://www.fca.org.uk/consumers/sending-money-abroad" target="_blank" rel="noopener noreferrer">FCA</a> both provide guidance on consumer rights when sending money internationally. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global knowledge partnership tracks remittance flows and the economic impact of transfer costs.</p>`,
+<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> and the <a href="https://www.fca.org.uk/consumers/sending-money-abroad" target="_blank" rel="noopener noreferrer">FCA</a> both provide guidance on consumer rights when sending money internationally. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global knowledge partnership tracks remittance flows and the economic impact of transfer costs.</p>`,
       },
     ],
     faqs: [
@@ -453,7 +453,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Is the Mid-Market Exchange Rate?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An exchange rate markup is the difference between the mid-market rate (the real rate on Google) and the rate a provider gives you — typically 0.5-4% for banks. On a $1,000 transfer, a 3% bank markup costs you ~$30 in hidden fees. <a href="/companies/wise">Wise</a> charges 0% markup, while <a href="/companies/remitly">Remitly</a> averages 0.45%. <a href="/send-money">Compare real rates</a> across 50+ providers to see the true cost.</p></div>
-<p>The <strong>mid-market rate</strong> (also called the interbank rate or real exchange rate) is the midpoint between the buy and sell price of a currency on the global market. It's the rate banks use when trading with each other — and it's the fairest rate available. The mid-market rate is published by sources like <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">the European Central Bank</a> and the <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer nofollow">US Federal Reserve's H.10 release</a>.</p>
+<p>The <strong>mid-market rate</strong> (also called the interbank rate or real exchange rate) is the midpoint between the buy and sell price of a currency on the global market. It's the rate banks use when trading with each other — and it's the fairest rate available. The mid-market rate is published by sources like <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">the European Central Bank</a> and the <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer">US Federal Reserve's H.10 release</a>.</p>
 <p>When you Google "USD to INR," the rate shown is the mid-market rate. No individual consumer gets this exact rate, but some providers come very close. Understanding this is key to finding <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally</a>.</p>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for Low Exchange Rate Markup</h3>
@@ -568,7 +568,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>UK</strong></td><td><a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a></td><td>Segregated accounts, capital adequacy, AML compliance</td><td><a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a></td></tr>
 <tr><td><strong>US</strong></td><td><a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></td><td>MSB registration, SAR filing, BSA compliance</td><td><a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">MSB Registrant Search</a></td></tr>
 <tr><td><strong>EU</strong></td><td>National regulators + ECB</td><td>PSD2 compliance, SCA (Strong Customer Authentication)</td><td>National central bank registers</td></tr>
-<tr><td><strong>Australia</strong></td><td><a href="https://www.austrac.gov.au/" target="_blank" rel="noopener noreferrer nofollow">AUSTRAC</a></td><td>AML/CTF compliance, remittance registration</td><td>AUSTRAC register</td></tr>
+<tr><td><strong>Australia</strong></td><td><a href="https://www.austrac.gov.au/" target="_blank" rel="noopener noreferrer">AUSTRAC</a></td><td>AML/CTF compliance, remittance registration</td><td>AUSTRAC register</td></tr>
 <tr><td><strong>Canada</strong></td><td>FINTRAC</td><td>MSB registration, AML compliance</td><td>FINTRAC MSB registry</td></tr>
 </tbody>
 </table>
@@ -628,10 +628,10 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Yes — transferring money from your bank account to another bank account is one of the safest ways to move money, whether the destination account belongs to you, a family member, a business, or a stranger you've verified. Bank-to-bank transfers settle through regulated payment rails (Faster Payments in the UK, ACH and FedWire in the US, SEPA across Europe, NPP in Australia) where every transaction is logged, traceable, and supervised by the central bank.</p>
 <p><strong>What makes account-to-account transfers safe:</strong></p>
 <ul>
-<li><strong>You cannot lose money simply by sending to the "wrong" account number</strong> — banks reject transfers that don't match valid account details. If a transfer does go to a wrong but valid account (a typo on a digit), most jurisdictions have a recall process. UK banks must attempt recovery within 2 working days under the <a href="https://www.psr.org.uk/" target="_blank" rel="noopener noreferrer nofollow">Payment Systems Regulator's</a> rules.</li>
+<li><strong>You cannot lose money simply by sending to the "wrong" account number</strong> — banks reject transfers that don't match valid account details. If a transfer does go to a wrong but valid account (a typo on a digit), most jurisdictions have a recall process. UK banks must attempt recovery within 2 working days under the <a href="https://www.psr.org.uk/" target="_blank" rel="noopener noreferrer">Payment Systems Regulator's</a> rules.</li>
 <li><strong>Confirmation of Payee (UK) and similar checks (EU, AU)</strong> — when you set up a new payee, your bank now compares the name you typed against the actual account holder's name and warns you of mismatches. This catches most "wrong account" mistakes before money moves.</li>
 <li><strong>Push payments are deliberate</strong> — unlike a direct debit (which pulls money from your account), a transfer requires you to initiate it. No one can drain your account just because they have your account number.</li>
-<li><strong>Reversibility for fraud</strong> — if you're tricked into authorising a transfer (Authorised Push Payment fraud), UK banks signed up to the <a href="https://www.psr.org.uk/our-work/authorised-push-payment-app-scams/" target="_blank" rel="noopener noreferrer nofollow">CRM Code</a> reimburse most victims. The new mandatory PSR rules from October 2024 made reimbursement mandatory across all UK banks for APP scam losses up to £415,000.</li>
+<li><strong>Reversibility for fraud</strong> — if you're tricked into authorising a transfer (Authorised Push Payment fraud), UK banks signed up to the <a href="https://www.psr.org.uk/our-work/authorised-push-payment-app-scams/" target="_blank" rel="noopener noreferrer">CRM Code</a> reimburse most victims. The new mandatory PSR rules from October 2024 made reimbursement mandatory across all UK banks for APP scam losses up to £415,000.</li>
 </ul>
 <p><strong>When account-to-account transfers carry more risk:</strong></p>
 <ul>
@@ -655,9 +655,9 @@ export const blogPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Payment method</th><th>Fraud rate</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td>Online bank transfers (UK)</td><td>0.04% by value</td><td><a href="https://www.ukfinance.org.uk/" target="_blank" rel="noopener noreferrer nofollow">UK Finance Annual Fraud Report 2024</a></td></tr>
+<tr><td>Online bank transfers (UK)</td><td>0.04% by value</td><td><a href="https://www.ukfinance.org.uk/" target="_blank" rel="noopener noreferrer">UK Finance Annual Fraud Report 2024</a></td></tr>
 <tr><td>Regulated remittance providers</td><td>Below 0.1% by value (industry-reported)</td><td>Provider disclosures (Wise, Remitly annual reports)</td></tr>
-<tr><td>Credit card transactions</td><td>~0.07% (US average)</td><td><a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer nofollow">Federal Reserve Payments Study</a></td></tr>
+<tr><td>Credit card transactions</td><td>~0.07% (US average)</td><td><a href="https://www.federalreserve.gov/" target="_blank" rel="noopener noreferrer">Federal Reserve Payments Study</a></td></tr>
 <tr><td>Cheques</td><td>~0.4% (10× higher than wires)</td><td>Federal Reserve Payments Study</td></tr>
 <tr><td>Cash (estimated loss/theft)</td><td>1-2%+ (varies)</td><td>Industry estimates</td></tr>
 </tbody>
@@ -720,7 +720,7 @@ export const blogPosts: BlogPost[] = [
         heading: "7 Common Money Transfer Scams to Avoid",
         content: `<ol>
 <li><strong>Advance fee fraud</strong> — "Send a small fee to unlock a large payment." No legitimate transaction works this way. <strong>Never send money to receive money.</strong></li>
-<li><strong>Romance scams</strong> — Someone you met online asks you to send money for emergencies, travel, or "investment." The <a href="https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2023/02/romance-scammers-favorite-lies-exposed" target="_blank" rel="noopener noreferrer nofollow">FTC reports</a> romance scams cost Americans $1.3 billion in 2022 alone.</li>
+<li><strong>Romance scams</strong> — Someone you met online asks you to send money for emergencies, travel, or "investment." The <a href="https://www.ftc.gov/news-events/data-visualizations/data-spotlight/2023/02/romance-scammers-favorite-lies-exposed" target="_blank" rel="noopener noreferrer">FTC reports</a> romance scams cost Americans $1.3 billion in 2022 alone.</li>
 <li><strong>Fake provider websites</strong> — Scammers create websites that look identical to Wise, Remitly, or Western Union. Always check the URL character by character. Use bookmarks or our <a href="/send-money">comparison tool</a> to reach provider sites.</li>
 <li><strong>Overpayment scams</strong> — A buyer "accidentally" sends too much and asks you to refund the difference. The original payment will be reversed (fraudulent cheque or stolen card), leaving you out of pocket.</li>
 <li><strong>Investment/crypto scams</strong> — "Guaranteed high returns" on forex or crypto that require international transfers. If it sounds too good to be true, it is. The <a href="https://www.fca.org.uk/consumers/protect-yourself-scams" target="_blank" rel="noopener noreferrer">FCA ScamSmart</a> tool lets you check if an investment firm is legitimate.</li>
@@ -741,15 +741,15 @@ export const blogPosts: BlogPost[] = [
 <h3>Step 3: File a complaint with the regulator</h3>
 <ul>
 <li><strong>UK:</strong> <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> — for regulated firms. <a href="https://www.financial-ombudsman.org.uk/" target="_blank" rel="noopener noreferrer">Financial Ombudsman Service</a> — for dispute resolution.</li>
-<li><strong>US:</strong> <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> — file a complaint. <a href="https://www.ftc.gov/" target="_blank" rel="noopener noreferrer nofollow">FTC</a> — report fraud.</li>
+<li><strong>US:</strong> <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> — file a complaint. <a href="https://www.ftc.gov/" target="_blank" rel="noopener noreferrer">FTC</a> — report fraud.</li>
 <li><strong>Australia:</strong> ASIC and AFCA (Australian Financial Complaints Authority).</li>
 </ul>
 
 <h3>Step 4: Report the scam</h3>
 <ul>
 <li><strong>UK:</strong> <a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener noreferrer">Action Fraud</a> (0300 123 2040)</li>
-<li><strong>US:</strong> <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener noreferrer nofollow">FTC ReportFraud.ftc.gov</a> and local FBI field office for large amounts</li>
-<li><strong>International:</strong> <a href="https://www.econsumer.gov/" target="_blank" rel="noopener noreferrer nofollow">econsumer.gov</a> for cross-border scams</li>
+<li><strong>US:</strong> <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener noreferrer">FTC ReportFraud.ftc.gov</a> and local FBI field office for large amounts</li>
+<li><strong>International:</strong> <a href="https://www.econsumer.gov/" target="_blank" rel="noopener noreferrer">econsumer.gov</a> for cross-border scams</li>
 </ul>
 <p>Even if you can't recover the money, reporting helps authorities track patterns and shut down scam operations.</p>`,
       },
@@ -861,7 +861,7 @@ export const blogPosts: BlogPost[] = [
         heading: "What Is a SWIFT Code?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A SWIFT code (also called a BIC code) is an 8-11 character code that identifies a specific bank or branch for international wire transfers. The format is: 4-letter bank code + 2-letter country code + 2-character location code + optional 3-character branch code. Modern transfer services like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> handle SWIFT routing automatically, so you often don't need one. Learn more in our <a href="/guides/how-to-send-money-abroad">guide to sending money abroad</a>.</p></div>
 <p>A <strong>SWIFT code</strong> (also called a BIC — Bank Identifier Code) is a unique 8 or 11 character code that identifies a specific bank or branch worldwide. It's used to route international bank transfers to the correct destination.</p>
-<p>SWIFT, formally the Society for Worldwide Interbank Financial Telecommunication, connects over 11,000 institutions. Learn more about the network at <a href="https://www.swift.com/about-us" target="_blank" rel="noopener noreferrer nofollow">swift.com</a>. The standard is governed by <a href="https://www.iso.org/standard/60390.html" target="_blank" rel="noopener noreferrer nofollow">ISO 9362</a>.</p>
+<p>SWIFT, formally the Society for Worldwide Interbank Financial Telecommunication, connects over 11,000 institutions. Learn more about the network at <a href="https://www.swift.com/about-us" target="_blank" rel="noopener noreferrer">swift.com</a>. The standard is governed by <a href="https://www.iso.org/standard/60390.html" target="_blank" rel="noopener noreferrer">ISO 9362</a>.</p>
 <p>You'll need a SWIFT code when sending money via a bank wire transfer. However, modern services like <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a> handle SWIFT routing internally. Learn more in our guide to <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>.</p>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for International Transfers</h3>
@@ -907,7 +907,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong><a href="/guides/iban-numbers-explained">IBAN</a></strong> identifies the <em>account</em> (which specific account at that bank)</li>
 </ul>
 <p>For a European transfer (e.g., <a href="/send-money/usa-to-europe">UK to Europe</a>), you typically need both: the IBAN to identify the recipient's account and the SWIFT code to route the payment to the right bank. For transfers to the US, you use a routing number + account number instead of an IBAN.</p>
-<p>Not all countries use IBANs — the US, Canada, Australia, and many Asian countries don't. But virtually all countries use SWIFT codes for international transfers. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry covers 80+ countries. For IBAN validation rules, see <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer nofollow">ISO 13616</a>.</p>`,
+<p>Not all countries use IBANs — the US, Canada, Australia, and many Asian countries don't. But virtually all countries use SWIFT codes for international transfers. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry covers 80+ countries. For IBAN validation rules, see <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer">ISO 13616</a>.</p>`,
       },
       {
         heading: "Do You Always Need a SWIFT Code?",
@@ -956,7 +956,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Is an IBAN?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> An IBAN (International Bank Account Number) is a standardized bank account number format used in 80+ countries, containing up to 34 characters including a country code, check digits, bank code, and account number. IBANs are required for transfers to Europe and many other regions. Providers like <a href="/companies/wise">Wise</a> and <a href="/companies/xe">XE</a> accept IBANs directly and handle routing automatically. See our <a href="/send-money/usa-to-europe">UK to Europe</a> corridor page for IBAN-based transfer options.</p></div>
-<p>An <strong>IBAN</strong> (International Bank Account Number) is a standardized format for bank account numbers used in over 80 countries. The IBAN standard is maintained under <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer nofollow">ISO 13616</a> by the International Organization for Standardization. It was created to reduce errors in international transfers by providing a uniform way to identify bank accounts globally. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry provides IBAN structure details for all participating countries.</p>
+<p>An <strong>IBAN</strong> (International Bank Account Number) is a standardized format for bank account numbers used in over 80 countries. The IBAN standard is maintained under <a href="https://www.iso.org/standard/81090.html" target="_blank" rel="noopener noreferrer">ISO 13616</a> by the International Organization for Standardization. It was created to reduce errors in international transfers by providing a uniform way to identify bank accounts globally. The <a href="https://www.iban.com/" target="_blank" rel="noopener noreferrer nofollow">IBAN.com</a> registry provides IBAN structure details for all participating countries.</p>
 <p>An IBAN contains the country code, check digits (for validation), bank code, and account number — all in a single string of up to 34 characters. When sending to Europe (e.g., <a href="/send-money/usa-to-europe">UK to Europe</a>), you'll almost always need the recipient's IBAN.</p>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for International Transfers</h3>
@@ -1000,13 +1000,13 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <p><strong>Countries that do NOT use IBANs:</strong></p>
 <ul>
-<li>United States (uses routing number + account number). See the <a href="https://www.federalreserve.gov/paymentsystems/fedfunds_about.htm" target="_blank" rel="noopener noreferrer nofollow">Federal Reserve's payment systems</a> for US wire transfer details.</li>
+<li>United States (uses routing number + account number). See the <a href="https://www.federalreserve.gov/paymentsystems/fedfunds_about.htm" target="_blank" rel="noopener noreferrer">Federal Reserve's payment systems</a> for US wire transfer details.</li>
 <li>Canada (uses institution number + transit number + account number)</li>
 <li>Australia (uses BSB + account number)</li>
 <li>India (uses IFSC code + account number). See our <a href="/send-money/usa-to-india">USA to India</a> guide for Indian transfer details.</li>
 <li>Most of Asia and the Pacific. For Philippines transfers, see the <a href="/send-money/usa-to-philippines">USA to Philippines</a> corridor guide.</li>
 </ul>
-<p>For a complete country-by-country reference, the <a href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB's SEPA documentation</a> covers all EU/EEA IBAN requirements.</p>`,
+<p>For a complete country-by-country reference, the <a href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html" target="_blank" rel="noopener noreferrer">ECB's SEPA documentation</a> covers all EU/EEA IBAN requirements.</p>`,
       },
       {
         heading: "How to Find Your IBAN",
@@ -1034,7 +1034,7 @@ export const blogPosts: BlogPost[] = [
 <li>Missing or extra characters</li>
 <li>Using spaces when the system expects none (or vice versa)</li>
 </ul>
-<p>An invalid IBAN will cause your transfer to be rejected (and possibly delayed by days). Always validate before sending. For guidance on international payment standards, see <a href="https://www.swift.com/standards/data-standards" target="_blank" rel="noopener noreferrer nofollow">SWIFT's data standards</a>.</p>`,
+<p>An invalid IBAN will cause your transfer to be rejected (and possibly delayed by days). Always validate before sending. For guidance on international payment standards, see <a href="https://www.swift.com/standards/data-standards" target="_blank" rel="noopener noreferrer">SWIFT's data standards</a>.</p>`,
       },
     ],
     faqs: [
@@ -1327,7 +1327,7 @@ export const blogPosts: BlogPost[] = [
         heading: "India: The World's Largest Remittance Market",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest ways to send money to India are specialist apps like <a href="/companies/wise">Wise</a> (0% markup, ~$7 fee) and <a href="/companies/remitly">Remitly</a> ($0 fee, 0.45% markup). On a $1,000 USD to INR transfer, these providers deliver ₹91,500-91,900 vs ₹89,300 from a typical bank. You'll need the recipient's IFSC code for bank delivery. <a href="/send-money/usa-to-india">Compare live USD to INR rates</a> across 8+ providers.</p></div>
 <p>India is the world's top remittance-receiving country, with over $125 billion in inflows in 2025 according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank's Migration and Remittances data</a>. Millions of people in the US, UK, Canada, Australia, and the Gulf states send money to family in India regularly.</p>
-<p>The Reserve Bank of India (RBI) oversees inbound remittance regulations through its <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Liberalised Remittance Scheme (LRS)</a> framework. The good news: because it's the most competitive corridor, you have more provider options and lower costs than almost any other destination.</p>`,
+<p>The Reserve Bank of India (RBI) oversees inbound remittance regulations through its <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Liberalised Remittance Scheme (LRS)</a> framework. The good news: because it's the most competitive corridor, you have more provider options and lower costs than almost any other destination.</p>`,
       },
       {
         heading: "Best Providers for Sending to India",
@@ -1395,14 +1395,14 @@ export const blogPosts: BlogPost[] = [
 <li><strong>For the sender</strong>: Sending money as a gift to family in India is generally not taxable for the sender (US, UK, Canada, Australia). The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> and <a href="https://www.cfpb.gov/" target="_blank" rel="noopener noreferrer">CFPB</a> have reporting requirements for large transfers.</li>
 <li><strong>For the recipient in India</strong>: Money received from relatives abroad is tax-free under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
 <li><strong>FBAR/FATCA</strong>: US persons with Indian bank accounts holding over $10,000 may need to file FBAR. Consult a tax professional.</li>
-<li><strong>TCS (Tax Collected at Source)</strong>: When sending FROM India, a 5-20% TCS may apply on remittances over ₹7 lakh per year under the LRS scheme per the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India</a>.</li>
+<li><strong>TCS (Tax Collected at Source)</strong>: When sending FROM India, a 5-20% TCS may apply on remittances over ₹7 lakh per year under the LRS scheme per the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>.</li>
 </ul>
 <p>This is general information — always consult a tax advisor for your specific situation. For more on safety and regulation, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> report, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. India-specific data is cross-referenced with the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India (RBI)</a>.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> report, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. India-specific data is cross-referenced with the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a>.</p>`,
       },
     ],
     faqs: [
@@ -1566,7 +1566,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p class="citable-passage">The most expensive mistake here isn't picking the wrong app, it's getting the paperwork wrong. A surprise 30% tax withholding or a misclassification fine makes the difference between Wise and a bank wire look like loose change.</p>
 <p>Two things trip up almost everyone the first time:</p>
 <h3>1. If you're a US business, get a W-8BEN before you pay</h3>
-<p>When a US business pays a foreign freelancer, the IRS assumes you should hold back <strong>30%</strong> of the payment unless you have a signed <strong><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener noreferrer nofollow">Form W-8BEN</a></strong> (for a person) or W-8BEN-E (for a company) on file. The form proves they're not a US taxpayer and, in many countries, drops that withholding to zero. Collect it when you hire them, not at tax time. (One detail your accountant will care about: foreign freelancers usually go on a Form 1042-S, not the 1099-NEC you'd use for US-based contractors, whose reporting threshold rose to <a href="https://www.irs.gov/newsroom" target="_blank" rel="noopener noreferrer nofollow">$2,000 from 2026</a>. Confirm the right form per person.)</p>
+<p>When a US business pays a foreign freelancer, the IRS assumes you should hold back <strong>30%</strong> of the payment unless you have a signed <strong><a href="https://www.irs.gov/forms-pubs/about-form-w-8-ben" target="_blank" rel="noopener noreferrer">Form W-8BEN</a></strong> (for a person) or W-8BEN-E (for a company) on file. The form proves they're not a US taxpayer and, in many countries, drops that withholding to zero. Collect it when you hire them, not at tax time. (One detail your accountant will care about: foreign freelancers usually go on a Form 1042-S, not the 1099-NEC you'd use for US-based contractors, whose reporting threshold rose to <a href="https://www.irs.gov/newsroom" target="_blank" rel="noopener noreferrer">$2,000 from 2026</a>. Confirm the right form per person.)</p>
 <h3>2. Don't let a "freelancer" quietly become an employee</h3>
 <p>This is "misclassification." If someone you treat as a freelancer is really an employee under their country's law, you can owe back taxes and penalties there. The risk goes up when they work full-time, only for you, on your schedule and your equipment. If that sounds like your situation, this is exactly when an <strong>Employer of Record</strong> (Deel, Remote, Gloroots) earns its fee: it legally employs the person in their country and takes the risk off you. That, not "cheaper transfers," is the real reason to pay for one.</p>
 <blockquote class="blog-callout-warning-sm">
@@ -1668,7 +1668,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "How Much Do B2B International Payments Really Cost?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way for SMEs to make international business payments in 2026 is <a href="/companies/wise">Wise Business</a> — 0% exchange rate markup plus a transparent fee of 0.41–0.71% depending on the corridor. For transfers over $50,000, <a href="/companies/ofx">OFX</a> offers dedicated FX dealers with negotiated rates and zero fees. <a href="/companies/revolut">Revolut Business</a> is best for startups needing multi-currency accounts with a free tier. All three are <strong>80–95% cheaper</strong> than traditional bank wire transfers, which charge $25–$50 per transaction plus 2–5% hidden exchange rate markup. On a $10,000 supplier payment, a bank costs ~$450 total; Wise Business costs ~$65. For a live, side-by-side breakdown of all six on bulk payments, approvals, multi-currency accounts, API, KYC and current FX cost, use our <a href="/business/compare">business payment provider comparison tool</a>.</p></div>
-<p>Cross-border B2B payment volumes are projected to exceed <strong>$35 trillion by 2028</strong>, according to <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer nofollow">Juniper Research</a>. Yet most small and medium businesses still use traditional bank wires — losing 2–5% on every payment to hidden FX markups.</p>
+<p>Cross-border B2B payment volumes are projected to exceed <strong>$35 trillion by 2028</strong>, according to <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>. Yet most small and medium businesses still use traditional bank wires — losing 2–5% on every payment to hidden FX markups.</p>
 <p>Here's what a $10,000 payment to a European supplier actually costs through different channels:</p>
 <table>
 <thead><tr><th>Channel</th><th>Wire Fee</th><th>FX Markup</th><th>Total Cost</th><th>Recipient Gets</th></tr></thead>
@@ -1828,7 +1828,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer nofollow">Juniper Research</a> B2B payments forecasts, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. The <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements (BIS)</a> provides data on cross-border payment flows and SWIFT transaction volumes.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a> B2B payments forecasts, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>. The <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements (BIS)</a> provides data on cross-border payment flows and SWIFT transaction volumes.</p>`,
       },
     ],
     faqs: [
@@ -1943,7 +1943,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>2023</strong>: 6.2%</li>
 <li><strong>2025</strong>: 5.8%</li>
 </ul>
-<p>The UN Sustainable Development Goal 10.c targets reducing remittance costs to below 3% by 2030, as outlined by the <a href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener noreferrer nofollow">United Nations SDG 10</a>. The G20 has committed to a 5% remittance cost target, monitored by the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>. While progress has been made, costs remain highest for Sub-Saharan Africa corridors (avg 7.9%) and lowest for South Asia (avg 4.3%).</p>
+<p>The UN Sustainable Development Goal 10.c targets reducing remittance costs to below 3% by 2030, as outlined by the <a href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener noreferrer">United Nations SDG 10</a>. The G20 has committed to a 5% remittance cost target, monitored by the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>. While progress has been made, costs remain highest for Sub-Saharan Africa corridors (avg 7.9%) and lowest for South Asia (avg 4.3%).</p>
 <p>Digital-first providers like Wise (avg 0.7% cost) are dramatically cheaper than the global average, but adoption is still growing in many corridors.</p>
 <p>Our own corridor coverage shows why the global average only tells part of the story. In heavily contested routes such as UK to India or USA to Mexico, competition can push total costs below 2% for a routine bank-funded transfer. In thinner routes and cash-heavy markets, a provider may advertise a zero-fee transfer while still charging a meaningful FX markup. The real trend in 2026 is not just that costs are falling, but that the gap between the best and worst option on a given route is widening.</p>`,
       },
@@ -1951,7 +1951,7 @@ export const blogPosts: BlogPost[] = [
         heading: "How Is Digital Technology Changing the Remittance Industry?",
         content: `<p>The money transfer industry is undergoing rapid digital transformation:</p>
 <h3>Mobile-First Transfers</h3>
-<p>Over 65% of remittance transactions now originate from a mobile app, up from 40% in 2020, according to <a href="https://www.gsma.com/sotir/" target="_blank" rel="noopener noreferrer nofollow">GSMA State of the Industry Report</a>. Mobile wallets (M-Pesa, GCash, bKash) are increasingly popular as delivery methods in developing countries.</p>
+<p>Over 65% of remittance transactions now originate from a mobile app, up from 40% in 2020, according to <a href="https://www.gsma.com/sotir/" target="_blank" rel="noopener noreferrer">GSMA State of the Industry Report</a>. Mobile wallets (M-Pesa, GCash, bKash) are increasingly popular as delivery methods in developing countries.</p>
 <h3>Real-Time Payments</h3>
 <p>Countries launching real-time payment systems (UPI in India, Pix in Brazil, FPS in UK) enable instant international transfers. Wise and Remitly already leverage these for same-day delivery. In 2026, <a href="/guides/eu-instant-payments-2026">the EU's Instant Payments Regulation is making 10-second euro transfers mandatory</a> — a game-changer for cross-border costs across the eurozone. Meanwhile, falling <a href="/guides/how-euribor-affects-euro-transfers">Euribor rates</a> are reshaping euro transfer pricing as the ECB's easing cycle continues.</p>
 <h3>Cryptocurrency and Stablecoins</h3>
@@ -2231,9 +2231,9 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Wire transfers are among the most secure ways to send money \u2014 once the money is sent, it\u2019s very difficult to reverse. This is both an advantage (guaranteed delivery) and a risk (you can\u2019t cancel easily).</p>
 <h3>Regulatory Protections</h3>
 <ul>
-<li><strong>United States:</strong> Regulated by <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> (Financial Crimes Enforcement Network). Banks must file a Currency Transaction Report (CTR) for wire transfers over $10,000. The <a href="https://www.fdic.gov/" target="_blank" rel="noopener noreferrer nofollow">FDIC</a> insures deposits up to $250,000 but does not insure the transfer itself.</li>
+<li><strong>United States:</strong> Regulated by <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> (Financial Crimes Enforcement Network). Banks must file a Currency Transaction Report (CTR) for wire transfers over $10,000. The <a href="https://www.fdic.gov/" target="_blank" rel="noopener noreferrer">FDIC</a> insures deposits up to $250,000 but does not insure the transfer itself.</li>
 <li><strong>United Kingdom:</strong> Regulated by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> (Financial Conduct Authority). The Financial Services Compensation Scheme (FSCS) protects deposits up to \u00a385,000. Transfers through FCA-regulated providers benefit from safeguarding rules.</li>
-<li><strong>European Union:</strong> The <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">ECB</a> and national regulators oversee wire transfers. The Payment Services Directive (PSD2) gives consumers rights regarding transparency and refunds.</li>
+<li><strong>European Union:</strong> The <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">ECB</a> and national regulators oversee wire transfers. The Payment Services Directive (PSD2) gives consumers rights regarding transparency and refunds.</li>
 </ul>
 <h3>Wire Transfer Fraud Risks</h3>
 <p>Because wire transfers are nearly irreversible, they\u2019re a favorite target for scammers. Common wire fraud schemes include:</p>
@@ -2263,9 +2263,9 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li>Bank fee schedules for <a href="https://www.chase.com/" target="_blank" rel="noopener noreferrer nofollow">Chase</a>, <a href="https://www.bankofamerica.com/" target="_blank" rel="noopener noreferrer nofollow">Bank of America</a>, <a href="https://www.wellsfargo.com/" target="_blank" rel="noopener noreferrer nofollow">Wells Fargo</a>, <a href="https://www.citi.com/" target="_blank" rel="noopener noreferrer nofollow">Citibank</a>, <a href="https://www.hsbc.co.uk/" target="_blank" rel="noopener noreferrer nofollow">HSBC</a>, <a href="https://www.barclays.co.uk/" target="_blank" rel="noopener noreferrer nofollow">Barclays</a>, and <a href="https://www.lloydsbank.com/" target="_blank" rel="noopener noreferrer nofollow">Lloyds</a> \u2014 verified March 2026.</li>
 <li>Provider fee data from our automated <a href="/send-money">comparison engine</a>, which scrapes real quotes from 50+ providers every 6 hours.</li>
-<li><a href="https://www.swift.com/" target="_blank" rel="noopener noreferrer nofollow">SWIFT</a> official documentation on messaging standards and network statistics.</li>
+<li><a href="https://www.swift.com/" target="_blank" rel="noopener noreferrer">SWIFT</a> official documentation on messaging standards and network statistics.</li>
 <li><a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database for global average transfer costs.</li>
-<li>Regulatory websites: <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fdic.gov/" target="_blank" rel="noopener noreferrer nofollow">FDIC</a>.</li>
+<li>Regulatory websites: <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fdic.gov/" target="_blank" rel="noopener noreferrer">FDIC</a>.</li>
 </ul>
 <p>Fee estimates are approximations based on published schedules and may vary by account type, transfer amount, and currency pair. Always check your bank\u2019s current fee schedule before initiating a transfer. <a href="/send-money">Compare real-time rates</a> using our free comparison tool.</p>`,
       },
@@ -3120,7 +3120,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Why This Matters",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Sending $1,000 abroad costs between $5 and $80+ depending on the provider. Specialist apps like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/instarem">Instarem</a> save 80-95% vs traditional banks. On a $1,000 USD to INR transfer, the difference between the best and worst provider is over ₹8,700 (~$94). <a href="/send-money">Compare live rates</a> with your exact transfer details to find the cheapest option.</p></div>
 <p>Sending money internationally shouldn't cost a fortune — but depending on which provider you use, you could lose anywhere from <strong>$5 to $80+</strong> on a single $1,000 transfer.</p>
-<p>We pulled <strong>real, live quotes</strong> from 50+ providers to find out who actually gives your recipient the most money. No estimates, no averages — these are actual quotes collected from provider APIs and websites on March 14, 2026. Exchange rates sourced via the <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">European Central Bank</a> reference rates and cross-referenced with the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices database</a>.</p>
+<p>We pulled <strong>real, live quotes</strong> from 50+ providers to find out who actually gives your recipient the most money. No estimates, no averages — these are actual quotes collected from provider APIs and websites on March 14, 2026. Exchange rates sourced via the <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">European Central Bank</a> reference rates and cross-referenced with the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices database</a>.</p>
 <p>The results might surprise you: the difference between the best and worst provider on a $1,000 USD → INR transfer is over <strong>₹8,700</strong> (roughly $94).</p>
 <p>To understand why the exchange rate matters more than the fee, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explained</a> guide. And if you're sending from the US, note that a <a href="/guides/us-remittance-tax-2026">new 1% remittance tax</a> can add to these costs — but only if you pay with cash. For a broader comparison across all providers, try our <a href="/send-money">comparison tool</a>.</p>
 
@@ -3238,7 +3238,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Methodology",
         content: `<p>All quotes in this article were collected on <strong>March 14, 2026</strong> using direct API calls and automated web scraping. We compare using a standardized $1,000 (or £1,000) send amount. Rankings are based on <strong>total receive amount</strong> — the only metric that matters to your recipient.</p>
 <p>Our scrapers run every 6 hours to keep data fresh. Rates and fees change constantly, so we recommend using our <a href="/send-money">live comparison tool</a> for the most up-to-date quotes before you send.</p>
-<p>Exchange rates cross-referenced with the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a> and <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer nofollow">Federal Reserve foreign exchange rates</a>. Regulatory context from the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a>.</p>
+<p>Exchange rates cross-referenced with the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a> and <a href="https://www.federalreserve.gov/releases/h10/" target="_blank" rel="noopener noreferrer">Federal Reserve foreign exchange rates</a>. Regulatory context from the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">CFPB</a>.</p>
 <p>We include affiliate links to some providers, but <strong>affiliate relationships never affect our rankings</strong>. Providers are always sorted by best receive amount.</p>`,
       },
     ],
@@ -3297,7 +3297,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Pakistan: A Top Remittance Destination",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Pakistan in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market USD/GBP to PKR exchange rate with 0% markup and a fee of ~$6–$8 on $1,000. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering in minutes to bank accounts, JazzCash, or Easypaisa. <a href="/companies/ace-money-transfer">ACE Money Transfer</a> often beats both on the GBP→PKR corridor specifically. On a typical $1,000 transfer, specialist providers deliver <strong>PKR 5,000–15,000 more</strong> than US or UK banks. <a href="/send-money/usa-to-pakistan">Compare live USD to PKR rates</a> from 10+ providers.</p></div>
-<p>Pakistan received over <strong>$30 billion in remittances</strong> in 2025, according to the <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Pakistan</a>, making it one of the top five remittance-receiving countries globally. The US, Saudi Arabia, UAE, and UK are the largest source countries, with millions of Pakistani expatriates sending money home regularly.</p>
+<p>Pakistan received over <strong>$30 billion in remittances</strong> in 2025, according to the <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan</a>, making it one of the top five remittance-receiving countries globally. The US, Saudi Arabia, UAE, and UK are the largest source countries, with millions of Pakistani expatriates sending money home regularly.</p>
 <p>The Pakistan corridor is highly competitive, with 10+ providers vying for market share. This competition benefits senders — but it also means you need to compare carefully, because the difference between the best and worst option can be <strong>PKR 5,000–15,000 on a $1,000 transfer</strong>. Over a year of monthly transfers, that's <strong>PKR 60,000–180,000</strong> saved by choosing the right provider.</p>`,
       },
       {
@@ -3409,7 +3409,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Important rules for Pakistan remittances:</p>
 <ul>
 <li><strong>For the recipient:</strong> Remittances from abroad are tax-exempt in Pakistan. Under Section 111(4) of the Income Tax Ordinance, money received from abroad through normal banking channels is not subject to income tax.</li>
-<li><strong>Pakistan Remittance Initiative (PRI):</strong> The <a href="https://www.sbp.org.pk/PS/PDF/Pakistan-Remittance-Initiative.pdf" target="_blank" rel="noopener noreferrer nofollow">Pakistan Remittance Initiative (PRI)</a> was launched to facilitate low-cost formal remittance channels with incentives for banks and recipients.</li>
+<li><strong>Pakistan Remittance Initiative (PRI):</strong> The <a href="https://www.sbp.org.pk/PS/PDF/Pakistan-Remittance-Initiative.pdf" target="_blank" rel="noopener noreferrer">Pakistan Remittance Initiative (PRI)</a> was launched to facilitate low-cost formal remittance channels with incentives for banks and recipients.</li>
 <li><strong>CNIC requirement:</strong> The State Bank requires CNIC information for remittances over certain thresholds. Ensure your recipient has their CNIC details ready.</li>
 <li><strong>For US senders:</strong> Sending money as a gift to family is not taxable for the sender. Gifts over $18,000 per recipient per year may require filing Form 709 (but no tax is typically owed).</li>
 <li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts.</li>
@@ -3427,12 +3427,12 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Send larger amounts less often:</strong> Some providers charge minimum fees, so one $2,000 transfer is cheaper than four $500 transfers.</li>
 </ol>
 <p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">guide to the cheapest international transfers</a>, <a href="/guides/best-money-transfer-apps">best money transfer apps</a>, and <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>
-<p>According to the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database, the South Asia corridor consistently shows among the more competitive remittance costs globally. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> migration and remittances data confirms Pakistan as a top-five global remittance recipient. For US senders, the <a href="https://www.cfpb.gov/sending-money/" target="_blank" rel="noopener noreferrer nofollow">Consumer Financial Protection Bureau (CFPB)</a> provides guidance on comparing international transfer costs.</p>`,
+<p>According to the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database, the South Asia corridor consistently shows among the more competitive remittance costs globally. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> migration and remittances data confirms Pakistan as a top-five global remittance recipient. For US senders, the <a href="https://www.cfpb.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> provides guidance on comparing international transfer costs.</p>`,
       },
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Pakistan (SBP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan (SBP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance data.</p>`,
       },
     ],
     faqs: [
@@ -3510,7 +3510,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Convert when ready</strong> — When the exchange rate hits a level you're happy with, convert instantly within the app. All three platforms offer <strong>rate alerts</strong>. Revolut also offers <strong>auto-exchange</strong> — setting a target rate that converts automatically when the market hits it.</li>
 <li><strong>Spend or send</strong> — Use the converted balance to send money abroad, pay with a debit card (all three platforms issue their own cards), or hold it for later.</li>
 </ol>
-<p>The key advantage is <strong>timing</strong>. Currency conversion rates fluctuate based on interbank rates published by central banks. The <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB publishes daily reference rates</a> for major currency pairs. GBP/EUR can swing 2–3% in a single month. Converting at the right moment on a £10,000 transfer could save you £200–£300.</p>
+<p>The key advantage is <strong>timing</strong>. Currency conversion rates fluctuate based on interbank rates published by central banks. The <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">ECB publishes daily reference rates</a> for major currency pairs. GBP/EUR can swing 2–3% in a single month. Converting at the right moment on a £10,000 transfer could save you £200–£300.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Xe vs Wise vs Revolut for Multi-Currency Accounts</h3>
@@ -3612,7 +3612,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on published platform features, exchange rate data, and real conversion quotes collected from provider websites. Exchange rates and fee structures change — visit each platform directly for current terms.</p>
-<p>External sources include published rate data from the <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">European Central Bank</a>, regulatory information from the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, and <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a> research on digital payment services.</p>`,
+<p>External sources include published rate data from the <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">European Central Bank</a>, regulatory information from the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, and <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a> research on digital payment services.</p>`,
       },
     ],
     faqs: [
@@ -3792,7 +3792,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Regulations and Tax Considerations",
         content: `<p>Key rules for sending money to the Philippines:</p>
 <ul>
-<li><strong>No inbound remittance limits:</strong> The <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer nofollow">Bangko Sentral ng Pilipinas (BSP)</a> does not restrict inbound remittance amounts. However, amounts over ₱500,000 may require additional documentation from the receiving bank.</li>
+<li><strong>No inbound remittance limits:</strong> The <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> does not restrict inbound remittance amounts. However, amounts over ₱500,000 may require additional documentation from the receiving bank.</li>
 <li><strong>Tax-free for recipients:</strong> Remittances from OFWs (Overseas Filipino Workers) and their families are exempt from Philippine income tax.</li>
 <li><strong>US sender reporting:</strong> Transfers over $10,000 must be reported by US financial institutions under the Bank Secrecy Act. Sending as a gift is not taxable for the sender. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> oversees AML compliance for US money transmitters.</li>
 <li><strong>Anti-money laundering:</strong> Philippine banks comply with AMLA (Anti-Money Laundering Act). Recipients may need to show valid ID for large cash pickups.</li>
@@ -3802,7 +3802,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer nofollow">Bangko Sentral ng Pilipinas (BSP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">Bangko Sentral ng Pilipinas (BSP)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -3861,7 +3861,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sending Money to Brazil: PIX Made It Fast, IOF Made It Taxed",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from the US to Brazil is <a href="/companies/wise">Wise</a> — mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000, delivered via PIX in seconds. <a href="/companies/remitly">Remitly</a> Express is competitive on smaller amounts (USD 100–500) with frequent zero-fee promotions. Brazil charges a <strong>0.38% IOF tax</strong> on every inbound foreign-currency conversion — automatically deducted by the receiving Brazilian bank, applied to all providers including Wise, Remitly, Xoom, and US bank wires alike. On USD 1,000 that is roughly <strong>BRL 19</strong> deducted unavoidably. PIX delivery (Brazil's instant payment rail launched 2020, now used by 160+ million Brazilians) means transfers settle within seconds 24/7. <a href="/send-money/usa-to-mexico">Compare live USD to BRL rates →</a></p></div>
-<p>The US–Brazil corridor doesn't fit the typical "remittance to a developing country" template. Brazil isn't poor: it's the world's <strong>ninth-largest economy</strong> by GDP and operates one of the most modern domestic payment systems on the planet. <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> launched <strong>PIX</strong> in November 2020, and within four years it became the dominant way Brazilians move money — over <strong>160 million users</strong> (roughly 80% of all adults) and over 5 billion transactions per month, more than the country's debit card and TED transfers combined.</p>
+<p>The US–Brazil corridor doesn't fit the typical "remittance to a developing country" template. Brazil isn't poor: it's the world's <strong>ninth-largest economy</strong> by GDP and operates one of the most modern domestic payment systems on the planet. <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a> launched <strong>PIX</strong> in November 2020, and within four years it became the dominant way Brazilians move money — over <strong>160 million users</strong> (roughly 80% of all adults) and over 5 billion transactions per month, more than the country's debit card and TED transfers combined.</p>
 <p>Two structural facts shape this corridor in 2026. First, PIX has changed receive-side delivery from "1–2 business days via TED" to "seconds, 24/7" for most US digital providers (Wise, Remitly, Xoom, Boss Money, Western Union all now route final-mile through PIX). Second, Brazil charges a 0.38% <strong>IOF</strong> (Imposto sobre Operações Financeiras) on every inbound USD→BRL conversion — a federal tax automatically deducted at the moment of FX. It's small in percentage terms but it's the single most-asked-about line item from first-time senders, because it appears as a deduction on the recipient's bank statement that doesn't show up in the provider's quote screen.</p>
 <p>This guide covers exactly what to expect: which providers actually win on USD→BRL today, how PIX delivery works end-to-end, what the IOF tax is and why you can't avoid it, the diaspora-economics realities of the Florida-Massachusetts-New York Brazilian-American corridors, and the common mistakes that cost first-time senders BRL 50–200 per transfer.</p>`,
       },
@@ -3883,7 +3883,7 @@ export const blogPosts: BlogPost[] = [
 </div>
 
 <h3>Wise — The Default for Bank-Account Recipients</h3>
-<p>If your recipient has a Brazilian bank account (and 85% of adult Brazilians do, according to <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> financial inclusion data), Wise is structurally the cheapest option. The fee on USD 1,000 is roughly USD 5–8, the FX rate is the live mid-market rate from Banco Central's PTAX feed, and delivery is via PIX — typically under 30 minutes end-to-end including US-side ACH clearing, sometimes under 5 minutes with debit-card funding.</p>
+<p>If your recipient has a Brazilian bank account (and 85% of adult Brazilians do, according to <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a> financial inclusion data), Wise is structurally the cheapest option. The fee on USD 1,000 is roughly USD 5–8, the FX rate is the live mid-market rate from Banco Central's PTAX feed, and delivery is via PIX — typically under 30 minutes end-to-end including US-side ACH clearing, sometimes under 5 minutes with debit-card funding.</p>
 <p>Wise's PIX integration accepts all PIX key types: CPF, phone number, email, or random key (chave aleatória). You enter the key in the recipient screen; Wise looks up the registered Brazilian bank automatically. Wise has been actively expanding Brazilian-side liquidity since 2022 and is now one of the largest non-bank originators of inbound PIX volume in the country.</p>
 
 <h3>Remitly — Better for Small or First Transfers</h3>
@@ -3904,7 +3904,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "How PIX Works (and Why It Changed Everything)",
-        content: `<p>PIX is Brazil's central-bank-operated instant payments rail, launched November 16, 2020 by <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a>. Within four years it became the dominant payment method in the country — not just for international remittances, but for groceries, rent, business invoices, and tipping. Understanding PIX matters because it's now the default delivery method for every major US-to-Brazil money transfer provider.</p>
+        content: `<p>PIX is Brazil's central-bank-operated instant payments rail, launched November 16, 2020 by <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a>. Within four years it became the dominant payment method in the country — not just for international remittances, but for groceries, rent, business invoices, and tipping. Understanding PIX matters because it's now the default delivery method for every major US-to-Brazil money transfer provider.</p>
 
 <h3>What a PIX Key Is</h3>
 <p>A PIX key (<em>chave PIX</em>) is a piece of identifying information your recipient registers with their Brazilian bank or payment app, which routes incoming PIX payments to that account. Every Brazilian bank or fintech (Itaú, Bradesco, Banco do Brasil, Nubank, Inter, C6, PicPay, etc.) lets users register up to five PIX keys. The four key types:</p>
@@ -3926,7 +3926,7 @@ export const blogPosts: BlogPost[] = [
 <p>Total time: typically under 30 minutes if ACH-funded and initiated during US business hours, under 5 minutes if debit-card-funded. PIX itself is the fastest leg by far — the bottleneck is always the US-side funding clearance.</p>
 
 <h3>What PIX Doesn't Do</h3>
-<p>PIX is domestic-only. Brazilians can use PIX to receive funds inside Brazil 24/7, but PIX itself doesn't move money across borders — your US-to-Brazil provider performs the FX, then uses PIX as the final-mile rail inside Brazil. There is no such thing as "international PIX" yet, though Banco Central do Brasil has signaled <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">cross-border PIX integration plans</a> with Argentina, Uruguay, and other Mercosul countries are in development.</p>`,
+<p>PIX is domestic-only. Brazilians can use PIX to receive funds inside Brazil 24/7, but PIX itself doesn't move money across borders — your US-to-Brazil provider performs the FX, then uses PIX as the final-mile rail inside Brazil. There is no such thing as "international PIX" yet, though Banco Central do Brasil has signaled <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer">cross-border PIX integration plans</a> with Argentina, Uruguay, and other Mercosul countries are in development.</p>`,
       },
       {
         heading: "The IOF Tax: 0.38% You Cannot Avoid",
@@ -4023,7 +4023,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market USD/BRL reference rates from <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer nofollow">Banco Central do Brasil</a> PTAX feed and exchangerate.host. PIX system documentation from Banco Central do Brasil's PIX information portal. IOF tax rate per Brazilian Federal Decree 6,306/2007 and current Receita Federal guidance. Brazilian-American population figures from Ministério das Relações Exteriores (Brazilian Foreign Ministry) consular registration data and US Census American Community Survey ancestry tabulations. Remittance flow figures from <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> and Banco Central do Brasil balance-of-payments data. <a href="/send-money/usa-to-mexico">Compare live USD to BRL rates →</a></p>`,
+        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market USD/BRL reference rates from <a href="https://www.bcb.gov.br/en/" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a> PTAX feed and exchangerate.host. PIX system documentation from Banco Central do Brasil's PIX information portal. IOF tax rate per Brazilian Federal Decree 6,306/2007 and current Receita Federal guidance. Brazilian-American population figures from Ministério das Relações Exteriores (Brazilian Foreign Ministry) consular registration data and US Census American Community Survey ancestry tabulations. Remittance flow figures from <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a> and Banco Central do Brasil balance-of-payments data. <a href="/send-money/usa-to-mexico">Compare live USD to BRL rates →</a></p>`,
       },
     ],
     faqs: [
@@ -4059,7 +4059,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Mexico: The World's Second-Largest Remittance Market",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest ways to send money to Mexico are <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee with Express SPEI delivery in minutes), <a href="/companies/wise">Wise</a> (~$7 fee, 0% markup for best total value on $1,000+), and <a href="/companies/instarem">Instarem</a> (competitive rates). For cash pickup, <a href="/companies/western-union">Western Union</a> offers 50,000+ locations including OXXO stores. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> across 10+ providers.</p></div>
-<p>Mexico received a record <strong>$63 billion in remittances</strong> in 2025, almost entirely from the United States, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México (Banxico)</a>. That makes the US-Mexico corridor the single largest bilateral remittance route on the planet.</p>
+<p>Mexico received a record <strong>$63 billion in remittances</strong> in 2025, almost entirely from the United States, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a>. That makes the US-Mexico corridor the single largest bilateral remittance route on the planet.</p>
 <p>The sheer volume means intense competition between providers. Fees are among the lowest of any corridor, and exchange rate spreads are tight. But even small differences matter at scale — a 0.5% rate markup on $1,000 costs roughly MXN 85. If you send monthly, that's MXN 1,000+ per year your family doesn't receive.</p>`,
       },
       {
@@ -4159,7 +4159,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Mexican ID requirement:</strong> For cash pickups over $300 USD equivalent, the recipient must present valid Mexican ID (INE/IFE credential). Amounts over $4,000 USD per month may trigger additional reporting.</li>
 <li><strong>No inbound remittance tax:</strong> Mexico does not tax incoming remittances for personal use. Recipients do not owe income tax on family support payments.</li>
 <li><strong>US reporting:</strong> Transfers over $10,000 are reported by US financial institutions under the Bank Secrecy Act. Structuring multiple smaller transfers to avoid this threshold is illegal. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> enforces these rules for US money transmitters.</li>
-<li><strong>Banxico oversight:</strong> The <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Bank of Mexico</a> tracks all inbound remittance flows and publishes monthly statistics. Licensed providers comply with Mexican AML regulations.</li>
+<li><strong>Banxico oversight:</strong> The <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Bank of Mexico</a> tracks all inbound remittance flows and publishes monthly statistics. Licensed providers comply with Mexican AML regulations.</li>
 <li><strong>CFPB protections:</strong> The <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> requires licensed US providers to disclose all fees, exchange rates, and total recipient amounts before you confirm a transfer.</li>
 </ul>
 <p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest ways to send money internationally</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>.</p>`,
@@ -4167,7 +4167,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México (Banxico)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -4237,7 +4237,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "USA to Mexico: A $63 Billion Corridor — Here's How to Send for Less",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> For most people sending money from the USA to Mexico, a money transfer app like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a> paired with a direct <strong>SPEI deposit</strong> to your recipient's CLABE number is the cheapest and fastest combination — often arriving in minutes for under $10 total cost on a $500 transfer. Bank-to-bank wires are the most expensive route, typically costing $50-$120 more for the same amount. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates</a> from 10+ providers before you send.</p></div>
-<p>Mexico is the single largest remittance corridor in the world, receiving a record <strong>$63 billion</strong> from the United States in 2025 alone, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México (Banxico)</a>. With that much money moving between the two countries, senders have more options than almost any other corridor — and that's both an opportunity and a trap.</p>
+<p>Mexico is the single largest remittance corridor in the world, receiving a record <strong>$63 billion</strong> from the United States in 2025 alone, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México (Banxico)</a>. With that much money moving between the two countries, senders have more options than almost any other corridor — and that's both an opportunity and a trap.</p>
 <p>The opportunity: competition keeps fees low and choice high. The trap: not every option is created equal, and the "convenient" choice — your bank, or the agent on the corner — is often the most expensive by a wide margin. This guide breaks down <strong>six real ways</strong> to send money from the US to Mexico, what each one actually costs on a typical $500 transfer, and how to pick the right one for your situation — whether your recipient has a bank account, a debit card, a smartphone, or none of the above.</p>`,
       },
       {
@@ -4364,7 +4364,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Rules, Taxes, and Safety to Know Before You Send",
         content: `<p>A few rules and protections are worth knowing before you send money from the US to Mexico:</p>
 <ul>
-<li><strong>Mexico doesn't tax incoming remittances.</strong> Money sent home for family support isn't treated as taxable income for the recipient, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer nofollow">Banco de México</a>.</li>
+<li><strong>Mexico doesn't tax incoming remittances.</strong> Money sent home for family support isn't treated as taxable income for the recipient, according to <a href="https://www.banxico.org.mx/" target="_blank" rel="noopener noreferrer">Banco de México</a>.</li>
 <li><strong>The new US remittance excise tax mostly won't apply to you.</strong> A 1% federal tax now applies to <em>cash-funded</em> transfers sent through money transmitters — but transfers funded from a US bank account, debit card, or credit card are exempt. Choosing an app and funding digitally avoids it entirely. Read our <a href="/guides/us-remittance-tax-2026">full breakdown of the US remittance tax</a> for the details.</li>
 <li><strong>Large transfers get reported, not blocked.</strong> US financial institutions report transfers over $10,000 to FinCEN under the Bank Secrecy Act. This is routine and legal — but deliberately splitting a transfer into smaller pieces to dodge the threshold ("structuring") is a federal offense.</li>
 <li><strong>Your recipient will need valid ID for cash pickup.</strong> For pickups above roughly $300, Mexican agents require a valid INE/IFE voter credential or passport. Larger monthly totals may trigger extra verification steps.</li>
@@ -4523,7 +4523,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Understanding the Naira Exchange Rate",
         content: `<p>The Nigerian naira (NGN) has a complex exchange rate history. Here's what you need to know:</p>
 <ul>
-<li><strong>Exchange rate unification:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria (CBN)</a> moved toward a unified exchange rate in 2023, but differences between providers remain larger than on most corridors.</li>
+<li><strong>Exchange rate unification:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a> moved toward a unified exchange rate in 2023, but differences between providers remain larger than on most corridors.</li>
 <li><strong>Provider rate differences:</strong> Different providers source naira at different rates depending on their banking partners and CBN allocation. Always compare multiple providers on the same day.</li>
 <li><strong>Volatility:</strong> The naira can move 2–5% in a single week. If you have flexibility, set up rate alerts and transfer when the rate is favourable.</li>
 <li><strong>Dollar accounts vs naira:</strong> Some Nigerian banks offer domiciliary (dollar) accounts. If your recipient has one, they can receive USD directly — useful when the naira rate is unfavourable.</li>
@@ -4534,7 +4534,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Regulations and Tax Considerations",
         content: `<p>Key rules for sending money to Nigeria:</p>
 <ul>
-<li><strong>CBN regulations:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria</a> requires that inbound remittances be processed through authorised dealer banks. All providers on our comparison are fully licensed.</li>
+<li><strong>CBN regulations:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria</a> requires that inbound remittances be processed through authorised dealer banks. All providers on our comparison are fully licensed.</li>
 <li><strong>Tax-free for recipients:</strong> Diaspora remittances are not subject to income tax in Nigeria. The government actively encourages formal remittance channels to boost foreign exchange reserves.</li>
 <li><strong>BVN requirement:</strong> Recipients may need a Bank Verification Number (BVN) for large bank deposits. BVN is an 11-digit biometric identifier linked to all Nigerian bank accounts.</li>
 <li><strong>US sender reporting:</strong> Transfers over $10,000 are reported under the Bank Secrecy Act. Personal gifts to family are not taxable for the sender. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> enforces these rules for US money transmitters.</li>
@@ -4544,7 +4544,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria (CBN)</a> data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration and remittances data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a> data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration and remittances data.</p>`,
       },
     ],
     faqs: [
@@ -4603,7 +4603,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Bangladesh: A Top-10 Remittance Destination",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest ways to send money to Bangladesh are <a href="/companies/remitly">Remitly</a> ($0-$3.99 fee with Express bKash delivery in seconds), <a href="/companies/instarem">Instarem</a> (competitive BDT rates), and <a href="/companies/wise">Wise</a> (~$7 fee, 0% markup — best for $1,000+ transfers). bKash and Nagad mobile wallets make receiving money fast even in rural areas. <a href="/send-money/usa-to-bangladesh">Compare live USD to BDT rates</a> from 8+ providers.</p></div>
-<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025, according to the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a>, making it one of the top remittance-receiving countries globally. The US, Saudi Arabia, UAE, and Malaysia are the largest source countries.</p>
+<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025, according to the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, making it one of the top remittance-receiving countries globally. The US, Saudi Arabia, UAE, and Malaysia are the largest source countries.</p>
 <p>The USD to BDT corridor has a growing number of providers competing for market share. Mobile financial services — particularly <strong>bKash</strong> and <strong>Nagad</strong> — have transformed how Bangladeshis receive money from abroad, making transfers faster and more accessible than ever, especially in rural areas.</p>`,
       },
       {
@@ -4694,7 +4694,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Compare the total BDT received.</strong> Use our <a href="/send-money/usa-to-bangladesh">comparison tool</a> to see the actual taka amount after all fees and rate markups.</li>
 <li><strong>Consider bKash for small regular amounts.</strong> Lower minimum transfers and instant delivery make bKash ideal for weekly or biweekly remittances.</li>
 <li><strong>Fund with bank transfer.</strong> Credit card surcharges of 1.5%–3% add unnecessary cost.</li>
-<li><strong>Bangladesh Bank incentives:</strong> The <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> offers a 2.5% cash incentive on inbound remittances through formal channels — an additional reason to use licensed providers rather than informal channels.</li>
+<li><strong>Bangladesh Bank incentives:</strong> The <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> offers a 2.5% cash incentive on inbound remittances through formal channels — an additional reason to use licensed providers rather than informal channels.</li>
 <li><strong>Avoid US banks for remittances.</strong> Wire fees of $25–$50 plus 3%+ exchange rate markup make banks the most expensive option by far.</li>
 </ol>
 <p>Learn how exchange rate markups affect your total cost in our <a href="/guides/exchange-rate-markup-explained">markup guide</a>.</p>`,
@@ -4703,7 +4703,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Regulations and Tax Considerations",
         content: `<p>Key rules for sending money to Bangladesh:</p>
 <ul>
-<li><strong>2.5% government incentive:</strong> The <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> provides a 2.5% cash incentive on inbound remittances received through authorised banking channels. This incentive goes directly to the recipient and is a compelling reason to use formal channels.</li>
+<li><strong>2.5% government incentive:</strong> The <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> provides a 2.5% cash incentive on inbound remittances received through authorised banking channels. This incentive goes directly to the recipient and is a compelling reason to use formal channels.</li>
 <li><strong>Tax-free for recipients:</strong> Remittances from abroad are not subject to income tax in Bangladesh.</li>
 <li><strong>NID requirement:</strong> Recipients may need to provide their National Identity Card (NID) number for bank deposits and cash pickups above certain thresholds.</li>
 <li><strong>US sender reporting:</strong> Transfers over $10,000 are reported under the Bank Secrecy Act. Personal gifts are not taxable for the sender. The <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> oversees AML compliance for US money transmitters.</li>
@@ -4714,7 +4714,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> remittance statistics, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -4878,7 +4878,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments. Transfers are not reportable unless you're claiming tax relief.</li>
 <li><strong>For recipients in India:</strong> Money received from relatives abroad is <strong>tax-free</strong> under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
 <li><strong>Non-relative gifts:</strong> If the recipient is NOT a relative (as defined by the Income Tax Act), gifts over ₹50,000 in a financial year may be taxable as "income from other sources."</li>
-<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS of 5%–20% may apply under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹7 lakh per financial year.</li>
+<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS of 5%–20% may apply under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹7 lakh per financial year.</li>
 <li><strong>FCA regulation:</strong> All UK-based transfer providers must be authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a>. Check the FCA register if you're unsure about a provider.</li>
 </ul>
 <p>This is general information — consult a tax professional for your specific situation.</p>
@@ -4887,7 +4887,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India (RBI)</a> remittance data, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> remittance data, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics.</p>`,
       },
     ],
     faqs: [
@@ -5062,10 +5062,10 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Important rules for Canada to India transfers:</p>
 <ul>
 <li><strong>For Canadian senders:</strong> No CRA (Canada Revenue Agency) tax on personal remittances to family. There is no tax on outgoing gifts or family support payments.</li>
-<li><strong>FINTRAC reporting:</strong> Under <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer nofollow">FINTRAC</a> regulations, international electronic funds transfers of C$10,000 or more must be reported by the financial institution. This is automatic and does not mean your transfer is suspicious — it's a standard anti-money-laundering measure.</li>
+<li><strong>FINTRAC reporting:</strong> Under <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> regulations, international electronic funds transfers of C$10,000 or more must be reported by the financial institution. This is automatic and does not mean your transfer is suspicious — it's a standard anti-money-laundering measure.</li>
 <li><strong>For recipients in India:</strong> Money received from relatives abroad is <strong>tax-free</strong> under Section 56(2) of the Income Tax Act. "Relatives" includes parents, siblings, spouse, and their families.</li>
 <li><strong>Non-relative gifts:</strong> If the recipient is NOT a relative (as defined by the Income Tax Act), gifts over ₹50,000 in a financial year may be taxable as "income from other sources."</li>
-<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS of 5%–20% may apply under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹7 lakh per financial year.</li>
+<li><strong>TCS (Tax Collected at Source):</strong> This applies when sending FROM India, not receiving. TCS of 5%–20% may apply under the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India's</a> Liberalised Remittance Scheme for amounts over ₹7 lakh per financial year.</li>
 </ul>
 <p>This is general information — consult a tax professional for your specific situation.</p>
 <p>For more guidance, read our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/how-to-send-money-abroad">how to send money abroad</a>, and <a href="/guides/best-money-transfer-apps">best money transfer apps</a>. According to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiaspora" target="_blank" rel="noopener noreferrer">World Bank Migration and Remittances</a> data, India is the world's largest remittance recipient at over $125 billion annually. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database tracks average costs on the Canada-India corridor. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global remittance tracker confirms Canada as one of India's top source countries.</p>`,
@@ -5073,7 +5073,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India (RBI)</a> remittance data, <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer nofollow">FINTRAC</a> reporting guidelines, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> remittance data, <a href="https://fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> reporting guidelines, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics.</p>`,
       },
     ],
     faqs: [
@@ -5517,7 +5517,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Why Expats Choose Cash Pickup Over Bank Deposits",
         content: `<p>With UPI and IMPS making bank deposits near-instant in India, why do so many expats still use cash pickup? Several reasons:</p>
 <h3>1. Recipients Without Active Bank Accounts</h3>
-<p>Despite India's <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India</a> Jan Dhan Yojana drive, many recipients — especially elderly parents or family members in rural areas — either don't have bank accounts or don't use them actively. Cash pickup eliminates this barrier entirely.</p>
+<p>Despite India's <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a> Jan Dhan Yojana drive, many recipients — especially elderly parents or family members in rural areas — either don't have bank accounts or don't use them actively. Cash pickup eliminates this barrier entirely.</p>
 <h3>2. No Technology Required</h3>
 <p>Bank deposits require the recipient to have online banking or visit their bank branch during working hours. UPI requires a smartphone. Cash pickup just requires a valid ID and the reference number — no apps, no passwords, no digital literacy required.</p>
 <h3>3. Immediate Access to Funds</h3>
@@ -5593,7 +5593,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from Ria's website via automated scraping, combined with publicly available fee schedules and official Ria documentation. Exchange rates and fees change frequently — use our <a href="/send-money/usa-to-india">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India (RBI)</a> remittance data, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> registry, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics. Network size and partner information sourced from Ria's official website and press releases.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> remittance data, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> registry, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration statistics. Network size and partner information sourced from Ria's official website and press releases.</p>`,
       },
     ],
     faqs: [
@@ -5671,14 +5671,14 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Why Paying International Suppliers Is So Expensive",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Use <a href="/companies/wise">Wise Business</a> or <a href="/companies/ofx">OFX</a> for international supplier payments — they save 2–4% compared to bank wires, with faster delivery and better exchange rates.</p></div>
-<p>Cross-border B2B payments are projected to exceed <strong>$35 trillion by 2028</strong>, according to <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer nofollow">Juniper Research</a>. Yet most businesses still overpay on every international supplier invoice — often without realizing it.</p>
+<p>Cross-border B2B payments are projected to exceed <strong>$35 trillion by 2028</strong>, according to <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>. Yet most businesses still overpay on every international supplier invoice — often without realizing it.</p>
 <p>The problem comes down to three hidden cost layers:</p>
 <ol>
 <li><strong>Exchange rate markup</strong> — Banks typically add 1.5–3% above the mid-market rate. On a $50,000 supplier payment, that's $750–$1,500 lost per transaction.</li>
 <li><strong>Wire transfer fees</strong> — SWIFT transfers cost $25–$50 per payment, plus intermediary bank fees of $15–$30 that get deducted from the payment amount.</li>
 <li><strong>Correspondent bank charges</strong> — International wires pass through intermediary banks, each taking a cut. Your supplier may receive less than you sent, creating reconciliation headaches.</li>
 </ol>
-<p>According to the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements (BIS)</a>, the average cost of cross-border B2B payments remains above 1.5% — far higher than domestic equivalents. Our guide to <a href="/guides/exchange-rate-markup-explained">exchange rate markups</a> explains exactly how to calculate these hidden costs.</p>`,
+<p>According to the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements (BIS)</a>, the average cost of cross-border B2B payments remains above 1.5% — far higher than domestic equivalents. Our guide to <a href="/guides/exchange-rate-markup-explained">exchange rate markups</a> explains exactly how to calculate these hidden costs.</p>`,
       },
       {
         heading: "Payment Methods for International Suppliers Compared",
@@ -5735,7 +5735,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>International supplier payments come with compliance obligations that personal transfers don't:</p>
 <ul>
 <li><strong>Invoice matching</strong> — Keep a clear paper trail linking each payment to a specific invoice or purchase order. Tax authorities may ask for proof that payments were for legitimate business expenses.</li>
-<li><strong>Transfer pricing documentation</strong> — If paying a related entity abroad (e.g., a subsidiary), ensure amounts align with arm's-length pricing rules per <a href="https://www.oecd.org/" target="_blank" rel="noopener noreferrer nofollow">OECD guidelines</a> to avoid <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a> or <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer nofollow">HMRC</a> scrutiny.</li>
+<li><strong>Transfer pricing documentation</strong> — If paying a related entity abroad (e.g., a subsidiary), ensure amounts align with arm's-length pricing rules per <a href="https://www.oecd.org/" target="_blank" rel="noopener noreferrer">OECD guidelines</a> to avoid <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a> or <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC</a> scrutiny.</li>
 <li><strong>Withholding tax</strong> — Some countries require you to withhold tax on payments to foreign suppliers for services. Check if a tax treaty applies to reduce or eliminate it.</li>
 <li><strong>Sanctions screening</strong> — Ensure your suppliers aren't on restricted party lists. Most FX platforms handle this automatically, but you're ultimately responsible.</li>
 <li><strong>CTR reporting</strong> — In the US, transactions over $10,000 trigger a Currency Transaction Report per <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> requirements.</li>
@@ -5745,7 +5745,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer nofollow">Juniper Research</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+<p>External sources include the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements</a>, <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -5800,7 +5800,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The Rise of International Payroll",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a>, Deel, and Airwallex offer the cheapest ways to pay international teams — with lower FX costs, batch payments, and built-in compliance tools.</p></div>
-<p>The shift to remote work has created massive demand for cross-border payroll. According to <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer nofollow">McKinsey</a>, 35% of US workers can work fully remotely, and many companies now hire talent across borders to access wider talent pools and reduce costs.</p>
+<p>The shift to remote work has created massive demand for cross-border payroll. According to <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer">McKinsey</a>, 35% of US workers can work fully remotely, and many companies now hire talent across borders to access wider talent pools and reduce costs.</p>
 <p>But paying international team members isn't as simple as sending a domestic bank transfer. You need to navigate:</p>
 <ul>
 <li><strong>Currency conversion costs</strong> — Paying in your home currency forces your team to bear FX costs; paying in their local currency means you absorb them</li>
@@ -5821,7 +5821,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Setting up a local entity</strong> — Expensive and time-consuming (often $20,000+ and 3–6 months), but gives you full control</li>
 <li><strong>Using an Employer of Record (EOR)</strong> — A third-party company that legally employs your team member in their country. You manage their work; the EOR handles payroll, taxes, and compliance. Services like Deel, Remote, and Oyster offer this.</li>
 </ul>
-<p>The <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a> provides guidance on worker classification rules for US companies. Similar rules exist in the UK under <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer nofollow">HMRC's IR35 legislation</a>.</p>`,
+<p>The <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a> provides guidance on worker classification rules for US companies. Similar rules exist in the UK under <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC's IR35 legislation</a>.</p>`,
       },
       {
         heading: "Best Ways to Pay International Contractors",
@@ -5869,7 +5869,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Tax and Compliance Essentials",
         content: `<p>International payroll comes with tax obligations you can't ignore:</p>
 <ul>
-<li><strong>Tax treaties</strong> — Many countries have bilateral tax treaties that prevent double taxation. Check the <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS tax treaty tables</a> or <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer nofollow">HMRC's treaty list</a>.</li>
+<li><strong>Tax treaties</strong> — Many countries have bilateral tax treaties that prevent double taxation. Check the <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS tax treaty tables</a> or <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC's treaty list</a>.</li>
 <li><strong>Permanent establishment risk</strong> — Hiring employees in a foreign country can create a taxable presence (permanent establishment) for your business there, triggering corporate tax obligations.</li>
 <li><strong>Contractor tax forms</strong> — US companies paying foreign contractors over $600 should collect a W-8BEN form. Depending on the service type and treaty, withholding may apply.</li>
 <li><strong>Social security totalization agreements</strong> — These prevent employees from paying social security in both countries. The US has agreements with 30+ countries.</li>
@@ -5880,7 +5880,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer nofollow">McKinsey</a>, provider-published fee schedules, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a> and <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer nofollow">HMRC</a> guidance on international employment, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+<p>External sources include <a href="https://www.mckinsey.com/" target="_blank" rel="noopener noreferrer">McKinsey</a>, provider-published fee schedules, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a> and <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC</a> guidance on international employment, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -5937,7 +5937,7 @@ export const blogPosts: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Forward contracts, options, and natural hedging can protect small businesses from FX volatility. Providers like <a href="/companies/ofx">OFX</a> and <a href="/companies/xe">XE</a> offer accessible hedging tools starting at $5,000.</p></div>
 <p>If your business earns revenue in one currency and pays costs in another, you're exposed to exchange rate risk — whether you realize it or not.</p>
 <p>Consider a US-based e-commerce company importing goods from Europe. When the EUR/USD rate moves from 1.08 to 1.12, a €100,000 invoice goes from costing $108,000 to $112,000 — a <strong>$4,000 hit</strong> with no change in the underlying business.</p>
-<p>According to the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements</a>, daily FX market turnover exceeds $7.5 trillion, and major currency pairs can move 5–15% in a single year. For businesses operating on 10–20% margins, that's enough to turn a profitable quarter into a loss.</p>
+<p>According to the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements</a>, daily FX market turnover exceeds $7.5 trillion, and major currency pairs can move 5–15% in a single year. For businesses operating on 10–20% margins, that's enough to turn a profitable quarter into a loss.</p>
 <p>The good news: you don't need a corporate treasury team to manage this risk. Several accessible tools are available to small businesses through providers like <a href="/companies/ofx">OFX</a>, <a href="/companies/xe">XE Business</a>, and others.</p>`,
       },
       {
@@ -6011,7 +6011,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on provider-published product information and real quotes collected via automated scraping every 6 hours. Use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements</a> triennial FX survey and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
+<p>External sources include the <a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">Bank for International Settlements</a> triennial FX survey and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -6142,14 +6142,14 @@ export const blogPosts: BlogPost[] = [
 <li><strong>VAT / GST on international services</strong> — In many jurisdictions, B2B services exported to another country are zero-rated (no VAT charged). But you must still record them correctly. In the EU, the reverse-charge mechanism shifts VAT liability to the buyer.</li>
 <li><strong>Withholding tax</strong> — Some countries require the payer to withhold tax on service payments to foreign providers. India, for example, may withhold 10–20% on payments to non-residents. Tax treaties can reduce or eliminate this.</li>
 <li><strong>Currency conversion for tax reporting</strong> — Tax authorities require you to report income in your home currency. Use a consistent conversion method (e.g., spot rate on invoice date, or average monthly rate) and document it.</li>
-<li><strong>Transfer pricing</strong> — If invoicing a related entity abroad (e.g., your own subsidiary), arm's-length pricing rules apply per <a href="https://www.oecd.org/" target="_blank" rel="noopener noreferrer nofollow">OECD guidelines</a>.</li>
+<li><strong>Transfer pricing</strong> — If invoicing a related entity abroad (e.g., your own subsidiary), arm's-length pricing rules apply per <a href="https://www.oecd.org/" target="_blank" rel="noopener noreferrer">OECD guidelines</a>.</li>
 </ul>
-<p>Always consult a tax professional familiar with cross-border transactions. The <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a> and <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer nofollow">HMRC</a> publish guidance on reporting foreign income.</p>`,
+<p>Always consult a tax professional familiar with cross-border transactions. The <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a> and <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC</a> publish guidance on reporting foreign income.</p>`,
       },
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on provider-published product information and real quotes collected via automated scraping every 6 hours. Use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include <a href="https://www.atradius.com/" target="_blank" rel="noopener noreferrer nofollow">Atradius Payment Practices Barometer</a>, provider-published fee schedules, and guidance from the <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a>, <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer nofollow">HMRC</a>, and <a href="https://www.oecd.org/" target="_blank" rel="noopener noreferrer nofollow">OECD</a>.</p>`,
+<p>External sources include <a href="https://www.atradius.com/" target="_blank" rel="noopener noreferrer nofollow">Atradius Payment Practices Barometer</a>, provider-published fee schedules, and guidance from the <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a>, <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC</a>, and <a href="https://www.oecd.org/" target="_blank" rel="noopener noreferrer">OECD</a>.</p>`,
       },
     ],
     faqs: [
@@ -6204,7 +6204,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "US-Canada: The World's Largest Bilateral Trade Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/ofx">OFX</a> offer the lowest fees for USD to CAD business payments — saving 1–3% compared to bank wire transfers on every payment.</p></div>
-<p>The US and Canada share the world's largest bilateral trade relationship, with over <strong>$900 billion</strong> in goods and services crossing the border annually, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>.</p>
+<p>The US and Canada share the world's largest bilateral trade relationship, with over <strong>$900 billion</strong> in goods and services crossing the border annually, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>.</p>
 <p>Yet despite this massive volume, many businesses still overpay on USD to CAD transfers. Banks routinely charge 1.5–3% exchange rate markups on business wire transfers between the two countries — that's $1,500–$3,000 on every $100,000 payment.</p>
 <p>The good news: because USD-CAD is one of the most liquid currency pairs in the world, specialist providers offer extremely competitive rates. Here's how to take advantage.</p>`,
       },
@@ -6271,7 +6271,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <h3>Canadian Requirements</h3>
 <ul>
-<li><strong>FINTRAC reporting</strong> — Canadian financial institutions report cross-border EFTs of C$10,000 or more to <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer nofollow">FINTRAC</a></li>
+<li><strong>FINTRAC reporting</strong> — Canadian financial institutions report cross-border EFTs of C$10,000 or more to <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a></li>
 <li><strong>GST/HST</strong> — If your business is registered for Canadian GST/HST, cross-border service payments may have GST implications depending on the place of supply rules</li>
 <li><strong>Withholding tax</strong> — Canada generally does not withhold on most business service payments to US companies under the US-Canada Tax Treaty, but payments for royalties, management fees, or certain services may trigger 15–25% withholding unless treaty relief applies</li>
 </ul>
@@ -6280,7 +6280,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">USA to Canada comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer nofollow">FINTRAC</a>, and provider-published business fee schedules.</p>`,
+<p>External sources include the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a>, and provider-published business fee schedules.</p>`,
       },
     ],
     faqs: [
@@ -6334,7 +6334,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The USD-GBP Business Payment Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> offers 0% markup on the mid-market rate for USD to GBP business transfers, making it the cheapest option for regular <a href="/send-money/usa-to-uk">USA to UK payments</a>.</p></div>
-<p>The United States and the United Kingdom share one of the world's most significant economic partnerships, with bilateral trade in goods and services exceeding <strong>$300 billion annually</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>. The UK is the largest European destination for US foreign direct investment.</p>
+<p>The United States and the United Kingdom share one of the world's most significant economic partnerships, with bilateral trade in goods and services exceeding <strong>$300 billion annually</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>. The UK is the largest European destination for US foreign direct investment.</p>
 <p>Despite this deep economic integration, many US businesses still rely on traditional bank wires to pay UK suppliers and contractors — losing 1.5–3% per transfer in hidden exchange rate markups. On a $50,000 payment, that's $750–$1,500 that didn't need to be spent.</p>`,
       },
       {
@@ -6455,7 +6455,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The USD-INR Business Payment Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and <a href="/companies/instarem">Instarem</a> offer the cheapest USD to INR business payments — saving $400–$800/month compared to bank wires on a $20,000 transfer. <a href="/send-money/usa-to-india">Compare live rates</a>.</p></div>
-<p>India is the world's top destination for IT services outsourcing, with the US-India technology services corridor alone worth over <strong>$50 billion annually</strong>. Beyond tech, bilateral trade in goods and services exceeds <strong>$190 billion</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer nofollow">Office of the US Trade Representative</a>.</p>
+<p>India is the world's top destination for IT services outsourcing, with the US-India technology services corridor alone worth over <strong>$50 billion annually</strong>. Beyond tech, bilateral trade in goods and services exceeds <strong>$190 billion</strong>, according to the <a href="https://ustr.gov/" target="_blank" rel="noopener noreferrer">Office of the US Trade Representative</a>.</p>
 <p>For US businesses paying Indian contractors, development teams, or suppliers, the payment method matters enormously. Bank wires to India typically cost 2–4% in total fees and markup — on a $20,000 monthly contractor payment, that's $400–$800 lost every month. Over a year, that's $4,800–$9,600 in unnecessary costs.</p>`,
       },
       {
@@ -6498,7 +6498,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "USD/INR Exchange Rate: What Drives It",
-        content: `<p>The USD/INR pair is managed by the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India (RBI)</a>, which intervenes to prevent excessive volatility. Key factors:</p>
+        content: `<p>The USD/INR pair is managed by the <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a>, which intervenes to prevent excessive volatility. Key factors:</p>
 <ul>
 <li><strong>RBI intervention</strong> — The RBI actively manages the INR, smoothing large moves. This means USD/INR is less volatile than other emerging market pairs, typically moving 3–8% per year.</li>
 <li><strong>Oil prices</strong> — India imports over 80% of its crude oil. Higher oil prices weaken INR (higher USD/INR rate) as India's import bill rises.</li>
@@ -6518,7 +6518,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <h3>Indian Requirements</h3>
 <ul>
-<li><strong>RBI regulations</strong> — The <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India</a> regulates all inbound foreign remittances. Payments must be received through authorized dealer banks.</li>
+<li><strong>RBI regulations</strong> — The <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a> regulates all inbound foreign remittances. Payments must be received through authorized dealer banks.</li>
 <li><strong>FEMA compliance</strong> — The Foreign Exchange Management Act governs cross-border payments. Business payments for services are freely permitted under the current account.</li>
 <li><strong>GST on imported services</strong> — Indian businesses receiving payments for services exported to the US are generally GST-exempt (zero-rated export of services), but they must comply with export documentation requirements.</li>
 <li><strong>TDS (Tax Deducted at Source)</strong> — Indian companies paying foreign entities may need to withhold tax (TDS) under Section 195 of the Income Tax Act. This typically applies when an Indian entity pays a US company, not the reverse.</li>
@@ -6643,7 +6643,7 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li><strong>CTR</strong> — Currency Transaction Reports for transactions over $10,000 filed with <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a></li>
 <li><strong>FBAR</strong> — Required if you hold Mexican bank accounts with aggregate balances over $10,000</li>
-<li><strong>OFAC screening</strong> — Ensure your Mexican business partners are not on the <a href="https://ofac.treasury.gov/" target="_blank" rel="noopener noreferrer nofollow">OFAC</a> Specially Designated Nationals list</li>
+<li><strong>OFAC screening</strong> — Ensure your Mexican business partners are not on the <a href="https://ofac.treasury.gov/" target="_blank" rel="noopener noreferrer">OFAC</a> Specially Designated Nationals list</li>
 </ul>
 <h3>Mexican Requirements</h3>
 <ul>
@@ -6706,7 +6706,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "The USD-EUR Business Payment Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a> and Airwallex offer the best USD to EUR rates for businesses — with 0–0.3% markup and SEPA routing for fast European delivery. <a href="/send-money/usa-to-europe">Compare live rates</a>.</p></div>
-<p>The European Union is the United States' largest trade and investment partner, with bilateral trade in goods and services exceeding <strong>$1.3 trillion annually</strong> and mutual investment stocks of over <strong>$5.6 trillion</strong>, according to the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Commission</a>.</p>
+<p>The European Union is the United States' largest trade and investment partner, with bilateral trade in goods and services exceeding <strong>$1.3 trillion annually</strong> and mutual investment stocks of over <strong>$5.6 trillion</strong>, according to the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer">European Commission</a>.</p>
 <p>For US businesses paying European suppliers, contractors, or offices, understanding SEPA (the Single Euro Payments Area) is key. SEPA enables fast, cheap euro transfers across 36 European countries — and smart businesses can use FX platforms to route their USD payments via SEPA for dramatically lower costs than traditional SWIFT wires.</p>`,
       },
       {
@@ -6994,7 +6994,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>GBP/INR is influenced by both developed and emerging market dynamics:</p>
 <ul>
 <li><strong>Bank of England policy</strong> — BoE rate decisions directly affect GBP. Rate cuts weaken GBP, meaning you get fewer INR per pound.</li>
-<li><strong>RBI management</strong> — The <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India</a> manages INR volatility through active intervention. This provides some stability compared to other emerging market pairs.</li>
+<li><strong>RBI management</strong> — The <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a> manages INR volatility through active intervention. This provides some stability compared to other emerging market pairs.</li>
 <li><strong>Oil prices</strong> — India imports 80%+ of its crude oil. Higher oil prices weaken INR. The UK is less oil-dependent, so oil shocks tend to push GBP/INR higher.</li>
 <li><strong>UK-India trade deal progress</strong> — Ongoing FTA negotiations can move the pair. A comprehensive deal would likely strengthen economic ties and stabilize the corridor.</li>
 </ul>
@@ -7007,11 +7007,11 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li><strong>FCA regulation</strong> — All UK payment providers must be <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> authorized</li>
 <li><strong>HMRC reporting</strong> — Large or unusual cross-border payments may need to be reported. Ensure payments to Indian contractors are properly documented for corporation tax deductions.</li>
-<li><strong>IR35</strong> — If engaging Indian contractors who work primarily for your company, consider <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer nofollow">HMRC IR35</a> implications, though these primarily apply to UK-based contractors.</li>
+<li><strong>IR35</strong> — If engaging Indian contractors who work primarily for your company, consider <a href="https://www.gov.uk/government/organisations/hm-revenue-customs" target="_blank" rel="noopener noreferrer">HMRC IR35</a> implications, though these primarily apply to UK-based contractors.</li>
 </ul>
 <h3>Indian Requirements</h3>
 <ul>
-<li><strong>RBI regulations</strong> — All inbound foreign remittances must be received through authorized dealer banks per <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">RBI</a> guidelines</li>
+<li><strong>RBI regulations</strong> — All inbound foreign remittances must be received through authorized dealer banks per <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">RBI</a> guidelines</li>
 <li><strong>FEMA compliance</strong> — Business service payments are freely permitted under current account transactions</li>
 <li><strong>Purpose codes</strong> — Indian banks require a purpose code for inbound remittances (e.g., P0802 for software services)</li>
 <li><strong>GST on exported services</strong> — Indian businesses exporting services to the UK are generally GST-exempt (zero-rated)</li>
@@ -7356,7 +7356,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "USD/CNY Exchange Rate: What Drives It",
-        content: `<p>USD/CNY is unique because the <a href="http://www.pbc.gov.cn/" target="_blank" rel="noopener noreferrer nofollow">People's Bank of China (PBOC)</a> manages the rate within a daily trading band:</p>
+        content: `<p>USD/CNY is unique because the <a href="http://www.pbc.gov.cn/" target="_blank" rel="noopener noreferrer">People's Bank of China (PBOC)</a> manages the rate within a daily trading band:</p>
 <ul>
 <li><strong>PBOC daily fixing</strong> — Each morning, the PBOC sets a "reference rate" and allows CNY to trade within a ±2% band. This limits daily volatility but allows gradual multi-month trends.</li>
 <li><strong>US-China trade tensions</strong> — Tariff announcements, trade negotiations, and geopolitical events can move USD/CNY significantly over weeks and months.</li>
@@ -7378,8 +7378,8 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <h3>US Requirements</h3>
 <ul>
-<li><strong>OFAC screening</strong> — Critical for China payments. Ensure your Chinese partners are not on the <a href="https://ofac.treasury.gov/" target="_blank" rel="noopener noreferrer nofollow">OFAC</a> Entity List, SDN list, or subject to sector-specific sanctions</li>
-<li><strong>Export controls (BIS)</strong> — If paying for goods or technology, check <a href="https://www.bis.doc.gov/" target="_blank" rel="noopener noreferrer nofollow">Bureau of Industry and Security</a> export control requirements</li>
+<li><strong>OFAC screening</strong> — Critical for China payments. Ensure your Chinese partners are not on the <a href="https://ofac.treasury.gov/" target="_blank" rel="noopener noreferrer">OFAC</a> Entity List, SDN list, or subject to sector-specific sanctions</li>
+<li><strong>Export controls (BIS)</strong> — If paying for goods or technology, check <a href="https://www.bis.doc.gov/" target="_blank" rel="noopener noreferrer">Bureau of Industry and Security</a> export control requirements</li>
 <li><strong>CTR and FBAR</strong> — Standard FinCEN reporting requirements apply</li>
 </ul>
 <h3>Tax Treaty</h3>
@@ -7500,7 +7500,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>The Canada to USA corridor has specific compliance considerations:</p>
 <h3>Canadian Requirements</h3>
 <ul>
-<li><strong>FINTRAC reporting</strong> — <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer nofollow">FINTRAC</a> requires reporting of international EFTs of C$10,000 or more. Financial institutions handle this automatically.</li>
+<li><strong>FINTRAC reporting</strong> — <a href="https://www.fintrac-canafe.gc.ca/" target="_blank" rel="noopener noreferrer">FINTRAC</a> requires reporting of international EFTs of C$10,000 or more. Financial institutions handle this automatically.</li>
 <li><strong>CRA reporting</strong> — Cross-border payments for services may need to be reported to the Canada Revenue Agency. Payments to US contractors may require a T4A-NR slip.</li>
 <li><strong>GST/HST</strong> — Canadian businesses may need to account for GST/HST on imported services from the US under the reverse charge mechanism</li>
 </ul>
@@ -7626,7 +7626,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <h3>Indian Requirements</h3>
 <ul>
-<li><strong>RBI regulations</strong> — All inbound remittances must go through authorized dealer banks per <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">RBI</a> guidelines</li>
+<li><strong>RBI regulations</strong> — All inbound remittances must go through authorized dealer banks per <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">RBI</a> guidelines</li>
 <li><strong>FEMA compliance</strong> — Service payments are freely permitted under current account</li>
 <li><strong>Purpose codes</strong> — Indian banks require a purpose code for all inbound remittances</li>
 <li><strong>Tax treaty</strong> — The Australia-India tax treaty reduces withholding on most business payments. Service fees are generally not subject to Indian withholding tax when paid from Australia.</li>
@@ -7693,13 +7693,13 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Is the US Remittance Tax?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The new 1% federal tax on outbound transfers from the US only applies to cash-funded sends (cash, money orders, cashier's checks). Digital and bank transfers are exempt — use <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, or any app-based provider with bank/debit funding to avoid it entirely. <a href="/send-money">Compare tax-free providers</a>.</p></div>
-<p>Since January 1, 2026, a <strong>1% federal excise tax</strong> applies to certain international money transfers sent from the United States. The tax was signed into law as part of the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer nofollow">One Big Beautiful Bill Act</a> on July 4, 2025, and is codified under IRC Section 4475.</p>
+<p>Since January 1, 2026, a <strong>1% federal excise tax</strong> applies to certain international money transfers sent from the United States. The tax was signed into law as part of the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer">One Big Beautiful Bill Act</a> on July 4, 2025, and is codified under IRC Section 4475.</p>
 <p>Here's the part most people miss: the tax <strong>only applies to cash-funded transfers</strong> — cash, money orders, and cashier's checks. If you send money through a bank account, debit card, or credit card, you pay nothing extra.</p>
-<p>The <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer nofollow">IRS requires remittance providers</a> to collect and remit the tax. Senders don't need to file anything separately — the provider handles it at checkout.</p>
+<p>The <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer">IRS requires remittance providers</a> to collect and remit the tax. Senders don't need to file anything separately — the provider handles it at checkout.</p>
 <blockquote class="blog-callout-blue-sm">
 <strong>Bottom line:</strong> If you walk into a Western Union location and pay with cash to send $1,000 to Mexico, you'll owe an extra $10 in remittance tax. If you use the Western Union app and pay from your bank account, you owe $0 in tax.
 </blockquote>
-<p>The <a href="https://www.taxnotes.com/featured-analysis/remittance-tax-arrival-raises-questions-and-action-plans/2026/01/15/7tw2k" target="_blank" rel="noopener noreferrer nofollow">Joint Committee on Taxation</a> estimates the tax will raise roughly $10 billion in federal revenue over 10 years. The rate was debated heavily — an early proposal set it at 5%, which was cut to 3.5% during negotiations, before landing at 1% in the final bill.</p>`,
+<p>The <a href="https://www.taxnotes.com/featured-analysis/remittance-tax-arrival-raises-questions-and-action-plans/2026/01/15/7tw2k" target="_blank" rel="noopener noreferrer">Joint Committee on Taxation</a> estimates the tax will raise roughly $10 billion in federal revenue over 10 years. The rate was debated heavily — an early proposal set it at 5%, which was cut to 3.5% during negotiations, before landing at 1% in the final bill.</p>`,
       },
       {
         heading: "Which Transfers Are Taxed (and Which Aren't)?",
@@ -7804,9 +7804,9 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Who Does the Remittance Tax Affect Most?",
         content: `<p>The remittance tax applies regardless of citizenship, visa status, or income. But in practice, it disproportionately affects people who rely on cash to send money — and that's overwhelmingly low-income immigrants and undocumented workers who may not have US bank accounts.</p>
-<p>According to <a href="https://odi.org/en/insights/why-taxing-remittances-will-harm-migrants-and-the-us-economy-trumps-one-big-beautiful-bill-act/" target="_blank" rel="noopener noreferrer nofollow">research from the Overseas Development Institute (ODI)</a>, the tax could affect an estimated 23 million green-card holders, 14 million non-immigrant visa holders, and 12 million unauthorized migrants. The ODI projects a 1.6% drop in total remittances from the US.</p>
-<p>The numbers are staggering. <a href="https://www.borderreport.com/hot-topics/trade/1-percent-tax-on-remittances-from-us-takes-effect-in-2026/" target="_blank" rel="noopener noreferrer nofollow">Mexico received $62.5 billion in remittances in 2024</a> — that's 3.5% of its GDP. India, the Philippines, Nigeria, and Pakistan are similarly dependent on remittance flows from the US.</p>
-<p>Research from <a href="https://www.aiddata.org/blog/a-remittance-tax-that-hits-the-poor-hardest" target="_blank" rel="noopener noreferrer nofollow">AidData</a> suggests that even a 1% tax pushes some senders away from formal channels and toward informal networks — hawala, unlicensed couriers, or cash carried by friends. That means less transparency, less consumer protection, and less money reaching families.</p>
+<p>According to <a href="https://odi.org/en/insights/why-taxing-remittances-will-harm-migrants-and-the-us-economy-trumps-one-big-beautiful-bill-act/" target="_blank" rel="noopener noreferrer">research from the Overseas Development Institute (ODI)</a>, the tax could affect an estimated 23 million green-card holders, 14 million non-immigrant visa holders, and 12 million unauthorized migrants. The ODI projects a 1.6% drop in total remittances from the US.</p>
+<p>The numbers are staggering. <a href="https://www.borderreport.com/hot-topics/trade/1-percent-tax-on-remittances-from-us-takes-effect-in-2026/" target="_blank" rel="noopener noreferrer">Mexico received $62.5 billion in remittances in 2024</a> — that's 3.5% of its GDP. India, the Philippines, Nigeria, and Pakistan are similarly dependent on remittance flows from the US.</p>
+<p>Research from <a href="https://www.aiddata.org/blog/a-remittance-tax-that-hits-the-poor-hardest" target="_blank" rel="noopener noreferrer">AidData</a> suggests that even a 1% tax pushes some senders away from formal channels and toward informal networks — hawala, unlicensed couriers, or cash carried by friends. That means less transparency, less consumer protection, and less money reaching families.</p>
 <p>For those sending money to specific corridors, we have dedicated guides: <a href="/guides/send-money-to-india-guide">India</a>, <a href="/guides/send-money-to-mexico-guide">Mexico</a>, <a href="/guides/send-money-to-nigeria-guide">Nigeria</a>, <a href="/guides/send-money-to-pakistan-guide">Pakistan</a>, <a href="/guides/send-money-to-philippines-guide">Philippines</a>, and <a href="/guides/send-money-to-bangladesh-guide">Bangladesh</a>.</p>`,
       },
       {
@@ -7815,7 +7815,7 @@ export const blogPosts: BlogPost[] = [
 <p>If you're still paying cash at an agent location, switching to a digital provider could save you <strong>$20–$80 per $1,000 transferred</strong> — the remittance tax is just a fraction of what you save on fees and exchange rate markups.</p>
 <p>Our <a href="/send-money">free comparison tool</a> shows real-time rates from 16+ providers across 48 currencies. Enter your transfer amount and see exactly what your recipient gets — after fees, markup, and any applicable tax.</p>
 <h3>Sources &amp; Methodology</h3>
-<p>Data in this article is based on real quotes collected from provider APIs and websites in March 2026. Exchange rates, fees, and tax applicability change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates. External data sources include the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer nofollow">IRS One Big Beautiful Bill provisions page</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database, and provider-published fee schedules.</p>`,
+<p>Data in this article is based on real quotes collected from provider APIs and websites in March 2026. Exchange rates, fees, and tax applicability change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates. External data sources include the <a href="https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions" target="_blank" rel="noopener noreferrer">IRS One Big Beautiful Bill provisions page</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a> database, and provider-published fee schedules.</p>`,
       },
     ],
     faqs: [
@@ -7888,8 +7888,8 @@ export const blogPosts: BlogPost[] = [
         heading: "The Race for Crypto Banking Licenses: What's Happening?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Crypto firms like Circle, Ripple, and <a href="/companies/revolut">Revolut</a> are obtaining federal banking licenses from the OCC, enabling them to offer combined fiat and crypto transfer services. Stablecoin rails could cut cross-border payment fees by up to 50%. <a href="/send-money">Compare current providers</a> for the cheapest transfers today.</p></div>
 <p>Between December 2025 and March 2026, <strong>11 companies filed for or received federal banking licenses</strong> from the Office of the Comptroller of the Currency (OCC). That's 11 applications in 83 days — more than the OCC typically processes in a full year.</p>
-<p>These aren't small startups. Circle, Ripple, Crypto.com, Fidelity Digital Assets, Stripe's Bridge subsidiary, Morgan Stanley, and <a href="/companies/revolut">Revolut</a> are all in the queue. According to <a href="https://www.fintechweekly.com/news/occ-national-trust-bank-charter-crypto-fintech-2026" target="_blank" rel="noopener noreferrer nofollow">FinTech Weekly's analysis</a>, this wave of applications is unprecedented in modern banking regulation.</p>
-<p>Why now? Two things changed. First, the OCC <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer nofollow">amended its regulations</a> on February 27, 2026, broadening what national trust banks can do beyond traditional fiduciary activities — effective April 1, 2026. Second, the GENIUS Act (signed July 2025) created a clear path for stablecoin issuers to operate as licensed payment institutions.</p>
+<p>These aren't small startups. Circle, Ripple, Crypto.com, Fidelity Digital Assets, Stripe's Bridge subsidiary, Morgan Stanley, and <a href="/companies/revolut">Revolut</a> are all in the queue. According to <a href="https://www.fintechweekly.com/news/occ-national-trust-bank-charter-crypto-fintech-2026" target="_blank" rel="noopener noreferrer">FinTech Weekly's analysis</a>, this wave of applications is unprecedented in modern banking regulation.</p>
+<p>Why now? Two things changed. First, the OCC <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer">amended its regulations</a> on February 27, 2026, broadening what national trust banks can do beyond traditional fiduciary activities — effective April 1, 2026. Second, the GENIUS Act (signed July 2025) created a clear path for stablecoin issuers to operate as licensed payment institutions.</p>
 <p>For people who send money internationally, this matters. A lot. These companies aren't just getting licenses to hold crypto — they're building infrastructure that could fundamentally change how cross-border payments work and what they cost.</p>`,
       },
       {
@@ -7911,10 +7911,10 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>Zerohash</strong></td><td>Applied (Mar '26)</td><td>Crypto infrastructure</td><td>White-label crypto payment rails</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Sources: <a href="https://www.bankingdive.com/news/crypto-com-occ-conditional-approval-national-trust-bank-charter-circle-ripple-paxos-bridge/812925/" target="_blank" rel="noopener noreferrer nofollow">Banking Dive</a>, <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer nofollow">OCC Digital Assets Licensing</a></p>
+<p class="blog-footnote">Sources: <a href="https://www.bankingdive.com/news/crypto-com-occ-conditional-approval-national-trust-bank-charter-circle-ripple-paxos-bridge/812925/" target="_blank" rel="noopener noreferrer">Banking Dive</a>, <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer">OCC Digital Assets Licensing</a></p>
 </div>
 <p>The companies that matter most for everyday money transfers are <strong>Circle</strong> (USDC stablecoins), <strong>Bridge/Stripe</strong> (merchant payment infrastructure), <strong>Revolut</strong> (consumer banking), and <strong>Payoneer</strong> (business payments). Their licenses could enable cheaper, faster alternatives to the providers we currently <a href="/send-money">compare on our platform</a>.</p>
-<p>Traditional banks aren't happy. The <a href="https://www.pymnts.com/bank-regulation/2026/bpi-weighs-lawsuit-against-occ-over-licensing-of-crypto-and-fintech-firms/" target="_blank" rel="noopener noreferrer nofollow">Bank Policy Institute is considering suing the OCC</a> over these charter approvals, arguing that crypto and fintech firms shouldn't operate under national trust bank charters designed for traditional banking.</p>`,
+<p>Traditional banks aren't happy. The <a href="https://www.pymnts.com/bank-regulation/2026/bpi-weighs-lawsuit-against-occ-over-licensing-of-crypto-and-fintech-firms/" target="_blank" rel="noopener noreferrer">Bank Policy Institute is considering suing the OCC</a> over these charter approvals, arguing that crypto and fintech firms shouldn't operate under national trust bank charters designed for traditional banking.</p>`,
       },
       {
         heading: "Revolut's US Banking License: What Changes for You?",
@@ -7929,7 +7929,7 @@ export const blogPosts: BlogPost[] = [
 <blockquote class="blog-callout-blue-sm">
 <strong>What this means in practice:</strong> Revolut with a banking license could offer multi-currency accounts with FDIC insurance, cheaper FX rates (no partner bank markup), and potentially the lowest-cost transfers from the US. It would compete directly with <a href="/companies/wise">Wise</a> on transfers and with Chase and Bank of America on everyday banking.
 </blockquote>
-<p>Revolut also <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer nofollow">secured a full UK banking license in March 2026</a>, after a years-long wait. If the US license follows, Revolut would be a fully licensed bank in two of the world's largest financial markets.</p>
+<p>Revolut also <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer">secured a full UK banking license in March 2026</a>, after a years-long wait. If the US license follows, Revolut would be a fully licensed bank in two of the world's largest financial markets.</p>
 <p>For a detailed look at how Revolut stacks up today, see our <a href="/companies/revolut">Revolut review</a> or compare it head-to-head with <a href="/compare/wise-vs-revolut">Wise vs Revolut</a>.</p>`,
       },
       {
@@ -7948,14 +7948,14 @@ export const blogPosts: BlogPost[] = [
 </table>
 <p class="blog-footnote">Stablecoin fees based on Solana/Tron network costs. Traditional costs based on our <a href="/send-money">comparison tool data</a>, March 2026.</p>
 </div>
-<p>According to <a href="https://fortune.com/2026/01/17/stablecoins-could-fix-a-broken-international-payments-system/" target="_blank" rel="noopener noreferrer nofollow">Fortune's analysis</a>, stablecoins could shake up the $900 billion global remittance market. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a> pegs the average cost of sending $500 through formal corridors at roughly 4.26% — stablecoin rails typically charge under 1%.</p>
+<p>According to <a href="https://fortune.com/2026/01/17/stablecoins-could-fix-a-broken-international-payments-system/" target="_blank" rel="noopener noreferrer">Fortune's analysis</a>, stablecoins could shake up the $900 billion global remittance market. The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a> pegs the average cost of sending $500 through formal corridors at roughly 4.26% — stablecoin rails typically charge under 1%.</p>
 <p>The catch? Stablecoins require the recipient to have a crypto wallet and a way to convert to local currency — which isn't practical in most corridors today. That's where the newly licensed companies come in: they're building the on-ramps and off-ramps that make stablecoin transfers as simple as using <a href="/companies/remitly">Remitly</a> or <a href="/companies/wise">Wise</a>.</p>
 <p>For now, dedicated transfer services still offer the best combination of low cost and ease of use. See our <a href="/guides/cheapest-way-to-send-money-internationally">guide to the cheapest ways to send money internationally</a> for current recommendations.</p>`,
       },
       {
         heading: "Western Union's Stablecoin Bet: USDPT on Solana",
         content: `<p>The biggest surprise in this space isn't a crypto startup — it's <a href="/companies/western-union">Western Union</a>, the 175-year-old money transfer giant. Western Union announced it will launch <strong>USDPT</strong>, a dollar-backed stablecoin on the Solana blockchain, in the first half of 2026.</p>
-<p>Think about what that means. The company with <strong>500,000+ physical agent locations worldwide</strong> — the very definition of cash-based remittances — is building crypto payment rails. According to <a href="https://www.emarketer.com/content/western-union-stablecoins-cross-border-payments-remittances" target="_blank" rel="noopener noreferrer nofollow">eMarketer</a>, Western Union's stablecoin strategy aims to offer faster settlement and lower fees while leveraging its existing global payout network.</p>
+<p>Think about what that means. The company with <strong>500,000+ physical agent locations worldwide</strong> — the very definition of cash-based remittances — is building crypto payment rails. According to <a href="https://www.emarketer.com/content/western-union-stablecoins-cross-border-payments-remittances" target="_blank" rel="noopener noreferrer">eMarketer</a>, Western Union's stablecoin strategy aims to offer faster settlement and lower fees while leveraging its existing global payout network.</p>
 <p>For Western Union customers, this could mean:</p>
 <ul>
 <li><strong>Instant settlement</strong> — Instead of 1–3 day processing, transfers could clear in seconds</li>
@@ -7966,7 +7966,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "The GENIUS Act: New Rules for Stablecoin Payments",
-        content: `<p>The <a href="https://www.brookings.edu/articles/next-steps-for-genius-payment-stablecoins/" target="_blank" rel="noopener noreferrer nofollow">GENIUS Act</a>, signed into law in July 2025, is the regulatory backbone behind this entire wave. It creates the first federal framework for payment stablecoins and takes full effect in January 2027.</p>
+        content: `<p>The <a href="https://www.brookings.edu/articles/next-steps-for-genius-payment-stablecoins/" target="_blank" rel="noopener noreferrer">GENIUS Act</a>, signed into law in July 2025, is the regulatory backbone behind this entire wave. It creates the first federal framework for payment stablecoins and takes full effect in January 2027.</p>
 <p>Here's what it requires:</p>
 <ul>
 <li><strong>1:1 reserve backing</strong> — Every stablecoin must be backed dollar-for-dollar with cash or short-term US Treasurys</li>
@@ -7974,7 +7974,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Licensed issuers only</strong> — Only banks, credit unions, or OCC/state-approved nonbanks can issue stablecoins</li>
 <li><strong>KYC/AML compliance</strong> — Same anti-money-laundering rules that apply to traditional money transfer providers</li>
 </ul>
-<p>The <a href="https://www.occ.treas.gov/news-issuances/bulletins/2026/bulletin-2026-3.html" target="_blank" rel="noopener noreferrer nofollow">OCC issued its proposed rulemaking</a> for GENIUS Act implementation in early 2026. The regulations will determine exactly how stablecoin issuers can operate within the banking system.</p>
+<p>The <a href="https://www.occ.treas.gov/news-issuances/bulletins/2026/bulletin-2026-3.html" target="_blank" rel="noopener noreferrer">OCC issued its proposed rulemaking</a> for GENIUS Act implementation in early 2026. The regulations will determine exactly how stablecoin issuers can operate within the banking system.</p>
 <p>For consumers, GENIUS means stablecoin-powered transfers will eventually carry the same protections as traditional banking products. No more worrying about whether a stablecoin issuer has the reserves they claim — it'll be audited and regulated like any bank.</p>
 <p>This matters for our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a> — regulated stablecoin payments will be a legitimate option alongside established providers.</p>`,
       },
@@ -8003,7 +8003,7 @@ export const blogPosts: BlogPost[] = [
 </div>
 <p>We'll keep tracking these developments and updating our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends report</a> as new stablecoin transfer products launch. For now, the providers in our comparison tool remain the best options for most people sending money abroad.</p>
 <h3>Sources &amp; Methodology</h3>
-<p>This article synthesizes reporting from <a href="https://www.fintechweekly.com/news/occ-national-trust-bank-charter-crypto-fintech-2026" target="_blank" rel="noopener noreferrer nofollow">FinTech Weekly</a>, <a href="https://www.coindesk.com/policy/2026/03/05/crypto-friendly-fintech-giant-revolut-files-for-u-s-banking-license" target="_blank" rel="noopener noreferrer nofollow">CoinDesk</a>, <a href="https://www.brookings.edu/articles/next-steps-for-genius-payment-stablecoins/" target="_blank" rel="noopener noreferrer nofollow">Brookings Institution</a>, and <a href="https://fortune.com/2026/01/17/stablecoins-could-fix-a-broken-international-payments-system/" target="_blank" rel="noopener noreferrer nofollow">Fortune</a>. Transfer cost data is from real quotes collected via our provider APIs and scraping infrastructure in March 2026. Use our <a href="/send-money">comparison tool</a> for the latest rates.</p>`,
+<p>This article synthesizes reporting from <a href="https://www.fintechweekly.com/news/occ-national-trust-bank-charter-crypto-fintech-2026" target="_blank" rel="noopener noreferrer">FinTech Weekly</a>, <a href="https://www.coindesk.com/policy/2026/03/05/crypto-friendly-fintech-giant-revolut-files-for-u-s-banking-license" target="_blank" rel="noopener noreferrer">CoinDesk</a>, <a href="https://www.brookings.edu/articles/next-steps-for-genius-payment-stablecoins/" target="_blank" rel="noopener noreferrer">Brookings Institution</a>, and <a href="https://fortune.com/2026/01/17/stablecoins-could-fix-a-broken-international-payments-system/" target="_blank" rel="noopener noreferrer">Fortune</a>. Transfer cost data is from real quotes collected via our provider APIs and scraping infrastructure in March 2026. Use our <a href="/send-money">comparison tool</a> for the latest rates.</p>`,
       },
     ],
     faqs: [
@@ -8075,8 +8075,8 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Revolut Filed for a US Banking License — Here's Why It Matters",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/revolut">Revolut</a> filed for a US banking charter in March 2026, which would enable FDIC-insured accounts, direct Fed access, and cheaper international transfers for American customers. <a href="/compare/wise-vs-revolut">See how Revolut compares to Wise</a> for transfers today.</p></div>
-<p>In early March 2026, <a href="/companies/revolut">Revolut</a> filed applications with the <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer nofollow">Office of the Comptroller of the Currency (OCC)</a> and the FDIC to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
-<p>This isn't Revolut's first attempt. The company previously pursued a US banking license through a bank acquisition, but <a href="https://www.pymnts.com/news/digital-banking/2026/revolut-drops-us-bank-buyout-plan-eyes-standalone-occ-charter/" target="_blank" rel="noopener noreferrer nofollow">dropped that plan in January 2026</a> in favour of a standalone charter. The timing isn't coincidental — the OCC has been granting crypto and fintech charters at record speed, approving 11 applications in just 83 days.</p>
+<p>In early March 2026, <a href="/companies/revolut">Revolut</a> filed applications with the <a href="https://www.occ.treas.gov/topics/charters-and-licensing/digital-assets-licensing-applications/index-digital-assets-licensing-applications.html" target="_blank" rel="noopener noreferrer">Office of the Comptroller of the Currency (OCC)</a> and the FDIC to establish "Revolut Bank US, N.A." — a full national bank charter.</p>
+<p>This isn't Revolut's first attempt. The company previously pursued a US banking license through a bank acquisition, but <a href="https://www.pymnts.com/news/digital-banking/2026/revolut-drops-us-bank-buyout-plan-eyes-standalone-occ-charter/" target="_blank" rel="noopener noreferrer">dropped that plan in January 2026</a> in favour of a standalone charter. The timing isn't coincidental — the OCC has been granting crypto and fintech charters at record speed, approving 11 applications in just 83 days.</p>
 <p>Right now, Revolut operates in the US through a partnership with Lead Bank. That means it can't hold your deposits directly, can't access Federal Reserve payment systems, and can't offer lending products. A banking license changes all of that.</p>
 <blockquote class="blog-callout-blue-sm">
 <strong>The big picture:</strong> Revolut already has 45+ million customers globally. A US banking license would make it one of the largest digital-only banks in America — and a serious competitor to both traditional banks and transfer services like <a href="/companies/wise">Wise</a>.
@@ -8117,7 +8117,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Revolut's UK License: A Preview of What's Coming",
-        content: `<p>Revolut <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer nofollow">secured its full UK banking license in March 2026</a>, after years of operating under an e-money license. The UK experience gives us a preview of what the US license could enable:</p>
+        content: `<p>Revolut <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer">secured its full UK banking license in March 2026</a>, after years of operating under an e-money license. The UK experience gives us a preview of what the US license could enable:</p>
 <ul>
 <li><strong>FSCS deposit protection</strong> — UK customers now get up to £85,000 in deposit protection</li>
 <li><strong>Lending products</strong> — Revolut UK launched credit cards and personal loans</li>
@@ -8155,7 +8155,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Watch for fee changes</strong> — When the license is approved, expect Revolut to cut transfer fees and tighten FX rates to compete with Wise. We'll update our comparison data as soon as pricing changes.</li>
 </ol>
 <h3>Sources &amp; Methodology</h3>
-<p>This article draws on reporting from <a href="https://www.coindesk.com/policy/2026/03/05/crypto-friendly-fintech-giant-revolut-files-for-u-s-banking-license" target="_blank" rel="noopener noreferrer nofollow">CoinDesk</a>, <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer nofollow">CNBC</a>, <a href="https://www.pymnts.com/news/digital-banking/2026/revolut-drops-us-bank-buyout-plan-eyes-standalone-occ-charter/" target="_blank" rel="noopener noreferrer nofollow">PYMNTS</a>, and <a href="https://finance.yahoo.com/news/revoluts-push-us-banking-license-172234173.html" target="_blank" rel="noopener noreferrer nofollow">Yahoo Finance</a>. Transfer cost data is from real quotes collected via our provider APIs in March 2026. Use our <a href="/send-money">comparison tool</a> for the latest rates.</p>`,
+<p>This article draws on reporting from <a href="https://www.coindesk.com/policy/2026/03/05/crypto-friendly-fintech-giant-revolut-files-for-u-s-banking-license" target="_blank" rel="noopener noreferrer">CoinDesk</a>, <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer">CNBC</a>, <a href="https://www.pymnts.com/news/digital-banking/2026/revolut-drops-us-bank-buyout-plan-eyes-standalone-occ-charter/" target="_blank" rel="noopener noreferrer">PYMNTS</a>, and <a href="https://finance.yahoo.com/news/revoluts-push-us-banking-license-172234173.html" target="_blank" rel="noopener noreferrer nofollow">Yahoo Finance</a>. Transfer cost data is from real quotes collected via our provider APIs in March 2026. Use our <a href="/send-money">comparison tool</a> for the latest rates.</p>`,
       },
     ],
     faqs: [
@@ -8221,9 +8221,9 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Are EU Instant Payments?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The EU now mandates all banks process instant SEPA transfers in 10 seconds or less, 24/7/365. This cuts the last-mile delivery time for cross-border EUR transfers from 1–3 days to seconds. <a href="/send-money/usa-to-europe">Compare providers for UK to Europe transfers</a>.</p></div>
-<p>Since October 2025, all eurozone banks must accept <strong>instant euro transfers that settle in 10 seconds or less, 24/7/365</strong>. By early 2026, they must also be able to <em>send</em> instant payments. This is the EU's <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer nofollow">Instant Payments Regulation (IPR)</a>, and it's the biggest change to European payments infrastructure in a decade.</p>
+<p>Since October 2025, all eurozone banks must accept <strong>instant euro transfers that settle in 10 seconds or less, 24/7/365</strong>. By early 2026, they must also be able to <em>send</em> instant payments. This is the EU's <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">Instant Payments Regulation (IPR)</a>, and it's the biggest change to European payments infrastructure in a decade.</p>
 <p>Before this mandate, SEPA credit transfers (the standard way to send euros between EU banks) took 1–3 business days. SEPA Instant existed since 2017, but adoption was voluntary and patchy. Now it's mandatory.</p>
-<p>The numbers are moving fast. According to <a href="https://www.ecb.europa.eu/press/stats/paysec/html/ecb.pis2025h1~36edd636c8.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB payment statistics</a>, instant payments reached approximately <strong>25% of all EU credit transfers</strong> by mid-2025, with 2,765 registered participants covering 91% of eurozone banks. That share is expected to climb rapidly now that the mandate is in effect.</p>`,
+<p>The numbers are moving fast. According to <a href="https://www.ecb.europa.eu/press/stats/paysec/html/ecb.pis2025h1~36edd636c8.en.html" target="_blank" rel="noopener noreferrer">ECB payment statistics</a>, instant payments reached approximately <strong>25% of all EU credit transfers</strong> by mid-2025, with 2,765 registered participants covering 91% of eurozone banks. That share is expected to climb rapidly now that the mandate is in effect.</p>`,
       },
       {
         heading: "What This Means for Sending Money to Europe",
@@ -8301,7 +8301,7 @@ export const blogPosts: BlogPost[] = [
 <p class="blog-footnote">Based on real quotes, March 2026. <a href="/send-money/usa-to-europe">Compare UK to Europe rates →</a></p>
 </div>
 <h3>Sources &amp; Methodology</h3>
-<p>This article draws on the <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB Instant Payments Regulation page</a>, <a href="https://www.ecb.europa.eu/press/stats/paysec/html/ecb.pis2025h1~36edd636c8.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB payment statistics (H1 2025)</a>, the <a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-instant-credit-transfer" target="_blank" rel="noopener noreferrer nofollow">European Payments Council SCT Inst scheme</a>, and <a href="https://britepayments.com/resources/article/payment-regulations-2026/" target="_blank" rel="noopener noreferrer nofollow">Brite Payments' 2026 regulation overview</a>. Transfer cost data from our provider API quotes, March 2026.</p>`,
+<p>This article draws on the <a href="https://www.ecb.europa.eu/paym/retail/instant_payments/html/instant_payments_regulation.en.html" target="_blank" rel="noopener noreferrer">ECB Instant Payments Regulation page</a>, <a href="https://www.ecb.europa.eu/press/stats/paysec/html/ecb.pis2025h1~36edd636c8.en.html" target="_blank" rel="noopener noreferrer">ECB payment statistics (H1 2025)</a>, the <a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-instant-credit-transfer" target="_blank" rel="noopener noreferrer">European Payments Council SCT Inst scheme</a>, and <a href="https://britepayments.com/resources/article/payment-regulations-2026/" target="_blank" rel="noopener noreferrer nofollow">Brite Payments' 2026 regulation overview</a>. Transfer cost data from our provider API quotes, March 2026.</p>`,
       },
     ],
     faqs: [
@@ -8368,7 +8368,7 @@ export const blogPosts: BlogPost[] = [
         heading: "The Multi-Currency Account Battleground",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise</a>, <a href="/companies/revolut">Revolut</a>, and traditional banks like FinecoBank are competing on multi-currency accounts with different fee structures — Wise offers 0% markup on 40+ currencies, Revolut adds auto-exchange features, and banks are catching up with expanded currency support. <a href="/guides/multi-currency-accounts-exchange-rates">See our detailed comparison</a>.</p></div>
 <p>Multi-currency accounts used to be a niche product for expats and frequent travellers. In 2026, they're a <strong>full-blown competitive battleground</strong> between fintechs, neobanks, and traditional banks — all fighting for the same customers.</p>
-<p>The latest move: <a href="https://financialit.net/news/banking/finecobank-expands-multi-currency-account-offering-new-currencies-expanded-trading" target="_blank" rel="noopener noreferrer nofollow">FinecoBank expanded to 21 currencies</a> with 21-hour/day FX trading including weekends. <a href="/companies/revolut">Revolut</a> launched its Ultra subscription tier. <a href="/companies/wise">Wise</a> keeps adding currencies (now 40+). And <a href="https://www.airwallex.com/us/blog/best-multi-currency-accounts" target="_blank" rel="noopener noreferrer nofollow">Airwallex</a> is aggressively targeting businesses.</p>
+<p>The latest move: <a href="https://financialit.net/news/banking/finecobank-expands-multi-currency-account-offering-new-currencies-expanded-trading" target="_blank" rel="noopener noreferrer">FinecoBank expanded to 21 currencies</a> with 21-hour/day FX trading including weekends. <a href="/companies/revolut">Revolut</a> launched its Ultra subscription tier. <a href="/companies/wise">Wise</a> keeps adding currencies (now 40+). And <a href="https://www.airwallex.com/us/blog/best-multi-currency-accounts" target="_blank" rel="noopener noreferrer nofollow">Airwallex</a> is aggressively targeting businesses.</p>
 <p>The result? More choice, lower fees, and better features for anyone who holds, sends, or receives money in multiple currencies. But picking the right account depends on what you actually need it for.</p>
 <p>Our <a href="/guides/multi-currency-accounts-exchange-rates">multi-currency accounts and exchange rates guide</a> covers the basics. This article goes deeper: a head-to-head comparison of the top options in 2026.</p>`,
       },
@@ -8408,7 +8408,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Revolut: Best All-in-One App",
-        content: `<p><a href="/companies/revolut">Revolut</a> has evolved from a travel card into a full financial super-app. With <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer nofollow">a UK banking license now secured</a> and a US license pending, it's arguably the most ambitious player in this space.</p>
+        content: `<p><a href="/companies/revolut">Revolut</a> has evolved from a travel card into a full financial super-app. With <a href="https://www.cnbc.com/2026/03/11/revolut-acquires-full-uk-banking-license.html" target="_blank" rel="noopener noreferrer">a UK banking license now secured</a> and a US license pending, it's arguably the most ambitious player in this space.</p>
 <p><strong>Standout features:</strong></p>
 <ul>
 <li><strong>30+ currencies</strong> with instant exchange in-app</li>
@@ -8454,7 +8454,7 @@ export const blogPosts: BlogPost[] = [
 <p>If you primarily need to send money internationally, <a href="/companies/wise">Wise</a> is the straightforward winner — its 0% markup policy means you always get the best exchange rate. If you want an all-in-one financial app that handles banking, investing, crypto, and transfers, <a href="/companies/revolut">Revolut</a> is hard to beat.</p>
 <p>For a corridor-specific look at which provider offers the best deal, use our <a href="/send-money">comparison tool</a> or check our guides for <a href="/send-money/usa-to-india">USA to India</a>, <a href="/send-money/usa-to-europe">UK to Europe</a>, and <a href="/send-money/usa-to-mexico">USA to Mexico</a>.</p>
 <h3>Sources &amp; Methodology</h3>
-<p>Feature and pricing data sourced from provider websites and our comparison engine in March 2026. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest. External sources include <a href="https://financialit.net/news/banking/finecobank-expands-multi-currency-account-offering-new-currencies-expanded-trading" target="_blank" rel="noopener noreferrer nofollow">Financial IT</a>, <a href="https://www.airwallex.com/us/blog/best-multi-currency-accounts" target="_blank" rel="noopener noreferrer nofollow">Airwallex</a>, and <a href="https://www.pymnts.com/news/banking/2026/retail-banking-bundles-turn-subscriptions-into-fintech-battleground/" target="_blank" rel="noopener noreferrer nofollow">PYMNTS</a>.</p>`,
+<p>Feature and pricing data sourced from provider websites and our comparison engine in March 2026. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest. External sources include <a href="https://financialit.net/news/banking/finecobank-expands-multi-currency-account-offering-new-currencies-expanded-trading" target="_blank" rel="noopener noreferrer">Financial IT</a>, <a href="https://www.airwallex.com/us/blog/best-multi-currency-accounts" target="_blank" rel="noopener noreferrer nofollow">Airwallex</a>, and <a href="https://www.pymnts.com/news/banking/2026/retail-banking-bundles-turn-subscriptions-into-fintech-battleground/" target="_blank" rel="noopener noreferrer">PYMNTS</a>.</p>`,
       },
     ],
     faqs: [
@@ -8525,7 +8525,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What Is Euribor?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Euribor rate changes directly affect EUR exchange rates — when the ECB cuts rates, the euro typically weakens, meaning you get fewer euros per dollar or pound. Timing your transfer around ECB decisions can save money. <a href="/send-money/usa-to-europe">Compare EUR transfer rates</a> to find the best deal today.</p></div>
-<p><strong>Euribor</strong> (Euro Interbank Offered Rate) is the average interest rate at which major European banks lend euros to each other on the wholesale money market. Published daily by the <a href="https://www.emmi-benchmarks.eu/" target="_blank" rel="noopener noreferrer nofollow">European Money Markets Institute (EMMI)</a>, it serves as the benchmark for trillions of euros in financial products — from mortgages and savings accounts to interest rate swaps and business loans.</p>
+<p><strong>Euribor</strong> (Euro Interbank Offered Rate) is the average interest rate at which major European banks lend euros to each other on the wholesale money market. Published daily by the <a href="https://www.emmi-benchmarks.eu/" target="_blank" rel="noopener noreferrer">European Money Markets Institute (EMMI)</a>, it serves as the benchmark for trillions of euros in financial products — from mortgages and savings accounts to interest rate swaps and business loans.</p>
 <p>Euribor comes in five maturities:</p>
 <ul>
 <li><strong>1 week</strong> — used for very short-term interbank lending</li>
@@ -8540,7 +8540,7 @@ export const blogPosts: BlogPost[] = [
         heading: "How Euribor Connects to EUR Exchange Rates",
         content: `<p>If you're sending money from or to the eurozone, Euribor affects you — even if you've never heard of it. Here's how the chain works:</p>
 <h3>1. ECB Sets the Tone</h3>
-<p>The <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Central Bank (ECB)</a> controls the deposit facility rate — currently at <strong>2.00%</strong> after eight cuts since June 2024 brought it down from 4.00%. Euribor rates closely track the ECB's rate, usually sitting slightly above it.</p>
+<p>The <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">European Central Bank (ECB)</a> controls the deposit facility rate — currently at <strong>2.00%</strong> after eight cuts since June 2024 brought it down from 4.00%. Euribor rates closely track the ECB's rate, usually sitting slightly above it.</p>
 <h3>2. Interest Rates Drive Currency Demand</h3>
 <p>When Euribor (and ECB rates) are high relative to other economies, the euro tends to strengthen. International investors seek higher-yielding euro assets, increasing demand for EUR. When rates fall, the opposite happens.</p>
 <p>This is why the <strong>interest rate differential</strong> between the ECB and the US Federal Reserve (or Bank of England, Reserve Bank of Australia, etc.) is one of the biggest drivers of EUR/USD, EUR/GBP, and other euro pairs.</p>
@@ -8594,7 +8594,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Tips for Timing Euro Transfers Around Rate Changes",
         content: `<p>While you can't predict currency markets, you can be strategic:</p>
 <h3>1. Watch ECB Meeting Dates</h3>
-<p>The ECB announces rate decisions roughly every six weeks. Exchange rates often move sharply in the hours around announcements. If you have flexibility, compare rates the day before and after an ECB meeting. The <a href="https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">ECB meeting calendar</a> is published well in advance.</p>
+<p>The ECB announces rate decisions roughly every six weeks. Exchange rates often move sharply in the hours around announcements. If you have flexibility, compare rates the day before and after an ECB meeting. The <a href="https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html" target="_blank" rel="noopener noreferrer">ECB meeting calendar</a> is published well in advance.</p>
 <h3>2. Use Rate Alerts</h3>
 <p>Many providers offer free rate alerts. <a href="/companies/wise">Wise</a>, <a href="/companies/xe">Xe</a>, and <a href="/companies/ofx">OFX</a> all let you set a target rate and get notified when it's hit. This is especially useful if you're making a large transfer and can wait for a favourable rate.</p>
 <h3>3. Consider Forward Contracts for Large Amounts</h3>
@@ -8699,7 +8699,7 @@ export const blogPosts: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/wise">Wise Business</a>, OFX, and Airwallex offer the lowest FX fees for business payments in 2026, with markups as low as 0.3%–0.8% compared to 2–5% at traditional banks. <a href="/business">Compare business transfer providers</a> to see which saves the most for your payment volume.</p></div>
 <p>Last year, a UK importer told us he was sending £50,000 a month to Chinese suppliers through his bank. Total FX cost: around £1,750 per transfer. When we ran the same payment through WorldFirst, it cost £150. That's <strong>£19,200 saved in a single year</strong> — without changing anything about how or when he paid.</p>
 <p>The <strong>lowest FX fees for business international payments</strong> in 2026 come from five fintech platforms — not banks. Traditional banks embed a 2%–5% spread into every conversion, invisible until you compare the rate they gave you against the <a href="/guides/exchange-rate-markup-explained">mid-market rate</a>. Specialist providers have compressed that to 0.3%–1.0%. But FX cost is only part of the picture.</p>
-<p>We compared WorldFirst, <a href="/companies/wise">Wise Business</a>, Airwallex, <a href="/companies/revolut">Revolut Business</a>, and Convera across 14 dimensions — including three features no competitor article covers: whether you can <strong>add recipients before a transfer or only during one</strong>, which platforms work <strong>offline</strong>, and which will <strong>match a competitor's rate</strong>. According to the <a href="https://www.fsb.org/work-of-the-fsb/financial-innovation-and-structural-change/cross-border-payments/" target="_blank" rel="noopener noreferrer nofollow">Financial Stability Board's G20 cross-border payments roadmap</a>, the target is to bring average B2B transfer costs below 1% by 2027 — most banks still charge 3x that.</p>
+<p>We compared WorldFirst, <a href="/companies/wise">Wise Business</a>, Airwallex, <a href="/companies/revolut">Revolut Business</a>, and Convera across 14 dimensions — including three features no competitor article covers: whether you can <strong>add recipients before a transfer or only during one</strong>, which platforms work <strong>offline</strong>, and which will <strong>match a competitor's rate</strong>. According to the <a href="https://www.fsb.org/work-of-the-fsb/financial-innovation-and-structural-change/cross-border-payments/" target="_blank" rel="noopener noreferrer">Financial Stability Board's G20 cross-border payments roadmap</a>, the target is to bring average B2B transfer costs below 1% by 2027 — most banks still charge 3x that.</p>
 <figure style="margin: 24px 0;">
   <img src="/images/blog/lowest-fx-fees-business-2026.jpg"
        alt="Multiple international banknotes including US dollars and other currencies spread out representing business FX payments"
@@ -8730,13 +8730,13 @@ export const blogPosts: BlogPost[] = [
 <ol>
 <li><strong>FX markup</strong> — The spread above mid-market. Banks average 2–4%; fintechs average 0.3–1.0%. This is the biggest cost by far on large transfers. Read our <a href="/guides/exchange-rate-markup-explained">guide to exchange rate markups</a> for a step-by-step breakdown of how to calculate it.</li>
 <li><strong>Transfer fee</strong> — A flat per-payment charge (e.g., £4 for a SWIFT payment with WorldFirst). Relevant on small transfers, negligible on large ones.</li>
-<li><strong>Correspondent bank charges</strong> — When payments route through the SWIFT network, intermediary banks can deduct fees (typically $10–$30) before the money arrives. <a href="https://www.swift.com/our-solutions/swift-gpi" target="_blank" rel="noopener noreferrer nofollow">SWIFT gpi</a> has improved transparency here — nearly 100% of gpi payments now settle within 24 hours.</li>
+<li><strong>Correspondent bank charges</strong> — When payments route through the SWIFT network, intermediary banks can deduct fees (typically $10–$30) before the money arrives. <a href="https://www.swift.com/our-solutions/swift-gpi" target="_blank" rel="noopener noreferrer">SWIFT gpi</a> has improved transparency here — nearly 100% of gpi payments now settle within 24 hours.</li>
 </ol>
 <blockquote class="blog-callout-blue-sm">
 <strong>Real example:</strong> A £50,000 GBP → EUR payment. Bank charges 2.5% markup = £1,250 cost. Wise Business charges 0.42% = £210 cost. Difference: <strong>£1,040 per payment</strong>. On 24 payments per year, that's £24,960 — enough to hire a part-time finance assistant.
 <a href="/send-money/usa-to-europe">Compare GBP to EUR rates live →</a>
 </blockquote>
-<p>The <a href="https://www.bis.org/cpmi/cross_border.htm" target="_blank" rel="noopener noreferrer nofollow">Bank for International Settlements (BIS)</a> tracks cross-border payment cost data and notes that opacity in FX pricing remains one of the primary barriers to reducing B2B payment costs — which is exactly the gap these five fintechs are designed to close.</p>`,
+<p>The <a href="https://www.bis.org/cpmi/cross_border.htm" target="_blank" rel="noopener noreferrer">Bank for International Settlements (BIS)</a> tracks cross-border payment cost data and notes that opacity in FX pricing remains one of the primary barriers to reducing B2B payment costs — which is exactly the gap these five fintechs are designed to close.</p>`,
       },
       {
         heading: "WorldFirst: Best for E-Commerce and Asia-Pacific Trade",
@@ -9220,7 +9220,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Sources & Methodology",
         content: `<p>Exchange rates and fees in this article are based on data collected from provider APIs, websites, and independent comparison platforms including <a href="https://www.monito.com/" target="_blank" rel="noopener noreferrer nofollow">Monito</a> and <a href="https://www.compareremit.com/" target="_blank" rel="noopener noreferrer nofollow">CompareRemit</a> during March 2026. Mid-market rates are sourced from XE and the European Central Bank. Festival dates are confirmed from official Islamic calendar sources and the Drik Panchang almanac.</p>
 <p>Historical promotional offers referenced (BOSS Revolution, ACE Money Transfer, WorldRemit 3FREE, bKash Eid campaign, Islami Bank Bangladesh) are based on verified 2025 campaigns; 2026 equivalents should be confirmed directly with each provider. Rates change frequently — use our <a href="/send-money">live comparison tool</a> for real-time data.</p>
-<p>The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a> provides the authoritative benchmark for global remittance costs. Bangladesh remittance flow data is from the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a>.</p>`,
+<p>The <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a> provides the authoritative benchmark for global remittance costs. Bangladesh remittance flow data is from the <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>.</p>`,
       },
     ],
     faqs: [
@@ -9320,7 +9320,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Dedicated support</strong> matters — you want a human to call if a £100,000 transfer gets stuck</li>
 <li><strong>Flat fees become irrelevant</strong> — a £5 fee on £50,000 is 0.01%. The exchange rate is everything.</li>
 </ul>
-<p>We analysed the top money transfer apps — as ranked by <a href="https://www.forbes.com/advisor/uk/money-transfer/money-transfer-apps/" target="_blank" rel="noopener noreferrer nofollow">Forbes Advisor UK</a> — specifically through the lens of large transfers. Here's what we found.</p>`,
+<p>We analysed the top money transfer apps — as ranked by <a href="https://www.forbes.com/advisor/uk/money-transfer/money-transfer-apps/" target="_blank" rel="noopener noreferrer">Forbes Advisor UK</a> — specifically through the lens of large transfers. Here's what we found.</p>`,
       },
       {
         heading: "The Best Apps for Large Transfers: Head-to-Head",
@@ -9349,7 +9349,7 @@ export const blogPosts: BlogPost[] = [
         heading: "XE: The Currency Authority (Best for Reliability + Speed)",
         content: `<h3>Company History</h3>
 <p><strong><a href="/companies/xe">XE</a></strong> is one of the oldest names in currency exchange. Founded in <strong>1993</strong> by high school friends Steven Dengler and Beric Farmer as Xenon Laboratories in Kitchener, Ontario, Canada, it started as a computer consulting firm before launching the Universal Currency Converter — which became the world's most visited currency website.</p>
-<p>In 2002, XE expanded into money transfers, leveraging its massive brand recognition (over <strong>200 million users annually</strong>) and currency data infrastructure. In 2015, XE was acquired by <strong>Euronet Worldwide</strong> and merged with <a href="https://en.wikipedia.org/wiki/XE.com" target="_blank" rel="noopener noreferrer nofollow">HiFX</a> — a specialist large-transfer provider — combining XE's brand authority with HiFX's FX dealing desk expertise. This merger is why XE is particularly strong for large transfers today.</p>
+<p>In 2002, XE expanded into money transfers, leveraging its massive brand recognition (over <strong>200 million users annually</strong>) and currency data infrastructure. In 2015, XE was acquired by <strong>Euronet Worldwide</strong> and merged with <a href="https://en.wikipedia.org/wiki/XE.com" target="_blank" rel="noopener noreferrer">HiFX</a> — a specialist large-transfer provider — combining XE's brand authority with HiFX's FX dealing desk expertise. This merger is why XE is particularly strong for large transfers today.</p>
 
 <h3>Why XE Excels for Large Transfers</h3>
 <ul>
@@ -9520,9 +9520,9 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Provider data in this article is based on published fee schedules, real quotes from our comparison engine (updated every 6 hours), and features verified from official provider websites as of March 2026. See our <a href="/methodology">methodology page</a> for details.</p>
 <p>External references:</p>
 <ul>
-<li><a href="https://www.forbes.com/advisor/uk/money-transfer/money-transfer-apps/" target="_blank" rel="noopener noreferrer nofollow">Forbes Advisor UK: Best Money Transfer Apps 2026</a></li>
+<li><a href="https://www.forbes.com/advisor/uk/money-transfer/money-transfer-apps/" target="_blank" rel="noopener noreferrer">Forbes Advisor UK: Best Money Transfer Apps 2026</a></li>
 <li><a href="https://www.xe.com/company/" target="_blank" rel="noopener noreferrer nofollow">XE Company History</a></li>
-<li><a href="https://en.wikipedia.org/wiki/XE.com" target="_blank" rel="noopener noreferrer nofollow">XE.com — Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/XE.com" target="_blank" rel="noopener noreferrer">XE.com — Wikipedia</a></li>
 <li><a href="https://www.xe.com/large-money-transfer/" target="_blank" rel="noopener noreferrer nofollow">XE Large Money Transfers</a></li>
 <li><a href="https://www.ofx.com/en-us/personal/money-transfer-types/forward-contracts/" target="_blank" rel="noopener noreferrer nofollow">OFX Forward Contracts</a></li>
 <li><a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a></li>
@@ -9607,7 +9607,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Quick Answer: USD Outlook for the Rest of 2026",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The DXY traded at <strong>98.49</strong> on May 14, 2026 — down 2.4% over twelve months. Every major forecaster — Goldman Sachs, Morgan Stanley, JPMorgan, ING, MUFG and Deutsche Bank — expects DXY to <strong>end 2026 below current levels</strong>. Goldman targets the low-90s; Morgan Stanley calls a V-shape (94 mid-year, back to 99 by December). The Fed's March dot plot signals just one more 25bp cut in 2026, and April's hot 3.8% CPI print has bought the dollar a near-term reprieve. <a href="/send-money">Compare live rates →</a></p></div>
 
-<p>When the dollar moves, it moves every international transfer and remittance with it. This update condenses the <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Fed's March 2026 projections</a>, April BLS data and six named bank forecasts into one answer: <strong>where is the dollar headed for the rest of 2026?</strong></p>
+<p>When the dollar moves, it moves every international transfer and remittance with it. This update condenses the <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer">Fed's March 2026 projections</a>, April BLS data and six named bank forecasts into one answer: <strong>where is the dollar headed for the rest of 2026?</strong></p>
 
 <div class="blog-table-box">
 <h3 style="margin-top:0">Key Numbers (May 14, 2026)</h3>
@@ -9621,7 +9621,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td><strong>10Y / 30Y Treasury</strong></td><td>4.46% / 5.02% — fiscal-stress premium</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Sources: <a href="https://tradingeconomics.com/united-states/currency" target="_blank" rel="noopener noreferrer nofollow">TradingEconomics</a>, <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Fed SEP</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer nofollow">BLS CPI</a>. Data as of May 12–14, 2026.</p>
+<p class="blog-footnote">Sources: <a href="https://tradingeconomics.com/united-states/currency" target="_blank" rel="noopener noreferrer">TradingEconomics</a>, <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer">Fed SEP</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer">BLS CPI</a>. Data as of May 12–14, 2026.</p>
 </div>`,
       },
       {
@@ -9668,14 +9668,14 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What's Driving the Dollar in 2026",
         content: `<ul>
-<li><strong>The Fed path.</strong> The <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">March dot plot</a> signals just one more 25bp cut in 2026 and one in 2027; the long-run dot of 3.125% is the FOMC's highest since 2016. Every cut narrows the dollar's yield advantage.</li>
+<li><strong>The Fed path.</strong> The <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer">March dot plot</a> signals just one more 25bp cut in 2026 and one in 2027; the long-run dot of 3.125% is the FOMC's highest since 2016. Every cut narrows the dollar's yield advantage.</li>
 <li><strong>Inflation re-acceleration.</strong> April CPI hit 3.8% headline / 2.8% core — well above target, tilting policy toward "higher for longer" and supporting the dollar near-term.</li>
-<li><strong>Tariffs.</strong> After the Supreme Court struck down IEEPA tariffs in February, 10% Section 122 tariffs (sunset ~July 24) and new Section 232 duties pushed the average effective rate to <a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank" rel="noopener noreferrer nofollow">5.3% — the highest since 1972</a>. Short-term USD-positive, medium-term a growth headwind.</li>
-<li><strong>Fiscal stress.</strong> Debt near $39T and <a href="https://www.crfb.org/blogs/weak-auctions-underscore-risks-our-growing-debt-burden" target="_blank" rel="noopener noreferrer nofollow">tailing Treasury auctions</a> (primary dealers absorbed 24% of the March 2-year sale — double normal) keep the 30-year above 5%. The loudest structural reason for dollar weakness.</li>
+<li><strong>Tariffs.</strong> After the Supreme Court struck down IEEPA tariffs in February, 10% Section 122 tariffs (sunset ~July 24) and new Section 232 duties pushed the average effective rate to <a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank" rel="noopener noreferrer">5.3% — the highest since 1972</a>. Short-term USD-positive, medium-term a growth headwind.</li>
+<li><strong>Fiscal stress.</strong> Debt near $39T and <a href="https://www.crfb.org/blogs/weak-auctions-underscore-risks-our-growing-debt-burden" target="_blank" rel="noopener noreferrer">tailing Treasury auctions</a> (primary dealers absorbed 24% of the March 2-year sale — double normal) keep the 30-year above 5%. The loudest structural reason for dollar weakness.</li>
 <li><strong>The DXY basket is mostly the euro (57.6%).</strong> Any bearish DXY call is fundamentally a bullish EUR/USD call: the ECB is done cutting while the Fed still eases.</li>
 </ul>
 
-<p><strong>One caveat the textbook misses:</strong> Fed cuts don't always weaken the dollar. In 2019 the Fed cut three times and DXY <em>rose</em> (97 → 99) because peers were cutting too. Per <a href="https://www.pimco.com/us/en/insights/cuts-and-consequences" target="_blank" rel="noopener noreferrer nofollow">PIMCO</a> and <a href="https://www.cmegroup.com/insights/economic-research/2024/fed-easing-cycles-investors-initial-expectations-versus-final-outcomes.html" target="_blank" rel="noopener noreferrer nofollow">CME Group</a>, the relative-policy story (Fed vs ECB vs BoJ) is more reliable than the absolute-Fed story. In 2026 the Fed is the only major central bank still easing — genuinely USD-negative — unless hot inflation stops the cuts altogether.</p>`,
+<p><strong>One caveat the textbook misses:</strong> Fed cuts don't always weaken the dollar. In 2019 the Fed cut three times and DXY <em>rose</em> (97 → 99) because peers were cutting too. Per <a href="https://www.pimco.com/us/en/insights/cuts-and-consequences" target="_blank" rel="noopener noreferrer nofollow">PIMCO</a> and <a href="https://www.cmegroup.com/insights/economic-research/2024/fed-easing-cycles-investors-initial-expectations-versus-final-outcomes.html" target="_blank" rel="noopener noreferrer">CME Group</a>, the relative-policy story (Fed vs ECB vs BoJ) is more reliable than the absolute-Fed story. In 2026 the Fed is the only major central bank still easing — genuinely USD-negative — unless hot inflation stops the cuts altogether.</p>`,
       },
       {
         heading: "What This Means for Your Transfers",
@@ -9744,7 +9744,7 @@ export const blogPosts: BlogPost[] = [
 
 <p style="text-align:center;margin-top:24px"><a href="/send-money" class="blog-cta-button">Compare 50+ Providers — Live Rates →</a></p>
 
-<p class="blog-footnote">Sources: <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer nofollow">Fed SEP (Mar 18, 2026)</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer nofollow">BLS CPI</a>, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView" target="_blank" rel="noopener noreferrer nofollow">US Treasury yield curve</a>, bank research notes linked above, and <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices Worldwide</a>. Corridor maths anchored by SendMoneyCompare's scraped quote data (refreshed every 6 hours) — see our <a href="/methodology">methodology</a>.</p>`,
+<p class="blog-footnote">Sources: <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer">Fed SEP (Mar 18, 2026)</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer">BLS CPI</a>, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView" target="_blank" rel="noopener noreferrer">US Treasury yield curve</a>, bank research notes linked above, and <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a>. Corridor maths anchored by SendMoneyCompare's scraped quote data (refreshed every 6 hours) — see our <a href="/methodology">methodology</a>.</p>`,
       },
     ],
     faqs: [
@@ -11359,7 +11359,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why Nepal Is a Critical Remittance Corridor",
-        content: `<p>Nepal received over <strong>$10.6 billion in remittances in 2025</strong>, according to the <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer nofollow">Nepal Rastra Bank</a> — representing roughly <strong>22% of the country's GDP</strong>. That makes Nepal one of the most remittance-dependent economies in the world.</p>
+        content: `<p>Nepal received over <strong>$10.6 billion in remittances in 2025</strong>, according to the <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer">Nepal Rastra Bank</a> — representing roughly <strong>22% of the country's GDP</strong>. That makes Nepal one of the most remittance-dependent economies in the world.</p>
 <p>An estimated 4–5 million Nepalis work abroad, primarily in the Gulf states (Qatar, UAE, Saudi Arabia, Kuwait), Malaysia, Australia, the UK, and the United States. Remittances fund everything from daily household expenses to education, healthcare, and house construction.</p>
 <p>The corridor is competitive, but not all providers serve it equally. Some offer excellent rates on the India corridor but mark up NPR by 2–3%. The difference between the best and worst provider on a $1,000 transfer can be <strong>NPR 3,000–8,000</strong> — enough to cover a week of groceries in Kathmandu.</p>
 <p>For broader context on how international transfers work, see our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a>.</p>`,
@@ -11462,7 +11462,7 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li>NPR moves in lockstep with INR against other currencies (USD, GBP, AUD, EUR)</li>
 <li>If INR strengthens against USD, NPR also strengthens — your recipient gets fewer rupees</li>
-<li>The peg is set by the <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer nofollow">Nepal Rastra Bank</a> and rarely changes</li>
+<li>The peg is set by the <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer">Nepal Rastra Bank</a> and rarely changes</li>
 </ul>
 
 <h3>Provider Markup Is Where You Lose Money</h3>
@@ -11581,7 +11581,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this guide is based on real quotes collected from provider APIs and websites every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources: <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer nofollow">Nepal Rastra Bank</a> remittance statistics, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> migration data, and provider-published fee schedules.</p>`,
+<p>External sources: <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer">Nepal Rastra Bank</a> remittance statistics, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> migration data, and provider-published fee schedules.</p>`,
       },
     ],
     faqs: [
@@ -11660,7 +11660,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The Morocco corridor has a distinctive characteristic: <strong>cash pickup remains enormously popular</strong>. While other corridors have shifted heavily to bank transfers, many Moroccan recipients prefer collecting cash at local agents — particularly in smaller cities and rural areas. This affects which providers offer the best value.</p>
 
-<p>The Moroccan Dirham (MAD) is a managed currency — <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a> controls its value against a basket of EUR (60%) and USD (40%). This means MAD is relatively stable but still fluctuates enough that provider markup matters.</p>`,
+<p>The Moroccan Dirham (MAD) is a managed currency — <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer">Bank Al-Maghrib</a> controls its value against a basket of EUR (60%) and USD (40%). This means MAD is relatively stable but still fluctuates enough that provider markup matters.</p>`,
       },
       {
         heading: "Step 1: Choose Your Provider by Source Country",
@@ -11747,7 +11747,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Euro: 60% weight</strong></li>
 <li><strong>US Dollar: 40% weight</strong></li>
 </ul>
-<p><a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a> allows the Dirham to fluctuate within a ±5% band around the central rate. This means:</p>
+<p><a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer">Bank Al-Maghrib</a> allows the Dirham to fluctuate within a ±5% band around the central rate. This means:</p>
 <ul>
 <li>EUR/MAD is relatively stable (moves within a narrow band)</li>
 <li>GBP/MAD and USD/MAD fluctuate more, driven by GBP/EUR and USD/EUR movements</li>
@@ -11829,7 +11829,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money">Compare live rates</a> for the latest.</p>
-<p>Sources: <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer nofollow">Bank Al-Maghrib</a>, <a href="https://www.oc.gov.ma/" target="_blank" rel="noopener noreferrer nofollow">Office des Changes</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>.</p>`,
+<p>Sources: <a href="https://www.bkam.ma/" target="_blank" rel="noopener noreferrer">Bank Al-Maghrib</a>, <a href="https://www.oc.gov.ma/" target="_blank" rel="noopener noreferrer">Office des Changes</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>.</p>`,
       },
     ],
     faqs: [
@@ -12023,7 +12023,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>SEPA is the single most important thing to understand for the Romania corridor. Here's a complete breakdown:</p>
 
 <h3>What Is SEPA?</h3>
-<p>The <a href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html" target="_blank" rel="noopener noreferrer nofollow">Single Euro Payments Area</a> allows EUR transfers between 36 European countries at near-zero cost. Romania is a full SEPA member.</p>
+<p>The <a href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html" target="_blank" rel="noopener noreferrer">Single Euro Payments Area</a> allows EUR transfers between 36 European countries at near-zero cost. Romania is a full SEPA member.</p>
 
 <h3>SEPA Transfer Types</h3>
 <ul>
@@ -12082,7 +12082,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money">Compare live rates</a> for the latest.</p>
-<p>Sources: <a href="https://www.bnr.ro/" target="_blank" rel="noopener noreferrer nofollow">Banca Națională a României (BNR)</a>, <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Central Bank</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>.</p>`,
+<p>Sources: <a href="https://www.bnr.ro/" target="_blank" rel="noopener noreferrer">Banca Națională a României (BNR)</a>, <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">European Central Bank</a>, <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices</a>, <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a>.</p>`,
       },
     ],
     faqs: [
@@ -12151,7 +12151,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "UK to Bangladesh: A Major Remittance Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from UK to Bangladesh in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market GBP to BDT exchange rate with 0% markup and a fee of approximately £5 on a £1,000 transfer. <a href="/companies/remitly">Remitly</a> is the fastest option, delivering money in seconds via bKash to over 60 million accounts. For cash pickup in smaller towns, <a href="/companies/western-union">Western Union</a> has the widest agent network. On a typical £1,000 transfer, specialist providers deliver ৳3,000–৳7,000 more than high-street UK banks like Barclays or HSBC, which charge higher fees and mark up the exchange rate by 2–4%. Recipients also get a <strong>2.5% government incentive</strong> on remittances through formal channels — worth an extra ৳3,500+ on a £1,000 transfer. <a href="/send-money/uk-to-bangladesh">Compare live GBP to BDT rates</a> from 8+ providers.</p></div>
-<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025 according to <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a>, and the UK is the <strong>second-largest source</strong> after Saudi Arabia. Over 600,000 British Bangladeshis — concentrated in London, Birmingham, and Luton — send money home regularly to support families, fund education, and invest in property.</p>
+<p>Bangladesh received over <strong>$23 billion in remittances</strong> in 2025 according to <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a>, and the UK is the <strong>second-largest source</strong> after Saudi Arabia. Over 600,000 British Bangladeshis — concentrated in London, Birmingham, and Luton — send money home regularly to support families, fund education, and invest in property.</p>
 <p>The GBP to BDT corridor is well-served by specialist providers who undercut high-street banks by a wide margin. On a £1,000 transfer, the difference between the best specialist provider and a typical UK bank can be <strong>৳3,000–৳7,000</strong>. Combined with the 2.5% government incentive, formal channels deliver significantly more value than either bank transfers or informal hawala networks.</p>`,
       },
       {
@@ -12271,7 +12271,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "The 2.5% Government Incentive: What UK Senders Need to Know",
-        content: `<p>One of Bangladesh's most unique remittance features is the <strong>2.5% cash incentive</strong> paid by <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> on all inbound remittances through formal channels.</p>
+        content: `<p>One of Bangladesh's most unique remittance features is the <strong>2.5% cash incentive</strong> paid by <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> on all inbound remittances through formal channels.</p>
 <h3>How It Works</h3>
 <ul>
 <li>When you send money through a licensed provider (Wise, Remitly, WorldRemit, Western Union, etc.), the recipient automatically receives an <strong>extra 2.5%</strong> on top of the transferred amount.</li>
@@ -12303,7 +12303,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer nofollow">Bangladesh Bank</a> remittance statistics and incentive policy documents, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.bb.org.bd/" target="_blank" rel="noopener noreferrer">Bangladesh Bank</a> remittance statistics and incentive policy documents, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -12367,7 +12367,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Kenya: Africa's Mobile Money Leader",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Kenya in 2026 depends on your source country. From the US, <a href="/companies/wise">Wise</a> offers the mid-market rate with 0% markup. <a href="/companies/remitly">Remitly</a> is the fastest option with direct M-Pesa delivery in seconds. Kenya's unique advantage is <strong>M-Pesa</strong> — the world's most successful mobile money platform with 35+ million active users, reaching every corner of the country. On a $1,000 transfer, specialist providers deliver KES 5,000–15,000 more than traditional banks. <a href="/send-money/usa-to-kenya">Compare live rates</a> from 10+ providers.</p></div>
 <div class="blog-callout-blue-sm"><p><strong>Key data:</strong> According to SendMoneyCompare's analysis of 10+ providers, specialist services deliver KES 5,000–15,000 more than bank wires on a $1,000 transfer to Kenya. M-Pesa reaches 35+ million Kenyans (65% of the population) with instant delivery, making it the most accessible delivery method.</p></div>
-<p>Kenya received over <strong>$4.2 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya (CBK)</a>, making it East Africa's largest remittance recipient. The US, UK, Canada, and Gulf states are the primary source countries.</p>
+<p>Kenya received over <strong>$4.2 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya (CBK)</a>, making it East Africa's largest remittance recipient. The US, UK, Canada, and Gulf states are the primary source countries.</p>
 <p>What makes the Kenya corridor unique is <strong>M-Pesa</strong>. Launched by Safaricom in 2007, M-Pesa has become the default financial infrastructure for most Kenyans — used for everything from receiving remittances to paying school fees, rent, and utility bills. Over 35 million Kenyans (out of 55 million) have an active M-Pesa account, making mobile money the most accessible delivery method by far.</p>`,
       },
       {
@@ -12485,7 +12485,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>For US/UK senders:</strong> No tax on personal remittances to family in the US or UK. In the US, transfers over $10,000 are reported under the Bank Secrecy Act but are not taxed. In the UK, HMRC does not tax outgoing personal transfers.</li>
 <li><strong>For recipients in Kenya:</strong> Personal remittances from abroad are generally <strong>not taxable</strong>. Kenya Revenue Authority (KRA) does not treat family support as income. However, if the money is payment for services or business income, it may be subject to income tax.</li>
 <li><strong>M-Pesa withdrawal fees:</strong> Safaricom charges a small withdrawal fee at agent points. For KES 75,001–150,000, the fee is KES 197. These are Safaricom's standard fees, not provider fees.</li>
-<li><strong>Central Bank of Kenya (CBK) regulations:</strong> The <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">CBK</a> regulates all inbound remittances. Licensed money transfer providers are listed on the CBK website.</li>
+<li><strong>Central Bank of Kenya (CBK) regulations:</strong> The <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">CBK</a> regulates all inbound remittances. Licensed money transfer providers are listed on the CBK website.</li>
 <li><strong>Anti-money laundering:</strong> Kenyan banks and M-Pesa may request additional documentation for large or frequent transfers, in compliance with the Proceeds of Crime and Anti-Money Laundering Act.</li>
 </ul>
 <p>This is general information — consult a tax professional for your specific situation.</p>
@@ -12494,7 +12494,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya (CBK)</a> remittance statistics, <a href="https://www.safaricom.co.ke/" target="_blank" rel="noopener noreferrer nofollow">Safaricom</a> M-Pesa data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya (CBK)</a> remittance statistics, <a href="https://www.safaricom.co.ke/" target="_blank" rel="noopener noreferrer nofollow">Safaricom</a> M-Pesa data, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -12563,7 +12563,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "UK to Nigeria: A High-Volume Remittance Corridor",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from UK to Nigeria in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market GBP to NGN exchange rate with 0% markup and a fee of approximately £5 on a £1,000 transfer. <a href="/companies/lemfi">LemFi</a> (formerly LemMoney) is a strong competitor on this corridor with zero-fee transfers and competitive Naira rates. For cash pickup, <a href="/companies/western-union">Western Union</a> has the widest agent network across all 36 Nigerian states. On a typical £1,000 transfer, specialist providers deliver <strong>₦50,000–₦150,000 more</strong> than UK high-street banks, which charge higher fees and mark up the exchange rate by 2–4%. <a href="/send-money/uk-to-nigeria">Compare live GBP to NGN rates</a> from 8+ providers.</p></div>
-<p>Nigeria received over <strong>$19 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria (CBN)</a>, making it Africa's largest remittance recipient and the 6th largest globally. The UK is the <strong>second-largest source country</strong> after the US, with over 250,000 Nigerian-born residents in England and Wales.</p>
+<p>Nigeria received over <strong>$19 billion in diaspora remittances</strong> in 2025 according to the <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a>, making it Africa's largest remittance recipient and the 6th largest globally. The UK is the <strong>second-largest source country</strong> after the US, with over 250,000 Nigerian-born residents in England and Wales.</p>
 <p>The GBP to NGN corridor presents a unique challenge: Nigeria's exchange rate system has historically had multiple rates (official CBN rate, NAFEM market rate, and parallel market rate). Since the 2023 reforms, the rates have largely converged, but understanding which rate your provider uses remains critical. The difference between the best and worst provider can be <strong>₦50,000–₦150,000 on a £1,000 transfer</strong>.</p>`,
       },
       {
@@ -12668,7 +12668,7 @@ export const blogPosts: BlogPost[] = [
 <ul>
 <li><strong>For UK senders:</strong> No UK tax on personal remittances to family. HMRC does not tax outgoing gifts or family support payments.</li>
 <li><strong>For recipients in Nigeria:</strong> Remittances from abroad are generally <strong>not subject to income tax</strong> in Nigeria. The Federal Inland Revenue Service (FIRS) does not treat personal remittances as taxable income.</li>
-<li><strong>CBN regulations:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria</a> requires recipients to provide a valid ID (National Identity Number or BVN — Bank Verification Number) for bank deposits above certain thresholds.</li>
+<li><strong>CBN regulations:</strong> The <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria</a> requires recipients to provide a valid ID (National Identity Number or BVN — Bank Verification Number) for bank deposits above certain thresholds.</li>
 <li><strong>BVN requirement:</strong> Nigerian bank accounts are linked to the Bank Verification Number (BVN) system. Your recipient needs an active BVN to receive international transfers into their bank account.</li>
 <li><strong>FCA regulation:</strong> All UK-based transfer providers must be authorised by the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">Financial Conduct Authority (FCA)</a>. Check the FCA register if you're unsure about a provider.</li>
 <li><strong>Formal channels only:</strong> Using unlicensed providers or informal channels exposes you to legal risk and fraud. Always use FCA-regulated providers.</li>
@@ -12678,7 +12678,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Nigeria (CBN)</a> exchange rate data and remittance statistics, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.cbn.gov.ng/" target="_blank" rel="noopener noreferrer">Central Bank of Nigeria (CBN)</a> exchange rate data and remittance statistics, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> provider register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -12863,7 +12863,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Volatility is normal.</strong> ZAR can move 3–5% against USD/GBP in a single week. Rate alerts are essential for large transfers.</li>
 <li><strong>Commodity-linked.</strong> South Africa is a major gold and platinum producer. Rising gold prices typically strengthen the Rand; falling prices weaken it.</li>
 <li><strong>Load shedding impact.</strong> Eskom's power outages (load shedding) have periodically weakened the Rand by dampening economic output and investor confidence.</li>
-<li><strong>SARB interest rates.</strong> The <a href="https://www.resbank.co.za/" target="_blank" rel="noopener noreferrer nofollow">South African Reserve Bank (SARB)</a> rate decisions move ZAR. Higher rates attract foreign capital and strengthen the Rand.</li>
+<li><strong>SARB interest rates.</strong> The <a href="https://www.resbank.co.za/" target="_blank" rel="noopener noreferrer">South African Reserve Bank (SARB)</a> rate decisions move ZAR. Higher rates attract foreign capital and strengthen the Rand.</li>
 </ul>
 <p><strong>Strategy for large transfers:</strong> If you're sending $5,000+, consider splitting across 2–3 transfers over different weeks to average out the rate. Or use <a href="/companies/ofx">OFX forward contracts</a> to lock in today's rate for future payments.</p>`,
       },
@@ -12882,7 +12882,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.resbank.co.za/" target="_blank" rel="noopener noreferrer nofollow">South African Reserve Bank (SARB)</a> exchange control regulations, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.resbank.co.za/" target="_blank" rel="noopener noreferrer">South African Reserve Bank (SARB)</a> exchange control regulations, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global migration data.</p>`,
       },
     ],
     faqs: [
@@ -12951,7 +12951,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Colombia's Remittance Market: Digital Wallets Leading the Way",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Colombia in 2026 is <a href="/companies/wise">Wise</a>, which uses the mid-market USD to COP exchange rate with 0% markup and fees of $4–7 on a $1,000 transfer. <a href="/companies/remitly">Remitly</a> is a close competitor with fees as low as $0–4 and direct Nequi delivery. For cash pickup, <a href="/companies/western-union">Western Union</a> has 10,000+ Efecty locations across Colombia. On a typical $1,000 transfer, specialist providers deliver <strong>COP 50,000–200,000 more</strong> than traditional banks. <a href="/send-money/send-money-to-colombia">Compare live COP rates</a> from 10+ providers.</p></div>
-<p>Colombia received over <strong>$10.5 billion in remittances</strong> in 2023, according to <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer nofollow">Banco de la República</a>, with the United States accounting for roughly half. Spain, Chile, and Ecuador are the other major source countries, reflecting Colombia's diverse diaspora of over 5 million abroad.</p>
+<p>Colombia received over <strong>$10.5 billion in remittances</strong> in 2023, according to <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer">Banco de la República</a>, with the United States accounting for roughly half. Spain, Chile, and Ecuador are the other major source countries, reflecting Colombia's diverse diaspora of over 5 million abroad.</p>
 <p>What makes Colombia unique among Latin American remittance destinations is the <strong>rapid adoption of digital wallets</strong>. Nequi (owned by Bancolombia) and Daviplata (owned by Davivienda) now have <strong>over 30 million combined users</strong> — in a country of 52 million. Combined with the Transfiya instant interbank network and the PSE online payment system, Colombia's financial infrastructure means transfers can arrive in minutes rather than days.</p>
 <p>The Colombian peso (COP) is a managed-float currency that has shown <strong>5–15% annual fluctuation</strong> against the USD, ranging from COP 3,700 to COP 4,800 per dollar between 2022–2025. This volatility means the difference between providers can be significant — comparing at the time of sending is essential.</p>`,
       },
@@ -13048,7 +13048,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/send-money-to-colombia">Colombia comparison tool</a> for the latest rates.</p>
-<p>External sources include <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer nofollow">Banco de la República</a> remittance statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a> and <a href="https://www.superfinanciera.gov.co/" target="_blank" rel="noopener noreferrer nofollow">SFC</a>.</p>`,
+<p>External sources include <a href="https://www.banrep.gov.co/" target="_blank" rel="noopener noreferrer">Banco de la República</a> remittance statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> and <a href="https://www.superfinanciera.gov.co/" target="_blank" rel="noopener noreferrer">SFC</a>.</p>`,
       },
     ],
     faqs: [
@@ -13200,12 +13200,12 @@ export const blogPosts: BlogPost[] = [
 <li><strong>For UK senders</strong> — HMRC does not tax outgoing personal transfers. There is no UK exit tax on remittances to Poland.</li>
 <li><strong>Business payments</strong> — Payments for services or business purposes may be subject to Polish income tax and social security contributions. A tax identification number (NIP) is required for business recipients.</li>
 </ul>
-<p>The <a href="https://www.knf.gov.pl/" target="_blank" rel="noopener noreferrer nofollow">Polish Financial Supervision Authority (KNF)</a> oversees financial services in Poland. All providers in this guide are regulated in their home jurisdictions.</p>`,
+<p>The <a href="https://www.knf.gov.pl/" target="_blank" rel="noopener noreferrer">Polish Financial Supervision Authority (KNF)</a> oversees financial services in Poland. All providers in this guide are regulated in their home jurisdictions.</p>`,
       },
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money/send-money-to-poland">Poland comparison tool</a> for the latest rates.</p>
-<p>External sources include <a href="https://www.nbp.pl/" target="_blank" rel="noopener noreferrer nofollow">National Bank of Poland (NBP)</a> statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a>.</p>`,
+<p>External sources include <a href="https://www.nbp.pl/" target="_blank" rel="noopener noreferrer">National Bank of Poland (NBP)</a> statistics, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a> bilateral remittance data, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
@@ -13389,15 +13389,15 @@ export const blogPosts: BlogPost[] = [
 <li><strong>India: NRE account interest is tax-free.</strong> Interest earned on NRE fixed deposits is exempt from Indian income tax — a significant benefit for NRI savers.</li>
 <li><strong>India: NRO account interest is taxed at 30%.</strong> TDS (Tax Deducted at Source) applies to NRO interest. DTAA (Double Taxation Avoidance Agreement) between India and UAE may reduce this.</li>
 <li><strong>India: No tax on receiving family remittances.</strong> Money received from relatives abroad through banking channels is not taxable under Section 56(2) of the Income Tax Act.</li>
-<li><strong>RBI reporting.</strong> The <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India</a> requires reporting for large inbound transfers. Your bank handles this automatically.</li>
-<li><strong>CBUAE regulation.</strong> All UAE-based transfer providers and exchange houses must be licensed by the <a href="https://www.centralbank.ae/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of the UAE (CBUAE)</a>.</li>
+<li><strong>RBI reporting.</strong> The <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a> requires reporting for large inbound transfers. Your bank handles this automatically.</li>
+<li><strong>CBUAE regulation.</strong> All UAE-based transfer providers and exchange houses must be licensed by the <a href="https://www.centralbank.ae/" target="_blank" rel="noopener noreferrer">Central Bank of the UAE (CBUAE)</a>.</li>
 </ul>
 <p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest international transfer guide</a>, <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>, and <a href="/guides/send-money-to-india-guide">general India transfer guide</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
-<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of India (RBI)</a> NRI account guidelines, <a href="https://www.centralbank.ae/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of the UAE (CBUAE)</a> licensed exchange house register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> bilateral remittance data.</p>`,
+<p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India (RBI)</a> NRI account guidelines, <a href="https://www.centralbank.ae/" target="_blank" rel="noopener noreferrer">Central Bank of the UAE (CBUAE)</a> licensed exchange house register, and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> bilateral remittance data.</p>`,
       },
     ],
     faqs: [
@@ -13805,7 +13805,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Cost estimates in this guide are based on real quotes collected from provider APIs and websites via automated scraping. Actual costs vary by corridor, amount, and market conditions — use our <a href="/send-money">comparison tool</a> for the latest rates at your exact amount.</p>
-<p>External sources include the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a>, and provider-published fee schedules. Compliance information is general guidance — consult a tax professional for your specific situation.</p>`,
+<p>External sources include the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a>, and provider-published fee schedules. Compliance information is general guidance — consult a tax professional for your specific situation.</p>`,
       },
     ],
     faqs: [
@@ -13946,14 +13946,14 @@ export const blogPosts: BlogPost[] = [
         content: `<ul>
 <li><strong>For US senders:</strong> No tax on personal remittances. Transfers over $10,000 reported to FinCEN.</li>
 <li><strong>For Australian senders:</strong> No tax on outbound personal transfers. AUSTRAC reports transfers over AUD 10,000.</li>
-<li><strong>For recipients in Vietnam:</strong> Personal remittances from abroad are <strong>not subject to income tax</strong>. The <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Vietnam (SBV)</a> encourages formal remittance channels.</li>
+<li><strong>For recipients in Vietnam:</strong> Personal remittances from abroad are <strong>not subject to income tax</strong>. The <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer">State Bank of Vietnam (SBV)</a> encourages formal remittance channels.</li>
 <li><strong>VND is a managed currency.</strong> The SBV manages the dong within a trading band. This means VND rates are relatively stable but the currency is not freely convertible — not all providers offer VND delivery.</li>
 </ul>
 <p>For more guidance, read our <a href="/guides/cheapest-way-to-send-money-internationally">cheapest transfer guide</a> and <a href="/guides/money-transfer-safety-guide">safety guide</a>.</p>`,
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Vietnam</a>.</p>`,
+        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener noreferrer">State Bank of Vietnam</a>.</p>`,
       },
     ],
     faqs: [
@@ -14066,7 +14066,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.tcmb.gov.tr/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Turkey (TCMB)</a>.</p>`,
+        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. <a href="/send-money">Use our comparison tool</a> for latest rates. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank RPW</a>, <a href="https://www.tcmb.gov.tr/" target="_blank" rel="noopener noreferrer">Central Bank of Turkey (TCMB)</a>.</p>`,
       },
     ],
     faqs: [
@@ -14260,7 +14260,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Traditional transfer costs are based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Stablecoin costs include network gas fees (checked via Solscan and Tronscan), typical exchange on/off-ramp fees (Coinbase, Binance), and local conversion spreads.</p>
-<p>External sources: <a href="https://www.visa.com/" target="_blank" rel="noopener noreferrer nofollow">Visa stablecoin transaction data</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a> remittance cost database, provider-published fee schedules. Use our <a href="/send-money">comparison tool</a> for current traditional provider rates.</p>`,
+<p>External sources: <a href="https://www.visa.com/" target="_blank" rel="noopener noreferrer nofollow">Visa stablecoin transaction data</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a> remittance cost database, provider-published fee schedules. Use our <a href="/send-money">comparison tool</a> for current traditional provider rates.</p>`,
       },
     ],
     faqs: [
@@ -14369,7 +14369,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Transfer limits are sourced from provider websites, terms of service, and customer support as of April 2026. Limits may change without notice — always verify directly with your chosen provider before initiating a large transfer.</p>
-<p>Regulatory information from <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer nofollow">RBI</a>, and <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer nofollow">BSP</a>.</p>`,
+<p>Regulatory information from <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">RBI</a>, and <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">BSP</a>.</p>`,
       },
     ],
     faqs: [
@@ -14452,7 +14452,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sources & Methodology",
         content: `<p>Rankings are based on real quotes collected from provider APIs and websites via automated scraping every 6 hours, combined with feature analysis, multi-currency account capabilities, and user reviews. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates on your specific corridor.</p>
-<p>External sources include provider-published fee schedules, app store ratings, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a>, and <a href="https://www.mas.gov.sg/" target="_blank" rel="noopener noreferrer nofollow">MAS</a>.</p>`,
+<p>External sources include provider-published fee schedules, app store ratings, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, and <a href="https://www.mas.gov.sg/" target="_blank" rel="noopener noreferrer">MAS</a>.</p>`,
       },
     ],
     faqs: [
@@ -14521,7 +14521,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. External sources: <a href="https://www.bde.es/" target="_blank" rel="noopener noreferrer nofollow">Bank of Spain</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a>. <a href="/send-money/send-money-to-spain">Compare live rates</a>.</p>`,
+        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. External sources: <a href="https://www.bde.es/" target="_blank" rel="noopener noreferrer">Bank of Spain</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a>. <a href="/send-money/send-money-to-spain">Compare live rates</a>.</p>`,
       },
     ],
     faqs: [
@@ -14553,8 +14553,8 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Sending Money to the UK: Fast, Competitive, and Well-Connected",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to the UK is <a href="/companies/wise">Wise</a> — mid-market exchange rate with 0% markup and fees of $5–7 on $1,000 from the US. Delivery via the UK's <strong>Faster Payments Service (FPS)</strong> arrives in minutes, 24/7, including weekends and bank holidays. From the EU, <a href="/companies/revolut">Revolut</a> and <a href="/companies/wise">Wise</a> tie at the top — Revolut is free Revolut-to-Revolut on weekdays, Wise is the most predictable across all banks. UK high-street banks (Barclays, HSBC, Lloyds, NatWest) typically add a 2–4% FX markup on the rate, so a £1,000 inbound transfer through your bank loses you £20–£40 versus a specialist provider. <a href="/send-money/send-money-to-uk">Compare live GBP rates from 10+ providers →</a></p></div>
-<p>The UK is one of the world's most connected financial centers and a top-tier remittance destination, receiving inflows from the <strong>US, EU, India, Pakistan, Australia, Canada, the UAE, and Hong Kong</strong>. According to the <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank's KNOMAD</a> data, the UK is also the seventh-largest remittance <em>sender</em> globally — but inbound flows from diaspora workers, returning expats, and family transfers consistently rank in the top 15 worldwide.</p>
-<p>The infrastructure helps. The <strong>Faster Payments Service (FPS)</strong> — operated by <a href="https://www.wearepay.uk/" target="_blank" rel="noopener noreferrer nofollow">Pay.UK</a> — enables instant GBP transfers <strong>24/7, including weekends and bank holidays</strong>. Most digital providers route through FPS for the final-mile leg, which means a transfer initiated from the US at 10pm Pacific can hit a Barclays or Monzo account in London within minutes. Compare that with the US ACH system (1–3 business days) or older EU SWIFT routing (2–4 business days) and you understand why the UK is one of the easiest countries in the world to send money to.</p>
+<p>The UK is one of the world's most connected financial centers and a top-tier remittance destination, receiving inflows from the <strong>US, EU, India, Pakistan, Australia, Canada, the UAE, and Hong Kong</strong>. According to the <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">World Bank's KNOMAD</a> data, the UK is also the seventh-largest remittance <em>sender</em> globally — but inbound flows from diaspora workers, returning expats, and family transfers consistently rank in the top 15 worldwide.</p>
+<p>The infrastructure helps. The <strong>Faster Payments Service (FPS)</strong> — operated by <a href="https://www.wearepay.uk/" target="_blank" rel="noopener noreferrer">Pay.UK</a> — enables instant GBP transfers <strong>24/7, including weekends and bank holidays</strong>. Most digital providers route through FPS for the final-mile leg, which means a transfer initiated from the US at 10pm Pacific can hit a Barclays or Monzo account in London within minutes. Compare that with the US ACH system (1–3 business days) or older EU SWIFT routing (2–4 business days) and you understand why the UK is one of the easiest countries in the world to send money to.</p>
 <p>Post-Brexit, the UK operates outside SEPA for domestic GBP payments — but EU→UK is still highly competitive because most digital providers maintain GBP nostro accounts and convert EUR→GBP at near mid-market. Where Brexit hurts is on bank-to-bank SWIFT transfers: SEPA Instant doesn't reach UK accounts anymore, so a German bank wiring directly to a UK bank can still take 1–2 days and add 1–3% in correspondent fees. The fix is simple: use a specialist (Wise, Revolut, OFX) instead of your bank.</p>
 <p>This guide covers the four largest inbound corridors (US, EU, Australia, India), the three you should pay attention to (UAE, Canada, Pakistan), what data you actually need to send a UK payment, and the specific providers that win on each route in 2026.</p>`,
       },
@@ -14694,7 +14694,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer nofollow">Bank of England</a> and exchangerate.host. UK payment rail behavior verified against <a href="https://www.wearepay.uk/" target="_blank" rel="noopener noreferrer nofollow">Pay.UK</a> public documentation. Remittance flow figures from <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a>. <a href="/send-money/send-money-to-uk">Compare live rates →</a></p>`,
+        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer">Bank of England</a> and exchangerate.host. UK payment rail behavior verified against <a href="https://www.wearepay.uk/" target="_blank" rel="noopener noreferrer">Pay.UK</a> public documentation. Remittance flow figures from <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a>. <a href="/send-money/send-money-to-uk">Compare live rates →</a></p>`,
       },
     ],
     faqs: [
@@ -14813,7 +14813,7 @@ export const blogPosts: BlogPost[] = [
 
 <h3>The $20,000 / $50,000 Reporting Thresholds</h3>
 <ul>
-<li><strong>Per-transfer threshold</strong>: Inbound transfers <strong>above USD $20,000</strong> are reported by the recipient's bank to the <a href="https://www.bok.or.kr/eng" target="_blank" rel="noopener noreferrer nofollow">Bank of Korea</a> and the National Tax Service. The recipient may need to provide a stated purpose (gift, salary, investment, business income).</li>
+<li><strong>Per-transfer threshold</strong>: Inbound transfers <strong>above USD $20,000</strong> are reported by the recipient's bank to the <a href="https://www.bok.or.kr/eng" target="_blank" rel="noopener noreferrer">Bank of Korea</a> and the National Tax Service. The recipient may need to provide a stated purpose (gift, salary, investment, business income).</li>
 <li><strong>Annual inbound personal limit</strong>: <strong>USD $50,000 per calendar year</strong> for transfers received as gifts or family support without additional supporting documents. Above this, the recipient needs to file a Foreign Exchange Transaction Report and may need supporting evidence (relationship documents, contract, invoice).</li>
 <li><strong>Outbound limit</strong>: Korean residents face a separate $100,000 annual outbound limit for unsupported transfers (relevant if your recipient later wants to send back).</li>
 </ul>
@@ -14827,7 +14827,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h3>Tax-Free Gift Allowance</h3>
-<p>Korean tax law allows gifts from immediate family (parent → adult child) up to <strong>KRW 50 million (~USD $37,000) per 10 years</strong> tax-free. Above that, gift tax of 10–50% applies. If you're sending large amounts to family in Korea, the recipient should keep records showing the relationship — many banks require this on transfers above $20,000. The <a href="https://nts.go.kr/english" target="_blank" rel="noopener noreferrer nofollow">National Tax Service</a> publishes the current rates.</p>`,
+<p>Korean tax law allows gifts from immediate family (parent → adult child) up to <strong>KRW 50 million (~USD $37,000) per 10 years</strong> tax-free. Above that, gift tax of 10–50% applies. If you're sending large amounts to family in Korea, the recipient should keep records showing the relationship — many banks require this on transfers above $20,000. The <a href="https://nts.go.kr/english" target="_blank" rel="noopener noreferrer">National Tax Service</a> publishes the current rates.</p>`,
       },
       {
         heading: "Delivery Speed: SWIFT vs Specialist Routes",
@@ -14869,7 +14869,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.bok.or.kr/eng" target="_blank" rel="noopener noreferrer nofollow">Bank of Korea</a> and exchangerate.host. FX reporting thresholds verified against Bank of Korea Foreign Exchange Transactions Act guidance. Tax allowance figures from <a href="https://nts.go.kr/english" target="_blank" rel="noopener noreferrer nofollow">National Tax Service of Korea</a>. <a href="/send-money/send-money-to-south-korea">Compare live rates →</a></p>`,
+        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.bok.or.kr/eng" target="_blank" rel="noopener noreferrer">Bank of Korea</a> and exchangerate.host. FX reporting thresholds verified against Bank of Korea Foreign Exchange Transactions Act guidance. Tax allowance figures from <a href="https://nts.go.kr/english" target="_blank" rel="noopener noreferrer">National Tax Service of Korea</a>. <a href="/send-money/send-money-to-south-korea">Compare live rates →</a></p>`,
       },
     ],
     faqs: [
@@ -14905,7 +14905,7 @@ export const blogPosts: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to Australia is <a href="/companies/wise">Wise</a> — mid-market exchange rate with 0% markup and fees of £4–5 on £1,000 from the UK or $5–7 on $1,000 from the US. <a href="/companies/ofx">OFX</a> (Sydney-headquartered) is best for AU $10,000+ transfers with zero fees and dedicated dealer support. Delivery via Australia's <strong>New Payments Platform (NPP)</strong> with <strong>PayID</strong> or BSB + account number can arrive in seconds, 24/7 — including weekends. The big four Australian banks (Commonwealth, Westpac, ANZ, NAB) typically add a 3–5% FX markup on inbound conversions, so a £1,000 transfer through your bank loses you AU $50–80 versus a specialist. <a href="/send-money/send-money-to-australia">Compare live AUD rates from 10+ providers →</a></p></div>
 <p>Australia has one of the world's most modern domestic payment systems. The <strong>New Payments Platform (NPP)</strong>, launched in 2018 and operated by NPP Australia, enables instant AUD transfers <strong>24/7, including weekends, public holidays, and overnight</strong>. Most NPP transfers settle in under 30 seconds and use <strong>PayID</strong> — a recipient identifier linked to a phone number, email, or ABN, removing the need to remember a 16-digit BSB + account combination.</p>
 <p>For inbound international transfers, the picture is different: NPP doesn't directly handle cross-border payments, so all foreign currency conversions land in an Australian bank account via the partner bank's domestic AUD rails. Wise, OFX, Revolut, and most other specialists hold pre-positioned AUD in Australian partner banks, which means once the source funds clear, the AUD push to the recipient takes minutes — not days.</p>
-<p>Australia is the world's <strong>14th-largest remittance recipient</strong> by some measures, with major inbound corridors from the <strong>UK</strong> (1.2 million British-born residents and the strongest cultural-financial link outside the EU), the <strong>US</strong>, <strong>New Zealand</strong> (the trans-Tasman corridor — Australia and NZ have visa-free movement and significant cross-border employment), <strong>India</strong> (one of the fastest-growing migrant communities), <strong>China</strong>, and the <strong>Philippines</strong>. According to the <a href="https://www.abs.gov.au/" target="_blank" rel="noopener noreferrer nofollow">Australian Bureau of Statistics</a>, more than 30% of Australians were born overseas — driving consistent personal-remittance flows in both directions.</p>
+<p>Australia is the world's <strong>14th-largest remittance recipient</strong> by some measures, with major inbound corridors from the <strong>UK</strong> (1.2 million British-born residents and the strongest cultural-financial link outside the EU), the <strong>US</strong>, <strong>New Zealand</strong> (the trans-Tasman corridor — Australia and NZ have visa-free movement and significant cross-border employment), <strong>India</strong> (one of the fastest-growing migrant communities), <strong>China</strong>, and the <strong>Philippines</strong>. According to the <a href="https://www.abs.gov.au/" target="_blank" rel="noopener noreferrer">Australian Bureau of Statistics</a>, more than 30% of Australians were born overseas — driving consistent personal-remittance flows in both directions.</p>
 <p>This guide covers the largest inbound corridors, the AU $10,000-and-up bracket where OFX dominates, what BSB and PayID actually mean, and the AUSTRAC reporting thresholds that catch occasional senders by surprise.</p>`,
       },
       {
@@ -15034,7 +15034,7 @@ export const blogPosts: BlogPost[] = [
         content: `<p>Australia's reporting environment is recipient-friendly compared with countries like Korea or India, but a few thresholds catch new senders:</p>
 
 <h3>The AU $10,000 AUSTRAC Threshold</h3>
-<p>Inbound transfers <strong>above AU $10,000</strong> (or foreign-currency equivalent) are reported to <a href="https://www.austrac.gov.au/" target="_blank" rel="noopener noreferrer nofollow">AUSTRAC</a> — the Australian financial intelligence agency — as part of standard threshold transaction reports. This is automatic and doesn't require any action from the sender or recipient. Routine large transfers (property purchases, school fees, family support) are not flagged as suspicious; AUSTRAC's job is bulk monitoring, not individual review.</p>
+<p>Inbound transfers <strong>above AU $10,000</strong> (or foreign-currency equivalent) are reported to <a href="https://www.austrac.gov.au/" target="_blank" rel="noopener noreferrer">AUSTRAC</a> — the Australian financial intelligence agency — as part of standard threshold transaction reports. This is automatic and doesn't require any action from the sender or recipient. Routine large transfers (property purchases, school fees, family support) are not flagged as suspicious; AUSTRAC's job is bulk monitoring, not individual review.</p>
 
 <h3>Tax on Gifts and Inheritance</h3>
 <p>Australia has <strong>no gift tax and no inheritance tax</strong> for the recipient. A foreign-source gift or inheritance arriving in an Australian bank account is generally not assessable income. However:</p>
@@ -15068,7 +15068,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.rba.gov.au/" target="_blank" rel="noopener noreferrer nofollow">Reserve Bank of Australia</a> and exchangerate.host. Australian payment rail behavior verified against <a href="https://nppa.com.au/" target="_blank" rel="noopener noreferrer nofollow">NPP Australia</a> public documentation. AUSTRAC reporting threshold from the Anti-Money Laundering and Counter-Terrorism Financing Act 2006. Migrant population figures from <a href="https://www.abs.gov.au/" target="_blank" rel="noopener noreferrer nofollow">Australian Bureau of Statistics</a>. <a href="/send-money/send-money-to-australia">Compare live rates →</a></p>`,
+        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.rba.gov.au/" target="_blank" rel="noopener noreferrer">Reserve Bank of Australia</a> and exchangerate.host. Australian payment rail behavior verified against <a href="https://nppa.com.au/" target="_blank" rel="noopener noreferrer">NPP Australia</a> public documentation. AUSTRAC reporting threshold from the Anti-Money Laundering and Counter-Terrorism Financing Act 2006. Migrant population figures from <a href="https://www.abs.gov.au/" target="_blank" rel="noopener noreferrer">Australian Bureau of Statistics</a>. <a href="/send-money/send-money-to-australia">Compare live rates →</a></p>`,
       },
     ],
     faqs: [
@@ -15150,7 +15150,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. External sources: <a href="https://nbebank.com/" target="_blank" rel="noopener noreferrer nofollow">National Bank of Ethiopia</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer nofollow">KNOMAD/World Bank</a>, <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer nofollow">IMF</a>. <a href="/send-money/send-money-to-ethiopia">Compare live rates</a>.</p>`,
+        content: `<p>Data based on real quotes collected via automated scraping every 6 hours. External sources: <a href="https://nbebank.com/" target="_blank" rel="noopener noreferrer">National Bank of Ethiopia</a>, <a href="https://knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD/World Bank</a>, <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a>. <a href="/send-money/send-money-to-ethiopia">Compare live rates</a>.</p>`,
       },
     ],
     faqs: [
@@ -15183,7 +15183,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Where Does the Euro Stand Right Now?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> As of April 2026, <strong>EUR/USD is trading at 1.18</strong> — near six-week highs. The ECB held the deposit facility rate at <strong>2.00%</strong> in March 2026 and is widely expected to hold again on April 30. Most major banks — including <a href="https://www.goldmansachs.com/" target="_blank" rel="noopener noreferrer nofollow">Goldman Sachs</a> (1.25 target), Deutsche Bank (1.25), and <a href="https://think.ing.com/" target="_blank" rel="noopener noreferrer nofollow">ING</a> (1.22 base case) — forecast further euro strength through year-end 2026. For people sending USD to eurozone countries, this means <strong>recipients get fewer euros per dollar sent</strong> — making it critical to <a href="/send-money">compare providers</a> and time transfers when the EUR/USD dips.</p></div>
 <p>The euro is the world's second-most-traded currency after the US dollar, used by over 340 million people across 20 eurozone countries. When EUR/USD moves, it ripples through every import bill in Europe, every remittance to family in Spain or Germany, and every cross-border invoice between US and European companies.</p>
-<p>In this analysis, we pull data from the <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Central Bank</a>, the <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer nofollow">IMF</a>, and forecasts from major banks to answer: <strong>will the euro go up or down against the dollar in 2026?</strong></p>`,
+<p>In this analysis, we pull data from the <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">European Central Bank</a>, the <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a>, and forecasts from major banks to answer: <strong>will the euro go up or down against the dollar in 2026?</strong></p>`,
       },
       {
         heading: "ECB Rate Decisions and the Path Ahead",
@@ -15265,7 +15265,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Exchange rate data sourced from live provider APIs updated every 6 hours. Economic data from <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Central Bank</a>, <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer nofollow">IMF World Economic Outlook (April 2026)</a>, and <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer nofollow">European Commission</a>. Bank forecasts from published research by Goldman Sachs, Deutsche Bank, ING, JPMorgan, and Morgan Stanley (2025-2026 outlooks). <a href="/send-money">Compare live EUR rates</a> from 50+ providers.</p>`,
+        content: `<p>Exchange rate data sourced from live provider APIs updated every 6 hours. Economic data from <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">European Central Bank</a>, <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF World Economic Outlook (April 2026)</a>, and <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer">European Commission</a>. Bank forecasts from published research by Goldman Sachs, Deutsche Bank, ING, JPMorgan, and Morgan Stanley (2025-2026 outlooks). <a href="/send-money">Compare live EUR rates</a> from 50+ providers.</p>`,
       },
     ],
     faqs: [
@@ -15298,9 +15298,9 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Where Does the Pound Stand Right Now?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> As of April 2026, <strong>GBP/USD is trading at 1.35</strong>, with the <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer nofollow">Bank of England</a> holding the Bank Rate at 3.75% at its March 2026 meeting. Most major bank forecasts cluster between 1.36 and 1.40 by year-end 2026, with Goldman Sachs targeting 1.36 and JPMorgan projecting 1.39 early 2026 before settling at 1.36. The pound faces a difficult balance: <strong>sticky inflation at 3.0%</strong> supports BoE caution, but <strong>UK debt at 96% of GDP</strong> and political uncertainty keep GBP exposed to downside risk. For UK senders, this means moderate GBP stability through 2026 — no major swings expected.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> As of April 2026, <strong>GBP/USD is trading at 1.35</strong>, with the <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer">Bank of England</a> holding the Bank Rate at 3.75% at its March 2026 meeting. Most major bank forecasts cluster between 1.36 and 1.40 by year-end 2026, with Goldman Sachs targeting 1.36 and JPMorgan projecting 1.39 early 2026 before settling at 1.36. The pound faces a difficult balance: <strong>sticky inflation at 3.0%</strong> supports BoE caution, but <strong>UK debt at 96% of GDP</strong> and political uncertainty keep GBP exposed to downside risk. For UK senders, this means moderate GBP stability through 2026 — no major swings expected.</p></div>
 <p>The British pound is the world's fourth-most-traded currency and a key barometer of UK economic health. For the UK's <strong>9.3 million foreign-born residents</strong>, GBP movements directly impact how much family abroad receives. For UK businesses importing from Europe or Asia, every 1% GBP move means thousands in P&L.</p>
-<p>This deep-dive uses data from the <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer nofollow">Bank of England</a>, <a href="https://obr.uk/" target="_blank" rel="noopener noreferrer nofollow">Office for Budget Responsibility</a>, and major bank forecasts to answer: <strong>will the pound go up or down against the dollar in 2026?</strong></p>`,
+<p>This deep-dive uses data from the <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer">Bank of England</a>, <a href="https://obr.uk/" target="_blank" rel="noopener noreferrer">Office for Budget Responsibility</a>, and major bank forecasts to answer: <strong>will the pound go up or down against the dollar in 2026?</strong></p>`,
       },
       {
         heading: "Bank of England: Rate Decisions and Outlook",
@@ -15347,7 +15347,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>February 2026 deficit:</strong> £14.3 billion (largest February interest payments on record)</li>
 <li><strong>OBR assessment:</strong> "Fundamentally unsustainable"</li>
 </ul>
-<p>The <a href="https://niesr.ac.uk/" target="_blank" rel="noopener noreferrer nofollow">National Institute of Economic and Social Research (NIESR)</a> warned after the Spring Statement 2026 that debt risks are mounting. Every 1% rise in 10-year gilt yields adds roughly £25 billion to annual interest payments.</p>
+<p>The <a href="https://niesr.ac.uk/" target="_blank" rel="noopener noreferrer">National Institute of Economic and Social Research (NIESR)</a> warned after the Spring Statement 2026 that debt risks are mounting. Every 1% rise in 10-year gilt yields adds roughly £25 billion to annual interest payments.</p>
 <p>If gilts sell off hard — as they did during the 2022 Liz Truss crisis — the pound could fall sharply regardless of BoE policy.</p>`,
       },
       {
@@ -15391,7 +15391,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Exchange rate data from live provider APIs updated every 6 hours. Economic data from <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer nofollow">Bank of England</a>, <a href="https://obr.uk/" target="_blank" rel="noopener noreferrer nofollow">Office for Budget Responsibility (March 2026)</a>, <a href="https://niesr.ac.uk/" target="_blank" rel="noopener noreferrer nofollow">NIESR</a>, and <a href="https://commonslibrary.parliament.uk/" target="_blank" rel="noopener noreferrer nofollow">House of Commons Library</a>. Bank forecasts from published research by Goldman Sachs, JPMorgan, and Barclays (2025-2026 outlooks). <a href="/send-money">Compare live GBP rates</a> from 50+ providers.</p>`,
+        content: `<p>Exchange rate data from live provider APIs updated every 6 hours. Economic data from <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer">Bank of England</a>, <a href="https://obr.uk/" target="_blank" rel="noopener noreferrer">Office for Budget Responsibility (March 2026)</a>, <a href="https://niesr.ac.uk/" target="_blank" rel="noopener noreferrer">NIESR</a>, and <a href="https://commonslibrary.parliament.uk/" target="_blank" rel="noopener noreferrer">House of Commons Library</a>. Bank forecasts from published research by Goldman Sachs, JPMorgan, and Barclays (2025-2026 outlooks). <a href="/send-money">Compare live GBP rates</a> from 50+ providers.</p>`,
       },
     ],
     faqs: [
@@ -15510,7 +15510,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Fee data sourced directly from Revolut's official pricing pages (checked April 2026). Comparison rates from live provider APIs updated every 6 hours. External references: <a href="https://www.revolut.com/legal/fees/" target="_blank" rel="noopener noreferrer nofollow">Revolut Fees</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA</a> regulatory disclosures. <a href="/send-money">Compare live rates</a> from 50+ providers.</p>`,
+        content: `<p>Fee data sourced directly from Revolut's official pricing pages (checked April 2026). Comparison rates from live provider APIs updated every 6 hours. External references: <a href="https://www.revolut.com/legal/fees/" target="_blank" rel="noopener noreferrer nofollow">Revolut Fees</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> regulatory disclosures. <a href="/send-money">Compare live rates</a> from 50+ providers.</p>`,
       },
     ],
     faqs: [
@@ -15716,7 +15716,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data sourced from XE's official help center and product pages (checked April 2026), provider API comparisons updated every 6 hours, and published tax deadlines from government sources: <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer nofollow">IRS</a>, <a href="https://www.gov.uk/hmrc" target="_blank" rel="noopener noreferrer nofollow">HMRC</a>, <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener noreferrer nofollow">CRA</a>, <a href="https://www.ato.gov.au/" target="_blank" rel="noopener noreferrer nofollow">ATO</a>, <a href="https://www.ird.govt.nz/" target="_blank" rel="noopener noreferrer nofollow">IRD New Zealand</a>. Trustpilot rating from <a href="https://www.trustpilot.com/review/www.xe.com" target="_blank" rel="noopener noreferrer nofollow">XE Trustpilot page</a> (4.4/5, 84,000+ reviews, April 2026). <a href="/send-money">Compare live rates</a> from 50+ providers including XE.</p>
+        content: `<p>Data sourced from XE's official help center and product pages (checked April 2026), provider API comparisons updated every 6 hours, and published tax deadlines from government sources: <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a>, <a href="https://www.gov.uk/hmrc" target="_blank" rel="noopener noreferrer">HMRC</a>, <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener noreferrer">CRA</a>, <a href="https://www.ato.gov.au/" target="_blank" rel="noopener noreferrer">ATO</a>, <a href="https://www.ird.govt.nz/" target="_blank" rel="noopener noreferrer">IRD New Zealand</a>. Trustpilot rating from <a href="https://www.trustpilot.com/review/www.xe.com" target="_blank" rel="noopener noreferrer nofollow">XE Trustpilot page</a> (4.4/5, 84,000+ reviews, April 2026). <a href="/send-money">Compare live rates</a> from 50+ providers including XE.</p>
 <p><strong>This article is not tax advice.</strong> Tax situations vary by individual, residency, citizenship, and income sources. For personalized guidance on FBAR, FATCA, foreign income exclusions, or multi-jurisdiction tax planning, consult a qualified tax professional specializing in expat taxes.</p>`,
       },
     ],
@@ -15805,7 +15805,7 @@ export const blogPosts: BlogPost[] = [
 <p>There is no official Pakistani statistic that says <em>"Pakistan loses $X per year because senders pick the wrong remittance channel."</em> That loss is implicit — it is the difference between the rate a sender actually got and the best rate that was available, multiplied across tens of millions of transactions.</p>
 <p>But it <strong>is</strong> estimable. Three inputs are enough to model it:</p>
 <ol>
-<li><strong>Total annual inflows</strong> — Pakistan's remittances are tracked monthly by the <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Pakistan</a> and annually by the World Bank's KNOMAD database.</li>
+<li><strong>Total annual inflows</strong> — Pakistan's remittances are tracked monthly by the <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan</a> and annually by the World Bank's KNOMAD database.</li>
 <li><strong>Average cost of sending</strong> — the World Bank publishes corridor-level send costs quarterly via Remittance Prices Worldwide (RPW).</li>
 <li><strong>Actual price spread today</strong> — the live difference between the cheapest and most expensive providers on Pakistan corridors, which we scrape continuously across 15+ providers.</li>
 </ol>
@@ -15815,7 +15815,7 @@ export const blogPosts: BlogPost[] = [
         heading: "How Big Are Pakistan's Remittances? ($28–$30B/year)",
         content: `<p>Pakistan is among the top global remittance recipients. Official numbers from the State Bank of Pakistan put inflows in recent years at:</p>
 <ul>
-<li><strong>~$31.2 billion</strong> in FY25 (record year, per <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">SBP press releases</a>)</li>
+<li><strong>~$31.2 billion</strong> in FY25 (record year, per <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">SBP press releases</a>)</li>
 <li><strong>~$30.3 billion</strong> in FY24</li>
 <li><strong>~$27.0 billion</strong> in FY23</li>
 <li><strong>~$31.3 billion</strong> in FY22</li>
@@ -15923,7 +15923,7 @@ export const blogPosts: BlogPost[] = [
 <ol>
 <li><strong>The "loss" doesn't vanish.</strong> It is captured by intermediaries — banks, exchange houses, agent networks, and FX desks. From Pakistan's perspective it is a transfer from migrant households to financial counterparties (mostly outside Pakistan), not an evaporation.</li>
 <li><strong>Some of the gap is rational.</strong> Many senders prioritize <em>trust</em>, <em>cash-pickup availability</em>, and <em>the recipient's preferred bank or wallet</em> over the last 1–2% of value. A grandmother who only accepts cash from a Western Union counter is not making a mistake — she has different constraints.</li>
-<li><strong>Informal channels (hawala/hundi) complicate the picture.</strong> The State Bank of Pakistan itself <a href="https://profit.pakistantoday.com.pk/2025/07/10/reducing-subsidies-under-pakistan-remittance-initiative-may-shift-inflows-to-informal-channels-warns-sbp/" target="_blank" rel="noopener noreferrer nofollow">warned in 2025</a> that cuts to the Pakistan Remittance Initiative (PRI) subsidy could push flows back into informal channels, estimated at <strong>$6 billion+/year</strong> across the Arab–Pakistan route alone. Informal channels often offer market-rate FX but carry tax, AML and recipient-access trade-offs.</li>
+<li><strong>Informal channels (hawala/hundi) complicate the picture.</strong> The State Bank of Pakistan itself <a href="https://profit.pakistantoday.com.pk/2025/07/10/reducing-subsidies-under-pakistan-remittance-initiative-may-shift-inflows-to-informal-channels-warns-sbp/" target="_blank" rel="noopener noreferrer">warned in 2025</a> that cuts to the Pakistan Remittance Initiative (PRI) subsidy could push flows back into informal channels, estimated at <strong>$6 billion+/year</strong> across the Arab–Pakistan route alone. Informal channels often offer market-rate FX but carry tax, AML and recipient-access trade-offs.</li>
 </ol>
 <p>The avoidable gap — the part we model as "loss" — is the slice that exists purely because of <strong>price intransparency</strong>. When the same AED 1,000 can buy PKR 70,992 (OFX) or PKR 77,000 (TapTap Send) on the same day, no rational sender chooses OFX if they can see both quotes side by side. The job of a comparison site is to make that gap visible.</p>`,
       },
@@ -15938,7 +15938,7 @@ export const blogPosts: BlogPost[] = [
 <p>The mechanisms that move the needle on this are not exotic. They are:</p>
 <ol>
 <li><strong>Comparison literacy at sender level.</strong> Even a one-minute price check before each transfer would close most of the gap.</li>
-<li><strong>Migration from cash pickup to wallets (JazzCash, Easypaisa) and bank credit via <a href="https://www.sbp.org.pk/RDA/index.html" target="_blank" rel="noopener noreferrer nofollow">RDA</a>.</strong> Wallet credit via Pakistan's RAAST instant-payments network costs near-zero on the receive side and clears in minutes.</li>
+<li><strong>Migration from cash pickup to wallets (JazzCash, Easypaisa) and bank credit via <a href="https://www.sbp.org.pk/RDA/index.html" target="_blank" rel="noopener noreferrer">RDA</a>.</strong> Wallet credit via Pakistan's RAAST instant-payments network costs near-zero on the receive side and clears in minutes.</li>
 <li><strong>Roshan Digital Account (RDA) adoption.</strong> RDA, launched by SBP, lets non-resident Pakistanis hold foreign-currency and PKR accounts, invest in Naya Pakistan Certificates, and remit at competitive bank rates without the typical retail FX margin.</li>
 <li><strong>Continued PRI subsidy on high-volume corridors.</strong> SBP's incentive scheme keeps formal-channel pricing close enough to informal that the trust premium is worth it.</li>
 </ol>
@@ -16824,7 +16824,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Stock prices, valuations, and IPO details in this article reflect publicly reported figures as of June 12, 2026, and are subject to change. Sources include <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html" target="_blank" rel="noopener noreferrer nofollow">CNBC's live coverage of the SpaceX IPO</a>, <a href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/" target="_blank" rel="noopener noreferrer nofollow">Fortune's report on Anthropic's IPO filing</a>, <a href="https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html" target="_blank" rel="noopener noreferrer nofollow">CNBC's report on OpenAI's IPO filing</a>, and <a href="https://www.marketbeat.com/stocks/NASDAQ/NVDA/forecast/" target="_blank" rel="noopener noreferrer nofollow">MarketBeat's Nvidia analyst forecast</a>. App fees and features are based on each provider's published terms as of publication and may have changed — always check the app directly before investing.</p>`,
+        content: `<p>Stock prices, valuations, and IPO details in this article reflect publicly reported figures as of June 12, 2026, and are subject to change. Sources include <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html" target="_blank" rel="noopener noreferrer">CNBC's live coverage of the SpaceX IPO</a>, <a href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/" target="_blank" rel="noopener noreferrer">Fortune's report on Anthropic's IPO filing</a>, <a href="https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html" target="_blank" rel="noopener noreferrer">CNBC's report on OpenAI's IPO filing</a>, and <a href="https://www.marketbeat.com/stocks/NASDAQ/NVDA/forecast/" target="_blank" rel="noopener noreferrer nofollow">MarketBeat's Nvidia analyst forecast</a>. App fees and features are based on each provider's published terms as of publication and may have changed — always check the app directly before investing.</p>`,
       },
     ],
     faqs: [

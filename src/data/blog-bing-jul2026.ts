@@ -321,7 +321,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
 <li>Additionally regulated in New Zealand, Hong Kong, and Singapore</li>
 </ul>
 <p>Customer funds are held in <strong>segregated trust accounts</strong>, separate from OFX's operating funds. OFX has been operating since 1998 and has handled over AUD $100 billion in transfers without any major regulatory incidents. It is publicly listed, meaning financial statements are publicly disclosed.</p>
-<p>The <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA Register</a> lists OFX under its UK entity OFX Payments Australia Pty Ltd — you can verify the licence status directly. For a full breakdown of how we assess provider safety, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
+<p>The <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a> lists OFX under its UK entity OFX Payments Australia Pty Ltd — you can verify the licence status directly. For a full breakdown of how we assess provider safety, see our <a href="/guides/money-transfer-safety-guide">money transfer safety guide</a>.</p>`,
       },
       {
         heading: "OFX vs Wise: Which Is Better?",
@@ -367,7 +367,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>OFX rate data sourced from live quotes via SendMoneyCompare's automated scraping engine (every 6 hours) and direct rate quotes obtained for this review between January–July 2026 at $1,000, $10,000, and $50,000 transfer amounts across 6 corridors. OFX regulatory status verified via <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer nofollow">FCA Register</a>, ASIC Connect, and FinCEN MSB Registry as of July 2026. Cost comparisons against banks based on published fee schedules and estimated exchange rate markups (see our <a href="/guides/bank-wire-transfer-fees-2026">bank wire fees guide</a> for methodology).</p>
+        content: `<p>OFX rate data sourced from live quotes via SendMoneyCompare's automated scraping engine (every 6 hours) and direct rate quotes obtained for this review between January–July 2026 at $1,000, $10,000, and $50,000 transfer amounts across 6 corridors. OFX regulatory status verified via <a href="https://register.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA Register</a>, ASIC Connect, and FinCEN MSB Registry as of July 2026. Cost comparisons against banks based on published fee schedules and estimated exchange rate markups (see our <a href="/guides/bank-wire-transfer-fees-2026">bank wire fees guide</a> for methodology).</p>
 <p>Related: <a href="/companies/ofx">OFX full profile and live rates</a> · <a href="/guides/bank-wire-transfer-fees-2026">Bank wire transfer fees compared</a> · <a href="/guides/money-transfer-safety-guide">Is OFX safe?</a> · <a href="/send-money">Compare OFX vs all providers</a></p>`,
       },
     ],

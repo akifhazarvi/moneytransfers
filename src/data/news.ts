@@ -486,7 +486,7 @@ export const newsItems: NewsItem[] = [
 <tr><td>OFWs worldwide</td><td><strong>10+ million</strong></td></tr>
 <tr><td>Annual remittances</td><td><strong>$40+ billion</strong> (4th largest globally)</td></tr>
 <tr><td>From Gulf states</td><td><strong>~30%</strong> of total ($12B+)</td></tr>
-<tr><td>Average remittance cost to PH</td><td><strong>4.9%</strong> (<a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>)</td></tr>
+<tr><td>Average remittance cost to PH</td><td><strong>4.9%</strong> (<a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a>)</td></tr>
 <tr class="blog-row-highlight"><td>Potential annual savings at 0% fees</td><td><strong>$600M+</strong> back to Filipino families</td></tr>
 </tbody>
 </table>
@@ -602,7 +602,7 @@ export const newsItems: NewsItem[] = [
       "A smartphone showing a money transfer app with US and Mexican flags, representing the digital shift in US-Mexico remittances",
     content: `<p>The world's largest remittance corridor is going cashless — and it's happening faster than anyone predicted.</p>
 
-<p>Bloomberg <a href="https://www.bloomberg.com/news/articles/2026-03-17/mexico-s-62-billion-in-us-remittances-shifts-away-from-cash" target="_blank" rel="noopener noreferrer nofollow">reported on March 17</a> that Mexico's US remittance corridor — worth over <strong>$62 billion annually</strong> — is experiencing a rapid shift from cash-based transfers to digital. Cash's share of inbound remittances has fallen from over 60% a decade ago to under 35% in early 2026, with app-based transfers now accounting for the majority of volume for the first time.</p>
+<p>Bloomberg <a href="https://www.bloomberg.com/news/articles/2026-03-17/mexico-s-62-billion-in-us-remittances-shifts-away-from-cash" target="_blank" rel="noopener noreferrer">reported on March 17</a> that Mexico's US remittance corridor — worth over <strong>$62 billion annually</strong> — is experiencing a rapid shift from cash-based transfers to digital. Cash's share of inbound remittances has fallen from over 60% a decade ago to under 35% in early 2026, with app-based transfers now accounting for the majority of volume for the first time.</p>
 
 <h2>Why the shift is accelerating in 2026</h2>
 <p>Three forces are converging to push the US-Mexico corridor digital:</p>
@@ -660,7 +660,7 @@ export const newsItems: NewsItem[] = [
 
 <ul>
 <li><strong>Conversion rate uncertainty</strong> — If IMTOs are forced to convert at the official CBN rate rather than the market rate, recipients could receive 10–15% less naira per dollar. The gap between official and parallel rates has narrowed under recent reforms, but it hasn't closed entirely.</li>
-<li><strong>Compliance costs passed to senders</strong> — IMTOs face new banking requirements, reporting obligations, and settlement infrastructure costs. As <a href="https://technext24.com/2026/03/25/cost-of-cbns-new-remittance-rules/" target="_blank" rel="noopener noreferrer nofollow">TechNext24 reported</a>, if operators absorb these costs, margins shrink and some smaller players may exit the market. If they pass costs downstream, fees go up.</li>
+<li><strong>Compliance costs passed to senders</strong> — IMTOs face new banking requirements, reporting obligations, and settlement infrastructure costs. As <a href="https://technext24.com/2026/03/25/cost-of-cbns-new-remittance-rules/" target="_blank" rel="noopener noreferrer">TechNext24 reported</a>, if operators absorb these costs, margins shrink and some smaller players may exit the market. If they pass costs downstream, fees go up.</li>
 <li><strong>Informal channels could grow</strong> — When formal remittance costs rise, some senders shift to informal hawala-style networks or crypto. That undermines the very transparency the CBN is trying to achieve.</li>
 </ul>
 
@@ -679,14 +679,14 @@ export const newsItems: NewsItem[] = [
 </ul>
 
 <h2>UK to Nigeria: what changes for British senders</h2>
-<p>The UK-to-Nigeria corridor is one of the largest in Africa, with British Nigerians sending an estimated <strong>£3–4 billion annually</strong> according to <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues/brief/migration-remittances-data" target="_blank" rel="noopener noreferrer nofollow">World Bank remittance data</a>. The new CBN rule hits this corridor especially hard because many UK senders specifically chose providers offering GBP-to-USD or direct dollar payout — giving recipients a hedge against naira depreciation.</p>
+<p>The UK-to-Nigeria corridor is one of the largest in Africa, with British Nigerians sending an estimated <strong>£3–4 billion annually</strong> according to <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues/brief/migration-remittances-data" target="_blank" rel="noopener noreferrer">World Bank remittance data</a>. The new CBN rule hits this corridor especially hard because many UK senders specifically chose providers offering GBP-to-USD or direct dollar payout — giving recipients a hedge against naira depreciation.</p>
 
 <p>Under the new framework, that hedge disappears. Every GBP transfer will be converted to naira at the official rate before reaching the recipient. For UK senders comparing the <a href="/send-money/uk-to-nigeria">best way to send money from the UK to Nigeria</a>, the key metric shifts from "which provider gives the best dollar rate" to "which provider gives the best naira rate" — and those rankings may look very different after May 1.</p>
 
 <p>Providers like <a href="/companies/wise">Wise</a> that already use the mid-market rate with transparent markups may fare better than those whose pricing relied on opaque FX spreads. <a href="/companies/worldremit">WorldRemit</a> and <a href="/companies/remitly">Remitly</a>, which both serve the UK-Nigeria corridor with competitive GBP/NGN rates, will need to renegotiate their settlement arrangements with Nigerian banks.</p>
 
 <h2>The bigger picture</h2>
-<p>The CBN says it's targeting <strong>$1 billion in monthly diaspora remittances by end of 2026</strong>, according to <a href="https://www.zawya.com/en/economy/africa/nigeria-cbn-targets-1bln-monthly-diaspora-remittance-by-the-end-of-2026-x0cgrkm5" target="_blank" rel="noopener noreferrer nofollow">Zawya</a>. That's ambitious — and whether it happens depends entirely on whether the new rules make formal channels more attractive or simply more expensive. For a broader perspective on how African remittance corridors are evolving, see our guide to <a href="/guides/send-money-to-nigeria-guide">sending money to Nigeria</a> and our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report.</p>
+<p>The CBN says it's targeting <strong>$1 billion in monthly diaspora remittances by end of 2026</strong>, according to <a href="https://www.zawya.com/en/economy/africa/nigeria-cbn-targets-1bln-monthly-diaspora-remittance-by-the-end-of-2026-x0cgrkm5" target="_blank" rel="noopener noreferrer">Zawya</a>. That's ambitious — and whether it happens depends entirely on whether the new rules make formal channels more attractive or simply more expensive. For a broader perspective on how African remittance corridors are evolving, see our guide to <a href="/guides/send-money-to-nigeria-guide">sending money to Nigeria</a> and our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report.</p>
 
 <h2>Frequently asked questions</h2>
 <h3>Will I still receive dollars in Nigeria after May 2026?</h3>
@@ -737,7 +737,7 @@ export const newsItems: NewsItem[] = [
 <p>For <a href="/companies/wise">Wise</a> and <a href="/companies/remitly">Remitly</a>, the threat isn't that Venmo will undercut them on price. It's that Venmo will intercept users who might have otherwise found a specialist provider first. The race for the casual sender's first international transfer just got more competitive.</p>
 
 <h2>Venmo vs Xoom: PayPal now has two international options</h2>
-<p>Here's what <a href="https://www.paymentsdive.com/news/paypal-takes-venmo-global/815473/" target="_blank" rel="noopener noreferrer nofollow">Payments Dive</a> didn't explore in its coverage: PayPal now has <em>two</em> cross-border products — <a href="/companies/xoom">Xoom</a> and Venmo. They serve different needs:</p>
+<p>Here's what <a href="https://www.paymentsdive.com/news/paypal-takes-venmo-global/815473/" target="_blank" rel="noopener noreferrer">Payments Dive</a> didn't explore in its coverage: PayPal now has <em>two</em> cross-border products — <a href="/companies/xoom">Xoom</a> and Venmo. They serve different needs:</p>
 <ul>
 <li><strong><a href="/companies/xoom">Xoom</a></strong> — PayPal's dedicated remittance service. Offers bank deposit, cash pickup, and mobile reload to 130+ countries. Competitive fees on high-volume corridors (US to Mexico, India, Philippines). Recipient doesn't need a PayPal account.</li>
 <li><strong>Venmo international</strong> — P2P transfers to PayPal users only. Simpler interface, but limited delivery options and recipient must have PayPal. Better suited for casual transfers to developed markets.</li>
@@ -791,14 +791,14 @@ export const newsItems: NewsItem[] = [
       "A split image showing cash at a money transfer counter on one side and a smartphone money transfer app on the other, representing the shift from cash to digital",
     content: `<p>When the 1% federal excise tax on cash-funded international remittances <a href="/news/us-remittance-excise-tax-takes-effect-2026">took effect on January 1, 2026</a>, the remittance industry braced for a painful adjustment period. Three months later, the data tells a more nuanced story — and a surprising one.</p>
 
-<p>According to the <a href="https://thedialogue.org/blogs/2026/03/change-and-continuity-in-money-transfers-in-2026" target="_blank" rel="noopener noreferrer nofollow">Inter-American Dialogue</a>, a survey of 200 migrants in February 2026 found that transaction frequency actually <strong>increased from 14 to 18 transactions per year</strong>. And <a href="https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems" target="_blank" rel="noopener noreferrer nofollow">Marketplace reported</a> that while some senders switched from cash to digital to avoid the tax, others simply absorbed the cost — suggesting the tax is functioning less as a deterrent and more as a revenue tool that disproportionately taxes the unbanked.</p>
+<p>According to the <a href="https://thedialogue.org/blogs/2026/03/change-and-continuity-in-money-transfers-in-2026" target="_blank" rel="noopener noreferrer">Inter-American Dialogue</a>, a survey of 200 migrants in February 2026 found that transaction frequency actually <strong>increased from 14 to 18 transactions per year</strong>. And <a href="https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems" target="_blank" rel="noopener noreferrer">Marketplace reported</a> that while some senders switched from cash to digital to avoid the tax, others simply absorbed the cost — suggesting the tax is functioning less as a deterrent and more as a revenue tool that disproportionately taxes the unbanked.</p>
 
 <h2>Our take: the tax is accelerating an inevitable shift</h2>
 <p>We wrote in January that the remittance tax would act as an "accelerant for an already-underway shift from cash to digital." Three months of data confirms this — but with caveats that matter for everyday senders.</p>
 
 <p><strong>The good news:</strong> Revenue increased across almost all money-transmitting companies. More transactions, not fewer, are flowing through formal channels. Digital-first providers like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/worldremit">WorldRemit</a> — none of whose customers pay the tax — are seeing accelerated growth. <a href="/companies/remitly">Remitly</a> reported 4.2 million active customers in Q4, up 48% year-over-year.</p>
 
-<p><strong>The bad news:</strong> The people who can least afford additional costs are the ones paying. <a href="https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems" target="_blank" rel="noopener noreferrer nofollow">Marketplace's analysis</a> highlights that for many cash senders, the issue isn't awareness of digital alternatives — it's access. Unbanked immigrants who rely on cash may not have the bank account or debit card needed to fund a digital transfer. For them, the 1% tax isn't a nudge toward digital; it's simply an additional cost on an essential financial service.</p>
+<p><strong>The bad news:</strong> The people who can least afford additional costs are the ones paying. <a href="https://www.marketplace.org/story/2026/03/26/why-a-1-remittance-tax-could-cost-more-than-it-seems" target="_blank" rel="noopener noreferrer">Marketplace's analysis</a> highlights that for many cash senders, the issue isn't awareness of digital alternatives — it's access. Unbanked immigrants who rely on cash may not have the bank account or debit card needed to fund a digital transfer. For them, the 1% tax isn't a nudge toward digital; it's simply an additional cost on an essential financial service.</p>
 
 <h2>The numbers in context</h2>
 <p>On a $500 transfer, the 1% tax adds $5. That's on top of typical cash transfer fees of $8–$15 and exchange rate markups of 3–5%. Over 18 annual transactions, a frequent cash sender pays roughly <strong>$90 in tax alone</strong> — or $270+ when you include the higher fees and worse rates that cash transfers carry compared to digital.</p>
@@ -809,7 +809,7 @@ export const newsItems: NewsItem[] = [
 <p>Here's how the major providers are handling the tax three months in:</p>
 <ul>
 <li><strong><a href="/companies/western-union">Western Union</a></strong> — Most exposed. A significant share of WU's US volume still comes from in-person cash transactions at agent locations. The company has added tax disclosures at point of sale but hasn't absorbed the cost. Cash senders pay the 1% on top of existing fees.</li>
-<li><strong><a href="/companies/moneygram">MoneyGram</a></strong> — Similar position to WU, though MoneyGram has been pushing its app-based transfers harder. The company <a href="https://www.borderreport.com/hot-topics/trade/1-percent-tax-on-remittances-from-us-takes-effect-in-2026/" target="_blank" rel="noopener noreferrer nofollow">told Border Report</a> it has seen "meaningful migration" from cash to digital since January.</li>
+<li><strong><a href="/companies/moneygram">MoneyGram</a></strong> — Similar position to WU, though MoneyGram has been pushing its app-based transfers harder. The company <a href="https://www.borderreport.com/hot-topics/trade/1-percent-tax-on-remittances-from-us-takes-effect-in-2026/" target="_blank" rel="noopener noreferrer">told Border Report</a> it has seen "meaningful migration" from cash to digital since January.</li>
 <li><strong><a href="/companies/wise">Wise</a></strong> — Entirely unaffected. Wise is 100% digital with no cash funding option. None of its customers pay the tax. This is increasingly becoming a selling point in Wise's marketing.</li>
 <li><strong><a href="/companies/remitly">Remitly</a></strong> — Also unaffected, as all transfers are funded digitally. Remitly published a <a href="https://www.remitly.com/blog/money-transfer/federal-remittance-tax-guide/" target="_blank" rel="noopener noreferrer nofollow">detailed guide</a> explaining why its transfers are exempt — and saw 48% user growth in Q4.</li>
 <li><strong><a href="/companies/worldremit">WorldRemit</a></strong> — Digital-only funding, so no tax applies. Cash pickup remains available as a delivery method (which is not taxed — the tax applies to how you <em>fund</em> the transfer, not how the recipient receives it).</li>
@@ -829,7 +829,7 @@ export const newsItems: NewsItem[] = [
 
 <p>For those who still need cash pickup at the receiving end, providers like <a href="/companies/remitly">Remitly</a> and <a href="/companies/worldremit">WorldRemit</a> offer a hybrid model — you fund digitally (no tax) and your recipient collects cash locally. That's the best of both worlds.</p>
 
-<p>Note: the <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer nofollow">IRS is providing penalty relief</a> for providers through Q3 2026, giving the industry time to update systems. After that, enforcement tightens — another reason cash costs will only increase.</p>
+<p>Note: the <a href="https://www.irs.gov/newsroom/treasury-irs-provide-penalty-relief-for-remittance-transfer-providers-who-fail-to-deposit-excise-tax-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer">IRS is providing penalty relief</a> for providers through Q3 2026, giving the industry time to update systems. After that, enforcement tightens — another reason cash costs will only increase.</p>
 
 <p>Use our <a href="/send-money">comparison tool</a> to see real-time costs across providers for your specific corridor. For a complete breakdown of which providers charge the tax and how to avoid it, see our <a href="/guides/us-remittance-tax-2026">US remittance tax guide</a>. And for the broader picture of where costs are heading, our <a href="/guides/global-remittance-trends-2026">2026 global remittance trends</a> report covers the full landscape.</p>
 
@@ -1036,7 +1036,7 @@ export const newsItems: NewsItem[] = [
 <li><strong>Enterprise-grade compliance</strong> — BVNK handles KYC/AML across jurisdictions</li>
 <li><strong>Integration with Mastercard Move</strong> — Mastercard's remittance platform that posted 35%+ transaction growth in Q4 2025</li>
 </ul>
-<p>Mastercard isn't alone. PayPal already offers <strong>zero-fee Xoom transfers funded with PYUSD</strong> (their stablecoin). Visa supports USDC settlement on-chain. Wells Fargo has filed for a WFUSD stablecoin trademark. The <a href="https://www.congress.gov/bill/119th-congress/senate-bill/394" target="_blank" rel="noopener noreferrer nofollow">US GENIUS Act</a> and Europe's MiCA framework are providing regulatory clarity.</p>
+<p>Mastercard isn't alone. PayPal already offers <strong>zero-fee Xoom transfers funded with PYUSD</strong> (their stablecoin). Visa supports USDC settlement on-chain. Wells Fargo has filed for a WFUSD stablecoin trademark. The <a href="https://www.congress.gov/bill/119th-congress/senate-bill/394" target="_blank" rel="noopener noreferrer">US GENIUS Act</a> and Europe's MiCA framework are providing regulatory clarity.</p>
 
 <h2>What this means for you (the sender)</h2>
 <p>The key thing: <strong>you won't need to understand crypto.</strong> Mastercard will abstract the blockchain layer entirely. From your perspective, you'll send money through a normal app — the stablecoin settlement happens invisibly in the background, resulting in lower fees and faster delivery.</p>

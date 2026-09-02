@@ -153,7 +153,7 @@ export const businessPages: BusinessPage[] = [
 <p>Providers are required to monitor transactions for suspicious activity. Large or unusual payments may be flagged for additional review. To avoid delays: maintain clear documentation (invoices, contracts) for each payment, be consistent in your payment patterns, and respond promptly to any information requests from your provider. Legitimate business payments with proper documentation are rarely delayed.</p>
 
 <h3>Tax Reporting Obligations</h3>
-<p>International payments may trigger reporting requirements depending on your jurisdiction. In the US, payments to foreign contractors may require W-8BEN forms and 1099 reporting. Some countries impose withholding tax on cross-border payments for services. Transfers over $10,000 require a Currency Transaction Report (CTR) per <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a> requirements. Consult your accountant for jurisdiction-specific obligations.</p>
+<p>International payments may trigger reporting requirements depending on your jurisdiction. In the US, payments to foreign contractors may require W-8BEN forms and 1099 reporting. Some countries impose withholding tax on cross-border payments for services. Transfers over $10,000 require a Currency Transaction Report (CTR) per <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> requirements. Consult your accountant for jurisdiction-specific obligations.</p>
 
 <h3>Sanctions Screening</h3>
 <p>All providers screen payments against sanctions lists (OFAC in the US, EU sanctions list, UK HMT list). Payments to sanctioned countries, entities, or individuals will be blocked. Ensure your vendors and their banking jurisdictions are not on any sanctions lists before initiating payments. For detailed compliance guidance, see our <a href="/guides/business-international-payments-guide">business payments guide</a>.</p>`,
@@ -508,7 +508,7 @@ export const businessPages: BusinessPage[] = [
 <p>Some countries require withholding tax on payments to foreign vendors for services. In the US, payments to non-resident vendors for services may require 30% withholding unless a tax treaty applies. Collect W-8BEN or W-8BEN-E forms from foreign vendors to claim reduced withholding rates. Consult your tax advisor for jurisdiction-specific requirements — this is one of the most complex areas of international vendor payments.</p>
 
 <h3>Large Transaction Reporting</h3>
-<p>US transfers over $10,000 require a Currency Transaction Report (CTR) per <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer nofollow">FinCEN</a> requirements. Your payment provider handles the filing automatically, but you should maintain your own records. Multiple transfers structured to avoid the $10,000 threshold ("structuring") is a federal crime — always make payments for their genuine business amounts.</p>
+<p>US transfers over $10,000 require a Currency Transaction Report (CTR) per <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> requirements. Your payment provider handles the filing automatically, but you should maintain your own records. Multiple transfers structured to avoid the $10,000 threshold ("structuring") is a federal crime — always make payments for their genuine business amounts.</p>
 
 <h3>Sanctions & Restricted Countries</h3>
 <p>All providers screen international vendor payments against sanctions lists. If your vendor is in a country with partial sanctions (e.g., certain Russian entities), payments may require additional documentation or may be blocked. Verify your vendor's status before making large payments. For comprehensive compliance guidance, see our <a href="/guides/business-international-payments-guide">complete business payments guide</a>. Also see our <a href="/business/b2b-transfers">B2B transfers page</a> for more on business-to-business compliance.</p>`,
@@ -826,7 +826,7 @@ export const businessPages: BusinessPage[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>B2B pricing verified from official business product pages as of March 2026. Cross-border B2B volume projections per <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer nofollow">Juniper Research</a>. Cost comparisons based on real quotes from our comparison engine for common B2B corridors. See our <a href="/methodology">methodology page</a> for data collection details. Visit our <a href="/business">business payments hub</a> for all business payment guides.</p>`,
+        content: `<p>B2B pricing verified from official business product pages as of March 2026. Cross-border B2B volume projections per <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>. Cost comparisons based on real quotes from our comparison engine for common B2B corridors. See our <a href="/methodology">methodology page</a> for data collection details. Visit our <a href="/business">business payments hub</a> for all business payment guides.</p>`,
       },
     ],
     faqs: [

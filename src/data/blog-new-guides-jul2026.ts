@@ -368,8 +368,8 @@ export const newGuidesJul2026: BlogPost[] = [
         content: `<p><strong>Act within 72 hours — every hour counts.</strong> The FBI's Recovery Asset Team reports a 66% success rate in freezing fraudulent wire transfers when reported quickly. After 72 hours, the money is almost certainly gone.</p>
 <ol>
 <li><strong>Call your bank or transfer provider immediately</strong> — Ask them to issue a SWIFT recall or "Stop payment." Banks can attempt to contact the receiving bank to freeze the funds, but this is not guaranteed.</li>
-<li><strong>File a report with the FBI's IC3</strong> — Go to <a href="https://www.ic3.gov" target="_blank" rel="noopener noreferrer nofollow">ic3.gov</a> (Internet Crime Complaint Center). For large amounts, also call your local FBI field office.</li>
-<li><strong>Report to the FTC</strong> — File at <a href="https://reportfraud.ftc.gov" target="_blank" rel="noopener noreferrer nofollow">reportfraud.ftc.gov</a>. The FTC shares data with law enforcement and can help identify patterns.</li>
+<li><strong>File a report with the FBI's IC3</strong> — Go to <a href="https://www.ic3.gov" target="_blank" rel="noopener noreferrer">ic3.gov</a> (Internet Crime Complaint Center). For large amounts, also call your local FBI field office.</li>
+<li><strong>Report to the FTC</strong> — File at <a href="https://reportfraud.ftc.gov" target="_blank" rel="noopener noreferrer">reportfraud.ftc.gov</a>. The FTC shares data with law enforcement and can help identify patterns.</li>
 <li><strong>Report to your state attorney general</strong> — Many states have fraud recovery resources and can put additional pressure on receiving banks.</li>
 <li><strong>Document everything</strong> — Save all emails, texts, call logs, and transaction records. You'll need these for law enforcement and any insurance claims.</li>
 </ol>
@@ -410,7 +410,7 @@ export const newGuidesJul2026: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Scam statistics sourced from FTC Consumer Sentinel Network Data Book 2024, FBI Internet Crime Report 2024, and FBI Recovery Asset Team annual statistics. Recovery time data from published FBI RAT case data. Platform safety ratings based on FCA/FinCEN regulatory status and public compliance records. CFPB remittance disclosure requirements from <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer nofollow">consumerfinance.gov</a>.</p>`,
+        content: `<p>Scam statistics sourced from FTC Consumer Sentinel Network Data Book 2024, FBI Internet Crime Report 2024, and FBI Recovery Asset Team annual statistics. Recovery time data from published FBI RAT case data. Platform safety ratings based on FCA/FinCEN regulatory status and public compliance records. CFPB remittance disclosure requirements from <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">consumerfinance.gov</a>.</p>`,
       },
     ],
     faqs: [

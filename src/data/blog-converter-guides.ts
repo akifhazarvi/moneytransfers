@@ -287,7 +287,7 @@ export const converterGuides: BlogPost[] = [
         content: `<p>Banks don't disclose the markup as a fee because they don't have to — it's structured as a "spread." In forex markets, there's always a slight difference between the buy price (what the market pays you) and the sell price (what the market charges you). That's the spread, and it's the oldest trading business model in the world.</p>
 <p>Retail banks take this a step further. They quote you a rate that's already much worse than what they can actually buy or sell at on the interbank market. The difference — typically 2–4% for major pairs, up to 8% for exotic currencies — is pure margin.</p>
 <p>From the bank's perspective, this is defensible: they're providing liquidity, handling compliance, operating branches. From your perspective, it's an opaque fee. A $15 wire fee is visible. A 3% FX markup on a $5,000 transfer ($150) is invisible — unless you check the mid-market rate yourself.</p>
-<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer nofollow">Consumer Financial Protection Bureau</a> has been pushing US banks toward more transparent pricing for international transfers, but most still default to the marked-up rate shown in-app.</p>`,
+<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau</a> has been pushing US banks toward more transparent pricing for international transfers, but most still default to the marked-up rate shown in-app.</p>`,
       },
       {
         heading: "How to Spot the Markup in Three Seconds",

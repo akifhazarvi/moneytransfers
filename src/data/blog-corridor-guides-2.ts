@@ -32,7 +32,7 @@ export const corridorGuides2: BlogPost[] = [
       {
         heading: "Quick Answer: Cheapest Way to Send AED to PKR in May 2026",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On a typical AED 3,000 (~USD 815) transfer in May 2026, <a href="/companies/taptap-send">TapTap Send</a> and <a href="/companies/remitly">Remitly</a> deliver roughly <strong>PKR 230,000</strong> at promo rates of 76.6–76.9 PKR/AED — matching or beating the interbank mid-market (75.86). <a href="/companies/wise">Wise</a> delivers the mid-market rate net of a ~AED 12–18 fee (sweet spot above AED 5,000). <a href="/companies/ace-money-transfer">ACE Money Transfer</a> is the strongest all-in-one option with zero fees and JazzCash + Easypaisa + bank + cash + SadaPay + NayaPay all in one app. The gap between cheapest and most expensive provider on AED 3,000 is roughly <strong>PKR 18,000 (~7.9%)</strong>. JazzCash and Easypaisa wallets receive funds in minutes via Pakistan's RAAST network. <a href="/send-money/uae-to-pakistan">Compare live UAE to Pakistan rates →</a></p></div>
-<p>Pakistanis in the UAE sent home <strong>$33.86 billion in 10 months of FY26</strong> (July 2025–April 2026), with the UAE specifically contributing approximately <strong>20.6%</strong> — roughly <strong>$7 billion year-to-date and on track for $8.4 billion annualised</strong>. That makes the UAE the <strong>second-largest source country</strong> for Pakistan remittances after Saudi Arabia (<a href="https://easydata.sbp.org.pk/apex/f?p=10:211" target="_blank" rel="noopener noreferrer nofollow">State Bank of Pakistan</a>, April 2026).</p>
+<p>Pakistanis in the UAE sent home <strong>$33.86 billion in 10 months of FY26</strong> (July 2025–April 2026), with the UAE specifically contributing approximately <strong>20.6%</strong> — roughly <strong>$7 billion year-to-date and on track for $8.4 billion annualised</strong>. That makes the UAE the <strong>second-largest source country</strong> for Pakistan remittances after Saudi Arabia (<a href="https://easydata.sbp.org.pk/apex/f?p=10:211" target="_blank" rel="noopener noreferrer">State Bank of Pakistan</a>, April 2026).</p>
 <p>This corridor has changed materially in the past 12 months: <strong>RAAST cross-border via Buna</strong> went live in August 2024, the Pakistan Remittance Initiative (PRI) was restructured on July 1 2025, and the <strong>Roshan Digital Account (RDA)</strong> scheme hit a record <strong>$321 million inflow in April 2026 alone</strong>. This guide is the definitive walkthrough: 15 providers compared on AED 3,000 and AED 10,000, the JazzCash/Easypaisa/RAAST/bank deposit deep-dive, RDA and PRI explainers, and Eid Al-Adha 2026 timing.</p>`,
       },
       {
@@ -88,13 +88,13 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Roshan Digital Account (RDA): The NRP Power-User Move",
-        content: `<p>The <a href="https://www.sbp.org.pk/rda/index.html" target="_blank" rel="noopener noreferrer nofollow">Roshan Digital Account</a> (RDA) is a flagship SBP scheme launched September 2020 that lets <strong>Non-Resident Pakistanis (NRPs)</strong> open a digital bank account in Pakistan from abroad, with no branch visit. As of April 2026:</p>
+        content: `<p>The <a href="https://www.sbp.org.pk/rda/index.html" target="_blank" rel="noopener noreferrer">Roshan Digital Account</a> (RDA) is a flagship SBP scheme launched September 2020 that lets <strong>Non-Resident Pakistanis (NRPs)</strong> open a digital bank account in Pakistan from abroad, with no branch visit. As of April 2026:</p>
 <ul>
 <li><strong>Cumulative inflows: $12.75 billion</strong></li>
 <li><strong>~1 million accounts opened</strong></li>
 <li><strong>April 2026 monthly inflow: $321 million — a programme record</strong> (nearly 2x the July 2024 low of $161M)</li>
 </ul>
-<p><strong>Who can open one:</strong> NICOP / Pakistan passport holders, POC holders, dual nationals, age 18+. Open online with <a href="https://www.sbp.org.pk/rda/index.html" target="_blank" rel="noopener noreferrer nofollow">HBL, UBL, Meezan, Bank Alfalah, MCB, Faysal, Standard Chartered, JS Bank, Bank AL Habib, or Allied Bank</a>.</p>
+<p><strong>Who can open one:</strong> NICOP / Pakistan passport holders, POC holders, dual nationals, age 18+. Open online with <a href="https://www.sbp.org.pk/rda/index.html" target="_blank" rel="noopener noreferrer">HBL, UBL, Meezan, Bank Alfalah, MCB, Faysal, Standard Chartered, JS Bank, Bank AL Habib, or Allied Bank</a>.</p>
 <p><strong>Account currencies:</strong> PKR, USD, GBP, EUR (multi-currency).</p>
 <p><strong>Investment products:</strong> Naya Pakistan Certificates (NPC), Islamic NPC (Shariah-compliant), Pakistan Stock Exchange shares, sovereign Sukuk. Yields on NPCs have ranged 7–11% depending on tenor and currency — attractive for UAE-based Pakistanis with surplus AED earnings.</p>
 <p><strong>Perks:</strong> Free debit card when funded by remittance. Profits/proceeds can be repatriated freely. No source-of-funds questions (Section 111(4) exemption applies).</p>
@@ -109,14 +109,14 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>Exchange Companies Incentive Scheme (ECIS) abolished</strong> (previously PKR 4/USD subsidy).</li>
 <li>The traditional <strong>2.5% cash incentive</strong> for inbound remittances has been folded into / reduced under this 2025 restructuring.</li>
 </ul>
-<p><strong>Why it matters:</strong> SBP itself warned in July 2025 that the cuts <a href="https://profit.pakistantoday.com.pk/2025/07/10/reducing-subsidies-under-pakistan-remittance-initiative-may-shift-inflows-to-informal-channels-warns-sbp/" target="_blank" rel="noopener noreferrer nofollow">risk shifting flows back to informal hawala/hundi channels</a> (estimated $6 billion+/year informal volume across the Arab–Pakistan corridor). For senders, the practical impact is that the gap between formal and informal channels has narrowed slightly — but formal still wins on safety, taxation (Section 111(4) exemption), and recipient access to RAAST/IBAN-deposited funds.</p>
+<p><strong>Why it matters:</strong> SBP itself warned in July 2025 that the cuts <a href="https://profit.pakistantoday.com.pk/2025/07/10/reducing-subsidies-under-pakistan-remittance-initiative-may-shift-inflows-to-informal-channels-warns-sbp/" target="_blank" rel="noopener noreferrer">risk shifting flows back to informal hawala/hundi channels</a> (estimated $6 billion+/year informal volume across the Arab–Pakistan corridor). For senders, the practical impact is that the gap between formal and informal channels has narrowed slightly — but formal still wins on safety, taxation (Section 111(4) exemption), and recipient access to RAAST/IBAN-deposited funds.</p>
 
 <h3>Sohni Dharti Remittance Program (SDRP)</h3>
-<p>Launched November 2021, SDRP is a loyalty/points scheme for NRPs sending through formal channels. Points are redeemable at PIA (air tickets), FBR (mobile/vehicle duties), NADRA (CNIC/NICOP renewal), State Life insurance, and OPF Schools. If you're a regular UAE→Pakistan sender, enrolling at <a href="https://www.sbp.org.pk/sohnidharti/index.html" target="_blank" rel="noopener noreferrer nofollow">sbp.org.pk/sohnidharti</a> stacks on top of your provider's loyalty program.</p>`,
+<p>Launched November 2021, SDRP is a loyalty/points scheme for NRPs sending through formal channels. Points are redeemable at PIA (air tickets), FBR (mobile/vehicle duties), NADRA (CNIC/NICOP renewal), State Life insurance, and OPF Schools. If you're a regular UAE→Pakistan sender, enrolling at <a href="https://www.sbp.org.pk/sohnidharti/index.html" target="_blank" rel="noopener noreferrer">sbp.org.pk/sohnidharti</a> stacks on top of your provider's loyalty program.</p>`,
       },
       {
         heading: "UAE Side: CBUAE Rules, KYC and Provider Caps",
-        content: `<p>The <a href="https://rulebook.centralbank.ae/en/rulebook/amlcft" target="_blank" rel="noopener noreferrer nofollow">Central Bank of UAE (CBUAE)</a> regulates all remittance providers via the Federal Decree Law No. 20 of 2018. Key rules a UAE-based sender should know:</p>
+        content: `<p>The <a href="https://rulebook.centralbank.ae/en/rulebook/amlcft" target="_blank" rel="noopener noreferrer">Central Bank of UAE (CBUAE)</a> regulates all remittance providers via the Federal Decree Law No. 20 of 2018. Key rules a UAE-based sender should know:</p>
 <ul>
 <li><strong>Emirates ID required</strong> for any registered remittance — verified via the FAIC online gateway. No Emirates ID = no transfer.</li>
 <li><strong>Identity verification mandatory above AED 3,500</strong> per transaction. Below this, lighter KYC applies (but you still need an Emirates ID to register).</li>
@@ -128,7 +128,7 @@ export const corridorGuides2: BlogPost[] = [
 
 <h3>Pakistan Side: SBP Rules</h3>
 <ul>
-<li><strong>No tax on inward remittances</strong> through formal channels — <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">Section 111(4) of the Pakistan Income Tax Ordinance</a> exempts these from source-of-funds questions in the recipient's wealth statement.</li>
+<li><strong>No tax on inward remittances</strong> through formal channels — <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">Section 111(4) of the Pakistan Income Tax Ordinance</a> exempts these from source-of-funds questions in the recipient's wealth statement.</li>
 <li><strong>No inbound cap</strong> on amount received via authorised dealers (banks/EMIs).</li>
 <li><strong>Cash payout single-tx cap (typical exchange company): PKR 500,000</strong> (~AED 6,600).</li>
 <li><strong>Bank deposit single-tx cap (ACE example): PKR 10,000,000</strong> (~AED 132,000).</li>
@@ -137,7 +137,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Pakistani Diaspora in the UAE: 1.5–1.7 Million",
-        content: `<p>Roughly <strong>1.5–1.7 million Pakistanis live and work in the UAE</strong> (2025 estimate, <a href="https://en.wikipedia.org/wiki/Pakistanis_in_the_United_Arab_Emirates" target="_blank" rel="noopener noreferrer nofollow">Wikipedia</a> / UAE demographic data) — the <strong>second-largest national group</strong> after Indians, accounting for ~12.5% of total UAE population and ~16.72% of the non-citizen population.</p>
+        content: `<p>Roughly <strong>1.5–1.7 million Pakistanis live and work in the UAE</strong> (2025 estimate, <a href="https://en.wikipedia.org/wiki/Pakistanis_in_the_United_Arab_Emirates" target="_blank" rel="noopener noreferrer">Wikipedia</a> / UAE demographic data) — the <strong>second-largest national group</strong> after Indians, accounting for ~12.5% of total UAE population and ~16.72% of the non-citizen population.</p>
 <p><strong>Geographic distribution:</strong></p>
 <ul>
 <li><strong>Dubai</strong> — largest concentration; Pakistanis actually outnumber Emiratis in Dubai (as well as in Sharjah and Ajman)</li>
@@ -145,7 +145,7 @@ export const corridorGuides2: BlogPost[] = [
 <li><strong>Abu Dhabi</strong> — smaller share, more white-collar (oil, finance, government contractors)</li>
 </ul>
 <p><strong>Economic footprint:</strong> ~47,000 Pakistani-owned businesses registered in UAE (2025), +8,000 added in the past year. Dominant sectors: transport/logistics, construction, retail, hospitality.</p>
-<p><strong>Recent context:</strong> Reports surfaced in early 2026 of ~15,000 Pakistani workers deported from the UAE amid tighter labour rules — a soft drag on diaspora growth but no impact on per-capita remittance send-rates. Pakistan and the UAE separately announced plans to create <a href="https://www.khaleejtimes.com/jobs/pakistan-aims-to-create-800000-overseas-jobs-for-citizens-in-uae-gcc-nations-in-2026" target="_blank" rel="noopener noreferrer nofollow">800,000 overseas jobs for Pakistanis in UAE/GCC countries in 2026</a>.</p>`,
+<p><strong>Recent context:</strong> Reports surfaced in early 2026 of ~15,000 Pakistani workers deported from the UAE amid tighter labour rules — a soft drag on diaspora growth but no impact on per-capita remittance send-rates. Pakistan and the UAE separately announced plans to create <a href="https://www.khaleejtimes.com/jobs/pakistan-aims-to-create-800000-overseas-jobs-for-citizens-in-uae-gcc-nations-in-2026" target="_blank" rel="noopener noreferrer">800,000 overseas jobs for Pakistanis in UAE/GCC countries in 2026</a>.</p>`,
       },
       {
         heading: "Ramadan & Eid 2026: When to Send and When to Wait",
@@ -192,7 +192,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Provider data from sendmoneycompare's automated quote scrapers (every 6 hours), supplemented with provider-site checks on May 13, 2026. Macro data verified against <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer nofollow">State Bank of Pakistan</a> press releases and the <a href="https://easydata.sbp.org.pk/apex/f?p=10:211" target="_blank" rel="noopener noreferrer nofollow">SBP EasyData remittance dataset</a> (April 2026), <a href="https://www.sbp.org.pk/rda/index.html" target="_blank" rel="noopener noreferrer nofollow">SBP RDA</a> programme data (April 2026), <a href="https://www.sbp.org.pk/press/2025/Pr-09-Jul-2025.pdf" target="_blank" rel="noopener noreferrer nofollow">SBP PRI restructure announcement (July 9, 2025)</a>, <a href="https://rulebook.centralbank.ae/en/rulebook/amlcft" target="_blank" rel="noopener noreferrer nofollow">Central Bank of UAE rulebook</a>, and <a href="https://remittanceprices.worldbank.org/corridor/United-Arab-Emirates/Pakistan" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices Worldwide (UAE→Pakistan corridor)</a>. Exchange rate data from <a href="https://www.forex.pk/inter_bank_rates.asp" target="_blank" rel="noopener noreferrer nofollow">Forex Association of Pakistan</a> and provider sites. News cross-checked via Reuters, Dawn, Brecorder, Khaleej Times and Gulf News. See our <a href="/methodology">full methodology</a> for how we collect provider quotes.</p>`,
+        content: `<p>Provider data from sendmoneycompare's automated quote scrapers (every 6 hours), supplemented with provider-site checks on May 13, 2026. Macro data verified against <a href="https://www.sbp.org.pk/" target="_blank" rel="noopener noreferrer">State Bank of Pakistan</a> press releases and the <a href="https://easydata.sbp.org.pk/apex/f?p=10:211" target="_blank" rel="noopener noreferrer">SBP EasyData remittance dataset</a> (April 2026), <a href="https://www.sbp.org.pk/rda/index.html" target="_blank" rel="noopener noreferrer">SBP RDA</a> programme data (April 2026), <a href="https://www.sbp.org.pk/press/2025/Pr-09-Jul-2025.pdf" target="_blank" rel="noopener noreferrer">SBP PRI restructure announcement (July 9, 2025)</a>, <a href="https://rulebook.centralbank.ae/en/rulebook/amlcft" target="_blank" rel="noopener noreferrer">Central Bank of UAE rulebook</a>, and <a href="https://remittanceprices.worldbank.org/corridor/United-Arab-Emirates/Pakistan" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide (UAE→Pakistan corridor)</a>. Exchange rate data from <a href="https://www.forex.pk/inter_bank_rates.asp" target="_blank" rel="noopener noreferrer nofollow">Forex Association of Pakistan</a> and provider sites. News cross-checked via Reuters, Dawn, Brecorder, Khaleej Times and Gulf News. See our <a href="/methodology">full methodology</a> for how we collect provider quotes.</p>`,
       },
     ],
     faqs: [
@@ -241,7 +241,7 @@ export const corridorGuides2: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money from USA to Kenya is <strong>Sendwave</strong> for transfers under $500 (zero fees, instant M-Pesa delivery) and <a href="/companies/wise">Wise</a> for amounts above $500 (0% exchange rate markup delivers the most KES). The gap between cheapest and most expensive provider on $500 is KES 3,000–7,000. Always choose <strong>M-Pesa delivery</strong> — it arrives in seconds. <a href="/send-money/usa-to-kenya">Compare live USD to KES rates →</a></p></div>
 <p>If you're sending money to Kenya from the US, you have a major advantage: <strong>M-Pesa</strong>. Used by over <strong>30 million Kenyans</strong> — more than half the country — M-Pesa is the world's most successful mobile money platform. Your transfer arrives in your recipient's phone in <strong>seconds</strong>, and they can use it instantly for bills, shopping, or cash withdrawal at any of 250,000+ agent locations.</p>
 <p>This puts Kenya ahead of almost every other remittance corridor on speed and convenience. But it doesn't mean all providers are equal — the gap between the cheapest and most expensive option on a $500 transfer is still <strong>KES 3,000–7,000</strong> ($20–$50).</p>
-<p>The US is Kenya's single largest remittance source, contributing to over <strong>$4 billion in annual inflows</strong> according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>. This guide compares the 6 best providers for USD-to-KES transfers. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
+<p>The US is Kenya's single largest remittance source, contributing to over <strong>$4 billion in annual inflows</strong> according to the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>. This guide compares the 6 best providers for USD-to-KES transfers. See our <a href="/guides/how-to-send-money-abroad">how to send money abroad guide</a> for general advice.</p>`,
       },
       {
         heading: "Best Providers for USD to KES Transfers",
@@ -296,7 +296,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "KES Exchange Rate and True Transfer Cost",
-        content: `<p>The Kenyan Shilling (KES) is a floating currency managed by the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>. Key context for US senders:</p>
+        content: `<p>The Kenyan Shilling (KES) is a floating currency managed by the <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>. Key context for US senders:</p>
 <ul>
 <li><strong>Fee vs. rate trade-off:</strong> Some providers (like Sendwave) charge zero fees but build cost into a worse exchange rate. Others (like <a href="/companies/wise">Wise</a>) charge a visible fee but give the real mid-market rate. Always compare the <strong>total KES received</strong>, not just the fee.</li>
 <li><strong>KES volatility:</strong> The Kenyan Shilling experienced significant depreciation in 2023–2024 before partially recovering. Rates can shift meaningfully week to week, making comparison at time of transfer important.</li>
@@ -317,7 +317,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a>. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Kenya</a>.</p>`,
+        content: `<p>Data based on real quotes collected every 6 hours. <a href="/send-money/usa-to-kenya">Compare live rates →</a>. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a>, <a href="https://www.centralbank.go.ke/" target="_blank" rel="noopener noreferrer">Central Bank of Kenya</a>.</p>`,
       },
     ],
     faqs: [
@@ -356,12 +356,12 @@ export const corridorGuides2: BlogPost[] = [
       {
         heading: "Quick Answer: Cheapest Way to Send USD to Egypt in 2026",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> On a $1,000 USD→EGP transfer in May 2026, <a href="/companies/wise">Wise</a> delivers roughly <strong>EGP 52,400</strong> at the mid-market rate (~52.94 EGP/USD) with a ~$10.73 fee, making it the cheapest mainstream option for transfers above $300. <a href="/companies/taptap-send">TapTap Send</a> and <a href="/companies/remitly">Remitly</a> match Wise on promo rates and deliver to bank accounts, Vodafone Cash, or cash pickup in minutes via Egypt's <strong>InstaPay</strong> network. The cheapest-to-most-expensive online gap is roughly <strong>EGP 2,200 (~4.3%)</strong> on $1,000. Egypt's pound is now stable post-IMF program — formal channels are the safe choice. <a href="/send-money/usd-to-egp">Compare live USD to EGP rates →</a></p></div>
-<p>Two years after the most violent currency reform in Egypt's modern history — the <strong>March 6, 2024</strong> float that took the pound from ~31 to ~50 per US dollar overnight — sending USD to Egypt is finally cheap, fast and fully legal. The parallel-market premium that once stretched to <strong>~100%</strong> has collapsed to under <strong>1%</strong>. Remittances hit a record <strong>$41.5 billion</strong> in calendar year 2025, up 40.5% YoY (<a href="https://www.cbe.org.eg/en/news-publications/news/2026/01/05/08/30/remittances-january-november-2025" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Egypt</a>). This guide covers what changed, which providers win on $1,000, and how Egypt's instant-payment rail <strong>InstaPay</strong> is rewriting the last-mile.</p>`,
+<p>Two years after the most violent currency reform in Egypt's modern history — the <strong>March 6, 2024</strong> float that took the pound from ~31 to ~50 per US dollar overnight — sending USD to Egypt is finally cheap, fast and fully legal. The parallel-market premium that once stretched to <strong>~100%</strong> has collapsed to under <strong>1%</strong>. Remittances hit a record <strong>$41.5 billion</strong> in calendar year 2025, up 40.5% YoY (<a href="https://www.cbe.org.eg/en/news-publications/news/2026/01/05/08/30/remittances-january-november-2025" target="_blank" rel="noopener noreferrer">Central Bank of Egypt</a>). This guide covers what changed, which providers win on $1,000, and how Egypt's instant-payment rail <strong>InstaPay</strong> is rewriting the last-mile.</p>`,
       },
       {
         heading: "What Just Happened to the Egyptian Pound (2024–2026)",
         content: `<p>In early 2022, the EGP was effectively pegged at <strong>~15.7 per USD</strong>. By February 2024, a string of managed devaluations had dragged the official rate to ~30.9 — but the parallel ("street") market had blown out to <strong>~64 EGP/USD</strong>, leaving an ~100% spread between official and real-economy rates and crushing remittance inflows.</p>
-<p>On <strong>March 6, 2024</strong>, the <a href="https://www.cbe.org.eg/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Egypt (CBE)</a> floated the pound. The official rate moved overnight from ~31 to <strong>~50 EGP/USD</strong>, and CBE simultaneously hiked policy rates by an unprecedented <strong>600 basis points to 27.25%</strong>. On the same day, the <a href="https://www.imf.org/en/countries/egy" target="_blank" rel="noopener noreferrer nofollow">IMF</a> expanded its Extended Fund Facility (EFF) from $3 billion to <strong>$8 billion</strong>, with the UAE adding a $35 billion property/investment deal that anchored confidence.</p>
+<p>On <strong>March 6, 2024</strong>, the <a href="https://www.cbe.org.eg/" target="_blank" rel="noopener noreferrer">Central Bank of Egypt (CBE)</a> floated the pound. The official rate moved overnight from ~31 to <strong>~50 EGP/USD</strong>, and CBE simultaneously hiked policy rates by an unprecedented <strong>600 basis points to 27.25%</strong>. On the same day, the <a href="https://www.imf.org/en/countries/egy" target="_blank" rel="noopener noreferrer">IMF</a> expanded its Extended Fund Facility (EFF) from $3 billion to <strong>$8 billion</strong>, with the UAE adding a $35 billion property/investment deal that anchored confidence.</p>
 <p>The fallout, two years on:</p>
 <ul>
 <li><strong>USD/EGP today:</strong> 52.94 (interbank, May 13, 2026) — a 5% slide over 12 months, but a remarkably ordered one</li>
@@ -406,7 +406,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "InstaPay: Egypt's Instant Payment Network — Why It Matters",
-        content: `<p>Launched by the CBE in <strong>March 2022</strong>, <a href="https://www.cbe.org.eg/en/payment-systems-and-services/instant-payment-network" target="_blank" rel="noopener noreferrer nofollow">InstaPay</a> is Egypt's domestic instant payment rail — and it's the single biggest reason USD→EGP transfers now feel instant. As of early 2026 it has <strong>11.5+ million users</strong>, processes 24/7/365, and links every bank, mobile wallet, and Meeza prepaid card through a single Instant Payment Address (IPA) or registered mobile number.</p>
+        content: `<p>Launched by the CBE in <strong>March 2022</strong>, <a href="https://www.cbe.org.eg/en/payment-systems-and-services/instant-payment-network" target="_blank" rel="noopener noreferrer">InstaPay</a> is Egypt's domestic instant payment rail — and it's the single biggest reason USD→EGP transfers now feel instant. As of early 2026 it has <strong>11.5+ million users</strong>, processes 24/7/365, and links every bank, mobile wallet, and Meeza prepaid card through a single Instant Payment Address (IPA) or registered mobile number.</p>
 <p><strong>How it changes the sender experience:</strong> When Wise, Remitly, or TapTap Send credits an Egyptian recipient's bank account, that account is InstaPay-connected. The recipient can move funds in seconds to any other Egyptian account or Vodafone Cash wallet — no more "your money arrived but the bank is closed until Sunday" friction.</p>
 <p><strong>Cross-border status (May 2026):</strong></p>
 <ul>
@@ -524,7 +524,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>USD→EGP provider data based on sendmoneycompare's automated quote scrapers (every 6 hours), supplemented with provider-website checks on May 13, 2026. Macro data verified against <a href="https://www.cbe.org.eg/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Egypt</a> press releases (Jan and Feb 2026), <a href="https://www.imf.org/en/countries/egy" target="_blank" rel="noopener noreferrer nofollow">IMF Egypt Country Page</a> (5th/6th EFF review Feb 26, 2026), <a href="https://remittanceprices.worldbank.org/corridor/United%20States/Egypt" target="_blank" rel="noopener noreferrer nofollow">World Bank Remittance Prices Worldwide</a>, and <a href="https://tradingeconomics.com/egypt/currency" target="_blank" rel="noopener noreferrer nofollow">Trading Economics</a>. Diaspora figures from the US Census 2020 MENA detailed release. See our <a href="/methodology">full methodology</a> for how we collect provider quotes. Reuters, Ahram Online, and DailyNewsEgypt cross-checked for IMF and CBE policy timing.</p>`,
+        content: `<p>USD→EGP provider data based on sendmoneycompare's automated quote scrapers (every 6 hours), supplemented with provider-website checks on May 13, 2026. Macro data verified against <a href="https://www.cbe.org.eg/" target="_blank" rel="noopener noreferrer">Central Bank of Egypt</a> press releases (Jan and Feb 2026), <a href="https://www.imf.org/en/countries/egy" target="_blank" rel="noopener noreferrer">IMF Egypt Country Page</a> (5th/6th EFF review Feb 26, 2026), <a href="https://remittanceprices.worldbank.org/corridor/United%20States/Egypt" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a>, and <a href="https://tradingeconomics.com/egypt/currency" target="_blank" rel="noopener noreferrer">Trading Economics</a>. Diaspora figures from the US Census 2020 MENA detailed release. See our <a href="/methodology">full methodology</a> for how we collect provider quotes. Reuters, Ahram Online, and DailyNewsEgypt cross-checked for IMF and CBE policy timing.</p>`,
       },
     ],
     faqs: [
@@ -612,7 +612,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://boj.org.jm/" target="_blank" rel="noopener noreferrer nofollow">Bank of Jamaica</a>.</p>`,
+        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a>, <a href="https://boj.org.jm/" target="_blank" rel="noopener noreferrer">Bank of Jamaica</a>.</p>`,
       },
     ],
     faqs: [
@@ -703,7 +703,7 @@ export const corridorGuides2: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer nofollow">World Bank</a>, <a href="https://www.cbsl.gov.lk/" target="_blank" rel="noopener noreferrer nofollow">Central Bank of Sri Lanka</a>.</p>`,
+        content: `<p>Data based on real quotes every 6 hours. See our <a href="/methodology">methodology page</a> for details. Sources: <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank</a>, <a href="https://www.cbsl.gov.lk/" target="_blank" rel="noopener noreferrer">Central Bank of Sri Lanka</a>.</p>`,
       },
     ],
     faqs: [
