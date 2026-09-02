@@ -155,11 +155,6 @@ jobs:
         timeout-minutes: 10 # the step the old 30m cap always died inside
         continue-on-error: true
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-
       # The tail steps were previously unbounded. A hang in any of them would
       # burn the whole remaining job budget and skip the commit just as surely
       # as a slow scraper, so they are capped too and counted in the invariant.
