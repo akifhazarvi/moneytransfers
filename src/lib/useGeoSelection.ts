@@ -84,6 +84,12 @@ interface Options {
   isValidFrom?: (code: string) => boolean;
   /** Restrict accepted `to` codes. */
   isValidTo?: (code: string) => boolean;
+  /**
+   * When set, this value is always used for `to`, regardless of geo cookies or
+   * saved prefs. Use on context-specific pages (e.g. IBAN country pages) where
+   * the destination currency is fixed by the page context.
+   */
+  pinnedTo?: string;
 }
 
 /**
@@ -91,9 +97,9 @@ interface Options {
  * `loaded` flips true after the mount-time resolution so callers can avoid a
  * flash / premature write.
  */
-export function useGeoSelection({ defaults, isValidFrom, isValidTo }: Options) {
+export function useGeoSelection({ defaults, isValidFrom, isValidTo, pinnedTo }: Options) {
   const [from, setFromState] = useState(defaults.from);
-  const [to, setToState] = useState(defaults.to);
+  const [to, setToState] = useState(pinnedTo ?? defaults.to);
   const [amount, setAmountState] = useState(defaults.amount);
   const [loaded, setLoaded] = useState(false);
   // True once the user has made (and we've stored) an explicit choice.
@@ -113,7 +119,8 @@ export function useGeoSelection({ defaults, isValidFrom, isValidTo }: Options) {
       // permanently empty comparison, since the bad pair reloads every visit.
       const samePair = pref.from && pref.from === pref.to;
       if (okFrom(pref.from)) setFromState(pref.from);
-      if (!samePair && okTo(pref.to)) setToState(pref.to);
+      // pinnedTo: ignore saved pref for `to` — the page context determines it.
+      if (!pinnedTo && !samePair && okTo(pref.to)) setToState(pref.to);
       if (Number.isFinite(pref.amount) && pref.amount > 0) setAmountState(pref.amount);
     } else {
       // No saved choice → seed from middleware geo cookies (IP-based default).
@@ -121,7 +128,8 @@ export function useGeoSelection({ defaults, isValidFrom, isValidTo }: Options) {
       const gTo = readCookie("geo-default-to");
       const gAmt = readCookie("geo-default-amount");
       if (gFrom && okFrom(gFrom)) setFromState(gFrom);
-      if (gTo && okTo(gTo)) setToState(gTo);
+      // pinnedTo: ignore geo `to` cookie — page context determines destination.
+      if (!pinnedTo && gTo && okTo(gTo)) setToState(gTo);
       if (gAmt) {
         const n = Math.round(parseFloat(gAmt));
         if (Number.isFinite(n) && n > 0) setAmountState(n);
