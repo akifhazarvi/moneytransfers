@@ -650,6 +650,8 @@ export default async function IbanCountryPage({ params }: Props) {
                     <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed whitespace-pre-line">
                       {section.content
                         .replace(/Calculate IBAN|Check IBAN|Already have an IBAN code\?/g, "")
+                        .replace(/[ \t]*\n[ \t]*/g, "\n")
+                        .replace(/\n{2,}/g, "\n")
                         .trim()}
                     </p>
                   </div>
@@ -756,7 +758,28 @@ export default async function IbanCountryPage({ params }: Props) {
             <h3 className="text-base font-medium text-[var(--color-on-surface)] mb-4">
               Send money to {name}
             </h3>
-            <ComparisonWidget compact />
+            <ComparisonWidget compact forceTo={country.currency} />
+          </Card>
+
+          {/* Quick reference */}
+          <Card>
+            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
+              Quick reference
+            </h3>
+            <div className="divide-y divide-[var(--color-outline)]">
+              {[
+                { label: "Country code", value: country.countryCode },
+                { label: "IBAN length", value: `${country.ibanLength} characters` },
+                { label: "Currency", value: country.currency },
+                { label: "SEPA member", value: country.sepa ? "Yes" : "No" },
+                { label: "Example", value: formatIban(country.exampleIban) },
+              ].map((row) => (
+                <div key={row.label} className="flex justify-between py-2.5 text-2sm">
+                  <span className="text-[var(--color-on-surface-variant)]">{row.label}</span>
+                  <span className="font-medium text-[var(--color-on-surface)] text-right font-mono">{row.value}</span>
+                </div>
+              ))}
+            </div>
           </Card>
 
           {/* Popular corridors for this country */}
@@ -813,27 +836,6 @@ export default async function IbanCountryPage({ params }: Props) {
               </div>
             </Card>
           )}
-
-          {/* Quick reference */}
-          <Card>
-            <h3 className="text-md font-medium text-[var(--color-on-surface)] mb-4">
-              Quick reference
-            </h3>
-            <div className="divide-y divide-[var(--color-outline)]">
-              {[
-                { label: "Country code", value: country.countryCode },
-                { label: "IBAN length", value: `${country.ibanLength} characters` },
-                { label: "Currency", value: country.currency },
-                { label: "SEPA member", value: country.sepa ? "Yes" : "No" },
-                { label: "Example", value: formatIban(country.exampleIban) },
-              ].map((row) => (
-                <div key={row.label} className="flex justify-between py-2.5 text-2sm">
-                  <span className="text-[var(--color-on-surface-variant)]">{row.label}</span>
-                  <span className="font-medium text-[var(--color-on-surface)] text-right font-mono">{row.value}</span>
-                </div>
-              ))}
-            </div>
-          </Card>
         </div>
       </div>
 
