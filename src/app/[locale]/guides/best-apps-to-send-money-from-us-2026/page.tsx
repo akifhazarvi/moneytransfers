@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -266,7 +267,7 @@ export async function generateMetadata({
       absolute: "Best Apps to Send Money Abroad from the US (2026) | SendMoneyCompare",
     },
     description:
-      "We ranked the 8 best apps to send money abroad from the US in 2026 using live data from 60+ providers. Wise, Remitly, TorFX, OFX, TapTap Send — compared on fees, exchange rates, speed, and trust.",
+      seoDescription("We ranked the 8 best apps to send money abroad from the US in 2026 using live data from 60+ providers. Wise, Remitly, TorFX, OFX, TapTap Send — compared on fees, exchange rates, speed, and trust."),
     keywords: [
       "best app to send money internationally from US",
       "best money transfer app USA 2026",
@@ -287,6 +288,7 @@ export async function generateMetadata({
       modifiedTime: MODIFIED,
       authors: ["Akif Hazarvi"],
       tags: ["money transfer", "remittance", "international payments", "fintech"],
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: {
       card: "summary_large_image",
@@ -828,7 +830,7 @@ export default async function BestAppsFromUSPage({
               <a
                 href="https://www.fincen.gov/msb-registrant-search"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
                 className="text-[var(--color-primary)] hover:underline"
               >
                 FinCEN MSB Registrant Search

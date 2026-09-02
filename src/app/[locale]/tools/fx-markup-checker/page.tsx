@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import Container from "@/components/Container";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { getMidMarketRate } from "@/lib/unified-quotes";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -25,7 +26,7 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: TITLE,
-    description: DESCRIPTION,
+    description: seoDescription(DESCRIPTION),
     keywords: [
       "fx markup checker",
       "exchange rate markup calculator",
@@ -35,7 +36,9 @@ export async function generateMetadata({
       "how much is my bank charging exchange rate",
     ],
     alternates: getAlternates(PATH, locale),
-    openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/${PATH}`, type: "website" },
+    openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/${PATH}`, type: "website",
+      images: DEFAULT_OG_IMAGES,
+    },
     twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   };
 }

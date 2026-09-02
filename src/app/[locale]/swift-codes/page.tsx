@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
@@ -8,7 +9,7 @@ import CircleFlag from "@/components/CircleFlag";
 import { getSwiftCountries } from "@/data/swift-codes";
 import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { INDEXED_SWIFT_SLUGS } from "@/lib/seo-indexing";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -16,13 +17,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "swiftCodes" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
     alternates: getAlternates("swift-codes", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/swift-codes",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

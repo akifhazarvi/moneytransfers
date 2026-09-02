@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -11,7 +12,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import { getSwiftCountries, getSwiftCountryBySlug } from "@/data/swift-codes";
 import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
 import { getSwiftEditorial, getSwiftFaqs } from "@/data/swift-content";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { INDEXED_SWIFT_SLUGS as indexedSwiftCountries } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 
@@ -198,13 +199,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
   return {
     title: t("fallbackTitle", tplParams),
-    description: t("fallbackDescription", tplParams),
+    description: seoDescription(t("fallbackDescription", tplParams)),
     keywords: t("fallbackKeywords", tplParams),
     alternates: getAlternates(`swift-codes/${slug}`, locale),
     openGraph: {
       title: t("fallbackOgTitle", tplParams),
       description: t("fallbackOgDescription", tplParams),
       url: `https://sendmoneycompare.com/swift-codes/${slug}`,
+      images: DEFAULT_OG_IMAGES,
     },
     robots: indexedSwiftCountries.has(slug) ? undefined : { index: false, follow: true },
   };

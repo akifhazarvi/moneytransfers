@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
@@ -528,7 +529,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "exchangeRates" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
     alternates: getAlternates("exchange-rates", locale),
     openGraph: {

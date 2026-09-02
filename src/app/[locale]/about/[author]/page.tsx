@@ -5,7 +5,7 @@ import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { authors, getAuthor } from "@/data/authors";
 import { blogPosts } from "@/data/blog-posts";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { fitTitle } from "@/lib/seo-title";
@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t("fallbackOgTitle", tplParams),
       description: author.byline,
       type: "profile",
+      images: DEFAULT_OG_IMAGES,
     },
     alternates: getAlternates(`about/${slug}`, locale),
   };

@@ -1,10 +1,11 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import { quoteDataDate } from "@/lib/unified-quotes";
 import Image from "next/image";
 import { providers } from "@/data/providers";
 import Container from "@/components/Container";
 import CompareShowdown from "@/components/CompareShowdown";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { SITEMAP_COMPARISON_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
@@ -29,12 +30,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "compare" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     alternates: getAlternates("compare", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/compare",
+      images: DEFAULT_OG_IMAGES,
     },
     keywords: t("metaKeywords"),
   };

@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import Container from "@/components/Container";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import Breadcrumb from "@/components/Breadcrumb";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
@@ -25,7 +26,7 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: TITLE,
-    description: DESCRIPTION,
+    description: seoDescription(DESCRIPTION),
     keywords: [
       "us remittance tax calculator",
       "1% remittance tax",
@@ -40,6 +41,7 @@ export async function generateMetadata({
       description: DESCRIPTION,
       url: `${SITE_URL}/${PATH}`,
       type: "website",
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
   };
@@ -209,11 +211,11 @@ export default async function UsRemittanceTaxPage({
               <p className="font-semibold text-[var(--color-on-surface-variant)]">Sources &amp; last updated</p>
               <p className="mt-1">
                 Based on the One Big Beautiful Bill Act and IRS/Treasury guidance. Primary sources:{" "}
-                <a className="underline" href="https://www.irs.gov/newsroom/treasury-irs-issue-proposed-regulations-on-the-new-remittance-transfer-tax-established-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer nofollow">
+                <a className="underline" href="https://www.irs.gov/newsroom/treasury-irs-issue-proposed-regulations-on-the-new-remittance-transfer-tax-established-under-the-one-big-beautiful-bill" target="_blank" rel="noopener noreferrer">
                   IRS proposed regulations
                 </a>{" "}
                 and the{" "}
-                <a className="underline" href="https://www.federalregister.gov/documents/2026/04/13/2026-07085/excise-tax-on-remittance-transfers" target="_blank" rel="noopener noreferrer nofollow">
+                <a className="underline" href="https://www.federalregister.gov/documents/2026/04/13/2026-07085/excise-tax-on-remittance-transfers" target="_blank" rel="noopener noreferrer">
                   Federal Register rule
                 </a>
                 . This tool is for information only and is not tax advice. Reviewed July 2026.

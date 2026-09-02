@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import Breadcrumb from "@/components/Breadcrumb";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { CASHOUT_COUNTRIES } from "@/data/cashout-countries";
 import { getCountryOfframps } from "@/lib/crypto-rails";
@@ -34,7 +34,9 @@ export async function generateMetadata({
     // they simply leave the index. Promote back if a page earns real demand.
     robots: { index: false, follow: true },
     alternates: getAlternates("cash-out", locale),
-    openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/cash-out`, type: "website" },
+    openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/cash-out`, type: "website",
+      images: DEFAULT_OG_IMAGES,
+    },
   };
 }
 

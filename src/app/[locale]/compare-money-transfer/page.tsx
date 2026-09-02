@@ -12,6 +12,7 @@
  * intent: users want a comprehensive provider comparison, not a lead-gen widget.
  */
 
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -25,7 +26,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { providers } from "@/data/providers";
 import { trustpilotIndex } from "@/lib/unified-quotes";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import { corridorPageRenders } from "@/lib/route-map";
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title,
-    description,
+    description: seoDescription(description),
     keywords:
       "compare money transfer, compare money transfer rates, compare remit, compare money transfer services, best money transfer service, cheapest money transfer, international money transfers comparison, currency transfer comparison, best online money transfer",
     alternates: {
@@ -64,6 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `${SITE_URL}${locale === "en" ? "" : `/${locale}`}/compare-money-transfer`,
       type: "website",
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: {
       card: "summary_large_image",

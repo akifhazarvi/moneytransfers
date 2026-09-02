@@ -18,7 +18,7 @@ import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import { getGoUrl } from "@/lib/affiliate";
 import { trustpilotIndex } from "@/lib/unified-quotes";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { generateProviderProfile } from "@/lib/provider-profile";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
@@ -66,6 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       type: "article",
+      images: DEFAULT_OG_IMAGES,
     },
     alternates: getAlternates(`companies/${slug}`, locale),
   };

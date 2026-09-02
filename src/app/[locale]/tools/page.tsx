@@ -1,9 +1,10 @@
+import { seoDescription } from "@/lib/seo-title";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import Breadcrumb from "@/components/Breadcrumb";
 
@@ -24,9 +25,11 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: TITLE,
-    description: DESCRIPTION,
+    description: seoDescription(DESCRIPTION),
     alternates: getAlternates("tools", locale),
-    openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/tools`, type: "website" },
+    openGraph: { title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/tools`, type: "website",
+      images: DEFAULT_OG_IMAGES,
+    },
   };
 }
 

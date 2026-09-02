@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import SalaryAbroadTool from "@/components/SalaryAbroadTool";
 import { pppIndex, markupBounds, countriesByName, modelDestination, corridorSlugByPair } from "@/lib/ppp-index";
 
@@ -30,9 +31,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = `Compare purchasing power across ${pppIndex.countryCount} countries using official World Bank data — then see what moving your money actually costs. ${best.name} averages ${best.pct}% FX markup, ${worst.name} ${worst.pct}%. On $60,000 that is a ${usToIndia ? `$${usToIndia.savedPerYear.toLocaleString()}` : "$2,790"} a year difference.`;
   return {
     title: { absolute: title },
-    description,
+    description: seoDescription(description),
     alternates: getAlternates(PATH, locale),
-    openGraph: { title, description, url: URL, type: "website" },
+    openGraph: { title, description, url: URL, type: "website",
+      images: DEFAULT_OG_IMAGES,
+    },
     twitter: { card: "summary_large_image", title, description },
   };
 }

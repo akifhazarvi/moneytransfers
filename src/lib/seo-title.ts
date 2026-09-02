@@ -14,7 +14,10 @@
  * The fix is a deterministic degradation ladder rather than 146 hand-written
  * strings: prefer an explicit editorial title, else brand the H1, else keep the
  * first clause of the H1. Every branch is checked against MAX_TITLE, so no
- * template can regress past the limit again — see `npm run check:seo`.
+ * template can regress past the limit again — see `npm run check:assets`.
+ *
+ * This module owns SERP text generally: `seoDescription` below applies the
+ * same idea to meta descriptions.
  */
 
 export const BRAND_SUFFIX = " | SendMoneyCompare";
@@ -89,4 +92,39 @@ export function seoTitle(h1: string, explicit?: string): string {
   }
 
   return fitTitle([base]);
+}
+
+/** Meta descriptions truncate around here in both Google and Bing. */
+export const MAX_DESCRIPTION = 160;
+
+/**
+ * Meta description that ends where we choose rather than where the SERP cuts.
+ *
+ * 112 pages shipped a description over 165 characters (2026-09-02 audit),
+ * because several templates reuse an on-page lead-in — a news excerpt is
+ * written as two or three sentences, so it reads as a fragment once truncated.
+ * Cutting at the last sentence that fits, else the last word, keeps the snippet
+ * a complete thought and lets the engine use it verbatim when it does fit.
+ *
+ * `explicit` is the editorial escape hatch and is used as given when it fits.
+ */
+export function seoDescription(text: string, explicit?: string): string {
+  const chosen = (explicit?.trim() || text || "").trim().replace(/\s+/g, " ");
+  if (chosen.length <= MAX_DESCRIPTION) return chosen;
+
+  const window = chosen.slice(0, MAX_DESCRIPTION);
+  // Prefer a sentence boundary, but only when it still uses most of the budget.
+  // At 0.6 a "best apps" description cut after its first sentence at 102 of 160
+  // characters, dropping the provider names that make the snippet worth
+  // clicking; 0.75 keeps the complete-sentence read without giving up a third
+  // of the snippet.
+  const sentenceEnd = Math.max(
+    window.lastIndexOf(". "),
+    window.lastIndexOf("! "),
+    window.lastIndexOf("? "),
+  );
+  if (sentenceEnd >= MAX_DESCRIPTION * 0.75) return window.slice(0, sentenceEnd + 1);
+
+  const lastSpace = window.lastIndexOf(" ");
+  return `${window.slice(0, lastSpace > 0 ? lastSpace : window.length).replace(/[,;:\u2014-]$/, "").trim()}…`;
 }

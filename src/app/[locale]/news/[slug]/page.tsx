@@ -8,9 +8,9 @@ import { newsItems, getNewsItem, getLatestNews } from "@/data/news";
 import { getProviderName } from "@/data/providers";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
-import { seoTitle } from "@/lib/seo-title";
+import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
@@ -52,14 +52,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // articles shipped an identical pair, 11 of them over the 70-char limit.
   return {
     title: seoTitle(item.title, item.metaTitle),
-    description: item.excerpt,
+    description: seoDescription(item.excerpt),
     keywords: articleKeywords(item),
     openGraph: {
       title: item.title,
       description: item.excerpt,
       type: "article",
       publishedTime: item.publishedAt,
-      ...(item.image && { images: [{ url: `https://sendmoneycompare.com${item.image}` }] }),
+      images: item.image
+        ? [{ url: `https://sendmoneycompare.com${item.image}` }]
+        : DEFAULT_OG_IMAGES,
     },
     twitter: {
       card: "summary_large_image",

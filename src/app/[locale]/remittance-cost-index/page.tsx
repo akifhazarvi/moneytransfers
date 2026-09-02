@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
@@ -8,7 +9,7 @@ import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 import { corridors } from "@/data/corridors";
 import { providers } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import CryptoVsBankIndexSection from "@/components/CryptoVsBankIndexSection";
 import { companyPageRenders, corridorPageRenders } from "@/lib/route-map";
 
@@ -17,13 +18,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "remittanceCostIndex" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
     alternates: getAlternates("remittance-cost-index", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/remittance-cost-index",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

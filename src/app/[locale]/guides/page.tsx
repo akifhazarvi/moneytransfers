@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
@@ -5,7 +6,7 @@ import { blogPosts, blogCategories } from "@/data/blog-posts";
 import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
 import { weekendMarkup } from "@/lib/weekend-markup";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -14,12 +15,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "guides" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     alternates: getAlternates("guides", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/guides",
+      images: DEFAULT_OG_IMAGES,
     },
     keywords: t("metaKeywords"),
   };

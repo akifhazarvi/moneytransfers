@@ -19,7 +19,7 @@ import ComparisonWidget from "@/components/ComparisonWidget";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { corridorToSlug } from "@/lib/rate-history";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getCompareCanonicalSlug, EDITORIAL_COMPARE_SLUGS } from "@/lib/compare-canonical";
 import { SITEMAP_COMPARISON_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
@@ -136,6 +136,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       // crawlers treat og:url as a secondary canonical hint; mismatching it
       // with <link rel="canonical"> weakens both signals.
       url: `https://sendmoneycompare.com/compare/${canonicalSlug}`,
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

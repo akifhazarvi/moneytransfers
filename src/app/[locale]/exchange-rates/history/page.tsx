@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Container from "@/components/Container";
@@ -12,7 +13,7 @@ import {
   type RateInsight,
 } from "@/lib/rate-history";
 import { currencies } from "@/data/providers";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
 
 // ── Tier 1 corridors (highest search volume) ──────────────────
@@ -41,12 +42,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const year = new Date().getFullYear();
   return {
     title: `Historical Exchange Rates — 90+ Currency Corridors (${year})`,
-    description: `Track exchange rate history across 90+ currency corridors. Compare how provider rates have changed over time and find the best time to send money abroad.`,
+    description: seoDescription(`Track exchange rate history across 90+ currency corridors. Compare how provider rates have changed over time and find the best time to send money abroad.`),
     alternates: getAlternates("exchange-rates/history", locale),
     openGraph: {
       title: `Historical Exchange Rates — Currency Rate Trends (${year})`,
       description: "Track exchange rate trends, compare providers over time, and find the best time to send money.",
       url: "https://sendmoneycompare.com/exchange-rates/history",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

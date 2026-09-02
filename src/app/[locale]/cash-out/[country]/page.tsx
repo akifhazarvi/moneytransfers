@@ -1,10 +1,11 @@
+import { seoDescription } from "@/lib/seo-title";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import Breadcrumb from "@/components/Breadcrumb";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { CASHOUT_COUNTRIES, getCashoutCountry } from "@/data/cashout-countries";
 import { getCountryOfframps, getBeatsMidMarket, isBitcoinRail } from "@/lib/crypto-rails";
@@ -31,7 +32,7 @@ export async function generateMetadata({
   const description = `The cheapest way to cash out USDT, USDC and Bitcoin to ${c.currency} in ${c.country} right now — live all-in costs across ${c.localExchanges.slice(0, 2).join(" and ")}, plus how it works and the tax reality.`;
   return {
     title,
-    description,
+    description: seoDescription(description),
     keywords: [
       `cash out crypto ${c.country.toLowerCase()}`,
       `sell usdt ${c.currency.toLowerCase()}`,
@@ -48,7 +49,9 @@ export async function generateMetadata({
     // they simply leave the index. Promote back if a page earns real demand.
     robots: { index: false, follow: true },
     alternates: getAlternates(`cash-out/${slug}`, locale),
-    openGraph: { title, description, url: `${SITE_URL}/cash-out/${slug}`, type: "article" },
+    openGraph: { title, description, url: `${SITE_URL}/cash-out/${slug}`, type: "article",
+      images: DEFAULT_OG_IMAGES,
+    },
   };
 }
 

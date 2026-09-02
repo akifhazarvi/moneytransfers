@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import FxBiteCharts, { type BiteRow } from "@/components/FxBiteCharts";
 import CostIncomeScatter from "@/components/CostIncomeScatter";
@@ -61,12 +62,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = `Moving from the US to ${topBite.name} lifts your buying power ${Math.round(topBite.gainPct)}% — but the wrong transfer provider eats ${Math.round(topBite.eatenWorst)}% of that gain. Moving to ${cheapest.name} it eats ${cheapest.eatenWorst.toFixed(1)}%. Charted across ${all.length} countries on World Bank data.`;
   return {
     title: { absolute: title },
-    description,
+    description: seoDescription(description),
     alternates: getAlternates(PATH, locale),
     openGraph: {
       title, description, url: URL, type: "article",
       publishedTime: "2026-08-15", modifiedTime: pppIndex.generatedAt,
       authors: ["Akif Hazarvi"],
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title, description },
   };

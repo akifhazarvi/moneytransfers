@@ -21,3 +21,18 @@ export function getAlternates(path: string, _locale: string) {
   const canonical = cleanPath ? `${SITE_URL}/${cleanPath}` : SITE_URL;
   return { canonical };
 }
+
+/**
+ * Default social preview image: the root dynamic OG route.
+ *
+ * Next's file-based `opengraph-image` only reaches routes that do not define
+ * their own `openGraph` object — a template that sets `openGraph: { title,
+ * description, url }` replaces the inherited one and silently drops the image.
+ * That left 264 pages with no og:image (2026-09-02 audit): the whole /iban,
+ * /compare, /swift-codes, /exchange-rates, /travel, /cash-out, /business,
+ * /banks and /tools families. Spread this into any openGraph object that does
+ * not set a more specific image.
+ */
+export const DEFAULT_OG_IMAGES = [
+  { url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 },
+];

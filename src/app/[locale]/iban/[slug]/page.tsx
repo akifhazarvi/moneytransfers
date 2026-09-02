@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import { internalPathRenders } from "@/lib/route-map";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -16,7 +17,7 @@ import {
 } from "@/data/wise-iban";
 import { getCountryByAlpha2 } from "@/data/countries";
 import { getIbanEditorial, getIbanFaqs } from "@/data/iban-content";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { INDEXED_IBAN_SLUGS as indexedIbanCountries } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 
@@ -197,13 +198,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title,
-    description,
+    description: seoDescription(description),
     keywords,
     alternates: getAlternates(`iban/${slug}`, locale),
     openGraph: {
       title: ogTitle,
       description: ogDesc,
       url: `https://sendmoneycompare.com/iban/${slug}`,
+      images: DEFAULT_OG_IMAGES,
     },
     robots: indexedIbanCountries.has(slug) ? undefined : { index: false, follow: true },
   };

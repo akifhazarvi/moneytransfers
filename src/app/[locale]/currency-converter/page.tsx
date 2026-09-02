@@ -1,4 +1,5 @@
-import { getAlternates } from "@/lib/i18n-metadata";
+import { seoDescription } from "@/lib/seo-title";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
@@ -46,12 +47,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "currencyConverter" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     alternates: getAlternates("currency-converter", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/currency-converter",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

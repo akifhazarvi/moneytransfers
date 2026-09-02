@@ -50,7 +50,7 @@ import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";
 import { swedishCorridorBlocks } from "@/data/sweden-content";
 import { corridorDeepBlocks } from "@/data/corridor-deep-content";
 import { getCountryDetails } from "@/data/corridor-details";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { fitTitle } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -1736,6 +1736,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: ogTitle,
       description: ogDescription,
       type: "website",
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: {
       card: "summary_large_image",

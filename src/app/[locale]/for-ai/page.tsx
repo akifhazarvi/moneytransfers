@@ -3,6 +3,7 @@
 // (/llms.txt, /openapi.json, /ai.txt) and API routes (/api/ai) because
 // next/link would attempt client-side navigation, which 404s on non-pages.
 // Internal app-router pages still use <Link>.
+import { DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
       "Live money transfer comparison data for AI agents. API, llms.txt, OpenAPI spec, and citation guidelines.",
     url: `${SITE_URL}/for-ai`,
     type: "website",
+    images: DEFAULT_OG_IMAGES,
   },
   other: {
     "ai-content-declaration": "human-written, data-verified",

@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -19,7 +20,7 @@ import {
 import { currencies, getProviderName } from "@/data/providers";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { INDEXED_HISTORY_SLUGS } from "@/lib/seo-indexing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { rateHistoryPageRenders } from "@/lib/route-map";
@@ -72,9 +73,11 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
 
   return {
     title,
-    description,
+    description: seoDescription(description),
     alternates: getAlternates(`exchange-rates/history/${pair}`, locale),
-    openGraph: { title, description, url: `https://sendmoneycompare.com/exchange-rates/history/${pair}` },
+    openGraph: { title, description, url: `https://sendmoneycompare.com/exchange-rates/history/${pair}`,
+      images: DEFAULT_OG_IMAGES,
+    },
     keywords: t("fallbackKeywords", tplParams),
     // seo-indexing.ts declares "rate history pages: noindex set IS the sitemap
     // set", but this route never consulted it — so all 12 prerendered history

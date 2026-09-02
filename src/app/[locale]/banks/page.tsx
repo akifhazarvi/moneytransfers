@@ -4,6 +4,7 @@
  * equity from corridor and guide pages, then distributes it to the per-bank
  * leaves that earn the long-tail branded queries.
  */
+import { seoDescription } from "@/lib/seo-title";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // Was 93 chars: everything after "Compared" was truncated in the SERP, so
     // the bank names it was carrying never rendered anyway.
     title: `Bank International Transfer Fees Compared (${year}) | SendMoneyCompare`,
-    description: `How much do major banks really charge for international transfers? Live data showing what HSBC, Wells Fargo, Chase, Lloyds and Barclays customers pay vs Wise, Remitly and specialist providers on the same corridor and amount.`,
+    description: seoDescription(`How much do major banks really charge for international transfers? Live data showing what HSBC, Wells Fargo, Chase, Lloyds and Barclays customers pay vs Wise, Remitly and specialist providers on the same corridor and amount.`),
     alternates: getAlternates("banks", locale),
   };
 }

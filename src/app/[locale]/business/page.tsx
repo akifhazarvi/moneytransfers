@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { businessPages } from "@/data/business-pages";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title:
       `B2B International Payments — Compare Providers (${year})`,
     description:
-      `Compare the cheapest B2B international payment providers in ${year}. Wise Business, OFX, Revolut Business & Airwallex save 80–95% vs bank wires. Fees, FX rates, bulk payments & API access compared.`,
+      seoDescription(`Compare the cheapest B2B international payment providers in ${year}. Wise Business, OFX, Revolut Business & Airwallex save 80–95% vs bank wires. Fees, FX rates, bulk payments & API access compared.`),
     keywords:
       `b2b international payments, business international payments, business money transfer international, business fx payments, bulk international payments, international business payments ${year}, b2b money transfer, business bank transfer abroad`,
     alternates: getAlternates("business", locale),
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description:
         "Compare the cheapest ways to make international business payments. Specialist providers save 80–95% vs bank wire transfers.",
       url: "https://sendmoneycompare.com/business",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

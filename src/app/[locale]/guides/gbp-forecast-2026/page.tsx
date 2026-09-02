@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { computeGbpOutlookIndex } from "@/lib/gbp-outlook-index";
 import { FluctuationChart, ProviderSpreadChart } from "@/components/GbpOutlookCharts";
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = `Sterling swung ~5% in H1 2026, but the best-vs-worst money-transfer provider gap on ${amt} to USD is ${spreadPct}% — bigger than the currency move. Data-led GBP outlook plus the dates that matter for your pound transfer.`;
   return {
     title: { absolute: title },
-    description,
+    description: seoDescription(description),
     alternates: getAlternates(PATH, locale),
     openGraph: {
       title,
@@ -66,6 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       publishedTime: PUBLISHED,
       modifiedTime: MODIFIED,
       authors: ["Akif Hazarvi"],
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title, description },
   };

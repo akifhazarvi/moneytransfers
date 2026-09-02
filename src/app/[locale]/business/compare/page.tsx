@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { computeBusinessFxIndex, BUSINESS_AMOUNT } from "@/lib/business-fx-index";
 import {
@@ -43,10 +44,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = `In-depth comparison of ${PROVIDER_COUNT} business payment providers — Wise Business, OFX, Airwallex, Mercury, XE, Currencies Direct — on bulk payments, approval workflows, multi-currency accounts, API, KYC, limits and live FX cost. Banks cost ${idx.bankVsSpecialistMultiple}× more than specialists.`;
   return {
     title: { absolute: title },
-    description,
+    description: seoDescription(description),
     alternates: getAlternates(PATH, locale),
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
-    openGraph: { title, description, url: URL, type: "website" },
+    openGraph: { title, description, url: URL, type: "website",
+      images: DEFAULT_OG_IMAGES,
+    },
     twitter: { card: "summary_large_image", title, description },
   };
 }

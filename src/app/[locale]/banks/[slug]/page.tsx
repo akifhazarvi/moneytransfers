@@ -37,9 +37,9 @@ import {
 } from "@/lib/bank-comparisons";
 import { getCorridorSlug } from "@/data/corridors";
 import { providers, getProviderName, currencies } from "@/data/providers";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
-import { seoTitle } from "@/lib/seo-title";
+import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { providerLogo } from "@/lib/provider-logo";
 
 // Revalidate every 6 hours to match scraper cadence — these pages are
@@ -74,12 +74,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // bank.headline is the visible <h1>; seoTitle keeps the <title> distinct
     // and inside 70 chars (chase/hsbc were 79 and 74).
     title: seoTitle(bank.headline),
-    description,
+    description: seoDescription(description),
     keywords: `${bank.name} international transfer fee, ${bank.name} wire transfer cost, ${bank.name} exchange rate, ${bank.name} vs wise, send money abroad ${bank.name}`,
     openGraph: {
       title: bank.headline,
       description,
       type: "article",
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title: bank.headline, description },
     alternates: getAlternates(`banks/${slug}`, locale),

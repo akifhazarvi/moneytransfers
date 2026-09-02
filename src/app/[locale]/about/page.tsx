@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import Image from "next/image";
 import Link from "next/link";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/about",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

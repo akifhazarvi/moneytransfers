@@ -1,10 +1,11 @@
+import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import Image from "next/image";
 import { providers } from "@/data/providers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import RatingBadge from "@/components/RatingBadge";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -13,13 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "companies" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
     alternates: getAlternates("companies", locale),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),
       url: "https://sendmoneycompare.com/companies",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

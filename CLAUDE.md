@@ -141,6 +141,20 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   `fitTitle([...candidates])` from `src/lib/seo-title.ts`: titles cap at 70
   characters and must differ from the on-page headline. Hand-written titles go
   in `metaTitle` on the post/page data.
+- **Descriptions cap at 160 characters.** Wrap the metadata `description` in
+  `seoDescription(text, explicit?)` — it cuts at the last sentence that still
+  uses most of the budget, else the last word, so the snippet ends where we
+  choose rather than where the SERP truncates. Templated descriptions are
+  length-checked by `check:assets` at their longest real values.
+- **Every page needs an `og:image`.** A route that defines its own
+  `openGraph` object replaces the inherited one and silently drops the
+  file-based image, so spread `DEFAULT_OG_IMAGES` from `@/lib/i18n-metadata`
+  into any `openGraph` that has no more specific image.
+- **`nofollow` is for paid, untrusted and UGC links only.** Citations to
+  regulators, central banks, multilateral bodies and the press are followed —
+  they are the outbound-citation signal that supports E-E-A-T on YMYL finance
+  content. Providers we compare or monetise, the banks we review, and vendor
+  utility pages keep it.
 - JSON-LD: `FinancialService`/`BankOrCreditUnion`/`LocalBusiness` are
   LocalBusiness subclasses and **require an address** — use `Service` for what
   this site does, and reserve `FinancialService` for provider entities on their
@@ -151,6 +165,11 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 - Affiliate links (`/go`, `/out`) carry `rel="nofollow sponsored"` and are
   disallowed in robots.txt. Internal links to our own pages never carry
   `nofollow` — it does not conserve PageRank, it just drops the edge.
+- **Every submitted URL needs at least one internal link.** A hub indexes its
+  own children (`/send-money`, `/guides`, `/news` each carry a crawlable
+  index scoped by the same predicates the sitemap uses). A URL reachable only
+  from sitemap.xml gives a crawler no path to it and no signal of its place in
+  the site.
 - Client components serialise every prop into the page HTML. Project data to
   the fields the component renders before crossing the boundary; passing
   `blogPosts` to the guides grid put 2.38 MB of article HTML into `/guides`.

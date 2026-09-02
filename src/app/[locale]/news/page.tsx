@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import Badge from "@/components/Badge";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,7 +6,7 @@ import Container from "@/components/Container";
 import { getLatestNews, newsItems } from "@/data/news";
 import { SITEMAP_NEWS_SLUGS } from "@/lib/sitemap-allowlists";
 import { formatLocalDate } from "@/lib/format-date";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -14,13 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "news" });
   return {
     title: t("metaTitle"),
-    description: t("metaDescription"),
+    description: seoDescription(t("metaDescription")),
     alternates: getAlternates("news", locale),
     keywords: t("metaKeywords"),
     openGraph: {
       title: t("heading"),
       description: t("subheading"),
       url: "https://sendmoneycompare.com/news",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }

@@ -1,8 +1,9 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { computeBankVsAppIndex, HEADLINE_AMOUNT } from "@/lib/bank-vs-app-index";
 
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = `Live data from ${idx.bankQuoteCount + idx.appQuoteCount} quotes across ${idx.corridorCount} corridors: sending ${amt} via a traditional bank costs ${idx.bankAvgCostPct}% on average vs ${idx.appAvgCostPct}% via a specialist app. See the named bank leaderboard and download the dataset.`;
   return {
     title: { absolute: title },
-    description,
+    description: seoDescription(description),
     alternates: getAlternates(PATH, locale),
     openGraph: {
       title,
@@ -45,6 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       publishedTime: "2026-06-21",
       modifiedTime: idx.dataAsOf,
       authors: ["Akif Hazarvi"],
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: { card: "summary_large_image", title, description },
   };

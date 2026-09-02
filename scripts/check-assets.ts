@@ -21,7 +21,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { KNOWN_LOGOS } from "../src/lib/provider-logo";
-import { MAX_TITLE } from "../src/lib/seo-title";
+import { MAX_TITLE, MAX_DESCRIPTION } from "../src/lib/seo-title";
 
 const ROOT = join(__dirname, "..");
 const WRITE = process.argv.includes("--write");
@@ -137,6 +137,30 @@ for (const key of MUST_FIT) {
   }
 }
 
+// ── 4. description templates must fit MAX_DESCRIPTION ────────────────────
+// Same idea as the title check: render each fallback with the longest real
+// values we ship. Pages that build a description from editorial prose route it
+// through seoDescription() instead, which truncates at a sentence boundary.
+const DESC_MUST_FIT = [
+  "corridor.fallbackDescriptionCurrency",
+  "corridor.fallbackDescriptionCountry",
+  "corridor.fallbackDescriptionCorridor",
+  "iban.fallbackDescription",
+  "swift.fallbackDescription",
+  "rateHistory.fallbackDescription",
+];
+for (const key of DESC_MUST_FIT) {
+  const [ns, k] = key.split(".");
+  const tpl: string | undefined = messages[ns]?.[k];
+  if (!tpl) continue;
+  const rendered = render(tpl);
+  if (rendered.length > MAX_DESCRIPTION) {
+    failures.push(
+      `description template ${key} renders ${rendered.length} chars (> ${MAX_DESCRIPTION}): "${rendered.slice(0, 90)}…"`,
+    );
+  }
+}
+
 // ── report ────────────────────────────────────────────────────────────────
 if (failures.length) {
   console.error(`\ncheck:assets FAILED (${failures.length})\n`);
@@ -145,5 +169,6 @@ if (failures.length) {
 }
 console.log(
   `check:assets ok — ${onDisk.length} logos in sync, ${seen.size} literal asset paths resolve, ` +
-    `${MUST_FIT.length} title templates within ${MAX_TITLE} chars`,
+    `${MUST_FIT.length} title templates within ${MAX_TITLE} chars, ` +
+    `${DESC_MUST_FIT.length} description templates within ${MAX_DESCRIPTION}`,
 );

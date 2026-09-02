@@ -13,9 +13,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { renderDataTokens } from "@/lib/ratings-tokens";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
-import { seoTitle } from "@/lib/seo-title";
+import { seoTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
@@ -218,7 +218,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: pageTitle,
-    description: post.metaDescription,
+    description: seoDescription(post.metaDescription),
     other: {
       "citation_title": post.title,
       "citation_author": post.author,
@@ -236,7 +236,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.updatedAt,
       authors: [post.author],
       tags: post.tags,
-      ...(post.featuredImage && { images: [{ url: post.featuredImage }] }),
+      images: post.featuredImage ? [{ url: post.featuredImage }] : DEFAULT_OG_IMAGES,
     },
     twitter: {
       card: "summary_large_image",
