@@ -13,6 +13,7 @@
 import { quotesByCorridor } from "@/lib/unified-quotes";
 import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
+import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { corridors as editorialCorridors } from "@/data/corridors";
 
 export type CorridorTier = 1 | 2 | 3;
@@ -91,6 +92,12 @@ export function getCorridorTier(
   toCurrency: string,
   isCountryPage?: boolean,
 ): CorridorTier {
+  // Tier 1: pages Google/Bing actually rank. This check comes FIRST — ahead of
+  // the Wave-3 override and the provider count — because a page that ranks is
+  // by definition not thin, whatever its provider count says. See
+  // src/lib/ranking-corridors.ts for the GSC evidence behind each slug.
+  if (RANKING_CORRIDOR_SLUGS.has(slug)) return 1;
+
   // Tier 1: Editorial corridors always indexed
   if (EDITORIAL_SLUGS.has(slug)) return 1;
 
@@ -176,6 +183,9 @@ export function shouldNoindex(
   toCurrency: string,
   isCountryPage?: boolean,
 ): boolean {
+  // A ranking page is never noindexed, even if an older demand-failure list
+  // named it — the live GSC pull outranks the historical judgement.
+  if (RANKING_CORRIDOR_SLUGS.has(slug)) return false;
   if (WAVE3_NOINDEX_SLUGS.has(slug)) return true;
   const tier = getCorridorTier(slug, fromCurrency, toCurrency, isCountryPage);
 

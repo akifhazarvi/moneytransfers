@@ -39,7 +39,8 @@
     "check:ai-citations": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts",
     "social:preview": "npx tsx scripts/social/generate-digest.ts",
     "social:dry-run": "npx tsx scripts/social/post-daily.ts --dry-run",
-    "social:post": "npx tsx scripts/social/post-daily.ts"
+    "social:post": "npx tsx scripts/social/post-daily.ts",
+    "check:ranking": "tsx scripts/check-ranking-urls.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

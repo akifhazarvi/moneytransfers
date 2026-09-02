@@ -22,7 +22,9 @@
  *
  * Promote OUT of this set only if a slug starts earning real demand on Bing/AI.
  */
-export const GONE_CORRIDOR_SLUGS = new Set<string>([
+import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
+
+const RETIRED_SLUGS = new Set<string>([
   "europe-to-india",
   "europe-to-nigeria",
   "europe-to-pakistan",
@@ -433,3 +435,17 @@ export const GONE_CORRIDOR_SLUGS = new Set<string>([
   "spain-to-vietnam",
   "spain-to-zimbabwe",
 ]);
+
+/**
+ * The retired list MINUS anything Google or Bing currently ranks.
+ *
+ * Subtracting here rather than hand-pruning the list above makes it
+ * structurally impossible to serve 410 for a page that still earns
+ * impressions — the failure mode found on 2026-09-01, where
+ * south-africa-to-nigeria (pos 6.2) and belgium-to-mexico (pos 5.0) were both
+ * retired while still ranking. Add a slug to RANKING_CORRIDOR_SLUGS and it
+ * drops out of this set automatically, everywhere it is consumed.
+ */
+export const GONE_CORRIDOR_SLUGS: ReadonlySet<string> = new Set(
+  [...RETIRED_SLUGS].filter((slug) => !RANKING_CORRIDOR_SLUGS.has(slug)),
+);

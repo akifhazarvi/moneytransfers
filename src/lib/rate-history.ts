@@ -173,4 +173,7 @@ export const KEEP_HISTORY_PAIRS = new Set<string>([
   "aud-to-usd", "usd-to-aud",
   "usd-to-cad", "cad-to-usd",
   "usd-to-jpy", "eur-to-jpy",
+  // Restored 2026-09-01: /es/exchange-rates/history/usd-to-hnl held position 1
+  // with a click while its 301 target 404'd. Not a liquid major, but it ranks.
+  "usd-to-hnl",
 ]);
