@@ -52,7 +52,7 @@ import { corridorDeepBlocks } from "@/data/corridor-deep-content";
 import { getCountryDetails } from "@/data/corridor-details";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
-import { fitTitle } from "@/lib/seo-title";
+import { fitTitle, seoDescription } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
@@ -1723,7 +1723,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : undefined,
     variant === "Corridor" ? t("fallbackTitleCorridorMin", tplParams) : undefined,
   ]);
-  const description = override?.description ?? t(`fallbackDescription${variant}`, tplParams);
+  // seoDescription caps the hand-written overrides too — one of them
+  // (singapore-to-philippines) ran to 177 characters.
+  const description = seoDescription(override?.description ?? t(`fallbackDescription${variant}`, tplParams));
   const ogTitle = override?.ogTitle ?? t(`fallbackOgTitle${variant}`, tplParams);
   const ogDescription = override?.ogDescription ?? description;
   const keywords = override?.keywords ?? t(`fallbackKeywords${variant}`, tplParams);
