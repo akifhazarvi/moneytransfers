@@ -25,6 +25,8 @@ interface Props {
   defaultTo?: string;
   defaultAmount?: number;
   compact?: boolean;
+  /** Pin the destination currency regardless of geo/prefs (e.g. on country-specific pages). */
+  forceTo?: string;
 }
 
 export default function ComparisonWidget({
@@ -32,6 +34,7 @@ export default function ComparisonWidget({
   defaultTo = "INR",
   defaultAmount = 1000,
   compact = false,
+  forceTo,
 }: Props) {
   const router = useRouter();
 
@@ -48,9 +51,10 @@ export default function ComparisonWidget({
     setAmount: persistAmount,
     setCorridor,
   } = useGeoSelection({
-    defaults: { from: defaultFrom, to: defaultTo, amount: defaultAmount },
+    defaults: { from: defaultFrom, to: forceTo ?? defaultTo, amount: defaultAmount },
     isValidFrom: validFrom,
     isValidTo: validTo,
+    pinnedTo: forceTo,
   });
 
   // Keep a string input for the amount UX; seed it from the geo-resolved amount.
