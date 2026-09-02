@@ -375,7 +375,13 @@ export const SITEMAP_RATE_PAIR_SLUGS = new Set<string>([
 
 // All 22 rate-history pages had 0 Bing + 0 GSC. Removed from sitemap.
 // Page route remains but is no longer actively submitted.
-export const SITEMAP_RATE_HISTORY_SLUGS = new Set<string>([]); // 0 URLs (was 22)
+export const SITEMAP_RATE_HISTORY_SLUGS = new Set<string>([
+  // Added 2026-09-02. The 2026-09-01 GSC audit found this URL ranking (it is a
+  // RANKING_PATH in scripts/check-ranking-urls.ts), so it is the one history
+  // page with demonstrated demand. It was indexable but unsubmitted — the same
+  // "index:yes / sitemap:no" contradiction the May 8 deindex was traced to.
+  "usd-to-hnl",
+]); // 1 URL (was 22, then 0)
 
 export const SITEMAP_SWIFT_SLUGS = new Set<string>([
   "georgia",

@@ -8,6 +8,7 @@ import { businessPages } from "@/data/business-pages";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 import { providerReviews } from "@/data/provider-reviews";
+import { authors } from "@/data/authors";
 import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
@@ -139,6 +140,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // on this URL while it 404'd after its Jun 20 retirement. Live-computed
     // rates, statically prerendered (revalidate hourly), so DATA_UPDATED.
     entry("currency-converter", DATA_UPDATED),
+    // Trust + authorship pages. All four were indexable but unsubmitted — the
+    // "index:yes / sitemap:no" contradiction the May 8 2026 deindex was traced
+    // to — while their siblings /privacy-policy and /terms were listed. Author
+    // pages carry the E-E-A-T signal Google looks for on YMYL finance content,
+    // so they belong in the submitted set rather than being noindexed.
+    ...authors.map((a) => entry(`about/${a.slug}`, STATIC_CONTENT_DATE)),
+    entry("corrections", STATIC_CONTENT_DATE),
+    entry("cookies", STATIC_CONTENT_DATE),
+    entry("disclaimer", STATIC_CONTENT_DATE),
+    // Trust + authorship pages. All were indexable but unsubmitted — the
+    // "index:yes / sitemap:no" contradiction the May 8 2026 deindex was traced
+    // to — while their siblings /privacy-policy and /terms were listed. Author
+    // pages carry the E-E-A-T signal Google looks for on YMYL finance content,
+    // so they belong in the submitted set rather than being noindexed.
+    ...authors.map((a) => entry(`about/${a.slug}`, STATIC_CONTENT_DATE)),
+    entry("corrections", STATIC_CONTENT_DATE),
+    entry("cookies", STATIC_CONTENT_DATE),
+    entry("disclaimer", STATIC_CONTENT_DATE),
     entry("news", STATIC_HUB_DATE),
     entry("business", STATIC_HUB_DATE),
     // Live Business/B2B payment-provider cost comparison tool. Added Jun 22 2026

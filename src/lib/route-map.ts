@@ -117,6 +117,18 @@ export const swiftPageRenders = (slug?: string | null) => Boolean(slug && SWIFT_
 export const bankPageRenders = (slug?: string | null) => Boolean(slug && BANK_SLUGS.has(slug));
 export const businessPageRenders = (slug?: string | null) => Boolean(slug && BUSINESS_SLUGS.has(slug));
 
+/**
+ * Guides that are dedicated routes under src/app/[locale]/guides/ rather than
+ * entries in blogPosts. Keep in sync with that directory.
+ */
+const STANDALONE_GUIDES = new Set([
+  "bank-vs-app-transfer-cost-2026",
+  "best-apps-to-send-money-from-us-2026",
+  "best-day-to-send-money-abroad",
+  "fx-cost-vs-purchasing-power",
+  "gbp-forecast-2026",
+]);
+
 /* ── generic gate ───────────────────────────────────────────────────────── */
 /**
  * True when an internal path renders. Static paths are assumed to render (they
@@ -140,11 +152,11 @@ export function internalPathRenders(path: string): boolean {
     case "companies":
       return seg.length === 1 || companyPageRenders(seg[1]);
     case "guides":
-      // The flagship data-stories are their own routes rather than blogPosts
-      // entries, so an unknown slug here is checked by check:links instead.
-      return seg.length === 1 || guidePageRenders(seg[1]) || true;
+      // The five flagship data-stories are their own routes rather than
+      // blogPosts entries, so they are named here explicitly.
+      return seg.length === 1 || guidePageRenders(seg[1]) || STANDALONE_GUIDES.has(seg[1]);
     case "news":
-      return seg.length === 1 || newsPageRenders(seg[1]) || true;
+      return seg.length === 1 || newsPageRenders(seg[1]);
     case "iban":
       return seg.length === 1 || ibanPageRenders(seg[1]);
     case "swift-codes":

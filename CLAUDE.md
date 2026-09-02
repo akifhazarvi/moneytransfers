@@ -30,6 +30,12 @@ npm run lint             # ESLint
 npm run scrape:all       # Run all scrapers (API + browser)
 npm run scrape:all-api   # API-only scrapers (fast)
 npm run scrape:reviews   # Trustpilot ratings
+
+# Guards — prebuild and postbuild run these automatically; a failure fails the build
+npm run check:assets     # logo manifest ↔ public/logos, asset paths, title-template length
+npm run check:links      # every internal link resolves to a page the build rendered
+npm run check:indexing   # sitemap ⇔ robots ⇔ canonical agree
+npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
 ```
 
 ## Data Flow
@@ -74,12 +80,80 @@ Use design tokens via `var(--color-*)` in Tailwind arbitrary values, e.g. `text-
 - **Main branch** deploys directly to production.
 - **GitHub Actions** workflow at `.github/workflows/scrape.yml` runs scrapers on schedule.
 
-## SEO
+## Route Gating — read before writing any internal link
 
-- Every page exports `metadata` via Next.js Metadata API
-- JSON-LD schema.org on key pages (FAQPage, Organization, WebSite)
-- Dynamic `robots.ts` and `sitemap.ts`
-- Canonical URLs set on all pages
+Most dynamic routes are **allowlisted**, and three of them set
+`dynamicParams = false`, which means a URL outside the allowlist is a hard 404.
+This is deliberate: the Mar 20 2026 scaled-content suppression followed shipping
+200+ programmatic pages, and the June 2026 pruning collapsed the combinatorial
+routes to allowlists. The guardrail is: **new combinatorial routes must be
+allowlisted, not on-demand ISR.**
+
+| Route | What renders | Outside it |
+|-------|--------------|-----------|
+| `/send-money/[corridor]` | Tier 1–2 (`corridor-tiers.ts`) + `RANKING_CORRIDOR_SLUGS`, minus `GONE_CORRIDOR_SLUGS` | **404** (`dynamicParams=false`) |
+| `/compare/[slug]` | `EDITORIAL_COMPARE_SLUGS` + `SITEMAP_COMPARISON_SLUGS` | **404** (`dynamicParams=false`) |
+| `/exchange-rates/history/[pair]` | `KEEP_HISTORY_PAIRS` ∩ pairs with ≥2 days of data | **404** (`dynamicParams=false`) |
+| `/companies/[slug]` | `providers` (16 curated) | `notFound()` |
+| `/exchange-rates/[pair]` | `CURRENCY_PAIRS` | renders on demand |
+| `/iban/[slug]`, `/swift-codes/[country]`, `/banks/[slug]`, `/business/[slug]` | their data list | `notFound()` |
+
+**Never interpolate a slug into an internal href.** Ask `src/lib/route-map.ts`
+(`corridorPageRenders`, `comparePageHref`, `rateHistoryHref`,
+`companyPageRenders`, …) and drop the link when the answer is no. Scraped
+`providerSlug` values are the usual trap — they are slugified bank names from
+the Wise-comparison feed (`bnp-paribas`, `z-rcher-kantonalbank`) with no page
+and no logo behind them. The 2026-09-02 audit found 5,526 internal links into
+404s, 410s and redirects from exactly this mistake.
+
+Provider **logos** have the same rule: `providerLogo(slug, explicit?)` from
+`src/lib/provider-logo.ts`, never `` `/logos/${slug}.png` ``. Next's image
+optimizer answers a missing source with HTTP 400.
+
+## Indexing Model
+
+Three signals must agree for every page: **sitemap membership, robots meta, and
+canonical**. Disagreement between them is what the May 8 2026 deindex (500
+indexed → 31) was traced to, and every cleanup since has been an instance of it.
+
+- **Submitted (`sitemap.ts`) ⇒ indexable and self-canonical.** A sitemap entry
+  is a recommendation to index; submitting a `noindex` URL, a 404, or one that
+  canonicalises elsewhere is a contradiction. Enforced by `check:indexing`.
+- **Not submitted ⇒ usually `noindex`.** The exceptions are declared:
+  `INDEXED_IBAN_SLUGS` and `INDEXED_SWIFT_SLUGS` in `seo-indexing.ts` are
+  deliberately broader than the sitemap (Bing earners Google ignores).
+  `/compare-money-transfer` is indexable but unsubmitted because it
+  canonicalises to `/compare`.
+- **Sitemap membership is gated on demand data, not judgement** — Bing
+  Webmaster Tools (≥5 impressions/90d) post-deindex, since the site wins on
+  Bing/AI assistants and Google is the failing channel. Allowlists live in
+  `src/lib/sitemap-allowlists.ts` and are mechanical.
+- **A ranking URL must never 404, 410, or serve noindex.**
+  `ranking-corridors.ts` is the rescue list; `check:ranking` asserts those URLs
+  answer 200 *with* an `<h1>` and without `noindex` — status alone is not
+  enough, since a content-free 200 shell is a soft 404.
+
+## SEO Conventions
+
+- Every page exports `metadata` via the Next.js Metadata API, with a canonical
+  from `getAlternates()`.
+- **`<title>` is not the `<h1>`.** Use `seoTitle(h1, explicit?)` or
+  `fitTitle([...candidates])` from `src/lib/seo-title.ts`: titles cap at 70
+  characters and must differ from the on-page headline. Hand-written titles go
+  in `metaTitle` on the post/page data.
+- JSON-LD: `FinancialService`/`BankOrCreditUnion`/`LocalBusiness` are
+  LocalBusiness subclasses and **require an address** — use `Service` for what
+  this site does, and reserve `FinancialService` for provider entities on their
+  own page, where `headquarters` exists. `SoftwareApplication`/`WebApplication`
+  require an `aggregateRating`; without an honest one, use `WebPage` or
+  `WebAPI`. Reference a node declared elsewhere by `@id` rather than re-typing
+  a name-only copy.
+- Affiliate links (`/go`, `/out`) carry `rel="nofollow sponsored"` and are
+  disallowed in robots.txt. Internal links to our own pages never carry
+  `nofollow` — it does not conserve PageRank, it just drops the edge.
+- Client components serialise every prop into the page HTML. Project data to
+  the fields the component renders before crossing the boundary; passing
+  `blogPosts` to the guides grid put 2.38 MB of article HTML into `/guides`.
 
 ## Scraper Architecture & Failure Patterns
 
@@ -116,5 +190,10 @@ All Playwright scrapers import from this shared library: `setupBrowserContext`, 
 
 - `src/data/providers.ts` — Provider interface, 16 hardcoded providers, `generateQuotes()`, currencies list
 - `src/lib/unified-quotes.ts` — Quote merging, source priority, Trustpilot index
+- `src/lib/route-map.ts` — **does this internal URL render?** Ask before linking
+- `src/lib/provider-logo.ts` — logo resolution against files that exist
+- `src/lib/seo-title.ts` — `<title>` construction (70-char cap, distinct from `<h1>`)
+- `src/lib/sitemap-allowlists.ts` — what gets submitted, gated on Bing/GSC demand
+- `src/lib/seo-indexing.ts` — which families stay indexable beyond the sitemap
 - `src/lib/affiliate.ts` — Affiliate link generation (`getGoUrl()`)
 - `next.config.ts` — Security headers, image config, `/comparison` -> `/compare` redirect

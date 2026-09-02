@@ -12,6 +12,7 @@ import { Sparkline, ProviderBadgeTag, ProviderRateInsightLine } from "./RateInsi
 import RatingBadge from "./RatingBadge";
 import { useTranslations } from "next-intl";
 import { providerLogo } from "@/lib/provider-logo";
+import { companyPageRenders } from "@/lib/route-map";
 
 interface Props {
   quote: TransferQuote;
@@ -402,7 +403,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                 </a>
                 {provider && (
                   <Link
-                    href={`/companies/${provider.slug}`}
+                    href={companyPageRenders(provider.slug) ? `/companies/${provider.slug}` : "/companies"}
                     onClick={() => trackReviewClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`)}
                     className="inline-flex items-center justify-center h-12 px-4 text-2sm font-medium text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] rounded-full transition-colors border border-[var(--color-outline)] sm:border-0 sm:h-auto sm:px-0"
                   >

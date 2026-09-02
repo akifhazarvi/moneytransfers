@@ -43,7 +43,9 @@
     "social:post": "npx tsx scripts/social/post-daily.ts",
     "check:ranking": "tsx scripts/check-ranking-urls.ts",
     "check:assets": "tsx scripts/check-assets.ts",
-    "check:links": "tsx scripts/check-links.ts"
+    "check:links": "tsx scripts/check-links.ts",
+    "check:indexing": "tsx scripts/check-indexing.ts",
+    "postbuild": "npx tsx scripts/check-links.ts && npx tsx scripts/check-indexing.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

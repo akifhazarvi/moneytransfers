@@ -20,6 +20,7 @@ import { currencies, getProviderName } from "@/data/providers";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { INDEXED_HISTORY_SLUGS } from "@/lib/seo-indexing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { rateHistoryPageRenders } from "@/lib/route-map";
 
@@ -75,6 +76,14 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
     alternates: getAlternates(`exchange-rates/history/${pair}`, locale),
     openGraph: { title, description, url: `https://sendmoneycompare.com/exchange-rates/history/${pair}` },
     keywords: t("fallbackKeywords", tplParams),
+    // seo-indexing.ts declares "rate history pages: noindex set IS the sitemap
+    // set", but this route never consulted it — so all 12 prerendered history
+    // pages served `index` while the sitemap submitted none of them. That
+    // index:yes / sitemap:no contradiction is what the May 8 2026 deindex was
+    // traced to, and it is the one indexing rule the repo states and did not
+    // apply. English only: other locales are noindexed below regardless.
+    ...(locale === "en" && !INDEXED_HISTORY_SLUGS.has(pair) && { robots: { index: false, follow: true } }),
+    ...(locale !== "en" && { robots: { index: false, follow: true } }),
   };
 }
 

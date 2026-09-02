@@ -20,6 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description:
       "Country travel guides from SendMoneyCompare — currency basics, the best way to exchange money, eSIM picks, cash vs card norms, culture dos and don'ts, and practical travel info. Built for travelers who care about not overpaying.",
     alternates: getAlternates("travel", locale),
+    // Every /travel/[country] page is deliberately noindexed and the cluster is
+    // off the sitemap, but this hub served `index` and was unsubmitted — the
+    // same contradiction, one level up. A hub whose entire subtree is noindexed
+    // has nothing indexable to point at, so it matches its children.
+    robots: { index: false, follow: true },
   };
 }
 
