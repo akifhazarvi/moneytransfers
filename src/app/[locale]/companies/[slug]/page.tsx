@@ -19,7 +19,6 @@ import { ScrollTracker } from "@/components/ScrollTracker";
 import { getGoUrl } from "@/lib/affiliate";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates } from "@/lib/i18n-metadata";
-import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { generateProviderProfile } from "@/lib/provider-profile";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
