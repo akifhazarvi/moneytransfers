@@ -1,13 +1,15 @@
+import { seoDescription } from "@/lib/seo-title";
 import Breadcrumb from "@/components/Breadcrumb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Container from "@/components/Container";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { businessPages, getBusinessPage } from "@/data/business-pages";
 
 // Revalidate every 24 hours — editorial content changes infrequently
 export const revalidate = 86400;
 import { sanitizeHtml } from "@/lib/sanitize";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { SITEMAP_BUSINESS_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: page.metaTitle,
-    description: page.metaDescription,
+    description: seoDescription(page.metaDescription),
     alternates: getAlternates(`business/${slug}`, locale),
     // Business content is English-only; noindex locale variants to avoid duplicate content
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
@@ -42,6 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: page.metaDescription,
       url: `https://sendmoneycompare.com/business/${slug}`,
       type: "article",
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: {
       card: "summary_large_image",
@@ -160,6 +163,25 @@ export default async function BusinessSubPage({ params }: Props) {
                     __html: sanitizeHtml(section.content),
                   }}
                 />
+
+                {/* After the opening section, where the reader has just been
+                    told banks cost $200-$500 a month more. Five of the six
+                    /business pages carried no /go/ link at all, and a business
+                    payment is the highest-value conversion on the site.
+                    $10,000 matches the worked example in the copy; the
+                    component renders nothing if it has no quotes. */}
+                {i === 0 && (
+                  <div className="mt-8">
+                    <InlineProviderQuotes
+                      from="USD"
+                      to="EUR"
+                      amount={10000}
+                      source={`business:${slug}`}
+                      heading="What a $10,000 business payment actually costs"
+                      subheading="Live all-in costs on USD→EUR at business size, updated every 6 hours."
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </article>

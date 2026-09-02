@@ -22,6 +22,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import { corridorPageRenders } from "@/lib/route-map";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import Card from "@/components/Card";
 import CircleFlag from "@/components/CircleFlag";
 import TravelConverter from "@/components/TravelConverter";
@@ -29,8 +30,8 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { getTravelGuide, getAllTravelGuideSlugs } from "@/data/travel-guides";
 import { getEsimPlans } from "@/data/esim-plans";
 import { getAuthor } from "@/data/authors";
-import { getAlternates } from "@/lib/i18n-metadata";
-import { fitTitle } from "@/lib/seo-title";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
+import { fitTitle, seoDescription } from "@/lib/seo-title";
 
 export const revalidate = 86400; // 24h — content is editorial, not live
 
@@ -69,7 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title,
-    description,
+    description: seoDescription(description),
     alternates: getAlternates(`travel/${country}`, locale),
     // Noindex 2026-06-21: the entire /travel/* family (11 pages) ships
     // index:yes but is NOT in the sitemap and earns 0 Bing + 0 GSC impressions
@@ -85,6 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: guide.publishedDate,
       modifiedTime: guide.updatedDate,
       authors: [guide.authorSlug],
+      images: DEFAULT_OG_IMAGES,
     },
     twitter: {
       card: "summary_large_image",
@@ -249,6 +251,23 @@ export default async function TravelCountryPage({ params }: Props) {
             corridorHref={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : undefined}
             countryName={guide.countryName}
           />
+
+          {/* The converter shows the mid-market rate, which is the number
+              nobody is actually offered. This is the only /go/ link on the
+              travel family — all 12 pages had none, despite the reader being
+              mid-decision about getting money into the country. Quotes exist
+              for every guide (4-23 providers per corridor), and the component
+              renders nothing when it has none. */}
+          <div className="mt-8">
+            <InlineProviderQuotes
+              from={guide.topSourceCurrencies?.[0] || "USD"}
+              to={guide.currency}
+              amount={1000}
+              source={`travel:${guide.slug ?? guide.countryName}`}
+              heading={`Sending money to ${guide.countryName}? Here is the real cost`}
+              subheading={`Live ${guide.topSourceCurrencies?.[0] || "USD"}→${guide.currency} all-in costs, updated every 6 hours.`}
+            />
+          </div>
         </Container>
       </section>
 

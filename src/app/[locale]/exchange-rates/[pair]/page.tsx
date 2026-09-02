@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
@@ -10,7 +11,7 @@ export const revalidate = 21600;
 import { providers, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import CircleFlag from "@/components/CircleFlag";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
 import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 import { newsItems } from "@/data/news";
@@ -329,7 +330,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title,
-    description,
+    description: seoDescription(description),
     keywords: `${p.from} to ${p.to} exchange rate, ${p.from} to ${p.to} rate today, ${p.from}/${p.to} ${year}, ${p.fromName} to ${p.toName}, convert ${p.from} to ${p.to}, ${p.from} ${p.to} mid-market rate, cheapest ${p.from} to ${p.to}`,
     alternates: getAlternates(`exchange-rates/${pair}`, locale),
     // Exchange rate content is English-only; noindex locale variants to avoid duplicate content
@@ -338,6 +339,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: override?.ogTitle ?? `${p.from}→${p.to}: Real Rate vs. What Providers Offer`,
       description: override?.ogDesc ?? `Live ${p.from}/${p.to} mid-market rate vs. what transfer providers charge. See the markup each provider adds.`,
       url: `https://sendmoneycompare.com/exchange-rates/${pair}`,
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }
@@ -462,17 +464,24 @@ export default async function ExchangeRatePairPage({ params }: Props) {
               real all-in cost here is the honest next step, and it is the only
               /go/ link on the page. Before 2026-09-01 this family had none at
               all: ~1,170 sessions per 90 days across /exchange-rates/*,
-              /iban/* and /swift-codes/* converting under 1%. */}
-          {p.corridor && (
-            <InlineProviderQuotes
-              from={p.from}
-              to={p.to}
-              amount={1000}
-              source={`rate:${pair}`}
-              heading={`Nobody gets the mid-market rate — here is what you actually get`}
-              subheading={`Live ${p.from}→${p.to} all-in costs from 15+ providers, updated every 6 hours.`}
-            />
-          )}
+              /iban/* and /swift-codes/* converting under 1%.
+
+              Not gated on p.corridor. A corridor is a /send-money PAGE, which
+              is allowlisted; whether one exists says nothing about whether we
+              can quote the pair. Gating on it left the nine highest-intent
+              pages in the family — usd-to-eur, gbp-to-usd, eur-to-usd,
+              usd-to-jpy and the rest — with no /go link at all, while
+              generateQuotes returns 6-21 live quotes for every one of them.
+              The component already returns null when it has no quotes, so it
+              is its own guard. */}
+          <InlineProviderQuotes
+            from={p.from}
+            to={p.to}
+            amount={1000}
+            source={`rate:${pair}`}
+            heading={`Nobody gets the mid-market rate — here is what you actually get`}
+            subheading={`Live ${p.from}→${p.to} all-in costs from 15+ providers, updated every 6 hours.`}
+          />
 
           {/* In-context news callout — shown when pair has a related article */}
           {(() => {
