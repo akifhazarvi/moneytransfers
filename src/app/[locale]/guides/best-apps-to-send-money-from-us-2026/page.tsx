@@ -490,7 +490,7 @@ export default async function BestAppsFromUSPage({
               <strong>Wise</strong> is the best overall app to send money internationally from the US in 2026. It
               uses the real mid-market exchange rate with 0% markup and charges a transparent variable fee from
               0.41% — the lowest all-in cost on most major corridors. <strong>Remitly</strong> is the best
-              alternative for speed and emerging-market coverage (170+ countries, minutes delivery).{" "}
+              alternative for speed and emerging-market coverage (175+ country network, Express delivery in minutes on major corridors).{" "}
               <strong>TorFX</strong> holds the highest Trustpilot rating (4.9 /&nbsp;5) and is best for
               transfers above $10,000. All eight providers below are licensed money service businesses,
               regulated by FinCEN and other authorities. <Link href="/send-money" className="text-[var(--color-primary)] underline">Compare live rates for your transfer →</Link>

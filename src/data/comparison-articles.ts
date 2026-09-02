@@ -1757,7 +1757,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 
 <p><strong>Philippines:</strong> Both have strong networks. Xoom partners with Cebuana Lhuillier and M. Lhuillier (12,000+ locations). Remitly also covers major collection points.</p>
 
-<p><strong>Overall:</strong> Remitly claims 460,000+ global pickup points across 170+ countries, which is larger total. But Xoom's <strong>concentrated networks</strong> in India and Mexico are deeper in those specific countries.</p>
+<p><strong>Overall:</strong> Remitly claims 460,000+ global cash pickup points, which is the larger total. But Xoom's <strong>concentrated networks</strong> in India and Mexico are deeper in those specific countries.</p>
 
 <h3>Mobile wallets: Xoom has more Philippine options</h3>
 <p>For the Philippines, Xoom supports <strong>5 mobile wallets</strong> (GCash, PayMaya, GrabPay, Coins, U-mobile) compared to Remitly's primary GCash support. For other countries, Remitly supports bKash (Bangladesh), M-Pesa (Kenya), and Easypaisa (Pakistan) — corridors where Xoom is weaker.</p>
@@ -1831,7 +1831,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Which has more cash pickup locations?",
-        a: "Remitly claims 460,000+ global locations across 170+ countries. Xoom's network is smaller overall but deeper in specific corridors: 100,000+ locations in India (Muthoot Finance, Manappuram Finance), 14,500+ in Mexico (Oxxo, Elektra), and 12,000+ in the Philippines (Cebuana, M. Lhuillier). If your recipient is in India and needs cash, Xoom has the edge.",
+        a: "Remitly claims 460,000+ global cash pickup locations. Xoom's network is smaller overall but deeper in specific corridors: 100,000+ locations in India (Muthoot Finance, Manappuram Finance), 14,500+ in Mexico (Oxxo, Elektra), and 12,000+ in the Philippines (Cebuana, M. Lhuillier). If your recipient is in India and needs cash, Xoom has the edge.",
       },
       {
         q: "Does Xoom support GCash?",
@@ -1859,7 +1859,7 @@ export const comparisonArticles: ComparisonArticle[] = [
     providerB: "taptap-send",
     title: "Remitly vs TapTap Send 2026 — Zero Fees vs Express Speed: Which Wins?",
     metaDescription:
-      "Remitly vs TapTap Send compared: TapTap charges $0 fees with competitive rates to Africa and South Asia. Remitly offers Express delivery in minutes to 170+ countries. See who delivers more.",
+      "Remitly vs TapTap Send compared: TapTap charges $0 fees with competitive rates to Africa and South Asia. Remitly offers Express delivery in minutes across a 175+ country network. See who delivers more.",
     updatedAt: "2026-03-31",
     readTime: "11 min read",
     intro:
@@ -1888,7 +1888,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Regulated by</td><td>FCA, FinCEN</td><td>FCA, FinCEN</td></tr>
 </table>
 
-<p><strong>Key takeaway:</strong> TapTap Send is a focused disruptor — zero fees, competitive rates, but limited to ~30 countries with debit-card-only funding and no cash pickup. Remitly is the broader, more flexible service with Express speed, cash pickup in 170+ countries, and multiple funding methods. The "better" provider depends on your corridor and delivery needs.</p>`,
+<p><strong>Key takeaway:</strong> TapTap Send is a focused disruptor — zero fees, competitive rates, but limited to ~30 countries with debit-card-only funding and no cash pickup. Remitly is the broader, more flexible service with Express speed, a 460,000+ location cash pickup network, and multiple funding methods. The "better" provider depends on your corridor and delivery needs.</p>`,
       },
       {
         id: "fees",
@@ -1928,7 +1928,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         id: "coverage",
-        heading: "Country coverage: Remitly's 170+ vs TapTap Send's ~30",
+        heading: "Country coverage: Remitly's 175+ vs TapTap Send's ~30",
         content: `<p>This is the biggest difference between the two providers.</p>
 
 <h3>TapTap Send's focused coverage (~30 countries)</h3>
@@ -1940,7 +1940,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 </ul>
 <p>You can send <strong>from</strong> the US, UK, and select EU countries.</p>
 
-<h3>Remitly's broad coverage (170+ countries)</h3>
+<h3>Remitly's broad coverage (175+ countries)</h3>
 <p>Remitly covers almost every major remittance corridor globally, including Latin America, the Caribbean, and Pacific Islands that TapTap Send doesn't reach.</p>
 
 <p><strong>If your corridor isn't on TapTap Send's list, the choice is made for you.</strong> But if it is — particularly UK→Nigeria, UK→Ghana, UK→Pakistan, UK→Bangladesh — TapTap Send is a serious contender.</p>`,
@@ -1950,7 +1950,7 @@ export const comparisonArticles: ComparisonArticle[] = [
         heading: "Delivery methods: Remitly has more options",
         content: `<table>
 <tr><th>Delivery method</th><th>Remitly</th><th>TapTap Send</th></tr>
-<tr><td>Bank deposit</td><td>Yes (170+ countries)</td><td>Yes (~30 countries)</td></tr>
+<tr><td>Bank deposit</td><td>Yes (175+ countries)</td><td>Yes (~30 countries)</td></tr>
 <tr><td>Mobile money</td><td>GCash, bKash, M-Pesa, Easypaisa</td><td>M-Pesa, MTN MoMo, Airtel Money, bKash, EcoCash</td></tr>
 <tr><td>Cash pickup</td><td><strong>Yes (460,000+ locations)</strong></td><td>No</td></tr>
 <tr><td>Home delivery</td><td>Select countries</td><td>No</td></tr>
@@ -1989,7 +1989,7 @@ export const comparisonArticles: ComparisonArticle[] = [
     verdict: {
       largeTransfers: { winner: "taptap-send", explanation: "On TapTap Send's core corridors (UK→Africa, UK→South Asia), the zero-fee model saves more on larger transfers where Remitly's flat fee becomes a smaller percentage but the exchange rate still favours TapTap." },
       smallTransfers: { winner: "taptap-send", explanation: "Zero fee on every amount — even $20 transfers. Remitly's $2.99 Express fee on a $50 transfer is 6%, which is painful. TapTap wins convincingly for small, frequent remittances." },
-      overall: "TapTap Send wins on its core corridors (UK→Nigeria, UK→Ghana, UK→Pakistan, UK→Bangladesh) due to zero fees and competitive rates. Remitly wins on breadth (170+ countries), delivery options (cash pickup, home delivery), and US corridors (India, Philippines, Mexico). Neither is universally better — the right choice depends entirely on where you're sending.",
+      overall: "TapTap Send wins on its core corridors (UK→Nigeria, UK→Ghana, UK→Pakistan, UK→Bangladesh) due to zero fees and competitive rates. Remitly wins on breadth (175+ countries), delivery options (cash pickup, home delivery), and US corridors (India, Philippines, Mexico). Neither is universally better — the right choice depends entirely on where you're sending.",
     },
     faqs: [
       {
@@ -1998,7 +1998,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Why is TapTap Send so cheap?",
-        a: "TapTap Send keeps costs low through a focused business model: ~30 countries (not 170+), mobile app only (no web platform), debit card funding only (lower processing costs), and no cash pickup infrastructure. This lean approach lets them offer zero fees with competitive rates on high-volume corridors.",
+        a: "TapTap Send keeps costs low through a focused business model: ~30 countries (not 175+), mobile app only (no web platform), debit card funding only (lower processing costs), and no cash pickup infrastructure. This lean approach lets them offer zero fees with competitive rates on high-volume corridors.",
       },
       {
         q: "Does TapTap Send work in the US?",
@@ -2030,11 +2030,11 @@ export const comparisonArticles: ComparisonArticle[] = [
     providerB: "revolut",
     title: "Remitly vs Revolut 2026 — Remittance Specialist vs All-in-One Banking App",
     metaDescription:
-      "Remitly vs Revolut for international transfers: Remitly offers Express delivery in minutes to 170+ countries. Revolut gives you a multi-currency account with interbank rates. See who saves you more.",
+      "Remitly vs Revolut for international transfers: Remitly offers Express delivery in minutes across a 175+ country network. Revolut gives you a multi-currency account with interbank rates. See who saves you more.",
     updatedAt: "2026-04-04",
     readTime: "10 min read",
     intro:
-      "Remitly and Revolut are both popular for sending money abroad, but they're built for different purposes. Remitly is a remittance specialist — fast delivery, cash pickup, mobile wallets, 170+ countries. Revolut is a fintech banking app — multi-currency accounts, spending cards, budgeting tools. This comparison shows where each wins on price, speed, and delivery options.",
+      "Remitly and Revolut are both popular for sending money abroad, but they're built for different purposes. Remitly is a remittance specialist — fast delivery, cash pickup, mobile wallets, a 175+ country network. Revolut is a fintech banking app — multi-currency accounts, spending cards, budgeting tools. This comparison shows where each wins on price, speed, and delivery options.",
 
     sections: [
       {
@@ -2090,7 +2090,7 @@ export const comparisonArticles: ComparisonArticle[] = [
         content: `<p>This is the biggest differentiator. Remitly was built for remittances; Revolut was built for banking.</p>
 <table>
 <tr><th>Delivery method</th><th>Remitly</th><th>Revolut</th></tr>
-<tr><td><strong>Bank deposit</strong></td><td>170+ countries</td><td>~36 currencies (fewer countries)</td></tr>
+<tr><td><strong>Bank deposit</strong></td><td>175+ countries</td><td>~36 currencies (fewer countries)</td></tr>
 <tr><td><strong>Cash pickup</strong></td><td>460,000+ locations globally</td><td>Not available</td></tr>
 <tr><td><strong>GCash (Philippines)</strong></td><td>Yes — instant</td><td>Not available</td></tr>
 <tr><td><strong>M-Pesa (Kenya)</strong></td><td>Yes — instant</td><td>Not available</td></tr>
@@ -2231,7 +2231,7 @@ export const comparisonArticles: ComparisonArticle[] = [
         heading: "Delivery: Both offer cash pickup, but different digital strengths",
         content: `<table>
 <tr><th>Delivery method</th><th>Remitly</th><th>MoneyGram</th></tr>
-<tr><td>Bank deposit</td><td>170+ countries</td><td>200+ countries</td></tr>
+<tr><td>Bank deposit</td><td>175+ countries</td><td>200+ countries</td></tr>
 <tr><td>Cash pickup</td><td>460,000+ locations</td><td>350,000+ locations</td></tr>
 <tr><td>GCash (Philippines)</td><td>Yes — instant</td><td>No</td></tr>
 <tr><td>M-Pesa (Kenya)</td><td>Yes — instant</td><td>Limited</td></tr>
@@ -2240,7 +2240,7 @@ export const comparisonArticles: ComparisonArticle[] = [
 <tr><td>Economy (cheap, slow)</td><td>Yes — 3–5 days</td><td>No equivalent tier</td></tr>
 <tr><td>In-store sending</td><td>No</td><td>Yes — walk-in service</td></tr>
 </table>
-<p><strong>Remitly's edge:</strong> Mobile wallet delivery (GCash, bKash, M-Pesa) and the two-tier Express/Economy system. MoneyGram's edge: walk-in service for cash senders and slightly wider country coverage (200+ vs 170+).</p>`,
+<p><strong>Remitly's edge:</strong> Mobile wallet delivery (GCash, bKash, M-Pesa) and the two-tier Express/Economy system. MoneyGram's edge: walk-in service for cash senders and slightly wider country coverage (200+ vs 175+).</p>`,
       },
       {
         id: "cash",
@@ -2294,7 +2294,7 @@ export const comparisonArticles: ComparisonArticle[] = [
       },
       {
         q: "Which has more cash pickup locations?",
-        a: "Remitly claims 460,000+ locations across 170+ countries. MoneyGram has 350,000+ locations across 200+ countries. Remitly has more total locations, but MoneyGram has wider country coverage (200+ vs 170+). In major remittance corridors (India, Philippines, Mexico), both have extensive networks.",
+        a: "Remitly claims 460,000+ cash pickup locations. MoneyGram has 350,000+ locations across 200+ countries. Remitly has more total locations, but MoneyGram has wider country coverage (200+ vs 175+). In major remittance corridors (India, Philippines, Mexico), both have extensive networks.",
       },
       {
         q: "Is MoneyGram safe?",

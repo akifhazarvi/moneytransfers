@@ -458,7 +458,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
               {[
                 { badge: "Best Rate", provider: "Wise", reason: "Uses the real mid-market rate with fees from 0.41%. Consistently the lowest total cost for most corridors.", href: "/companies/wise", color: "var(--color-primary)" },
-                { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes to 170+ countries. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
+                { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes on major corridors, across a 175+ country network. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
                 { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
                 { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },
                 { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", href: "/companies/revolut", color: "var(--color-success)" },
