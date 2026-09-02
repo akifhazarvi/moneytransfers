@@ -219,12 +219,42 @@ export default async function SwiftCountryPage({ params }: Props) {
   const country = getSwiftCountryBySlug(slug);
   if (!country) notFound();
 
-  // Get unique BIC8 codes for summary
+  // Get unique BIC8 codes for summary — counted over the FULL registry, so the
+  // stat boxes stay accurate even where the table below is capped.
   const uniqueBic8 = new Set(country.branches.map((b) => b.bic8));
+
+  /**
+   * Cap on rendered branch rows.
+   *
+   * Each branch row costs ~2.5 KB of HTML and the App Router serialises the
+   * rendered tree alongside it, so the row is paid for twice: Luxembourg's
+   * 1,051 branches made that page 2.63 MB — 12x heavier than /swift-codes/germany,
+   * which lists 2,832 banks in 223 KB because it has 19 branches.
+   *
+   * 100 is chosen from demand data (2026-09-02), not taste — and the data says
+   * branch volume is INVERSELY related to demand. Trailing 90 days, GA4:
+   *
+   *   united-states     11 branches   43 sessions
+   *   canada / malaysia ~11           35 each
+   *   ghana             97            26 sessions, 3 key events
+   *   pakistan         468            20 sessions, 0 key events
+   *   luxembourg     1,051             5 sessions, 0 key events
+   *   czech/bulgaria/slovakia/belarus 113-148   1 session each
+   *
+   * People search the countries they send to, and those have small registries.
+   * All 12 pages with 50+ branches earn 81 of the family's 703 sessions and 3
+   * of its 8 key events. The eight pages above this cap earn 46 sessions and
+   * ZERO key events between them, against 7 Google impressions for the whole
+   * family. Ghana — the only branch-heavy page that converts — has 97 branches
+   * and stays whole. Raise the cap only if a capped country starts earning.
+   */
+  const BRANCH_RENDER_CAP = 100;
+  const renderedBranches = country.branches.slice(0, BRANCH_RENDER_CAP);
+  const branchesOmitted = country.branches.length - renderedBranches.length;
 
   // Group branches by bank
   const bankBranches = new Map<string, typeof country.branches>();
-  for (const branch of country.branches) {
+  for (const branch of renderedBranches) {
     const key = branch.bankSlug || branch.bankName;
     if (!bankBranches.has(key)) bankBranches.set(key, []);
     bankBranches.get(key)!.push(branch);
@@ -398,6 +428,22 @@ export default async function SwiftCountryPage({ params }: Props) {
                 <div className="space-y-6">
                   {sortedBankEntries.map(([bankKey, branches]) => renderBankBlock(bankKey, branches))}
                 </div>
+              )}
+              {branchesOmitted > 0 && (
+                <p className="mt-5 pt-4 border-t border-[var(--color-outline)] text-2sm text-[var(--color-on-surface-variant)]">
+                  Showing {renderedBranches.length.toLocaleString()} of{" "}
+                  {country.branches.length.toLocaleString()} registered branch codes for{" "}
+                  {country.name}. The full registry is searchable at{" "}
+                  <a
+                    href="https://www.swift.com/standards/data-standards/bic-business-identifier-code"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-primary)] hover:underline"
+                  >
+                    swift.com
+                  </a>
+                  , the authority that issues them.
+                </p>
               )}
             </Card>
           ) : (
