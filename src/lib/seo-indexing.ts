@@ -85,6 +85,11 @@ export function shouldNoindexPath(pathname: string): boolean {
   // 1,410 Bing impr + 1,389 AI citations landing on it post-retirement. Now
   // promoted + indexed again, so no noindex rule here.
 
+  // Crypto cash-out cluster — noindexed 2026-09-01 (thin + zero demand).
+  // Mirrors the page metadata so crawlers get the signal in the header without
+  // rendering the HTML. See src/app/[locale]/cash-out/page.tsx for the data.
+  if (top === "cash-out") return true;
+
   if (top === "iban" && parts[1] && !INDEXED_IBAN_SLUGS.has(parts[1])) {
     return true;
   }

@@ -89,18 +89,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("tools/us-remittance-tax", DATA_UPDATED),
     entry("tools/fx-markup-checker", DATA_UPDATED),
     entry("tools/salary-abroad", DATA_UPDATED),
-    // Crypto cash-out cluster (added Jul 3 2026). Hub + 6 GATED pilot country
-    // pages — each has live off-ramp data AND unique hand-authored editorial
-    // (local exchanges, cash-out method, tax reality), NOT programmatic shells.
-    // Deliberately small to avoid the scaled-content pattern that triggered the
-    // Mar 20 suppression. Expand only when a country has both data and substance.
-    entry("cash-out", STATIC_HUB_DATE),
-    entry("cash-out/india", DATA_UPDATED),
-    entry("cash-out/philippines", DATA_UPDATED),
-    entry("cash-out/nigeria", DATA_UPDATED),
-    entry("cash-out/mexico", DATA_UPDATED),
-    entry("cash-out/kenya", DATA_UPDATED),
-    entry("cash-out/brazil", DATA_UPDATED),
+    // Crypto cash-out cluster (added Jul 3 2026, DESITEMAPPED 2026-09-01).
+    // The editorial is genuinely unique — 12.2% intra-family 8-gram similarity,
+    // hand-authored per country, not templated shells. But the pages are thin
+    // (~550 body words) and a live 90-day pull returned 15 GA4 sessions, 1 key
+    // event and ZERO Google impressions across all 7. Thin plus no demand is
+    // the scaled-content profile, so they are noindexed and off the sitemap.
+    // They stay live and internally linked — the traffic and AI citations they
+    // do earn are unaffected. Re-add a page once it shows real demand.
     // Flagship data-story (live-computed bank-vs-app cost index). Not a
     // blog-posts.ts guide — it's a dedicated live route, so it's listed here
     // explicitly. DATA_UPDATED because its figures refresh with each scrape.
