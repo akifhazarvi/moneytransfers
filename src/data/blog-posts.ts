@@ -892,7 +892,7 @@ export const blogPosts: BlogPost[] = [
         heading: "How to Find Your Bank's SWIFT Code",
         content: `<p>There are several ways to find your SWIFT code:</p>
 <ol>
-<li><strong>Use our SWIFT code lookup tool</strong> — Search by bank name, country, or city on our SWIFT codes page.</li>
+<li><strong>Use our <a href="/swift-codes">SWIFT code lookup tool</a></strong> — Search by bank name, country, or city. Go straight to the directory for <a href="/swift-codes/united-states">the United States</a>, <a href="/swift-codes/united-kingdom">the United Kingdom</a>, <a href="/swift-codes/india">India</a>, <a href="/swift-codes/china">China</a> or <a href="/swift-codes/germany">Germany</a>.</li>
 <li><strong>Check your bank statement</strong> — Many banks print the SWIFT code on monthly statements.</li>
 <li><strong>Online banking</strong> — Log into your bank's website or app and look in account details or settings.</li>
 <li><strong>Call your bank</strong> — Customer service can provide your SWIFT code instantly.</li>
