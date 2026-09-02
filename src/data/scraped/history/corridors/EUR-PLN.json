@@ -6693,5 +6693,52 @@
         "receiveAmount": 374.05
       }
     }
+  },
+  {
+    "date": "2026-09-02",
+    "providers": {
+      "western-union": {
+        "rate": 4.2662,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 413.87
+      },
+      "xoom": {
+        "rate": 4.2602,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 417.54
+      },
+      "deutsche-bank": {
+        "rate": 4.2843,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 271.84
+      },
+      "paypal": {
+        "rate": 4.1472,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 398.17
+      },
+      "skrill": {
+        "rate": 4.3048,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 430.48
+      },
+      "monese": {
+        "rate": 4.3412,
+        "fee": 4,
+        "markup": null,
+        "receiveAmount": 416.76
+      },
+      "commerzbank": {
+        "rate": 4.2749,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 374.05
+      }
+    }
   }
 ]
