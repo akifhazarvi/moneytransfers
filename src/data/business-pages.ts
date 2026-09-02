@@ -38,7 +38,7 @@ export const businessPages: BusinessPage[] = [
     slug: "small-business",
     title: "Small Business International Payments",
     metaTitle:
-      "Small Business International Payments — Cheapest Providers Compared (2026)",
+      "Small Business International Payments — Cheapest Providers (2026)",
     metaDescription:
       "Compare the cheapest small business international payments providers in 2026. Make international business payments for 80% less than banks with Wise, OFX, Revolut & XE business accounts.",
     heading:
@@ -426,7 +426,7 @@ export const businessPages: BusinessPage[] = [
     slug: "vendor-payments",
     title: "International Vendor Payments",
     metaTitle:
-      "International Vendor Payments — Cheapest Ways to Pay Suppliers Abroad (2026)",
+      "International Vendor Payments — Cheapest Way to Pay Suppliers (2026)",
     metaDescription:
       "Compare the cheapest international vendor payments solutions in 2026. Make cost-effective international payments to overseas suppliers with business FX payments from Wise, OFX, XE & Revolut.",
     heading:

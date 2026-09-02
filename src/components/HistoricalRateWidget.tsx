@@ -240,7 +240,7 @@ export default function HistoricalRateWidget({ defaultCorridor = "USD-INR" }: { 
             <a
               href={bestProviderUrl!}
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="noopener noreferrer nofollow sponsored"
               onClick={() => providerInsight && trackProviderClicked(providerInsight.today.bestProvider, `${fromCurrency}-${toCurrency}`, 1, "rate_widget")}
               className="flex-1 text-center inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[var(--color-cta)] text-[var(--color-cta-text)] text-sm font-semibold hover:bg-[var(--color-cta-hover)] shadow-sm transition-all"
             >

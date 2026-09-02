@@ -11,6 +11,7 @@ import type { ProviderInsight, ProviderBadge, SparklinePoint } from "@/lib/rate-
 import { Sparkline, ProviderBadgeTag, ProviderRateInsightLine } from "./RateInsight";
 import RatingBadge from "./RatingBadge";
 import { useTranslations } from "next-intl";
+import { providerLogo } from "@/lib/provider-logo";
 
 interface Props {
   quote: TransferQuote;
@@ -43,7 +44,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
   const t = useTranslations("providerCard");
   const provider = providers.find((p) => p.slug === quote.providerSlug);
   const providerName = provider?.name || getProviderName(quote.providerSlug);
-  const providerLogo = provider?.logo || `/logos/${quote.providerSlug}.png`;
+  const logoSrc = providerLogo(quote.providerSlug, provider?.logo);
   const providerWebsite = getGoUrl(quote.providerSlug, {
     sourceCurrency: quote.sendCurrency,
     targetCurrency: quote.receiveCurrency,
@@ -128,7 +129,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
           </span>
           {/* Logo */}
           <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center border border-[var(--color-outline)]/30 mt-0.5">
-            <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={providerLogo.endsWith(".svg")} />
+            <Image src={logoSrc} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={logoSrc.endsWith(".svg")} />
           </div>
           {/* Content */}
           <div className="flex-1 min-w-0">
@@ -226,7 +227,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
           </div>
 
           <div className={`${isBest ? "w-11 h-11" : "w-10 h-10"} rounded-full overflow-hidden shrink-0 bg-white flex items-center justify-center text-sm font-medium text-[var(--color-on-surface-variant)] border border-[var(--color-outline)]/50`}>
-            <Image src={providerLogo} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={providerLogo.endsWith(".svg")} />
+            <Image src={logoSrc} alt={`${providerName} logo`} width={44} height={44} className="w-full h-full object-contain p-1" unoptimized={logoSrc.endsWith(".svg")} />
           </div>
 
           <div className="w-[200px] lg:w-[240px] shrink-0">

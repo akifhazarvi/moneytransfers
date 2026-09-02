@@ -34,6 +34,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
+import { getFlagUrl } from "@/components/CircleFlag";
 import {
   fetchAllSources,
   type SourceResult,
@@ -93,9 +94,10 @@ const SPREADS: Record<string, number> = {
   CNY: 0.018, KRW: 0.018, TRY: 0.028, BRL: 0.022, AED: 0.004,
 };
 
-function flagUrl(iso2: string): string {
-  return `https://hatscripts.github.io/circle-flags/flags/${iso2}.svg`;
-}
+// Delegates to the shared resolver so this board picks up the self-hosted
+// /flags/* copies (and the neutral glyph for codes with no country flag)
+// instead of always round-tripping to the CDN.
+const flagUrl = getFlagUrl;
 
 /* ── component ────────────────────────────────────────────── */
 interface LiveRatesBoardProps {

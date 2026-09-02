@@ -12,8 +12,10 @@ export const revalidate = 86400;
 import Breadcrumb from "@/components/Breadcrumb";
 import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import { seoTitle } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
@@ -209,8 +211,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPost(slug);
   if (!post) return { title: "Not Found" };
 
+  // <title> is written for the SERP; post.title stays the reader-facing <h1>.
+  // They used to be the same string on all 74 indexable guides ("duplicate H1
+  // and title tags"), and 8 of them ran past the 70-char render limit.
+  const pageTitle = seoTitle(post.title, post.metaTitle);
+
   return {
-    title: post.title,
+    title: pageTitle,
     description: post.metaDescription,
     other: {
       "citation_title": post.title,
@@ -324,7 +331,7 @@ export default async function BlogPostPage({ params }: Props) {
               mainEntity: post.faqs.map((f) => ({
                 "@type": "Question",
                 name: f.question,
-                acceptedAnswer: { "@type": "Answer", text: f.answer },
+                acceptedAnswer: { "@type": "Answer", text: renderDataTokens(f.answer) },
               })),
             }),
           }}
@@ -492,7 +499,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </h2>
                 <div
                   className="prose-content prose-custom"
-                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(renderDataTokens(section.content)) }}
                 />
 
                 {/* Freelancer-cost calculator — only on the freelancer guide, after the "what it costs" section */}
@@ -564,7 +571,7 @@ export default async function BlogPostPage({ params }: Props) {
                       </summary>
                       <div
                         className="px-5 pb-5 pt-1 text-md text-[var(--color-on-surface-variant)] leading-relaxed border-t border-[var(--color-outline)] prose-custom"
-                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(faq.answer) }}
+                        dangerouslySetInnerHTML={{ __html: sanitizeHtml(renderDataTokens(faq.answer)) }}
                       />
                     </details>
                   ))}

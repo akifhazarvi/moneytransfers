@@ -10,6 +10,7 @@ import { formatLocalDate } from "@/lib/format-date";
 import { sanitizeHtml } from "@/lib/sanitize";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import { seoTitle } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
@@ -47,8 +48,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = getNewsItem(slug);
   if (!item) return { title: "Not Found" };
 
+  // Headline stays the <h1>; the <title> is the shorter SERP variant. 14 news
+  // articles shipped an identical pair, 11 of them over the 70-char limit.
   return {
-    title: item.title,
+    title: seoTitle(item.title, item.metaTitle),
     description: item.excerpt,
     keywords: articleKeywords(item),
     openGraph: {

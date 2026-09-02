@@ -8,6 +8,7 @@ import { fetchQuotes } from "@/lib/fetch-quotes";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackConverterProviderClicked, trackConverterCTAClicked } from "@/lib/analytics";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
+import { providerLogo } from "@/lib/provider-logo";
 
 function symbolFor(code: string): string {
   return (
@@ -91,7 +92,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
         {quotes.map((q, i) => {
           const name = getProviderName(q.providerSlug);
           const provider = providers.find((p) => p.slug === q.providerSlug);
-          const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
+          const logo = providerLogo(q.providerSlug, provider?.logo);
           const isBest = i === 0;
           const href = getGoUrl(q.providerSlug, {
             sourceCurrency: q.sendCurrency,

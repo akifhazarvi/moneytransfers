@@ -8,6 +8,7 @@ import LiveTimestamp from "@/components/LiveTimestamp";
 import { getGoUrl } from "@/lib/affiliate";
 import { getProviderName, providers, type TransferQuote } from "@/data/providers";
 import { trackProviderClicked } from "@/lib/analytics";
+import { providerLogo } from "@/lib/provider-logo";
 
 interface Props {
   headingFrom: string;
@@ -70,7 +71,7 @@ export default function CorridorHero({
 }: Props) {
   const bestName = best ? getProviderName(best.providerSlug) : null;
   const bestProvider = best ? providers.find((p) => p.slug === best.providerSlug) : null;
-  const bestLogo = bestProvider?.logo || (best ? `/logos/${best.providerSlug}.png` : null);
+  const bestLogo = best ? providerLogo(best.providerSlug, bestProvider?.logo) : null;
   const savings = best && worst ? best.receiveAmount - worst.receiveAmount : 0;
   const showSavings = savings >= 5;
   const markup = best && midRate > 0 ? ((midRate - best.exchangeRate) / midRate) * 100 : 0;

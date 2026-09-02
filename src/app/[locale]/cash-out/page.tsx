@@ -12,7 +12,7 @@ import { getCountryOfframps } from "@/lib/crypto-rails";
 export const revalidate = 21600;
 
 const SITE_URL = "https://sendmoneycompare.com";
-const TITLE = "Cash Out Crypto by Country (2026) — Cheapest USDT/USDC Off-Ramp | SendMoneyCompare";
+const TITLE = "Cash Out Crypto by Country — Cheapest USDT/USDC Off-Ramp (2026)";
 const DESCRIPTION =
   "Which exchange converts your USDT, USDC or Bitcoin to local currency at the lowest all-in cost — country by country, with live data. Free, no signup.";
 

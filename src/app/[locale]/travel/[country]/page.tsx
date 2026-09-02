@@ -29,6 +29,7 @@ import { getTravelGuide, getAllTravelGuideSlugs } from "@/data/travel-guides";
 import { getEsimPlans } from "@/data/esim-plans";
 import { getAuthor } from "@/data/authors";
 import { getAlternates } from "@/lib/i18n-metadata";
+import { fitTitle } from "@/lib/seo-title";
 
 export const revalidate = 86400; // 24h — content is editorial, not live
 
@@ -58,7 +59,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const guide = getTravelGuide(country);
   if (!guide) return {};
 
-  const title = `${guide.countryName} Travel Guide 2026: Money, eSIM, Culture & Currency`;
+  const title = fitTitle([
+    `${guide.countryName} Travel Guide 2026: Money, eSIM, Culture & Currency`,
+    `${guide.countryName} Travel Guide 2026: Money, eSIM & Currency`,
+    `${guide.countryName} Travel Guide 2026: Money & eSIM`,
+  ]);
   const description = `Plan a trip to ${guide.countryName}: best ways to exchange ${guide.currency}, cash vs card, eSIM picks, cultural dos and don'ts, what ${guide.currencyName} notes look like, and typical daily budget. Updated ${guide.updatedDate}.`;
 
   return {

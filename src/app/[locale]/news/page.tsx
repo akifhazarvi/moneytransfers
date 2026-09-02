@@ -2,7 +2,8 @@ import Badge from "@/components/Badge";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
-import { getLatestNews } from "@/data/news";
+import { getLatestNews, newsItems } from "@/data/news";
+import { SITEMAP_NEWS_SLUGS } from "@/lib/sitemap-allowlists";
 import { formatLocalDate } from "@/lib/format-date";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -32,6 +33,15 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
   const latest = getLatestNews(20);
   const featured = latest[0];
   const rest = latest.slice(1);
+
+  // Submitted articles that fall outside the 20 most recent. The grid above is
+  // capped at 20, so three sitemap-listed articles had no incoming internal
+  // link at all — reachable only via sitemap.xml. An archive strip is cheaper
+  // than raising the cap and keeps the visual hierarchy of the hub intact.
+  const shownSlugs = new Set(latest.map((i) => i.slug));
+  const archive = newsItems
+    .filter((i) => SITEMAP_NEWS_SLUGS.has(i.slug) && !shownSlugs.has(i.slug))
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
   return (
     <div className="bg-[var(--color-surface)] min-h-screen">
@@ -157,6 +167,23 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
             </Link>
           </div>
         </div>
+        {archive.length > 0 && (
+          <nav aria-label="News archive" className="mt-12 border-t border-[var(--color-outline)] pt-8">
+            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">Archive</h2>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {archive.map((item) => (
+                <li key={item.slug}>
+                  <Link
+                    href={`/news/${item.slug}`}
+                    className="text-sm text-[var(--color-primary)] hover:underline"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </Container>
     </div>
   );

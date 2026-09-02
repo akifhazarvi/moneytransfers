@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getProviderName, providers } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getTranslations } from "next-intl/server";
+import { providerLogo } from "@/lib/provider-logo";
 
 interface BestTransferTodayProps {
   // Required so getTranslations reads the locale from params, not headers() —
@@ -73,7 +74,7 @@ export default async function BestTransferToday({
         {quotes.map((q, i) => {
           const name = getProviderName(q.providerSlug);
           const provider = providers.find((p) => p.slug === q.providerSlug);
-          const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
+          const logo = providerLogo(q.providerSlug, provider?.logo);
           const isBest = i === 0;
           const isHighlight = highlightSlug && q.providerSlug === highlightSlug;
 

@@ -39,12 +39,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 const appSchema = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@type": "WebPage",
   name: "Salary Abroad Calculator",
   url: URL,
-  applicationCategory: "FinanceApplication",
-  operatingSystem: "Any",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  isAccessibleForFree: true,
   description: `Compares what an income is worth across ${pppIndex.countryCount} countries using World Bank purchasing power parity, and adds the real cost of transferring money abroad.`,
   publisher: { "@type": "Organization", name: "SendMoneyCompare", url: SITE_URL },
 };

@@ -463,6 +463,9 @@
     "fallbackTitleCurrency": "Cheapest {from} to {to} Rates — Compare 15+ Providers ({year})",
     "fallbackTitleCountry": "Cheapest Way to Send Money to {toCountry} — Compare {toCurrency} Rates ({year})",
     "fallbackTitleCorridor": "Cheapest Way to Send Money {fromCountry} to {toCountry} — {from}→{to} ({year})",
+    "fallbackTitleCorridorShort": "Cheapest Way to Send Money {fromCountry} to {toCountry} ({year})",
+    "fallbackTitleCorridorMin": "{from} to {to}: Cheapest Way to Send Money ({year})",
+    "fallbackTitleCountryShort": "Cheapest Way to Send Money to {toCountry} ({year})",
     "fallbackDescriptionCurrency": "Live {from} to {to} rates from 15+ providers — updated every 6 hrs. Compare fees and see who gives you the most {to}.",
     "fallbackDescriptionCountry": "{toCurrency} rates from 15+ providers — updated every 6 hrs. Compare fees, speed & delivery options for sending money to {toCountry}.",
     "fallbackDescriptionCorridor": "{from} to {to} rates from 15+ providers — updated every 6 hrs. Compare fees and see who delivers the most to {toCountry}.",
@@ -981,7 +984,7 @@
     "toCurrency": "To currency"
   },
   "rateHistorySlug": {
-    "fallbackTitle": "{from} to {to} Exchange Rate History — Provider Rate Trends ({month} {year})",
+    "fallbackTitle": "{from} to {to} Exchange Rate History — Rate Trends ({month} {year})",
     "fallbackDescription": "Track {fromName} to {toName} exchange rate history. Compare daily rates from {providerCount}+ providers over {totalDays} days. Find the best time to send {from} to {to}.",
     "fallbackKeywords": "{from} to {to} rate history, {from} {to} exchange rate, {fromName} to {toName} rate trend, best time to send {from} to {to}, {from} {to} chart"
   },

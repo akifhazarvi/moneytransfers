@@ -1,10 +1,19 @@
 /**
- * Guards the two failure modes found in the 2026-09-01 GSC audit:
+ * Guards the failure modes found in the 2026-09-01 GSC audit and the
+ * 2026-09-02 Semrush crawl:
  *
  *   1. A URL that Google/Bing ranks returns 404 or 410.
  *   2. A redirect resolves to a URL that 404s (the /fr/* → English → 404 chain,
  *      which silently swallowed 43 impressions and a click on
  *      /fr/send-money/send-money-to-algeria).
+ *   3. A ranking URL answers 200 with no page content — a soft 404. Status
+ *      alone was not enough: three Tier-3 ranking corridors sat outside
+ *      generateStaticParams with dynamicParams=false, so they served the
+ *      framework shell ("Loading…" plus header/footer, no <h1>) at HTTP 200.
+ *      This check passed them for a day while they ranked at positions 3-8.
+ *   4. A ranking URL serves `noindex`. The same three were listed in
+ *      sitemap.xml (which consults shouldNoindex, where the ranking carve-out
+ *      lives) while generateMetadata's earlier Tier-3 return said noindex.
  *
  * Run against production or a preview deploy:
  *   npx tsx scripts/check-ranking-urls.ts [baseUrl]
@@ -54,6 +63,26 @@ const REDIRECT_PATHS = [
 
 type Result = { path: string; status: number; via?: string; ok: boolean; why: string };
 
+/** Shortest real page body we ship; below this the response is a shell. */
+const MIN_BODY_CHARS = 2000;
+
+/**
+ * A 200 is necessary but not sufficient. Assert the response actually contains
+ * a page: an <h1>, enough text to not be chrome-only, and no noindex.
+ */
+function inspectHtml(html: string): string | null {
+  if (!/<h1[\s>]/i.test(html)) return "200 but no <h1> (soft 404 / shell response)";
+  const robots = html.match(/<meta[^>]+name="robots"[^>]+content="([^"]+)"/i)?.[1] ?? "";
+  if (/noindex/i.test(robots)) return `200 but serves robots "${robots}"`;
+  const body = html
+    .replace(/<(script|style|svg|noscript)[^>]*>[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (body.length < MIN_BODY_CHARS) return `200 but only ${body.length} chars of text`;
+  return null;
+}
+
 async function hop(path: string): Promise<Result> {
   let url = BASE + path;
   let via: string | undefined;
@@ -66,10 +95,17 @@ async function hop(path: string): Promise<Result> {
       via = url.replace(BASE, "");
       continue;
     }
-    const ok = res.status === 200;
+    if (res.status !== 200) {
+      return {
+        path, status: res.status, via, ok: false,
+        why: via ? `redirect target returns ${res.status}` : `returns ${res.status}`,
+      };
+    }
+    const contentIssue = inspectHtml(await res.text());
     return {
-      path, status: res.status, via, ok,
-      why: ok ? "ok" : via ? `redirect target returns ${res.status}` : `returns ${res.status}`,
+      path, status: res.status, via,
+      ok: !contentIssue,
+      why: contentIssue ?? "ok",
     };
   }
   return { path, status: 0, via, ok: false, why: "too many redirect hops" };
@@ -99,8 +135,9 @@ async function main() {
   console.log(`\n${results.length - failed.length}/${results.length} passed`);
   if (failed.length) {
     console.error(
-      `\n${failed.length} URL(s) that search engines rank are unreachable.\n` +
-        `A ranking page must never 404, 410, or redirect into one — see src/lib/ranking-corridors.ts.`,
+      `\n${failed.length} URL(s) that search engines rank are broken.\n` +
+        `A ranking page must never 404, 410, redirect into one, serve noindex, or\n` +
+        `answer 200 with an empty shell — see src/lib/ranking-corridors.ts.`,
     );
     process.exit(1);
   }

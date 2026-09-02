@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
+import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
 import { weekendMarkup } from "@/lib/weekend-markup";
 import { getAlternates } from "@/lib/i18n-metadata";
@@ -33,6 +34,25 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
 
   // Live figures for the featured data-story banner below.
   const bankVsApp = computeBankVsAppIndex();
+
+  // Project to just the card fields before crossing into the client component.
+  // Handing it blogPosts serialised all 115 guides' section HTML and FAQs into
+  // the RSC flight payload: 2.49 MB of HTML for 1,251 words of visible text.
+  // Submitted guides only — see the "All guides" index below for why.
+  const indexableGuides = blogPosts.filter((post) => SITEMAP_GUIDE_SLUGS.has(post.slug));
+  const guidesByCategory = blogCategories
+    .map((category) => [category, indexableGuides.filter((p) => p.category === category)] as const)
+    .filter(([, posts]) => posts.length > 0);
+
+  const guideCards = blogPosts.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    category: post.category,
+    readTime: post.readTime,
+    publishedAt: post.publishedAt,
+    featuredImage: post.featuredImage,
+  }));
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -175,7 +195,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
 
       {/* Category tabs + featured post + grid — interactive, handled client-side */}
       <GuidesClientPage
-        posts={blogPosts}
+        posts={guideCards}
         categories={blogCategories}
         translations={{
           featuredGuide: t("featuredGuide"),
@@ -189,6 +209,49 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           pageOf: t.raw("pageOf"),
         }}
       />
+
+      {/*
+        Crawlable index of every submitted guide.
+
+        The grid above paginates client-side, so only the first page of cards
+        exists in the server HTML — 8 guides had no incoming internal link
+        anywhere on the site and 15 more had exactly one, reachable only via
+        sitemap.xml (the "pages have only one incoming internal link" notice in
+        the 2026-09-02 audit). A hub that submits 75 URLs has to link them.
+
+        Scoped to SITEMAP_GUIDE_SLUGS on purpose: guides outside the allowlist
+        serve noindex, and spending crawl budget on links to noindex pages is
+        the mistake the June 2026 pruning was cleaning up.
+      */}
+      <nav aria-label="All guides" className="mt-12 border-t border-[var(--color-outline)] pt-8">
+        <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
+          All guides
+        </h2>
+        <p className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
+          {indexableGuides.length} guides, by topic.
+        </p>
+        <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+          {guidesByCategory.map(([category, posts]) => (
+            <div key={category}>
+              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">
+                {category}
+              </h3>
+              <ul className="space-y-2">
+                {posts.map((post) => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/guides/${post.slug}`}
+                      className="text-sm text-[var(--color-primary)] hover:underline"
+                    >
+                      {post.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </nav>
 
       {/* Editorial Introduction */}
       <div className="mt-12 pt-8 border-t border-[var(--color-outline)] mb-8 text-sm text-[var(--color-on-surface-variant)] leading-relaxed space-y-3 max-w-3xl">

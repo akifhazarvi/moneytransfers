@@ -9,6 +9,7 @@ import { fetchQuotesByCorridor } from "@/lib/fetch-quotes";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked } from "@/lib/analytics";
+import { providerLogo } from "@/lib/provider-logo";
 
 // Flag emoji (regional-indicator pairs) don't render on Windows/some Android —
 // they show as bare letters like "IN"/"EU". Decode the emoji to an ISO code so
@@ -108,7 +109,7 @@ export default function HomeDynamicSection() {
           providerName: best ? getProviderName(best.providerSlug) : null,
           providerSlug: best?.providerSlug || null,
           providerLogo:
-            provider?.logo || (best ? `/logos/${best.providerSlug}.png` : null),
+            best ? providerLogo(best.providerSlug, provider?.logo) : null,
           receiveAmount: best?.receiveAmount || 0,
           exchangeRate: best?.exchangeRate || 0,
           fee: best?.fee ?? 0,
@@ -258,7 +259,7 @@ export default function HomeDynamicSection() {
                 {liveQuotes.map((q, i) => {
                   const name = getProviderName(q.providerSlug);
                   const provider = providers.find((p) => p.slug === q.providerSlug);
-                  const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
+                  const logo = providerLogo(q.providerSlug, provider?.logo);
                   const isBest = i === 0;
                   const sendUrl = getGoUrl(q.providerSlug, {
                     sourceCurrency: q.sendCurrency,

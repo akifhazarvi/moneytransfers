@@ -1,6 +1,13 @@
 export interface BlogPost {
   slug: string;
+  /** Reader-facing headline, rendered as the page <h1>. */
   title: string;
+  /**
+   * Optional SERP title. Set this when the headline makes a poor <title> —
+   * otherwise `seoTitle()` derives one from `title` (branded, or trimmed to the
+   * first clause) so the <title> and <h1> are never the same string.
+   */
+  metaTitle?: string;
   metaDescription: string;
   excerpt: string;
   category: "Guides" | "Education" | "Business" | "Research" | "Corridors" | "Reviews";
@@ -1071,7 +1078,8 @@ export const blogPosts: BlogPost[] = [
 <li><strong>thousands of real quotes</strong> scraped across 80+ corridors and 5 transfer amounts ($100–$10,000)</li>
 <li><strong>Exchange rate markup</strong> compared to the mid-market rate. Read our <a href="/guides/exchange-rate-markup-explained">guide to exchange rate markups</a> to understand this metric.</li>
 <li><strong>Fees</strong> at each transfer size</li>
-<li><strong>Trustpilot scores</strong> from real users (combined 1.3 million+ reviews). Ratings sourced from <a href="https://www.trustpilot.com/" target="_blank" rel="noopener noreferrer nofollow">Trustpilot</a>, verified as of September 2026.</li>
+<li><strong>Trustpilot scores</strong> from real users (combined 1.3 million+ reviews). Ratings sourced from <a href="https://www.trustpilot.com/" target="_blank" rel="noopener noreferrer nofollow">Trustpilot</a>, refreshed daily by our scraper.</li>
+<li><strong>App Store and Google Play ratings</strong> for all 16 providers, collected on the same day from the same storefront. We rank on Trustpilot, not these — see <a href="#app-store-ratings-vs-trustpilot-why-they-disagree">why they disagree</a> below.</li>
 <li><strong>Corridor coverage</strong> — how many countries they support</li>
 <li><strong>Delivery speed</strong> — estimated transfer time</li>
 </ul>
@@ -1092,42 +1100,42 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "1. Wise — Best Overall",
-        content: `<p><strong>Trustpilot: 4.3/5 (299,000+ reviews) | Avg Markup: 0% | Avg Fee: $7.33 on $1,000</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:wise}} | Apps: {{APP_SCORES:wise}} | Avg Markup: 0% | Avg Fee: $7.33 on $1,000</strong></p>
 <p><a href="/companies/wise">Wise</a> is the gold standard for transparent international transfers. They're the only major provider that charges <strong>zero exchange rate markup</strong> — you always get the real mid-market rate. Their fee is shown upfront and scales with the transfer amount.</p>
 <p><strong>Best for:</strong> Medium to large transfers ($500+) where the 0% markup saves you the most. Excellent app with real-time tracking and multi-currency accounts. See how <a href="/compare/wise-vs-remitly">Wise compares to Remitly</a> for specific corridors.</p>
 <p><strong>Drawbacks:</strong> Fee can be noticeable on very small transfers ($50–$100). Not the fastest for all corridors.</p>`,
       },
       {
         heading: "2. Remitly — Best for Remittances",
-        content: `<p><strong>Trustpilot: 4.6/5 (119,000+ reviews) | Avg Markup: 0.45% | Avg Fee: $0–$3.99</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:remitly}} | Apps: {{APP_SCORES:remitly}} | Avg Markup: 0.45% | Avg Fee: $0–$3.99</strong></p>
 <p><a href="/companies/remitly">Remitly</a> specializes in remittances to developing countries and excels at it, reaching 175+ receive countries from 30+ send countries. It offers two tiers, and the difference between them is the <em>exchange rate</em> rather than the fee: <strong>Express</strong> reaches the recipient faster at a slightly less favourable rate, while <strong>Economy</strong> is slower but typically prices at a better rate. Their $0 fee option makes them very competitive for small to medium transfers.</p>
 <p><strong>Best for:</strong> Sending to <a href="/send-money/usa-to-india">India</a>, <a href="/send-money/usa-to-philippines">Philippines</a>, <a href="/send-money/usa-to-mexico">Mexico</a>, <a href="/send-money/usa-to-nigeria">Nigeria</a>, and other popular remittance corridors. Excellent first-time user promotions. Funding options include debit and credit card, bank transfer, Apple Pay and Google Pay, plus PayTo for Australian senders.</p>
 <p><strong>Drawbacks:</strong> The rate markup is higher than Wise's 0%, and Express buys its speed with a less favourable rate — on larger amounts that costs more than Wise's flat fee. Remitly is built around remittance corridors rather than developed-market pairs, though it does cover them: USD to EUR is available and often carries no transfer fee, with the cost sitting in the exchange rate instead.</p>`,
       },
       {
         heading: "3. Instarem — Best Low-Cost Alternative",
-        content: `<p><strong>Trustpilot: 4.1/5 (8,900+ reviews) | Avg Markup: 0.42% | Avg Fee: $0</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:instarem}} | Apps: {{APP_SCORES:instarem}} | Avg Markup: 0.42% | Avg Fee: $0</strong></p>
 <p><a href="/companies/instarem">Instarem</a> consistently appears near the top of our comparisons with zero fees and very low markup. They're particularly strong for Asia-Pacific corridors (Singapore, Australia, India, Philippines).</p>
 <p><strong>Best for:</strong> Transfers within Asia-Pacific and from Australia/Singapore. Zero fees make them excellent for regular senders.</p>
 <p><strong>Drawbacks:</strong> Smaller company with fewer corridors than Wise or Remitly. Less brand recognition.</p>`,
       },
       {
         heading: "4. XE — Best for Currency Tools",
-        content: `<p><strong>Trustpilot: 4.4/5 (86,500+ reviews) | Avg Markup: 0.5–1% | Avg Fee: $0</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:xe}} | Apps: {{APP_SCORES:xe}} | Avg Markup: 0.5–1% | Avg Fee: $0</strong></p>
 <p><a href="/companies/xe">XE</a> is the world's most trusted currency data provider and their transfer service leverages that expertise. They offer no-fee transfers, rate alerts, and excellent currency tools. Their app includes live rate tracking and historical charts.</p>
 <p><strong>Best for:</strong> People who want to time their transfers for the best rate. Great currency tools and rate alert system.</p>
 <p><strong>Drawbacks:</strong> Markup is higher than Wise or Instarem. Less competitive for large transfers.</p>`,
       },
       {
         heading: "5. OFX — Best for Large Transfers",
-        content: `<p><strong>Trustpilot: 4.2/5 (11,400+ reviews) | Avg Markup: 2.75% | Fee: $0</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:ofx}} | Apps: {{APP_SCORES:ofx}} | Avg Markup: 2.75% | Fee: $0</strong></p>
 <p><a href="/companies/ofx">OFX</a> (formerly OzForex) specializes in large transfers for businesses and individuals. They offer no transfer fees, dedicated dealers for transfers over $10,000, and forward contracts to lock in exchange rates.</p>
 <p><strong>Best for:</strong> Large transfers ($10,000+), business payments, and property purchases abroad. Dedicated dealer support.</p>
 <p><strong>Drawbacks:</strong> Higher markup than specialist remittance services. Minimum transfer amounts in some corridors.</p>`,
       },
       {
         heading: "6. TapTap Send — Best for Africa & South Asian Diaspora",
-        content: `<p><strong>Trustpilot: 4.7/5 (32,000+ reviews — highest in money transfer) | Markup: ~0.7% | Fee: $0 on most corridors</strong></p>
+        content: `<p><strong>Trustpilot: 4.7/5 (32,000+ reviews — highest in money transfer) | Apps: {{APP_SCORES:taptap-send}} | Markup: ~0.7% | Fee: $0 on most corridors</strong></p>
 <p><a href="/companies/taptap-send">TapTap Send</a> has the highest Trustpilot rating of any money transfer provider we track — 4.7 from over 32,000 reviews. It's purpose-built for diaspora remittances to Africa, South Asia, and beyond: 80+ countries, 65+ currencies, and <strong>95% of transfers delivered in under 3 minutes</strong>.</p>
 <p><strong>Best for:</strong> Regular senders to Nigeria, Ghana, Kenya, Pakistan, Bangladesh, Nepal, Colombia, and other key remittance corridors. Zero fees on most corridors with a ~0.7% markup. Accepts debit card, bank transfer, Google Pay, Apple Pay, and UPI. Multi-currency account available for UK and EU users. Founded by Michael Faye, who also founded GiveDirectly.</p>
 <p><strong>Drawbacks:</strong> Mobile app only — no full website transfer experience. No cash pickup option. Multi-currency account limited to UK and EU.</p>`,
@@ -1136,18 +1144,31 @@ export const blogPosts: BlogPost[] = [
         heading: "Providers to Avoid",
         content: `<p>Based on our data, these options consistently deliver poor value:</p>
 <ul>
-<li><strong><a href="/companies/paypal">PayPal</a></strong> — Trustpilot: 1.3/5 (41,000+ reviews). High markups (3–4%) plus conversion fees. The worst-rated major provider.</li>
+<li><strong><a href="/companies/paypal">PayPal</a></strong> — Trustpilot: {{TRUSTPILOT:paypal}}, but {{APP_SCORES:paypal}}. High markups (3–4%) plus conversion fees. The worst-rated major provider on Trustpilot by a wide margin, and the clearest example of why an app-store score alone tells you very little.</li>
 <li><strong>Traditional banks</strong> — Chase, Wells Fargo, and Bank of America charge 2.5–4% markup plus $25–$50 wire fees. Our data shows they cost 3–5x more than specialist providers.</li>
 </ul>
 <p>The only exception is if your bank offers a preferential rate for large transfers — always ask before defaulting to the standard rate. The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">CFPB</a> and <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> data both show bank transfers are consistently the most expensive option for consumers.</p>`,
       },
       {
+        heading: "App Store Ratings vs Trustpilot — Why They Disagree",
+        content: `<p class="citable-passage">App-store ratings and Trustpilot ratings measure different things, and the gap between them is wide enough to change which provider looks best. Apps ask for a rating inside the app, usually moments after a transfer has gone through — a point chosen because the customer is happy. Trustpilot reviews are written on a separate site that people generally visit on purpose, often to complain. The result is that almost every provider scores between 4.6 and 4.9 on the App Store, while the same providers spread from 1.3 to 4.7 on Trustpilot. PayPal is the extreme case: 1.3 on Trustpilot against 4.8 on the App Store.</p>
+{{APP_RATINGS_TABLE}}
+<p>We rank on Trustpilot because it actually separates providers and the reviews are independently verifiable. We publish the app-store numbers next to it because readers ask for them, and because the gap is itself informative — a provider with a wide gap usually has a well-built app sitting in front of a weaker service record. Read neither number on its own.</p>
+<p>One practical warning: store ratings differ by country. Every figure above is the US storefront, collected on the same day for all 16 providers so the comparison is like-for-like. A provider's own marketing typically quotes a worldwide total, which will always be a bigger number than any single storefront reports — so a provider's published count and the count here can both be right.</p>`,
+      },
+      {
         heading: "Sources & Methodology",
         content: `<p>Data in this article is based on real quotes collected from provider APIs and websites via automated scraping every 6 hours. Exchange rates and fees change frequently — use our <a href="/send-money">comparison tool</a> for the latest rates.</p>
+<p>Trustpilot scores and app-store ratings are refreshed by our own scrapers and injected into this page at build time, so the figures above are never hand-typed. App-store data comes from the Apple iTunes lookup API and the Google Play listing for each provider's app, US storefront.</p>
 <p>External sources include the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide database</a>, provider-published fee schedules, and regulatory filings with the <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a> and <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>.</p>`,
       },
     ],
     faqs: [
+      {
+        question: "Why does Remitly score 4.9 on the App Store but 4.6 on Trustpilot?",
+        answer:
+          "Because the two collect reviews differently. Apps prompt for a rating in-app right after a successful transfer, when the customer is happy; Trustpilot is a separate site people usually visit deliberately, often to complain. The pattern holds across the whole market — nearly every provider sits between 4.6 and 4.9 on the App Store, while Trustpilot spreads the same providers from 1.3 to 4.7. <a href=\"/companies/paypal\">PayPal</a> is the extreme case: {{TRUSTPILOT:paypal}} on Trustpilot against {{APP_SCORES:paypal}}. We rank on Trustpilot because it separates providers; see the full table above.",
+      },
       {
         question: "What is the best app to send money internationally?",
         answer:
@@ -6023,6 +6044,9 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "invoicing-international-clients-multiple-currencies",
     title: "How to Invoice International Clients in Multiple Currencies",
+    // 59-char headline with no clause to trim, so the derived title would have
+    // matched the <h1> exactly. Hand-written instead.
+    metaTitle: "Invoicing International Clients: Multi-Currency Guide",
     metaDescription:
       "Learn how to invoice international clients, handle multi-currency billing, reduce FX losses, and get paid faster — a guide for freelancers and SMBs.",
     excerpt:
@@ -8657,6 +8681,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "lowest-fx-fees-business-payments-2026",
     title: "Lowest FX Fees for Business International Payments in 2026",
+    metaTitle: "Lowest Business FX Fees 2026 | SendMoneyCompare",
     metaDescription:
       "Compare lowest FX fees for business international payments in 2026. Wise, Airwallex, WorldFirst & more — real markups, rate matching, offline support.",
     excerpt:
@@ -8973,6 +8998,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-money-transfer-rates-eid-holi-2026",
     title: "Best Money Transfer Rates for Eid & Holi 2026 Compared",
+    metaTitle: "Eid & Holi 2026 Transfer Rates Compared",
     metaDescription:
       "Compare the best money transfer rates for Eid al-Fitr and Holi 2026. We analyzed fees, exchange rates, and holiday promotions from Wise, Remitly, and more.",
     excerpt:
@@ -9265,6 +9291,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-money-transfer-apps-large-transfers",
     title: "Best Money Transfer Apps for Large Transfers in 2026",
+    metaTitle: "Best Apps for Large International Transfers ($10k+) 2026",
     metaDescription:
       "Compare the best apps for large international transfers in 2026. XE, OFX, Wise, and TorFX compared on fees, forward contracts, and £5,000+ rates.",
     excerpt:
@@ -9764,6 +9791,7 @@ export const blogPosts: BlogPost[] = [
     slug: "hidden-fees-international-transfers",
     title:
       "7 Hidden International Transfer Fees Banks Don't Reveal",
+    metaTitle: "Hidden International Transfer Fees: What Banks Don't Show",
     metaDescription:
       "Why do banks charge so much for international transfers? We break down 7 hidden fees — FX markups, correspondent charges — and show how to avoid them all.",
     excerpt:
@@ -15740,6 +15768,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "pakistan-remittance-loss-2026",
     title: "How Much Does Pakistan Lose on Remittances Each Year?",
+    metaTitle: "Pakistan Remittance Losses 2026: The Real Cost",
     metaDescription:
       "We modelled Pakistan's remittance loss from high fees. See which corridors cost families the most in 2026 and how to reduce the cost of sending money home.",
     excerpt:
@@ -16334,6 +16363,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-money-transfer-apps-china-yuan",
     title: "Best Money Transfer Apps for Sending CNY from China 2026",
+    metaTitle: "Best Apps to Send CNY from China (2026)",
     metaDescription:
       "Compare the best apps for sending CNY from China in 2026: SkyRemit, Wise, Panda Remit, WeChat Pay, and Alipay. Fees, limits, and user experience.",
     excerpt:

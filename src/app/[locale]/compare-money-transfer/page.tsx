@@ -42,7 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const year = new Date().getFullYear();
   const month = new Date().toLocaleDateString("en-US", { month: "long" });
 
-  const title = `Compare Money Transfer ${year} — Wise, Remitly, Western Union & 30+ Services Side-by-Side`;
+  // 90 chars before: everything from "Western Union" on was truncated in the
+  // SERP, so the provider names cost length without ever being seen.
+  const title = `Compare Money Transfer Services ${year} — Live Rates & Fees`;
   const description = `Compare money transfer services in ${month} ${year}. Wise, Remitly, Western Union, OFX, Revolut & 30+ more — live exchange rates, real fees, Trustpilot ratings, updated every 6 hours. Find who's actually cheapest for your corridor.`;
 
   return {
@@ -204,22 +206,17 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
     "@type": "ItemList",
     name: `Top Money Transfer Services (${year})`,
     description: "Ranked comparison of 15 leading international money transfer providers",
+    // Summary-list shape: name + url per position, pointing at the provider's
+    // own page. The nested FinancialService entities that used to live here
+    // were LocalBusiness subclasses without an address (15 invalid items on
+    // this page alone), and their aggregateRating duplicated the canonical
+    // rating node on /companies/[slug] — Google only honours a rating on the
+    // page whose main entity it describes, so the copies bought us nothing.
     itemListElement: ranked.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      item: {
-        "@type": "FinancialService",
-        name: p.name,
-        url: `${SITE_URL}/companies/${p.slug}`,
-        aggregateRating: trustpilotIndex[p.slug]?.score
-          ? {
-              "@type": "AggregateRating",
-              ratingValue: trustpilotIndex[p.slug].score,
-              reviewCount: trustpilotIndex[p.slug].totalReviews || 100,
-              bestRating: 5,
-            }
-          : undefined,
-      },
+      name: p.name,
+      url: `${SITE_URL}/companies/${p.slug}`,
     })),
   };
 

@@ -6,6 +6,7 @@ import { getProviderName, providers, type TransferQuote } from "@/data/providers
 import { fetchQuotes } from "@/lib/fetch-quotes";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked, trackStickyCtaShown, trackStickyCtaClicked, trackStickyCtaDismissed } from "@/lib/analytics";
+import { providerLogo } from "@/lib/provider-logo";
 
 interface Props {
   from: string;
@@ -94,7 +95,7 @@ export default function GuidePageNudge({ from, to, amount, slug }: Props) {
   if (dismissed || !best) return null;
 
   const provider = providers.find((p) => p.slug === best.providerSlug);
-  const logo = provider?.logo || `/logos/${best.providerSlug}.png`;
+  const logo = providerLogo(best.providerSlug, provider?.logo);
   const name = getProviderName(best.providerSlug);
   const recvSymbol = CURRENCY_SYMBOL[to] || to;
   const sendSymbol = CURRENCY_SYMBOL[from] || from;

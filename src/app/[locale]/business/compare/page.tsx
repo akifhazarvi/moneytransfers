@@ -39,7 +39,7 @@ const PROVIDER_COUNT = BUSINESS_PROVIDERS.length;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const title = `Best International Business Payment Providers Compared (${asOfLong})`;
+  const title = `Best Business Payment Providers Compared (${asOfLong})`;
   const description = `In-depth comparison of ${PROVIDER_COUNT} business payment providers — Wise Business, OFX, Airwallex, Mercury, XE, Currencies Direct — on bulk payments, approval workflows, multi-currency accounts, API, KYC, limits and live FX cost. Banks cost ${idx.bankVsSpecialistMultiple}× more than specialists.`;
   return {
     title: { absolute: title },

@@ -155,11 +155,14 @@ export default function ForAIPage() {
 
   const softwareSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    // WebAPI (a Service subtype), not SoftwareApplication: the Software App
+    // rich result requires an aggregateRating we have no honest source for,
+    // and this is an HTTP endpoint rather than an installable app.
+    "@type": "WebAPI",
     name: "SendMoneyCompare Quote API",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "All",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    isAccessibleForFree: true,
+    provider: { "@id": `${SITE_URL}/#organization` },
+    documentation: `${SITE_URL}/for-ai`,
     url: `${SITE_URL}/api/ai`,
     description:
       "Live international money transfer quote API. GET /api/ai?from=USD&to=INR&amount=1000 returns ranked provider quotes. CORS-enabled for ChatGPT Actions. No auth required.",

@@ -38,6 +38,8 @@ import { getCorridorSlug } from "@/data/corridors";
 import { providers, getProviderName, currencies } from "@/data/providers";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import { seoTitle } from "@/lib/seo-title";
+import { providerLogo } from "@/lib/provider-logo";
 
 // Revalidate every 6 hours to match scraper cadence — these pages are
 // only valuable while the data is fresh.
@@ -68,7 +70,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : "";
   const description = `${bank.name} international transfer fees (${year}) — live data scraped daily from ${stats.corridorCount} currency corridors.${lossLine} Compare against Wise, Remitly and 30+ specialist providers.`;
   return {
-    title: bank.headline,
+    // bank.headline is the visible <h1>; seoTitle keeps the <title> distinct
+    // and inside 70 chars (chase/hsbc were 79 and 74).
+    title: seoTitle(bank.headline),
     description,
     keywords: `${bank.name} international transfer fee, ${bank.name} wire transfer cost, ${bank.name} exchange rate, ${bank.name} vs wise, send money abroad ${bank.name}`,
     openGraph: {
@@ -155,7 +159,7 @@ export default async function BankPage({ params }: Props) {
             <div className="flex items-center gap-4 mb-6">
               <div className="relative w-16 h-16 bg-white rounded-2xl border border-[var(--color-outline)] p-2 shrink-0">
                 <Image
-                  src={`/logos/${bank.slug}.png`}
+                  src={providerLogo(bank.slug)}
                   alt={`${bank.name} logo`}
                   fill
                   className="object-contain p-2"

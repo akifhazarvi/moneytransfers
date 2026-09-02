@@ -212,9 +212,14 @@ function DefaultComparison({
             name: `${a.name} vs ${b.name}`,
             isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
             primaryImageOfPage: { "@type": "ImageObject", url: "https://sendmoneycompare.com/opengraph-image" },
+            // Reference the two FinancialService nodes declared below by @id
+            // rather than re-typing them here. A typed-but-name-only
+            // FinancialService is a LocalBusiness with no address, which is
+            // exactly what the Sep 2 2026 audit flagged (4 invalid items per
+            // compare page); an @id reference carries the same graph edge.
             about: [
-              { "@type": "FinancialService", name: a.name },
-              { "@type": "FinancialService", name: b.name },
+              { "@id": `https://sendmoneycompare.com/companies/${a.slug}#financialservice` },
+              { "@id": `https://sendmoneycompare.com/companies/${b.slug}#financialservice` },
             ],
           }),
         }}
@@ -246,6 +251,13 @@ function DefaultComparison({
               "@id": `https://sendmoneycompare.com/companies/${provider.slug}#financialservice`,
               name: provider.name,
               description: provider.description,
+              url: `https://sendmoneycompare.com/companies/${provider.slug}`,
+              // FinancialService is a LocalBusiness subclass, so validators
+              // require an address. Same headquarters value the canonical node
+              // on /companies/[slug] uses, keeping the two copies consistent.
+              ...(provider.headquarters && {
+                address: { "@type": "PostalAddress", addressLocality: provider.headquarters },
+              }),
               ...(provider.rating > 0 && trustpilotIndex[provider.slug]?.totalReviews && {
                 aggregateRating: {
                   "@type": "AggregateRating",

@@ -10,8 +10,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const year = new Date().getFullYear();
   return {
+    // Was 77 chars: "Providers (2026)" — the qualifier that matters — fell
+    // outside the rendered length.
     title:
-      `B2B International Payments — Compare Business Money Transfer Providers (${year})`,
+      `B2B International Payments — Compare Providers (${year})`,
     description:
       `Compare the cheapest B2B international payment providers in ${year}. Wise Business, OFX, Revolut Business & Airwallex save 80–95% vs bank wires. Fees, FX rates, bulk payments & API access compared.`,
     keywords:

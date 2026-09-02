@@ -4,7 +4,22 @@ import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Card from "@/components/Card";
-import type { BlogPost } from "@/data/blog-posts";
+/**
+ * Only the fields this listing renders. Passing the full BlogPost[] here put
+ * every guide's `sections[].content` HTML and `faqs[]` through the RSC flight
+ * payload embedded in the page — 2.38 MB of the /guides HTML for 1,251 words
+ * of visible text (Semrush "too large HTML size", 0.30% text-HTML ratio).
+ * Keep this projection narrow: anything added here ships to every visitor.
+ */
+export interface GuideCard {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  readTime: string;
+  publishedAt: string;
+  featuredImage?: string;
+}
 import {
   BookOpen,
   GraduationCap,
@@ -38,7 +53,7 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
 };
 
 interface Props {
-  posts: BlogPost[];
+  posts: GuideCard[];
   categories: readonly string[];
   translations: {
     featuredGuide: string;

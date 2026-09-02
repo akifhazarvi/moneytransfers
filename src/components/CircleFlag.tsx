@@ -29,9 +29,25 @@ const CURRENCY_NAMES: Record<string, string> = {
   MAD: "Morocco", MYR: "Malaysia", FJD: "Fiji", GTQ: "Guatemala",
 };
 
+/**
+ * Currencies whose first two letters are not an ISO-3166 country, so the
+ * slice() heuristic below would ask the CDN for a flag that doesn't exist.
+ * The X-prefixed codes are supranational (XOF/XAF are shared by 8 and 6
+ * countries respectively), so there is no single correct flag to show —
+ * these got 404s from hatscripts.github.io in production.
+ */
+const NO_COUNTRY_FLAG = new Set(["XOF", "XAF", "XCD", "XPF", "XDR", "ANG"]);
+
+/** Neutral local glyph for currencies with no country flag. */
+const GENERIC_FLAG = "/flags/generic.svg";
+
 export function getFlagUrl(code: string): string {
+  const upper = code.toUpperCase();
+  if (code.length === 3 && !CURRENCY_TO_COUNTRY[upper] && NO_COUNTRY_FLAG.has(upper)) {
+    return GENERIC_FLAG;
+  }
   const country = code.length === 3
-    ? (CURRENCY_TO_COUNTRY[code.toUpperCase()] ?? code.slice(0, 2).toLowerCase())
+    ? (CURRENCY_TO_COUNTRY[upper] ?? code.slice(0, 2).toLowerCase())
     : code.toLowerCase();
   return LOCAL_FLAGS.has(country)
     ? `/flags/${country}.svg`

@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const year = new Date().getFullYear();
   return {
-    title: `Historical Exchange Rates — Rate Trends for 90+ Currency Corridors (${year})`,
+    title: `Historical Exchange Rates — 90+ Currency Corridors (${year})`,
     description: `Track exchange rate history across 90+ currency corridors. Compare how provider rates have changed over time and find the best time to send money abroad.`,
     alternates: getAlternates("exchange-rates/history", locale),
     openGraph: {

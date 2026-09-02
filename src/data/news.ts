@@ -1,6 +1,13 @@
 export interface NewsItem {
   slug: string;
+  /** Headline as published, rendered as the article <h1>. */
   title: string;
+  /**
+   * Optional SERP title. News headlines routinely run past the 70 characters
+   * search engines render, so `seoTitle()` derives a shorter <title> from the
+   * headline unless one is set here explicitly.
+   */
+  metaTitle?: string;
   excerpt: string;
   content: string; // HTML
   category: "Industry News" | "Provider Update" | "Announcement" | "Regulatory";

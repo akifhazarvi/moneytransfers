@@ -49,6 +49,11 @@ export default function Footer() {
         // own organic inbound and can stand alone.
         { href: "/tools/us-remittance-tax", labelKey: "usRemittanceTax", label: "US remittance tax calculator" },
         { href: "/tools/fx-markup-checker", labelKey: "fxMarkupChecker", label: "FX markup checker" },
+        // /currency-converter is submitted to search engines and earns ~1,410
+        // Bing impressions + 1,389 AI citations, but had ZERO incoming internal
+        // links — reachable only via sitemap.xml (Sep 2 2026 crawl). This is
+        // its natural home alongside the other calculators.
+        { href: "/currency-converter", labelKey: "currencyConverter", label: "Currency converter" },
         { href: "/cash-out", labelKey: "cashOutCrypto", label: "Cash out crypto by country" },
         { href: "/iban", labelKey: "ibanLink" },
         { href: "/swift-codes", labelKey: "swiftLink" },
@@ -69,6 +74,10 @@ export default function Footer() {
         // for on finance sites. Added 2026-06-21.
         { href: "/corrections", labelKey: "correctionsLink" },
         { href: "/contact", labelKey: "contactLink" },
+        // /for-ai documents the public quote API for AI agents. Submitted, but
+        // its only inbound links were from pages that have since been pruned,
+        // leaving it orphaned in the Sep 2 crawl.
+        { href: "/for-ai", labelKey: "forAiLink", label: "For AI assistants" },
       ],
     },
   ];
@@ -146,10 +155,16 @@ export default function Footer() {
   ];
 
   const legalLinks: TranslatedLink[] = [
-    { href: "/privacy-policy", labelKey: "privacyLink", noFollow: true },
-    { href: "/terms", labelKey: "termsLink", noFollow: true },
-    { href: "/cookies", labelKey: "cookiesLink", noFollow: true },
-    { href: "/disclaimer", labelKey: "disclaimerLink", noFollow: true },
+    // No rel="nofollow" on our own legal pages. These are indexable pages we
+    // own, and nofollow has not conserved PageRank since 2009 — it just drops
+    // the edge. Sitewide, the four of them accounted for ~2,760 of the internal
+    // nofollow links Semrush flagged on 2026-09-02 (600 in its 100-page sample)
+    // while buying nothing. Affiliate /go and /out links keep theirs, which is
+    // the case where the attribute is actually required.
+    { href: "/privacy-policy", labelKey: "privacyLink" },
+    { href: "/terms", labelKey: "termsLink" },
+    { href: "/cookies", labelKey: "cookiesLink" },
+    { href: "/disclaimer", labelKey: "disclaimerLink" },
   ];
 
   return (
@@ -276,7 +291,6 @@ export default function Footer() {
                 <span key={link.labelKey} className="flex items-center gap-1.5">
                   <Link
                     href={link.href}
-                    rel="nofollow"
                     className="hover:text-white transition-colors"
                   >
                     {t(link.labelKey)}

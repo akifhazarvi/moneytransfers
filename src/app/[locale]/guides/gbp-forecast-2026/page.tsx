@@ -52,7 +52,7 @@ const FAQS = [
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const title = "GBP Forecast July 2026: How Much Can the Pound Move Before Your Transfer?";
+  const title = "GBP Forecast 2026: How Far Can the Pound Move?";
   const description = `Sterling swung ~5% in H1 2026, but the best-vs-worst money-transfer provider gap on ${amt} to USD is ${spreadPct}% — bigger than the currency move. Data-led GBP outlook plus the dates that matter for your pound transfer.`;
   return {
     title: { absolute: title },

@@ -13,7 +13,7 @@ export const revalidate = 21600; // 6h — tracks the scrape cadence
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "tools/fx-markup-checker";
-const TITLE = "FX Markup Checker — See the Hidden Exchange Rate Markup on Any Transfer";
+const TITLE = "FX Markup Checker — See Any Transfer's Hidden Rate Markup";
 const DESCRIPTION =
   "Paste the exchange rate your bank or provider quoted and instantly see the hidden FX markup — in % and in real money. Compare against the live mid-market rate, free.";
 
@@ -65,12 +65,10 @@ const FAQS = [
 
 const softwareSchema = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@type": "WebPage",
   name: "FX Markup Checker",
   url: `${SITE_URL}/${PATH}`,
-  applicationCategory: "FinanceApplication",
-  operatingSystem: "Web",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  isAccessibleForFree: true,
   description: DESCRIPTION,
   publisher: { "@id": `${SITE_URL}/#organization` },
 };

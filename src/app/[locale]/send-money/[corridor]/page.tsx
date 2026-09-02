@@ -52,11 +52,13 @@ import { corridorDeepBlocks } from "@/data/corridor-deep-content";
 import { getCountryDetails } from "@/data/corridor-details";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import { fitTitle } from "@/lib/seo-title";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
 import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
 import StickyBestCTA from "@/components/StickyBestCTA";
+import { providerLogo } from "@/lib/provider-logo";
 import LiveTimestamp from "@/components/LiveTimestamp";
 import CryptoRailSection from "@/components/CryptoRailSection";
 
@@ -845,6 +847,7 @@ const corridorEditorialNotes: Record<
 };
 
 import { shouldNoindex, getCorridorTier } from "@/lib/corridor-tiers";
+import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 
@@ -869,7 +872,16 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
-    .filter((c) => getCorridorTier(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2)
+    .filter(
+      (c) =>
+        getCorridorTier(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage) <= 2 ||
+        // Corridors rescued on Sep 1 because they RANK (positions 3.0-8.8) are
+        // Tier 3 by provider count, so this filter excluded them — and with
+        // dynamicParams=false that meant no prerender at all. They shipped a
+        // content-free 200 shell ("Loading..." + chrome, no <h1>): a soft 404 at
+        // position 3, which is worse than the hard 404 the rescue replaced.
+        RANKING_CORRIDOR_SLUGS.has(c.slug),
+    )
     .map((c) => ({ corridor: c.slug }));
 }
 
@@ -1663,7 +1675,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Tier 3 corridors still emit a self-canonical + noindex (was: returned empty
   // metadata, which inherited the layout's homepage canonical — soft 404 risk).
-  if (getCorridorTier(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) === 3) {
+  //
+  // The RANKING_CORRIDOR_SLUGS carve-out has to be honoured here, not just in
+  // shouldNoindex(): this early return fired first, so three corridors rescued
+  // on Sep 1 for ranking at positions 3.0-8.8 were listed in the sitemap (which
+  // does consult shouldNoindex) while serving `noindex` to the crawler that
+  // arrived. Semrush's Sep 2 audit surfaced them as pages blocked from crawling.
+  // shouldNoindex is the single source of truth for this decision.
+  if (
+    getCorridorTier(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage) === 3 &&
+    shouldNoindex(slug, corridor.fromCurrency, corridor.toCurrency, corridor.isCountryPage)
+  ) {
     return {
       alternates: getAlternates(`send-money/${slug}`, locale),
       robots: { index: false, follow: true },
@@ -1685,7 +1707,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
   const variant = isCurr ? "Currency" : isCountryPg ? "Country" : "Corridor";
 
-  const title = override?.title ?? t(`fallbackTitle${variant}`, tplParams);
+  // Degradation ladder rather than one template: long country names pushed the
+  // full pattern past 70 chars on 27 corridors ("Cheapest Way to Send Money
+  // United Kingdom to New Zealand — GBP→NZD (2026)" = 73), so search engines
+  // truncated the currency pair the title existed to carry. fitTitle keeps the
+  // richest variant that actually renders, including hand-written overrides.
+  const title = fitTitle([
+    override?.title,
+    t(`fallbackTitle${variant}`, tplParams),
+    variant === "Corridor"
+      ? t("fallbackTitleCorridorShort", tplParams)
+      : variant === "Country"
+        ? t("fallbackTitleCountryShort", tplParams)
+        : undefined,
+    variant === "Corridor" ? t("fallbackTitleCorridorMin", tplParams) : undefined,
+  ]);
   const description = override?.description ?? t(`fallbackDescription${variant}`, tplParams);
   const ogTitle = override?.ogTitle ?? t(`fallbackOgTitle${variant}`, tplParams);
   const ogDescription = override?.ogDescription ?? description;
@@ -1833,7 +1869,12 @@ export default async function CorridorPage({ params }: Props) {
   // would yo-yo a page we're actively trying to get indexed. Those keep rendering
   // the existing "no quotes available yet" empty state.
   const isProtectedCorridor =
-    HEAD_CORRIDOR_SLUGS.has(slug) || SITEMAP_CORRIDOR_SLUGS.has(slug);
+    HEAD_CORRIDOR_SLUGS.has(slug) ||
+    SITEMAP_CORRIDOR_SLUGS.has(slug) ||
+    // Ranking corridors are Tier 3 (0-1 quotes) by definition, so without this
+    // they would hit the soft-404 guard below and 404 the very pages the
+    // Sep 1 rescue exists to keep alive.
+    RANKING_CORRIDOR_SLUGS.has(slug);
   if (quotes.length === 0 && !isProtectedCorridor) {
     notFound();
   }
@@ -2015,7 +2056,7 @@ export default async function CorridorPage({ params }: Props) {
               {quotes.map((q, i) => {
                 const name = getProviderName(q.providerSlug);
                 const provider = providers.find((p) => p.slug === q.providerSlug);
-                const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
+                const logo = providerLogo(q.providerSlug, provider?.logo);
                 const isBest = i === 0;
                 const markup = midRate > 0 ? ((midRate - q.exchangeRate) / midRate) * 100 : 0;
 
@@ -2211,7 +2252,7 @@ export default async function CorridorPage({ params }: Props) {
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0">
                   <Image
-                    src={providers.find((p) => p.slug === best.providerSlug)?.logo || `/logos/${best.providerSlug}.png`}
+                    src={providerLogo(best.providerSlug, providers.find((p) => p.slug === best.providerSlug)?.logo)}
                     alt={getProviderName(best.providerSlug)}
                     width={56}
                     height={56}
@@ -2393,7 +2434,7 @@ export default async function CorridorPage({ params }: Props) {
                 {categories.map(({ label, Icon, provider: quote, reason }) => {
                   const name = getProviderName(quote!.providerSlug);
                   const p = providers.find((pp) => pp.slug === quote!.providerSlug);
-                  const logo = p?.logo || `/logos/${quote!.providerSlug}.png`;
+                  const logo = providerLogo(quote!.providerSlug, p?.logo);
                   return (
                     <div key={label} className="bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5">
                       <div className="w-10 h-10 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 flex items-center justify-center mb-3">
@@ -3519,7 +3560,7 @@ export default async function CorridorPage({ params }: Props) {
         <StickyBestCTA
           providerSlug={best.providerSlug}
           providerName={getProviderName(best.providerSlug)}
-          providerLogo={providers.find((p) => p.slug === best.providerSlug)?.logo || `/logos/${best.providerSlug}.png`}
+          providerLogo={providerLogo(best.providerSlug, providers.find((p) => p.slug === best.providerSlug)?.logo)}
           providerUrl={getGoUrl(best.providerSlug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: sampleAmount, clickref: "sticky_cta" })}
           receiveAmount={best.receiveAmount}
           receiveSymbol={receiveSymbol}

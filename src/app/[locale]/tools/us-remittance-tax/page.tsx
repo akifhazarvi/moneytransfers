@@ -75,12 +75,10 @@ const FAQS = [
 
 const softwareSchema = {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
+  "@type": "WebPage",
   name: "US Remittance Tax Calculator",
   url: `${SITE_URL}/${PATH}`,
-  applicationCategory: "FinanceApplication",
-  operatingSystem: "Web",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  isAccessibleForFree: true,
   description: DESCRIPTION,
   publisher: { "@id": `${SITE_URL}/#organization` },
 };

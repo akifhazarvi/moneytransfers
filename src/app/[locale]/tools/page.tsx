@@ -10,7 +10,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 export const revalidate = 86400;
 
 const SITE_URL = "https://sendmoneycompare.com";
-const TITLE = "Free Money Transfer Tools — Tax, FX Markup & Cost Calculators | SendMoneyCompare";
+// 84 chars previously — the brand suffix was truncated away, so it cost us
+// characters without ever rendering.
+const TITLE = "Free Money Transfer Tools — Tax & FX Markup Calculators";
 const DESCRIPTION =
   "Free calculators for international transfers: work out the 2026 US remittance tax, reveal the hidden FX markup on any quote, and find the cheapest way to send. No signup.";
 

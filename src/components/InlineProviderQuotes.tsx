@@ -5,6 +5,7 @@ import { generateQuotes } from "@/lib/quotes-engine";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 import InlineQuoteCTA from "./InlineQuoteCTA";
 import SeeAllProvidersLink from "./SeeAllProvidersLink";
+import { providerLogo } from "@/lib/provider-logo";
 
 interface Props {
   from?: string;
@@ -92,7 +93,7 @@ export default function InlineProviderQuotes({
         {quotes.map((q, i) => {
           const name = getProviderName(q.providerSlug);
           const provider = providers.find((p) => p.slug === q.providerSlug);
-          const logo = provider?.logo || `/logos/${q.providerSlug}.png`;
+          const logo = providerLogo(q.providerSlug, provider?.logo);
           const isBest = i === 0;
           const feeLabel = q.fee === 0 ? "Free" : `${sendSymbol}${q.fee.toFixed(2)}`;
 

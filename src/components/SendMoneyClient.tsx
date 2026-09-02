@@ -19,6 +19,7 @@ import { promos } from "@/data/promos";
 import { useExchangeRates } from "@/lib/useExchangeRates";
 import { getGoUrl } from "@/lib/affiliate";
 import RatingBadge from "@/components/RatingBadge";
+import { providerLogo } from "@/lib/provider-logo";
 
 type SortBy = "receiveAmount" | "fee" | "rating" | "deals";
 type SpeedFilter = "" | "instant" | "same-day" | "1-2-days" | "3-plus-days";
@@ -579,7 +580,7 @@ function SendMoneyContent() {
               {[...new Set(quotes.map((q) => q.providerSlug))].sort().map((slug) => {
                 const p = providers.find((pr) => pr.slug === slug);
                 const name = p?.name || getProviderName(slug);
-                const logo = p?.logo || `/logos/${slug}.png`;
+                const logo = providerLogo(slug, p?.logo);
                 return (
                   <button
                     key={slug}
@@ -755,8 +756,8 @@ function SendMoneyContent() {
         const provB = providers.find((p) => p.slug === quoteB.providerSlug);
         const nameA = provA?.name || getProviderName(quoteA.providerSlug);
         const nameB = provB?.name || getProviderName(quoteB.providerSlug);
-        const logoA = provA?.logo || `/logos/${quoteA.providerSlug}.png`;
-        const logoB = provB?.logo || `/logos/${quoteB.providerSlug}.png`;
+        const logoA = providerLogo(quoteA.providerSlug, provA?.logo);
+        const logoB = providerLogo(quoteB.providerSlug, provB?.logo);
 
         const rows: { label: string; a: string; b: string; winner?: "a" | "b" | "tie" }[] = [
           {
@@ -895,7 +896,7 @@ function SendMoneyContent() {
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[var(--color-outline)]/50">
                 <img
-                  src={providers.find((p) => p.slug === compareList[0])?.logo || `/logos/${compareList[0]}.png`}
+                  src={providerLogo(compareList[0], providers.find((p) => p.slug === compareList[0])?.logo)}
                   alt={`${getProviderName(compareList[0])} logo`}
                   width={32}
                   height={32}

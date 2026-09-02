@@ -433,6 +433,19 @@ const topRatePairs = [
   { slug: "usd-to-jpy", from: "USD", to: "JPY", label: "USD to JPY" },
   { slug: "cad-to-inr", from: "CAD", to: "INR", label: "CAD to INR" },
   { slug: "usd-to-ngn", from: "USD", to: "NGN", label: "USD to NGN" },
+  // Completing the set: every slug in SITEMAP_RATE_PAIR_SLUGS is submitted to
+  // search engines, so every one needs a crawlable link from this hub. These
+  // eight had none anywhere on the site — usd-to-aud and usd-to-cny were
+  // sitemap-only orphans with zero incoming internal links, which is the
+  // "pages have only one incoming internal link" notice in the Sep 2 audit.
+  { slug: "gbp-to-usd", from: "GBP", to: "USD", label: "GBP to USD" },
+  { slug: "gbp-to-pkr", from: "GBP", to: "PKR", label: "GBP to PKR" },
+  { slug: "eur-to-gbp", from: "EUR", to: "GBP", label: "EUR to GBP" },
+  { slug: "aud-to-inr", from: "AUD", to: "INR", label: "AUD to INR" },
+  { slug: "usd-to-gbp", from: "USD", to: "GBP", label: "USD to GBP" },
+  { slug: "usd-to-eur", from: "USD", to: "EUR", label: "USD to EUR" },
+  { slug: "usd-to-aud", from: "USD", to: "AUD", label: "USD to AUD" },
+  { slug: "usd-to-cny", from: "USD", to: "CNY", label: "USD to CNY" },
 ];
 
 const faqs = [

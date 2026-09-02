@@ -8,6 +8,7 @@ import { blogPosts } from "@/data/blog-posts";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { fitTitle } from "@/lib/seo-title";
 
 interface Props {
   params: Promise<{ author: string; locale: string }>;
@@ -25,7 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const tplParams = { name: author.name, role: author.role };
   return {
-    title: t("fallbackTitle", tplParams),
+    // "Ahsan Mukhtar — Co-founder, Marketing & Partnerships at SendMoneyCompare"
+    // was 72 chars; the brand was the part that got cut.
+    title: fitTitle([
+      t("fallbackTitle", tplParams),
+      `${author.name} — ${author.role}`,
+      `${author.name}, SendMoneyCompare`,
+    ]),
     description: author.byline,
     openGraph: {
       title: t("fallbackOgTitle", tplParams),

@@ -260,8 +260,10 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: {
-      absolute:
-        "Best Apps to Send Money Internationally from the US (2026) — Ranked by Real Cost",
+      // 80 chars before ("…— Ranked by Real Cost" never rendered in the SERP);
+      // trimming to the bare headline then matched the <h1> word for word, so
+      // this keeps a distinct SERP framing inside the 70-char limit.
+      absolute: "Best Apps to Send Money Abroad from the US (2026) | SendMoneyCompare",
     },
     description:
       "We ranked the 8 best apps to send money abroad from the US in 2026 using live data from 60+ providers. Wise, Remitly, TorFX, OFX, TapTap Send — compared on fees, exchange rates, speed, and trust.",

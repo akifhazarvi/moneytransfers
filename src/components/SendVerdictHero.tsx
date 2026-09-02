@@ -265,7 +265,7 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
             <a
               href={goUrl}
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="noopener noreferrer nofollow sponsored"
               onClick={() => trackProviderClicked(data.bestProviderSlug, `${from}-${to}`, 1, "verdict_hero")}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-success-dark)] px-5 py-3.5 text-base font-semibold text-white shadow-[var(--shadow-success)] hover:bg-[var(--color-success-hover)] hover:shadow-[var(--shadow-success-lg)] active:scale-[0.99] transition-all"
             >

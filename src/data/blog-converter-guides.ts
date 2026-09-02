@@ -141,6 +141,7 @@ export const converterGuides: BlogPost[] = [
   {
     slug: "compare-exchange-rates-multiple-currencies",
     title: "Compare Exchange Rates Across Many Currencies at Once",
+    metaTitle: "Multi-Currency Exchange Rate Comparison Tool",
     metaDescription:
       "Stop checking rates one at a time. Compare exchange rates across 5, 10, or 150+ currencies at once and spot which pairs are moving in your favor.",
     excerpt:
@@ -256,6 +257,7 @@ export const converterGuides: BlogPost[] = [
   {
     slug: "currency-converter-vs-bank-app-travel",
     title: "Live Currency Converter vs Your Bank's App for Travel",
+    metaTitle: "Currency Converter vs Bank App: Which Rate Wins?",
     metaDescription:
       "Your bank's app shows a rate — but hides a 2–4% markup. A live mid-market converter reveals the real rate so you know what you pay before spending abroad.",
     excerpt:

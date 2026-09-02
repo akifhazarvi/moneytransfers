@@ -189,9 +189,22 @@ const websiteSchema = {
   },
 };
 
-const financialServiceSchema = {
+/**
+ * We describe what this site DOES as a `Service`, not a `FinancialService`.
+ *
+ * FinancialService is a subclass of LocalBusiness, so every validator applies
+ * Google's LocalBusiness rules to it — address, and in Semrush's case two more
+ * storefront fields. This node ships on every page via the layout, so a single
+ * wrong @type produced ~100 of the 141 "invalid structured data" errors in the
+ * Sep 2 2026 audit. We are a comparison publisher with no premises and no
+ * financial product of our own, so those fields would be fabrications; `Service`
+ * carries the same meaning (serviceType + provider + areaServed) with no
+ * premises implied. The provider entities we REVIEW keep FinancialService on
+ * their own /companies/[slug] pages, where a real headquarters address exists.
+ */
+const comparisonServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "FinancialService",
+  "@type": "Service",
   "@id": `${SITE_URL}/#service`,
   name: "SendMoneyCompare",
   url: SITE_URL,
@@ -269,7 +282,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(financialServiceSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(comparisonServiceSchema) }}
       />
       {/* Pass locale, messages, timeZone AND now explicitly. Omitting any of
           these makes NextIntlClientProvider's server entry call getTimeZone()/

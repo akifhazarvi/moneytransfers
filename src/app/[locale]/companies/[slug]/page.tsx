@@ -25,6 +25,7 @@ import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { fitTitle } from "@/lib/seo-title";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -45,7 +46,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // standard SEO limits (title ≲60 chars, description ≲160 chars). The long
   // per-provider editorial titles/descriptions were retired when the category
   // was unified on the compact profile template.
-  const title = `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Cheaper Options on Your Route?`;
+  // Ladder, not one pattern: "United Overseas Bank (UOB) Review 2026 — Cheaper
+  // Options on Your Route?" came to 71 chars, so the question — the part doing
+  // the CTR work — was the part search engines cut.
+  const title = fitTitle([
+    `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Cheaper Options on Your Route?`,
+    `${provider.name} Review ${year} — Cheaper Options on Your Route?`,
+    `${provider.name} Review ${year}${tp?.score ? `: ★${tp.score.toFixed(1)}` : ""} — Fees & Rates`,
+    `${provider.name} Review ${year}`,
+  ]);
   const description = `${provider.name}${tp?.score ? ` rated ★${tp.score.toFixed(1)}/5` : " reviewed"}: real fees and FX markup on a $1,000 transfer — plus the apps that beat it right now for your corridor. Free, no signup.`;
   return {
     title,

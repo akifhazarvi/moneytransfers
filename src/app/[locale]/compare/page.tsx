@@ -150,15 +150,18 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
     })),
   };
 
+  // Typed as WebPage, not WebApplication. Google's Software App rich result
+  // requires an aggregateRating alongside name + offers, and we have no
+  // genuine rating for our own tool — inventing one would be fabricated review
+  // data. WebPage + isAccessibleForFree states the same facts (it's a free
+  // interactive comparison) without claiming a rich-result type we can't meet.
   const appSchema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "WebPage",
     name: "Money Transfer Provider Comparison Tool",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
     description: "Pick any two money transfer providers and instantly see who delivers more — live exchange rates, fees, and a feature-by-feature comparison.",
     url: "https://sendmoneycompare.com/compare",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    isAccessibleForFree: true,
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
   };
 

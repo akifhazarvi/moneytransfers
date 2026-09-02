@@ -28,7 +28,10 @@ const amt = `$${idx.amount.toLocaleString()}`;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const title = `Banks Cost ${idx.bankVsAppMultiple}× More Than Apps to Send Money Abroad (${asOfLong} Data)`;
+  // Was 76 chars and, once shortened, differed from the <h1> only by casing —
+  // which still reads as a duplicate title/H1 pair. Naming the index instead
+  // front-loads the entity and leaves the finding itself to the headline.
+  const title = `Bank vs App Transfer Cost Index — ${asOfLong} Data`;
   const description = `Live data from ${idx.bankQuoteCount + idx.appQuoteCount} quotes across ${idx.corridorCount} corridors: sending ${amt} via a traditional bank costs ${idx.bankAvgCostPct}% on average vs ${idx.appAvgCostPct}% via a specialist app. See the named bank leaderboard and download the dataset.`;
   return {
     title: { absolute: title },

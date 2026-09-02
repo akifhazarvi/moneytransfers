@@ -35,7 +35,10 @@ export default function ProviderLink({
     <a
       href={hrefWithSrc}
       target="_blank"
-      rel="noopener noreferrer nofollow"
+      // sponsored + nofollow: these are monetised /go redirects, and
+      // rel="sponsored" is the attribute Google asks for on paid links. The
+      // nofollow stays as the backstop for engines that ignore sponsored.
+      rel="noopener noreferrer nofollow sponsored"
       onClick={() => trackProviderClicked(provider, corridor, rank, source)}
       className={className}
     >

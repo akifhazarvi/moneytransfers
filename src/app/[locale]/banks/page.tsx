@@ -16,6 +16,7 @@ import {
 import { currencies } from "@/data/providers";
 import { getAlternates } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
+import { providerLogo } from "@/lib/provider-logo";
 
 export const revalidate = 21600;
 
@@ -31,7 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const year = new Date().getFullYear();
   return {
-    title: `Bank International Transfer Fees Compared (${year}) — Wells Fargo, HSBC, Chase, Lloyds, Barclays`,
+    // Was 93 chars: everything after "Compared" was truncated in the SERP, so
+    // the bank names it was carrying never rendered anyway.
+    title: `Bank International Transfer Fees Compared (${year}) | SendMoneyCompare`,
     description: `How much do major banks really charge for international transfers? Live data showing what HSBC, Wells Fargo, Chase, Lloyds and Barclays customers pay vs Wise, Remitly and specialist providers on the same corridor and amount.`,
     alternates: getAlternates("banks", locale),
   };
@@ -72,7 +75,7 @@ export default async function BanksHubPage() {
                   <div className="flex items-start gap-4">
                     <div className="relative w-14 h-14 bg-white rounded-xl border border-[var(--color-outline)] p-1 shrink-0">
                       <Image
-                        src={`/logos/${bank.slug}.png`}
+                        src={providerLogo(bank.slug)}
                         alt={`${bank.name} logo`}
                         fill
                         className="object-contain p-1.5"
