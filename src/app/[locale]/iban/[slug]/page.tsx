@@ -7,6 +7,7 @@ import StatBox from "@/components/StatBox";
 import CircleFlag from "@/components/CircleFlag";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import {
   wiseCountries,
   getWiseCountryBySlug,
@@ -17,6 +18,11 @@ import { getIbanEditorial, getIbanFaqs } from "@/data/iban-content";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { INDEXED_IBAN_SLUGS as indexedIbanCountries } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
+
+// Default sending currency for the inline comparison. USD is the largest
+// outbound remittance market and the site's default quote currency; the widget
+// is skipped entirely when it would produce a same-currency corridor.
+const SEND_FROM_CURRENCY = "USD";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -502,6 +508,23 @@ export default async function IbanCountryPage({ params }: Props) {
             <StatBox label="SEPA" value={country.sepa ? "Yes" : "No"} />
             <StatBox label="Banks" value={country.banks.length > 0 ? `${country.banks.length}+` : "—"} />
           </div>
+
+          {/* Live comparison. Before 2026-09-01 this page had NO /go/ link at
+              all and the first /send-money/ link sat 90% down — so the whole
+              /iban/* family (plus /swift-codes/* and /exchange-rates/*) pulled
+              ~1,170 sessions per 90 days and converted under 1%. Someone
+              looking up an IBAN is mid-transfer; the comparison belongs here,
+              right after the reference facts they came for, not in the footer. */}
+          {country.currency !== SEND_FROM_CURRENCY && (
+            <InlineProviderQuotes
+              from={SEND_FROM_CURRENCY}
+              to={country.currency}
+              amount={1000}
+              source={`iban:${slug}`}
+              heading={`Sending money to ${name}? Compare live rates`}
+              subheading={`Live ${SEND_FROM_CURRENCY}→${country.currency} quotes, updated every 6 hours.`}
+            />
+          )}
 
           {/* Example IBAN */}
           <Card>

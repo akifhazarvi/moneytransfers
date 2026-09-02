@@ -1,5 +1,6 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchExchangeRates } from "@/lib/exchange-rates";
@@ -454,6 +455,23 @@ export default async function ExchangeRatePairPage({ params }: Props) {
               <p className="text-[var(--color-on-surface-variant)]">Rate data temporarily unavailable.</p>
             )}
           </div>
+
+          {/* Live provider comparison, directly under the mid-market rate.
+              The mid-market number is what nobody actually gets — showing the
+              real all-in cost here is the honest next step, and it is the only
+              /go/ link on the page. Before 2026-09-01 this family had none at
+              all: ~1,170 sessions per 90 days across /exchange-rates/*,
+              /iban/* and /swift-codes/* converting under 1%. */}
+          {p.corridor && (
+            <InlineProviderQuotes
+              from={p.from}
+              to={p.to}
+              amount={1000}
+              source={`rate:${pair}`}
+              heading={`Nobody gets the mid-market rate — here is what you actually get`}
+              subheading={`Live ${p.from}→${p.to} all-in costs from 15+ providers, updated every 6 hours.`}
+            />
+          )}
 
           {/* In-context news callout — shown when pair has a related article */}
           {(() => {

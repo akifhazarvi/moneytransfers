@@ -14,6 +14,14 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import { INDEXED_SWIFT_SLUGS as indexedSwiftCountries } from "@/lib/seo-indexing";
 import type { Metadata } from "next";
 
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+
+// Someone looking up a SWIFT/BIC code is mid-transfer. If the destination is
+// itself a USD country the USD→USD corridor is meaningless, so send from GBP —
+// the largest non-USD outbound market into the US.
+const SEND_FROM_CURRENCY = "USD";
+const SEND_FROM_FALLBACK = "GBP";
+
 interface Props {
   params: Promise<{ country: string; locale: string }>;
 }
@@ -331,6 +339,20 @@ export default async function SwiftCountryPage({ params }: Props) {
             <StatBox label={t("branches")} value={`${country.branches.length || "—"}`} />
             <StatBox label={t("currency")} value={country.currencyCode || "—"} />
           </div>
+
+          {/* Live comparison — see the note in iban/[slug]/page.tsx. This family
+              had no /go/ link at all and its first /send-money/ link sat 96%
+              down the page. */}
+          {country.currencyCode && (
+            <InlineProviderQuotes
+              from={country.currencyCode === SEND_FROM_CURRENCY ? SEND_FROM_FALLBACK : SEND_FROM_CURRENCY}
+              to={country.currencyCode}
+              amount={1000}
+              source={`swift:${country.slug}`}
+              heading={`Sending money to ${country.name}? Compare live rates`}
+              subheading={`You need the SWIFT/BIC above to send — these are the live all-in costs.`}
+            />
+          )}
 
           {/* Banks with SWIFT codes */}
           {country.branches.length > 0 ? (
