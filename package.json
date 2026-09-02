@@ -41,10 +41,10 @@
     "social:preview": "npx tsx scripts/social/generate-digest.ts",
     "social:dry-run": "npx tsx scripts/social/post-daily.ts --dry-run",
     "social:post": "npx tsx scripts/social/post-daily.ts",
-    "check:ranking": "tsx scripts/check-ranking-urls.ts",
-    "check:assets": "tsx scripts/check-assets.ts",
-    "check:links": "tsx scripts/check-links.ts",
-    "check:indexing": "tsx scripts/check-indexing.ts",
+    "check:ranking": "npx tsx scripts/check-ranking-urls.ts",
+    "check:assets": "npx tsx scripts/check-assets.ts",
+    "check:links": "npx tsx scripts/check-links.ts",
+    "check:indexing": "npx tsx scripts/check-indexing.ts",
     "postbuild": "npx tsx scripts/check-links.ts && npx tsx scripts/check-indexing.ts"
   },
   "dependencies": {
