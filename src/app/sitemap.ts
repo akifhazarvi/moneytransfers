@@ -39,6 +39,29 @@ const STATIC_CONTENT_DATE = "2026-03-01";
 // actually changed, not deploy time.
 const DATA_UPDATED = getDataUpdatedDate();
 
+// Stable content dates for the large TEMPLATED families.
+//
+// These pages carry live quote data, but the data is not what the page *says*.
+// A corridor page's answer is "these are the cheapest providers for USD→INR";
+// that answer changes when the ranking changes, not when a rate ticks from
+// 94.72 to 94.75. Stamping all 437 with DATA_UPDATED meant 509 of 690 sitemap
+// URLs claimed to have changed today — every day, forever.
+//
+// That is the pattern Google discounts, and it discounts lastmod SITEWIDE,
+// so it also throws away the signal on pages where it is genuinely
+// informative (a new guide, a news piece, a live converter).
+//
+// Per-corridor stamping from the quote rows was measured and rejected: every
+// scraper file is 1–2 days old, so it produced just two distinct dates across
+// 1,096 currency pairs — accurate, but no more informative than a constant.
+//
+// Each constant is the date that family's template or editorial content last
+// actually changed, per git history. Bump one when you change that family —
+// the same discipline STATIC_HUB_DATE already follows.
+const CORRIDOR_CONTENT_DATE = "2026-08-31";   // corridor template + EUR collapse
+const COMPARISON_CONTENT_DATE = "2026-08-19"; // /compare, /banks, review fallback
+const RATE_PAGE_CONTENT_DATE = "2026-09-01";  // /exchange-rates/* — inline quotes added
+
 function entry(path: string, lastModified: string): MetadataRoute.Sitemap[number] {
   const url = path ? `${SITE_URL}/${path}` : SITE_URL;
   return { url, lastModified };
@@ -142,18 +165,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
     .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
-    .map((c) => entry(`send-money/${c.slug}`, DATA_UPDATED));
+    .map((c) => entry(`send-money/${c.slug}`, CORRIDOR_CONTENT_DATE));
 
   // ── Provider reviews ──
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));
-  const reviewDateMap = new Map(providerReviews.map((r) => [r.slug, r.updatedAt || DATA_UPDATED]));
+  const reviewDateMap = new Map(providerReviews.map((r) => [r.slug, r.updatedAt || COMPARISON_CONTENT_DATE]));
   const providerPages: MetadataRoute.Sitemap = providers
     .filter((p) => reviewedSlugs.has(p.slug) && SITEMAP_PROVIDER_SLUGS.has(p.slug))
-    .map((p) => entry(`companies/${p.slug}`, reviewDateMap.get(p.slug) || DATA_UPDATED));
+    .map((p) => entry(`companies/${p.slug}`, reviewDateMap.get(p.slug) || COMPARISON_CONTENT_DATE));
 
   // ── Head-to-head comparison pages ──
   const comparisonPages: MetadataRoute.Sitemap = [...SITEMAP_COMPARISON_SLUGS].map((slug) =>
-    entry(`compare/${slug}`, DATA_UPDATED),
+    entry(`compare/${slug}`, COMPARISON_CONTENT_DATE),
   );
 
   // ── Editorial guides ──
@@ -168,14 +191,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Exchange-rate pages ──
   const ratePages: MetadataRoute.Sitemap = [...SITEMAP_RATE_PAIR_SLUGS].map((pair) =>
-    entry(`exchange-rates/${pair}`, DATA_UPDATED),
+    entry(`exchange-rates/${pair}`, RATE_PAGE_CONTENT_DATE),
   );
 
   // ── Rate history pages ──
-  const rateHistoryHub: MetadataRoute.Sitemap = [entry("exchange-rates/history", DATA_UPDATED)];
+  const rateHistoryHub: MetadataRoute.Sitemap = [entry("exchange-rates/history", RATE_PAGE_CONTENT_DATE)];
   const rateHistoryPages: MetadataRoute.Sitemap = getAllInsights(2)
     .filter((i) => SITEMAP_RATE_HISTORY_SLUGS.has(corridorToSlug(i.corridor)))
-    .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, DATA_UPDATED));
+    .map((i) => entry(`exchange-rates/history/${corridorToSlug(i.corridor)}`, RATE_PAGE_CONTENT_DATE));
 
   // ── IBAN country pages ──
   const ibanPages: MetadataRoute.Sitemap = wiseCountries
@@ -198,11 +221,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // data, not auto-generated thin content; demand justifies inclusion before
   // GSC impressions accumulate.
   const bankPages: MetadataRoute.Sitemap = [
-    entry("banks", DATA_UPDATED),
+    entry("banks", COMPARISON_CONTENT_DATE),
     // Only indexable pilots (hsbc, chase). wells-fargo/lloyds/barclays dropped
     // 2026-06-21 — 0 traction on both engines, now noindexed (see
     // banks/[slug]/page.tsx INDEXED_BANK_SLUGS — single source of truth).
-    ...[...INDEXED_BANK_SLUGS].map((slug) => entry(`banks/${slug}`, DATA_UPDATED)),
+    ...[...INDEXED_BANK_SLUGS].map((slug) => entry(`banks/${slug}`, COMPARISON_CONTENT_DATE)),
   ];
 
   return [
