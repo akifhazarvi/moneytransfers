@@ -1,3 +1,4 @@
+import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
@@ -5,22 +6,74 @@ import SendMoneyClient from "@/components/SendMoneyClient";
 import CircleFlag from "@/components/CircleFlag";
 import { providers, currencies, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
-import { getAlternates } from "@/lib/i18n-metadata";
+import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getRateInsight, rateLevelConfig, getRateOfTheMonth } from "@/lib/rate-history";
 import { SITEMAP_RATE_PAIR_SLUGS } from "@/lib/sitemap-allowlists";
+import { allCorridors } from "@/data/corridors";
+import { shouldNoindex } from "@/lib/corridor-tiers";
+import { corridorPageRenders } from "@/lib/route-map";
+
+/**
+ * Crawlable index of every corridor the sitemap submits.
+ *
+ * A sitemap entry is a recommendation to index, and a URL nothing links to has
+ * no path for a crawler to reach it and no signal of its place in the site.
+ * 147 of the 437 submitted corridors had zero incoming internal links on the
+ * 2026-09-02 build — reachable only via sitemap.xml.
+ *
+ * Scoped by the same two predicates the sitemap and the route use, so the index
+ * self-heals when an allowlist changes instead of drifting into links that 404.
+ */
+const corridorIndex = (() => {
+  const submitted = allCorridors.filter(
+    (c) =>
+      corridorPageRenders(c.slug) &&
+      !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage),
+  );
+
+  const bySource = new Map<string, { slug: string; label: string }[]>();
+  const countryPages: { slug: string; label: string }[] = [];
+  const currencyPairs: { slug: string; label: string }[] = [];
+
+  for (const c of submitted) {
+    if (c.isCountryPage) {
+      countryPages.push({ slug: c.slug, label: c.toCountry || c.toCurrency });
+    } else if (c.isCurrencyCorridor) {
+      currencyPairs.push({ slug: c.slug, label: `${c.fromCurrency} → ${c.toCurrency}` });
+    } else {
+      const key = c.fromCountry || c.fromCurrency;
+      const list = bySource.get(key) ?? [];
+      list.push({ slug: c.slug, label: `${c.toCountry || c.toCurrency} (${c.toCurrency})` });
+      bySource.set(key, list);
+    }
+  }
+
+  const collator = new Intl.Collator("en");
+  for (const list of bySource.values()) list.sort((a, b) => collator.compare(a.label, b.label));
+  countryPages.sort((a, b) => collator.compare(a.label, b.label));
+  currencyPairs.sort((a, b) => collator.compare(a.label, b.label));
+
+  return {
+    total: submitted.length,
+    groups: [...bySource.entries()].sort(([a], [b]) => collator.compare(a, b)),
+    countryPages,
+    currencyPairs,
+  };
+})();
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "sendMoney" });
   return {
     title: t("indexMetaTitle"),
-    description: t("indexMetaDescription"),
+    description: seoDescription(t("indexMetaDescription")),
     alternates: getAlternates("send-money", locale),
     openGraph: {
       title: t("indexMetaTitle"),
       description: t("indexMetaDescription"),
       url: "https://sendmoneycompare.com/send-money",
+      images: DEFAULT_OG_IMAGES,
     },
   };
 }
@@ -210,6 +263,77 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
               })}
             </div>
           </div>
+
+          {/* Grouped so the list stays navigable; each group is a <details> so
+              the page stays scannable. Links inside a closed <details> are still
+              in the HTML and still crawled. */}
+          <nav
+            aria-label="All money transfer corridors"
+            className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8"
+          >
+            <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
+              All corridors we compare
+            </h2>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mb-5">
+              {corridorIndex.total} routes with live provider data, grouped by where you send from.
+            </p>
+
+            <div>
+              {corridorIndex.groups.map(([country, corridors]) => (
+                <details key={country} className="border-b border-[var(--color-outline)] last:border-b-0">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 py-2.5 text-sm font-medium text-[var(--color-on-surface)]">
+                    <span>Sending from {country}</span>
+                    <span className="shrink-0 text-2xs font-normal text-[var(--color-on-surface-variant)]">
+                      {corridors.length} routes
+                    </span>
+                  </summary>
+                  <ul className="grid gap-x-6 gap-y-1.5 pb-4 pt-1 sm:grid-cols-2 lg:grid-cols-3">
+                    {corridors.map((c) => (
+                      <li key={c.slug}>
+                        <Link href={`/send-money/${c.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                          {c.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ))}
+            </div>
+
+            {corridorIndex.countryPages.length > 0 && (
+              <>
+                <h3 className="mt-7 mb-3 text-2sm font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+                  Destination guides
+                </h3>
+                <ul className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-3">
+                  {corridorIndex.countryPages.map((c) => (
+                    <li key={c.slug}>
+                      <Link href={`/send-money/${c.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                        Send money to {c.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {corridorIndex.currencyPairs.length > 0 && (
+              <>
+                <h3 className="mt-7 mb-3 text-2sm font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
+                  By currency pair
+                </h3>
+                <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
+                  {corridorIndex.currencyPairs.map((c) => (
+                    <li key={c.slug}>
+                      <Link href={`/send-money/${c.slug}`} className="text-2sm text-[var(--color-primary)] hover:underline">
+                        {c.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </nav>
 
           <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-outline)] p-6 md:p-8">
             <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-4">
