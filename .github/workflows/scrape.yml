@@ -28,11 +28,39 @@ jobs:
     # job, so remaining steps are skipped regardless of their conditions. The
     # only real protection is keeping the budget sum below the cap.
     #
-    # Current budget: 67 (scrapers) + 22 (tail) + ~1 (npm ci) = ~90 < 105.
+    # Current budget: 61 (scrapers) + 26 (tail) + ~1 (npm ci) = ~88 < 105.
     timeout-minutes: 105
+
+    env:
+      # Single source of truth for what "Commit scraped data" stages, verified
+      # at the top of the job by "Verify commit paths exist". See the INVARIANT
+      # on that step for why this is not just inlined into the `git add`.
+      COMMIT_PATHS: src/data/scraped/ public/llms.txt
 
     steps:
       - uses: actions/checkout@v4
+
+      # INVARIANT: every path in COMMIT_PATHS must exist in the repo. `git add`
+      # on a missing pathspec is fatal, and under `bash -e` that aborts the
+      # commit step *before* it commits — silently discarding the whole night.
+      #
+      # That is exactly what happened on 2026-09-01 and 2026-09-02: af407cae5
+      # deleted src/data/ip-intel/ but left it in the `git add` list, so all 13
+      # scrapers ran green for 31 minutes and then the commit, push, Vercel
+      # deploy and IndexNow ping were all skipped. Two nights of Tier-1 quotes,
+      # history aggregation and rate insights were thrown away.
+      #
+      # Checking here costs a second and turns that into a red run at minute 0.
+      # Do not inline the paths back into the `git add` — the point of the
+      # shared env var is that the list cannot drift away from what is checked.
+      - name: Verify commit paths exist
+        run: |
+          for path in $COMMIT_PATHS; do
+            if [ ! -e "$path" ]; then
+              echo "::error::COMMIT_PATHS references '$path', which does not exist. Remove it (or restore the path) — otherwise this job scrapes for 30m into a commit that cannot happen."
+              exit 1
+            fi
+          done
 
       - uses: actions/setup-node@v4
         with:
@@ -132,11 +160,6 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
-      - name: Refresh IP-intelligence datasets (ASN MMDB + datacenter list)
-        run: npx tsx scripts/fetch-ip-intel.ts
-        timeout-minutes: 4
-        continue-on-error: true
-
       # The tail steps were previously unbounded. A hang in any of them would
       # burn the whole remaining job budget and skip the commit just as surely
       # as a slow scraper, so they are capped too and counted in the invariant.
@@ -170,7 +193,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/scraped/ src/data/ip-intel/ public/llms.txt
+          git add $COMMIT_PATHS
           git diff --staged --quiet || git commit -m "chore: update scraped provider data [$(date -u +%Y-%m-%dT%H:%M)]"
           # Prefer freshly-scraped output over divergent main (e.g. manual scrapes).
           git pull --rebase -X theirs
