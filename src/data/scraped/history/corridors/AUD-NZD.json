@@ -7340,5 +7340,58 @@
         "receiveAmount": 119.07
       }
     }
+  },
+  {
+    "date": "2026-09-03",
+    "providers": {
+      "paypal": {
+        "rate": 1.161,
+        "fee": 5,
+        "markup": null,
+        "receiveAmount": 110.3
+      },
+      "western-union": {
+        "rate": 1.209,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 119.7
+      },
+      "westpac": {
+        "rate": 1.1768,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 117.68
+      },
+      "commonwealth-bank": {
+        "rate": 1.1834,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 118.34
+      },
+      "hsbc": {
+        "rate": 1.193,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 119.3
+      },
+      "nab": {
+        "rate": 1.1915,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 119.15
+      },
+      "xoom": {
+        "rate": 1.1729,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 117.29
+      },
+      "anz": {
+        "rate": 1.1856,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 118.56
+      }
+    }
   }
 ]
