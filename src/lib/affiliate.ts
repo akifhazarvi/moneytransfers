@@ -288,6 +288,59 @@ function buildPartnerGroupLink(providerSlug: string, params: AffiliateParams): s
   );
 }
 
+// Remitly, via Impact's `u=` deep-link parameter. Without it the click lands on
+// remitly.com's root and the sender re-enters the corridor and amount they just
+// told us — the single largest avoidable drop in the funnel for our biggest
+// unclaimed provider. Impact preserves irclickid/subId1 through the redirect,
+// so attribution survives the deep link.
+//
+// Both maps are VERIFIED against live remitly.com responses (2026-09-03), not
+// inferred: every send market below answers 200 on
+// /{cc}/en/money-transfer/send-money-to-india, and every destination stays on
+// its own send-money-to-<slug> URL rather than bouncing to a generic page.
+// Malaysia and Switzerland 404 as Remitly send markets and are deliberately absent.
+const REMITLY_SEND_MARKETS: Record<string, string> = {
+  USD: "us", GBP: "gb", CAD: "ca", AUD: "au", NZD: "nz", SGD: "sg", AED: "ae",
+  EUR: "de", // largest EUR send market; ie/fr/es/it/nl/at/be/fi all resolve too
+  SEK: "se", NOK: "no", DKK: "dk", PLN: "pl",
+};
+
+// Only currencies that map to ONE country. EUR and XOF are deliberately absent
+// as receive currencies — both span many countries, so any slug we picked would
+// send a share of users to the wrong corridor page.
+const REMITLY_DESTINATIONS: Record<string, string> = {
+  INR: "india", PHP: "philippines", PKR: "pakistan", MXN: "mexico",
+  NGN: "nigeria", VND: "vietnam", BRL: "brazil", COP: "colombia",
+  CNY: "china", KES: "kenya", JMD: "jamaica", GHS: "ghana",
+  BDT: "bangladesh", LKR: "sri-lanka", NPR: "nepal", EGP: "egypt",
+  MAD: "morocco", GTQ: "guatemala", HNL: "honduras", PEN: "peru",
+  DOP: "dominican-republic", HTG: "haiti", UGX: "uganda", TZS: "tanzania",
+  ETB: "ethiopia", ZAR: "south-africa", THB: "thailand", IDR: "indonesia",
+};
+
+function buildRemitlyDeepLink(params: AffiliateParams): string {
+  const tracked = appendClickref(
+    appendUtms(affiliateLinks.remitly, params.clickId, {
+      corridor: params.corridor,
+      amount: params.sourceAmount,
+      source: params.source,
+      from: params.sourceCurrency,
+      to: params.targetCurrency,
+    }),
+    params.clickref,
+  );
+
+  const send = params.sourceCurrency ? REMITLY_SEND_MARKETS[params.sourceCurrency.toUpperCase()] : undefined;
+  const dest = params.targetCurrency ? REMITLY_DESTINATIONS[params.targetCurrency.toUpperCase()] : undefined;
+  // Fail open. An unmapped corridor keeps the plain campaign link, which lands
+  // on a working page — far better than gambling on a slug and serving a 404.
+  if (!send || !dest) return tracked;
+
+  const u = new URL(tracked);
+  u.searchParams.set("u", `https://www.remitly.com/${send}/en/money-transfer/send-money-to-${dest}`);
+  return u.toString();
+}
+
 function buildWiseDeepLink(params: AffiliateParams): string {
   const base = affiliateLinks.wise;
 
@@ -337,6 +390,10 @@ export function getAffiliateUrl(
 
   if (PARTNER_GROUP_SLUGS.has(providerSlug)) {
     return buildPartnerGroupLink(providerSlug, params ?? {});
+  }
+
+  if (providerSlug === "remitly") {
+    return buildRemitlyDeepLink(params ?? {});
   }
 
   if (providerSlug === "instarem") {
