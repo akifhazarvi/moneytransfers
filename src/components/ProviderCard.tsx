@@ -174,9 +174,14 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
                   trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank, "results_row_mobile");
                 }}
                 className={`inline-flex items-center gap-1.5 h-11 px-4 text-sm font-bold rounded-full transition-all active:scale-95 bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]`}
-                aria-label={`Send with ${providerName}`}
+                aria-label={`Go to ${providerName}`}
               >
-                {isBest ? "Send →" : "Send"}
+                {/* Named, not "Send": "Send" reads as "send money here, on this
+                    site", so the click feels like a commitment to an unknown next
+                    step. Naming the destination is what every large comparison
+                    site does, and it matters most for pay-per-click partners. */}
+                <span className="truncate max-w-[9.5rem]">Go to {providerName}</span>
+                {isBest && <span aria-hidden="true">→</span>}
               </a>
               <button
                 onClick={(e) => { e.stopPropagation(); }}
@@ -313,10 +318,10 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               e.stopPropagation();
               trackProviderClicked(quote.providerSlug, `${quote.sendCurrency}-${quote.receiveCurrency}`, rank, "results_row");
             }}
-            className={`shrink-0 inline-flex items-center justify-center gap-1.5 h-9 w-[104px] text-2sm font-semibold rounded-full transition-all duration-150 bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]`}
-            aria-label={`Send with ${providerName}`}
+            className={`shrink-0 inline-flex items-center justify-center gap-1.5 h-9 w-[104px] lg:w-[168px] text-2sm font-semibold rounded-full transition-all duration-150 bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)] shadow-[var(--shadow-success)]`}
+            aria-label={`Go to ${providerName}`}
           >
-            <span className="hidden lg:inline">Send</span>
+            <span className="hidden lg:inline truncate">Go to {providerName}</span>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

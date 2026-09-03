@@ -47,6 +47,42 @@ function appendTrackingAttrs(u: URL, clickId?: string): void {
   }
 }
 
+// Alternate slugs the scraped feeds have emitted for a provider we already list.
+// They used to carry their own COPY of the destination URL, which meant signing a
+// provider and updating the obvious slug left the twin silently pointing at the
+// old placeholder — a booby trap on taptap-send in particular, the most-clicked
+// provider on the site. Resolving here means one entry per provider, and one edit
+// when a contract lands.
+// Providers we have a commercial relationship with — network programmes (Wise and
+// Instarem via Partnerize, Remitly via Impact, TorFX/Currencies Direct via their
+// partner path) AND direct arrangements tracked by the `ref=sendmoneycompare`
+// parameter rather than a network (TapTap Send, Unplex). The ref links are NOT
+// placeholders: the provider reads that parameter and attributes the traffic.
+//
+// This set drives the materiality tie-break in quotes-engine, so an entry added
+// here changes what users are shown first. Add a provider only once a real
+// commercial relationship exists.
+export const MONETISED_SLUGS = new Set<string>([
+  "wise",
+  "instarem",
+  "remitly",
+  "torfx",
+  "currencies-direct",
+  "regencyfx",
+  "taptap-send",
+  "unplex",
+]);
+
+const SLUG_ALIASES: Record<string, string> = {
+  taptapsend: "taptap-send",
+  "xe-money-transfer": "xe",
+  "xe-money-transfer-fx": "xe",
+  "revolut-money-transfer": "revolut",
+  "chase-bank": "chase",
+  "the-royal-bank-of-scotland": "rbs",
+  "united-overseas-bank": "uob",
+};
+
 const affiliateLinks: Record<string, string> = {
   // --- Core providers (hardcoded in providers.ts) ---
   wise: "https://wise.prf.hn/click/camref:1011l5EGnY",
@@ -96,13 +132,7 @@ const affiliateLinks: Record<string, string> = {
   "td-bank": "https://td.com/us/en/personal-banking/international-transfers/",
 
   // --- Aggregator slug aliases (same provider, different slug across sources) ---
-  "revolut-money-transfer": "https://revolut.com/?ref=sendmoneycompare",
-  "chase-bank": "https://chase.com/personal/international-transfers",
-  taptapsend: "https://taptapsend.com/?ref=sendmoneycompare",
-  "xe-money-transfer": "https://xe.com/?ref=sendmoneycompare",
-  "xe-money-transfer-fx": "https://xe.com/?ref=sendmoneycompare",
   rbs: "https://rbs.co.uk/international-payments.html",
-  "the-royal-bank-of-scotland": "https://rbs.co.uk/international-payments.html",
   uob: "https://uob.com.sg/personal/save/international-transfers.page",
 
   // --- Aggregator-only fintechs ---
@@ -139,7 +169,6 @@ const affiliateLinks: Record<string, string> = {
   "sbi-remit": "https://sbiremit.com/?ref=sendmoneycompare",
   "sbi-california": "https://sbical.com/?ref=sendmoneycompare",
   ocbc: "https://ocbc.com/personal-banking/international-transfers.page",
-  "united-overseas-bank": "https://uob.com.sg/personal/save/international-transfers.page",
   "deutsche-bank": "https://deutsche-bank.de/international-transfers",
   commerzbank: "https://commerzbank.de/international-transfers",
   nab: "https://nab.com.au/personal/international-transfers",
@@ -376,6 +405,7 @@ export function getAffiliateUrl(
   params?: AffiliateParams,
   fallbackUrl?: string,
 ): string {
+  providerSlug = SLUG_ALIASES[providerSlug] ?? providerSlug;
   const url = affiliateLinks[providerSlug] || fallbackUrl;
   if (!url) {
     return "https://sendmoneycompare.com/send-money";
