@@ -6,15 +6,21 @@
  *
  * The three outcomes, and the signals that produce them:
  *
- *   "interstitial"   Any human-facing hit — BOTH a genuine on-site click (valid
- *                    signed token) AND a tokenless-but-plausible human (clean bot
- *                    score, e.g. an AI-cited or pasted /go link). Everyone lands
- *                    on the on-site review page first and clicks Continue to
- *                    forward. The valid-token case is still recorded as a
- *                    genuineClick (billing/attribution truth); it just no longer
- *                    skips the page. There is NO auto-continue — the Continue
- *                    button is a deliberate click, which is exactly what keeps a
- *                    JS-less bare fetch from ever forwarding on its own.
+ *   "redirect"       A genuine on-site click: a valid, unexpired signed token
+ *                    minted by /api/click-token for this provider. Forwards
+ *                    straight to the provider with no interposed page — the
+ *                    person already picked from the comparison table.
+ *                    REQUIRES CLICK_TOKEN_SECRET to be set: click-token.ts fails
+ *                    open without it (mint returns "", verify returns "absent"),
+ *                    so an unset secret silently sends every human back through
+ *                    the interstitial.
+ *
+ *   "interstitial"   A tokenless hit that does not self-identify as a crawler —
+ *                    a pasted or AI-cited /go link, or a scraper. Lands on the
+ *                    on-site review page and must click Continue to forward.
+ *                    There is NO auto-continue — the Continue button is a
+ *                    deliberate click, which is what keeps a JS-less bare fetch
+ *                    from ever forwarding on its own.
  *
  *   "not_forwarded"  A self-identifying automated client (isBot from the UA /
  *                    Referer classifier). We render the same interstitial
@@ -106,15 +112,19 @@ export function decideRedirect(input: {
 }): { outcome: RedirectOutcome; genuineClick: boolean; gated: boolean } {
   const genuineClick = input.tokenStatus === "valid";
 
-  // EVERY human-facing hit now lands on the interstitial first, then forwards —
-  // including genuine on-site clicks (valid token). We still record them as a
-  // genuineClick (billing/attribution truth) and NOT gated (a real human, not a
-  // suspicious hit); they simply see the on-site review page before forwarding,
-  // where the interstitial's JS auto-continues (~1.2s) via ?continue=1 — which
-  // the route honors as the actual provider 302. Only confidently-scored bots
-  // are still not_forwarded (interstitial renders, but no auto-redirect).
+  // A valid token is proof this hit came from a real gesture on our own page:
+  // /api/click-token mints it per provider, short-lived, and only for a click we
+  // served. That person has already chosen a provider from the comparison table.
+  // Making them stop and confirm on a second page taxes the one event the site
+  // exists to produce, and the interstitial cannot tell them anything the table
+  // they just used did not. So a proven on-site click forwards immediately.
+  //
+  // The gate stays exactly where it earns its keep: everything tokenless. There
+  // is deliberately NO auto-continue for those (CONTINUE_INLINE only beacons the
+  // click) — a JS-capable scraper would sail through one, and the Aug 5-6
+  // Singapore wave is what that looks like.
   if (genuineClick) {
-    return { outcome: "interstitial", genuineClick: true, gated: false };
+    return { outcome: "redirect", genuineClick: true, gated: false };
   }
   if (input.isBot) {
     return { outcome: "not_forwarded", genuineClick: false, gated: true };
