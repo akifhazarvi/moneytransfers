@@ -15,6 +15,15 @@ export interface AffiliateParams {
   source?: string;   // originating surface — stamped as utm_content
 }
 
+// Impact.com issues per-brand redirect domains (remitly.tod8mp.net, plus the
+// shared *.pxf.io / *.sjv.io / *.7eer.net families), so the host is not a
+// reliable tell. The click path is: /c/<mediaPartnerId>/<adId>/<campaignId>.
+const IMPACT_CLICK_PATH = /^\/c\/\d+\/\d+\/\d+\/?$/;
+
+function isImpactLink(u: URL): boolean {
+  return IMPACT_CLICK_PATH.test(u.pathname);
+}
+
 // Extra tracking attributes we stamp on the outbound (non-Partnerize) URL so
 // the PROVIDER can see, on their side, exactly what we sent them: which
 // corridor, how much, from which surface, and a per-click id to reconcile
@@ -28,13 +37,21 @@ function appendTrackingAttrs(u: URL, clickId?: string): void {
     // means our click id shows up in their reporting wherever they DO read one.
     if (!u.searchParams.has("subid")) u.searchParams.set("subid", clickId);
     if (!u.searchParams.has("aff_sub")) u.searchParams.set("aff_sub", clickId);
+    // Impact.com reads the publisher's click identifier from `subId1` and
+    // ignores `subid`/`aff_sub` entirely, so without this a conversion in their
+    // portal cannot be tied back to the click that produced it — which is the
+    // whole reason smc_click_id exists. Case matters: `subid1` is not read.
+    if (isImpactLink(u) && !u.searchParams.has("subId1")) {
+      u.searchParams.set("subId1", clickId);
+    }
   }
 }
 
 const affiliateLinks: Record<string, string> = {
   // --- Core providers (hardcoded in providers.ts) ---
   wise: "https://wise.prf.hn/click/camref:1011l5EGnY",
-  remitly: "https://remitly.com/?ref=sendmoneycompare",
+  // Impact.com tracking link (media partner 7718824, ad 663350, campaign 10408).
+  remitly: "https://remitly.tod8mp.net/c/7718824/663350/10408",
   ofx: "https://ofx.com/?ref=sendmoneycompare",
   xe: "https://xe.com/?ref=sendmoneycompare",
   "western-union": "https://westernunion.com/?ref=sendmoneycompare",
