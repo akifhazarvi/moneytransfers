@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } from "react";
+import { rankQuotes } from "@/lib/rank-quotes";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
@@ -335,7 +336,10 @@ function SendMoneyContent() {
         return scoreB - scoreA || b.receiveAmount - a.receiveAmount;
       });
     }
-    else sorted.sort((a, b) => b.receiveAmount - a.receiveAmount);
+    // "Best value" is the default and the one users actually see, so it must
+    // apply the SAME rule the server used. Sorting by raw receiveAmount here is
+    // what put MoneyGram back above a higher-rated provider it beat by 0.03%.
+    else return rankQuotes(sorted);
 
     return sorted;
   }, [quotes, speedFilter, feeFilter, ratingFilter, paymentMethod, referralFilter, selectedProviders, sortBy]);
