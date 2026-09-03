@@ -31,6 +31,14 @@ interface Props {
   params: Promise<{ slug: string; locale: string }>;
 }
 
+// Without this, an unknown slug is rendered on demand and notFound() comes back
+// as HTTP 200 carrying `robots: index, follow` — a soft 404, and an unbounded
+// indexable URL space of them. Verified 2026-09-03: /companies/zzz-bogus answered 200
+// while /send-money and /compare, which already set this, answered a correct 404.
+// Every slug in the sitemap and seo-indexing allowlists is covered by
+// generateStaticParams (the 16 curated providers), so nothing that should render starts 404ing.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return providers.map((p) => ({ slug: p.slug }));
 }
