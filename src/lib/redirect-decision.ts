@@ -15,12 +15,18 @@
  *                    so an unset secret silently sends every human back through
  *                    the interstitial.
  *
- *   "interstitial"   A tokenless hit that does not self-identify as a crawler —
- *                    a pasted or AI-cited /go link, or a scraper. Lands on the
- *                    on-site review page and must click Continue to forward.
- *                    There is NO auto-continue — the Continue button is a
- *                    deliberate click, which is what keeps a JS-less bare fetch
- *                    from ever forwarding on its own.
+ *   "interstitial"   No longer returned by decideRedirect. The rendering path is
+ *                    retained because "not_forwarded" reuses the same HTML, and
+ *                    because ?continue=1 must keep working for links already in
+ *                    the wild. NO HUMAN-FACING HIT IS INTERPOSED ANY MORE.
+ *
+ * TRADE-OFF, recorded because it is a live risk rather than a settled one: over
+ * 2026-08-04..08-31 /go took 35,387 hits and only 227 were human-confirmed via
+ * the Continue beacon. Forwarding every tokenless hit means that junk volume now
+ * reaches Impact and Partnerize. Affiliate networks review publishers on exactly
+ * that ratio. If a network flags the account, the lever is to grade tokenless
+ * hits again (the additive bot scorer removed earlier) and send only low-scoring
+ * ones straight through — NOT to reinstate the page for people who clicked.
  *
  *   "not_forwarded"  A self-identifying automated client (isBot from the UA /
  *                    Referer classifier). We render the same interstitial
@@ -129,7 +135,16 @@ export function decideRedirect(input: {
   if (input.isBot) {
     return { outcome: "not_forwarded", genuineClick: false, gated: true };
   }
-  return { outcome: "interstitial", genuineClick: false, gated: true };
+  // Tokenless but not a self-identifying crawler. This bucket is BOTH the real
+  // people who arrive on a /go URL that ChatGPT or Perplexity printed — the
+  // second-largest converting channel on the site — and unidentified scrapers
+  // running a real browser UA. A stateless GET cannot separate them, and the
+  // interstitial taxed the humans to slow the scrapers.
+  //
+  // That trade is now made the other way: forward, and carry genuineClick=false
+  // so the two populations stay distinguishable in reporting even though they
+  // are treated alike on the wire.
+  return { outcome: "redirect", genuineClick: false, gated: false };
 }
 
 /**
