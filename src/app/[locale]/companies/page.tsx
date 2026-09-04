@@ -1,7 +1,7 @@
 import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
 import Image from "next/image";
-import { providers } from "@/data/providers";
+import { listableProviders } from "@/data/providers";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import RatingBadge from "@/components/RatingBadge";
@@ -31,7 +31,7 @@ export default async function CompaniesPage({ params }: { params: Promise<{ loca
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "companies" });
   // Sort: specialist transfer providers first (higher rated), then banks
-  const sorted = [...providers].sort((a, b) => {
+  const sorted = [...listableProviders()].sort((a, b) => {
     const aIsBank = a.paymentMethods.length === 1 && a.paymentMethods[0] === "Bank Transfer" && a.deliveryMethods.length === 1 && (a.exchangeRateMarkup.includes("3%") || a.exchangeRateMarkup.includes("4%") || a.exchangeRateMarkup.includes("5%"));
     const bIsBank = b.paymentMethods.length === 1 && b.paymentMethods[0] === "Bank Transfer" && b.deliveryMethods.length === 1 && (b.exchangeRateMarkup.includes("3%") || b.exchangeRateMarkup.includes("4%") || b.exchangeRateMarkup.includes("5%"));
     if (aIsBank !== bIsBank) return aIsBank ? 1 : -1;

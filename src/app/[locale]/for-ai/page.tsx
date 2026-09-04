@@ -7,7 +7,7 @@ import { DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
-import { providers, currencies } from "@/data/providers";
+import { providers, currencies, listableProviders } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { corridorPageRenders } from "@/lib/route-map";
 
@@ -309,7 +309,7 @@ export default function ForAIPage() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">All providers compared</h2>
             <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
-              {providers.map((p) => (
+              {listableProviders().map((p) => (
                 <li key={p.slug}>
                   <Link href={`/companies/${p.slug}`} className="text-[var(--color-primary)]">
                     {p.name}

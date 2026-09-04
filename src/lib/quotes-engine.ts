@@ -11,7 +11,7 @@
  * in @/data/providers, which is client-safe — it no longer pulls in this engine
  * or the dataset.
  */
-import { providers, getExchangeRate, type Provider, type TransferQuote } from "@/data/providers";
+import { providers, getExchangeRate, HIDDEN_PROVIDER_SLUGS, type Provider, type TransferQuote } from "@/data/providers";
 import { rankQuotes } from "@/lib/rank-quotes";
 import {
   quotesByCorridor,
@@ -155,11 +155,23 @@ export function generateQuotes(
     // pinned at mid-market and would otherwise win on receiveAmount and
     // claim the "Best Deal" badge.
     const indicative = buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate);
-    return [...rankQuotes(quotes), ...indicative];
+    return [...rankQuotes(listable(quotes)), ...listable(indicative)];
   }
 
   // No scraped data for this corridor — still surface indicative-only quotes
-  return buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate);
+  return listable(buildIndicativeQuotes(amount, fromCurrency, toCurrency, baseRate));
+}
+
+// Providers withheld from every comparison list. One gate here covers all of
+// them, because every surface — the results table, the Provider filter (its
+// options are derived from these quotes), the inline widget on guides, /iban,
+// /swift-codes, /banks and the converter — reads its rows from generateQuotes.
+//
+// This is a LISTING decision, not a removal. The affiliate link, /go/<slug> and
+// the /companies review page are deliberately untouched, so an inbound or
+// AI-cited link still resolves rather than 404ing a URL that is in the sitemap.
+function listable<T extends { providerSlug: string }>(quotes: T[]): T[] {
+  return quotes.filter((q) => !HIDDEN_PROVIDER_SLUGS.has(q.providerSlug));
 }
 
 // Providers we surface as estimated/indicative — they don't expose a public

@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { providers, type Provider } from "@/data/providers";
+import { providers, type Provider , HIDDEN_PROVIDER_SLUGS} from "@/data/providers";
 
 /* ─── Floating Dropdown (Portal) — mirrors CurrencyPicker so the tool feels native ─── */
 function FloatingDropdown({
@@ -99,6 +99,7 @@ export default function ProviderPicker({
   const filtered = providers.filter(
     (p: Provider) =>
       p.slug !== excludeSlug &&
+      !HIDDEN_PROVIDER_SLUGS.has(p.slug) &&
       (p.name.toLowerCase().includes(search.toLowerCase()) ||
         p.slug.toLowerCase().includes(search.toLowerCase()))
   );

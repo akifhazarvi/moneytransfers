@@ -24,7 +24,7 @@ import RatingBadge from "@/components/RatingBadge";
 import PrimaryButton from "@/components/PrimaryButton";
 import ComparisonWidget from "@/components/ComparisonWidget";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
-import { providers } from "@/data/providers";
+import { providers, listableProviders } from "@/data/providers";
 import { trustpilotIndex } from "@/lib/unified-quotes";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getGoUrl } from "@/lib/affiliate";
@@ -89,7 +89,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
   const month = new Date().toLocaleDateString("en-US", { month: "long" });
 
   // Top 15 providers ranked by a blended score (editorial rating * Trustpilot score)
-  const ranked = [...providers]
+  const ranked = [...listableProviders()]
     .filter((p) => p.rating >= 3.5)
     .sort((a, b) => {
       const aScore = a.rating * 10 + getScore(a.slug);

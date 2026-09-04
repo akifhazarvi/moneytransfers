@@ -45,6 +45,26 @@ export interface TransferQuote {
   promoNote?: string;
 }
 
+/**
+ * Providers withheld from every user-facing provider list.
+ *
+ * Lives here because "a provider list" is built from two different sources: the
+ * quote engine (results table, the Provider filter, the inline widget on guides,
+ * /iban, /swift-codes, /banks, the converter) and this `providers` array
+ * directly (/companies index, ProviderPicker). Hiding a provider from only one
+ * of them leaves it visible on the other, so both import this set.
+ *
+ * A LISTING decision, not a removal: the affiliate link, /go/<slug> and the
+ * /companies/<slug> review page are untouched, so an inbound or AI-cited link
+ * still resolves instead of 404ing a URL that sits in the sitemap.
+ */
+export const HIDDEN_PROVIDER_SLUGS = new Set<string>(["unplex"]);
+
+/** The `providers` array minus anything withheld from lists. */
+export function listableProviders(): Provider[] {
+  return providers.filter((p) => !HIDDEN_PROVIDER_SLUGS.has(p.slug));
+}
+
 export const providers: Provider[] = [
   {
     slug: "wise",
