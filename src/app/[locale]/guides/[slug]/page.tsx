@@ -687,7 +687,12 @@ export default async function BlogPostPage({ params }: Props) {
               )}
 
               {/* Comparison CTA — tracked */}
-              <GuideSidebarCTA slug={slug} />
+              <GuideSidebarCTA
+                slug={slug}
+                from={inlineQuoteCorridor.from}
+                to={inlineQuoteCorridor.to}
+                amount={inlineQuoteCorridor.amount}
+              />
 
               {/* Related Guides */}
               {relatedPosts.length > 0 && (

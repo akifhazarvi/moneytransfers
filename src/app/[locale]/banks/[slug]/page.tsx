@@ -36,6 +36,7 @@ import {
   INDEXED_BANK_SLUGS,
 } from "@/lib/bank-comparisons";
 import { getCorridorSlug } from "@/data/corridors";
+import InlineProviderQuotes from "@/components/InlineProviderQuotes";
 import { providers, getProviderName, currencies } from "@/data/providers";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -376,6 +377,28 @@ export default async function BankPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* ─── Live alternative on the bank's worst corridor ───
+           The page spends its length proving this bank loses the reader money,
+           then offered no way to act on it: /banks/* carried a single /go link
+           and no comparison at all, while /iban and /swift-codes both carry a
+           full provider block. corridorRows is already sorted by loss, so row 0
+           is the corridor where the argument is strongest. */}
+      {corridorRows.length > 0 && (
+        <section className="py-12 bg-[var(--color-surface)]">
+          <Container>
+            <div className="max-w-3xl">
+              <InlineProviderQuotes
+                from={corridorRows[0].sendCurrency}
+                to={corridorRows[0].receiveCurrency}
+                amount={1000}
+                heading={`Live ${corridorRows[0].sendCurrency} → ${corridorRows[0].receiveCurrency} rates — what ${bank.name} is costing you`}
+                source={`bank:${slug}`}
+              />
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ─── FAQ ─── */}
       <section className="py-12 bg-[var(--color-surface)]">
