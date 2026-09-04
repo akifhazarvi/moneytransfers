@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GONE_COMPANY_SLUGS } from "@/lib/gone-companies";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { providers } from "@/data/providers";
@@ -40,7 +41,11 @@ interface Props {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return providers.map((p) => ({ slug: p.slug }));
+  // Retired slugs are 410'd by middleware before this route is reached; keeping
+  // them out of the build means we don't ship a page nothing can ever serve.
+  return providers
+    .filter((p) => !GONE_COMPANY_SLUGS.has(p.slug))
+    .map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -334,8 +334,8 @@ export const SITEMAP_PROVIDER_SLUGS = new Set<string>([
   "torfx",
   "regencyfx",
   "lemfi",
-  "unplex",
-]); // 13 URLs (was 6)
+  // unplex retired 2026-09-04 (410) — see src/lib/gone-companies.ts
+]); // 12 URLs (was 6)
 
 export const SITEMAP_NEWS_SLUGS = new Set<string>([
   "central-bank-super-week-march-2026",

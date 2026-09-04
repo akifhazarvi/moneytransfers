@@ -42,6 +42,7 @@ import { newsItems } from "@/data/news";
 import { wiseCountries } from "@/data/wise-iban";
 import { getSwiftCountries } from "@/data/swift-codes";
 import { GONE_SWIFT_SLUGS } from "@/lib/gone-swift";
+import { GONE_COMPANY_SLUGS } from "@/lib/gone-companies";
 import { getAllPilotBankSlugs } from "@/lib/bank-comparisons";
 import { businessPages } from "@/data/business-pages";
 
@@ -101,7 +102,11 @@ export function rateHistoryHref(pair: string | undefined | null): string | null 
 /* ── data-list routes ───────────────────────────────────────────────────── */
 // These prerender straight from a data list, so "renders" means "is in the
 // list". They are listed here so link generators have one place to ask.
-const PROVIDER_SLUGS = new Set(providers.map((p) => p.slug));
+const PROVIDER_SLUGS = new Set(
+  // Retired review pages serve 410 from middleware, so a link into one is a
+  // link into a dead URL — drop it at the generator rather than the template.
+  providers.map((p) => p.slug).filter((slug) => !GONE_COMPANY_SLUGS.has(slug)),
+);
 const GUIDE_SLUGS = new Set(blogPosts.map((p) => p.slug));
 const NEWS_SLUGS = new Set(newsItems.map((n) => n.slug));
 const IBAN_SLUGS = new Set(wiseCountries.filter((c) => c.slug).map((c) => c.slug as string));

@@ -7,6 +7,7 @@ import { GTAG_INLINE_SHA256, THEME_INLINE_SHA256 } from "./lib/inline-scripts";
 import { getCompareCanonicalSlug } from "./lib/compare-canonical";
 import { GONE_CORRIDOR_SLUGS } from "./lib/gone-corridors";
 import { GONE_SWIFT_SLUGS } from "./lib/gone-swift";
+import { GONE_COMPANY_SLUGS } from "./lib/gone-companies";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -139,6 +140,13 @@ export default function middleware(request: NextRequest) {
   // (noindexed AND under 600 rendered words); 57 of 107 retired.
   const goneSwift = request.nextUrl.pathname.match(/^\/swift-codes\/([a-z0-9-]+)$/);
   if (goneSwift && GONE_SWIFT_SLUGS.has(goneSwift[1])) {
+    return new NextResponse("Gone", { status: 410 });
+  }
+
+  // 410 Gone for retired provider review pages — same rationale and placement as
+  // the two blocks above. See src/lib/gone-companies.ts.
+  const goneCompany = request.nextUrl.pathname.match(/^\/companies\/([a-z0-9-]+)$/);
+  if (goneCompany && GONE_COMPANY_SLUGS.has(goneCompany[1])) {
     return new NextResponse("Gone", { status: 410 });
   }
 
