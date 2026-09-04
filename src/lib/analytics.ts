@@ -176,6 +176,16 @@ export function trackStickyCtaDismissed(corridorStr: string) {
 // Content engagement (informational — GA4 only)
 // ═════════════════════════════════════════════════════════════════
 
+/**
+ * The inline quote widget on a guide reached the viewport. This is the
+ * DENOMINATOR for guide conversion — provider_clicked on a guide was previously
+ * a number with nothing to divide by. Separate from `quotes_viewed` on purpose:
+ * that one is a Key Event and must keep meaning "used the comparison table".
+ */
+export function trackInlineQuotesViewed(slug: string, from: string, to: string, providerCount: number) {
+  dual("inline_quotes_viewed", { slug, corridor: corridor(from, to), provider_count: providerCount });
+}
+
 /** User visits a guide/review/news article */
 export function trackContentView(contentType: string, slug: string) {
   dual("content_view", { content_type: contentType, slug });

@@ -897,7 +897,8 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Online banking</strong> — Log into your bank's website or app and look in account details or settings.</li>
 <li><strong>Call your bank</strong> — Customer service can provide your SWIFT code instantly.</li>
 <li><strong>Visit your bank</strong> — Any branch can give you the SWIFT code for that location.</li>
-</ol>`,
+</ol>
+<div class="blog-answer-box"><p><strong>Got the code? One thing before you send.</strong> Needing a SWIFT code means you are about to send a bank wire — and that is the most expensive way to move money abroad. Banks charge a flat wire fee, the recipient\u2019s bank often deducts another, and a margin is added to the exchange rate on top of both. The live comparison above shows what the same transfer costs with a specialist provider; <a href="/guides/bank-wire-transfer-fees-2026">what banks actually charge for a wire</a> breaks the fees down in full, and <a href="/guides/cheapest-way-to-send-money-internationally">the cheapest way to send money internationally</a> covers the alternatives.</p></div>`,
       },
       {
         heading: "SWIFT Code vs IBAN: What's the Difference?",

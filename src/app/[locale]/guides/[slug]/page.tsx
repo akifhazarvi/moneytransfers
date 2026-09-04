@@ -20,6 +20,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import InlineQuotesImpression from "@/components/InlineQuotesImpression";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
 import GuidePageNudge from "@/components/GuidePageNudge";
 import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
@@ -517,13 +518,24 @@ export default async function BlogPostPage({ params }: Props) {
 
                 {/* Inline live-quote widget after 2nd section — converts editorial readers */}
                 {i === 1 && (
-                  <InlineProviderQuotes
-                    from={inlineQuoteCorridor.from}
-                    to={inlineQuoteCorridor.to}
-                    amount={inlineQuoteCorridor.amount}
-                    heading={inlineQuoteCorridor.heading}
-                    source={`guide:${slug}`}
-                  />
+                  <>
+                    <InlineProviderQuotes
+                      from={inlineQuoteCorridor.from}
+                      to={inlineQuoteCorridor.to}
+                      amount={inlineQuoteCorridor.amount}
+                      heading={inlineQuoteCorridor.heading}
+                      source={`guide:${slug}`}
+                    />
+                    {/* Denominator for guide conversion. Without it, a guide with
+                        1 click in 244 views is unreadable: nobody scrolled to the
+                        widget, or everybody did and ignored it. */}
+                    <InlineQuotesImpression
+                      slug={slug}
+                      from={inlineQuoteCorridor.from}
+                      to={inlineQuoteCorridor.to}
+                      providerCount={0}
+                    />
+                  </>
                 )}
               </section>
             ))}
