@@ -2430,5 +2430,22 @@
         "receiveAmount": 39.47
       }
     }
+  },
+  {
+    "date": "2026-09-04",
+    "providers": {
+      "instarem": {
+        "rate": 0.3961,
+        "fee": 0,
+        "markup": 0.46,
+        "receiveAmount": 39.61
+      },
+      "wise": {
+        "rate": 0.4,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 40
+      }
+    }
   }
 ]

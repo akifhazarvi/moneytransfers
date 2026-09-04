@@ -11640,5 +11640,100 @@
         "receiveAmount": 4280.01
       }
     }
+  },
+  {
+    "date": "2026-09-04",
+    "providers": {
+      "moneygram": {
+        "rate": 55.7107,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5488.06
+      },
+      "taptap-send": {
+        "rate": 55.77,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5577
+      },
+      "deutsche-bank": {
+        "rate": 56.3156,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3573.22
+      },
+      "xe": {
+        "rate": 55.3384,
+        "fee": 4,
+        "markup": 1.3,
+        "receiveAmount": 5312.49
+      },
+      "western-union": {
+        "rate": 55.3507,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 5480.27
+      },
+      "dahabshiil": {
+        "rate": 55.0766,
+        "fee": 1.99,
+        "markup": 1.77,
+        "receiveAmount": 5398.06
+      },
+      "instarem": {
+        "rate": 55.9384,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5593.84
+      },
+      "paysend": {
+        "rate": 55.8285,
+        "fee": 0,
+        "markup": 0.43,
+        "receiveAmount": 5582.85
+      },
+      "remitly": {
+        "rate": 55.6,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 5449.36
+      },
+      "revolut": {
+        "rate": 55.7254,
+        "fee": 1,
+        "markup": 0.61,
+        "receiveAmount": 5516.82
+      },
+      "wise": {
+        "rate": 56.3375,
+        "fee": 2.94,
+        "markup": null,
+        "receiveAmount": 5468.12
+      },
+      "ria": {
+        "rate": 54.948,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5709.57
+      },
+      "commerzbank": {
+        "rate": 54.8324,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4797.84
+      },
+      "sparkasse": {
+        "rate": 56.2545,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5203.54
+      },
+      "ing-de": {
+        "rate": 55.2297,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4307.92
+      }
+    }
   }
 ]
