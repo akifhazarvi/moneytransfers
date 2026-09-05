@@ -297,20 +297,20 @@ export const blogPosts: BlogPost[] = [
     // top-5 result saying "Abroad", so Bing bolded their titles and not ours.
     metaTitle: "How to Send Money Internationally: Compare 5 Methods by Cost",
     metaDescription:
-      "We ranked 5 ways to send money internationally by total cost: bank wires ($25–$50), transfer apps (under $5), PayPal (3–4% hidden), crypto and cash.",
+      "We ranked 5 ways to send money internationally by total cost on $1,000: bank wires $25–$48, transfer apps $7–$16, PayPal $67, plus crypto and cash.",
     excerpt:
       "Everything you need to know about sending money internationally — from choosing a provider to understanding fees, exchange rates, and transfer speeds.",
     category: "Guides",
     readTime: "12 min read",
     publishedAt: "2026-01-10",
-    updatedAt: "2026-03-13",
+    updatedAt: "2026-09-05",
     author: "Akif Hazarvi",
     tags: ["how to", "international transfer", "guide", "beginners", "send money"],
     featuredImage: "/images/blog/how-to-send-money-abroad.jpg",
     sections: [
       {
         heading: "Methods for Sending Money Internationally",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest and fastest way to send money internationally is through specialist online transfer services. <a href="/companies/wise">Wise</a> offers 0% exchange rate markup with transparent fees, <a href="/companies/remitly">Remitly</a> delivers in minutes with $0 fees on many corridors, and <a href="/companies/instarem">Instarem</a> combines zero fees with low markup. All three are 80-95% cheaper than bank wire transfers ($25-$50 + 2-4% markup). Below we rank all 5 methods by total cost.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest and fastest way to send money internationally is through specialist online transfer services. <a href="/companies/wise">Wise</a> offers 0% exchange rate markup with transparent fees, <a href="/companies/remitly">Remitly</a> delivers in minutes with $0 fees on many corridors, and <a href="/companies/instarem">Instarem</a> combines zero fees with low markup. Against the median bank, Instarem costs 78% less, Remitly 65% and Wise 54% — measured across 1,518 live quotes on 98 corridors on 5 September 2026. Below we rank all 5 methods by total cost.</p></div>
 <p>There are several ways to <a href="/guides/cheapest-way-to-send-money-internationally">send money abroad cheaply</a>, each with different costs, speeds, and convenience levels:</p>
 <h3>1. Online Money Transfer Services</h3>
 <p><strong>Best for:</strong> Most people. Services like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/ofx">OFX</a> offer the best combination of low costs and fast delivery. You send money from your bank account or card, and it arrives in the recipient's bank account, mobile wallet, or as cash pickup.</p>
@@ -319,7 +319,7 @@ export const blogPosts: BlogPost[] = [
 <h3>3. Cash Transfer Services</h3>
 <p><strong>Best for:</strong> Sending to recipients without bank accounts. <a href="/companies/western-union">Western Union</a> and <a href="/companies/moneygram">MoneyGram</a> offer cash pickup at thousands of agent locations worldwide. Fees are higher but the recipient doesn't need a bank account.</p>
 <h3>4. Mobile Payment Apps</h3>
-<p><strong>Best for:</strong> Small, quick transfers. PayPal, Venmo (limited international), and local apps offer convenience but usually at a higher cost for international transfers.</p>
+<p><strong>Best for:</strong> Small, quick transfers. PayPal, Venmo (limited international), and local apps offer convenience but usually at a higher cost for international transfers. PayPal was the most expensive route in our September 2026 sample at 6.7% of the transfer — about $67 on $1,000, or nine times what Instarem charges.</p>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for Sending Money Abroad</h3>
 <table>
@@ -387,7 +387,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "How much does it cost to send money internationally?",
         answer:
-          "Costs vary by provider and amount. Specialist services like <a href=\"/companies/wise\">Wise</a> charge 0.3–1.5% total cost, while banks charge 2–5%. On a $1,000 transfer, you might pay $5–$15 with Wise vs $30–$50 with a bank. See our <a href=\"/guides/cheapest-way-to-send-money-internationally\">cheapest transfers guide</a> for a full breakdown.",
+          "Costs vary by provider and amount. Specialist services like <a href=\"/companies/wise\">Wise</a> charge 0.7–1.6% of the transfer in total cost, against a 3.4% median for banks — measured across 1,518 quotes on 5 September 2026. On $1,000 that is $7 with Instarem, $12 with Remitly or $16 with Wise, against $25–$48 with a bank. See our <a href=\"/guides/cheapest-way-to-send-money-internationally\">cheapest transfers guide</a> for a full breakdown.",
       },
       {
         question: "What's the fastest way to send money internationally?",
