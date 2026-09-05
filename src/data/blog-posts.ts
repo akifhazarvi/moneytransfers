@@ -286,13 +286,18 @@ export const blogPosts: BlogPost[] = [
   },
 
   // ============================
-  // 2. How to Send Money Abroad: Complete Guide
+  // 2. How to Send Money Internationally: Complete Guide
   // ============================
   {
     slug: "how-to-send-money-abroad",
-    title: "How to Send Money Abroad: 5 Methods Ranked (2026)",
+    title: "How to Send Money Internationally: 5 Methods Ranked (2026)",
+    // SERP title echoes the exact query ("how to send money internationally",
+    // 10,686 Bing impressions in 6 days at organic #5). Every competitor above
+    // us — SoFi, NerdWallet, Forbes — carries the phrase; we were the only
+    // top-5 result saying "Abroad", so Bing bolded their titles and not ours.
+    metaTitle: "How to Send Money Internationally: Compare 5 Methods by Cost",
     metaDescription:
-      "We ranked 5 ways to send money abroad by total cost: bank wires ($25–$50), digital apps (under $5), PayPal (3–4% hidden), crypto, and cash. Step-by-step.",
+      "We ranked 5 ways to send money internationally by total cost: bank wires ($25–$50), transfer apps (under $5), PayPal (3–4% hidden), crypto and cash.",
     excerpt:
       "Everything you need to know about sending money internationally — from choosing a provider to understanding fees, exchange rates, and transfer speeds.",
     category: "Guides",
@@ -305,7 +310,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Methods for Sending Money Internationally",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest and fastest way to send money abroad is through specialist online transfer services. <a href="/companies/wise">Wise</a> offers 0% exchange rate markup with transparent fees, <a href="/companies/remitly">Remitly</a> delivers in minutes with $0 fees on many corridors, and <a href="/companies/instarem">Instarem</a> combines zero fees with low markup. All three are 80-95% cheaper than bank wire transfers ($25-$50 + 2-4% markup). Below we rank all 5 methods by total cost.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest and fastest way to send money internationally is through specialist online transfer services. <a href="/companies/wise">Wise</a> offers 0% exchange rate markup with transparent fees, <a href="/companies/remitly">Remitly</a> delivers in minutes with $0 fees on many corridors, and <a href="/companies/instarem">Instarem</a> combines zero fees with low markup. All three are 80-95% cheaper than bank wire transfers ($25-$50 + 2-4% markup). Below we rank all 5 methods by total cost.</p></div>
 <p>There are several ways to <a href="/guides/cheapest-way-to-send-money-internationally">send money abroad cheaply</a>, each with different costs, speeds, and convenience levels:</p>
 <h3>1. Online Money Transfer Services</h3>
 <p><strong>Best for:</strong> Most people. Services like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/ofx">OFX</a> offer the best combination of low costs and fast delivery. You send money from your bank account or card, and it arrives in the recipient's bank account, mobile wallet, or as cash pickup.</p>
@@ -1654,6 +1659,11 @@ export const blogPosts: BlogPost[] = [
     slug: "business-international-payments-guide",
     title:
       "International Business Payments Guide 2026: Fees & Providers",
+    // Organic #7 on a SERP where Stripe, ibanfirst, connectpay and Nuvei all
+    // title theirs "...Guide" — ours was indistinguishable from theirs and took
+    // 0 clicks on 599 impressions. Naming the providers we actually compare is
+    // the one thing those six generic guides do not offer.
+    metaTitle: "International Business Payments: Wise vs OFX vs Revolut (2026)",
     metaDescription:
       "Compare the cheapest ways to make international business payments in 2026. Wise Business vs OFX vs Revolut — batch payments, SWIFT vs SEPA, FX hedging.",
     excerpt:
