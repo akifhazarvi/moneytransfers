@@ -58,7 +58,18 @@ export interface TransferQuote {
  * /companies/<slug> review page are untouched, so an inbound or AI-cited link
  * still resolves instead of 404ing a URL that sits in the sitemap.
  */
-export const HIDDEN_PROVIDER_SLUGS = new Set<string>(["unplex"]);
+export const HIDDEN_PROVIDER_SLUGS = new Set<string>([
+  "unplex",
+  // State Bank of India. The `providers` entry is slug "sbi"; the three
+  // aggregator spellings below carry no providers entry and never appear in
+  // scraped quotes today, but they are listed so a feed that starts emitting one
+  // cannot quietly put SBI back on a page — the same trap the taptapsend /
+  // taptap-send duplicate set up for the affiliate links.
+  "sbi",
+  "state-bank-of-india",
+  "sbi-remit",
+  "sbi-california",
+]);
 
 /** The `providers` array minus anything withheld from lists. */
 export function listableProviders(): Provider[] {
