@@ -118,10 +118,23 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
   //    (user amount) + the sampled corridors (1,000 each). Each is an
   //    independent /api/quotes call, run in parallel and merged into a cache. ──
   const [quoteCache, setQuoteCache] = useState<QuoteCache>({});
+  /**
+   * Whether the quote fetch for the current corridor is still in flight.
+   *
+   * Without this the component had no loading state: `quoteCache` starts empty,
+   * so before the fetch resolved every visitor saw "We don't have live X→Y data
+   * for one of these providers yet" and four blank corridor rows. That is a
+   * claim about our coverage, rendered as the answer to a question we had not
+   * asked yet — and it is also what a crawler sees, since the server HTML
+   * carries no amounts. "Loading" and "we have nothing" are different states
+   * and must not share a message.
+   */
+  const [quotesPending, setQuotesPending] = useState(true);
 
   useEffect(() => {
     if (amount <= 0) return;
     const controller = new AbortController();
+    setQuotesPending(true);
     const needed: { amount: number; from: string; to: string }[] = [
       { amount, from: fromCurrency, to: toCurrency },
       ...SAMPLE_CORRIDORS.map((c) => ({ amount: 1000, from: c.from, to: c.to })),
@@ -140,6 +153,11 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
         for (const r of results) next[r.key] = r.q;
         return next;
       });
+      setQuotesPending(false);
+    }).catch(() => {
+      // A failed fetch is still a resolved question: stop claiming we are
+      // loading, so the no-data message becomes truthful rather than premature.
+      if (!controller.signal.aborted) setQuotesPending(false);
     });
     return () => controller.abort();
   }, [amount, fromCurrency, toCurrency]);
@@ -320,6 +338,10 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
             <p className="text-md text-[var(--color-on-surface-variant)] py-2">
               {provA.name} and {provB.name} deliver the same amount on this corridor. Compare them on the features below.
             </p>
+          ) : quotesPending ? (
+            <p className="text-md text-[var(--color-on-surface-variant)] py-2" aria-live="polite">
+              Fetching live {fromCurrency}→{toCurrency} rates…
+            </p>
           ) : (
             <p className="text-md text-[var(--color-on-surface-variant)] py-2">
               We don&apos;t have live {fromCurrency}→{toCurrency} data for one of these providers yet. Try another corridor, or compare features below.
@@ -352,7 +374,7 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
                 </div>
                 <p className="text-2xs text-[var(--color-on-surface-variant)] uppercase tracking-wide">Recipient gets</p>
                 <p className="text-h4 font-semibold text-[var(--color-on-surface)] tabular-nums leading-tight">
-                  {r != null ? `${toSym}${fmt(r)}` : "—"}
+                  {r != null ? `${toSym}${fmt(r)}` : quotesPending ? "…" : "—"}
                 </p>
                 <ProviderLink
                   href={getGoUrl(p.slug, { sourceCurrency: fromCurrency, targetCurrency: toCurrency, sourceAmount: amount })}

@@ -127,9 +127,13 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
     },
     {
       category: "African corridors (cheapest)",
-      blurb: "Consistently ranks as the cheapest provider on 93% of Monito's African corridor searches.",
-      providerSlug: "worldremit",
-      why: "Strong agent network across Nigeria, Ghana, Kenya, South Africa, and wider sub-Saharan Africa.",
+      // Was: "cheapest on 93% of Monito's African corridor searches" — a rival's
+      // number, and our own archive contradicts it. Across 8,109 daily
+      // observations on 64 African-receiving corridors (169 days to 2026-09-06)
+      // TapTap Send delivered the most on 36% of days and LemFi on 29%.
+      blurb: "Delivered the most on 36% of African corridor days in our 169-day archive — more than any other provider we track.",
+      providerSlug: "taptap-send",
+      why: "Leads our measured African corridor sample, with LemFi second on 29% of days.",
     },
     {
       category: "Asia to Asia (Instarem network)",
@@ -245,7 +249,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
             </h1>
             <p className="text-base sm:text-lg text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
               Real exchange rates, real fees, refreshed every 6 hours from live provider APIs.
-              See who delivers the most money to your recipient across 80+ currency corridors — not just who shouts loudest in ads.
+              See who delivers the most money to your recipient across {COVERAGE.corridors} — not just who shouts loudest in ads.
             </p>
           </div>
 
@@ -274,7 +278,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
               To compare money transfer services accurately, look at the total amount your recipient receives — not the advertised fee.
               For most corridors in {month} {year}, <strong>Wise</strong> offers the cheapest rate for transfers above $500 (mid-market rate + ~0.5% fee),{" "}
               <strong>Remitly</strong> wins on first-transfer promos and fast emerging-market delivery,{" "}
-              <strong>WorldRemit</strong> is cheapest on 93% of African corridor searches, and{" "}
+              <strong>TapTap Send</strong> delivered the most on 36% of African corridor days in our own 169-day archive, and{" "}
               <strong>OFX</strong> is best for large transfers above $10,000 (fee-free at that size).
               Banks like Chase, Barclays, HSBC, and NatWest typically cost 3–5% more due to hidden exchange-rate markup.
             </p>

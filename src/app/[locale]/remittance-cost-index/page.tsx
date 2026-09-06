@@ -12,6 +12,7 @@ import { generateQuotes } from "@/lib/quotes-engine";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import CryptoVsBankIndexSection from "@/components/CryptoVsBankIndexSection";
 import { companyPageRenders, corridorPageRenders } from "@/lib/route-map";
+import { COVERAGE } from "@/lib/site-stats";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -167,7 +168,7 @@ const faqs = [
   },
   {
     q: "How is the data collected?",
-    a: "We collect live quotes from 50+ provider APIs and websites every 6 hours using automated scrapers. The data covers 300+ currency corridors. Each quote includes the exact fee, exchange rate, and receive amount. We then calculate the markup by comparing each provider's rate against the mid-market rate from XE.",
+    a: "We collect live quotes from provider APIs and websites every 6 hours using automated scrapers. Not every provider quotes every corridor, so the number ranked here is smaller than the number tracked. Each quote includes the exact fee, exchange rate, and receive amount. We then calculate the markup by comparing each provider's rate against the mid-market rate from XE.",
   },
   {
     q: "Why are specialist providers cheaper than banks?",
@@ -201,7 +202,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               <span className="text-[var(--color-primary)]">Remittance Cost Index</span>
             </h1>
             <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
-              We analyzed {totalProviders} providers across {totalCorridors}+ corridors to rank the true cost of sending $1,000 abroad — including both fees and hidden exchange rate markups.
+              We analyzed {totalProviders} providers with current pricing across {totalCorridors}+ corridors to rank the true cost of sending $1,000 abroad — including both fees and hidden exchange rate markups.
             </p>
           </div>
         </Container>
@@ -212,7 +213,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { label: t("providersTracked"), value: `${totalProviders}+` },
+              { label: "Providers priced", value: `${totalProviders}` },
               { label: "Avg specialist cost", value: `$${avgSpecialistCost.toFixed(2)}` },
               { label: "Avg bank cost", value: `$${avgBankCost.toFixed(2)}` },
               { label: "Savings vs banks", value: `${savingsVsBanks}%` },
@@ -519,7 +520,7 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
             </h2>
             <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
               <p>
-                The SendMoneyCompare Remittance Cost Index is calculated from live quotes collected directly from provider APIs and websites. Our automated scrapers run every 6 hours across {totalProviders}+ providers and {totalCorridors}+ currency corridors.
+                The SendMoneyCompare Remittance Cost Index is calculated from live quotes collected directly from provider APIs and websites. Our automated scrapers run every 6 hours across {COVERAGE.providers} in the database; {totalProviders} of them had current pricing on {totalCorridors}+ corridors when this index was built.
               </p>
               <p>
                 <strong className="text-[var(--color-on-surface)]">Total cost</strong> is defined as the transfer fee plus the cost of the exchange rate markup on a $1,000 transfer. The exchange rate markup is calculated by comparing each provider&apos;s offered rate against the mid-market rate from XE. For example, if the mid-market rate is 83.00 INR per USD and a provider offers 82.17 INR, the markup is 1.0% — costing the sender $10 on a $1,000 transfer.
