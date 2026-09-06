@@ -1,3 +1,4 @@
+import type { SendScore } from "./send-score";
 /**
  * rate-history-types.ts
  *
@@ -44,6 +45,14 @@ export interface RateInsight {
   };
   level: RateLevel;
   levelPct: number;
+  /**
+   * Multi-factor timing score, baked in by scripts/build-rate-insights.ts.
+   * Null when a corridor has under 7 distinct days of history — too thin to
+   * score honestly — so every consumer must handle null rather than assume.
+   * Supersedes `levelPct`, which is a single factor over the whole tracked
+   * period; both are kept while the UI migrates.
+   */
+  sendScore: SendScore | null;
   providerBadges: ProviderBadge[];
   sparklines: Record<string, SparklinePoint[]>;
 }

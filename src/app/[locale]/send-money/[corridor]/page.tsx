@@ -57,6 +57,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getRateInsight, getProviderInsight } from "@/lib/rate-history";
 import type { ProviderBadge } from "@/lib/rate-history";
 import { ProviderBadgeTag, Sparkline, RateHistorySection, ProviderRateInsightLine } from "@/components/RateInsight";
+import SendScoreCard from "@/components/SendScoreCard";
 import StickyBestCTA from "@/components/StickyBestCTA";
 import { providerLogo } from "@/lib/provider-logo";
 import LiveTimestamp from "@/components/LiveTimestamp";
@@ -3130,6 +3131,18 @@ export default async function CorridorPage({ params }: Props) {
       {rateInsight && rateInsight.totalDays >= 3 && (
         <section className="py-10 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
           <Container>
+            {/* SendScore leads the history section: the timing answer first,
+                then the chart that evidences it. Null when the corridor has
+                under 7 days of history, in which case nothing renders. */}
+            {rateInsight.sendScore && (
+              <div className="mb-6">
+                <SendScoreCard
+                  score={rateInsight.sendScore}
+                  fromCurrency={fromCurrency}
+                  toCurrency={toCurrency}
+                />
+              </div>
+            )}
             <RateHistorySection
               insight={rateInsight}
               fromCurrency={fromCurrency}

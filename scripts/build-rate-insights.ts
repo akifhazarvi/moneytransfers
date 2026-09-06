@@ -53,6 +53,8 @@ interface ProviderBadge {
   detail: string;
 }
 
+import { computeSendScore, type SendScore } from "../src/lib/send-score";
+
 type RateLevel = "low" | "typical" | "good" | "great";
 
 interface RateInsight {
@@ -71,6 +73,9 @@ interface RateInsight {
   };
   level: RateLevel;
   levelPct: number;
+  /** Multi-factor timing score. Null when history is too thin to score
+   *  honestly (under 7 distinct days) — consumers must handle null. */
+  sendScore: SendScore | null;
   providerBadges: ProviderBadge[];
   sparklines: Record<string, SparklinePoint[]>;
 }
@@ -197,12 +202,26 @@ function computeInsight(corridor: string, fullHistory: DayEntry[]): RateInsight 
     sparklines["__mid-market__"] = midMarketLine;
   }
 
+  // Median receive across providers quoting today, for the competitiveness
+  // component. Below 3 providers there is no meaningful "field" to beat, so
+  // it is passed as null and the component drops out of the score.
+  const todayAmounts = todayProviders.map(([, v]) => v.receiveAmount).sort((a, b) => a - b);
+  const todayMedianReceive =
+    todayAmounts.length >= 3 ? todayAmounts[Math.floor(todayAmounts.length / 2)] : null;
+
+  const sendScore = computeSendScore({
+    history: dailyBestRates,
+    todayReceive: todayBest[1].receiveAmount,
+    todayMedianReceive,
+  });
+
   return {
     corridor, totalDays: history.length,
     dateRange: { from: history[0].date, to: history[history.length - 1].date },
     today: { bestProvider: todayBest[0], bestRate: todayBest[1].rate, bestReceiveAmount: todayBest[1].receiveAmount },
     stats: { avgRate: Math.round(avgRate * 10000) / 10000, bestRate: bestDay.rate, bestRateDate: bestDay.date, bestRateProvider: bestDay.provider, worstRate: worstDay.rate, worstRateDate: worstDay.date, worstRateProvider: worstDay.provider },
     level, levelPct: Math.round(todayPos), providerBadges: badges, sparklines,
+    sendScore,
   };
 }
 
