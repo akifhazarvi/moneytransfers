@@ -17,6 +17,7 @@ import { getRateInsight, corridorToSlug } from "@/lib/rate-history";
 import { newsItems } from "@/data/news";
 import { formatLocalDate } from "@/lib/format-date";
 import { rateHistoryHref, corridorPageRenders } from "@/lib/route-map";
+import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
 // Pair slug → most relevant news article for context-sensitive callouts
 const pairRelatedNews: Record<string, string> = {
@@ -326,7 +327,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = override?.title ?? `Live ${p.from} to ${p.to} Exchange Rate Today (${year})`;
   // Trimmed to fit under 160 chars — the previous wording ran ~230, so all 21
   // rate pages were truncated in the SERP before reaching the payoff.
-  const description = override?.description ?? `Live ${p.from}/${p.to} rate, updated every 60s. See what ${providers.length}+ providers really pay after markup — most add 0.5–4%. Who delivers the most ${p.toName}?`;
+  const description = override?.description ?? `Live ${p.from}/${p.to} rate, updated every 60s. See what ${COVERAGE.providers} really pay after markup — most add 0.5–4%. Who delivers the most ${p.toName}?`;
 
   return {
     title,

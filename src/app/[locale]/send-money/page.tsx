@@ -13,6 +13,7 @@ import { SITEMAP_RATE_PAIR_SLUGS } from "@/lib/sitemap-allowlists";
 import { allCorridors } from "@/data/corridors";
 import { shouldNoindex } from "@/lib/corridor-tiers";
 import { corridorPageRenders } from "@/lib/route-map";
+import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
 /**
  * Crawlable index of every corridor the sitemap submits.
@@ -84,8 +85,8 @@ export default async function SendMoneyPage({ params }: { params: Promise<{ loca
   const t = await getTranslations({ locale, namespace: "sendMoney" });
   const heading = t.has("heading") ? t("heading") : "Compare Money Transfer Providers";
   const subheading = t.has("subheading")
-    ? t("subheading", { count: providers.length })
-    : `Compare exchange rates, fees, and delivery times from ${providers.length}+ providers to find the cheapest way to send money abroad.`;
+    ? t("subheading", { count: SITE_STATS.liveProviders })
+    : `Compare exchange rates, fees, and delivery times from ${COVERAGE.providers} to find the cheapest way to send money abroad.`;
   // Generate default quotes server-side so Google can see them
   const defaultQuotes = generateQuotes(1000, "USD", "INR");
   const inrInfo = currencies.find((c) => c.code === "INR")!;

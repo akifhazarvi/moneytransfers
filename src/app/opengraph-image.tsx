@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "SendMoneyCompare — Is now a good time to send money? Live rate timing across 60+ providers.";
+export const alt = "SendMoneyCompare — Is now a good time to send money? Live rate timing across every major provider.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

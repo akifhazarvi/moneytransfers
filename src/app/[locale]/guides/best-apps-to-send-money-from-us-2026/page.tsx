@@ -5,6 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import Container from "@/components/Container";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
+import { COVERAGE } from "@/lib/site-stats";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/best-apps-to-send-money-from-us-2026";
@@ -181,7 +182,7 @@ const articleSchema = {
   "@type": "Article",
   headline: "Best Apps to Send Money Internationally from the US (2026)",
   description:
-    "Independent rankings of the 8 best money transfer apps from the US in 2026, based on live rate data across 60+ providers. Wise, Remitly, TorFX, OFX, and more — ranked by real cost, speed, and trust.",
+    `Independent rankings of the 8 best money transfer apps from the US in 2026, based on live rate data across ${COVERAGE.providers}. Wise, Remitly, TorFX, OFX, and more — ranked by real cost, speed, and trust.`,
   datePublished: PUBLISHED,
   dateModified: MODIFIED,
   author: {
@@ -267,7 +268,7 @@ export async function generateMetadata({
       absolute: "Best Apps to Send Money Abroad from the US (2026) | SendMoneyCompare",
     },
     description:
-      seoDescription("We ranked the 8 best apps to send money abroad from the US in 2026 using live data from 60+ providers. Wise, Remitly, TorFX, OFX, TapTap Send — compared on fees, exchange rates, speed, and trust."),
+      seoDescription(`We ranked the 8 best apps to send money abroad from the US in 2026 using live data from ${COVERAGE.providers}. Wise, Remitly, TorFX, OFX, TapTap Send — compared on fees, exchange rates, speed, and trust.`),
     keywords: [
       "best app to send money internationally from US",
       "best money transfer app USA 2026",
@@ -281,7 +282,7 @@ export async function generateMetadata({
     openGraph: {
       title: "Best Apps to Send Money Internationally from the US (2026)",
       description:
-        "Independent ranking of the 8 best money transfer apps from the US — based on live rate data across 60+ providers. No paid placements.",
+        `Independent ranking of the 8 best money transfer apps from the US — based on live rate data across ${COVERAGE.providers}. No paid placements.`,
       url: URL,
       type: "article",
       publishedTime: PUBLISHED,
@@ -482,7 +483,7 @@ export default async function BestAppsFromUSPage({
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-[var(--color-on-surface-variant)]">
             <Badge color="green">✓ No paid placements</Badge>
             <Badge color="blue">Live rate data · Every 6h</Badge>
-            <Badge color="blue">60+ providers compared</Badge>
+            <Badge color="blue">{COVERAGE.providers} compared</Badge>
           </div>
 
           {/* Quick-answer box — the AI-citable passage */}

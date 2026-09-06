@@ -246,12 +246,12 @@ export function trackConverterCTAClicked(corridor: string, amount: number) {
   dual("converter_cta_clicked", { corridor, amount, source: "converter" });
 }
 
-/** User clicks "All 50+ providers →" link in the InlineProviderQuotes widget */
+/** User clicks "All <n> providers →" link in the InlineProviderQuotes widget */
 export function trackSeeAllProviders(slug: string, corridor: string) {
   dual("see_all_providers_clicked", { slug, corridor, source: "inline_quotes_footer" });
 }
 
-/** User clicks "All 50+ providers →" header link in the InlineProviderQuotes widget */
+/** User clicks "All <n> providers →" header link in the InlineProviderQuotes widget */
 export function trackSeeAllProvidersHeader(slug: string, corridor: string) {
   dual("see_all_providers_clicked", { slug, corridor, source: "inline_quotes_header" });
 }

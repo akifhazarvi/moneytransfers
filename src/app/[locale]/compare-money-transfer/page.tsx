@@ -30,6 +30,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getGoUrl } from "@/lib/affiliate";
 import ProviderLink from "@/components/ProviderLink";
 import { corridorPageRenders } from "@/lib/route-map";
+import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
 export const revalidate = 21600;
 
@@ -61,7 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `${SITE_URL}/compare`,
     },
     openGraph: {
-      title: `Compare ${providers.length}+ Money Transfer Services — Live Rates (${month} ${year})`,
+      title: `Compare ${atLeast(SITE_STATS.liveProviders)} Money Transfer Services — Live Rates (${month} ${year})`,
       description,
       url: `${SITE_URL}${locale === "en" ? "" : `/${locale}`}/compare-money-transfer`,
       type: "website",
@@ -69,7 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `Compare ${providers.length}+ Money Transfer Services — Live Rates (${month} ${year})`,
+      title: `Compare ${atLeast(SITE_STATS.liveProviders)} Money Transfer Services — Live Rates (${month} ${year})`,
       description,
     },
     // English-only content; noindex locale variants to avoid duplicate-content dilution
@@ -240,7 +241,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
 
           <div className="max-w-4xl">
             <h1 className="text-[clamp(1.75rem,5vw,2.75rem)] font-bold text-[var(--color-on-surface)] leading-[1.15] tracking-[-0.02em] mb-4">
-              Compare money transfer rates from <span className="text-[var(--color-primary)]">{providers.length}+ providers</span> — live, in 30 seconds
+              Compare money transfer rates from <span className="text-[var(--color-primary)]">{COVERAGE.providers}</span> — live, in 30 seconds
             </h1>
             <p className="text-base sm:text-lg text-[var(--color-on-surface-variant)] leading-relaxed max-w-3xl">
               Real exchange rates, real fees, refreshed every 6 hours from live provider APIs.
@@ -258,7 +259,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-70" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
               </span>
-              Rates updated every 6 hours · Compared across {providers.length} providers · Independent editorial reviews
+              Rates updated every 6 hours · Compared across {COVERAGE.providers} · Independent editorial reviews
             </span>
           </p>
         </Container>
@@ -551,7 +552,7 @@ export default async function CompareMoneyTransferPage({ params }: Props) {
               Ready to compare rates for your transfer?
             </h2>
             <p className="text-sm sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed mb-5">
-              Get live quotes from {providers.length}+ providers in 10 seconds. No signup. No spam.
+              Get live quotes from {COVERAGE.providers} in 10 seconds. No signup. No spam.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <PrimaryButton href="/send-money">Compare live rates →</PrimaryButton>

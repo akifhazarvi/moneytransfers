@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "Best Apps to Send Money from US Internationally (2026) — SendMoneyCompare independent rankings based on live rate data across 60+ providers";
+  "Best Apps to Send Money from US Internationally (2026) — SendMoneyCompare independent rankings based on live rate data across every major provider";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -125,7 +125,7 @@ export default async function Image() {
               marginTop: 6,
             }}
           >
-            Ranked by real transfer cost across 60+ providers · 190+ countries · No paid placements
+            Ranked by real transfer cost across every major provider · 190+ countries · No paid placements
           </span>
         </div>
 

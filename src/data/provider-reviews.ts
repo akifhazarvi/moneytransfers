@@ -1,3 +1,4 @@
+import { COVERAGE } from "@/lib/site-stats";
 /**
  * In-depth editorial review articles for specific providers.
  * These overlay the auto-generated company pages with richer content.
@@ -983,7 +984,7 @@ export const providerReviews: ProviderReview[] = [
     slug: "western-union",
     title: "Western Union Review 2026 — Fees, Speed & Cash Pickup",
     metaDescription:
-      "Honest Western Union review covering fees, exchange rates, cash pickup network, delivery speed, and when it's worth the premium. Based on real transfer data from 50+ providers.",
+      `Honest Western Union review covering fees, exchange rates, cash pickup network, delivery speed, and when it's worth the premium. Based on real transfer data from ${COVERAGE.providers}.`,
     publishedAt: "2026-02-15",
     updatedAt: "2026-03-17",
     lastVerified: "2026-03-17",
