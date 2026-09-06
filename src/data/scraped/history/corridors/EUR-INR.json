@@ -18335,7 +18335,7 @@
       "lemfi": {
         "rate": 109.66,
         "fee": 1.99,
-        "markup": -0.03,
+        "markup": 0.11,
         "receiveAmount": 10747.78
       },
       "moneygram": {
@@ -18351,10 +18351,10 @@
         "receiveAmount": 11000
       },
       "deutsche-bank": {
-        "rate": 108.0715,
+        "rate": 108.0547,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 6857.14
+        "receiveAmount": 6856.07
       },
       "xe": {
         "rate": 109.2738,
@@ -18363,10 +18363,10 @@
         "receiveAmount": 10599.56
       },
       "western-union": {
-        "rate": 105.8465,
+        "rate": 105.8301,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 10479.86
+        "receiveAmount": 10478.24
       },
       "dahabshiil": {
         "rate": 108.2502,
@@ -18393,10 +18393,10 @@
         "receiveAmount": 10700.96
       },
       "instarem": {
-        "rate": 108.9849,
+        "rate": 108.9302,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10898.49
+        "receiveAmount": 10893.02
       },
       "paysend": {
         "rate": 109.3516,
@@ -18423,28 +18423,28 @@
         "receiveAmount": 11396.07
       },
       "skrill": {
-        "rate": 109.1047,
+        "rate": 109.1005,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 10910.47
+        "receiveAmount": 10910.05
       },
       "monese": {
-        "rate": 109.3853,
+        "rate": 109.3683,
         "fee": 4,
         "markup": null,
-        "receiveAmount": 10500.99
+        "receiveAmount": 10499.36
       },
       "sparkasse": {
-        "rate": 108.6818,
+        "rate": 108.6649,
         "fee": 7.5,
         "markup": null,
-        "receiveAmount": 10053.06
+        "receiveAmount": 10051.51
       },
       "wise": {
-        "rate": 109.652,
+        "rate": 109.773,
         "fee": 1.58,
         "markup": null,
-        "receiveAmount": 10791.95
+        "receiveAmount": 10803.86
       }
     }
   }

@@ -6401,34 +6401,34 @@
     "date": "2026-09-06",
     "providers": {
       "kiwibank": {
-        "rate": 0.427,
+        "rate": 0.4272,
         "fee": 20,
         "markup": null,
-        "receiveAmount": 34.16
+        "receiveAmount": 34.18
       },
       "paypal": {
-        "rate": 0.4143,
+        "rate": 0.4145,
         "fee": 6.99,
         "markup": null,
-        "receiveAmount": 38.53
+        "receiveAmount": 38.55
       },
       "auckland-savings-bank-nz": {
-        "rate": 0.4281,
+        "rate": 0.4285,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 40.67
+        "receiveAmount": 40.71
       },
       "westpac-nz": {
-        "rate": 0.4273,
+        "rate": 0.4275,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 42.73
+        "receiveAmount": 42.75
       },
       "bank-of-new-zealand-nz": {
-        "rate": 0.4178,
+        "rate": 0.4275,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 41.78
+        "receiveAmount": 42.75
       }
     }
   }

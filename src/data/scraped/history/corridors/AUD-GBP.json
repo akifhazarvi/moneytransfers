@@ -11591,74 +11591,74 @@
       "lemfi": {
         "rate": 0.5297,
         "fee": 0,
-        "markup": 0.52,
+        "markup": 0.56,
         "receiveAmount": 52.97
       },
       "taptap-send": {
-        "rate": 0.528,
+        "rate": 0.531,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 52.8
+        "receiveAmount": 53.1
       },
       "western-union": {
-        "rate": 0.5231,
+        "rate": 0.5235,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 51.79
+        "receiveAmount": 51.84
       },
       "westpac": {
-        "rate": 0.5122,
+        "rate": 0.5126,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.22
+        "receiveAmount": 51.26
       },
       "paypal": {
-        "rate": 0.5099,
+        "rate": 0.5103,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 48.44
+        "receiveAmount": 48.48
       },
       "hsbc": {
-        "rate": 0.52,
+        "rate": 0.5204,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 52
+        "receiveAmount": 52.04
       },
       "remitly": {
-        "rate": 0.531,
+        "rate": 0.5314,
         "fee": 0.89,
         "markup": null,
-        "receiveAmount": 52.63
+        "receiveAmount": 52.67
       },
       "anz": {
-        "rate": 0.5142,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 51.42
-      },
-      "instarem": {
-        "rate": 0.532,
-        "fee": 0.5,
-        "markup": null,
-        "receiveAmount": 52.93
-      },
-      "nab": {
-        "rate": 0.5158,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 51.58
-      },
-      "worldremit": {
-        "rate": 0.5325,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 52.19
-      },
-      "commonwealth-bank": {
         "rate": 0.5147,
         "fee": 0,
         "markup": null,
         "receiveAmount": 51.47
+      },
+      "instarem": {
+        "rate": 0.5324,
+        "fee": 0.5,
+        "markup": null,
+        "receiveAmount": 52.98
+      },
+      "nab": {
+        "rate": 0.5162,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 51.62
+      },
+      "worldremit": {
+        "rate": 0.533,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 52.24
+      },
+      "commonwealth-bank": {
+        "rate": 0.5151,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 51.51
       }
     }
   }
