@@ -4841,5 +4841,28 @@
         "receiveAmount": 318.25
       }
     }
+  },
+  {
+    "date": "2026-09-06",
+    "providers": {
+      "instarem": {
+        "rate": 3.1876,
+        "fee": 0.55,
+        "markup": null,
+        "receiveAmount": 317.01
+      },
+      "hsbc-sg": {
+        "rate": 3.1825,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 318.25
+      },
+      "paypal": {
+        "rate": 3.0445,
+        "fee": 6.32,
+        "markup": null,
+        "receiveAmount": 285.2
+      }
+    }
   }
 ]

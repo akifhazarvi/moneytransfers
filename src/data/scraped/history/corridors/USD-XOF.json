@@ -3880,5 +3880,40 @@
         "receiveAmount": 56480.1
       }
     }
+  },
+  {
+    "date": "2026-09-06",
+    "providers": {
+      "lemfi": {
+        "rate": 551,
+        "fee": 0,
+        "markup": 2.43,
+        "receiveAmount": 55100
+      },
+      "ria": {
+        "rate": 551.9587,
+        "fee": 1,
+        "markup": null,
+        "receiveAmount": 57169
+      },
+      "taptap-send": {
+        "rate": 545,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 54500
+      },
+      "western-union": {
+        "rate": 480.2262,
+        "fee": 3.99,
+        "markup": null,
+        "receiveAmount": 46107
+      },
+      "wise": {
+        "rate": 564.801,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 56480.1
+      }
+    }
   }
 ]

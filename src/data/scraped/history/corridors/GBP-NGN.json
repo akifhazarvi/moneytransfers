@@ -15454,5 +15454,94 @@
         "receiveAmount": 183193.02
       }
     }
+  },
+  {
+    "date": "2026-09-06",
+    "providers": {
+      "lemfi": {
+        "rate": 1840,
+        "fee": 0,
+        "markup": -3.04,
+        "receiveAmount": 184000
+      },
+      "moneygram": {
+        "rate": 1848.5941,
+        "fee": 0.99,
+        "markup": -3.44,
+        "receiveAmount": 183029.3
+      },
+      "taptap-send": {
+        "rate": 1840,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 184000
+      },
+      "western-union": {
+        "rate": 1803.7437,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 176784.92
+      },
+      "dahabshiil": {
+        "rate": 1874.0878,
+        "fee": 1.99,
+        "markup": -4.86,
+        "receiveAmount": 183679.35
+      },
+      "transfergo": {
+        "rate": 1837.1635,
+        "fee": 0,
+        "markup": -2.8,
+        "receiveAmount": 183716.35
+      },
+      "worldremit": {
+        "rate": 1846.0316,
+        "fee": 0.99,
+        "markup": -3.29,
+        "receiveAmount": 182775.59
+      },
+      "instarem": {
+        "rate": 1775.1978,
+        "fee": 0,
+        "markup": 0.67,
+        "receiveAmount": 177519.78
+      },
+      "mukuru": {
+        "rate": 1835.17,
+        "fee": 0,
+        "markup": -2.69,
+        "receiveAmount": 183517
+      },
+      "paysend": {
+        "rate": 1840.1285,
+        "fee": 0,
+        "markup": -2.96,
+        "receiveAmount": 184012.85
+      },
+      "sendwave": {
+        "rate": 1846.0316,
+        "fee": 0.99,
+        "markup": -3.29,
+        "receiveAmount": 182775.59
+      },
+      "remitly": {
+        "rate": 1846.95,
+        "fee": 0,
+        "markup": -3.35,
+        "receiveAmount": 184695
+      },
+      "ria": {
+        "rate": 1849.7699,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 188346.27
+      },
+      "wise": {
+        "rate": 1853.43,
+        "fee": 1.16,
+        "markup": null,
+        "receiveAmount": 183193.02
+      }
+    }
   }
 ]
