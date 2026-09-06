@@ -10,6 +10,7 @@ import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { getGoUrl } from "@/lib/affiliate";
 import { trackProviderClicked } from "@/lib/analytics";
 import { providerLogo } from "@/lib/provider-logo";
+import { COVERAGE } from "@/lib/site-stats";
 
 // Flag emoji (regional-indicator pairs) don't render on Windows/some Android —
 // they show as bare letters like "IN"/"EU". Decode the emoji to an ISO code so
@@ -369,7 +370,7 @@ export default function HomeDynamicSection() {
                 href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`}
                 className="inline-flex items-center gap-2 h-11 sm:h-12 bg-[var(--color-cta)] text-[var(--color-cta-text)] rounded-full font-bold text-sm sm:text-md px-8 sm:px-10 hover:bg-[var(--color-cta-hover)] shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-primary-lg)] active:shadow-none active:scale-[0.98] transition-all"
               >
-                Compare all 50+ apps
+                Compare all {COVERAGE.providers}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

@@ -32,6 +32,7 @@ import { getEsimPlans } from "@/data/esim-plans";
 import { getAuthor } from "@/data/authors";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { fitTitle, seoDescription } from "@/lib/seo-title";
+import { COVERAGE } from "@/lib/site-stats";
 
 export const revalidate = 86400; // 24h — content is editorial, not live
 
@@ -565,7 +566,7 @@ export default async function TravelCountryPage({ params }: Props) {
               Need to send money to or from {guide.countryName}?
             </h2>
             <p className="text-md text-[var(--color-on-surface-variant)] mb-6">
-              Compare live rates across 50+ apps in real time. We show you what {guide.currency} actually lands in the recipient&rsquo;s account — not just the advertised fee.
+              Compare live rates across {COVERAGE.providers} in real time. We show you what {guide.currency} actually lands in the recipient&rsquo;s account — not just the advertised fee.
             </p>
             <Link
               href={corridorPageRenders(guide.relatedCorridorSlug) ? `/send-money/${guide.relatedCorridorSlug}` : "/send-money"}

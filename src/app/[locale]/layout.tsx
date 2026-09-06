@@ -14,6 +14,7 @@ import GA4PageviewTracker from "@/components/GA4PageviewTracker";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import WhatsAppChannelButton from "@/components/WhatsAppChannelButton";
+import { COVERAGE } from "@/lib/site-stats";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -100,7 +101,7 @@ const organizationSchema = {
   logo: { "@type": "ImageObject", url: `${SITE_URL}/logos/sendmoneycompare-logo.png`, width: 512, height: 512 },
   image: `${SITE_URL}/opengraph-image`,
   description:
-    "Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from 50+ apps across 80+ currency corridors.",
+    `Independent comparison platform for international money transfer services. Compare fees, exchange rates and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}.`,
   foundingDate: "2024",
   founders: [
     { "@type": "Person", name: "Akif Hazarvi", jobTitle: "Founder & Editor-in-Chief", url: `${SITE_URL}/about/akif-hazarvi` },
@@ -208,7 +209,7 @@ const comparisonServiceSchema = {
   "@id": `${SITE_URL}/#service`,
   name: "SendMoneyCompare",
   url: SITE_URL,
-  description: "Independent comparison platform for international money transfers. Compare fees, exchange rates and delivery times from 50+ apps.",
+  description: `Independent comparison platform for international money transfers. Compare fees, exchange rates and delivery times from ${COVERAGE.providers}.`,
   serviceType: "Money Transfer Comparison",
   areaServed: "Worldwide",
   provider: { "@id": `${SITE_URL}/#organization` },

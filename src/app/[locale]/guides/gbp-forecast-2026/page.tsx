@@ -7,6 +7,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { computeGbpOutlookIndex } from "@/lib/gbp-outlook-index";
 import { FluctuationChart, ProviderSpreadChart } from "@/components/GbpOutlookCharts";
+import { COVERAGE } from "@/lib/site-stats";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/gbp-forecast-2026";
@@ -347,7 +348,7 @@ export default async function GbpForecastPage({ params }: { params: Promise<{ lo
               href="/send-money"
               className="inline-block rounded-full bg-[var(--color-cta)] px-6 py-3 text-sm font-semibold text-[var(--color-cta-text)] transition-colors hover:bg-[var(--color-cta-hover)]"
             >
-              Compare live GBP transfer rates across 60+ providers
+              Compare live GBP transfer rates across {COVERAGE.providers}
             </Link>
           </div>
 
@@ -372,7 +373,7 @@ export default async function GbpForecastPage({ params }: { params: Promise<{ lo
             <ul className="mt-2 space-y-1.5 text-sm">
               <li>
                 <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
-                  Compare live rates across 60+ providers for your transfer
+                  Compare live rates across {COVERAGE.providers} for your transfer
                 </Link>
               </li>
               <li>

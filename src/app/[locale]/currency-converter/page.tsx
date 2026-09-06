@@ -8,6 +8,7 @@ import CurrencyConverterClient from "@/components/CurrencyConverterClient";
 import { currencies, exchangeRates } from "@/data/providers";
 import { getRate } from "@/lib/rates-util";
 import { RATES_AS_OF } from "@/lib/exchange-rates-today";
+import { COVERAGE } from "@/lib/site-stats";
 
 // Revalidate hourly so the as-of date + rates stay fresh while the page stays
 // fully prerendered (no per-request no-store — the May 2026 deindex root cause).
@@ -132,7 +133,7 @@ export default async function CurrencyConverterPage({ params }: { params: Promis
               The rate shown above is the mid-market rate as of {monthYear} — the midpoint between the buy and sell prices on the global currency market, and the rate banks use when trading with each other. It&apos;s never the rate they give you. Banks and most providers add a markup of 2–4% on top, then often advertise a &quot;$0 fee&quot; to make the transfer look free. On a $2,000 transfer, a 3% markup quietly costs $60 — invisible unless you compare the quote against the real rate.
             </p>
             <p className="text-md text-[var(--color-on-surface-variant)] leading-relaxed max-w-[720px]">
-              To see which app charges the smallest markup for your transfer, use our <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">live provider comparison</Link> — it ranks 50+ apps by the true cost (markup + fee combined) so you can see exactly how much reaches your recipient. To understand how the markup works in detail, read our <Link href="/guides/exchange-rate-markup-explained" className="text-[var(--color-primary)] hover:underline font-medium">guide to exchange rate markup</Link>.
+              To see which app charges the smallest markup for your transfer, use our <Link href="/send-money" className="text-[var(--color-primary)] hover:underline font-medium">live provider comparison</Link> — it ranks {COVERAGE.providers} by the true cost (markup + fee combined) so you can see exactly how much reaches your recipient. To understand how the markup works in detail, read our <Link href="/guides/exchange-rate-markup-explained" className="text-[var(--color-primary)] hover:underline font-medium">guide to exchange rate markup</Link>.
             </p>
           </div>
         </div>

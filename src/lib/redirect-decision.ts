@@ -45,6 +45,7 @@ import providerNamesData from "@/data/provider-names.json";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { getGoUrl } from "@/lib/affiliate";
 import { CLARITY_INLINE, CONTINUE_INLINE } from "@/lib/inline-scripts";
+import { COVERAGE } from "@/lib/site-stats";
 
 const providerNames = providerNamesData as Record<string, string>;
 
@@ -386,7 +387,7 @@ export function interstitialHtml(opts: {
   <p class="microcopy">You'll be taken to ${safeName} to finish your transfer. <a href="/">Or compare all providers</a></p>
 
   <div class="trust">
-    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>60+ providers, live rates</span>
+    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>${COVERAGE.providers}, live rates</span>
     <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>No fees, no sign-up</span>
     <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>We never see your money</span>
   </div>

@@ -10,6 +10,7 @@
 // never swap one in for the other.
 import appRatingsData from "@/data/scraped/app-store-ratings.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
+import { SITE_STATS, atLeast } from "./site-stats";
 
 export interface StoreRating {
   score: number | null;
@@ -145,6 +146,15 @@ export function renderDataTokens(html: string): string {
     const rendered = renderAppScores(slug);
     return rendered || match;
   });
+
+  // Coverage counts. Article prose used to hand-type these ("50+ providers
+  // across 80+ corridors"), which produced four different provider counts and
+  // a corridor count 10x below the truth. These read from site-stats, so a
+  // sentence written today still describes the site a year from now.
+  // {{PROVIDER_COUNT}} -> "90+"
+  out = out.split("{{PROVIDER_COUNT}}").join(atLeast(SITE_STATS.liveProviders));
+  out = out.split("{{CORRIDOR_COUNT}}").join(atLeast(SITE_STATS.comparableCorridors));
+  out = out.split("{{CURRENCY_COUNT}}").join(atLeast(SITE_STATS.currencies));
 
   return out;
 }

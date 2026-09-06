@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { COVERAGE } from "@/lib/site-stats";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -242,7 +243,7 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                 </div>
                 <p className="text-2sm">
                   This list represents our core tracked providers. In total, we
-                  aggregate data from 50+ providers across 64+ currency
+                  aggregate data from {COVERAGE.providers} across {COVERAGE.corridors} currency
                   corridors including many regional and corridor-specific
                   services. See our full{" "}
                   <Link

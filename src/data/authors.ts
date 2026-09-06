@@ -1,3 +1,4 @@
+import { COVERAGE } from "@/lib/site-stats";
 /**
  * Author data for E-E-A-T author pages and bylines.
  */
@@ -43,7 +44,7 @@ Before founding SendMoneyCompare, Akif held product and analytics roles at finte
     credentials: [
       "8+ years in fintech and international payments",
       "Managed cross-border payment products at scale",
-      "Conducted 500+ test transfers across 50+ providers",
+      `Conducted 500+ test transfers across ${COVERAGE.providers}`,
       "Published research on remittance costs and market transparency",
     ],
     linkedin: "https://www.linkedin.com/in/akifhazarvi",
@@ -83,7 +84,7 @@ He also leads outreach with publishers, diaspora communities, and financial educ
     initials: "AI",
     bio: `Awais Imran is the content writer and reviews editor at SendMoneyCompare, responsible for the editorial side of the platform: provider reviews, comparison articles, corridor guides, and the blog.
 
-Awais writes and maintains the in-depth reviews of the 50+ providers featured on the site, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
+Awais writes and maintains the in-depth reviews of the ${COVERAGE.providers} featured on the site, working through fee structures, exchange rate markups, delivery speeds, payment methods, and supported corridors for each provider. He also produces the "how to send money" guides, country-specific corridor pages, and explainers on topics such as SWIFT, IBAN, mid-market rates, and FX margins.
 
 His editorial process involves running real test quotes against provider calculators, cross-referencing the platform's live scraped data, and updating reviews when providers change pricing, expand coverage, or launch new features. He coordinates closely with the editor-in-chief on editorial standards and with the technical team on fact-checking provider data.
 

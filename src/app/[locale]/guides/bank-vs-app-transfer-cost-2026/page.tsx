@@ -6,6 +6,7 @@ import Container from "@/components/Container";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { computeBankVsAppIndex, HEADLINE_AMOUNT } from "@/lib/bank-vs-app-index";
+import { COVERAGE } from "@/lib/site-stats";
 
 const SITE_URL = "https://sendmoneycompare.com";
 const PATH = "guides/bank-vs-app-transfer-cost-2026";
@@ -223,7 +224,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
             <ul className="mt-2 space-y-1.5 text-sm">
               <li>
                 <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
-                  Compare live rates across 50+ providers for your transfer
+                  Compare live rates across {COVERAGE.providers} for your transfer
                 </Link>
               </li>
               <li>

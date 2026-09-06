@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { COVERAGE } from "@/lib/site-stats";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -98,7 +99,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 </p>
                 <p>
                   We built the comparison tool we wished existed: one that pulls real-time
-                  exchange rates and fees from 50+ providers, calculates exactly how much
+                  exchange rates and fees from {COVERAGE.providers}, calculates exactly how much
                   your recipient receives, and ranks providers by who delivers the most
                   money. No sponsored placements, no hidden agendas — just transparent data.
                 </p>

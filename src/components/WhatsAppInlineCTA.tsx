@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { trackWhatsappImpression } from "@/lib/analytics";
 import { WhatsAppGlyph, WhatsAppTile } from "./WhatsAppMark";
 import WhatsAppFollowLink from "./WhatsAppFollowLink";
+import { COVERAGE } from "@/lib/site-stats";
 
 // Inline "follow the channel" card.
 //
@@ -142,7 +143,7 @@ export default function WhatsAppInlineCTA({
               : "Know who\u2019s cheapest before you send"}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-[var(--color-on-surface-variant)]">
-            We track 60+ providers across 64 corridors every few hours. When the
+            We track {COVERAGE.providers} across {COVERAGE.corridors} every few hours. When the
             cheapest way to send changes, you get one short message — not a
             newsletter.
           </p>

@@ -7,6 +7,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import Breadcrumb from "@/components/Breadcrumb";
+import { COVERAGE } from "@/lib/site-stats";
 
 export const revalidate = 86400;
 
@@ -104,7 +105,7 @@ export default async function ToolsPage({
           </div>
           <p className="mt-6 text-sm text-[var(--color-on-surface-variant)] max-w-3xl">
             Looking for the cheapest provider for your corridor?{" "}
-            <Link className="underline" href="/send-money">Compare all 60+ providers →</Link>
+            <Link className="underline" href="/send-money">Compare all {COVERAGE.providers} →</Link>
           </p>
         </Container>
       </section>

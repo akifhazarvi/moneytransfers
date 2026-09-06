@@ -9,6 +9,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import { trackConverterProviderClicked, trackConverterCTAClicked } from "@/lib/analytics";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 import { providerLogo } from "@/lib/provider-logo";
+import { COVERAGE } from "@/lib/site-stats";
 
 function symbolFor(code: string): string {
   return (
@@ -80,7 +81,7 @@ export default function ConverterProviderQuotes({ from, to, amount }: Props) {
           onClick={() => trackConverterCTAClicked(corridor, amount)}
           className="shrink-0 inline-flex items-center gap-1.5 h-9 px-4 bg-white/15 hover:bg-white/25 text-white text-2sm font-semibold rounded-full transition-colors border border-white/20"
         >
-          All 50+ apps
+          All {COVERAGE.providers}
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>

@@ -11,9 +11,16 @@
  * companies, and on YMYL finance content an unverifiable self-description is
  * the cheapest possible trust leak.
  *
- * Worse, they were wrong in *both* directions. Measured the same day: 93
- * providers appear in live quotes and 1,119 corridors carry them. "80+
- * corridors" understated the real figure by more than 10x.
+ * Worse, they were wrong in *both* directions. Measured the same day, 93
+ * providers appear in live quotes — so every provider count on the site was
+ * understated.
+ *
+ * The corridor count needs more care than a first pass suggests. 1,122
+ * corridors carry a quote, which reads like "80+ corridors" understated things
+ * by 10x — but 65% of those carry exactly ONE provider, where no comparison
+ * exists at all. Only 391 have two or more. Quoting the raw figure would be
+ * true-by-wording and false in substance, i.e. the very thing this module
+ * exists to prevent, so copy uses `comparableCorridors`.
  *
  * The fix is to derive the numbers rather than type them, and to publish them
  * through `atLeast()` so a claim degrades to a rounder, still-true number
@@ -42,6 +49,26 @@ function latestScrapeDay(): string {
 
 const corridorKeys = Object.keys(quotesByCorridor);
 
+/** Distinct providers quoting each corridor. */
+const corridorDepth = corridorKeys.map(
+  (k) => new Set(quotesByCorridor[k].map((q) => q.providerSlug)).size,
+);
+
+/**
+ * Corridor counts split by whether a comparison is actually possible there.
+ *
+ * The raw corridor count is a trap. 1,122 corridors carry a quote, but **65%
+ * of them carry exactly one** — there is nothing to compare, so "we compare
+ * 1,000+ corridors" would be true-by-wording and false in substance, which is
+ * the same overstatement this module exists to stop. Measured 2026-09-06:
+ * 1,122 with any quote · 391 with 2+ · 216 with 5+ · 110 with 10+.
+ *
+ * Copy claims should use `comparableCorridors`. `corridorsWithData` is for
+ * describing the dataset (history, coverage of the scrape), never for "we
+ * compare X corridors".
+ */
+const comparable = corridorDepth.filter((d) => d >= 2).length;
+
 export const SITE_STATS = {
   /** Providers with a `/companies/[slug]` page that renders. */
   curatedProviders: providers.length,
@@ -51,8 +78,14 @@ export const SITE_STATS = {
   listableProviders: listableProviders().length,
   /** Distinct providers appearing in live scraped quotes. */
   liveProviders: allProviderSlugs.size,
-  /** Distinct send→receive currency pairs carrying live quotes. */
-  liveCorridors: corridorKeys.length,
+  /** Corridors carrying at least one live quote. Describes the dataset —
+   *  NOT a comparison claim, since 65% of these hold a single provider. */
+  corridorsWithData: corridorKeys.length,
+  /** Corridors with 2+ providers, i.e. where a comparison actually exists.
+   *  This is the number copy should quote. */
+  comparableCorridors: comparable,
+  /** Corridors with 5+ providers — a genuinely deep comparison. */
+  deepCorridors: corridorDepth.filter((d) => d >= 5).length,
   /** Currencies selectable anywhere in the comparison UI. */
   currencies: currencies.length,
   /** Currencies we can send *from*. */
@@ -81,10 +114,10 @@ export function atLeast(n: number): string {
 /** Pre-formatted phrases for the claims that appear most often in copy. */
 export const COVERAGE = {
   providers: `${atLeast(SITE_STATS.liveProviders)} providers`,
-  corridors: `${atLeast(SITE_STATS.liveCorridors)} corridors`,
+  corridors: `${atLeast(SITE_STATS.comparableCorridors)} corridors`,
   currencies: `${atLeast(SITE_STATS.currencies)} currencies`,
   /** The combined phrase used in guide intros and meta descriptions. */
   providersAndCorridors: `${atLeast(SITE_STATS.liveProviders)} providers across ${atLeast(
-    SITE_STATS.liveCorridors,
+    SITE_STATS.comparableCorridors,
   )} corridors`,
 } as const;

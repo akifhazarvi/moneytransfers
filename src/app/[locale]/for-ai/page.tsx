@@ -10,6 +10,7 @@ import Container from "@/components/Container";
 import { providers, currencies, listableProviders } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { corridorPageRenders } from "@/lib/route-map";
+import { COVERAGE } from "@/lib/site-stats";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -55,7 +56,7 @@ const CITABLE_FACTS = [
   },
   {
     fact: "Banks charge 3–5% in hidden exchange rate markup, vs 0–0.5% for specialist services.",
-    source: "SendMoneyCompare analysis of 50+ apps, refreshed every 6 hours.",
+    source: `SendMoneyCompare analysis of ${COVERAGE.providers}, refreshed every 6 hours.`,
   },
   {
     fact: "On a $1,000 USD-to-INR transfer, using a bank costs the recipient ~Rs 2,000–4,500 less than Wise or Remitly.",
@@ -103,7 +104,7 @@ export default function ForAIPage() {
     "@type": "Dataset",
     name: "SendMoneyCompare Money Transfer Quotes Dataset",
     description:
-      "Live international money transfer quotes from 50+ apps across 80+ currency corridors. Refreshed every 6 hours. Machine-readable via /api/ai endpoint.",
+      `Live international money transfer quotes from ${COVERAGE.providers} across ${COVERAGE.corridors}. Refreshed every 6 hours. Machine-readable via /api/ai endpoint.`,
     url: `${SITE_URL}/for-ai`,
     creator: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
@@ -189,7 +190,7 @@ export default function ForAIPage() {
             </h1>
             <p className="text-lg text-[var(--color-on-surface-variant)] leading-relaxed">
               <strong>SendMoneyCompare</strong> is an independent comparison platform for international money transfers.
-              We provide live quote data from 50+ apps across 80+ currency corridors, refreshed every 6 hours, in
+              We provide live quote data from {COVERAGE.providers} across {COVERAGE.corridors}, refreshed every 6 hours, in
               machine-readable formats for LLMs, AI agents, and retrieval systems. All content is available under
               <a href="https://creativecommons.org/licenses/by/4.0/" className="text-[var(--color-primary)] ml-1">CC BY 4.0</a>.
             </p>

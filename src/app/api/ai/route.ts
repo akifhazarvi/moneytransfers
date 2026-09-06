@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { providers, currencies, getProviderName } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
+import { COVERAGE } from "@/lib/site-stats";
 
 /** CORS origins allowed to call this API (ChatGPT Actions, etc.) */
 const ALLOWED_ORIGINS = [
@@ -92,7 +93,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json({
     name: "SendMoneyCompare",
-    description: "Independent international money transfer comparison platform. Compares 50+ apps across 80+ corridors with data updated every 6 hours.",
+    description: `Independent international money transfer comparison platform. Compares ${COVERAGE.providers} across ${COVERAGE.corridors} with data updated every 6 hours.`,
     website: "https://sendmoneycompare.com",
     llmsTxt: "https://sendmoneycompare.com/llms.txt",
     openApiSpec: "https://sendmoneycompare.com/openapi.json",

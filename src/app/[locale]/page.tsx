@@ -16,6 +16,7 @@ import { getLatestNews } from "@/data/news";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
+import { COVERAGE } from "@/lib/site-stats";
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs
@@ -112,7 +113,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Compare Money Transfers — Best Rates & Lowest Fees",
-    description: "Compare fees, exchange rates, and delivery times from 50+ money transfer apps across 64+ corridors. Updated every 6 hours with live data.",
+    description: `Compare fees, exchange rates, and delivery times from ${COVERAGE.providers} across ${COVERAGE.corridors}. Updated every 6 hours with live data.`,
     url: "https://sendmoneycompare.com",
     isPartOf: { "@id": "https://sendmoneycompare.com/#website" },
     about: { "@id": "https://sendmoneycompare.com/#organization" },
@@ -191,7 +192,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <span className="text-white/55">{tHero("titleHighlight")}</span>
                 </h1>
                 <p className="hidden sm:block text-base sm:text-lg text-white/70 mt-5 max-w-md mx-auto lg:mx-0 leading-relaxed">
-                  Your money is going places. Keep more of it — compare <span className="font-semibold text-white">50+ apps</span> on real rates and fees across 64+ currencies. No signup.
+                  Your money is going places. Keep more of it — compare <span className="font-semibold text-white">{COVERAGE.providers}</span> on real rates and fees across {COVERAGE.currencies}. No signup.
                 </p>
                 {/* Trust row — hidden on the smallest screens to keep the widget high */}
                 <div className="hidden sm:flex items-center justify-center lg:justify-start gap-5 mt-7 text-white/55 text-xs font-medium">

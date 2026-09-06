@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { trackGuideSidebarCTA } from "@/lib/analytics";
+import { COVERAGE } from "@/lib/site-stats";
 
 interface Props {
   slug: string;
@@ -31,7 +32,7 @@ export default function GuideSidebarCTA({ slug, from, to, amount }: Props) {
         <p className="text-md font-semibold text-white mb-1">
           {from && to ? `Sending ${from} to ${to}?` : "Find the best rate today"}
         </p>
-        <p className="text-2sm text-white/70">Compare 50+ apps in seconds</p>
+        <p className="text-2sm text-white/70">Compare {COVERAGE.providers} in seconds</p>
       </div>
       <div className="bg-[var(--color-surface)] px-5 py-4 space-y-3">
         <Link
@@ -46,7 +47,7 @@ export default function GuideSidebarCTA({ slug, from, to, amount }: Props) {
             <svg className="w-3 h-3 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
-            50+ apps
+            {COVERAGE.providers}
           </span>
           <span className="flex items-center gap-1 text-2xs text-[var(--color-on-surface-muted)]">
             <svg className="w-3 h-3 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
