@@ -1,0 +1,22 @@
+{
+  "capturedAt": "2026-09-05T22:52:00Z",
+  "property": "sc-domain:sendmoneycompare.com",
+  "note": "Baseline taken immediately BEFORE 10 manual Request-Indexing submissions in GSC. Re-run the same INSPECT_URL calls in 3-7 days and diff coverageState + lastCrawlTime. Indexed => crawl-budget starvation, fix is forced crawls + external links. Crawled-and-rejected => quality judgment, content work justified.",
+  "sitemap": { "submitted": 705, "indexed": 0, "lastDownloaded": "2026-09-05T16:20:27Z" },
+  "searchAnalytics28d": { "clicks": 16, "impressions": 692, "avgPosition": 76.55, "window": "2026-08-08..2026-09-03" },
+  "urls": [
+    {"path":"/","state":"Submitted and indexed","lastCrawl":"2026-08-31T03:31:12Z","verdict":"PASS","externalReferrers":true},
+    {"path":"/guides/how-to-send-money-abroad","state":"URL is unknown to Google","lastCrawl":null,"bingImpr":10983},
+    {"path":"/guides/swift-codes-explained","state":"Crawled - currently not indexed","lastCrawl":"2026-03-21T21:43:22Z","bingImpr":3789},
+    {"path":"/guides/bank-wire-transfer-fees-2026","state":"URL is unknown to Google","lastCrawl":null,"bingImpr":663},
+    {"path":"/guides/business-international-payments-guide","state":"Crawled - currently not indexed","lastCrawl":"2026-03-20T08:29:50Z","bingImpr":647},
+    {"path":"/guides/best-money-transfer-services","state":"Crawled - currently not indexed","lastCrawl":"2026-04-10T00:11:37Z","bingImpr":530},
+    {"path":"/guides/revolut-foreign-transaction-fees-2026","state":"URL is unknown to Google","lastCrawl":null,"bingImpr":506},
+    {"path":"/guides/money-transfer-limits-by-provider-country","state":"Crawled - currently not indexed","lastCrawl":"2026-04-13T03:07:59Z","bingImpr":452},
+    {"path":"/iban/ireland","state":"Crawled - currently not indexed","lastCrawl":"2026-04-10T20:03:12Z","bingImpr":385},
+    {"path":"/iban/germany","state":"Crawled - currently not indexed","lastCrawl":"2026-03-17T21:12:16Z","bingImpr":314},
+    {"path":"/iban/united-arab-emirates","state":"Crawled - currently not indexed","lastCrawl":"2026-03-18T19:23:29Z","bingImpr":314},
+    {"path":"/send-money","state":"Crawled - currently not indexed","lastCrawl":"2026-05-20T21:49:56Z"},
+    {"path":"/companies/wise","state":"Crawled - currently not indexed","lastCrawl":"2026-05-26T02:08:21Z"}
+  ]
+}
