@@ -9617,7 +9617,7 @@
       "moneygram": {
         "rate": 203.6321,
         "fee": 0.99,
-        "markup": 0.41,
+        "markup": 0.38,
         "receiveAmount": 20161.61
       },
       "skrill": {
@@ -9633,63 +9633,63 @@
         "receiveAmount": 20350
       },
       "western-union": {
-        "rate": 200.6171,
+        "rate": 202.5764,
         "fee": 0.5,
-        "markup": 1.88,
-        "receiveAmount": 19961.4
+        "markup": 0.89,
+        "receiveAmount": 20156.35
       },
       "dahabshiil": {
         "rate": 210.039,
         "fee": 1.99,
-        "markup": -2.73,
+        "markup": -2.76,
         "receiveAmount": 20585.92
       },
       "transfergo": {
-        "rate": 199.7257,
+        "rate": 200.8564,
         "fee": 0,
-        "markup": 2.32,
-        "receiveAmount": 19972.57
+        "markup": 1.73,
+        "receiveAmount": 20085.64
       },
       "worldremit": {
         "rate": 202.9762,
         "fee": 0,
-        "markup": 0.73,
+        "markup": 0.7,
         "receiveAmount": 20297.62
       },
       "instarem": {
         "rate": 203.2862,
         "fee": 0,
-        "markup": 0.58,
+        "markup": 0.54,
         "receiveAmount": 20328.62
       },
       "xe": {
         "rate": 202.7948,
         "fee": 3,
-        "markup": 0.82,
+        "markup": 0.79,
         "receiveAmount": 19671.1
       },
       "paysend": {
         "rate": 202.8871,
         "fee": 1,
-        "markup": 0.77,
+        "markup": 0.74,
         "receiveAmount": 20085.82
       },
       "remitly": {
         "rate": 203.49,
-        "fee": 0,
-        "markup": 0.48,
-        "receiveAmount": 20349
+        "fee": 0.99,
+        "markup": 0.45,
+        "receiveAmount": 20147.54
       },
       "revolut": {
         "rate": 201.9258,
         "fee": 2.1,
-        "markup": 1.24,
+        "markup": 1.21,
         "receiveAmount": 19768.53
       },
       "wise": {
         "rate": 204.4419,
         "fee": 2.97,
-        "markup": 0.01,
+        "markup": -0.02,
         "receiveAmount": 19837
       }
     }
