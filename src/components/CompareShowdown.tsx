@@ -15,6 +15,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { trackCompareSelected } from "@/lib/analytics";
 import { useGeoSelection } from "@/lib/useGeoSelection";
+import LiveTimestamp from "@/components/LiveTimestamp";
 
 /* Corridors sampled for the "who wins more often" strip. Kept short so the
    table stays scannable; the headline verdict uses the user-chosen corridor. */
@@ -54,9 +55,25 @@ function receiveFrom(cache: QuoteCache, slug: string, amount: number, from: stri
 interface Props {
   defaultA?: string;
   defaultB?: string;
+  /**
+   * Embedded quotes for the default corridor, rendered by the server.
+   *
+   * Without this the whole comparison was client-fetched, so the server sent a
+   * page with no numbers on it and a crawler saw only the loading state. The
+   * page is prerendered, so this costs nothing at request time and gives both
+   * crawlers and the first paint a complete, real comparison — which the live
+   * overlay then upgrades once the browser has hydrated.
+   */
+  initialQuotes?: TransferQuote[];
+  initialCorridor?: { amount: number; from: string; to: string };
 }
 
-export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly" }: Props) {
+export default function CompareShowdown({
+  defaultA = "wise",
+  defaultB = "remitly",
+  initialQuotes,
+  initialCorridor,
+}: Props) {
   const [a, setA] = useState(defaultA);
   const [b, setB] = useState(defaultB);
 
@@ -117,7 +134,11 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
   // ── Fetch quotes for every corridor this view reads: the headline corridor
   //    (user amount) + the sampled corridors (1,000 each). Each is an
   //    independent /api/quotes call, run in parallel and merged into a cache. ──
-  const [quoteCache, setQuoteCache] = useState<QuoteCache>({});
+  const [quoteCache, setQuoteCache] = useState<QuoteCache>(() =>
+    initialQuotes?.length && initialCorridor
+      ? { [corridorKey(initialCorridor.amount, initialCorridor.from, initialCorridor.to)]: initialQuotes }
+      : {},
+  );
   /**
    * Whether the quote fetch for the current corridor is still in flight.
    *
@@ -129,7 +150,22 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
    * carries no amounts. "Loading" and "we have nothing" are different states
    * and must not share a message.
    */
-  const [quotesPending, setQuotesPending] = useState(true);
+  const [quotesPending, setQuotesPending] = useState(!initialQuotes?.length);
+  /**
+   * Live upstream quotes for the headline corridor, overlaid on the embedded
+   * ones once they arrive.
+   *
+   * Everything else here reads /api/quotes, which serves the dataset baked in
+   * at deploy time — fetching it from the browser returns exactly what the
+   * server already rendered. /api/quotes/live goes upstream per request, so
+   * these are the only genuinely current numbers on the page.
+   *
+   * Kept as a separate overlay rather than replacing quoteCache so a failed or
+   * slow upstream leaves the rendered comparison intact. A stale real number
+   * beats an empty state, and the server-rendered values are what a crawler
+   * sees regardless.
+   */
+  const [live, setLive] = useState<{ bySlug: Record<string, number>; collectedAt: string } | null>(null);
 
   useEffect(() => {
     if (amount <= 0) return;
@@ -159,18 +195,38 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
       // loading, so the no-data message becomes truthful rather than premature.
       if (!controller.signal.aborted) setQuotesPending(false);
     });
+    // Live overlay for the headline corridor only. The sampled corridors stay on
+    // embedded data: they are a "who wins more often" tally, not a live quote,
+    // and four more upstream calls per pageview would not earn their cost.
+    setLive(null);
+    fetch(`/api/quotes/live?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`, {
+      signal: controller.signal,
+    })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!d?.quotes?.length || controller.signal.aborted) return;
+        const bySlug: Record<string, number> = {};
+        for (const q of d.quotes as { providerSlug: string; receiveAmount: number }[]) {
+          bySlug[q.providerSlug] = q.receiveAmount;
+        }
+        setLive({ bySlug, collectedAt: d.collectedAt });
+      })
+      .catch(() => {
+        /* upstream down — the embedded numbers already on screen still stand */
+      });
+
     return () => controller.abort();
   }, [amount, fromCurrency, toCurrency]);
 
   // ── Headline verdict on the user-chosen corridor ──
   const headline = useMemo(() => {
     if (!provA || !provB || amount <= 0) return null;
-    const ra = receiveFrom(quoteCache, a, amount, fromCurrency, toCurrency);
-    const rb = receiveFrom(quoteCache, b, amount, fromCurrency, toCurrency);
+    const ra = live?.bySlug[a] ?? receiveFrom(quoteCache, a, amount, fromCurrency, toCurrency);
+    const rb = live?.bySlug[b] ?? receiveFrom(quoteCache, b, amount, fromCurrency, toCurrency);
     if (ra == null || rb == null) return { winner: null as Provider | null, diff: 0, ra, rb };
     const winner = ra > rb ? provA : rb > ra ? provB : null;
     return { winner, diff: Math.abs(ra - rb), ra, rb };
-  }, [a, b, provA, provB, amount, fromCurrency, toCurrency, quoteCache]);
+  }, [a, b, provA, provB, amount, fromCurrency, toCurrency, quoteCache, live]);
 
   // ── Multi-corridor tally for the strip ──
   const corridorRows = useMemo(() => {
@@ -318,8 +374,18 @@ export default function CompareShowdown({ defaultA = "wise", defaultB = "remitly
         <div className="px-5 sm:px-7 pt-3 pb-5">
           {headline && headline.winner ? (
             <>
+              {/* Only claim "live" when the upstream actually answered. Without
+                  the overlay these are the deploy-time numbers, and saying live
+                  either way would be the kind of unearned claim we removed
+                  everywhere else. */}
               <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--color-success-dark)] uppercase tracking-wider mb-2">
-                <Trophy className="w-3 h-3" strokeWidth={2.25} /> Live verdict
+                <Trophy className="w-3 h-3" strokeWidth={2.25} />
+                {live ? "Live verdict" : "Verdict"}
+                {live && (
+                  <span className="font-normal normal-case tracking-normal text-[var(--color-on-surface-variant)]">
+                    <LiveTimestamp iso={live.collectedAt} prefix="·" />
+                  </span>
+                )}
               </span>
               <p className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold leading-[1.15] tracking-tight text-[var(--color-on-surface)]">
                 {headline.winner.name} sends{" "}

@@ -10,6 +10,7 @@ import { getCompareCanonicalSlug } from "@/lib/compare-canonical";
 import { SITEMAP_COMPARISON_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 // Revalidate every 6 hours — matches scraper cadence (parity with /compare/[slug]).
 export const revalidate = 21600;
@@ -199,7 +200,10 @@ export default async function ComparisonIndexPage({ params }: { params: Promise<
             </p>
           </div>
           <div>
-            <CompareShowdown />
+            <CompareShowdown
+              initialQuotes={generateQuotes(1000, "USD", "INR")}
+              initialCorridor={{ amount: 1000, from: "USD", to: "INR" }}
+            />
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-2xs text-[var(--color-on-surface-variant)]">
             <span>
