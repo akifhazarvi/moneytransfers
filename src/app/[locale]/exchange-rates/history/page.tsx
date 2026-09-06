@@ -15,6 +15,7 @@ import {
 import { currencies } from "@/data/providers";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { setRequestLocale } from "next-intl/server";
+import { COVERAGE } from "@/lib/site-stats";
 
 // ── Tier 1 corridors (highest search volume) ──────────────────
 const TIER1 = [
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const year = new Date().getFullYear();
   return {
     title: `Historical Exchange Rates — 90+ Currency Corridors (${year})`,
-    description: seoDescription(`Track exchange rate history across 90+ currency corridors. Compare how provider rates have changed over time and find the best time to send money abroad.`),
+    description: seoDescription(`Track exchange rate history across ${COVERAGE.historyCorridors}. Compare how provider rates have changed over time and find the best time to send money abroad.`),
     alternates: getAlternates("exchange-rates/history", locale),
     openGraph: {
       title: `Historical Exchange Rates — Currency Rate Trends (${year})`,

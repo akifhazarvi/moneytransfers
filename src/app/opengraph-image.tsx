@@ -206,7 +206,7 @@ export default async function Image() {
           }}
         >
           <span style={{ fontSize: "16px", color: "#475569", fontWeight: 500, display: "flex" }}>
-            Rates tracked daily across 800+ corridors · updated every 6 hours
+            Rates tracked daily across every major corridor · updated every 6 hours
           </span>
           <span
             style={{

@@ -37,6 +37,7 @@ import { quotesByCorridor, allProviderSlugs } from "./unified-quotes";
 import { providers, listableProviders, currencies, sendCurrencies } from "@/data/providers";
 import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
 import midMarket from "@/data/scraped/xe-midmarket-rates.json";
+import { getAllInsights, KEEP_HISTORY_PAIRS, corridorToSlug } from "./rate-history";
 
 /** Latest `dateCollected` in the broadest scrape, full ISO instant. */
 function latestScrapeInstant(): string {
@@ -49,6 +50,13 @@ function latestScrapeInstant(): string {
 }
 
 const corridorKeys = Object.keys(quotesByCorridor);
+
+/** Same gate as generateStaticParams in exchange-rates/history/[pair]. */
+function historyPairCount(): number {
+  return getAllInsights(2)
+    .map((i) => corridorToSlug(i.corridor))
+    .filter((slug) => KEEP_HISTORY_PAIRS.has(slug)).length;
+}
 
 /** Distinct providers quoting each corridor. */
 const corridorDepth = corridorKeys.map(
@@ -93,6 +101,15 @@ export const SITE_STATS = {
   sendCurrencies: sendCurrencies.length,
   /** Distinct receive currencies seen across live corridors. */
   receiveCurrencies: new Set(corridorKeys.map((k) => k.split("_")[1])).size,
+  /**
+   * Corridors with a rendered /exchange-rates/history/[pair] page.
+   *
+   * Three places claimed "90+ corridors" of rate history — two of them as links
+   * to a hub that renders twelve. Mirrors the route's own gate
+   * (KEEP_HISTORY_PAIRS filtered to pairs with 2+ days), so the claim and the
+   * page count cannot drift apart.
+   */
+  historyPairs: historyPairCount(),
   /** ISO day of the freshest quote in the broadest scrape. */
   quotesUpdated: latestScrapeInstant().slice(0, 10),
   /**
@@ -132,6 +149,10 @@ export const COVERAGE = {
   providers: `${atLeast(SITE_STATS.liveProviders)} providers`,
   corridors: `${atLeast(SITE_STATS.comparableCorridors)} corridors`,
   currencies: `${atLeast(SITE_STATS.currencies)} currencies`,
+  /** For "we TRACK N corridors" — the dataset, not the comparable subset. */
+  corridorsTracked: `${atLeast(SITE_STATS.corridorsWithData)} corridors`,
+  /** For links into /exchange-rates/history — must match the pages that exist. */
+  historyCorridors: `${SITE_STATS.historyPairs} corridors`,
   /** The combined phrase used in guide intros and meta descriptions. */
   providersAndCorridors: `${atLeast(SITE_STATS.liveProviders)} providers across ${atLeast(
     SITE_STATS.comparableCorridors,

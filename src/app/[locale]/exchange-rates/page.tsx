@@ -11,7 +11,7 @@ import { fetchExchangeRates } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getPairRate, formatRate, getSendVerdict, RATES_AS_OF } from "@/lib/exchange-rates-today";
 import { corridorPageRenders } from "@/lib/route-map";
-import { SITE_STATS } from "@/lib/site-stats";
+import { SITE_STATS, COVERAGE } from "@/lib/site-stats";
 
 // Revalidate hourly so "today's rate" + the as-of date stay fresh while the
 // page stays fully prerendered (no per-request no-store — the May deindex
@@ -585,7 +585,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
               Is now a good time to send?
             </h1>
             <p className="mt-3 text-[15px] sm:text-base text-[var(--color-on-surface-variant)] leading-relaxed">
-              We track exchange rates daily across 800+ corridors. Pick yours and we&apos;ll tell you if today beats
+              We track exchange rates daily across {COVERAGE.corridorsTracked}. Pick yours and we&apos;ll tell you if today beats
               the last few months — and exactly how much your recipient gets.
             </p>
           </header>
@@ -670,7 +670,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
               </div>
               <div className="px-5 pb-5">
                 <Link href="/exchange-rates/history" className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary)] hover:underline">
-                  See rate history for 90+ corridors
+                  See rate history for {COVERAGE.historyCorridors}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </Link>
               </div>

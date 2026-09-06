@@ -27,6 +27,7 @@ import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { rateHistoryHref } from "@/lib/route-map";
+import { COVERAGE } from "@/lib/site-stats";
 
 
 interface Props {
@@ -681,7 +682,7 @@ function DefaultComparison({
                 ))}
                 <li>
                   <Link href="/exchange-rates/history" className="text-2sm font-medium text-[var(--color-primary)] hover:underline">
-                    All 90+ corridors →
+                    All {COVERAGE.historyCorridors} →
                   </Link>
                 </li>
               </ul>
