@@ -2021,7 +2021,7 @@ export default async function CorridorPage({ params }: Props) {
       )}
 
       {/* ─── Quick Compare Widget ─── */}
-      <section className="bg-[var(--color-surface-dim)] py-8 border-y border-[var(--color-outline)]">
+      <section id="compare-widget" className="bg-[var(--color-surface-dim)] py-8 border-y border-[var(--color-outline)]">
         <Container>
           <div className="max-w-[860px] mx-auto">
             <ComparisonWidget
@@ -2195,7 +2195,7 @@ export default async function CorridorPage({ params }: Props) {
             <Card>
               <p className="text-sm text-[var(--color-on-surface-variant)] text-center py-4">
                 No provider quotes available for this corridor yet. Try the{" "}
-                <Link href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${sampleAmount}`} className="text-[var(--color-primary)] hover:underline">
+                <Link href="/send-money" className="text-[var(--color-primary)] hover:underline">
                   comparison tool
                 </Link>{" "}
                 for live results.
@@ -3486,9 +3486,18 @@ export default async function CorridorPage({ params }: Props) {
             Compare all providers for {headingFrom} to {headingTo}
           </h2>
           <p className="text-sm text-[var(--color-on-surface-variant)] mb-6">
-            Enter your exact amount to see personalised quotes from every provider on this route.
+            Enter your exact amount in the comparison tool above to see personalised quotes from every
+            provider on this route.
           </p>
-          <PrimaryButton href={`/send-money?from=${fromCurrency}&to=${toCurrency}&amount=${sampleAmount}`} size="lg">
+          {/* Anchors to the ComparisonWidget already on this page rather than
+              navigating to /send-money?from=..&to=.. — a generic copy of the tool
+              preloaded with the corridor the reader is already looking at. That
+              link was on every corridor page, so it produced ~850 self-
+              referential URLs which all canonicalise back to /send-money: crawl
+              budget spent to reach a duplicate, on a site Google is barely
+              crawling. A fragment is invisible to crawlers and keeps the reader
+              in context. */}
+          <PrimaryButton href="#compare-widget" size="lg">
             Compare providers now
           </PrimaryButton>
 

@@ -221,6 +221,8 @@ export function getSendVerdict(from: string, to: string, amount: number): SendVe
     rangePos,
     bestRateDate: stats.bestRateDate,
     worstRateDate: stats.worstRateDate,
-    sendScore: insight.sendScore,
+    // ?? null: the field is optional on RateInsight because CI can regenerate
+    //  the JSON without it (see rate-history-types.ts).
+    sendScore: insight.sendScore ?? null,
   };
 }
