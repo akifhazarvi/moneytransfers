@@ -455,7 +455,7 @@ const faqs = [
     question: "Is now a good time to send money abroad?",
     answer:
       leadVerdict
-        ? `It depends on the corridor. Right now ${leadVerdict.from}→${leadVerdict.to} rates are ${leadVerdict.level} — today's best rate beats ${leadVerdict.levelPct}% of the last ${leadVerdict.daysTracked} days we've tracked. Use the tool at the top of this page to check your own corridor: it shows whether today is a good or weak day to send and how much your recipient receives.`
+        ? `It depends on the corridor. Right now ${leadVerdict.from}→${leadVerdict.to} scores ${leadVerdict.sendScore ? `${leadVerdict.sendScore.score}/100 — ${leadVerdict.sendScore.headline.toLowerCase()}. ${leadVerdict.sendScore.explanation}` : `${leadVerdict.levelPct}% of the last ${leadVerdict.daysTracked} days we've tracked.`} Use the tool at the top of this page to check your own corridor: it shows whether today is a good or weak day to send and how much your recipient receives.`
         : "Use the tool at the top of this page: it compares today's rate against the last 2–3 months we've tracked for your corridor and tells you whether it's a good or weak day to send.",
   },
   {
@@ -555,6 +555,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
         bestProviderSlug: leadVerdict.bestProviderSlug, bestRate: leadVerdict.bestRate,
         receiveNow: leadVerdict.receiveNow, receiveBest: leadVerdict.receiveBest, receiveWorst: leadVerdict.receiveWorst,
         rangePos: leadVerdict.rangePos,
+        sendScore: leadVerdict.sendScore,
       }
     : null;
 

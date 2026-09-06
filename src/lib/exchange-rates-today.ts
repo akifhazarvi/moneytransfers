@@ -17,6 +17,7 @@
 
 import midmarketHistoryData from "@/data/scraped/midmarket-history.json";
 import { getRateInsight } from "./rate-history";
+import type { SendScore } from "./send-score";
 
 const history = midmarketHistoryData as {
   currencies: string[];
@@ -168,6 +169,13 @@ export interface SendVerdict {
   rangePos: number;          // 0 (worst) .. 1 (best) — today's spot on the bar
   bestRateDate: string;
   worstRateDate: string;
+  /**
+   * Multi-factor timing score. Null for corridors with too little history.
+   * `level`/`levelPct` above are the older single-factor read kept for the
+   * range bar; anything that states a VERDICT in words must use this, or the
+   * same corridor gets two different answers on two pages.
+   */
+  sendScore: SendScore | null;
 }
 
 /**
@@ -213,5 +221,6 @@ export function getSendVerdict(from: string, to: string, amount: number): SendVe
     rangePos,
     bestRateDate: stats.bestRateDate,
     worstRateDate: stats.worstRateDate,
+    sendScore: insight.sendScore,
   };
 }

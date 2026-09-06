@@ -21,6 +21,7 @@ import { getGoUrl } from "@/lib/affiliate";
 import { useGeoSelection } from "@/lib/useGeoSelection";
 import { trackProviderClicked } from "@/lib/analytics";
 import { rateLevelConfig, type RateLevel } from "@/lib/rate-history-types";
+import type { SendScore } from "@/lib/send-score";
 
 export interface VerdictData {
   from: string;
@@ -35,6 +36,7 @@ export interface VerdictData {
   receiveBest: number;
   receiveWorst: number;
   rangePos: number;
+  sendScore: SendScore | null;
 }
 
 interface Props {
@@ -61,7 +63,16 @@ function fmtInt(n: number) {
   return n.toLocaleString("en-US", { maximumFractionDigits: 0 });
 }
 
-// Plain-language verdict headline per level.
+/**
+ * SendScore bands map onto the existing level styling so the icon and colour
+ * agree with the headline. Without this the card showed a green arrow above
+ * "Poor time to send".
+ */
+const BAND_AS_LEVEL: Record<string, RateLevel> = {
+  exceptional: "great", great: "great", good: "good", typical: "typical", poor: "low",
+};
+
+// Fallback headline, used only when a corridor has too little history to score.
 const VERDICT_COPY: Record<RateLevel, { head: string }> = {
   great: { head: "Great time to send" },
   good: { head: "Good time to send" },
@@ -115,6 +126,7 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
       setData({
         from: f, to: t, amount: amt,
         level: ins.level, levelPct: ins.levelPct, daysTracked: ins.totalDays,
+        sendScore: ins.sendScore,
         bestProviderSlug: ins.today.bestProvider, bestRate: ins.today.bestRate,
         receiveNow: Math.round(perUnit * amt),
         receiveBest: Math.round(ins.stats.bestRate * feeRatio * amt),
@@ -163,8 +175,14 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
     });
   };
 
-  const cfg = rateLevelConfig(data.level);
-  const copy = VERDICT_COPY[data.level];
+  // SendScore is the verdict wherever it exists. `level`/`levelPct` remain the
+  // source for the range bar only. Two systems stating a verdict in words gave
+  // /exchange-rates "Good time to send" while the corridor page said "Poor" for
+  // the same corridor on the same day.
+  const score = data.sendScore;
+  const effectiveLevel = score ? BAND_AS_LEVEL[score.band] : data.level;
+  const cfg = rateLevelConfig(effectiveLevel);
+  const copy = { head: score ? score.headline : VERDICT_COPY[data.level].head };
   const hasProvider = !!data.bestProviderSlug;
   const goUrl = hasProvider
     ? getGoUrl(data.bestProviderSlug, { sourceCurrency: from, targetCurrency: to, sourceAmount: amount, clickref: "verdict_hero" })
@@ -224,9 +242,17 @@ export default function SendVerdictHero({ initial, corridors, embedded = false }
               </span>
               <div>
                 <p className="text-2xl sm:text-3xl font-bold text-[var(--color-on-surface)] leading-tight tracking-tight">{copy.head}</p>
-                <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
-                  Today beats <strong className="text-[var(--color-on-surface)]">{data.levelPct}%</strong> of the last {data.daysTracked} days
-                </p>
+                {score ? (
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
+                    <strong className="text-[var(--color-on-surface)]">{score.score}/100</strong>
+                    {" · "}
+                    {score.explanation}
+                  </p>
+                ) : (
+                  <p className="text-[13px] text-[var(--color-on-surface-variant)] mt-0.5">
+                    Today beats <strong className="text-[var(--color-on-surface)]">{data.levelPct}%</strong> of the last {data.daysTracked} days
+                  </p>
+                )}
               </div>
             </div>
 
