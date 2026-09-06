@@ -54,6 +54,8 @@ interface ProviderBadge {
 }
 
 import { computeSendScore, type SendScore } from "../src/lib/send-score";
+import { computeProviderConsistency, type ProviderConsistency, type ProviderDay } from "../src/lib/provider-consistency";
+import { getProviderName } from "../src/data/providers";
 
 type RateLevel = "low" | "typical" | "good" | "great";
 
@@ -76,6 +78,8 @@ interface RateInsight {
   /** Multi-factor timing score. Null when history is too thin to score
    *  honestly (under 7 distinct days) — consumers must handle null. */
   sendScore: SendScore | null;
+  /** "Who is usually cheapest here" over 90 days. Null when too few contested days. */
+  providerConsistency: ProviderConsistency | null;
   providerBadges: ProviderBadge[];
   sparklines: Record<string, SparklinePoint[]>;
 }
@@ -209,6 +213,20 @@ function computeInsight(corridor: string, fullHistory: DayEntry[]): RateInsight 
   const todayMedianReceive =
     todayAmounts.length >= 3 ? todayAmounts[Math.floor(todayAmounts.length / 2)] : null;
 
+  // Every provider-day in the window, for the consistency ranking. Built from
+  // `history` rather than the sparklines so it sees the same data the score does.
+  const consistencyObs: ProviderDay[] = [];
+  for (const day of history) {
+    for (const [slug, q] of Object.entries(day.providers)) {
+      consistencyObs.push({ date: day.date, providerSlug: slug, receiveAmount: q.receiveAmount });
+    }
+  }
+  const providerConsistency = computeProviderConsistency(
+    consistencyObs,
+    todayBest[0],
+    (slug) => getProviderName(slug) || slug,
+  );
+
   const sendScore = computeSendScore({
     history: dailyBestRates,
     todayReceive: todayBest[1].receiveAmount,
@@ -223,6 +241,7 @@ function computeInsight(corridor: string, fullHistory: DayEntry[]): RateInsight 
     stats: { avgRate: Math.round(avgRate * 10000) / 10000, bestRate: bestDay.rate, bestRateDate: bestDay.date, bestRateProvider: bestDay.provider, worstRate: worstDay.rate, worstRateDate: worstDay.date, worstRateProvider: worstDay.provider },
     level, levelPct: Math.round(todayPos), providerBadges: badges, sparklines,
     sendScore,
+    providerConsistency,
   };
 }
 

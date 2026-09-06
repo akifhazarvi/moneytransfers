@@ -1,4 +1,5 @@
 import type { SendScore } from "./send-score";
+import type { ProviderConsistency } from "./provider-consistency";
 /**
  * rate-history-types.ts
  *
@@ -53,6 +54,8 @@ export interface RateInsight {
    * period; both are kept while the UI migrates.
    */
   sendScore: SendScore | null;
+  /** "Who is usually cheapest here" over 90 days; null when evidence is thin. */
+  providerConsistency: ProviderConsistency | null;
   providerBadges: ProviderBadge[];
   sparklines: Record<string, SparklinePoint[]>;
 }

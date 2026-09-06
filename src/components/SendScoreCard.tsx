@@ -11,6 +11,7 @@
  */
 
 import type { SendScore, SendScoreBand } from "@/lib/send-score";
+import type { ProviderConsistency } from "@/lib/provider-consistency";
 
 /**
  * Band colours use the semantic tokens, not the chart accent — this is a
@@ -32,9 +33,14 @@ interface Props {
   toCurrency: string;
   /** Rendered smaller inside a denser page section. */
   compact?: boolean;
+  /**
+   * "Who is usually cheapest here". Optional because 800 of 1,012 corridors
+   * lack enough contested days to rank anyone honestly.
+   */
+  consistency?: ProviderConsistency | null;
 }
 
-export default function SendScoreCard({ score, fromCurrency, toCurrency, compact }: Props) {
+export default function SendScoreCard({ score, fromCurrency, toCurrency, compact, consistency }: Props) {
   const style = BAND_STYLE[score.band];
   // Dial sweep. 0-100 maps onto a 3/4 turn so the ends stay visually distinct.
   const sweep = (score.score / 100) * 270;
@@ -116,6 +122,55 @@ export default function SendScoreCard({ score, fromCurrency, toCurrency, compact
               </li>
             ))}
           </ul>
+
+          {consistency && consistency.leaders.length > 1 && (
+            <div
+              className="mt-4 pt-3.5 border-t"
+              style={{ borderColor: "var(--color-outline)" }}
+            >
+              <h4
+                className="text-[11px] font-semibold tracking-wide mb-1.5"
+                style={{ color: "var(--color-on-surface)" }}
+              >
+                Who is usually cheapest here
+              </h4>
+              <p className="text-[13px] leading-relaxed mb-2.5" style={{ color: "var(--color-on-surface-variant)" }}>
+                {consistency.summary}
+              </p>
+              <ul className="grid gap-1">
+                {consistency.leaders.slice(0, 4).map((l) => (
+                  <li key={l.providerSlug} className="flex items-center gap-2.5 text-xs">
+                    <span
+                      className="h-1.5 rounded-full overflow-hidden shrink-0"
+                      style={{ width: 72, background: "var(--color-surface-dim)" }}
+                      aria-hidden="true"
+                    >
+                      <span
+                        className="block h-full rounded-full"
+                        /* Not `style.ring` — that is the SendScore band, so a
+                           75% win rate rendered danger-red on a "Poor" corridor.
+                           A win rate is neutral information about a provider,
+                           not a verdict about today. */
+                        style={{ width: `${l.winRate}%`, background: "var(--color-primary)" }}
+                      />
+                    </span>
+                    <span className="tabular-nums w-11 shrink-0" style={{ color: "var(--color-on-surface)" }}>
+                      {Math.round(l.winRate)}%
+                    </span>
+                    <span className="min-w-0 truncate" style={{ color: "var(--color-on-surface-variant)" }}>
+                      <span style={{ color: "var(--color-on-surface)" }}>{l.providerName}</span>
+                      {" — cheapest on "}
+                      {l.wins} of {l.quotedDays} days it quoted
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-2 text-[11px]" style={{ color: "var(--color-on-surface-variant)" }}>
+                {consistency.contestedDays} days where two or more providers quoted, over {consistency.windowDays} days.
+                Days with a single quote are excluded — winning unopposed is not evidence.
+              </p>
+            </div>
+          )}
 
           <p className="mt-3 text-[11px]" style={{ color: "var(--color-on-surface-variant)" }}>
             Measured from {score.daysObserved} days of our own recorded provider rates for{" "}

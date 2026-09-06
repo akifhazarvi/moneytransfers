@@ -3141,6 +3141,7 @@ export default async function CorridorPage({ params }: Props) {
                   score={rateInsight.sendScore}
                   fromCurrency={fromCurrency}
                   toCurrency={toCurrency}
+                  consistency={rateInsight.providerConsistency}
                 />
               </div>
             )}
