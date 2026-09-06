@@ -213,6 +213,7 @@ function computeInsight(corridor: string, fullHistory: DayEntry[]): RateInsight 
     history: dailyBestRates,
     todayReceive: todayBest[1].receiveAmount,
     todayMedianReceive,
+    providerCount: todayProviders.length,
   });
 
   return {

@@ -36,15 +36,16 @@
 import { quotesByCorridor, allProviderSlugs } from "./unified-quotes";
 import { providers, listableProviders, currencies, sendCurrencies } from "@/data/providers";
 import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
+import midMarket from "@/data/scraped/xe-midmarket-rates.json";
 
-/** Latest `dateCollected` in the broadest scrape, as an ISO day. */
-function latestScrapeDay(): string {
+/** Latest `dateCollected` in the broadest scrape, full ISO instant. */
+function latestScrapeInstant(): string {
   let newest = "";
   for (const q of wiseComparisonQuotes as { dateCollected?: string }[]) {
     const d = q.dateCollected;
     if (d && d > newest) newest = d;
   }
-  return newest.slice(0, 10);
+  return newest;
 }
 
 const corridorKeys = Object.keys(quotesByCorridor);
@@ -93,7 +94,22 @@ export const SITE_STATS = {
   /** Distinct receive currencies seen across live corridors. */
   receiveCurrencies: new Set(corridorKeys.map((k) => k.split("_")[1])).size,
   /** ISO day of the freshest quote in the broadest scrape. */
-  quotesUpdated: latestScrapeDay(),
+  quotesUpdated: latestScrapeInstant().slice(0, 10),
+  /**
+   * Full ISO instant of the freshest quote. Structured data should use this
+   * rather than the day: a rate page claiming intraday freshness with only a
+   * date attached gives a crawler no way to tell this morning's rate from one
+   * a year old.
+   */
+  quotesUpdatedAt: latestScrapeInstant(),
+  /** Full ISO instant of the mid-market snapshot the markups are priced against. */
+  midMarketUpdatedAt: (midMarket as { timestamp?: string }).timestamp ?? latestScrapeInstant(),
+  /**
+   * Hours between scheduled quote refreshes. Mirrors the cron in
+   * .github/workflows/scrape.yml ('0 0,6,12,18 * * *'); copy that states a
+   * refresh interval should agree with this rather than hand-typing one.
+   */
+  refreshHours: 6,
 } as const;
 
 /**

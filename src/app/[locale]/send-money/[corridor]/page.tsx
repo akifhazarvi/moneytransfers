@@ -852,6 +852,7 @@ import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { corridorPageRenders, companyPageRenders, rateHistoryHref } from "@/lib/route-map";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
+import { SITE_STATS } from "@/lib/site-stats";
 
 // ── Static generation ──
 // Only pre-render corridors with real data (Tier 1 & 2).
@@ -3532,7 +3533,9 @@ export default async function CorridorPage({ params }: Props) {
               priceCurrency: toCurrency,
               unitText: `1 ${fromCurrency}`,
             },
-            validFrom: dataUpdatedISO,
+            // The mid-market instant this rate came from. dataUpdatedISO is
+            // day-truncated to midnight, which dressed a date up as a time.
+            validFrom: SITE_STATS.midMarketUpdatedAt,
             ...(best && {
               exchangeRateSpread: ((midRate - best.exchangeRate) / midRate * 100).toFixed(2) + "%",
             }),

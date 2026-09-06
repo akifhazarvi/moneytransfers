@@ -391,6 +391,7 @@ export default async function ExchangeRatePairPage({ params }: Props) {
       priceCurrency: p.to,
       unitText: `1 ${p.from} = ${fmtRate(midRate)} ${p.to}`,
     },
+    validFrom: SITE_STATS.midMarketUpdatedAt,
   } : null;
 
   return (

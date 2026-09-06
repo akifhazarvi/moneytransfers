@@ -72,6 +72,15 @@ const BANDS: { min: number; band: SendScoreBand; headline: string }[] = [
   { min: 0, band: "poor", headline: "Poor time to send" },
 ];
 
+/**
+ * A corridor with one quoting provider produces a degenerate score: its "range"
+ * is one provider's own drift and there is no field to beat, so the components
+ * pin to the ends and 100/100 "Exceptional" or 0/100 "Poor" comes out of a
+ * single data point. Below this threshold the score is clamped into the middle
+ * bands — the reading is kept, the unearned confidence is not.
+ */
+const MIN_PROVIDERS_FOR_EXTREMES = 2;
+
 const clamp = (n: number, lo = 0, hi = 100) => Math.max(lo, Math.min(hi, n));
 const pct = (n: number) => `${n >= 0 ? "+" : ""}${n.toFixed(2)}%`;
 
@@ -83,6 +92,11 @@ function daysBetween(a: string, b: string): number {
 export interface SendScoreInput {
   /** Daily best offers, any order; deduplicated and sorted internally. */
   history: DailyBest[];
+  /**
+   * Distinct providers quoting this corridor today. Used only to decide
+   * whether the extreme bands are earned — see `MIN_PROVIDERS_FOR_EXTREMES`.
+   */
+  providerCount?: number;
   /** Today's best receive amount across providers. */
   todayReceive: number;
   /**
@@ -196,9 +210,20 @@ export function computeSendScore(input: SendScoreInput): SendScore | null {
   // Renormalise over the components we could actually compute, so dropping one
   // shifts the score's basis rather than silently scoring it zero.
   const totalWeight = comps.reduce((s, c) => s + c.weight, 0);
-  const score = Math.round(comps.reduce((s, c) => s + c.score * c.weight, 0) / totalWeight);
+  const rawScore = Math.round(comps.reduce((s, c) => s + c.score * c.weight, 0) / totalWeight);
 
-  const { band, headline } = BANDS.find((b) => score >= b.min)!;
+  // A single-provider corridor gets no verdict at all.
+  //
+  // Clamping the number was not enough: 374 corridors still read "Good time to
+  // send", which is a recommendation to act, sourced from one provider's drift
+  // against itself. The score still carries the reading, but the headline stops
+  // pretending it is advice and the band goes neutral so the styling agrees.
+  const thin = (input.providerCount ?? Infinity) < MIN_PROVIDERS_FOR_EXTREMES;
+  const score = thin ? clamp(rawScore, 25, 74) : rawScore;
+
+  const matched = BANDS.find((b) => score >= b.min)!;
+  const band: SendScoreBand = thin ? "typical" : matched.band;
+  const headline = thin ? "Only one provider here" : matched.headline;
   const daysObserved = days.length;
   const confidence = daysObserved >= 60 ? "high" : daysObserved >= 30 ? "medium" : "low";
 
@@ -206,7 +231,9 @@ export function computeSendScore(input: SendScoreInput): SendScore | null {
     score,
     band,
     headline,
-    explanation: buildExplanation(comps, rangeWindowDays, daysObserved, confidence),
+    explanation:
+      buildExplanation(comps, rangeWindowDays, daysObserved, confidence) +
+      (thin ? " Only one provider quotes this corridor, so this is a single-provider reading rather than a comparison." : ""),
     components: comps,
     daysObserved,
     rangeWindowDays,

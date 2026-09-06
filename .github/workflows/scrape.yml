@@ -2,8 +2,12 @@ name: Scrape Provider Data (Fast - API)
 
 on:
   schedule:
-    # Once per day at midnight UTC
-    - cron: '0 0 * * *'
+    # Every 6 hours. The site states "updated every 6 hours" in 134 places; on
+    # a single daily cron that was true at the median gap (5.4h) and false at
+    # the tail (20.4h overnight), because the three scrape workflows all fired
+    # between 00:00 and 06:00 UTC and then nothing ran for the rest of the day.
+    # Job cap is 105 minutes, so four runs never overlap.
+    - cron: '0 0,6,12,18 * * *'
   workflow_dispatch:
 
 permissions:

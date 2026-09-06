@@ -22,6 +22,7 @@ import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { KNOWN_LOGOS } from "../src/lib/provider-logo";
 import { MAX_TITLE, MAX_DESCRIPTION } from "../src/lib/seo-title";
+import { SITE_STATS } from "../src/lib/site-stats";
 
 const ROOT = join(__dirname, "..");
 const WRITE = process.argv.includes("--write");
@@ -158,6 +159,35 @@ for (const key of DESC_MUST_FIT) {
     failures.push(
       `description template ${key} renders ${rendered.length} chars (> ${MAX_DESCRIPTION}): "${rendered.slice(0, 90)}…"`,
     );
+  }
+}
+
+// ── refresh cadence: the cron must match what the copy promises ───────────
+// The site said "updated every 6 hours" in 134 places while the scraper ran on
+// a single daily cron — true at the median gap (5.4h), false at the tail
+// (20.4h overnight). This asserts the schedule still delivers what SITE_STATS
+// .refreshHours claims, so the copy cannot drift away from the workflow again.
+{
+  const wf = readFileSync(join(ROOT, ".github/workflows/scrape.yml"), "utf8");
+  const cron = wf.match(/- cron: '([^']+)'/)?.[1] ?? "";
+  const hourField = cron.split(/\s+/)[1] ?? "";
+  const hours = hourField.startsWith("*/")
+    ? (() => { const step = Number(hourField.slice(2)); return Array.from({ length: Math.ceil(24 / step) }, (_, i) => i * step); })()
+    : hourField === "*"
+      ? Array.from({ length: 24 }, (_, i) => i)
+      : hourField.split(",").map(Number).filter((n) => !Number.isNaN(n));
+
+  if (hours.length < 2) {
+    failures.push(`scrape.yml cron "${cron}" runs ${hours.length}x/day but copy claims every ${SITE_STATS.refreshHours}h`);
+  } else {
+    const sorted = [...hours].sort((a, b) => a - b);
+    const gaps = sorted.map((h, i) => (i === sorted.length - 1 ? 24 - h + sorted[0] : sorted[i + 1] - h));
+    const worst = Math.max(...gaps);
+    if (worst > SITE_STATS.refreshHours) {
+      failures.push(
+        `scrape.yml cron "${cron}" leaves a ${worst}h gap, but SITE_STATS.refreshHours claims ${SITE_STATS.refreshHours}h`,
+      );
+    }
   }
 }
 

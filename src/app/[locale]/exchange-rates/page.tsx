@@ -11,6 +11,7 @@ import { fetchExchangeRates } from "@/lib/exchange-rates";
 import { getAlternates } from "@/lib/i18n-metadata";
 import { getPairRate, formatRate, getSendVerdict, RATES_AS_OF } from "@/lib/exchange-rates-today";
 import { corridorPageRenders } from "@/lib/route-map";
+import { SITE_STATS } from "@/lib/site-stats";
 
 // Revalidate hourly so "today's rate" + the as-of date stay fresh while the
 // page stays fully prerendered (no per-request no-store — the May deindex
@@ -509,6 +510,10 @@ const rateSpecSchema = leadRate ? {
     priceCurrency: "INR",
     unitText: `1 USD = ${formatRate(leadRate.rate)} INR`,
   },
+  // Without validFrom a crawler cannot tell this morning's rate from last
+  // year's. Points at the mid-market snapshot the figure actually came from,
+  // not at midnight, so the timestamp is provenance rather than decoration.
+  validFrom: SITE_STATS.midMarketUpdatedAt,
 } : null;
 
 const datasetSchema = {
