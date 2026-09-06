@@ -108,3 +108,15 @@ export function getDataUpdatedISO(): string {
   if (date) return `${date}T00:00:00.000Z`;
   return process.env.NEXT_PUBLIC_BUILD_TIME ?? `${FALLBACK_DATE}T00:00:00.000Z`;
 }
+
+/**
+ * Full ISO instant of the most recent scrape, for anything shown to a reader.
+ *
+ * Distinct from getDataUpdatedISO(), which truncates to midnight — fine for a
+ * schema `dateModified` that only needs a day, wrong for a visible "updated at"
+ * stamp, where it renders "00:00 UTC" and implies a scrape that never happened.
+ * Falls back to the midnight form only when no timestamp can be recovered.
+ */
+export function getDataUpdatedInstant(): string {
+  return collectedTimestamp() ?? getDataUpdatedISO();
+}

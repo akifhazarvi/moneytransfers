@@ -12,6 +12,7 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import { getPairRate, formatRate, getSendVerdict, RATES_AS_OF } from "@/lib/exchange-rates-today";
 import { corridorPageRenders } from "@/lib/route-map";
 import { SITE_STATS, COVERAGE } from "@/lib/site-stats";
+import { getDataUpdatedInstant } from "@/lib/data-freshness";
 
 // Revalidate hourly so "today's rate" + the as-of date stay fresh while the
 // page stays fully prerendered (no per-request no-store — the May deindex
@@ -614,7 +615,7 @@ export default async function ExchangeRatesPage({ params }: { params: Promise<{ 
           )}
 
           <p className="text-center text-xs text-[var(--color-on-surface-muted)] mt-3">
-            <LiveTimestamp iso={`${RATES_AS_OF}T00:00:00Z`} prefix="Updated" /> · mid-market, median of 4 sources
+            <LiveTimestamp iso={getDataUpdatedInstant()} prefix="Updated" /> · mid-market, median of 4 sources
           </p>
 
           {/* ── Compact rates ── */}

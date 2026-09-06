@@ -14,7 +14,7 @@
  * Google rewards.
  */
 import Image from "next/image";
-import { getDataUpdatedISO } from "@/lib/data-freshness";
+import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, AlertCircle, TrendingDown } from "lucide-react";
@@ -183,7 +183,7 @@ export default async function BankPage({ params }: Props) {
                 <p className="text-sm text-[var(--color-on-surface-variant)] mt-2">
                   {bank.country} · Founded {bank.founded} · Live data
                   {" · "}
-                  <LiveTimestamp iso={dataFreshness} />
+                  <LiveTimestamp iso={getDataUpdatedInstant()} />
                 </p>
               </div>
             </div>

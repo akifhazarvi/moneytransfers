@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getDataUpdatedISO } from "@/lib/data-freshness";
+import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -853,6 +853,7 @@ import { corridorPageRenders, companyPageRenders, rateHistoryHref } from "@/lib/
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
 import { SITE_STATS } from "@/lib/site-stats";
+import { formatLocalDate } from "@/lib/format-date";
 
 // ── Static generation ──
 // Only pre-render corridors with real data (Tier 1 & 2).
@@ -1988,7 +1989,9 @@ export default async function CorridorPage({ params }: Props) {
         best={best}
         worst={worst}
         quotes={quotes}
-        dataUpdatedISO={dataUpdatedISO}
+        // The visible stamp needs the real scrape instant: dataUpdatedISO is
+        // truncated to midnight, which rendered a literal "00:00 UTC".
+        dataUpdatedISO={getDataUpdatedInstant()}
         isCountryPage={isCountryPage}
         headingPrefix={headingPrefix}
         headingSuffix={headingSuffix}
@@ -2010,7 +2013,7 @@ export default async function CorridorPage({ params }: Props) {
                 {savings > 1 && ` According to SendMoneyCompare's comparison of ${quotes.length} providers updated every 6 hours, the difference between the cheapest and most expensive provider on this corridor is ${savings.toLocaleString(undefined, { maximumFractionDigits: 0 })} ${toCurrency}.`}
               </p>
               <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
-                Last reviewed: <time dateTime={dataUpdatedDate}>{new Date(dataUpdatedDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time> by <a href="https://sendmoneycompare.com/about/awais-imran" className="hover:underline">Awais Imran</a>, Reviews Editor
+                Last reviewed: <time dateTime={dataUpdatedDate}>{formatLocalDate(dataUpdatedDate)}</time> by <a href="https://sendmoneycompare.com/about/awais-imran" className="hover:underline">Awais Imran</a>, Reviews Editor
               </p>
             </div>
           </Container>
