@@ -12,7 +12,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import CryptoVsBankIndexSection from "@/components/CryptoVsBankIndexSection";
 import { companyPageRenders, corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE, SITE_STATS } from "@/lib/site-stats";
-import { REMITTANCE_INDEX, type IndexRow } from "@/lib/remittance-cost-index";
+import { REMITTANCE_INDEX, CORRIDOR_SPREAD, type IndexRow } from "@/lib/remittance-cost-index";
 import { formatLocalDate } from "@/lib/format-date";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -133,6 +133,17 @@ function getCorridorCosts(): CorridorCost[] {
 }
 
 const corridorCosts = getCorridorCosts();
+
+// ── Where comparing matters most ──────────────────────────────────────────
+// The aggregate median gap is taken over every corridor with 3+ providers, but
+// the TABLE only shows corridors with 5+. With four providers the median is the
+// mean of two quotes, and leading the table with one of those would repeat the
+// mistake the provider ranking already corrects for — a thin sample outranking
+// a deep one on a technicality.
+const SPREAD_TABLE_MIN_PROVIDERS = 5;
+const spreadRowsShown = CORRIDOR_SPREAD.rows
+  .filter((r) => r.providers >= SPREAD_TABLE_MIN_PROVIDERS)
+  .slice(0, 10);
 
 const faqs = [
   {
@@ -530,6 +541,73 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
           </Container>
         </section>
       )}
+
+      {/* Where comparing matters most — the corridor cut of this index. The
+          provider tables above answer "who is dearest"; nothing answered "on
+          which corridors does the choice cost the most", which is the question
+          a comparison table exists to settle. */}
+      <section id="comparison-gap" className="py-14 bg-[var(--color-surface-dim)] border-y border-[var(--color-outline)]">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] mb-3">
+              Where comparing matters most
+            </h2>
+            <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
+              Across the {CORRIDOR_SPREAD.corridorsMeasured} corridors where at least{" "}
+              {CORRIDOR_SPREAD.minProviders} providers quote a ${idx.amount.toLocaleString("en-US")} transfer, the
+              median corridor costs{" "}
+              <strong className="text-[var(--color-on-surface)]">{CORRIDOR_SPREAD.medianGapPct.toFixed(2)}%</strong>{" "}
+              more through the middle-ranked provider than through the cheapest — about{" "}
+              <strong className="text-[var(--color-primary)]">
+                ${((CORRIDOR_SPREAD.medianGapPct / 100) * idx.amount).toFixed(0)}
+              </strong>{" "}
+              per ${idx.amount.toLocaleString("en-US")} sent. The gap is measured against the median provider rather
+              than the dearest, because the dearest is often a single outlying bank and the median is what a sender who
+              does not compare actually lands on.
+            </p>
+
+            <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl overflow-hidden shadow-[var(--shadow-sm)]">
+              <div className="grid grid-cols-[1fr_60px_78px_78px_92px] gap-2 px-5 py-3 bg-[var(--color-surface-dim)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+                <span>Corridor</span>
+                <span className="text-right">Quotes</span>
+                <span className="text-right">Cheapest</span>
+                <span className="text-right">Median</span>
+                <span className="text-right">Gap</span>
+              </div>
+              {spreadRowsShown.map((r) => (
+                <div
+                  key={r.corridor}
+                  className="grid grid-cols-[1fr_60px_78px_78px_92px] gap-2 items-center px-5 py-3 border-t border-[var(--color-outline)]"
+                >
+                  <span className="text-sm font-semibold text-[var(--color-on-surface)]">
+                    {r.sendCurrency} &rarr; {r.receiveCurrency}
+                  </span>
+                  <span className="text-2sm text-[var(--color-on-surface-variant)] text-right tabular-nums">
+                    {r.providers}
+                  </span>
+                  <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
+                    {r.bestCostPct.toFixed(2)}%
+                  </span>
+                  <span className="text-2sm text-[var(--color-on-surface)] text-right tabular-nums">
+                    {r.medianCostPct.toFixed(2)}%
+                  </span>
+                  <span className="text-sm font-semibold text-[var(--color-primary)] text-right tabular-nums">
+                    ${r.gapPerAmount.toFixed(0)}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="text-2xs text-[var(--color-on-surface-muted)] mt-3">
+              Widest gaps among corridors with {SPREAD_TABLE_MIN_PROVIDERS} or more providers quoting, so the median is
+              taken over a real field. Cost is fee plus exchange-rate markup, as a share of the amount sent.{" "}
+              <Link href="/provider-consistency" className="text-[var(--color-primary)] hover:underline">
+                Which provider wins most often
+              </Link>{" "}
+              answers who to pick once you know the gap is worth closing.
+            </p>
+          </div>
+        </Container>
+      </section>
 
       {/* Methodology */}
       <section className="py-14 bg-[var(--color-surface)]">

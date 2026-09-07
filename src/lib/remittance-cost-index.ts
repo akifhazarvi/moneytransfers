@@ -26,7 +26,7 @@
  *
  * Sane bounds (−2%..40%) drop scrape artifacts without cherry-picking.
  */
-import { quotesByCorridor, quoteDataDate, providerNames, type NormalizedQuote } from "@/lib/unified-quotes";
+import { quotesByCorridor, quotesByCorridorAmount, quoteDataDate, providerNames, type NormalizedQuote } from "@/lib/unified-quotes";
 import wiseComparison from "@/data/scraped/wise-comparison-quotes.json";
 import { providers } from "@/data/providers";
 
@@ -187,3 +187,86 @@ for (const a of allAmounts.values()) {
 
 /** Slugs with a measured markup; the key set provider-measured.ts resolves against. */
 export const MEASURED_MARKUPS: ReadonlyMap<string, MeasuredMarkup> = measured;
+
+// ── Per-corridor cost spread ──────────────────────────────────────────────
+// The provider cut of this index answers "who is dearest". Nothing published
+// the corridor cut: which corridors carry the widest markup, and therefore
+// where comparing is worth the most. That question is the one a corridor page
+// implicitly asks and the one that justifies a comparison table existing, so
+// it belongs on the index rather than in a new near-duplicate URL.
+//
+// Reported as the gap between the cheapest provider and the MEDIAN provider,
+// not the dearest. The dearest is often one bank with an outlying rate, which
+// would let the page advertise a saving almost nobody is choosing between.
+// The median is what a sender who does not compare is likely to land on.
+
+/** A corridor needs this many providers before a median means anything. */
+export const MIN_PROVIDERS_FOR_SPREAD = 3;
+
+export interface CorridorSpreadRow {
+  corridor: string;
+  sendCurrency: string;
+  receiveCurrency: string;
+  providers: number;
+  /** True total cost of the cheapest provider, %. */
+  bestCostPct: number;
+  /** True total cost of the median provider, %. */
+  medianCostPct: number;
+  /** medianCostPct − bestCostPct: what not comparing costs, in %. */
+  comparisonGapPct: number;
+  /** comparisonGapPct in send-currency units per INDEX_AMOUNT sent. */
+  gapPerAmount: number;
+}
+
+const median = (xs: number[]) => {
+  if (xs.length === 0) return 0;
+  const s = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+
+const spreadRows: CorridorSpreadRow[] = [];
+for (const [amountKey, quotes] of Object.entries(quotesByCorridorAmount)) {
+  // Keys are `${send}_${receive}_${amount}` — only the headline amount.
+  const parts = amountKey.split("_");
+  if (parts.length !== 3 || Number(parts[2]) !== INDEX_AMOUNT) continue;
+
+  // One figure per provider, best-first, so a provider quoting twice on a
+  // corridor cannot weight the median toward itself.
+  const bySlug = new Map<string, number>();
+  for (const q of quotes) {
+    const cost = costPct(q);
+    if (cost === null) continue;
+    const prev = bySlug.get(q.providerSlug);
+    if (prev === undefined || cost < prev) bySlug.set(q.providerSlug, cost);
+  }
+  const costs = [...bySlug.values()];
+  if (costs.length < MIN_PROVIDERS_FOR_SPREAD) continue;
+
+  const best = Math.min(...costs);
+  const med = median(costs);
+  const gap = med - best;
+  spreadRows.push({
+    corridor: `${parts[0]}-${parts[1]}`,
+    sendCurrency: parts[0],
+    receiveCurrency: parts[1],
+    providers: costs.length,
+    bestCostPct: round2(best),
+    medianCostPct: round2(med),
+    comparisonGapPct: round2(gap),
+    gapPerAmount: round2((gap / 100) * INDEX_AMOUNT),
+  });
+}
+
+spreadRows.sort((a, b) => b.comparisonGapPct - a.comparisonGapPct || a.corridor.localeCompare(b.corridor));
+
+export const CORRIDOR_SPREAD = {
+  amount: INDEX_AMOUNT,
+  minProviders: MIN_PROVIDERS_FOR_SPREAD,
+  /** Corridors with enough providers to compute a median. */
+  corridorsMeasured: spreadRows.length,
+  /** Widest comparison gaps first. */
+  rows: spreadRows,
+  /** Median comparison gap across every measured corridor, %. */
+  medianGapPct: round2(median(spreadRows.map((r) => r.comparisonGapPct))),
+} as const;
