@@ -139,7 +139,11 @@ const MAX_TOKENS = 350;
  * Perplexity's cheapest search-grounded model. Overridable for a deliberate
  * experiment, not as a default.
  */
-const PPLX_MODEL = process.env.PERPLEXITY_MODEL ?? "sonar";
+// `||`, not `??`: a GitHub Actions `vars.X` that is not defined expands to an
+// EMPTY STRING, not undefined, so `??` happily accepts "" as the model name.
+// That is exactly how the 12:31 CI run posted 100 ChatGPT errors with
+// `models: {chatgpt: ""}` while the same code passed locally.
+const PPLX_MODEL = process.env.PERPLEXITY_MODEL || "sonar";
 
 /**
  * The OpenAI model used to probe ChatGPT. Configurable because the answer — and
@@ -147,7 +151,7 @@ const PPLX_MODEL = process.env.PERPLEXITY_MODEL ?? "sonar";
  * best approximates ChatGPT Search today rather than whatever was current when
  * this was written.
  */
-const OPENAI_MODEL = process.env.OPENAI_CITATION_MODEL ?? "gpt-4o-mini";
+const OPENAI_MODEL = process.env.OPENAI_CITATION_MODEL || "gpt-4o-mini";
 
 type Platform = "chatgpt" | "perplexity";
 

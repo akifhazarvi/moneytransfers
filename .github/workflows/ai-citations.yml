@@ -65,7 +65,11 @@ jobs:
         env:
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_CITATION_MODEL: ${{ vars.OPENAI_CITATION_MODEL }}
+          # Only set when the repo variable actually exists. An undefined
+          # `vars.X` expands to "", which the script would otherwise take as a
+          # real model name — see the ?? -> || fix in check-ai-citations.ts.
+          # Belt and braces: the script now also treats "" as absent.
+          OPENAI_CITATION_MODEL: ${{ vars.OPENAI_CITATION_MODEL || '' }}
         run: |
           args=""
           if [ -n "${{ inputs.limit }}" ]; then args="$args --limit=${{ inputs.limit }}"; fi
