@@ -283,7 +283,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 <p className="text-2sm text-[var(--color-on-surface-variant)] mt-3">
                   SendMoneyCompare is not a money transfer service and does not hold, transmit, or process funds.
                   We are an information service that compares publicly available data from regulated financial providers.
-                  The providers we compare are regulated in the markets where they operate; each reviewed provider's regulators (FCA, FinCEN, ASIC or equivalent) are listed on its review page.
+                  The providers we compare are regulated in the markets where they operate; each reviewed provider&apos;s regulators (FCA, FinCEN, ASIC or equivalent) are listed on its review page.
                 </p>
               </div>
             </div>

@@ -23,6 +23,8 @@ import { join } from "node:path";
 import { KNOWN_LOGOS } from "../src/lib/provider-logo";
 import { MAX_TITLE, MAX_DESCRIPTION } from "../src/lib/seo-title";
 import { SITE_STATS } from "../src/lib/site-stats";
+import { blogPosts } from "../src/data/blog-posts";
+import { renderDataTokens } from "../src/lib/ratings-tokens";
 
 const ROOT = join(__dirname, "..");
 const WRITE = process.argv.includes("--write");
@@ -187,6 +189,28 @@ for (const key of DESC_MUST_FIT) {
       failures.push(
         `scrape.yml cron "${cron}" leaves a ${worst}h gap, but SITE_STATS.refreshHours claims ${SITE_STATS.refreshHours}h`,
       );
+    }
+  }
+}
+
+// ── 5. every data token in guide copy resolves ────────────────────────────
+// Guides quote live figures through {{RECEIVE:…}} / {{QUOTE_LIST:…}} tokens
+// (src/lib/ratings-tokens.ts) instead of numbers typed into prose. A token the
+// renderer cannot resolve — a corridor that lost coverage, a provider slug that
+// changed — is left in place, so the failure mode is a literal "{{RECEIVE:" in
+// a published sentence. Render every section and FAQ here and refuse to build
+// with one unresolved.
+for (const post of blogPosts) {
+  const fields = [
+    ...post.sections.map((sec, i) => [`section ${i + 1} "${sec.heading}"`, sec.content] as const),
+    ...(post.faqs ?? []).map((f, i) => [`faq ${i + 1}`, f.answer] as const),
+  ];
+  for (const [where, text] of fields) {
+    if (!text.includes("{{")) continue;
+    const rendered = renderDataTokens(text);
+    const leftover = rendered.match(/\{\{[A-Z_]+[^}]*\}\}/g);
+    if (leftover) {
+      failures.push(`guide /guides/${post.slug} ${where}: unresolved token(s) ${[...new Set(leftover)].join(", ")}`);
     }
   }
 }

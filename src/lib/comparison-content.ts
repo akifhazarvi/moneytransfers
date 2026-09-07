@@ -78,9 +78,12 @@ function hasFeature(p: Provider, keyword: string): boolean {
  * giving Remitly a 0.5%–2% markup. Only Wise's "0% (mid-market rate)" passes.
  */
 export function usesMidMarketRate(p: Provider): boolean {
-  // A single "0%" value, not the low end of a range: LemFi's "0% - 2% above
-  // mid-market" and Koho's "0% - 0.5%" both parse to zero but are not it.
-  return /^0(\.0+)?%(\s*\(|\s*$)/.test(p.exchangeRateMarkup.trim());
+  // A single "0%" value, not the low end of a range or tier: LemFi's "0% - 2%
+  // above mid-market", Koho's "0% - 0.5%" and HSBC's "0% (Premier) to 2.5%
+  // (standard)" all open with 0% and none of them is it. Exactly one
+  // percentage in the string, and it is zero.
+  const s = p.exchangeRateMarkup.trim();
+  return /^0(\.0+)?%/.test(s) && (s.match(/%/g) ?? []).length === 1;
 }
 
 function hasLowUpfrontFees(p: Provider): boolean {
@@ -261,9 +264,6 @@ function generateIntro(
     const winner = biggestSaving.winner === "a" ? a.name : b.name;
     dataSentence = ` Our data shows the difference can be significant — on a ${biggestSaving.currencySymbol}${biggestSaving.amount.toLocaleString()} ${biggestSaving.label} transfer, ${winner} delivers ${biggestSaving.symbol}${biggestSaving.savings!.toFixed(2)} more to the recipient.`;
   }
-
-  const ageA = new Date().getFullYear() - a.founded;
-  const ageB = new Date().getFullYear() - b.founded;
 
   return `${a.name} and ${b.name} are both popular choices for international money transfers, but they take different approaches. ${a.name}, founded in ${a.founded} and headquartered in ${a.headquarters}, is best known for ${aBestFor}. ${b.name}, operating since ${b.founded} from ${b.headquarters}, focuses on ${bBestFor}. This comparison uses real transfer data collected from both providers across ${corridorData.length} popular corridors to show you exactly which one offers better value for your specific needs.${dataSentence}`;
 }

@@ -16,6 +16,7 @@ import { getMidMarketRate, quoteDataDate, providerNames } from "@/lib/unified-qu
 import { providers, type TransferQuote } from "@/data/providers";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { companyPageRenders } from "@/lib/route-map";
+import { MEASURED_MARKUPS } from "@/lib/remittance-cost-index";
 
 export interface StoreRating {
   score: number | null;
@@ -150,7 +151,21 @@ ${body}
 //   {{RECEIVE_DIFF:wise:remitly:USD:INR:1000}}  ₹345  (absolute gap)
 //   {{QUOTE_LIST:USD:INR:1000:xoom,instarem,remitly,wise}}  <li>…</li> per
 //        provider with a quote, best payout first, linked where a review exists
+//   {{QUOTE_TABLE:USD:INR:1000}}           a full <tr> league table for the
+//        corridor — every provider quoting it, most received first
+//   {{BEST_PROVIDER:USD:INR:1000}}         TapTap Send
+//   {{BEST_RECEIVE:USD:INR:1000}}          ₹94,411
+//   {{WORST_PROVIDER|WORST_RECEIVE:…}}     the other end of the same table
+//   {{SPREAD:USD:INR:1000}}                ₹6,797  (best minus worst)
+//   {{MID_RATE:USD:INR}}                   94.5145 (mid-market, from the XE snapshot)
+//   {{MID_RECEIVE:USD:INR:1000}}           ₹94,515 (the amount at mid-market, i.e.
+//        what a transfer would deliver with no markup and no fee)
 //   {{QUOTE_DATE}}                         6 September 2026
+//   {{COST_PCT:wise:USD:INR:1000}}         0.69%  (total cost as % of amount sent)
+//   {{AVG_MARKUP:instarem}}                0.81%  (measured mean across every
+//        corridor we quote that provider on — the honest version of a
+//        hand-typed "average markup of 0.42%")
+//   {{RATINGS_DATE}}                       6 September 2026 (Trustpilot scrape)
 //
 // A token we cannot resolve is left in place on purpose: check-assets renders
 // every guide at build time and fails on a literal "{{", so a corridor that
@@ -177,8 +192,7 @@ function symbolFor(code: string): string {
     ""
   );
 }
-function fmtMoney(code: string, n: number): string {
-  const digits = Math.abs(n) >= 10_000 ? 0 : 2;
+function fmtMoney(code: string, n: number, digits = Math.abs(n) >= 10_000 ? 0 : 2): string {
   const num = n.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
   const sym = symbolFor(code);
   return sym ? `${sym}${num}` : `${num} ${code}`;
@@ -192,6 +206,11 @@ function fmtMarkup(pct: number): string {
   if (pct < 0.05) return "0%";
   return `${pct.toFixed(2)}%`;
 }
+/** Fee plus the cost of the rate markup, in the send currency. */
+function totalCost(q: TransferQuote, from: string, to: string, amount: number): number {
+  return q.fee + (Math.max(0, markupPctOf(q, from, to)) / 100) * amount;
+}
+
 function providerName(slug: string): string {
   return providers.find((p) => p.slug === slug)?.name ?? providerNames[slug] ?? slug;
 }
@@ -200,10 +219,26 @@ function providerLink(slug: string): string {
   return companyPageRenders(slug) ? `<a href="/companies/${slug}">${name}</a>` : name;
 }
 
+/**
+ * Providers quoting a corridor, ordered strictly by what the recipient gets.
+ *
+ * NOT rankQuotes() order. That applies a 0.1% materiality band and breaks ties
+ * by rating, which is right for the product tables but prints a visibly
+ * smaller payout above a larger one — unreadable in an article table whose
+ * entire claim is "who gives your recipient the most money", and whose next
+ * sentence quotes the gap between the top and bottom row.
+ */
+function byPayout(from: string, to: string, amount: number): TransferQuote[] {
+  return [...quotesFor(from, to, amount)].sort((a, b) => b.receiveAmount - a.receiveAmount);
+}
+
+function fmtRate(n: number): string {
+  return n.toLocaleString("en-US", { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+}
+
 /** The day of the freshest quote, e.g. "6 September 2026". */
-export function renderQuoteDate(): string {
-  const iso = quoteDataDate ?? new Date().toISOString().slice(0, 10);
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+function longDate(iso: string): string {
+  return new Date(`${iso.slice(0, 10)}T00:00:00Z`).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -211,11 +246,31 @@ export function renderQuoteDate(): string {
   });
 }
 
+export function renderQuoteDate(): string {
+  return longDate(quoteDataDate ?? new Date().toISOString().slice(0, 10));
+}
+
+/**
+ * The day the Trustpilot scores on the site were collected.
+ *
+ * Guide copy said scores were "verified as of March 2026" while
+ * {{TRUSTPILOT:…}} rendered whatever the latest scrape held — the number was
+ * current and the sentence next to it was six months old.
+ */
+export function renderRatingsDate(): string {
+  const dates = (trustpilotData as { dateCollected?: string }[])
+    .map((r) => r.dateCollected)
+    .filter((d): d is string => typeof d === "string")
+    .sort();
+  const latest = dates[dates.length - 1];
+  return latest ? longDate(latest) : renderQuoteDate();
+}
+
 function renderQuoteTokens(html: string): string {
   let out = html;
 
   out = out.replace(
-    /\{\{(RECEIVE|FEE|MARKUP|COST):([a-z0-9-]+):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
+    /\{\{(RECEIVE|FEE|MARKUP|COST|COST_PCT):([a-z0-9-]+):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
     (match, kind: string, slug: string, from: string, to: string, amt: string) => {
       const amount = Number(amt);
       const q = quoteFor(slug, from, to, amount);
@@ -228,7 +283,9 @@ function renderQuoteTokens(html: string): string {
         case "MARKUP":
           return fmtMarkup(markupPctOf(q, from, to));
         case "COST":
-          return fmtMoney(from, q.fee + (Math.max(0, markupPctOf(q, from, to)) / 100) * amount);
+          return fmtMoney(from, totalCost(q, from, to, amount));
+        case "COST_PCT":
+          return `${((totalCost(q, from, to, amount) / amount) * 100).toFixed(2)}%`;
       }
       return match;
     },
@@ -247,8 +304,12 @@ function renderQuoteTokens(html: string): string {
           return providerName(aWins ? a : b);
         case "PRICIER":
           return providerName(aWins ? b : a);
-        case "RECEIVE_DIFF":
-          return fmtMoney(to, Math.abs(qa.receiveAmount - qb.receiveAmount));
+        case "RECEIVE_DIFF": {
+          // A gap is read as a headline ("₹345 more"), so drop the paise once it
+          // is in the hundreds; the per-provider figures keep their precision.
+          const diff = Math.abs(qa.receiveAmount - qb.receiveAmount);
+          return fmtMoney(to, diff, diff >= 100 ? 0 : 2);
+        }
       }
       return match;
     },
@@ -275,7 +336,76 @@ function renderQuoteTokens(html: string): string {
     },
   );
 
+  out = out.replace(
+    /\{\{QUOTE_TABLE:([A-Z]{3}):([A-Z]{3}):(\d+)(?::(\d+))?\}\}/g,
+    (match, from: string, to: string, amt: string, limit: string | undefined) => {
+      const rows = byPayout(from, to, Number(amt));
+      if (rows.length < 3) return match;
+      const shown = limit ? rows.slice(0, Number(limit)) : rows;
+      const medal = ["\u{1F947}", "\u{1F948}", "\u{1F949}"];
+      return shown
+        .map((q, i) => {
+          const name = providerLink(q.providerSlug);
+          const label = i < 3 ? `${medal[i]} <strong>${name}</strong>` : name;
+          const got = fmtMoney(to, q.receiveAmount);
+          return `<tr><td>${label}</td><td>${fmtMoney(from, q.fee)}</td><td>${fmtRate(
+            q.exchangeRate,
+          )}</td><td>${i === 0 ? `<strong>${got}</strong>` : got}</td></tr>`;
+        })
+        .join("\n");
+    },
+  );
+
+  out = out.replace(
+    /\{\{(BEST_PROVIDER|BEST_RECEIVE|WORST_PROVIDER|WORST_RECEIVE|SPREAD|PROVIDER_TALLY):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
+    (match, kind: string, from: string, to: string, amt: string) => {
+      const rows = byPayout(from, to, Number(amt));
+      if (rows.length < 3) return match;
+      const best = rows[0];
+      const worst = rows[rows.length - 1];
+      switch (kind) {
+        case "BEST_PROVIDER":
+          return providerName(best.providerSlug);
+        case "BEST_RECEIVE":
+          return fmtMoney(to, best.receiveAmount);
+        case "WORST_PROVIDER":
+          return providerName(worst.providerSlug);
+        case "WORST_RECEIVE":
+          return fmtMoney(to, worst.receiveAmount);
+        case "SPREAD": {
+          // A gap is a headline number: whole units once it is in the hundreds,
+          // cents below that (a €71.60 spread must not read as €72).
+          const gap = best.receiveAmount - worst.receiveAmount;
+          return fmtMoney(to, gap, gap >= 100 ? 0 : 2);
+        }
+        case "PROVIDER_TALLY":
+          return String(rows.length);
+      }
+      return match;
+    },
+  );
+
+  out = out.replace(/\{\{MID_RATE:([A-Z]{3}):([A-Z]{3})\}\}/g, (match, from: string, to: string) => {
+    const rate = getMidMarketRate(from, to);
+    return rate > 0 ? fmtRate(rate) : match;
+  });
+
+  out = out.replace(
+    /\{\{MID_RECEIVE:([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
+    (match, from: string, to: string, amt: string) => {
+      const rate = getMidMarketRate(from, to);
+      return rate > 0 ? fmtMoney(to, rate * Number(amt)) : match;
+    },
+  );
+
+  out = out.replace(/\{\{AVG_MARKUP:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const m = MEASURED_MARKUPS.get(slug);
+    if (!m || m.corridors < 3) return match;
+    return m.markupPct < 0.05 ? "effectively nil" : `${m.markupPct.toFixed(2)}%`;
+  });
+
   out = out.split("{{QUOTE_DATE}}").join(renderQuoteDate());
+  out = out.split("{{RATINGS_DATE}}").join(renderRatingsDate());
   return out;
 }
 

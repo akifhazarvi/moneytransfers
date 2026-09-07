@@ -82,7 +82,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       // ── Section 2: Universal Provider Comparison ──
       {
         heading: "Best Providers to Send Money to India in 2026",
-        content: `<p>The providers below have been evaluated on real quotes across multiple India corridors, verified in June 2026. All outperform bank wires on both cost and speed.</p>
+        content: `<p>The providers below have been evaluated on real quotes across multiple India corridors, most recently {{QUOTE_DATE}}. All outperform bank wires on both cost and speed.</p>
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Top Providers: India Remittances at a Glance</h3>
@@ -427,7 +427,7 @@ export const corridorGuidesIndia: BlogPost[] = [
       // ── Section 11: Sources & Methodology ──
       {
         heading: "Sources & Methodology",
-        content: `<p>Provider quotes are collected automatically every 6 hours from provider APIs and websites by the SendMoneyCompare scraper network. Exchange rates and fee data in this guide are based on quotes collected in June 2026. Actual amounts vary — use our live comparison tools for real-time quotes for your specific amount and corridor.</p>
+        content: `<p>Provider quotes are collected automatically every 6 hours from provider APIs and websites by the SendMoneyCompare scraper network. Exchange rates and fee data in this guide are rendered from our live quote set, most recently collected {{QUOTE_DATE}}. Actual amounts vary — use our live comparison tools for real-time quotes for your specific amount and corridor.</p>
 
 <p>Remittance volume and diaspora statistics sourced from the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">Reserve Bank of India</a>, and <a href="https://www.moia.gov.in/" target="_blank" rel="noopener noreferrer">Ministry of Overseas Indian Affairs</a>. Payment rail information sourced from NPCI official documentation. US regulatory information sourced from <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a> and the <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS</a>.</p>
 
@@ -583,7 +583,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 <tr class="blog-row-danger"><td><strong>US Bank Wire</strong></td><td>$25–$50</td><td>2–5%</td><td>~₹86,500</td><td>3–5 days</td><td>Bank (SWIFT)</td></tr>
 </tbody>
 </table>
-<p class="blog-footnote">Rates based on $1,000 USD→INR quotes collected March 2026. Actual amounts vary — <a href="/send-money/usa-to-india">compare live rates for your amount →</a></p>
+<p class="blog-footnote">Rates based on $1,000 USD→INR quotes collected {{QUOTE_DATE}}. Actual amounts vary — <a href="/send-money/usa-to-india">compare live rates for your amount →</a></p>
 </div>
 
 <h3><a href="/companies/wise">Wise</a> — Best for Large Transfers ($500+)</h3>

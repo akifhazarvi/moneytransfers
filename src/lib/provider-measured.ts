@@ -13,39 +13,25 @@
  * the mid-market rate is genuinely ours, differs per provider, and cannot be
  * lifted from a provider's own marketing page.
  *
- * Source: src/data/scraped/provider-summary.json (written by the quote scrapers).
+ * Source: MEASURED_MARKUPS in remittance-cost-index.ts, computed from the live
+ * quote set at build time. This used to read provider-summary.json, a file no
+ * scraper regenerated after 2026-03-17, so every company page quoted a
+ * six-month-old "measured" figure while the tables beside it were same-day.
  *
- * Units — `avgMarkup` in that file is already a PERCENT, not a fraction. The
- * values sanity-check against how these services are known to price:
- *   wise -0.0015%   (mid-market, no markup)      instarem 0.49%
- *   moneygram 0.84%   remitly 1.17%              banks 2.1-4.0%
- *   paypal 4.58%      rakuten-jp 8.00%
- * Reading it as a fraction would claim PayPal charges a 458% markup.
+ * `markupPct` is a PERCENT, not a fraction (wise ≈ 0.5%, paypal ≈ 4.6%).
+ * Reading it as a fraction would claim PayPal charges a 460% markup.
  *
- * `avgFee` from the same file is deliberately NOT surfaced: it is denominated in
- * each provider's own send currency, so 3500 (smbc-jp, JPY) and 1 (icici-bank)
- * are not comparable and would be nonsense next to each other on a page.
+ * Fees are deliberately NOT surfaced here: they are denominated in each
+ * provider's own send currency, so ¥3,500 and $1 are not comparable and would
+ * be nonsense next to each other on a page.
  *
- * Only 28 of the 55 providers appear in the summary; the rest have no scraped
- * coverage yet. Callers must handle undefined — the profile simply omits the
- * measured sentence rather than inventing a number.
+ * Not every provider has scraped coverage. Callers must handle undefined — the
+ * profile simply omits the measured sentence rather than inventing a number.
  */
 
-import providerSummary from "@/data/scraped/provider-summary.json";
+import { MEASURED_MARKUPS, type MeasuredMarkup } from "@/lib/remittance-cost-index";
 
-interface SummaryRow {
-  slug: string;
-  corridors: number;
-  avgMarkup: number;
-  avgFee: number;
-}
-
-export interface MeasuredMarkup {
-  /** Mean distance from the mid-market rate, in percent. */
-  markupPct: number;
-  /** How many corridors that mean is taken over. */
-  corridors: number;
-}
+export type { MeasuredMarkup };
 
 /**
  * providers.ts slugs that name the same company as a differently-slugged row in
@@ -60,9 +46,9 @@ const SLUG_ALIASES: Record<string, string> = {
 
 const normalise = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
 
-const bySlug = new Map<string, SummaryRow>();
-for (const row of providerSummary as SummaryRow[]) {
-  bySlug.set(normalise(row.slug), row);
+const bySlug = new Map<string, MeasuredMarkup>();
+for (const [slug, row] of MEASURED_MARKUPS) {
+  bySlug.set(normalise(slug), row);
 }
 
 export function getMeasuredMarkup(slug: string): MeasuredMarkup | undefined {
@@ -73,18 +59,16 @@ export function getMeasuredMarkup(slug: string): MeasuredMarkup | undefined {
   // but once in providers.ts. Accept a prefix match only when it is
   // unambiguous, so "hsbc" never silently resolves to whichever came first.
   if (!row) {
-    const candidates = (providerSummary as SummaryRow[]).filter((r) =>
-      normalise(r.slug).startsWith(key),
+    const candidates = [...MEASURED_MARKUPS.entries()].filter(([slug]) =>
+      normalise(slug).startsWith(key),
     );
-    if (candidates.length === 1) row = candidates[0];
+    if (candidates.length === 1) row = candidates[0][1];
   }
 
-  if (!row || typeof row.avgMarkup !== "number" || !Number.isFinite(row.avgMarkup)) {
-    return undefined;
-  }
+  if (!row || !Number.isFinite(row.markupPct)) return undefined;
   // A single-corridor mean is too thin to publish as a characterisation of how
   // a provider prices.
-  if (!row.corridors || row.corridors < 3) return undefined;
+  if (row.corridors < 3) return undefined;
 
-  return { markupPct: row.avgMarkup, corridors: row.corridors };
+  return row;
 }
