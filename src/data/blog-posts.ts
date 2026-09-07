@@ -3713,14 +3713,15 @@ const rawBlogPosts: BlogPost[] = [
     category: "Corridors",
     readTime: "11 min read",
     publishedAt: "2026-03-15",
-    updatedAt: "2026-03-31",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["Philippines", "PHP", "remittance", "USD to PHP", "GCash", "corridor guide", "send money to Philippines"],
     featuredImage: "/images/blog/send-money-to-philippines.jpg",
     sections: [
       {
         heading: "Philippines: A Major Remittance Destination",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way to send money to the Philippines in 2026 is <a href="/companies/remitly">Remitly</a> for amounts under $1,000, with a $0–$3.99 fee and GCash delivery in seconds. For larger transfers ($2,000+), <a href="/companies/wise">Wise</a> offers the mid-market rate with 0% markup. For cash pickup across 30,000+ locations including Cebuana Lhuillier and M Lhuillier, <a href="/companies/western-union">Western Union</a> has the widest network. On a typical $1,000 transfer, specialist providers deliver <strong>₱1,500–₱2,500 more</strong> than US bank wires. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates</a> from 10+ providers.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> there is no single cheapest provider on this corridor — <strong>the winner changes with the amount</strong>, which is why a bare recommendation is worth so little here. Priced against {{PROVIDER_TALLY:USD:PHP:1000}} providers on {{QUOTE_DATE}}, the cheapest was <strong>{{BEST_PROVIDER:USD:PHP:200}}</strong> on $200 ({{BEST_RECEIVE:USD:PHP:200}}), <strong>{{BEST_PROVIDER:USD:PHP:1000}}</strong> on $1,000 ({{BEST_RECEIVE:USD:PHP:1000}}) and <strong>{{BEST_PROVIDER:USD:PHP:5000}}</strong> on $5,000 ({{BEST_RECEIVE:USD:PHP:5000}}). The mid-market rate was {{MID_RATE:USD:PHP}} PHP/USD. What stays constant is that choosing badly is expensive: the gap between the cheapest and dearest provider is {{SPREAD:USD:PHP:1000}} on $1,000 and {{SPREAD:USD:PHP:5000}} on $5,000. For cash pickup across 30,000+ locations including Cebuana Lhuillier and M Lhuillier, <a href="/companies/western-union">Western Union</a> has the widest network. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates for your amount</a>.</p></div>
+<p class="text-sm">Why the winner moves: providers price a flat fee and a rate margin differently, so a $0-fee provider with a wider margin wins on small amounts and loses on large ones. Across our whole dataset, the cheapest provider on a corridor today is not the one that usually wins on about a quarter of corridors — see <a href="/provider-consistency">provider consistency</a>. Quote your own amount rather than carrying a winner over from last month.</p>
 <p>The Philippines received over <strong>$38 billion in remittances</strong> in 2025, making it one of the top five remittance-receiving countries globally according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. The United States is the single largest source, with over 4 million Filipino-Americans sending money home to support families.</p>
 <p>The good news: this corridor is fiercely competitive. Providers fight for market share on the USD to PHP route, which means lower fees and tighter exchange rate spreads for you. The difference between the best and worst provider on a $1,000 transfer can be <strong>₱1,500–₱2,500</strong> — money your family actually receives.</p>`,
       },
@@ -3794,9 +3795,32 @@ const rawBlogPosts: BlogPost[] = [
 <p>For a complete list of SWIFT codes, see our <a href="/guides/swift-codes-explained">SWIFT codes guide</a>.</p>`,
       },
       {
+        heading: "Receiving on GCash: Limits, Verification and Failed Transfers",
+        content: `<p>GCash is the default way most Filipino recipients take money from abroad, and it is where transfers most often fail — almost always because of a limit the sender never sees. The caps below are GCash's own, from its <a href="https://help.gcash.com/hc/en-us/articles/360021112894" target="_blank" rel="noopener noreferrer nofollow">published wallet and transaction limits</a> (checked September 2026).</p>
+<div class="overflow-x-auto"><table>
+<thead><tr><th>Profile</th><th>Max held in wallet</th><th>Max received per <em>month</em></th></tr></thead>
+<tbody>
+<tr><td><strong>Basic</strong> (new or unverified)</td><td>₱10,000</td><td><strong>₱5,000</strong></td></tr>
+<tr><td>GCash Jr. (ages 7–17)</td><td>₱50,000</td><td>₱10,000</td></tr>
+<tr><td><strong>Fully Verified</strong></td><td>₱100,000</td><td><strong>₱100,000</strong></td></tr>
+<tr><td>GCash Plus (verified + linked bank or investment)</td><td>₱500,000</td><td>₱500,000</td></tr>
+<tr><td>GCash Platinum (eligible Globe Platinum subscribers)</td><td>₱1,000,000</td><td>₱1,000,000</td></tr>
+</tbody></table></div>
+<p><strong>The trap is that the incoming limit is monthly, not per transfer.</strong> It is widely repeated — including previously on this site — as a ₱100,000 per-transaction cap. It is neither per-transaction nor ₱100,000 for everyone. On a <strong>Basic</strong> profile the ceiling is ₱5,000 <em>for the whole month</em>, so even a $200 transfer (about {{BEST_RECEIVE:USD:PHP:200}} at today's best rate) exceeds it and will not land. If your recipient has just installed GCash, they are on Basic.</p>
+<p><strong>Before you send, ask your recipient to confirm three things:</strong></p>
+<ol>
+<li><strong>That they are Fully Verified</strong> — in the app, their profile shows the tier. Verification needs one government ID and a selfie, and is usually approved same-day. This single step moves the monthly ceiling from ₱5,000 to ₱100,000.</li>
+<li><strong>How much they have already received this month</strong>, from any source. The cap is cumulative across every incoming transfer, not per sender, so a second remittance can fail when the first succeeded.</li>
+<li><strong>That the name matches their ID exactly.</strong> GCash accounts are registered to the mobile number, but the receiving name is matched on verified transfers — a nickname or a missing middle name is a common rejection.</li>
+</ol>
+<p><strong>What you need to send:</strong> the recipient's 11-digit GCash mobile number (it begins 09, and is the account number) and their full registered name. You do not need a bank account, SWIFT code or address for a wallet transfer.</p>
+<p><strong>If a transfer does not arrive:</strong> the money is not lost. A transfer that breaches a GCash limit is rejected at the receiving end and returned to the sending provider, typically within 1–5 business days depending on who you sent with — you are refunded rather than charged. Do not resend the same amount until you know why the first one failed, or the second will breach the same cap. Check the status in your provider's app first, since the failure reason usually appears there before GCash notifies the recipient. If money left your account and neither side can account for it, see our guide on <a href="/guides/money-transfer-safety-guide">what to do when a transfer goes wrong</a>.</p>
+<p>Verified limits above the Fully Verified tier need a linked bank account or investment product inside GCash, which a recipient can add themselves — worth doing before a large one-off transfer such as tuition or a property deposit, where ₱100,000 a month is the binding constraint.</p>`,
+      },
+      {
         heading: "Delivery Methods and Speed",
         content: `<ul>
-<li><strong>GCash</strong>: Instant. Supported by Remitly, WorldRemit, and others. Recipient gets a notification and can spend or withdraw immediately. Maximum per transaction varies by provider.</li>
+<li><strong>GCash</strong>: Instant. Supported by Remitly, WorldRemit and others. The recipient gets a notification and can spend or withdraw immediately. The binding constraint is the recipient's own <a href="#receiving-on-gcash-limits-verification-and-failed-transfers">GCash monthly incoming limit</a>, not the provider's — ₱5,000 a month on an unverified profile.</li>
 <li><strong>Bank deposit</strong>: Minutes to 1 business day for major banks (BDO, BPI, Metrobank). Smaller rural banks may take 2–3 days.</li>
 <li><strong>Cash pickup</strong>: Available within minutes at Cebuana Lhuillier, M Lhuillier, Palawan Pawnshop, and Western Union agent locations. Over 30,000 pickup points nationwide.</li>
 <li><strong>Maya (formerly PayMaya)</strong>: Instant delivery to Maya mobile wallet. Supported by select providers.</li>

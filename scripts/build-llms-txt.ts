@@ -76,7 +76,7 @@ const ratings = new Map(
 const CORRIDORS: { from: string; to: string; slug: string; label: string; rails: string }[] = [
   { from: "USD", to: "INR", slug: "usa-to-india", label: "USA to India", rails: "IMPS (instant), UPI, NEFT, bank deposit, cash pickup. IFSC code required for bank deposits." },
   { from: "USD", to: "MXN", slug: "usa-to-mexico", label: "USA to Mexico", rails: "SPEI (instant), bank deposit, cash pickup via OXXO." },
-  { from: "USD", to: "PHP", slug: "usa-to-philippines", label: "USA to Philippines", rails: "GCash wallet (seconds), bank deposit, cash pickup. GCash caps incoming transfers at PHP 100,000 per transaction." },
+  { from: "USD", to: "PHP", slug: "usa-to-philippines", label: "USA to Philippines", rails: "GCash wallet (seconds), bank deposit, cash pickup. GCash caps incoming transfers by MONTH, not per transaction, and by verification tier: PHP 5,000/month on an unverified profile, PHP 100,000/month once Fully Verified (help.gcash.com, checked September 2026)." },
   { from: "USD", to: "PKR", slug: "usa-to-pakistan", label: "USA to Pakistan", rails: "JazzCash, Easypaisa, bank deposit." },
   { from: "USD", to: "NGN", slug: "usa-to-nigeria", label: "USA to Nigeria", rails: "Bank deposit and mobile money." },
   { from: "GBP", to: "INR", slug: "uk-to-india", label: "UK to India", rails: "IMPS (instant), NEFT, bank deposit." },

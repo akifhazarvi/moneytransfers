@@ -139,7 +139,7 @@ These are the findings our datasets support. Each is measured over a stated popu
 ### USA to Philippines (USD → PHP)
 - **Cheapest on 2026-09-07**: InstaReM — 62,567.3 PHP on 1,000 USD, fee zero
 - **Providers compared**: 19. Gap between best and worst: 3,030.61 PHP
-- **Delivery**: GCash wallet (seconds), bank deposit, cash pickup. GCash caps incoming transfers at PHP 100,000 per transaction.
+- **Delivery**: GCash wallet (seconds), bank deposit, cash pickup. GCash caps incoming transfers by MONTH, not per transaction, and by verification tier: PHP 5,000/month on an unverified profile, PHP 100,000/month once Fully Verified (help.gcash.com, checked September 2026).
 - **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 26% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/usa-to-philippines
 
