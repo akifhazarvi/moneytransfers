@@ -364,7 +364,12 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
                 <Link href="/remittance-cost-index" className="text-[var(--color-primary)] hover:underline">
                   Remittance Cost Index
                 </Link>
-                , which ranks providers by cost rather than by how often they win.
+                , which ranks providers by cost rather than by how often they win. For <em>when</em> to send rather
+                than <em>who</em> to send with, see{" "}
+                <Link href="/sendscore" className="text-[var(--color-primary)] hover:underline">
+                  SendScore
+                </Link>
+                .
               </p>
             </div>
           </div>

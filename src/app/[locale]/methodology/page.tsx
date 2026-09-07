@@ -4,6 +4,8 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
+import { CONSISTENCY_INDEX } from "@/lib/consistency-index";
+import { SENDSCORE_SUMMARY } from "@/lib/sendscore-summary";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -423,6 +425,49 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                     zero effect on its ranking position.
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            {/* Metrics we publish — added 2026-09-06. This page described how
+                costs are calculated and ranked, but never mentioned the two
+                named metrics the site actually publishes, so neither had a
+                definition a reader could reach from here. */}
+            <div>
+              <h2 className="text-h4 font-normal text-[var(--color-on-surface)] mb-4">
+                Metrics we publish
+              </h2>
+              <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                <p>
+                  Two named measurements appear across the site. Both are computed from our own recorded provider
+                  quotes rather than from mid-market rates, and each has a page setting out its method and its limits.
+                </p>
+                <p>
+                  <Link href="/sendscore" className="text-[var(--color-primary)] hover:underline">
+                    <strong>SendScore</strong>
+                  </Link>{" "}
+                  rates 0&ndash;100 whether today is a good day to send on a corridor, from four weighted components.
+                  It is backward-looking and is not a forecast. It is available on the{" "}
+                  {SENDSCORE_SUMMARY.corridorsScored} corridors where enough providers compete to make a comparison
+                  meaningful; on single-provider corridors it is clamped and labelled as a reading rather than a
+                  comparison.
+                </p>
+                <p>
+                  The{" "}
+                  <Link href="/provider-consistency" className="text-[var(--color-primary)] hover:underline">
+                    <strong>Provider Consistency Index</strong>
+                  </Link>{" "}
+                  measures how often each provider actually delivers the most, across{" "}
+                  {CONSISTENCY_INDEX.providerDayObservations.toLocaleString("en-US")} provider-day observations on{" "}
+                  {CONSISTENCY_INDEX.comparableCorridors} corridors. A day counts only when at least two providers
+                  quoted &mdash; winning unopposed is not evidence.
+                </p>
+                <p>
+                  Provider-level cost averages are published separately as the{" "}
+                  <Link href="/remittance-cost-index" className="text-[var(--color-primary)] hover:underline">
+                    Remittance Cost Index
+                  </Link>
+                  .
+                </p>
               </div>
             </div>
 

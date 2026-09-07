@@ -87,13 +87,17 @@ export default function SendScoreCard({ score, fromCurrency, toCurrency, compact
             <h3 className="text-base sm:text-lg font-semibold" style={{ color: "var(--color-on-surface)" }}>
               {score.headline}
             </h3>
-            <span
+            {/* The badge is the metric's name, so it is also the natural link to
+                its definition — SendScore was published on 965 corridor pages
+                and defined on none of them until /sendscore shipped. */}
+            <Link
+              href="/sendscore"
               /* No `uppercase` — it renders the product name as "SENDSCORE". */
               className="text-[11px] font-semibold tracking-wide px-2 py-0.5 rounded-full"
               style={{ background: style.bg, color: style.fg }}
             >
               SendScore
-            </span>
+            </Link>
           </div>
 
           <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--color-on-surface-variant)" }}>

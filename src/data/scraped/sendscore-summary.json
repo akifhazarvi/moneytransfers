@@ -1,0 +1,62 @@
+{
+  "dataAsOf": "2026-09-06",
+  "corridorsScored": 208,
+  "corridorsWithAnyScore": 965,
+  "singleProviderReadings": 757,
+  "bands": {
+    "exceptional": 11,
+    "great": 57,
+    "good": 67,
+    "typical": 37,
+    "poor": 36
+  },
+  "goodOrBetterPct": 65,
+  "confidence": {
+    "high": 208,
+    "medium": 0,
+    "low": 0
+  },
+  "medianDaysObserved": 163,
+  "example": {
+    "pair": "USD-INR",
+    "score": {
+      "score": 36,
+      "band": "poor",
+      "headline": "Poor time to send",
+      "explanation": "Today's best rate is -0.85% vs the 30-day average, near the 90-day low. Rates are falling — -0.78% week on week. Today's best beats the median provider by +2.71%.",
+      "components": [
+        {
+          "key": "range",
+          "label": "Position in the 90-day range",
+          "weight": 40,
+          "score": 5.223574456447038,
+          "detail": "near the 90-day low"
+        },
+        {
+          "key": "average",
+          "label": "Versus the 30-day average",
+          "weight": 25,
+          "score": 35.877264576715845,
+          "detail": "-0.85% vs the 30-day average"
+        },
+        {
+          "key": "competitiveness",
+          "label": "Best provider versus the field",
+          "weight": 20,
+          "score": 100,
+          "detail": "today's best beats the median provider by +2.71%"
+        },
+        {
+          "key": "trend",
+          "label": "This week versus last",
+          "weight": 15,
+          "score": 30.51870350002676,
+          "detail": "falling — -0.78% week on week"
+        }
+      ],
+      "daysObserved": 169,
+      "rangeWindowDays": 90,
+      "confidence": "high"
+    }
+  }
+}

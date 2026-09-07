@@ -113,6 +113,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 212 pages, none of which Google has crawled. DATA_UPDATED because the
     // ranking is rebuilt from the quote history on every scrape.
     entry("provider-consistency", DATA_UPDATED),
+    // SendScore definition page (added Sep 6 2026). The metric was published on
+    // 965 corridor pages and defined nowhere — /methodology did not mention it,
+    // and nothing could cite "SendScore" because no URL said what it was.
+    entry("sendscore", DATA_UPDATED),
     // Free tools hub + the two live calculators (added Jul 3 2026). Live: US
     // remittance tax (new 1% excise, high-intent 2026 query) and the FX markup
     // checker (live mid-market reference). The Fee Impact calculator at
