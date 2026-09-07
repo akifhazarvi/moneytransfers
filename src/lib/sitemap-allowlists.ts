@@ -178,6 +178,11 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   // the subject. Re-check against Bing/GSC once it has 90 days of history and
   // prune it like any other page if the demand never materialises.
   "sent-money-to-the-wrong-person",
+  // Added 2026-09-07. Comparison is our strongest AI topic (64%) and a four-way
+  // cost question cannot be answered from any provider's own site. Figures are
+  // rendered live via {{FOUR_WAY_COST_TABLE}}, not typed in. Same caveat as
+  // above: admitted on AI-citation evidence, not Bing impressions.
+  "wise-vs-remitly-vs-xoom-vs-xe",
   // ── Added 2026-06-22 — Jun 23 Bing Page Traffic + AI Page Stats export.
   //    Two signals: Bing organic impr AND heavy AI (Copilot/ChatGPT) citation.
   //    All exist in the merged blogPosts set and serve index:follow (en). The

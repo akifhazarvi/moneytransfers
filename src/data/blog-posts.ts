@@ -32,9 +32,11 @@ import { converterGuides } from "./blog-converter-guides";
 import { newGuidesJul2026 } from "./blog-new-guides-jul2026";
 import { bingKeywordArticlesJul2026 } from "./blog-bing-jul2026";
 import { safetyGuides } from "./blog-safety-guides";
+import { dataComparisonGuides } from "./blog-data-comparisons";
 import { SITE_STATS, atLeast } from "@/lib/site-stats";
 
 const rawBlogPosts: BlogPost[] = [
+  ...dataComparisonGuides,
   ...safetyGuides,
   ...bingKeywordArticlesJul2026,
   ...newGuidesJul2026,

@@ -16,7 +16,9 @@ import { getMidMarketRate, quoteDataDate, providerNames } from "@/lib/unified-qu
 import { providers, type TransferQuote } from "@/data/providers";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { companyPageRenders } from "@/lib/route-map";
-import { MEASURED_MARKUPS } from "@/lib/remittance-cost-index";
+import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
+import { CONSISTENCY_ROWS } from "@/lib/consistency-index";
+import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 
 export interface StoreRating {
   score: number | null;
@@ -88,6 +90,59 @@ export function renderTrustpilot(slug: string): string {
  * by the size of the gap so the comparability problem is the visible story
  * rather than a footnote.
  */
+/**
+ * Live four-way cost table for the Wise / Remitly / Xoom / XE comparison guide.
+ *
+ * WHY A TOKEN RATHER THAN TYPED-IN NUMBERS
+ * A four-way "which actually costs less" guide is worthless the moment its
+ * figures go stale, and a hand-typed table goes stale silently. This renders
+ * from the same indices the rest of the site publishes, so the guide cannot
+ * claim a cost the cost index disagrees with.
+ *
+ * WHY THREE DIFFERENT MEASURES SIT SIDE BY SIDE
+ * Average cost alone gives a misleading winner here, and the guide's whole
+ * point is that the measures disagree: XE has the lowest average cost of the
+ * four while leading almost no corridors, because its average is taken over a
+ * far smaller corridor set than Wise's. Publishing the coverage column beside
+ * the cost is what stops that being a false headline — the same reason
+ * remittance-cost-index.ts separates banks from specialists rather than
+ * ranking a five-corridor bank against a 300-corridor specialist.
+ */
+export function renderFourWayCostTable(): string {
+  const SLUGS = ["xe", "wise", "xoom", "remitly"] as const;
+  const rows = SLUGS.map((slug) => {
+    const cost = REMITTANCE_INDEX.providers.find((p) => p.slug === slug);
+    const cons = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
+    const tier = AMOUNT_TIER_INDEX.rows.find((r) => r.slug === slug);
+    return { slug, cost, cons, tier };
+  })
+    .filter((r) => r.cost)
+    .sort((a, b) => a.cost!.avgCostPct - b.cost!.avgCostPct);
+
+  const body = rows
+    .map(({ cost, cons, tier }) => {
+      const c = cost!;
+      const led = cons ? `${cons.corridorsLed} of ${cons.corridorsQuoted}` : "—";
+      const win = cons ? `${cons.winRate.toFixed(1)}%` : "—";
+      const small = tier ? `${tier.costSmallPct.toFixed(2)}%` : "not enough data";
+      return `<tr><td><strong>${c.name}</strong></td><td>${c.avgCostPct.toFixed(2)}%</td><td>${c.avgFeePct.toFixed(
+        2,
+      )}% / ${c.avgMarkupPct.toFixed(2)}%</td><td>${c.corridors}</td><td>${led}</td><td>${win}</td><td>${small}</td></tr>`;
+    })
+    .join("\n");
+
+  return `<div class="blog-table-box">
+<h3 style="margin-top: 0;">Wise vs Remitly vs Xoom vs XE — measured cost, ${renderQuoteDate()}</h3>
+<table>
+<thead><tr><th>Provider</th><th>Avg cost, $1,000</th><th>of which fee / markup</th><th>Corridors priced</th><th>Corridors led</th><th>Days won</th><th>Cost at $100</th></tr></thead>
+<tbody>
+${body}
+</tbody>
+</table>
+<p class="blog-footnote">Cost is the fee plus the exchange-rate markup as a share of the amount sent. <strong>The averages are not taken over the same corridors</strong> — each provider is priced on the routes it actually quotes, so a provider covering 35 corridors and one covering 350 are not directly comparable on the cost column alone; read it alongside "corridors priced". "Corridors led" counts routes where the provider is the most frequent winner over the trailing 90 days, and "days won" is its share of contested days it quoted on. Full method on the <a href="/remittance-cost-index">Remittance Cost Index</a> and the <a href="/provider-consistency">Provider Consistency Index</a>.</p>
+</div>`;
+}
+
 export function renderAppRatingsTable(): string {
   const rows = appRatings
     .map((r) => {
@@ -417,8 +472,17 @@ function renderQuoteTokens(html: string): string {
 export function renderDataTokens(html: string): string {
   let out = html;
 
+  // Each table gets its OWN guard. The guards exist so an expensive renderer
+  // only runs for copy that actually uses it, which means nesting one token
+  // inside another's guard leaves it unresolved in any guide that does not
+  // happen to use both — a literal "{{FOUR_WAY_COST_TABLE}}" in published
+  // prose. check:assets catches exactly this, and did.
   if (out.includes("{{APP_RATINGS_TABLE}}")) {
     out = out.split("{{APP_RATINGS_TABLE}}").join(renderAppRatingsTable());
+  }
+
+  if (out.includes("{{FOUR_WAY_COST_TABLE}}")) {
+    out = out.split("{{FOUR_WAY_COST_TABLE}}").join(renderFourWayCostTable());
   }
 
   // {{TRUSTPILOT:wise}} -> "4.3/5 (299K reviews)"
