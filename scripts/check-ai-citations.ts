@@ -126,6 +126,8 @@ function recommendationRoute(answerText: string, citations: string[]): {
 const BRAND = "sendmoneycompare";
 const OUT_PATH = join(process.cwd(), "src/data/scraped/ai-citations.json");
 const HISTORY_PATH = join(process.cwd(), "src/data/scraped/ai-citations-history.json");
+/** Where a partial run writes, so it cannot clobber the real measurement. */
+const PARTIAL_PATH = join(process.cwd(), "src/data/scraped/ai-citations-partial.json");
 
 /**
  * Kept small on purpose — see COST DISCIPLINE. Raising this raises spend on
@@ -431,11 +433,29 @@ function summarise(results: CitationResult[], platform: Platform) {
     /** Whose source backs the recommendation. */
     recommendationRoute: routes,
     /**
-     * Our share of the recommendations that ARE attributed. Unattributed ones
-     * are excluded from the denominator rather than counted against us, since
-     * they say nothing either way.
+     * Our share of the recommendations that ARE attributed, or null when none
+     * were.
+     *
+     * Null rather than zero, because zero reads as "we never carry the
+     * recommendation" when the truth is "this platform's API does not expose
+     * which source backs a claim". The OpenAI Responses API returns citations
+     * as annotations without the inline [n] markers Perplexity uses, so every
+     * ChatGPT row comes back unattributed and a 0% here would be a fabricated
+     * defeat.
      */
-    ourRecommendationSharePct: attributed ? Math.round((routes.us / attributed) * 1000) / 10 : 0,
+    ourRecommendationSharePct: attributed ? Math.round((routes.us / attributed) * 1000) / 10 : null,
+    /**
+     * Answers that cited NOTHING. Without this, a low citation rate reads as a
+     * visibility problem when it can be an engine that did not search at all —
+     * which is exactly what the first ChatGPT run showed: 73 of 100 answers
+     * carried zero citations, so "4/100 cited" was mostly measuring how often
+     * the model chose to search, not how often it picks us.
+     */
+    answersWithNoCitations: usable.filter((r) => r.totalCitations === 0).length,
+    /** Mean citations per answer — context for the two numbers above. */
+    meanCitations: usable.length
+      ? Math.round((usable.reduce((a, r) => a + r.totalCitations, 0) / usable.length) * 10) / 10
+      : 0,
     meanPosition: positions.length
       ? Math.round((positions.reduce((a, b) => a + b, 0) / positions.length) * 10) / 10
       : null,
@@ -447,7 +467,47 @@ function summarise(results: CitationResult[], platform: Platform) {
   };
 }
 
+/**
+ * Re-derive the summary from the rows already stored, with no API calls.
+ *
+ * The rows ARE the measurement; everything above them is derivation. When the
+ * derivation changes — as it did when `ourRecommendationSharePct` started
+ * returning null instead of a fabricated 0% — the stored file keeps stale
+ * fields until the next paid run. This recomputes them for free, so the
+ * artifact never disagrees with the code that produced it.
+ */
+function recomputeSummary(): void {
+  if (!existsSync(OUT_PATH)) {
+    console.error(`[ai-citations] ${OUT_PATH} does not exist — nothing to recompute.`);
+    process.exit(1);
+  }
+  const prev = JSON.parse(readFileSync(OUT_PATH, "utf8")) as Record<string, unknown> & {
+    results: CitationResult[];
+  };
+  const next = {
+    ...prev,
+    recomputedAt: new Date().toISOString(),
+    chatgpt: summarise(prev.results, "chatgpt"),
+    perplexity: summarise(prev.results, "perplexity"),
+  };
+  writeFileSync(OUT_PATH, JSON.stringify(next, null, 2));
+  for (const pl of ["chatgpt", "perplexity"] as Platform[]) {
+    const su = next[pl];
+    if (su.prompts === 0) continue;
+    console.log(
+      `  ${pl}: ${su.citations}/${su.usable} cited (${su.citationRatePct}%), ` +
+        `${su.meanCitations} citations per answer, ${su.answersWithNoCitations} answers cited nothing, ` +
+        `share of attributed ${su.ourRecommendationSharePct === null ? "unavailable" : su.ourRecommendationSharePct + "%"}`,
+    );
+  }
+  console.log(`  rewritten: ${OUT_PATH} (no API calls)`);
+}
+
 async function main() {
+  if (flag("recompute-summary") === "true") {
+    recomputeSummary();
+    return;
+  }
   console.log(
     `[ai-citations] ${prompts.length} prompt(s) · platforms: ${[
       runChatGPT && "chatgpt",
@@ -494,6 +554,47 @@ async function main() {
   };
 
   mkdirSync(join(process.cwd(), "src/data/scraped"), { recursive: true });
+
+  // A PARTIAL run must never overwrite the measurement.
+  //
+  // Running `--limit=2 --platform=chatgpt` to check a key wrote two rows over a
+  // 100-prompt baseline and appended a 2-prompt entry to the series. The data
+  // was recoverable from git, which is luck rather than design: the flags exist
+  // precisely so a change can be validated cheaply, and a validation run that
+  // destroys the thing being validated against is a trap.
+  //
+  // So a subset of prompts goes to its own file and never touches the history.
+  // A run over the FULL prompt set is a real measurement, but if it skipped a
+  // platform it merges — replacing only the rows for the platforms it actually
+  // ran and keeping the other platform's rows — because a Perplexity-only run
+  // should not erase ChatGPT's results either.
+  const isPromptSubset = prompts.length < BENCHMARK_PROMPTS.length;
+  if (isPromptSubset) {
+    writeFileSync(PARTIAL_PATH, JSON.stringify(summary, null, 2));
+    console.log(
+      `\n  partial run (${prompts.length} of ${BENCHMARK_PROMPTS.length} prompts) — written to ${PARTIAL_PATH}.`,
+    );
+    console.log(`  ${OUT_PATH} and the history series are untouched.`);
+    return;
+  }
+
+  const ranPlatforms: Platform[] = [
+    ...(runChatGPT ? (["chatgpt"] as const) : []),
+    ...(runPerplexity ? (["perplexity"] as const) : []),
+  ];
+  if (existsSync(OUT_PATH)) {
+    try {
+      const prev = JSON.parse(readFileSync(OUT_PATH, "utf8")) as { results?: CitationResult[] };
+      const kept = (prev.results ?? []).filter((r) => !ranPlatforms.includes(r.platform));
+      if (kept.length > 0) {
+        summary.results = [...summary.results, ...kept];
+        console.log(`\n  merged: kept ${kept.length} row(s) from platforms this run did not cover.`);
+      }
+    } catch {
+      // A corrupt previous file should not stop a good run being written.
+    }
+  }
+
   writeFileSync(OUT_PATH, JSON.stringify(summary, null, 2));
 
   // History: aggregates only, so the series stays small enough to read and to
@@ -532,7 +633,8 @@ async function main() {
         ` · provider outranks us on ${s.providerOutranksUs}/${s.usable}` +
         ` · recommendation route: us ${s.recommendationRoute.us}, provider ${s.recommendationRoute.provider},` +
         ` publisher ${s.recommendationRoute.publisher}, unattributed ${s.recommendationRoute.unattributed}` +
-        ` (our share of attributed: ${s.ourRecommendationSharePct}%)` +
+        `${s.ourRecommendationSharePct === null ? " (attribution unavailable on this platform)" : ` (our share of attributed: ${s.ourRecommendationSharePct}%)`}` +
+        `\n     ${s.meanCitations} citations per answer · ${s.answersWithNoCitations}/${s.usable} answers cited nothing at all` +
         `${s.targetsChecked ? `, ${s.targetHits}/${s.targetsChecked} hit the intended page` : ""}`,
     );
     const u = usage[pl];
