@@ -59,7 +59,21 @@ export interface IndexRow {
 export interface MeasuredMarkup {
   /** Mean distance from the mid-market rate, in percent, across every amount. */
   markupPct: number;
-  /** How many corridors that mean is taken over. */
+  /**
+   * Median distance from the mid-market rate. Prefer this in copy.
+   *
+   * The mean is pulled badly off by corridors where OUR benchmark is wrong
+   * rather than the provider's rate. Measured 2026-09-07, Wise sits within
+   * 0.02% of mid-market on USD→INR, USD→PHP, USD→MXN, GBP→INR, GBP→EUR,
+   * USD→EUR, AED→INR, CAD→INR and USD→PKR — a genuine 0% markup — while
+   * USD→NGN reads −3.16% because the naira has an official/parallel split our
+   * mid-market snapshot does not track. Averaging those together produced a
+   * "Wise charges 0.62% markup" figure that is true of the arithmetic and false
+   * about the provider, and publishing it would have contradicted a "0% markup"
+   * claim that is, on the corridors readers actually use, correct.
+   */
+  markupMedianPct: number;
+  /** How many corridors these are taken over. */
   corridors: number;
 }
 
@@ -100,6 +114,13 @@ export function trueCostPct(q: NormalizedQuote): number | null {
 }
 
 const mean = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
+/** Median — the robust counterpart to `mean` where a bad benchmark can outlie. */
+const median = (xs: number[]) => {
+  if (!xs.length) return 0;
+  const s = [...xs].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
 const round2 = (n: number) => Math.round(n * 100) / 100;
 
 interface Acc {
@@ -202,7 +223,11 @@ export const REMITTANCE_INDEX = {
 // ── Per-provider measured markup (all amounts) for /companies profiles ────
 const measured = new Map<string, MeasuredMarkup>();
 for (const a of allAmounts.values()) {
-  measured.set(a.slug, { markupPct: round2(mean(a.markups)), corridors: a.corridors.size });
+  measured.set(a.slug, {
+    markupPct: round2(mean(a.markups)),
+    markupMedianPct: round2(median(a.markups)),
+    corridors: a.corridors.size,
+  });
 }
 
 /** Slugs with a measured markup; the key set provider-measured.ts resolves against. */
@@ -238,12 +263,6 @@ export interface CorridorSpreadRow {
   gapPerAmount: number;
 }
 
-const median = (xs: number[]) => {
-  if (xs.length === 0) return 0;
-  const s = [...xs].sort((a, b) => a - b);
-  const m = Math.floor(s.length / 2);
-  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
-};
 
 const spreadRows: CorridorSpreadRow[] = [];
 for (const [amountKey, quotes] of Object.entries(quotesByCorridorAmount)) {

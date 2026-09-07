@@ -271,7 +271,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "How can I transfer money from UK to India online?",
-        a: "To send money from the UK to India online: (1) Choose a specialist provider — Wise, Remitly, or OFX typically offer the best GBP to INR rates. (2) Create an account and verify your identity (passport or driving licence). (3) Enter the amount, your recipient's Indian bank account details (account number and IFSC code), and choose delivery method. (4) Fund via UK bank transfer (Faster Payments) or debit card. (5) Your recipient receives INR in their Indian bank account within minutes (express/IMPS) or 1–2 business days (standard). Online transfers through specialist providers are 80–95% cheaper than visiting a high-street bank branch.",
+        a: "To send money from the UK to India online: (1) Choose a specialist provider — Wise, Remitly, or OFX typically offer the best GBP to INR rates. (2) Create an account and verify your identity (passport or driving licence). (3) Enter the amount, your recipient's Indian bank account details (account number and IFSC code), and choose delivery method. (4) Fund via UK bank transfer (Faster Payments) or debit card. (5) Your recipient receives INR in their Indian bank account within minutes (express/IMPS) or 1–2 business days (standard). Across the corridors we price at $1,000, specialist providers average about half the total cost of a bank — and considerably less than that against a high-street branch wire, which adds a £20–£40 fee on top of its exchange rate markup.",
       },
       {
         q: "What is the best money transfer service from UK to India?",
@@ -454,7 +454,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "How much does it cost to wire money from the US to the UK?",
-        a: "Through a US bank, wiring money to the UK costs $25–$50 in wire fees plus a 2–3% exchange rate markup — totaling $45–$80 on a $1,000 transfer. Specialist providers are dramatically cheaper: Wise charges ~$5–$7 (0% markup + small fee), OFX charges $0 in fees with a small spread, and XE charges $0 in fees with a 0.5–1.5% spread. Switching from bank wires to a specialist provider saves 80–95% on transfer costs.",
+        a: "Through a US bank, wiring money to the UK costs $25–$50 in wire fees plus a 2–3% exchange rate markup — totaling $45–$80 on a $1,000 transfer. Specialist providers are dramatically cheaper: Wise charges ~$5–$7 (0% markup + small fee), OFX charges $0 in fees with a small spread, and XE charges $0 in fees with a 0.5–1.5% spread. On this example a specialist saves roughly $38–$75 of the $45–$80 a bank charges. Averaged across every bank and specialist we price at $1,000, the gap is smaller — banks cost about twice what specialists do.",
       },
       {
         q: "What is the best way to send money to the UK from the USA?",

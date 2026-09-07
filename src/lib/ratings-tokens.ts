@@ -17,7 +17,10 @@ import { providers, type TransferQuote } from "@/data/providers";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { companyPageRenders } from "@/lib/route-map";
 import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
-import { CONSISTENCY_ROWS } from "@/lib/consistency-index";
+import { CONSISTENCY_ROWS, CONSISTENCY_INDEX } from "@/lib/consistency-index";
+import ibanStructures from "@/data/scraped/iban-structures.json";
+import { ibanPageRenders } from "@/lib/route-map";
+import { computeBusinessFxIndex, type BusinessFxIndex } from "@/lib/business-fx-index";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 
 export interface StoreRating {
@@ -217,16 +220,54 @@ ${body}
 //        what a transfer would deliver with no markup and no fee)
 //   {{QUOTE_DATE}}                         6 September 2026
 //   {{COST_PCT:wise:USD:INR:1000}}         0.69%  (total cost as % of amount sent)
-//   {{AVG_MARKUP:instarem}}                "0.85% across the 166 corridors we
+//   {{AVG_MARKUP:instarem}}                "0.70% median across the 166 corridors we
 //        quote it on" — the honest version of a hand-typed "average markup of
 //        0.42%". Renders its own denominator on purpose: this mean is taken
 //        over every amount, while the /remittance-cost-index table is $1,000
 //        only, so the two figures differ slightly and each must say which it is.
 //   {{RATINGS_DATE}}                       6 September 2026 (Trustpilot scrape)
+//   {{IBAN_FORMAT_TABLE}}                  89-country IBAN length/example table
+//   {{LEADS:wise}}                         44 of the 212 corridors we can compare
+//   {{BANK_SAVINGS_PCT}}                   46%   (specialist vs bank on $1,000)
+//   {{BUSINESS_SAVINGS_PCT}}               62%   (business-FX specialist vs bank, $5,000)
+//   {{BUSINESS_BANK_COST_PCT}}             4.32% (avg bank all-in cost, $5,000)
+//   {{BUSINESS_SPECIALIST_COST_PCT}}       1.65% (avg business-FX specialist, $5,000)
+//   {{AVG_BANK_COST}}                      $55.16  (avg bank cost per $1,000)
+//   {{AVG_SPECIALIST_COST}}                $29.68  (avg specialist cost per $1,000)
 //
 // A token we cannot resolve is left in place on purpose: check-assets renders
 // every guide at build time and fails on a literal "{{", so a corridor that
 // loses coverage fails the build instead of shipping a hole in a sentence.
+
+/**
+ * Average cost saved by using a specialist rather than a bank on $1,000, as a
+ * whole percent. Mirrors the same calculation the /remittance-cost-index page
+ * puts in its "Savings vs banks" tile, so the guide and the study cannot
+ * disagree.
+ */
+/**
+ * Business-FX index, computed at most once per build.
+ *
+ * Business guides quoted the same "80-95% cheaper than banks" range as the
+ * consumer ones, though it is a different population at a different amount.
+ * Measured at $5,000 the gap is 4.32% against 1.65% — about 62% — so the two
+ * families of claim now read from their own study and say which one it is.
+ */
+let businessIdx: BusinessFxIndex | undefined;
+function businessFx(): BusinessFxIndex {
+  if (!businessIdx) businessIdx = computeBusinessFxIndex();
+  return businessIdx;
+}
+
+function businessSavingsPct(): number {
+  const { bankAvgCostPct: bank, specialistAvgCostPct: spec } = businessFx();
+  return bank > 0 ? Math.round(((bank - spec) / bank) * 100) : 0;
+}
+
+function bankSavingsPct(): number {
+  const { avgBankCost: bank, avgSpecialistCost: spec } = REMITTANCE_INDEX;
+  return bank > 0 ? Math.round(((bank - spec) / bank) * 100) : 0;
+}
 
 const quoteCache = new Map<string, TransferQuote[]>();
 function quotesFor(from: string, to: string, amount: number): TransferQuote[] {
@@ -301,6 +342,40 @@ function longDate(iso: string): string {
     year: "numeric",
     timeZone: "UTC",
   });
+}
+
+/**
+ * IBAN format reference: every country we hold a structure for, with its length
+ * and a validated example.
+ *
+ * Built because /guides/iban-numbers-explained earns 809 Bing impressions and
+ * ZERO clicks at position 7.2 (May 2026 export). Its queries are lookups —
+ * "iban lu", "iban ie", "german iban example", "iban format by country" — and
+ * the page answered none of them: it explained what an IBAN is while the reader
+ * wanted Luxembourg's length. The /iban/[country] pages that DO answer those
+ * convert well (Italy: 723 impressions, 22 clicks, position 4.3), so the table
+ * both satisfies the query in place and routes to them.
+ *
+ * Country names are linked only where ibanPageRenders() confirms a page — 24 of
+ * the 89 structures have no /iban page, and interpolating their slugs into
+ * hrefs is the exact mistake that produced 5,526 links into 404s in the
+ * 2026-09-02 audit.
+ */
+export function renderIbanFormatTable(): string {
+  const rows = (ibanStructures as {
+    country: string; code: string; length: number; ibanExample: string; sepa: boolean;
+  }[])
+    .slice()
+    .sort((a, b) => a.country.localeCompare(b.country))
+    .map((c) => {
+      const slug = c.country.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const name = ibanPageRenders(slug)
+        ? `<a href="/iban/${slug}">${c.country}</a>`
+        : c.country;
+      return `<tr><td>${name}</td><td><code>${c.code}</code></td><td>${c.length}</td><td><code>${c.ibanExample}</code></td><td>${c.sepa ? "Yes" : "No"}</td></tr>`;
+    })
+    .join("");
+  return `<div class="overflow-x-auto"><table><thead><tr><th>Country</th><th>Code</th><th>Length</th><th>Example IBAN</th><th>SEPA</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 export function renderQuoteDate(): string {
@@ -458,10 +533,14 @@ function renderQuoteTokens(html: string): string {
   out = out.replace(/\{\{AVG_MARKUP:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const m = MEASURED_MARKUPS.get(slug);
     if (!m || m.corridors < 3) return match;
-    const scope = `across the ${m.corridors.toLocaleString()} corridor${m.corridors === 1 ? "" : "s"} we quote it on`;
-    return m.markupPct < 0.05
+    // Median, not mean — see MeasuredMarkup.markupMedianPct. A provider whose
+    // benchmark is unreliable on a few exotic corridors (USD→NGN reads −3.16%)
+    // gets misdescribed by the mean, and this token renders straight into
+    // reader-facing prose on the highest-traffic guides.
+    const scope = `median across the ${m.corridors.toLocaleString()} corridor${m.corridors === 1 ? "" : "s"} we quote it on`;
+    return m.markupMedianPct < 0.05
       ? `effectively nil ${scope}`
-      : `${m.markupPct.toFixed(2)}% ${scope}`;
+      : `${m.markupMedianPct.toFixed(2)}% ${scope}`;
   });
 
   out = out.split("{{QUOTE_DATE}}").join(renderQuoteDate());
@@ -505,6 +584,41 @@ export function renderDataTokens(html: string): string {
   out = out.split("{{PROVIDER_COUNT}}").join(atLeast(SITE_STATS.liveProviders));
   out = out.split("{{CORRIDOR_COUNT}}").join(atLeast(SITE_STATS.comparableCorridors));
   out = out.split("{{CURRENCY_COUNT}}").join(atLeast(SITE_STATS.currencies));
+  // Mirrors the scrape cron. Copy stating a refresh interval should read this
+  // rather than hand-typing "every 6 hours" and drifting from the workflow.
+  out = out.split("{{REFRESH_HOURS}}").join(String(SITE_STATS.refreshHours));
+  if (out.includes("{{IBAN_FORMAT_TABLE}}")) {
+    out = out.split("{{IBAN_FORMAT_TABLE}}").join(renderIbanFormatTable());
+  }
+
+  // Bank-vs-specialist gap. The cheapest-transfer guide asserted specialists
+  // were "80-95% cheaper than traditional banks" — a number nothing on the site
+  // produced. The Remittance Cost Index, computed from the same quote set,
+  // measures roughly $55 against $30 per $1,000 sent, i.e. 46%. These tokens make the
+  // guide quote the measurement, and the gap moves with the data.
+  // {{BANK_SAVINGS_PCT}} -> "46%"
+  // Corridors a provider actually leads. Guides carried unqualified "X is
+  // consistently cheapest" lines that the site's own consistency index
+  // contradicts — Wise leads 44 of 212 comparable corridors, the most of any
+  // provider but a fifth of them. This renders the denominator with the
+  // numerator so the sentence cannot be read as "cheapest everywhere".
+  // {{LEADS:wise}} -> "44 of the 212 corridors we can compare"
+  out = out.replace(/\{\{LEADS:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
+    const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
+    if (!row) return match;
+    return `${row.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare`;
+  });
+
+  out = out.split("{{BANK_SAVINGS_PCT}}").join(`${bankSavingsPct()}%`);
+  out = out.split("{{BUSINESS_SAVINGS_PCT}}").join(`${businessSavingsPct()}%`);
+  out = out
+    .split("{{BUSINESS_BANK_COST_PCT}}")
+    .join(`${businessFx().bankAvgCostPct.toFixed(2)}%`);
+  out = out
+    .split("{{BUSINESS_SPECIALIST_COST_PCT}}")
+    .join(`${businessFx().specialistAvgCostPct.toFixed(2)}%`);
+  out = out.split("{{AVG_BANK_COST}}").join(`$${REMITTANCE_INDEX.avgBankCost.toFixed(2)}`);
+  out = out.split("{{AVG_SPECIALIST_COST}}").join(`$${REMITTANCE_INDEX.avgSpecialistCost.toFixed(2)}`);
 
   if (out.includes("{{")) out = renderQuoteTokens(out);
 

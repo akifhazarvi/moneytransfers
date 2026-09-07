@@ -2377,7 +2377,7 @@ export const comparisonArticles: ComparisonArticle[] = [
         id: "where-revolut-wins",
         heading: "Where Revolut dominates",
         content: `<ul>
-<li><strong>Cost of international transfers:</strong> 80-95% cheaper than Chase wires</li>
+<li><strong>Cost of international transfers:</strong> roughly 80–90% cheaper than a Chase wire on a $1,000 transfer ($7–$14 against $75–$95)</li>
 <li><strong>Multi-currency wallet:</strong> Hold USD, EUR, GBP, CHF, JPY, and 30+ more in one account</li>
 <li><strong>Card spending abroad:</strong> 0% FX markup on weekdays (under £1,000/month on free tier)</li>
 <li><strong>Instant transfers:</strong> Revolut-to-Revolut is instant, 24/7</li>

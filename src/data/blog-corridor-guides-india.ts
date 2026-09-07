@@ -22,6 +22,7 @@ export const corridorGuidesIndia: BlogPost[] = [
   // ── Hub Guide: How to Send Money to India Internationally (2026) ──
   {
     slug: "how-to-send-money-to-india-2026",
+    contentStatus: "published",
     title:
       "How to Send Money to India Internationally (2026 Guide)",
     metaDescription:

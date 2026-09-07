@@ -1,0 +1,346 @@
+{
+  "auditedAt": "2026-09-07",
+  "buildModified": "2026-09-07T06:23:55.684Z",
+  "scope": {
+    "renderedEnglishPages": 1352,
+    "guideArticles": 122,
+    "indexableGuideArticles": 82,
+    "noindexedGuideArticles": 40,
+    "guideArticlesWithAnswerComponent": 114,
+    "liveRequests": 30
+  },
+  "checks": {
+    "indexing": "PASS: 1352 pages; 705 sitemap URLs exist, are indexable and self-canonical",
+    "internalLinks": "PASS: 1354 rendered pages including special routes; 162554 internal links resolve in build",
+    "sitemapIncomingLinks": "PASS: each submitted URL has an incoming link in the parsed English inventory",
+    "currentAuthenticatedGsc": "Unavailable; historical baseline is reports/gsc-index-baseline-2026-09-05.json",
+    "notMeasured": [
+      "Google-selected canonical today",
+      "Manual Actions",
+      "Googlebot IP/server logs",
+      "field Core Web Vitals",
+      "current GA4",
+      "competitor ranking or search-volume advantage"
+    ]
+  },
+  "liveCheckedAt": "2026-09-07T21:05:30.540Z",
+  "live": [
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/robots.txt",
+      "xRobotsTag": null
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/sitemap.xml",
+      "xRobotsTag": null
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/",
+      "canonical": "https://sendmoneycompare.com",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Best money transfer apps. Compared live."
+      ]
+    },
+    {
+      "path": "/guides/how-to-send-money-abroad",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/guides/how-to-send-money-abroad",
+      "canonical": "https://sendmoneycompare.com/guides/how-to-send-money-abroad",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "How to Send Money Internationally: 5 Methods Ranked (2026)"
+      ]
+    },
+    {
+      "path": "/guides",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/guides",
+      "canonical": "https://sendmoneycompare.com/guides",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Guides & Resources"
+      ]
+    },
+    {
+      "path": "/guides/cheapest-way-to-send-money-internationally",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally",
+      "canonical": "https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Cheapest Way to Send Money Internationally in 2026"
+      ]
+    },
+    {
+      "path": "/guides/fastest-way-to-send-money-internationally",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/guides/fastest-way-to-send-money-internationally",
+      "canonical": "https://sendmoneycompare.com/guides/fastest-way-to-send-money-internationally",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Fastest Way to Send Money Internationally (2026 Ranked)"
+      ]
+    },
+    {
+      "path": "/guides/best-money-transfer-services",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/guides/best-money-transfer-services",
+      "canonical": "https://sendmoneycompare.com/guides/best-money-transfer-services",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Best Money Transfer Services 2026: Ranked by Cost"
+      ]
+    },
+    {
+      "path": "/send-money",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/send-money",
+      "canonical": "https://sendmoneycompare.com/send-money",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Compare Money Transfer Providers"
+      ]
+    },
+    {
+      "path": "/guides/send-money-uae-to-pakistan-guide",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/guides/send-money-uae-to-pakistan-guide",
+      "canonical": "https://sendmoneycompare.com/guides/send-money-uae-to-pakistan-guide",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Send Money from UAE to Pakistan 2026: AED to PKR Rates"
+      ]
+    },
+    {
+      "path": "/guides/send-money-to-philippines-guide",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/guides/send-money-to-philippines-guide",
+      "canonical": "https://sendmoneycompare.com/guides/send-money-to-philippines-guide",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Send Money to the Philippines: Cheapest Ways 2026"
+      ]
+    },
+    {
+      "path": "/send-money/usa-to-india",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/send-money/usa-to-india",
+      "canonical": "https://sendmoneycompare.com/send-money/usa-to-india",
+      "robots": "",
+      "xRobotsTag": null,
+      "h1": [
+        "Send money from United States to India(USD → INR)"
+      ]
+    },
+    {
+      "path": "/send-money/switzerland-to-egypt",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/send-money/switzerland-to-egypt",
+      "canonical": "https://sendmoneycompare.com/send-money/switzerland-to-egypt",
+      "robots": "",
+      "xRobotsTag": null,
+      "h1": [
+        "Send money from Switzerland to Egypt(CHF → EGP)"
+      ]
+    },
+    {
+      "path": "/send-money/uae-to-pakistan",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/send-money/uae-to-pakistan",
+      "canonical": "https://sendmoneycompare.com/send-money/uae-to-pakistan",
+      "robots": "",
+      "xRobotsTag": null,
+      "h1": [
+        "Send money from UAE to Pakistan(AED → PKR)"
+      ]
+    },
+    {
+      "path": "/send-money/saudi-arabia-to-india",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/send-money/saudi-arabia-to-india",
+      "canonical": "https://sendmoneycompare.com/send-money/saudi-arabia-to-india",
+      "robots": "",
+      "xRobotsTag": null,
+      "h1": [
+        "Send money from Saudi Arabia to India(SAR → INR)"
+      ]
+    },
+    {
+      "path": "/send-money/denmark-to-brazil",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/send-money/denmark-to-brazil",
+      "canonical": "https://sendmoneycompare.com/send-money/denmark-to-brazil",
+      "robots": "",
+      "xRobotsTag": null,
+      "h1": [
+        "Send money from Denmark to Brazil(DKK → BRL)"
+      ]
+    },
+    {
+      "path": "/companies/wise",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/companies/wise",
+      "canonical": "https://sendmoneycompare.com/companies/wise",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Wise review"
+      ]
+    },
+    {
+      "path": "/compare/wise-vs-remitly",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/compare/wise-vs-remitly",
+      "canonical": "https://sendmoneycompare.com/compare/wise-vs-remitly",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Wise vs Remitly: Fees, Rates & Speed Compared"
+      ]
+    },
+    {
+      "path": "/fr/send-money/send-money-to-algeria",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/send-money/send-money-to-algeria",
+      "canonical": "https://sendmoneycompare.com/send-money/send-money-to-algeria",
+      "robots": "",
+      "xRobotsTag": null,
+      "h1": [
+        "Send money to Algeria"
+      ]
+    },
+    {
+      "path": "/research",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/research",
+      "canonical": "https://sendmoneycompare.com/research",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Original research"
+      ]
+    },
+    {
+      "path": "/sendscore",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/sendscore",
+      "canonical": "https://sendmoneycompare.com/sendscore",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "What is SendScore?"
+      ]
+    },
+    {
+      "path": "/provider-consistency",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/provider-consistency",
+      "canonical": "https://sendmoneycompare.com/provider-consistency",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Which provider is cheapest most often?"
+      ]
+    },
+    {
+      "path": "/transfer-cost-by-amount",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/transfer-cost-by-amount",
+      "canonical": "https://sendmoneycompare.com/transfer-cost-by-amount",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Does the amount you send change who is cheapest?"
+      ]
+    },
+    {
+      "path": "/banks/hsbc",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/banks/hsbc",
+      "canonical": "https://sendmoneycompare.com/banks/hsbc",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "HSBC International Transfer Fees — What You Actually Pay (Live Data, 2026)"
+      ]
+    },
+    {
+      "path": "/remittance-cost-index",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/remittance-cost-index",
+      "canonical": "https://sendmoneycompare.com/remittance-cost-index",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "The 2026 Global Remittance Cost Index"
+      ]
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/llms.txt",
+      "xRobotsTag": null
+    },
+    {
+      "path": "/llms-full.txt",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/llms-full.txt",
+      "xRobotsTag": null
+    },
+    {
+      "path": "/for-ai",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/for-ai",
+      "canonical": "https://sendmoneycompare.com/for-ai",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "SendMoneyCompare for AI Systems"
+      ]
+    },
+    {
+      "path": "/methodology",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/methodology",
+      "canonical": "https://sendmoneycompare.com/methodology",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Methodology"
+      ]
+    },
+    {
+      "path": "/editorial-policy",
+      "status": 200,
+      "finalUrl": "https://sendmoneycompare.com/editorial-policy",
+      "canonical": "https://sendmoneycompare.com/editorial-policy",
+      "robots": "index, follow",
+      "xRobotsTag": null,
+      "h1": [
+        "Editorial Policy"
+      ]
+    }
+  ],
+  "notes": [
+    "Quick-answer component counts do not measure answer quality.",
+    "Source-link counts do not validate the claim or source.",
+    "The local .next build was inspected; no new application build was run.",
+    "Initial short Node user-agent requests returned 403; identified audit requests succeeded.",
+    "Streaming Suspense markup can put main content outside the initial main element; word-count metrics are deliberately omitted."
+  ]
+}

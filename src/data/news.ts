@@ -574,7 +574,7 @@ export const newsItems: NewsItem[] = [
 <p>The market is bifurcating. SWIFT is getting faster, but banks aren't passing the savings through to consumers. Stablecoins offer near-zero cost, but require both parties to be comfortable with crypto infrastructure. <strong>Specialist transfer providers sit in the sweet spot</strong> — fast, cheap, and no crypto knowledge required. We expect this to remain true through at least 2027, with stablecoins gradually eating into B2B corridors first and consumer remittances later.</p>
 
 <div class="blog-callout-green-sm">
-<p style="margin:0"><strong>Bottom line for senders:</strong> You don't need to wait for stablecoins to save money today. Providers like <a href="/companies/wise">Wise</a> (0% markup), <a href="/companies/remitly">Remitly</a> (minutes delivery), and <a href="/companies/instarem">Instarem</a> (zero fees) already deliver 80–95% savings vs banks — with no crypto involved. Use our <a href="/send-money">live comparison tool</a> to find the best rate right now.</p>
+<p style="margin:0"><strong>Bottom line for senders:</strong> You don't need to wait for stablecoins to save money today. Providers like <a href="/companies/wise">Wise</a> (0% markup), <a href="/companies/remitly">Remitly</a> (minutes delivery), and <a href="/companies/instarem">Instarem</a> (zero fees) already cost about half what banks do on our $1,000 index, and far less than that against the most expensive wire transfers — with no crypto involved. Use our <a href="/send-money">live comparison tool</a> to find the best rate right now.</p>
 </div>
 
 <h2>Related reading</h2>
@@ -1053,7 +1053,7 @@ export const newsItems: NewsItem[] = [
 <h2>What to do now</h2>
 <p>Stablecoin-powered transfers are coming but aren't mainstream yet. In the meantime:</p>
 <ol>
-<li><strong>Use specialist providers today.</strong> <a href="/companies/wise">Wise</a> (0% markup) and <a href="/companies/remitly">Remitly</a> (minutes delivery) already achieve 80-95% of the savings that stablecoins promise — without any crypto complexity.</li>
+<li><strong>Use specialist providers today.</strong> <a href="/companies/wise">Wise</a> (0% markup) and <a href="/companies/remitly">Remitly</a> (minutes delivery) already capture most of the saving that stablecoins promise — without any crypto complexity.</li>
 <li><strong>Watch for PayPal/Xoom PYUSD offers.</strong> <a href="/companies/xoom">Xoom</a> already offers zero transfer fees when funded with PYUSD. If your corridor is supported, this is the closest thing to stablecoin remittances available today.</li>
 <li><strong>Compare before every transfer.</strong> Our <a href="/send-money">comparison tool</a> shows real-time costs from ${COVERAGE.providers}. As stablecoin competition heats up, fees are falling across the board.</li>
 </ol>

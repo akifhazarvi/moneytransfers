@@ -17,6 +17,7 @@ export const converterGuides: BlogPost[] = [
   // ============================
   {
     slug: "traveling-multiple-countries-currency-guide",
+    contentStatus: "draft",
     title: "Multi-Country Travel: How to Track All Your Exchange Rates",
     metaDescription:
       "Planning a multi-country trip? Learn how to monitor exchange rates for 5, 10, or 20 currencies at once and know what your money is worth everywhere.",
@@ -140,6 +141,7 @@ export const converterGuides: BlogPost[] = [
   // ============================
   {
     slug: "compare-exchange-rates-multiple-currencies",
+    contentStatus: "draft",
     title: "Compare Exchange Rates Across Many Currencies at Once",
     metaTitle: "Multi-Currency Exchange Rate Comparison Tool",
     metaDescription:
@@ -256,6 +258,7 @@ export const converterGuides: BlogPost[] = [
   // ============================
   {
     slug: "currency-converter-vs-bank-app-travel",
+    contentStatus: "draft",
     title: "Live Currency Converter vs Your Bank's App for Travel",
     metaTitle: "Currency Converter vs Bank App: Which Rate Wins?",
     metaDescription:

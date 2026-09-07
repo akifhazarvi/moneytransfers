@@ -17,6 +17,24 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { COVERAGE } from "@/lib/site-stats";
+import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
+
+/**
+ * What we can honestly say about Wise being "Best Rate".
+ *
+ * The card used to read "Consistently the lowest total cost for most
+ * corridors", which the site own consistency index contradicts: Wise leads 44
+ * of 212 comparable corridors — a fifth — with Ria and TapTap Send on 40 each.
+ * The superlative is emitted only while Wise is actually the top leader, so a
+ * scrape that reorders the table degrades the sentence instead of falsifying
+ * it.
+ */
+const wiseRow = CONSISTENCY_ROWS.find((r) => r.providerSlug === "wise");
+const wiseLeadClaim = wiseRow
+  ? `Cheapest on ${wiseRow.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare${
+      CONSISTENCY_ROWS[0]?.providerSlug === "wise" ? ", more than any other provider" : ""
+    } — no single provider wins everywhere.`
+  : "No single provider is cheapest everywhere — compare your exact transfer.";
 
 const featuredProviderSlugs = ["wise", "remitly", "western-union", "moneygram", "revolut"];
 const featuredProviders = featuredProviderSlugs
@@ -425,7 +443,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
               {[
-                { badge: "Best Rate", provider: "Wise", reason: "Uses the real mid-market rate with fees from 0.41%. Consistently the lowest total cost for most corridors.", href: "/companies/wise", color: "var(--color-primary)" },
+                // "Consistently the lowest total cost for most corridors" was the site
+                // contradicting its own dataset: Wise leads 44 of 212 comparable
+                // corridors — the most of any provider, but a fifth of them, with Ria
+                // and TapTap Send close behind. Derived from the consistency index so
+                // the claim tracks the measurement instead of drifting from it.
+                { badge: "Best Rate", provider: "Wise", reason: `Uses the real mid-market rate with fees from 0.41%. ${wiseLeadClaim}`, href: "/companies/wise", color: "var(--color-primary)" },
                 { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes on major corridors, across a 175+ country network. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
                 { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
                 { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },

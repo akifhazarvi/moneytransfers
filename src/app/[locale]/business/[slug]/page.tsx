@@ -9,6 +9,11 @@ import { businessPages, getBusinessPage } from "@/data/business-pages";
 // Revalidate every 24 hours — editorial content changes infrequently
 export const revalidate = 86400;
 import { sanitizeHtml } from "@/lib/sanitize";
+// Business pages carried the same hand-typed cost claims guides used to, with no
+// way to quote a measured figure. Running the guide token renderer here lets
+// business copy cite the live business-FX index ({{BUSINESS_SAVINGS_PCT}} etc.)
+// instead, and check-assets fails the build on a token that stops resolving.
+import { renderDataTokens } from "@/lib/ratings-tokens";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { SITEMAP_BUSINESS_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
@@ -140,7 +145,7 @@ export default async function BusinessSubPage({ params }: Props) {
               {page.heading}
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed max-w-2xl">
-              {page.intro}
+              {renderDataTokens(page.intro)}
             </p>
             <div className="flex items-center gap-4 mt-4 text-2sm text-[var(--color-on-surface-variant)]">
               <span>
@@ -176,7 +181,7 @@ export default async function BusinessSubPage({ params }: Props) {
                 <div
                   className="text-md text-[var(--color-on-surface-variant)] leading-relaxed [&_a]:text-[var(--color-primary)] [&_a]:underline [&_h3]:text-lg [&_h3]:font-medium [&_h3]:text-[var(--color-on-surface)] [&_h3]:mt-6 [&_h3]:mb-2 [&_ul]:my-4 [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:pl-6 [&_li]:mb-2 [&_p]:mb-4 [&_table]:w-full [&_table]:text-sm [&_table]:border-collapse [&_th]:text-left [&_th]:py-2 [&_th]:px-3 [&_th]:font-medium [&_th]:border-b-2 [&_th]:border-[var(--color-outline)] [&_td]:py-2 [&_td]:px-3 [&_td]:border-b [&_td]:border-[var(--color-outline)] [&_strong]:text-[var(--color-on-surface)]"
                   dangerouslySetInnerHTML={{
-                    __html: sanitizeHtml(section.content),
+                    __html: sanitizeHtml(renderDataTokens(section.content)),
                   }}
                 />
 
@@ -219,7 +224,7 @@ export default async function BusinessSubPage({ params }: Props) {
                       {faq.question}
                     </h3>
                     <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                      {faq.answer}
+                      {renderDataTokens(faq.answer)}
                     </p>
                   </div>
                 ))}

@@ -3,9 +3,52 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import Card from "@/components/Card";
 import { businessPages } from "@/data/business-pages";
+import { renderDataTokens } from "@/lib/ratings-tokens";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { computeBusinessFxIndex, BUSINESS_AMOUNT } from "@/lib/business-fx-index";
+
+/**
+ * Measured bank-vs-specialist gap, from the same index that powers
+ * /business/compare.
+ *
+ * Every claim on this page used to read "80-95% cheaper than bank wires" — a
+ * range nothing on the site computed. It came from the best case of a modelled
+ * bank ($25-50 wire + 2-5% markup) against the cheapest specialist, then got
+ * applied to every provider and every amount. Measured at $5,000 across the
+ * corridors we price, banks average 4.32% and business-FX specialists 1.65%:
+ * a 62% saving, with the cheapest specialist reaching the high-80s. Deriving it
+ * means the page cannot drift from the tool it links to.
+ */
+const BFX = computeBusinessFxIndex();
+const bankSavingPct = BFX.bankAvgCostPct > 0
+  ? Math.round(((BFX.bankAvgCostPct - BFX.specialistAvgCostPct) / BFX.bankAvgCostPct) * 100)
+  : 0;
+const bestSpecialist = BFX.specialistLeaderboard[0];
+
+/**
+ * Volume bands for the annual-savings table. Costs are derived from the index
+ * rather than typed: the table used to hard-code "~$175/mo" bank against
+ * "~$30/mo" specialist, i.e. a 3.5% bank rate the footnote admitted was an
+ * assumption, which implied an ~83% saving directly under a headline claiming
+ * 80-95%. Both are now the measured rates.
+ */
+const BUSINESS_VOLUME_TIERS: {
+  label: string;
+  monthly: number;
+  /** Rendered as links — these are curated /companies pages, all of which render. */
+  providers: { slug: string; name: string }[];
+  suffix?: string;
+}[] = [
+  { label: "$5K/month (freelancer)", monthly: 5_000, providers: [{ slug: "wise", name: "Wise Business" }] },
+  { label: "$25K/month (SMB)", monthly: 25_000, providers: [{ slug: "wise", name: "Wise" }, { slug: "revolut", name: "Revolut" }] },
+  { label: "$100K/month (mid-market)", monthly: 100_000, providers: [{ slug: "ofx", name: "OFX" }], suffix: " (negotiated)" },
+  { label: "$500K+/month (enterprise)", monthly: 500_000, providers: [{ slug: "ofx", name: "OFX" }, { slug: "xe", name: "XE Business" }] },
+];
+const bestSavingPct = BFX.bankAvgCostPct > 0 && bestSpecialist
+  ? Math.round(((BFX.bankAvgCostPct - bestSpecialist.avgCostPct) / BFX.bankAvgCostPct) * 100)
+  : 0;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -16,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title:
       `B2B International Payments — Compare Providers (${year})`,
     description:
-      seoDescription(`Compare the cheapest B2B international payment providers in ${year}. Wise Business, OFX, Revolut Business & Airwallex save 80–95% vs bank wires. Fees, FX rates, bulk payments & API access compared.`),
+      seoDescription(`Compare the cheapest B2B international payment providers in ${year}. Wise Business, OFX, Revolut Business & Airwallex measured against bank wires. Fees, FX rates, bulk payments & API access compared.`),
     keywords:
       `b2b international payments, business international payments, business money transfer international, business fx payments, bulk international payments, international business payments ${year}, b2b money transfer, business bank transfer abroad`,
     alternates: getAlternates("business", locale),
@@ -24,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title:
         `International Business Payments — Compare Providers & Fees (${year})`,
       description:
-        "Compare the cheapest ways to make international business payments. Specialist providers save 80–95% vs bank wire transfers.",
+        `Compare the cheapest ways to make international business payments. We measure banks at ${BFX.bankAvgCostPct.toFixed(2)}% against specialists at ${BFX.specialistAvgCostPct.toFixed(2)}% on a $${BUSINESS_AMOUNT.toLocaleString()} payment.`,
       url: "https://sendmoneycompare.com/business",
       images: DEFAULT_OG_IMAGES,
     },
@@ -47,7 +90,7 @@ export default async function BusinessHubPage({
         name: "What is the cheapest way to make international business payments?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "For most SMBs, Wise Business offers the lowest total cost: 0% exchange rate markup (mid-market rate) plus a transparent fee of 0.41–0.71%. For large transfers ($50,000+), OFX may offer better negotiated rates through their dealing desk. Both are 80–95% cheaper than traditional bank wire transfers.",
+          text: `For most SMBs, Wise Business offers the lowest total cost: 0% exchange rate markup (mid-market rate) plus a transparent fee of 0.41-0.71%. For large transfers ($50,000+), OFX may offer better negotiated rates through their dealing desk. Measured on a $${BUSINESS_AMOUNT.toLocaleString()} payment across ${BFX.corridorCount} corridors on ${BFX.dataAsOf}, business-FX specialists average ${BFX.specialistAvgCostPct.toFixed(2)}% in total cost against ${BFX.bankAvgCostPct.toFixed(2)}% for high-street banks — about ${bankSavingPct}% cheaper, and roughly ${bestSavingPct}% for the cheapest specialist.`,
         },
       },
       {
@@ -71,7 +114,7 @@ export default async function BusinessHubPage({
         name: "What are the cheapest business FX payment options in 2026?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Wise Business (0% markup, 0.41–0.71% fee), Revolut Business (interbank rates during market hours), and OFX ($0 fees with negotiated rates for large transfers). All are 80–95% cheaper than traditional banks for cross-border business payments.",
+          text: `Wise Business (0% markup, 0.41-0.71% fee), Revolut Business (interbank rates during market hours), and OFX ($0 fees with negotiated rates for large transfers). On our $${BUSINESS_AMOUNT.toLocaleString()} benchmark, specialists average ${BFX.specialistAvgCostPct.toFixed(2)}% against ${BFX.bankAvgCostPct.toFixed(2)}% for banks — about ${bankSavingPct}% cheaper for cross-border business payments.`,
         },
       },
       {
@@ -148,9 +191,12 @@ export default async function BusinessHubPage({
               International Business Payments
             </h1>
             <p className="text-md md:text-base text-[var(--color-on-surface-variant)] mt-3 leading-relaxed max-w-2xl">
-              Banks charge $25–$50 per wire plus 2–5% FX markup. Specialist
-              providers like Wise Business, OFX, and Airwallex cut that by
-              80–95%. Compare the best options for your business.
+              Banks charge $25–$50 per wire plus 2–5% FX markup. On a $
+              {BUSINESS_AMOUNT.toLocaleString()} payment we measure banks at{" "}
+              {BFX.bankAvgCostPct.toFixed(2)}% all-in against{" "}
+              {BFX.specialistAvgCostPct.toFixed(2)}% for specialists like Wise Business
+              and OFX — about {bankSavingPct}% cheaper. Compare the best options for
+              your business.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link
@@ -178,8 +224,10 @@ export default async function BusinessHubPage({
               How much your business could save
             </h2>
             <p className="text-sm text-[var(--color-on-surface-variant)] mb-4 leading-relaxed">
-              Switching from bank wires to specialist providers saves 80–95% on every
-              international payment. Here&apos;s the annual impact by business size:
+              Switching from bank wires to specialist providers saves about{" "}
+              {bankSavingPct}% on the average international payment, and up to{" "}
+              {bestSavingPct}% with the cheapest specialist we measure. Here&apos;s the
+              annual impact by business size:
             </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse">
@@ -203,49 +251,53 @@ export default async function BusinessHubPage({
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-[var(--color-outline)] bg-[var(--color-success-surface)]">
-                    <td className="py-3 px-3">$5K/month (freelancer)</td>
-                    <td className="py-3 px-3">~$175/mo</td>
-                    <td className="py-3 px-3">~$30/mo</td>
-                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$1,740/yr</td>
-                    <td className="py-3 px-3">
-                      <Link href="/companies/wise" className="text-[var(--color-primary)] hover:underline">Wise Business</Link>
-                    </td>
-                  </tr>
-                  <tr className="border-b border-[var(--color-outline)]">
-                    <td className="py-3 px-3">$25K/month (SMB)</td>
-                    <td className="py-3 px-3">~$875/mo</td>
-                    <td className="py-3 px-3">~$125/mo</td>
-                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$9,000/yr</td>
-                    <td className="py-3 px-3">
-                      <Link href="/companies/wise" className="text-[var(--color-primary)] hover:underline">Wise</Link> or{" "}
-                      <Link href="/companies/revolut" className="text-[var(--color-primary)] hover:underline">Revolut</Link>
-                    </td>
-                  </tr>
-                  <tr className="border-b border-[var(--color-outline)]">
-                    <td className="py-3 px-3">$100K/month (mid-market)</td>
-                    <td className="py-3 px-3">~$3,500/mo</td>
-                    <td className="py-3 px-3">~$400/mo</td>
-                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$37,200/yr</td>
-                    <td className="py-3 px-3">
-                      <Link href="/companies/ofx" className="text-[var(--color-primary)] hover:underline">OFX</Link> (negotiated)
-                    </td>
-                  </tr>
-                  <tr className="border-b border-[var(--color-outline)]">
-                    <td className="py-3 px-3">$500K+/month (enterprise)</td>
-                    <td className="py-3 px-3">~$17,500/mo</td>
-                    <td className="py-3 px-3">~$2,000/mo</td>
-                    <td className="py-3 px-3 font-medium text-[var(--color-success)]">$186,000/yr</td>
-                    <td className="py-3 px-3">
-                      <Link href="/companies/ofx" className="text-[var(--color-primary)] hover:underline">OFX</Link> or{" "}
-                      <Link href="/companies/xe" className="text-[var(--color-primary)] hover:underline">XE Business</Link>
-                    </td>
-                  </tr>
+                  {BUSINESS_VOLUME_TIERS.map((tier, i) => {
+                    const bank = tier.monthly * (BFX.bankAvgCostPct / 100);
+                    const spec = tier.monthly * ((bestSpecialist?.avgCostPct ?? 0) / 100);
+                    const annual = (bank - spec) * 12;
+                    const money = (n: number) =>
+                      `$${Math.round(n).toLocaleString("en-US")}`;
+                    return (
+                      <tr
+                        key={tier.label}
+                        className={`border-b border-[var(--color-outline)]${
+                          i === 0 ? " bg-[var(--color-success-surface)]" : ""
+                        }`}
+                      >
+                        <td className="py-3 px-3">{tier.label}</td>
+                        <td className="py-3 px-3">~{money(bank)}/mo</td>
+                        <td className="py-3 px-3">~{money(spec)}/mo</td>
+                        <td className="py-3 px-3 font-medium text-[var(--color-success)]">
+                          {money(annual)}/yr
+                        </td>
+                        <td className="py-3 px-3">
+                          {tier.providers.map((p, n) => (
+                            <span key={p.slug}>
+                              {n > 0 ? " or " : ""}
+                              <Link
+                                href={`/companies/${p.slug}`}
+                                className="text-[var(--color-primary)] hover:underline"
+                              >
+                                {p.name}
+                              </Link>
+                            </span>
+                          ))}
+                          {tier.suffix}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
             <p className="text-2sm text-[var(--color-on-surface-variant)] mt-3">
-              Savings estimates based on 3.5% avg bank cost vs specialist provider rates. See{" "}
+              Bank cost is the {BFX.bankAvgCostPct.toFixed(2)}% average we measure across{" "}
+              {BFX.corridorCount} corridors on a ${BUSINESS_AMOUNT.toLocaleString()} payment
+              ({BFX.dataAsOf}); the specialist column uses{" "}
+              {bestSpecialist?.name ?? "the cheapest specialist"} at{" "}
+              {bestSpecialist?.avgCostPct.toFixed(2)}%, the cheapest we measure. Your own
+              corridor and amount will differ — larger payments usually cost a smaller
+              percentage. See{" "}
               <Link
                 href="/business/small-business"
                 className="text-[var(--color-primary)] hover:underline"
@@ -271,7 +323,7 @@ export default async function BusinessHubPage({
                     {page.title}
                   </h3>
                   <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-                    {page.intro.slice(0, 160)}...
+                    {renderDataTokens(page.intro).slice(0, 160)}...
                   </p>
                   <span className="inline-block mt-3 text-sm text-[var(--color-primary)] font-medium">
                     Read guide →
@@ -293,7 +345,7 @@ export default async function BusinessHubPage({
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-4xl font-medium text-[var(--color-primary)]">
-                  80–95%
+                  {bankSavingPct}%
                 </div>
                 <p className="text-sm text-[var(--color-on-surface-variant)] mt-1">
                   Lower costs vs bank wires

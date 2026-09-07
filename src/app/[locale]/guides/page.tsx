@@ -3,7 +3,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
-import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
+import { guideIsIndexable } from "@/lib/guide-status";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
 import { weekendMarkup } from "@/lib/weekend-markup";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
@@ -42,7 +42,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
   // Handing it blogPosts serialised all 115 guides' section HTML and FAQs into
   // the RSC flight payload: 2.49 MB of HTML for 1,251 words of visible text.
   // Submitted guides only — see the "All guides" index below for why.
-  const indexableGuides = blogPosts.filter((post) => SITEMAP_GUIDE_SLUGS.has(post.slug));
+  const indexableGuides = blogPosts.filter(guideIsIndexable);
   const guidesByCategory = blogCategories
     .map((category) => [category, indexableGuides.filter((p) => p.category === category)] as const)
     .filter(([, posts]) => posts.length > 0);
@@ -227,9 +227,11 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         sitemap.xml (the "pages have only one incoming internal link" notice in
         the 2026-09-02 audit). A hub that submits 75 URLs has to link them.
 
-        Scoped to SITEMAP_GUIDE_SLUGS on purpose: guides outside the allowlist
-        serve noindex, and spending crawl budget on links to noindex pages is
-        the mistake the June 2026 pruning was cleaning up.
+        Scoped by guideIsIndexable() on purpose — the same predicate the guide
+        route uses for robots and sitemap.ts uses for submission, so a guide
+        that becomes submitted becomes linked here in the same change. Guides
+        outside it serve noindex, and spending crawl budget on links to noindex
+        pages is the mistake the June 2026 pruning was cleaning up.
       */}
       <nav aria-label="All guides" className="mt-12 border-t border-[var(--color-outline)] pt-8">
         <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">

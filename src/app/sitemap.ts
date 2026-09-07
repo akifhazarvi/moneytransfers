@@ -13,8 +13,8 @@ import { getAllInsights, corridorToSlug } from "@/lib/rate-history";
 import { getDataUpdatedDate } from "@/lib/data-freshness";
 import { INDEXED_BANK_SLUGS } from "@/lib/bank-comparisons";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
+import { guideIsIndexable } from "@/lib/guide-status";
 import {
-  SITEMAP_GUIDE_SLUGS,
   SITEMAP_IBAN_SLUGS,
   SITEMAP_COMPARISON_SLUGS,
   SITEMAP_PROVIDER_SLUGS,
@@ -214,8 +214,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // ── Editorial guides ──
+  // Same predicate the guide route uses for robots, so a submitted guide is
+  // always an indexable one. See src/lib/guide-status.ts.
   const guidePages: MetadataRoute.Sitemap = blogPosts
-    .filter((post) => SITEMAP_GUIDE_SLUGS.has(post.slug))
+    .filter(guideIsIndexable)
     .map((post) => entry(`guides/${post.slug}`, post.updatedAt));
 
   // ── News articles ──

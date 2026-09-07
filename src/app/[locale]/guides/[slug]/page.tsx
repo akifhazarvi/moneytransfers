@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { SITEMAP_GUIDE_SLUGS } from "@/lib/sitemap-allowlists";
+import { guideIsIndexable } from "@/lib/guide-status";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
@@ -230,7 +230,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "citation_publication_date": post.publishedAt,
       "citation_journal_title": "SendMoneyCompare Guides",
       "citation_public_url": `https://sendmoneycompare.com/guides/${slug}`,
-      "ai-content-declaration": "human-written, data-verified, fact-checked",
+      "ai-content-declaration": post.reviewedBy && post.reviewedAt
+        ? "human-written, data-verified, fact-checked"
+        : "human-written, data-verified",
     },
     openGraph: {
       title: post.title,
@@ -251,12 +253,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: getAlternates(`guides/${slug}`, locale),
     // Guide content is English-only; noindex locale variants to avoid duplicate content
     ...(locale !== "en" && { robots: { index: false, follow: true } }),
-    // Thin-page guard, matching /compare and /send-money: a guide is indexable
-    // only if the sitemap lists it. Without this, every guide emitted
-    // `index, follow` while the sitemap carried a subset — the contradictory
-    // signal implicated in the May 8 deindex. Pages stay built and internally
-    // linked; promote into SITEMAP_GUIDE_SLUGS to make one indexable.
-    ...(locale === "en" && !SITEMAP_GUIDE_SLUGS.has(slug) && { robots: { index: false, follow: true } }),
+    // Thin-page guard, matching /compare and /send-money. guideIsIndexable() is
+    // the single predicate sitemap.ts also uses, so robots and the sitemap
+    // cannot disagree — the contradictory signal implicated in the May 8
+    // deindex. Pages stay built and internally linked either way; set
+    // contentStatus: "published" on the post to make one indexable.
+    ...(locale === "en" && !guideIsIndexable(post) && { robots: { index: false, follow: true } }),
   };
 }
 
@@ -272,6 +274,7 @@ export default async function BlogPostPage({ params }: Props) {
   const sectionIds = post.sections.map((s) => slugifyHeading(s.heading));
   const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags);
   const author = getAuthorByName(post.author);
+  const reviewer = post.reviewedBy ? getAuthorByName(post.reviewedBy) : undefined;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -291,12 +294,15 @@ export default async function BlogPostPage({ params }: Props) {
       ...(author?.expertise?.length && { knowsAbout: author.expertise }),
       ...(author?.linkedin && { sameAs: [author.linkedin] }),
     },
-    reviewedBy: {
-      "@type": "Person",
-      "@id": "https://sendmoneycompare.com/about/awais-imran#person",
-      name: "Awais Imran",
-      url: "https://sendmoneycompare.com/about/awais-imran",
-    },
+    ...(reviewer && post.reviewedAt && {
+      reviewedBy: {
+        "@type": "Person",
+        "@id": `https://sendmoneycompare.com/about/${reviewer.slug}#person`,
+        name: reviewer.name,
+        url: `https://sendmoneycompare.com/about/${reviewer.slug}`,
+        ...(reviewer.role && { jobTitle: reviewer.role }),
+      },
+    }),
     mainEntityOfPage: `https://sendmoneycompare.com/guides/${slug}`,
     isPartOf: { "@type": "WebPage", "@id": "https://sendmoneycompare.com/guides" },
     about: [
@@ -396,14 +402,19 @@ export default async function BlogPostPage({ params }: Props) {
               )}
               <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
               <span className="text-2sm text-[var(--color-on-surface-variant)]">{post.readTime}</span>
-              {/* Fact-checked badge */}
-              <div className="ml-auto flex items-center gap-1.5 text-xs font-medium text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-3 py-1 rounded-full">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                Fact-checked by{" "}
-                <Link href="/about/awais-imran" className="hover:underline">Awais Imran</Link>
-              </div>
+              {/* Fact-checked badge — shown only where BlogPost records a real
+                  reviewer and review date. See the reviewedBy/reviewedAt note on
+                  the BlogPost interface for why this is no longer unconditional. */}
+              {reviewer && post.reviewedAt && (
+                <div className="ml-auto flex items-center gap-1.5 text-xs font-medium text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-3 py-1 rounded-full">
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  Fact-checked by{" "}
+                  <Link href={`/about/${reviewer.slug}`} className="hover:underline">{reviewer.name}</Link>{" "}
+                  on <time dateTime={post.reviewedAt}>{formatLocalDate(post.reviewedAt)}</time>
+                </div>
+              )}
             </div>
           </div>
         </div>

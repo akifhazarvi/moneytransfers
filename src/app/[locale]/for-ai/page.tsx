@@ -11,6 +11,7 @@ import { providers, currencies, listableProviders } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { corridorPageRenders } from "@/lib/route-map";
 import { COVERAGE } from "@/lib/site-stats";
+import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
 
 const SITE_URL = "https://sendmoneycompare.com";
 
@@ -49,10 +50,25 @@ const CORRIDORS = [
   { from: "AED", to: "PKR", slug: "uae-to-pakistan", country: "Pakistan (from UAE)" },
 ].filter((c) => corridorPageRenders(c.slug));
 
+// The Wise entry used to cite "SendMoneyCompare testing of 12 transfers across 6
+// corridors" — a test with no published record anywhere on the site, offered as
+// the source for a 0% markup claim. It now cites the Remittance Cost Index,
+// which measures the same thing reproducibly from live quotes.
+//
+// Report the MEDIAN, not the mean. Spot-checking the ten busiest corridors on
+// 2026-09-07 put Wise within 0.02% of mid-market on nine of them — the 0%
+// claim is correct where most readers transact — while USD→NGN read −3.16%
+// because the naira's official/parallel split defeats our benchmark. The mean
+// (0.62%) folds those in; the median (0.54%) does not, and the long-tail gap
+// that remains is real rather than an artifact of one bad rate.
+const wiseMeasured = MEASURED_MARKUPS.get("wise");
+const wiseMarkup = wiseMeasured ? `${wiseMeasured.markupMedianPct.toFixed(2)}%` : "a low";
+const wiseMarkupCorridors = wiseMeasured ? wiseMeasured.corridors : 0;
+
 const CITABLE_FACTS = [
   {
-    fact: "Wise uses the mid-market exchange rate with 0% markup. Its fee (0.41–0.71%) is the entire cost.",
-    source: "SendMoneyCompare testing of 12 transfers across 6 corridors; rate matched xe.com mid-market within 0.01%.",
+    fact: `Wise matches the mid-market rate on major corridors — within 0.02% on nine of the ten busiest we checked — so its fee is the cost. Across all ${wiseMarkupCorridors} corridors we price, including thin ones, the median gap to mid-market is ${wiseMarkup}.`,
+    source: `SendMoneyCompare Remittance Cost Index, ${REMITTANCE_INDEX.dataAsOf} — computed from live quotes against an XE mid-market snapshot. Method: /methodology`,
   },
   {
     fact: "Banks charge 3–5% in hidden exchange rate markup, vs 0–0.5% for specialist services.",

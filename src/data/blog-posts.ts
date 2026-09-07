@@ -15,6 +15,46 @@ export interface BlogPost {
   publishedAt: string;
   updatedAt: string;
   author: string;
+  /**
+   * Who actually fact-checked this article, and on what day. Set BOTH or
+   * NEITHER.
+   *
+   * The template used to hard-code "Fact-checked by Awais Imran" onto every
+   * guide, plus a matching Article.reviewedBy and an
+   * "ai-content-declaration: ...fact-checked" meta tag — a review assertion no
+   * editorial record backed, applied uniformly to 122 articles. On YMYL
+   * finance content an unverifiable trust badge is worth less than no badge.
+   * Populate these on the guides that were genuinely reviewed and the badge
+   * comes back, dated, on exactly those.
+   */
+  reviewedBy?: string;
+  reviewedAt?: string;
+  /**
+   * Editorial status. Drives whether the guide is indexable and submitted,
+   * independently of any allowlist.
+   *
+   * Indexability used to be derived purely from SITEMAP_GUIDE_SLUGS: a guide
+   * was noindexed because it was not on the submission list, which meant an
+   * editorial judgement ("is this ready for readers?") was being read off a
+   * demand-gated list ("is this earning impressions?"). That is circular for a
+   * noindexed page, which cannot earn impressions in order to qualify. The
+   * 2026-09-07 audit found 40 guides in that state, and measuring them showed
+   * the usual justification did not hold — none overlaps an indexed guide by
+   * more than 14% on 5-gram similarity, and most sit under 4%. They are not
+   * duplicates; they are mostly thin or unsourced.
+   *
+   * Leave unset and the existing allowlist behaviour applies unchanged, so
+   * nothing moves until someone makes a call. Set it and the call is explicit,
+   * reviewable in the diff, and applied to both robots and the sitemap so the
+   * two cannot contradict each other.
+   *
+   *   "published" — ready: indexable and submitted.
+   *   "draft"     — not ready (thin, unsourced, unreviewed): noindex, follow.
+   *                 Stays built and internally linked.
+   *   "archived"  — superseded or seasonal: noindex, follow. Kept for its
+   *                 inbound links and citations rather than deleted.
+   */
+  contentStatus?: "published" | "draft" | "archived";
   tags: string[];
   featuredImage?: string;
   sections: {
@@ -192,7 +232,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why Does the 'Cheapest' Option Depend on Your Transfer?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Based on our analysis of {{PROVIDER_COUNT}} providers across {{CORRIDOR_COUNT}} corridors, most recently refreshed {{QUOTE_DATE}}, the cheapest way to send money internationally is through specialist online transfer services rather than traditional banks. <a href="/companies/wise">Wise</a> consistently offers the lowest total cost with its mid-market exchange rate (0% markup) and transparent fees starting from 0.41%. <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with express delivery in minutes. <a href="/companies/instarem">Instarem</a> combines zero transfer fees with a low average markup of {{AVG_MARKUP:instarem}}. All three are 80–95% cheaper than traditional banks, which typically charge $25–$50 per wire plus 2–5% hidden exchange rate markup. The cheapest provider varies by amount and corridor — <a href="/send-money">use our comparison tool</a> with your exact transfer details to find the best deal.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Based on our analysis of {{PROVIDER_COUNT}} providers across {{CORRIDOR_COUNT}} corridors, most recently refreshed {{QUOTE_DATE}}, the cheapest way to send money internationally is through specialist online transfer services rather than traditional banks. <a href="/companies/wise">Wise</a> is cheapest on {{LEADS:wise}} — more than any other single provider, but not most of them — using the mid-market exchange rate (0% markup) with fees from 0.41%. <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with express delivery in minutes. <a href="/companies/instarem">Instarem</a> combines zero transfer fees with a low average markup of {{AVG_MARKUP:instarem}}. Across every corridor we price at $1,000, specialists average {{AVG_SPECIALIST_COST}} in total cost against {{AVG_BANK_COST}} for banks — <strong>{{BANK_SAVINGS_PCT}} cheaper on average</strong> (<a href="/remittance-cost-index">see the full index</a>), and considerably more than that against the most expensive bank wires. Banks typically charge $25–$50 per wire plus 2–5% in exchange rate markup. The cheapest provider varies by amount and corridor — <a href="/send-money">use our comparison tool</a> with your exact transfer details to find the best deal.</p></div>
 <p>There's no single cheapest way to send money internationally — it depends on how much you're sending, where you're sending it, and how fast you need it there. A provider that's cheapest for a $100 transfer to India might be expensive for a $10,000 transfer to Europe.</p>
 <p>We analyzed <strong>thousands of real quotes</strong> from {{PROVIDER_COUNT}} providers across {{CORRIDOR_COUNT}} corridors to find the true cost of sending money abroad. Here's what matters most.</p>`,
       },
@@ -951,9 +991,9 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "iban-numbers-explained",
-    title: "IBAN Number Format Explained: Structure & Country Examples",
+    title: "IBAN Format by Country: Length, Example & Structure",
     metaDescription:
-      "IBAN format by country (2026): length and structure for 80+ countries — Germany 22, France 27, Italy 27, Spain 24, Belgium 16. Validated examples.",
+      "IBAN format and length for 89 countries, with a validated example for each — Germany 22, France 27, Italy 27, Spain 24, Belgium 16, Luxembourg 20.",
     excerpt:
       "An IBAN is a standardized international bank account number used in 80+ countries. Here's how it works and why it matters.",
     category: "Education",
@@ -1017,7 +1057,11 @@ const rawBlogPosts: BlogPost[] = [
 <li>India (uses IFSC code + account number). See our <a href="/send-money/usa-to-india">USA to India</a> guide for Indian transfer details.</li>
 <li>Most of Asia and the Pacific. For Philippines transfers, see the <a href="/send-money/usa-to-philippines">USA to Philippines</a> corridor guide.</li>
 </ul>
-<p>For a complete country-by-country reference, the <a href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html" target="_blank" rel="noopener noreferrer">ECB's SEPA documentation</a> covers all EU/EEA IBAN requirements.</p>`,
+<p>For a complete country-by-country reference, the <a href="https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html" target="_blank" rel="noopener noreferrer">ECB's SEPA documentation</a> covers all EU/EEA IBAN requirements.</p>
+<h3>IBAN format by country</h3>
+<p>Every country we hold a validated structure for, with its IBAN length and a worked example. Country names link to the full format breakdown, local bank codes and validation rules where we have a page for them.</p>
+{{IBAN_FORMAT_TABLE}}
+<p class="text-sm">Lengths are fixed per country: a Luxembourg IBAN is always 20 characters, a French one always 27. If yours is a different length, it is wrong — check it with our <a href="/iban">IBAN validator</a> before sending.</p>`,
       },
       {
         heading: "How to Find Your IBAN",
@@ -1068,9 +1112,9 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-apps",
-    title: "Best Send Money Apps 2026 — Save up to 95% vs Banks",
+    title: "Best Send Money Apps 2026 — Ranked on Measured Cost",
     metaDescription:
-      "The best send money apps in 2026 are up to 95% cheaper than banks. We tested {{PROVIDER_COUNT}} providers — Wise, Remitly, and more — to find who's cheapest for your corridor.",
+      "We price {{PROVIDER_COUNT}} providers every {{REFRESH_HOURS}} hours. See who is measurably cheapest — Wise, Remitly, InstaReM and more — on your corridor and amount.",
     excerpt:
       "We ranked {{PROVIDER_COUNT}} money transfer providers using real data — not opinions. Here are the best apps for sending money internationally in 2026.",
     category: "Reviews",
@@ -1083,8 +1127,14 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How We Ranked These Apps",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best money transfer app in 2026 is <a href="/companies/wise">Wise</a>, based on our analysis of fees, exchange rates, speed, and user experience across 8 leading apps. Wise offers the mid-market exchange rate with 0% markup, transparent fees from 0.41%, and delivery to 70+ countries — all from a clean, intuitive mobile app rated 4.3/5 on Trustpilot with over 299,000 reviews. <a href="/companies/remitly">Remitly</a> is the best app for speed, delivering money in minutes via express transfer to over 175 countries. <a href="/companies/instarem">Instarem</a> is the strongest low-cost alternative, charging zero transfer fees on most corridors at a measured average markup of {{AVG_MARKUP:instarem}} — against 2–4% at a typical bank. Which app is actually cheapest changes with your route and amount, so compare yours rather than taking any ranking on trust. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We ranked every app using real quote data from {{CORRIDOR_COUNT}} corridors, not opinions.</p></div>
-<p>Unlike other comparison sites that rely on subjective reviews, we ranked providers using <strong>hard data</strong>:</p>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best money transfer app in 2026 is <a href="/companies/wise">Wise</a>, based on {{PROVIDER_COUNT}} providers priced across {{CORRIDOR_COUNT}} corridors and refreshed every {{REFRESH_HOURS}} hours. Wise prices at or very close to the mid-market rate — we measure {{AVG_MARKUP:wise}} — with fees from 0.41%, and it is cheapest on {{LEADS:wise}}, more corridors than any other provider. Trustpilot: {{TRUSTPILOT:wise}}. <a href="/companies/remitly">Remitly</a> is the best app for speed, delivering money in minutes via express transfer to over 175 countries. <a href="/companies/instarem">Instarem</a> is the strongest low-cost alternative, charging zero transfer fees on most corridors at a measured average markup of {{AVG_MARKUP:instarem}} — against 2–4% at a typical bank. Which app is actually cheapest changes with your route and amount, so compare yours rather than taking any ranking on trust. For large transfers over $5,000, <a href="/companies/ofx">OFX</a> offers $0 fees and dedicated currency dealers. We ranked every app using real quote data from {{CORRIDOR_COUNT}} corridors, not opinions.</p></div>
+<p>Three of our published studies sit behind this ranking, and each is reproducible from the same quote archive:</p>
+<ul>
+<li><a href="/provider-consistency">Provider consistency</a> — who is actually cheapest, and how often. No provider wins everywhere: the leader takes {{LEADS:wise}}, and on a quarter of corridors today's cheapest is not the usual winner.</li>
+<li><a href="/remittance-cost-index">Remittance Cost Index</a> — total cost to send $1,000, by provider. Specialists average {{AVG_SPECIALIST_COST}} against {{AVG_BANK_COST}} for banks, or {{BANK_SAVINGS_PCT}} cheaper.</li>
+<li><a href="/research">Research hub</a> — the full set, including how cost varies by transfer amount and by day of week.</li>
+</ul>
+<p>Unlike comparison sites that rely on subjective reviews, we ranked providers using <strong>hard data</strong>:</p>
 <ul>
 <li><strong>thousands of real quotes</strong> scraped across {{CORRIDOR_COUNT}} corridors and 5 transfer amounts ($100–$10,000)</li>
 <li><strong>Exchange rate markup</strong> compared to the mid-market rate. Read our <a href="/guides/exchange-rate-markup-explained">guide to exchange rate markups</a> to understand this metric.</li>
@@ -1111,44 +1161,44 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "1. Wise — Best Overall",
-        content: `<p><strong>Trustpilot: {{TRUSTPILOT:wise}} | Apps: {{APP_SCORES:wise}} | Avg Markup: 0% | Avg Fee: $7.33 on $1,000</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:wise}} | Apps: {{APP_SCORES:wise}} | Measured markup: {{AVG_MARKUP:wise}} | Total cost on $1,000: {{COST_PCT:wise:USD:INR:1000}} (USD→INR)</strong></p>
 <p><a href="/companies/wise">Wise</a> is the gold standard for transparent international transfers. They're the only major provider that charges <strong>zero exchange rate markup</strong> — you always get the real mid-market rate. Their fee is shown upfront and scales with the transfer amount.</p>
 <p><strong>Best for:</strong> Medium to large transfers ($500+) where the 0% markup saves you the most. Excellent app with real-time tracking and multi-currency accounts. See how <a href="/compare/wise-vs-remitly">Wise compares to Remitly</a> for specific corridors.</p>
 <p><strong>Drawbacks:</strong> Fee can be noticeable on very small transfers ($50–$100). Not the fastest for all corridors.</p>`,
       },
       {
         heading: "2. Remitly — Best for Remittances",
-        content: `<p><strong>Trustpilot: {{TRUSTPILOT:remitly}} | Apps: {{APP_SCORES:remitly}} | Avg Markup: 0.45% | Avg Fee: $0–$3.99</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:remitly}} | Apps: {{APP_SCORES:remitly}} | Measured markup: {{AVG_MARKUP:remitly}} | Avg Fee: $0–$3.99</strong></p>
 <p><a href="/companies/remitly">Remitly</a> specializes in remittances to developing countries and excels at it, reaching 175+ receive countries from 30+ send countries. It offers two tiers, and the difference between them is the <em>exchange rate</em> rather than the fee: <strong>Express</strong> reaches the recipient faster at a slightly less favourable rate, while <strong>Economy</strong> is slower but typically prices at a better rate. Their $0 fee option makes them very competitive for small to medium transfers.</p>
 <p><strong>Best for:</strong> Sending to <a href="/send-money/usa-to-india">India</a>, <a href="/send-money/usa-to-philippines">Philippines</a>, <a href="/send-money/usa-to-mexico">Mexico</a>, <a href="/send-money/usa-to-nigeria">Nigeria</a>, and other popular remittance corridors. Excellent first-time user promotions. Funding options include debit and credit card, bank transfer, Apple Pay and Google Pay, plus PayTo for Australian senders.</p>
 <p><strong>Drawbacks:</strong> The rate markup is higher than Wise's 0%, and Express buys its speed with a less favourable rate — on larger amounts that costs more than Wise's flat fee. Remitly is built around remittance corridors rather than developed-market pairs, though it does cover them: USD to EUR is available and often carries no transfer fee, with the cost sitting in the exchange rate instead.</p>`,
       },
       {
         heading: "3. Instarem — Best Low-Cost Alternative",
-        content: `<p><strong>Trustpilot: {{TRUSTPILOT:instarem}} | Apps: {{APP_SCORES:instarem}} | Avg Markup: 0.42% | Avg Fee: $0</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:instarem}} | Apps: {{APP_SCORES:instarem}} | Measured markup: {{AVG_MARKUP:instarem}} | Avg Fee: $0</strong></p>
 <p><a href="/companies/instarem">Instarem</a> consistently appears near the top of our comparisons with zero fees and very low markup. They're particularly strong for Asia-Pacific corridors (Singapore, Australia, India, Philippines).</p>
 <p><strong>Best for:</strong> Transfers within Asia-Pacific and from Australia/Singapore. Zero fees make them excellent for regular senders.</p>
 <p><strong>Drawbacks:</strong> Smaller company with fewer corridors than Wise or Remitly. Less brand recognition.</p>`,
       },
       {
         heading: "4. XE — Best for Currency Tools",
-        content: `<p><strong>Trustpilot: {{TRUSTPILOT:xe}} | Apps: {{APP_SCORES:xe}} | Avg Markup: 0.5–1% | Avg Fee: $0</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:xe}} | Apps: {{APP_SCORES:xe}} | Measured markup: {{AVG_MARKUP:xe}} | Avg Fee: $0</strong></p>
 <p><a href="/companies/xe">XE</a> is the world's most trusted currency data provider and their transfer service leverages that expertise. They offer no-fee transfers, rate alerts, and excellent currency tools. Their app includes live rate tracking and historical charts.</p>
 <p><strong>Best for:</strong> People who want to time their transfers for the best rate. Great currency tools and rate alert system.</p>
 <p><strong>Drawbacks:</strong> Markup is higher than Wise or Instarem. Less competitive for large transfers.</p>`,
       },
       {
         heading: "5. OFX — Best for Large Transfers",
-        content: `<p><strong>Trustpilot: {{TRUSTPILOT:ofx}} | Apps: {{APP_SCORES:ofx}} | Avg Markup: 2.75% | Fee: $0</strong></p>
+        content: `<p><strong>Trustpilot: {{TRUSTPILOT:ofx}} | Apps: {{APP_SCORES:ofx}} | Measured markup: {{AVG_MARKUP:ofx}} | Fee: $0</strong></p>
 <p><a href="/companies/ofx">OFX</a> (formerly OzForex) specializes in large transfers for businesses and individuals. They offer no transfer fees, dedicated dealers for transfers over $10,000, and forward contracts to lock in exchange rates.</p>
 <p><strong>Best for:</strong> Large transfers ($10,000+), business payments, and property purchases abroad. Dedicated dealer support.</p>
 <p><strong>Drawbacks:</strong> Higher markup than specialist remittance services. Minimum transfer amounts in some corridors.</p>`,
       },
       {
         heading: "6. TapTap Send — Best for Africa & South Asian Diaspora",
-        content: `<p><strong>Trustpilot: 4.7/5 (32,000+ reviews — highest in money transfer) | Apps: {{APP_SCORES:taptap-send}} | Markup: ~0.7% | Fee: $0 on most corridors</strong></p>
-<p><a href="/companies/taptap-send">TapTap Send</a> has the highest Trustpilot rating of any money transfer provider we track — 4.7 from over 32,000 reviews. It's purpose-built for diaspora remittances to Africa, South Asia, and beyond: 80+ countries, 65+ currencies, and <strong>95% of transfers delivered in under 3 minutes</strong>.</p>
-<p><strong>Best for:</strong> Regular senders to Nigeria, Ghana, Kenya, Pakistan, Bangladesh, Nepal, Colombia, and other key remittance corridors. Zero fees on most corridors with a ~0.7% markup. Accepts debit card, bank transfer, Google Pay, Apple Pay, and UPI. Multi-currency account available for UK and EU users. Founded by Michael Faye, who also founded GiveDirectly.</p>
+        content: `<p><strong>Apps: {{APP_SCORES:taptap-send}} | Measured markup: {{AVG_MARKUP:taptap-send}} | Cheapest on {{LEADS:taptap-send}}</strong><br><span class="text-sm">We do not track a Trustpilot score for TapTap Send, so none is quoted here.</span></p>
+<p><a href="/companies/taptap-send">TapTap Send</a> is one of the most consistent winners in our data: it is cheapest on {{LEADS:taptap-send}}, behind only Wise. It's purpose-built for diaspora remittances to Africa, South Asia, and beyond: 80+ countries, 65+ currencies, and <strong>95% of transfers delivered in under 3 minutes</strong>.</p>
+<p><strong>Best for:</strong> Regular senders to Nigeria, Ghana, Kenya, Pakistan, Bangladesh, Nepal, Colombia, and other key remittance corridors. Zero fees on most corridors; we measure its exchange-rate markup at {{AVG_MARKUP:taptap-send}}. Accepts debit card, bank transfer, Google Pay, Apple Pay, and UPI. Multi-currency account available for UK and EU users. Founded by Michael Faye, who also founded GiveDirectly.</p>
 <p><strong>Drawbacks:</strong> Mobile app only — no full website transfer experience. No cash pickup option. Multi-currency account limited to UK and EU.</p>`,
       },
       {
@@ -1678,7 +1728,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How Much Do B2B International Payments Really Cost?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way for SMEs to make international business payments in 2026 is <a href="/companies/wise">Wise Business</a> — 0% exchange rate markup plus a transparent fee of 0.41–0.71% depending on the corridor. For transfers over $50,000, <a href="/companies/ofx">OFX</a> offers dedicated FX dealers with negotiated rates and zero fees. <a href="/companies/revolut">Revolut Business</a> is best for startups needing multi-currency accounts with a free tier. All three are <strong>80–95% cheaper</strong> than traditional bank wire transfers, which charge $25–$50 per transaction plus 2–5% hidden exchange rate markup. On a $10,000 supplier payment, a bank costs ~$450 total; Wise Business costs ~$65. For a live, side-by-side breakdown of all six on bulk payments, approvals, multi-currency accounts, API, KYC and current FX cost, use our <a href="/business/compare">business payment provider comparison tool</a>.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The cheapest way for SMEs to make international business payments in 2026 is <a href="/companies/wise">Wise Business</a> — 0% exchange rate markup plus a transparent fee of 0.41–0.71% depending on the corridor. For transfers over $50,000, <a href="/companies/ofx">OFX</a> offers dedicated FX dealers with negotiated rates and zero fees. <a href="/companies/revolut">Revolut Business</a> is best for startups needing multi-currency accounts with a free tier. Measured on a $5,000 payment across the corridors we price, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} in total cost against {{BUSINESS_BANK_COST_PCT}} for high-street banks — about <strong>{{BUSINESS_SAVINGS_PCT}} cheaper</strong> on average, and more like 85% for the cheapest of them. Banks charge $25–$50 per transaction plus 2–5% hidden exchange rate markup: on a $10,000 supplier payment that is roughly $450 against ~$65 with Wise Business. For a live, side-by-side breakdown of all six on bulk payments, approvals, multi-currency accounts, API, KYC and current FX cost, use our <a href="/business/compare">business payment provider comparison tool</a>.</p></div>
 <p>Cross-border B2B payment volumes are projected to exceed <strong>$35 trillion by 2028</strong>, according to <a href="https://www.juniperresearch.com/" target="_blank" rel="noopener noreferrer">Juniper Research</a>. Yet most small and medium businesses still use traditional bank wires — losing 2–5% on every payment to hidden FX markups.</p>
 <p>Here's what a $10,000 payment to a European supplier actually costs through different channels:</p>
 <table>
@@ -1869,7 +1919,7 @@ const rawBlogPosts: BlogPost[] = [
         question:
           "What are the cheapest business FX payment options in 2026?",
         answer:
-          "For business FX payments in 2026, Wise Business offers the lowest all-in cost for most SMBs: 0% exchange rate markup (mid-market rate) plus a small transparent fee of 0.41–0.71%. For transfers over $50,000, OFX's dealing desk may negotiate better rates. Revolut Business offers interbank rates during market hours with monthly free allowances. Traditional banks charge 2–5% FX markup plus $25–$50 per wire — making specialist providers 80–95% cheaper for cross-border business payments.",
+          "For business FX payments in 2026, Wise Business offers the lowest all-in cost for most SMBs: 0% exchange rate markup (mid-market rate) plus a small transparent fee of 0.41–0.71%. For transfers over $50,000, OFX's dealing desk may negotiate better rates. Revolut Business offers interbank rates during market hours with monthly free allowances. Traditional banks charge 2–5% FX markup plus $25–$50 per wire. On our $5,000 business benchmark that works out at {{BUSINESS_BANK_COST_PCT}} all-in for banks against {{BUSINESS_SPECIALIST_COST_PCT}} for specialists — about {{BUSINESS_SAVINGS_PCT}} cheaper, and around 85% if you use the cheapest specialist rather than the average one.",
       },
       {
         question:
@@ -2067,7 +2117,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "What Is a Wire Transfer?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A wire transfer is an electronic payment sent from one bank to another, typically through the SWIFT network for international transfers. International wire transfers cost $15–$50 in sending fees at major US and UK banks, plus a hidden exchange rate markup of 2–5% that most banks do not disclose upfront. Domestic wires cost $15–$30 and arrive same-day, while international wires take 1–5 business days and may incur additional correspondent bank fees of $10–$25 per intermediary. Cheaper alternatives now exist: <a href="/companies/wise">Wise</a> charges 0.41%+ with 0% exchange rate markup, and <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with delivery in minutes. These specialist services save 80–95% compared to traditional bank wire transfers. <a href="/send-money">Compare wire transfer alternatives</a> using our tool.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A wire transfer is an electronic payment sent from one bank to another, typically through the SWIFT network for international transfers. International wire transfers cost $15–$50 in sending fees at major US and UK banks, plus a hidden exchange rate markup of 2–5% that most banks do not disclose upfront. Domestic wires cost $15–$30 and arrive same-day, while international wires take 1–5 business days and may incur additional correspondent bank fees of $10–$25 per intermediary. Cheaper alternatives now exist: <a href="/companies/wise">Wise</a> charges 0.41%+ with 0% exchange rate markup, and <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with delivery in minutes. Across every corridor we price at $1,000, specialists average {{AVG_SPECIALIST_COST}} in total cost against {{AVG_BANK_COST}} for banks — about {{BANK_SAVINGS_PCT}} cheaper on average, and more against the most expensive bank wires. <a href="/send-money">Compare wire transfer alternatives</a> using our tool.</p></div>
 <p>A <strong>wire transfer</strong> is an electronic transfer of funds between bank accounts, either within the same country (domestic wire) or across borders (international wire). Wire transfers use secure banking networks to move money directly from the sender\u2019s bank to the recipient\u2019s bank.</p>
 <p>There are two main types:</p>
 <ul>
@@ -2585,6 +2635,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "money-transfer-promo-codes-referral-programs",
+    contentStatus: "draft",
     title:
       "Money Transfer Promo Codes July 2026: Best First-Time Deals Ranked",
     metaDescription:
@@ -2943,6 +2994,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-home-ramadan-eid-2026",
+    contentStatus: "archived",
     title: "Send Money Home for Ramadan & Eid 2026: Best Rates",
     metaDescription:
       "Ramadan and Eid are peak times for remittances. Compare the cheapest providers, avoid hidden fees, and make sure your family receives more this Ramadan.",
@@ -3106,6 +3158,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "cost-of-sending-1000-abroad",
+    contentStatus: "draft",
     title: "Cost of Sending $1,000 Abroad: {{PROVIDER_COUNT}} Providers Compared",
     metaDescription:
       "We compared fees, exchange rates, and total costs from {{PROVIDER_COUNT}} providers to find who gives your recipient the most on a $1,000 international transfer in 2026.",
@@ -3129,7 +3182,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Why This Matters",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Sending $1,000 abroad costs between $5 and $80+ depending on the provider. Specialist apps like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a>, and <a href="/companies/instarem">Instarem</a> save 80-95% vs traditional banks. On a $1,000 USD to INR transfer, the difference between the best and worst of the {{PROVIDER_TALLY:USD:INR:1000}} providers quoting the route right now is {{SPREAD:USD:INR:1000}}. <a href="/send-money">Compare live rates</a> with your exact transfer details to find the cheapest option.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> Sending $1,000 abroad costs between $5 and $80+ depending on the provider. Across every corridor we price at $1,000, specialist apps like <a href="/companies/wise">Wise</a>, <a href="/companies/remitly">Remitly</a> and <a href="/companies/instarem">Instarem</a> average {{AVG_SPECIALIST_COST}} in total cost against {{AVG_BANK_COST}} for banks — about {{BANK_SAVINGS_PCT}} cheaper (<a href="/remittance-cost-index">see the index</a>). On a $1,000 USD to INR transfer, the difference between the best and worst of the {{PROVIDER_TALLY:USD:INR:1000}} providers quoting the route right now is {{SPREAD:USD:INR:1000}}. <a href="/send-money">Compare live rates</a> with your exact transfer details to find the cheapest option.</p></div>
 <p>Sending money internationally shouldn't cost a fortune — but depending on which provider you use, you could lose anywhere from <strong>$5 to $80+</strong> on a single $1,000 transfer.</p>
 <p>We pulled <strong>real, live quotes</strong> from {{PROVIDER_COUNT}} providers to find out who actually gives your recipient the most money. No estimates, no averages — the tables below are rebuilt from quotes our scrapers collected from provider APIs and websites, most recently on {{QUOTE_DATE}}. Exchange rates sourced via the <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank" rel="noopener noreferrer">European Central Bank</a> reference rates and cross-referenced with the <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices database</a>.</p>
 <p>The results might surprise you: on a $1,000 USD → INR transfer the gap between {{BEST_PROVIDER:USD:INR:1000}} at the top ({{BEST_RECEIVE:USD:INR:1000}}) and {{WORST_PROVIDER:USD:INR:1000}} at the bottom ({{WORST_RECEIVE:USD:INR:1000}}) is <strong>{{SPREAD:USD:INR:1000}}</strong>.</p>
@@ -4185,6 +4238,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-usa-to-mexico-cost-guide",
+    contentStatus: "published",
     title: "USA to Mexico Money Transfer: Cheapest Methods (2026)",
     metaDescription:
       "Compare 6 ways to send money from the USA to Mexico in 2026 — apps, bank wires, cash pickup, SPEI deposits, debit cards, and mobile wallets by real cost.",
@@ -5753,6 +5807,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "international-payroll-pay-remote-teams",
+    contentStatus: "draft",
     title: "International Payroll: Pay Remote Teams Abroad (2026)",
     metaDescription:
       "How to pay remote employees and contractors abroad. Compare international payroll solutions, tax obligations, and the cheapest payment methods.",
@@ -5888,6 +5943,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "fx-hedging-strategies-small-business",
+    contentStatus: "draft",
     title: "FX Hedging for Small Business: Forwards & Limit Orders",
     metaDescription:
       "Learn how to protect your business from exchange rate volatility. Understand forward contracts, limit orders, and multi-currency accounts for FX hedging.",
@@ -6157,6 +6213,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-canada",
+    contentStatus: "draft",
     title: "USA to Canada Business Payments: USD to CAD Guide 2026",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Canadian suppliers, contractors, and employees. USD to CAD transfer fees, rates, and compliance guide 2026.",
@@ -6294,6 +6351,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-uk",
+    contentStatus: "draft",
     title: "USA to UK Business Payments: USD to GBP Guide 2026",
     metaDescription:
       "Compare cheapest ways for US businesses to pay UK suppliers, contractors, and employees. USD to GBP transfer fees, rates, and compliance guide.",
@@ -6415,6 +6473,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-india",
+    contentStatus: "draft",
     title: "USA to India Business Payments: USD to INR Guide 2026",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Indian suppliers, IT contractors, and development teams. USD to INR business transfer fees and compliance.",
@@ -6543,6 +6602,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-mexico",
+    contentStatus: "draft",
     title: "USA to Mexico Business Payments: USD to MXN Guide 2026",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Mexican suppliers, factories, and contractors. USD to MXN business transfer fees and CUSMA compliance guide.",
@@ -6666,6 +6726,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-europe",
+    contentStatus: "draft",
     title: "USA to Europe Business Payments: USD to EUR Guide 2026",
     metaDescription:
       "Compare the cheapest ways for US businesses to pay European suppliers and contractors. USD to EUR transfer fees, SEPA payments, and compliance.",
@@ -6788,6 +6849,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-uk-to-europe",
+    contentStatus: "draft",
     title: "UK to Europe Business Payments: GBP to EUR Guide 2026",
     metaDescription:
       "Compare cheapest ways for UK businesses to pay European suppliers and contractors post-Brexit. GBP to EUR transfer fees, SEPA access, and compliance guide.",
@@ -6909,6 +6971,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-uk-to-india",
+    contentStatus: "draft",
     title: "UK to India Business Payments: GBP to INR Guide 2026",
     metaDescription:
       "Compare the cheapest ways for UK businesses to pay Indian IT teams, suppliers, and contractors. GBP to INR transfer fees, rates, and compliance.",
@@ -7031,6 +7094,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-philippines",
+    contentStatus: "draft",
     title: "USA to Philippines Business Payments: USD to PHP Guide 2026",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Filipino BPO teams, virtual assistants, and contractors. USD to PHP transfer fees and compliance guide 2026.",
@@ -7154,6 +7218,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-australia",
+    contentStatus: "draft",
     title: "USA to Australia Business Payments: USD to AUD Guide 2026",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Australian partners, contractors, and suppliers. USD to AUD transfer fees and compliance guide.",
@@ -7274,6 +7339,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-china",
+    contentStatus: "draft",
     title: "USA to China Business Payments: USD to CNY Guide 2026",
     metaDescription:
       "How to pay Chinese suppliers and manufacturers. Compare USD to CNY methods, understand RMB regulations, and navigate US-China business transfer compliance.",
@@ -7403,6 +7469,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-canada-to-usa",
+    contentStatus: "draft",
     title: "Canada to USA Business Payments: CAD to USD Guide 2026",
     metaDescription:
       "Compare cheapest ways for Canadian businesses to pay US suppliers, SaaS vendors, and contractors. CAD to USD fees, rates, and compliance guide.",
@@ -7524,6 +7591,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-australia-to-india",
+    contentStatus: "draft",
     title: "Australia to India Business Payments: AUD to INR Guide 2026",
     metaDescription:
       "Compare cheapest ways for Australian businesses to pay Indian IT teams, contractors, and suppliers. AUD to INR fees, rates, and compliance guide.",
@@ -7645,6 +7713,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "us-remittance-tax-2026",
+    contentStatus: "published",
     title: "US Remittance Tax 2026: What It Costs and How to Avoid It",
     metaDescription:
       "The new 1% US remittance tax only applies to cash-funded transfers. We compared {{PROVIDER_COUNT}} providers — who charges it and how to send money abroad tax-free.",
@@ -7839,6 +7908,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "crypto-banking-licenses-2026",
+    contentStatus: "published",
     title: "Crypto Banking Licenses 2026: What It Means for Transfers",
     metaDescription:
       "11 companies received crypto bank charters in 83 days. What OCC licenses and new crypto banking regulations mean for your international transfers in 2026.",
@@ -8478,6 +8548,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "how-euribor-affects-euro-transfers",
+    contentStatus: "draft",
     title: "How Euribor Affects Euro Transfers Abroad — 2026 Guide",
     metaDescription:
       "Learn how Euribor rates impact the cost of sending euros abroad. Understand the link between ECB interest rates, EUR exchange rates, and transfer pricing.",
@@ -8656,6 +8727,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "lowest-fx-fees-business-payments-2026",
+    contentStatus: "published",
     title: "Lowest FX Fees for Business International Payments in 2026",
     metaTitle: "Lowest Business FX Fees 2026 | SendMoneyCompare",
     metaDescription:
@@ -8973,6 +9045,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-rates-eid-holi-2026",
+    contentStatus: "archived",
     title: "Best Money Transfer Rates for Eid & Holi 2026 Compared",
     metaTitle: "Eid & Holi 2026 Transfer Rates Compared",
     metaDescription:
@@ -9319,7 +9392,7 @@ const rawBlogPosts: BlogPost[] = [
 <p class="blog-footnote">Costs are approximate and depend on corridor and market conditions. <a href="/send-money">Compare live rates for your exact amount →</a></p>
 </div>
 
-<p><strong>Key takeaway:</strong> All four specialist providers cost <strong>80–95% less</strong> than a UK bank wire on large transfers. The difference between the specialists is smaller — typically £10–£60 on a £10,000 transfer. The choice comes down to which features matter for your specific use case.</p>`,
+<p><strong>Key takeaway:</strong> All four specialist providers cost far less than a UK bank wire on large transfers — on our $5,000 business benchmark the average gap is {{BUSINESS_BANK_COST_PCT}} against {{BUSINESS_SPECIALIST_COST_PCT}}, about <strong>{{BUSINESS_SAVINGS_PCT}} less</strong>, and wider still against banks charging a flat £20–£40 wire fee on top. The difference between the specialists is smaller — typically £10–£60 on a £10,000 transfer. The choice comes down to which features matter for your specific use case.</p>`,
       },
       {
         heading: "XE: The Currency Authority (Best for Reliability + Speed)",
@@ -10063,6 +10136,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "bank-vs-app-vs-agent-cost-comparison",
+    contentStatus: "draft",
     title:
       "Bank vs App vs Agent: Real Cost of Sending Money Compared",
     metaDescription:
@@ -10187,7 +10261,7 @@ const rawBlogPosts: BlogPost[] = [
         question:
           "Why are money transfer apps cheaper than banks?",
         answer:
-          "Apps use local payment networks instead of the expensive SWIFT correspondent banking system, offer exchange rates at or near the mid-market rate (vs 2-5% markup at banks), and have lower operating costs since they don't maintain physical branches. This lets them charge 80-95% less than banks.",
+          "Apps use local payment networks instead of the expensive SWIFT correspondent banking system, offer exchange rates at or near the mid-market rate (vs 2-5% markup at banks), and have lower operating costs since they don't maintain physical branches. On our $1,000 index that works out at {{AVG_SPECIALIST_COST}} against {{AVG_BANK_COST}} — about {{BANK_SAVINGS_PCT}} less than banks on average, and more against the most expensive wire transfers.",
       },
       {
         question: "When should I use a cash agent like Western Union?",
@@ -10209,6 +10283,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "ramadan-2026-money-transfer-deals-promotions",
+    contentStatus: "archived",
     title:
       "Ramadan 2026 Money Transfer Deals: Fee Waivers & Promo Codes",
     metaDescription:
@@ -10673,6 +10748,7 @@ const rawBlogPosts: BlogPost[] = [
   },
   {
     slug: "bulk-international-payments-guide",
+    contentStatus: "draft",
     title: "Bulk International Payments: Business Guide for 2026",
     metaDescription:
       "Compare cheapest ways to make bulk international payments in 2026. CSV batch uploads, API integrations, costs, compliance, and top platforms.",
@@ -11064,6 +11140,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "xe-business-payments-review",
+    contentStatus: "published",
     title: "Xe Business Payments Review 2026: Features, Fees & Verdict",
     metaDescription:
       "Xe Business review: multi-currency accounts, batch payments to 190+ countries in 145+ currencies, FX hedging, ERP integrations, and 24/7 dealer support.",
@@ -11610,6 +11687,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-morocco-guide",
+    contentStatus: "draft",
     title: "Cheapest Way to Send Money to Morocco: MAD Rates 2026",
     metaDescription:
       "Compare the cheapest ways to send money to Morocco. Live MAD rates from 10+ providers — bank deposit vs CashPlus pickup. Europe, US, and Gulf corridors.",
@@ -11854,6 +11932,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-romania-guide",
+    contentStatus: "draft",
     title: "Cheapest Way to Send Money to Romania: RON Rates 2026",
     metaDescription:
       "Compare cheapest ways to send money to Romania. SEPA instant transfers available. EUR vs RON delivery, real rates from 10+ providers. UK, EU, US corridors.",
@@ -12111,6 +12190,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-uk-to-bangladesh-guide",
+    contentStatus: "published",
     title: "Send Money from UK to Bangladesh: Best Ways in 2026",
     metaDescription:
       "Compare the cheapest ways to send money from the UK to Bangladesh. Real GBP to BDT rates from 8+ providers — bKash, Nagad, bank deposit, and cash pickup.",
@@ -14362,6 +14442,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-apps-expats-2026",
+    contentStatus: "draft",
     title: "Best Money Transfer Apps for Expats Living Abroad (2026)",
     metaDescription:
       "The 8 best money transfer apps for expats in 2026 — ranked by fees, multi-currency features, and reach. Wise, Revolut, Remitly, TapTap Send compared.",
@@ -15743,6 +15824,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "pakistan-remittance-loss-2026",
+    contentStatus: "published",
     title: "How Much Does Pakistan Lose on Remittances Each Year?",
     metaTitle: "Pakistan Remittance Losses 2026: The Real Cost",
     metaDescription:
@@ -15979,6 +16061,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "taptap-send-vs-wise-remitly-usd-to-pkr",
+    contentStatus: "draft",
     title: "TapTap Send vs Wise, Remitly & XE: USD to PKR Test 2026",
     metaDescription:
       "Real test: TapTap Send vs Wise, Remitly, Ria, and XE on a live USD to PKR transfer. Who wins on rate, speed, and payment method? The results surprised me.",
@@ -16338,6 +16421,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "best-money-transfer-apps-china-yuan",
+    contentStatus: "draft",
     title: "Best Money Transfer Apps for Sending CNY from China 2026",
     metaTitle: "Best Apps to Send CNY from China (2026)",
     metaDescription:
@@ -16510,6 +16594,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "large-business-transfers-from-china-cny",
+    contentStatus: "draft",
     title: "Large Business Transfers from China (CNY): CIPS & SAFE Quota",
     metaDescription:
       "How to send CNY above $50,000 from China for business and property in 2026. SAFE documentation, CIPS vs SWIFT, withholding tax, and licensed operators.",
@@ -16847,6 +16932,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "top-money-transfer-apps-usa-to-india-2026",
+    contentStatus: "published",
     title: "Top Money Transfer Apps: USA to India 2026",
     metaDescription:
       "We ranked the best USA-to-India money transfer apps for 2026 using real USD/INR quotes, Trustpilot scores, and speed. See which app sends the most rupees.",
@@ -17022,7 +17108,8 @@ function resolveCoverage(text: string): string {
   return text
     .split("{{PROVIDER_COUNT}}").join(atLeast(SITE_STATS.liveProviders))
     .split("{{CORRIDOR_COUNT}}").join(atLeast(SITE_STATS.comparableCorridors))
-    .split("{{CURRENCY_COUNT}}").join(atLeast(SITE_STATS.currencies));
+    .split("{{CURRENCY_COUNT}}").join(atLeast(SITE_STATS.currencies))
+    .split("{{REFRESH_HOURS}}").join(String(SITE_STATS.refreshHours));
 }
 
 export const blogPosts: BlogPost[] = rawBlogPosts.map((p) => ({

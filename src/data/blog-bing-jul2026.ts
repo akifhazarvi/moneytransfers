@@ -196,7 +196,7 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
       {
         question: "Is there a cheaper alternative to bank wire transfers?",
         answer:
-          "Yes — specialist apps are 80–95% cheaper. <a href=\"/companies/wise\">Wise</a> charges 0% exchange rate markup plus a small flat fee, totalling $7–$14 on a $1,000 transfer vs. $75–$95 at Chase. <a href=\"/companies/remitly\">Remitly</a>, <a href=\"/companies/ofx\">OFX</a>, and <a href=\"/companies/instarem\">Instarem</a> are also far cheaper than banks. <a href=\"/send-money\">Compare live rates</a> for your corridor.",
+          "Yes — against a Chase wire specifically, specialist apps cost roughly 80–90% less. <a href=\"/companies/wise\">Wise</a> charges 0% exchange rate markup plus a small flat fee, totalling $7–$14 on a $1,000 transfer vs. $75–$95 at Chase. Across all the banks we price, the average gap is narrower — about {{BANK_SAVINGS_PCT}}. <a href=\"/companies/remitly\">Remitly</a>, <a href=\"/companies/ofx\">OFX</a>, and <a href=\"/companies/instarem\">Instarem</a> are also far cheaper than banks. <a href=\"/send-money\">Compare live rates</a> for your corridor.",
       },
       {
         question: "Do banks charge incoming wire transfer fees?",

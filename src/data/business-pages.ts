@@ -235,7 +235,7 @@ export const businessPages: BusinessPage[] = [
         question:
           "How much do banks charge for small business international payments compared to specialists?",
         answer:
-          "Banks typically charge $25–$50 per wire transfer plus a hidden FX markup of 2–5% above the mid-market rate. On a $10,000 payment, total bank costs are $225–$550. Specialist providers like Wise Business charge $41–$71 for the same payment (0.41–0.71% fee, 0% markup). OFX charges $0 fees with a small markup (0.3–1.5%). That's a saving of 80–95% per transfer — which adds up to thousands of dollars annually for businesses making regular international payments.",
+          "Banks typically charge $25–$50 per wire transfer plus a hidden FX markup of 2–5% above the mid-market rate. On a $10,000 payment, total bank costs are $225–$550. Specialist providers like Wise Business charge $41–$71 for the same payment (0.41–0.71% fee, 0% markup). OFX charges $0 fees with a small markup (0.3–1.5%). That's a saving of roughly 70–90% per transfer on those figures, and about {{BUSINESS_SAVINGS_PCT}} on average across every bank and specialist we price at $5,000 — which adds up to thousands of dollars annually for businesses making regular international payments.",
       },
     ],
     relatedGuides: [
@@ -384,7 +384,7 @@ export const businessPages: BusinessPage[] = [
         question:
           "What is the cheapest way to make bulk international payments?",
         answer:
-          "Wise Business offers the lowest all-in cost for most bulk international payments: 0% exchange rate markup (mid-market rate) plus a transparent fee of 0.41–0.71% per payment. For 50 payments of $3,000 each, that's $615–$1,065 total vs. $6,250–$9,250 through bank wires. For high-value batches ($100K+ total), OFX's dealing desk may negotiate better FX rates on the entire batch. Both are 80–95% cheaper than traditional bank batch wire transfers.",
+          "Wise Business offers the lowest all-in cost for most bulk international payments: 0% exchange rate markup (mid-market rate) plus a transparent fee of 0.41–0.71% per payment. For 50 payments of $3,000 each, that's $615–$1,065 total vs. $6,250–$9,250 through bank wires. For high-value batches ($100K+ total), OFX's dealing desk may negotiate better FX rates on the entire batch. On those figures both are roughly 85–90% cheaper than traditional bank batch wire transfers; averaged across every specialist and bank we price, the gap is about {{BUSINESS_SAVINGS_PCT}}.",
       },
       {
         question:
@@ -432,7 +432,7 @@ export const businessPages: BusinessPage[] = [
     heading:
       "International Vendor Payments: The Cheapest Way to Pay Overseas Suppliers in 2026",
     intro:
-      "International vendor payments are one of the most common — and most expensive — types of business international payments. Every time you pay an overseas supplier through your bank, you lose 3–5% to hidden FX markups and wire fees. On $50,000/month in international vendor payments, that's $18,000–$30,000 per year in unnecessary costs. Specialist business FX payments providers like Wise Business, OFX, XE, and Revolut Business cut that cost by 80–95%, with faster delivery, better transparency, and tools to manage exchange rate risk on recurring supplier payments.",
+      "International vendor payments are one of the most common — and most expensive — types of business international payments. Every time you pay an overseas supplier through your bank, you lose 3–5% to hidden FX markups and wire fees. On $50,000/month in international vendor payments, that's $18,000–$30,000 per year in unnecessary costs. Specialist business FX payments providers like Wise Business, OFX, XE and Revolut Business cost {{BUSINESS_SPECIALIST_COST_PCT}} all-in on our $5,000 benchmark against {{BUSINESS_BANK_COST_PCT}} for high-street banks — about {{BUSINESS_SAVINGS_PCT}} less, and around 85% with the cheapest of them — with faster delivery, better transparency, and tools to manage exchange rate risk on recurring supplier payments.",
     sections: [
       {
         heading:
@@ -560,7 +560,7 @@ export const businessPages: BusinessPage[] = [
         question:
           "What is the cheapest way to make international vendor payments?",
         answer:
-          "For most businesses, Wise Business offers the cheapest international vendor payments: 0% exchange rate markup plus a fee of 0.41–0.71%. A $20,000 vendor payment costs $82–$142 with Wise vs. $500–$1,200 through a bank. For payments over $50,000, OFX may offer better negotiated rates through their dealing desk with zero transfer fees. Both are 80–95% cheaper than traditional bank wire transfers for international vendor payments.",
+          "For most businesses, Wise Business offers the cheapest international vendor payments: 0% exchange rate markup plus a fee of 0.41–0.71%. A $20,000 vendor payment costs $82–$142 with Wise vs. $500–$1,200 through a bank. For payments over $50,000, OFX may offer better negotiated rates through their dealing desk with zero transfer fees. On those figures both are roughly 70–90% cheaper than traditional bank wire transfers for international vendor payments, against an average gap of {{BUSINESS_SAVINGS_PCT}} across everything we price.",
       },
       {
         question:
@@ -614,7 +614,7 @@ export const businessPages: BusinessPage[] = [
     heading:
       "B2B International Money Transfer: Compare the Best Business Providers in 2026",
     intro:
-      "Business-to-business cross-border payments are projected to exceed $35 trillion by 2028, yet most businesses still overpay through bank wires. A single B2B international money transfer through a traditional bank costs $225–$550 per $10,000 sent — that's 2.25–5.5% lost to fees and FX markup. Specialist B2B payment providers offer 80–95% lower costs with faster delivery, better compliance tools, and international payment strategies that help businesses manage FX risk. This guide compares the best providers for making international payments for business in 2026.",
+      "Business-to-business cross-border payments are projected to exceed $35 trillion by 2028, yet most businesses still overpay through bank wires. A single B2B international money transfer through a traditional bank costs $225–$550 per $10,000 sent — that's 2.25–5.5% lost to fees and FX markup. Specialist B2B payment providers cost {{BUSINESS_SPECIALIST_COST_PCT}} against {{BUSINESS_BANK_COST_PCT}} for banks on our $5,000 benchmark — about {{BUSINESS_SAVINGS_PCT}} lower — with faster delivery, better compliance tools, and international payment strategies that help businesses manage FX risk. This guide compares the best providers for making international payments for business in 2026.",
     sections: [
       {
         heading: "B2B vs Consumer International Money Transfers",
@@ -834,7 +834,7 @@ export const businessPages: BusinessPage[] = [
         question:
           "What is the cheapest way to make a B2B international money transfer?",
         answer:
-          "For B2B transfers under $50,000, Wise Business typically offers the lowest total cost: 0% exchange rate markup plus a transparent fee of 0.41–0.71%. A $25,000 B2B transfer costs $103–$178 with Wise vs. $785–$1,285 through a bank. For larger B2B transfers ($50K+), OFX's dealing desk can negotiate better rates with zero transfer fees. Both are 80–95% cheaper than bank wires for B2B international money transfers.",
+          "For B2B transfers under $50,000, Wise Business typically offers the lowest total cost: 0% exchange rate markup plus a transparent fee of 0.41–0.71%. A $25,000 B2B transfer costs $103–$178 with Wise vs. $785–$1,285 through a bank. For larger B2B transfers ($50K+), OFX's dealing desk can negotiate better rates with zero transfer fees. On those figures both are roughly 75–90% cheaper than bank wires for B2B international money transfers, against an average gap of {{BUSINESS_SAVINGS_PCT}} across every provider we price.",
       },
       {
         question: "How do B2B international money transfers work?",
