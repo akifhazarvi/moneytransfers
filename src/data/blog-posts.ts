@@ -999,7 +999,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "6 min read",
     publishedAt: "2026-02-15",
-    updatedAt: "2026-03-13",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["IBAN", "bank account", "international transfer", "Europe", "validation"],
     featuredImage: "/images/blog/iban-numbers-explained.jpg",
@@ -1120,7 +1120,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "11 min read",
     publishedAt: "2026-02-20",
-    updatedAt: "2026-09-02",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["best apps", "comparison", "rankings", "reviews", "2026"],
     featuredImage: "/images/blog/best-money-transfer-apps.jpg",
@@ -14341,7 +14341,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "12 min read",
     publishedAt: "2026-04-11",
-    updatedAt: "2026-04-11",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["transfer limits", "how much can I send", "money transfer", "KYC", "compliance", "sending limits"],
     featuredImage: "/images/blog/transfer-limits.jpg",
@@ -14396,10 +14396,10 @@ const rawBlogPosts: BlogPost[] = [
         heading: "Reporting Requirements You Should Know",
         content: `<h3>US Senders</h3>
 <ul>
-<li><strong>$10,000+ cash transactions:</strong> Provider must file a Currency Transaction Report (CTR) with FinCEN</li>
-<li><strong>$10,000+ foreign account balances:</strong> You must file FBAR (FinCEN 114) annually</li>
-<li><strong>$50,000+ foreign assets:</strong> FATCA Form 8938 required with tax return</li>
-<li><strong>Structuring is illegal:</strong> Splitting a $15,000 transfer into three $5,000 transfers to avoid reporting thresholds is a federal crime</li>
+<li><strong>$10,000+ cash transactions:</strong> the provider — not you — must file a Currency Transaction Report (CTR) with FinCEN. The threshold and the filing duty are set by <a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-C/section-1010.311" target="_blank" rel="noopener noreferrer">31 CFR § 1010.311</a>.</li>
+<li><strong>$10,000+ foreign account balances:</strong> you must file an FBAR (FinCEN Form 114) annually if your foreign accounts exceeded $10,000 combined at any point in the year. See the <a href="https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar" target="_blank" rel="noopener noreferrer">IRS FBAR guidance</a>. This is about accounts you hold abroad, not transfers you send.</li>
+<li><strong>$50,000+ foreign assets:</strong> FATCA <a href="https://www.irs.gov/pub/irs-pdf/f8938.pdf" target="_blank" rel="noopener noreferrer">Form 8938</a> is filed with your tax return. Thresholds are higher if you live abroad or file jointly — see the <a href="https://www.irs.gov/businesses/corporations/summary-of-fatca-reporting-for-us-taxpayers" target="_blank" rel="noopener noreferrer">IRS reporting summary</a> for the bracket that applies to you.</li>
+<li><strong>Structuring is illegal:</strong> splitting a $15,000 transfer into three $5,000 transfers to stay under a reporting threshold is a federal crime under <a href="https://www.ecfr.gov/current/title-31/section-1010.314" target="_blank" rel="noopener noreferrer">31 CFR § 1010.314</a>, whether or not the underlying money is lawful.</li>
 </ul>
 <h3>UK Senders</h3>
 <ul>
@@ -14424,7 +14424,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Transfer limits are sourced from provider websites, terms of service, and customer support as of April 2026. Limits may change without notice — always verify directly with your chosen provider before initiating a large transfer.</p>
+        content: `<p>Provider limits in the table were read from each provider's own published terms and help pages, last checked April 2026 — treat them as indicative rather than current, since providers change them without notice and without announcement. Verify your own limit inside your account before committing to a large transfer: the figure that applies to you depends on your verification tier, destination and funding method, and is often lower than the published maximum. The regulatory thresholds above are cited to the regulation or form itself and are current as of September 2026.</p>
 <p>Regulatory information from <a href="https://www.fincen.gov/" target="_blank" rel="noopener noreferrer">FinCEN</a>, <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer">FCA</a>, <a href="https://www.rbi.org.in/" target="_blank" rel="noopener noreferrer">RBI</a>, and <a href="https://www.bsp.gov.ph/" target="_blank" rel="noopener noreferrer">BSP</a>.</p>`,
       },
     ],
@@ -15238,7 +15238,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Where Does the Euro Stand Right Now?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> As of April 2026, <strong>EUR/USD is trading at 1.18</strong> — near six-week highs. The ECB held the deposit facility rate at <strong>2.00%</strong> in March 2026 and is widely expected to hold again on April 30. Most major banks — including <a href="https://www.goldmansachs.com/" target="_blank" rel="noopener noreferrer nofollow">Goldman Sachs</a> (1.25 target), Deutsche Bank (1.25), and <a href="https://think.ing.com/" target="_blank" rel="noopener noreferrer nofollow">ING</a> (1.22 base case) — forecast further euro strength through year-end 2026. For people sending USD to eurozone countries, this means <strong>recipients get fewer euros per dollar sent</strong> — making it critical to <a href="/send-money">compare providers</a> and time transfers when the EUR/USD dips.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <strong>EUR/USD is at {{MID_RATE:EUR:USD}}</strong> on the mid-market rate as at {{QUOTE_DATE}}. The ECB held its deposit facility rate at <strong>2.00%</strong> through the first half of 2026. The bank forecasts below were published earlier in the year and are dated on purpose — they are targets set at a point in time, not a current reading. Most major banks — including <a href="https://www.goldmansachs.com/" target="_blank" rel="noopener noreferrer nofollow">Goldman Sachs</a> (1.25 target), Deutsche Bank (1.25), and <a href="https://think.ing.com/" target="_blank" rel="noopener noreferrer nofollow">ING</a> (1.22 base case) — forecast further euro strength through year-end 2026. For people sending USD to eurozone countries, this means <strong>recipients get fewer euros per dollar sent</strong> — making it critical to <a href="/send-money">compare providers</a> and time transfers when the EUR/USD dips.</p></div>
 <p>The euro is the world's second-most-traded currency after the US dollar, used by over 340 million people across 20 eurozone countries. When EUR/USD moves, it ripples through every import bill in Europe, every remittance to family in Spain or Germany, and every cross-border invoice between US and European companies.</p>
 <p>In this analysis, we pull data from the <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener noreferrer">European Central Bank</a>, the <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer">IMF</a>, and forecasts from major banks to answer: <strong>will the euro go up or down against the dollar in 2026?</strong></p>`,
       },
@@ -15355,7 +15355,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Where Does the Pound Stand Right Now?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> As of April 2026, <strong>GBP/USD is trading at 1.35</strong>, with the <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer">Bank of England</a> holding the Bank Rate at 3.75% at its March 2026 meeting. Most major bank forecasts cluster between 1.36 and 1.40 by year-end 2026, with Goldman Sachs targeting 1.36 and JPMorgan projecting 1.39 early 2026 before settling at 1.36. The pound faces a difficult balance: <strong>sticky inflation at 3.0%</strong> supports BoE caution, but <strong>UK debt at 96% of GDP</strong> and political uncertainty keep GBP exposed to downside risk. For UK senders, this means moderate GBP stability through 2026 — no major swings expected.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <strong>GBP/USD is at {{MID_RATE:GBP:USD}}</strong> on the mid-market rate as at {{QUOTE_DATE}}, with the <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer">Bank of England</a> holding the Bank Rate at 3.75% at its March 2026 meeting. Most major bank forecasts cluster between 1.36 and 1.40 by year-end 2026, with Goldman Sachs targeting 1.36 and JPMorgan projecting 1.39 early 2026 before settling at 1.36. The pound faces a difficult balance: <strong>sticky inflation at 3.0%</strong> supports BoE caution, but <strong>UK debt at 96% of GDP</strong> and political uncertainty keep GBP exposed to downside risk. For UK senders, this means moderate GBP stability through 2026 — no major swings expected.</p></div>
 <p>The British pound is the world's fourth-most-traded currency and a key barometer of UK economic health. For the UK's <strong>9.3 million foreign-born residents</strong>, GBP movements directly impact how much family abroad receives. For UK businesses importing from Europe or Asia, every 1% GBP move means thousands in P&L.</p>
 <p>This deep-dive uses data from the <a href="https://www.bankofengland.co.uk/" target="_blank" rel="noopener noreferrer">Bank of England</a>, <a href="https://obr.uk/" target="_blank" rel="noopener noreferrer">Office for Budget Responsibility</a>, and major bank forecasts to answer: <strong>will the pound go up or down against the dollar in 2026?</strong></p>`,
       },
@@ -15482,7 +15482,9 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "Does Revolut Charge Foreign Transaction Fees?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/revolut">Revolut</a> charges <strong>no foreign transaction fees on card payments abroad</strong> in most cases — you pay at the interbank rate. But there are four hidden costs: (1) a <strong>0.5-1% weekend markup</strong> when FX markets are closed, (2) a <strong>monthly FX limit</strong> on free exchange (£1,000 on Standard, £3,000 on Plus, £10,000 on Premium, unlimited on Metal), (3) a <strong>1% "fair usage" fee</strong> once you exceed the limit, and (4) <strong>ATM withdrawal limits</strong> (£200/month free on Standard, then 2% fee). For pure card spending abroad on weekdays under your plan's limit, Revolut is genuinely free.</p></div>
-<p>Revolut is one of the most popular money apps for travelers and expats, with over 45 million users globally. The "no fees" marketing is mostly true — but the details matter. Here's exactly when you pay and when you don't.</p>`,
+<p>Revolut is one of the most popular money apps for travelers and expats. The "no fees" marketing is mostly true — but the details matter. Here's exactly when you pay and when you don't.</p>
+<p class="text-sm"><strong>Where these figures come from.</strong> The plan limits, weekend markup and ATM thresholds below were read from Revolut's own published fee schedule and plan comparison pages, last checked in September 2026. Revolut changes these without notice and they differ by country of registration, so check the fee schedule inside your own app before relying on a number here. Trustpilot: {{TRUSTPILOT:revolut}}.</p>
+<p class="text-sm">Card FX is separate from <em>sending</em> money, which is what we measure directly. On the Revolut transfers we price, its exchange-rate markup is {{AVG_MARKUP:revolut}}, its all-in cost averages 0.85% of the amount sent, and it is cheapest on {{LEADS:revolut}}. If you are moving money to someone else's account rather than spending on card, compare it against <a href="/companies/wise">Wise</a> and the rest on your <a href="/send-money">actual corridor</a>.</p>`,
       },
       {
         heading: "The Weekend Markup: Revolut's Biggest Hidden Cost",
