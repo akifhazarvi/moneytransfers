@@ -46,6 +46,83 @@ import {
 } from "../src/data/ai-prompt-benchmark";
 
 const DOMAIN = "sendmoneycompare.com";
+
+/**
+ * Provider domains, separated from publisher competitors on purpose.
+ *
+ * The two lose us different things. A publisher outranking us is lost
+ * attention; a PROVIDER outranking us is a user who books the transfer without
+ * ever reaching a comparison — the leak worth measuring. Kept here rather than
+ * in the prompt file because it is an analysis concern, not part of the fixed
+ * prompt set.
+ */
+const PROVIDER_DOMAINS = [
+  "wise.com",
+  "remitly.com",
+  "westernunion.com",
+  "worldremit.com",
+  "xe.com",
+  "moneygram.com",
+  "xoom.com",
+  "revolut.com",
+  "paypal.com",
+  "ria.com",
+  "instarem.com",
+  "paysend.com",
+] as const;
+
+/**
+ * Sentences that carry a recommendation, as opposed to background. Only these
+ * are checked for which source backs them: the question is not "are we cited
+ * somewhere" but "is the answer's actual advice sourced from us".
+ */
+const RECOMMENDATION_CUES =
+  /\b(cheapest|best|recommend|lowest (?:cost|fee)|most affordable|top (?:choice|pick|option)|go with|opt for|better option|winner|ideal)\b/i;
+
+type Route = "us" | "provider" | "publisher" | "unattributed";
+
+const domainOf = (url: string): string => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return "";
+  }
+};
+
+const isProvider = (d: string) => PROVIDER_DOMAINS.some((p) => d.endsWith(p));
+
+/**
+ * Which sources back the answer's recommendation.
+ *
+ * Perplexity marks claims with [n] pointing 1-based into the citation array, so
+ * a recommendation sentence's markers resolve to the domains that actually
+ * carry the advice. Where a recommendation sentence has no marker the route is
+ * "unattributed" — reported as such rather than guessed, because assuming it
+ * favours whoever we would like it to favour.
+ *
+ * NOTE the ceiling on this: `max_tokens` truncates long answers, so a
+ * recommendation in a cut-off tail is invisible here. Cheap and directional,
+ * not exhaustive.
+ */
+function recommendationRoute(answerText: string, citations: string[]): {
+  route: Route;
+  domains: string[];
+} {
+  const sentences = answerText.split(/(?<=[.!?])\s+|\n+/).filter((x) => RECOMMENDATION_CUES.test(x));
+  const domains = new Set<string>();
+  for (const sentence of sentences) {
+    for (const m of sentence.matchAll(/\[(\d{1,2})\]/g)) {
+      const idx = Number(m[1]) - 1;
+      const url = citations[idx];
+      if (url) domains.add(domainOf(url));
+    }
+  }
+  const list = [...domains].filter(Boolean);
+  if (list.length === 0) return { route: "unattributed", domains: [] };
+  if (list.some((d) => d.endsWith(DOMAIN))) return { route: "us", domains: list };
+  if (list.some(isProvider)) return { route: "provider", domains: list };
+  return { route: "publisher", domains: list };
+}
 const BRAND = "sendmoneycompare";
 const OUT_PATH = join(process.cwd(), "src/data/scraped/ai-citations.json");
 const HISTORY_PATH = join(process.cwd(), "src/data/scraped/ai-citations-history.json");
@@ -102,6 +179,19 @@ export interface CitationResult {
   mentionedUnlinked: boolean;
   /** Competitor domains cited, with their first position. */
   competitors: { domain: string; position: number }[];
+  /** Whether we appear in the first three citations — the ones users click. */
+  inTopThree: boolean;
+  /** Position of the best-placed provider site, if any is cited. */
+  bestProviderPosition: number | null;
+  /**
+   * A provider site is cited ABOVE us. The leak: the user can book without
+   * ever reaching a comparison.
+   */
+  providerOutranksUs: boolean;
+  /** Whose source backs the answer's recommendation. */
+  recommendationRoute: Route;
+  /** Domains cited by the recommendation sentences. */
+  recommendationDomains: string[];
   /** Did the cited page match `target`? Null when there is no target or no citation. */
   targetHit: boolean | null;
   responsePreview: string;
@@ -162,6 +252,14 @@ function analyse(
     targetHit = cited ? ourUrls.some((u) => u.includes(p.target!)) : false;
   }
 
+  const providerPositions = citations
+    .map((c, i) => ({ d: domainOf(c), i: i + 1 }))
+    .filter((x) => isProvider(x.d))
+    .map((x) => x.i);
+  const bestProviderPosition = providerPositions.length ? Math.min(...providerPositions) : null;
+  const rec = recommendationRoute(answerText, citations);
+  const ourPosition = firstIdx >= 0 ? firstIdx + 1 : null;
+
   return {
     id: p.id,
     query: p.prompt,
@@ -171,10 +269,18 @@ function analyse(
     platform,
     cited,
     ourUrls,
-    position: firstIdx >= 0 ? firstIdx + 1 : null,
+    position: ourPosition,
     totalCitations: citations.length,
     mentionedUnlinked: !cited && lowerAnswer.includes(BRAND),
     competitors,
+    inTopThree: ourPosition !== null && ourPosition <= 3,
+    bestProviderPosition,
+    // Uncited counts as outranked: if a provider is cited and we are not, the
+    // provider has the user and we are not in the running at all.
+    providerOutranksUs:
+      bestProviderPosition !== null && (ourPosition === null || bestProviderPosition < ourPosition),
+    recommendationRoute: rec.route,
+    recommendationDomains: rec.domains,
     targetHit,
     responsePreview: answerText.slice(0, 300),
   };
@@ -194,6 +300,11 @@ function skipped(p: BenchmarkPrompt, platform: Platform, error: string): Citatio
     totalCitations: 0,
     mentionedUnlinked: false,
     competitors: [],
+    inTopThree: false,
+    bestProviderPosition: null,
+    providerOutranksUs: false,
+    recommendationRoute: "unattributed",
+    recommendationDomains: [],
     targetHit: null,
     responsePreview: "",
     error,
@@ -295,12 +406,36 @@ function summarise(results: CitationResult[], platform: Platform) {
   const cited = usable.filter((r) => r.cited);
   const positions = cited.map((r) => r.position!).filter((n) => Number.isFinite(n));
   const withTarget = usable.filter((r) => r.target);
+  const routes = usable.reduce(
+    (a, r) => {
+      a[r.recommendationRoute] += 1;
+      return a;
+    },
+    { us: 0, provider: 0, publisher: 0, unattributed: 0 } as Record<Route, number>,
+  );
+  const attributed = routes.us + routes.provider + routes.publisher;
+
   return {
     prompts: rows.length,
     usable: usable.length,
     errors: rows.length - usable.length,
     citations: cited.length,
     citationRatePct: usable.length ? Math.round((cited.length / usable.length) * 1000) / 10 : 0,
+    /** Cited in the first three sources — the ones a reader actually opens. */
+    inTopThree: cited.filter((r) => r.inTopThree).length,
+    /**
+     * Prompts where a provider site is cited above us (or we are absent while
+     * one is present). The headline leak number.
+     */
+    providerOutranksUs: usable.filter((r) => r.providerOutranksUs).length,
+    /** Whose source backs the recommendation. */
+    recommendationRoute: routes,
+    /**
+     * Our share of the recommendations that ARE attributed. Unattributed ones
+     * are excluded from the denominator rather than counted against us, since
+     * they say nothing either way.
+     */
+    ourRecommendationSharePct: attributed ? Math.round((routes.us / attributed) * 1000) / 10 : 0,
     meanPosition: positions.length
       ? Math.round((positions.reduce((a, b) => a + b, 0) / positions.length) * 10) / 10
       : null,
@@ -393,6 +528,11 @@ async function main() {
             Math.max(1, s.citations),
         )}` : ""}` +
         `, ${s.mentionedUnlinked} unlinked mentions, ${s.errors} errors` +
+        `\n     top-3 citations ${s.inTopThree}/${s.citations}` +
+        ` · provider outranks us on ${s.providerOutranksUs}/${s.usable}` +
+        ` · recommendation route: us ${s.recommendationRoute.us}, provider ${s.recommendationRoute.provider},` +
+        ` publisher ${s.recommendationRoute.publisher}, unattributed ${s.recommendationRoute.unattributed}` +
+        ` (our share of attributed: ${s.ourRecommendationSharePct}%)` +
         `${s.targetsChecked ? `, ${s.targetHits}/${s.targetsChecked} hit the intended page` : ""}`,
     );
     const u = usage[pl];
