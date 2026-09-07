@@ -31,9 +31,11 @@ import { corridorGuidesIndia } from "./blog-corridor-guides-india";
 import { converterGuides } from "./blog-converter-guides";
 import { newGuidesJul2026 } from "./blog-new-guides-jul2026";
 import { bingKeywordArticlesJul2026 } from "./blog-bing-jul2026";
+import { safetyGuides } from "./blog-safety-guides";
 import { SITE_STATS, atLeast } from "@/lib/site-stats";
 
 const rawBlogPosts: BlogPost[] = [
+  ...safetyGuides,
   ...bingKeywordArticlesJul2026,
   ...newGuidesJul2026,
   ...converterGuides,

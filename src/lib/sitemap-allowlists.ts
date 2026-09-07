@@ -171,6 +171,13 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   "how-to-buy-spacex-nvidia-stock-using-revolut", // new guide, Revolut investing angle
   "how-to-pay-international-freelancers-contractors", // B2B freelancer-payment cluster, neutral cost-math angle
   "authorization-vs-settlement-stablecoins", // settlement-mechanics angle, distinct from stablecoin-vs-wire cost guide
+  // Added 2026-09-07 on AI-citation evidence rather than Bing impressions, so
+  // it is not a demand-gated entry and should not be read as one. The Sep 7
+  // benchmark tested 12 safety prompts and found us cited on 2 (17%), against
+  // 76% on corridor questions — the gap is that the site published nothing on
+  // the subject. Re-check against Bing/GSC once it has 90 days of history and
+  // prune it like any other page if the demand never materialises.
+  "sent-money-to-the-wrong-person",
   // ── Added 2026-06-22 — Jun 23 Bing Page Traffic + AI Page Stats export.
   //    Two signals: Bing organic impr AND heavy AI (Copilot/ChatGPT) citation.
   //    All exist in the merged blogPosts set and serve index:follow (en). The
