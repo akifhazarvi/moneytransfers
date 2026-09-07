@@ -100,5 +100,65 @@
         "requests": 100
       }
     }
+  },
+  {
+    "generatedAt": "2026-09-07T12:31:11.669Z",
+    "promptsRun": 100,
+    "chatgpt": {
+      "prompts": 100,
+      "usable": 0,
+      "errors": 100,
+      "citations": 0,
+      "citationRatePct": 0,
+      "inTopThree": 0,
+      "providerOutranksUs": 0,
+      "recommendationRoute": {
+        "us": 0,
+        "provider": 0,
+        "publisher": 0,
+        "unattributed": 0
+      },
+      "ourRecommendationSharePct": 0,
+      "meanPosition": null,
+      "mentionedUnlinked": 0,
+      "targetHits": 0,
+      "targetsChecked": 0,
+      "baselineCitations": 0,
+      "baselinePrompts": 0
+    },
+    "perplexity": {
+      "prompts": 100,
+      "usable": 100,
+      "errors": 0,
+      "citations": 46,
+      "citationRatePct": 46,
+      "inTopThree": 21,
+      "providerOutranksUs": 73,
+      "recommendationRoute": {
+        "us": 22,
+        "provider": 18,
+        "publisher": 10,
+        "unattributed": 50
+      },
+      "ourRecommendationSharePct": 44,
+      "meanPosition": 4.9,
+      "mentionedUnlinked": 0,
+      "targetHits": 8,
+      "targetsChecked": 48,
+      "baselineCitations": 6,
+      "baselinePrompts": 10
+    },
+    "usage": {
+      "chatgpt": {
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "requests": 0
+      },
+      "perplexity": {
+        "promptTokens": 980,
+        "completionTokens": 32744,
+        "requests": 100
+      }
+    }
   }
 ]
