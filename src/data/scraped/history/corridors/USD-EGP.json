@@ -5803,10 +5803,10 @@
     "date": "2026-09-07",
     "providers": {
       "lemfi": {
-        "rate": 50.79,
+        "rate": 50.9,
         "fee": 0,
-        "markup": 0.22,
-        "receiveAmount": 5079
+        "markup": 0.03,
+        "receiveAmount": 5090
       },
       "ria": {
         "rate": 50.6443,
@@ -5821,22 +5821,22 @@
         "receiveAmount": 5083
       },
       "western-union": {
-        "rate": 50.0346,
+        "rate": 50.0976,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 4903.9
+        "receiveAmount": 4910.07
       },
       "remitly": {
-        "rate": 50.3302,
+        "rate": 50.35,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 4932.87
+        "receiveAmount": 4934.8
       },
       "wise": {
-        "rate": 50.9,
+        "rate": 50.92,
         "fee": 8.61,
         "markup": null,
-        "receiveAmount": 4651.75
+        "receiveAmount": 4653.58
       }
     }
   }
