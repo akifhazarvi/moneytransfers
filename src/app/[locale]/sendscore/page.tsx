@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import { seoDescription } from "@/lib/seo-title";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { formatLocalDate } from "@/lib/format-date";
+import DataProvenance from "@/components/DataProvenance";
 import {
   SENDSCORE_SUMMARY,
   SENDSCORE_WEIGHTS,
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
+    authors: [{ name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" }],
     alternates: getAlternates("sendscore", locale),
     openGraph: {
       title: t("metaTitle"),
@@ -269,6 +271,16 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
 
       {/* Defining the metric as a named thing, so it can be referenced. Dataset
           rather than a LocalBusiness subclass, and no aggregateRating claimed. */}
+      <DataProvenance
+        dataAsOf={s.dataAsOf}
+        computedFrom="Each corridor is scored from its own recorded provider rates, using the four weighted components set out above. Corridors with only one provider quoting are excluded from the published distribution rather than counted as neutral."
+        sources={[
+          { label: "SendMoneyCompare quote archive — every provider\u2019s live quotes, recorded every six hours", href: "/methodology" },
+          { label: "Provider Consistency Index — who delivers the most, over time", href: "/provider-consistency" },
+          { label: "How we review and rank providers", href: "/how-we-review" },
+        ]}
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

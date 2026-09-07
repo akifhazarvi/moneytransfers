@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import { seoDescription } from "@/lib/seo-title";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { formatLocalDate } from "@/lib/format-date";
+import DataProvenance from "@/components/DataProvenance";
 import { CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import { SENDSCORE_SUMMARY } from "@/lib/sendscore-summary";
 import { REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
+    authors: [{ name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" }],
     alternates: getAlternates("research", locale),
     openGraph: {
       title: t("metaTitle"),
@@ -236,6 +238,16 @@ export default async function ResearchPage({ params }: { params: Promise<{ local
           </div>
         </Container>
       </section>
+
+      <DataProvenance
+        dataAsOf={CONSISTENCY_INDEX.dataAsOf}
+        computedFrom="Each dataset is recomputed from the quote archive whenever the archive refreshes. The headline on every card above is read from the dataset it describes rather than written into this page, so a card cannot outlive the finding behind it."
+        sources={[
+          { label: "SendMoneyCompare quote archive — every provider\u2019s live quotes, recorded every six hours", href: "/methodology" },
+          { label: "World Bank PPP conversion factors and GNI indicators", href: "https://data.worldbank.org/indicator/PA.NUS.PPP", external: true },
+          { label: "Our methodology and cost definitions", href: "/methodology" },
+        ]}
+      />
 
       <script
         type="application/ld+json"

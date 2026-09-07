@@ -8,6 +8,7 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { companyPageRenders } from "@/lib/route-map";
 import { providerLogo, hasProviderLogo } from "@/lib/provider-logo";
 import { formatLocalDate } from "@/lib/format-date";
+import DataProvenance from "@/components/DataProvenance";
 import {
   CONSISTENCY_INDEX,
   CONSISTENCY_ROWS,
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t("metaTitle"),
     description: seoDescription(t("metaDescription")),
     keywords: t("metaKeywords"),
+    authors: [{ name: "Akif Hazarvi", url: "https://sendmoneycompare.com/about/akif-hazarvi" }],
     alternates: getAlternates("provider-consistency", locale),
     openGraph: {
       title: t("metaTitle"),
@@ -382,6 +384,17 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
 
       {/* Dataset JSON-LD. Service/Dataset rather than a LocalBusiness subclass —
           this page is a dataset, and FinancialService would require an address. */}
+      <DataProvenance
+        dataAsOf={idx.dataAsOf}
+        computedFrom="Computed at build time from the archive, then rolled up from the same per-corridor records each corridor page renders — so this index and those pages cannot disagree. Nothing here is recomputed by a second method."
+        csvHref={CSV_URL}
+        sources={[
+          { label: "SendMoneyCompare quote archive — every provider\u2019s live quotes, recorded every six hours", href: "/methodology" },
+          { label: "How we review and rank providers", href: "/how-we-review" },
+          { label: "Remittance Cost Index — the same providers ranked by cost", href: "/remittance-cost-index" },
+        ]}
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
