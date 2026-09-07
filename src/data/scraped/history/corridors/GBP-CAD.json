@@ -15825,100 +15825,100 @@
     "date": "2026-09-07",
     "providers": {
       "lemfi": {
-        "rate": 1.858,
-        "fee": 0,
-        "markup": 0.61,
-        "receiveAmount": 185.8
-      },
-      "taptap-send": {
-        "rate": 1.86,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 186
-      },
-      "natwest": {
-        "rate": 1.8275,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 182.75
-      },
-      "halifax": {
-        "rate": 1.8031,
-        "fee": 9.5,
-        "markup": null,
-        "receiveAmount": 163.18
-      },
-      "worldremit": {
-        "rate": 1.8694,
-        "fee": 0.99,
-        "markup": null,
-        "receiveAmount": 185.09
-      },
-      "rbs": {
-        "rate": 1.8275,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 182.75
-      },
-      "nationwide": {
-        "rate": 1.8339,
-        "fee": 15,
-        "markup": null,
-        "receiveAmount": 155.88
-      },
-      "barclays": {
-        "rate": 1.818,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 181.8
-      },
-      "lloyds": {
-        "rate": 1.8008,
-        "fee": 9.5,
-        "markup": null,
-        "receiveAmount": 162.97
-      },
-      "western-union": {
-        "rate": 1.8217,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 178.55
-      },
-      "remitly": {
-        "rate": 1.8647,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 182.76
-      },
-      "monese": {
-        "rate": 1.8692,
-        "fee": 4,
-        "markup": null,
-        "receiveAmount": 179.44
-      },
-      "paypal": {
-        "rate": 1.7831,
-        "fee": 2.99,
-        "markup": null,
-        "receiveAmount": 172.98
-      },
-      "hsbc": {
-        "rate": 1.8496,
-        "fee": 0,
-        "markup": null,
-        "receiveAmount": 184.96
-      },
-      "santander": {
-        "rate": 1.8093,
-        "fee": 25,
-        "markup": null,
-        "receiveAmount": 135.7
-      },
-      "instarem": {
         "rate": 1.859,
         "fee": 0,
-        "markup": null,
+        "markup": 0.6,
         "receiveAmount": 185.9
+      },
+      "taptap-send": {
+        "rate": 1.85,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 185
+      },
+      "natwest": {
+        "rate": 1.828,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 182.8
+      },
+      "halifax": {
+        "rate": 1.8039,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 163.25
+      },
+      "worldremit": {
+        "rate": 1.8702,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 185.16
+      },
+      "rbs": {
+        "rate": 1.828,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 182.8
+      },
+      "nationwide": {
+        "rate": 1.8295,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 155.51
+      },
+      "barclays": {
+        "rate": 1.8187,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 181.87
+      },
+      "lloyds": {
+        "rate": 1.8015,
+        "fee": 9.5,
+        "markup": null,
+        "receiveAmount": 163.03
+      },
+      "western-union": {
+        "rate": 1.8208,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 178.45
+      },
+      "remitly": {
+        "rate": 1.8644,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 182.73
+      },
+      "monese": {
+        "rate": 1.8693,
+        "fee": 3,
+        "markup": null,
+        "receiveAmount": 181.32
+      },
+      "paypal": {
+        "rate": 1.7822,
+        "fee": 2.99,
+        "markup": null,
+        "receiveAmount": 172.89
+      },
+      "hsbc": {
+        "rate": 1.8503,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 185.03
+      },
+      "santander": {
+        "rate": 1.81,
+        "fee": 25,
+        "markup": null,
+        "receiveAmount": 135.75
+      },
+      "instarem": {
+        "rate": 1.8591,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 185.91
       }
     }
   }
