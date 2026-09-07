@@ -7275,14 +7275,14 @@
       "moneygram": {
         "rate": 212.6911,
         "fee": 2.49,
-        "markup": 0.47,
+        "markup": 0.86,
         "receiveAmount": 20739.51
       },
       "hsbc": {
-        "rate": 206.2129,
-        "fee": 19.8,
+        "rate": 207.037,
+        "fee": 19.78,
         "markup": 3.5,
-        "receiveAmount": 16538.54
+        "receiveAmount": 16608.73
       },
       "taptap-send": {
         "rate": 212.69,
@@ -7291,46 +7291,46 @@
         "receiveAmount": 21269
       },
       "western-union": {
-        "rate": 210.6675,
+        "rate": 210.5146,
         "fee": 2.99,
-        "markup": 1.42,
-        "receiveAmount": 20436.86
+        "markup": 1.88,
+        "receiveAmount": 20422.03
       },
       "transfergo": {
-        "rate": 211.5325,
+        "rate": 210.7031,
         "fee": 0,
-        "markup": 1.01,
-        "receiveAmount": 21153.25
+        "markup": 1.79,
+        "receiveAmount": 21070.31
       },
       "xe": {
         "rate": 212.2362,
         "fee": 3,
-        "markup": 0.68,
+        "markup": 1.08,
         "receiveAmount": 20586.91
       },
       "paysend": {
-        "rate": 211.7656,
+        "rate": 212.7774,
         "fee": 1,
-        "markup": 0.9,
-        "receiveAmount": 20964.79
+        "markup": 0.82,
+        "receiveAmount": 21064.96
       },
       "remitly": {
-        "rate": 208.42,
+        "rate": 209.32,
         "fee": 1.99,
-        "markup": 2.47,
-        "receiveAmount": 20427.24
+        "markup": 2.44,
+        "receiveAmount": 20515.45
       },
       "revolut": {
-        "rate": 211.9271,
-        "fee": 3.3,
-        "markup": 0.83,
-        "receiveAmount": 20493.35
+        "rate": 212.7377,
+        "fee": 2.3,
+        "markup": 0.84,
+        "receiveAmount": 20784.48
       },
       "wise": {
-        "rate": 213.669,
-        "fee": 10.45,
-        "markup": 0.01,
-        "receiveAmount": 19134.06
+        "rate": 213.835,
+        "fee": 10.44,
+        "markup": 0.33,
+        "receiveAmount": 19151.06
       }
     }
   }
