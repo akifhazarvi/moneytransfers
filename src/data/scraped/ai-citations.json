@@ -1,142 +1,3352 @@
 {
-  "generatedAt": "2026-04-19T19:12:20.918Z",
+  "generatedAt": "2026-09-07T05:38:26.148Z",
   "domain": "sendmoneycompare.com",
-  "queries": 10,
-  "chatgptCitations": 1,
-  "perplexityCitations": 0,
-  "chatgptErrors": 0,
-  "perplexityErrors": 10,
+  "promptsRun": 100,
+  "promptSetSize": 100,
+  "models": {
+    "perplexity": "sonar",
+    "chatgpt": "gpt-4o-mini"
+  },
+  "maxTokens": 350,
+  "usage": {
+    "chatgpt": {
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "requests": 0
+    },
+    "perplexity": {
+      "promptTokens": 980,
+      "completionTokens": 32626,
+      "requests": 100
+    }
+  },
+  "chatgpt": {
+    "prompts": 0,
+    "usable": 0,
+    "errors": 0,
+    "citations": 0,
+    "citationRatePct": 0,
+    "meanPosition": null,
+    "mentionedUnlinked": 0,
+    "targetHits": 0,
+    "targetsChecked": 0,
+    "baselineCitations": 0,
+    "baselinePrompts": 0
+  },
+  "perplexity": {
+    "prompts": 100,
+    "usable": 100,
+    "errors": 0,
+    "citations": 47,
+    "citationRatePct": 47,
+    "meanPosition": 5.2,
+    "mentionedUnlinked": 0,
+    "targetHits": 9,
+    "targetsChecked": 48,
+    "baselineCitations": 8,
+    "baselinePrompts": 10
+  },
   "results": [
     {
+      "id": "b01",
       "query": "cheapest way to send money to India from USA",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "\nWhen sending money from the USA to India, it's essential to consider both the transfer fees and the exchange rates to ensure your recipient receives the maximum amount. Here are some of the most cost-effective methods available:\n\n\n\n**Wise (formerly TransferWise)**  \nWise offers transparent fees and"
-    },
-    {
-      "query": "cheapest way to send money to India from USA",
+      "topic": "corridor",
+      "baseline": true,
+      "target": "/send-money/usa-to-india",
       "platform": "perplexity",
-      "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
-    },
-    {
-      "query": "best money transfer service for sending to Philippines",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "\nWhen selecting a money transfer service to send funds to the Philippines, it's essential to consider factors such as transfer fees, exchange rates, speed, and convenience. Here are some top options:\n\n\n\n**Wise**  \nWise offers transparent fees and uses the mid-market exchange rate without any markup."
-    },
-    {
-      "query": "best money transfer service for sending to Philippines",
-      "platform": "perplexity",
-      "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
-    },
-    {
-      "query": "Wise vs Remitly comparison",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "Here's a comparison between Wise (formerly TransferWise) and Remitly based on several factors:\n\n### 1. **Fees**\n- **Wise**: Generally transparent fee structure. Charges a small percentage of the amount being transferred, plus a fixed fee depending on the currencies involved.\n- **Remitly**: Fees can "
-    },
-    {
-      "query": "Wise vs Remitly comparison",
-      "platform": "perplexity",
-      "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
-    },
-    {
-      "query": "cheapest way to send money to Mexico",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "\nSending money to Mexico can be both cost-effective and efficient by choosing the right service. Here are some of the most affordable options available:\n\n\n\n**Wise**  \nWise offers transfers at the mid-market exchange rate with low fees, starting from approximately 0.5% of the transfer amount. Transfe"
-    },
-    {
-      "query": "cheapest way to send money to Mexico",
-      "platform": "perplexity",
-      "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
-    },
-    {
-      "query": "cheapest international money transfer 2026",
-      "platform": "chatgpt",
       "cited": true,
-      "citationUrl": "https://sendmoneycompare.com/?utm_source=openai",
-      "responsePreview": "\nWhen selecting the most cost-effective international money transfer service in 2026, it's essential to consider both the transfer fees and the exchange rate margins, as these collectively determine the total cost of your transaction. Traditional banks often charge high fees and offer less favorable"
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/usa-to-india",
+        "https://sendmoneycompare.com/guides/send-money-to-india-guide"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 3
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 8
+        },
+        {
+          "domain": "reddit.com",
+          "position": 10
+        },
+        {
+          "domain": "monito.com",
+          "position": 11
+        },
+        {
+          "domain": "remitly.com",
+          "position": 15
+        },
+        {
+          "domain": "wise.com",
+          "position": 16
+        },
+        {
+          "domain": "finder.com",
+          "position": 18
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "The **cheapest way** to send money from the USA to India is usually a **specialist money-transfer app** that uses a **bank/ACH debit** funding method and a **bank deposit or UPI payout**, rather than a bank wire.[2][13][17] In the comparison results you provided, the lowest-cost option varies by tra"
     },
     {
+      "id": "b02",
+      "query": "best money transfer service for sending to Philippines",
+      "topic": "corridor",
+      "baseline": true,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "worldremit.com",
+          "position": 11
+        },
+        {
+          "domain": "reddit.com",
+          "position": 13
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 16
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **best money transfer service** for sending to the Philippines depends on what you value most: **Wise** is generally the best choice for **large bank transfers** because it uses the real mid-market exchange rate and has transparent fees under 1% in the cited comparisons.[1][5][15] If you need **"
+    },
+    {
+      "id": "b03",
+      "query": "Wise vs Remitly comparison",
+      "topic": "comparison",
+      "baseline": true,
+      "target": "/compare/wise-vs-remitly",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/wise-vs-remitly-comparison",
+        "https://sendmoneycompare.com/compare/wise-vs-remitly"
+      ],
+      "position": 5,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 2
+        },
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "exiap.com",
+          "position": 11
+        },
+        {
+          "domain": "finder.com",
+          "position": 12
+        },
+        {
+          "domain": "remitly.com",
+          "position": 15
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "Wise and Remitly serve different needs: **Wise** is usually better for *lower total cost, transparent pricing, and bank-to-bank transfers*, while **Remitly** is often better for *faster delivery, cash pickup, and sending money home to family*.[4][8][9]\n\n| Factor | Wise | Remitly |\n|---|---|---|\n| **"
+    },
+    {
+      "id": "b04",
+      "query": "cheapest way to send money to Mexico",
+      "topic": "corridor",
+      "baseline": true,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/send-money-to-mexico-guide",
+        "https://sendmoneycompare.com/guides/send-money-usa-to-mexico-cost-guide",
+        "https://sendmoneycompare.com/send-money/usa-to-mexico"
+      ],
+      "position": 3,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 8
+        },
+        {
+          "domain": "reddit.com",
+          "position": 10
+        },
+        {
+          "domain": "finder.com",
+          "position": 14
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 15
+        },
+        {
+          "domain": "remitly.com",
+          "position": 20
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **cheapest way to send money to Mexico** is usually a **digital transfer app** that sends directly to a **Mexican bank account via SPEI/CLABE**, especially **TapTap Send, Wise, or Remitly**, depending on the amount and payment method.[2][4][6]\n\nFor a **$500 bank deposit**, recent comparison data"
+    },
+    {
+      "id": "b05",
       "query": "cheapest international money transfer 2026",
+      "topic": "cost",
+      "baseline": true,
+      "target": "/remittance-cost-index",
       "platform": "perplexity",
-      "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally",
+        "https://sendmoneycompare.com/compare-money-transfer"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "nerdwallet.com",
+          "position": 3
+        },
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "monito.com",
+          "position": 8
+        },
+        {
+          "domain": "finder.com",
+          "position": 12
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **cheapest international money transfer in 2026 depends on the corridor, amount, and whether you’re using a promo**, but the most common low-cost default is **Wise** for many bank-to-bank transfers because it uses the mid-market exchange rate and transparent fees.[1][2][6][15]\n\n- **Best general "
     },
     {
+      "id": "b06",
       "query": "how to send money to Pakistan",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "There are several methods to send money to Pakistan, each with its own advantages. Here are some popular options:\n\n1. **Bank Transfers:** \n   - Use your bank's international wire transfer service. Check with your bank for fees and processing times.\n\n2. **Online Money Transfer Services:**\n   - **PayP"
-    },
-    {
-      "query": "how to send money to Pakistan",
+      "topic": "corridor",
+      "baseline": true,
       "platform": "perplexity",
       "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 12,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "remitly.com",
+          "position": 7
+        },
+        {
+          "domain": "reddit.com",
+          "position": 12
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "You can send money to Pakistan through **money transfer services** like Western Union, Wise, Ria, Xoom, Remitly, MoneyGram, or BOSS Revolution, depending on whether you want **bank deposit, cash pickup, or mobile wallet** delivery.[1][2][3][4][6][7][11]\n\nCommon ways to do it:\n- **Online/app transfer"
     },
     {
+      "id": "b07",
       "query": "best provider for USD to INR transfer",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "\nWhen transferring USD to INR, selecting the right provider can significantly impact the amount your recipient receives. Here are some top options to consider:\n\n\n\n**Wise (formerly TransferWise)**  \nWise offers near mid-market exchange rates with transparent fees, making it ideal for regular bank tra"
-    },
-    {
-      "query": "best provider for USD to INR transfer",
+      "topic": "corridor",
+      "baseline": true,
       "platform": "perplexity",
-      "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/usa-to-india",
+        "https://sendmoneycompare.com/guides/send-money-to-india-from-usa-guide"
+      ],
+      "position": 2,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "finder.com",
+          "position": 11
+        },
+        {
+          "domain": "monito.com",
+          "position": 18
+        },
+        {
+          "domain": "reddit.com",
+          "position": 20
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "For **most USD to INR transfers**, **Wise** is usually the best all-around provider because it uses the *real mid-market rate* and adds a transparent fee, which often makes it the cheapest option for medium and larger transfers.[5][8][12]\n\nIf your priority is different, the best provider can change:"
     },
     {
+      "id": "b08",
       "query": "compare international money transfer fees",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "When comparing international money transfer fees, consider the following popular services: \n\n1. **Wise (formerly TransferWise)**:\n   - **Fees**: Transparent fee structure, typically a small percentage of the transfer amount plus a fixed fee. \n   - **Exchange Rate**: Uses the mid-market rate, which i"
-    },
-    {
-      "query": "compare international money transfer fees",
+      "topic": "cost",
+      "baseline": true,
+      "target": "/remittance-cost-index",
       "platform": "perplexity",
-      "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer"
+      ],
+      "position": 5,
+      "totalCitations": 19,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "monito.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 2
+        },
+        {
+          "domain": "wise.com",
+          "position": 7
+        },
+        {
+          "domain": "xe.com",
+          "position": 12
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 13
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The cheapest **international money transfer** is usually not the provider with the lowest advertised fee; it is the one that gives your recipient the **highest amount after both fees and exchange-rate markup** are included.[5][18] Banks are typically the most expensive because they often combine a f"
     },
     {
+      "id": "b09",
       "query": "is Wise cheaper than bank wire transfer",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "Yes, Wise (formerly known as TransferWise) is generally cheaper than traditional bank wire transfers. Here are a few reasons why:\n\n1. **Lower Fees**: Wise uses a transparent fee structure, usually charging lower fees compared to banks for international transfers.\n\n2. **Real Exchange Rates**: Wise of"
+      "topic": "comparison",
+      "baseline": true,
+      "target": "/guides/bank-vs-app-transfer-cost-2026",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/wire-transfer-guide"
+      ],
+      "position": 8,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "exiap.com",
+          "position": 13
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 15
+        },
+        {
+          "domain": "forbes.com",
+          "position": 18
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "**Usually yes**: for **international transfers**, Wise is typically cheaper than a bank wire transfer because Wise uses the mid-market exchange rate and charges a transparent fee, while banks often add a wire fee plus a hidden FX markup.[2][3][9][14]\n\nA few useful distinctions:\n- For a **domestic wi"
     },
     {
-      "query": "is Wise cheaper than bank wire transfer",
+      "id": "b10",
+      "query": "best app to send money abroad",
+      "topic": "cost",
+      "baseline": true,
+      "target": "/guides/best-money-transfer-apps",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/best-money-transfer-apps",
+        "https://sendmoneycompare.com/"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "finder.com",
+          "position": 5
+        },
+        {
+          "domain": "wise.com",
+          "position": 9
+        },
+        {
+          "domain": "reddit.com",
+          "position": 13
+        },
+        {
+          "domain": "investopedia.com",
+          "position": 16
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "For most people, **Wise** is the best app to send money abroad because it uses the mid-market exchange rate, has transparent fees, and is consistently ranked best overall in recent comparisons.[1][4][10][16]\n\nIf your use case is different, these are the strongest alternatives:\n- **Remitly** if you a"
+    },
+    {
+      "id": "c01",
+      "query": "which money transfer provider is cheapest most often?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/provider-consistency",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer",
+        "https://sendmoneycompare.com/guides/best-money-transfer-apps",
+        "https://sendmoneycompare.com/guides/best-money-transfer-services",
+        "https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally",
+        "https://sendmoneycompare.com/"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "monito.com",
+          "position": 3
+        },
+        {
+          "domain": "moneysavingexpert.com",
+          "position": 12
+        },
+        {
+          "domain": "reddit.com",
+          "position": 13
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 17
+        },
+        {
+          "domain": "finder.com",
+          "position": 18
+        },
+        {
+          "domain": "bankrate.com",
+          "position": 20
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "There is **no single provider that is cheapest most often across all transfers**; the winner changes by **destination, amount, and funding method**.[4][7][12]\n\nIf you want the closest thing to a general answer, **Wise** is the most commonly cited “cheapest overall” option for many personal internati"
+    },
+    {
+      "id": "c02",
+      "query": "is the cheapest money transfer provider the same every day?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/provider-consistency",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer",
+        "https://sendmoneycompare.com/",
+        "https://sendmoneycompare.com/guides/best-money-transfer-services",
+        "https://sendmoneycompare.com/guides/best-money-transfer-apps"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "finder.com",
+          "position": 10
+        },
+        {
+          "domain": "monito.com",
+          "position": 11
+        },
+        {
+          "domain": "moneysavingexpert.com",
+          "position": 12
+        },
+        {
+          "domain": "reddit.com",
+          "position": 14
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 19
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "No. The **cheapest money transfer provider is not the same every day**; it changes with the *route*, the *amount*, and *exchange-rate movements*. Several sources say there is **no single permanently cheapest provider**, and the winner can change overnight even on the same corridor.[4][8][11][12]\n\nWh"
+    },
+    {
+      "id": "c03",
+      "query": "how much does it really cost to send $1000 abroad?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/remittance-cost-index",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/cost-of-sending-1000-abroad"
+      ],
+      "position": 4,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "bankrate.com",
+          "position": 13
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 15
+        },
+        {
+          "domain": "monito.com",
+          "position": 17
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **real cost** of sending **$1,000 abroad** is usually **not just the transfer fee**. It is the **fee plus the exchange-rate markup** (the hidden spread), and that can put the total cost anywhere from **about $6** with the cheapest specialist providers to **about $85** or more with bank wires or "
+    },
+    {
+      "id": "c04",
+      "query": "what is the true cost of an international transfer including exchange rate markup?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/remittance-cost-index",
       "platform": "perplexity",
       "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 10
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **true cost** of an international transfer is the sum of the **visible fee(s)** plus the **exchange rate markup** plus any **intermediary/receiving fees** deducted along the way.[4][11][13] In practice, the markup is often the largest hidden cost because it is built into the exchange rate rather"
     },
     {
-      "query": "best app to send money abroad",
-      "platform": "chatgpt",
-      "cited": false,
-      "responsePreview": "When sending money abroad, several apps are popular for their ease of use, speed, and low fees. Here are some of the best options:\n\n1. **Wise (formerly TransferWise)**:\n   - Great exchange rates and low fees.\n   - Ideal for bank transfers.\n\n2. **PayPal**:\n   - Widely used and trusted.\n   - Fees can "
+      "id": "c05",
+      "query": "do banks charge more than apps for international transfers?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/guides/bank-vs-app-transfer-cost-2026",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/bank-wire-transfer-fees-2026"
+      ],
+      "position": 4,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 7
+        },
+        {
+          "domain": "wise.com",
+          "position": 11
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 13
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Yes—**banks usually charge more** than money transfer apps for international transfers, especially once you include both the wire fee and the exchange-rate markup.[1][2][3]\n\nIn the results you provided, banks are described as charging about **$15–$50** per international wire, plus an additional **1%"
     },
     {
-      "query": "best app to send money abroad",
+      "id": "c06",
+      "query": "how much do I lose to exchange rate markup on a money transfer?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/tools/fx-markup-checker",
       "platform": "perplexity",
       "cited": false,
-      "responsePreview": "",
-      "error": "PERPLEXITY_API_KEY missing"
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 4
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "You typically lose **the markup percentage of the amount sent**. A good rule of thumb is that **each 1% markup costs about $10 per $1,000 transferred**; so **3% costs about $30 per $1,000**, and **5% costs about $50 per $1,000**.[3][5]\n\nTo estimate it for your transfer:\n\n- **Loss in sender’s currenc"
+    },
+    {
+      "id": "c07",
+      "query": "is it cheaper to send $100 or $1000 internationally?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/transfer-cost-by-amount",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "monito.com",
+          "position": 7
+        },
+        {
+          "domain": "bankrate.com",
+          "position": 10
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 11
+        },
+        {
+          "domain": "remitly.com",
+          "position": 14
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Usually, **$1000 is cheaper per dollar sent** than **$100**, because many international transfer providers charge a **fixed fee** plus a percentage or exchange-rate markup, so the cost gets spread over a larger amount.[1][2][9][14]\n\nFor example, banks often charge a flat outgoing international wire "
+    },
+    {
+      "id": "c08",
+      "query": "why do small international transfers cost more proportionally?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/transfer-cost-by-amount",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 9
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 17
+        },
+        {
+          "domain": "remitly.com",
+          "position": 20
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Small international transfers cost more **proportionally** because many of the main costs are **fixed** or have a **minimum charge**, so they are spread over a smaller amount of money. A \\( \\$5 \\) or \\( £5 \\) fee is a tiny share of a large transfer but a big share of a small one[2][11][12].\n\nTwo mec"
+    },
+    {
+      "id": "c09",
+      "query": "is Wise good for small transfers under $200?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/transfer-cost-by-amount",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 19
+        },
+        {
+          "domain": "reddit.com",
+          "position": 20
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Yes—**Wise can be good for transfers under $200**, but it depends on the route and funding method. Wise uses a **small fixed fee plus a percentage fee**, so for small amounts the fixed part can make the transfer look expensive relative to the amount sent.[1][3][17]\n\nA few practical points matter mos"
+    },
+    {
+      "id": "c10",
+      "query": "which money transfer app has no hidden fees?",
+      "topic": "cost",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/best-money-transfer-services",
+        "https://sendmoneycompare.com/guides/best-money-transfer-apps"
+      ],
+      "position": 3,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 14
+        },
+        {
+          "domain": "wise.com",
+          "position": 16
+        },
+        {
+          "domain": "investopedia.com",
+          "position": 17
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "If you mean **no hidden fees for international transfers**, **Wise** is the strongest match because it is repeatedly described as using the real mid-market exchange rate with **transparent pricing** and **no hidden fees** or markups.[1][6][16][18]\n\nOther apps also claim no hidden fees, but they diff"
+    },
+    {
+      "id": "c11",
+      "query": "how much does it cost to wire money internationally from a bank?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/guides/bank-vs-app-transfer-cost-2026",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/bank-wire-transfer-fees-2026"
+      ],
+      "position": 2,
+      "totalCitations": 19,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 5
+        },
+        {
+          "domain": "bankrate.com",
+          "position": 7
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 12
+        },
+        {
+          "domain": "reddit.com",
+          "position": 18
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "An **international wire from a bank usually costs about \\$35–\\$50** in the bank’s transfer fee alone, though some banks charge as little as **\\$5** and others up to about **\\$75** depending on the bank, account type, currency, and whether you send online or in-branch.[1][2][5]\n\nThe **total cost is o"
+    },
+    {
+      "id": "c12",
+      "query": "cheapest way to send a large amount of money overseas",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/guides/best-money-transfer-apps-large-transfers",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally",
+        "https://sendmoneycompare.com/guides/how-to-send-money-abroad"
+      ],
+      "position": 6,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 1
+        },
+        {
+          "domain": "monito.com",
+          "position": 3
+        },
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 7
+        },
+        {
+          "domain": "moneysavingexpert.com",
+          "position": 9
+        },
+        {
+          "domain": "finder.com",
+          "position": 14
+        },
+        {
+          "domain": "forbes.com",
+          "position": 16
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **cheapest way to send a large amount of money overseas** is usually to use a **specialist money transfer service** rather than a bank, and for very large transfers a **currency broker / FX broker** can sometimes beat the major apps on total cost.[3][6][9][11]\n\nWhat’s cheapest depends on the rou"
+    },
+    {
+      "id": "c13",
+      "query": "which is cheaper, Western Union or Wise?",
+      "topic": "cost",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 16,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 6
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 7
+        },
+        {
+          "domain": "reddit.com",
+          "position": 8
+        },
+        {
+          "domain": "finder.com",
+          "position": 9
+        },
+        {
+          "domain": "monito.com",
+          "position": 10
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "For **bank-to-bank transfers**, **Wise is usually cheaper** than Western Union because Wise uses the mid-market exchange rate and a transparent fee, while Western Union typically adds a markup to the exchange rate in addition to transfer fees.[1][2][10][11]\n\n**Western Union can be cheaper in some ca"
+    },
+    {
+      "id": "c14",
+      "query": "how much of my money actually arrives when I send abroad?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/remittance-cost-index",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer"
+      ],
+      "position": 18,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 2
+        },
+        {
+          "domain": "monito.com",
+          "position": 8
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 12
+        },
+        {
+          "domain": "moneytransfercomparison.com",
+          "position": 13
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 17
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Usually, **not all of it** arrives: what your recipient gets depends on the **exchange rate**, the **transfer fee**, and sometimes extra **intermediary/receiving-bank fees**.[4][5][6]\n\nA simple way to think about it is:\n\n- **Amount received ≈ (money you send − sending fees) × exchange rate**, minus "
+    },
+    {
+      "id": "c15",
+      "query": "average cost of sending remittances in 2026",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/remittance-cost-index",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/average-remittance-fees-2026",
+        "https://sendmoneycompare.com/news/world-bank-remittance-costs-q1-2026",
+        "https://sendmoneycompare.com/guides/global-remittance-trends-2026"
+      ],
+      "position": 4,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [],
+      "targetHit": false,
+      "responsePreview": "The **global average cost** of sending remittances in 2026 is about **6.36%** of the amount sent, based on the World Bank’s latest Remittance Prices Worldwide data reported for **Q3 2025** and used as the most recent global benchmark in 2026.[1][7]\n\nA few useful qualifiers:\n\n- The World Bank figure "
+    },
+    {
+      "id": "p01",
+      "query": "Wise vs Remitly which is cheaper for sending to India?",
+      "topic": "comparison",
+      "baseline": false,
+      "target": "/compare/wise-vs-remitly",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "remitly.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "reddit.com",
+          "position": 18
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "For **most transfers to India, Wise is cheaper overall** because it uses the mid-market exchange rate with a transparent fee, while Remitly typically builds more cost into the exchange-rate margin.[3][5][9]\n\nThat said, **Remitly can be cheaper for some larger transfers**, especially because it charg"
+    },
+    {
+      "id": "p02",
+      "query": "Wise vs Remitly vs Xoom vs XE which actually costs less?",
+      "topic": "comparison",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer",
+        "https://sendmoneycompare.com/compare",
+        "https://sendmoneycompare.com/guides/best-money-transfer-apps"
+      ],
+      "position": 5,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "remitly.com",
+          "position": 18
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "**Wise usually costs less overall**, but the cheapest option can change by corridor, amount, funding method, and whether you care about *fee only* or *total delivered amount*. Wise’s main advantage is that it uses the **mid-market exchange rate with no markup**, while Remitly, Xoom, and XE generally"
+    },
+    {
+      "id": "p03",
+      "query": "Remitly vs Xoom for sending to the Philippines",
+      "topic": "comparison",
+      "baseline": false,
+      "target": "/compare/remitly-vs-xoom",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "remitly.com",
+          "position": 2
+        },
+        {
+          "domain": "monito.com",
+          "position": 5
+        },
+        {
+          "domain": "finder.com",
+          "position": 7
+        },
+        {
+          "domain": "moneytransfercomparison.com",
+          "position": 8
+        },
+        {
+          "domain": "wise.com",
+          "position": 9
+        },
+        {
+          "domain": "reddit.com",
+          "position": 10
+        },
+        {
+          "domain": "exiap.com",
+          "position": 11
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "If you’re sending **to the Philippines**, **Remitly is usually the better value** on cost, while **Xoom is usually the better choice for PayPal-linked convenience and very fast delivery**.[1][2][11]\n\n- **Cheaper overall:** Independent comparison results say Remitly is generally cheaper on major corr"
+    },
+    {
+      "id": "p04",
+      "query": "Wise vs XE money transfer, which is better?",
+      "topic": "comparison",
+      "baseline": false,
+      "target": "/compare/wise-vs-xe",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare/wise-vs-xe"
+      ],
+      "position": 2,
+      "totalCitations": 13,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "forbes.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 4
+        },
+        {
+          "domain": "exiap.com",
+          "position": 5
+        },
+        {
+          "domain": "wise.com",
+          "position": 7
+        },
+        {
+          "domain": "monito.com",
+          "position": 10
+        },
+        {
+          "domain": "reddit.com",
+          "position": 12
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "For most people, **Wise is better** because it usually gives the recipient more money thanks to its **mid-market exchange rate** and **transparent upfront fee** structure, while XE typically adds a **markup** into the exchange rate.[1][2][8][10]\n\nThat said, **XE can be better** if you care more abou"
+    },
+    {
+      "id": "p05",
+      "query": "is Revolut or Wise better for international transfers?",
+      "topic": "comparison",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 19,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "forbes.com",
+          "position": 4
+        },
+        {
+          "domain": "reddit.com",
+          "position": 6
+        },
+        {
+          "domain": "finder.com",
+          "position": 7
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "For **international transfers**, **Wise is usually the better choice** because it tends to be more transparent and often cheaper, especially for larger or non-weekend transfers.[1][2][4][12] **Revolut** can be better if you already use it as an all-in-one banking app or if your transfer fits within "
+    },
+    {
+      "id": "p06",
+      "query": "PayPal vs Wise for sending money internationally",
+      "topic": "comparison",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare/wise-vs-paypal"
+      ],
+      "position": 2,
+      "totalCitations": 19,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "exiap.com",
+          "position": 8
+        },
+        {
+          "domain": "finder.com",
+          "position": 11
+        },
+        {
+          "domain": "reddit.com",
+          "position": 18
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "For **sending money internationally**, **Wise is usually cheaper and more transparent than PayPal** because it uses the **mid-market exchange rate** with a separate transfer fee, while PayPal typically adds a **currency conversion markup** on top of its fees.[1][6][14]\n\n- **Cost:** Wise’s fees are g"
+    },
+    {
+      "id": "p07",
+      "query": "MoneyGram vs Western Union which is cheaper?",
+      "topic": "comparison",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "investopedia.com",
+          "position": 1
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 2
+        },
+        {
+          "domain": "finder.com",
+          "position": 9
+        },
+        {
+          "domain": "wise.com",
+          "position": 16
+        },
+        {
+          "domain": "reddit.com",
+          "position": 17
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "**Usually MoneyGram is cheaper, but not always.** The total cost depends on the *route*, *amount*, *payment method*, and *delivery method*, and Western Union can be cheaper in some cases.[1][11]\n\nA few practical takeaways:\n\n- **MoneyGram often has lower overall costs** in side-by-side comparisons, e"
+    },
+    {
+      "id": "p08",
+      "query": "best alternative to Western Union",
+      "topic": "comparison",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "finder.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "remitly.com",
+          "position": 3
+        },
+        {
+          "domain": "monito.com",
+          "position": 6
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 15
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 18
+        },
+        {
+          "domain": "reddit.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **best alternative to Western Union depends on what you need most**: **Wise** is usually the best all-around choice for low fees and transparent exchange rates, while **Remitly** is often better for cash pickup and fast transfers, and **MoneyGram** is a strong option if you specifically need cas"
+    },
+    {
+      "id": "p09",
+      "query": "is Remitly or Wise better for regular monthly transfers?",
+      "topic": "comparison",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/wise-vs-remitly-comparison",
+        "https://sendmoneycompare.com/compare/wise-vs-remitly"
+      ],
+      "position": 12,
+      "totalCitations": 19,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "reddit.com",
+          "position": 9
+        },
+        {
+          "domain": "exiap.com",
+          "position": 16
+        },
+        {
+          "domain": "remitly.com",
+          "position": 17
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "For **regular monthly transfers**, **Wise is usually the better choice** because it tends to be cheaper over time and uses the mid-market exchange rate, which makes recurring costs more predictable.[1][2][6][13]\n\nThe main tradeoff is **speed and payout options**: **Remitly** is often better if you n"
+    },
+    {
+      "id": "p10",
+      "query": "which money transfer service has the best exchange rates?",
+      "topic": "comparison",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer",
+        "https://sendmoneycompare.com/guides/best-money-transfer-services"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "finder.com",
+          "position": 4
+        },
+        {
+          "domain": "monito.com",
+          "position": 5
+        },
+        {
+          "domain": "xe.com",
+          "position": 12
+        },
+        {
+          "domain": "moneysavingexpert.com",
+          "position": 14
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 17
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "**Wise** is the strongest overall answer if you mean the **best exchange rate** for most personal transfers, because it typically uses the **mid-market rate** with no hidden FX markup.[1][9][15][17][18]\n\nA few important caveats:\n\n- If you want the **absolute cheapest total cost**, the winner can cha"
+    },
+    {
+      "id": "r01",
+      "query": "best way to send money from USA to India in 2026",
+      "topic": "corridor",
+      "baseline": false,
+      "target": "/send-money/usa-to-india",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/usa-to-india"
+      ],
+      "position": 12,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 7
+        },
+        {
+          "domain": "remitly.com",
+          "position": 18
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 19
+        },
+        {
+          "domain": "reddit.com",
+          "position": 20
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "For most people, the **best way** to send money from the USA to India in 2026 is to use a **specialist money transfer service** funded by **ACH/bank transfer**, with **Wise** usually the best all-around choice and **TapTap Send / Remitly / Instarem** often competitive depending on the amount and cur"
+    },
+    {
+      "id": "r02",
+      "query": "cheapest way to send money from UK to Nigeria",
+      "topic": "corridor",
+      "baseline": false,
+      "target": "/guides/best-apps-send-money-uk-to-nigeria-2026",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/send-money-uk-to-nigeria-guide"
+      ],
+      "position": 6,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 8
+        },
+        {
+          "domain": "forbes.com",
+          "position": 12
+        },
+        {
+          "domain": "remitly.com",
+          "position": 14
+        },
+        {
+          "domain": "monito.com",
+          "position": 18
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **cheapest way to send money from the UK to Nigeria is usually a bank transfer using a low-cost money transfer service**, rather than a high-street bank or cash pickup.[8][11][12] In the current comparisons you shared, **Wise, Ria, Remitly, Sendwave, TransferGo, and LemFi** all appear among the "
+    },
+    {
+      "id": "r03",
+      "query": "how to send money from USA to Mexico cheaply",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/usa-to-mexico",
+        "https://sendmoneycompare.com/guides/send-money-to-mexico-guide",
+        "https://sendmoneycompare.com/guides/send-money-usa-to-mexico-cost-guide"
+      ],
+      "position": 3,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "finder.com",
+          "position": 10
+        },
+        {
+          "domain": "reddit.com",
+          "position": 12
+        },
+        {
+          "domain": "remitly.com",
+          "position": 15
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 17
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **cheapest way** to send money from the USA to Mexico is usually a **digital money transfer app** that pays out to a **Mexican bank account via SPEI/CLABE**, rather than a bank wire or cash pickup.[1][6] In recent corridor checks, **TapTap Send** was often the lowest-cost option, with **Wise**, "
+    },
+    {
+      "id": "r04",
+      "query": "best app to send money from UK to India",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "reddit.com",
+          "position": 6
+        },
+        {
+          "domain": "remitly.com",
+          "position": 12
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "For most people sending money from the **UK to India**, **Wise** is the best all-around app because it is consistently recommended for regular transfers and is described as transparent, reliable, and competitive on price.[1][5] If your main goal is the **lowest fee** or very cheap transfers, **Aspor"
+    },
+    {
+      "id": "r05",
+      "query": "cheapest way to send money from USA to Philippines",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/send-money-to-philippines-guide"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 2
+        },
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "finder.com",
+          "position": 10
+        },
+        {
+          "domain": "reddit.com",
+          "position": 11
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **cheapest way** to send money from the USA to the Philippines depends on the **transfer amount**, **funding method**, and **delivery method**. For most *small to medium* bank-to-bank transfers, **Wise** is usually the lowest-cost “traditional” option because it uses the **mid-market exchange ra"
+    },
+    {
+      "id": "r06",
+      "query": "how to send money from UAE to India",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/send-money-uae-to-india-guide",
+        "https://sendmoneycompare.com/send-money/uae-to-india"
+      ],
+      "position": 4,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "remitly.com",
+          "position": 2
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 5
+        },
+        {
+          "domain": "wise.com",
+          "position": 7
+        },
+        {
+          "domain": "reddit.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "You can send money from the **UAE to India** through a **bank wire transfer**, an **exchange house**, or a **digital remittance app**; the fastest and most common options are usually apps or exchange houses that support **bank deposit** or **UPI** in India.[1][2][4][5]\n\n- **Bank transfer (SWIFT/wire"
+    },
+    {
+      "id": "r07",
+      "query": "best way to send money from Canada to India",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/send-money-canada-to-india-guide",
+        "https://sendmoneycompare.com/send-money/canada-to-india"
+      ],
+      "position": 2,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 1
+        },
+        {
+          "domain": "reddit.com",
+          "position": 3
+        },
+        {
+          "domain": "remitly.com",
+          "position": 6
+        },
+        {
+          "domain": "wise.com",
+          "position": 10
+        },
+        {
+          "domain": "finder.com",
+          "position": 12
+        },
+        {
+          "domain": "worldremit.com",
+          "position": 17
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **best way** to send money from Canada to India for most people is usually an online money transfer service like **Wise** or **Remitly**, because they tend to beat banks on both fees and exchange rate markup.[2][8][13]\n\n- **Best overall value:** **Wise** is often cited as the cheapest or one of "
+    },
+    {
+      "id": "r08",
+      "query": "cheapest way to send money from Australia to Philippines",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 4
+        },
+        {
+          "domain": "finder.com",
+          "position": 9
+        },
+        {
+          "domain": "reddit.com",
+          "position": 13
+        },
+        {
+          "domain": "remitly.com",
+          "position": 16
+        },
+        {
+          "domain": "worldremit.com",
+          "position": 17
+        },
+        {
+          "domain": "xe.com",
+          "position": 18
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **cheapest way** to send money from Australia to the Philippines is usually a **specialist money-transfer service** using a **bank transfer/PayID/Osko** funding method, rather than a bank or card payment.[1][7][9]\n\nWhat counts as “cheapest” depends on the transfer amount and payout method, but t"
+    },
+    {
+      "id": "r09",
+      "query": "how to send money from Saudi Arabia to Pakistan",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 6
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 13
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "You can send money from Saudi Arabia to Pakistan through **bank transfers**, **mobile wallets/apps**, or **cash-pickup services** such as Western Union, MoneyGram, and Al Rajhi/Tahweel-style remittance services.[1][4][15]\n\nThe best option depends on the recipient’s setup:\n\n- **To a Pakistani bank ac"
+    },
+    {
+      "id": "r10",
+      "query": "best way to send money from Singapore to India",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/singapore-to-india"
+      ],
+      "position": 10,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 2
+        },
+        {
+          "domain": "wise.com",
+          "position": 7
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        },
+        {
+          "domain": "remitly.com",
+          "position": 16
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **best way** to send money from Singapore to India is usually a **specialist remittance service or digital transfer app** that gives a **transparent exchange rate, low fees, and fast delivery**—for many users, that is **Wise**, while **Revolut** and some bank-linked remittance services can also "
+    },
+    {
+      "id": "r11",
+      "query": "cheapest way to send money from USA to Nigeria",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/send-money-to-nigeria-guide",
+        "https://sendmoneycompare.com/send-money/send-money-to-nigeria"
+      ],
+      "position": 7,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 2
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 9
+        },
+        {
+          "domain": "monito.com",
+          "position": 12
+        },
+        {
+          "domain": "remitly.com",
+          "position": 13
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        },
+        {
+          "domain": "worldremit.com",
+          "position": 16
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **cheapest way** to send money from the USA to Nigeria is usually to use a **specialized money transfer app** with a **bank transfer or ACH funding method**, because those options tend to have the lowest total cost and the best exchange rates.[1][2][6] Among the providers in your results, **Wise"
+    },
+    {
+      "id": "r12",
+      "query": "how to send money from UK to Poland",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/send-money-to-poland-guide",
+        "https://sendmoneycompare.com/send-money/uk-to-poland"
+      ],
+      "position": 7,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "finder.com",
+          "position": 4
+        },
+        {
+          "domain": "remitly.com",
+          "position": 8
+        },
+        {
+          "domain": "reddit.com",
+          "position": 9
+        },
+        {
+          "domain": "xe.com",
+          "position": 12
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The easiest way to send money from the UK to Poland is usually through a **money transfer service** such as Wise, Revolut, Remitly, Western Union, MoneyGram, Xe, OFX, Moneycorp, or TransferGo, depending on whether you want a **bank transfer**, **card payment**, or **cash pickup**.[1][2][3][5][8][12]"
+    },
+    {
+      "id": "r13",
+      "query": "best way to send money from Germany to Turkey",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/germany-to-turkey"
+      ],
+      "position": 12,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "remitly.com",
+          "position": 1
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 2
+        },
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "xe.com",
+          "position": 15
+        },
+        {
+          "domain": "monito.com",
+          "position": 17
+        },
+        {
+          "domain": "finder.com",
+          "position": 18
+        },
+        {
+          "domain": "reddit.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **best way** to send money from Germany to Turkey depends on what matters most: **lowest total cost**, **speed**, or **cash pickup/card delivery**. For most people sending to a **bank account**, **Wise** is often the cheapest transparent option, while **Paysend** can be very competitive for card"
+    },
+    {
+      "id": "r14",
+      "query": "cheapest way to send money from USA to Vietnam",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/usa-to-vietnam"
+      ],
+      "position": 8,
+      "totalCitations": 19,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "finder.com",
+          "position": 4
+        },
+        {
+          "domain": "reddit.com",
+          "position": 10
+        },
+        {
+          "domain": "remitly.com",
+          "position": 14
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **cheapest way** to send money from the USA to Vietnam depends on the amount and payout method, but for **bank-to-bank transfers** the lowest-cost options in the results are usually **Wise**, **Instarem**, or **TapTap Send**. Wise is explicitly listed as the cheapest in one comparison for certai"
+    },
+    {
+      "id": "r15",
+      "query": "how to send money to Bangladesh from USA",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/send-money/usa-to-bangladesh"
+      ],
+      "position": 11,
+      "totalCitations": 17,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "remitly.com",
+          "position": 1
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 3
+        },
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "finder.com",
+          "position": 8
+        },
+        {
+          "domain": "xe.com",
+          "position": 17
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "To send money to **Bangladesh from the USA**, you typically use a licensed money transfer service such as **Wise, Western Union, Remitly, MoneyGram, or Xe** and choose a delivery method like **bank deposit, mobile wallet, or cash pickup**.[1][3][5][7][17]\n\nThe usual process is:\n\n- **Create an accoun"
+    },
+    {
+      "id": "s01",
+      "query": "what happens if I send money to the wrong person?",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 17,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 12
+        },
+        {
+          "domain": "wise.com",
+          "position": 14
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "If you send money to the wrong person, the outcome depends on **whether the payment is still pending or already completed**. Pending or unclaimed payments may sometimes be canceled, but once a transfer is completed, you usually have to ask the recipient to return it or contact your bank/payment prov"
+    },
+    {
+      "id": "s02",
+      "query": "can I get my money back after a wrong international transfer?",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 5
+        },
+        {
+          "domain": "xe.com",
+          "position": 6
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 8
+        },
+        {
+          "domain": "wise.com",
+          "position": 16
+        },
+        {
+          "domain": "remitly.com",
+          "position": 20
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "Yes—**sometimes**, but with an international transfer the money is often hard to recover once it has been received or withdrawn.[2][15][18]\n\nWhat usually matters most is **how fast you act** and **what kind of transfer it was**.[2][4][7]\n\n- **Contact your bank or transfer provider immediately** and "
+    },
+    {
+      "id": "s03",
+      "query": "is Wise safe to use for large amounts?",
+      "topic": "safety",
+      "baseline": false,
+      "target": "/companies/wise",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "reddit.com",
+          "position": 3
+        },
+        {
+          "domain": "forbes.com",
+          "position": 15
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "**Yes, Wise is generally safe for large amounts**, because it is regulated and customer funds are safeguarded in separate accounts or high-quality liquid assets rather than being lent out.[2][15][16] However, **it is not a bank**, so it does **not** provide FSCS-style deposit protection for the mone"
+    },
+    {
+      "id": "s04",
+      "query": "are money transfer apps safe?",
+      "topic": "safety",
+      "baseline": false,
+      "target": "/guides/money-transfer-safety-guide",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/money-transfer-safety-guide"
+      ],
+      "position": 12,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 17
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "Yes—**money transfer apps are generally safe to use**, but they are **not risk-free** and are especially vulnerable to scams and mistaken payments.[1][2][6]\n\nA few important caveats:\n\n- **Authorized transfers are usually secure**, and many apps use encryption, multi-factor authentication, and other "
+    },
+    {
+      "id": "s05",
+      "query": "how do I know if a money transfer service is legitimate?",
+      "topic": "safety",
+      "baseline": false,
+      "target": "/guides/money-transfer-safety-guide",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/money-transfer-safety-guide"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "xe.com",
+          "position": 10
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "A money transfer service is **more likely legitimate** if it is **registered or authorized by the relevant regulator**, shows **clear fees and exchange rates upfront**, uses a **secure website/app**, and has **verifiable contact details plus consistent independent reviews**.[1][2][3]\n\nHere’s a pract"
+    },
+    {
+      "id": "s06",
+      "query": "what should I do if my international transfer is delayed?",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 17,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 11
+        },
+        {
+          "domain": "reddit.com",
+          "position": 12
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "If your **international transfer is delayed**, first check whether it is still within the normal processing window, especially if you sent it near a weekend, holiday, or bank cut-off time.[1][4][10][15] If it is overdue, contact your bank or transfer provider right away and ask for the transfer’s **"
+    },
+    {
+      "id": "s07",
+      "query": "is my money protected if a transfer company goes bust?",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [],
+      "targetHit": null,
+      "responsePreview": "Usually, **no**—if you are just an ordinary customer of a transfer company and it goes into bankruptcy, your money may become an **unsecured claim** in the insolvency process rather than being automatically protected or returned in full. In some structures, though, customers may have a **proprietary"
+    },
+    {
+      "id": "s08",
+      "query": "common international money transfer scams to avoid",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 5
+        },
+        {
+          "domain": "remitly.com",
+          "position": 10
+        },
+        {
+          "domain": "wise.com",
+          "position": 11
+        },
+        {
+          "domain": "finder.com",
+          "position": 14
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 16
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "Common **international money transfer scams** usually fall into a few repeat patterns: **impersonation/emergency requests, fake transfer websites or apps, phishing, romance scams, investment scams, and overpayment/refund scams**.[1][2][13][15]\n\nThe main ones to watch for are:\n\n- **Phishing scams**: "
+    },
+    {
+      "id": "s09",
+      "query": "is Remitly legit and safe?",
+      "topic": "safety",
+      "baseline": false,
+      "target": "/companies/remitly",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 1
+        },
+        {
+          "domain": "remitly.com",
+          "position": 2
+        },
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "forbes.com",
+          "position": 5
+        },
+        {
+          "domain": "exiap.com",
+          "position": 11
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "**Yes—Remitly is generally legit and safe to use** for sending money to people you know, especially when you use the official app or website.[2][3][4]\n\nWhat the sources support:\n- Remitly is a **licensed and regulated** money transfer company, including authorization by the **FCA in the UK** and reg"
+    },
+    {
+      "id": "s10",
+      "query": "which money transfer companies are regulated by the FCA?",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 16
+        },
+        {
+          "domain": "moneysavingexpert.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "In the UK, **money transfer companies that offer payment services must be authorised or registered by the FCA**; the FCA says non-bank payment service providers such as **authorised payment institutions (APIs)** and **electronic money institutions (EMIs)** must be authorised or registered with it.[1"
+    },
+    {
+      "id": "d01",
+      "query": "fastest way to send money internationally",
+      "topic": "speed",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/fastest-way-to-send-money-internationally",
+        "https://sendmoneycompare.com/guides/how-to-send-money-abroad"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "finder.com",
+          "position": 3
+        },
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 5
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 7
+        },
+        {
+          "domain": "reddit.com",
+          "position": 12
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **fastest way to send money internationally** is usually a **specialist money transfer app** with an **instant/express option**, funded by **debit card** or sometimes bank transfer, rather than a traditional bank wire.[1][3][7]\n\nFor many routes, the quickest providers are **Wise**, **Remitly Exp"
+    },
+    {
+      "id": "d02",
+      "query": "which money transfer app is instant?",
+      "topic": "speed",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/fastest-way-to-send-money-internationally",
+        "https://sendmoneycompare.com/"
+      ],
+      "position": 7,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "investopedia.com",
+          "position": 14
+        },
+        {
+          "domain": "reddit.com",
+          "position": 16
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "If you mean **the fastest money transfer app overall**, **Wise**, **Zelle**, **Cash App**, **Venmo**, and **PayPal** all offer **instant or near-instant transfers** in some cases, but the best choice depends on whether you’re sending **domestically or internationally**.[2][4][14][15][20]\n\n- **Zelle*"
+    },
+    {
+      "id": "d03",
+      "query": "how long does an international bank transfer take?",
+      "topic": "speed",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 16,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 7
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 8
+        },
+        {
+          "domain": "reddit.com",
+          "position": 16
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "An **international bank transfer** usually takes **1–5 business days** to arrive, though many transfers land in **1–3 business days** and some can complete within **about 24 hours**. [1][2][6][14]\n\nWhat affects the timing most:\n\n- **Destination country and banking system**: transfers to major financ"
+    },
+    {
+      "id": "d04",
+      "query": "fastest way to send money to India",
+      "topic": "speed",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 5
+        },
+        {
+          "domain": "reddit.com",
+          "position": 10
+        },
+        {
+          "domain": "finder.com",
+          "position": 11
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 15
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **fastest way to send money to India** is usually an **instant transfer service** such as **Wise, Remitly Express, Xoom, Western Union, or Ria**, depending on how you fund it and how the recipient gets the money.[3][7][11][13]\n\nIf you need the money to arrive **in minutes**, the fastest options "
+    },
+    {
+      "id": "d05",
+      "query": "why is my international transfer taking so long?",
+      "topic": "speed",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 10,
+      "mentionedUnlinked": false,
+      "competitors": [],
+      "targetHit": null,
+      "responsePreview": "Your international transfer is usually taking a long time because cross-border payments often pass through **multiple banks**, may need **currency conversion**, and can be held for **compliance or fraud checks** before being released.[1][3][6]\n\nThe most common causes are:\n\n- **Incorrect or incomplet"
+    },
+    {
+      "id": "d06",
+      "query": "can I send money abroad same day?",
+      "topic": "speed",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "nerdwallet.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "moneysavingexpert.com",
+          "position": 8
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 9
+        },
+        {
+          "domain": "reddit.com",
+          "position": 13
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "Yes — **same-day international money transfer is possible** in many cases, but it depends on the provider, destination country, payout method, and how you pay.[1][2][4]\n\nThe fastest options are usually **specialist money transfer services** rather than standard bank wires.[1][2][12] Commonly, **debi"
+    },
+    {
+      "id": "l01",
+      "query": "how much money can I send abroad without paying tax?",
+      "topic": "rules",
+      "baseline": false,
+      "target": "/tools/us-remittance-tax",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 8
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "In the **U.S.**, there is generally **no fixed legal cap** on how much money you can send abroad, and sending your own money overseas is usually **not taxed as income**.[1][3][14] What matters instead is **how the transfer is funded**, whether it is a **gift**, and whether it triggers **reporting** "
+    },
+    {
+      "id": "l02",
+      "query": "what is the US remittance tax in 2026?",
+      "topic": "rules",
+      "baseline": false,
+      "target": "/tools/us-remittance-tax",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 16,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 5
+        },
+        {
+          "domain": "reddit.com",
+          "position": 16
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **U.S. remittance tax in 2026 is 1%** for certain outbound money transfers from the United States to foreign countries.[1][2]\n\nIt generally applies when the sender uses **cash, a money order, a cashier’s check, or another similar physical instrument** to fund the transfer.[1][3] The IRS says the"
+    },
+    {
+      "id": "l03",
+      "query": "money transfer limits by provider",
+      "topic": "rules",
+      "baseline": false,
+      "target": "/guides/money-transfer-limits-by-provider-country",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/money-transfer-limits-by-provider-country"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "worldremit.com",
+          "position": 4
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 5
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 6
+        },
+        {
+          "domain": "remitly.com",
+          "position": 8
+        },
+        {
+          "domain": "bankrate.com",
+          "position": 19
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "Transfer limits vary a lot by **provider**, **payment method**, and whether your account is **verified**. In the results you provided, some providers allow only a few thousand dollars for new or unverified users, while others allow **six- or seven-figure** transfers for fully verified customers.[1]["
+    },
+    {
+      "id": "l04",
+      "query": "do I need to declare money I send to family abroad?",
+      "topic": "rules",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "worldremit.com",
+          "position": 10
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 15
+        },
+        {
+          "domain": "reddit.com",
+          "position": 19
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "In most cases, **no**—sending money to family abroad is **not income-taxable** by itself, but you may have to **report it** depending on how much you send and whether it counts as a **gift**.[4][8][20]\n\n- If it is a **personal remittance** from your own after-tax money, the transfer itself is genera"
+    },
+    {
+      "id": "l05",
+      "query": "what documents do I need to send money internationally?",
+      "topic": "rules",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 16,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 6
+        },
+        {
+          "domain": "wise.com",
+          "position": 14
+        },
+        {
+          "domain": "remitly.com",
+          "position": 16
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "For a **typical international money transfer**, you usually need **government-issued photo ID**, **proof of address**, and the **recipient’s bank details**.[2][3][16]\n\nMost providers ask for:\n\n- **Your ID**: passport, national ID card, or driver’s license.[1][2][6]\n- **Proof of address**: recent uti"
+    },
+    {
+      "id": "l06",
+      "query": "how much money can I send to India per year?",
+      "topic": "rules",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 16,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 10
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 11
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The answer depends on **where you live and your tax residency**. For a **resident Indian sending money abroad** under the RBI’s Liberalised Remittance Scheme, the limit is **USD 250,000 per financial year**.[3] For an **NRI or someone sending money from abroad to India**, there is generally **no sta"
+    },
+    {
+      "id": "l07",
+      "query": "what is an IBAN and do I need one?",
+      "topic": "rules",
+      "baseline": false,
+      "target": "/iban",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 15,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "investopedia.com",
+          "position": 7
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 12
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "An **IBAN** is an **International Bank Account Number** used to identify a specific bank account for **cross-border payments** and help banks process transfers more accurately and quickly.[1][2][15]\n\nWhether you **need one** depends on where you bank and what you’re doing:\n\n- If you’re sending or re"
+    },
+    {
+      "id": "l08",
+      "query": "what is a SWIFT code used for?",
+      "topic": "rules",
+      "baseline": false,
+      "target": "/swift-codes",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 6,
+      "mentionedUnlinked": false,
+      "competitors": [],
+      "targetHit": false,
+      "responsePreview": "A **SWIFT code** is used to **identify a bank in international money transfers** so banks know where to send the payment instructions.[1][2][3]\n\nIn practice, it helps route **cross-border wire transfers** securely and accurately between banks; it does **not** move the money itself.[1][2] It is also "
+    },
+    {
+      "id": "l09",
+      "query": "why does my bank need a SWIFT code for an international transfer?",
+      "topic": "rules",
+      "baseline": false,
+      "target": "/swift-codes",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 8,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "xe.com",
+          "position": 6
+        },
+        {
+          "domain": "reddit.com",
+          "position": 7
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Your bank needs a **SWIFT code** because it acts like an **international bank address**: it identifies the right bank, country, and sometimes branch so the transfer can be routed correctly across borders.[1][2][6]\n\nIn practice, the SWIFT code helps banks **send the payment message to the correct ins"
+    },
+    {
+      "id": "f01",
+      "query": "best app to receive international payments as a freelancer",
+      "topic": "business",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 10
+        },
+        {
+          "domain": "remitly.com",
+          "position": 13
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **best app** depends on how you get paid, but for most freelancers receiving international payments, **Wise** is usually the strongest all-around choice because it is repeatedly recommended for low fees, transparent pricing, and strong exchange rates.[1][3][5][8][16]\n\nIf you want a quick shortli"
+    },
+    {
+      "id": "f02",
+      "query": "how do freelancers get paid from overseas clients?",
+      "topic": "business",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 10
+        },
+        {
+          "domain": "reddit.com",
+          "position": 12
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "Freelancers usually get paid by overseas clients through **bank wire transfers (SWIFT)**, **payment platforms** like **Wise, Payoneer, PayPal, or Stripe**, or through **freelance marketplaces** such as Upwork or Fiverr that process the payment for them.[1][2][9][18]\n\nThe best method depends on speed"
+    },
+    {
+      "id": "f03",
+      "query": "cheapest way to pay international contractors",
+      "topic": "business",
+      "baseline": false,
+      "target": "/guides/how-to-pay-international-freelancers-contractors",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "reddit.com",
+          "position": 9
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **cheapest way** to pay international contractors depends on whether you care only about the transfer fee or the *total* cost including FX markup, compliance, and admin. For **simple money movement**, **Wise** is repeatedly cited as one of the cheapest mainstream options because it uses near mid"
+    },
+    {
+      "id": "f04",
+      "query": "best business account for international payments",
+      "topic": "business",
+      "baseline": false,
+      "target": "/business",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 2
+        },
+        {
+          "domain": "forbes.com",
+          "position": 10
+        },
+        {
+          "domain": "reddit.com",
+          "position": 11
+        },
+        {
+          "domain": "xe.com",
+          "position": 18
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **best business account for international payments** is usually **Wise Business** if you want the strongest mix of low FX cost, multi-currency support, and local account details in many currencies.[2][16][17] If your priority is a more full-featured cross-border payments platform, **Airwallex** "
+    },
+    {
+      "id": "f05",
+      "query": "how to invoice a client in another currency",
+      "topic": "business",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/es/guides/invoicing-international-clients-multiple-currencies"
+      ],
+      "position": 9,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 10
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "To invoice a client in another currency, **agree the currency in advance**, issue the invoice in that currency with the **ISO code** (for example, USD, EUR, GBP), and clearly show the **exchange rate** and date if you also need a home-currency equivalent for bookkeeping or tax purposes.[3][7][16][19"
+    },
+    {
+      "id": "f06",
+      "query": "best way for a small business to make international payments",
+      "topic": "business",
+      "baseline": false,
+      "target": "/business",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/business-international-payments-guide",
+        "https://sendmoneycompare.com/guides/business-money-transfers-provider-review"
+      ],
+      "position": 2,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "finder.com",
+          "position": 7
+        },
+        {
+          "domain": "reddit.com",
+          "position": 9
+        }
+      ],
+      "targetHit": true,
+      "responsePreview": "For most small businesses, the **best way** to make international payments is usually a **digital cross-border payment platform or multi-currency business account** rather than a traditional bank wire, because these services are typically cheaper, faster, and easier to manage for regular payments.[1"
+    },
+    {
+      "id": "f07",
+      "query": "how do I avoid fees when getting paid in a foreign currency?",
+      "topic": "business",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 15,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 1
+        },
+        {
+          "domain": "forbes.com",
+          "position": 13
+        },
+        {
+          "domain": "wise.com",
+          "position": 14
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "To **avoid fees when getting paid in a foreign currency**, the best options are to use a **multi-currency account**, a **payment provider that lets you hold and receive the foreign currency**, or a **bank account with low/zero incoming FX and conversion fees**.[11][15] If you’re being paid by card o"
+    },
+    {
+      "id": "t01",
+      "query": "is today a good day to send money abroad?",
+      "topic": "timing",
+      "baseline": false,
+      "target": "/sendscore",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 13,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "worldremit.com",
+          "position": 1
+        },
+        {
+          "domain": "bankrate.com",
+          "position": 5
+        },
+        {
+          "domain": "remitly.com",
+          "position": 11
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "**Probably yes, if you can choose the timing.** For international transfers, **weekends are usually the worst**, while **mid-week weekdays—especially Tuesday through Thursday—tend to offer better exchange rates, tighter spreads, and faster processing**.[2][3][4][11][12]\n\nSince **today is Monday**, i"
+    },
+    {
+      "id": "t02",
+      "query": "what is the best day of the week to send money internationally?",
+      "topic": "timing",
+      "baseline": false,
+      "target": "/guides/best-day-to-send-money-abroad",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 11,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "worldremit.com",
+          "position": 2
+        },
+        {
+          "domain": "bankrate.com",
+          "position": 7
+        },
+        {
+          "domain": "remitly.com",
+          "position": 11
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "The **best day is usually Tuesday, Wednesday, or Thursday**, with **Tuesday through Thursday** being the most common recommendation for better exchange rates and tighter spreads.[1][3][4][8]\n\nA few caveats matter:\n\n- **Avoid weekends** if possible, because forex markets are closed and transfers can "
+    },
+    {
+      "id": "t03",
+      "query": "are exchange rates better on weekdays or weekends?",
+      "topic": "timing",
+      "baseline": false,
+      "target": "/guides/best-day-to-send-money-abroad",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 17,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 9
+        },
+        {
+          "domain": "wise.com",
+          "position": 14
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "**Usually weekdays are better than weekends** for exchanging currency, because many providers add a weekend markup or wider spread when markets are closed or less liquid.[1][3][8][12]\n\nWhat matters most is that there is **no single guaranteed “best” weekday**; rates move continuously on live markets"
+    },
+    {
+      "id": "t04",
+      "query": "should I wait for a better exchange rate before sending money?",
+      "topic": "timing",
+      "baseline": false,
+      "target": "/sendscore",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 15,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "bankrate.com",
+          "position": 5
+        },
+        {
+          "domain": "worldremit.com",
+          "position": 7
+        },
+        {
+          "domain": "xe.com",
+          "position": 10
+        },
+        {
+          "domain": "remitly.com",
+          "position": 14
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Usually **yes, if you’re not under a deadline**: waiting a short time can sometimes get you a better exchange rate, especially **mid-week** and during more active market hours. But there is **no guaranteed “best” time**, and if the transfer is urgent, the current rate is often good enough to send no"
+    },
+    {
+      "id": "t05",
+      "query": "how do I track exchange rates before making a transfer?",
+      "topic": "timing",
+      "baseline": false,
+      "target": "/exchange-rates",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "xe.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 5
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 9
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "To track exchange rates before making a transfer, use a **live rate tracker** or **rate alert** tool so you can watch the market and get notified when your target rate appears.[2][5][6]\n\nA practical approach is:\n\n- **Check live exchange rates** in a currency converter or chart tool, such as Xe, Wise"
+    },
+    {
+      "id": "t06",
+      "query": "what time of day are exchange rates best?",
+      "topic": "timing",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 15,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "xe.com",
+          "position": 9
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 14
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "There is **no single best time of day** for exchange rates, because rates move constantly and are influenced by market news, liquidity, and the currency pair you’re converting[9][14]. If you want the *best odds* of a better rate, the most commonly recommended window is **during the London–New York o"
+    },
+    {
+      "id": "t07",
+      "query": "GBP to USD forecast 2026",
+      "topic": "timing",
+      "baseline": false,
+      "target": "/guides/gbp-forecast-2026",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [],
+      "targetHit": false,
+      "responsePreview": "Most forecasts for **GBP/USD in 2026** cluster around **1.33–1.40**, with a common year-end target in the **mid-1.30s**. The most frequently cited near-term forecast from the supplied results is around **1.34–1.37**, though some banks see upside toward **1.40+** and a few see it closer to **1.27–1.3"
+    },
+    {
+      "id": "x01",
+      "query": "how much cheaper are money transfer apps than banks?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/guides/bank-vs-app-transfer-cost-2026",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/bank-vs-app-vs-agent-cost-comparison",
+        "https://sendmoneycompare.com/guides/best-money-transfer-apps"
+      ],
+      "position": 3,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "bankrate.com",
+          "position": 7
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 13
+        },
+        {
+          "domain": "wise.com",
+          "position": 17
+        },
+        {
+          "domain": "reddit.com",
+          "position": 18
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Money transfer apps are usually **much cheaper** than banks for sending money, especially internationally. In the results provided, banks commonly cost about **$25–$65** to send **$300** abroad, while money transfer apps are about **$3–$13** for the same transfer.[1]\n\nFor a more apples-to-apples com"
+    },
+    {
+      "id": "x02",
+      "query": "does the amount I send change which provider is cheapest?",
+      "topic": "cost",
+      "baseline": false,
+      "target": "/transfer-cost-by-amount",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer",
+        "https://sendmoneycompare.com/guides/best-money-transfer-services",
+        "https://sendmoneycompare.com/guides/cheapest-way-to-send-money-internationally",
+        "https://sendmoneycompare.com/"
+      ],
+      "position": 1,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 4
+        },
+        {
+          "domain": "monito.com",
+          "position": 9
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 17
+        },
+        {
+          "domain": "reddit.com",
+          "position": 20
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Yes — **the amount you send can change which provider is cheapest**.[2][8][10]\n\nThat happens because providers use different pricing models, especially **fixed fees vs. percentage-based fees** and different exchange-rate markups; as the send amount rises, the cheapest option can switch even on the s"
+    },
+    {
+      "id": "x03",
+      "query": "which international money transfer service is best overall in 2026?",
+      "topic": "comparison",
+      "baseline": false,
+      "target": "/compare",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/best-money-transfer-services"
+      ],
+      "position": 9,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "nerdwallet.com",
+          "position": 5
+        },
+        {
+          "domain": "wise.com",
+          "position": 14
+        },
+        {
+          "domain": "finder.com",
+          "position": 16
+        },
+        {
+          "domain": "reddit.com",
+          "position": 20
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "**Wise** is the best **overall** international money transfer service in 2026 for most people, because multiple 2026 roundups cite it as the top choice for transparent fees, mid-market exchange rates, and strong all-around value.[3][4][10][12]\n\nThat said, the “best overall” answer depends on what ma"
+    },
+    {
+      "id": "x04",
+      "query": "how do money transfer comparison sites make money?",
+      "topic": "comparison",
+      "baseline": false,
+      "target": "/editorial-policy",
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare-money-transfer",
+        "https://sendmoneycompare.com/"
+      ],
+      "position": 13,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "monito.com",
+          "position": 2
+        },
+        {
+          "domain": "wise.com",
+          "position": 6
+        },
+        {
+          "domain": "exiap.com",
+          "position": 7
+        },
+        {
+          "domain": "moneytransfercomparison.com",
+          "position": 8
+        },
+        {
+          "domain": "finder.com",
+          "position": 10
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Money transfer comparison sites usually make money through **affiliate/referral commissions** from providers, **advertising**, and sometimes **paid placements or lead-generation deals**.[1][7][15][17] In many cases, the user pays the **same transfer price** as they would going direct, while the comp"
+    },
+    {
+      "id": "x05",
+      "query": "how long does Wise take to transfer money?",
+      "topic": "speed",
+      "baseline": false,
+      "target": "/companies/wise",
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 1
+        },
+        {
+          "domain": "reddit.com",
+          "position": 6
+        },
+        {
+          "domain": "exiap.com",
+          "position": 12
+        }
+      ],
+      "targetHit": false,
+      "responsePreview": "Wise transfers can be **instant**, but the typical time depends on the payment method, currency, and destination. Wise says many transfers arrive in **seconds**, while others can take **a few hours to a few business days**[5][9][15].\n\nHere’s the usual range:\n\n- **Card payments:** usually instant[2]\n"
+    },
+    {
+      "id": "x06",
+      "query": "which is faster, Remitly or Western Union?",
+      "topic": "speed",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/compare/remitly-vs-western-union"
+      ],
+      "position": 7,
+      "totalCitations": 16,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 1
+        },
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "finder.com",
+          "position": 12
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "It depends on the **transfer type**: **Remitly** is often faster for **bank deposits** in many comparisons, while **Western Union** is often just as fast—or faster—for **cash pickup** and some **bank-to-bank** transfers.[1][3][5]\n\n- **Remitly** offers an **Express** option that can arrive in **minut"
+    },
+    {
+      "id": "x07",
+      "query": "what happens if my recipient's bank details are wrong?",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 19,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 3
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "If your recipient’s bank details are wrong, the transfer may either **bounce back** or go through to the **wrong account**, depending on whether the details are invalid or just belong to someone else.[1][8][17]\n\n- If the account number or other key details are **invalid or don’t match**, the receivi"
+    },
+    {
+      "id": "x08",
+      "query": "can a money transfer be cancelled once sent?",
+      "topic": "safety",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 18,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "westernunion.com",
+          "position": 9
+        },
+        {
+          "domain": "wise.com",
+          "position": 10
+        },
+        {
+          "domain": "reddit.com",
+          "position": 18
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "Usually **no** once the money has been fully sent and credited, but **sometimes yes** if the transfer is still pending or meets a short cancellation window.[1][2][5][11]\n\n- For **international money transfers**, U.S. consumer rules generally give you **up to 30 minutes** to cancel at no cost, as lon"
+    },
+    {
+      "id": "x09",
+      "query": "do I pay tax on money received from abroad?",
+      "topic": "rules",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "wise.com",
+          "position": 13
+        },
+        {
+          "domain": "reddit.com",
+          "position": 15
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 16
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "Usually, **no**: the transfer itself is not taxed just because money came from abroad, and tax depends on **what the money is for** and **your tax residency**.[2][6][10]\n\n- If the money is **payment for work, freelance services, business income, rent, or investment income**, it is generally **taxabl"
+    },
+    {
+      "id": "x10",
+      "query": "best way to send money to family abroad every month",
+      "topic": "corridor",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": true,
+      "ourUrls": [
+        "https://sendmoneycompare.com/guides/how-to-send-money-abroad"
+      ],
+      "position": 6,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 1
+        },
+        {
+          "domain": "moneysavingexpert.com",
+          "position": 8
+        },
+        {
+          "domain": "nerdwallet.com",
+          "position": 9
+        },
+        {
+          "domain": "westernunion.com",
+          "position": 16
+        },
+        {
+          "domain": "wise.com",
+          "position": 18
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "The **best way** to send money to family abroad every month is usually a **specialist online transfer service** with **recurring/scheduled transfers**, because these services are typically cheaper and more transparent than bank wires.[2][6][9][17]\n\nFor most people, **Wise** is the strongest default "
+    },
+    {
+      "id": "x11",
+      "query": "how do digital nomads move money between countries?",
+      "topic": "business",
+      "baseline": false,
+      "platform": "perplexity",
+      "cited": false,
+      "ourUrls": [],
+      "position": null,
+      "totalCitations": 20,
+      "mentionedUnlinked": false,
+      "competitors": [
+        {
+          "domain": "reddit.com",
+          "position": 6
+        }
+      ],
+      "targetHit": null,
+      "responsePreview": "Digital nomads usually move money with a mix of **multi-currency fintech apps**, **international bank transfers**, and sometimes **cash pickup or crypto** when needed.[1][2][19] The most common practical setup is to receive money into one account or platform, convert it at a low-fee rate, and withdr"
     }
   ]
 }

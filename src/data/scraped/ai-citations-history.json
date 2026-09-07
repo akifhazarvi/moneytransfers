@@ -1,0 +1,44 @@
+[
+  {
+    "generatedAt": "2026-09-07T05:38:26.148Z",
+    "promptsRun": 100,
+    "chatgpt": {
+      "prompts": 0,
+      "usable": 0,
+      "errors": 0,
+      "citations": 0,
+      "citationRatePct": 0,
+      "meanPosition": null,
+      "mentionedUnlinked": 0,
+      "targetHits": 0,
+      "targetsChecked": 0,
+      "baselineCitations": 0,
+      "baselinePrompts": 0
+    },
+    "perplexity": {
+      "prompts": 100,
+      "usable": 100,
+      "errors": 0,
+      "citations": 47,
+      "citationRatePct": 47,
+      "meanPosition": 5.2,
+      "mentionedUnlinked": 0,
+      "targetHits": 9,
+      "targetsChecked": 48,
+      "baselineCitations": 8,
+      "baselinePrompts": 10
+    },
+    "usage": {
+      "chatgpt": {
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "requests": 0
+      },
+      "perplexity": {
+        "promptTokens": 980,
+        "completionTokens": 32626,
+        "requests": 100
+      }
+    }
+  }
+]
