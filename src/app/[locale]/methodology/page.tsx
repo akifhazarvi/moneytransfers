@@ -462,7 +462,11 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
                   quoted &mdash; winning unopposed is not evidence.
                 </p>
                 <p>
-                  Provider-level cost averages are published separately as the{" "}
+                  Every dataset we publish, with its method and its limits, is indexed on{" "}
+                  <Link href="/research" className="text-[var(--color-primary)] hover:underline">
+                    the research hub
+                  </Link>
+                  . Provider-level cost averages are published separately as the{" "}
                   <Link href="/remittance-cost-index" className="text-[var(--color-primary)] hover:underline">
                     Remittance Cost Index
                   </Link>

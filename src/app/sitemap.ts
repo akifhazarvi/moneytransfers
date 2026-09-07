@@ -117,6 +117,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 965 corridor pages and defined nowhere — /methodology did not mention it,
     // and nothing could cite "SendScore" because no URL said what it was.
     entry("sendscore", DATA_UPDATED),
+    // Research hub (added Sep 6 2026). Six datasets existed with no page
+    // asserting that this site publishes original research, and no crawlable
+    // path between them. Every headline on it is read from the dataset it
+    // describes, so it cannot drift from the studies.
+    entry("research", DATA_UPDATED),
     // Free tools hub + the two live calculators (added Jul 3 2026). Live: US
     // remittance tax (new 1% excise, high-intent 2026 query) and the FX markup
     // checker (live mid-market reference). The Fee Impact calculator at

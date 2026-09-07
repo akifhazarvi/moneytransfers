@@ -71,6 +71,10 @@ export default function Footer() {
       links: [
         { href: "/about", labelKey: "aboutLink" },
         { href: "/methodology", labelKey: "methodologyLink" },
+        // Research hub (added 2026-09-06). Sits in the E-E-A-T column rather
+        // than Tools: its job is the "this site publishes original research"
+        // signal, and it is the only crawlable index of the six datasets.
+        { href: "/research", labelKey: "researchLink", label: "Original research" },
         { href: "/editorial-policy", labelKey: "editorialLink" },
         { href: "/how-we-review", labelKey: "howWeReview" },
         // Corrections policy: indexable YMYL trust page that was effectively

@@ -369,6 +369,10 @@ export default async function ProviderConsistencyPage({ params }: { params: Prom
                 <Link href="/sendscore" className="text-[var(--color-primary)] hover:underline">
                   SendScore
                 </Link>
+                . Every dataset we publish is indexed on{" "}
+                <Link href="/research" className="text-[var(--color-primary)] hover:underline">
+                  the research hub
+                </Link>
                 .
               </p>
             </div>

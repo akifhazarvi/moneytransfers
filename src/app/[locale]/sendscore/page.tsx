@@ -256,7 +256,11 @@ export default async function SendScorePage({ params }: { params: Promise<{ loca
                 <Link href="/methodology" className="text-[var(--color-primary)] hover:underline">
                   site-wide methodology
                 </Link>{" "}
-                covers data collection.
+                covers data collection. Every dataset we publish is indexed on{" "}
+                <Link href="/research" className="text-[var(--color-primary)] hover:underline">
+                  the research hub
+                </Link>
+                .
               </p>
             </div>
           </div>
