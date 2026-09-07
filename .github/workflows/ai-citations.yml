@@ -1,0 +1,88 @@
+name: AI citation benchmark
+
+# WHY WEEKLY, NOT DAILY
+# The benchmark measures whether AI assistants cite us, which moves on the
+# timescale of crawling and reranking, not hours. It also costs real money per
+# run (one search request per prompt per platform), so a daily cadence would
+# spend ~7x for noise. Weekly is the cadence the strategy asked for.
+on:
+  schedule:
+    # Mondays 06:10 UTC — after the weekend, before the working week.
+    - cron: "10 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Run only the first N prompts (blank = all 100)"
+        required: false
+        default: ""
+      platform:
+        description: "chatgpt | perplexity | all"
+        required: false
+        default: "all"
+
+# Only one run at a time: two concurrent runs would double-spend and race on
+# the same two output files.
+concurrency:
+  group: ai-citations
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+        timeout-minutes: 5
+
+      # `secrets` is not available in a job-level `if`, so the guard has to be
+      # a step output. Without it a keyless run would burn a runner, write a
+      # file of 100 "KEY missing" rows and commit that over real data.
+      - name: Check for API keys
+        id: keys
+        env:
+          PPLX: ${{ secrets.PERPLEXITY_API_KEY }}
+          OPENAI: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          have=false
+          [ -n "$PPLX" ] && have=true
+          [ -n "$OPENAI" ] && have=true
+          echo "have=$have" >> "$GITHUB_OUTPUT"
+          if [ "$have" != "true" ]; then
+            echo "::warning::Neither PERPLEXITY_API_KEY nor OPENAI_API_KEY is set — skipping the benchmark."
+          fi
+
+      - name: Run benchmark
+        if: steps.keys.outputs.have == 'true'
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_CITATION_MODEL: ${{ vars.OPENAI_CITATION_MODEL }}
+        run: |
+          args=""
+          if [ -n "${{ inputs.limit }}" ]; then args="$args --limit=${{ inputs.limit }}"; fi
+          if [ -n "${{ inputs.platform }}" ]; then args="$args --platform=${{ inputs.platform }}"; fi
+          npx tsx scripts/check-ai-citations.ts $args
+        timeout-minutes: 20
+
+      - name: Commit results
+        if: steps.keys.outputs.have == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/scraped/ai-citations.json src/data/scraped/ai-citations-history.json
+          if git diff --staged --quiet; then
+            echo "No change in citation results."
+          else
+            git commit -m "chore: AI citation benchmark [$(date -u +%Y-%m-%dT%H:%M)]"
+            git pull --rebase --autostash origin main
+            git push
+          fi

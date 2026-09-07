@@ -47,7 +47,8 @@
     "check:indexing": "npx tsx scripts/check-indexing.ts",
     "postbuild": "npx tsx scripts/check-links.ts && npx tsx scripts/check-indexing.ts",
     "build:consistency": "npx tsx scripts/build-consistency-index.ts",
-    "build:sendscore": "npx tsx scripts/build-sendscore-summary.ts"
+    "build:sendscore": "npx tsx scripts/build-sendscore-summary.ts",
+    "check:ai-citations:smoke": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts --platform=perplexity --limit=3"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",
