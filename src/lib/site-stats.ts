@@ -88,6 +88,18 @@ const corridorDepth = corridorKeys.map(
  */
 const comparable = corridorDepth.filter((d) => d >= 2).length;
 
+/**
+ * Live quotes in the current dataset, every amount included.
+ *
+ * Added because the site performed the analysis and never published its size:
+ * copy could say how many providers and corridors it covered but not how many
+ * quotes were behind a figure, which is the one number that makes a finding
+ * checkable. Exact rather than rounded through `atLeast()` — a precise count is
+ * what a citation quotes, and unlike a coverage claim it does not need to
+ * survive a scrape shifting by one.
+ */
+const liveQuoteCount = corridorKeys.reduce((n, k) => n + quotesByCorridor[k].length, 0);
+
 export const SITE_STATS = {
   /** Providers with a `/companies/[slug]` page that renders. */
   curatedProviders: providers.length,
@@ -97,6 +109,8 @@ export const SITE_STATS = {
   listableProviders: listableProviders().length,
   /** Distinct providers appearing in live scraped quotes. */
   liveProviders: allProviderSlugs.size,
+  /** Live quotes in the current dataset, all amounts. Quote exactly, not rounded. */
+  liveQuotes: liveQuoteCount,
   /** Corridors carrying at least one live quote. Describes the dataset —
    *  NOT a comparison claim, since 65% of these hold a single provider. */
   corridorsWithData: corridorKeys.length,
@@ -163,6 +177,8 @@ export const COVERAGE = {
   corridorsTracked: `${atLeast(SITE_STATS.corridorsWithData)} corridors`,
   /** For links into /exchange-rates/history — must match the pages that exist. */
   historyCorridors: `${SITE_STATS.historyPairs} corridors`,
+  /** For "we analysed N live quotes" — exact, because that is what gets cited. */
+  quotes: `${SITE_STATS.liveQuotes.toLocaleString("en-US")} live quotes`,
   /** The combined phrase used in guide intros and meta descriptions. */
   providersAndCorridors: `${atLeast(SITE_STATS.liveProviders)} providers across ${atLeast(
     SITE_STATS.comparableCorridors,

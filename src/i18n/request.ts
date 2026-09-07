@@ -19,6 +19,10 @@ function resolveCoverage(value: unknown): unknown {
     return value
       .split("%PROVIDER_COUNT%").join(atLeast(SITE_STATS.liveProviders))
       .split("%CORRIDOR_COUNT%").join(atLeast(SITE_STATS.comparableCorridors))
+      // Exact, not atLeast(): a quote count is cited verbatim, and rounding
+      // "13,366 live quotes" to "13,000+" throws away the specificity that
+      // makes the claim worth citing in the first place.
+      .split("%QUOTE_COUNT%").join(SITE_STATS.liveQuotes.toLocaleString("en-US"))
       .split("%CURRENCY_COUNT%").join(atLeast(SITE_STATS.currencies));
   }
   if (Array.isArray(value)) return value.map(resolveCoverage);

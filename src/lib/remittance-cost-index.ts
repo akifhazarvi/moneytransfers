@@ -114,6 +114,14 @@ interface Acc {
 const headline = new Map<string, Acc>();
 const allAmounts = new Map<string, Acc>();
 const headlineCorridors = new Set<string>();
+/**
+ * Usable quotes at the ranking amount — every quote that passed the cost bounds
+ * and actually fed a figure on the page, including providers below the ranking
+ * threshold. Published because "we analysed N live quotes" is the sentence a
+ * reader or an AI assistant can cite, and until now the page performed the
+ * analysis without ever saying how much data was behind it.
+ */
+let headlineQuoteCount = 0;
 
 for (const [corridor, quotes] of Object.entries(quotesByCorridor)) {
   for (const q of quotes) {
@@ -139,6 +147,7 @@ for (const [corridor, quotes] of Object.entries(quotesByCorridor)) {
     if (q.sendAmount === INDEX_AMOUNT) {
       push(headline);
       headlineCorridors.add(corridor);
+      headlineQuoteCount += 1;
     }
   }
 }
@@ -178,6 +187,8 @@ export const REMITTANCE_INDEX = {
   banks,
   /** Distinct corridors carrying at least one quote at INDEX_AMOUNT. */
   corridorCount: headlineCorridors.size,
+  /** Usable quotes at INDEX_AMOUNT behind every figure on the page. */
+  quotesAnalysed: headlineQuoteCount,
   /** Distinct providers with any usable quote at INDEX_AMOUNT (ranked or not). */
   providersPriced: headline.size,
   avgSpecialistCost: round2(mean(specialists.map((r) => r.costPerAmount))),

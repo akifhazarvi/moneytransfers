@@ -20,7 +20,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: "remittanceCostIndex" });
   return {
     title: t("metaTitle"),
-    description: seoDescription(t("metaDescription")),
+    // Composed here, not from messages, so the description quotes the same
+    // figure the page does. A token would inject the SITE-WIDE quote count
+    // (every amount) beside a page that analyses the $1,000 tier only — two
+    // numbers for one page, which is the incoherence this codebase keeps
+    // removing from its own copy.
+    description: seoDescription(
+      `We analysed ${REMITTANCE_INDEX.quotesAnalysed.toLocaleString("en-US")} live quotes at $1,000 across ` +
+        `${REMITTANCE_INDEX.corridorCount.toLocaleString("en-US")} corridors to find which money transfer providers ` +
+        `are actually cheapest — fees plus markup combined.`,
+    ),
     keywords: t("metaKeywords"),
     alternates: getAlternates("remittance-cost-index", locale),
     openGraph: {
@@ -360,7 +369,17 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               The 2026 Global{" "}
               <span className="text-[var(--color-primary)]">Remittance Cost Index</span>
             </h1>
-            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-5 max-w-2xl mx-auto leading-relaxed">
+            {/* The citable sentence. The page has always done this analysis and
+                never said how much data was behind it, which is the one thing a
+                reader or an assistant needs in order to quote a figure from it. */}
+            <p className="text-base md:text-lg text-[var(--color-on-surface)] mt-5 max-w-2xl mx-auto leading-relaxed font-medium">
+              SendMoneyCompare analysed{" "}
+              <strong>{idx.quotesAnalysed.toLocaleString("en-US")} live quotes</strong> at $
+              {idx.amount.toLocaleString("en-US")} across{" "}
+              <strong>{idx.corridorCount.toLocaleString("en-US")} corridors</strong> on{" "}
+              <time dateTime={idx.dataAsOf}>{dataAsOfLabel}</time>.
+            </p>
+            <p className="text-base md:text-lg text-[var(--color-on-surface-variant)] mt-3 max-w-2xl mx-auto leading-relaxed">
               Of the {COVERAGE.providers} we track, {idx.providers.length} quoted a $1,000 transfer on at least{" "}
               {idx.minCorridors} corridors and are ranked here — {idx.specialists.length} specialists and {idx.banks.length} banks
               across {idx.corridorCount} corridors — by the true cost of the transfer: the fee plus the hidden exchange rate markup.
