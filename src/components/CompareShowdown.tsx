@@ -171,10 +171,19 @@ export default function CompareShowdown({
     if (amount <= 0) return;
     const controller = new AbortController();
     setQuotesPending(true);
-    const needed: { amount: number; from: string; to: string }[] = [
+    // Deduplicated: the headline corridor is frequently one of the sampled
+    // ones too (USD->INR is both), which fired an identical /api/quotes request
+    // twice on every page load.
+    const seen = new Set<string>();
+    const needed = [
       { amount, from: fromCurrency, to: toCurrency },
       ...SAMPLE_CORRIDORS.map((c) => ({ amount: 1000, from: c.from, to: c.to })),
-    ];
+    ].filter((n) => {
+      const k = corridorKey(n.amount, n.from, n.to);
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
     Promise.all(
       needed.map((n) =>
         fetchQuotes(n.amount, n.from, n.to, controller.signal).then((q) => ({
@@ -383,6 +392,8 @@ export default function CompareShowdown({
                 {live ? "Live verdict" : "Verdict"}
                 {live && (
                   <span className="font-normal normal-case tracking-normal text-[var(--color-on-surface-variant)]">
+                    {/* LiveTimestamp already emits a space after its prefix, so
+                        the separator carries no trailing space of its own. */}
                     <LiveTimestamp iso={live.collectedAt} prefix="·" />
                   </span>
                 )}
