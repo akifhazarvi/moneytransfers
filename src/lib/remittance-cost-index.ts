@@ -82,7 +82,16 @@ export function providerKind(slug: string, name: string): ProviderKind {
 }
 
 // ── Computation ───────────────────────────────────────────────────────────
-function costPct(q: NormalizedQuote): number | null {
+/**
+ * True total cost of a quote as a % of the amount sent: the gap between what a
+ * mid-market transfer would deliver and what the provider actually delivers, so
+ * it captures the fee and the exchange-rate markup together.
+ *
+ * Exported because amount-tier-index.ts needs the SAME definition of cost. A
+ * second copy would drift, and two pages disagreeing about what a transfer
+ * costs is the failure this module was created to fix.
+ */
+export function trueCostPct(q: NormalizedQuote): number | null {
   if (!q.midMarketRate || q.sendAmount <= 0) return null;
   const midReceive = q.sendAmount * q.midMarketRate;
   const pct = ((midReceive - q.receiveAmount) / midReceive) * 100;
@@ -108,7 +117,7 @@ const headlineCorridors = new Set<string>();
 
 for (const [corridor, quotes] of Object.entries(quotesByCorridor)) {
   for (const q of quotes) {
-    const cost = costPct(q);
+    const cost = trueCostPct(q);
     if (cost === null) continue;
     const name = providerNames[q.providerSlug] ?? q.provider ?? q.providerSlug;
     const push = (map: Map<string, Acc>) => {
@@ -235,7 +244,7 @@ for (const [amountKey, quotes] of Object.entries(quotesByCorridorAmount)) {
   // corridor cannot weight the median toward itself.
   const bySlug = new Map<string, number>();
   for (const q of quotes) {
-    const cost = costPct(q);
+    const cost = trueCostPct(q);
     if (cost === null) continue;
     const prev = bySlug.get(q.providerSlug);
     if (prev === undefined || cost < prev) bySlug.set(q.providerSlug, cost);

@@ -10,6 +10,7 @@ import { CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import { SENDSCORE_SUMMARY } from "@/lib/sendscore-summary";
 import { REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
+import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 import weekendMarkup from "@/data/scraped/weekend-markup.json";
 import pppIndex from "@/data/scraped/ppp-index.json";
 
@@ -98,6 +99,14 @@ const STUDIES: Study[] = [
     finding: `Weekends are marginally cheaper, not dearer: a mean markup of ${weekend.weekendMean.toFixed(2)}% at weekends against ${weekend.weekdayMean.toFixed(2)}% on weekdays, a difference of ${Math.abs(weekend.weekendDeltaPp).toFixed(3)} percentage points. Which provider you choose is a far larger lever than which day you send.`,
     basis: `${nf(weekend.observations)} quote observations from ${nf(weekend.snapshots)} snapshots across ${weekend.providers.length} providers, ${weekend.dataRange.from} to ${weekend.dataRange.to}, corrected for uneven sampling with outliers quarantined rather than dropped silently.`,
     dataAsOf: weekend.generatedAt,
+  },
+  {
+    title: "Transfer cost by amount",
+    href: "/transfer-cost-by-amount",
+    finding: `Sending $${AMOUNT_TIER_INDEX.smallAmount} costs ${AMOUNT_TIER_INDEX.meanSmallPct.toFixed(2)}% of the amount against ${AMOUNT_TIER_INDEX.meanHeadlinePct.toFixed(2)}% at $${AMOUNT_TIER_INDEX.headlineAmount.toLocaleString("en-US")}, and the cheapest provider is not the same at both — ${AMOUNT_TIER_INDEX.cheapestSmall?.name} at the smaller amount, ${AMOUNT_TIER_INDEX.cheapestHeadline?.name} at the larger.`,
+    basis: `${AMOUNT_TIER_INDEX.providersCompared} providers with ${AMOUNT_TIER_INDEX.minQuotesPerTier}+ usable quotes at both amounts. No $10,000 tier is published — only 11 providers quote at that amount, roughly one per corridor.`,
+    dataAsOf: REMITTANCE_INDEX.dataAsOf,
+    csv: "/api/data/transfer-cost-by-amount",
   },
   {
     title: "SendScore",

@@ -122,6 +122,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // path between them. Every headline on it is read from the dataset it
     // describes, so it cannot drift from the studies.
     entry("research", DATA_UPDATED),
+    // Transfer cost by amount (added Sep 6 2026). Every ranking on the site is
+    // priced at $1,000; this measures what that hides from anyone sending $100,
+    // which is most remittance senders. No $10,000 tier — only 11 providers
+    // quote at that amount.
+    entry("transfer-cost-by-amount", DATA_UPDATED),
     // Free tools hub + the two live calculators (added Jul 3 2026). Live: US
     // remittance tax (new 1% excise, high-intent 2026 query) and the FX markup
     // checker (live mid-market reference). The Fee Impact calculator at

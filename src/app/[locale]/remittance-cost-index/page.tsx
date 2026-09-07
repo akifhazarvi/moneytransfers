@@ -603,7 +603,11 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
               <Link href="/provider-consistency" className="text-[var(--color-primary)] hover:underline">
                 Which provider wins most often
               </Link>{" "}
-              answers who to pick once you know the gap is worth closing.
+              answers who to pick once you know the gap is worth closing, and{" "}
+              <Link href="/transfer-cost-by-amount" className="text-[var(--color-primary)] hover:underline">
+                transfer cost by amount
+              </Link>{" "}
+              shows how this ranking changes below $1,000.
             </p>
           </div>
         </Container>
