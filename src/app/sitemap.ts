@@ -168,15 +168,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("corrections", STATIC_CONTENT_DATE),
     entry("cookies", STATIC_CONTENT_DATE),
     entry("disclaimer", STATIC_CONTENT_DATE),
-    // Trust + authorship pages. All were indexable but unsubmitted — the
-    // "index:yes / sitemap:no" contradiction the May 8 2026 deindex was traced
-    // to — while their siblings /privacy-policy and /terms were listed. Author
-    // pages carry the E-E-A-T signal Google looks for on YMYL finance content,
-    // so they belong in the submitted set rather than being noindexed.
-    ...authors.map((a) => entry(`about/${a.slug}`, STATIC_CONTENT_DATE)),
-    entry("corrections", STATIC_CONTENT_DATE),
-    entry("cookies", STATIC_CONTENT_DATE),
-    entry("disclaimer", STATIC_CONTENT_DATE),
     entry("news", STATIC_HUB_DATE),
     entry("business", STATIC_HUB_DATE),
     // Live Business/B2B payment-provider cost comparison tool. Added Jun 22 2026

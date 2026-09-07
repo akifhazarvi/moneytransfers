@@ -86,6 +86,29 @@ const submitted = [...readFileSync(smBody, "utf8").matchAll(/<loc>(.*?)<\/loc>/g
 const errors: string[] = [];
 const notes: string[] = [];
 
+// No URL twice. sitemap.ts is a hand-maintained list of ~700 entries assembled
+// from a dozen blocks, and on 2026-09-07 it carried SIX duplicates — an entire
+// trust-and-authorship block (three author pages, /corrections, /cookies,
+// /disclaimer) pasted in twice with near-identical comments. Nothing caught it:
+// this script counted 711 submitted URLs where only 705 were distinct, and the
+// discrepancy only surfaced because ping-indexnow.ts deduplicates and reported
+// a different total. Crawlers tolerate it, but a sitemap that cannot count is
+// a sitemap that cannot be trusted to say what we submit.
+{
+  const seen = new Set<string>();
+  const dupes = new Set<string>();
+  for (const url of submitted) {
+    if (seen.has(url)) dupes.add(url);
+    seen.add(url);
+  }
+  if (dupes.size > 0) {
+    errors.push(
+      `sitemap lists ${dupes.size} URL(s) more than once — ${[...dupes].slice(0, 8).join(", ")}` +
+        `${dupes.size > 8 ? ", …" : ""}. Remove the duplicate entry in src/app/sitemap.ts.`,
+    );
+  }
+}
+
 for (const url of submitted) {
   const page = pages.get(url);
   if (!page) {
