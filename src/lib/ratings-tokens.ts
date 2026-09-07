@@ -162,9 +162,11 @@ ${body}
 //        what a transfer would deliver with no markup and no fee)
 //   {{QUOTE_DATE}}                         6 September 2026
 //   {{COST_PCT:wise:USD:INR:1000}}         0.69%  (total cost as % of amount sent)
-//   {{AVG_MARKUP:instarem}}                0.81%  (measured mean across every
-//        corridor we quote that provider on — the honest version of a
-//        hand-typed "average markup of 0.42%")
+//   {{AVG_MARKUP:instarem}}                "0.85% across the 166 corridors we
+//        quote it on" — the honest version of a hand-typed "average markup of
+//        0.42%". Renders its own denominator on purpose: this mean is taken
+//        over every amount, while the /remittance-cost-index table is $1,000
+//        only, so the two figures differ slightly and each must say which it is.
 //   {{RATINGS_DATE}}                       6 September 2026 (Trustpilot scrape)
 //
 // A token we cannot resolve is left in place on purpose: check-assets renders
@@ -401,7 +403,10 @@ function renderQuoteTokens(html: string): string {
   out = out.replace(/\{\{AVG_MARKUP:([a-z0-9-]+)\}\}/g, (match, slug: string) => {
     const m = MEASURED_MARKUPS.get(slug);
     if (!m || m.corridors < 3) return match;
-    return m.markupPct < 0.05 ? "effectively nil" : `${m.markupPct.toFixed(2)}%`;
+    const scope = `across the ${m.corridors.toLocaleString()} corridor${m.corridors === 1 ? "" : "s"} we quote it on`;
+    return m.markupPct < 0.05
+      ? `effectively nil ${scope}`
+      : `${m.markupPct.toFixed(2)}% ${scope}`;
   });
 
   out = out.split("{{QUOTE_DATE}}").join(renderQuoteDate());

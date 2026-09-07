@@ -178,8 +178,8 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  We collect exchange rate and fee data from 50+ money transfer
-                  providers every 6 hours using a combination of:
+                  We collect exchange rate and fee data from {COVERAGE.providers}{" "}
+                  every {SITE_STATS.refreshHours} hours using a combination of:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>

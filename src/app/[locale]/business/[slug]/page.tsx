@@ -13,6 +13,8 @@ import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { SITEMAP_BUSINESS_SLUGS } from "@/lib/sitemap-allowlists";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { SITE_STATS } from "@/lib/site-stats";
+import { formatLocalDate } from "@/lib/format-date";
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;
@@ -150,7 +152,13 @@ export default async function BusinessSubPage({ params }: Props) {
                   Akif Hazarvi
                 </Link>
               </span>
-              <span>Updated March 2026</span>
+              {/* BusinessPage carries no revision date, so this said "Updated
+                  March 2026" on every one of these pages forever. The thing that
+                  does refresh here is the quote widget below, so name that. */}
+              <span>
+                Rates updated{" "}
+                <time dateTime={SITE_STATS.quotesUpdated}>{formatLocalDate(SITE_STATS.quotesUpdated)}</time>
+              </span>
             </div>
           </div>
         </Container>

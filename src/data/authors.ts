@@ -97,6 +97,11 @@ Awais holds a degree in English and Communications and is based in London, Unite
       "Blog and SEO content production",
     ],
     credentials: [
+      // Deliberately hand-typed, not SITE_STATS: authors.ts is imported by
+      // about/[author]/opengraph-image, which runs on the edge, and site-stats
+      // pulls in unified-quotes. That import is what blew the 2 MB edge bundle
+      // cap and failed six production deploys. "50+" is true at 55 curated
+      // reviews; check it by hand if that count ever drops.
       "Writes and maintains reviews for 50+ money transfer providers",
       "Produces corridor guides and explainers across SendMoneyCompare",
       "Editorial background with focus on financial services content",
