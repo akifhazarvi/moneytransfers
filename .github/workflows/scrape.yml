@@ -32,7 +32,7 @@ jobs:
     # job, so remaining steps are skipped regardless of their conditions. The
     # only real protection is keeping the budget sum below the cap.
     #
-    # Current budget: 61 (scrapers) + 26 (tail) + ~1 (npm ci) = ~88 < 105.
+    # Current budget: 61 (scrapers) + 30 (tail) + ~1 (npm ci) = ~92 < 105.
     timeout-minutes: 105
 
     env:
@@ -169,6 +169,18 @@ jobs:
       - name: Build rate insights
         run: npx tsx scripts/build-rate-insights.ts
         timeout-minutes: 6
+
+      # Derived from rate-insights.json, so they must run after it. Both read
+      # the 24 MB insights file and emit small published payloads; without them
+      # here the committed indices drift from the insights they summarise until
+      # the next Vercel build regenerates them in prebuild.
+      - name: Build provider consistency index
+        run: npx tsx scripts/build-consistency-index.ts
+        timeout-minutes: 2 # observed ~0.8s
+
+      - name: Build SendScore summary
+        run: npx tsx scripts/build-sendscore-summary.ts
+        timeout-minutes: 2 # observed ~0.9s
 
       - name: Build weekend-markup dataset
         run: npx tsx scripts/build-weekend-markup.ts
