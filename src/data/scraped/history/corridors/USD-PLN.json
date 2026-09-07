@@ -4928,5 +4928,40 @@
         "receiveAmount": 365.04
       }
     }
+  },
+  {
+    "date": "2026-09-07",
+    "providers": {
+      "ria": {
+        "rate": 3.6593,
+        "fee": 2,
+        "markup": null,
+        "receiveAmount": 371.31
+      },
+      "remitly": {
+        "rate": 3.6511,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 361.49
+      },
+      "paypal": {
+        "rate": 3.5557,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 337.83
+      },
+      "western-union": {
+        "rate": 3.6419,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 360.58
+      },
+      "wise": {
+        "rate": 3.7155,
+        "fee": 1.71,
+        "markup": null,
+        "receiveAmount": 365.2
+      }
+    }
   }
 ]
