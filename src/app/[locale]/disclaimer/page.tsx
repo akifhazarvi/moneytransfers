@@ -160,8 +160,9 @@ export default async function DisclaimerPage({ params }: { params: Promise<{ loc
               </h2>
               <div className="space-y-4 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
                 <p>
-                  We list only providers that are regulated by at least one major
-                  financial authority. However, we do not endorse, guarantee, or take
+                  We compare established providers that are regulated in the markets
+                  where they operate, and list each reviewed provider&apos;s regulators on
+                  its page. However, we do not endorse, guarantee, or take
                   responsibility for any provider&apos;s services, actions, or conduct. Any
                   transaction you make is between you and the provider — SendMoneyCompare
                   is not a party to that transaction.

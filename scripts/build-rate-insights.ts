@@ -17,6 +17,10 @@ const CORRIDORS_DIR = path.join("src/data/scraped/history/corridors");
 const OUTPUT_PATH = path.join("src/data/scraped/rate-insights.json");
 const MIDMARKET_HISTORY_PATH = path.join("src/data/scraped/history/midmarket-daily.json");
 const MIDMARKET_OUTPUT_PATH = path.join("src/data/scraped/midmarket-history.json");
+// Tiny derived facts for copy. Kept separate from rate-insights.json so
+// src/lib/site-stats.ts can read them without importing a 24 MB payload into
+// every route (see the note in site-stats.ts).
+const DERIVED_OUTPUT_PATH = path.join("src/data/scraped/site-derived.json");
 
 // All user-facing history is capped to the most recent N days so that
 // avg / best / worst / sparklines / badges / schema copy all agree on the
@@ -56,6 +60,7 @@ interface ProviderBadge {
 import { computeSendScore, type SendScore } from "../src/lib/send-score";
 import { computeProviderConsistency, type ProviderConsistency, type ProviderDay } from "../src/lib/provider-consistency";
 import { getProviderName } from "../src/data/providers";
+import { KEEP_HISTORY_PAIRS } from "../src/lib/rate-history";
 
 type RateLevel = "low" | "typical" | "good" | "great";
 
@@ -268,6 +273,14 @@ function main() {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(insights));
   console.log(`Wrote ${Object.keys(insights).length} corridor insights to ${OUTPUT_PATH}`);
+
+  // Same gate as generateStaticParams in exchange-rates/history/[pair]:
+  // KEEP_HISTORY_PAIRS ∩ corridors with 2+ days of history.
+  const historyPairs = Object.values(insights).filter(
+    (i) => i.totalDays >= 2 && KEEP_HISTORY_PAIRS.has(i.corridor.toLowerCase().replace("-", "-to-")),
+  ).length;
+  fs.writeFileSync(DERIVED_OUTPUT_PATH, JSON.stringify({ historyPairs }, null, 2) + "\n");
+  console.log(`Wrote derived facts (historyPairs=${historyPairs}) to ${DERIVED_OUTPUT_PATH}`);
 
   // Build mid-market history for the widget (all currency pairs)
   buildMidMarketOutput();

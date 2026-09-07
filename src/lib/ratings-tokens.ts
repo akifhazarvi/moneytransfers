@@ -11,6 +11,11 @@
 import appRatingsData from "@/data/scraped/app-store-ratings.json";
 import trustpilotData from "@/data/scraped/trustpilot-ratings.json";
 import { SITE_STATS, atLeast } from "./site-stats";
+import { generateQuotes } from "@/lib/quotes-engine";
+import { getMidMarketRate, quoteDataDate, providerNames } from "@/lib/unified-quotes";
+import { providers, type TransferQuote } from "@/data/providers";
+import { sendCurrencies, currencies } from "@/data/transfer-currencies";
+import { companyPageRenders } from "@/lib/route-map";
 
 export interface StoreRating {
   score: number | null;
@@ -128,6 +133,152 @@ ${body}
  * Unknown tokens are left untouched rather than blanked, so a typo is
  * visible in review instead of silently deleting content.
  */
+// ── Live quote tokens ─────────────────────────────────────────────────────
+// Guides used to carry rate figures in prose ("recipient gets ₹91,596") that
+// were true the week they were written and false every week after, while the
+// product surface next to them showed the live number — /guides/wise-vs-remitly
+// and /compare/wise-vs-remitly disagreed by ₹2,000 on the same $1,000 USD→INR
+// transfer. These tokens read the same generateQuotes() the comparison tables
+// use, so an article can quote a figure without owning it.
+//
+//   {{RECEIVE:wise:USD:INR:1000}}          ₹93,867
+//   {{FEE:wise:USD:INR:1000}}              $6.85
+//   {{MARKUP:wise:USD:INR:1000}}           0%  |  0.32%  |  below mid-market
+//   {{COST:wise:USD:INR:1000}}             $6.85   (fee + markup, send currency)
+//   {{CHEAPER:wise:remitly:USD:INR:1000}}  Remitly   (the one that delivers more)
+//   {{PRICIER:wise:remitly:USD:INR:1000}}  Wise
+//   {{RECEIVE_DIFF:wise:remitly:USD:INR:1000}}  ₹345  (absolute gap)
+//   {{QUOTE_LIST:USD:INR:1000:xoom,instarem,remitly,wise}}  <li>…</li> per
+//        provider with a quote, best payout first, linked where a review exists
+//   {{QUOTE_DATE}}                         6 September 2026
+//
+// A token we cannot resolve is left in place on purpose: check-assets renders
+// every guide at build time and fails on a literal "{{", so a corridor that
+// loses coverage fails the build instead of shipping a hole in a sentence.
+
+const quoteCache = new Map<string, TransferQuote[]>();
+function quotesFor(from: string, to: string, amount: number): TransferQuote[] {
+  const key = `${from}_${to}_${amount}`;
+  let q = quoteCache.get(key);
+  if (!q) {
+    q = generateQuotes(amount, from, to).filter((x) => !x.isIndicative);
+    quoteCache.set(key, q);
+  }
+  return q;
+}
+function quoteFor(slug: string, from: string, to: string, amount: number): TransferQuote | undefined {
+  return quotesFor(from, to, amount).find((q) => q.providerSlug === slug);
+}
+
+function symbolFor(code: string): string {
+  return (
+    sendCurrencies.find((c) => c.code === code)?.symbol ??
+    currencies.find((c) => c.code === code)?.symbol ??
+    ""
+  );
+}
+function fmtMoney(code: string, n: number): string {
+  const digits = Math.abs(n) >= 10_000 ? 0 : 2;
+  const num = n.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
+  const sym = symbolFor(code);
+  return sym ? `${sym}${num}` : `${num} ${code}`;
+}
+function markupPctOf(q: TransferQuote, from: string, to: string): number {
+  const mid = getMidMarketRate(from, to);
+  return mid > 0 ? (1 - q.exchangeRate / mid) * 100 : 0;
+}
+function fmtMarkup(pct: number): string {
+  if (pct < -0.05) return "below mid-market";
+  if (pct < 0.05) return "0%";
+  return `${pct.toFixed(2)}%`;
+}
+function providerName(slug: string): string {
+  return providers.find((p) => p.slug === slug)?.name ?? providerNames[slug] ?? slug;
+}
+function providerLink(slug: string): string {
+  const name = providerName(slug);
+  return companyPageRenders(slug) ? `<a href="/companies/${slug}">${name}</a>` : name;
+}
+
+/** The day of the freshest quote, e.g. "6 September 2026". */
+export function renderQuoteDate(): string {
+  const iso = quoteDataDate ?? new Date().toISOString().slice(0, 10);
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+function renderQuoteTokens(html: string): string {
+  let out = html;
+
+  out = out.replace(
+    /\{\{(RECEIVE|FEE|MARKUP|COST):([a-z0-9-]+):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
+    (match, kind: string, slug: string, from: string, to: string, amt: string) => {
+      const amount = Number(amt);
+      const q = quoteFor(slug, from, to, amount);
+      if (!q) return match;
+      switch (kind) {
+        case "RECEIVE":
+          return fmtMoney(to, q.receiveAmount);
+        case "FEE":
+          return fmtMoney(from, q.fee);
+        case "MARKUP":
+          return fmtMarkup(markupPctOf(q, from, to));
+        case "COST":
+          return fmtMoney(from, q.fee + (Math.max(0, markupPctOf(q, from, to)) / 100) * amount);
+      }
+      return match;
+    },
+  );
+
+  out = out.replace(
+    /\{\{(CHEAPER|PRICIER|RECEIVE_DIFF):([a-z0-9-]+):([a-z0-9-]+):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
+    (match, kind: string, a: string, b: string, from: string, to: string, amt: string) => {
+      const amount = Number(amt);
+      const qa = quoteFor(a, from, to, amount);
+      const qb = quoteFor(b, from, to, amount);
+      if (!qa || !qb) return match;
+      const aWins = qa.receiveAmount >= qb.receiveAmount;
+      switch (kind) {
+        case "CHEAPER":
+          return providerName(aWins ? a : b);
+        case "PRICIER":
+          return providerName(aWins ? b : a);
+        case "RECEIVE_DIFF":
+          return fmtMoney(to, Math.abs(qa.receiveAmount - qb.receiveAmount));
+      }
+      return match;
+    },
+  );
+
+  out = out.replace(
+    /\{\{QUOTE_LIST:([A-Z]{3}):([A-Z]{3}):(\d+):([a-z0-9,-]+)\}\}/g,
+    (match, from: string, to: string, amt: string, list: string) => {
+      const amount = Number(amt);
+      const items = list
+        .split(",")
+        .map((slug) => ({ slug, q: quoteFor(slug, from, to, amount) }))
+        .filter((x): x is { slug: string; q: TransferQuote } => Boolean(x.q))
+        .sort((x, y) => y.q.receiveAmount - x.q.receiveAmount);
+      if (items.length === 0) return match;
+      return items
+        .map(
+          ({ slug, q }) =>
+            `<li><strong>${providerLink(slug)}</strong>: ${fmtMoney(from, q.fee)} fee, ${fmtMarkup(
+              markupPctOf(q, from, to),
+            )} markup — recipient gets ${fmtMoney(to, q.receiveAmount)}</li>`,
+        )
+        .join("\n");
+    },
+  );
+
+  out = out.split("{{QUOTE_DATE}}").join(renderQuoteDate());
+  return out;
+}
+
 export function renderDataTokens(html: string): string {
   let out = html;
 
@@ -155,6 +306,8 @@ export function renderDataTokens(html: string): string {
   out = out.split("{{PROVIDER_COUNT}}").join(atLeast(SITE_STATS.liveProviders));
   out = out.split("{{CORRIDOR_COUNT}}").join(atLeast(SITE_STATS.comparableCorridors));
   out = out.split("{{CURRENCY_COUNT}}").join(atLeast(SITE_STATS.currencies));
+
+  if (out.includes("{{")) out = renderQuoteTokens(out);
 
   return out;
 }

@@ -104,7 +104,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   money. No sponsored placements, no hidden agendas — just transparent data.
                 </p>
                 <p>
-                  Today, SendMoneyCompare covers 64 currency corridors, publishes in-depth
+                  Today, SendMoneyCompare compares {COVERAGE.corridors} where two or more providers quote, publishes in-depth
                   provider reviews, and updates quote data every 6 hours. Millions of
                   people use comparison sites like ours to make smarter decisions about
                   international transfers every year.
@@ -127,8 +127,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                     desc: "We collect live quotes from provider APIs and websites every 6 hours. You see the same rates you'd get going directly to the provider.",
                   },
                   {
-                    title: "Regulated providers only",
-                    desc: "Every provider we list is licensed by at least one major financial authority — FCA, FinCEN, ASIC, or equivalent.",
+                    title: "Regulated providers",
+                    desc: "We compare established providers that are regulated in the markets where they operate, and list each reviewed provider's regulators — FCA, FinCEN, ASIC or equivalent — on its page.",
                   },
                   {
                     title: "Free for consumers",
@@ -283,7 +283,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 <p className="text-2sm text-[var(--color-on-surface-variant)] mt-3">
                   SendMoneyCompare is not a money transfer service and does not hold, transmit, or process funds.
                   We are an information service that compares publicly available data from regulated financial providers.
-                  All providers listed on our platform are licensed by at least one major financial authority (FCA, FinCEN, ASIC, or equivalent).
+                  The providers we compare are regulated in the markets where they operate; each reviewed provider's regulators (FCA, FinCEN, ASIC or equivalent) are listed on its review page.
                 </p>
               </div>
             </div>

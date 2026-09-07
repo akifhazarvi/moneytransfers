@@ -343,39 +343,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
       </MobileDetailsRail>
 
-      {/* ─── TOOLS & CRYPTO TEASER — surfaces the free tools + crypto cash-out
-           cluster so they're discoverable and get homepage link equity (added
-           2026-07-03; these pages were otherwise reachable only from the footer). ─── */}
-      <section className="py-8 sm:py-12 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
-        <Container>
-          <div className="text-center mb-6 max-w-2xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
-              Go deeper — free tools &amp; the crypto angle
-            </h2>
-            <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
-              We measure something most comparison sites don&apos;t: stablecoin and Bitcoin rails vs banks.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <Link href="/remittance-cost-index" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
-              <p className="text-sm font-bold text-[var(--color-on-surface)]">Crypto vs bank cost index</p>
-              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Live league table of corridors where crypto beats the mid-market rate.</p>
-              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">See the index →</span>
-            </Link>
-            <Link href="/cash-out" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
-              <p className="text-sm font-bold text-[var(--color-on-surface)]">Cash out crypto by country</p>
-              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Cheapest USDT/USDC/BTC off-ramp to local currency, by destination.</p>
-              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">Pick a country →</span>
-            </Link>
-            <Link href="/tools/us-remittance-tax" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
-              <p className="text-sm font-bold text-[var(--color-on-surface)]">US remittance tax calculator</p>
-              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Work out the new 1% tax on money sent abroad — and how to pay $0.</p>
-              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">Open the tool →</span>
-            </Link>
-          </div>
-        </Container>
-      </section>
-
       {/* ─── PROVIDERS — Top + By Use Case + All Reviewed + Comparisons.
            Collapsed on mobile so live results stay closer to the fold;
            preserved in DOM for internal link equity (per May 20 audit). ─── */}
@@ -525,6 +492,41 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Container>
       </section>
       </MobileDetailsRail>
+
+      {/* ─── FROM OUR DATA — research + tools built on the same live quotes.
+           Added 2026-07-03 so these pages get homepage link equity; moved below
+           the provider section 2026-09-06 so the page reads as a transfer
+           comparison first — the crypto/tax framing above the fold blurred what
+           the site is about while it is trying to regain search trust. ─── */}
+      <section className="py-8 sm:py-12 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
+        <Container>
+          <div className="text-center mb-6 max-w-2xl mx-auto">
+            <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
+              From our data
+            </h2>
+            <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
+              Research and free tools built on the same live quotes that power every comparison above.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <Link href="/remittance-cost-index" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
+              <p className="text-sm font-bold text-[var(--color-on-surface)]">Remittance Cost Index</p>
+              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Which specialists and banks cost most on a $1,000 transfer, from today&apos;s quotes.</p>
+              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">See the index →</span>
+            </Link>
+            <Link href="/cash-out" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
+              <p className="text-sm font-bold text-[var(--color-on-surface)]">Cash out crypto by country</p>
+              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Cheapest USDT/USDC/BTC off-ramp to local currency, by destination.</p>
+              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">Pick a country →</span>
+            </Link>
+            <Link href="/tools/us-remittance-tax" className="block rounded-2xl p-5 bg-[var(--color-surface-dim)] ring-1 ring-[var(--color-outline)]/60 hover:ring-[var(--color-primary-light)] transition-colors">
+              <p className="text-sm font-bold text-[var(--color-on-surface)]">US remittance tax calculator</p>
+              <p className="mt-1 text-xs text-[var(--color-on-surface-variant)]">Work out the new 1% tax on money sent abroad — and how to pay $0.</p>
+              <span className="mt-2 inline-block text-xs font-semibold text-[var(--color-primary)]">Open the tool →</span>
+            </Link>
+          </div>
+        </Container>
+      </section>
 
       {/* ─── FAQ — collapsed on mobile; FAQPage schema preserved in DOM ─── */}
       <MobileDetailsRail label="Frequently asked questions">

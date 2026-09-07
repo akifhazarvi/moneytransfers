@@ -8,10 +8,17 @@
  * put TapTap Send first and the client put MoneyGram back on top.
  *
  * Both sides must import from here. quotes-engine pulls in ~4 MB of scraped
- * quotes and can never be imported by a client component; this module imports
- * only MONETISED_SLUGS from affiliate.ts, which has no imports of its own.
+ * quotes and can never be imported by a client component; this module has no
+ * imports at all.
+ *
+ * Commercial relationships play no part in this order. An earlier version
+ * sorted affiliate partners ahead of non-partners inside the materiality band
+ * and disclosed it as a tie-break — while the homepage, /methodology and
+ * /editorial-policy all said no provider can pay for a higher position. Both
+ * could not be true. Measured on 2026-09-03 across 72 corridor/amount runs, the
+ * partner rule never changed a single ordering, so it was removed rather than
+ * the promise. Do not reintroduce it without rewriting every one of those pages.
  */
-import { MONETISED_SLUGS } from "@/lib/affiliate";
 
 // How close two payouts must be before the difference stops being real
 // information. Quotes are scraped every ~6 hours and major pairs routinely move
@@ -25,16 +32,16 @@ import { MONETISED_SLUGS } from "@/lib/affiliate";
 const MATERIALITY_BAND = 0.001; // 0.10%
 
 /**
- * Rank by payout, then break *immaterial* differences toward a provider we have
- * a commercial relationship with.
+ * Rank by payout, then break *immaterial* differences by customer rating.
  *
  * The strict payout order is preserved everywhere it carries information: a
  * provider that is materially cheaper always stays ahead, and nothing outside the
  * band ever moves. Only within the band — where the ordering was previously
- * decided by scrape timing and rounding — does the tie-break apply.
+ * decided by scrape timing and rounding — does the tie-break apply: higher
+ * rating first, then the larger payout, then the slug, so the order is
+ * deterministic and identical on server and client.
  *
- * This IS a commercial thumb on the scale and is disclosed as one. The affiliate
- * disclosure and the editorial policy both state the band and its size; changing
+ * The affiliate disclosure states the band and its size; changing
  * MATERIALITY_BAND without updating that copy makes the site's own claims false.
  */
 export function rankQuotes<T extends { receiveAmount: number; providerSlug: string; rating?: number }>(
@@ -52,15 +59,12 @@ export function rankQuotes<T extends { receiveAmount: number; providerSlug: stri
     );
     const band = pool.splice(0, bandEnd === -1 ? pool.length : bandEnd);
     // Within the band the payout carries no information, so rating decides —
-    // which is also the honest answer to "why is a 4.7 below a 4.0?". Partners
-    // sort ahead of non-partners at equal standing; that part is commercial and
-    // is disclosed as such.
+    // which is also the honest answer to "why is a 4.7 below a 4.0?".
     const byMerit = (a: T, b: T) =>
-      (ratingOf(b) - ratingOf(a)) || (b.receiveAmount - a.receiveAmount);
-    ranked.push(
-      ...band.filter((q) => MONETISED_SLUGS.has(q.providerSlug)).sort(byMerit),
-      ...band.filter((q) => !MONETISED_SLUGS.has(q.providerSlug)).sort(byMerit),
-    );
+      (ratingOf(b) - ratingOf(a)) ||
+      (b.receiveAmount - a.receiveAmount) ||
+      a.providerSlug.localeCompare(b.providerSlug);
+    ranked.push(...band.sort(byMerit));
   }
   return ranked;
 }

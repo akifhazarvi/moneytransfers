@@ -37,7 +37,7 @@ import { quotesByCorridor, allProviderSlugs } from "./unified-quotes";
 import { providers, listableProviders, currencies, sendCurrencies } from "@/data/providers";
 import wiseComparisonQuotes from "@/data/scraped/wise-comparison-quotes.json";
 import midMarket from "@/data/scraped/xe-midmarket-rates.json";
-import { getAllInsights, KEEP_HISTORY_PAIRS, corridorToSlug } from "./rate-history";
+import siteDerived from "@/data/scraped/site-derived.json";
 
 /** Latest `dateCollected` in the broadest scrape, full ISO instant. */
 function latestScrapeInstant(): string {
@@ -51,11 +51,21 @@ function latestScrapeInstant(): string {
 
 const corridorKeys = Object.keys(quotesByCorridor);
 
-/** Same gate as generateStaticParams in exchange-rates/history/[pair]. */
+/**
+ * Read from a tiny generated file rather than computed here.
+ *
+ * Computing it needed `rate-history`, which statically imports the 24 MB
+ * rate-insights.json. site-stats is imported by i18n/request.ts, so that one
+ * import dragged 24 MB into EVERY route — including the edge-runtime OG image
+ * functions, which then blew the 2 MB edge bundle limit and failed six
+ * consecutive production deploys while every local build passed, because the
+ * limit is enforced at deploy time and not by `next build`.
+ *
+ * scripts/build-rate-insights.ts writes the count using the same gate the
+ * history route uses, so the value stays derived without the payload.
+ */
 function historyPairCount(): number {
-  return getAllInsights(2)
-    .map((i) => corridorToSlug(i.corridor))
-    .filter((slug) => KEEP_HISTORY_PAIRS.has(slug)).length;
+  return (siteDerived as { historyPairs?: number }).historyPairs ?? 0;
 }
 
 /** Distinct providers quoting each corridor. */

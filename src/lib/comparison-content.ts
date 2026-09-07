@@ -66,8 +66,30 @@ function hasFeature(p: Provider, keyword: string): boolean {
   return all.some((f) => f.includes(keyword.toLowerCase()));
 }
 
+/**
+ * Whether a provider prices at the mid-market rate, i.e. its advertised markup
+ * is exactly zero.
+ *
+ * Parses the leading number instead of substring-matching. Every provider's
+ * `exchangeRateMarkup` ends in "above mid-market" ("0.5% - 2% above
+ * mid-market"), so `includes("mid-market")` was true for all of them — which
+ * is how /compare/wise-vs-remitly told readers to choose Remitly for "the real
+ * mid-market exchange rate with no hidden markup" directly beneath a table
+ * giving Remitly a 0.5%–2% markup. Only Wise's "0% (mid-market rate)" passes.
+ */
+export function usesMidMarketRate(p: Provider): boolean {
+  // A single "0%" value, not the low end of a range: LemFi's "0% - 2% above
+  // mid-market" and Koho's "0% - 0.5%" both parse to zero but are not it.
+  return /^0(\.0+)?%(\s*\(|\s*$)/.test(p.exchangeRateMarkup.trim());
+}
+
+function hasLowUpfrontFees(p: Provider): boolean {
+  const f = p.feeStructure.toLowerCase();
+  return f.includes("no fee") || f.includes("$0") || f.includes("free");
+}
+
 function describeStrength(p: Provider): string {
-  if (p.exchangeRateMarkup.includes("0%") || p.exchangeRateMarkup.includes("mid-market")) {
+  if (usesMidMarketRate(p)) {
     return "transparent pricing with the real mid-market exchange rate";
   }
   if (hasFeature(p, "cash pickup")) {
@@ -79,26 +101,41 @@ function describeStrength(p: Provider): string {
   if (hasFeature(p, "forward contract")) {
     return "tools for locking in exchange rates with forward contracts";
   }
-  if (p.feeStructure.toLowerCase().includes("no") || p.feeStructure.includes("$0")) {
-    return "zero transfer fees on most corridors";
+  if (hasLowUpfrontFees(p)) {
+    return "low or zero upfront transfer fees";
   }
   if (p.supportedCountries >= 150) {
     return `global reach across ${p.supportedCountries}+ countries`;
   }
   if (hasFeature(p, "multi-currency")) {
-    return "a multi-currency account for holding and converting balances";
+    return "multi-currency accounts for holding and converting balances";
   }
   return `competitive rates and a ${p.ratingLabel.toLowerCase()}-rated service`;
 }
 
 function bestForLabel(p: Provider): string {
-  if (p.exchangeRateMarkup.includes("0%")) return "transparent, low-cost transfers";
+  if (usesMidMarketRate(p)) return "transparent, low-cost transfers";
   if (hasFeature(p, "cash pickup") && p.supportedCountries >= 100) return "cash pickup and global coverage";
   if (hasFeature(p, "mobile money")) return "remittances and mobile money";
   if (!p.maxTransfer || p.maxTransfer >= 100000) return "large transfers and business payments";
   if (p.transferSpeed.toLowerCase().includes("minute")) return "fast, small remittances";
-  if (p.feeStructure.toLowerCase().includes("no")) return "fee-free transfers";
+  if (hasLowUpfrontFees(p)) return "low-fee transfers";
   return "international money transfers";
+}
+
+/**
+ * Why the cost winner won, stated from the two pricing fields the page itself
+ * prints, so the verdict can never contradict the comparison table above it.
+ * The old sentence borrowed describeStrength(), which is a general
+ * positioning line ("cash pickup network") and, before the mid-market fix,
+ * credited every winner with the mid-market rate.
+ */
+function describeCostEdge(winner: Provider, loser: Provider): string {
+  const lc = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+  const rate = usesMidMarketRate(winner)
+    ? "at mid-market with no markup"
+    : winner.exchangeRateMarkup;
+  return `${winner.name} wins on the total, not on any one line: fee ${lc(winner.feeStructure)}, exchange rate ${rate}. ${loser.name} — fee ${lc(loser.feeStructure)}, rate ${loser.exchangeRateMarkup} — delivered less on these corridors once both were counted.`;
 }
 
 // ── Main generator ──
@@ -156,7 +193,7 @@ export function generateComparisonContent(a: Provider, b: Provider): ComparisonC
   const bestCorridor = corridorData.find((c) => c.savings && c.savings > 0 && c.winner === costWinner);
   const costExplanation = costWinner === "tie"
     ? `${a.name} and ${b.name} are closely matched on cost. Across our ${corridorData.length} sample corridors, neither provider consistently delivers more to the recipient. The best choice depends on your specific corridor.`
-    : `${costWinner === "a" ? a.name : b.name} wins on cost in ${Math.max(winsA, winsB)} of ${corridorData.length} corridors we tested.${bestCorridor ? ` For example, on ${bestCorridor.label} (${bestCorridor.currencySymbol}${bestCorridor.amount.toLocaleString()}), the recipient gets ${bestCorridor.symbol}${bestCorridor.savings!.toFixed(2)} more with ${costWinner === "a" ? a.name : b.name}.` : ""} ${costWinner === "a" ? a.name : b.name} achieves this through ${costWinner === "a" ? describeStrength(a) : describeStrength(b)}.`;
+    : `${costWinner === "a" ? a.name : b.name} wins on cost in ${Math.max(winsA, winsB)} of ${corridorData.length} corridors we tested.${bestCorridor ? ` For example, on ${bestCorridor.label} (${bestCorridor.currencySymbol}${bestCorridor.amount.toLocaleString()}), the recipient gets ${bestCorridor.symbol}${bestCorridor.savings!.toFixed(2)} more with ${costWinner === "a" ? a.name : b.name}.` : ""} ${costWinner === "a" ? describeCostEdge(a, b) : describeCostEdge(b, a)}`;
 
   const speedExplanation = speedWinner === "tie"
     ? `Both providers offer similar transfer speeds. ${a.name} typically delivers in ${a.transferSpeed}, while ${b.name} takes ${b.transferSpeed}. The actual speed depends on the corridor and delivery method.`
@@ -168,7 +205,7 @@ export function generateComparisonContent(a: Provider, b: Provider): ComparisonC
 
   const overallSummary = overallWinner === "tie"
     ? `${a.name} and ${b.name} serve different needs well. ${a.name} is best for ${bestForLabel(a)}, while ${b.name} excels at ${bestForLabel(b)}. Your best choice depends on what matters most: cost, speed, coverage, or delivery options.`
-    : `Overall, ${winnerName} edges ahead for most users thanks to ${overallWinner === "a" ? describeStrength(a) : describeStrength(b)}. That said, ${loserName} is the better pick if you need ${overallWinner === "a" ? bestForLabel(b) : bestForLabel(a)}.`;
+    : `Overall, ${winnerName} edges ahead for most users thanks to its ${overallWinner === "a" ? describeStrength(a) : describeStrength(b)}. That said, ${loserName} is the better pick if you need ${overallWinner === "a" ? bestForLabel(b) : bestForLabel(a)}.`;
 
   // Dynamic intro
   const intro = generateIntro(a, b, costWinner, corridorData);
@@ -236,8 +273,10 @@ function generateIntro(
 function generateWhenToUse(primary: Provider, other: Provider): string[] {
   const reasons: string[] = [];
 
-  if (primary.exchangeRateMarkup.includes("0%") || primary.exchangeRateMarkup.includes("mid-market")) {
+  if (usesMidMarketRate(primary)) {
     reasons.push("You want the real mid-market exchange rate with no hidden markup");
+  } else if (hasLowUpfrontFees(primary) && !hasLowUpfrontFees(other)) {
+    reasons.push(`You prefer low or zero upfront transfer fees (${primary.feeStructure}) and are comparing the total received, not the rate alone`);
   }
   if (primary.maxTransfer && other.maxTransfer && primary.maxTransfer > other.maxTransfer * 2) {
     reasons.push(`You're sending large amounts (${primary.name} supports up to $${primary.maxTransfer.toLocaleString()})`);
@@ -263,8 +302,8 @@ function generateWhenToUse(primary: Provider, other: Provider): string[] {
   if (primary.supportedCountries > other.supportedCountries * 1.3) {
     reasons.push(`You need wider country coverage (${primary.supportedCountries}+ vs ${other.supportedCountries}+ countries)`);
   }
-  if (primary.feeStructure.toLowerCase().includes("no fee") || primary.feeStructure.includes("$0")) {
-    reasons.push(`You want zero transfer fees (${primary.feeStructure})`);
+  if (hasLowUpfrontFees(primary) && hasLowUpfrontFees(other)) {
+    reasons.push(`You want low upfront fees (${primary.feeStructure})`);
   }
   if (primary.transferSpeed.toLowerCase().includes("minute") && !other.transferSpeed.toLowerCase().includes("minute")) {
     reasons.push("Speed is your top priority — transfers can arrive in minutes");

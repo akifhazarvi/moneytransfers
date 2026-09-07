@@ -852,7 +852,7 @@ import { RANKING_CORRIDOR_SLUGS } from "@/lib/ranking-corridors";
 import { corridorPageRenders, companyPageRenders, rateHistoryHref } from "@/lib/route-map";
 import { GONE_CORRIDOR_SLUGS } from "@/lib/gone-corridors";
 import { HEAD_CORRIDOR_SLUGS } from "@/lib/head-corridors";
-import { SITE_STATS } from "@/lib/site-stats";
+import { SITE_STATS, COVERAGE } from "@/lib/site-stats";
 import { formatLocalDate } from "@/lib/format-date";
 
 // ── Static generation ──
@@ -2230,7 +2230,7 @@ export default async function CorridorPage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[var(--color-on-surface-muted)] mb-5">
               <span>By <Link href="/about/akif-hazarvi" className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors">Akif Hazarvi</Link></span>
               <span className="text-[var(--color-outline)]">·</span>
-              <span>Refreshed every 6 hours from 50+ provider APIs</span>
+              <span>Refreshed every {SITE_STATS.refreshHours} hours from {COVERAGE.providers}</span>
             </div>
             <div className="mb-5">
               <AffiliateDisclosure />

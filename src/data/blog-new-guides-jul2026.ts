@@ -657,8 +657,8 @@ export const newGuidesJul2026: BlogPost[] = [
 <p>Sub-Saharan Africa corridors remain the most expensive globally — the World Bank identifies the G20 Compact with Africa as specifically targeting this. Within Africa, mobile money corridors (M-Pesa, MTN Mobile Money) have dramatically cut fees in East Africa, but Southern and West Africa corridors remain above 10% on average.</p>`,
       },
       {
-        heading: "SendMoneyCompare Live Data: What We Observe Across 80+ Corridors",
-        content: `<p>Our comparison engine collects real quotes from 15+ providers every 6 hours across 80+ currency corridors. Here's what our Q2 2026 data shows:</p>
+        heading: "SendMoneyCompare Live Data: What We Observe Across Our Corridors",
+        content: `<p>Our comparison engine collects real quotes from {{PROVIDER_COUNT}} providers every 6 hours across {{CORRIDOR_COUNT}} currency corridors. Here's what our Q2 2026 data shows:</p>
 <ul>
 <li><strong>Lowest observed all-in cost:</strong> ~0.2% (Wise or Instarem on popular EUR/GBP corridors with no fee)</li>
 <li><strong>Average across top 5 providers per corridor:</strong> ~1.1% total cost</li>

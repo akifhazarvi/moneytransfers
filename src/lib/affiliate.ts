@@ -59,9 +59,10 @@ function appendTrackingAttrs(u: URL, clickId?: string): void {
 // parameter rather than a network (TapTap Send, Unplex). The ref links are NOT
 // placeholders: the provider reads that parameter and attributes the traffic.
 //
-// This set drives the materiality tie-break in quotes-engine, so an entry added
-// here changes what users are shown first. Add a provider only once a real
-// commercial relationship exists.
+// This set does NOT affect ranking (see rank-quotes.ts — the partner tie-break
+// was removed 2026-09-06 because it contradicted the site's no-paid-placement
+// promise and had never changed an order). It drives link reconciliation and
+// reporting only. Add a provider only once a real commercial relationship exists.
 export const MONETISED_SLUGS = new Set<string>([
   "wise",
   "instarem",

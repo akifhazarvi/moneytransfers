@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { COVERAGE } from "@/lib/site-stats";
+import { COVERAGE, SITE_STATS, atLeast } from "@/lib/site-stats";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -102,39 +102,48 @@ export default async function MethodologyPage({ params }: { params: Promise<{ lo
         <Container>
           <div className="max-w-3xl mx-auto">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="text-center">
-                <p className="text-2xl font-medium text-[var(--color-primary)]">
-                  50+
-                </p>
-                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
-                  Providers tracked
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl font-medium text-[var(--color-primary)]">
-                  64+
-                </p>
-                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
-                  Currency corridors
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl font-medium text-[var(--color-primary)]">
-                  6 hrs
-                </p>
-                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
-                  Data refresh cycle
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl font-medium text-[var(--color-primary)]">
-                  20+
-                </p>
-                <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">
-                  Currencies supported
-                </p>
-              </div>
+              {[
+                { value: atLeast(SITE_STATS.liveProviders), label: "Providers with live quotes" },
+                { value: atLeast(SITE_STATS.comparableCorridors), label: "Corridors compared (2+ providers)" },
+                { value: `${SITE_STATS.refreshHours} hrs`, label: "Data refresh cycle" },
+                { value: atLeast(SITE_STATS.currencies), label: "Currencies supported" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <p className="text-2xl font-medium text-[var(--color-primary)]">{stat.value}</p>
+                  <p className="text-xs text-[var(--color-on-surface-variant)] mt-1">{stat.label}</p>
+                </div>
+              ))}
             </div>
+            {/* One definition per number. The site used to describe itself with
+                four incompatible provider counts and two corridor counts because
+                each page picked its own denominator; every count we publish now
+                has a name here and is computed in src/lib/site-stats.ts. */}
+            <dl className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-xs text-[var(--color-on-surface-variant)]">
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Providers with live quotes — {SITE_STATS.liveProviders}</dt>
+                <dd>Distinct providers appearing in our current quote data, including banks quoted through comparison feeds.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Providers reviewed — {SITE_STATS.curatedProviders}</dt>
+                <dd>Providers with a full editorial review at /companies, checked for regulation and features by hand.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Corridors compared — {SITE_STATS.comparableCorridors}</dt>
+                <dd>Currency pairs where two or more providers quote, so a comparison actually exists. This is the number our copy uses.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Corridors tracked — {SITE_STATS.corridorsWithData}</dt>
+                <dd>Currency pairs with at least one quote. Describes the size of the dataset, never how many routes we compare.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Rate-history pairs — {SITE_STATS.historyPairs}</dt>
+                <dd>Currency pairs with a published daily rate history page.</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--color-on-surface)]">Currencies supported — {SITE_STATS.currencies}</dt>
+                <dd>Currencies selectable anywhere in the comparison tool.</dd>
+              </div>
+            </dl>
           </div>
         </Container>
       </section>
