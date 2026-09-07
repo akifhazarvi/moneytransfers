@@ -10,6 +10,8 @@
  * `computeSendScore`, not here.
  */
 
+import Link from "next/link";
+
 import type { SendScore, SendScoreBand } from "@/lib/send-score";
 import type { ProviderConsistency } from "@/lib/provider-consistency";
 
@@ -167,7 +169,11 @@ export default function SendScoreCard({ score, fromCurrency, toCurrency, compact
               </ul>
               <p className="mt-2 text-[11px]" style={{ color: "var(--color-on-surface-variant)" }}>
                 {consistency.contestedDays} days where two or more providers quoted, over {consistency.windowDays} days.
-                Days with a single quote are excluded — winning unopposed is not evidence.
+                Days with a single quote are excluded — winning unopposed is not evidence.{" "}
+                <Link href="/provider-consistency" className="underline" style={{ color: "var(--color-primary)" }}>
+                  See every corridor
+                </Link>
+                .
               </p>
             </div>
           )}

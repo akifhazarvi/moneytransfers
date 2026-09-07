@@ -515,9 +515,15 @@ export default async function RemittanceCostIndexPage({ params }: { params: Prom
                 ))}
               </div>
 
-              <div className="text-center mt-6">
+              <div className="text-center mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2">
                 <Link href="/send-money" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
                   Compare all corridors &rarr;
+                </Link>
+                {/* Sibling index. This one ranks providers by cost; that one by
+                    how often they actually win. Readers arriving on either
+                    should be able to reach the other. */}
+                <Link href="/provider-consistency" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
+                  Which provider wins most often? &rarr;
                 </Link>
               </div>
             </div>

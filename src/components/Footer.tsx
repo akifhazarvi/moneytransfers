@@ -54,6 +54,11 @@ export default function Footer() {
         // links — reachable only via sitemap.xml (Sep 2 2026 crawl). This is
         // its natural home alongside the other calculators.
         { href: "/currency-converter", labelKey: "currencyConverter", label: "Currency converter" },
+        // Provider Consistency Index (added 2026-09-06). New URL with no
+        // organic inbound yet, so it is anchored here per the note above —
+        // it is also the only crawlable path to the site-wide index, whose
+        // per-corridor form is otherwise buried inside 212 corridor pages.
+        { href: "/provider-consistency", labelKey: "providerConsistency", label: "Provider consistency index" },
         { href: "/cash-out", labelKey: "cashOutCrypto", label: "Cash out crypto by country" },
         { href: "/iban", labelKey: "ibanLink" },
         { href: "/swift-codes", labelKey: "swiftLink" },

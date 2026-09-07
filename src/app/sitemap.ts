@@ -108,6 +108,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("terms", STATIC_CONTENT_DATE),
     entry("for-ai", DATA_UPDATED),
     entry("remittance-cost-index", DATA_UPDATED),
+    // Provider Consistency Index (added Sep 6 2026). The site-wide statement of
+    // a finding that was previously only rendered as a per-corridor widget on
+    // 212 pages, none of which Google has crawled. DATA_UPDATED because the
+    // ranking is rebuilt from the quote history on every scrape.
+    entry("provider-consistency", DATA_UPDATED),
     // Free tools hub + the two live calculators (added Jul 3 2026). Live: US
     // remittance tax (new 1% excise, high-intent 2026 query) and the FX markup
     // checker (live mid-market reference). The Fee Impact calculator at
