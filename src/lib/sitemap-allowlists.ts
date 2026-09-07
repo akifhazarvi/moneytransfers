@@ -183,6 +183,11 @@ export const SITEMAP_GUIDE_SLUGS = new Set<string>([
   // rendered live via {{FOUR_WAY_COST_TABLE}}, not typed in. Same caveat as
   // above: admitted on AI-citation evidence, not Bing impressions.
   "wise-vs-remitly-vs-xoom-vs-xe",
+  // Added 2026-09-07. Named top ChatGPT banking prompt; business prompts scored
+  // 25% on the Sep 7 benchmark. Distinct intent from the existing
+  // pay-international-freelancers guide (receiving, not paying). Same caveat:
+  // AI-citation evidence, not Bing impressions.
+  "receive-international-payments-freelancer",
   // ── Added 2026-06-22 — Jun 23 Bing Page Traffic + AI Page Stats export.
   //    Two signals: Bing organic impr AND heavy AI (Copilot/ChatGPT) citation.
   //    All exist in the merged blogPosts set and serve index:follow (en). The
