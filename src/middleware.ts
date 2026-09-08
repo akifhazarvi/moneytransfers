@@ -225,13 +225,17 @@ export default function middleware(request: NextRequest) {
     // under 'unsafe-inline'; it injects an external tag script from
     // www.clarity.ms (script-src) that beacons to *.clarity.ms (connect-src)
     // and drops a 1x1 pixel (img-src). All three families are allowlisted.
+    // Clarity also runs an ID sync that loads c.clarity.ms -> c.bing.com/c.gif
+    // (the MUID handshake that lets Clarity join a session to a Bing identity).
+    // The redirect target is checked against img-src in its own right, so
+    // *.clarity.ms alone blocked it; c.bing.com must be listed explicitly.
     `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://widget.trustpilot.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://*.adtrafficquality.google https://www.clarity.ms https://*.clarity.ms`,
     // 'unsafe-inline' required for style-src: React/Next.js uses inline style props
     // for dynamic values (colors, positions, backgrounds). This is the standard for
     // React apps — Next.js App Router does not support nonce-based inline styles.
     // See: https://csp.withgoogle.com/ and https://nextjs.org/docs/app/api-reference/config/next-config-js/headers#content-security-policy
     `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google https://*.clarity.ms`,
+    `img-src 'self' data: https://logo.clearbit.com https://flagcdn.com https://cdn.brandfetch.io https://hatscripts.github.io https://www.google.com https://*.trustpilot.com https://img.youtube.com https://i.ytimg.com https://*.googlesyndication.com https://*.g.doubleclick.net https://*.google.com https://*.adtrafficquality.google https://*.clarity.ms https://c.bing.com`,
     // GA4 routes EU/UK hits to region-specific collection endpoints
     // (region1.google-analytics.com etc) for data residency, NOT to
     // www.google-analytics.com. The narrow www-only allowlist silently
