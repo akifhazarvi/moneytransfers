@@ -34,6 +34,20 @@ const SITE_URL = "https://sendmoneycompare.com";
 const STATIC_HUB_DATE = "2026-03-28";
 const STATIC_CONTENT_DATE = "2026-03-01";
 
+// Per-family dates, split out of STATIC_HUB_DATE.
+//
+// One constant covered /guides, /business, /business/[slug], /news, /tools,
+// /about, /contact and every /iban and /swift-codes page. That conflates
+// families with nothing in common: editing the business pages should not
+// restamp /about, and leaving the constant alone means a family that DID change
+// keeps claiming March. The 2026-09-07 content audit flagged exactly that —
+// hub and trust pages dated March while carrying later material.
+//
+// Same discipline as the corridor/comparison/rate constants below: one date per
+// family, bumped when that family's content actually changes.
+const BUSINESS_CONTENT_DATE = "2026-09-07"; // measured cost figures + live tokens
+const GUIDES_HUB_DATE = "2026-09-07";       // hub listing now driven by guideIsIndexable()
+
 // Derived from the most recently modified scraped quotes file (shared with
 // the WebSite.dateModified schema in [locale]/layout.tsx — single source of
 // truth). Ensures lastmod on data-driven pages reflects when live data
@@ -59,7 +73,7 @@ const DATA_UPDATED = getDataUpdatedDate();
 // Each constant is the date that family's template or editorial content last
 // actually changed, per git history. Bump one when you change that family —
 // the same discipline STATIC_HUB_DATE already follows.
-const CORRIDOR_CONTENT_DATE = "2026-08-31";   // corridor template + EUR collapse
+const CORRIDOR_CONTENT_DATE = "2026-09-07";   // freshness stamp split from human review; reviewedBy dropped
 const COMPARISON_CONTENT_DATE = "2026-08-19"; // /compare, /banks, review fallback
 const RATE_PAGE_CONTENT_DATE = "2026-09-01";  // /exchange-rates/* — inline quotes added
 
@@ -96,7 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // index a page we have told it not to index — Semrush flagged exactly this
     // on 2026-09-02 ("incorrect page found in sitemap.xml: non-canonical URL").
     // The page still renders and still carries its internal links.
-    entry("guides", STATIC_HUB_DATE),
+    entry("guides", GUIDES_HUB_DATE),
     entry("iban", STATIC_HUB_DATE),
     entry("swift-codes", STATIC_HUB_DATE),
     entry("about", STATIC_HUB_DATE),
@@ -169,7 +183,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("cookies", STATIC_CONTENT_DATE),
     entry("disclaimer", STATIC_CONTENT_DATE),
     entry("news", STATIC_HUB_DATE),
-    entry("business", STATIC_HUB_DATE),
+    entry("business", BUSINESS_CONTENT_DATE),
     // Live Business/B2B payment-provider cost comparison tool. Added Jun 22 2026
     // to capture the highest-AI-citation-share B2B query cluster ("lowest fees
     // international business payments providers comparison" — 763 cites/79%
@@ -249,7 +263,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── B2B/business landing pages ──
   const businessHubPages: MetadataRoute.Sitemap = businessPages
     .filter((p) => SITEMAP_BUSINESS_SLUGS.has(p.slug))
-    .map((p) => entry(`business/${p.slug}`, STATIC_HUB_DATE));
+    .map((p) => entry(`business/${p.slug}`, BUSINESS_CONTENT_DATE));
 
   // ── Bank international-transfer-cost pages (pilot set: 5 banks) ──
   // Marketing surface backed by live Wise-comparison-API data. Submitted to
