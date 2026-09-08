@@ -587,6 +587,26 @@ export function renderDataTokens(html: string): string {
   // Mirrors the scrape cron. Copy stating a refresh interval should read this
   // rather than hand-typing "every 6 hours" and drifting from the workflow.
   out = out.split("{{REFRESH_HOURS}}").join(String(SITE_STATS.refreshHours));
+
+  // What choosing a provider over the cheapest costs across a year of monthly
+  // transfers. Promo guides compare one-off sign-up offers and never price the
+  // eleven transfers after it, which is where the money actually goes: a $25
+  // welcome credit against a rate gap repeated twelve times is not a comparison
+  // anyone has run. Renders the per-transfer gap and the annual total together,
+  // because the annual figure alone reads as a scare number.
+  // {{TWELVE_TRANSFER_GAP:ria:USD:INR:1000}} -> "₹1,593 per transfer — ₹19,114 over twelve"
+  out = out.replace(
+    /\{\{TWELVE_TRANSFER_GAP:([a-z0-9-]+):([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
+    (match, slug: string, from: string, to: string, amt: string) => {
+      const q = quotesFor(from, to, Number(amt));
+      if (q.length < 2) return match;
+      const row = q.find((x) => x.providerSlug === slug);
+      if (!row) return match;
+      const gap = q[0].receiveAmount - row.receiveAmount;
+      if (gap <= 0) return "nothing — it is the cheapest on this route today";
+      return `${fmtMoney(to, gap, 0)} per transfer — ${fmtMoney(to, gap * 12, 0)} over twelve`;
+    },
+  );
   if (out.includes("{{IBAN_FORMAT_TABLE}}")) {
     out = out.split("{{IBAN_FORMAT_TABLE}}").join(renderIbanFormatTable());
   }

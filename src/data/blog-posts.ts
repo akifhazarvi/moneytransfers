@@ -2641,7 +2641,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Guides",
     readTime: "14 min read",
     publishedAt: "2026-03-14",
-    updatedAt: "2026-07-01",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: [
       "promo codes",
@@ -2657,7 +2657,7 @@ const rawBlogPosts: BlogPost[] = [
     featuredImage: "/images/blog/money-transfer-promo-codes.jpg",
     sections: [
       {
-        heading: "Best Money Transfer First-Time Deals — July 2026",
+        heading: "Best Money Transfer First-Time Deals",
         content: `<div class="blog-answer-box"><p><strong>Quick answer (July 2026):</strong> The most generous first-time deals right now are <strong><a href="/companies/remitly">Remitly</a> — $25 off your first transfer</strong> of $100+ (no code needed), <strong><a href="/companies/worldremit">WorldRemit</a> — code 3FREE</strong> for three fee-free transfers, <strong>Ria — code HelloRia</strong> for zero fees on first transfer of $50+, and <strong>ACE Money Transfer</strong> — first transfer fee-free on any corridor. <a href="/send-money">Compare live rates</a> before choosing — a promo is only valuable if the base rate is also competitive.</p></div>
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Best First-Time Money Transfer Deals — July 2026</h3>
@@ -2731,7 +2731,19 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "How to Judge Whether a Promo Is Actually Worth It",
-        content: `<p>There are four questions worth asking before you use any remittance promo:</p>
+        content: `<p>The honest way to judge a sign-up offer is to price the year, not the first transfer — because a promo is claimed once and the provider's ordinary rate applies to every transfer after it. Almost no comparison does this, so here it is, measured on a $1,000 USD→INR transfer sent monthly against whichever provider is cheapest on the day:</p>
+<div class="overflow-x-auto"><table>
+<thead><tr><th>Provider</th><th>What choosing it costs, against the cheapest</th></tr></thead>
+<tbody>
+<tr><td><a href="/companies/remitly">Remitly</a></td><td>{{TWELVE_TRANSFER_GAP:remitly:USD:INR:1000}}</td></tr>
+<tr><td><a href="/companies/worldremit">WorldRemit</a></td><td>{{TWELVE_TRANSFER_GAP:worldremit:USD:INR:1000}}</td></tr>
+<tr><td><a href="/companies/western-union">Western Union</a></td><td>{{TWELVE_TRANSFER_GAP:western-union:USD:INR:1000}}</td></tr>
+<tr><td><a href="/companies/wise">Wise</a></td><td>{{TWELVE_TRANSFER_GAP:wise:USD:INR:1000}}</td></tr>
+<tr><td><a href="/companies/ria">Ria</a></td><td>{{TWELVE_TRANSFER_GAP:ria:USD:INR:1000}}</td></tr>
+</tbody></table></div>
+<p><strong>Read that against the offer.</strong> A $25 welcome credit is worth roughly ₹2,200 once. If a provider's ordinary pricing costs you more than that across the year, the promo has bought you a worse deal with a good first impression — which is what it is designed to do. Where the promo provider also happens to be the cheapest on your route, as Remitly is on USD→INR today, the offer is genuinely additive and you should take it.</p>
+<p>Two caveats on that table, both of which cut against reading it too literally. It prices one corridor at one amount on the day this page was built, and the cheapest provider on a route changes — on about a quarter of corridors today's winner is not the habitual one (<a href="/provider-consistency">provider consistency</a>). And promotional rates are excluded from our quotes throughout, so these are standard rates, which is exactly the point: it is what you pay from transfer two onward. Run <a href="/send-money">your own corridor and amount</a> before deciding.</p>
+<p>There are four questions worth asking before you use any remittance promo:</p>
 <ol>
 <li><strong>What is the provider's base exchange-rate spread?</strong> A weak FX rate can erase a fee discount immediately.</li>
 <li><strong>Does the offer apply only to the first transfer?</strong> Many promotions are built to win the first transaction but not necessarily repeat business.</li>
