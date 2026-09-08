@@ -36,6 +36,10 @@ npm run check:assets     # logo manifest ↔ public/logos, asset paths, title-te
 npm run check:links      # every internal link resolves to a page the build rendered
 npm run check:indexing   # sitemap ⇔ robots ⇔ canonical agree
 npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (needs a deploy)
+
+# Not a build gate — run periodically and read the output
+npm run check:sources    # every external citation still resolves (403/unreachable ≠ dead)
+npm run build:llms       # regenerate llms.txt + llms-full.txt (also runs in prebuild)
 ```
 
 ## Data Flow
@@ -95,6 +99,7 @@ allowlisted, not on-demand ISR.**
 | `/compare/[slug]` | `EDITORIAL_COMPARE_SLUGS` + `SITEMAP_COMPARISON_SLUGS` | **404** (`dynamicParams=false`) |
 | `/exchange-rates/history/[pair]` | `KEEP_HISTORY_PAIRS` ∩ pairs with ≥2 days of data | **404** (`dynamicParams=false`) |
 | `/companies/[slug]` | `providers` (16 curated) | `notFound()` |
+| `/guides/[slug]` | all built; indexable per `guideIsIndexable()` | renders, `noindex` |
 | `/exchange-rates/[pair]` | `CURRENCY_PAIRS` | renders on demand |
 | `/iban/[slug]`, `/swift-codes/[country]`, `/banks/[slug]`, `/business/[slug]` | their data list | `notFound()` |
 
@@ -137,6 +142,13 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
 
 - Every page exports `metadata` via the Next.js Metadata API, with a canonical
   from `getAlternates()`.
+- **Never hand-type a figure a dataset already knows.** Cost, markup, rate and
+  coverage numbers go through the `{{TOKEN}}` renderer in `ratings-tokens.ts`
+  (guides, business pages) or `site-stats.ts` / the indices (components), so
+  prose cannot drift from the data beneath it. `check:assets` fails the build on
+  an unresolved `{{`. Report measured markups as **medians** — the mean is
+  distorted by corridors where our own benchmark is unreliable (USD→NGN reads
+  −3.16%), which is enough to misdescribe a provider.
 - **`<title>` is not the `<h1>`.** Use `seoTitle(h1, explicit?)` or
   `fitTitle([...candidates])` from `src/lib/seo-title.ts`: titles cap at 70
   characters and must differ from the on-page headline. Hand-written titles go
@@ -150,6 +162,12 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   `openGraph` object replaces the inherited one and silently drops the
   file-based image, so spread `DEFAULT_OG_IMAGES` from `@/lib/i18n-metadata`
   into any `openGraph` that has no more specific image.
+- **A citation must resolve, and must substantiate the specific claim.** A
+  regulator's homepage next to a fee figure is not a source. `check:sources`
+  found 11 dead citations in one sweep, four on a page promoted to indexable the
+  same day. A host answering 403 or refusing HEAD is *not* evidence a page is
+  dead — Revolut 403s every path including nonexistent ones — so verify with GET
+  before removing anything.
 - **`nofollow` is for paid, untrusted and UGC links only.** Citations to
   regulators, central banks, multilateral bodies and the press are followed —
   they are the outbound-citation signal that supports E-E-A-T on YMYL finance
