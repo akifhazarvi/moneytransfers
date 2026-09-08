@@ -10697,7 +10697,7 @@ const rawBlogPosts: BlogPost[] = [
   },
   {
     slug: "bulk-international-payments-guide",
-    contentStatus: "draft",
+    contentStatus: "published",
     title: "Bulk International Payments: Business Guide for 2026",
     metaDescription:
       "Compare cheapest ways to make bulk international payments in 2026. CSV batch uploads, API integrations, costs, compliance, and top platforms.",
@@ -10706,7 +10706,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Business" as const,
     readTime: "12 min read",
     publishedAt: "2026-03-23",
-    updatedAt: "2026-03-23",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: [
       "bulk international payments",
@@ -10743,7 +10743,8 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "How Much Do Bulk International Payments Cost?",
-        content: `<p>The cost gap between traditional bank wires and specialist bulk payment platforms is enormous — and it widens as your payment volume increases. Understanding the full cost structure is essential before choosing a provider.</p>
+        content: `<p>On our own $5,000 business benchmark, high-street banks average {{BUSINESS_BANK_COST_PCT}} all-in against {{BUSINESS_SPECIALIST_COST_PCT}} for business-FX specialists — about {{BUSINESS_SAVINGS_PCT}} cheaper, and the gap compounds across a batch rather than being paid once. The full per-provider table is in the <a href="/business/compare">business comparison</a>.</p>
+<p>The cost gap between traditional bank wires and specialist bulk payment platforms is enormous — and it widens as your payment volume increases. Understanding the full cost structure is essential before choosing a provider.</p>
   
   <h3>Traditional Bank Wire Costs</h3>
   <p>When you send an international wire transfer through a high-street bank, you typically pay three layers of fees:</p>
@@ -10865,7 +10866,8 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "API vs CSV: Choosing Your Payment Method",
-        content: `<p>Businesses making bulk international payments generally have two options: manual CSV batch uploads or automated API integration. The right choice depends on your payment volume, technical resources, and appetite for automation.</p>
+        content: `<p class="blog-footnote">Both routes ultimately produce the same thing: a payment instruction in <a href="https://www.iso20022.org/" target="_blank" rel="noopener noreferrer">ISO 20022</a> format, the messaging standard banks and payment systems have been migrating to. That is worth knowing because it is why a batch file has strict field requirements — you are populating a standard, not a vendor form — and why the same file rejects for a missing purpose code at one provider and not another, depending on which optional fields each enforces. In the euro area the underlying scheme is the European Payments Council's <a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-credit-transfer" target="_blank" rel="noopener noreferrer">SEPA Credit Transfer</a>, and since <a href="https://eur-lex.europa.eu/eli/reg/2024/886/oj" target="_blank" rel="noopener noreferrer">Regulation 2024/886</a> eurozone banks must settle instant euro transfers in ten seconds at no premium — which changes the calculus on batching euro payouts overnight. The US equivalent for domestic legs is <a href="https://www.federalreserve.gov/paymentsystems/fednow_about.htm" target="_blank" rel="noopener noreferrer">FedNow</a>.</p>
+<p>Businesses making bulk international payments generally have two options: manual CSV batch uploads or automated API integration. The right choice depends on your payment volume, technical resources, and appetite for automation.</p>
   
   <h3>CSV Batch Upload</h3>
   <p>CSV uploads are the simplest way to make batch payments. You prepare a spreadsheet with recipient details and payment amounts, upload it to your provider's dashboard, review, and approve. No development work is required.</p>
@@ -11636,7 +11638,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "send-money-to-morocco-guide",
-    contentStatus: "draft",
+    contentStatus: "published",
     title: "Cheapest Way to Send Money to Morocco: MAD Rates 2026",
     metaDescription:
       "Compare the cheapest ways to send money to Morocco. Live MAD rates from 10+ providers — bank deposit vs CashPlus pickup. Europe, US, and Gulf corridors.",
@@ -11645,7 +11647,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Corridors",
     readTime: "12 min read",
     publishedAt: "2026-03-27",
-    updatedAt: "2026-03-27",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["Morocco", "MAD", "Dirham", "remittance", "send money to Morocco", "CashPlus", "corridor guide"],
     featuredImage: "/images/blog/send-money-to-morocco.jpg",
@@ -11668,6 +11670,10 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "Step 1: Choose Your Provider by Source Country",
         content: `<div class="blog-table-box">
+<h3>Live pricing: EUR → MAD, the corridor most Moroccan remittances actually travel</h3>
+<p>France alone sends more to Morocco than any other country, so the euro corridor is the one that matters. Priced on 1,000 EUR against {{PROVIDER_TALLY:EUR:MAD:1000}} providers as at {{QUOTE_DATE}}, ranked by dirhams received:</p>
+{{QUOTE_TABLE:EUR:MAD:1000}}
+<p>The gap between best and worst is {{SPREAD:EUR:MAD:1000}} on 1,000 EUR, against a mid-market rate of {{MID_RATE:EUR:MAD}} MAD per euro. From the UK and US the field is thinner — {{PROVIDER_TALLY:GBP:MAD:1000}} providers quote GBP → MAD and {{PROVIDER_TALLY:USD:MAD:1000}} quote USD → MAD — so a European sender has materially more choice than a British or American one on this corridor.</p>
 <h3 style="margin-top: 0;">Quick Comparison: Best Providers for Sending to Morocco</h3>
 <table>
 <thead><tr><th>Category</th><th>Provider</th><th>Why</th></tr></thead>
@@ -16012,7 +16018,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "taptap-send-vs-wise-remitly-usd-to-pkr",
-    contentStatus: "draft",
+    contentStatus: "published",
     title: "TapTap Send vs Wise vs Remitly vs XE: USD to PKR",
     metaDescription:
       "Real test: TapTap Send vs Wise, Remitly, Ria, and XE on a live USD to PKR transfer. Who wins on rate, speed, and payment method? The results surprised me.",
