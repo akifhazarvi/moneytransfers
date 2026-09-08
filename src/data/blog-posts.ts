@@ -3166,7 +3166,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "cost-of-sending-1000-abroad",
-    contentStatus: "draft",
+    contentStatus: "published",
     title: "Cost of Sending $1,000 Abroad: {{PROVIDER_COUNT}} Providers Compared",
     metaDescription:
       "We compared fees, exchange rates, and total costs from {{PROVIDER_COUNT}} providers to find who gives your recipient the most on a $1,000 international transfer in 2026.",
@@ -16013,7 +16013,7 @@ const rawBlogPosts: BlogPost[] = [
   {
     slug: "taptap-send-vs-wise-remitly-usd-to-pkr",
     contentStatus: "draft",
-    title: "TapTap Send vs Wise, Remitly & XE: USD to PKR Test 2026",
+    title: "TapTap Send vs Wise vs Remitly vs XE: USD to PKR",
     metaDescription:
       "Real test: TapTap Send vs Wise, Remitly, Ria, and XE on a live USD to PKR transfer. Who wins on rate, speed, and payment method? The results surprised me.",
     excerpt:
@@ -16021,14 +16021,14 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "8 min read",
     publishedAt: "2026-05-17",
-    updatedAt: "2026-05-17",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["pakistan", "pkr", "taptap send", "wise", "remitly", "usd", "review"],
     featuredImage: "/images/blog/send-money-to-pakistan.jpg",
     sections: [
       {
         heading: "Why I Ran This Test",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> TapTap Send currently offers the best exchange rate on USD to PKR transfers above $250, with zero fees and payment via Apple Pay or debit card. On a $1,000 transfer it delivers 280,100 PKR — beating Wise (276,284 PKR) by nearly 4,000 PKR. Speed is where TapTap really stands out: Apple Pay transfers credit in seconds. <a href="/send-money/usa-to-pakistan">Compare live USD to PKR rates →</a></p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> TapTap Send is consistently at or near the top of this corridor, charges no fee above $250, and credits in seconds via Apple Pay — which is why it is worth knowing about despite being less familiar than the others here. It is not always the outright winner: on $1,000 today it delivers {{RECEIVE:taptap-send:USD:PKR:1000}} against {{BEST_PROVIDER:USD:PKR:1000}} at {{BEST_RECEIVE:USD:PKR:1000}}, with <a href="/companies/wise">Wise</a> at {{RECEIVE:wise:USD:PKR:1000}}. The leaders sit close together and swap places; the spread across all {{PROVIDER_TALLY:USD:PKR:1000}} providers is {{SPREAD:USD:PKR:1000}}, so the decision that matters is avoiding the bottom of the table, not picking between the top two. <a href="/send-money/usa-to-pakistan">Compare live USD to PKR rates →</a></p></div>
 <p>I've been tracking the USD to PKR corridor for a while on SendMoneyCompare. Ria, XE, Wise, and Remitly dominate the conversation — they're the names you see in every Pakistani diaspora forum thread about sending money home.</p>
 <p>But the comparison data kept showing TapTap Send near the top of our leaderboard on this corridor, and I noticed something interesting: it accepts Apple Pay. For anyone who's watched a Remitly "Express" transfer spin for 20 minutes while waiting for a bank debit to clear, that's a meaningful difference.</p>
 <p>So I ran a real test. I opened accounts on all five services and sent money through each one. Here's exactly what happened.</p>`,
@@ -16048,7 +16048,8 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "The Results: Who Paid Out the Most PKR?",
         content: `<div class="blog-table-box">
-<h3 style="margin-top:0;">USD → PKR Transfer Test Results (Same Day)</h3>
+<h3 style="margin-top:0;">USD → PKR test results, recorded 17 May 2026 (same day, all five)</h3>
+<p class="text-sm">A point-in-time record, kept as recorded. Rates move — the live table below shows where the same corridor stands today.</p>
 <table>
 <thead><tr><th>Provider</th><th>Send</th><th>Fee</th><th>Rate</th><th>Receive (PKR)</th><th>Payment</th><th>Speed</th></tr></thead>
 <tbody>
@@ -16062,7 +16063,12 @@ const rawBlogPosts: BlogPost[] = [
 <p class="blog-footnote">Rates captured on the same day. Live rates update every 6 hours — <a href="/send-money/usa-to-pakistan">check current USD to PKR rates →</a></p>
 </div>
 <p>TapTap and Ria are neck-and-neck on rate — the difference is less than 300 PKR on a $1,000 transfer. But TapTap's payment method is the real differentiator: it accepts Apple Pay and debit card, and the money moves in <em>seconds</em>. Ria and Remitly are also fast via card, but TapTap's Apple Pay integration makes it the smoothest experience I've tested on this corridor.</p>
-<p><strong>The Wise gap is real.</strong> Wise's $8.36 fee on a $1,000 transfer, combined with a slightly lower rate, means your recipient gets about 3,800 PKR less than with TapTap. On a $2,000 transfer that gap widens further. Wise's 0% markup policy is genuine — but the fee still adds up, especially at the amounts most Pakistan remittance senders use.</p>`,
+<p><strong>The Wise gap is real.</strong> Wise's $8.36 fee on a $1,000 transfer, combined with a slightly lower rate, means your recipient gets about 3,800 PKR less than with TapTap. On a $2,000 transfer that gap widens further. Wise's 0% markup policy is genuine — but the fee still adds up, especially at the amounts most Pakistan remittance senders use.</p>
+<h3>Where this corridor stands today</h3>
+<p>Same corridor, same $1,000, priced live against {{PROVIDER_TALLY:USD:PKR:1000}} providers as at {{QUOTE_DATE}}:</p>
+{{QUOTE_TABLE:USD:PKR:1000}}
+<p><strong>What changed since May.</strong> TapTap Send no longer leads outright — it is {{RECEIVE:taptap-send:USD:PKR:1000}} against {{BEST_PROVIDER:USD:PKR:1000}} at {{BEST_RECEIVE:USD:PKR:1000}}, a difference small enough that it will likely swap back. The more useful finding held: TapTap remains at or near the top, and the spread across the whole corridor is {{SPREAD:USD:PKR:1000}} on $1,000, which is far larger than the gap between the leaders. Picking any of the top few costs you little; picking from the bottom costs a lot.</p>
+<p class="blog-footnote">The May figures were captured by hand on one day. The live table is generated from our quote archive on every build, excludes promotional first-transfer rates, and is the one to trust for a decision today.</p>`,
       },
       {
         heading: "One Thing to Know About TapTap's Fee Structure",
@@ -16383,7 +16389,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Reviews",
     readTime: "11 min read",
     publishedAt: "2026-05-19",
-    updatedAt: "2026-05-19",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["China", "CNY", "best apps", "SkyRemit", "Panda Remit", "Wise China", "WeChat Pay international", "Alipay cross-border", "money transfer apps", "yuan outbound"],
     featuredImage: "/images/blog/china-money-transfer-apps.jpg",
@@ -16391,7 +16397,12 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "Which Money Transfer Apps Work for Sending CNY from China?",
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best apps for sending CNY outbound from China in 2026 are: <strong>(1) <a href="/companies/skyremit">SkyRemit</a></strong> — China's specialist outbound app (¥79 fixed fee, 180+ countries, PBOC-licensed, WeChat/Alipay funded); <strong>(2) <a href="/companies/wise">Wise</a></strong> — available in China via licensed partner, 0% rate markup, best for UnionPay bank accounts; <strong>(3) Chinese bank apps (ICBC, BOC, CMB)</strong> — high fees but fully SAFE-compliant for large amounts; <strong>(4) UnionPay MoneyExpress</strong> — 80+ countries, integrates with 79 Chinese banks. Not all major global apps operate in mainland China due to licensing requirements. <a href="/send-money">Compare live CNY rates →</a></p></div>
-<p>The Chinese market is unique: most Western remittance apps (Remitly, WorldRemit, MoneyGram) focus on <em>receiving</em> in China, not sending <em>from</em> China. For CNY outbound transfers, the field narrows considerably to operators with PBOC licences or approved partnerships.</p>`,
+<p>The Chinese market is unique: most Western remittance apps (Remitly, WorldRemit, MoneyGram) focus on <em>receiving</em> in China, not sending <em>from</em> China. For CNY outbound transfers, the field narrows considerably to operators with PBOC licences or approved partnerships.</p>
+<h3>What the three actually pay, live</h3>
+<p>Priced on 5,000 CNY as at {{QUOTE_DATE}}, ranked by what the recipient receives:</p>
+{{QUOTE_TABLE:CNY:USD:5000}}
+<p><strong>Three providers is the entire field, and that is the finding.</strong> On a corridor like USD→INR we price twenty-one; here we can price three, because China's capital-control regime keeps most international operators out of CNY outbound entirely. So the practical question is not "who is cheapest among many" but "which of these three can serve me at all" — which depends on your residency, your account type and your remaining SAFE facility, not on the rate. Compare the rate second.</p>
+<p class="blog-footnote">Measured exchange-rate markup across every corridor we price them on: SkyRemit {{AVG_MARKUP:skyremit}}, Panda Remit {{AVG_MARKUP:panda-remit}}, Wise {{AVG_MARKUP:wise}}. Those cover each provider's whole footprint, not just CNY, and are a better guide to habitual pricing than a single day's quote on a thin corridor.</p>`,
       },
       {
         heading: "SkyRemit — Best Overall for CNY Outbound",
