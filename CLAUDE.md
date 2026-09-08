@@ -129,6 +129,16 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   deliberately broader than the sitemap (Bing earners Google ignores).
   `/compare-money-transfer` is indexable but unsubmitted because it
   canonicalises to `/compare`.
+- **The largest exception is Tier 1 corridors, and it is deliberate.** ~362
+  `/send-money/*` pages are `index, follow` while absent from the sitemap, and
+  `/send-money` links all 436 of them. This looks like the "sitemap=no,
+  robots=index" contradiction and is not: Tier 1 means editorial or 5+ providers
+  quoting the route, i.e. a genuinely comparative page. Gating these on the
+  demand allowlist was tried and reverted — it cut indexable corridors 1,176 → 100
+  and suppressed 827 pages that earn their place on data richness rather than on
+  already having been found. Read `shouldNoindex()` in `corridor-tiers.ts` before
+  concluding the hub link block or those pages are a bug; the reasoning is there,
+  and it is the same chicken-and-egg argument that governs guide promotion.
 - **Sitemap membership is gated on demand data, not judgement** — Bing
   Webmaster Tools (≥5 impressions/90d) post-deindex, since the site wins on
   Bing/AI assistants and Google is the failing channel. Allowlists live in
