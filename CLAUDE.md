@@ -39,6 +39,8 @@ npm run check:ranking    # ranking URLs answer 200 with an <h1> and no noindex (
 
 # Not a build gate — run periodically and read the output
 npm run check:sources    # every external citation still resolves (403/unreachable ≠ dead)
+npm run check:rankings   # ranked providers exist in our data; no uncomputed "N/10" scores
+npm run check:weight     # heaviest prerendered pages; fails above 2 MB
 npm run build:llms       # regenerate llms.txt + llms-full.txt (also runs in prebuild)
 ```
 
@@ -172,6 +174,12 @@ indexed → 31) was traced to, and every cleanup since has been an instance of i
   `openGraph` object replaces the inherited one and silently drops the
   file-based image, so spread `DEFAULT_OG_IMAGES` from `@/lib/i18n-metadata`
   into any `openGraph` that has no more specific image.
+- **A page that ranks providers may only rank ones we hold data for.** If an
+  entry earns its place on something we do not measure (account features, cash
+  network reach), say so inline where it is ranked — `check:rankings` accepts an
+  explicit disclosure and fails a silent one. It found two: SoFi ranked #1 at
+  "9.8/10" and OnePay #4, on a page titled "Ranked by Cost", neither present in
+  any dataset. No code on this site produces a `N/10` score; do not write one.
 - **A citation must resolve, and must substantiate the specific claim.** A
   regulator's homepage next to a fee figure is not a source. `check:sources`
   found 11 dead citations in one sweep, four on a page promoted to indexable the

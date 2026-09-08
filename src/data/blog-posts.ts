@@ -2500,7 +2500,8 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "4. OnePay Cash Global Transfers — Best for Cash Pickup",
-        content: `<p>Powered by MoneyGram's network, OnePay offers <strong>cash pickup in minutes</strong> across 140+ countries — ideal when recipients don't have bank accounts.</p>
+        content: `<p class="blog-footnote"><strong>Not a measured cost ranking.</strong> Like SoFi above, OnePay does not publish quotes we can capture, so it is absent from our live dataset and from the <a href="/remittance-cost-index">Remittance Cost Index</a>. It is here for its cash-pickup reach, not for a cost we have verified. <a href="/companies/moneygram">MoneyGram</a>, whose network it uses, we do price.</p>
+<p>Powered by MoneyGram's network, OnePay offers <strong>cash pickup in minutes</strong> across 140+ countries — ideal when recipients don't have bank accounts.</p>
 <ul>
 <li>Cash pickup ready in minutes at 350,000+ locations</li>
 <li>140+ countries supported</li>
