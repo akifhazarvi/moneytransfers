@@ -10454,16 +10454,16 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Pakistan Rupee Exchange Rate — Where Are We Now?",
-        content: `<p>The Pakistani rupee has had an eventful 18 months. After the dramatic depreciation of 2022-2023 — when USD/PKR surged from around 175 to nearly 310 — the currency has gradually stabilised under the weight of IMF-mandated reforms, tighter monetary policy, and a crackdown on the informal hawala market. As of March 2026, the key cross-rates stand at approximately:</p>
+        content: `<p>The Pakistani rupee has had an eventful 18 months. After the dramatic depreciation of 2022-2023 — when USD/PKR surged from around 175 to nearly 310 — the currency has gradually stabilised under the weight of IMF-mandated reforms, tighter monetary policy, and a crackdown on the informal hawala market. The policy rate behind that second factor is set by the State Bank of Pakistan and published with the reasoning in its <a href="https://www.sbp.org.pk/m_policy/index.asp" target="_blank" rel="noopener noreferrer">monetary policy statements</a> — the primary source for anything on this page about SBP policy, and worth reading over any forecast, including ours. The key cross-rates today:</p>
   
   <div class="blog-answer-box">
-  <p><strong>Current exchange rates (March 2026):</strong></p>
+  <p><strong>Mid-market rates as at {{QUOTE_DATE}}:</strong></p>
   <ul>
-  <li><strong>GBP to PKR:</strong> ~368 Pakistani rupees per pound</li>
-  <li><strong>USD to PKR:</strong> ~278 Pakistani rupees per dollar</li>
-  <li><strong>EUR to PKR:</strong> ~302 Pakistani rupees per euro</li>
+  <li><strong>GBP to PKR:</strong> {{MID_RATE:GBP:PKR}} rupees per pound</li>
+  <li><strong>USD to PKR:</strong> {{MID_RATE:USD:PKR}} rupees per dollar</li>
+  <li><strong>EUR to PKR:</strong> {{MID_RATE:EUR:PKR}} rupees per euro</li>
   </ul>
-  <p>The rupee has appreciated roughly 4% against the dollar since mid-2025, when USD/PKR was trading near 290.</p>
+  <p>These are mid-market rates, refreshed every {{REFRESH_HOURS}} hours — not the rate you will be offered. The State Bank of Pakistan publishes its own <a href="https://www.sbp.org.pk/ecodata/rates/m2m/M2M-Current.asp" target="_blank" rel="noopener noreferrer">mark-to-market revaluation rates</a>, which is the official reference, and the <a href="/send-money/uk-to-pakistan">live comparison</a> shows what providers actually pay on this corridor. Interbank, official and provider rates all differ; a forecast is about the first of those.</p>
   </div>
   
   <p>Several structural factors underpin this relative stability. Pakistan's $7 billion Extended Fund Facility (EFF) with the IMF, approved in September 2024, has provided a policy anchor. The State Bank of Pakistan (SBP) has kept its benchmark interest rate at 15% — still elevated, but down from the peak of 22% in mid-2023. Inflation, which touched 38% in May 2023, has fallen to single digits, hovering around 7-8% year-on-year in early 2026.</p>
@@ -13546,7 +13546,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "How Do China's Capital Controls Affect Your Transfer?",
-        content: `<p>China's <strong>State Administration of Foreign Exchange (SAFE)</strong> regulates all cross-border currency flows. Key rules:</p>
+        content: `<p>China's <strong>State Administration of Foreign Exchange (SAFE)</strong> regulates all cross-border currency flows, under the <em>Measures for the Administration of Individual Foreign Exchange</em> and its implementing rules. SAFE publishes its instruments in its <a href="https://www.safe.gov.cn/en/RulesandRegulations/index.html" target="_blank" rel="noopener noreferrer">Rules and Regulations</a> index. Key rules:</p>
 <ul>
 <li><strong>$50,000 annual limit per individual</strong> — Chinese residents can convert up to $50,000 equivalent of foreign currency per year. Above this, they need documentation (proof of tuition, medical bills, property contracts).</li>
 <li><strong>Purpose-of-transfer declaration</strong> — Recipients must declare why they're receiving foreign money (family support, tuition, medical, etc.). "Investment" is not a valid purpose for personal transfers.</li>

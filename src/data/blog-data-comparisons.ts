@@ -36,6 +36,7 @@ export const dataComparisonGuides: BlogPost[] = [
       {
         heading: "The measured comparison",
         content: `{{FOUR_WAY_COST_TABLE}}
+<p class="blog-footnote"><strong>Where these numbers come from.</strong> Every figure here is computed from our own live quote archive rather than provider marketing, which is why this page cites itself instead of outside sources. Cost is measured as (mid-market receive minus actual receive) divided by mid-market receive, so one number captures both the fee and the exchange-rate margin. Coverage is published beside cost deliberately: an average over 35 corridors is not comparable to one over 350, and leaving that out is exactly how a narrow provider comes to look cheapest. Full method and its limits: <a href="/methodology">how we collect and rank quotes</a>. The underlying datasets are <a href="/remittance-cost-index">the cost index</a> and <a href="/provider-consistency">the consistency index</a>, both recomputed on every build.</p>
 
 <p>Three things in that table are worth stating plainly, because they are the reason a one-line answer is not available.</p>`,
       },

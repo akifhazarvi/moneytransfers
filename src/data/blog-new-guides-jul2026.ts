@@ -23,7 +23,7 @@ export const newGuidesJul2026: BlogPost[] = [
     category: "Guides",
     readTime: "10 min read",
     publishedAt: "2026-07-01",
-    updatedAt: "2026-07-01",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["UK to Nigeria", "GBP to NGN", "Nigerian transfer", "Lemfi", "TapTap Send", "Remitly", "best rates"],
     featuredImage: "/images/blog/send-money-uk-to-nigeria.jpg",
@@ -37,21 +37,27 @@ export const newGuidesJul2026: BlogPost[] = [
 <p>We updated this guide with live data from our scraper engine to rank every provider by what your recipient actually receives in naira — the only number that matters.</p>`,
       },
       {
-        heading: "UK to Nigeria: Best Apps Ranked by GBP→NGN Rate (2026)",
+        heading: "UK to Nigeria: Ranked by the Naira Your Family Receives",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Best UK to Nigeria Money Transfer Apps — July 2026</h3>
+<h3 style="margin-top: 0;">GBP to NGN on £1,000 — live, every provider quoting the route</h3>
+<p>Ranked by naira received. Refreshed every {{REFRESH_HOURS}} hours; quotes as at {{QUOTE_DATE}}.</p>
+{{QUOTE_TABLE:GBP:NGN:1000}}
+<p class="blog-footnote">Naira rates need one caveat that does not apply on other corridors: there is no single authoritative NGN rate to measure against. The Central Bank of Nigeria publishes <a href="https://www.cbn.gov.ng/rates/exchratebycurrency.html" target="_blank" rel="noopener noreferrer">official rates by currency</a>, but providers source naira liquidity from different pools and price away from it in both directions — on 2026-09-07 we measured one major provider paying about 3% BETTER than our own mid-market reference on USD→NGN. Treat any headline rate, including ours, as a sanity check rather than a quote.</p>
+<p>The gap between the best and worst of the {{PROVIDER_TALLY:GBP:NGN:1000}} providers here is <strong>{{SPREAD:GBP:NGN:1000}}</strong> on £1,000 — the single strongest argument for comparing rather than defaulting to whoever you used last time.</p>
+<h3>What each provider does, beyond price</h3>
+<p>Speed and payout options change far more slowly than rates, so these are worth knowing separately:</p>
 <table>
 <thead>
-<tr><th>Provider</th><th>Transfer Fee</th><th>Rate vs Mid-Market</th><th>Delivery Speed</th><th>Payout Methods</th></tr>
+<tr><th>Provider</th><th>Delivery Speed</th><th>Payout Methods</th></tr>
 </thead>
 <tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/lemfi">Lemfi</a></strong></td><td>£0</td><td>~0.5% markup</td><td>Minutes</td><td>Bank, mobile wallet</td></tr>
-<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>£0</td><td>~0.7% markup</td><td>Under 3 mins (95%)</td><td>Bank account</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>£0–£1.99</td><td>~1% markup</td><td>Minutes (Express)</td><td>Bank, cash pickup</td></tr>
-<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>~£3.50</td><td>0% markup</td><td>Hours to 1 day</td><td>Bank account</td></tr>
-<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>£0–£2.99</td><td>~1.2% markup</td><td>Minutes</td><td>Bank, cash, wallet</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>£0–£3.90</td><td>~2% markup</td><td>Minutes (cash)</td><td>Bank, cash pickup</td></tr>
-<tr><td><strong>Barclays / HSBC</strong></td><td>£15–£25</td><td>4–6% markup</td><td>2–5 days</td><td>Bank only</td></tr>
+<tr><td><strong><a href="/companies/lemfi">Lemfi</a></strong></td><td>Minutes</td><td>Bank, mobile wallet</td></tr>
+<tr><td><strong><a href="/companies/taptap-send">TapTap Send</a></strong></td><td>Under 3 mins (95%)</td><td>Bank account</td></tr>
+<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>Minutes (Express)</td><td>Bank, cash pickup</td></tr>
+<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>Hours to 1 day</td><td>Bank account</td></tr>
+<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>Minutes</td><td>Bank, cash, wallet</td></tr>
+<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>Minutes (cash)</td><td>Bank, cash pickup</td></tr>
+<tr><td><strong>Barclays / HSBC</strong></td><td>2–5 days</td><td>Bank only</td></tr>
 </tbody>
 </table>
 <p class="blog-footnote">Rates are indicative — markups shift with the NGN parallel market. <a href="/send-money">Get live GBP→NGN quotes →</a></p>
@@ -176,7 +182,7 @@ export const newGuidesJul2026: BlogPost[] = [
     category: "Business",
     readTime: "12 min read",
     publishedAt: "2026-07-01",
-    updatedAt: "2026-07-01",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["B2B payments", "international wire transfer", "business payments", "Wise Business", "Airwallex", "SWIFT alternative"],
     featuredImage: "/images/blog/business-international-payments.jpg",
@@ -239,7 +245,9 @@ export const newGuidesJul2026: BlogPost[] = [
       },
       {
         heading: "SWIFT vs. Local Rails: What's the Difference?",
-        content: `<p class="citable-passage">SWIFT is the messaging network that connects 11,000+ banks globally — it's how traditional international wires work. Local rails are country-specific real-time payment networks: ACH in the US, SEPA in Europe, Faster Payments in the UK, UPI in India, PIX in Brazil. Sending via local rails is typically faster, cheaper, and more reliable than SWIFT, because the money never crosses a foreign correspondent bank chain.</p>
+        content: `<p>On our own $5,000 business benchmark, high-street banks average {{BUSINESS_BANK_COST_PCT}} all-in against {{BUSINESS_SPECIALIST_COST_PCT}} for business-FX specialists — about {{BUSINESS_SAVINGS_PCT}} cheaper. The mechanism behind that gap is the difference between two payment networks, and it is worth understanding before choosing a platform.</p>
+<p class="citable-passage">SWIFT is the messaging network that connects 11,000+ banks globally — it's how traditional international wires work. Local rails are country-specific real-time payment networks: ACH in the US, SEPA in Europe, Faster Payments in the UK, UPI in India, PIX in Brazil. Sending via local rails is typically faster, cheaper, and more reliable than SWIFT, because the money never crosses a foreign correspondent bank chain.</p>
+<p class="blog-footnote">These are real, documented systems rather than marketing terms. The euro leg is governed by <a href="https://eur-lex.europa.eu/eli/reg/2024/886/oj" target="_blank" rel="noopener noreferrer">EU Regulation 2024/886</a>, which requires eurozone banks to execute instant euro transfers within ten seconds, around the clock, at no premium over a standard SEPA transfer — the ECB summarises the practical effect on its <a href="https://www.ecb.europa.eu/paym/integration/retail/instant_payments/html/index.en.html" target="_blank" rel="noopener noreferrer">instant payments</a> page. The US equivalent is <a href="https://www.federalreserve.gov/paymentsystems/fednow_about.htm" target="_blank" rel="noopener noreferrer">FedNow</a>. SWIFT itself is a messaging standard, <a href="https://www.iso.org/standard/60390.html" target="_blank" rel="noopener noreferrer">ISO 9362</a>, not a settlement network — which is precisely why a SWIFT payment has to travel through correspondent banks and a local-rail payment does not.</p>
 <p>Modern B2B platforms win because they've built local banking infrastructure in dozens of countries — meaning they can receive your USD, convert it, and pay out via the local rail in the destination country. The recipient's bank sees a domestic transfer, not an international wire, so no correspondent bank fees are deducted.</p>
 <ul>
 <li><strong>SWIFT wire to India</strong>: 2–5 days, $10–$25 correspondent fee, 2.5–4% FX markup</li>
@@ -469,7 +477,7 @@ export const newGuidesJul2026: BlogPost[] = [
     category: "Guides",
     readTime: "9 min read",
     publishedAt: "2026-07-01",
-    updatedAt: "2026-07-01",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["Australia to India", "AUD to INR", "send money to India", "Wise Australia", "Remitly Australia", "Indian remittance"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
@@ -477,53 +485,42 @@ export const newGuidesJul2026: BlogPost[] = [
       {
         heading: "What's the Cheapest Way to Send Money from Australia to India?",
         content: `<div class="blog-answer-box">
-<p><strong>Quick answer:</strong> The cheapest AUD to INR transfers in 2026 come from specialist apps, not Australian banks. <strong><a href="/companies/wise">Wise</a></strong> offers 0% exchange rate markup with fees from AU$5.61 on AU$1,000. <strong><a href="/companies/instarem">Instarem</a></strong> combines zero transfer fees with a ~0.4% markup — often marginally cheaper than Wise on mid-sized transfers. <strong><a href="/companies/remitly">Remitly</a></strong> offers AU$0 fees on many amounts with Express delivery in minutes. Australian banks (ANZ, Commonwealth, Westpac, NAB) add a 3–5% hidden markup — that's AU$30–AU$50 lost on every AU$1,000 sent. <a href="/send-money">Compare live AUD→INR rates</a> now.</p>
+<p><strong>Quick answer:</strong> The cheapest AUD to INR transfers in 2026 come from specialist apps, not Australian banks. Priced against {{PROVIDER_TALLY:AUD:INR:1000}} providers on {{QUOTE_DATE}}, the cheapest on AU$1,000 is <strong>{{BEST_PROVIDER:AUD:INR:1000}}</strong> at {{BEST_RECEIVE:AUD:INR:1000}}. <strong><a href="/companies/wise">Wise</a></strong> pays the mid-market rate net of a {{FEE:wise:AUD:INR:1000}} fee ({{RECEIVE:wise:AUD:INR:1000}}); <strong><a href="/companies/instarem">Instarem</a></strong> charges no transfer fee but takes a margin instead ({{RECEIVE:instarem:AUD:INR:1000}}). The gap between best and worst is {{SPREAD:AUD:INR:1000}}. Australian banks (ANZ, Commonwealth, Westpac, NAB) add a 3–5% hidden markup — that's AU$30–AU$50 lost on every AU$1,000 sent. <a href="/send-money">Compare live AUD→INR rates</a> now.</p>
 </div>
 <p>India is the world's top remittance destination, receiving over US$120 billion annually. Australia's 700,000+ Indian-born residents are a significant part of that flow — and the difference between using a specialist app and an Australian bank is real money: up to AU$45 on every AU$1,000 transfer.</p>
 <p>We pulled live quotes from our comparison engine to rank every major provider by the rupee amount your family actually receives.</p>`,
       },
       {
-        heading: "AUD to INR: Best Providers Ranked by Total Cost (July 2026)",
+        heading: "AUD to INR: Every Provider Ranked by What Your Family Receives",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Best Apps to Send Money from Australia to India — July 2026</h3>
-<table>
-<thead>
-<tr><th>Provider</th><th>Fee (AU$1,000)</th><th>Rate Markup</th><th>Delivery Speed</th><th>INR Received (est.)</th></tr>
-</thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>AU$0</td><td>~0.4%</td><td>Hours–1 day</td><td>~₹54,780</td></tr>
-<tr><td><strong><a href="/companies/wise">Wise</a></strong></td><td>AU$5.61</td><td>0%</td><td>Minutes–hours</td><td>~₹54,700</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>AU$0–$2.99</td><td>~0.5%</td><td>Minutes (Express)</td><td>~₹54,500</td></tr>
-<tr><td><strong><a href="/companies/ria">Ria</a></strong></td><td>AU$2.89</td><td>~0.8%</td><td>1–2 days</td><td>~₹54,200</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>AU$0–$5</td><td>~1.5%</td><td>Minutes</td><td>~₹53,700</td></tr>
-<tr><td><strong>Australian Banks</strong></td><td>AU$0–$22</td><td>3–5%</td><td>2–4 days</td><td>~₹52,200–₹53,000</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">AUD to INR on AU$1,000 — live, every provider quoting the route</h3>
+<p>Ranked by rupees received, which is the only figure that settles it. Refreshed every {{REFRESH_HOURS}} hours.</p>
+{{QUOTE_TABLE:AUD:INR:1000}}
 <p class="blog-footnote">Estimates based on AUD/INR mid-market rate ~55.3 as of July 2026. Actual rates fluctuate — <a href="/send-money">get live quotes →</a></p>
 </div>
 <p><strong>Key takeaway:</strong> On AU$1,000, switching from your Australian bank to Instarem or Wise saves your recipient approximately ₹1,700–₹2,500 (AU$30–$45 equivalent). On larger transfers, the gap widens significantly.</p>`,
       },
       {
-        heading: "Why Instarem Beats Wise on AUD→INR (and When It Doesn't)",
-        content: `<p>Wise is the global benchmark — 0% exchange rate markup means you always get the true interbank rate. But Wise charges a flat fee, which on smaller amounts makes Instarem the better choice:</p>
+        heading: "Zero Fee vs Zero Margin: Why the Winner Changes With the Amount",
+        content: `<p>Providers charge in one of two shapes, and which shape wins depends entirely on how much you send. A <strong>flat fee</strong> — Wise's model, on top of the true mid-market rate — is a large percentage of a small transfer and a trivial one of a large transfer. A <strong>margin on the rate</strong> — the zero-fee model — costs the same percentage at every size. So the fee-charging provider looks expensive on AU$200 and gets steadily better as the amount grows, and the "no fees" provider does the opposite.</p>
+<p>That is why a fixed recommendation ages badly, and why the winner here is not the one this guide named when it was written. Priced today:</p>
 <div class="blog-table-box">
 <table>
-<thead><tr><th>Transfer Amount</th><th>Cheapest Pick</th><th>Why</th></tr></thead>
+<thead><tr><th>Transfer amount</th><th>Cheapest right now</th><th>They receive</th><th>Gap to worst</th></tr></thead>
 <tbody>
-<tr><td>AU$100–$500</td><td><strong>Instarem</strong></td><td>Zero fee; Wise's flat fee is a higher % of small amounts</td></tr>
-<tr><td>AU$500–$2,000</td><td><strong>Instarem / Wise (near-equal)</strong></td><td>Instarem's 0.4% markup ~= Wise's fee at this range</td></tr>
-<tr><td>AU$2,000+</td><td><strong>Wise</strong></td><td>0% markup beats 0.4% markup at large amounts</td></tr>
-<tr><td>Urgent (need minutes)</td><td><strong>Remitly Express</strong></td><td>Fastest delivery; small fee premium worth it for emergencies</td></tr>
+<tr><td>AU$200</td><td><strong>{{BEST_PROVIDER:AUD:INR:200}}</strong></td><td>{{BEST_RECEIVE:AUD:INR:200}}</td><td>{{SPREAD:AUD:INR:200}}</td></tr>
+<tr><td>AU$1,000</td><td><strong>{{BEST_PROVIDER:AUD:INR:1000}}</strong></td><td>{{BEST_RECEIVE:AUD:INR:1000}}</td><td>{{SPREAD:AUD:INR:1000}}</td></tr>
+<tr><td>AU$5,000</td><td><strong>{{BEST_PROVIDER:AUD:INR:5000}}</strong></td><td>{{BEST_RECEIVE:AUD:INR:5000}}</td><td>{{SPREAD:AUD:INR:5000}}</td></tr>
 </tbody>
 </table>
 </div>
-<p>The AUD→INR rate on Instarem and Wise is calculated from the same mid-market benchmark — the difference is in how they charge. Always check both at your exact amount before sending.</p>`,
+<p>Wise still does what it says — it pays the mid-market rate and charges {{FEE:wise:AUD:INR:1000}} on AU$1,000, delivering {{RECEIVE:wise:AUD:INR:1000}} — and Instarem still charges no fee, delivering {{RECEIVE:instarem:AUD:INR:1000}}. Both are beaten on this corridor today by providers holding local INR payout relationships. Check your own amount rather than carrying a winner over from a guide, including this one.</p>`,
       },
       {
         heading: "How to Send Money from Australia to India: Step-by-Step",
         content: `<ol>
 <li><strong>Compare at your exact amount</strong> — Use our <a href="/send-money">live comparison tool</a> with your actual AU$ figure. Rankings shift at different amounts.</li>
-<li><strong>Sign up and verify your identity</strong> — Australian providers are regulated by ASIC and AUSTRAC, requiring identity verification (Australian passport, driver's licence, or Medicare card + proof of address). Takes 5–15 minutes.</li>
+<li><strong>Sign up and verify your identity</strong> — Australian providers are regulated by ASIC and AUSTRAC, requiring identity verification (Australian passport, driver's licence, or Medicare card + proof of address). Takes 5–15 minutes. On the receiving side, inward remittances to India are governed by the Reserve Bank of India's <a href="https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx" target="_blank" rel="noopener noreferrer">Master Directions</a>, which is the primary source for what an Indian bank may credit and what documentation it can ask your recipient for — worth checking before a large or unusual transfer rather than after it is held.</li>
 <li><strong>Enter your recipient's Indian bank details</strong> — You need: full name, IFSC code (11-character branch code), and 10–18 digit account number. Most apps have a bank search to find the IFSC code.</li>
 <li><strong>Choose your delivery method</strong> — Bank account (UPI-linked) delivers fastest in 2026. Most transfers arrive within minutes to hours via UPI rails.</li>
 <li><strong>Fund via PayID or bank transfer</strong> — PayID (instant bank transfer in Australia) is the fastest funding method and free. BPAY is also supported by most providers.</li>
