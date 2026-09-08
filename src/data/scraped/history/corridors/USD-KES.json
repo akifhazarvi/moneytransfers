@@ -13513,10 +13513,10 @@
     "date": "2026-09-08",
     "providers": {
       "instarem": {
-        "rate": 128.4445,
+        "rate": 128.3452,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 12844.45
+        "receiveAmount": 12834.52
       },
       "lemfi": {
         "rate": 128.55,
@@ -13537,10 +13537,10 @@
         "receiveAmount": 12852
       },
       "taptap-send": {
-        "rate": 128.5,
+        "rate": 128.55,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 12850
+        "receiveAmount": 12855
       },
       "boss-money": {
         "rate": 127.5186,
@@ -13581,14 +13581,14 @@
       "remitly": {
         "rate": 127.48,
         "fee": 0,
-        "markup": null,
+        "markup": 1.51,
         "receiveAmount": 12748
       },
       "wise": {
-        "rate": 129.475,
+        "rate": 129.4,
         "fee": 3.61,
         "markup": null,
-        "receiveAmount": 12480
+        "receiveAmount": 12473
       },
       "xoom": {
         "rate": 124.3834,

@@ -6655,22 +6655,22 @@
         "receiveAmount": 1526.6
       },
       "remitly": {
-        "rate": 16.92,
+        "rate": 16.95,
         "fee": 5,
-        "markup": null,
-        "receiveAmount": 1607.4
+        "markup": 0.6,
+        "receiveAmount": 1610.25
       },
       "taptap-send": {
-        "rate": 16.55,
+        "rate": 16.6,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1655
+        "receiveAmount": 1660
       },
       "wise": {
-        "rate": 17.0209,
+        "rate": 17.0485,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1702.09
+        "receiveAmount": 1704.85
       },
       "skrill": {
         "rate": 16.8343,
