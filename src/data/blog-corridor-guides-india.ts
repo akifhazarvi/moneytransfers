@@ -532,7 +532,7 @@ export const corridorGuidesIndia: BlogPost[] = [
     category: "Corridors",
     readTime: "14 min read",
     publishedAt: "2026-03-22",
-    updatedAt: "2026-03-22",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: [
       "india",
@@ -556,7 +556,8 @@ export const corridorGuidesIndia: BlogPost[] = [
         heading:
           "USA to India: The World's Largest Remittance Corridor",
         content: `<div class="blog-answer-box">
-<p><strong>Quick answer:</strong> The cheapest way to send money to India from the USA in 2026 is through specialist online providers — not banks. <a href="/companies/wise">Wise</a> delivers the most INR on transfers above $500 thanks to its 0% exchange rate markup. <a href="/companies/remitly">Remitly</a> wins for smaller amounts with $0 fees and IMPS delivery in minutes. <a href="/companies/instarem">Instarem</a> combines zero fees with a low 0.42% markup. On a $1,000 transfer, the difference between the cheapest provider and a US bank can be <strong>₹2,000–₹4,500</strong> — that's real money your family never receives. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
+<p><strong>Quick answer:</strong> the cheapest way to send money to India from the USA is a specialist provider rather than a bank — but which specialist depends on your amount, and it changes. Priced against {{PROVIDER_TALLY:USD:INR:1000}} providers on {{QUOTE_DATE}}: <strong>{{BEST_PROVIDER:USD:INR:200}}</strong> leads on $200 ({{BEST_RECEIVE:USD:INR:200}}), <strong>{{BEST_PROVIDER:USD:INR:1000}}</strong> on $1,000 ({{BEST_RECEIVE:USD:INR:1000}}) and <strong>{{BEST_PROVIDER:USD:INR:5000}}</strong> on $5,000 ({{BEST_RECEIVE:USD:INR:5000}}). <a href="/companies/wise">Wise</a> pays the mid-market rate net of its fee ({{RECEIVE:wise:USD:INR:1000}} on $1,000), which makes it predictable rather than automatically cheapest on this corridor. The spread between best and worst is <strong>{{SPREAD:USD:INR:1000}}</strong> on $1,000 — that is the money at stake in choosing. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
+<p class="text-sm">This is the most competitive corridor we track, which is exactly why a fixed recommendation ages badly here. Across our whole dataset the provider cheapest on a corridor today is not the habitual leader on about a quarter of corridors — see <a href="/provider-consistency">provider consistency</a> — and on USD→INR the lead changes hands often enough that we quote it live rather than naming a winner.</p>
 </div>
 <p>India is the <strong>world's largest remittance recipient</strong>, receiving over <strong>$125 billion annually</strong> according to the <a href="https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues" target="_blank" rel="noopener noreferrer">World Bank</a>. The USA-to-India corridor alone accounts for roughly <strong>$28 billion per year</strong> — driven by a 4.4-million-strong Indian diaspora in the United States.</p>
 <p>The good news: intense competition between providers means you have more options than ever. The bad news: the gap between the cheapest and most expensive option on a single transfer can exceed <strong>5% of the send amount</strong>. On a $5,000 transfer, that's $250 lost to fees and markups.</p>
@@ -568,22 +569,9 @@ export const corridorGuidesIndia: BlogPost[] = [
         heading:
           "10 Best Providers Compared: Fees, Rates & Speed for USD to INR",
         content: `<div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USA to India Providers ($1,000 Transfer)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Rate Markup</th><th>Approx. INR Received</th><th>Speed</th><th>Delivery Methods</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise</a></strong></td><td>$7.33</td><td>0% (mid-market)</td><td>~₹91,600</td><td>1–2 days</td><td>Bank (IMPS/NEFT)</td></tr>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$0–$3.99</td><td>0.3–0.8%</td><td>~₹91,200</td><td>Minutes (Express)</td><td>Bank (IMPS), UPI, cash pickup</td></tr>
-<tr><td><strong><a href="/companies/instarem">Instarem</a></strong></td><td>$0</td><td>0.42%</td><td>~₹91,100</td><td>1–2 days</td><td>Bank deposit</td></tr>
-<tr><td><strong><a href="/companies/xoom">Xoom</a> (PayPal)</strong></td><td>$0–$4.99</td><td>0.5–1.5%</td><td>~₹90,400</td><td>Minutes–1 day</td><td>Bank, cash pickup, mobile wallet</td></tr>
-<tr><td><strong><a href="/companies/worldremit">WorldRemit</a></strong></td><td>$0–$3.99</td><td>0.5–1.2%</td><td>~₹90,200</td><td>Minutes–1 day</td><td>Bank (IMPS), mobile wallet</td></tr>
-<tr><td><strong><a href="/companies/xe">XE</a></strong></td><td>$0</td><td>0.4–1.0%</td><td>~₹90,500</td><td>1–4 days</td><td>Bank deposit</td></tr>
-<tr><td><strong><a href="/companies/western-union">Western Union</a></strong></td><td>$0–$8</td><td>1–3%</td><td>~₹88,800</td><td>Minutes</td><td>Bank, cash pickup, mobile wallet</td></tr>
-<tr><td><strong><a href="/companies/moneygram">MoneyGram</a></strong></td><td>$0–$5</td><td>1–2.5%</td><td>~₹89,200</td><td>Minutes</td><td>Bank, cash pickup</td></tr>
-<tr><td><strong><a href="/companies/ria">Ria</a></strong></td><td>$0–$5</td><td>1–2%</td><td>~₹89,500</td><td>Minutes–1 day</td><td>Bank, cash pickup</td></tr>
-<tr class="blog-row-danger"><td><strong>US Bank Wire</strong></td><td>$25–$50</td><td>2–5%</td><td>~₹86,500</td><td>3–5 days</td><td>Bank (SWIFT)</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD to INR on $1,000 — live, every provider quoting the corridor</h3>
+<p>Ranked by rupees received, refreshed every {{REFRESH_HOURS}} hours. Quotes as at {{QUOTE_DATE}}; {{PROVIDER_TALLY:USD:INR:1000}} providers, {{SPREAD:USD:INR:1000}} between best and worst.</p>
+{{QUOTE_TABLE:USD:INR:1000}}
 <p class="blog-footnote">Rates based on $1,000 USD→INR quotes collected {{QUOTE_DATE}}. Actual amounts vary — <a href="/send-money/usa-to-india">compare live rates for your amount →</a></p>
 </div>
 

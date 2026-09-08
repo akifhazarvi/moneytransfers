@@ -2102,7 +2102,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "wire-transfer-guide",
-    title: "Wire Transfer Fees 2026: 3 Alternatives That Save 80%",
+    title: "Wire Transfer Fees 2026 and Three Cheaper Alternatives",
     metaDescription:
       "Banks charge $25–$50 per wire plus a hidden 3–5% exchange rate markup. SWIFT, ACH, SEPA compared. We tested 3 alternatives that save 80% on costs.",
     excerpt:
@@ -2110,14 +2110,14 @@ const rawBlogPosts: BlogPost[] = [
     category: "Education",
     readTime: "16 min read",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-03-31",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["wire transfer", "wire transfer fees", "international wire transfer", "bank transfer", "SWIFT", "ACH", "SEPA", "wire transfer alternatives", "bank wire", "wire transfer services"],
     featuredImage: "/images/blog/wire-transfer-guide.jpg",
     sections: [
       {
         heading: "What Is a Wire Transfer?",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A wire transfer is an electronic payment sent from one bank to another, typically through the SWIFT network for international transfers. International wire transfers cost $15–$50 in sending fees at major US and UK banks, plus a hidden exchange rate markup of 2–5% that most banks do not disclose upfront. Domestic wires cost $15–$30 and arrive same-day, while international wires take 1–5 business days and may incur additional correspondent bank fees of $10–$25 per intermediary. Cheaper alternatives now exist: <a href="/companies/wise">Wise</a> charges 0.41%+ with 0% exchange rate markup, and <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with delivery in minutes. Across every corridor we price at $1,000, specialists average {{AVG_SPECIALIST_COST}} in total cost against {{AVG_BANK_COST}} for banks — about {{BANK_SAVINGS_PCT}} cheaper on average, and more against the most expensive bank wires. <a href="/send-money">Compare wire transfer alternatives</a> using our tool.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> A wire transfer is an electronic payment sent from one bank to another, typically through the SWIFT network for international transfers. International wire transfers cost $15–$50 in sending fees at major US and UK banks, plus a hidden exchange rate markup of 2–5% that most banks do not disclose upfront. Domestic wires cost $15–$30 and arrive same-day, while international wires take 1–5 business days and may incur additional correspondent bank fees of $10–$25 per intermediary. Cheaper alternatives now exist: <a href="/companies/wise">Wise</a> charges 0.41%+ with 0% exchange rate markup, and <a href="/companies/remitly">Remitly</a> offers $0 fees on many corridors with delivery in minutes. Across every corridor we price at $1,000, specialists average {{AVG_SPECIALIST_COST}} in total cost against {{AVG_BANK_COST}} for banks — about {{BANK_SAVINGS_PCT}} cheaper on average, and more against the most expensive bank wires (<a href="/remittance-cost-index">see the per-provider index</a>; the underlying <a href="/research">research</a> also shows how that gap moves with the amount you send). <a href="/send-money">Compare wire transfer alternatives</a> using our tool.</p></div>
 <p>A <strong>wire transfer</strong> is an electronic transfer of funds between bank accounts, either within the same country (domestic wire) or across borders (international wire). Wire transfers use secure banking networks to move money directly from the sender\u2019s bank to the recipient\u2019s bank.</p>
 <p>There are two main types:</p>
 <ul>
@@ -2443,7 +2443,7 @@ const rawBlogPosts: BlogPost[] = [
     sections: [
       {
         heading: "How We Ranked These Providers",
-        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best money transfer services in 2026 are <a href="/companies/wise">Wise</a> (best overall — mid-market rate with 0% markup and transparent fees), <a href="/companies/remitly">Remitly</a> (fastest — express delivery in minutes to 100+ countries), <a href="/companies/ofx">OFX</a> (best for large transfers — $0 fees on every transfer with dedicated dealers for amounts over $10,000), and <a href="/companies/revolut">Revolut</a> (best multi-currency account — hold and convert 30+ currencies in-app). We ranked 8 services based on real fee data from {{PROVIDER_COUNT}} providers across {{CORRIDOR_COUNT}} corridors, weighted across exchange rate competitiveness, fee transparency, transfer speed, country coverage, and user satisfaction from over 1.3 million combined Trustpilot reviews. For most people sending $500–$5,000 abroad, Wise offers the best combination of low cost, speed, and reliability.</p></div>
+        content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> The best money transfer services in 2026 are <a href="/companies/wise">Wise</a> (best overall — mid-market rate with 0% markup and transparent fees), <a href="/companies/remitly">Remitly</a> (fastest — express delivery in minutes to 100+ countries), <a href="/companies/ofx">OFX</a> (best for large transfers — $0 fees on every transfer with dedicated dealers for amounts over $10,000), and <a href="/companies/revolut">Revolut</a> (best multi-currency account — hold and convert 30+ currencies in-app). Cost rankings on this site come from live quotes across {{PROVIDER_COUNT}} providers and {{CORRIDOR_COUNT}} corridors — measured, and published in full in the <a href="/remittance-cost-index">Remittance Cost Index</a>. The list below is broader than cost alone, weighing country coverage, delivery speed, account features and user satisfaction from over 1.3 million combined Trustpilot reviews. For most people sending $500–$5,000 abroad, Wise offers the best combination of low cost, speed, and reliability.</p></div>
 <p>We evaluated dozens of money transfer providers across five key criteria: <strong>fees and pricing transparency</strong>, <strong>exchange rate competitiveness</strong>, <strong>transfer speed</strong>, <strong>country coverage</strong>, and <strong>user experience</strong>. Each provider receives a score out of 10, weighted toward the factors that matter most to everyday senders.</p>
 <p>Our rankings combine our own data from comparing {{PROVIDER_COUNT}} providers across {{CORRIDOR_COUNT}} currency corridors with editorial research on features, regulation, and customer satisfaction. Customer satisfaction ratings sourced from <a href="https://www.trustpilot.com/" target="_blank" rel="noopener noreferrer nofollow">Trustpilot</a>, last collected {{RATINGS_DATE}}. Here are the top 8 services for 2026.</p>
 <p>For a data-driven look at costs, see our <a href="/guides/cost-of-sending-1000-abroad">report on the cost of sending $1,000 abroad</a>. To understand how exchange rate markups affect you, read our <a href="/guides/exchange-rate-markup-explained">exchange rate markup explained</a> guide.</p>
@@ -2462,9 +2462,9 @@ const rawBlogPosts: BlogPost[] = [
 </div>`,
       },
       {
-        heading: "1. SoFi Checking & Savings — Best Overall for US Senders",
-        content: `<p><strong>Score: 9.8/10</strong></p>
-<p>SoFi earns the top spot for US-based senders thanks to its <strong>flat-fee pricing</strong>, broad coverage of 30+ countries (including major corridors like Mexico and India), and zero monthly or overdraft fees on its banking product.</p>
+        heading: "1. SoFi Checking & Savings — Best Banking-Plus-Transfers Account for US Senders",
+        content: `<p class="blog-footnote"><strong>Not a measured cost ranking.</strong> SoFi does not publish quotes we can capture, so it is absent from our live dataset and from the <a href="/remittance-cost-index">Remittance Cost Index</a>. Its place here reflects account features for US senders, not a cost we have verified against the mid-market rate. For the cost ranking, use the index or the <a href="/send-money">live comparison</a> for your own corridor.</p>
+<p>SoFi suits US-based senders because of its <strong>flat-fee pricing</strong>, broad coverage of 30+ countries (including major corridors like Mexico and India), and zero monthly or overdraft fees on its banking product.</p>
 <ul>
 <li>One flat fee per transfer, regardless of destination or amount</li>
 <li>No overdraft or monthly account fees</li>
@@ -2475,8 +2475,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "2. XE — Best for Mid-Market Exchange Rates",
-        content: `<p><strong>Score: 8.7/10</strong></p>
-<p>XE is the gold standard for transparent exchange rates. There are <strong>no minimum or maximum transfer limits</strong>, and transfers can arrive within minutes for supported corridors.</p>
+        content: `<p>XE is the gold standard for transparent exchange rates. There are <strong>no minimum or maximum transfer limits</strong>, and transfers can arrive within minutes for supported corridors.</p>
 <ul>
 <li>Low fees with rates close to the mid-market rate</li>
 <li>No minimum or maximum transfer amounts</li>
@@ -2488,8 +2487,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "3. Currencies Direct — Best for Large Transfers Over $3,000",
-        content: `<p><strong>Score: 8.7/10</strong></p>
-<p>Currencies Direct shines for larger transfers, offering <strong>dedicated account managers</strong> and competitive rates that improve with volume. Same-day transfers are available for many corridors.</p>
+        content: `<p>Currencies Direct shines for larger transfers, offering <strong>dedicated account managers</strong> and competitive rates that improve with volume. Same-day transfers are available for many corridors.</p>
 <ul>
 <li>Dedicated account manager for personalized service</li>
 <li>Low fees and excellent exchange rates, especially for large amounts</li>
@@ -2500,8 +2498,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "4. OnePay Cash Global Transfers — Best for Cash Pickup",
-        content: `<p><strong>Score: 8.8/10</strong></p>
-<p>Powered by MoneyGram's network, OnePay offers <strong>cash pickup in minutes</strong> across 140+ countries — ideal when recipients don't have bank accounts.</p>
+        content: `<p>Powered by MoneyGram's network, OnePay offers <strong>cash pickup in minutes</strong> across 140+ countries — ideal when recipients don't have bank accounts.</p>
 <ul>
 <li>Cash pickup ready in minutes at 350,000+ locations</li>
 <li>140+ countries supported</li>
@@ -2512,8 +2509,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "5. CurrencyFair — Best for Repeat Senders",
-        content: `<p><strong>Score: 8.2/10</strong></p>
-<p>CurrencyFair's peer-to-peer exchange model and <strong>transparent flat-fee structure</strong> make it a strong choice for people who send money regularly, especially larger amounts.</p>
+        content: `<p>CurrencyFair's peer-to-peer exchange model and <strong>transparent flat-fee structure</strong> make it a strong choice for people who send money regularly, especially larger amounts.</p>
 <ul>
 <li>10 free transfers for new members</li>
 <li>Transparent, flat fee structure</li>
@@ -2524,8 +2520,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "6. OFX — Best for Zero-Fee Transfers",
-        content: `<p><strong>Score: 8.4/10</strong></p>
-<p>OFX charges <strong>$0 in transfer fees</strong> on all transfers, making its cost structure refreshingly simple. The trade-off is a slightly wider exchange rate spread, but the total cost remains competitive for larger amounts.</p>
+        content: `<p>OFX charges <strong>$0 in transfer fees</strong> on all transfers, making its cost structure refreshingly simple. The trade-off is a slightly wider exchange rate spread, but the total cost remains competitive for larger amounts.</p>
 <ul>
 <li>$0 transfer fees on every transfer</li>
 <li>No maximum transfer limit</li>
@@ -2537,8 +2532,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "7. Remitly — Best for Speed and Small Transfers",
-        content: `<p><strong>Score: 8.3/10</strong></p>
-<p>Remitly excels at <strong>fast, small-to-medium transfers</strong> to developing countries. Express transfers arrive in minutes, and the app experience is one of the best in the industry.</p>
+        content: `<p>Remitly excels at <strong>fast, small-to-medium transfers</strong> to developing countries. Express transfers arrive in minutes, and the app experience is one of the best in the industry.</p>
 <ul>
 <li>Competitive exchange rates with low fees</li>
 <li>No minimum transfer amount</li>
@@ -2550,8 +2544,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "8. Western Union — Best for Global Coverage",
-        content: `<p><strong>Score: 9.2/10</strong></p>
-<p>With <strong>200+ countries</strong> and 500,000+ agent locations, Western Union remains unmatched for global reach. The first online transfer is fee-free, and instant cash pickup is available almost everywhere.</p>
+        content: `<p>With <strong>200+ countries</strong> and 500,000+ agent locations, Western Union remains unmatched for global reach. The first online transfer is fee-free, and instant cash pickup is available almost everywhere.</p>
 <ul>
 <li>$0 fee on first online transfer</li>
 <li>200+ countries and territories</li>
@@ -15508,7 +15501,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<div class="blog-answer-box"><p><strong>Quick answer:</strong> <a href="/companies/revolut">Revolut</a> charges <strong>no foreign transaction fees on card payments abroad</strong> in most cases — you pay at the interbank rate. But there are four hidden costs: (1) a <strong>0.5-1% weekend markup</strong> when FX markets are closed, (2) a <strong>monthly FX limit</strong> on free exchange (£1,000 on Standard, £3,000 on Plus, £10,000 on Premium, unlimited on Metal), (3) a <strong>1% "fair usage" fee</strong> once you exceed the limit, and (4) <strong>ATM withdrawal limits</strong> (£200/month free on Standard, then 2% fee). For pure card spending abroad on weekdays under your plan's limit, Revolut is genuinely free.</p></div>
 <p>Revolut is one of the most popular money apps for travelers and expats. The "no fees" marketing is mostly true — but the details matter. Here's exactly when you pay and when you don't.</p>
 <p class="text-sm"><strong>Where these figures come from.</strong> The plan limits, weekend markup and ATM thresholds below were read from Revolut's own published fee schedule and plan comparison pages, last checked in September 2026. Revolut changes these without notice and they differ by country of registration, so check the fee schedule inside your own app before relying on a number here. Trustpilot: {{TRUSTPILOT:revolut}}.</p>
-<p class="text-sm">Card FX is separate from <em>sending</em> money, which is what we measure directly. On the Revolut transfers we price, its exchange-rate markup is {{AVG_MARKUP:revolut}}, its all-in cost averages 0.85% of the amount sent, and it is cheapest on {{LEADS:revolut}}. If you are moving money to someone else's account rather than spending on card, compare it against <a href="/companies/wise">Wise</a> and the rest on your <a href="/send-money">actual corridor</a>.</p>`,
+<p class="text-sm">Card FX is separate from <em>sending</em> money, which is what we measure directly. On the Revolut transfers we price, its exchange-rate markup is {{AVG_MARKUP:revolut}}, its all-in cost averages 0.85% of the amount sent, and it is cheapest on {{LEADS:revolut}} (<a href="/provider-consistency">how we measure that</a>). If you are moving money to someone else's account rather than spending on card, compare it against <a href="/companies/wise">Wise</a> and the rest on your <a href="/send-money">actual corridor</a>.</p>`,
       },
       {
         heading: "The Weekend Markup: Revolut's Biggest Hidden Cost",
