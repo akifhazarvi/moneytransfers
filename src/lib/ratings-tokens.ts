@@ -20,7 +20,7 @@ import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index"
 import { CONSISTENCY_ROWS, CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import ibanStructures from "@/data/scraped/iban-structures.json";
 import { ibanPageRenders } from "@/lib/route-map";
-import { computeBusinessFxIndex, type BusinessFxIndex } from "@/lib/business-fx-index";
+import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from "@/lib/business-fx-index";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 
 export interface StoreRating {
@@ -587,6 +587,31 @@ export function renderDataTokens(html: string): string {
   // Mirrors the scrape cron. Copy stating a refresh interval should read this
   // rather than hand-typing "every 6 hours" and drifting from the workflow.
   out = out.split("{{REFRESH_HOURS}}").join(String(SITE_STATS.refreshHours));
+
+  // Business-scoped league table. {{QUOTE_TABLE}} ranks EVERY provider quoting a
+  // route, which is right for a remittance page and wrong for a B2B one: on
+  // USD->INR at $5,000 it puts Remitly first and on GBP->EUR TapTap Send, both
+  // consumer remittance apps that a business is not paying suppliers through.
+  // business-fx-index.ts already curates the providers that actually serve
+  // business senders and excludes those apps deliberately; this reuses that
+  // decision rather than re-deriving it.
+  // {{BUSINESS_QUOTE_TABLE:USD:INR:5000}}
+  out = out.replace(
+    /\{\{BUSINESS_QUOTE_TABLE:([A-Z]{3}):([A-Z]{3}):(\d+)\}\}/g,
+    (match, from: string, to: string, amt: string) => {
+      const allowed = new Set<string>(BUSINESS_FX_SLUGS);
+      const rows = quotesFor(from, to, Number(amt)).filter((q) => allowed.has(q.providerSlug));
+      if (rows.length < 2) return match;
+      const body = rows
+        .map((q, i) => {
+          const label = providerLink(q.providerSlug);
+          const medal = i === 0 ? "🥇 " : i === 1 ? "🥈 " : i === 2 ? "🥉 " : "";
+          return `<tr><td>${medal}<strong>${label}</strong></td><td>${fmtMoney(from, q.fee)}</td><td>${fmtRate(q.exchangeRate)}</td><td>${i === 0 ? "<strong>" : ""}${fmtMoney(to, q.receiveAmount, 0)}${i === 0 ? "</strong>" : ""}</td></tr>`;
+        })
+        .join("");
+      return `<div class="overflow-x-auto"><table><thead><tr><th>Provider</th><th>Fee</th><th>Rate</th><th>They receive</th></tr></thead><tbody>${body}</tbody></table></div>`;
+    },
+  );
 
   // What choosing a provider over the cheapest costs across a year of monthly
   // transfers. Promo guides compare one-off sign-up offers and never price the

@@ -6278,17 +6278,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to CAD business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → CAD Business Transfers ($10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$28</td><td>0%</td><td>~$28 (0.28%)</td><td>Seconds–1 day</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~0.4%</td><td>~$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.5%</td><td>~$50 (0.5%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>$0 (plan dependent)</td><td>~0.4%</td><td>~$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$45</td><td>1.5–3%</td><td>$175–$345 (1.75–3.45%)</td><td>2–3 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → CAD business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD CAD business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:CAD:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live USD to CAD rates →</a></p>
 </div>
 
@@ -6408,17 +6401,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to GBP business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → GBP Business Transfers ($10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$35</td><td>0%</td><td>~$35 (0.35%)</td><td>Seconds–1 day</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~0.4%</td><td>~$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.5%</td><td>~$50 (0.5%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>$0 (plan dependent)</td><td>~0.3%</td><td>~$30 (0.3%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$45</td><td>1.5–3%</td><td>$175–$345 (1.75–3.45%)</td><td>2–5 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → GBP business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD GBP business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:GBP:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-uk">Compare live USD to GBP rates →</a></p>
 </div>
 
@@ -6530,17 +6516,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to INR business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → INR Business Transfers ($10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$37</td><td>0%</td><td>~$37 (0.37%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$0</td><td>~0.4%</td><td>~$40 (0.4%)</td><td>Minutes–1 day</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~0.5%</td><td>~$50 (0.5%)</td><td>1–3 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.6%</td><td>~$60 (0.6%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$50</td><td>2–4%</td><td>$225–$450 (2.25–4.5%)</td><td>3–5 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → INR business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD INR business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:INR:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-india">Compare live USD to INR rates →</a></p>
 </div>
 
@@ -6659,17 +6638,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to MXN business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → MXN Business Transfers ($10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$42</td><td>0%</td><td>~$42 (0.42%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$0</td><td>~0.5%</td><td>~$50 (0.5%)</td><td>Minutes–1 day</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~0.5%</td><td>~$50 (0.5%)</td><td>1–3 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.6%</td><td>~$60 (0.6%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$45</td><td>1.5–3%</td><td>$175–$345 (1.75–3.45%)</td><td>2–4 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → MXN business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD MXN business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:MXN:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-mexico">Compare live USD to MXN rates →</a></p>
 </div>
 
@@ -6783,17 +6755,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to EUR business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → EUR Business Transfers ($10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$33</td><td>0%</td><td>~$33 (0.33%)</td><td>Seconds–1 day</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>$0 (plan dependent)</td><td>~0.3%</td><td>~$30 (0.3%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~0.4%</td><td>~$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.5%</td><td>~$50 (0.5%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$45</td><td>1.5–3%</td><td>$175–$345 (1.75–3.45%)</td><td>2–5 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → EUR business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD EUR business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:EUR:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live USD to EUR rates →</a></p>
 </div>
 
@@ -6907,16 +6872,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: GBP → EUR Business Transfers (£10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~£29</td><td>0%</td><td>~£29 (0.29%)</td><td>Seconds–1 day</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>£0 (plan dependent)</td><td>~0.3%</td><td>~£30 (0.3%)</td><td>Seconds–1 day</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>£0</td><td>~0.4%</td><td>~£40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>£0</td><td>~0.5%</td><td>~£50 (0.5%)</td><td>1–2 days</td></tr>
-<tr><td><strong>UK High Street Bank</strong></td><td>£5–£30</td><td>1.5–3%</td><td>£155–£330 (1.55–3.3%)</td><td>2–4 days</td></tr>
-</tbody>
-</table>
+<p>Live pricing on a GBP EUR business payment of 5,000 GBP, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:GBP:EUR:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-europe">Compare live GBP to EUR rates →</a></p>
 </div>
 
@@ -7029,16 +6987,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: GBP → INR Business Transfers (£10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~£39</td><td>0%</td><td>~£39 (0.39%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>£0</td><td>~0.4%</td><td>~£40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>£0</td><td>~0.5%</td><td>~£50 (0.5%)</td><td>1–3 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>£0</td><td>~0.6%</td><td>~£60 (0.6%)</td><td>1–2 days</td></tr>
-<tr><td><strong>UK High Street Bank</strong></td><td>£5–£25</td><td>2.5–4%</td><td>£255–£425 (2.55–4.25%)</td><td>3–5 days</td></tr>
-</tbody>
-</table>
+<p>Live pricing on a GBP INR business payment of 5,000 GBP, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:GBP:INR:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/uk-to-india">Compare live GBP to INR rates →</a></p>
 </div>
 
@@ -7151,17 +7102,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to PHP business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → PHP Business Transfers ($5,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$25</td><td>0%</td><td>~$25 (0.5%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>$0</td><td>~0.3%</td><td>~$15 (0.3%)</td><td>Minutes–1 day</td></tr>
-<tr><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>$0</td><td>~0.4%</td><td>~$20 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.6%</td><td>~$30 (0.6%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$50</td><td>2–4%</td><td>$125–$250 (2.5–5%)</td><td>3–5 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → PHP business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD PHP business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:PHP:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/usa-to-philippines">Compare live USD to PHP rates →</a></p>
 </div>
 
@@ -7275,17 +7219,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to AUD business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → AUD Business Transfers ($10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$30</td><td>0%</td><td>~$30 (0.3%)</td><td>Seconds–1 day</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~0.4%</td><td>~$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.5%</td><td>~$50 (0.5%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>$0 (plan dependent)</td><td>~0.4%</td><td>~$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$45</td><td>1.5–2.5%</td><td>$175–$295 (1.75–2.95%)</td><td>2–4 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → AUD business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD AUD business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:AUD:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live USD to AUD rates →</a></p>
 </div>
 
@@ -7396,16 +7333,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>We compared the top platforms for USD to CNY business transfers based on cost, speed, and business features:</p>
 
 <div class="blog-table-box">
-<h3 style="margin-top: 0;">Quick Comparison: USD → CNY Business Transfers ($10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~$52</td><td>0%</td><td>~$52 (0.52%)</td><td>1–3 days</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>$0</td><td>~0.6%</td><td>~$60 (0.6%)</td><td>2–4 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>$0</td><td>~0.7%</td><td>~$70 (0.7%)</td><td>2–3 days</td></tr>
-<tr><td><strong>Major US Bank (wire)</strong></td><td>$25–$50</td><td>2–4%</td><td>$225–$450 (2.25–4.5%)</td><td>3–5 days</td></tr>
-</tbody>
-</table>
+<h3 style="margin-top: 0;">USD → CNY business transfers on 5,000 USD</h3>
+<p>Live pricing on a USD CNY business payment of 5,000 USD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:USD:CNY:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live rates →</a></p>
 </div>
 
@@ -7527,16 +7458,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: CAD → USD Business Transfers (C$10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~C$35</td><td>0%</td><td>~C$35 (0.35%)</td><td>Seconds–1 day</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>C$0</td><td>~0.4%</td><td>~C$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/xe">XE Business</a></strong></td><td>C$0</td><td>~0.5%</td><td>~C$50 (0.5%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/revolut">Revolut Business</a></strong></td><td>C$0 (plan dependent)</td><td>~0.4%</td><td>~C$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong>Canadian Big Five Bank</strong></td><td>C$5–$30</td><td>1.5–2.5%</td><td>C$155–$280 (1.55–2.8%)</td><td>1–3 days</td></tr>
-</tbody>
-</table>
+<p>Live pricing on a CAD USD business payment of 5,000 CAD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:CAD:USD:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money">Compare live CAD to USD rates →</a></p>
 </div>
 
@@ -7649,16 +7573,9 @@ const rawBlogPosts: BlogPost[] = [
 
 <div class="blog-table-box">
 <h3 style="margin-top: 0;">Quick Comparison: AUD → INR Business Transfers (A$10,000)</h3>
-<table>
-<thead><tr><th>Provider</th><th>Fee</th><th>Markup</th><th>Total Cost</th><th>Speed</th></tr></thead>
-<tbody>
-<tr class="blog-row-highlight"><td><strong><a href="/companies/instarem">InstaReM</a></strong></td><td>A$0</td><td>~0.4%</td><td>~A$40 (0.4%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/wise">Wise Business</a></strong></td><td>~A$45</td><td>0%</td><td>~A$45 (0.45%)</td><td>1–2 days</td></tr>
-<tr><td><strong><a href="/companies/ofx">OFX</a></strong></td><td>A$0</td><td>~0.5%</td><td>~A$50 (0.5%)</td><td>1–3 days</td></tr>
-<tr><td><strong><a href="/companies/remitly">Remitly</a></strong></td><td>A$0</td><td>~0.5%</td><td>~A$50 (0.5%)</td><td>Minutes–1 day</td></tr>
-<tr><td><strong>Australian Big Four Bank</strong></td><td>A$10–$30</td><td>2.5–4%</td><td>A$260–$430 (2.6–4.3%)</td><td>3–5 days</td></tr>
-</tbody>
-</table>
+<p>Live pricing on a AUD INR business payment of 5,000 AUD, ranked by what the recipient receives. Scoped to the providers that actually serve business senders — consumer remittance apps are excluded, because they are not what you pay a supplier through. Refreshed every {{REFRESH_HOURS}} hours ({{QUOTE_DATE}}).</p>
+{{BUSINESS_QUOTE_TABLE:AUD:INR:5000}}
+<p class="blog-footnote">These are the same consumer-facing quotes we price everywhere on the site. Business accounts at these providers can differ on fees, funding limits and approval workflow, so treat this as the cost floor and confirm your own business pricing. Across every corridor we price at 5,000, business-FX specialists average {{BUSINESS_SPECIALIST_COST_PCT}} all-in against {{BUSINESS_BANK_COST_PCT}} for banks — about {{BUSINESS_SAVINGS_PCT}} cheaper (<a href="/business/compare">full business comparison</a>).</p>
 <p class="blog-footnote">Rates are illustrative based on typical quotes. <a href="/send-money/australia-to-india">Compare live AUD to INR rates →</a></p>
 </div>
 
