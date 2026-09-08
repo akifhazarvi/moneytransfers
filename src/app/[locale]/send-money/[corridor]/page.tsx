@@ -2060,12 +2060,13 @@ export default async function CorridorPage({ params }: Props) {
           {quotes.length > 0 ? (
             <div className="bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl overflow-hidden">
               {/* Desktop header — hidden on mobile */}
-              <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 px-6 py-3 bg-[var(--color-surface-container)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
+              <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px_112px] gap-2 px-6 py-3 bg-[var(--color-surface-container)] text-xs font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide">
                 <span>#</span>
                 <span>Provider</span>
                 <span className="text-right">Rate</span>
                 <span className="text-right">Fee</span>
                 <span className="text-right">Recipient gets</span>
+                <span className="sr-only">Send</span>
               </div>
 
               {/* Rows */}
@@ -2110,6 +2111,26 @@ export default async function CorridorPage({ params }: Props) {
                           <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">recipient gets</p>
                         </div>
                       </div>
+                      <div className="mt-2.5 pl-[68px]">
+                        <ProviderLink
+                          href={getGoUrl(q.providerSlug, {
+                            sourceCurrency: fromCurrency,
+                            targetCurrency: toCurrency,
+                            sourceAmount: sampleAmount,
+                          })}
+                          provider={q.providerSlug}
+                          corridor={`${fromCurrency}-${toCurrency}`}
+                          rank={i + 1}
+                          source="corridor_table_mobile"
+                          className={`flex items-center justify-center w-full h-12 rounded-full text-sm font-semibold transition-colors ${
+                            isBest
+                              ? "bg-[var(--color-success-dark)] text-white active:opacity-90"
+                              : "border border-[var(--color-success-dark)] text-[var(--color-success-dark)] active:bg-[var(--color-success-surface)]"
+                          }`}
+                        >
+                          Send with {name}
+                        </ProviderLink>
+                      </div>
                       <div className="flex items-center gap-3 mt-2 pl-[68px] text-2xs text-[var(--color-on-surface-variant)] tabular-nums">
                         <span>Rate <span className="text-[var(--color-on-surface)]">{q.exchangeRate.toFixed(4)}</span></span>
                         <span className="text-[var(--color-outline)]">·</span>
@@ -2138,7 +2159,7 @@ export default async function CorridorPage({ params }: Props) {
                     </div>
 
                     {/* Desktop layout */}
-                    <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px] gap-2 items-center px-6 py-3">
+                    <div className="hidden sm:grid sm:grid-cols-[36px_1fr_110px_90px_130px_112px] gap-2 items-center px-6 py-3">
                       <span className={`text-2sm font-medium ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface-variant)]"}`}>
                         {i + 1}
                       </span>
@@ -2193,6 +2214,28 @@ export default async function CorridorPage({ params }: Props) {
                       <p className={`text-sm font-medium text-right tabular-nums ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                         {receiveSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </p>
+                      {/* Every row is actionable. Until now only the #1 provider carried a
+                          /go link and rows 2..n linked to our own /companies review, so a
+                          reader who preferred row 4 had no way to act without a detour —
+                          and that click fired no provider_clicked at all. */}
+                      <ProviderLink
+                        href={getGoUrl(q.providerSlug, {
+                          sourceCurrency: fromCurrency,
+                          targetCurrency: toCurrency,
+                          sourceAmount: sampleAmount,
+                        })}
+                        provider={q.providerSlug}
+                        corridor={`${fromCurrency}-${toCurrency}`}
+                        rank={i + 1}
+                        source="corridor_table"
+                        className={`inline-flex items-center justify-center h-11 px-4 rounded-full text-2sm font-semibold transition-colors ${
+                          isBest
+                            ? "bg-[var(--color-success-dark)] text-white hover:opacity-90"
+                            : "border border-[var(--color-success-dark)] text-[var(--color-success-dark)] hover:bg-[var(--color-success-surface)]"
+                        }`}
+                      >
+                        Send
+                      </ProviderLink>
                     </div>
                   </div>
                 );
