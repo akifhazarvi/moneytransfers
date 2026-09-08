@@ -6491,7 +6491,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-india",
-    contentStatus: "draft",
+    contentStatus: "published",
     title: "USA to India Business Payments: USD to INR Guide 2026",
     metaDescription:
       "Compare cheapest ways for US businesses to pay Indian suppliers, IT contractors, and development teams. USD to INR business transfer fees and compliance.",
@@ -6500,7 +6500,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Business",
     readTime: "10 min read",
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["business", "USA to India", "USD to INR", "B2B payments", "IT outsourcing", "cross-border payments"],
     featuredImage: "/images/blog/send-money-to-india.jpg",
@@ -6552,6 +6552,15 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>US Federal Reserve policy</strong> — Rate hikes in the US typically strengthen USD against INR. The rate differential between the Fed and RBI matters for carry trade flows.</li>
 </ul>
 <p>For businesses with monthly INR expenses, the rate is relatively predictable compared to other corridors — but even a 5% annual move on $240,000 of annual payments is $12,000. Consider <a href="/guides/fx-hedging-strategies-small-business">FX hedging strategies</a> for budget certainty.</p>`,
+      },
+      {
+        heading: "FIRC and FIRA: The Document Your Indian Supplier Will Ask For",
+        content: `<p>Most guidance on this corridor stops at the rate. The thing that actually strains a supplier relationship is documentation — and it lands on the Indian side while being determined by how <em>you</em> choose to send.</p>
+<p>An Indian business receiving foreign currency for services generally needs proof the money came from abroad: historically a <strong>Foreign Inward Remittance Certificate (FIRC)</strong>, now more often an electronic <strong>Foreign Inward Remittance Advice (FIRA)</strong> issued by the recipient's bank. It is not paperwork for its own sake — Indian exporters use it to evidence export of services, and their accountant will want it at year end.</p>
+<p><strong>Here is the trap, and it is the reason this section exists.</strong> Whether your supplier can obtain one depends on the rail you picked. A payment that arrives as a domestic INR credit — which is how most low-cost specialists deliver, and exactly why they are cheap — can be harder to evidence as a <em>foreign</em> inward remittance than a conventional SWIFT wire into the same account. Some providers issue an FIRA themselves or on request; others do not, and will tell you so only if asked.</p>
+<p>So the question to settle before the first payment, not after the first audit: <strong>does this provider issue an FIRA, and will my supplier's bank accept how the funds arrive?</strong> If the answer is no and your supplier's accountant needs them, the cheaper rail is a false economy — you will end up moving the relationship to a costlier provider mid-year, or your supplier will absorb an accounting problem you created.</p>
+<p>The purpose-code and US withholding requirements that sit alongside this are covered in the compliance section below rather than repeated here. The framework for both sits in the Reserve Bank of India's <a href="https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx" target="_blank" rel="noopener noreferrer">Master Directions</a>, which is where your supplier's bank will point if it queries a payment.</p>
+<p class="blog-footnote">Not tax or accounting advice — treaty positions and documentation requirements turn on specifics we cannot see. The narrower point is worth acting on regardless: your choice of payment rail has documentation consequences at the receiving end, and establishing that during onboarding costs nothing.</p>`,
       },
       {
         heading: "Compliance for USA to India Business Payments",
@@ -7308,7 +7317,7 @@ const rawBlogPosts: BlogPost[] = [
   // ============================
   {
     slug: "business-payments-usa-to-china",
-    contentStatus: "draft",
+    contentStatus: "published",
     title: "USA to China Business Payments: USD to CNY Guide 2026",
     metaDescription:
       "How to pay Chinese suppliers and manufacturers. Compare USD to CNY methods, understand RMB regulations, and navigate US-China business transfer compliance.",
@@ -7317,7 +7326,7 @@ const rawBlogPosts: BlogPost[] = [
     category: "Business",
     readTime: "10 min read",
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-09-07",
     author: "Akif Hazarvi",
     tags: ["business", "USA to China", "USD to CNY", "B2B payments", "manufacturing", "supply chain"],
     featuredImage: "/images/blog/china-business-transfers.jpg",
@@ -7370,6 +7379,18 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Onshore vs. Offshore</strong> — Onshore CNY and offshore CNH can diverge during times of stress. Most business payments use onshore CNY.</li>
 </ul>
 <p>USD/CNY typically moves 3–8% annually — less volatile than many EM pairs due to PBOC management. However, for businesses with large China exposure, even small moves matter. <a href="/guides/fx-hedging-strategies-small-business">FX hedging</a> via forward contracts from OFX or XE is available for CNY.</p>`,
+      },
+      {
+        heading: "Pay the Company, Not the Person — and Why Your Supplier May Ask Otherwise",
+        content: `<p>The most expensive mistake on this corridor is not the exchange rate. It is paying a Chinese supplier somewhere the payment cannot be reconciled to the trade.</p>
+<h3>The personal-account request</h3>
+<p>Suppliers sometimes ask to be paid into an individual's account, or to a Hong Kong entity, rather than the mainland company that issued your invoice and contract. There are ordinary-sounding reasons offered — it is faster, it avoids paperwork, the company account is "being updated". Accept it and you create problems that outlast the saving.</p>
+<p>Your payment no longer matches the counterparty on your contract or invoice, which is a reconciliation and audit problem at your end and can complicate a dispute: you paid someone who is not the party that owes you goods. On the Chinese side, foreign currency received by an individual is treated under the individual FX regime rather than as trade settlement, which is a different set of rules and limits entirely — see our <a href="/guides/how-to-send-money-from-china">guide to China's FX controls</a> for how restrictive that regime is. It is also the pattern most commonly seen in supplier-impersonation fraud, where an attacker who has compromised an email thread asks for exactly this change.</p>
+<p><strong>The rule that costs nothing to follow:</strong> pay the legal entity named on the invoice, at the bank details on the contract, and treat any mid-relationship change of bank details as a fraud attempt until you have confirmed it by phone on a number you already held. Not the number in the email requesting the change.</p>
+<h3>What your supplier needs at their end</h3>
+<p>A mainland company receiving USD generally has to settle it into CNY, and its bank will want the payment to line up with an underlying trade — contract, invoice, and where goods are involved, customs documentation. That is why references matter more here than on most corridors: put the invoice or contract number on the payment, and match the amount to the invoice rather than rounding or batching several invoices into one transfer. A payment the bank cannot tie to a document is a payment that sits pending while your supplier explains it.</p>
+<p>China's foreign-exchange regime is administered by the State Administration of Foreign Exchange, which publishes its instruments in its <a href="https://www.safe.gov.cn/en/RulesandRegulations/index.html" target="_blank" rel="noopener noreferrer">Rules and Regulations</a> index. Your supplier's own bank is the operative authority on what it will accept, and asking them first is faster than discovering it after a payment is in limbo.</p>
+`,
       },
       {
         heading: "Compliance for USA to China Business Payments",
