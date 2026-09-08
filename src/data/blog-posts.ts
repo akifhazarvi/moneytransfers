@@ -383,7 +383,7 @@ const rawBlogPosts: BlogPost[] = [
         content: `<ol>
 <li><strong>Compare providers</strong> — Enter your amount, sending currency, and receiving currency in our comparison tool. Look at the total received amount, not just the fee.</li>
 <li><strong>Create an account</strong> — Sign up with your chosen provider. You'll need your name, email, address, and ID for verification (required by law for anti-money laundering).</li>
-<li><strong>Verify your identity</strong> — Upload a photo ID (passport, driver's license) and proof of address. Most providers verify within minutes to 24 hours. Identity verification is required by anti-money laundering (AML) regulations, enforced in the US by <a href="https://www.fincen.gov/resources/statutes-and-regulations" target="_blank" rel="noopener noreferrer">FinCEN</a> and in the UK by the <a href="https://www.fca.org.uk/firms/financial-crime/money-laundering-regulations" target="_blank" rel="noopener noreferrer">FCA</a>.</li>
+<li><strong>Verify your identity</strong> — Upload a photo ID (passport, driver's license) and proof of address. Most providers verify within minutes to 24 hours. Identity verification is required by anti-money laundering (AML) regulations, enforced in the US by <a href="https://www.fincen.gov/resources/statutes-regulations" target="_blank" rel="noopener noreferrer">FinCEN</a> and in the UK by the <a href="https://www.fca.org.uk/firms/financial-crime/money-laundering-regulations" target="_blank" rel="noopener noreferrer">FCA</a>.</li>
 <li><strong>Enter recipient details</strong> — Provide the recipient's name (as it appears on their bank account), bank account number, SWIFT/BIC code, and sometimes their address.</li>
 <li><strong>Choose payment method</strong> — Bank transfer is usually cheapest. Card payments are faster but may incur a higher fee. Some services support Apple Pay or Google Pay.</li>
 <li><strong>Review and send</strong> — Check the exchange rate, fee, and estimated delivery time. Confirm the transfer.</li>
@@ -425,7 +425,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Ignoring exchange rate timing</strong> — Rates change constantly. If you're not in a rush, set a rate alert for a better rate.</li>
 <li><strong>Not verifying your account first</strong> — Complete ID verification before you need to send money. Rush verification can delay urgent transfers.</li>
 </ul>
-<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> and the <a href="https://www.fca.org.uk/consumers/sending-money-abroad" target="_blank" rel="noopener noreferrer">FCA</a> both provide guidance on consumer rights when sending money internationally. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global knowledge partnership tracks remittance flows and the economic impact of transfer costs.</p>`,
+<p>The <a href="https://www.consumerfinance.gov/sending-money/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau (CFPB)</a> and the <a href="https://www.fca.org.uk/consumers" target="_blank" rel="noopener noreferrer">FCA</a> both provide guidance on consumer rights when sending money internationally. The <a href="https://www.knomad.org/" target="_blank" rel="noopener noreferrer">KNOMAD</a> global knowledge partnership tracks remittance flows and the economic impact of transfer costs.</p>`,
       },
     ],
     faqs: [
@@ -681,7 +681,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>You cannot lose money simply by sending to the "wrong" account number</strong> — banks reject transfers that don't match valid account details. If a transfer does go to a wrong but valid account (a typo on a digit), most jurisdictions have a recall process. UK banks must attempt recovery within 2 working days under the <a href="https://www.psr.org.uk/" target="_blank" rel="noopener noreferrer">Payment Systems Regulator's</a> rules.</li>
 <li><strong>Confirmation of Payee (UK) and similar checks (EU, AU)</strong> — when you set up a new payee, your bank now compares the name you typed against the actual account holder's name and warns you of mismatches. This catches most "wrong account" mistakes before money moves.</li>
 <li><strong>Push payments are deliberate</strong> — unlike a direct debit (which pulls money from your account), a transfer requires you to initiate it. No one can drain your account just because they have your account number.</li>
-<li><strong>Reversibility for fraud</strong> — if you're tricked into authorising a transfer (Authorised Push Payment fraud), UK banks signed up to the <a href="https://www.psr.org.uk/our-work/authorised-push-payment-app-scams/" target="_blank" rel="noopener noreferrer">CRM Code</a> reimburse most victims. The new mandatory PSR rules from October 2024 made reimbursement mandatory across all UK banks for APP scam losses up to £415,000.</li>
+<li><strong>Reversibility for fraud</strong> — if you're tricked into authorising a transfer (Authorised Push Payment fraud), UK banks signed up to the <a href="https://www.psr.org.uk/our-work/app-scams/" target="_blank" rel="noopener noreferrer">CRM Code</a> reimburse most victims. The new mandatory PSR rules from October 2024 made reimbursement mandatory across all UK banks for APP scam losses up to £415,000.</li>
 </ul>
 <p><strong>When account-to-account transfers carry more risk:</strong></p>
 <ul>
@@ -715,7 +715,7 @@ const rawBlogPosts: BlogPost[] = [
 <h3>What the numbers mean</h3>
 <ul>
 <li><strong>For every £1,000 you transfer online with a regulated provider, the statistically expected loss is under £1.</strong> By contrast, every £1,000 you send by cheque has roughly £4 of expected fraud loss, and cash carries even higher risk through theft and loss.</li>
-<li><strong>Most online transfer fraud is "Authorised Push Payment" fraud</strong> — the victim is tricked into authorising a real transfer to a fraudster (romance scams, investment scams, impersonation). Pure system intrusion (someone hacking into the provider) is vanishingly rare at major regulated firms — <a href="https://www.wise.com/gb/blog/security-2024" target="_blank" rel="noopener noreferrer nofollow">Wise's 2024 security report</a> noted zero successful systemic breaches.</li>
+<li><strong>Most online transfer fraud is "Authorised Push Payment" fraud</strong> — the victim is tricked into authorising a real transfer to a fraudster (romance scams, investment scams, impersonation). Pure system intrusion (someone hacking into the provider) is vanishingly rare at major regulated firms — <a href="https://wise.com/help/articles/2932693/is-wise-safe" target="_blank" rel="noopener noreferrer nofollow">Wise's 2024 security report</a> noted zero successful systemic breaches.</li>
 <li><strong>Card-funded transfers add chargeback protection.</strong> If you fund an international transfer with a debit or credit card and something goes wrong, you have up to 120 days to dispute via Section 75 (UK credit cards) or Reg E (US debit cards). Bank-funded transfers don't have this safety net but cost less.</li>
 <li><strong>Transfer size matters.</strong> Fraud rates are higher for high-value first-time transfers to new recipients. For transfers above £5,000 / $10,000, providers add extra verification steps and most run additional manual review — this is friction by design.</li>
 </ul>
@@ -9817,7 +9817,7 @@ const rawBlogPosts: BlogPost[] = [
 
 <p style="text-align:center;margin-top:24px"><a href="/send-money" class="blog-cta-button">Compare {{PROVIDER_COUNT}} Providers — Live Rates →</a></p>
 
-<p class="blog-footnote">Sources: <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer">Fed SEP (Mar 18, 2026)</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer">BLS CPI</a>, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView" target="_blank" rel="noopener noreferrer">US Treasury yield curve</a>, bank research notes linked above, and <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a>. Corridor maths anchored by SendMoneyCompare's scraped quote data (refreshed every 6 hours) — see our <a href="/methodology">methodology</a>.</p>`,
+<p class="blog-footnote">Sources: <a href="https://www.federalreserve.gov/monetarypolicy/files/fomcprojtabl20260318.pdf" target="_blank" rel="noopener noreferrer">Fed SEP (Mar 18, 2026)</a>, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener noreferrer">BLS CPI</a>, <a href="https://www.federalreserve.gov/releases/h15/" target="_blank" rel="noopener noreferrer">US Treasury yield curve</a>, bank research notes linked above, and <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank Remittance Prices Worldwide</a>. Corridor maths anchored by SendMoneyCompare's scraped quote data (refreshed every 6 hours) — see our <a href="/methodology">methodology</a>.</p>`,
       },
     ],
     faqs: [
@@ -11248,10 +11248,10 @@ const rawBlogPosts: BlogPost[] = [
         content: `<p>This is where Xe truly differentiates from consumer-focused transfer services like <a href="/companies/wise">Wise</a> or <a href="/companies/remitly">Remitly</a>. Xe offers a full suite of <a href="https://www.xe.com/business/risk-management/" target="_blank" rel="noopener noreferrer">FX risk management tools</a> designed for businesses with significant currency exposure.</p>
 
 <h3>Forward contracts</h3>
-<p>Lock in today's exchange rate for a payment that will be made weeks or months from now. If you've agreed a contract with a supplier at a specific price, a <a href="https://www.xe.com/business/risk-management/forward-contracts/" target="_blank" rel="noopener noreferrer">forward contract</a> ensures your costs don't blow out because the exchange rate moves against you. Xe offers forward contracts for up to 3 years ahead — one of the longest windows in the industry.</p>
+<p>Lock in today's exchange rate for a payment that will be made weeks or months from now. If you've agreed a contract with a supplier at a specific price, a <a href="https://www.xe.com/business/" target="_blank" rel="noopener noreferrer">forward contract</a> ensures your costs don't blow out because the exchange rate moves against you. Xe offers forward contracts for up to 3 years ahead — one of the longest windows in the industry.</p>
 
 <h3>Limit orders</h3>
-<p>Set your target exchange rate and Xe will automatically execute the transfer when the market hits that rate via a <a href="https://www.xe.com/business/risk-management/limit-orders/" target="_blank" rel="noopener noreferrer">limit order</a>. This is effectively a "buy at this price" instruction — you don't need to monitor rates constantly. Xe's rate alert system, built on 30+ years of currency data, makes this particularly sophisticated.</p>
+<p>Set your target exchange rate and Xe will automatically execute the transfer when the market hits that rate via a <a href="https://www.xe.com/business/" target="_blank" rel="noopener noreferrer">limit order</a>. This is effectively a "buy at this price" instruction — you don't need to monitor rates constantly. Xe's rate alert system, built on 30+ years of currency data, makes this particularly sophisticated.</p>
 
 <h3>FX options</h3>
 <p>For businesses with complex FX exposure, Xe offers options contracts that give you the right (but not the obligation) to exchange currency at a specific rate. Options are more flexible than forward contracts — they protect against adverse movements while allowing you to benefit from favourable ones.</p>
@@ -11284,7 +11284,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Sage Intacct</strong> — Connect payment flows to your Sage accounting workflows</li>
 </ul>
 
-<p>Learn more about <a href="https://www.xe.com/business/enterprise-resource-planning/" target="_blank" rel="noopener noreferrer">Xe's ERP payment solutions</a>. ERP integration eliminates the manual process of exporting payment data from your accounting system, logging into a separate payment platform, re-entering details, and then manually reconciling once payments are confirmed. For businesses processing dozens of international payments monthly, this saves hours of finance team time.</p>
+<p>Learn more about <a href="https://www.xe.com/business/" target="_blank" rel="noopener noreferrer">Xe's ERP payment solutions</a>. ERP integration eliminates the manual process of exporting payment data from your accounting system, logging into a separate payment platform, re-entering details, and then manually reconciling once payments are confirmed. For businesses processing dozens of international payments monthly, this saves hours of finance team time.</p>
 
 <p>Xe also provides a <a href="https://www.xe.com/xecurrencydata/" target="_blank" rel="noopener noreferrer">currency data API</a> that delivers real-time exchange rates for 170+ currencies, sourced from over 100 financial data providers and central banks. This API is used by developers building financial applications, treasury management systems, and pricing engines that need accurate, up-to-date FX data.</p>
 
@@ -11353,7 +11353,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Companies using Microsoft Dynamics 365 or Sage Intacct</strong> — Direct ERP integration streamlines operations</li>
 <li><strong>Finance teams that need compliance controls</strong> — Role-based access, dual authorisation, and audit trails</li>
 <li><strong>Businesses that value human support</strong> — 24/7 access to FX specialists, not just chatbots</li>
-<li><strong>Companies interested in referral partnerships</strong> — Xe's <a href="https://www.xe.com/business/affiliate-partner-program/" target="_blank" rel="noopener noreferrer">affiliate partner program</a> lets businesses refer clients and earn from Xe's payment services</li>
+<li><strong>Companies interested in referral partnerships</strong> — Xe's <a href="https://www.xe.com/business/" target="_blank" rel="noopener noreferrer">affiliate partner program</a> lets businesses refer clients and earn from Xe's payment services</li>
 </ul>
 
 <h3>Consider alternatives if:</h3>
@@ -14908,7 +14908,7 @@ const rawBlogPosts: BlogPost[] = [
 </ul>
 
 <h3>Tax-Free Gift Allowance</h3>
-<p>Korean tax law allows gifts from immediate family (parent → adult child) up to <strong>KRW 50 million (~USD $37,000) per 10 years</strong> tax-free. Above that, gift tax of 10–50% applies. If you're sending large amounts to family in Korea, the recipient should keep records showing the relationship — many banks require this on transfers above $20,000. The <a href="https://nts.go.kr/english" target="_blank" rel="noopener noreferrer">National Tax Service</a> publishes the current rates.</p>`,
+<p>Korean tax law allows gifts from immediate family (parent → adult child) up to <strong>KRW 50 million (~USD $37,000) per 10 years</strong> tax-free. Above that, gift tax of 10–50% applies. If you're sending large amounts to family in Korea, the recipient should keep records showing the relationship — many banks require this on transfers above $20,000. The <a href="https://www.nts.go.kr/english/main.do" target="_blank" rel="noopener noreferrer">National Tax Service</a> publishes the current rates.</p>`,
       },
       {
         heading: "Delivery Speed: SWIFT vs Specialist Routes",
@@ -14950,7 +14950,7 @@ const rawBlogPosts: BlogPost[] = [
       },
       {
         heading: "Sources & Methodology",
-        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.bok.or.kr/eng" target="_blank" rel="noopener noreferrer">Bank of Korea</a> and exchangerate.host. FX reporting thresholds verified against Bank of Korea Foreign Exchange Transactions Act guidance. Tax allowance figures from <a href="https://nts.go.kr/english" target="_blank" rel="noopener noreferrer">National Tax Service of Korea</a>. <a href="/send-money/send-money-to-south-korea">Compare live rates →</a></p>`,
+        content: `<p>Quote data is collected from each provider's public quote API or pricing widget every 6 hours. Mid-market reference rates from <a href="https://www.bok.or.kr/eng" target="_blank" rel="noopener noreferrer">Bank of Korea</a> and exchangerate.host. FX reporting thresholds verified against Bank of Korea Foreign Exchange Transactions Act guidance. Tax allowance figures from <a href="https://www.nts.go.kr/english/main.do" target="_blank" rel="noopener noreferrer">National Tax Service of Korea</a>. <a href="/send-money/send-money-to-south-korea">Compare live rates →</a></p>`,
       },
     ],
     faqs: [
