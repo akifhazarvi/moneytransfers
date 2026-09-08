@@ -146,7 +146,7 @@ These are the findings our datasets support. Each is measured over a stated popu
 ### USA to Pakistan (USD → PKR)
 - **Cheapest on 2026-09-07**: TapTap Send — 277,493.7 PKR on 1,000 USD, fee zero
 - **Providers compared**: 17. Gap between best and worst: 24,758.11 PKR
-- **Delivery**: JazzCash, Easypaisa, bank deposit.
+- **Delivery**: JazzCash, Easypaisa, bank deposit. JazzCash caps inbound by ACCOUNT LEVEL: Level 0 takes PKR 25,000/day and 50,000/month, Level 1 PKR 100,000/day — both below a typical remittance. An Asaan Digital Remittance Account (PKR 1,000,000/day) is usually required (jazzcash.com.pk/tc, checked September 2026).
 - **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 26% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/usa-to-pakistan
 
@@ -181,7 +181,7 @@ These are the findings our datasets support. Each is measured over a stated popu
 ### UAE to Pakistan (AED → PKR)
 - **Cheapest on 2026-09-07**: Remitly — 75,522.11 PKR on 1,000 AED, fee zero
 - **Providers compared**: 5. Gap between best and worst: 5,478.64 PKR
-- **Delivery**: JazzCash, Easypaisa, bank deposit.
+- **Delivery**: JazzCash, Easypaisa, bank deposit. JazzCash caps inbound by ACCOUNT LEVEL: Level 0 takes PKR 25,000/day and 50,000/month, Level 1 PKR 100,000/day — both below a typical remittance. An Asaan Digital Remittance Account (PKR 1,000,000/day) is usually required (jazzcash.com.pk/tc, checked September 2026).
 - **Caveat**: this is a $1,000 quote at one moment. The cheapest provider changes with amount, payment method and day — on 26% of corridors the provider that is cheapest today is not the one that usually wins.
 - Source: https://sendmoneycompare.com/send-money/uae-to-pakistan
 

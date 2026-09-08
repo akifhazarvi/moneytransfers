@@ -77,12 +77,12 @@ const CORRIDORS: { from: string; to: string; slug: string; label: string; rails:
   { from: "USD", to: "INR", slug: "usa-to-india", label: "USA to India", rails: "IMPS (instant), UPI, NEFT, bank deposit, cash pickup. IFSC code required for bank deposits." },
   { from: "USD", to: "MXN", slug: "usa-to-mexico", label: "USA to Mexico", rails: "SPEI (instant), bank deposit, cash pickup via OXXO." },
   { from: "USD", to: "PHP", slug: "usa-to-philippines", label: "USA to Philippines", rails: "GCash wallet (seconds), bank deposit, cash pickup. GCash caps incoming transfers by MONTH, not per transaction, and by verification tier: PHP 5,000/month on an unverified profile, PHP 100,000/month once Fully Verified (help.gcash.com, checked September 2026)." },
-  { from: "USD", to: "PKR", slug: "usa-to-pakistan", label: "USA to Pakistan", rails: "JazzCash, Easypaisa, bank deposit." },
+  { from: "USD", to: "PKR", slug: "usa-to-pakistan", label: "USA to Pakistan", rails: "JazzCash, Easypaisa, bank deposit. JazzCash caps inbound by ACCOUNT LEVEL: Level 0 takes PKR 25,000/day and 50,000/month, Level 1 PKR 100,000/day — both below a typical remittance. An Asaan Digital Remittance Account (PKR 1,000,000/day) is usually required (jazzcash.com.pk/tc, checked September 2026)." },
   { from: "USD", to: "NGN", slug: "usa-to-nigeria", label: "USA to Nigeria", rails: "Bank deposit and mobile money." },
   { from: "GBP", to: "INR", slug: "uk-to-india", label: "UK to India", rails: "IMPS (instant), NEFT, bank deposit." },
   { from: "CAD", to: "INR", slug: "canada-to-india", label: "Canada to India", rails: "IMPS, NEFT, bank deposit." },
   { from: "AED", to: "INR", slug: "uae-to-india", label: "UAE to India", rails: "IMPS, NEFT, bank deposit." },
-  { from: "AED", to: "PKR", slug: "uae-to-pakistan", label: "UAE to Pakistan", rails: "JazzCash, Easypaisa, bank deposit." },
+  { from: "AED", to: "PKR", slug: "uae-to-pakistan", label: "UAE to Pakistan", rails: "JazzCash, Easypaisa, bank deposit. JazzCash caps inbound by ACCOUNT LEVEL: Level 0 takes PKR 25,000/day and 50,000/month, Level 1 PKR 100,000/day — both below a typical remittance. An Asaan Digital Remittance Account (PKR 1,000,000/day) is usually required (jazzcash.com.pk/tc, checked September 2026)." },
 ];
 
 const providerName = new Map(providers.map((p) => [p.slug, p.name]));

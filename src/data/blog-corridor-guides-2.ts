@@ -37,6 +37,30 @@ export const corridorGuides2: BlogPost[] = [
 <p>This corridor has changed materially in the past 12 months: <strong>RAAST cross-border via Buna</strong> went live in August 2024, the Pakistan Remittance Initiative (PRI) was restructured on July 1 2025, and the <strong>Roshan Digital Account (RDA)</strong> scheme hit a record <strong>$321 million inflow in April 2026 alone</strong>. This guide is the definitive walkthrough: 15 providers compared on AED 3,000 and AED 10,000, the JazzCash/Easypaisa/RAAST/bank deposit deep-dive, RDA and PRI explainers, and Eid Al-Adha 2026 timing.</p>`,
       },
       {
+        heading: "Receiving on JazzCash: The Limit That Bounces a Normal Remittance",
+        content: `<p>JazzCash is the default payout for this corridor and the most common reason a transfer is rejected — because the ceiling that applies is the <em>recipient's account level</em>, which the sender never sees. These are JazzCash's own published limits, from its <a href="https://www.jazzcash.com.pk/tc" target="_blank" rel="noopener noreferrer nofollow">terms and conditions</a> (checked September 2026), in PKR:</p>
+<div class="overflow-x-auto"><table>
+<thead><tr><th>Account level</th><th>Daily credit</th><th>Monthly credit</th><th>Max balance</th></tr></thead>
+<tbody>
+<tr><td><strong>Level 0</strong> (new, minimally verified)</td><td><strong>25,000</strong></td><td><strong>50,000</strong></td><td>200,000</td></tr>
+<tr><td><strong>Level 1</strong></td><td>100,000</td><td>300,000</td><td>1,000,000</td></tr>
+<tr><td>Asaan Digital Remittance Account</td><td>1,000,000</td><td>3,000,000</td><td>3,000,000</td></tr>
+<tr><td>Asaan Digital Account</td><td>3,000,000</td><td>3,000,000</td><td>3,000,000</td></tr>
+<tr><td>Freelance Digital Account</td><td>1,400,000</td><td>1,400,000</td><td>3,000,000</td></tr>
+<tr><td>Level 2</td><td>1,000,000</td><td>3,500,000</td><td>5,000,000</td></tr>
+</tbody></table></div>
+<p><strong>Now compare that against what you are actually sending.</strong> AED 3,000 delivers about {{BEST_RECEIVE:AED:PKR:3000}} at today's best rate. That single transfer is roughly nine times a Level 0 <em>daily</em> credit limit, more than four times its <em>monthly</em> limit, and still more than double a Level 1 daily limit. Even AED 1,000 — about {{BEST_RECEIVE:AED:PKR:1000}} — exceeds the Level 0 monthly ceiling on its own.</p>
+<p>The practical consequence is the one nobody states: <strong>for a typical UAE remittance your recipient needs an Asaan Digital Remittance Account, an Asaan Digital Account or Level 2.</strong> Level 0 and Level 1 accounts cannot receive it, however good your exchange rate is. The Asaan Digital Remittance Account exists specifically for this and is the one to ask for by name — it takes PKR 1,000,000 a day and 3,000,000 a month.</p>
+<p><strong>Before you send, confirm with your recipient:</strong></p>
+<ol>
+<li><strong>Which account level they hold.</strong> A recently opened wallet is Level 0. This is the single check that prevents most failures, and upgrading is a documentation step, not a payment one.</li>
+<li><strong>What they have already received this month</strong>, from every sender. The monthly credit limit is cumulative, so a second remittance can fail where the first succeeded.</li>
+<li><strong>Their registered mobile number and name as held by JazzCash</strong> — the number is the account identifier, and the name is matched on inbound remittances.</li>
+</ol>
+<p><strong>If it exceeds the limit,</strong> the transfer does not vanish. JazzCash's terms describe over-limit transactions being auto-reversed to the sender, typically within 24 to 72 hours, or held pending. Do not resend the same amount before the reversal lands and the level is raised, or it will breach the same ceiling again. Splitting one transfer into several to stay under a limit is a bad idea for a different reason — it looks like structuring, and both the sending provider and the receiving bank monitor for it.</p>
+<p>Easypaisa operates the same tiered model under the same State Bank of Pakistan branchless-banking rules, so ask the same question if your recipient uses it instead. The specific numbers differ; the failure mode does not.</p>`,
+      },
+      {
         heading: "Live Provider Comparison: 15 Options on AED 3,000",
         content: `<p>Mid-market reference at the time of writing: <strong>1 AED = 75.86 PKR</strong> (interbank, May 13, 2026 — <a href="https://www.forex.pk/inter_bank_rates.asp" target="_blank" rel="noopener noreferrer nofollow">Forex Association of Pakistan</a>). AED 3,000 at mid-market = PKR 227,580.</p>
 <div class="blog-table-box">
