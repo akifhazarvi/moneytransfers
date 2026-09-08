@@ -106,7 +106,16 @@ export const freelanceGuides: BlogPost[] = [
   <li><strong>Currencies Direct</strong> — receiving accounts in the major currencies, transfer-led rather than account-led.</li>
 </ul>
 
-<p>The full capability matrix, including what each does for invoicing and payables, is on our <a href="/business">business transfers comparison</a>.</p>`,
+<p>The full capability matrix, including what each does for invoicing and payables, is on our <a href="/business">business transfers comparison</a>.</p>
+
+<h3>Where local receiving actually works — and where it does not</h3>
+<p>The whole strategy on this page depends on one thing: whether you can get <em>local</em> account details in your client's currency. That is not available everywhere, and the gap is the single most important eligibility check before you restructure how you invoice. Taking Wise as the widest example, it publishes the currencies you can be paid into locally versus the ones it can only send to (<a href="https://wise.com/help/articles/2571907/which-currencies-can-i-add-keep-and-receive" target="_blank" rel="noopener noreferrer nofollow">Wise help centre</a>, checked September 2026):</p>
+<ul>
+<li><strong>You can receive locally in:</strong> AUD, BRL, CAD, CHF, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, MXN, MYR, NOK, NZD, PHP, PLN, RON, SEK, SGD, THB, TRY, UAH and USD. If your client pays in one of these, they can pay domestically and the conversion stays under your control.</li>
+<li><strong>Send-only — no local receiving details:</strong> AED, ARS, BDT, CLP, CNY, COP, CRC, EGP, GEL, GHS, KES, KRW, LKR, MAD, NGN, NPR, PKR, TZS, UGX, UYU, VND and ZAR.</li>
+</ul>
+<p>That second list is the one that matters, and it is where most of the advice written on this subject quietly stops applying. If you are a freelancer in Nigeria, Pakistan, Kenya, Egypt or South Africa, you generally cannot give a client local details in your own currency through this route. Your realistic options are to <strong>receive in a currency you can hold</strong> — usually USD, EUR or GBP — and convert on your own terms when you withdraw, or to use a provider with a domestic payout licence in your country. Receiving in a hard currency and converting yourself is still far better than letting a correspondent chain do it, but it is a different plan from the one above, and the withdrawal step is where your cost now sits. Check that step before you commit.</p>
+<p>Two things to verify for your own situation, because they vary by the country your account is registered in rather than by the currency: whether local details are offered to residents of your country at all, and whether receiving them requires identity or business verification you can complete. Both are decided at signup, so test with a small payment before you send a client new details on an invoice.</p>`,
       },
       {
         heading: "Which currency should you invoice in?",

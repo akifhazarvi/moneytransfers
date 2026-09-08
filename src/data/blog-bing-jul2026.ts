@@ -102,7 +102,8 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
       },
       {
         heading: "The Hidden Cost Nobody Talks About: Exchange Rate Markup",
-        content: `<p class="citable-passage">The flat wire fee is the cost you see. The exchange rate markup is the cost that's hidden — and it's almost always larger. When a bank quotes you an exchange rate for an international wire, that rate is always worse than the real mid-market rate (the rate you see on Google). The difference is the markup, and it goes directly to the bank as profit. On a $1,000 transfer with a 4% markup, that's $40 that disappears without appearing anywhere on your receipt.</p>
+        content: `<p>Under the US <a href="https://www.consumerfinance.gov/rules-policy/regulations/1005/subpart-B/" target="_blank" rel="noopener noreferrer">Remittance Transfer Rule</a> (Regulation E, subpart B), a bank sending most consumer transfers abroad must disclose the exchange rate, the fees and the exact amount the recipient will get, <em>before</em> you pay. So the markup is disclosed — it is simply not labelled as a cost. The CFPB's own <a href="https://www.consumerfinance.gov/consumer-tools/sending-money/" target="_blank" rel="noopener noreferrer">guidance for consumers sending money abroad</a> tells you to compare the receive amount rather than the fee, for exactly this reason. Ask for that disclosure and compare the bottom line.</p>
+<p class="citable-passage">The flat wire fee is the cost you see. The exchange rate markup is the cost that's hidden — and it's almost always larger. When a bank quotes you an exchange rate for an international wire, that rate is always worse than the real mid-market rate (the rate you see on Google). The difference is the markup, and it goes directly to the bank as profit. On a $1,000 transfer with a 4% markup, that's $40 that disappears without appearing anywhere on your receipt.</p>
 <p>Here's how to calculate what your bank is actually charging:</p>
 <ol>
 <li>Look up the real mid-market rate for your currency pair on Google or <a href="/exchange-rates">our exchange rates page</a> at the time you want to transfer.</li>
@@ -124,7 +125,20 @@ export const bingKeywordArticlesJul2026: BlogPost[] = [
 </table>
 <p class="blog-footnote">Illustrative based on USD/GBP ~0.80. Actual amounts vary. <a href="/send-money">Get live quotes →</a></p>
 </div>
-<p>On a $5,000 transfer, Chase costs approximately <strong>$192–$242 more</strong> than Wise. That's £150–£190 your recipient never receives. At $10,000, the gap doubles.</p>`,
+<p>On a $5,000 transfer, Chase costs approximately <strong>$192–$242 more</strong> than Wise. That's £150–£190 your recipient never receives. At $10,000, the gap doubles.</p>
+<h3>What we actually measure these banks charging</h3>
+<p>The figures above model a SWIFT wire: the published flat fee plus a markup. Separately, we price banks directly from live quotes in our <a href="/remittance-cost-index">Remittance Cost Index</a>, and those come out lower, because the quotes we capture are usually a bank's own online transfer product rather than a branch SWIFT wire. Measured across every corridor each bank quotes at $1,000:</p>
+<div class="overflow-x-auto"><table>
+<thead><tr><th>Bank</th><th>Measured all-in cost on $1,000</th></tr></thead>
+<tbody>
+<tr><td>HSBC</td><td>2.81%</td></tr>
+<tr><td>Wells Fargo</td><td>3.11%</td></tr>
+<tr><td>Barclays</td><td>3.61%</td></tr>
+<tr><td>Chase (US)</td><td>3.72%</td></tr>
+<tr><td>Lloyds</td><td>5.35%</td></tr>
+</tbody></table></div>
+<p>Both numbers are real and they answer different questions. If you walk into a branch and ask for an international wire, expect the higher, fee-led figure. If you use the bank's own app or website, expect something closer to the measured one. Neither is close to what a specialist charges — across all 35 banks and 26 specialists we price at $1,000, the averages are {{AVG_BANK_COST}} against {{AVG_SPECIALIST_COST}}. The spread <em>within</em> the bank group is wider than most people expect, though: the cheapest bank we measure beats many specialists, and the dearest costs more than four times the bank average.</p>
+<p class="blog-footnote">Bank fee schedules in the tables above were read from each bank's published pricing pages and last checked July 2026; banks change them without notice, and the fee often differs by account tier and destination. Confirm your own bank's current fee and its quoted receive amount before sending. The measured percentages are recomputed from live quotes on every build.</p>`,
       },
       {
         heading: "Why Do Banks Charge So Much for Wire Transfers?",
