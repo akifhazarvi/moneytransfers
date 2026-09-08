@@ -49,7 +49,8 @@
     "build:consistency": "npx tsx scripts/build-consistency-index.ts",
     "build:sendscore": "npx tsx scripts/build-sendscore-summary.ts",
     "check:ai-citations:smoke": "npx tsx --env-file=.env.local scripts/check-ai-citations.ts --platform=perplexity --limit=3",
-    "build:llms": "npx tsx scripts/build-llms-txt.ts"
+    "build:llms": "npx tsx scripts/build-llms-txt.ts",
+    "check:sources": "npx tsx scripts/check-sources.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

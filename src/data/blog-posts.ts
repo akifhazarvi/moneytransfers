@@ -397,7 +397,7 @@ const rawBlogPosts: BlogPost[] = [
 <li><strong>Recipient's full legal name</strong> — Must match their bank account exactly</li>
 <li><strong>Bank name and branch</strong></li>
 <li><strong>Account number</strong> — Or <a href="/guides/iban-numbers-explained">IBAN</a> for European and many other countries</li>
-<li><strong>SWIFT/BIC code</strong> — An 8–11 character code identifying the bank internationally. Read <a href="/guides/swift-codes-explained">our guide to SWIFT codes</a> for full details. SWIFT codes are standardised by the <a href="https://www.swift.com/standards/iso-9362" target="_blank" rel="noopener noreferrer">ISO 9362 standard maintained by SWIFT</a>.</li>
+<li><strong>SWIFT/BIC code</strong> — An 8–11 character code identifying the bank internationally. Read <a href="/guides/swift-codes-explained">our guide to SWIFT codes</a> for full details. SWIFT codes are standardised by the <a href="https://www.iso.org/standard/60390.html" target="_blank" rel="noopener noreferrer">ISO 9362 standard maintained by SWIFT</a>.</li>
 <li><strong>Routing number</strong> — For US bank accounts (9 digits)</li>
 <li><strong>IFSC code</strong> — For Indian bank accounts</li>
 <li><strong>BSB number</strong> — For Australian bank accounts</li>
