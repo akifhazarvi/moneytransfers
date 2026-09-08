@@ -5623,16 +5623,16 @@
     "date": "2026-09-08",
     "providers": {
       "paysend": {
-        "rate": 73.8974,
+        "rate": 73.7697,
         "fee": 9,
-        "markup": 2.16,
-        "receiveAmount": 6724.66
+        "markup": 2.38,
+        "receiveAmount": 6713.04
       },
       "remitly": {
-        "rate": 75.48,
+        "rate": 75.5,
         "fee": 7,
-        "markup": 0.06,
-        "receiveAmount": 7019.64
+        "markup": 0.09,
+        "receiveAmount": 7021.5
       },
       "taptap-send": {
         "rate": 75.46,
@@ -5645,6 +5645,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 7556.1
+      },
+      "skrill": {
+        "rate": 72.1693,
+        "fee": 0,
+        "markup": 4.5,
+        "receiveAmount": 7216.93
       }
     }
   }

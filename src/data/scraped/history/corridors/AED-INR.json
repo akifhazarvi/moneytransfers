@@ -6691,10 +6691,10 @@
     "date": "2026-09-08",
     "providers": {
       "paysend": {
-        "rate": 24.9091,
+        "rate": 24.9842,
         "fee": 0,
         "markup": 3.15,
-        "receiveAmount": 2490.91
+        "receiveAmount": 2498.42
       },
       "remitly": {
         "rate": 25.71,
@@ -6713,6 +6713,12 @@
         "fee": 0,
         "markup": null,
         "receiveAmount": 2577.84
+      },
+      "currencyfair": {
+        "rate": 25.6052,
+        "fee": 34.69,
+        "markup": 0.74,
+        "receiveAmount": 1672.28
       }
     }
   }
