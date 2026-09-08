@@ -5151,7 +5151,7 @@
       "lemfi": {
         "rate": 15.4375,
         "fee": 0,
-        "markup": -0.05,
+        "markup": 0.06,
         "receiveAmount": 1543.75
       },
       "ria": {
@@ -5167,16 +5167,16 @@
         "receiveAmount": 1544
       },
       "western-union": {
-        "rate": 14.8176,
+        "rate": 14.8078,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 1452.28
+        "receiveAmount": 1451.31
       },
       "instarem": {
-        "rate": 15.3337,
+        "rate": 15.3281,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1533.37
+        "receiveAmount": 1532.81
       }
     }
   }

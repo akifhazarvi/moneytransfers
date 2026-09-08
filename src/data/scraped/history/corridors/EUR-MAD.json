@@ -13435,10 +13435,10 @@
     "date": "2026-09-08",
     "providers": {
       "lemfi": {
-        "rate": 10.8,
+        "rate": 10.87,
         "fee": 0,
-        "markup": 1.11,
-        "receiveAmount": 1080
+        "markup": 0.27,
+        "receiveAmount": 1087
       },
       "moneygram": {
         "rate": 10.7373,
@@ -13447,16 +13447,16 @@
         "receiveAmount": 1065.14
       },
       "taptap-send": {
-        "rate": 10.76,
+        "rate": 10.82,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1076
+        "receiveAmount": 1082
       },
       "deutsche-bank": {
-        "rate": 10.6835,
+        "rate": 10.6486,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 677.87
+        "receiveAmount": 675.65
       },
       "xe": {
         "rate": 10.7114,
@@ -13465,10 +13465,10 @@
         "receiveAmount": 1028.29
       },
       "western-union": {
-        "rate": 10.6348,
+        "rate": 10.6412,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 1052.96
+        "receiveAmount": 1053.58
       },
       "dahabshiil": {
         "rate": 10.7398,
@@ -13495,10 +13495,10 @@
         "receiveAmount": 1061.84
       },
       "remitly": {
-        "rate": 10.69,
+        "rate": 10.67,
         "fee": 2.49,
-        "markup": 2.17,
-        "receiveAmount": 1042.38
+        "markup": null,
+        "receiveAmount": 1040.43
       },
       "revolut": {
         "rate": 10.8052,
@@ -13507,10 +13507,10 @@
         "receiveAmount": 1061.61
       },
       "wise": {
-        "rate": 10.9183,
+        "rate": 10.9016,
         "fee": 6,
         "markup": null,
-        "receiveAmount": 1026.32
+        "receiveAmount": 1024.75
       },
       "ria": {
         "rate": 10.7373,
@@ -13519,10 +13519,10 @@
         "receiveAmount": 1119.36
       },
       "commerzbank": {
-        "rate": 10.5764,
+        "rate": 10.5831,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 925.43
+        "receiveAmount": 926.02
       },
       "skrill": {
         "rate": 10.6019,
