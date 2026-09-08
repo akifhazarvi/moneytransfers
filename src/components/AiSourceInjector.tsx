@@ -38,6 +38,17 @@ export default function AiSourceInjector() {
     const tokenCache = new Map<string, string>();
     const tokenInFlight = new Set<string>();
 
+    // e.target is not always an Element. `pointerenter` is dispatched to every
+    // node in the ancestor chain, document included, so the capture-phase
+    // listener below receives events whose target is `document` itself; a click
+    // can also land on a text node. Neither has .closest(), and calling it threw
+    // "t.target.closest is not a function" out of the handler. instanceof Element
+    // covers document, text nodes and window in one check.
+    function closestAnchor(e: Event): HTMLAnchorElement | null {
+      const t = e.target;
+      return t instanceof Element ? t.closest("a") : null;
+    }
+
     function providerFromHref(href: string): string | null {
       const m = href.match(/\/(?:go|out)\/([a-z0-9][a-z0-9-]*)/i);
       return m ? m[1].toLowerCase() : null;
@@ -63,7 +74,7 @@ export default function AiSourceInjector() {
     }
 
     function handlePointerDown(e: Event) {
-      const target = (e.target as Element).closest("a");
+      const target = closestAnchor(e);
       if (!target) return;
       const href = target.getAttribute("href");
       if (!href || (!href.includes("/go/") && !href.includes("/out/"))) return;
@@ -72,7 +83,7 @@ export default function AiSourceInjector() {
     }
 
     function handleClick(e: MouseEvent) {
-      const target = (e.target as Element).closest("a");
+      const target = closestAnchor(e);
       if (!target) return;
 
       const href = target.getAttribute("href");
