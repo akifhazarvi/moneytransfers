@@ -5918,5 +5918,34 @@
         "receiveAmount": 15045
       }
     }
+  },
+  {
+    "date": "2026-09-08",
+    "providers": {
+      "wells-fargo": {
+        "rate": 148.497,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14850
+      },
+      "western-union": {
+        "rate": 151.3073,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 14981
+      },
+      "paypal": {
+        "rate": 147.9035,
+        "fee": 4.99,
+        "markup": null,
+        "receiveAmount": 14052
+      },
+      "wise": {
+        "rate": 153.395,
+        "fee": 2.52,
+        "markup": null,
+        "receiveAmount": 14953
+      }
+    }
   }
 ]

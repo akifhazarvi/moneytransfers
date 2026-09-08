@@ -11396,5 +11396,70 @@
         "receiveAmount": 16955.64
       }
     }
+  },
+  {
+    "date": "2026-09-08",
+    "providers": {
+      "lemfi": {
+        "rate": 173.5,
+        "fee": 0,
+        "markup": 0.99,
+        "receiveAmount": 17350
+      },
+      "ria": {
+        "rate": 171.5544,
+        "fee": 4.5,
+        "markup": null,
+        "receiveAmount": 17199
+      },
+      "taptap-send": {
+        "rate": 174,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17400
+      },
+      "barclays": {
+        "rate": 170.8675,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17086.75
+      },
+      "hsbc": {
+        "rate": 170.4445,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17044.45
+      },
+      "natwest": {
+        "rate": 170.7686,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17076.86
+      },
+      "skrill": {
+        "rate": 169.5117,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 16951.17
+      },
+      "rbs": {
+        "rate": 170.7686,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17076.86
+      },
+      "instarem": {
+        "rate": 174.1442,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 17414.42
+      },
+      "western-union": {
+        "rate": 170.3571,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 16696.7
+      }
+    }
   }
 ]
