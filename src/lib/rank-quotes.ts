@@ -68,3 +68,43 @@ export function rankQuotes<T extends { receiveAmount: number; providerSlug: stri
   }
   return ranked;
 }
+
+/** The materiality band as a percentage, for copy that has to state it. */
+export const MATERIALITY_BAND_PCT = MATERIALITY_BAND * 100;
+
+/**
+ * Providers ranked directly above a row that shows a LARGER payout.
+ *
+ * The band is relative but the credibility cost is absolute. 0.10% of a
+ * ₹128,000 payout prints as ₹115, which reads as real money; the same band on
+ * GBP→EUR is €1.17 and nobody notices. So on large-denomination corridors the
+ * table shows ₹128,372 above ₹128,487 with no stated reason and looks broken —
+ * the exact failure this module's header warns a wider band would cause.
+ *
+ * The ordering is deliberate, measured and disclosed, so this does not change
+ * it. It marks the rows where the order visibly contradicts the number beside
+ * it, so the table can say why instead of leaving the reader to guess.
+ *
+ * ADJACENT PAIRS ONLY, and this is the whole design. A first attempt marked any
+ * row with a larger payout anywhere below it and lit up 21 of 31 rows on
+ * GBP→INR, because generateQuotes appends indicative quotes — pinned at
+ * mid-market, so higher than every real one — after the ranked list, and
+ * because banding cascades: band 2's leader is legitimately below band 1's
+ * members. Neither case is visually jarring. Only two neighbouring rows where
+ * the lower one prints a bigger number need explaining.
+ *
+ * Indicative rows are excluded on both sides: they are estimates, already
+ * labelled as such, and never claim to be a real quote to beat.
+ */
+export function tiedAboveLargerPayout<
+  T extends { receiveAmount: number; providerSlug: string; isIndicative?: boolean },
+>(ranked: T[]): Set<string> {
+  const marked = new Set<string>();
+  for (let i = 0; i < ranked.length - 1; i++) {
+    const here = ranked[i];
+    const next = ranked[i + 1];
+    if (here.isIndicative || next.isIndicative) continue;
+    if (next.receiveAmount > here.receiveAmount) marked.add(here.providerSlug);
+  }
+  return marked;
+}

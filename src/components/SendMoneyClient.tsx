@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect, useCallback, useLayoutEffect } from "react";
-import { rankQuotes } from "@/lib/rank-quotes";
+import { rankQuotes, tiedAboveLargerPayout } from "@/lib/rank-quotes";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
@@ -679,6 +679,10 @@ function SendMoneyContent() {
           <div className="rounded-xl sm:border sm:border-[var(--color-outline)] sm:shadow-[var(--shadow-sm)] bg-[var(--color-surface)]">
             {(() => {
               const worstReceive = filteredQuotes[filteredQuotes.length - 1]?.receiveAmount ?? 0;
+              // Only meaningful under the default "Best value" order, which is
+              // the one rankQuotes produces. An explicit sort (rate, fee, speed)
+              // legitimately puts smaller payouts higher and needs no excuse.
+              const tiedMarks = sortBy === "receiveAmount" ? tiedAboveLargerPayout(filteredQuotes) : new Set<string>();
               return filteredQuotes.map((quote, index) => (
                 <ProviderCard
                   key={quote.providerSlug}
@@ -693,6 +697,7 @@ function SendMoneyContent() {
                   extraReceiveVsWorst={index === 0 && filteredQuotes.length >= 2 ? quote.receiveAmount - worstReceive : undefined}
                   providerInsight={providerInsights[quote.providerSlug] ?? null}
                   sparklineData={insight?.sparklines[quote.providerSlug]}
+                  tiedAhead={tiedMarks.has(quote.providerSlug)}
                   badge={insight?.providerBadges.find((b) => b.providerSlug === quote.providerSlug)}
                 />
               ));

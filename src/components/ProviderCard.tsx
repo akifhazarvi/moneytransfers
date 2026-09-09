@@ -12,6 +12,7 @@ import { Sparkline, ProviderBadgeTag, ProviderRateInsightLine } from "./RateInsi
 import RatingBadge from "./RatingBadge";
 import { useTranslations } from "next-intl";
 import { providerLogo } from "@/lib/provider-logo";
+import TiedNote from "@/components/TiedNote";
 import { companyPageRenders } from "@/lib/route-map";
 
 interface Props {
@@ -31,6 +32,9 @@ interface Props {
   providerInsight?: ProviderInsight | null;
   sparklineData?: SparklinePoint[];
   badge?: ProviderBadge;
+  /** This row sits above one showing a larger payout — inside the materiality
+   *  band, so the order is correct but needs to say why. */
+  tiedAhead?: boolean;
 }
 
 function formatSavings(amount: number): string {
@@ -39,7 +43,7 @@ function formatSavings(amount: number): string {
   return amount.toFixed(2).replace(/\.?0+$/, "");
 }
 
-export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, extraReceiveVsWorst, providerInsight, sparklineData, badge }: Props) {
+export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrencySymbol, rank, compareSelected, onCompareToggle, compareDisabled, midMarketRate, extraReceiveVsWorst, providerInsight, sparklineData, badge, tiedAhead }: Props) {
   // Auto-expand #1 on mobile — it's the answer users came for
   const [expanded, setExpanded] = useState(rank === 1);
   const t = useTranslations("providerCard");
@@ -163,6 +167,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               ) : (
                 <p className="text-[10px] text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
               )}
+              {tiedAhead && <TiedNote rating={quote.rating} className="justify-end" />}
             </div>
             <div className="flex items-center gap-1.5">
               <a
@@ -306,6 +311,7 @@ export default function ProviderCard({ quote, sendCurrencySymbol, receiveCurrenc
               {quote.isIndicative ? "~" : ""}{receiveCurrencySymbol}{quote.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
             <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5">{quote.isIndicative ? "Estimated" : t("recipientGets")}</p>
+            {tiedAhead && <TiedNote rating={quote.rating} className="justify-end" />}
           </div>
 
           {/* Collapsed CTA — always visible, no expand needed. Fixed width so the

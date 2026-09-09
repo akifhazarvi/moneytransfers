@@ -8,6 +8,8 @@ import { getProviderName, providers, type TransferQuote } from "@/data/providers
 import { fetchQuotesByCorridor } from "@/lib/fetch-quotes";
 import { GEO_CORRIDORS, DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { getGoUrl } from "@/lib/affiliate";
+import { tiedAboveLargerPayout } from "@/lib/rank-quotes";
+import TiedNote from "@/components/TiedNote";
 import { trackProviderClicked } from "@/lib/analytics";
 import { providerLogo } from "@/lib/provider-logo";
 import { COVERAGE } from "@/lib/site-stats";
@@ -126,6 +128,10 @@ export default function HomeDynamicSection() {
 
   const best = liveQuotes[0];
   const worst = liveQuotes[liveQuotes.length - 1];
+  // Rows the materiality band placed above a visibly larger payout. The order
+  // is measured and disclosed; on large-denomination corridors it just needs to
+  // say so in the row rather than read as a sort bug.
+  const tiedMarks = tiedAboveLargerPayout(liveQuotes);
 
   // Loading state — keep the section height stable (the lazy wrapper reserves
   // space too) so there's no layout shift while quotes fetch.
@@ -258,6 +264,7 @@ export default function HomeDynamicSection() {
                   <span />
                 </div>
                 {liveQuotes.map((q, i) => {
+                  const tiedAhead = tiedMarks.has(q.providerSlug);
                   const name = getProviderName(q.providerSlug);
                   const provider = providers.find((p) => p.slug === q.providerSlug);
                   const logo = providerLogo(q.providerSlug, provider?.logo);
@@ -288,6 +295,7 @@ export default function HomeDynamicSection() {
                               {q.fee === 0 ? <span className="text-[var(--color-success-dark)] font-medium">Free</span> : `$${q.fee.toFixed(2)} fee`}
                               {" · "}{q.transferSpeed}
                             </p>
+                            {tiedAhead && <TiedNote rating={q.rating} />}
                           </div>
                           <p className={`text-sm font-bold tabular-nums shrink-0 ${isBest ? "text-[var(--color-success-dark)]" : "text-[var(--color-on-surface)]"}`}>
                             {toSymbol}{q.receiveAmount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
@@ -323,6 +331,7 @@ export default function HomeDynamicSection() {
                               {isBest && <span className="text-[10px] text-white bg-[var(--color-success-dark)] px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">Best</span>}
                             </p>
                             <p className="text-2xs text-[var(--color-on-surface-variant)]">{q.transferSpeed}</p>
+                            {tiedAhead && <TiedNote rating={q.rating} />}
                           </div>
                         </div>
                         <p className={`text-sm text-right tabular-nums ${q.isIndicative ? "text-[var(--color-on-surface-variant)]" : "text-[var(--color-on-surface)]"}`}>

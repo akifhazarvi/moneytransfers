@@ -44,6 +44,8 @@ import {
   popularCorridors,
 } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
+import { tiedAboveLargerPayout } from "@/lib/rank-quotes";
+import TiedNote from "@/components/TiedNote";
 import { getBankRates, hasBankRates, getBankRatesSourceUrl } from "@/lib/bank-rates";
 import { allCorridors, getCorridor, getCorridorSlug } from "@/data/corridors";
 import { SITEMAP_CORRIDOR_SLUGS } from "@/lib/sitemap-allowlists";
@@ -1866,6 +1868,11 @@ export default async function CorridorPage({ params }: Props) {
 
   const { fromCurrency, toCurrency, sampleAmount, isCurrencyCorridor, isCountryPage } = corridor;
   const quotes = generateQuotes(sampleAmount, fromCurrency, toCurrency);
+  // Rows the 0.10% materiality band placed directly above a larger payout. The
+  // order is measured and disclosed, but on large-denomination corridors the
+  // two figures print side by side and it reads as a sort bug — so the row says
+  // why. See tiedAboveLargerPayout.
+  const tiedMarks = tiedAboveLargerPayout(quotes);
 
   // Soft-404 guard. A corridor with zero provider quotes has no comparison table
   // to show — editorial prose alone is exactly the thin shell Google flags as a
@@ -2076,6 +2083,7 @@ export default async function CorridorPage({ params }: Props) {
                 const logo = providerLogo(q.providerSlug, provider?.logo);
                 const isBest = i === 0;
                 const markup = midRate > 0 ? ((midRate - q.exchangeRate) / midRate) * 100 : 0;
+                const tiedAhead = tiedMarks.has(q.providerSlug);
 
                 const rowBg = isBest ? "bg-[var(--color-success-surface-dim)]" : "";
                 const borderTop = i === 0 ? "" : "border-t border-[var(--color-outline)]";
@@ -2098,6 +2106,7 @@ export default async function CorridorPage({ params }: Props) {
                               : name}
                           </p>
                           <p className="text-2xs text-[var(--color-on-surface-variant)] mt-0.5 truncate">{q.transferSpeed}</p>
+                          {tiedAhead && <TiedNote rating={q.rating} />}
                           {isBest && (
                             <span className="inline-block mt-1 text-2xs text-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-1.5 py-0.5 rounded font-medium">
                               Best value
@@ -2186,6 +2195,7 @@ export default async function CorridorPage({ params }: Props) {
                               </span>
                             )}
                           </div>
+                          {tiedAhead && <TiedNote rating={q.rating} />}
                           {badgeByProvider[q.providerSlug] && (
                             <div className="mt-0.5">
                               <ProviderBadgeTag badge={badgeByProvider[q.providerSlug]} />
