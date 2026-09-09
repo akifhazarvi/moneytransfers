@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Container from "@/components/Container";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
+import { BUSINESS_FX_SLUGS } from "@/lib/business-fx-index";
 import { businessPages, getBusinessPage } from "@/data/business-pages";
 
 // Revalidate every 24 hours — editorial content changes infrequently
@@ -198,6 +199,7 @@ export default async function BusinessSubPage({ params }: Props) {
                       to="EUR"
                       amount={10000}
                       source={`business:${slug}`}
+                      only={BUSINESS_FX_SLUGS}
                       heading="What a $10,000 business payment actually costs"
                       subheading="Live all-in costs on USD→EUR at business size, updated every 6 hours."
                     />

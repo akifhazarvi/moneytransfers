@@ -148,15 +148,18 @@ const TAG_TO_CORRIDOR: Record<string, InlineQuoteCorridor> = {
   china: { from: "USD", to: "CNY", amount: 1000 },
 };
 
-function getInlineQuoteCorridor(slug: string, tags: string[]): InlineQuoteCorridor {
-  if (SLUG_CORRIDOR_OVERRIDES[slug]) return SLUG_CORRIDOR_OVERRIDES[slug];
+function getInlineQuoteCorridor(slug: string, tags: string[], category: string): InlineQuoteCorridor {
+  const scope = category === "Business" ? { business: true as const } : {};
+  if (SLUG_CORRIDOR_OVERRIDES[slug]) return { ...SLUG_CORRIDOR_OVERRIDES[slug], ...scope };
   for (const tag of tags) {
     const words = tag.toLowerCase().split(/[\s,/-]+/);
     for (const word of words) {
-      if (TAG_TO_CORRIDOR[word]) return TAG_TO_CORRIDOR[word];
+      if (TAG_TO_CORRIDOR[word]) return { ...TAG_TO_CORRIDOR[word], ...scope };
     }
   }
-  return { from: "USD", to: "INR", amount: 1000 };
+  return category === "Business"
+    ? { from: "USD", to: "EUR", amount: 10000, business: true }
+    : { from: "USD", to: "INR", amount: 1000 };
 }
 
 /** Slugify a heading string into a URL-friendly ID */
@@ -330,7 +333,7 @@ export default async function BlogPostPage({ params }: Props) {
     ...(post.howToSteps?.length ? [{ id: "how-to-steps", title: "Step-by-step guide" }] : []),
     ...(post.faqs?.length ? [{ id: "faqs", title: "Frequently asked questions" }] : []),
   ];
-  const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags);
+  const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags, post.category);
   // Real count, so the denominator can separate "widget was thin" from "widget
   // was ignored". It was hard-coded to 0, which made the parameter useless.
   const inlineQuoteProviderCount = (() => {
@@ -338,7 +341,7 @@ export default async function BlogPostPage({ params }: Props) {
     const scoped = inlineQuoteCorridor.business
       ? all.filter((q) => (BUSINESS_FX_SLUGS as readonly string[]).includes(q.providerSlug))
       : all;
-    return Math.min((scoped.length > 0 ? scoped : all).length, 5);
+    return Math.min(scoped.length, 5);
   })();
   const author = getAuthorByName(post.author);
   const reviewer = post.reviewedBy ? getAuthorByName(post.reviewedBy) : undefined;
@@ -663,15 +666,16 @@ export default async function BlogPostPage({ params }: Props) {
                 visible after scrolling the entire article. */}
             <div className="guide-sidebar-sticky">
 
-              <GuideContents sections={contents} />
-
               {/* Comparison CTA — tracked */}
               <GuideSidebarCTA
                 slug={slug}
                 from={inlineQuoteCorridor.from}
                 to={inlineQuoteCorridor.to}
                 amount={inlineQuoteCorridor.amount}
+                business={inlineQuoteCorridor.business}
               />
+
+              <GuideContents sections={contents} />
 
               {/* Explore more */}
               <div>
@@ -702,6 +706,7 @@ export default async function BlogPostPage({ params }: Props) {
       )}
       {/* Sticky nudge — slides up after 30s or 50% scroll with live best quote */}
       <GuidePageNudge
+        only={inlineQuoteCorridor.business ? BUSINESS_FX_SLUGS : undefined}
         from={inlineQuoteCorridor.from}
         to={inlineQuoteCorridor.to}
         amount={inlineQuoteCorridor.amount}

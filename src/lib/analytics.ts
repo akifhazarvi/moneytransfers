@@ -123,6 +123,15 @@ export function trackProviderClicked(provider: string, corridorStr: string, rank
   dual("provider_clicked", { provider, corridor: corridorStr, rank, source: source || "results" });
 }
 
+/** Partner placements are measured separately from ranked quote results. */
+export function trackCrossSellViewed(source: string, placement: string, providers: string, corridor: string) {
+  dual("provider_cross_sell_viewed", { source, placement, providers, corridor });
+}
+
+export function trackCrossSellNavigation(action: "review" | "compare", source: string, placement: string, provider: string, corridor: string) {
+  dual("provider_cross_sell_navigation", { action, source, placement, provider, corridor });
+}
+
 /** User clicks "Full review" on a provider */
 export function trackReviewClicked(provider: string, corridorStr: string) {
   dual("review_clicked", { provider, corridor: corridorStr });

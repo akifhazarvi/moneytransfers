@@ -13,6 +13,7 @@ interface Props {
   to: string;
   amount: number;
   slug: string;
+  only?: readonly string[];
 }
 
 const CURRENCY_SYMBOL: Record<string, string> = {
@@ -22,7 +23,7 @@ const CURRENCY_SYMBOL: Record<string, string> = {
   NZD: "NZ$", SGD: "S$", AED: "د.إ", SAR: "﷼",
 };
 
-export default function GuidePageNudge({ from, to, amount, slug }: Props) {
+export default function GuidePageNudge({ from, to, amount, slug, only }: Props) {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const [hasShown, setHasShown] = useState(false);
@@ -41,8 +42,9 @@ export default function GuidePageNudge({ from, to, amount, slug }: Props) {
     });
     return () => controller.abort();
   }, [amount, from, to]);
-  const best = quotes[0];
-  const worst = quotes[quotes.length - 1];
+  const scopedQuotes = only ? quotes.filter((quote) => only.includes(quote.providerSlug)) : quotes;
+  const best = scopedQuotes[0];
+  const worst = scopedQuotes[scopedQuotes.length - 1];
 
   useEffect(() => {
     if (typeof window === "undefined") return;

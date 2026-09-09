@@ -15,6 +15,7 @@ import ProviderClickDelegate from "@/components/ProviderClickDelegate";
 import AiSourceInjector from "@/components/AiSourceInjector";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import WhatsAppChannelButton from "@/components/WhatsAppChannelButton";
+import SiteProviderCrossSell from "@/components/SiteProviderCrossSell";
 import { COVERAGE } from "@/lib/site-stats";
 
 const SITE_URL = "https://sendmoneycompare.com";
@@ -307,6 +308,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Header />
           <main id="main-content" className="min-h-screen pb-10">
             <ErrorBoundary>{children}</ErrorBoundary>
+            <SiteProviderCrossSell />
           </main>
           <Footer />
           <LazyForexTicker />

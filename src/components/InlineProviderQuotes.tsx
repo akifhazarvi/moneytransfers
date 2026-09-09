@@ -1,11 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getProviderName, providers, type TransferQuote } from "@/data/providers";
 import { generateQuotes } from "@/lib/quotes-engine";
 import { currencies, sendCurrencies } from "@/data/transfer-currencies";
 import InlineQuoteCTA from "./InlineQuoteCTA";
 import SeeAllProvidersLink from "./SeeAllProvidersLink";
 import { providerLogo } from "@/lib/provider-logo";
+import ProviderCrossSell from "@/components/ProviderCrossSell";
+import { crossSellComparisonHref } from "@/lib/provider-cross-sell";
 
 interface Props {
   from?: string;
@@ -43,14 +44,12 @@ export default function InlineProviderQuotes({
 }: Props) {
   const all = generateQuotes(amount, from, to);
   const scoped = only ? all.filter((q) => only.includes(q.providerSlug)) : all;
-  // Fall back to the unscoped set rather than rendering nothing: an empty
-  // widget loses the cross-sell entirely, which is worse than a broader list.
-  const quotes: TransferQuote[] = (scoped.length > 0 ? scoped : all).slice(0, 5);
+  const quotes: TransferQuote[] = scoped.slice(0, 5);
   if (quotes.length === 0) return null;
 
   const sendSymbol = symbolFor(from);
   const recvSymbol = symbolFor(to);
-  const seeAllHref = `/send-money?from=${from}&to=${to}&amount=${amount}`;
+  const seeAllHref = crossSellComparisonHref(only ? "business" : "personal", { from, to, amount });
   const corridor = `${from}-${to}`;
   // source is "guide:<slug>" or a plain surface name — extract slug if present
   const pageSlug = source.startsWith("guide:") ? source.slice(6) : source;
@@ -59,6 +58,12 @@ export default function InlineProviderQuotes({
   const savings = best.receiveAmount - worst.receiveAmount;
 
   return (
+    <>
+    <ProviderCrossSell
+      source={source} placement="inline" context={{ from, to, amount }}
+      eligible={scoped.map((quote) => quote.providerSlug)}
+      intent={only ? "business" : "personal"}
+    />
     <aside
       className="my-10 rounded-2xl overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.08)] border border-[var(--color-success-dark)]/20"
       aria-label="Live provider rate comparison"
@@ -87,7 +92,7 @@ export default function InlineProviderQuotes({
             slug={pageSlug}
             className="shrink-0 inline-flex items-center gap-1.5 h-9 px-4 text-xs font-bold bg-white text-[var(--color-success-dark)] rounded-full hover:bg-white/90 transition-colors whitespace-nowrap shadow-sm"
           >
-            See all 50+ →
+            Compare providers →
           </SeeAllProvidersLink>
         </div>
         {savings > 0 && (
@@ -233,5 +238,6 @@ export default function InlineProviderQuotes({
         </SeeAllProvidersLink>
       </footer>
     </aside>
+    </>
   );
 }

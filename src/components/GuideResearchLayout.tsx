@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import GuideContents, { type GuideSection } from "@/components/GuideContents";
 import GuideReadingProgress from "@/components/GuideReadingProgress";
 import GuideSidebarCTA from "@/components/GuideSidebarCTA";
+import ProviderCrossSell from "@/components/ProviderCrossSell";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -32,6 +33,10 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
     return cloneElement(child, { id });
   });
   const firstSection = content.findIndex((child) => isValidElement(child) && child.type === "h2");
+  // A currency outlook doesn't specify a receiving country. Feature the
+  // multi-currency account here, without treating a USD payout quote in a
+  // remittance destination as evidence of a UK-to-US transfer service.
+  const exclude = slug === "gbp-forecast-2026" ? "taptap-send" : undefined;
 
   return (
     <Container className="guide-research-layout">
@@ -39,13 +44,14 @@ export default function GuideResearchLayout({ children, slug }: { children: Reac
       <div className="guide-reading-grid" id="guide-top">
         <article id="guide-article" className="guide-research-article">
           {content.slice(0, firstSection < 0 ? content.length : firstSection)}
+          <ProviderCrossSell source={`guide:${slug}`} placement="inline" exclude={exclude} />
           <GuideContents sections={sections} mobile />
           {firstSection >= 0 && content.slice(firstSection)}
         </article>
         <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">
           <div className="guide-sidebar-sticky">
+            <GuideSidebarCTA slug={slug} exclude={exclude} />
             <GuideContents sections={sections} />
-            <GuideSidebarCTA slug={slug} />
             <Link href="/guides" className="guide-back-top"><ArrowLeft size={14} aria-hidden="true" />Explore all guides</Link>
           </div>
         </aside>

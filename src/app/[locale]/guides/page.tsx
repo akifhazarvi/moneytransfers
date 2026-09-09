@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from "lucide-react";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
+import ProviderCrossSell from "@/components/ProviderCrossSell";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
@@ -120,7 +121,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         </header>
 
         <GuidesClientPage posts={[...guideCards.filter((post) => !researchCards.some((research) => research.slug === post.slug)), ...researchCards]} categories={blogCategories} featured={
-          <section className="guide-featured-grid" aria-label="Featured guides and research">
+          <section key="featured-guides" className="guide-featured-grid" aria-label="Featured guides and research">
             <Link href="/guides/best-apps-to-send-money-from-us-2026" className="guide-featured-story">
               <div className="guide-featured-topline"><span className="guide-eyebrow">The starting point</span><span>2026 edition</span></div>
               <div className="guide-featured-symbol" aria-hidden="true"><ArrowUpRight strokeWidth={1} /></div>
@@ -149,10 +150,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </section>
         } />
 
-        <section className="guide-compare-banner">
-          <div><p className="guide-eyebrow">Put it into practice</p><h2>Your next transfer could cost less.</h2><p>Compare fees, exchange rates and delivery times in one place.</p></div>
-          <Link href="/send-money">Compare live rates <ArrowRight size={18} aria-hidden="true" /></Link>
-        </section>
+        <ProviderCrossSell source="guides" placement="library" title="Put your next transfer in motion." />
 
       {/*
         Crawlable index of every submitted guide.
