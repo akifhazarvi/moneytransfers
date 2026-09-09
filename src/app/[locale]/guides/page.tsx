@@ -3,8 +3,13 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from "lucide-react";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
+import type { CategorySection } from "@/components/GuidesHome";
+import type { GuideCard } from "@/components/GuidePreview";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
+import { newsItems } from "@/data/news";
 import { guideIsIndexable } from "@/lib/guide-status";
+import { rankByDemand } from "@/lib/guide-performance";
+import { SITEMAP_NEWS_SLUGS } from "@/lib/sitemap-allowlists";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
 import { pppIndex } from "@/lib/ppp-index";
 import { weekendMarkup } from "@/lib/weekend-markup";
@@ -32,21 +37,37 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 const SITE_URL = "https://sendmoneycompare.com";
 
+/** How many cards each rail on the hub carries. */
+const TOP_READ_COUNT = 7;
+const LATEST_COUNT = 6;
+const PER_CATEGORY_COUNT = 4;
+const NEWS_COUNT = 5;
+
+/** Newest first, on whichever of published/updated is later. */
+function byRecency(a: GuideCard, b: GuideCard) {
+  const touched = (post: GuideCard) => (post.updatedAt > post.publishedAt ? post.updatedAt : post.publishedAt);
+  return touched(b).localeCompare(touched(a));
+}
+
 export default async function GuidesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "guides" });
 
-  // Live figures for the featured data-story banner below.
+  // Live figures for the research rail below.
   const bankVsApp = computeBankVsAppIndex();
 
-  const researchCards = [
+  // The four data-stories live at their own routes rather than in blogPosts,
+  // so their card metadata is declared here. `updatedAt` is read off the
+  // dataset each one renders, so a rebuild after a scrape re-dates the card.
+  const researchCards: GuideCard[] = [
     { slug: "best-apps-to-send-money-from-us-2026", title: "Best Apps to Send Money Internationally from the US (2026)", excerpt: "Independent rankings of money transfer apps by real transfer cost, with provider comparisons for different routes and use cases.", category: "Guides", readTime: "", publishedAt: "2026-06-30", updatedAt: "2026-06-30" },
     { slug: "bank-vs-app-transfer-cost-2026", title: "Banks vs Apps: International Transfer Costs Compared", excerpt: "Compare what banks and specialist apps charge across our tracked corridors. Explore the data, methodology, and full cost breakdown.", category: "Research", readTime: "", publishedAt: "2026-06-21", updatedAt: bankVsApp.dataAsOf.slice(0, 10) },
     { slug: "best-day-to-send-money-abroad", title: "Is It Cheaper to Send Money on a Weekday?", excerpt: "We analysed millions of quotes to see how exchange rate markups change through the week, and which providers charge more at weekends.", category: "Research", readTime: "", publishedAt: "2026-08-14", updatedAt: weekendMarkup.generatedAt.slice(0, 10) },
     { slug: "fx-cost-vs-purchasing-power", title: "Transfer Fees vs Purchasing Power: What Moving Abroad Really Costs", excerpt: "How far your money goes abroad depends on more than an exchange rate. Explore the relationship between transfer costs and local buying power.", category: "Research", readTime: "", publishedAt: "2026-08-15", updatedAt: pppIndex.generatedAt.slice(0, 10) },
     { slug: "gbp-forecast-2026", title: "GBP Forecast 2026: What’s Next for the Pound?", excerpt: "A data-led look at sterling, the forces moving it, and what exchange rate changes mean for your next international transfer.", category: "Education", readTime: "", publishedAt: "2026-07-03", updatedAt: "2026-07-03" },
   ];
+  const researchSlugs = new Set(researchCards.map((card) => card.slug));
 
   // Project to just the card fields before crossing into the client component.
   // Handing it blogPosts serialised all 115 guides' section HTML and FAQs into
@@ -57,7 +78,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
     .map((category) => [category, indexableGuides.filter((p) => p.category === category)] as const)
     .filter(([, posts]) => posts.length > 0);
 
-  const guideCards = blogPosts.map((post) => ({
+  const guideCards: GuideCard[] = blogPosts.map((post) => ({
     slug: post.slug,
     title: post.title,
     excerpt: post.excerpt,
@@ -67,6 +88,65 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
     updatedAt: post.updatedAt,
   }));
 
+  // Everything the search box and topic filter can reach — drafts included, so
+  // a reader looking for a specific guide still finds it.
+  const deck: GuideCard[] = [...guideCards.filter((post) => !researchSlugs.has(post.slug)), ...researchCards];
+
+  /*
+    The hub's editorial rails are scoped to submitted guides, the directory's
+    rule applied to the blocks above it: these are the most prominent internal
+    links on the page, and pointing them at noindex drafts spends crawl budget
+    on pages we are asking Google not to keep — the mistake the June 2026
+    pruning was cleaning up. Drafts stay reachable through search and the topic
+    filter, which is where a reader who wants one goes.
+
+    The four data-story routes are submitted in their own right (sitemap.ts),
+    so they belong in the rails even though they are not in blogPosts.
+  */
+  const indexableSlugs = new Set(indexableGuides.map((post) => post.slug));
+  const editorial = deck
+    .filter((card) => indexableSlugs.has(card.slug) || researchSlugs.has(card.slug))
+    .sort(byRecency);
+
+  /*
+    Top performing, measured rather than picked: guide-performance.ts orders on
+    clicks recorded in the Bing Webmaster Tools page export and Search Console,
+    the same demand data sitemap-allowlists.ts gates submission on. Ties, and
+    the tail of guides no export has traffic for, keep the recency order they
+    arrive in.
+  */
+  const topRead = rankByDemand(editorial).slice(0, TOP_READ_COUNT);
+  const topReadSlugs = topRead.map((card) => card.slug);
+
+  // Latest is the freshness rail, so it must not simply restate the block
+  // above it — the most-read guides are excluded rather than shown twice.
+  const topReadSet = new Set(topReadSlugs);
+  const latestSlugs = editorial.filter((card) => !topReadSet.has(card.slug)).slice(0, LATEST_COUNT).map((card) => card.slug);
+
+  /*
+    One block per topic, each showing its best-performing guides and a control
+    that hands the rest to the topic filter. `total` is counted over the full
+    deck so the "See all" number matches what the filter then shows, and the
+    count on the chip above it.
+  */
+  const categorySections: CategorySection[] = blogCategories
+    .filter((category) => category !== "All")
+    .map((category) => ({
+      category,
+      total: deck.filter((card) => card.category === category).length,
+      slugs: rankByDemand(editorial.filter((card) => card.category === category)).slice(0, PER_CATEGORY_COUNT).map((card) => card.slug),
+    }))
+    .filter((section) => section.slugs.length > 0);
+
+  // Submitted articles only, for the same reason the guide rails are scoped —
+  // filtered before the cut, so the rail carries five links rather than
+  // whatever survives the newest five.
+  const news = newsItems
+    .filter((item) => SITEMAP_NEWS_SLUGS.has(item.slug))
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, NEWS_COUNT)
+    .map((item) => ({ slug: item.slug, title: item.title, category: item.category, publishedAt: item.publishedAt }));
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -75,6 +155,17 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
       { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
     ],
   };
+
+  // Mirrors what the page actually leads with: the ten best-performing
+  // submitted guides, in the order the rails present them. Article requires
+  // headline + author; `name` alone left ten items failing validation on this
+  // page (2026-09-02 audit), so these are built from blogPosts entries, which
+  // carry an author.
+  const postBySlug = new Map(indexableGuides.map((post) => [post.slug, post]));
+  const schemaPosts = rankByDemand(editorial)
+    .map((card) => postBySlug.get(card.slug))
+    .filter((post): post is (typeof indexableGuides)[number] => Boolean(post))
+    .slice(0, 10);
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -87,9 +178,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
       name: "SendMoneyCompare",
       url: SITE_URL,
     },
-    // Article requires headline + author; `name` alone left ten items failing
-    // validation on this page (2026-09-02 audit).
-    hasPart: blogPosts.slice(0, 10).map((post) => ({
+    hasPart: schemaPosts.map((post) => ({
       "@type": "Article",
       headline: post.title,
       name: post.title,
@@ -119,20 +208,15 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
           </div>
         </header>
 
-        <GuidesClientPage posts={[...guideCards.filter((post) => !researchCards.some((research) => research.slug === post.slug)), ...researchCards]} categories={blogCategories} featured={
-          <section className="guide-featured-grid" aria-label="Featured guides and research">
-            <Link href="/guides/best-apps-to-send-money-from-us-2026" className="guide-featured-story">
-              <div className="guide-featured-topline"><span className="guide-eyebrow">The starting point</span><span>2026 edition</span></div>
-              <div className="guide-featured-symbol" aria-hidden="true"><ArrowUpRight strokeWidth={1} /></div>
-              <div className="guide-featured-copy">
-                <span className="guide-featured-label">Independent provider rankings</span>
-                <h2>A better way to<br />send money abroad.</h2>
-                <p>Explore the best money transfer apps from the US, ranked by what your recipient actually receives.</p>
-                <span className="guide-featured-link">Find the right app for you <ArrowRight size={18} aria-hidden="true" /></span>
-              </div>
-            </Link>
+        <GuidesClientPage
+          posts={deck}
+          categories={blogCategories}
+          topReadSlugs={topReadSlugs}
+          latestSlugs={latestSlugs}
+          categorySections={categorySections}
+          news={news}
+          researchDesk={
             <div className="guide-research-desk">
-              <div className="guide-research-heading"><span className="guide-eyebrow">From the research desk</span><span className="guide-live-dot" aria-hidden="true" /></div>
               <Link href="/guides/bank-vs-app-transfer-cost-2026">
                 <span className="guide-research-number">01</span><div><h3>Banks vs apps: what does a transfer really cost?</h3><p>Live data across {bankVsApp.corridorCount} corridors</p></div><ArrowUpRight size={18} aria-hidden="true" />
               </Link>
@@ -140,14 +224,17 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
                 <span className="guide-research-number">02</span><div><h3>Is there a best day to send money?</h3><p>{weekendMarkup.observations.toLocaleString()} quotes analysed</p></div><ArrowUpRight size={18} aria-hidden="true" />
               </Link>
               <Link href="/guides/fx-cost-vs-purchasing-power">
-                <span className="guide-research-number">03</span><div><h3>Transfer fees meet the cost of living</h3><p>Exchange rates & purchasing power</p></div><ArrowUpRight size={18} aria-hidden="true" />
+                <span className="guide-research-number">03</span><div><h3>Transfer fees meet the cost of living</h3><p>Exchange rates &amp; purchasing power</p></div><ArrowUpRight size={18} aria-hidden="true" />
               </Link>
               <Link href="/guides/gbp-forecast-2026">
-                <span className="guide-research-number">04</span><div><h3>What’s next for the pound?</h3><p>A data-led GBP outlook for 2026</p></div><ArrowUpRight size={18} aria-hidden="true" />
+                <span className="guide-research-number">04</span><div><h3>What&rsquo;s next for the pound?</h3><p>A data-led GBP outlook for 2026</p></div><ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+              <Link href="/guides/best-apps-to-send-money-from-us-2026">
+                <span className="guide-research-number">05</span><div><h3>The best apps for sending money from the US</h3><p>Ranked on what your recipient receives</p></div><ArrowUpRight size={18} aria-hidden="true" />
               </Link>
             </div>
-          </section>
-        } />
+          }
+        />
 
         <section className="guide-compare-banner">
           <div><p className="guide-eyebrow">Put it into practice</p><h2>Your next transfer could cost less.</h2><p>Compare fees, exchange rates and delivery times in one place.</p></div>
@@ -157,11 +244,12 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
       {/*
         Crawlable index of every submitted guide.
 
-        The grid above paginates client-side, so only the first page of cards
-        exists in the server HTML — 8 guides had no incoming internal link
-        anywhere on the site and 15 more had exactly one, reachable only via
-        sitemap.xml (the "pages have only one incoming internal link" notice in
-        the 2026-09-02 audit). A hub that submits 75 URLs has to link them.
+        The rails above show a slice of each topic and the grid paginates
+        client-side, so only part of the library exists in the server HTML — 8
+        guides had no incoming internal link anywhere on the site and 15 more
+        had exactly one, reachable only via sitemap.xml (the "pages have only
+        one incoming internal link" notice in the 2026-09-02 audit). A hub that
+        submits 75 URLs has to link them.
 
         Scoped by guideIsIndexable() on purpose — the same predicate the guide
         route uses for robots and sitemap.ts uses for submission, so a guide
