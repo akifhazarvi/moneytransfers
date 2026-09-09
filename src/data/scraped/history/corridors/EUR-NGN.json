@@ -13608,10 +13608,10 @@
     "date": "2026-09-09",
     "providers": {
       "lemfi": {
-        "rate": 1585,
+        "rate": 1586,
         "fee": 0,
-        "markup": -3.16,
-        "receiveAmount": 158500
+        "markup": -3,
+        "receiveAmount": 158600
       },
       "moneygram": {
         "rate": 1563.1446,
@@ -13626,10 +13626,10 @@
         "receiveAmount": 158500
       },
       "western-union": {
-        "rate": 1575.0469,
+        "rate": 1577.2218,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 155945.4
+        "receiveAmount": 156160.73
       },
       "dahabshiil": {
         "rate": 1605.9918,
@@ -13650,10 +13650,10 @@
         "receiveAmount": 156791.84
       },
       "instarem": {
-        "rate": 1525.5267,
+        "rate": 1528.3741,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 152552.67
+        "receiveAmount": 152837.41
       },
       "paysend": {
         "rate": 1585.4803,
@@ -13668,10 +13668,10 @@
         "receiveAmount": 156791.84
       },
       "remitly": {
-        "rate": 1586.11,
+        "rate": 1570.9,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 158611
+        "markup": -2.08,
+        "receiveAmount": 157090
       },
       "ria": {
         "rate": 1562.3065,
@@ -13680,10 +13680,10 @@
         "receiveAmount": 156230.65
       },
       "wise": {
-        "rate": 1591.85,
+        "rate": 1594.32,
         "fee": 1.72,
         "markup": null,
-        "receiveAmount": 156447.02
+        "receiveAmount": 156689.77
       }
     }
   }

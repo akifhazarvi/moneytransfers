@@ -5082,10 +5082,10 @@
     "date": "2026-09-09",
     "providers": {
       "lemfi": {
-        "rate": 980,
+        "rate": 982,
         "fee": 0,
-        "markup": -2.19,
-        "receiveAmount": 98000
+        "markup": -2.24,
+        "receiveAmount": 98200
       },
       "ria": {
         "rate": 978.4369,
@@ -5100,16 +5100,16 @@
         "receiveAmount": 98100
       },
       "western-union": {
-        "rate": 947.7953,
+        "rate": 948.2775,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 92893.42
+        "receiveAmount": 92940.68
       },
       "instarem": {
-        "rate": 949.3322,
+        "rate": 952.2306,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 94933.22
+        "receiveAmount": 95223.06
       }
     }
   }
