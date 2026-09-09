@@ -40,10 +40,18 @@ export default function InlineQuoteCTA({
       target="_blank"
       rel="noopener noreferrer nofollow sponsored"
       onClick={() => trackProviderClicked(providerSlug, corridor, rank, source)}
-      className={`inline-flex items-center justify-center gap-1.5 ${fullWidth ? "w-full h-10" : "h-9 px-4"} text-2sm font-semibold rounded-full transition-colors ${
+      // 44px minimum, 48px full-width on mobile. These were h-9/h-10 (36/40px),
+      // under the touch-target minimum on the pages that take the most traffic.
+      //
+      // One reserved colour for "this sends money": filled green for the best
+      // quote, outlined green for the rest. They were previously near-black
+      // (--color-cta), the same token the site uses for ordinary UI buttons, so
+      // eight of the ten CTAs on an IBAN or guide page looked like navigation
+      // rather than the action — findable only by reading, not by scanning.
+      className={`inline-flex items-center justify-center gap-1.5 ${fullWidth ? "w-full h-12" : "h-11 px-4"} text-2sm font-semibold rounded-full transition-colors ${
         isBest
-          ? "bg-[var(--color-success-dark)] text-white hover:bg-[var(--color-success-hover)]"
-          : "bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)]"
+          ? "bg-[var(--color-success-dark)] text-white hover:opacity-90"
+          : "border border-[var(--color-success-dark)] text-[var(--color-success-dark)] hover:bg-[var(--color-success-surface)]"
       }`}
       aria-label={`Send with ${providerName}`}
     >
