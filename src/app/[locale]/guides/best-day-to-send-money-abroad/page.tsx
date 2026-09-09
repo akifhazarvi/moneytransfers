@@ -2,7 +2,7 @@ import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
-import Container from "@/components/Container";
+import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import {
@@ -157,8 +157,7 @@ export default async function BestDayToSendMoneyPage({ params }: { params: Promi
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <Container>
-        <article className="max-w-3xl mx-auto py-8 sm:py-12">
+      <GuideResearchLayout slug="best-day-to-send-money-abroad">
           <nav aria-label="Breadcrumb" className="text-sm text-[var(--color-on-surface-variant)]">
             <Link href="/guides" className="hover:underline">Guides</Link>
             <span className="mx-1.5">/</span>
@@ -364,8 +363,7 @@ export default async function BestDayToSendMoneyPage({ params }: { params: Promi
           <p className="mt-8 text-sm text-[var(--color-on-surface-variant)]">
             Data licensed CC BY 4.0. If you cite this analysis, please link back to this page.
           </p>
-        </article>
-      </Container>
+        </GuideResearchLayout>
     </>
   );
 }

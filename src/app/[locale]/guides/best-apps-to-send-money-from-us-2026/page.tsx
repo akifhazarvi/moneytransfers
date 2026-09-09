@@ -2,7 +2,7 @@ import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
-import Container from "@/components/Container";
+import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { COVERAGE } from "@/lib/site-stats";
@@ -425,8 +425,7 @@ export default async function BestAppsFromUSPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
-      <Container>
-        <article className="mx-auto max-w-3xl py-10">
+      <GuideResearchLayout slug="best-apps-to-send-money-from-us-2026">
 
           {/* Breadcrumb */}
           <nav className="mb-5 text-sm text-[var(--color-on-surface-variant)]">
@@ -436,18 +435,6 @@ export default async function BestAppsFromUSPage({
             <span className="mx-1.5">/</span>
             <span>Best Apps to Send Money from US 2026</span>
           </nav>
-
-          {/* Cover image */}
-          <div className="mb-6 overflow-hidden rounded-2xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/${PATH}/opengraph-image`}
-              alt="Best Apps to Send Money from the US 2026 — SendMoneyCompare independent rankings"
-              width={1200}
-              height={630}
-              className="w-full object-cover"
-            />
-          </div>
 
           {/* Hero */}
           <h1 className="text-[clamp(1.75rem,5vw,2.75rem)] font-normal leading-tight tracking-[-0.02em] text-[var(--color-on-surface)]">
@@ -514,6 +501,18 @@ export default async function BestAppsFromUSPage({
             .
           </p>
 
+          {/* Cover image */}
+          <div className="mb-6 overflow-hidden rounded-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/${PATH}/opengraph-image`}
+              alt="Best Apps to Send Money from the US 2026 — SendMoneyCompare independent rankings"
+              width={1200}
+              height={630}
+              className="w-full object-cover"
+            />
+          </div>
+
           {/* Stats row */}
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
             <StatBox value="60+" label="Providers compared" />
@@ -521,20 +520,6 @@ export default async function BestAppsFromUSPage({
             <StatBox value="Every 6h" label="Data refresh rate" />
             <StatBox value="$0" label="Paid placements" />
           </div>
-
-          {/* TOC */}
-          <nav className="mt-10 rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-dim)] p-5">
-            <p className="text-sm font-semibold text-[var(--color-on-surface)] mb-3">In this guide</p>
-            <ol className="space-y-1.5 text-sm text-[var(--color-primary)]">
-              <li><a href="#rankings" className="hover:underline">1. The 8 best money transfer apps from the US</a></li>
-              <li><a href="#how-we-compare" className="hover:underline">2. How we compare providers</a></li>
-              <li><a href="#by-use-case" className="hover:underline">3. Best app by use case</a></li>
-              <li><a href="#corridor-winners" className="hover:underline">4. Cheapest app by corridor</a></li>
-              <li><a href="#cost-explainer" className="hover:underline">5. Understanding the true cost</a></li>
-              <li><a href="#safety" className="hover:underline">6. Are these apps safe?</a></li>
-              <li><a href="#faq" className="hover:underline">7. Frequently asked questions</a></li>
-            </ol>
-          </nav>
 
           {/* ── Section 1: Rankings ─────────────────────────────────────────── */}
           <h2 id="rankings" className="mt-12 text-2xl font-normal text-[var(--color-on-surface)]">
@@ -977,8 +962,7 @@ export default async function BestAppsFromUSPage({
             </Link>
             .
           </p>
-        </article>
-      </Container>
+        </GuideResearchLayout>
     </>
   );
 }

@@ -2,7 +2,7 @@ import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
-import Container from "@/components/Container";
+import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { computeBankVsAppIndex, HEADLINE_AMOUNT } from "@/lib/bank-vs-app-index";
@@ -104,8 +104,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
 
-      <Container>
-        <article className="mx-auto max-w-3xl py-10">
+      <GuideResearchLayout slug="bank-vs-app-transfer-cost-2026">
           {/* Header */}
           <nav className="mb-4 text-sm text-[var(--color-on-surface-variant)]">
             <Link href="/guides" className="hover:text-[var(--color-primary)]">Guides</Link>
@@ -249,8 +248,7 @@ export default async function BankVsAppCostPage({ params }: { params: Promise<{ 
             Press &amp; citations: this dataset is free to cite with a link to SendMoneyCompare. For a specific corridor
             cut or comment, see our <Link href="/contact" className="underline">contact page</Link>.
           </p>
-        </article>
-      </Container>
+        </GuideResearchLayout>
     </>
   );
 }

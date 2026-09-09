@@ -2,7 +2,7 @@ import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
-import Container from "@/components/Container";
+import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import FxBiteCharts, { type BiteRow } from "@/components/FxBiteCharts";
@@ -117,8 +117,7 @@ export default async function FxCostVsPurchasingPowerPage({ params }: { params: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <Container>
-        <article className="max-w-3xl mx-auto py-8 sm:py-12">
+      <GuideResearchLayout slug="fx-cost-vs-purchasing-power">
           <nav aria-label="Breadcrumb" className="text-sm text-[var(--color-on-surface-variant)]">
             <Link href="/guides" className="hover:underline">Guides</Link>
             <span className="mx-1.5">/</span>
@@ -271,8 +270,7 @@ export default async function FxCostVsPurchasingPowerPage({ params }: { params: 
               </li>
             </ul>
           </div>
-        </article>
-      </Container>
+        </GuideResearchLayout>
     </>
   );
 }

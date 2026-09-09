@@ -280,7 +280,7 @@ export default function Footer() {
 
         {/* ── Layer 3 — brand + legal + trust ──────────────────────────── */}
         <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-between gap-6">
             {/* Brand — matches Header */}
             <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-2.5 shrink-0">
               <svg width="26" height="26" viewBox="0 0 30 30" aria-hidden="true" focusable="false">
@@ -313,7 +313,7 @@ export default function Footer() {
             </nav>
 
             {/* Trust + copyright */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <LazyTrustpilot />
               <span className="text-xs text-white/55 whitespace-nowrap">
                 {t("copyright", { year: new Date().getFullYear() })}

@@ -108,7 +108,7 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         {/* Top bar — logo + actions */}
         <div className="flex items-center justify-between h-16">
-          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-3 shrink-0 group">
+          <Link href="/" aria-label="SendMoneyCompare — Home" className="flex items-center gap-1 min-[360px]:gap-3 shrink-0 group">
             {/* Icon: paper plane — adapts to light/dark via CSS vars */}
             <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true" focusable="false" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200">
               <path d="M3.5 15.8L26.5 4.5L21 27L14.5 19.5Z" fill="var(--color-primary)"/>
@@ -147,7 +147,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1.5 h-11 px-3 rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]"
+                className="flex items-center gap-1.5 h-11 px-1 min-[360px]:px-3 rounded-full hover:bg-[color-mix(in_srgb,var(--color-on-surface)_6%,transparent)] transition-all duration-200 text-2sm font-medium text-[var(--color-on-surface-variant)] hover:text-[var(--color-on-surface)]"
                 aria-label="Switch language"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -2,7 +2,7 @@ import { seoDescription } from "@/lib/seo-title";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
-import Container from "@/components/Container";
+import GuideResearchLayout from "@/components/GuideResearchLayout";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import { getAuthor } from "@/data/authors";
 import { computeGbpOutlookIndex } from "@/lib/gbp-outlook-index";
@@ -165,8 +165,7 @@ export default async function GbpForecastPage({ params }: { params: Promise<{ lo
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <Container>
-        <article className="mx-auto max-w-3xl py-10">
+      <GuideResearchLayout slug="gbp-forecast-2026">
           <nav className="mb-4 text-sm text-[var(--color-on-surface-variant)]">
             <Link href="/guides" className="hover:text-[var(--color-primary)]">
               Guides
@@ -395,8 +394,7 @@ export default async function GbpForecastPage({ params }: { params: Promise<{ lo
             values can fall as well as rise. Sources: Bank of England; Federal Reserve H.10; European Central Bank;
             Reuters; CNBC; Bloomberg; Institute for Government.
           </p>
-        </article>
-      </Container>
+        </GuideResearchLayout>
     </>
   );
 }

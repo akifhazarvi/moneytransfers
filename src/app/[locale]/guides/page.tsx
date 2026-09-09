@@ -1,10 +1,12 @@
 import { seoDescription } from "@/lib/seo-title";
 import Link from "next/link";
+import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from "lucide-react";
 import Container from "@/components/Container";
 import GuidesClientPage from "@/components/GuidesClientPage";
 import { blogPosts, blogCategories } from "@/data/blog-posts";
 import { guideIsIndexable } from "@/lib/guide-status";
 import { computeBankVsAppIndex } from "@/lib/bank-vs-app-index";
+import { pppIndex } from "@/lib/ppp-index";
 import { weekendMarkup } from "@/lib/weekend-markup";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
@@ -38,6 +40,14 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
   // Live figures for the featured data-story banner below.
   const bankVsApp = computeBankVsAppIndex();
 
+  const researchCards = [
+    { slug: "best-apps-to-send-money-from-us-2026", title: "Best Apps to Send Money Internationally from the US (2026)", excerpt: "Independent rankings of money transfer apps by real transfer cost, with provider comparisons for different routes and use cases.", category: "Guides", readTime: "", publishedAt: "2026-06-30", updatedAt: "2026-06-30" },
+    { slug: "bank-vs-app-transfer-cost-2026", title: "Banks vs Apps: International Transfer Costs Compared", excerpt: "Compare what banks and specialist apps charge across our tracked corridors. Explore the data, methodology, and full cost breakdown.", category: "Research", readTime: "", publishedAt: "2026-06-21", updatedAt: bankVsApp.dataAsOf.slice(0, 10) },
+    { slug: "best-day-to-send-money-abroad", title: "Is It Cheaper to Send Money on a Weekday?", excerpt: "We analysed millions of quotes to see how exchange rate markups change through the week, and which providers charge more at weekends.", category: "Research", readTime: "", publishedAt: "2026-08-14", updatedAt: weekendMarkup.generatedAt.slice(0, 10) },
+    { slug: "fx-cost-vs-purchasing-power", title: "Transfer Fees vs Purchasing Power: What Moving Abroad Really Costs", excerpt: "How far your money goes abroad depends on more than an exchange rate. Explore the relationship between transfer costs and local buying power.", category: "Research", readTime: "", publishedAt: "2026-08-15", updatedAt: pppIndex.generatedAt.slice(0, 10) },
+    { slug: "gbp-forecast-2026", title: "GBP Forecast 2026: What’s Next for the Pound?", excerpt: "A data-led look at sterling, the forces moving it, and what exchange rate changes mean for your next international transfer.", category: "Education", readTime: "", publishedAt: "2026-07-03", updatedAt: "2026-07-03" },
+  ];
+
   // Project to just the card fields before crossing into the client component.
   // Handing it blogPosts serialised all 115 guides' section HTML and FAQs into
   // the RSC flight payload: 2.49 MB of HTML for 1,251 words of visible text.
@@ -54,7 +64,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
     category: post.category,
     readTime: post.readTime,
     publishedAt: post.publishedAt,
-    featuredImage: post.featuredImage,
+    updatedAt: post.updatedAt,
   }));
 
   const breadcrumbSchema = {
@@ -94,129 +104,55 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
-      <Container className="py-8">
-      <nav className="text-2sm text-[var(--color-on-surface-variant)] mb-6">
-        <Link href="/" className="hover:text-[var(--color-primary)]">{t("home")}</Link>
-        {" / "}
-        <span className="text-[var(--color-on-surface)]">{t("title")}</span>
-      </nav>
+      <Container className="guides-hub">
+        <nav aria-label="Breadcrumb" className="guide-breadcrumb">
+          <Link href="/">{t("home")}</Link><span aria-hidden="true">/</span><span aria-current="page">Guides & resources</span>
+        </nav>
+        <header className="guides-hub-header">
+          <div>
+            <p className="guide-eyebrow"><BookOpen size={15} aria-hidden="true" />Money transfer guides</p>
+            <h1>Know more.<br /><span>Send smarter.</span></h1>
+          </div>
+          <div className="guides-hub-intro">
+            <p>Clear, practical guides to moving money across borders. Understand the fees, explore your options, and make your next transfer with confidence.</p>
+            <Link href="/editorial-policy"><ShieldCheck size={17} aria-hidden="true" />Independent research. Real transfer data.<ArrowUpRight size={15} aria-hidden="true" /></Link>
+          </div>
+        </header>
 
-      <h1 className="text-h3 md:text-4xl font-normal text-[var(--color-on-surface)] mb-2">
-        {t("title")}
-      </h1>
-      <p className="text-sm text-[var(--color-on-surface-variant)] mb-8">
-        {t("subtitle")}
-      </p>
+        <GuidesClientPage posts={[...guideCards.filter((post) => !researchCards.some((research) => research.slug === post.slug)), ...researchCards]} categories={blogCategories} featured={
+          <section className="guide-featured-grid" aria-label="Featured guides and research">
+            <Link href="/guides/best-apps-to-send-money-from-us-2026" className="guide-featured-story">
+              <div className="guide-featured-topline"><span className="guide-eyebrow">The starting point</span><span>2026 edition</span></div>
+              <div className="guide-featured-symbol" aria-hidden="true"><ArrowUpRight strokeWidth={1} /></div>
+              <div className="guide-featured-copy">
+                <span className="guide-featured-label">Independent provider rankings</span>
+                <h2>A better way to<br />send money abroad.</h2>
+                <p>Explore the best money transfer apps from the US, ranked by what your recipient actually receives.</p>
+                <span className="guide-featured-link">Find the right app for you <ArrowRight size={18} aria-hidden="true" /></span>
+              </div>
+            </Link>
+            <div className="guide-research-desk">
+              <div className="guide-research-heading"><span className="guide-eyebrow">From the research desk</span><span className="guide-live-dot" aria-hidden="true" /></div>
+              <Link href="/guides/bank-vs-app-transfer-cost-2026">
+                <span className="guide-research-number">01</span><div><h3>Banks vs apps: what does a transfer really cost?</h3><p>Live data across {bankVsApp.corridorCount} corridors</p></div><ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+              <Link href="/guides/best-day-to-send-money-abroad">
+                <span className="guide-research-number">02</span><div><h3>Is there a best day to send money?</h3><p>{weekendMarkup.observations.toLocaleString()} quotes analysed</p></div><ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+              <Link href="/guides/fx-cost-vs-purchasing-power">
+                <span className="guide-research-number">03</span><div><h3>Transfer fees meet the cost of living</h3><p>Exchange rates & purchasing power</p></div><ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+              <Link href="/guides/gbp-forecast-2026">
+                <span className="guide-research-number">04</span><div><h3>What’s next for the pound?</h3><p>A data-led GBP outlook for 2026</p></div><ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+          </section>
+        } />
 
-      {/* Featured standalone guides — dedicated live routes, not in blogPosts */}
-      <div className="mb-8 grid gap-4 sm:grid-cols-2">
-        <Link
-          href="/guides/best-apps-to-send-money-from-us-2026"
-          className="group block rounded-2xl border border-[var(--color-primary)] bg-[var(--color-primary-surface)] p-5 sm:p-6 transition hover:shadow-md"
-        >
-          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-primary)]">
-            Independent rankings · 2026
-          </span>
-          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
-            Best Apps to Send Money from the US (2026)
-          </h2>
-          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-            8 providers ranked by real transfer cost — Wise, Remitly, TorFX, OFX, TapTap Send and more. Live data, no paid placements.
-          </p>
-          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-            Read the rankings →
-          </span>
-        </Link>
-
-        <Link
-          href="/guides/bank-vs-app-transfer-cost-2026"
-          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
-        >
-          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-            Original research · Updated every 6 hours
-          </span>
-          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
-            Banks cost {bankVsApp.bankVsAppMultiple}× more than apps to send money abroad
-          </h2>
-          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-            Live data across {bankVsApp.corridorCount} corridors: banks cost {bankVsApp.bankAvgCostPct}% vs {bankVsApp.appAvgCostPct}% via a specialist app.
-          </p>
-          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-            Read the Bank vs App Cost Index →
-          </span>
-        </Link>
-
-        <Link
-          href="/guides/best-day-to-send-money-abroad"
-          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
-        >
-          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-            Original research · {weekendMarkup.observations.toLocaleString()} quotes analysed
-          </span>
-          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
-            Is it cheaper to send money on a weekday?
-          </h2>
-          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-            Weekends averaged {weekendMarkup.weekendMean}% FX markup vs {weekendMarkup.weekdayMean}% Mon–Fri — cheaper, not dearer. But some banks widen by over 1pp.
-          </p>
-          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-            Read the day-of-week analysis →
-          </span>
-        </Link>
-
-        <Link
-          href="/guides/fx-cost-vs-purchasing-power"
-          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
-        >
-          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-            Original research · World Bank + 2.37M quotes
-          </span>
-          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
-            The cheaper the move, the less your transfer fee matters
-          </h2>
-          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-            Moving US→UK lifts buying power 6% — and the wrong provider eats 84% of it. Moving to Egypt it eats 0.9%.
-          </p>
-          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-            See the charts →
-          </span>
-        </Link>
-
-        <Link
-          href="/guides/gbp-forecast-2026"
-          className="group block rounded-2xl border border-[var(--color-outline)] bg-[var(--color-surface-container)] p-5 sm:p-6 transition hover:shadow-md"
-        >
-          <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-on-surface-variant)]">
-            Currency outlook · July 2026
-          </span>
-          <h2 className="mt-1.5 text-xl font-normal text-[var(--color-on-surface)] leading-snug">
-            How much can the pound move before your transfer clears?
-          </h2>
-          <p className="mt-2 text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
-            Sterling swung ~5% in H1 2026, but the best-vs-worst provider gap on £1,000 to USD is bigger than the currency move. Data-led GBP outlook.
-          </p>
-          <span className="mt-3 inline-block text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-            Read the GBP outlook →
-          </span>
-        </Link>
-      </div>
-
-      {/* Category tabs + featured post + grid — interactive, handled client-side */}
-      <GuidesClientPage
-        posts={guideCards}
-        categories={blogCategories}
-        translations={{
-          featuredGuide: t("featuredGuide"),
-          readGuide: t("readGuide"),
-          readMore: t("readMore"),
-          browseByCategory: t("browseByCategory"),
-          browseByCategoryDesc: t("browseByCategoryDesc"),
-          guidesCount: t.raw("guidesCount"),
-          previous: t("previous"),
-          next: t("next"),
-          pageOf: t.raw("pageOf"),
-        }}
-      />
+        <section className="guide-compare-banner">
+          <div><p className="guide-eyebrow">Put it into practice</p><h2>Your next transfer could cost less.</h2><p>Compare fees, exchange rates and delivery times in one place.</p></div>
+          <Link href="/send-money">Compare live rates <ArrowRight size={18} aria-hidden="true" /></Link>
+        </section>
 
       {/*
         Crawlable index of every submitted guide.
@@ -233,7 +169,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         outside it serve noindex, and spending crawl budget on links to noindex
         pages is the mistake the June 2026 pruning was cleaning up.
       */}
-      <nav aria-label="All guides" className="mt-12 border-t border-[var(--color-outline)] pt-8">
+      <nav aria-label="All guides" className="guide-directory">
         <h2 className="text-lg font-medium text-[var(--color-on-surface)] mb-1">
           All guides
         </h2>
@@ -242,8 +178,9 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
         </p>
         <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {guidesByCategory.map(([category, posts]) => (
-            <div key={category}>
-              <h3 className="text-2sm font-medium text-[var(--color-on-surface-variant)] uppercase tracking-wide mb-3">
+            <details key={category}>
+              <summary className="guide-directory-summary">{category}<span>{posts.length}</span></summary>
+              <h3 className="sr-only">
                 {category}
               </h3>
               <ul className="space-y-2">
@@ -258,7 +195,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
                   </li>
                 ))}
               </ul>
-            </div>
+            </details>
           ))}
         </div>
       </nav>

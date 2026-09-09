@@ -3,7 +3,10 @@ import { guideIsIndexable } from "@/lib/guide-status";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
-import Card from "@/components/Card";
+import GuideContents from "@/components/GuideContents";
+import GuideReadingProgress from "@/components/GuideReadingProgress";
+import GuidePreview from "@/components/GuidePreview";
+import { ArrowLeft, BookOpen, Clock3 } from "lucide-react";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog-posts";
 import { getAuthorByName } from "@/data/authors";
 
@@ -16,7 +19,7 @@ import { renderDataTokens } from "@/lib/ratings-tokens";
 import { getAlternates, DEFAULT_OG_IMAGES } from "@/lib/i18n-metadata";
 import type { Metadata } from "next";
 import { seoTitle, seoDescription } from "@/lib/seo-title";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { ScrollTracker } from "@/components/ScrollTracker";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import InlineProviderQuotes from "@/components/InlineProviderQuotes";
@@ -211,7 +214,6 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
-  const t = await getTranslations({ locale, namespace: "guidesSlug" });
   const post = getBlogPost(slug);
   if (!post) return { title: "Not Found" };
 
@@ -265,13 +267,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "guidesSlug" });
   const post = getBlogPost(slug);
   if (!post) notFound();
 
   const relatedPosts = getRelatedPosts(slug);
 
   const sectionIds = post.sections.map((s) => slugifyHeading(s.heading));
+  const contents = [
+    ...post.sections.map((section, i) => ({ id: sectionIds[i], title: section.heading })),
+    ...(post.howToSteps?.length ? [{ id: "how-to-steps", title: "Step-by-step guide" }] : []),
+    ...(post.faqs?.length ? [{ id: "faqs", title: "Frequently asked questions" }] : []),
+  ];
   const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags);
   const author = getAuthorByName(post.author);
   const reviewer = post.reviewedBy ? getAuthorByName(post.reviewedBy) : undefined;
@@ -353,33 +359,28 @@ export default async function BlogPostPage({ params }: Props) {
           (driven by the same post.howToSteps) is unaffected. */}
 
       <ScrollTracker slug={slug} contentType="guide" />
+      <GuideReadingProgress />
 
       {/* ── Article Hero ── */}
-      <div className="border-b border-[var(--color-outline)] bg-[var(--color-surface-warm)]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 md:py-14">
+      <header id="guide-top" className="guide-article-hero">
+        <Container className="guide-article-hero-inner">
 
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Guides", href: "/guides" }, { label: post.title }]} />
 
-          <div className="max-w-[720px]">
-            {/* Category badge */}
-            <div className="inline-flex items-center gap-1.5 text-overline text-[var(--tile-sky-ink)] bg-[var(--tile-sky-bg)] px-3 py-1.5 rounded-full mb-6">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
-              </svg>
-              {post.category}
+          <div className="guide-article-heading">
+            <div className="guide-article-kicker">
+              <span className="guide-category" data-category={post.category}><BookOpen size={15} aria-hidden="true" />{post.category}</span>
+              <span><Clock3 size={14} aria-hidden="true" />{post.readTime}</span>
             </div>
-
-            <h1 className="text-[clamp(1.875rem,4.5vw,3rem)] font-bold leading-[1.12] tracking-tight text-[var(--color-on-surface)] mb-5">
-              {post.title}
-            </h1>
+            <h1>{post.title}</h1>
 
             {/* Excerpt */}
-            <p className="text-md md:text-lg text-[var(--color-on-surface-variant)] leading-[1.7] mb-7 max-w-[620px]">
+            <p className="guide-article-deck">
               {post.excerpt}
             </p>
 
             {/* Author row */}
-            <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-[var(--color-outline)]">
+            <div className="guide-article-byline">
               <Link href={`/about/${getAuthorByName(post.author)?.slug || "akif-hazarvi"}`} className="flex items-center gap-2 text-2sm font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors">
                 {getAuthorByName(post.author)?.photo ? (
                   <Image src={getAuthorByName(post.author)!.photo!} alt={post.author} width={32} height={32} className="w-8 h-8 rounded-full object-cover" />
@@ -400,8 +401,6 @@ export default async function BlogPostPage({ params }: Props) {
                   </time>
                 </>
               )}
-              <span className="w-1 h-1 rounded-full bg-[var(--color-outline)]" />
-              <span className="text-2sm text-[var(--color-on-surface-variant)]">{post.readTime}</span>
               {/* Fact-checked badge — shown only where BlogPost records a real
                   reviewer and review date. See the reviewedBy/reviewedAt note on
                   the BlogPost interface for why this is no longer unconditional. */}
@@ -417,98 +416,29 @@ export default async function BlogPostPage({ params }: Props) {
               )}
             </div>
           </div>
-        </div>
-      </div>
+        </Container>
+      </header>
 
-      {/* ── Featured Image ── */}
-      {post.featuredImage && (
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 -mt-1">
-          <div className="relative w-full h-[220px] md:h-[380px] rounded-b-2xl overflow-hidden">
-            <Image src={post.featuredImage} alt={post.title} fill className="object-cover" priority />
-          </div>
-        </div>
-      )}
-
-      {/* ── Main Layout ── */}
-      <Container className="py-10">
-        <div className="flex flex-col lg:flex-row gap-12">
-
-          {/* ── Article ── */}
-          <article className="flex-1 min-w-0">
-
-            <div className="mb-6">
-              <AffiliateDisclosure />
-            </div>
-
-            {/* Key Takeaway */}
+      <Container className="guide-article-layout">
+        <div className="guide-reading-grid">
+          <article id="guide-article" className="guide-article-body">
+            <GuideContents sections={contents} mobile />
+            <div className="guide-disclosure"><AffiliateDisclosure /></div>
             {post.excerpt && (
-              <div className="callout-key-takeaway mb-8">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[var(--color-primary)] rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-overline text-[var(--color-primary)] mb-1">Key Takeaway</p>
-                    <p className="text-md text-[var(--color-on-surface)] leading-relaxed font-medium">{post.excerpt}</p>
-                  </div>
-                </div>
-              </div>
+              <section className="guide-key-takeaway" aria-label="Key takeaway">
+                <p className="guide-eyebrow">Key Takeaway</p>
+                <p>{post.excerpt}</p>
+              </section>
             )}
-
-            {/* Mobile TOC — collapsible */}
-            {post.sections.length > 0 && (
-              <details className="lg:hidden mb-8 border border-[var(--color-outline)] rounded-2xl overflow-hidden">
-                <summary className="flex items-center justify-between cursor-pointer px-5 py-4 bg-[var(--color-surface-dim)] text-sm font-semibold text-[var(--color-on-surface)] select-none">
-                  <span>In this guide ({post.sections.length + (post.faqs?.length ? 1 : 0)} sections)</span>
-                  <svg className="w-4 h-4 text-[var(--color-on-surface-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <ol className="divide-y divide-[var(--color-outline)]">
-                  {post.sections.map((section, i) => (
-                    <li key={i}>
-                      <a href={`#${sectionIds[i]}`} className="block px-5 py-3 text-sm text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
-                        {section.heading}
-                      </a>
-                    </li>
-                  ))}
-                  {post.faqs?.length ? (
-                    <li>
-                      <a href="#faqs" className="block px-5 py-3 text-sm text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-colors">
-                        Frequently Asked Questions
-                      </a>
-                    </li>
-                  ) : null}
-                </ol>
-              </details>
-            )}
-
-            {/* Desktop TOC — inside article on small-medium screens, hidden when sidebar TOC shows */}
-            {post.sections.length > 0 && (
-              <div className="hidden lg:block xl:hidden bg-[var(--color-surface-dim)] border border-[var(--color-outline)] rounded-2xl p-5 mb-8">
-                <p className="text-overline text-[var(--color-on-surface-muted)] mb-3">In this guide</p>
-                <ol className="space-y-1.5">
-                  {post.sections.map((section, i) => (
-                    <li key={i}>
-                      <a href={`#${sectionIds[i]}`} className="text-2sm text-[var(--color-primary)] hover:underline leading-snug block">
-                        {section.heading}
-                      </a>
-                    </li>
-                  ))}
-                  {post.faqs?.length ? (
-                    <li>
-                      <a href="#faqs" className="text-2sm text-[var(--color-primary)] hover:underline">Frequently Asked Questions</a>
-                    </li>
-                  ) : null}
-                </ol>
+            {post.featuredImage && (
+              <div className="guide-article-image">
+                <Image src={post.featuredImage} alt={post.title} fill sizes="(max-width: 1023px) 100vw, 760px" className="object-cover" priority />
               </div>
             )}
 
             {/* Article Sections */}
             {post.sections.map((section, i) => (
-              <section key={i} id={sectionIds[i]} className="mb-12">
+              <section key={i} id={sectionIds[i]} className="guide-article-section">
                 <h2 className="text-[clamp(1.375rem,3vw,1.625rem)] font-bold leading-[1.28] tracking-tight text-[var(--color-on-surface)] mb-5">
                   {section.heading}
                 </h2>
@@ -553,7 +483,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* HowTo Steps — visual rendering */}
             {post.howToSteps && post.howToSteps.length > 0 && (
-              <section id="how-to-steps" className="mb-12">
+              <section id="how-to-steps" className="guide-article-section">
                 <h2 className="text-[clamp(1.375rem,3vw,1.625rem)] font-bold leading-[1.28] tracking-tight text-[var(--color-on-surface)] mb-5">
                   Step-by-Step Guide
                 </h2>
@@ -575,7 +505,7 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* FAQs */}
             {post.faqs?.length ? (
-              <section id="faqs" className="mb-12">
+              <section id="faqs" className="guide-article-section">
                 <h2 className="text-h3 font-semibold text-[var(--color-on-surface)] mb-6">
                   Frequently Asked Questions
                 </h2>
@@ -664,38 +594,14 @@ export default async function BlogPostPage({ params }: Props) {
           </article>
 
           {/* ── Sidebar ── */}
-          <aside className="lg:w-[300px] xl:w-[320px] shrink-0">
+          <aside className="guide-article-sidebar" aria-label="Guide navigation and tools">
             {/* Sticky container is capped to the viewport height and scrolls
                 internally when its content (TOC + CTA + related + explore) is
                 taller than one screen — otherwise the lower items only became
                 visible after scrolling the entire article. */}
-            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto space-y-6">
+            <div className="guide-sidebar-sticky">
 
-              {/* Desktop TOC — sticky in sidebar */}
-              {post.sections.length > 0 && (
-                <div className="hidden xl:block bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-2xl shadow-[var(--shadow-xs)] p-5">
-                  <p className="text-overline text-[var(--color-on-surface-muted)] mb-3">In this guide</p>
-                  <ol className="space-y-0.5">
-                    {post.sections.map((section, i) => (
-                      <li key={i}>
-                        <a
-                          href={`#${sectionIds[i]}`}
-                          className="block text-2sm text-[var(--color-on-surface-variant)] py-1.5 px-3 rounded-lg hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all leading-snug"
-                        >
-                          {section.heading}
-                        </a>
-                      </li>
-                    ))}
-                    {post.faqs?.length ? (
-                      <li>
-                        <a href="#faqs" className="block text-2sm text-[var(--color-on-surface-variant)] py-1.5 px-3 rounded-lg hover:text-[var(--color-primary)] hover:bg-[var(--color-primary-surface)] transition-all">
-                          Frequently Asked Questions
-                        </a>
-                      </li>
-                    ) : null}
-                  </ol>
-                </div>
-              )}
+              <GuideContents sections={contents} />
 
               {/* Comparison CTA — tracked */}
               <GuideSidebarCTA
@@ -704,30 +610,6 @@ export default async function BlogPostPage({ params }: Props) {
                 to={inlineQuoteCorridor.to}
                 amount={inlineQuoteCorridor.amount}
               />
-
-              {/* Related Guides */}
-              {relatedPosts.length > 0 && (
-                <div>
-                  <p className="text-overline text-[var(--color-on-surface-muted)] mb-3">Related Guides</p>
-                  <div className="space-y-2.5">
-                    {relatedPosts.map((related) => (
-                      <Link
-                        key={related.slug}
-                        href={`/guides/${related.slug}`}
-                        className="group block bg-[var(--color-surface)] border border-[var(--color-outline)] rounded-xl p-4 hover:shadow-[var(--shadow-sm)] hover:border-[var(--color-primary-light)] transition-all"
-                      >
-                        <span className="text-overline text-[var(--color-primary)] mb-2 block">
-                          {related.category}
-                        </span>
-                        <h4 className="text-2sm font-semibold text-[var(--color-on-surface)] leading-snug group-hover:text-[var(--color-primary)] transition-colors">
-                          {related.title}
-                        </h4>
-                        <span className="text-2xs text-[var(--color-on-surface-muted)] mt-1.5 block">{related.readTime}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {/* Explore more */}
               <div>
@@ -750,6 +632,12 @@ export default async function BlogPostPage({ params }: Props) {
           </aside>
         </div>
       </Container>
+      {relatedPosts.length > 0 && (
+        <Container className="guide-related">
+          <div className="guide-related-heading"><div><p className="guide-eyebrow">Keep learning</p><h2>Your next good read</h2></div><Link href="/guides"><ArrowLeft size={15} aria-hidden="true" />All guides</Link></div>
+          <div className="guide-preview-grid">{relatedPosts.map((related) => <GuidePreview key={related.slug} post={related} />)}</div>
+        </Container>
+      )}
       {/* Sticky nudge — slides up after 30s or 50% scroll with live best quote */}
       <GuidePageNudge
         from={inlineQuoteCorridor.from}

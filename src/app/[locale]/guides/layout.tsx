@@ -1,4 +1,5 @@
 import { Source_Serif_4 } from "next/font/google";
+import "./guides.css";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -8,5 +9,5 @@ const sourceSerif = Source_Serif_4({
 });
 
 export default function GuidesLayout({ children }: { children: React.ReactNode }) {
-  return <div className={sourceSerif.variable}>{children}</div>;
+  return <div className={`${sourceSerif.variable} guides-experience`}>{children}</div>;
 }
