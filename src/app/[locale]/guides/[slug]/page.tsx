@@ -30,6 +30,7 @@ import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 import SettlementRace from "@/components/SettlementRace";
 import { BUSINESS_FX_SLUGS } from "@/lib/business-fx-index";
+import { generateQuotes } from "@/lib/quotes-engine";
 
 interface InlineQuoteCorridor {
   from: string;
@@ -330,6 +331,15 @@ export default async function BlogPostPage({ params }: Props) {
     ...(post.faqs?.length ? [{ id: "faqs", title: "Frequently asked questions" }] : []),
   ];
   const inlineQuoteCorridor = getInlineQuoteCorridor(slug, post.tags);
+  // Real count, so the denominator can separate "widget was thin" from "widget
+  // was ignored". It was hard-coded to 0, which made the parameter useless.
+  const inlineQuoteProviderCount = (() => {
+    const all = generateQuotes(inlineQuoteCorridor.amount, inlineQuoteCorridor.from, inlineQuoteCorridor.to);
+    const scoped = inlineQuoteCorridor.business
+      ? all.filter((q) => (BUSINESS_FX_SLUGS as readonly string[]).includes(q.providerSlug))
+      : all;
+    return Math.min((scoped.length > 0 ? scoped : all).length, 5);
+  })();
   const author = getAuthorByName(post.author);
   const reviewer = post.reviewedBy ? getAuthorByName(post.reviewedBy) : undefined;
 
@@ -510,7 +520,16 @@ export default async function BlogPostPage({ params }: Props) {
 
                 {/* Inline live-quote widget after 2nd section — converts editorial readers */}
                 {i === 1 && (
-                  <>
+                  /* Denominator for guide conversion. Without it, a guide with
+                     1 click in 244 views is unreadable: nobody scrolled to the
+                     widget, or everybody did and ignored it. It WRAPS the widget
+                     so the observer measures the widget itself. */
+                  <InlineQuotesImpression
+                    slug={slug}
+                    from={inlineQuoteCorridor.from}
+                    to={inlineQuoteCorridor.to}
+                    providerCount={inlineQuoteProviderCount}
+                  >
                     <InlineProviderQuotes
                       from={inlineQuoteCorridor.from}
                       to={inlineQuoteCorridor.to}
@@ -519,16 +538,7 @@ export default async function BlogPostPage({ params }: Props) {
                       source={`guide:${slug}`}
                       only={inlineQuoteCorridor.business ? BUSINESS_FX_SLUGS : undefined}
                     />
-                    {/* Denominator for guide conversion. Without it, a guide with
-                        1 click in 244 views is unreadable: nobody scrolled to the
-                        widget, or everybody did and ignored it. */}
-                    <InlineQuotesImpression
-                      slug={slug}
-                      from={inlineQuoteCorridor.from}
-                      to={inlineQuoteCorridor.to}
-                      providerCount={0}
-                    />
-                  </>
+                  </InlineQuotesImpression>
                 )}
               </section>
             ))}
