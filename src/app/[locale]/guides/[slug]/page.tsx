@@ -29,12 +29,22 @@ import GuidePageNudge from "@/components/GuidePageNudge";
 import WhatsAppInlineCTA from "@/components/WhatsAppInlineCTA";
 import FreelancerCostCalculator from "@/components/FreelancerCostCalculator";
 import SettlementRace from "@/components/SettlementRace";
+import { BUSINESS_FX_SLUGS } from "@/lib/business-fx-index";
 
 interface InlineQuoteCorridor {
   from: string;
   to: string;
   amount: number;
   heading?: string;
+  /**
+   * Scope the inline widget to BUSINESS_FX_SLUGS. Set on business and
+   * large-transfer guides, where ranking every provider by receive amount put
+   * TapTap Send and Remitly at the top of a page about paying suppliers or
+   * moving $250k. Those are real winners on a $200 remittance and the wrong
+   * recommendation here, so the cross-sell read as untrustworthy on exactly
+   * the pages with the highest transfer value.
+   */
+  business?: true;
 }
 
 const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
@@ -48,6 +58,47 @@ const SLUG_CORRIDOR_OVERRIDES: Record<string, InlineQuoteCorridor> = {
   "send-money-to-ethiopia-guide": { from: "USD", to: "ETB", amount: 500, heading: "Top USD → ETB providers right now" },
   "send-money-to-mexico-guide": { from: "USD", to: "MXN", amount: 1000, heading: "Top USD → MXN providers right now" },
   "send-money-to-kenya-from-usa-guide": { from: "USD", to: "KES", amount: 500, heading: "Top USD → KES providers right now" },
+  // Corridor guides that were falling through to the USD→INR default. A page
+  // titled "Cheapest Way to Send Money to Kenya" was rendering an INR quote
+  // table: the widget was present and tracked, but selling the wrong corridor,
+  // which is worse than selling nothing — the reader concludes we have no data
+  // for the country they asked about. Every corridor below was checked for
+  // depth first (8-22 quoting providers each).
+  "send-money-to-kenya-guide": { from: "USD", to: "KES", amount: 500, heading: "Top USD → KES providers right now" },
+  "send-money-to-egypt-guide": { from: "USD", to: "EGP", amount: 1000, heading: "Top USD → EGP providers right now" },
+  "send-money-to-sri-lanka-guide": { from: "USD", to: "LKR", amount: 1000, heading: "Top USD → LKR providers right now" },
+  "send-money-to-nepal-guide": { from: "USD", to: "NPR", amount: 1000, heading: "Top USD → NPR providers right now" },
+  "send-money-to-south-africa-guide": { from: "USD", to: "ZAR", amount: 1000, heading: "Top USD → ZAR providers right now" },
+  "send-money-to-south-korea-guide": { from: "USD", to: "KRW", amount: 1000, heading: "Top USD → KRW providers right now" },
+  // GBP leads this guide's own excerpt and outnumbers USD in its body, and
+  // GBP→AUD quotes 22 providers against USD→AUD's 8.
+  "send-money-to-australia-guide": { from: "GBP", to: "AUD", amount: 1000, heading: "Top GBP → AUD providers right now" },
+  // Business and large-transfer guides. These were all falling through to the
+  // consumer USD→INR $1,000 default — a supplier-payments page quoting a $1,000
+  // remittance to India. Amounts match the reader, and `business` scopes the
+  // provider set.
+  "b2b-international-payments-guide": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Live USD → EUR business rates on $10,000" },
+  "business-international-payments-guide": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Live USD → EUR business rates on $10,000" },
+  "business-money-transfers-provider-review": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Live USD → EUR business rates on $10,000" },
+  "bulk-international-payments-guide": { from: "USD", to: "EUR", amount: 25000, business: true, heading: "Live USD → EUR rates on a $25,000 batch" },
+  "how-to-pay-international-suppliers": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Live USD → EUR supplier-payment rates" },
+  "invoicing-international-clients-multiple-currencies": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Live USD → EUR rates on a $10,000 invoice" },
+  "lowest-fx-fees-business-payments-2026": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Lowest USD → EUR business FX today" },
+  "xe-business-payments-review": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Xe vs the business-FX field on $10,000" },
+  "receive-international-payments-freelancer": { from: "USD", to: "EUR", amount: 10000, business: true, heading: "Live USD → EUR rates on a $10,000 payout" },
+  "ofx-review-2026": { from: "USD", to: "EUR", amount: 25000, business: true, heading: "OFX vs the field on a $25,000 transfer" },
+  "best-money-transfer-apps-large-transfers": { from: "USD", to: "EUR", amount: 25000, business: true, heading: "Live USD → EUR rates on $25,000" },
+  "how-to-send-large-amounts-internationally": { from: "USD", to: "EUR", amount: 50000, business: true, heading: "Live USD → EUR rates on $50,000" },
+  // A GBP forecast page quoting USD → INR. GBP/USD is the pair in its title.
+  "gbp-forecast-2026": { from: "GBP", to: "USD", amount: 10000, heading: "Lock in today's GBP → USD rate — top providers" },
+  // USD→EUR is the corridor these three are actually about: a US bank-wire fee
+  // comparison, the multi-currency account field, and an expat moving money at
+  // tax time. The rest of the default set (safety, tax law, stablecoins, global
+  // statistics) is genuinely corridor-agnostic and keeps USD→INR — our
+  // best-covered corridor and the largest remittance market.
+  "bank-wire-transfer-fees-2026": { from: "USD", to: "EUR", amount: 10000, heading: "Skip the wire fee — live USD → EUR rates" },
+  "multi-currency-account-wars-2026": { from: "USD", to: "EUR", amount: 1000, heading: "Live USD → EUR rates from multi-currency providers" },
+  "xe-tax-season-cross-border-money-2026": { from: "USD", to: "EUR", amount: 25000, business: true, heading: "Live USD → EUR rates on a $25,000 transfer" },
   "send-money-uae-to-india-guide": { from: "AED", to: "INR", amount: 5000, heading: "Top AED → INR providers right now" },
   "send-money-uae-to-pakistan-guide": { from: "AED", to: "PKR", amount: 5000, heading: "Top AED → PKR providers right now" },
   "best-money-transfer-apps": { from: "USD", to: "INR", amount: 1000, heading: "Live USD → INR rates from top-ranked apps" },
@@ -466,6 +517,7 @@ export default async function BlogPostPage({ params }: Props) {
                       amount={inlineQuoteCorridor.amount}
                       heading={inlineQuoteCorridor.heading}
                       source={`guide:${slug}`}
+                      only={inlineQuoteCorridor.business ? BUSINESS_FX_SLUGS : undefined}
                     />
                     {/* Denominator for guide conversion. Without it, a guide with
                         1 click in 244 views is unreadable: nobody scrolled to the

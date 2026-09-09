@@ -14,6 +14,14 @@ interface Props {
   source: string;
   heading?: string;
   subheading?: string;
+  /**
+   * Restrict the table to a provider set. Business and large-transfer guides
+   * pass BUSINESS_FX_SLUGS: ranking purely by receive amount put consumer
+   * remittance apps (TapTap Send, Remitly, LemFI) at the top of a page about
+   * paying suppliers, which is the same mismatch {{BUSINESS_QUOTE_TABLE}} was
+   * built to fix on the business pages. Omit for consumer corridors.
+   */
+  only?: readonly string[];
 }
 
 function symbolFor(code: string): string {
@@ -31,8 +39,13 @@ export default function InlineProviderQuotes({
   source,
   heading,
   subheading,
+  only,
 }: Props) {
-  const quotes: TransferQuote[] = generateQuotes(amount, from, to).slice(0, 5);
+  const all = generateQuotes(amount, from, to);
+  const scoped = only ? all.filter((q) => only.includes(q.providerSlug)) : all;
+  // Fall back to the unscoped set rather than rendering nothing: an empty
+  // widget loses the cross-sell entirely, which is worse than a broader list.
+  const quotes: TransferQuote[] = (scoped.length > 0 ? scoped : all).slice(0, 5);
   if (quotes.length === 0) return null;
 
   const sendSymbol = symbolFor(from);
