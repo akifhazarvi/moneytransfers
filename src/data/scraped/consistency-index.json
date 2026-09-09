@@ -22,9 +22,9 @@
       "providerName": "Ria Money Transfer",
       "corridorsLed": 40,
       "corridorsQuoted": 66,
-      "wins": 2619,
+      "wins": 2620,
       "quotedDays": 4124,
-      "winRate": 63.51,
+      "winRate": 63.53,
       "avgShortfallPct": 0.6,
       "leadRate": 60.61
     },
@@ -33,9 +33,9 @@
       "providerName": "TapTap Send",
       "corridorsLed": 40,
       "corridorsQuoted": 152,
-      "wins": 4026,
+      "wins": 4030,
       "quotedDays": 13232,
-      "winRate": 30.43,
+      "winRate": 30.46,
       "avgShortfallPct": 1.02,
       "leadRate": 26.32
     },
@@ -44,9 +44,9 @@
       "providerName": "LemFi",
       "corridorsLed": 31,
       "corridorsQuoted": 87,
-      "wins": 2823,
+      "wins": 2819,
       "quotedDays": 7781,
-      "winRate": 36.28,
+      "winRate": 36.23,
       "avgShortfallPct": 1,
       "leadRate": 35.63
     },
@@ -55,9 +55,9 @@
       "providerName": "InstaReM",
       "corridorsLed": 20,
       "corridorsQuoted": 80,
-      "wins": 1883,
+      "wins": 1882,
       "quotedDays": 7144,
-      "winRate": 26.36,
+      "winRate": 26.34,
       "avgShortfallPct": 1.15,
       "leadRate": 25
     },
@@ -121,9 +121,9 @@
       "providerName": "Remitly",
       "corridorsLed": 3,
       "corridorsQuoted": 101,
-      "wins": 345,
+      "wins": 344,
       "quotedDays": 8778,
-      "winRate": 3.93,
+      "winRate": 3.92,
       "avgShortfallPct": 3.47,
       "leadRate": 2.97
     },
@@ -132,9 +132,9 @@
       "providerName": "HSBC Singapore",
       "corridorsLed": 1,
       "corridorsQuoted": 4,
-      "wins": 114,
+      "wins": 115,
       "quotedDays": 344,
-      "winRate": 33.14,
+      "winRate": 33.43,
       "avgShortfallPct": 0.56,
       "leadRate": 25
     },
@@ -733,6 +733,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 56,
-  "stableCorridors": 160
+  "rotatingCorridors": 57,
+  "stableCorridors": 159
 }

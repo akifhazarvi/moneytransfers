@@ -1967,10 +1967,10 @@
     "date": "2026-09-09",
     "providers": {
       "lemfi": {
-        "rate": 188.53,
+        "rate": 188.4,
         "fee": 0,
-        "markup": 0.02,
-        "receiveAmount": 18853
+        "markup": -0.5,
+        "receiveAmount": 18840
       },
       "taptap-send": {
         "rate": 205,
