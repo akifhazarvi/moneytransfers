@@ -13531,5 +13531,100 @@
         "receiveAmount": 1060.19
       }
     }
+  },
+  {
+    "date": "2026-09-09",
+    "providers": {
+      "lemfi": {
+        "rate": 10.87,
+        "fee": 0,
+        "markup": 0.35,
+        "receiveAmount": 1087
+      },
+      "moneygram": {
+        "rate": 10.7373,
+        "fee": 0.8,
+        "markup": 1.74,
+        "receiveAmount": 1065.14
+      },
+      "skrill": {
+        "rate": 10.6019,
+        "fee": 0,
+        "markup": 2.98,
+        "receiveAmount": 1060.19
+      },
+      "taptap-send": {
+        "rate": 10.81,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 1081
+      },
+      "deutsche-bank": {
+        "rate": 10.6379,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 674.98
+      },
+      "western-union": {
+        "rate": 10.6457,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 1054.03
+      },
+      "dahabshiil": {
+        "rate": 10.7398,
+        "fee": 1.99,
+        "markup": 1.72,
+        "receiveAmount": 1052.61
+      },
+      "worldremit": {
+        "rate": 10.6298,
+        "fee": 1.99,
+        "markup": 2.72,
+        "receiveAmount": 1041.83
+      },
+      "paysend": {
+        "rate": 10.8667,
+        "fee": 0,
+        "markup": 0.55,
+        "receiveAmount": 1086.67
+      },
+      "sendwave": {
+        "rate": 10.834,
+        "fee": 1.99,
+        "markup": 0.85,
+        "receiveAmount": 1061.84
+      },
+      "remitly": {
+        "rate": 10.68,
+        "fee": 2.49,
+        "markup": null,
+        "receiveAmount": 1041.41
+      },
+      "revolut": {
+        "rate": 10.8052,
+        "fee": 1.75,
+        "markup": 1.12,
+        "receiveAmount": 1061.61
+      },
+      "wise": {
+        "rate": 10.9116,
+        "fee": 6,
+        "markup": null,
+        "receiveAmount": 1025.69
+      },
+      "ria": {
+        "rate": 10.7373,
+        "fee": 0.49,
+        "markup": null,
+        "receiveAmount": 1119.36
+      },
+      "commerzbank": {
+        "rate": 10.5899,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 926.61
+      }
+    }
   }
 ]

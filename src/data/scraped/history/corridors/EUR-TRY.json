@@ -12115,5 +12115,100 @@
         "receiveAmount": 5206.63
       }
     }
+  },
+  {
+    "date": "2026-09-09",
+    "providers": {
+      "moneygram": {
+        "rate": 55.7905,
+        "fee": 1.49,
+        "markup": null,
+        "receiveAmount": 5495.92
+      },
+      "taptap-send": {
+        "rate": 56.3,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5630
+      },
+      "deutsche-bank": {
+        "rate": 56.2876,
+        "fee": 36.55,
+        "markup": null,
+        "receiveAmount": 3571.45
+      },
+      "xe": {
+        "rate": 55.7313,
+        "fee": 4,
+        "markup": 0.99,
+        "receiveAmount": 5350.2
+      },
+      "western-union": {
+        "rate": 55.3851,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 5483.68
+      },
+      "dahabshiil": {
+        "rate": 55.0633,
+        "fee": 1.99,
+        "markup": 2.18,
+        "receiveAmount": 5396.75
+      },
+      "instarem": {
+        "rate": 55.9869,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 5598.69
+      },
+      "paysend": {
+        "rate": 55.941,
+        "fee": 0,
+        "markup": 0.62,
+        "receiveAmount": 5594.1
+      },
+      "remitly": {
+        "rate": 55.63,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 5452.3
+      },
+      "revolut": {
+        "rate": 55.9402,
+        "fee": 1,
+        "markup": 0.62,
+        "receiveAmount": 5538.08
+      },
+      "wise": {
+        "rate": 56.3725,
+        "fee": 2.94,
+        "markup": null,
+        "receiveAmount": 5471.51
+      },
+      "ria": {
+        "rate": 55.338,
+        "fee": 0.9,
+        "markup": null,
+        "receiveAmount": 5777.07
+      },
+      "commerzbank": {
+        "rate": 54.6753,
+        "fee": 12.5,
+        "markup": null,
+        "receiveAmount": 4784.09
+      },
+      "ing-de": {
+        "rate": 55.3126,
+        "fee": 22,
+        "markup": null,
+        "receiveAmount": 4314.38
+      },
+      "sparkasse": {
+        "rate": 56.3286,
+        "fee": 7.5,
+        "markup": null,
+        "receiveAmount": 5210.4
+      }
+    }
   }
 ]
