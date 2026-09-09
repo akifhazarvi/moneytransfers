@@ -204,10 +204,24 @@ function DefaultReview({
             {/* Header card */}
             <Card>
               <p className="text-md text-[var(--color-on-surface)] leading-relaxed mb-5">{profile.summary}</p>
-              <div className="flex gap-3">
-                <ProviderLink href={getGoUrl(provider.slug)} provider={provider.slug} source="company_review_sidebar" className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] active:shadow-none active:scale-[0.98] bg-[var(--color-cta)] text-[var(--color-cta-text)] hover:bg-[var(--color-cta-hover)] h-9 px-5 text-2sm">Visit {provider.name}</ProviderLink>
-                <Link href="/send-money" className="inline-flex items-center h-9 px-5 border border-[var(--color-outline)] rounded-full text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors">
-                  Compare Rates
+              {/* This page is the highest-intent surface on the site — someone
+                  searching a provider by name — and until now it carried ONE
+                  36px near-black button labelled "Visit", a third of the way
+                  down. It is the #2 organic landing page at 6,101 impressions.
+                  Now: the money colour, 44px, action wording, and full width on
+                  mobile so it is not competing for a narrow row with the
+                  secondary link. */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <ProviderLink
+                  href={getGoUrl(provider.slug)}
+                  provider={provider.slug}
+                  source="company_review_hero"
+                  className="inline-flex items-center justify-center font-semibold rounded-full transition-colors bg-[var(--color-success-dark)] text-white hover:opacity-90 h-12 sm:h-11 px-6 text-sm sm:text-2sm w-full sm:w-auto"
+                >
+                  Send with {provider.name}
+                </ProviderLink>
+                <Link href="/send-money" className="inline-flex items-center justify-center h-12 sm:h-11 px-6 border border-[var(--color-outline)] rounded-full text-sm sm:text-2sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface-dim)] transition-colors w-full sm:w-auto">
+                  Compare rates first
                 </Link>
               </div>
             </Card>
@@ -336,6 +350,42 @@ function DefaultReview({
                 </Link>
               </Card>
             )}
+          </div>
+        </div>
+      </Container>
+
+      {/* Closing CTA. A reader who has finished the review has done the
+          research this page exists for, and until now the only way to act was
+          to scroll back a third of the page to the hero button. No sticky bar
+          here: StickyBestCTA needs a corridor's quote data (receive amount,
+          currencies) and a provider page has none — inventing a corridor to
+          satisfy it would put a number on screen we did not measure for this
+          reader. */}
+      <Container className="pb-4">
+        <div className="rounded-2xl border border-[var(--color-success-dark)] bg-[var(--color-success-surface)] px-5 py-6 sm:px-8 sm:py-7 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+          <div className="flex-1 min-w-0">
+            <p className="text-md sm:text-lg font-semibold text-[var(--color-on-surface)]">
+              Ready to send with {provider.name}?
+            </p>
+            <p className="text-2sm text-[var(--color-on-surface-variant)] mt-1">
+              Rates move between providers and between days. Check your own corridor and amount before you commit.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <ProviderLink
+              href={getGoUrl(provider.slug)}
+              provider={provider.slug}
+              source="company_review_footer"
+              className="inline-flex items-center justify-center h-12 sm:h-11 px-6 rounded-full bg-[var(--color-success-dark)] text-white text-sm font-semibold hover:opacity-90 transition-colors whitespace-nowrap"
+            >
+              Send with {provider.name}
+            </ProviderLink>
+            <Link
+              href="/send-money"
+              className="inline-flex items-center justify-center h-12 sm:h-11 px-6 rounded-full border border-[var(--color-outline)] text-sm font-medium text-[var(--color-on-surface)] hover:bg-[var(--color-surface)] transition-colors whitespace-nowrap"
+            >
+              Compare first
+            </Link>
           </div>
         </div>
       </Container>
