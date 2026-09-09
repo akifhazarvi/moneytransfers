@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Keep body text and font-sans components on the same loaded font. */
+@theme inline {
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+}
+
 /* ─── Extended type scale — fills gaps in Tailwind's default ─── */
 @theme {
   --text-2xs: 0.6875rem;   /* 11px — fine print, badges, micro labels */
@@ -279,14 +284,15 @@ body {
 
 /* ─── Type system ─── */
 /* One consistent voice site-wide: confident serif display, restrained weights,
-   tightened tracking on large sizes. Components opt into the serif via
-   .font-display; default headings get tight, well-tracked sans. */
+   tightened tracking on large sizes. Page titles use Instrument Serif;
+   section headings opt in with .font-display. Compact UI headings stay sans. */
 h1, h2, h3, h4 {
   letter-spacing: -0.02em;
   line-height: 1.12;
   text-wrap: balance;        /* avoid orphan words in headings */
 }
 h1 { letter-spacing: -0.028em; }
+h1,
 .font-display {
   font-family: var(--font-display);
   font-weight: 400;          /* the serif carries weight through its forms, not boldness */
@@ -567,9 +573,10 @@ h1 { letter-spacing: -0.028em; }
 }
 
 .prose-content h2 {
+  font-family: var(--font-display);
   font-size: 1.75rem;            /* 28px */
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--color-on-surface);
   margin-top: 3rem;
@@ -943,11 +950,6 @@ tbody tr:first-child .smc-send:focus-visible { opacity: 0.9; }
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-}
-
-/* ─── Display font utilities ─── */
-.font-display {
-  font-family: var(--font-display);
 }
 
 /* ─── Verdict banner ─── */

@@ -327,7 +327,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section id="how-it-works" className="py-6 sm:py-14 bg-[var(--color-surface-dim)]">
         <Container>
           <div className="text-center mb-4 sm:mb-10">
-            <h2 className="text-lg sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-lg sm:text-2xl md:text-h2 font-display text-[var(--color-on-surface)]">
               {tHow("title")}
             </h2>
             <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
@@ -371,7 +371,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section id="providers" className="py-8 sm:py-14">
         <Container>
           <div className="text-center mb-6 sm:mb-10">
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)]">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-display text-[var(--color-on-surface)]">
               {tBest("title")}
             </h2>
             <p className="text-sm sm:text-md text-[var(--color-on-surface-variant)] mt-1.5 sm:mt-3 max-w-xl mx-auto">
@@ -545,7 +545,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="py-8 sm:py-12 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="text-center mb-6 max-w-2xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-on-surface)] tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-display text-[var(--color-on-surface)] tracking-tight">
               From our data
             </h2>
             <p className="mt-1 text-sm text-[var(--color-on-surface-variant)]">
@@ -577,7 +577,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section id="faq" className="py-8 sm:py-14 bg-[var(--color-surface)] border-t border-[var(--color-outline)]">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-h2 font-bold text-[var(--color-on-surface)] text-center mb-6 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-h2 font-display text-[var(--color-on-surface)] text-center mb-6 sm:mb-10">
               {tFaq("title")}
             </h2>
             <div className="divide-y divide-[var(--color-outline)]">
