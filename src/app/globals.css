@@ -733,6 +733,21 @@ h1 { letter-spacing: -0.028em; }
 }
 
 /* ─── Blog answer/callout boxes (dark mode safe, premium feel) ─── */
+/* Compact Send, for a provider name cell inside an authored comparison table.
+   Smaller than the standalone .smc-send because it sits beside the provider
+   name in a dense table rather than owning its own column. Still 44px on
+   touch — the height is what the tap-target rule cares about. */
+.smc-send-sm {
+  min-height: 44px;
+  padding: 0 0.6rem;
+  font-size: 0.6875rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+@media (max-width: 640px) {
+  .smc-send-sm { display: inline-flex; margin-top: 0.25rem; margin-left: 0; }
+}
+
 /* Featured provider block.
    A visual highlight earned on the data, not sold: the provider it marks is
    second of 66 in the consistency index, leads 40 of 216 comparable corridors,
