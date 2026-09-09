@@ -733,6 +733,46 @@ h1 { letter-spacing: -0.028em; }
 }
 
 /* ─── Blog answer/callout boxes (dark mode safe, premium feel) ─── */
+/* Featured provider block.
+   A visual highlight earned on the data, not sold: the provider it marks is
+   second of 66 in the consistency index, leads 40 of 216 comparable corridors,
+   and has the widest measured footprint on the site at 819 corridors. The badge
+   states the reason so a reader can check the claim rather than take the styling
+   as authority — which is also what keeps it compatible with the editorial
+   promise that payouts play no part in ordering. */
+.smc-featured {
+  position: relative;
+  border: 1.5px solid var(--color-success-dark);
+  border-radius: 1rem;
+  background: var(--color-success-surface);
+  padding: 1.5rem 1.25rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.smc-featured::before {
+  content: attr(data-badge);
+  position: absolute;
+  top: 0;
+  left: 1.25rem;
+  transform: translateY(-50%);
+  background: var(--color-success-dark);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+.smc-featured > p:last-child { margin-bottom: 0; }
+.smc-featured .smc-send {
+  background: var(--color-success-dark);
+  color: #fff;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+.smc-featured .smc-send:hover { opacity: 0.92; }
+
 /* Send button inside a rendered comparison table.
    Emitted by {{QUOTE_TABLE}} / {{BUSINESS_QUOTE_TABLE}} as a plain <a>, because
    that content passes through sanitizeHtml and cannot carry a React component.
