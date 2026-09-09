@@ -16,6 +16,7 @@ import { getMidMarketRate, quoteDataDate, providerNames } from "@/lib/unified-qu
 import { providers, type TransferQuote } from "@/data/providers";
 import { sendCurrencies, currencies } from "@/data/transfer-currencies";
 import { companyPageRenders } from "@/lib/route-map";
+import { getGoUrl } from "@/lib/affiliate";
 import { MEASURED_MARKUPS, REMITTANCE_INDEX } from "@/lib/remittance-cost-index";
 import { CONSISTENCY_ROWS, CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import ibanStructures from "@/data/scraped/iban-structures.json";
@@ -312,6 +313,21 @@ function totalCost(q: TransferQuote, from: string, to: string, amount: number): 
 function providerName(slug: string): string {
   return providers.find((p) => p.slug === slug)?.name ?? providerNames[slug] ?? slug;
 }
+/**
+ * Affiliate href for a table row, tagged with the corridor and amount so the
+ * /go route can attribute the click. `src` marks it as a guide-table click,
+ * which is what distinguishes it from a corridor-page or sticky-bar click in
+ * the provider report.
+ */
+function goHref(slug: string, from: string, to: string, amount: number): string {
+  return getGoUrl(slug, {
+    sourceCurrency: from,
+    targetCurrency: to,
+    sourceAmount: amount,
+    clickref: "guide_table",
+  });
+}
+
 function providerLink(slug: string): string {
   const name = providerName(slug);
   return companyPageRenders(slug) ? `<a href="/companies/${slug}">${name}</a>` : name;
@@ -475,16 +491,27 @@ function renderQuoteTokens(html: string): string {
       if (rows.length < 3) return match;
       const shown = limit ? rows.slice(0, Number(limit)) : rows;
       const medal = ["\u{1F947}", "\u{1F948}", "\u{1F949}"];
-      return shown
+      const body = shown
         .map((q, i) => {
           const name = providerLink(q.providerSlug);
           const label = i < 3 ? `${medal[i]} <strong>${name}</strong>` : name;
           const got = fmtMoney(to, q.receiveAmount);
+          // Every row is actionable. The table used to render the provider name
+          // as a link to our own /companies review and nothing else, so a reader
+          // comparing twenty providers in a guide had no way to act on any of
+          // them — the same defect the corridor table had. The name still links
+          // to the review (research intent, and those pages need the internal
+          // link); the action sits at the row end.
+          const send = `<a href="${goHref(q.providerSlug, from, to, Number(amt))}" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send">Send</a>`;
           return `<tr><td>${label}</td><td>${fmtMoney(from, q.fee)}</td><td>${fmtRate(
             q.exchangeRate,
-          )}</td><td>${i === 0 ? `<strong>${got}</strong>` : got}</td></tr>`;
+          )}</td><td>${i === 0 ? `<strong>${got}</strong>` : got}</td><td>${send}</td></tr>`;
         })
         .join("\n");
+      // Self-contained: emits its own <table>. It previously returned bare <tr>
+      // rows and relied on each caller supplying the wrapper, which three
+      // callers did not — the rows rendered as loose text with no table at all.
+      return `<div class="overflow-x-auto"><table><thead><tr><th>Provider</th><th>Fee</th><th>Rate</th><th>They receive</th><th><span class="sr-only">Send</span></th></tr></thead><tbody>${body}</tbody></table></div>`;
     },
   );
 
@@ -606,10 +633,11 @@ export function renderDataTokens(html: string): string {
         .map((q, i) => {
           const label = providerLink(q.providerSlug);
           const medal = i === 0 ? "🥇 " : i === 1 ? "🥈 " : i === 2 ? "🥉 " : "";
-          return `<tr><td>${medal}<strong>${label}</strong></td><td>${fmtMoney(from, q.fee)}</td><td>${fmtRate(q.exchangeRate)}</td><td>${i === 0 ? "<strong>" : ""}${fmtMoney(to, q.receiveAmount, 0)}${i === 0 ? "</strong>" : ""}</td></tr>`;
+          const send = `<a href="${goHref(q.providerSlug, from, to, Number(amt))}" target="_blank" rel="noopener noreferrer nofollow sponsored" class="smc-send">Send</a>`;
+          return `<tr><td>${medal}<strong>${label}</strong></td><td>${fmtMoney(from, q.fee)}</td><td>${fmtRate(q.exchangeRate)}</td><td>${i === 0 ? "<strong>" : ""}${fmtMoney(to, q.receiveAmount, 0)}${i === 0 ? "</strong>" : ""}</td><td>${send}</td></tr>`;
         })
         .join("");
-      return `<div class="overflow-x-auto"><table><thead><tr><th>Provider</th><th>Fee</th><th>Rate</th><th>They receive</th></tr></thead><tbody>${body}</tbody></table></div>`;
+      return `<div class="overflow-x-auto"><table><thead><tr><th>Provider</th><th>Fee</th><th>Rate</th><th>They receive</th><th><span class="sr-only">Send</span></th></tr></thead><tbody>${body}</tbody></table></div>`;
     },
   );
 

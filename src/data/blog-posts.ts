@@ -3212,41 +3212,20 @@ const rawBlogPosts: BlogPost[] = [
       {
         heading: "USD → INR: The Most Popular Corridor",
         content: `<p>The USA-to-India corridor is one of the world's busiest remittance routes. Here's what $1,000 actually gets you today:</p>
-<table>
-<thead>
-<tr><th>Provider</th><th>Fee</th><th>Exchange Rate</th><th>Recipient Gets (₹)</th></tr>
-</thead>
-<tbody>
 {{QUOTE_TABLE:USD:INR:1000}}
-</tbody>
-</table>
 <p><strong>Mid-market rate:</strong> {{MID_RATE:USD:INR}} INR per USD (the "real" rate you see on Google), as of {{QUOTE_DATE}}</p>
 <p><strong>Key takeaway:</strong> The gap between {{BEST_PROVIDER:USD:INR:1000}} at the top and {{WORST_PROVIDER:USD:INR:1000}} at the bottom is <strong>{{SPREAD:USD:INR:1000}}</strong> — lost on a single transfer just by choosing the wrong provider. A bank wire is worse still: wire fees of $25–$60 sit on top of the rate you see here. For more on this corridor, see our dedicated <a href="/send-money/usa-to-india">USA to India transfer guide</a>.</p>`,
       },
       {
         heading: "GBP → EUR: Europe's Busiest Corridor",
         content: `<p>Sending £1,000 from the UK to Europe? Here's what your recipient actually receives:</p>
-<table>
-<thead>
-<tr><th>Provider</th><th>Fee</th><th>Exchange Rate</th><th>Recipient Gets (€)</th></tr>
-</thead>
-<tbody>
 {{QUOTE_TABLE:GBP:EUR:1000}}
-</tbody>
-</table>
 <p><strong>Key takeaway:</strong> The specialists cluster tightly at the top of this route, so the choice that matters is avoiding the bottom of the table rather than picking between the leaders. UK high-street banks advertise "no fees" and still land below them, because the cost is in the rate: the full spread from {{BEST_PROVIDER:GBP:EUR:1000}} down to {{WORST_PROVIDER:GBP:EUR:1000}} is <strong>{{SPREAD:GBP:EUR:1000}}</strong> on £1,000.</p>`,
       },
       {
         heading: "USD → PHP: A Key Remittance Route",
         content: `<p>The Philippines is one of the top remittance-receiving countries globally. Here's what $1,000 gets you:</p>
-<table>
-<thead>
-<tr><th>Provider</th><th>Fee</th><th>Exchange Rate</th><th>Recipient Gets (₱)</th></tr>
-</thead>
-<tbody>
 {{QUOTE_TABLE:USD:PHP:1000}}
-</tbody>
-</table>
 <p><strong>Key takeaway:</strong> {{BEST_PROVIDER:USD:PHP:1000}} leads this corridor with <strong>{{BEST_RECEIVE:USD:PHP:1000}}</strong> — {{SPREAD:USD:PHP:1000}} more than {{WORST_PROVIDER:USD:PHP:1000}} at the bottom. Zero or near-zero fees combined with a rate close to mid-market is what wins here. For more detail on this route, see our <a href="/send-money/usa-to-philippines">USA to Philippines corridor page</a>.</p>`,
       },
       {

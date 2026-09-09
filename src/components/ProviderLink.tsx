@@ -39,6 +39,7 @@ export default function ProviderLink({
       // rel="sponsored" is the attribute Google asks for on paid links. The
       // nofollow stays as the backstop for engines that ignore sponsored.
       rel="noopener noreferrer nofollow sponsored"
+      data-pc="1"
       onClick={() => trackProviderClicked(provider, corridor, rank, source)}
       className={className}
     >

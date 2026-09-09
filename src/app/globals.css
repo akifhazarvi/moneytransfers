@@ -733,6 +733,42 @@ h1 { letter-spacing: -0.028em; }
 }
 
 /* ─── Blog answer/callout boxes (dark mode safe, premium feel) ─── */
+/* Send button inside a rendered comparison table.
+   Emitted by {{QUOTE_TABLE}} / {{BUSINESS_QUOTE_TABLE}} as a plain <a>, because
+   that content passes through sanitizeHtml and cannot carry a React component.
+   Styled here so every table row is actionable and the action reads as an
+   action — one reserved colour for "this sends money", 44px minimum touch
+   target, matching the corridor table. */
+.smc-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-success-dark);
+  color: var(--color-success-dark);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.smc-send:hover,
+.smc-send:focus-visible {
+  background: var(--color-success-dark);
+  color: #fff;
+  text-decoration: none;
+}
+/* The top row is the recommendation, so it is filled rather than outlined. */
+tbody tr:first-child .smc-send {
+  background: var(--color-success-dark);
+  color: #fff;
+}
+tbody tr:first-child .smc-send:hover,
+tbody tr:first-child .smc-send:focus-visible { opacity: 0.9; }
+
 .blog-answer-box {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 0.9375rem;
