@@ -117,7 +117,9 @@ export default function GuidePageNudge({ from, to, amount, slug }: Props) {
 
   return (
     <div
+      data-guide-transfer-prompt=""
       aria-hidden={!visible}
+      inert={!visible}
       className={`fixed bottom-0 left-0 right-0 z-40 transition-transform duration-300 ease-out ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}

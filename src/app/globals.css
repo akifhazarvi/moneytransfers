@@ -972,7 +972,15 @@ tbody tr:first-child .smc-send:focus-visible { opacity: 0.9; }
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-wa-rise { animation: wa-rise 0.35s ease-out both; }
+
+/* Give the transfer offer the mobile reading space. This follows its actual
+   visibility and clears automatically on dismissal or page navigation. */
+@media (width < 640px) {
+  body:has([data-guide-transfer-prompt][aria-hidden="false"]) [data-whatsapp-floating-prompt] {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-wa-rise { animation: none; }
 }
-

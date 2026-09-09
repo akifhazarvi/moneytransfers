@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { trackWhatsappDismiss, trackWhatsappImpression } from "@/lib/analytics";
 import { WhatsAppGlyph } from "./WhatsAppMark";
 import WhatsAppFollowLink from "./WhatsAppFollowLink";
@@ -47,6 +47,8 @@ function suppressFor(days: number) {
 
 export default function WhatsAppChannelButton() {
   const [state, setState] = useState<"hidden" | "shown">("hidden");
+  const pillRef = useRef<HTMLDivElement>(null);
+  const impressionTracked = useRef(false);
 
   useEffect(() => {
     if (Date.now() < suppressedUntil()) return;
@@ -59,7 +61,6 @@ export default function WhatsAppChannelButton() {
       done = true;
       window.removeEventListener("scroll", onScroll);
       setState("shown");
-      trackWhatsappImpression("float_pill");
     };
     const onScroll = () => {
       if (window.scrollY > 300) reveal();
@@ -73,10 +74,28 @@ export default function WhatsAppChannelButton() {
     };
   }, []);
 
+  useEffect(() => {
+    if (state !== "shown" || !pillRef.current || impressionTracked.current) return;
+
+    // A guide's transfer offer takes priority on mobile. Count the WhatsApp
+    // impression only when its pill is actually visible, including after the
+    // reader dismisses that offer or moves to another page.
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.5)) return;
+      impressionTracked.current = true;
+      trackWhatsappImpression("float_pill");
+      observer.disconnect();
+    }, { threshold: 0.5 });
+    observer.observe(pillRef.current);
+    return () => observer.disconnect();
+  }, [state]);
+
   if (state === "hidden") return null;
 
   return (
     <div
+      ref={pillRef}
+      data-whatsapp-floating-prompt=""
       // Must clear all three other bottom-fixed elements. Mobile: bottom-32 sits
       // above StickyBestCTA and left of MobileScrollNav's bottom-right pill.
       // Desktop: StickyBestCTA's card runs to right-6, so bottom-6 put this pill
