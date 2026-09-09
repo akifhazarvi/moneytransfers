@@ -17,6 +17,8 @@ import { getAlternates } from "@/lib/i18n-metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { DEFAULT_GEO_CONFIG } from "@/data/geo-corridors";
 import { COVERAGE } from "@/lib/site-stats";
+import ProviderLink from "@/components/ProviderLink";
+import { getGoUrl } from "@/lib/affiliate";
 import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
 
 /**
@@ -29,6 +31,7 @@ import { CONSISTENCY_INDEX, CONSISTENCY_ROWS } from "@/lib/consistency-index";
  * scrape that reorders the table degrades the sentence instead of falsifying
  * it.
  */
+const taptapLed = CONSISTENCY_ROWS.find((r) => r.providerSlug === "taptap-send")?.corridorsLed ?? 0;
 const wiseRow = CONSISTENCY_ROWS.find((r) => r.providerSlug === "wise");
 const wiseLeadClaim = wiseRow
   ? `Cheapest on ${wiseRow.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare${
@@ -448,31 +451,49 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 // corridors — the most of any provider, but a fifth of them, with Ria
                 // and TapTap Send close behind. Derived from the consistency index so
                 // the claim tracks the measurement instead of drifting from it.
-                { badge: "Best Rate", provider: "Wise", reason: `Uses the real mid-market rate with fees from 0.41%. ${wiseLeadClaim}`, href: "/companies/wise", color: "var(--color-primary)" },
-                { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes on major corridors, across a 175+ country network. Guaranteed delivery times with a money-back promise.", href: "/companies/remitly", color: "var(--color-success)" },
-                { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", href: "/companies/western-union", color: "var(--color-warning)" },
-                { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", href: "/companies/ofx", color: "var(--color-primary)" },
-                { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", href: "/companies/revolut", color: "var(--color-success)" },
-                { badge: "Most Reliable", provider: "MoneyGram", reason: "Global presence in 200+ countries with cash, bank, and mobile wallet delivery. Trusted by millions since 1940.", href: "/companies/moneygram", color: "var(--color-warning)" },
+                { badge: "Best Rate", provider: "Wise", reason: `Uses the real mid-market rate with fees from 0.41%. ${wiseLeadClaim}`, slug: "wise", href: "/companies/wise", color: "var(--color-primary)" },
+                { badge: "Fastest", provider: "Remitly", reason: "Express transfers arrive in minutes on major corridors, across a 175+ country network. Guaranteed delivery times with a money-back promise.", slug: "remitly", href: "/companies/remitly", color: "var(--color-success)" },
+                { badge: "Cash Pickup", provider: "Western Union", reason: "350,000+ agent locations worldwide. Best option when your recipient doesn't have a bank account.", slug: "western-union", href: "/companies/western-union", color: "var(--color-warning)" },
+                { badge: "Large Transfers", provider: "OFX", reason: "Zero transfer fees on all amounts. Dedicated dealer support and competitive rates for transfers over $10,000.", slug: "ofx", href: "/companies/ofx", color: "var(--color-primary)" },
+                { badge: "Multi-Currency", provider: "Revolut", reason: "Hold, convert and send in 30+ currencies at the interbank rate. Ideal for frequent international senders.", slug: "revolut", href: "/companies/revolut", color: "var(--color-success)" },
+                // MoneyGram held this slot on "trusted since 1940" while leading 0 of the 216
+                // comparable corridors. TapTap leads 40 — second only to Wise — and quotes 152,
+                // the widest footprint we measure. Swapped on the data, same as the guide.
+                { badge: "Widest Coverage", provider: "TapTap Send", reason: `Cheapest on ${taptapLed} corridors — second only to Wise — across the widest footprint we measure. Free above $250, and 95% arrive in under 3 minutes.`, slug: "taptap-send", href: "/companies/taptap-send", color: "var(--color-success)" },
               ].map((item) => (
-                <Link
+                // A card, not a single <Link>: the homepage carried ZERO affiliate
+                // links, so every one of these sent a ready-to-send visitor to a
+                // review instead. The name still opens the review — top of funnel is
+                // where research belongs — and the action sits beside it. An <a>
+                // cannot nest inside a <Link>, hence the wrapper is a div.
+                <div
                   key={item.provider}
-                  href={item.href}
-                  className="group block p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-0.5 transition-all"
+                  className="group flex flex-col p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-0.5 transition-all"
                 >
                   <span
-                    className="inline-block text-[10px] sm:text-2xs font-semibold uppercase tracking-wide px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mb-2 sm:mb-3"
+                    className="inline-block self-start text-[10px] sm:text-2xs font-semibold uppercase tracking-wide px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mb-2 sm:mb-3"
                     style={{ background: `color-mix(in srgb, ${item.color} 12%, transparent)`, color: item.color }}
                   >
                     {item.badge}
                   </span>
-                  <h4 className="text-sm sm:text-base font-semibold text-[var(--color-on-surface)] mb-1 sm:mb-1.5 group-hover:text-[var(--color-primary)]">
+                  <Link
+                    href={item.href}
+                    className="text-sm sm:text-base font-semibold text-[var(--color-on-surface)] mb-1 sm:mb-1.5 hover:text-[var(--color-primary)]"
+                  >
                     {item.provider}
-                  </h4>
+                  </Link>
                   <p className="text-2xs sm:text-2sm text-[var(--color-on-surface-variant)] leading-relaxed line-clamp-2 sm:line-clamp-none">
                     {item.reason}
                   </p>
-                </Link>
+                  <ProviderLink
+                    href={getGoUrl(item.slug)}
+                    provider={item.slug}
+                    source="home_best_by_need"
+                    className="mt-3 inline-flex items-center justify-center self-start h-11 px-4 rounded-full border border-[var(--color-success-dark)] text-[var(--color-success-dark)] text-2sm font-semibold hover:bg-[var(--color-success-surface)] transition-colors"
+                  >
+                    Send with {item.provider}
+                  </ProviderLink>
+                </div>
               ))}
             </div>
           </div>
