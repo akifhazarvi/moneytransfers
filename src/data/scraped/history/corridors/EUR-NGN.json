@@ -13608,10 +13608,10 @@
     "date": "2026-09-09",
     "providers": {
       "lemfi": {
-        "rate": 1586,
+        "rate": 1587,
         "fee": 0,
-        "markup": -3,
-        "receiveAmount": 158600
+        "markup": -3.12,
+        "receiveAmount": 158700
       },
       "moneygram": {
         "rate": 1563.1446,
@@ -13620,16 +13620,16 @@
         "receiveAmount": 154766.95
       },
       "taptap-send": {
-        "rate": 1585,
+        "rate": 1586,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 158500
+        "receiveAmount": 158600
       },
       "western-union": {
-        "rate": 1577.2218,
+        "rate": 1573.6949,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 156160.73
+        "receiveAmount": 155811.54
       },
       "dahabshiil": {
         "rate": 1605.9918,
@@ -13650,10 +13650,10 @@
         "receiveAmount": 156791.84
       },
       "instarem": {
-        "rate": 1528.3741,
+        "rate": 1524.0541,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 152837.41
+        "receiveAmount": 152405.41
       },
       "paysend": {
         "rate": 1585.4803,
@@ -13680,10 +13680,10 @@
         "receiveAmount": 156230.65
       },
       "wise": {
-        "rate": 1594.32,
+        "rate": 1593.7,
         "fee": 1.72,
         "markup": null,
-        "receiveAmount": 156689.77
+        "receiveAmount": 156628.84
       }
     }
   }

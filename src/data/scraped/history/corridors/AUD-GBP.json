@@ -11820,10 +11820,10 @@
     "date": "2026-09-09",
     "providers": {
       "lemfi": {
-        "rate": 0.5294,
+        "rate": 0.5296,
         "fee": 0,
-        "markup": 0.68,
-        "receiveAmount": 52.94
+        "markup": 0.57,
+        "receiveAmount": 52.96
       },
       "taptap-send": {
         "rate": 0.531,
@@ -11832,64 +11832,64 @@
         "receiveAmount": 53.1
       },
       "remitly": {
-        "rate": 0.5311,
+        "rate": 0.5309,
         "fee": 0.89,
         "markup": null,
-        "receiveAmount": 52.64
+        "receiveAmount": 52.62
       },
       "nab": {
-        "rate": 0.5191,
+        "rate": 0.519,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.91
+        "receiveAmount": 51.9
       },
       "hsbc": {
-        "rate": 0.5203,
+        "rate": 0.52,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 52.03
+        "receiveAmount": 52
       },
       "paypal": {
-        "rate": 0.5102,
+        "rate": 0.51,
         "fee": 5,
         "markup": null,
-        "receiveAmount": 48.47
+        "receiveAmount": 48.45
       },
       "worldremit": {
-        "rate": 0.5329,
+        "rate": 0.5327,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 52.23
+        "receiveAmount": 52.21
       },
       "commonwealth-bank": {
-        "rate": 0.5145,
+        "rate": 0.5139,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.45
+        "receiveAmount": 51.39
       },
       "westpac": {
-        "rate": 0.513,
+        "rate": 0.5127,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.3
+        "receiveAmount": 51.27
       },
       "western-union": {
-        "rate": 0.5232,
+        "rate": 0.5233,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 51.8
+        "receiveAmount": 51.82
       },
       "anz": {
-        "rate": 0.5146,
+        "rate": 0.5143,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.46
+        "receiveAmount": 51.43
       },
       "instarem": {
-        "rate": 0.5326,
+        "rate": 0.5321,
         "fee": 0.5,
         "markup": null,
-        "receiveAmount": 52.99
+        "receiveAmount": 52.94
       }
     }
   }

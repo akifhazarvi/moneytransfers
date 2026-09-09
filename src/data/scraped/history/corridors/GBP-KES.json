@@ -11468,7 +11468,7 @@
       "lemfi": {
         "rate": 173.5,
         "fee": 0,
-        "markup": 1,
+        "markup": 1.08,
         "receiveAmount": 17350
       },
       "ria": {
@@ -11484,46 +11484,46 @@
         "receiveAmount": 17400
       },
       "natwest": {
-        "rate": 170.7351,
+        "rate": 170.8335,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17073.51
+        "receiveAmount": 17083.35
       },
       "hsbc": {
-        "rate": 170.2893,
+        "rate": 170.3874,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17028.93
+        "receiveAmount": 17038.74
       },
       "skrill": {
-        "rate": 166.9737,
+        "rate": 166.775,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 16697.37
+        "receiveAmount": 16677.5
       },
       "western-union": {
-        "rate": 170.353,
+        "rate": 170.2625,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 16696.29
+        "receiveAmount": 16687.43
       },
       "rbs": {
-        "rate": 170.7351,
+        "rate": 170.8335,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17073.51
+        "receiveAmount": 17083.35
       },
       "instarem": {
-        "rate": 174.1246,
+        "rate": 174.2122,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17412.46
+        "receiveAmount": 17421.22
       },
       "barclays": {
-        "rate": 170.6209,
+        "rate": 170.7192,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 17062.09
+        "receiveAmount": 17071.92
       }
     }
   }

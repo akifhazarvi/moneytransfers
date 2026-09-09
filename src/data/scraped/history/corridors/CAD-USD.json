@@ -11095,10 +11095,10 @@
     "date": "2026-09-09",
     "providers": {
       "lemfi": {
-        "rate": 0.7215,
+        "rate": 0.72,
         "fee": 0,
-        "markup": 0.57,
-        "receiveAmount": 72.15
+        "markup": 0.58,
+        "receiveAmount": 72
       },
       "taptap-send": {
         "rate": 0.69,
@@ -11107,58 +11107,58 @@
         "receiveAmount": 69
       },
       "western-union": {
-        "rate": 0.7063,
+        "rate": 0.7056,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 68.52
+        "receiveAmount": 68.45
       },
       "bmo": {
-        "rate": 0.7008,
+        "rate": 0.6994,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 70.08
+        "receiveAmount": 69.94
       },
       "worldremit": {
-        "rate": 0.7112,
+        "rate": 0.7098,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 68.28
+        "receiveAmount": 68.15
       },
       "instarem": {
-        "rate": 0.7221,
+        "rate": 0.7199,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 72.21
+        "receiveAmount": 71.99
       },
       "remitly": {
-        "rate": 0.7197,
+        "rate": 0.7173,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 71.97
+        "receiveAmount": 71.73
       },
       "bnc": {
         "rate": 0.7069,
         "fee": 5.95,
         "markup": null,
-        "receiveAmount": 66.48
+        "receiveAmount": 66.49
       },
       "rbc": {
-        "rate": 0.7096,
+        "rate": 0.7083,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 70.96
+        "receiveAmount": 70.83
       },
       "td-bank": {
-        "rate": 0.706,
+        "rate": 0.7041,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 70.6
+        "receiveAmount": 70.41
       },
       "paypal": {
-        "rate": 0.6944,
+        "rate": 0.6937,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 67.37
+        "receiveAmount": 67.3
       }
     }
   }
