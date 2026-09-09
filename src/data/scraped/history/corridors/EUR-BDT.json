@@ -12529,10 +12529,10 @@
         "receiveAmount": 14054.47
       },
       "ria": {
-        "rate": 141.99,
+        "rate": 142.06,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14199
+        "receiveAmount": 14206
       },
       "taptap-send": {
         "rate": 142.395,
@@ -12563,6 +12563,48 @@
         "fee": 3.43,
         "markup": null,
         "receiveAmount": 13804.2
+      },
+      "moneygram": {
+        "rate": 139.9034,
+        "fee": 1.99,
+        "markup": 2.15,
+        "receiveAmount": 13711.93
+      },
+      "dahabshiil": {
+        "rate": 140.8104,
+        "fee": 1.99,
+        "markup": 1.52,
+        "receiveAmount": 13800.83
+      },
+      "worldremit": {
+        "rate": 142.4539,
+        "fee": 3.99,
+        "markup": 0.37,
+        "receiveAmount": 13677
+      },
+      "xe": {
+        "rate": 141.711,
+        "fee": 4,
+        "markup": 0.89,
+        "receiveAmount": 13604.26
+      },
+      "paysend": {
+        "rate": 142.6282,
+        "fee": 0,
+        "markup": 0.25,
+        "receiveAmount": 14262.82
+      },
+      "sendwave": {
+        "rate": 142.3395,
+        "fee": 0.99,
+        "markup": 0.45,
+        "receiveAmount": 14093.03
+      },
+      "revolut": {
+        "rate": 142.6284,
+        "fee": 2.3,
+        "markup": 0.25,
+        "receiveAmount": 13934.79
       }
     }
   }
