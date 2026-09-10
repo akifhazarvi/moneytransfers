@@ -21,8 +21,10 @@
  * engine can decline to show a number it cannot stand behind.
  */
 import { quotesByCorridor, type NormalizedQuote } from "@/lib/unified-quotes";
+import { oldestCollection } from "@/lib/quote-freshness";
 
 export interface PricePoint {
+  dateCollected?: string;
   amount: number;
   fee: number;
   markup: number; // percentage
@@ -80,6 +82,7 @@ export function buildPricePoints(quotes: NormalizedQuote[]): Map<string, PricePo
         fee: q.fee,
         markup: q.markup,
         sourcePriority: q.sourcePriority,
+        dateCollected: q.dateCollected,
         deliveryEstimate: q.deliveryEstimate,
         ...(q.promoNote ? { promoNote: q.promoNote } : {}),
       });
@@ -138,6 +141,8 @@ export function feeModelFor(providerSlug: string): FeeModel {
 }
 
 export interface PriceEstimate {
+  /** Oldest observation used to calculate this estimate. */
+  dateCollected?: string;
   fee: number;
   markup: number;
   confidence: Confidence;
@@ -166,6 +171,7 @@ export function estimatePricing(
     Math.abs(p.amount - target) < Math.abs(best.amount - target) ? p : best,
   );
   const base = {
+    dateCollected: oldestCollection(nearest.dateCollected),
     deliveryEstimate: nearest.deliveryEstimate,
     anchorAmount: nearest.amount,
     ...(nearest.promoNote ? { promoNote: nearest.promoNote } : {}),
@@ -197,6 +203,7 @@ export function estimatePricing(
       fee: clampFee(left.fee + (right.fee - left.fee) * t, target),
       markup: left.markup + (right.markup - left.markup) * t,
       confidence: "interpolated",
+      dateCollected: oldestCollection(left.dateCollected, right.dateCollected),
     };
   }
 
@@ -217,7 +224,7 @@ export function estimatePricing(
     const run = b.amount - a.amount;
     const slope = run > 0 ? (b.fee - a.fee) / run : 0;
     const projected = edge.fee + slope * (target - edge.amount);
-    return { ...base, fee: clampFee(projected, target), markup, confidence: "extrapolated" };
+    return { ...base, dateCollected: oldestCollection(a.dateCollected, b.dateCollected), fee: clampFee(projected, target), markup, confidence: "extrapolated" };
   }
 
   // Single observation: fall back to the provider's cross-corridor fee model,

@@ -51,6 +51,7 @@ export interface NormalizedQuote {
   deliveryEstimate: string | null;
   source: string;
   sourcePriority: number; // lower = better (1=direct, 2=monito, 3=wise)
+  dateCollected?: string;
   /** Short promo note (e.g. a better first-transfer rate) to surface on the
    * card. The comparison rate stays the standard rate; this only informs. */
   promoNote?: string;
@@ -241,6 +242,7 @@ function normalizeQuote(
       null,
     source: (raw.source as string) || defaultSource,
     sourcePriority,
+    dateCollected: typeof raw.dateCollected === "string" ? raw.dateCollected : undefined,
     ...(promoNote ? { promoNote } : {}),
   };
 }

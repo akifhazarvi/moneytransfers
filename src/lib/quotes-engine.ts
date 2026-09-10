@@ -137,6 +137,7 @@ export function generateQuotes(
       const ratingLabel = toRatingLabel(rating);
 
       quotes.push({
+        dateCollected: estimate.dateCollected,
         providerSlug: sq.providerSlug,
         sendAmount: amount,
         sendCurrency: fromCurrency,

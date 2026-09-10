@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getDataUpdatedISO, getDataUpdatedInstant } from "@/lib/data-freshness";
+import { quoteFreshness } from "@/lib/quote-freshness";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -1956,13 +1957,19 @@ export default async function CorridorPage({ params }: Props) {
     : `Compare the best ways to send money from ${corridor.fromCountry} to ${corridor.toCountry} (${fromCurrency} to ${toCurrency}).`;
   const dataUpdatedDate = getDataFreshnessDate();
   const dataUpdatedISO = getDataUpdatedISO();
+  // Freshness of THIS corridor's own observations. getDataUpdatedISO() is the
+  // newest scrape anywhere on the site, so a corridor last priced on Monday
+  // inherited Wednesday's stamp and read as current. The gap is ~1 day today,
+  // not the months an outside audit claimed, but the stamp should still be
+  // answerable from the rows on the page rather than from unrelated routes.
+  const freshness = quoteFreshness(quotes);
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: pageTitle,
     description: pageDescription,
     url: `https://sendmoneycompare.com/send-money/${slug}`,
-    dateModified: dataUpdatedDate,
+    dateModified: (freshness.latest ?? dataUpdatedISO).slice(0, 10),
     isPartOf: { "@type": "WebSite", "@id": "https://sendmoneycompare.com/#website" },
     about: [
       { "@type": "Thing", name: "International Money Transfer" },
@@ -1997,7 +2004,7 @@ export default async function CorridorPage({ params }: Props) {
         quotes={quotes}
         // The visible stamp needs the real scrape instant: dataUpdatedISO is
         // truncated to midnight, which rendered a literal "00:00 UTC".
-        dataUpdatedISO={getDataUpdatedInstant()}
+        dataUpdatedISO={freshness.latest ?? getDataUpdatedInstant()}
         isCountryPage={isCountryPage}
         headingPrefix={headingPrefix}
         headingSuffix={headingSuffix}
@@ -2027,7 +2034,7 @@ export default async function CorridorPage({ params }: Props) {
                   belongs here only once the corridor data records a real
                   editoriallyReviewedAt. */}
               <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
-                Quotes updated: <time dateTime={dataUpdatedDate}>{formatLocalDate(dataUpdatedDate)}</time> — collected automatically from provider APIs every {SITE_STATS.refreshHours} hours. <Link href="/methodology" className="hover:underline">How we collect and rank quotes</Link>.
+                Quotes updated: <time dateTime={freshness.latest ?? dataUpdatedDate}>{formatLocalDate((freshness.latest ?? dataUpdatedDate).slice(0, 10))}</time>{freshness.oldest && freshness.latest && freshness.oldest.slice(0, 10) !== freshness.latest.slice(0, 10) ? <> (oldest quote on this corridor: <time dateTime={freshness.oldest}>{formatLocalDate(freshness.oldest.slice(0, 10))}</time>)</> : null} — collected automatically from provider APIs every {SITE_STATS.refreshHours} hours. <Link href="/methodology" className="hover:underline">How we collect and rank quotes</Link>.
               </p>
             </div>
           </Container>
@@ -2061,7 +2068,7 @@ export default async function CorridorPage({ params }: Props) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
             </span>
-            Source: SendMoneyCompare · Data updated every 6 hours from live provider APIs
+            Source: SendMoneyCompare · Data updated every {SITE_STATS.refreshHours} hours from live provider APIs
           </p>
 
           {quotes.length > 0 ? (

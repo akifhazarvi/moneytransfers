@@ -25,6 +25,8 @@ export interface Provider {
 }
 
 export interface TransferQuote {
+  /** Oldest pricing observation used for this estimate; absent if unknown. */
+  dateCollected?: string;
   providerSlug: string;
   sendAmount: number;
   sendCurrency: string;
