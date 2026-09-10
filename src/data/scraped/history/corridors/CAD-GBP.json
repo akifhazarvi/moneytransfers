@@ -11142,10 +11142,10 @@
     "date": "2026-09-10",
     "providers": {
       "lemfi": {
-        "rate": 0.5321,
+        "rate": 0.5318,
         "fee": 0,
-        "markup": 0.59,
-        "receiveAmount": 53.21
+        "markup": 0.62,
+        "receiveAmount": 53.18
       },
       "taptap-send": {
         "rate": 0.532,
@@ -11154,58 +11154,58 @@
         "receiveAmount": 53.2
       },
       "remitly": {
-        "rate": 0.5325,
+        "rate": 0.5322,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 53.25
+        "receiveAmount": 53.22
       },
       "bnc": {
-        "rate": 0.5252,
+        "rate": 0.525,
         "fee": 5.95,
         "markup": null,
-        "receiveAmount": 49.4
+        "receiveAmount": 49.38
       },
       "rbc": {
-        "rate": 0.5188,
+        "rate": 0.5185,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 51.88
+        "receiveAmount": 51.85
       },
       "paypal": {
-        "rate": 0.5121,
+        "rate": 0.5116,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 49.67
+        "receiveAmount": 49.64
       },
       "td-bank": {
-        "rate": 0.5203,
+        "rate": 0.5201,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 52.03
+        "receiveAmount": 52.01
       },
       "worldremit": {
-        "rate": 0.522,
+        "rate": 0.5217,
         "fee": 3.99,
         "markup": null,
-        "receiveAmount": 50.11
+        "receiveAmount": 50.09
       },
       "bmo": {
-        "rate": 0.5099,
+        "rate": 0.5097,
         "fee": 0,
+        "markup": null,
+        "receiveAmount": 50.97
+      },
+      "western-union": {
+        "rate": 0.5202,
+        "fee": 1.99,
         "markup": null,
         "receiveAmount": 50.99
       },
-      "western-union": {
-        "rate": 0.521,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 51.06
-      },
       "instarem": {
-        "rate": 0.5325,
+        "rate": 0.5321,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 53.25
+        "receiveAmount": 53.21
       }
     }
   }

@@ -15325,7 +15325,7 @@
       "lemfi": {
         "rate": 11.45,
         "fee": 0,
-        "markup": -0.01,
+        "markup": 0.01,
         "receiveAmount": 1145
       },
       "moneygram": {
@@ -15365,10 +15365,10 @@
         "receiveAmount": 1145
       },
       "instarem": {
-        "rate": 11.35,
+        "rate": 11.3698,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1135
+        "receiveAmount": 1136.98
       },
       "xe": {
         "rate": 11.3641,
@@ -15401,10 +15401,10 @@
         "receiveAmount": 1126.25
       },
       "wise": {
-        "rate": 11.45,
-        "fee": 3.91,
+        "rate": 11.4508,
+        "fee": 3.9,
         "markup": null,
-        "receiveAmount": 1100.23
+        "receiveAmount": 1100.42
       },
       "xoom": {
         "rate": 11.2501,

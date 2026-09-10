@@ -11,42 +11,42 @@
       "providerName": "Wise",
       "corridorsLed": 48,
       "corridorsQuoted": 128,
-      "wins": 3523,
+      "wins": 3522,
       "quotedDays": 10778,
-      "winRate": 32.69,
+      "winRate": 32.68,
       "avgShortfallPct": 2.73,
       "leadRate": 37.5
     },
     {
-      "providerSlug": "taptap-send",
-      "providerName": "TapTap Send",
-      "corridorsLed": 41,
-      "corridorsQuoted": 152,
-      "wins": 4025,
-      "quotedDays": 13243,
-      "winRate": 30.39,
-      "avgShortfallPct": 1.02,
-      "leadRate": 26.97
-    },
-    {
       "providerSlug": "ria",
       "providerName": "Ria Money Transfer",
-      "corridorsLed": 39,
+      "corridorsLed": 40,
       "corridorsQuoted": 66,
       "wins": 2649,
       "quotedDays": 4153,
       "winRate": 63.79,
       "avgShortfallPct": 0.58,
-      "leadRate": 59.09
+      "leadRate": 60.61
+    },
+    {
+      "providerSlug": "taptap-send",
+      "providerName": "TapTap Send",
+      "corridorsLed": 40,
+      "corridorsQuoted": 152,
+      "wins": 4025,
+      "quotedDays": 13243,
+      "winRate": 30.39,
+      "avgShortfallPct": 1.02,
+      "leadRate": 26.32
     },
     {
       "providerSlug": "lemfi",
       "providerName": "LemFi",
       "corridorsLed": 31,
       "corridorsQuoted": 87,
-      "wins": 2821,
+      "wins": 2819,
       "quotedDays": 7784,
-      "winRate": 36.24,
+      "winRate": 36.22,
       "avgShortfallPct": 1,
       "leadRate": 35.63
     },
@@ -55,9 +55,9 @@
       "providerName": "InstaReM",
       "corridorsLed": 20,
       "corridorsQuoted": 80,
-      "wins": 1877,
+      "wins": 1879,
       "quotedDays": 7145,
-      "winRate": 26.27,
+      "winRate": 26.3,
       "avgShortfallPct": 1.15,
       "leadRate": 25
     },
@@ -77,9 +77,9 @@
       "providerName": "Paysend",
       "corridorsLed": 7,
       "corridorsQuoted": 55,
-      "wins": 656,
+      "wins": 657,
       "quotedDays": 4935,
-      "winRate": 13.29,
+      "winRate": 13.31,
       "avgShortfallPct": 2.85,
       "leadRate": 12.73
     },
@@ -110,9 +110,9 @@
       "providerName": "BNZ",
       "corridorsLed": 3,
       "corridorsQuoted": 5,
-      "wins": 157,
+      "wins": 158,
       "quotedDays": 370,
-      "winRate": 42.43,
+      "winRate": 42.7,
       "avgShortfallPct": 0.85,
       "leadRate": 60
     },
@@ -209,10 +209,10 @@
       "providerName": "Westpac NZ",
       "corridorsLed": 0,
       "corridorsQuoted": 5,
-      "wins": 33,
+      "wins": 32,
       "quotedDays": 370,
-      "winRate": 8.92,
-      "avgShortfallPct": 1.24,
+      "winRate": 8.65,
+      "avgShortfallPct": 1.25,
       "leadRate": 0
     },
     {
@@ -443,7 +443,7 @@
       "wins": 0,
       "quotedDays": 282,
       "winRate": 0,
-      "avgShortfallPct": 3.03,
+      "avgShortfallPct": 3.04,
       "leadRate": 0
     },
     {

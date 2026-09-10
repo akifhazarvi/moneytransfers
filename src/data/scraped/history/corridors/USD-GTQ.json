@@ -11497,7 +11497,7 @@
       "remitly": {
         "rate": 7.381,
         "fee": 2.99,
-        "markup": 3.32,
+        "markup": null,
         "receiveAmount": 716.03
       },
       "revolut": {
@@ -11507,10 +11507,10 @@
         "receiveAmount": 751.39
       },
       "wise": {
-        "rate": 7.6287,
+        "rate": 7.6285,
         "fee": 10.1,
         "markup": null,
-        "receiveAmount": 685.82
+        "receiveAmount": 685.8
       },
       "xoom": {
         "rate": 7.783,

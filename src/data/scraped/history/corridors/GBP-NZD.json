@@ -12449,70 +12449,70 @@
     "date": "2026-09-10",
     "providers": {
       "barclays": {
-        "rate": 2.2707,
+        "rate": 2.2717,
         "fee": 0,
+        "markup": null,
+        "receiveAmount": 227.17
+      },
+      "nationwide": {
+        "rate": 2.2881,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 194.49
+      },
+      "remitly": {
+        "rate": 2.3168,
+        "fee": 1.99,
         "markup": null,
         "receiveAmount": 227.07
       },
-      "nationwide": {
-        "rate": 2.287,
-        "fee": 15,
-        "markup": null,
-        "receiveAmount": 194.4
-      },
-      "remitly": {
-        "rate": 2.3156,
-        "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 226.96
-      },
       "hsbc": {
-        "rate": 2.3057,
+        "rate": 2.3068,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 230.57
+        "receiveAmount": 230.68
       },
       "santander": {
-        "rate": 2.2431,
+        "rate": 2.2441,
         "fee": 25,
         "markup": null,
-        "receiveAmount": 168.23
+        "receiveAmount": 168.31
       },
       "paypal": {
-        "rate": 2.2141,
+        "rate": 2.2136,
         "fee": 2.99,
         "markup": null,
-        "receiveAmount": 214.79
+        "receiveAmount": 214.74
       },
       "natwest": {
-        "rate": 2.2759,
+        "rate": 2.277,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 227.59
+        "receiveAmount": 227.7
       },
       "western-union": {
-        "rate": 2.2788,
+        "rate": 2.2936,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 223.35
+        "receiveAmount": 224.8
       },
       "lloyds": {
-        "rate": 2.2451,
+        "rate": 2.2461,
         "fee": 9.5,
         "markup": null,
-        "receiveAmount": 203.18
+        "receiveAmount": 203.28
       },
       "rbs": {
-        "rate": 2.2759,
+        "rate": 2.277,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 227.59
+        "receiveAmount": 227.7
       },
       "instarem": {
-        "rate": 2.3165,
+        "rate": 2.3175,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 231.65
+        "receiveAmount": 231.75
       }
     }
   }

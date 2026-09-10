@@ -10764,10 +10764,10 @@
     "date": "2026-09-10",
     "providers": {
       "lemfi": {
-        "rate": 0.6157,
+        "rate": 0.6086,
         "fee": 0,
-        "markup": 0.1,
-        "receiveAmount": 61.57
+        "markup": 1.29,
+        "receiveAmount": 60.86
       },
       "taptap-send": {
         "rate": 0.607,
@@ -10776,58 +10776,58 @@
         "receiveAmount": 60.7
       },
       "remitly": {
-        "rate": 0.6151,
+        "rate": 0.6148,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 61.51
+        "receiveAmount": 61.48
       },
       "nab": {
-        "rate": 0.6007,
+        "rate": 0.6008,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 60.07
+        "receiveAmount": 60.08
       },
       "instarem": {
-        "rate": 0.6165,
+        "rate": 0.6164,
         "fee": 0.5,
         "markup": null,
-        "receiveAmount": 61.34
+        "receiveAmount": 61.33
       },
       "western-union": {
-        "rate": 0.6091,
+        "rate": 0.6054,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 60.3
+        "receiveAmount": 59.94
       },
       "commonwealth-bank": {
-        "rate": 0.5949,
+        "rate": 0.5953,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 59.49
+        "receiveAmount": 59.53
       },
       "westpac": {
-        "rate": 0.5931,
+        "rate": 0.5933,
         "fee": 3.96,
         "markup": null,
-        "receiveAmount": 56.96
+        "receiveAmount": 56.98
       },
       "hsbc": {
-        "rate": 0.6016,
+        "rate": 0.6017,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 60.16
+        "receiveAmount": 60.17
       },
       "paypal": {
-        "rate": 0.5947,
+        "rate": 0.5948,
         "fee": 5,
         "markup": null,
         "receiveAmount": 56.5
       },
       "anz": {
-        "rate": 0.595,
+        "rate": 0.5952,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 59.5
+        "receiveAmount": 59.52
       }
     }
   }
