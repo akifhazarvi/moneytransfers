@@ -111,7 +111,7 @@
 .guide-disclosure > div { background: transparent; border: 0; border-left: 2px solid var(--guide-line); border-radius: 0; padding: 0 0 0 14px; font-size: 11px; }
 .guide-article-image { position: relative; aspect-ratio: 2 / 1; overflow: hidden; border-radius: 12px; margin-bottom: 36px; }
 .guide-article-section { margin-bottom: 48px; }
-.guide-article-section > h2 { font-family: var(--font-display); font-size: 26px; font-weight: 400; line-height: 1.3; letter-spacing: -.025em; padding-top: 10px; margin-bottom: 20px; }
+.guide-article-section > h2 { font-size: 26px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; padding-top: 10px; margin-bottom: 20px; }
 .guide-article-body .prose-content { max-width: none; font-size: 18px; line-height: 1.85; }
 .guide-article-sidebar { min-width: 0; }
 .guide-sidebar-sticky { position: sticky; top: 106px; max-height: calc(100dvh - 128px); overflow-y: auto; scrollbar-width: thin; display: flex; flex-direction: column; gap: 30px; padding: 4px 4px 12px; }
@@ -135,7 +135,7 @@
 .guide-research-layout { padding-top: 28px; padding-bottom: 64px; }
 .guide-research-article { min-width: 0; }
 .guide-research-article > h1 { font-family: var(--font-display); font-size: clamp(35px, 4.3vw, 56px); font-weight: 400; line-height: 1.1; letter-spacing: -.025em; margin-top: 24px; }
-.guide-research-article > h2 { font-family: var(--font-display); font-size: 27px; font-weight: 400; line-height: 1.35; letter-spacing: -.025em; padding-top: 8px; }
+.guide-research-article > h2 { font-size: 27px; font-weight: 500; line-height: 1.35; letter-spacing: -.025em; padding-top: 8px; }
 .guide-research-article > p { font-size: 16px; line-height: 1.85; }
 .guide-research-article > nav:first-child { font-size: 12px; margin-bottom: 28px; }
 .guide-research-article > nav:first-child span:last-child { overflow-wrap: anywhere; }

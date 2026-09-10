@@ -31,10 +31,7 @@ All colors are defined in `src/app/globals.css` as CSS custom properties.
 
 ## Typography
 
-- **Page titles and display section headings:** Instrument Serif, weight 400, via `--font-display`. All `h1` elements use it; add `font-display` to prominent section headings.
-- **Body, navigation, controls, and compact card headings:** Inter via `--font-sans`.
-- **Guide article body:** Source Serif 4 via `--font-reading`.
-- **Display weights:** Use regular 400; Instrument Serif has no bold face.
+- **Font family:** "Google Sans", "Segoe UI", Roboto, system-ui, sans-serif
 - **Smoothing:** antialiased
 
 | Role | Size | Weight | Token |

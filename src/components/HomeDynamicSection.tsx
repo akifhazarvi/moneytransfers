@@ -151,7 +151,7 @@ export default function HomeDynamicSection() {
     <section id="best-routes" className="py-16 sm:py-24 bg-[var(--color-surface)]">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-14 max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-display tracking-tight text-[var(--color-on-surface)] leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-on-surface)] leading-[1.1]">
             Best app to send {amount.toLocaleString()} {fromCurrency} to {toCurrency}
           </h2>
           <p className="text-base text-[var(--color-on-surface-variant)] mt-4">
