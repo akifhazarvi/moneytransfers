@@ -44,25 +44,33 @@ const featuredProviders = featuredProviderSlugs
   .map((slug) => providers.find((p) => p.slug === slug)!)
   .filter(Boolean);
 
-// Tight 10-link corridor rail — replaces the prior 25-link comparisons rail and
-// 16-link provider-review rail. May 21 GSC audit: all 41 links across those rails
-// had 0 impressions/28d. This list concentrates home-page authority on 10 pages:
-// 5 head-term corridors that earned clicks pre-deindex and need recovery signal,
-// + 5 long-tail corridors currently earning impressions (the only /send-money/*
-// slugs Google indexes right now). See project_home_links_audit_may21.
+// Tight 10-link corridor rail. The homepage is the ONLY page on this site that
+// Google has indexed — verified 2026-09-10 by URL Inspection, where everything
+// else came back "Crawled - currently not indexed" or "URL is unknown to
+// Google" — so these ten links are the entire crawl-equity budget for the
+// corridor family. They have to be spent on pages worth indexing.
+//
+// The previous five long-tail slots were chosen in May because they were then
+// the only /send-money/* slugs Google indexed. That premise is dead: across the
+// 90 days to 2026-09-08, denmark-to-colombia, denmark-to-malaysia,
+// greece-to-poland, ireland-to-bangladesh and singapore-to-philippines earned
+// ZERO Google impressions between them — and greece-to-poland is noindex, so one
+// of the ten slots pointed at a page Google is explicitly told to drop.
+//
+// All ten are now head-term corridors from HEAD_CORRIDOR_SLUGS: high commercial
+// intent, indexable, and already in the sitemap, so the homepage link and the
+// sitemap entry finally point the same way. See project_home_links_audit_may21.
 const TOP_CORRIDORS: { slug: string; label: string; flag: string }[] = [
-  // Head-term — high intent, need re-index
   { slug: "usa-to-india", label: "USA → India", flag: "🇮🇳" },
   { slug: "usa-to-mexico", label: "USA → Mexico", flag: "🇲🇽" },
   { slug: "usa-to-philippines", label: "USA → Philippines", flag: "🇵🇭" },
+  { slug: "usa-to-pakistan", label: "USA → Pakistan", flag: "🇵🇰" },
   { slug: "uk-to-india", label: "UK → India", flag: "🇮🇳" },
+  { slug: "uk-to-pakistan", label: "UK → Pakistan", flag: "🇵🇰" },
+  { slug: "uk-to-nigeria", label: "UK → Nigeria", flag: "🇳🇬" },
   { slug: "uae-to-india", label: "UAE → India", flag: "🇮🇳" },
-  // Currently indexed (have impressions) — concentrate equity here
-  { slug: "denmark-to-colombia", label: "Denmark → Colombia", flag: "🇨🇴" },
-  { slug: "denmark-to-malaysia", label: "Denmark → Malaysia", flag: "🇲🇾" },
-  { slug: "greece-to-poland", label: "Greece → Poland", flag: "🇵🇱" },
-  { slug: "ireland-to-bangladesh", label: "Ireland → Bangladesh", flag: "🇧🇩" },
-  { slug: "singapore-to-philippines", label: "Singapore → Philippines", flag: "🇵🇭" },
+  { slug: "uae-to-pakistan", label: "UAE → Pakistan", flag: "🇵🇰" },
+  { slug: "saudi-arabia-to-india", label: "Saudi Arabia → India", flag: "🇮🇳" },
 ];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
