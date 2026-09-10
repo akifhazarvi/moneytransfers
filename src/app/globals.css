@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Keep body text and font-sans components on the same loaded font (Inter). */
+@theme inline {
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+}
+
 /* ─── Extended type scale — fills gaps in Tailwind's default ─── */
 @theme {
   --text-2xs: 0.6875rem;   /* 11px — fine print, badges, micro labels */
