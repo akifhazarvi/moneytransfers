@@ -5981,28 +5981,34 @@
     "date": "2026-09-10",
     "providers": {
       "wells-fargo": {
-        "rate": 149.2212,
+        "rate": 149.3132,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 14922
+        "receiveAmount": 14931
       },
       "western-union": {
-        "rate": 150.969,
+        "rate": 150.8854,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 14947
+        "receiveAmount": 14939
       },
       "paypal": {
-        "rate": 147.1432,
+        "rate": 147.0474,
         "fee": 4.99,
         "markup": null,
-        "receiveAmount": 13980
+        "receiveAmount": 13971
       },
       "wise": {
-        "rate": 154.075,
+        "rate": 154.19,
         "fee": 2.52,
         "markup": null,
-        "receiveAmount": 15019
+        "receiveAmount": 15030
+      },
+      "taptap-send": {
+        "rate": 159.104,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 15910.4
       }
     }
   }
