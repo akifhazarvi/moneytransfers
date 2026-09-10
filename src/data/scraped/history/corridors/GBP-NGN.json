@@ -15821,16 +15821,16 @@
         "receiveAmount": 183719.87
       },
       "taptap-send": {
-        "rate": 1858,
+        "rate": 1850,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 185800
+        "receiveAmount": 185000
       },
       "western-union": {
-        "rate": 1806.422,
+        "rate": 1806.9558,
         "fee": 1.99,
         "markup": null,
-        "receiveAmount": 177047.42
+        "receiveAmount": 177099.74
       },
       "dahabshiil": {
         "rate": 1869.0384,
@@ -15875,10 +15875,10 @@
         "receiveAmount": 183919.27
       },
       "remitly": {
-        "rate": 1851.38,
+        "rate": 1841.79,
         "fee": 0,
-        "markup": null,
-        "receiveAmount": 185138
+        "markup": -2.47,
+        "receiveAmount": 184179
       },
       "ria": {
         "rate": 1855.6,
@@ -15887,10 +15887,16 @@
         "receiveAmount": 189498.28
       },
       "wise": {
-        "rate": 1856.72,
+        "rate": 1852.71,
         "fee": 1.16,
         "markup": null,
-        "receiveAmount": 183518.2
+        "receiveAmount": 183121.86
+      },
+      "lemfi": {
+        "rate": 1847,
+        "fee": 0,
+        "markup": -2.94,
+        "receiveAmount": 184700
       }
     }
   }

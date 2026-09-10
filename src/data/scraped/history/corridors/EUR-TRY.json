@@ -12215,10 +12215,10 @@
     "date": "2026-09-10",
     "providers": {
       "moneygram": {
-        "rate": 55.6374,
+        "rate": 55.6542,
         "fee": 1.49,
         "markup": null,
-        "receiveAmount": 5480.84
+        "receiveAmount": 5482.49
       },
       "taptap-send": {
         "rate": 56.3,
@@ -12227,10 +12227,10 @@
         "receiveAmount": 5630
       },
       "deutsche-bank": {
-        "rate": 56.2396,
+        "rate": 56.2566,
         "fee": 36.55,
         "markup": null,
-        "receiveAmount": 3568.4
+        "receiveAmount": 3569.48
       },
       "xe": {
         "rate": 55.8138,
@@ -12239,10 +12239,10 @@
         "receiveAmount": 5358.12
       },
       "western-union": {
-        "rate": 55.45,
+        "rate": 55.5226,
         "fee": 0.99,
         "markup": null,
-        "receiveAmount": 5490.11
+        "receiveAmount": 5497.29
       },
       "dahabshiil": {
         "rate": 55.1404,
@@ -12251,10 +12251,10 @@
         "receiveAmount": 5404.31
       },
       "instarem": {
-        "rate": 55.9771,
+        "rate": 56.0185,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 5597.71
+        "receiveAmount": 5601.85
       },
       "paysend": {
         "rate": 56.0424,
@@ -12263,10 +12263,10 @@
         "receiveAmount": 5604.24
       },
       "remitly": {
-        "rate": 55.64,
+        "rate": 55.7,
         "fee": 1.99,
-        "markup": null,
-        "receiveAmount": 5453.28
+        "markup": 1.32,
+        "receiveAmount": 5459.16
       },
       "revolut": {
         "rate": 56.1031,
@@ -12275,10 +12275,10 @@
         "receiveAmount": 5554.2
       },
       "wise": {
-        "rate": 56.3939,
+        "rate": 56.3322,
         "fee": 2.94,
         "markup": null,
-        "receiveAmount": 5473.59
+        "receiveAmount": 5467.6
       },
       "ria": {
         "rate": 55.42,
@@ -12287,22 +12287,22 @@
         "receiveAmount": 5809.26
       },
       "sparkasse": {
-        "rate": 56.3256,
+        "rate": 56.3426,
         "fee": 7.5,
         "markup": null,
-        "receiveAmount": 5210.12
+        "receiveAmount": 5211.69
       },
       "ing-de": {
-        "rate": 55.3097,
+        "rate": 55.3263,
         "fee": 22,
         "markup": null,
-        "receiveAmount": 4314.15
+        "receiveAmount": 4315.45
       },
       "commerzbank": {
-        "rate": 54.6944,
+        "rate": 54.7109,
         "fee": 12.5,
         "markup": null,
-        "receiveAmount": 4785.76
+        "receiveAmount": 4787.2
       }
     }
   }
