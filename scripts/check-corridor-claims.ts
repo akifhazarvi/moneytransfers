@@ -15,10 +15,17 @@
  * is valid TypeScript, links resolve, and the figure is not a {{TOKEN}}.
  *
  * WHAT IT CHECKS
- * For each corridor it computes the current top-ranked non-indicative estimate
- * at that corridor's sample amount, then scans intro / context / feesNote /
- * deliveryNote / FAQ answers for a superlative that names a provider. A
- * sentence naming someone other than the current leader is a contradiction.
+ * For each corridor it scans intro / context / feesNote / deliveryNote / FAQ
+ * answers for a superlative that names a provider, then tests that provider
+ * against the corridor's own record.
+ *
+ * IT TESTS THE 90-DAY RECORD FIRST, not just today's table. A single day's
+ * ranking moves with a scrape; being absent from three months of winners does
+ * not. Checking only today called "Instarem often matches or beats Wise on
+ * AUD/INR" a pass on days Instarem happened to lead, when the honest number is
+ * that it won 0 of 91 contested days and Ria won 54. Where rate-insights has no
+ * consistency record for the pair (several SEK corridors), it falls back to
+ * today's top-ranked estimate, which is weaker evidence but better than none.
  *
  * NOT A BUILD GATE, deliberately — same reasoning as check:sources and
  * check:rankings. It reads scraped data that refreshes every six hours, so the
@@ -34,6 +41,9 @@
  * Run: npm run check:corridor-claims
  */
 import { corridors } from "../src/data/corridors";
+import { getRateInsight } from "../src/lib/rate-history";
+import { corridorDeepBlocks } from "../src/data/corridor-deep-content";
+import { swedishCorridorBlocks } from "../src/data/sweden-content";
 import { generateQuotes } from "../src/lib/quotes-engine";
 import { getProviderName, providers } from "../src/data/providers";
 
@@ -42,6 +52,27 @@ const NAMES = providers.map((p) => p.name).filter((n) => n.length > 3);
 /** Phrasings that assert a standing winner rather than describing a feature. */
 const SUPERLATIVE =
   /\b(consistently|always|every time|the cheapest|cheapest option|cheapest way|delivers the most|offers the best|is the best|best rate|wins|beats)\b/i;
+
+/** sweden-content.ts is written in Swedish; the English pattern never matched it,
+ *  so six contradictions sat unscanned until 2026-09-11. */
+const SUPERLATIVE_SV = /\b(billigast\w*|bäst\w*|alltid|mest fördelaktig\w*|konsekvent)\b/i;
+
+/**
+ * Sentences that contain a superlative and a provider name but assert nothing
+ * about who wins. Without these the guard reports "Always retain Wise/Revolut
+ * receipts" and "Compare Wise, Remitly … to find the cheapest route" as ranking
+ * claims — advice and a description of the comparison itself. A guard that
+ * cries wolf gets switched off, which is the failure mode worth avoiding.
+ */
+const NOT_A_RANKING_CLAIM: RegExp[] = [
+  // "Compare X, Y, Z … to find the cheapest" / "Jämför … för att hitta den billigaste"
+  /\b(compare|jämför)\b[\s\S]*\b(to find|för att hitta)\b/i,
+  // Imperative advice that happens to start with "Always"
+  /\balways (retain|keep|check|confirm|use|compare|verify|read)\b/i,
+];
+function assertsAWinner(sentence: string): boolean {
+  return !NOT_A_RANKING_CLAIM.some((re) => re.test(sentence));
+}
 
 const winners = new Map<string, string | undefined>();
 function liveLeader(from: string, to: string, amount: number): string | undefined {
@@ -58,7 +89,31 @@ function liveLeader(from: string, to: string, amount: number): string | undefine
   return winners.get(key);
 }
 
-type Problem = { slug: string; field: string; claimed: string; leader: string; sentence: string };
+type Problem = { slug: string; field: string; claimed: string; leader: string; basis: string; sentence: string };
+
+/**
+ * Providers with a defensible record on this corridor: anyone who actually won
+ * a contested day in the window. A claim naming a provider that never won is
+ * unsupported by our own data, whatever today's table says.
+ */
+function habitualLeaders(from: string, to: string): { names: Set<string>; basis: string } | null {
+  const insight = getRateInsight(from, to) as { providerConsistency?: {
+    windowDays: number; contestedDays: number;
+    leaders: { providerSlug: string; providerName?: string; wins: number }[];
+  } } | null;
+  const pc = insight?.providerConsistency;
+  if (!pc || !pc.leaders?.length) return null;
+  const names = new Set<string>();
+  for (const l of pc.leaders) {
+    if (l.wins > 0) names.add(String(l.providerName ?? l.providerSlug).toLowerCase());
+  }
+  if (!names.size) return null;
+  const top = pc.leaders[0];
+  return {
+    names,
+    basis: `${String(top.providerName ?? top.providerSlug)} won ${top.wins}/${pc.contestedDays} contested days in ${pc.windowDays}d`,
+  };
+}
 const problems: Problem[] = [];
 let scanned = 0;
 let matchingLeader = 0;
@@ -91,24 +146,66 @@ for (const corridor of corridors as unknown as Record<string, never>[] as unknow
       const named = NAMES.filter((n) => sentence.toLowerCase().includes(n.toLowerCase()));
       if (!named.length) continue;
       scanned++;
-      if (named.some((n) => n.toLowerCase() === leader.toLowerCase())) {
-        matchingLeader++;
+      const record = habitualLeaders(corridor.fromCurrency, corridor.toCurrency);
+      if (record) {
+        if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; continue; }
+        problems.push({ slug: corridor.slug, field, claimed: named.join("/"), leader, basis: record.basis, sentence: sentence.trim().slice(0, 160) });
         continue;
       }
-      problems.push({ slug: corridor.slug, field, claimed: named.join("/"), leader, sentence: sentence.trim().slice(0, 160) });
+      if (named.some((n) => n.toLowerCase() === leader.toLowerCase())) { matchingLeader++; continue; }
+      problems.push({ slug: corridor.slug, field, claimed: named.join("/"), leader, basis: `today's top estimate is ${leader} (no 90-day record for this pair)`, sentence: sentence.trim().slice(0, 160) });
     }
   }
 }
 
+/** corridor-deep-content.ts and sweden-content.ts render on the same corridor
+ *  URLs and carry the same risk, keyed by the same slugs. */
+function scanBlocks(
+  label: string,
+  blocks: Record<string, { h2?: string; intro?: string; faqs?: { a: string }[] }>,
+  pattern: RegExp,
+) {
+  for (const [slug, block] of Object.entries(blocks)) {
+    const corridor = (corridors as unknown as { slug: string; fromCurrency: string; toCurrency: string; sampleAmount?: number }[])
+      .find((c) => c.slug === slug);
+    if (!corridor) continue;
+    const leaderSlug = liveLeader(corridor.fromCurrency, corridor.toCurrency, corridor.sampleAmount || 1000);
+    if (!leaderSlug) continue;
+    const leader = getProviderName(leaderSlug);
+    const record = habitualLeaders(corridor.fromCurrency, corridor.toCurrency);
+
+    const fields: [string, string][] = [["intro", block.intro ?? ""], ["h2", block.h2 ?? ""]];
+    (block.faqs ?? []).forEach((faq, i) => fields.push([`faq${i}`, faq.a ?? ""]));
+    for (const [field, text] of fields) {
+      for (const sentence of String(text).split(/(?<=\.)\s+/)) {
+        if (!pattern.test(sentence)) continue;
+        if (!assertsAWinner(sentence)) continue;
+        const named = NAMES.filter((n) => sentence.toLowerCase().includes(n.toLowerCase()));
+        if (!named.length) continue;
+        scanned++;
+        if (record) {
+          if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; continue; }
+          problems.push({ slug: `${slug} (${label})`, field, claimed: named.join("/"), leader, basis: record.basis, sentence: sentence.trim().slice(0, 160) });
+          continue;
+        }
+        if (named.some((n) => n.toLowerCase() === leader.toLowerCase())) { matchingLeader++; continue; }
+        problems.push({ slug: `${slug} (${label})`, field, claimed: named.join("/"), leader, basis: `today's top estimate is ${leader} (no 90-day record)`, sentence: sentence.trim().slice(0, 160) });
+      }
+    }
+  }
+}
+scanBlocks("deep-content", corridorDeepBlocks as never, SUPERLATIVE);
+scanBlocks("sweden", swedishCorridorBlocks as never, SUPERLATIVE_SV);
+
 console.log(
-  `check:corridor-claims — ${corridors.length} corridors, ${scanned} superlative claims naming a provider\n`,
+  `check:corridor-claims — ${corridors.length} corridors + ${Object.keys(corridorDeepBlocks).length} deep blocks + ${Object.keys(swedishCorridorBlocks).length} Swedish blocks, ${scanned} superlative claims naming a provider\n`,
 );
 
 if (problems.length) {
   console.error(`check:corridor-claims — ${problems.length} contradiction(s):\n`);
   for (const p of problems) {
     console.error(`  /send-money/${p.slug} [${p.field}]`);
-    console.error(`      claims ${p.claimed}, but the live comparison ranks ${p.leader} first`);
+    console.error(`      claims ${p.claimed}; ${p.basis}`);
     console.error(`      "${p.sentence}"\n`);
   }
   console.error(

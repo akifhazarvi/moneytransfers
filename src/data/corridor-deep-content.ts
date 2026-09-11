@@ -12,7 +12,7 @@ export const corridorDeepBlocks: Record<string, CorridorDeepBlock> = {
     faqs: [
       {
         q: "What is the cheapest way to send money from Ireland to Bangladesh?",
-        a: "Wise consistently delivers the most BDT per EUR for transfers above €500 thanks to its mid-market rate and transparent 0.6–1.0% fee. For smaller amounts, Remitly's promotional first-transfer rates and WorldRemit's flat fees can edge ahead. For bKash, Nagad, or Rocket delivery, Remitly and WorldRemit both support direct mobile-wallet payouts with funds typically arriving in 10–30 minutes. Always compare the total BDT received — not just the headline fee — because exchange-rate markup is where Irish banks quietly lose you the most money.",
+        a: "For smaller amounts, Remitly's promotional first-transfer rates and WorldRemit's flat fees can edge ahead. For bKash, Nagad, or Rocket delivery, Remitly and WorldRemit both support direct mobile-wallet payouts with funds typically arriving in 10–30 minutes. Always compare the total BDT received — not just the headline fee — because exchange-rate markup is where Irish banks quietly lose you the most money.",
       },
       {
         q: "How long does an Ireland to Bangladesh transfer take?",
@@ -40,7 +40,7 @@ export const corridorDeepBlocks: Record<string, CorridorDeepBlock> = {
     faqs: [
       {
         q: "What is the cheapest way to send DKK to COP from Denmark?",
-        a: "Wise is consistently the cheapest for transfers above 2,000 DKK — using the real mid-market rate plus a 0.6–1.2% fee, with delivery to Colombian bank accounts in under 24 hours. Remitly often runs zero-fee promotions on first transfers and has competitive standard rates for cash pickup. Western Union and MoneyGram are the strongest options if your recipient needs cash from Efecty or another local agent. Avoid Danish banks (Danske, Nordea, Jyske) for amounts under 10,000 DKK — their flat SWIFT fees and 3–5% currency markup make them uneconomic on most household transfers.",
+        a: "Remitly often runs zero-fee promotions on first transfers and has competitive standard rates for cash pickup. Western Union and MoneyGram are the strongest options if your recipient needs cash from Efecty or another local agent. Avoid Danish banks (Danske, Nordea, Jyske) for amounts under 10,000 DKK — their flat SWIFT fees and 3–5% currency markup make them uneconomic on most household transfers.",
       },
       {
         q: "How long does a Denmark to Colombia transfer take?",
@@ -152,7 +152,7 @@ export const corridorDeepBlocks: Record<string, CorridorDeepBlock> = {
     faqs: [
       {
         q: "What is the cheapest way to send DKK to MYR?",
-        a: "Wise is consistently cheapest for transfers above 2,000 DKK at 0.6–1.0% all-in, with same-day delivery via DuitNow. Instarem is competitive on the MYR rate and runs frequent zero-fee promotions for first-time customers. Remitly is strongest for cash pickup or mobile wallet delivery. Avoid Western Union for under 5,000 DKK — its margins on small DKK→MYR transfers run 4–6%.",
+        a: "Instarem is competitive on the MYR rate and runs frequent zero-fee promotions for first-time customers. Remitly is strongest for cash pickup or mobile wallet delivery. Avoid Western Union for under 5,000 DKK — its margins on small DKK→MYR transfers run 4–6%.",
       },
       {
         q: "How long does Denmark to Malaysia take?",
@@ -316,7 +316,7 @@ export const corridorDeepBlocks: Record<string, CorridorDeepBlock> = {
   "singapore-to-india": {
     h2: "Sending SGD to INR from Singapore — NRE/NRO, IFSC, and the LRS rules",
     intro:
-      "Singapore is one of India's top-five SGD→INR remittance corridors thanks to roughly 700,000 Indian-origin residents (including PR holders, work-pass holders, and citizens of Indian descent) plus the highest concentration of Indian IT professionals on any Employment Pass in the world. The Reserve Bank of India (RBI) recorded over US$2 billion in formal-channel Singapore inflows in FY2023–24, with the corridor structurally biased toward larger transfers — average ticket size is roughly 3x the global remittance norm because of property purchases, NRE/NRO funding, parental support, and tuition. The cheapest path for amounts under SGD 1,000 is typically Wise or Remitly using DBS-fast bank withdrawal, while DBS Remit's own service is competitive for DBS customers and clears in seconds to most major Indian banks (SBI, HDFC Bank, ICICI Bank, Axis Bank, Kotak Mahindra, Punjab National Bank, Bank of Baroda, Canara Bank). For amounts above SGD 5,000, Instarem (Singapore-headquartered, MAS-regulated) and Wise both offer competitive rates with delivery via IMPS/NEFT/RTGS settlement — IMPS settling instantly 24/7, NEFT in 30-minute batches, RTGS for amounts above INR 200,000. The Monetary Authority of Singapore (MAS) licenses all outbound remitters under the Payment Services Act; the RBI's Liberalised Remittance Scheme (LRS) governs inbound flows and caps individual NRI/PIO senders at USD 250,000 per financial year.",
+      "Singapore is one of India's top-five SGD→INR remittance corridors thanks to roughly 700,000 Indian-origin residents (including PR holders, work-pass holders, and citizens of Indian descent) plus the highest concentration of Indian IT professionals on any Employment Pass in the world. The Reserve Bank of India (RBI) recorded over US$2 billion in formal-channel Singapore inflows in FY2023–24, with the corridor structurally biased toward larger transfers — average ticket size is roughly 3x the global remittance norm because of property purchases, NRE/NRO funding, parental support, and tuition. For amounts above SGD 5,000, Instarem (Singapore-headquartered, MAS-regulated) and Wise both offer competitive rates with delivery via IMPS/NEFT/RTGS settlement — IMPS settling instantly 24/7, NEFT in 30-minute batches, RTGS for amounts above INR 200,000. The Monetary Authority of Singapore (MAS) licenses all outbound remitters under the Payment Services Act; the RBI's Liberalised Remittance Scheme (LRS) governs inbound flows and caps individual NRI/PIO senders at USD 250,000 per financial year.",
     faqs: [
       {
         q: "What's the difference between NRE and NRO accounts and which should my Indian recipient use?",
@@ -332,7 +332,7 @@ export const corridorDeepBlocks: Record<string, CorridorDeepBlock> = {
       },
       {
         q: "Can I send INR via PayNow's UPI link to a phone number in India?",
-        a: "Yes — and this is the corridor's most important recent development. The MAS–RBI PayNow-UPI linkage went live in early 2023 and supports near-instant cross-border transfers up to SGD 1,000 per day per sender, with the recipient identified by their UPI ID (e.g. recipient@oksbi, recipient@ybl) or registered mobile number. Participating Singapore banks include DBS, OCBC, UOB, Liquid Group, and a growing roster of Indian banks on the UPI side. Settlement is genuine real-time — typically under 60 seconds — and uses the official RBI reference rate, which is structurally tighter than most provider rates. For small recurring sends (parental support, household expenses), PayNow-UPI now beats Wise and Remitly on cost for amounts under SGD 1,000. For larger amounts, you still need Wise, Instarem, DBS Remit, or a bank wire.",
+        a: "Yes — and this is the corridor's most important recent development. The MAS–RBI PayNow-UPI linkage went live in early 2023 and supports near-instant cross-border transfers up to SGD 1,000 per day per sender, with the recipient identified by their UPI ID (e.g. recipient@oksbi, recipient@ybl) or registered mobile number. Participating Singapore banks include DBS, OCBC, UOB, Liquid Group, and a growing roster of Indian banks on the UPI side. Settlement is genuine real-time — typically under 60 seconds — and uses the official RBI reference rate, which is structurally tighter than most provider rates. For larger amounts, you still need Wise, Instarem, DBS Remit, or a bank wire.",
       },
       {
         q: "What's the best time of year to send SGD to INR for the best rate?",

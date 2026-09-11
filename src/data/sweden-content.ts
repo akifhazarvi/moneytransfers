@@ -31,7 +31,7 @@ export const swedishCorridorBlocks: Record<string, SwedishCorridorBlock> = {
     faqs: [
       {
         q: "Vilken är den billigaste leverantören från Sverige till Mexiko?",
-        a: "Wise och Remitly levererar konsekvent mest pesos per krona. Wise använder den verkliga marknadskursen med en transparent avgift på cirka 0,6–1,0 % — bäst för överföringar över 2 000 SEK. Remitly erbjuder kampanjer med avgiftsfria första överföringar och snabb leverans. För kontantuttag i Oxxo är Western Union och MoneyGram starkast med 21 000+ platser. Jämför alltid det totala MXN-beloppet mottagaren får, inte bara avgiften.",
+        a: "Remitly erbjuder kampanjer med avgiftsfria första överföringar och snabb leverans. För kontantuttag i Oxxo är Western Union och MoneyGram starkast med 21 000+ platser. Jämför alltid det totala MXN-beloppet mottagaren får, inte bara avgiften.",
       },
       {
         q: "Vad är SPEI och varför spelar det roll?",
@@ -69,7 +69,7 @@ export const swedishCorridorBlocks: Record<string, SwedishCorridorBlock> = {
     faqs: [
       {
         q: "Vilken är den billigaste leverantören från Sverige till Brasilien?",
-        a: "Wise är konsekvent billigast för överföringar över 2 000 SEK — verklig marknadskurs plus en transparent avgift på 0,8–1,3 % med PIX-leverans på under 10 sekunder. Remitly är konkurrenskraftigt och kör ofta kampanjer med avgiftsfria första överföringar. Svenska banker är dyrast — 3–5 % växelkursmarginal plus 150–200 SEK i SWIFT-avgifter. Jämför alltid totalt BRL-belopp efter IOF-skatt, inte bara avgiften.",
+        a: "Remitly är konkurrenskraftigt och kör ofta kampanjer med avgiftsfria första överföringar. Svenska banker är dyrast — 3–5 % växelkursmarginal plus 150–200 SEK i SWIFT-avgifter. Jämför alltid totalt BRL-belopp efter IOF-skatt, inte bara avgiften.",
       },
       {
         q: "Vad är PIX och hur fungerar det?",
@@ -92,7 +92,7 @@ export const swedishCorridorBlocks: Record<string, SwedishCorridorBlock> = {
     faqs: [
       {
         q: "Vilken är den billigaste leverantören från Sverige till Colombia?",
-        a: "Wise och Remitly levererar konsekvent mest pesos per krona. Wise tar cirka 0,7–1,2 % med verklig marknadskurs — bäst för överföringar över 2 000 SEK. Remitly erbjuder avgiftsfria första överföringar och snabb leverans till bank och till Nequi/Daviplata-plånböcker. För kontantuttag har Western Union och MoneyGram det bredaste nätverket, särskilt på landsbygden där bankerna är glesa.",
+        a: "Remitly erbjuder avgiftsfria första överföringar och snabb leverans till bank och till Nequi/Daviplata-plånböcker. För kontantuttag har Western Union och MoneyGram det bredaste nätverket, särskilt på landsbygden där bankerna är glesa.",
       },
       {
         q: "Vad är Nequi och Daviplata?",
@@ -115,7 +115,7 @@ export const swedishCorridorBlocks: Record<string, SwedishCorridorBlock> = {
     faqs: [
       {
         q: "Vilken är den billigaste leverantören från Sverige till Filippinerna?",
-        a: "Wise och Remitly levererar konsekvent mest PHP per SEK. Wise använder mellankursen (marknadskursen) med en liten transparent avgift på cirka 0,8–1,2 %. Remitly erbjuder snabb leverans och kör ofta kampanjer med avgiftsfria första överföringar. Panda Remit har ofta avgiftsfria första överföringar. Svenska banker (Swedbank, SEB, Nordea) lägger till 3–5 % på växelkursen plus 50–200 SEK i avgift — på en 5 000 SEK-överföring kan skillnaden överstiga 400 PHP. Jämför alltid det totala PHP-beloppet mottagaren får, inte bara avgiften.",
+        a: "Wise använder mellankursen (marknadskursen) med en liten transparent avgift på cirka 0,8–1,2 %. Remitly erbjuder snabb leverans och kör ofta kampanjer med avgiftsfria första överföringar. Panda Remit har ofta avgiftsfria första överföringar. Svenska banker (Swedbank, SEB, Nordea) lägger till 3–5 % på växelkursen plus 50–200 SEK i avgift — på en 5 000 SEK-överföring kan skillnaden överstiga 400 PHP. Jämför alltid det totala PHP-beloppet mottagaren får, inte bara avgiften.",
       },
       {
         q: "Kan jag skicka pengar från Sverige direkt till GCash?",
