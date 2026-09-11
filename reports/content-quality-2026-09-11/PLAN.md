@@ -102,3 +102,67 @@ This is a first quality improvement, not a completed audit of every corridor. Sh
 - TypeScript passed; targeted lint had no errors and four existing unused-variable warnings in the corridor template.
 - Inspected generated USA-to-India HTML and FAQ JSON-LD: the new sourced answers are present and the old permanent-winner and tax claims are absent.
 - Changes are local; this pass did not deploy or submit indexing requests.
+
+## Search Console evidence — obtained 2026-09-10/11
+
+The gap this plan flags three times ("Search Console authentication was
+unconfigured", "Google's present exclusion reasons … remain unverified") is now
+closed. Credentials are not needed in the workspace: the **Composio
+`google_search_console` connection (alias `smc`) is active and read-only**, and
+answers URL Inspection and Search Analytics directly.
+
+Google's own verdicts for `sc-domain:sendmoneycompare.com`:
+
+| URL | coverageState | last crawled |
+| --- | --- | --- |
+| `/` | **Submitted and indexed** (verdict PASS) | 2026-09-07 |
+| `/send-money` | Crawled - currently not indexed | 2026-05-20 |
+| `/companies/remitly` | Crawled - currently not indexed | 2026-05-26 |
+| `/guides/swift-codes-explained` | Crawled - currently not indexed | 2026-09-05 |
+| `/send-money/usa-to-india` | **URL is unknown to Google** | never |
+
+Sitemap status: `lastDownloaded` 2026-09-10T06:58, **712 submitted, 0 indexed,
+0 errors, 0 warnings**. Google fetches the sitemap daily and declines all of it.
+
+This resolves several open questions in the plan's favour and against some of
+the original proposal:
+
+- **Not a robots, canonical, rendering or sitemap fault.** Google reports
+  `robotsTxtState: ALLOWED`, `indexingState: INDEXING_ALLOWED`,
+  `pageFetchState: SUCCESSFUL`, and a self-selected canonical matching ours on
+  every crawled URL. "Fix the sitemap" would change nothing.
+- **Not stale data either.** Every quote on the USA-to-India page was collected
+  2026-09-08/09 when measured across 15 corridors, and "every 6 hours" is true
+  and build-guarded by `check-assets.ts` against `scrape.yml`'s cron.
+- **The binding constraint is external links.** The homepage is the only indexed
+  page, and its `referringUrls` are a Reddit thread plus internal links — it is
+  indexed because someone linked to it. `referringUrls` elsewhere is nearly
+  empty: `/companies/remitly`'s only known referrer is an `/es/` locale guide,
+  and `/guides/swift-codes-explained`'s is sitemap.xml alone. Google's picture of
+  the internal graph is thin because the pages carrying those links are
+  themselves uncrawled.
+- **Crawl budget is the scarce resource, so the homepage's outbound links matter
+  more than any other links on the site.** Five of its ten corridor slots pointed
+  at corridors with zero Google impressions in 90 days, one of them (`greece-to-
+  poland`) `noindex`. Reallocated to head terms in `76bf9871f`.
+
+What this does **not** establish: that content quality is the cause. Google is
+crawling and declining, which is consistent with the standing March 2026
+scaled-content assessment. The editorial work in this plan remains justified on
+its own terms — a page that contradicts itself should be fixed whether or not
+Google is currently looking — but it should not be sold as an indexing fix, and
+no claim is made here that these changes will change coverage.
+
+Re-inspect after Google recrawls the homepage (last crawl 2026-09-07) before
+drawing any conclusion about the rail change or the IndexNow submission.
+
+## Corridor claim consistency — completed 2026-09-11
+
+Scanning all 108 corridors against the live quote engine found **95 superlative
+claims naming a provider, 73 of which the comparison contradicted**; 59 sat in
+`faq0`, which feeds FAQ structured data. All 73 sentences were removed
+(`be5d4b4fe`) and `npm run check:corridor-claims` now reports contradictions.
+**19 hardcoded claims remain that agree with today's leader** — not currently
+false, but they will drift, and the checker lists them on success so they stay
+visible. `corridorComparisonSummary()` is wired on 5 of 108 corridors; extending
+it is the durable fix and the obvious next batch.
