@@ -576,7 +576,7 @@ export const corridorGuidesIndia: BlogPost[] = [
 </div>
 
 <h3><a href="/companies/wise">Wise</a> — Best for Large Transfers ($500+)</h3>
-<p>Wise uses the <strong>real mid-market exchange rate</strong> with zero markup — the same rate you see on Google or Reuters. It charges a transparent fee (typically 0.6–0.8% for USD to INR). For transfers above $500, the 0% markup means Wise almost always delivers the most rupees. Delivery is via IMPS (minutes) or NEFT (2–4 hours). See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> to understand why this matters.</p>
+<p>Wise uses the <strong>real mid-market exchange rate</strong> with zero markup — the same rate you see on Google or Reuters. It charges a transparent fee (typically 0.6–0.8% for USD to INR). Wise charges no exchange-rate markup, which keeps it competitive above $500 — but the provider that actually delivered the most rupees on this corridor was {{CORRIDOR_LEADER:USD:INR}}. Delivery is via IMPS (minutes) or NEFT (2–4 hours). See our <a href="/guides/exchange-rate-markup-explained">exchange rate markup guide</a> to understand why this matters.</p>
 <p><strong>Pros:</strong> Best total value for $500+, transparent pricing, multi-currency account, real-time tracking<br>
 <strong>Cons:</strong> Higher upfront fee on small transfers, no cash pickup option</p>
 

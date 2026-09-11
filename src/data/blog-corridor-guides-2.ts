@@ -287,7 +287,7 @@ export const corridorGuides2: BlogPost[] = [
 <h3>Sendwave — Cheapest for M-Pesa</h3>
 <p>Zero fees, instant M-Pesa delivery. The exchange rate includes a 1–2% markup, but total cost is often lowest under $500.</p>
 <h3><a href="/companies/wise">Wise</a> — Best for Large Transfers</h3>
-<p>Mid-market rate with zero markup. For amounts over $500, Wise consistently delivers the most KES. Now supports M-Pesa in Kenya.</p>`,
+<p>Mid-market rate with zero markup. The provider that actually delivered the most KES on this corridor was {{CORRIDOR_LEADER:USD:KES}}. Now supports M-Pesa in Kenya.</p>`,
       },
       {
         heading: "M-Pesa: Why It Matters for Kenya Transfers",

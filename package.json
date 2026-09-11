@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-llms-txt.ts",
+    "prebuild": "npx tsx scripts/check-corridor-summary.ts && npx tsx scripts/check-inline-script-hashes.ts && npx tsx scripts/build-corridor-leaders.ts && npx tsx scripts/check-assets.ts && npx tsx scripts/build-rate-insights.ts && npx tsx scripts/build-consistency-index.ts && npx tsx scripts/build-sendscore-summary.ts && npx tsx scripts/build-provider-names.ts && npx tsx scripts/build-llms-txt.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -54,7 +54,8 @@
     "check:weight": "npx tsx scripts/check-page-weight.ts",
     "check:rankings": "npx tsx scripts/check-rankings.ts",
     "check:corridor-summary": "npx tsx scripts/check-corridor-summary.ts",
-    "check:corridor-claims": "npx tsx scripts/check-corridor-claims.ts"
+    "check:corridor-claims": "npx tsx scripts/check-corridor-claims.ts",
+    "build:corridor-leaders": "npx tsx scripts/build-corridor-leaders.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

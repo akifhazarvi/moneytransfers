@@ -22,6 +22,7 @@ import { CONSISTENCY_ROWS, CONSISTENCY_INDEX } from "@/lib/consistency-index";
 import ibanStructures from "@/data/scraped/iban-structures.json";
 import { ibanPageRenders } from "@/lib/route-map";
 import { computeBusinessFxIndex, BUSINESS_FX_SLUGS, type BusinessFxIndex } from "@/lib/business-fx-index";
+import corridorLeaders from "@/data/scraped/corridor-leaders.json";
 import { AMOUNT_TIER_INDEX } from "@/lib/amount-tier-index";
 
 export interface StoreRating {
@@ -229,6 +230,9 @@ ${body}
 //   {{RATINGS_DATE}}                       6 September 2026 (Trustpilot scrape)
 //   {{IBAN_FORMAT_TABLE}}                  89-country IBAN length/example table
 //   {{LEADS:wise}}                         44 of the 212 corridors we can compare
+//   {{CORRIDOR_LEADER:USD:INR}}            "Ria Money Transfer, which led on 73 of
+//        the last 91 days we could compare" — the measured leader
+//        for ONE corridor, as opposed to {{LEADS:}}'s site-wide count
 //   {{BANK_SAVINGS_PCT}}                   46%   (specialist vs bank on $1,000)
 //   {{BUSINESS_SAVINGS_PCT}}               62%   (business-FX specialist vs bank, $5,000)
 //   {{BUSINESS_BANK_COST_PCT}}             4.32% (avg bank all-in cost, $5,000)
@@ -730,6 +734,24 @@ export function renderDataTokens(html: string): string {
     const row = CONSISTENCY_ROWS.find((r) => r.providerSlug === slug);
     if (!row) return match;
     return `${row.corridorsLed} of the ${CONSISTENCY_INDEX.comparableCorridors} corridors we can compare`;
+  });
+
+  // {{CORRIDOR_LEADER:USD:INR}} -> "Ria Money Transfer, which led on 73 of the
+  // last 91 days we could compare"
+  //
+  // Guides asserted a standing winner from memory — "Wise almost always delivers
+  // the most rupees" on a corridor Ria led 73 of 91 days. This states the
+  // measured record instead, and recomputes it every build, so the claim cannot
+  // drift the way a hand-typed one does. It is also the stronger sentence: a
+  // dated count from 125k observations beats an adjective.
+  //
+  // Unresolvable on purpose when we hold no record: check-assets fails the build
+  // on a literal "{{", so a corridor that loses coverage stops the deploy rather
+  // than shipping a confident claim with nothing behind it.
+  out = out.replace(/\{\{CORRIDOR_LEADER:([A-Z]{3}):([A-Z]{3})\}\}/g, (match, from: string, to: string) => {
+    const row = (corridorLeaders as Record<string, { name: string; wins: number; contestedDays: number; windowDays: number }>)[`${from}-${to}`];
+    if (!row) return match;
+    return `${row.name}, which led on ${row.wins} of the last ${row.contestedDays} days we could compare`;
   });
 
   out = out.split("{{BANK_SAVINGS_PCT}}").join(`${bankSavingsPct()}%`);
