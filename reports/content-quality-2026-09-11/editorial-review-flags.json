@@ -1,0 +1,762 @@
+{
+  "note": "Text flags for manual review, not proof of error or a Google quality score. Source flag covers structured FAQ citations only, not every page section.",
+  "total": 108,
+  "rows": [
+    {
+      "slug": "usa-to-india",
+      "hasSourceLinks": true,
+      "hasEditorialDate": true,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-pakistan",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-mexico",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-nigeria",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uk-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "uk-to-europe",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "canada-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "australia-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-bangladesh",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-uk",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-europe",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uk-to-pakistan",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uk-to-nigeria",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "australia-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-brazil",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-kenya",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "canada-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uk-to-bangladesh",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "uae-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uae-to-pakistan",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uae-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "saudi-arabia-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "saudi-arabia-to-pakistan",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "saudi-arabia-to-bangladesh",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "saudi-arabia-to-egypt",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "singapore-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "singapore-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "singapore-to-indonesia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "new-zealand-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "new-zealand-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "new-zealand-to-fiji",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uk-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "europe-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "europe-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "europe-to-nigeria",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uae-to-bangladesh",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "canada-to-pakistan",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "australia-to-pakistan",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "uae-to-egypt",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "saudi-arabia-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "uk-to-ghana",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "europe-to-pakistan",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-ghana",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-colombia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "canada-to-nigeria",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "australia-to-uk",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "singapore-to-bangladesh",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-vietnam",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-indonesia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-dominican-republic",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-jamaica",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "uk-to-jamaica",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-haiti",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "india-to-usa",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "india-to-uk",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "india-to-canada",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "india-to-australia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-ukraine",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uk-to-ukraine",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "europe-to-ukraine",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-ethiopia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-guatemala",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "japan-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "japan-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "japan-to-usa",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "hong-kong-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "hong-kong-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "south-korea-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "south-korea-to-vietnam",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-honduras",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "usa-to-nepal",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "uk-to-nepal",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uae-to-nepal",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "usa-to-sri-lanka",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "uk-to-sri-lanka",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "malaysia-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "malaysia-to-indonesia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "malaysia-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "switzerland-to-india",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "switzerland-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "south-africa-to-nigeria",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "south-africa-to-uk",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "south-africa-to-kenya",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "denmark-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "denmark-to-colombia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "denmark-to-malaysia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "finland-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "norway-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "sweden-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "sweden-to-morocco",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "sweden-to-mexico",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "sweden-to-romania",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "sweden-to-brazil",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "sweden-to-colombia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "ireland-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "ireland-to-malaysia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "netherlands-to-philippines",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "greece-to-poland",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "czech-republic-to-germany",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": false
+    },
+    {
+      "slug": "uk-to-south-africa",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "ireland-to-bangladesh",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "denmark-to-france",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": true,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "china-to-australia",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "china-to-canada",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "china-to-uk",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "china-to-usa",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    },
+    {
+      "slug": "aud-to-bdt",
+      "hasSourceLinks": false,
+      "hasEditorialDate": false,
+      "needsRankingReview": false,
+      "needsTaxLimitReview": true
+    }
+  ]
+}

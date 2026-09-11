@@ -27,7 +27,9 @@ export interface Corridor {
   /** Typical delivery times for this route */
   deliveryNote: string;
   /** Corridor-specific FAQ entries */
-  faqs: { q: string; a: string }[];
+  faqs: { q: string; a: string; sources?: { label: string; url: string }[] }[];
+  /** Date of a substantive editorial change, independent of quote collection. */
+  editorialUpdatedAt?: string;
   /** True for auto-generated currency-pair pages (usd-to-inr) vs editorial country pages (usa-to-india) */
   isCurrencyCorridor?: boolean;
   /** True for country-focused pages (send-money-to-pakistan) — no specific "from" country */
@@ -47,35 +49,78 @@ export const corridors: Corridor[] = [
     fromFlag: "🇺🇸",
     toFlag: "🇮🇳",
     sampleAmount: 1000,
-    intro:
-      "India is the world's largest remittance recipient, with over $125 billion received in 2025. Millions of people in the US send money to India every month — and the cost difference between providers can be significant.",
-    context:
-      "The USD to INR corridor is one of the most competitive in the world. Specialist providers like Wise, Remitly, and Instarem typically offer exchange rates within 0.5% of the mid-market rate, while banks often mark up the rate by 3–5%. For a $1,000 transfer, that difference alone can mean $30–$50 less reaching your recipient.",
-    feesNote:
-      "Fees on the USD to INR route range from $0 (Wise, for certain payment methods) to $5–$10 for bank transfers and credit card payments. Most providers charge either a flat fee or a percentage — typically 0.5%–1.5%. Always check the total cost (fee + exchange rate markup) rather than the fee alone.",
-    deliveryNote:
-      "Bank deposit transfers to India typically arrive within 1–2 business days. Several providers offer near-instant delivery to major Indian banks via IMPS/UPI. Cash pickup through partners like Moneygram is usually available within minutes.",
+    editorialUpdatedAt: "2026-09-11",
+    intro: "For US-to-India transfers, start with how the recipient will use the money: a bank deposit for family expenses, UPI delivery, or cash collection. Compare estimated rupees received for your budget, then confirm that the quoted provider supports your payment method and transfer purpose.",
+    context: "A USD-to-INR price comparison is a shortlist. An offer for a new customer may not apply to a repeat sender, and a bank-deposit price may not apply to cash pickup. Use the same amount, funding method and delivery method when checking the shortlisted providers.",
+    feesNote: "Compare total dollars paid with net rupees received. If a fee is added to the amount you send, include it in your budget; if it is deducted, check its effect on the payout. A zero-fee offer can still include an exchange-rate markup. The estimates above are not guaranteed provider quotes.",
+    deliveryNote: "Choose the arrival deadline and receiving method before choosing a provider. Check the provider’s estimate after entering your payment method and recipient details; a fast local payout rail does not remove the time needed for funding or verification.",
     faqs: [
       {
-        q: "What is the cheapest way to send money from the USA to India?",
-        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most rupees per dollar on the USD to INR corridor. Wise uses the real mid-market exchange rate — the same rate shown on Google and Reuters — with a small transparent fee of around 0.5%–0.7%. There is no hidden markup on the exchange rate, so the quoted fee is the total cost. Remitly charges a slightly higher effective rate but frequently offers promotional zero-fee first transfers and enhanced exchange rates for new users. For a $1,000 transfer, Wise typically delivers INR 300–800 more than banks and INR 100–400 more than Western Union. We recommend comparing all providers on the day you send, as exchange rates fluctuate throughout the day and promotional offers change frequently.",
+        "q": "What is the cheapest way to send money from the USA to India?",
+        "a": "Start with the estimated INR payout for your send amount in the comparison above. A provider with no transfer fee can still deliver fewer rupees through its exchange-rate markup. Shortlist the best estimates, then request quotes using the same US funding method and Indian delivery method. Compare the total dollars debited and rupees delivered. First-transfer offers and account eligibility can change the result; the comparison does not establish a permanent cheapest provider.",
+        "sources": [
+          {
+            "label": "How our estimates and rankings work",
+            "url": "/methodology"
+          }
+        ]
       },
       {
-        q: "How long does a money transfer from the USA to India take?",
-        a: "Transfer speed to India depends on the provider and delivery method you choose. Specialist services like Wise and Remitly deliver to Indian bank accounts within 1–2 business days via standard bank deposit. Remitly and WorldRemit offer express options that can arrive within minutes using India's IMPS (Immediate Payment Service) or UPI infrastructure — India has one of the fastest domestic payment systems in the world. Cash pickup through Western Union and MoneyGram agent locations is also typically available within minutes of sending. Traditional bank wire transfers are the slowest option, taking 2–4 business days due to correspondent banking intermediaries. Funding with a debit card speeds up the process compared to ACH bank transfers, which take 1–3 days to clear before the provider can send your money.",
+        "q": "What should I check if the money must arrive today?",
+        "a": "Choose the delivery method before comparing prices. Remitly lists bank deposit, cash pickup and UPI for US-to-India transfers. Check the arrival estimate for your actual payment method before confirming: an instant payout option does not establish how long funding or verification will take. If the recipient needs cash, confirm the collection location and required ID with the provider.",
+        "sources": [
+          {
+            "label": "Remitly: US-to-India delivery options",
+            "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-india"
+          }
+        ]
       },
       {
-        q: "Can I send money to India using UPI?",
-        a: "Yes, UPI (Unified Payments Interface) is increasingly supported as a delivery method for international transfers to India. Remitly supports UPI-linked transfers on the USD to INR corridor, allowing near-instant delivery to the recipient's UPI-connected bank account. Google Pay also offers UPI transfers on certain routes. UPI is India's dominant digital payment system, processing over 10 billion transactions per month domestically, and its integration with international transfer services is growing rapidly. The advantage of UPI delivery is speed — transfers arrive within seconds once processed by the provider. Not all providers support UPI yet, so check delivery options when comparing. Traditional bank deposit via NEFT or IMPS remains the most universally available delivery method across all providers.",
+        "q": "What details do I need for an Indian bank deposit?",
+        "a": "Ask the recipient for their account-holder name, account number and branch IFSC. Wise also requests the payment purpose. Check the details against the recipient’s banking records before paying. For a UPI transfer, select UPI explicitly and follow the provider’s recipient requirements rather than assuming a bank-deposit quote covers it.",
+        "sources": [
+          {
+            "label": "Wise: INR recipient details and restrictions",
+            "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+          },
+          {
+            "label": "Remitly: US-to-India delivery options",
+            "url": "https://www.remitly.com/us/en/money-transfer/send-money-to-india"
+          }
+        ]
       },
       {
-        q: "Is there a limit on how much money I can send to India from the US?",
-        a: "Transfer limits vary by provider. Most specialist services allow $10,000–$50,000 per transaction, with higher limits available after full identity verification. Wise allows up to $1,000,000 per transfer for verified accounts. On the receiving side, India's Reserve Bank of India does not restrict incoming remittances — there is no cap on how much money can be received from abroad. However, US regulations require financial institutions to file a Currency Transaction Report (CTR) for transfers over $10,000 under the Bank Secrecy Act. This is a reporting requirement, not a prohibition — your transfer will still go through. For very large transfers ($50,000+), providers like OFX and XE offer better exchange rates and dedicated support for high-value transfers.",
+        "q": "Can I use the same provider for family support and an investment payment?",
+        "a": "Check the permitted purpose before comparing large transfers. Wise states that it does not support transfers to India for investment or charitable donation. A provider quoting USD to INR for family support is therefore not automatically an option for a property, investment or business payment. Confirm the purpose, receiving account type, limit and documentation directly with the provider and recipient bank.",
+        "sources": [
+          {
+            "label": "Wise: INR recipient details and restrictions",
+            "url": "https://wise.com/help/articles/2932151/guide-to-inr-transfers"
+          }
+        ]
       },
       {
-        q: "Do I need to pay tax on money sent to India?",
-        a: "In the United States, sending money to family abroad is not a taxable event for the sender. The IRS does not tax outbound personal remittances. However, if you send more than $17,000 to a single recipient in a calendar year, you may need to file IRS Form 709 (Gift Tax Return) — though this rarely results in actual tax owed, as it counts against your lifetime gift tax exclusion of $12.92 million. On the Indian side, incoming remittances from abroad are generally not taxable for the recipient. India's Tax Collected at Source (TCS) rules apply only to outbound remittances from India, not inbound transfers. Regular family support remittances are not subject to Indian income tax. For large or frequent transfers, consulting a tax advisor familiar with both US and Indian tax law is recommended.",
+        "q": "Does US-to-India money transfer tax depend on how I pay?",
+        "a": "Yes. From January 1, 2026, a US federal 1% remittance tax applies to covered transfers funded with cash, money orders, cashier’s checks or similar physical instruments. Qualifying account-funded transfers and transfers funded with US-issued debit or credit cards are excluded. This is separate from gift-tax reporting and any Indian tax treatment. Do not assume that every payment to India is tax-free; its purpose and the sender’s relationship to the recipient matter.",
+        "sources": [
+          {
+            "label": "IRS: remittance tax and payment-method exclusions",
+            "url": "https://www.irs.gov/newsroom/treasury-irs-issue-proposed-regulations-on-the-new-remittance-transfer-tax-established-under-the-one-big-beautiful-bill"
+          },
+          {
+            "label": "IRS: gift-tax questions",
+            "url": "https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-gift-taxes"
+          },
+          {
+            "label": "India Income Tax Department: gifts and exemptions",
+            "url": "https://www.incometaxindia.gov.in/en/deemed-income-including-gifts-"
+          }
+        ]
       },
+      {
+        "q": "How should I compare providers for monthly family support?",
+        "a": "Compare the returning-customer price as well as the introductory offer. For a one-year budget, add the first transfer’s total cost to eleven repeat transfers at the same amount. This is a comparison method, not a forecast: rates and fees will change. Keep the funding method and payout method consistent so a promotion does not disguise a more expensive ongoing service."
+      }
     ],
   },
   {

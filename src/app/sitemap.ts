@@ -213,7 +213,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const corridorPages: MetadataRoute.Sitemap = allCorridors
     .filter((c) => !GONE_CORRIDOR_SLUGS.has(c.slug))
     .filter((c) => !shouldNoindex(c.slug, c.fromCurrency, c.toCurrency, c.isCountryPage))
-    .map((c) => entry(`send-money/${c.slug}`, CORRIDOR_CONTENT_DATE));
+    .map((c) => entry(`send-money/${c.slug}`,
+      c.editorialUpdatedAt && c.editorialUpdatedAt > CORRIDOR_CONTENT_DATE
+        ? c.editorialUpdatedAt
+        : CORRIDOR_CONTENT_DATE));
 
   // ── Provider reviews ──
   const reviewedSlugs = new Set(providerReviews.map((r) => r.slug));

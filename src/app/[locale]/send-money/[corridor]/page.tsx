@@ -121,18 +121,18 @@ const corridorEditorialNotes: Record<
       "NatWest, Barclays, HSBC, and Lloyds all default to SWIFT with a 3.5–4.25% FX markup plus a £15–£30 flat fee on GBP→ZAR. On £2,000 that's £70–£85 disappearing into the bank's margin for a single transfer. Wise costs £8–£12 total on the same transfer. Over 12 monthly transfers of £500 each, the difference is £400+ per year.",
   },
   "usa-to-india": {
-    title: "What matters on the USA to India corridor",
+    title: "Choose by the recipient’s needs before comparing USD to INR",
     summary:
-      "SendMoneyCompare data shows USD to INR is the most competitive remittance corridor from the United States, with over a dozen providers fighting for market share. The sheer competition means savings vary significantly depending on transfer size, funding method, and how your recipient receives the money in India.",
+      "The best estimate in the table is a starting point. The useful comparison is the amount your recipient can actually collect, by the deadline they need, using a payment method available to you.",
     bullets: [
-      "Providers using IMPS or UPI-linked rails can deliver INR to Indian bank accounts within minutes. If your recipient banks with HDFC, SBI, or ICICI, most major providers support instant credit — always confirm the delivery method before sending.",
-      "Exchange rate markup is where providers make their real margin. A provider advertising zero fees but marking up the mid-market rate by 1.5% costs more on a $1,000 transfer than one charging a $5 fee with a 0.3% markup. Always compare the total INR received, not just the fee.",
-      "Regular senders supporting family or paying tuition should compare subscription or loyalty pricing. Some providers like Remitly offer better rates for repeat transfers, which adds up over 12+ transfers per year.",
-      "ACH bank funding is almost always the cheapest option from the US. Debit and credit card funding adds $3–$10 in card processing fees that rarely justify the marginal speed improvement on this corridor.",
+      "Monthly family support: check the returning-customer quote. Compare the first transfer plus eleven repeat transfers instead of treating a welcome offer as your ongoing cost.",
+      "An urgent payment: select bank deposit, UPI or cash pickup first, then check the provider’s arrival estimate for that option. Confirm the collection location if the recipient needs cash.",
+      "A fixed INR bill: ask how many dollars you must pay for the recipient to receive the exact rupee amount. A comparison of equal dollar sends answers a different question.",
+      "A large or purpose-specific payment: confirm that the provider accepts the payment purpose and recipient account type before relying on its advertised USD-to-INR rate. See the sourced restrictions in the questions below.",
     ],
-    warningTitle: "Watch out for first-transfer promotions",
+    warningTitle: "Keep the comparison conditions the same",
     warningBody:
-      "Many providers offer an inflated exchange rate or zero fees on your first transfer to win your business. Always check what the second transfer costs — the ongoing rate is what matters for regular senders.",
+      "Save the quote’s funding method, delivery method, customer offer, total debit and final INR payout. If one of those changes at checkout, compare again before paying.",
   },
   "usa-to-pakistan": {
     title: "What matters on the USA to Pakistan corridor",
@@ -3337,6 +3337,16 @@ export default async function CorridorPage({ params }: Props) {
                   <p className="mt-3 text-sm text-[var(--color-on-surface-variant)] leading-relaxed pr-8">
                     {faq.a}
                   </p>
+                  {faq.sources && (
+                    <p className="mt-2 text-xs text-[var(--color-on-surface-variant)]">
+                      Sources: {faq.sources.map((source, index) => (
+                        <span key={source.url}>
+                          {index > 0 && " · "}
+                          <a href={source.url} className="underline hover:text-[var(--color-primary)]">{source.label}</a>
+                        </span>
+                      ))}
+                    </p>
+                  )}
                 </details>
               ))}
             </div>
