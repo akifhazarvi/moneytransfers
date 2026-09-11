@@ -2332,8 +2332,24 @@ export default async function CorridorPage({ params }: Props) {
             <h2 className="text-h4 md:text-h3 font-normal text-[var(--color-on-surface)] mb-4">
               {isCurrencyCorridor ? `How long does a ${fromCurrency} to ${toCurrency} transfer take?` : `How long does it take to send money to ${corridor.toCountry}?`}
             </h2>
-            <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
+            <p className="text-sm md:text-md text-[var(--color-on-surface-variant)] leading-relaxed mb-3">
               {corridor.deliveryNote}
+            </p>
+            {/* Delivery times on this page are ADVERTISED, not measured.
+                The 2026-09-06 census found speed data exists across ~4,200
+                quotes and six sources, but every one of them is the provider's
+                own published estimate — two are single-valued constants — and
+                nothing in the pipeline records when a transfer actually landed.
+                The prose says things like "GCash transfers arrive within
+                minutes" in 29 places, which reads as measured performance.
+                Rewriting those individually is editorial work; stating the
+                basis once, next to the claim, is accurate now and does not
+                invent precision. Do not upgrade this wording to imply we
+                verified arrival times until something in the pipeline does. */}
+            <p className="text-2xs text-[var(--color-on-surface-variant)] leading-relaxed mb-6">
+              Delivery times shown here are published by the providers and payment schemes. We
+              do not measure when transfers actually arrive, so treat them as estimates and
+              confirm the time with your provider before you send.
             </p>
 
             {(fastProviders.length > 0 || standardProviders.length > 0) && (
