@@ -205,3 +205,44 @@ eligibility still lacks provenance through the quote engine, so a currency-pair
 estimate must not be published as a verified bank or wallet quote for every
 country sharing that currency. None of this pass establishes that any corridor's
 eligibility conditions have been verified.
+
+## Phase 1 closed — all four editorial surfaces now checked (2026-09-11)
+
+Work-order item 1 ("correct contradictions and risky factual claims") is
+complete for the corridor family, and the evidence standard changed part-way
+through in a way worth recording.
+
+**The right test is the 90-day record, not today's table.**
+`rate-insights.json` carries `providerConsistency` per corridor — a 91-day
+window with per-provider wins on contested days, the same record the pages
+already render. A single-day miss can be a scrape moving; absence from three
+months of winners cannot:
+
+| Claim found in prose | 91-day record |
+| --- | --- |
+| "Instarem often matches or beats Wise on AUD/INR" | Instarem 0/91; Ria 54 |
+| "Sendwave consistently among the cheapest to Ghana" | Sendwave 0/91; Paysend 46 |
+| "Wise and Revolut tightest GBP/EUR spreads" | Wise 0/91; OFX 59 |
+| "Wise cheapest EUR→BDT" | Wise 0/91; Paysend 58 |
+| "LemFi often best CAD→NGN" | **34/91 — supportable, kept** |
+
+Not every flagged claim was wrong, and the single-day test would have deleted
+the LemFi one.
+
+**Surfaces now covered by `check:corridor-claims`:** `corridors.ts`,
+`corridor-deep-content.ts`, `sweden-content.ts`, `corridor-editorial-notes.ts`
+(extracted from the route file this pass so a guard could import it — 758 lines
+that nothing could reach before). 11 hardcoded claims remain, none contradicted.
+
+**Two failure modes worth not repeating.** `sweden-content.ts` is written in
+Swedish, so the English superlative pattern had never matched it and six
+contradictions sat behind a regex that could not see them — a content scan must
+cover non-English surfaces explicitly. And the guard must only judge what its
+evidence covers: `providerConsistency` measures cost, so claims about delivery
+rails and speed are excluded rather than reported as contradictions.
+
+**Still open and deliberately untouched:** speed and delivery-time claims are
+unverified — the data is advertised, not measured, so nothing here establishes
+that any quoted arrival time is real. Country and payment-method eligibility
+still lacks provenance through the quote engine. Both are separate guards, not
+extensions of this one.
