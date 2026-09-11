@@ -53,7 +53,8 @@
     "check:sources": "npx tsx scripts/check-sources.ts",
     "check:weight": "npx tsx scripts/check-page-weight.ts",
     "check:rankings": "npx tsx scripts/check-rankings.ts",
-    "check:corridor-summary": "npx tsx scripts/check-corridor-summary.ts"
+    "check:corridor-summary": "npx tsx scripts/check-corridor-summary.ts",
+    "check:corridor-claims": "npx tsx scripts/check-corridor-claims.ts"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

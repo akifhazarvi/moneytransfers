@@ -280,7 +280,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to Mexico?",
-        a: "Based on our comparison data, Wise, Remitly, and Xoom (PayPal) consistently deliver the most Mexican pesos per dollar. Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5%–0.7%, making it one of the most cost-effective options for this corridor. Remitly frequently offers zero-fee promotions and enhanced exchange rates for first-time users, which can save $3–$10 on an initial transfer. Xoom benefits from PayPal's infrastructure and offers competitive rates with express delivery via SPEI. The USD to MXN corridor is one of the most competitive in the world — Mexico received over $63 billion in remittances in 2025, and intense provider competition keeps costs low. For a $1,000 transfer, the difference between the best and worst providers can exceed MXN 300–600. We recommend comparing on the day you send, as peso rates fluctuate significantly throughout the day.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5%–0.7%, making it one of the most cost-effective options for this corridor. Remitly frequently offers zero-fee promotions and enhanced exchange rates for first-time users, which can save $3–$10 on an initial transfer. Xoom benefits from PayPal's infrastructure and offers competitive rates with express delivery via SPEI. The USD to MXN corridor is one of the most competitive in the world — Mexico received over $63 billion in remittances in 2025, and intense provider competition keeps costs low. For a $1,000 transfer, the difference between the best and worst providers can exceed MXN 300–600. We recommend comparing on the day you send, as peso rates fluctuate significantly throughout the day.",
       },
       {
         q: "Can I send money to Mexico instantly?",
@@ -316,7 +316,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to Nigeria?",
-        a: "The provider offering the best naira rate changes frequently due to NGN volatility. Wise, Remitly, and WorldRemit are consistently competitive. Always compare the total naira amount received, not just the fee — exchange rate differences can be worth tens of thousands of naira.",
+        a: "The provider offering the best naira rate changes frequently due to NGN volatility. Always compare the total naira amount received, not just the fee — exchange rate differences can be worth tens of thousands of naira.",
       },
       {
         q: "Why do exchange rates for NGN vary so much between providers?",
@@ -421,7 +421,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send GBP to EUR?",
-        a: "Wise and CurrencyFair consistently offer exchange rates very close to the mid-market rate for GBP to EUR, making them the cheapest options available. Wise charges a transparent percentage fee of typically 0.35%–0.45% with zero exchange rate markup — on a £1,000 transfer, that's roughly £3.50–£4.50 total cost. CurrencyFair uses a marketplace model where you can set your own desired rate and wait for a match, sometimes achieving rates even better than the mid-market rate. Revolut also offers interbank rates for GBP to EUR during weekday market hours, with a free tier allowing up to £1,000 per month. OFX and XE charge no transfer fees and are strong options for larger amounts (£5,000+). All of these specialist options are dramatically cheaper than UK high-street banks, which charge £15–£30 per transfer plus a 2%–4% exchange rate markup.",
+        a: "Wise charges a transparent percentage fee of typically 0.35%–0.45% with zero exchange rate markup — on a £1,000 transfer, that's roughly £3.50–£4.50 total cost. CurrencyFair uses a marketplace model where you can set your own desired rate and wait for a match, sometimes achieving rates even better than the mid-market rate. Revolut also offers interbank rates for GBP to EUR during weekday market hours, with a free tier allowing up to £1,000 per month. OFX and XE charge no transfer fees and are strong options for larger amounts (£5,000+). All of these specialist options are dramatically cheaper than UK high-street banks, which charge £15–£30 per transfer plus a 2%–4% exchange rate markup.",
       },
       {
         q: "Can I still use SEPA transfers from the UK?",
@@ -520,7 +520,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to Bangladesh?",
-        a: "Remitly and WorldRemit consistently deliver the most taka per dollar on the USD to BDT corridor. Remitly offers express bKash delivery in minutes and frequently runs zero-fee promotions for new customers. Wise charges the real mid-market exchange rate with a transparent fee of around 0.6–0.8%, making it the most cost-transparent option. ACE Money Transfer is another strong performer specifically on this corridor, often beating global brands on rate. Avoid US bank wire transfers — they charge $25–$50 per transaction plus a 3–5% exchange rate markup, typically costing $50–$80 more than specialist providers on a $1,000 transfer. Always compare the total BDT your recipient will receive rather than the advertised fee alone, as exchange rate differences between providers can exceed 2–3%.",
+        a: "Remitly offers express bKash delivery in minutes and frequently runs zero-fee promotions for new customers. Wise charges the real mid-market exchange rate with a transparent fee of around 0.6–0.8%, making it the most cost-transparent option. ACE Money Transfer is another strong performer specifically on this corridor, often beating global brands on rate. Avoid US bank wire transfers — they charge $25–$50 per transaction plus a 3–5% exchange rate markup, typically costing $50–$80 more than specialist providers on a $1,000 transfer. Always compare the total BDT your recipient will receive rather than the advertised fee alone, as exchange rate differences between providers can exceed 2–3%.",
       },
       {
         q: "Can I send money directly to bKash from the US?",
@@ -560,7 +560,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to the UK?",
-        a: "Wise and OFX consistently offer the best value for USD to GBP transfers. Wise uses the real mid-market exchange rate with 0% markup and a transparent fee of approximately 0.5–0.7% — on a $1,000 transfer, that's about $5–$7 total cost. OFX charges $0 in fees with a small exchange rate spread, making it particularly competitive for transfers over $5,000. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, costing $45–$80 total on the same $1,000 transfer. We recommend comparing Wise, OFX, and XE on the day you send.",
+        a: "Wise uses the real mid-market exchange rate with 0% markup and a transparent fee of approximately 0.5–0.7% — on a $1,000 transfer, that's about $5–$7 total cost. OFX charges $0 in fees with a small exchange rate spread, making it particularly competitive for transfers over $5,000. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, costing $45–$80 total on the same $1,000 transfer. We recommend comparing Wise, OFX, and XE on the day you send.",
       },
       {
         q: "How long does a US to UK transfer take?",
@@ -572,7 +572,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "What is the best way to send money to the UK from the USA?",
-        a: "For most people, Wise offers the best combination of low cost, speed, and transparency for USD to GBP transfers. For large transfers ($5,000+), OFX may offer better rates through their zero-fee model. For speed, Revolut and Wise both support same-day delivery to UK bank accounts. For cash pickup in the UK, Western Union has the widest network. We recommend using our comparison tool to check live rates on the day you send, as USD/GBP rates fluctuate throughout the day.",
+        a: "For large transfers ($5,000+), OFX may offer better rates through their zero-fee model. For speed, Revolut and Wise both support same-day delivery to UK bank accounts. For cash pickup in the UK, Western Union has the widest network. We recommend using our comparison tool to check live rates on the day you send, as USD/GBP rates fluctuate throughout the day.",
       },
     ],
   },
@@ -596,7 +596,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to Europe?",
-        a: "Wise and OFX consistently offer the best total cost for USD to EUR transfers. Wise charges the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of approximately 0.5–0.7%, costing around $5–$7 on a $1,000 transfer. OFX charges zero fees with a small exchange rate spread of around 0.4–0.8%, making it particularly competitive for transfers over $5,000. CurrencyFair and XE are also strong options. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, totaling $45–$80 on the same $1,000 transfer — 7–10 times more expensive. For the absolute lowest total cost, fund your transfer via ACH bank debit rather than debit or credit card.",
+        a: "Wise charges the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of approximately 0.5–0.7%, costing around $5–$7 on a $1,000 transfer. OFX charges zero fees with a small exchange rate spread of around 0.4–0.8%, making it particularly competitive for transfers over $5,000. CurrencyFair and XE are also strong options. By comparison, US banks charge $25–$50 per wire plus a 2–3% FX markup, totaling $45–$80 on the same $1,000 transfer — 7–10 times more expensive. For the absolute lowest total cost, fund your transfer via ACH bank debit rather than debit or credit card.",
       },
       {
         q: "How long does a US to Europe bank transfer take?",
@@ -786,7 +786,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the US to Brazil?",
-        a: "Wise is the cheapest for bank deposits and PIX delivery — mid-market USD/BRL rate with 0% markup and a fee of USD 5–8 on USD 1,000. Remitly is competitive on smaller transfers (USD 100–500) and frequently runs promotional zero-fee or zero-markup offers for first-time senders. Boss Money is consistently strong on PIX delivery with deep Brazilian-side relationships. For cash pickup at Banco do Brasil, Caixa Econômica Federal, Bradesco, or Lojas Americanas locations, Western Union and MoneyGram offer the largest networks but charge 1.5–3% FX markup. Brazil's 0.38% IOF tax applies on top of any provider's fees regardless — on USD 1,000 that is BRL ~19 deducted automatically at conversion. US banks (Chase, Bank of America, Wells Fargo) charge USD 40–50 wire fees plus 3–5% FX markup, costing USD 60–90 more than Wise on a USD 1,000 transfer.",
+        a: "Remitly is competitive on smaller transfers (USD 100–500) and frequently runs promotional zero-fee or zero-markup offers for first-time senders. For cash pickup at Banco do Brasil, Caixa Econômica Federal, Bradesco, or Lojas Americanas locations, Western Union and MoneyGram offer the largest networks but charge 1.5–3% FX markup. Brazil's 0.38% IOF tax applies on top of any provider's fees regardless — on USD 1,000 that is BRL ~19 deducted automatically at conversion. US banks (Chase, Bank of America, Wells Fargo) charge USD 40–50 wire fees plus 3–5% FX markup, costing USD 60–90 more than Wise on a USD 1,000 transfer.",
       },
       {
         q: "Can I send money to Brazil via PIX from the US?",
@@ -874,7 +874,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Canada to the Philippines?",
-        a: "Remitly, Wise, Instarem, and WorldRemit consistently deliver the most pesos per Canadian dollar on the CAD to PHP corridor. Remitly offers competitive rates with express delivery options and zero-fee promotions for new customers. Instarem, as an Asia-Pacific specialist, often has particularly strong CAD to PHP rates due to regional liquidity relationships. Wise charges the real mid-market rate with a transparent 0.5–0.9% fee. Canadian banks charge C$30–$80 per international wire plus 3–5% exchange rate markups, costing C$60–$130 more than specialist providers on a C$1,000 transfer. Compare the total PHP your recipient receives — rate differences of ₱500–₱1,500 per C$1,000 are common between providers.",
+        a: "Remitly offers competitive rates with express delivery options and zero-fee promotions for new customers. Instarem, as an Asia-Pacific specialist, often has particularly strong CAD to PHP rates due to regional liquidity relationships. Wise charges the real mid-market rate with a transparent 0.5–0.9% fee. Canadian banks charge C$30–$80 per international wire plus 3–5% exchange rate markups, costing C$60–$130 more than specialist providers on a C$1,000 transfer. Compare the total PHP your recipient receives — rate differences of ₱500–₱1,500 per C$1,000 are common between providers.",
       },
       {
         q: "Can I send to GCash from Canada?",
@@ -955,7 +955,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from UAE to India?",
-        a: "Wise and Remitly consistently offer the best total value for AED to INR transfers. Wise uses the mid-market rate with a small transparent fee, while Remitly frequently offers promotional rates for new users. Al Ansari Exchange and UAE Exchange are also competitive and convenient with branches across the UAE.",
+        a: "Wise uses the mid-market rate with a small transparent fee, while Remitly frequently offers promotional rates for new users. Al Ansari Exchange and UAE Exchange are also competitive and convenient with branches across the UAE.",
       },
       {
         q: "How long does it take to send money from UAE to India?",
@@ -1229,7 +1229,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Singapore to India?",
-        a: "Wise and InstaReM consistently offer the best total value for SGD to INR transfers. Wise provides the mid-market rate with a small fee. InstaReM (now Nium) offers competitive rates with Singapore-based support. DBS Remit is convenient for DBS/POSB account holders.",
+        a: "Wise provides the mid-market rate with a small fee. InstaReM (now Nium) offers competitive rates with Singapore-based support. DBS Remit is convenient for DBS/POSB account holders.",
       },
       {
         q: "How long does a transfer from Singapore to India take?",
@@ -1342,7 +1342,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from New Zealand to India?",
-        a: "Wise and Remitly consistently offer the best value for NZD to INR transfers. Wise provides the mid-market rate with a transparent fee. OFX is strong for larger transfers over NZD 2,000. Compare all providers on the day you send.",
+        a: "Wise provides the mid-market rate with a transparent fee. OFX is strong for larger transfers over NZD 2,000. Compare all providers on the day you send.",
       },
       {
         q: "How long does a transfer from New Zealand to India take?",
@@ -1451,7 +1451,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to the Philippines?",
-        a: "Based on our latest comparison data, Wise and TapTap Send consistently deliver the most Philippine pesos per pound on the GBP to PHP corridor. Wise uses the real mid-market exchange rate — the same rate you see on Google — and charges a transparent fee of around 0.4%–0.6% for bank-funded transfers, with no hidden exchange rate markup. TapTap Send charges zero transfer fees and offers a competitive rate, making it highly cost-effective for this corridor. Remitly is another strong option, especially for new users who receive a promotional enhanced rate on their first transfer. For a £500 transfer, the difference between the cheapest provider and a high-street bank can exceed ₱2,000. Always fund your transfer via bank transfer (Faster Payments) rather than debit or credit card, as card-funded transfers typically incur an additional 1%–2% surcharge across most providers.",
+        a: "Wise uses the real mid-market exchange rate — the same rate you see on Google — and charges a transparent fee of around 0.4%–0.6% for bank-funded transfers, with no hidden exchange rate markup. TapTap Send charges zero transfer fees and offers a competitive rate, making it highly cost-effective for this corridor. Remitly is another strong option, especially for new users who receive a promotional enhanced rate on their first transfer. For a £500 transfer, the difference between the cheapest provider and a high-street bank can exceed ₱2,000. Always fund your transfer via bank transfer (Faster Payments) rather than debit or credit card, as card-funded transfers typically incur an additional 1%–2% surcharge across most providers.",
       },
       {
         q: "Can I send money from the UK directly to GCash in the Philippines?",
@@ -1492,7 +1492,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Europe to India?",
-        a: "Based on our latest comparison data, Wise and Instarem consistently deliver the most Indian rupees per euro on the EUR to INR corridor. Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.4%–0.6% for SEPA-funded transfers, ensuring the quoted cost is the total cost with no hidden margin. Instarem offers a competitive rate with a small percentage-based margin and no flat fee, making it cost-effective for both small and large amounts. Remitly is also strong on this corridor, particularly for first-time users who benefit from promotional zero-fee offers and enhanced exchange rates. For a €1,000 transfer, the difference between the cheapest specialist provider and a traditional European bank can exceed ₹3,000–₹4,000. Always fund via SEPA bank transfer rather than debit or credit card to avoid additional processing surcharges of 1%–3%.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.4%–0.6% for SEPA-funded transfers, ensuring the quoted cost is the total cost with no hidden margin. Instarem offers a competitive rate with a small percentage-based margin and no flat fee, making it cost-effective for both small and large amounts. Remitly is also strong on this corridor, particularly for first-time users who benefit from promotional zero-fee offers and enhanced exchange rates. For a €1,000 transfer, the difference between the cheapest specialist provider and a traditional European bank can exceed ₹3,000–₹4,000. Always fund via SEPA bank transfer rather than debit or credit card to avoid additional processing surcharges of 1%–3%.",
       },
       {
         q: "What is the difference between SEPA and SWIFT for sending money to India?",
@@ -1532,7 +1532,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Europe to the Philippines?",
-        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Philippine pesos per euro on the EUR to PHP corridor. Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5%–0.7% for SEPA-funded transfers, making the quoted cost the total cost. Remitly offers competitive rates and frequently runs promotional zero-fee first transfers with enhanced exchange rates for new users. WorldRemit is another strong option with flat fees starting at €1.99. For a €1,000 transfer, the difference between the cheapest specialist provider and a traditional European bank can exceed ₱3,000–₱5,000. Always fund your transfer via SEPA bank transfer to avoid card-processing surcharges. For OFWs sending regularly, comparing providers monthly is worthwhile as promotional offers and rate competitiveness shift frequently.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5%–0.7% for SEPA-funded transfers, making the quoted cost the total cost. Remitly offers competitive rates and frequently runs promotional zero-fee first transfers with enhanced exchange rates for new users. WorldRemit is another strong option with flat fees starting at €1.99. For a €1,000 transfer, the difference between the cheapest specialist provider and a traditional European bank can exceed ₱3,000–₱5,000. Always fund your transfer via SEPA bank transfer to avoid card-processing surcharges. For OFWs sending regularly, comparing providers monthly is worthwhile as promotional offers and rate competitiveness shift frequently.",
       },
       {
         q: "Can I send money from Europe directly to GCash in the Philippines?",
@@ -1572,7 +1572,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Europe to Nigeria?",
-        a: "Based on our latest comparison data, Lemfi and Wise consistently deliver the most Nigerian naira per euro on the EUR to NGN corridor. Lemfi (formerly Lemonade Finance) specialises in transfers to African countries and often offers the best naira exchange rate with zero or very low fees for this corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6%–1.0% and no hidden markup. Remitly and WorldRemit are also competitive, particularly for first-time users who benefit from promotional rates. For a €1,000 transfer, the difference between the cheapest and most expensive provider can exceed ₦40,000–₦60,000 due to the naira's high value differential. This makes comparison more important on this corridor than almost any other. Always fund via SEPA bank transfer to avoid additional card-processing fees of 1%–3%.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6%–1.0% and no hidden markup. Remitly and WorldRemit are also competitive, particularly for first-time users who benefit from promotional rates. For a €1,000 transfer, the difference between the cheapest and most expensive provider can exceed ₦40,000–₦60,000 due to the naira's high value differential. This makes comparison more important on this corridor than almost any other. Always fund via SEPA bank transfer to avoid additional card-processing fees of 1%–3%.",
       },
       {
         q: "Why does the NGN exchange rate vary so much between providers?",
@@ -1613,7 +1613,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UAE to Bangladesh?",
-        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Bangladeshi taka per dirham on the AED to BDT corridor. Wise uses the real mid-market exchange rate with a transparent fee and no hidden markup, making it one of the most cost-effective options for bank-funded transfers. Remitly offers competitive rates with frequent promotional offers for new users. Traditional exchange houses like Al Ansari and Lulu Exchange offer convenience — especially for cash-in funding — but typically apply higher exchange rate markups of 1.5%–3%. On an AED 2,000 transfer, the difference between the best digital provider and a typical exchange house can exceed BDT 2,000–4,000. Additionally, recipients receive a 2.5% government cash incentive on remittances through formal banking channels, which effectively boosts the total amount received. Always compare the total BDT delivered rather than just the transfer fee.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee and no hidden markup, making it one of the most cost-effective options for bank-funded transfers. Remitly offers competitive rates with frequent promotional offers for new users. Traditional exchange houses like Al Ansari and Lulu Exchange offer convenience — especially for cash-in funding — but typically apply higher exchange rate markups of 1.5%–3%. On an AED 2,000 transfer, the difference between the best digital provider and a typical exchange house can exceed BDT 2,000–4,000. Additionally, recipients receive a 2.5% government cash incentive on remittances through formal banking channels, which effectively boosts the total amount received. Always compare the total BDT delivered rather than just the transfer fee.",
       },
       {
         q: "Can I send money directly to a bKash account from the UAE?",
@@ -1654,7 +1654,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Canada to Pakistan?",
-        a: "Based on our current comparison data, Wise and TapTap Send consistently deliver the most Pakistani rupees per Canadian dollar. Wise uses the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of around 0.6%–0.9% and no hidden exchange rate markup. TapTap Send charges zero transfer fees and offers a competitive exchange rate, making it particularly attractive for smaller, regular transfers. Remitly and ACE Money Transfer also perform well on this corridor, especially for first-time users who benefit from promotional rates. On a CAD 1,000 transfer, the difference between the cheapest and most expensive provider can exceed PKR 8,000–12,000. Funding via Interac e-Transfer is the fastest and cheapest way to send — it is fee-free, instant, and supported by Wise, Remitly, and most other major providers in Canada.",
+        a: "Wise uses the real mid-market exchange rate — the same rate you see on Google — with a transparent fee of around 0.6%–0.9% and no hidden exchange rate markup. TapTap Send charges zero transfer fees and offers a competitive exchange rate, making it particularly attractive for smaller, regular transfers. Remitly and ACE Money Transfer also perform well on this corridor, especially for first-time users who benefit from promotional rates. On a CAD 1,000 transfer, the difference between the cheapest and most expensive provider can exceed PKR 8,000–12,000.",
       },
       {
         q: "Can I send money to a JazzCash or Easypaisa account from Canada?",
@@ -1818,7 +1818,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to Ghana?",
-        a: "Based on our latest comparison data, Wise and Sendwave consistently deliver the most Ghanaian cedis per pound on the GBP to GHS corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.4%–0.7%, making it one of the cheapest options for this route. Sendwave (now part of WorldRemit) charges zero transfer fees and offers a competitive exchange rate, making it popular among the Ghanaian diaspora in the UK. WorldRemit also performs well, particularly for MTN MoMo delivery. On a £500 transfer, the difference between the cheapest and most expensive provider can exceed GHS 150–300, which is significant purchasing power in Ghana. Funding via Faster Payments from your UK bank account is instant and free, so there is no reason to use slower or costlier funding methods. Compare all providers at the time of sending, as the cedi can be volatile.",
+        a: "Sendwave (now part of WorldRemit) charges zero transfer fees and offers a competitive exchange rate, making it popular among the Ghanaian diaspora in the UK. WorldRemit also performs well, particularly for MTN MoMo delivery. On a £500 transfer, the difference between the cheapest and most expensive provider can exceed GHS 150–300, which is significant purchasing power in Ghana. Funding via Faster Payments from your UK bank account is instant and free, so there is no reason to use slower or costlier funding methods. Compare all providers at the time of sending, as the cedi can be volatile.",
       },
       {
         q: "Can I send money directly to MTN MoMo from the UK?",
@@ -1859,7 +1859,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Europe to Pakistan?",
-        a: "The cheapest method is typically using a SEPA bank transfer to fund your transaction through Wise, ACE Money Transfer, or Remitly. SEPA transfers are free or very low cost from most European bank accounts and avoid the 1–2% card processing surcharge. Wise generally offers the closest rate to the mid-market EUR/PKR exchange rate with a transparent fee of around €3–5 for a €1,000 transfer. ACE Money Transfer frequently runs zero-fee promotions on the Europe-to-Pakistan corridor. Compare the total received amount in PKR rather than just the fee — a provider with a €0 fee but a 2% rate markup costs more than one charging €4 with a 0.3% markup. On a €1,000 transfer, that difference could mean 5,000–10,000 PKR more for your recipient.",
+        a: "SEPA transfers are free or very low cost from most European bank accounts and avoid the 1–2% card processing surcharge. Wise generally offers the closest rate to the mid-market EUR/PKR exchange rate with a transparent fee of around €3–5 for a €1,000 transfer. ACE Money Transfer frequently runs zero-fee promotions on the Europe-to-Pakistan corridor. Compare the total received amount in PKR rather than just the fee — a provider with a €0 fee but a 2% rate markup costs more than one charging €4 with a 0.3% markup. On a €1,000 transfer, that difference could mean 5,000–10,000 PKR more for your recipient.",
       },
       {
         q: "Can I send money directly to JazzCash or Easypaisa from Europe?",
@@ -1981,7 +1981,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Canada to Nigeria?",
-        a: "Lemfi, Wise, and WorldRemit consistently deliver the most naira per Canadian dollar. Lemfi specialises in African corridors and often has the most competitive NGN rates from Canada. Wise charges the real mid-market rate with a transparent fee of C$3–6. WorldRemit offers multiple delivery options with fees under C$5. Canadian banks charge C$30–80 per wire plus 3–5% exchange rate markups, costing C$45–100 more than specialists on a C$500 transfer. Fund via Interac e-Transfer for the lowest fees. Always compare total NGN received — naira volatility means even small rate differences translate to thousands of naira.",
+        a: "Lemfi specialises in African corridors and often has the most competitive NGN rates from Canada. Wise charges the real mid-market rate with a transparent fee of C$3–6. WorldRemit offers multiple delivery options with fees under C$5. Canadian banks charge C$30–80 per wire plus 3–5% exchange rate markups, costing C$45–100 more than specialists on a C$500 transfer. Fund via Interac e-Transfer for the lowest fees. Always compare total NGN received — naira volatility means even small rate differences translate to thousands of naira.",
       },
       {
         q: "How does the naira exchange rate affect my transfers?",
@@ -2021,7 +2021,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send AUD to the UK?",
-        a: "Wise and OFX consistently offer the best value for AUD to GBP transfers. Wise uses the real mid-market exchange rate with a transparent fee of around A$5–8 per A$1,000. OFX waives transfer fees for amounts above A$1,000 and offers competitive exchange rates — as an Australian-founded company, their AUD pricing is particularly strong. Revolut offers free transfers up to certain monthly limits. Australian banks charge A$20–30 per international transfer plus 2.5–4% exchange rate markups, costing A$45–70 more than specialists on A$1,000. Fund via PayID or bank transfer for the lowest cost. Compare total GBP received, not fees alone.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around A$5–8 per A$1,000. OFX waives transfer fees for amounts above A$1,000 and offers competitive exchange rates — as an Australian-founded company, their AUD pricing is particularly strong. Revolut offers free transfers up to certain monthly limits. Australian banks charge A$20–30 per international transfer plus 2.5–4% exchange rate markups, costing A$45–70 more than specialists on A$1,000. Fund via PayID or bank transfer for the lowest cost. Compare total GBP received, not fees alone.",
       },
       {
         q: "How long does an Australia to UK transfer take?",
@@ -2061,7 +2061,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Singapore to Bangladesh?",
-        a: "Instarem and Wise are typically the cheapest options. Instarem, headquartered in Singapore, offers competitive SGD/BDT rates with fees of S$2–5. Wise charges the mid-market exchange rate with a transparent fee of S$3–5. Remitly and WorldRemit also offer competitive rates with bKash delivery. Fund your transfer via PayNow or FAST for the lowest fees — these are free from most Singapore banks. Avoid bank wire transfers, which charge S$20–35 plus poor exchange rates. On a S$500 transfer, switching from a bank to a specialist saves S$15–30. Remember that Bangladesh's 2.5% remittance incentive applies when recipients receive through formal banking channels.",
+        a: "Instarem, headquartered in Singapore, offers competitive SGD/BDT rates with fees of S$2–5. Wise charges the mid-market exchange rate with a transparent fee of S$3–5. Remitly and WorldRemit also offer competitive rates with bKash delivery. Fund your transfer via PayNow or FAST for the lowest fees — these are free from most Singapore banks. Avoid bank wire transfers, which charge S$20–35 plus poor exchange rates. On a S$500 transfer, switching from a bank to a specialist saves S$15–30. Remember that Bangladesh's 2.5% remittance incentive applies when recipients receive through formal banking channels.",
       },
       {
         q: "Can I send to bKash or Nagad from Singapore?",
@@ -2182,7 +2182,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the USA to the Dominican Republic?",
-        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Dominican pesos per dollar on this corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.8%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent promotional zero-fee first transfers for new users. For a $500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed DOP 800–1,500. WorldRemit and Xoom (PayPal) also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as rates fluctuate throughout the day.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.8%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent promotional zero-fee first transfers for new users. For a $500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed DOP 800–1,500. WorldRemit and Xoom (PayPal) also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as rates fluctuate throughout the day.",
       },
       {
         q: "How long does a money transfer from the USA to the Dominican Republic take?",
@@ -2222,7 +2222,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the USA to Jamaica?",
-        a: "Based on our latest comparison data, Wise and Remitly consistently deliver the most Jamaican dollars per US dollar. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.9%, so the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently provides promotional zero-fee first transfers. For a $500 transfer, the difference between the cheapest and most expensive provider can exceed JMD 2,000. WorldRemit and Xoom also serve this corridor well. Traditional operators like Western Union remain popular for cash pickup convenience but typically offer less favourable exchange rates.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–0.9%, so the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently provides promotional zero-fee first transfers. For a $500 transfer, the difference between the cheapest and most expensive provider can exceed JMD 2,000. WorldRemit and Xoom also serve this corridor well. Traditional operators like Western Union remain popular for cash pickup convenience but typically offer less favourable exchange rates.",
       },
       {
         q: "How long does a money transfer from the USA to Jamaica take?",
@@ -2262,7 +2262,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to Jamaica?",
-        a: "Based on our comparison data, Wise and WorldRemit consistently deliver the most Jamaican dollars per pound on the GBP to JMD corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.4–0.8%, meaning no hidden markup on the exchange rate. WorldRemit, a London-headquartered company, offers competitive rates with frequent promotional offers for new users. For a £500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed JMD 4,000. Remitly and Xoom also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as the GBP to JMD rate fluctuates throughout the day.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.4–0.8%, meaning no hidden markup on the exchange rate. WorldRemit, a London-headquartered company, offers competitive rates with frequent promotional offers for new users. For a £500 transfer, the difference between the cheapest digital provider and a traditional operator can exceed JMD 4,000. Remitly and Xoom also offer competitive rates on this route. We recommend comparing all providers at the time of sending, as the GBP to JMD rate fluctuates throughout the day.",
       },
       {
         q: "How long does a money transfer from the UK to Jamaica take?",
@@ -2343,7 +2343,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from India to the USA?",
-        a: "Based on our comparison data, Wise and BookMyForex consistently offer the best INR to USD exchange rates. Wise uses the real mid-market rate with a transparent fee of around 0.6–1%, making it significantly cheaper than banks which mark up the rate by 1.5–3.5%. BookMyForex offers competitive interbank rates with low fees and is popular for larger education-related transfers. For an INR 50,000 transfer, choosing Wise over a bank can save INR 1,000–2,500 in exchange rate markup alone. Instarem is another strong option, particularly for recurring transfers. Traditional banks like SBI and HDFC are the most expensive option due to high SWIFT fees and wide exchange rate spreads.",
+        a: "Wise uses the real mid-market rate with a transparent fee of around 0.6–1%, making it significantly cheaper than banks which mark up the rate by 1.5–3.5%. BookMyForex offers competitive interbank rates with low fees and is popular for larger education-related transfers. For an INR 50,000 transfer, choosing Wise over a bank can save INR 1,000–2,500 in exchange rate markup alone. Instarem is another strong option, particularly for recurring transfers. Traditional banks like SBI and HDFC are the most expensive option due to high SWIFT fees and wide exchange rate spreads.",
       },
       {
         q: "What is the LRS limit for sending money from India?",
@@ -2355,7 +2355,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Can I use Wise to send money from India to the USA?",
-        a: "Yes, Wise operates in India as an authorized dealer and supports outbound transfers from India to the USA under the LRS framework. Wise offers the real mid-market INR to USD exchange rate with a transparent fee, making it one of the cheapest options for this corridor. You can fund your transfer via NEFT, RTGS, or IMPS from any Indian bank account. Wise handles the Form A2 declaration and RBI compliance requirements digitally, simplifying the process compared to visiting a bank branch. Transfer limits on Wise from India align with LRS regulations. Delivery to US bank accounts typically takes 1–2 business days. For first-time users, identity verification requires PAN card and Aadhaar details.",
+        a: "Yes, Wise operates in India as an authorized dealer and supports outbound transfers from India to the USA under the LRS framework. You can fund your transfer via NEFT, RTGS, or IMPS from any Indian bank account. Wise handles the Form A2 declaration and RBI compliance requirements digitally, simplifying the process compared to visiting a bank branch. Transfer limits on Wise from India align with LRS regulations. Delivery to US bank accounts typically takes 1–2 business days. For first-time users, identity verification requires PAN card and Aadhaar details.",
       },
       {
         q: "What documents do I need to send money from India abroad?",
@@ -2383,7 +2383,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from India to the UK?",
-        a: "Based on our comparison data, Wise and BookMyForex consistently deliver the most pounds per rupee on the INR to GBP corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%, making it significantly cheaper than banks. BookMyForex is popular for large education payments, offering near-interbank rates with low processing fees. For an INR 50,000 transfer, the difference between Wise and a bank can be INR 1,500–3,500 in total savings. Instarem is another strong option for regular transfers. Traditional banks are the most expensive due to wide exchange rate markups and high SWIFT fees.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%, making it significantly cheaper than banks. BookMyForex is popular for large education payments, offering near-interbank rates with low processing fees. For an INR 50,000 transfer, the difference between Wise and a bank can be INR 1,500–3,500 in total savings. Instarem is another strong option for regular transfers. Traditional banks are the most expensive due to wide exchange rate markups and high SWIFT fees.",
       },
       {
         q: "How do I pay UK university tuition fees from India?",
@@ -2423,7 +2423,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from India to Canada?",
-        a: "Based on our comparison data, Wise and BookMyForex consistently deliver the most Canadian dollars per rupee. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.1%, making it significantly cheaper than Indian banks. BookMyForex is especially popular for large education payments to Canadian universities, offering near-interbank rates. For an INR 50,000 transfer, using a digital provider over a bank can save INR 1,200–3,000 in total costs. Instarem is another strong option, particularly for recurring monthly transfers for living expenses. Always compare the total CAD amount your recipient will receive rather than just the fee.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.1%, making it significantly cheaper than Indian banks. BookMyForex is especially popular for large education payments to Canadian universities, offering near-interbank rates. For an INR 50,000 transfer, using a digital provider over a bank can save INR 1,200–3,000 in total costs. Instarem is another strong option, particularly for recurring monthly transfers for living expenses. Always compare the total CAD amount your recipient will receive rather than just the fee.",
       },
       {
         q: "How do I pay Canadian university tuition from India?",
@@ -2463,7 +2463,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from India to Australia?",
-        a: "Based on our comparison data, Wise and Instarem consistently deliver the most Australian dollars per rupee on the INR to AUD corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%. Instarem, which has a strong presence in both the Indian and Australian markets, offers competitive rates with fees of 0.5–1%. For an INR 50,000 transfer, using a digital provider over a bank saves INR 1,000–2,800. BookMyForex is popular for larger education-related transfers. Traditional banks are the most expensive option due to high SWIFT fees and wide exchange rate spreads of 2–3.5%.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1.2%. Instarem, which has a strong presence in both the Indian and Australian markets, offers competitive rates with fees of 0.5–1%. For an INR 50,000 transfer, using a digital provider over a bank saves INR 1,000–2,800. BookMyForex is popular for larger education-related transfers. Traditional banks are the most expensive option due to high SWIFT fees and wide exchange rate spreads of 2–3.5%.",
       },
       {
         q: "How do I pay Australian university tuition from India?",
@@ -2538,13 +2538,13 @@ export const corridors: Corridor[] = [
     context:
       "The GBP to UAH corridor benefits from strong competition among digital transfer providers. Wise is particularly competitive on this route, leveraging its UK headquarters and established Ukrainian banking partnerships to offer rates very close to the mid-market rate. TransferGo, which specializes in transfers to Eastern Europe, is another strong option with fast delivery times. Western Union and MoneyGram maintain cash pickup networks across Ukraine for recipients without bank accounts. PrivatBank and monobank are the dominant receiving institutions, and both support instant notifications when funds arrive.",
     feesNote:
-      "Wise charges a transparent fee of around 0.4–0.9% on GBP to UAH transfers with the real mid-market exchange rate — making it one of the cheapest options on this corridor. TransferGo charges £1–£3 depending on speed, with competitive exchange rates. Western Union and MoneyGram typically charge £3–£8 for online transfers but apply wider exchange rate markups of 1.5–3%. Funding via Faster Payments (UK bank transfer) is free and instant with most providers, while debit card funding adds a small surcharge.",
+      "TransferGo charges £1–£3 depending on speed, with competitive exchange rates. Western Union and MoneyGram typically charge £3–£8 for online transfers but apply wider exchange rate markups of 1.5–3%. Funding via Faster Payments (UK bank transfer) is free and instant with most providers, while debit card funding adds a small surcharge.",
     deliveryNote:
       "Bank deposits to Ukrainian accounts via Wise typically arrive within 1–2 business days, with some transfers completing same-day. TransferGo offers express delivery within hours to PrivatBank and monobank accounts. Cash pickup through Western Union and MoneyGram is available within minutes at thousands of locations across Ukraine. Faster Payments funding from UK bank accounts means your money leaves almost instantly — the main variable is processing time on the Ukrainian receiving side.",
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to Ukraine?",
-        a: "Wise is consistently the cheapest provider for GBP to UAH transfers, using the real mid-market exchange rate with a transparent fee of around 0.4–0.9%. For a £500 transfer, Wise typically delivers UAH 1,000–3,000 more than banks or high-street money transfer shops. TransferGo is the second most competitive option, specializing in UK-to-Eastern-Europe transfers with fees of £1–£3 and rates within 0.5–1% of mid-market. Western Union offers convenience through widespread cash pickup in Ukraine but charges more in total due to exchange rate markups. We recommend comparing all providers on the day you send, as the GBP/UAH rate fluctuates throughout the day.",
+        a: "For a £500 transfer, Wise typically delivers UAH 1,000–3,000 more than banks or high-street money transfer shops. TransferGo is the second most competitive option, specializing in UK-to-Eastern-Europe transfers with fees of £1–£3 and rates within 0.5–1% of mid-market. Western Union offers convenience through widespread cash pickup in Ukraine but charges more in total due to exchange rate markups. We recommend comparing all providers on the day you send, as the GBP/UAH rate fluctuates throughout the day.",
       },
       {
         q: "How long does a transfer from the UK to Ukraine take?",
@@ -2584,7 +2584,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Europe to Ukraine?",
-        a: "Wise is consistently the cheapest option for EUR to UAH transfers, using the real mid-market exchange rate with fees of around 0.4–1%. TransferGo is a close second, specializing in European-to-Ukrainian transfers with fees of €1–€3 and competitive exchange rates. Both providers accept SEPA bank transfers for free funding, eliminating any cost on the sending side. For a €500 transfer, Wise or TransferGo typically deliver UAH 500–2,000 more than Western Union or traditional banks. Paysend offers flat €1 card-to-card transfers that can also be cost-effective for smaller amounts.",
+        a: "TransferGo is a close second, specializing in European-to-Ukrainian transfers with fees of €1–€3 and competitive exchange rates. Both providers accept SEPA bank transfers for free funding, eliminating any cost on the sending side. For a €500 transfer, Wise or TransferGo typically deliver UAH 500–2,000 more than Western Union or traditional banks. Paysend offers flat €1 card-to-card transfers that can also be cost-effective for smaller amounts.",
       },
       {
         q: "How do I send money from Poland to Ukraine?",
@@ -2625,7 +2625,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the USA to Ethiopia?",
-        a: "Based on our comparison data, Remitly and WorldRemit consistently deliver the most birr per dollar on the USD to ETB corridor. Remitly offers competitive exchange rates with frequently waived fees for first-time users and debit card funding. WorldRemit provides strong rates with delivery to bank accounts, cash pickup, and Telebirr mobile wallets. Western Union and MoneyGram offer the widest cash pickup networks but typically have higher exchange rate markups of 2–4%. For a $500 transfer, using Remitly or WorldRemit over a traditional bank or money transfer operator can deliver ETB 1,000–3,000 more to your recipient.",
+        a: "Remitly offers competitive exchange rates with frequently waived fees for first-time users and debit card funding. WorldRemit provides strong rates with delivery to bank accounts, cash pickup, and Telebirr mobile wallets. Western Union and MoneyGram offer the widest cash pickup networks but typically have higher exchange rate markups of 2–4%. For a $500 transfer, using Remitly or WorldRemit over a traditional bank or money transfer operator can deliver ETB 1,000–3,000 more to your recipient.",
       },
       {
         q: "Can I send money to Telebirr in Ethiopia?",
@@ -2666,7 +2666,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the USA to Guatemala?",
-        a: "Remitly is consistently one of the cheapest options for USD to GTQ transfers, frequently offering zero-fee transfers with debit card funding and exchange rates within 0.3–0.8% of the mid-market rate. Wise is also highly competitive, using the real mid-market rate with a transparent fee of 0.5–1.2%. For cash pickup, which many Guatemalan recipients prefer, Remitly and WorldRemit offer better total value than Western Union or MoneyGram due to tighter exchange rate spreads. For a $500 transfer, using a digital provider can deliver Q100–Q300 more than traditional operators. We recommend comparing on the day you send, as promotional rates and offers change frequently.",
+        a: "Wise is also highly competitive, using the real mid-market rate with a transparent fee of 0.5–1.2%. For cash pickup, which many Guatemalan recipients prefer, Remitly and WorldRemit offer better total value than Western Union or MoneyGram due to tighter exchange rate spreads. For a $500 transfer, using a digital provider can deliver Q100–Q300 more than traditional operators. We recommend comparing on the day you send, as promotional rates and offers change frequently.",
       },
       {
         q: "How long does a transfer from the USA to Guatemala take?",
@@ -2707,7 +2707,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Japan to the Philippines?",
-        a: "Based on our comparison data, Wise and SBI Remit consistently deliver the most pesos per yen on the JPY to PHP corridor. Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1%, with no hidden markup. SBI Remit, which is optimized for Japan-to-Asia transfers, offers competitive rates with low flat fees. For a ¥100,000 transfer, using Wise or SBI Remit instead of a Japanese bank (MUFG, Mizuho, SMBC) saves PHP 1,500–4,000 in total cost. Western Union and MoneyGram are more expensive but offer the widest cash pickup networks. Remitly is also competitive on this corridor with promotional offers for new users.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.6–1%, with no hidden markup. SBI Remit, which is optimized for Japan-to-Asia transfers, offers competitive rates with low flat fees. For a ¥100,000 transfer, using Wise or SBI Remit instead of a Japanese bank (MUFG, Mizuho, SMBC) saves PHP 1,500–4,000 in total cost. Western Union and MoneyGram are more expensive but offer the widest cash pickup networks. Remitly is also competitive on this corridor with promotional offers for new users.",
       },
       {
         q: "Can I send money to GCash in the Philippines from Japan?",
@@ -2747,7 +2747,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Japan to India?",
-        a: "Wise and Instarem are consistently the cheapest providers for JPY to INR transfers. Wise uses the real mid-market exchange rate — the same rate shown on Google — with a transparent fee of 0.6–1.2%. Instarem offers competitive rates within 0.5–1% of mid-market, with particular strength on Asian corridors. For a ¥100,000 transfer, using either provider over a Japanese bank (MUFG, Mizuho, SMBC) saves INR 1,000–3,500 in total cost. Western Union and MoneyGram are available but charge more due to exchange rate markups. SBI Remit also covers the JPY to INR corridor with competitive pricing. Always compare the total INR received rather than fees alone.",
+        a: "Wise uses the real mid-market exchange rate — the same rate shown on Google — with a transparent fee of 0.6–1.2%. Instarem offers competitive rates within 0.5–1% of mid-market, with particular strength on Asian corridors. For a ¥100,000 transfer, using either provider over a Japanese bank (MUFG, Mizuho, SMBC) saves INR 1,000–3,500 in total cost. Western Union and MoneyGram are available but charge more due to exchange rate markups. SBI Remit also covers the JPY to INR corridor with competitive pricing. Always compare the total INR received rather than fees alone.",
       },
       {
         q: "How long does a transfer from Japan to India take?",
@@ -2828,7 +2828,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Hong Kong to the Philippines?",
-        a: "Wise is consistently one of the cheapest options for HKD to PHP transfers, using the real mid-market exchange rate with a transparent fee of around 0.5–1%. Remitly and WorldRemit are also highly competitive, especially for first-time users who benefit from promotional exchange rates and zero-fee offers. For a HKD 5,000 transfer, using a digital provider over a traditional money changer saves PHP 200–800. High-street money changers in Central or Mong Kok may seem convenient but typically apply wider exchange rate spreads. For workers sending weekly, the cumulative annual savings from using Wise or Remitly can exceed PHP 10,000–20,000.",
+        a: "Remitly and WorldRemit are also highly competitive, especially for first-time users who benefit from promotional exchange rates and zero-fee offers. For a HKD 5,000 transfer, using a digital provider over a traditional money changer saves PHP 200–800. High-street money changers in Central or Mong Kok may seem convenient but typically apply wider exchange rate spreads. For workers sending weekly, the cumulative annual savings from using Wise or Remitly can exceed PHP 10,000–20,000.",
       },
       {
         q: "Can I send money to GCash from Hong Kong?",
@@ -2868,7 +2868,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Hong Kong to India?",
-        a: "Wise and Instarem are consistently the cheapest providers for HKD to INR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. Instarem, which has strong Asian corridor optimization, charges 0.5–1% with competitive rates. For a HKD 5,000 transfer, using Wise or Instarem over a Hong Kong bank (HSBC, Standard Chartered, Bank of China HK) saves INR 1,000–2,500. Remitly is competitive for smaller amounts with frequent promotional offers. Because the HKD is pegged to the USD, the mid-market HKD/INR rate is very stable, making exchange rate markup the primary cost variable to compare.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. Instarem, which has strong Asian corridor optimization, charges 0.5–1% with competitive rates. For a HKD 5,000 transfer, using Wise or Instarem over a Hong Kong bank (HSBC, Standard Chartered, Bank of China HK) saves INR 1,000–2,500. Remitly is competitive for smaller amounts with frequent promotional offers. Because the HKD is pegged to the USD, the mid-market HKD/INR rate is very stable, making exchange rate markup the primary cost variable to compare.",
       },
       {
         q: "How long does a transfer from Hong Kong to India take?",
@@ -2990,7 +2990,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the USA to Honduras?",
-        a: "Wise and Remitly are consistently the most cost-effective options for USD to HNL transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent zero-fee promotions for new and returning users. For a $500 transfer, using a digital provider over Western Union or a bank wire saves HNL 100–400 in total value received. Xoom (PayPal) is another popular option with fast delivery to Honduran banks and cash pickup locations, though its exchange rate markup is slightly higher than Wise.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, meaning no hidden markup on the exchange rate. Remitly offers competitive rates with frequent zero-fee promotions for new and returning users. For a $500 transfer, using a digital provider over Western Union or a bank wire saves HNL 100–400 in total value received. Xoom (PayPal) is another popular option with fast delivery to Honduran banks and cash pickup locations, though its exchange rate markup is slightly higher than Wise.",
       },
       {
         q: "How long does a money transfer from the USA to Honduras take?",
@@ -3031,7 +3031,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the USA to Nepal?",
-        a: "Wise and Remitly are consistently the most cost-effective options for USD to NPR transfers. Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5–1%. Remitly offers competitive rates with frequent promotional offers, including zero-fee first transfers. IME Pay, operated by Nepal's largest domestic remittance network IME Group, also offers direct US-to-Nepal transfers at competitive rates. For a $500 transfer, using a digital provider over a traditional operator saves NPR 500–1,500. Western Union and MoneyGram have the widest cash pickup networks in Nepal but charge more in exchange rate markup.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of approximately 0.5–1%. Remitly offers competitive rates with frequent promotional offers, including zero-fee first transfers. IME Pay, operated by Nepal's largest domestic remittance network IME Group, also offers direct US-to-Nepal transfers at competitive rates. For a $500 transfer, using a digital provider over a traditional operator saves NPR 500–1,500. Western Union and MoneyGram have the widest cash pickup networks in Nepal but charge more in exchange rate markup.",
       },
       {
         q: "How long does a money transfer from the USA to Nepal take?",
@@ -3152,7 +3152,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the USA to Sri Lanka?",
-        a: "Wise and Remitly are consistently the most cost-effective options for USD to LKR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, ensuring no hidden exchange rate markup. Remitly offers competitive rates with frequent promotional offers for new users. WorldRemit is also competitive with wide delivery options in Sri Lanka. For a $500 transfer, using a digital provider over a traditional operator saves LKR 2,000–6,000 in total value. Since the LKR depreciation, getting the best possible exchange rate has become even more impactful for recipients.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%, ensuring no hidden exchange rate markup. Remitly offers competitive rates with frequent promotional offers for new users. WorldRemit is also competitive with wide delivery options in Sri Lanka. For a $500 transfer, using a digital provider over a traditional operator saves LKR 2,000–6,000 in total value. Since the LKR depreciation, getting the best possible exchange rate has become even more impactful for recipients.",
       },
       {
         q: "How long does a money transfer from the USA to Sri Lanka take?",
@@ -3192,7 +3192,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to Sri Lanka?",
-        a: "Wise and WorldRemit are consistently the cheapest options for GBP to LKR transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions. For a £500 transfer, using a digital provider over a UK bank saves LKR 5,000–15,000 in total cost. Remitly is also competitive, especially for first-time users. Traditional high-street money transfer shops in areas like Tooting and East Ham may offer competitive cash rates but lack the convenience and transparency of digital providers.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions. For a £500 transfer, using a digital provider over a UK bank saves LKR 5,000–15,000 in total cost. Remitly is also competitive, especially for first-time users. Traditional high-street money transfer shops in areas like Tooting and East Ham may offer competitive cash rates but lack the convenience and transparency of digital providers.",
       },
       {
         q: "How long does a transfer from the UK to Sri Lanka take?",
@@ -3233,7 +3233,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Malaysia to India?",
-        a: "Instarem and Wise are consistently the cheapest options for MYR to INR transfers. Instarem, an APAC-focused fintech headquartered in Singapore, charges around 0.5–1% with competitive exchange rates optimized for Asian corridors. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. For an MYR 2,000 transfer, using a digital provider over a Malaysian bank (Maybank, CIMB, Public Bank) saves INR 800–2,500. DeeMoney is another option gaining traction in Southeast Asian corridors. Always compare the total INR received rather than just the advertised fee.",
+        a: "Instarem, an APAC-focused fintech headquartered in Singapore, charges around 0.5–1% with competitive exchange rates optimized for Asian corridors. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. For an MYR 2,000 transfer, using a digital provider over a Malaysian bank (Maybank, CIMB, Public Bank) saves INR 800–2,500. DeeMoney is another option gaining traction in Southeast Asian corridors. Always compare the total INR received rather than just the advertised fee.",
       },
       {
         q: "How long does a transfer from Malaysia to India take?",
@@ -3313,7 +3313,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Malaysia to the Philippines?",
-        a: "Wise and WorldRemit are consistently the cheapest options for MYR to PHP transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and supports GCash delivery. For an MYR 2,000 transfer, using a digital provider over Western Union or a money changer saves PHP 400–1,200. Remitly is also competitive with promotional offers. For workers sending biweekly, the cumulative annual savings from using a digital provider can exceed PHP 10,000–25,000.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit offers competitive exchange rates with frequent zero-fee promotions and supports GCash delivery. For an MYR 2,000 transfer, using a digital provider over Western Union or a money changer saves PHP 400–1,200. Remitly is also competitive with promotional offers. For workers sending biweekly, the cumulative annual savings from using a digital provider can exceed PHP 10,000–25,000.",
       },
       {
         q: "Can I send money to GCash from Malaysia?",
@@ -3394,7 +3394,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Switzerland to the Philippines?",
-        a: "Wise is consistently the cheapest option for CHF to PHP transfers, using the real mid-market exchange rate with a transparent fee of around 0.5–1%. WorldRemit is also competitive, especially with frequent zero-fee promotions and direct GCash delivery. Swiss banks charge 20–40 CHF per SWIFT transfer plus a 2–4% exchange rate markup, making them the most expensive option. For a CHF 1,000 transfer, Wise delivers PHP 2,000–5,000 more than a Swiss bank transfer. Remitly offers competitive rates for first-time users. Because SEPA credit transfers are not available from Switzerland, digital providers offer the best alternative to expensive SWIFT transfers.",
+        a: "WorldRemit is also competitive, especially with frequent zero-fee promotions and direct GCash delivery. Swiss banks charge 20–40 CHF per SWIFT transfer plus a 2–4% exchange rate markup, making them the most expensive option. For a CHF 1,000 transfer, Wise delivers PHP 2,000–5,000 more than a Swiss bank transfer. Remitly offers competitive rates for first-time users. Because SEPA credit transfers are not available from Switzerland, digital providers offer the best alternative to expensive SWIFT transfers.",
       },
       {
         q: "Can I send money to GCash from Switzerland?",
@@ -3435,7 +3435,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from South Africa to Nigeria?",
-        a: "Wise and WorldRemit are consistently the cheapest options for ZAR to NGN transfers. Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. WorldRemit offers competitive rates with frequent zero-fee promotions and multiple delivery options in Nigeria. For an R5,000 transfer, using a digital provider over a South African bank (Standard Bank, FNB, Absa) saves NGN 5,000–15,000. South African banks are particularly expensive for intra-Africa SWIFT transfers, charging R150–R400 plus wide exchange rate spreads. Always compare the total NGN received rather than just the advertised fee.",
+        a: "Wise uses the real mid-market exchange rate with a transparent fee of around 0.5–1.5%. WorldRemit offers competitive rates with frequent zero-fee promotions and multiple delivery options in Nigeria. For an R5,000 transfer, using a digital provider over a South African bank (Standard Bank, FNB, Absa) saves NGN 5,000–15,000. South African banks are particularly expensive for intra-Africa SWIFT transfers, charging R150–R400 plus wide exchange rate spreads. Always compare the total NGN received rather than just the advertised fee.",
       },
       {
         q: "How long does a transfer from South Africa to Nigeria take?",
@@ -3554,7 +3554,7 @@ export const corridors: Corridor[] = [
     intro:
       "The Philippines received USD 39.6 billion in remittances in 2024 — the 4th largest recipient in the world — and the Nordic diaspora, including Danish-Filipino families and Filipino healthcare workers in Denmark, is a small but steadily growing part of that flow. Choosing the right provider on this corridor can mean PHP 500–1,500 more for your recipient on a DKK 5,000 transfer.",
     context:
-      "Denmark is not a top-10 source country for Philippine remittances (the US alone accounts for 40%), but competition on the DKK→PHP route has intensified since Wise, Remitly, Panda Remit, and WorldRemit all expanded Nordic coverage in 2024–2025. Specialist providers typically offer rates within 1–2% of the mid-market rate, while traditional Danish banks (Danske Bank, Nordea, Jyske) apply 3–5% markups plus fixed SWIFT fees of DKK 50–200 per transfer. Panda Remit offers zero fees on first transfers, and Wise consistently delivers the highest PHP amount for transfers above DKK 3,000. On a DKK 5,000 send, the gap between the cheapest and most expensive provider can exceed PHP 1,500.",
+      "Denmark is not a top-10 source country for Philippine remittances (the US alone accounts for 40%), but competition on the DKK→PHP route has intensified since Wise, Remitly, Panda Remit, and WorldRemit all expanded Nordic coverage in 2024–2025. Specialist providers typically offer rates within 1–2% of the mid-market rate, while traditional Danish banks (Danske Bank, Nordea, Jyske) apply 3–5% markups plus fixed SWIFT fees of DKK 50–200 per transfer. On a DKK 5,000 send, the gap between the cheapest and most expensive provider can exceed PHP 1,500.",
     feesNote:
       "Transfer fees from Denmark to the Philippines range from zero (Panda Remit on first transfer; Wise for certain bank-debit payment methods) to DKK 50–200 for bank-to-bank SWIFT transfers. The real cost lies in the exchange rate markup: even a 1% difference on DKK 5,000 means PHP 300+ less for your recipient. Always compare the total PHP amount received rather than the advertised fee. Credit card funding adds DKK 20–60 compared to bank transfer or MobilePay funding.",
     deliveryNote:
@@ -3562,7 +3562,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Denmark to the Philippines?",
-        a: "Wise and Remitly consistently deliver the most Philippine pesos per Danish krone on this corridor. Wise uses the real mid-market exchange rate — the same rate shown on Google and Reuters — with a small transparent fee of around 1–1.5%, meaning the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, saving DKK 50–100 on your initial send. Panda Remit charges zero fees on first transfers and then DKK 10–40 thereafter, making it strong for occasional senders. For a DKK 5,000 transfer, the gap between the cheapest specialist provider and a Danish bank can exceed PHP 1,500–2,000. Avoid sending via Danske Bank or Nordea unless you specifically need the bank's international wire infrastructure — their 3–5% exchange rate markup plus fixed fees compounds quickly.",
+        a: "Wise uses the real mid-market exchange rate — the same rate shown on Google and Reuters — with a small transparent fee of around 1–1.5%, meaning the quoted cost is the total cost with no hidden markup. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, saving DKK 50–100 on your initial send. Panda Remit charges zero fees on first transfers and then DKK 10–40 thereafter, making it strong for occasional senders. For a DKK 5,000 transfer, the gap between the cheapest specialist provider and a Danish bank can exceed PHP 1,500–2,000. Avoid sending via Danske Bank or Nordea unless you specifically need the bank's international wire infrastructure — their 3–5% exchange rate markup plus fixed fees compounds quickly.",
       },
       {
         q: "Can I send money to GCash from Denmark?",
@@ -3685,7 +3685,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Finland to the Philippines?",
-        a: "Wise and Remitly consistently deliver the most Philippine pesos per euro on this corridor. Wise uses the mid-market rate with a transparent 0.6–1% fee and is typically cheapest for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, making it strong for new users. Panda Remit charges zero fees on first transfers and then EUR 1.99–5.99 thereafter. For a EUR 500 transfer, the gap between the cheapest specialist and a Finnish bank can exceed PHP 2,000 — a meaningful amount for daily household expenses in the Philippines. Avoid Nordea or OP for anything under EUR 1,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
+        a: "Wise uses the mid-market rate with a transparent 0.6–1% fee and is typically cheapest for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers, making it strong for new users. Panda Remit charges zero fees on first transfers and then EUR 1.99–5.99 thereafter. For a EUR 500 transfer, the gap between the cheapest specialist and a Finnish bank can exceed PHP 2,000 — a meaningful amount for daily household expenses in the Philippines. Avoid Nordea or OP for anything under EUR 1,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
       },
       {
         q: "Can I send money to GCash from Finland?",
@@ -3718,15 +3718,15 @@ export const corridors: Corridor[] = [
     intro:
       "Norway hosts one of the larger Nordic Filipino communities — an estimated 20,000 Filipino residents, plus Norwegian-Filipino families and healthcare workers. The Philippines received USD 39.6 billion in remittances in 2024, and the NOK→PHP corridor has become highly competitive since Wise, Paysend, Panda Remit, and Remitly expanded coverage. Wise appears in essentially 100% of NOK→PHP comparison searches in 2025.",
     context:
-      "Specialist providers dominate this corridor because Norwegian banks (DNB, Nordea, SpareBank 1) charge NOK 50–200 per transfer plus 3–5% exchange rate markup. Wise uses the real mid-market rate with a small transparent fee, and reports 70% of transfers complete in under 20 seconds and 95% within a day. Paysend offers a compelling flat-fee model of NOK 25 regardless of transfer size — which beats percentage-based providers on smaller amounts. Remitly and WorldRemit compete on promotional first-transfer rates. On a NOK 5,000 transfer, the difference between the cheapest specialist and DNB can exceed PHP 500.",
+      "Specialist providers dominate this corridor because Norwegian banks (DNB, Nordea, SpareBank 1) charge NOK 50–200 per transfer plus 3–5% exchange rate markup. Wise uses the real mid-market rate with a small transparent fee, and reports 70% of transfers complete in under 20 seconds and 95% within a day. Remitly and WorldRemit compete on promotional first-transfer rates. On a NOK 5,000 transfer, the difference between the cheapest specialist and DNB can exceed PHP 500.",
     feesNote:
-      "Fees range from NOK 25 (Paysend flat) to NOK 200+ at traditional banks. Wise typically charges 0.8–1.2% in total (fee + rate). The real cost difference is the exchange rate markup — a 1% difference on NOK 5,000 equals PHP 260+ less for your recipient. For small transfers (under NOK 1,000), Paysend's NOK 25 flat fee is often the cheapest option; for larger transfers, Wise's percentage pricing takes over.",
+      "Fees range from NOK 25 (Paysend flat) to NOK 200+ at traditional banks. Wise typically charges 0.8–1.2% in total (fee + rate). The real cost difference is the exchange rate markup — a 1% difference on NOK 5,000 equals PHP 260+ less for your recipient.",
     deliveryNote:
       "GCash wallet delivery is near-instant (under 30 minutes in most cases) via Remitly, Wise, and WorldRemit. Paysend delivers to major Philippine banks (BDO, BPI, Metrobank, Landbank) within 1–2 business days. Wise reports 70% of transfers completing in under 20 seconds on this corridor. Cash pickup at Cebuana Lhuillier, M Lhuillier, and LBC is available within 1–2 hours across 9,000+ locations. Funding with a Norwegian debit card or BankID-backed SEPA transfer is near-instant; funding with a credit card adds cost and occasionally adds a cash-advance fee from your card issuer.",
     faqs: [
       {
         q: "What is the cheapest way to send money from Norway to the Philippines?",
-        a: "Wise is the most cost-effective option for most transfer sizes on the NOK→PHP corridor. Wise uses the real mid-market exchange rate with a small transparent fee of around 0.8–1.2%, and reports that 70% of its transfers on this route complete in under 20 seconds. For transfers under NOK 1,000, Paysend's flat NOK 25 fee often beats percentage-based providers. Remitly frequently runs zero-fee first transfers, which can save NOK 30–50 on your initial send. For a NOK 5,000 transfer, the gap between the cheapest specialist and DNB, Nordea, or SpareBank 1 exceeds PHP 500–800 — a real difference for a Filipino household. Always check the total PHP amount received rather than just the advertised fee.",
+        a: "Wise is the most cost-effective option for most transfer sizes on the NOK→PHP corridor. Wise uses the real mid-market exchange rate with a small transparent fee of around 0.8–1.2%, and reports that 70% of its transfers on this route complete in under 20 seconds. Remitly frequently runs zero-fee first transfers, which can save NOK 30–50 on your initial send. For a NOK 5,000 transfer, the gap between the cheapest specialist and DNB, Nordea, or SpareBank 1 exceeds PHP 500–800 — a real difference for a Filipino household. Always check the total PHP amount received rather than just the advertised fee.",
       },
       {
         q: "Can I send money to GCash from Norway?",
@@ -3734,7 +3734,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "Paysend vs Wise: which is cheaper for Norway to Philippines?",
-        a: "It depends on the amount. Paysend charges a flat NOK 25 fee regardless of transfer size, which is attractive for small transfers. Wise charges a percentage-based fee of roughly 0.8–1.2%. At around NOK 2,000–3,000 transfer size, the two converge; below that, Paysend is cheaper (NOK 25 flat beats 0.8–1.2% on small amounts); above that, Wise is typically cheaper because its percentage continues to scale favourably. Both use competitive exchange rates — Wise uses the mid-market rate, Paysend uses a close-to-mid-market rate with a small spread. For a typical NOK 5,000 family remittance, Wise usually delivers more PHP. For NOK 500 or NOK 1,000 transfers, Paysend wins.",
+        a: "It depends on the amount. Paysend charges a flat NOK 25 fee regardless of transfer size, which is attractive for small transfers. Wise charges a percentage-based fee of roughly 0.8–1.2%. Both use competitive exchange rates — Wise uses the mid-market rate, Paysend uses a close-to-mid-market rate with a small spread. For a typical NOK 5,000 family remittance, Wise usually delivers more PHP.",
       },
       {
         q: "How long does a transfer from Norway to the Philippines take?",
@@ -3767,7 +3767,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Sweden to the Philippines?",
-        a: "Wise and Remitly consistently deliver the most Philippine pesos per Swedish krona. Wise uses the real mid-market exchange rate with a small transparent fee of roughly 0.8–1.2%. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers. Panda Remit charges zero fees on first transfers and then SEK 20–60 thereafter. For a SEK 5,000 transfer, the gap between the cheapest specialist and a Swedish bank (Swedbank, SEB, Nordea) typically exceeds PHP 400. For smaller amounts under SEK 1,000, check whether any provider offers a flat-fee option — percentage pricing usually wins for bigger amounts.",
+        a: "Wise uses the real mid-market exchange rate with a small transparent fee of roughly 0.8–1.2%. Remitly offers competitive rates with express delivery and frequently runs zero-fee first transfers. Panda Remit charges zero fees on first transfers and then SEK 20–60 thereafter. For a SEK 5,000 transfer, the gap between the cheapest specialist and a Swedish bank (Swedbank, SEB, Nordea) typically exceeds PHP 400. For smaller amounts under SEK 1,000, check whether any provider offers a flat-fee option — percentage pricing usually wins for bigger amounts.",
       },
       {
         q: "When is the best time to send SEK to PHP?",
@@ -3853,7 +3853,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Sweden to Mexico?",
-        a: "Wise and Remitly consistently deliver the most pesos per Swedish krona. Wise uses the real mid-market rate with a transparent fee of roughly 0.6–1.0% — the best option for transfers above SEK 2,000. Remitly offers competitive rates plus promotional zero-fee first transfers, and runs faster on express delivery. For cash pickup specifically, Western Union, MoneyGram, and Ria have the widest Oxxo and bank-branch network in Mexico (21,000+ locations). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in SWIFT fees — on a SEK 5,000 transfer, the specialist advantage is typically MXN 150–250. Always compare total MXN received, not just the fee.",
+        a: "Wise uses the real mid-market rate with a transparent fee of roughly 0.6–1.0% — the best option for transfers above SEK 2,000. Remitly offers competitive rates plus promotional zero-fee first transfers, and runs faster on express delivery. For cash pickup specifically, Western Union, MoneyGram, and Ria have the widest Oxxo and bank-branch network in Mexico (21,000+ locations). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in SWIFT fees — on a SEK 5,000 transfer, the specialist advantage is typically MXN 150–250. Always compare total MXN received, not just the fee.",
       },
       {
         q: "What is SPEI and why does it matter for SEK to MXN transfers?",
@@ -3943,7 +3943,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Sweden to Brazil?",
-        a: "Wise is consistently the cheapest for transfers above SEK 2,000 — the real mid-market rate plus a transparent 0.8–1.3% fee, with PIX delivery in under 10 seconds. Remitly is competitive and often runs zero-fee first-transfer promotions; strong for express delivery and cash pickup. Instarem has occasional promotional rates on SEK→BRL. For very small amounts (under SEK 1,000), Paysend's flat SEK 19 fee may win despite being slightly behind on rate. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) are the most expensive — 3–5% exchange markup plus SEK 150–200 SWIFT fees means BRL 50–100 less on a SEK 5,000 transfer. Always compare total BRL received after IOF tax, not just the headline fee.",
+        a: "Remitly is competitive and often runs zero-fee first-transfer promotions; strong for express delivery and cash pickup. Instarem has occasional promotional rates on SEK→BRL. For very small amounts (under SEK 1,000), Paysend's flat SEK 19 fee may win despite being slightly behind on rate. Swedish banks (Swedbank, SEB, Nordea, Handelsbanken) are the most expensive — 3–5% exchange markup plus SEK 150–200 SWIFT fees means BRL 50–100 less on a SEK 5,000 transfer. Always compare total BRL received after IOF tax, not just the headline fee.",
       },
       {
         q: "What is PIX and how does it work for receiving money from Sweden?",
@@ -3988,7 +3988,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Sweden to Colombia?",
-        a: "Wise and Remitly consistently deliver the most pesos per krona on SEK→COP. Wise charges roughly 0.7–1.2% total using the real mid-market rate — best for transfers above SEK 2,000. Remitly offers competitive rates with frequent zero-fee first-transfer promotions and fast express delivery to banks and Nequi/Daviplata wallets. For cash pickup specifically, Western Union and MoneyGram have the widest agent network in Colombia (including rural areas where bank access is limited). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in fees — on a SEK 5,000 transfer, specialists deliver COP 40,000–80,000 more. Always compare total COP received, not just the fee.",
+        a: "Wise charges roughly 0.7–1.2% total using the real mid-market rate — best for transfers above SEK 2,000. Remitly offers competitive rates with frequent zero-fee first-transfer promotions and fast express delivery to banks and Nequi/Daviplata wallets. For cash pickup specifically, Western Union and MoneyGram have the widest agent network in Colombia (including rural areas where bank access is limited). Swedish banks (Swedbank, SEB, Nordea) add 3–5% on the rate plus SEK 150–200 in fees — on a SEK 5,000 transfer, specialists deliver COP 40,000–80,000 more. Always compare total COP received, not just the fee.",
       },
       {
         q: "What are Nequi and Daviplata and should I use them?",
@@ -4025,7 +4025,7 @@ export const corridors: Corridor[] = [
     intro:
       "Ireland hosts a growing Filipino community — especially healthcare workers in the HSE and private hospitals — and the Philippines received USD 39.6 billion in remittances in 2024, the 4th largest flow globally. The EUR→PHP corridor from Ireland is well-served by Wise (based in Dublin for many of its European operations), Revolut, Remitly, WorldRemit, and Xe.",
     context:
-      "Wise has 15+ million users globally and uses the real mid-market exchange rate with a transparent fee structure — for most EUR→PHP transfers from Ireland, Wise is the cheapest specialist option. Revolut is competitive for Revolut account holders with generous monthly international transfer allowances on paid plans. Irish banks (AIB, Bank of Ireland, PTSB) apply 3–5% exchange rate markups and EUR 8–15 fixed fees, which on a EUR 500 transfer means PHP 2,000+ less for your recipient compared to Wise. Ireland benefits from full SEPA membership, meaning bank-to-provider funding is near-instant via SEPA Instant Credit Transfer.",
+      "Revolut is competitive for Revolut account holders with generous monthly international transfer allowances on paid plans. Irish banks (AIB, Bank of Ireland, PTSB) apply 3–5% exchange rate markups and EUR 8–15 fixed fees, which on a EUR 500 transfer means PHP 2,000+ less for your recipient compared to Wise. Ireland benefits from full SEPA membership, meaning bank-to-provider funding is near-instant via SEPA Instant Credit Transfer.",
     feesNote:
       "Fees range from zero (Wise for some payment methods; promotional first transfers at Remitly) to EUR 15 at Irish banks. Typical specialist costs: Wise 0.6–1.0% of the transfer amount; Remitly EUR 1.99–3.99 express delivery; WorldRemit EUR 1.99–4.99. Credit card funding adds EUR 3–8.",
     deliveryNote:
@@ -4033,7 +4033,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Ireland to the Philippines?",
-        a: "Wise consistently delivers the most Philippine pesos per euro from Ireland for typical transfer amounts. It uses the real mid-market exchange rate with a transparent 0.6–1.0% fee, and integrates with SEPA Instant so the funds arrive at Wise in seconds. Remitly is competitive with promotional first-transfer offers that can save EUR 5–10 on your initial send. WorldRemit and Panda Remit are also competitive, especially for GCash delivery. For a EUR 500 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds PHP 2,000. Avoid sending via AIB or Bank of Ireland for anything under EUR 2,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
+        a: "It uses the real mid-market exchange rate with a transparent 0.6–1.0% fee, and integrates with SEPA Instant so the funds arrive at Wise in seconds. Remitly is competitive with promotional first-transfer offers that can save EUR 5–10 on your initial send. WorldRemit and Panda Remit are also competitive, especially for GCash delivery. For a EUR 500 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds PHP 2,000. Avoid sending via AIB or Bank of Ireland for anything under EUR 2,000 — the fixed fees and 3–5% rate markup make them uncompetitive for typical family remittances.",
       },
       {
         q: "Can I send money to GCash from Ireland?",
@@ -4074,7 +4074,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Ireland to Malaysia?",
-        a: "Wise is typically the cheapest option for transfers above EUR 500 — it uses the real mid-market exchange rate with a transparent 0.6–1.0% fee. Panda Remit offers zero fees on first transfers and then EUR 1.99–5.99 per subsequent transfer, making it strong for recurring small amounts (such as student monthly allowances). For a EUR 1,000 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds MYR 40–80. Remitly and Instarem are also competitive. Avoid bank wires for transfers under EUR 2,000 — the fixed fees make them uncompetitive.",
+        a: "Panda Remit offers zero fees on first transfers and then EUR 1.99–5.99 per subsequent transfer, making it strong for recurring small amounts (such as student monthly allowances). For a EUR 1,000 transfer, the gap between Wise and AIB or Bank of Ireland typically exceeds MYR 40–80. Remitly and Instarem are also competitive. Avoid bank wires for transfers under EUR 2,000 — the fixed fees make them uncompetitive.",
       },
       {
         q: "I'm a Malaysian student in Dublin — what's the best way to receive monthly support from home?",
@@ -4107,7 +4107,7 @@ export const corridors: Corridor[] = [
     intro:
       "The Netherlands hosts roughly 20,000 Filipino residents — concentrated in the healthcare sector, particularly nurses and caregivers at Dutch hospitals and elder-care facilities. Monthly remittances to family in the Philippines are a steady rhythm for much of this community. The Philippines received USD 35.6 billion in remittances in 2025 (up 3.3% year-on-year), and the EUR→PHP corridor is one of the most competitive in the specialist provider market.",
     context:
-      "Remitly is among the most recommended providers on this corridor (per Monito's 2025 data) thanks to strong GCash integration and frequent promotional rates. Wise partnered with Bangko Sentral ng Pilipinas in December 2024 to streamline GCash delivery, and typically delivers the best rate for transfers above EUR 200. Panda Remit offers zero fees on first transfers. Dutch banks (ING, Rabobank, ABN AMRO) apply 3–5% exchange rate markups plus EUR 8–15 fixed fees — on a typical EUR 300 monthly remittance, that gap alone exceeds PHP 600 per transfer, or PHP 7,200 per year.",
+      "Remitly is among the most recommended providers on this corridor (per Monito's 2025 data) thanks to strong GCash integration and frequent promotional rates. Panda Remit offers zero fees on first transfers. Dutch banks (ING, Rabobank, ABN AMRO) apply 3–5% exchange rate markups plus EUR 8–15 fixed fees — on a typical EUR 300 monthly remittance, that gap alone exceeds PHP 600 per transfer, or PHP 7,200 per year.",
     feesNote:
       "Fees range from zero (Panda Remit first transfer; Wise for some payment methods) to EUR 15 at Dutch banks. Remitly charges EUR 1.99–3.99 for express delivery. WorldRemit charges EUR 1.99–4.99 depending on method. Credit card funding adds EUR 3–8. The biggest cost driver is the exchange rate: on a regular monthly EUR 300 send, a 2% rate difference means PHP 720 less for your recipient per month.",
     deliveryNote:
@@ -4115,7 +4115,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the Netherlands to the Philippines?",
-        a: "Remitly and Wise are consistently the most cost-effective options on this corridor. Wise uses the real mid-market exchange rate with a transparent 0.6–1.0% fee — best for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs promotional zero-fee first transfers. For monthly EUR 300 remittances typical of healthcare workers supporting family, the gap between Remitly or Wise and a Dutch bank (ING, Rabobank, ABN AMRO) exceeds PHP 600 per transfer — that's PHP 7,200 per year on identical transfer amounts. Panda Remit and WorldRemit are also competitive, especially for GCash delivery. Always compare the total PHP received rather than just the fee.",
+        a: "Wise uses the real mid-market exchange rate with a transparent 0.6–1.0% fee — best for transfers above EUR 200. Remitly offers competitive rates with express delivery and frequently runs promotional zero-fee first transfers. For monthly EUR 300 remittances typical of healthcare workers supporting family, the gap between Remitly or Wise and a Dutch bank (ING, Rabobank, ABN AMRO) exceeds PHP 600 per transfer — that's PHP 7,200 per year on identical transfer amounts. Panda Remit and WorldRemit are also competitive, especially for GCash delivery. Always compare the total PHP received rather than just the fee.",
       },
       {
         q: "Can I send money to GCash from the Netherlands?",
@@ -4243,11 +4243,11 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from the UK to South Africa?",
-        a: "Wise is consistently the cheapest specialist provider for GBP→ZAR transfers, using the real mid-market exchange rate with a transparent 0.33%–0.5% fee — meaning the quoted cost is the total cost with no hidden markup. WorldRemit is competitive for cash pickup delivery (Shoprite MoneyMarket, Western Union) with strong Africa-specific coverage, though on price our own GBP→ZAR archive over 169 days puts Ria ahead on 49% of days and TapTap Send on 38% — choose WorldRemit for the pickup network rather than the rate. Remitly offers promotional zero-fee first transfers which can save £5–£15 on your initial send, especially valuable for transfers under £500. For a £1,000 transfer, the gap between Wise and a UK high-street bank like NatWest (which applies a 4.25% exchange rate markup) exceeds R400–R500 reaching your recipient. Always compare the total ZAR amount received rather than just the advertised fee.",
+        a: "WorldRemit is competitive for cash pickup delivery (Shoprite MoneyMarket, Western Union) with strong Africa-specific coverage, though on price our own GBP→ZAR archive over 169 days puts Ria ahead on 49% of days and TapTap Send on 38% — choose WorldRemit for the pickup network rather than the rate. Remitly offers promotional zero-fee first transfers which can save £5–£15 on your initial send, especially valuable for transfers under £500. For a £1,000 transfer, the gap between Wise and a UK high-street bank like NatWest (which applies a 4.25% exchange rate markup) exceeds R400–R500 reaching your recipient. Always compare the total ZAR amount received rather than just the advertised fee.",
       },
       {
         q: "What is the best way to transfer money to South Africa?",
-        a: "For most UK-to-South Africa transfers, the cheapest and fastest option is a specialist provider like Wise, WorldRemit, or Remitly delivering to a South African bank account (Standard Bank, FNB, Absa, Nedbank, or Capitec). These providers offer transparent pricing, exchange rates within 0.4–1% of the mid-market, and delivery in 1–3 business days. For recipients without a bank account, WorldRemit or MoneyGram offer cash pickup at thousands of locations including Shoprite MoneyMarket, Pick n Pay, and dedicated agent outlets. Avoid UK high-street banks for anything under £5,000 — the combination of 2–4.25% FX markup and £5–£20 fixed SWIFT fees makes them the most expensive option by a wide margin. For very large transfers above £10,000, Moneycorp and OFX offer dedicated support and slightly better rates than Wise, though their exchange rate margins are still 1–2% versus Wise's 0.33%.",
+        a: "These providers offer transparent pricing, exchange rates within 0.4–1% of the mid-market, and delivery in 1–3 business days. For recipients without a bank account, WorldRemit or MoneyGram offer cash pickup at thousands of locations including Shoprite MoneyMarket, Pick n Pay, and dedicated agent outlets. Avoid UK high-street banks for anything under £5,000 — the combination of 2–4.25% FX markup and £5–£20 fixed SWIFT fees makes them the most expensive option by a wide margin. For very large transfers above £10,000, Moneycorp and OFX offer dedicated support and slightly better rates than Wise, though their exchange rate margins are still 1–2% versus Wise's 0.33%.",
       },
       {
         q: "How long does a bank transfer from the UK to South Africa take?",
@@ -4343,7 +4343,7 @@ export const corridors: Corridor[] = [
     faqs: [
       {
         q: "What is the cheapest way to send money from Denmark to France?",
-        a: "Wise is consistently the cheapest option for DKK→EUR transfers from Denmark. It uses the real mid-market exchange rate with a transparent 0.4–0.9% fee — meaning no hidden FX spread. Revolut is competitive for standing balances: it's free to exchange up to EUR 1,000/month on the Standard plan and 0.5% above, so for regular smaller transfers it can beat Wise. Lunar (Danish fintech) and Pleo (for business users) also offer competitive SEPA pricing. Danske Bank and Nordea are not price-competitive for third-party transfers: Danske charges around DKK 50 per SEPA plus 1.5–3% FX markup, and Nordea has similar pricing. On a DKK 37,000 (~EUR 5,000) property deposit, the gap between Wise and Danske Bank is typically EUR 70–120 — material but not catastrophic because of the stable ERM II peg. Always request SEPA routing (not SWIFT) on the outbound side — some French receiving banks charge EUR 10–25 on SWIFT inbound wires but nothing on SEPA.",
+        a: "It uses the real mid-market exchange rate with a transparent 0.4–0.9% fee — meaning no hidden FX spread. Revolut is competitive for standing balances: it's free to exchange up to EUR 1,000/month on the Standard plan and 0.5% above, so for regular smaller transfers it can beat Wise. Lunar (Danish fintech) and Pleo (for business users) also offer competitive SEPA pricing. Danske Bank and Nordea are not price-competitive for third-party transfers: Danske charges around DKK 50 per SEPA plus 1.5–3% FX markup, and Nordea has similar pricing. On a DKK 37,000 (~EUR 5,000) property deposit, the gap between Wise and Danske Bank is typically EUR 70–120 — material but not catastrophic because of the stable ERM II peg. Always request SEPA routing (not SWIFT) on the outbound side — some French receiving banks charge EUR 10–25 on SWIFT inbound wires but nothing on SEPA.",
       },
       {
         q: "Is DKK to EUR a stable exchange rate?",
@@ -4355,7 +4355,7 @@ export const corridors: Corridor[] = [
       },
       {
         q: "I'm buying a property in France — what's the best way to transfer the deposit from Denmark?",
-        a: "For a property deposit (typically 10% of purchase price — usually EUR 20,000–100,000), Wise's large-transfer service is the best combination of cost and speed: mid-market rate, ~0.4–0.9% fee, SEPA Instant routing where supported, full traceability with your notaire. For amounts above EUR 100,000 (the SEPA Instant per-transaction limit), either split across multiple transfers on the same day or use Wise's standard SEPA (1 business day) or Danske Bank SWIFT for the larger single-transaction amount. Important: your French notaire will typically require funds in the notarial trust account (compte séquestre) at least 2–3 business days before signing, so don't cut timing too fine. The notaire will issue an attestation of funds once received, which you may need for your Danish tax records. Property purchases above EUR 50,000 may need documented source of funds — keep the Wise or Danske Bank confirmation and the Danish tax return or payslip that generated the savings.",
+        a: "For amounts above EUR 100,000 (the SEPA Instant per-transaction limit), either split across multiple transfers on the same day or use Wise's standard SEPA (1 business day) or Danske Bank SWIFT for the larger single-transaction amount. Important: your French notaire will typically require funds in the notarial trust account (compte séquestre) at least 2–3 business days before signing, so don't cut timing too fine. The notaire will issue an attestation of funds once received, which you may need for your Danish tax records. Property purchases above EUR 50,000 may need documented source of funds — keep the Wise or Danske Bank confirmation and the Danish tax return or payslip that generated the savings.",
       },
       {
         q: "Are there any tax implications for transferring money from Denmark to France?",
