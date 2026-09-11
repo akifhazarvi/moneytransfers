@@ -22,9 +22,9 @@
       "providerName": "Ria Money Transfer",
       "corridorsLed": 40,
       "corridorsQuoted": 66,
-      "wins": 2675,
+      "wins": 2677,
       "quotedDays": 4182,
-      "winRate": 63.96,
+      "winRate": 64.01,
       "avgShortfallPct": 0.57,
       "leadRate": 60.61
     },
@@ -33,9 +33,9 @@
       "providerName": "TapTap Send",
       "corridorsLed": 40,
       "corridorsQuoted": 152,
-      "wins": 4031,
+      "wins": 4028,
       "quotedDays": 13250,
-      "winRate": 30.42,
+      "winRate": 30.4,
       "avgShortfallPct": 1.02,
       "leadRate": 26.32
     },
@@ -44,9 +44,9 @@
       "providerName": "LemFi",
       "corridorsLed": 31,
       "corridorsQuoted": 87,
-      "wins": 2813,
+      "wins": 2814,
       "quotedDays": 7787,
-      "winRate": 36.12,
+      "winRate": 36.14,
       "avgShortfallPct": 1.01,
       "leadRate": 35.63
     },
@@ -55,9 +55,9 @@
       "providerName": "InstaReM",
       "corridorsLed": 20,
       "corridorsQuoted": 80,
-      "wins": 1878,
+      "wins": 1879,
       "quotedDays": 7146,
-      "winRate": 26.28,
+      "winRate": 26.29,
       "avgShortfallPct": 1.15,
       "leadRate": 25
     },
@@ -66,9 +66,9 @@
       "providerName": "Western Union",
       "corridorsLed": 10,
       "corridorsQuoted": 109,
-      "wins": 529,
+      "wins": 528,
       "quotedDays": 7829,
-      "winRate": 6.76,
+      "winRate": 6.74,
       "avgShortfallPct": 4.15,
       "leadRate": 9.17
     },
@@ -121,9 +121,9 @@
       "providerName": "Remitly",
       "corridorsLed": 3,
       "corridorsQuoted": 101,
-      "wins": 347,
+      "wins": 346,
       "quotedDays": 8762,
-      "winRate": 3.96,
+      "winRate": 3.95,
       "avgShortfallPct": 3.47,
       "leadRate": 2.97
     },
@@ -267,7 +267,7 @@
       "wins": 14,
       "quotedDays": 1274,
       "winRate": 1.1,
-      "avgShortfallPct": 3.42,
+      "avgShortfallPct": 3.43,
       "leadRate": 0
     },
     {
@@ -275,9 +275,9 @@
       "providerName": "HSBC",
       "corridorsLed": 0,
       "corridorsQuoted": 21,
-      "wins": 15,
+      "wins": 16,
       "quotedDays": 1817,
-      "winRate": 0.83,
+      "winRate": 0.88,
       "avgShortfallPct": 6.63,
       "leadRate": 0
     },
@@ -399,7 +399,7 @@
       "wins": 0,
       "quotedDays": 182,
       "winRate": 0,
-      "avgShortfallPct": 4.64,
+      "avgShortfallPct": 4.63,
       "leadRate": 0
     },
     {
@@ -733,6 +733,6 @@
       "leadRate": 0
     }
   ],
-  "rotatingCorridors": 65,
-  "stableCorridors": 151
+  "rotatingCorridors": 66,
+  "stableCorridors": 150
 }

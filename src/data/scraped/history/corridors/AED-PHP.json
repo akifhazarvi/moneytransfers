@@ -6772,10 +6772,10 @@
         "receiveAmount": 1528.62
       },
       "remitly": {
-        "rate": 16.98,
+        "rate": 16.94,
         "fee": 5,
-        "markup": 0.56,
-        "receiveAmount": 1613.1
+        "markup": null,
+        "receiveAmount": 1609.3
       },
       "taptap-send": {
         "rate": 16.5,
@@ -6784,10 +6784,10 @@
         "receiveAmount": 1650
       },
       "wise": {
-        "rate": 17.0516,
+        "rate": 17.0367,
         "fee": 0,
         "markup": null,
-        "receiveAmount": 1705.16
+        "receiveAmount": 1703.67
       }
     }
   }
