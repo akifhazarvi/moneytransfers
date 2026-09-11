@@ -12702,5 +12702,100 @@
         "receiveAmount": 14252
       }
     }
+  },
+  {
+    "date": "2026-09-11",
+    "providers": {
+      "lemfi": {
+        "rate": 142.65,
+        "fee": 1.49,
+        "markup": 0.43,
+        "receiveAmount": 14052.45
+      },
+      "moneygram": {
+        "rate": 140.3315,
+        "fee": 1.99,
+        "markup": 2.1,
+        "receiveAmount": 13753.89
+      },
+      "skrill": {
+        "rate": 135.9833,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 13598.33
+      },
+      "taptap-send": {
+        "rate": 143.019,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14301.9
+      },
+      "western-union": {
+        "rate": 137.1007,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 13574.34
+      },
+      "dahabshiil": {
+        "rate": 141.0413,
+        "fee": 1.99,
+        "markup": 1.61,
+        "receiveAmount": 13823.46
+      },
+      "worldremit": {
+        "rate": 142.4913,
+        "fee": 3.99,
+        "markup": 0.59,
+        "receiveAmount": 13680.59
+      },
+      "instarem": {
+        "rate": 142.0462,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14204.62
+      },
+      "xe": {
+        "rate": 142.1578,
+        "fee": 4,
+        "markup": 0.83,
+        "receiveAmount": 13647.15
+      },
+      "paysend": {
+        "rate": 142.9395,
+        "fee": 0,
+        "markup": 0.28,
+        "receiveAmount": 14293.95
+      },
+      "sendwave": {
+        "rate": 142.3768,
+        "fee": 0.99,
+        "markup": 0.67,
+        "receiveAmount": 14096.73
+      },
+      "remitly": {
+        "rate": 141.99,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 14058.43
+      },
+      "revolut": {
+        "rate": 142.3638,
+        "fee": 2.3,
+        "markup": 0.68,
+        "receiveAmount": 13908.94
+      },
+      "wise": {
+        "rate": 142.758,
+        "fee": 3.43,
+        "markup": null,
+        "receiveAmount": 13786.14
+      },
+      "ria": {
+        "rate": 142.52,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 14252
+      }
+    }
   }
 ]

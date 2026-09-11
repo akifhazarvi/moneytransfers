@@ -21593,5 +21593,124 @@
         "receiveAmount": 36991.68
       }
     }
+  },
+  {
+    "date": "2026-09-11",
+    "providers": {
+      "moneygram": {
+        "rate": 374.9521,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 37124.01
+      },
+      "hsbc": {
+        "rate": 362.7357,
+        "fee": 19.76,
+        "markup": 3.5,
+        "receiveAmount": 29106.98
+      },
+      "taptap-send": {
+        "rate": 374.5,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 37079.25
+      },
+      "western-union": {
+        "rate": 374.2127,
+        "fee": 1.99,
+        "markup": null,
+        "receiveAmount": 36676.59
+      },
+      "dahabshiil": {
+        "rate": 378.6953,
+        "fee": 26.99,
+        "markup": -0.75,
+        "receiveAmount": 27648.54
+      },
+      "ofx": {
+        "rate": 348.5095,
+        "fee": 0,
+        "markup": 7.28,
+        "receiveAmount": 34850.95
+      },
+      "transfergo": {
+        "rate": 372.193,
+        "fee": 0,
+        "markup": 0.98,
+        "receiveAmount": 37219.3
+      },
+      "worldremit": {
+        "rate": 375.2284,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 37522.84
+      },
+      "instarem": {
+        "rate": 372.064,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 37206.4
+      },
+      "xe": {
+        "rate": 373.5965,
+        "fee": 1.5,
+        "markup": 0.61,
+        "receiveAmount": 36799.26
+      },
+      "mukuru": {
+        "rate": 349.23,
+        "fee": 0,
+        "markup": 7.09,
+        "receiveAmount": 34923
+      },
+      "paysend": {
+        "rate": 373.9325,
+        "fee": 1,
+        "markup": 0.52,
+        "receiveAmount": 37019.32
+      },
+      "sendwave": {
+        "rate": 378.0718,
+        "fee": 1.99,
+        "markup": -0.58,
+        "receiveAmount": 37054.82
+      },
+      "remitly": {
+        "rate": 374.515,
+        "fee": 0.99,
+        "markup": null,
+        "receiveAmount": 37080.73
+      },
+      "revolut": {
+        "rate": 373.7384,
+        "fee": 0.8,
+        "markup": 0.57,
+        "receiveAmount": 37074.85
+      },
+      "ria": {
+        "rate": 375.7811,
+        "fee": 1.5,
+        "markup": null,
+        "receiveAmount": 38678
+      },
+      "skrill": {
+        "rate": 356.6655,
+        "fee": 0,
+        "markup": null,
+        "receiveAmount": 35666.55
+      },
+      "nationwide": {
+        "rate": 363.2092,
+        "fee": 15,
+        "markup": null,
+        "receiveAmount": 30872.78
+      },
+      "wise": {
+        "rate": 374.67,
+        "fee": 1.32,
+        "markup": null,
+        "receiveAmount": 36972.44
+      }
+    }
   }
 ]
