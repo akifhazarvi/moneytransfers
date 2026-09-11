@@ -3852,7 +3852,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money to the Philippines from the US?",
         answer:
-          "Remitly and Wise consistently offer the best value for USD to PHP transfers. Remitly often has $0 fee promotions with competitive rates. Wise charges a small fee but uses the mid-market exchange rate with 0% markup. For amounts over $2,000, Wise is typically cheapest.",
+          "The provider that actually delivered the most on USD to PHP was {{CORRIDOR_LEADER:USD:PHP}}. Remitly often has $0 fee promotions with competitive rates. Wise charges a small fee but uses the mid-market exchange rate with 0% markup. For amounts over $2,000, Wise is typically cheapest.",
       },
       {
         question: "Can I send money directly to GCash from the US?",
@@ -4217,7 +4217,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from the US to Mexico?",
         answer:
-          "Wise, Remitly, and Xoom consistently offer the best total value for USD to MXN transfers. Wise uses the mid-market rate with a small fee. Remitly frequently runs $0-fee promotions. Always compare the total pesos received — not just the fee.",
+          "The provider that actually delivered the most on USD to MXN was {{CORRIDOR_LEADER:USD:MXN}}. Wise uses the mid-market rate with a small fee. Remitly frequently runs $0-fee promotions. Always compare the total pesos received — not just the fee.",
       },
       {
         question: "How long does it take to send money to Mexico?",
@@ -4938,7 +4938,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UK to India?",
         answer:
-          "Wise and Remitly consistently offer the best value for GBP to INR transfers. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with faster delivery. For amounts over £5,000, OFX offers no-fee transfers with negotiated rates.",
+          "The provider that actually delivered the most on GBP to INR was {{CORRIDOR_LEADER:GBP:INR}}. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with faster delivery. For amounts over £5,000, OFX offers no-fee transfers with negotiated rates.",
       },
       {
         question: "How long does it take to send money from the UK to India?",
@@ -5124,7 +5124,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from Canada to India?",
         answer:
-          "Wise and Remitly consistently offer the best value for CAD to INR transfers. Wise uses the mid-market rate with a ~C$7 fee. Remitly offers competitive rates with faster delivery. For amounts over C$5,000, OFX offers no-fee transfers with negotiated rates.",
+          "The provider that actually delivered the most on CAD to INR was {{CORRIDOR_LEADER:CAD:INR}}. Wise uses the mid-market rate with a ~C$7 fee. Remitly offers competitive rates with faster delivery. For amounts over C$5,000, OFX offers no-fee transfers with negotiated rates.",
       },
       {
         question: "How long does it take to send money from Canada to India?",
@@ -12325,7 +12325,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UK to Bangladesh?",
         answer:
-          "Wise, Remitly, and TapTap Send consistently offer the best value for GBP to BDT transfers. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with bKash Express delivery in seconds. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
+          "The provider that actually delivered the most on GBP to BDT was {{CORRIDOR_LEADER:GBP:BDT}}. Wise uses the mid-market rate with a ~£5 fee. Remitly offers competitive rates with bKash Express delivery in seconds. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes. For amounts over £5,000, XE offers no-fee transfers with competitive rates. Always compare the total taka received, not just the headline fee.",
       },
       {
         question: "How long does it take to send money from UK to Bangladesh?",
@@ -12700,7 +12700,7 @@ const rawBlogPosts: BlogPost[] = [
       {
         question: "What is the cheapest way to send money from UK to Nigeria?",
         answer:
-          "Wise, LemFi, and TapTap Send consistently offer the best value for GBP to NGN transfers. Wise uses the mid-market rate with a ~£5 fee. LemFi offers zero-fee transfers with competitive Naira rates. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes — Nigeria is one of their core corridors. WorldRemit and Remitly are also competitive. Always compare the total Naira received, not just the headline fee — provider differences on this corridor can be ₦50,000–₦150,000 on £1,000.",
+          "The provider that actually delivered the most on GBP to NGN was {{CORRIDOR_LEADER:GBP:NGN}}. Wise uses the mid-market rate with a ~£5 fee. LemFi offers zero-fee transfers with competitive Naira rates. TapTap Send charges zero fees with a ~0.7% markup and delivers 95% of transfers in under 3 minutes — Nigeria is one of their core corridors. WorldRemit and Remitly are also competitive. Always compare the total Naira received, not just the headline fee — provider differences on this corridor can be ₦50,000–₦150,000 on £1,000.",
       },
       {
         question: "How long does it take to send money from UK to Nigeria?",
