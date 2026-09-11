@@ -44,6 +44,7 @@ import { corridors } from "../src/data/corridors";
 import { getRateInsight } from "../src/lib/rate-history";
 import { corridorDeepBlocks } from "../src/data/corridor-deep-content";
 import { swedishCorridorBlocks } from "../src/data/sweden-content";
+import { corridorEditorialNotes } from "../src/data/corridor-editorial-notes";
 import { generateQuotes } from "../src/lib/quotes-engine";
 import { getProviderName, providers } from "../src/data/providers";
 
@@ -68,7 +69,13 @@ const NOT_A_RANKING_CLAIM: RegExp[] = [
   // "Compare X, Y, Z … to find the cheapest" / "Jämför … för att hitta den billigaste"
   /\b(compare|jämför)\b[\s\S]*\b(to find|för att hitta)\b/i,
   // Imperative advice that happens to start with "Always"
-  /\balways (retain|keep|check|confirm|use|compare|verify|read)\b/i,
+  /\balways (retain|keep|check|confirm|use|compare|verify|read|include)\b/i,
+  // Superlatives about DELIVERY or SPEED. providerConsistency measures cost
+  // only, so "M-Pesa is the best delivery option" and "Remitly often wins on
+  // speed" are outside what this guard can judge. Flagging them would assert
+  // that a cost record refutes a timing claim, which it does not.
+  /\bbest (delivery|payout|receiving|payment) (option|method|rail)\b/i,
+  /\bwins on (speed|time|delivery|arrival)\b/i,
 ];
 function assertsAWinner(sentence: string): boolean {
   return !NOT_A_RANKING_CLAIM.some((re) => re.test(sentence));
@@ -196,6 +203,19 @@ function scanBlocks(
 }
 scanBlocks("deep-content", corridorDeepBlocks as never, SUPERLATIVE);
 scanBlocks("sweden", swedishCorridorBlocks as never, SUPERLATIVE_SV);
+
+/** corridorEditorialNotes: summary + bullets + warning body, same corridor URLs.
+ *  Unreachable by any guard until it was moved out of the route file. */
+scanBlocks(
+  "editorial-note",
+  Object.fromEntries(
+    Object.entries(corridorEditorialNotes).map(([slug, note]) => [
+      slug,
+      { intro: [note.summary, note.warningBody].join(" "), faqs: note.bullets.map((b) => ({ a: b })) },
+    ]),
+  ) as never,
+  SUPERLATIVE,
+);
 
 console.log(
   `check:corridor-claims — ${corridors.length} corridors + ${Object.keys(corridorDeepBlocks).length} deep blocks + ${Object.keys(swedishCorridorBlocks).length} Swedish blocks, ${scanned} superlative claims naming a provider\n`,
