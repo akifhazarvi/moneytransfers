@@ -246,3 +246,41 @@ unverified — the data is advertised, not measured, so nothing here establishes
 that any quoted arrival time is real. Country and payment-method eligibility
 still lacks provenance through the quote engine. Both are separate guards, not
 extensions of this one.
+
+## Guides are the crawled surface — and they carry 60 contradicted claims (2026-09-11)
+
+The crawl baseline changes where this work should go next. Google crawls
+`/guides/*` weekly and has not crawled a corridor page since March, so a false
+standing-winner claim in a guide is the one most likely to be read.
+
+Extending `check:corridor-claims` to corridor-targeted guides found **60
+contradictions across 36 guides**, tested the same way — against the 91-day
+`providerConsistency` record, not today's table. Examples:
+
+| Guide | Claim | 91-day record |
+| --- | --- | --- |
+| `send-money-to-kenya-from-usa-guide` | "the cheapest way … is Sendwave" (Quick answer) | LemFi won 65/91 |
+| `send-money-to-india-from-usa-guide` | "Wise almost always delivers the most rupees" | Ria won 73/91 |
+| `ofx-review-2026` | "Above $5,000, OFX consistently beats Wise" | Remitly won 91/91 on USD→GBP |
+| `best-apps-send-money-uk-to-nigeria-2026` | "Western Union … consistently the most expensive" | Ria won 58/91 |
+
+**These were deliberately not bulk-edited.** The claims are embedded in flowing
+analytical prose, and this same pass demonstrated what mechanical rewriting does
+to that: hedging delivery-time sentences by pattern produced "can are advertised
+to arrive within minutes" and "express bKash advertised delivery in minutes".
+Sixty prose edits of that kind would damage more than they fix. They need
+editorial judgement per guide, ideally replacing the false ranking with the true
+one from our own record rather than deleting the sentence.
+
+`check:corridor-claims` now reports them and **exits non-zero**. That is
+intentional and matches `check:sources` and `check:rankings`: it is not a build
+gate — it is not in `prebuild`, and `npm run build` passes — it is a queue you
+run and read.
+
+Worth noting for prioritisation: the contradictions concentrate in corridor
+guides with little current traffic (`send-money-uk-to-india-guide`,
+`send-money-to-pakistan-guide` and `send-money-canada-to-india-guide` have four
+each). The highest-traffic guides — `swift-codes-explained` (244 sessions),
+`best-money-transfer-services` (74), `multi-currency-accounts-exchange-rates`
+(73) — are not corridor-specific, so no 90-day record applies and the guard
+cannot test them. Their claims are unverified rather than verified-clean.

@@ -45,6 +45,8 @@ import { getRateInsight } from "../src/lib/rate-history";
 import { corridorDeepBlocks } from "../src/data/corridor-deep-content";
 import { swedishCorridorBlocks } from "../src/data/sweden-content";
 import { corridorEditorialNotes } from "../src/data/corridor-editorial-notes";
+import { blogPosts } from "../src/data/blog-posts";
+import { guideIsIndexable } from "../src/lib/guide-status";
 import { generateQuotes } from "../src/lib/quotes-engine";
 import { getProviderName, providers } from "../src/data/providers";
 
@@ -206,6 +208,43 @@ scanBlocks("sweden", swedishCorridorBlocks as never, SUPERLATIVE_SV);
 
 /** corridorEditorialNotes: summary + bullets + warning body, same corridor URLs.
  *  Unreachable by any guard until it was moved out of the route file. */
+/**
+ * Corridor-targeted guides. Included because /guides/* is the ONE family Google
+ * still crawls weekly (checked 2026-09-11: guides Sep 5, corridors March), so a
+ * false standing-winner claim there is the one most likely to be read.
+ *
+ * Only claims in a guide that names an explicit CCY->CCY pair are testable; the
+ * pair is what selects the 90-day record. A guide with no identifiable corridor
+ * is skipped rather than guessed at.
+ */
+const PAIR = /\b([A-Z]{3})\s*(?:to|→|-)\s*([A-Z]{3})\b/;
+for (const post of blogPosts) {
+  if (!guideIsIndexable(post)) continue;
+  const fields: [string, string][] = [["excerpt", post.excerpt ?? ""]];
+  post.sections.forEach((sec, i) => fields.push([`s${i}`, sec.content]));
+  (post.faqs ?? []).forEach((faq, i) => fields.push([`faq${i}`, faq.answer]));
+  for (const [field, text] of fields) {
+    const plain = String(text).replace(/<[^>]+>/g, " ");
+    for (const sentence of plain.split(/(?<=\.)\s+/)) {
+      if (!SUPERLATIVE.test(sentence)) continue;
+      if (!assertsAWinner(sentence)) continue;
+      const named = NAMES.filter((n) => sentence.toLowerCase().includes(n.toLowerCase()));
+      if (!named.length) continue;
+      const pair = sentence.match(PAIR) ?? plain.match(PAIR);
+      if (!pair) continue;
+      const record = habitualLeaders(pair[1], pair[2]);
+      if (!record) continue;
+      scanned++;
+      if (named.some((n) => record.names.has(n.toLowerCase()))) { matchingLeader++; continue; }
+      problems.push({
+        slug: `guides/${post.slug}`, field, claimed: named.join("/"),
+        leader: pair[1] + "->" + pair[2], basis: record.basis,
+        sentence: sentence.trim().slice(0, 160),
+      });
+    }
+  }
+}
+
 scanBlocks(
   "editorial-note",
   Object.fromEntries(
